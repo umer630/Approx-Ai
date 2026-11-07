@@ -1,10 +1,4 @@
-# GPU training environment (Kaggle / Colab). Pinned to versions known to work together.
+# See requirements-kaggle.txt (used by the Kaggle notebook). Local GPU machines additionally need PyTorch with CUDA:
 torch>=2.3
-transformers==4.46.3
-peft==0.13.2
-bitsandbytes==0.44.1
-accelerate==1.1.1
-datasets==3.1.0
-safetensors>=0.4.5
-# Serving (inference server for the backend's OpenAI-compatible provider):
-# vllm==0.6.4  (vllm serve Qwen/Qwen2.5-3B-Instruct --enable-lora --lora-modules nick-4.8=outputs/nick-4.8-qlora-v1/adapter)
+-r requirements-kaggle.txt
+# Serving (separate GPU host): vllm serve Qwen/Qwen2.5-3B-Instruct --enable-lora --lora-modules nick-4.8=<adapter dir>

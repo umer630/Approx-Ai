@@ -463,3 +463,22 @@ test('provider: streams from an OpenAI-compatible upstream; reports 503 when not
     assert.equal((await req('GET', `/api/chats/${c2.data.chat.id}`, { token: u2.token })).data.messages.length, 0, 'nothing stored on failure');
   } finally { config.devProvider = true; }
 });
+
+test('adapter registry: only verified, non-smoke, safety-passed Nick adapters on the right base are accepted', async () => {
+  const sa = await makeUser(); db.run("UPDATE users SET role = 'superadmin' WHERE id = ?", sa.id);
+  const sha = 'a'.repeat(64);
+  const checks = Object.fromEntries(['files_exist', 'hashes_match', 'weights_nonempty', 'adapter_trained', 'adapter_loads', 'generation_works', 'malformed_input_handled'].map((k) => [k, true]));
+  const good = { verification_passed: true, safety_passed: true, smoke_test: false, checks, base_model: 'Qwen/Qwen2.5-3B-Instruct', adapter_model_safetensors: { sha256: sha } };
+  const body = (ev, extra = {}) => ({ model_id: 'nick-4.8', path: 'nick-4.8-adapter-1.0.0.tar.gz', sha256: sha, version: '1.0.0', base_model: 'Qwen/Qwen2.5-3B-Instruct', eval_report: ev, ...extra });
+  const post = (b) => req('POST', '/api/admin/training/adapters', { token: sa.token, body: b });
+  assert.equal((await post(body({ ...good, smoke_test: true }))).data.error.code, 'smoke_adapter');
+  assert.equal((await post(body({ ...good, safety_passed: false }))).data.error.code, 'safety_failed');
+  assert.equal((await post(body({ ...good, checks: { ...checks, adapter_trained: false } }))).data.error.code, 'verification_incomplete');
+  assert.equal((await post(body(good, { sha256: 'b'.repeat(64) }))).data.error.code, 'sha256_mismatch');
+  assert.equal((await post(body({ ...good, base_model: 'other/model' }, { base_model: 'other/model' }))).data.error.code, 'wrong_base_model');
+  assert.equal((await post(body({ ...good, verification_passed: false }))).status, 400);
+  assert.equal((await post(body({ ...good, model_id: 'x' }, { model_id: 'fab-100x' }))).status, 400);
+  const ok = await post(body(good));
+  assert.equal(ok.status, 201);
+  assert.equal((await post(body(good))).data.error.code, 'duplicate_adapter');
+});

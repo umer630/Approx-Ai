@@ -1,0 +1,11 @@
+# Installed on top of the Kaggle GPU image. PyTorch + CUDA come from the Kaggle image (do NOT reinstall torch).
+# These exact versions were exercised end-to-end by the CPU smoke test (tests/test_smoke_cpu.py) with torch 2.5.1.
+transformers==4.46.3
+peft==0.13.2
+accelerate==1.1.1
+datasets==3.1.0
+safetensors==0.4.5
+huggingface_hub==0.26.5
+# bitsandbytes must match the image's CUDA; >=0.45.5 covers CUDA 11.8–12.8+. The notebook's preflight stage runs a
+# real 4-bit NF4 kernel on the GPU and stops before any model download if it fails. Installed version is recorded.
+bitsandbytes>=0.45.5

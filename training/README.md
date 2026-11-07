@@ -1,35 +1,60 @@
-# Nick 4.8 training pipeline
+# Nick 4.8 training pipeline (Kaggle GPU)
 
-Base: `Qwen/Qwen2.5-3B-Instruct` · Method: QLoRA (4-bit NF4, LoRA r=16 on all attention + MLP
-projections) · Environment: Kaggle or Colab NVIDIA GPU (T4 16 GB is enough).
+Base `Qwen/Qwen2.5-3B-Instruct` · QLoRA (4-bit NF4 + double quant) · LoRA r=16, α=32, dropout 0.05 on
+q/k/v/o/gate/up/down projections · assistant-only loss · seed 4848.
 
-**Status in this release: training NOT run.** The build environment has no GPU and cannot reach
-Hugging Face or Kaggle. Everything that does not need model weights was executed and tested.
+## Status
+**Nick 4.8 is NOT trained yet.** The pipeline is ready and validated as far as possible without a GPU (see
+"What was validated"). The single remaining action is running the notebook on a Kaggle GPU.
 
-```
-data/seed/make_seed.py         → original Approx seed set (45 records, all 18 domains, EN/UR/Roman-UR)
-configs/dataset_sources.json   → source registry; only approved sources are ingested
-python -m approx_data.build    → data/processed/{train,eval}.jsonl + manifest.json (provenance + SHA-256)
-python train_qlora.py --dry-run→ validates config and dataset hashes (CPU)
-python train_qlora.py          → GPU training, checkpoints, auto-resume, adapter + manifest
-python verify_adapter.py --adapter outputs/nick-4.8-qlora-v1/adapter
-                               → files, hashes, load, inference, identity/language/safety probes, perplexity
-kaggle/nick_4_8_qlora.ipynb    → the whole flow as a Kaggle/Colab notebook
-python -m unittest discover -s tests   → CPU tests (5/5 pass)
-```
+## Run it on Kaggle (no code edits)
+1. https://www.kaggle.com/code/ → **New Notebook** → File → **Import Notebook** → GitHub tab →
+   `umer630/Approx-Ai`, branch `ccr-b9e70091-57vl48`, file `training/kaggle/nick_4_8_qlora.ipynb`
+   (or upload the `.ipynb` file).
+2. Settings → **Accelerator: GPU T4** · **Internet: On** (phone-verified account required).
+3. Repository is public — no secret needed. If it becomes private: Add-ons → Secrets → `GITHUB_TOKEN`.
+4. **Save Version → Save & Run All (Commit)** (background, keeps outputs) — or Run All interactively.
+5. Last cell must print `✅ COMPLETE`. Download from the Output tab: `nick-4.8-output/`
+   `nick-4.8-adapter-1.0.0.tar.gz`, `verification.json`, `SHA256SUMS`, `train_metadata.json`, `completion_status.json`.
 
-## Completion criteria (spec §30)
-Training is complete only when: (1) training ran, (2) adapter files exist, (3) the adapter loads,
-(4) inference works, (5) `verify_adapter.py` reports `verification_passed: true`. The backend's
-`POST /api/admin/training/adapters` refuses adapters without that flag.
+Interrupted? Run All again in the same session (auto-resume), or in a new session add the interrupted
+version's output as **Input** and Run All — the newest `/kaggle/input/**/checkpoint-*` is resumed (refused if
+the dataset changed).
 
-## Data policy
-- Public datasets are ingested only after license, quality, privacy and domain review (`approved: true`).
-- User history enters only via the consented export (`/api/admin/training/export-consented`): opt-in,
-  per-chat eligibility, PII scrubbed twice, no user IDs, FAB conversations excluded by DB constraint.
-- Current-world facts belong in Approx Research (retrieval), not in weights.
+## Stages (`kaggle/kaggle_pipeline.py`)
+| Stage | What it does | Stops when |
+|---|---|---|
+| preflight | GPU/CUDA/versions, **real 4-bit NF4 kernel test on the GPU**, VRAM ≥14 GB, disk ≥10 GB, base model reachable on the Hub (resolved commit SHA recorded) | no GPU, bnb broken, model unavailable (never substitutes) |
+| data | seed → `approx_data.build` → `train_qlora.py --dry-run` | malformed/hash-mismatched data |
+| train | QLoRA; checkpoints twice per epoch; auto-resume; GPU 0 only; fp16 on T4 / bf16 on Ampere+ | no GPU, non-finite loss, missing safetensors |
+| verify | real generation: adapter load, LoRA-B ≠ 0 (proves training), identity, English, Urdu, Roman Urdu, maths, reasoning, coding (executed), safety (refuse harmful + don't over-refuse), 6 malformed-input cases, base-vs-adapter perplexity | never hides failures — recorded in verification.json |
+| package | deterministic `nick-4.8-adapter-1.0.0.tar.gz`, `verification.json`, `SHA256SUMS`, self-check of the safetensors inside the tarball | refuses missing/empty safetensors or missing verification |
+| status | strict completion check (6 evidence items) | prints ❌ NOT COMPLETE unless every item is true |
 
-## Important: the 45-record seed set is for pipeline validation
-It teaches identity and format but is far too small for a meaningful fine-tune. A real Nick 4.8 run
-needs approved public datasets (tens of thousands of balanced examples, including Urdu and
-Roman Urdu) added to `configs/dataset_sources.json`.
+`verification_passed=true` requires all 7 checks, capability pass rate ≥ 0.8 and all safety probes passing.
+The backend registry (`POST /api/admin/training/adapters`) additionally rejects smoke adapters, failed safety,
+wrong base model, SHA-256 not matching `verification.json`, and duplicates.
+
+## Dataset
+`configs/dataset_sources.json` lists sources; only `approved: true` sources with a verified license are
+ingested. The builder rejects malformed lines/records, scrubs PII and secrets, filters low-quality, harmful and
+**time-sensitive** content (changing facts belong in Approx Research / retrieval, not weights), removes exact
+and near duplicates, balances domains, splits train/eval with a fixed seed, and writes `manifest.json`
+(per-source file SHA-256 + license, parameters, rejection reasons + samples, domain/language coverage, output
+hashes, reproducibility fingerprint, `production_ready` verdict).
+
+**The current dataset is the 45-record Approx seed set — NOT production-quality** (`production_ready: false`:
+< 20,000 records, every domain < 500). A run on it validates the pipeline and teaches identity/format only.
+To add data: convert a license-checked dataset to the message schema
+(`{"domain": ..., "messages": [{"role": "user"|"assistant"|"system", "content": ...}]}`) as
+`data/external/<name>.jsonl`, set `approved: true` + the verified license in the registry, rebuild.
+
+## What was validated without a GPU (this environment)
+- `tests/test_pipeline.py` — PII, language detection, schema/quality/time-sensitive filters, malformed lines,
+  unlicensed sources, dedupe, reproducibility, dry-run.
+- `tests/test_smoke_cpu.py` — real train → interrupt → resume → verify → package → status on a **tiny random
+  local Qwen2-architecture model** with the pinned transformers 4.46.3 / peft 0.13.2 / accelerate 1.1.1 /
+  datasets 3.1.0 and torch 2.5.1 (CPU). Proves the code paths; it is not Nick and is labelled SMOKE everywhere.
+- Notebook JSON validated (nbformat) and executed locally up to preflight, which correctly stops with "no GPU".
+- **Not validatable here:** 4-bit bitsandbytes on CUDA, downloading/loading Qwen2.5-3B-Instruct, GPU memory fit,
+  real generation quality. Those are exercised by the preflight/train/verify stages on Kaggle.

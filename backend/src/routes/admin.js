@@ -128,12 +128,22 @@ export function registerAdminRoutes(r) {
     const m = getModel(b.model_id);
     if (!m || m.family === 'fab') throw bad('Adapters can only be registered for Nick/Hike/Sona');
     if (!/^[a-f0-9]{64}$/.test(String(b.sha256))) throw bad('sha256 must be a 64-char hex digest');
-    if (!b.eval_report || b.eval_report.verification_passed !== true) throw bad('Adapter must include an eval_report with verification_passed=true');
+    const ev = b.eval_report;
+    if (!ev || ev.verification_passed !== true) throw bad('Adapter must include an eval_report (verification.json) with verification_passed=true');
+    if (ev.smoke_test) throw bad('Smoke-test adapters can never be registered as a model', 'smoke_adapter');
+    if (ev.safety_passed !== true) throw bad('Adapter failed safety verification', 'safety_failed');
+    const REQUIRED = ['files_exist', 'hashes_match', 'weights_nonempty', 'adapter_trained', 'adapter_loads', 'generation_works', 'malformed_input_handled'];
+    const missing = REQUIRED.filter((k) => ev.checks?.[k] !== true);
+    if (missing.length) throw bad(`Verification checks not passed: ${missing.join(', ')}`, 'verification_incomplete');
+    if (ev.adapter_model_safetensors?.sha256 !== b.sha256) throw bad('sha256 must equal verification.json adapter_model_safetensors.sha256', 'sha256_mismatch');
+    if (m.id === 'nick-4.8' && b.base_model !== 'Qwen/Qwen2.5-3B-Instruct') throw bad('Nick 4.8 adapters must use base Qwen/Qwen2.5-3B-Instruct', 'wrong_base_model');
+    if (ev.base_model !== b.base_model) throw bad('base_model does not match verification.json', 'base_model_mismatch');
+    if (one('SELECT id FROM adapters WHERE sha256 = ?', b.sha256)) throw bad('This adapter is already registered', 'duplicate_adapter');
     const id = newId('adp_');
     run('INSERT INTO adapters (id,model_id,job_id,path,sha256,eval_report,safety_passed,created_at) VALUES (?,?,?,?,?,?,?,?)',
-      id, m.id, null, str(b.path, 'path', { max: 500 }), b.sha256, JSON.stringify(b.eval_report), b.eval_report.safety_passed ? 1 : 0, now());
+      id, m.id, null, str(b.path, 'path', { max: 500 }), b.sha256, JSON.stringify(b.eval_report), 1, now());
     run('INSERT INTO model_versions (id,model_id,version,base_model,adapter_id,status,created_at) VALUES (?,?,?,?,?,?,?)',
-      newId('mv_'), m.id, str(b.version, 'version', { max: 40 }), str(b.base_model, 'base_model', { max: 200 }), id, b.eval_report.safety_passed ? 'candidate' : 'blocked_safety', now());
+      newId('mv_'), m.id, str(b.version, 'version', { max: 40 }), str(b.base_model, 'base_model', { max: 200 }), id, 'candidate', now());
     audit(null, admin.id, 'training.adapter_registered', id, clientIp(req));
     sendJson(res, 201, { adapter_id: id });
   });

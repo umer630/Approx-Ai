@@ -67,5 +67,46 @@ class Pipeline(unittest.TestCase):
         self.assertIn("dataset OK", r.stdout)
 
 
+
+class BuilderHardening(unittest.TestCase):
+    def _cfg(self, d, lines, approved=True, license="test"):
+        src = d / "s.jsonl"
+        src.write_text("\n".join(lines) + "\n")
+        cfg = d / "sources.json"
+        cfg.write_text(json.dumps({"sources": [{"id": "s", "path": str(src), "license": license, "approved": approved}]}))
+        return cfg
+
+    def test_malformed_lines_rejected_not_crash(self):
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d)
+            good = json.dumps(rec("science", "What is gravity exactly?", "Gravity is the attraction between masses."))
+            cfg = self._cfg(d, [good, "{not json", json.dumps({"domain": "science"}), json.dumps(["list"])])
+            m = build(d / "out", "t", cfg, 0.1, 1, 100)
+            self.assertEqual(m["files"]["train.jsonl"]["records"] + m["files"]["eval.jsonl"]["records"], 1)
+            self.assertEqual(sum(v for k, v in m["rejected"].items() if k.startswith("malformed")), 3)
+
+    def test_unknown_license_not_ingested(self):
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d)
+            cfg = self._cfg(d, [json.dumps(rec("science", "What is gravity exactly?", "Gravity is the attraction between masses."))], license="UNKNOWN")
+            m = build(d / "out", "t", cfg, 0.1, 1, 100)
+            self.assertEqual(m["provenance"][0]["ingested"], 0)
+
+    def test_time_sensitive_filtered(self):
+        self.assertIn("time-sensitive", quality_ok(rec("pakistan", "Who is the current prime minister?", "As of 2024 the prime minister is X.")))
+
+    def test_reproducible_and_not_production_ready(self):
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d)
+            subprocess.run([sys.executable, str(ROOT / "data/seed/make_seed.py")], check=True, capture_output=True)
+            src = ROOT / "configs/dataset_sources.json"
+            m1 = build(d / "a", "v", src, 0.1, 4848, 20000)
+            m2 = build(d / "b", "v", src, 0.1, 4848, 20000)
+            self.assertEqual(m1["files"], m2["files"])
+            self.assertEqual(m1["content_fingerprint_sha256"], m2["content_fingerprint_sha256"])
+            self.assertFalse(m1["production_ready"])
+            self.assertEqual(m1["missing_domains"], [])
+
+
 if __name__ == "__main__":
     unittest.main()
