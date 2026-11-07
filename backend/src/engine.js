@@ -77,7 +77,7 @@ const REMEMBER = /^\s*(remember( that)?|yaad rakho( ke)?|یاد رکھو)\s*[:,]
  * Run one completion with full policy enforcement.
  * Returns { route, text, usage, refused, memorySaved }.
  */
-export async function complete({ user, chat, text, requestedModel, requestedMode, attachments, source, requestId, onRoute, onDelta, history, systemExtra, skipMemoryCapture }) {
+export async function complete({ user, chat, text, requestedModel, requestedMode, attachments, source, requestId, onRoute, onDelta, history, systemExtra, skipMemoryCapture, signal }) {
   if (typeof text !== 'string' || !text.trim()) throw bad('content is required');
   if (text.length > 100_000) throw bad('content is too long (max 100,000 characters)');
   const s = settingsOf(user.id);
@@ -102,7 +102,7 @@ export async function complete({ user, chat, text, requestedModel, requestedMode
   consumeQuota(user, { source, modelId: r.model.id, mode: r.mode, requestId });
   const { text: attachText, meta } = attachmentContext(user.id, attachments);
   const messages = buildMessages({ user, model: r.model, mode: r.mode, chat, text, attachText, history, systemExtra });
-  const out = await streamCompletion({ model: r.model, mode: r.mode, messages, onDelta });
+  const out = await streamCompletion({ model: r.model, mode: r.mode, messages, onDelta, signal });
   return { route: r, text: out.text, usage: out.usage, refused: false, attachments: meta, memorySaved };
 }
 

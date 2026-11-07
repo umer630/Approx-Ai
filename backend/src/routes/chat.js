@@ -139,8 +139,11 @@ async function streamTurn({ req, res, ctx, user, chat, text, model, mode, attach
   const asstId = newId('msg_');
   let sse = null;
   let routeInfo = null;
+  const abort = new AbortController();
+  res.on('close', () => { if (!res.writableEnded) abort.abort(); }); // client went away → stop upstream generation
   try {
     const result = await complete({
+      signal: abort.signal,
       user, chat, text, requestedModel: model, requestedMode: mode, attachments, source: 'chat', requestId: ctx.requestId,
       onRoute: (r) => {
         if (chat.is_fab !== (r.model.family === 'fab' ? 1 : 0) && r.model.family === 'fab') {

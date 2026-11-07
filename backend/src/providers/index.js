@@ -50,7 +50,7 @@ export async function streamCompletion({ model, mode, messages, onDelta, signal 
       method: 'POST',
       headers: { 'Content-Type': 'application/json', ...(up.key ? { Authorization: `Bearer ${up.key}` } : {}) },
       body: JSON.stringify({ model: up.name, messages, stream: true, max_tokens: params.max_tokens, temperature: params.temperature }),
-      signal: signal ?? AbortSignal.timeout(180_000),
+      signal: signal ? AbortSignal.any([signal, AbortSignal.timeout(180_000)]) : AbortSignal.timeout(180_000),
     });
   } catch (e) {
     throw new HttpError(502, 'model_backend_error', `Could not reach the ${model.name} backend`);

@@ -47,6 +47,7 @@ export function registerAuthRoutes(r) {
     if (!isEmail(email)) throw bad('A valid email address is required');
     const pwErr = passwordPolicy(b.password);
     if (pwErr) throw bad(pwErr, 'weak_password');
+    rateLimit(`signup-email:${email}`, 3, HOUR); // applied before lookup: no enumeration, no mail-bombing
     const name = str(b.display_name, 'display_name', { max: 80, required: false }) || '';
     const existing = one('SELECT id FROM users WHERE email = ?', email);
     if (existing) {

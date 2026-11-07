@@ -70,7 +70,7 @@ export function extractPdfText(buf) {
     const end = s.indexOf('endstream', start);
     if (end < 0) break;
     let data = buf.subarray(start, end);
-    try { data = zlib.inflateSync(data); } catch { /* maybe uncompressed */ }
+    try { data = zlib.inflateSync(data, { maxOutputLength: 4 * 1024 * 1024 }); } catch { /* uncompressed, or exceeds bomb limit */ }
     const txt = data.toString('latin1');
     const parts = [];
     for (const t of txt.matchAll(/\((?:\\.|[^\\)])*\)\s*Tj|\[(?:[^\]]*)\]\s*TJ/g)) {
@@ -102,7 +102,8 @@ export function registerFileRoutes(r) {
   r.post('/api/files', async (req, res, ctx) => {
     const u = requireUser(ctx);
     rateLimit(`upload:${u.id}`, 60, 3600_000);
-    const rawName = decodeURIComponent(String(req.headers['x-filename'] || ''));
+    let rawName;
+    try { rawName = decodeURIComponent(String(req.headers['x-filename'] || '')); } catch { throw bad('X-Filename must be URL-encoded'); }
     const filename = path.basename(rawName).replace(/[^\p{L}\p{N}._ -]/gu, '_').slice(0, 150);
     if (!filename || filename.startsWith('.')) throw bad('X-Filename header is required');
     const ext = (filename.split('.').pop() || '').toLowerCase();

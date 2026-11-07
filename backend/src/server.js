@@ -69,7 +69,9 @@ export function createServer() {
       securityHeaders(res);
       applyCors(req, res);
       if (req.method === 'OPTIONS') { res.writeHead(204); return res.end(); }
-      const m = router.match(req.method, url.pathname);
+      // Method override for clients whose HTTP stack lacks PATCH (POST → PATCH only; CSRF still applies).
+      const method = req.method === 'POST' && String(req.headers['x-http-method-override'] || '').toUpperCase() === 'PATCH' ? 'PATCH' : req.method;
+      const m = router.match(method, url.pathname);
       if (m === 'method') throw new HttpError(405, 'method_not_allowed', 'Method not allowed');
       if (!m) throw notFound('Unknown endpoint');
       const ctx = { requestId, auth: resolveAuth(req) };

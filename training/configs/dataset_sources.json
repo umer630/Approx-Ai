@@ -1,0 +1,64 @@
+{
+  "_comment": "Source registry for Nick 4.8 SFT. A source is ingested ONLY when approved=true, which requires: license verified on the source page, sample inspection, privacy check, and domain fit. Public sources below are CANDIDATES — their licenses must be re-verified on Kaggle/Hugging Face at ingestion time (those hosts were unreachable from the build environment, so none were downloaded or approved).",
+  "sources": [
+    {
+      "id": "approx-seed-v0.1",
+      "path": "data/seed/approx_seed_v0_1.jsonl",
+      "origin": "Authored by Approx Technology (original content)",
+      "license": "Proprietary — Approx Technology",
+      "domains": "all",
+      "approved": true,
+      "reviewed_by": "build pipeline (content written and fact-checked for this release)",
+      "privacy": "no personal data"
+    },
+    {
+      "id": "consented-history",
+      "path": "data/consented/latest.jsonl",
+      "origin": "Approx AI users who opted in (exported via /api/admin/training/export-consented; PII-scrubbed, FAB excluded)",
+      "license": "User consent under Approx AI terms",
+      "domains": "mixed",
+      "approved": true,
+      "privacy": "PII scrubbed server-side and again here; no user identifiers"
+    },
+    {
+      "id": "candidate-oasst1",
+      "path": "data/external/oasst1.jsonl",
+      "origin": "OpenAssistant/oasst1",
+      "license": "Apache-2.0 (claimed — verify)",
+      "domains": "general_knowledge,writing,coding,reasoning",
+      "approved": false
+    },
+    {
+      "id": "candidate-dolly-15k",
+      "path": "data/external/dolly15k.jsonl",
+      "origin": "databricks/databricks-dolly-15k",
+      "license": "CC BY-SA 3.0 (claimed — verify; share-alike obligations apply to derived datasets)",
+      "domains": "general_knowledge,summarization,writing",
+      "approved": false
+    },
+    {
+      "id": "candidate-gsm8k",
+      "path": "data/external/gsm8k.jsonl",
+      "origin": "openai/gsm8k",
+      "license": "MIT (claimed — verify)",
+      "domains": "mathematics,reasoning",
+      "approved": false
+    },
+    {
+      "id": "candidate-aya-urdu",
+      "path": "data/external/aya_urdu.jsonl",
+      "origin": "CohereForAI/aya_dataset (Urdu subset)",
+      "license": "Apache-2.0 (claimed — verify)",
+      "domains": "urdu,roman_urdu,general_knowledge",
+      "approved": false
+    },
+    {
+      "id": "candidate-kaggle-urdu-news",
+      "path": "data/external/kaggle_urdu_news.jsonl",
+      "origin": "Kaggle — Urdu news datasets (specific dataset to be selected after license inspection)",
+      "license": "UNKNOWN — must be inspected per dataset",
+      "domains": "urdu,pakistan,summarization",
+      "approved": false
+    }
+  ]
+}

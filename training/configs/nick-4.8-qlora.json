@@ -1,0 +1,29 @@
+{
+  "run_name": "nick-4.8-qlora-v1",
+  "model_id": "nick-4.8",
+  "adapter_version": "1.0.0",
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "base_model_license": "Qwen Research/Community license as published on the model card — verify before commercial deployment",
+  "dataset_dir": "data/processed",
+  "output_dir": "outputs/nick-4.8-qlora-v1",
+  "max_seq_length": 2048,
+  "quantization": { "load_in_4bit": true, "bnb_4bit_quant_type": "nf4", "bnb_4bit_use_double_quant": true, "bnb_4bit_compute_dtype": "bfloat16" },
+  "lora": { "r": 16, "alpha": 32, "dropout": 0.05, "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"] },
+  "train": {
+    "epochs": 2,
+    "per_device_batch_size": 2,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 0.0002,
+    "lr_scheduler": "cosine",
+    "warmup_ratio": 0.03,
+    "weight_decay": 0.0,
+    "max_grad_norm": 0.3,
+    "gradient_checkpointing": true,
+    "save_steps": 200,
+    "eval_steps": 200,
+    "save_total_limit": 3,
+    "logging_steps": 10,
+    "seed": 4848
+  },
+  "hardware_notes": "Fits a single 16 GB GPU (Kaggle T4/P100, Colab T4). On T4 use fp16 compute: set bnb_4bit_compute_dtype=float16."
+}

@@ -415,3 +415,51 @@ test('security headers, static traversal guard, unknown endpoints', async () => 
   const v = await req('GET', '/api/version');
   assert.equal(v.data.product, 'Approx AI');
 });
+
+// ---------------- real upstream provider path (OpenAI-compatible, e.g. vLLM) ----------------
+test('provider: streams from an OpenAI-compatible upstream; reports 503 when not configured', async () => {
+  const http = await import('node:http');
+  let seen = null;
+  const upstream = http.createServer((rq, rs) => {
+    let b = ''; rq.on('data', (c) => { b += c; }); rq.on('end', () => {
+      seen = { auth: rq.headers.authorization, body: JSON.parse(b), path: rq.url };
+      rs.writeHead(200, { 'content-type': 'text/event-stream' });
+      for (const t of ['Islamabad ', 'is the ', 'capital.']) rs.write(`data: ${JSON.stringify({ choices: [{ delta: { content: t } }] })}\n\n`);
+      rs.write(`data: ${JSON.stringify({ choices: [{ delta: {} }], usage: { prompt_tokens: 42, completion_tokens: 5 } })}\n\n`);
+      rs.end('data: [DONE]\n\n');
+    });
+  });
+  await new Promise((r) => upstream.listen(0, '127.0.0.1', r));
+  process.env.APPROX_MODEL_NICK_URL = `http://127.0.0.1:${upstream.address().port}/v1`;
+  process.env.APPROX_MODEL_NICK_NAME = 'nick-4.8-lora';
+  process.env.APPROX_MODEL_NICK_KEY = 'upstream-secret';
+  try {
+    const u = await makeUser();
+    const c = await req('POST', '/api/chats', { token: u.token, body: { model: 'nick-4.8' } });
+    const r = await req('POST', `/api/chats/${c.data.chat.id}/messages`, { token: u.token, body: { content: 'Capital of Pakistan?', mode: 'high' } });
+    const ev = parseSse(r.data);
+    assert.equal(ev.filter((e) => e.event === 'delta').map((e) => e.data.text).join(''), 'Islamabad is the capital.');
+    assert.equal(seen.path, '/v1/chat/completions');
+    assert.equal(seen.auth, 'Bearer upstream-secret');
+    assert.equal(seen.body.model, 'nick-4.8-lora');
+    assert.equal(seen.body.max_tokens, 4096, 'High mode → larger budget');
+    assert.equal(seen.body.messages[0].role, 'system');
+    assert.match(seen.body.messages[0].content, /Nick 4\.8.*Approx Technology/s);
+    const saved = db.one("SELECT tokens_in, tokens_out FROM messages WHERE chat_id = ? AND role = 'assistant'", c.data.chat.id);
+    assert.deepEqual([saved.tokens_in, saved.tokens_out], [42, 5]);
+  } finally {
+    delete process.env.APPROX_MODEL_NICK_URL; delete process.env.APPROX_MODEL_NICK_NAME; delete process.env.APPROX_MODEL_NICK_KEY;
+    upstream.close();
+  }
+  // Without any backend and without the dev simulator → explicit 503, never a fabricated answer.
+  const { config } = await import('../src/config.js');
+  config.devProvider = false;
+  try {
+    const u2 = await makeUser();
+    const c2 = await req('POST', '/api/chats', { token: u2.token, body: {} });
+    const r2 = await req('POST', `/api/chats/${c2.data.chat.id}/messages`, { token: u2.token, body: { content: 'hello' } });
+    assert.equal(r2.status, 503);
+    assert.equal(r2.data.error.code, 'model_backend_unavailable');
+    assert.equal((await req('GET', `/api/chats/${c2.data.chat.id}`, { token: u2.token })).data.messages.length, 0, 'nothing stored on failure');
+  } finally { config.devProvider = true; }
+});
