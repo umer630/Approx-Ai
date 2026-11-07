@@ -1,5 +1,17 @@
 # Release notes
 
+## Unreleased — Nick 4.8 Kaggle training handoff (2026-11-07)
+Training status: **NOT TRAINED** — no adapter exists yet. Model/adapter versions unchanged.
+- Kaggle notebook rebuilt: clones the correct branch, fails fast, stage runner (preflight → data → train → verify → package → status).
+- Preflight runs a real bitsandbytes 4-bit kernel on the GPU and confirms `Qwen/Qwen2.5-3B-Instruct` is reachable (no substitution).
+- Checkpoint/resume within a session and across Kaggle sessions (`/kaggle/input`), with dataset-identity check.
+- Verification: identity, English, Urdu, Roman Urdu, maths, reasoning, executed coding test, safety + over-refusal, malformed input, LoRA-weights-changed, base-vs-adapter perplexity → `verification.json`.
+- Packaging: `nick-4.8-adapter-1.0.0.tar.gz`, `verification.json`, `SHA256SUMS` (deterministic, self-checked).
+- Dataset builder: malformed-line rejection, license enforcement, time-sensitive filter, reproducibility fingerprint, `production_ready` verdict (seed set: false).
+- Adapter registry hardened (rejects smoke, failed safety, wrong base model, hash mismatch, duplicates).
+- **Fixed:** `training/data/seed/` was excluded by `.gitignore` (`data/`) and missing from the repository and from
+  `release/approx-ai-1.0.0-source.zip`. Now committed; the 1.0.0 source ZIP is known to lack these two files.
+
 ## Approx AI 1.0.0 — 2026-11-07 (first release, built from zero)
 
 | Component | Version |

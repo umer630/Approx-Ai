@@ -87,8 +87,9 @@ isolation by `user_id`, FAB training CHECK constraint.
 dedupe filters, provenance manifest with SHA-256. Public datasets listed as *candidates* and not
 approved (license verification needs Kaggle/HF access).
 
-**U. Nick 4.8 adapter — NOT TRAINED (Blocked).** None of the 5 completion criteria can be met
-without a GPU and the base model download.
+**U. Nick 4.8 adapter — NOT TRAINED.** Kaggle GPU handoff is ready and validated (notebook executed up to the
+GPU preflight; full pipeline smoke-tested on CPU with a tiny random model). Remaining action: run
+`training/kaggle/nick_4_8_qlora.ipynb` on a Kaggle GPU T4 with Internet on. See `training/README.md`.
 
 **V. APK — Built, signed, statically verified, network layer tested (15/15); not run on a device.**
 
