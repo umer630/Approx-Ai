@@ -109,6 +109,7 @@ def sha256_file(p: Path) -> str:
 
 def status() -> int:
     """Nick 4.8 is trained ONLY if every item below is true."""
+    OUT.mkdir(parents=True, exist_ok=True)
     ev = {}
     meta = json.loads((OUT / "train_metadata.json").read_text()) if (OUT / "train_metadata.json").exists() else {}
     ev["gpu_training_completed"] = meta.get("status") == "completed" and bool(meta.get("gpu")) and not meta.get("smoke_test")
