@@ -1,0 +1,18 @@
+# runtime data & secrets — never commit
+data/
+*.db
+*.db-wal
+*.db-shm
+.env
+.env.*
+*.keystore
+*.jks
+android/keystore/
+# build outputs
+android/build/
+dist/
+node_modules/
+training/outputs/
+training/data/processed/
+__pycache__/
+*.pyc

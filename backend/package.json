@@ -1,0 +1,15 @@
+{
+  "name": "approx-ai-backend",
+  "version": "1.0.0",
+  "description": "Approx AI backend — auth, chat, Master Router, quota, API platform, projects, memory, files, workspace (Approx Technology)",
+  "type": "module",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/server.js",
+    "dev": "APPROX_ENV=development APPROX_DEV_PROVIDER=1 node --disable-warning=ExperimentalWarning src/server.js",
+    "test": "node --disable-warning=ExperimentalWarning --test --test-concurrency=1 test/api.test.js",
+    "admin:grant": "node --disable-warning=ExperimentalWarning src/cli.js"
+  }
+}

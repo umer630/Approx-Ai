@@ -1,0 +1,23 @@
+body { overflow: auto; }
+.dev { display: flex; min-height: 100dvh; }
+.dev-nav { width: 230px; flex: none; border-right: 1px solid var(--line); background: var(--surface); padding: 16px 10px; display: flex; flex-direction: column; gap: 2px; position: sticky; top: 0; height: 100dvh; }
+.dev-nav a { padding: 9px 12px; border-radius: 10px; color: var(--muted); text-decoration: none; font-size: 14.5px; }
+.dev-nav a.active, .dev-nav a:hover { background: var(--surface-2); color: var(--text); }
+.dev-nav .brand { padding: 4px 10px 16px; }
+.dev-main { flex: 1; min-width: 0; padding: 24px; max-width: 1000px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+.stat .v { font-size: 26px; font-weight: 700; margin-top: 4px; }
+table.t { width: 100%; border-collapse: collapse; font-size: 14px; }
+table.t th, table.t td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--line); }
+table.t th { color: var(--muted); font-weight: 500; }
+.table-wrap { overflow-x: auto; }
+.secret { font-family: var(--mono); word-break: break-all; background: #050a14; padding: 10px; border-radius: 10px; border: 1px solid var(--green); }
+.dev-top { display: none; }
+@media (max-width: 760px) {
+  .dev { flex-direction: column; }
+  .dev-nav { width: auto; height: auto; position: static; flex-direction: row; overflow-x: auto; padding: 8px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .dev-nav .brand { display: none; }
+  .dev-nav a { white-space: nowrap; }
+  .dev-main { padding: 16px; }
+}
