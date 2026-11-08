@@ -149,7 +149,7 @@ def main(argv=None):
     smoke = a.smoke_base is not None
     import torch
     if not smoke and not torch.cuda.is_available():
-        print("BLOCKED: QLoRA training requires an NVIDIA GPU. On Kaggle: Settings → Accelerator → GPU T4.", file=sys.stderr)
+        print("BLOCKED: QLoRA training requires an NVIDIA GPU (Colab: Runtime → Change runtime type → T4 GPU).", file=sys.stderr)
         return EXIT_NO_GPU
 
     import transformers
@@ -175,7 +175,7 @@ def main(argv=None):
             resolved_revision = model_info(base_id, revision=revision).sha
         except Exception as e:
             print(f"BLOCKED: base model {base_id} is not available from the Hugging Face Hub ({type(e).__name__}: {e}). "
-                  "Not substituting another model. Check Kaggle Settings → Internet = On.", file=sys.stderr)
+                  "Not substituting another model. Check that the runtime has Internet access.", file=sys.stderr)
             return EXIT_BASE_UNAVAILABLE
         revision = revision or resolved_revision
 

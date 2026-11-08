@@ -81,7 +81,7 @@ def check_code(output: str, fn: str) -> tuple[bool, str]:
         return False, f"syntax error: {e}"
     if not any(isinstance(n, ast.FunctionDef) and n.name == fn for n in ast.walk(tree)):
         return False, f"no function {fn}"
-    # Execute the model's code in an isolated interpreter with a timeout (Kaggle VM is disposable).
+    # Execute the model's code in an isolated interpreter with a timeout (the cloud GPU VM is disposable).
     test = code + f"\nassert {fn}(4) is True and {fn}(7) is False and {fn}(0) is True\nprint('OK')\n"
     with tempfile.TemporaryDirectory() as d:
         p = Path(d) / "t.py"

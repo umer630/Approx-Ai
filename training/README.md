@@ -7,7 +7,20 @@ q/k/v/o/gate/up/down projections · assistant-only loss · seed 4848.
 **Nick 4.8 is NOT trained yet.** The pipeline is ready and validated as far as possible without a GPU (see
 "What was validated"). The single remaining action is running the notebook on a Kaggle GPU.
 
-## Run it on Kaggle (no code edits)
+## Run it on Google Colab (primary path)
+Kaggle did not attach a GPU or Internet to this account's sessions (see diagnostics), so Colab is the primary path.
+1. Open `training/colab/nick_4_8_qlora_colab.ipynb` in Colab (File → Open notebook → GitHub → `umer630/Approx-Ai`,
+   branch `ccr-b9e70091-57vl48`).
+2. Runtime → Change runtime type → **T4 GPU** → Save. Runtime → **Run all**; approve the Google Drive mount.
+3. Cells 1–9 are checks only; training (cell 10) starts only if cell 9 prints `TRAINING_READY: YES`.
+4. Artifacts persist in Drive `MyDrive/ApproxAI/Nick_4_8/` (`checkpoints/ adapter/ logs/ evaluation/ metadata/`,
+   `nick-4.8-adapter-1.0.0.tar.gz`, `SHA256SUMS`). Re-run after a disconnect to resume from the last checkpoint.
+5. Done only when cell 14 prints `NICK 4.8 TRAINING STATUS: COMPLETE` (`metadata/completion_report.json`).
+
+Stage runner: `colab/colab_pipeline.py` (env · gpu · internet · repo · deps · model · data · config · gate · train ·
+evaluate · verify · manifest · report). Tests: `tests/test_colab_pipeline.py`.
+
+## Run it on Kaggle (alternative; currently blocked for this account)
 1. https://www.kaggle.com/code/ → **New Notebook** → File → **Import Notebook** → GitHub tab →
    `umer630/Approx-Ai`, branch `ccr-b9e70091-57vl48`, file `training/kaggle/nick_4_8_qlora.ipynb`
    (or upload the `.ipynb` file).

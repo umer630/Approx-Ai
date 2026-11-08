@@ -1,0 +1,11 @@
+# Installed on top of the Google Colab runtime. PyTorch + CUDA come from Colab and are NOT reinstalled.
+# colab_pipeline.py `deps` checks installed versions first and installs only missing/mismatched entries.
+# The pinned versions below are the combination exercised end-to-end by training/tests/test_smoke_cpu.py.
+transformers==4.46.3
+peft==0.13.2
+accelerate==1.1.1
+datasets==3.1.0
+safetensors>=0.4.5
+huggingface_hub==0.26.5
+# Must match Colab's CUDA build; the deps stage runs a real 4-bit NF4 kernel and stops if it fails.
+bitsandbytes>=0.45.5
