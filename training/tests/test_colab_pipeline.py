@@ -201,7 +201,9 @@ class ColabPipeline(unittest.TestCase):
         self.assertEqual(st["status"], "failed")
         self.assertIn("ValueError", st["type"])
         phases = [json.loads(l)["phase"] for l in (tmp / "run-SMOKE/train_phases.jsonl").read_text().splitlines()]
-        self.assertEqual(phases[:4], ["entered", "base_model_loaded", "qlora_initialized", "dataset_tokenized"])
+        order = [phases.index(p) for p in ("entered", "training_start_probe", "base_model_loaded", "qlora_initialized", "dataset_tokenized")]
+        self.assertEqual(order, sorted(order))
+        self.assertNotIn("trainer_started", phases)
         self.assertEqual(phases[-1], "failed")
         # the diagnosis reads it back from a launcher-style log
         self._log(r.stdout + r.stderr, r.returncode)
@@ -209,6 +211,92 @@ class ColabPipeline(unittest.TestCase):
         self.assertEqual(d["QLORA_INITIALIZED"], "YES")
         self.assertEqual(d["TRAINING_STEP_STARTED"], "NO")
         self.assertIn("ValueError", d["FIRST_REAL_ERROR"])
+    # ---------------- detached supervisor (real processes, tiny CPU smoke model) ----------------
+    def _tiny(self):
+        try:
+            import torch  # noqa: F401
+        except ImportError:
+            self.skipTest("torch not installed")
+        tiny = Path(self.tmp.name) / "tiny"
+        if not tiny.exists():
+            subprocess.run([sys.executable, str(ROOT / "tests/make_tiny_model.py"), str(tiny)], cwd=ROOT, check=True, capture_output=True)
+        return tiny
+
+    def _launch(self, name, extra=()):
+        import time as _t
+        tmp = Path(self.tmp.name)
+        log = (tmp / f"{name}.log").open("a")
+        status = tmp / f"{name}.json"
+        subprocess.Popen([sys.executable, "-u", "colab/train_supervisor.py", "--status-file", str(status), "--", sys.executable, "-u",
+                          "train_qlora.py", "--smoke-base", str(self._tiny()), "--output-dir", str(tmp / name), *extra],
+                         cwd=ROOT, stdin=subprocess.DEVNULL, stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
+        log.close()
+        return status, tmp / f"{name}.log"
+
+    def _wait(self, status, cond, timeout=240):
+        import time as _t
+        end = _t.time() + timeout
+        while _t.time() < end:
+            if status.exists():
+                try:
+                    d = json.loads(status.read_text())
+                    if cond(d):
+                        return d
+                except ValueError:
+                    pass
+            _t.sleep(1)
+        self.fail(f"timeout waiting on {status}")
+
+    def test_supervised_training_survives_launcher_exit_and_records_phases(self):
+        status, log = self._launch("detached")          # this test process never reads the trainer's output
+        d = self._wait(status, lambda d: d.get("state") == "finished")
+        self.assertEqual(d["exit_code"], 0)
+        self.assertTrue((Path(self.tmp.name) / "detached-SMOKE/adapter/adapter_model.safetensors").exists())
+        phases = [json.loads(l[13:])["phase"] for l in log.read_text().splitlines() if l.startswith("APPROX_PHASE ")]
+        for ph in ("entered", "training_start_probe", "tokenizer_load_start", "tokenizer_loaded", "base_model_load_start",
+                   "base_model_loaded", "lora_init_start", "qlora_initialized", "dataset_tokenized", "trainer_init_start",
+                   "trainer_init_done", "resume_decision", "trainer_started", "first_training_step_start", "adapter_saved"):
+            self.assertIn(ph, phases)
+        probe = json.loads((Path(self.tmp.name) / "detached-SMOKE/training_start_probe.json").read_text())
+        for k in ("runtime_id", "gpu_name", "gpu_memory_total_gb", "python_version", "torch_version", "transformers_version",
+                  "peft_version", "bitsandbytes_version", "model_id", "cache_location", "drive_mount_status", "free_system_ram_gb",
+                  "free_disk_space_gb"):
+            self.assertIn(k, probe)
+        self.assertNotIn("token", json.dumps(probe).lower().replace("tokenizer", ""))
+        self.assertIn("=== exit code 0", log.read_text())
+
+    def test_supervisor_records_sigkill_of_trainer(self):
+        import signal as _s
+        status, log = self._launch("killed", ("--smoke-max-steps", "400"))
+        d = self._wait(status, lambda d: d.get("state") == "running" and d.get("trainer_pid"))
+        self._wait(status, lambda d: "first_training_step_start" in log.read_text())
+        os.kill(d["trainer_pid"], _s.SIGKILL)
+        d = self._wait(status, lambda d: d.get("state") == "finished")
+        self.assertEqual(d["exit_code"], -9)
+        self.assertEqual(d["signal"], "SIGKILL")
+        self.assertIn("=== exit code -9", log.read_text())
+
+    def test_supervisor_forwards_sigterm(self):
+        import signal as _s
+        status, log = self._launch("termed", ("--smoke-max-steps", "400"))
+        d = self._wait(status, lambda d: d.get("state") == "running" and d.get("supervisor_pid"))
+        self._wait(status, lambda d: "first_training_step_start" in log.read_text())
+        os.kill(d["supervisor_pid"], _s.SIGTERM)
+        d = self._wait(status, lambda d: d.get("state") == "finished")
+        self.assertEqual(d["exit_code"], 143)
+        self.assertIn("SIGTERM", d["forwarded_signals"])
+        self.assertIn("terminated_by_signal_15", log.read_text())
+
+    def test_diagnose_reports_still_running_and_last_phase(self):
+        self._log('APPROX_PHASE {"phase": "entered"}\nAPPROX_PHASE {"phase": "base_model_download_start"}', None)
+        (self.drive / "checkpoints").mkdir(parents=True, exist_ok=True)
+        (self.drive / "checkpoints/supervisor_status.json").write_text(json.dumps({"state": "running", "supervisor_pid": os.getpid()}))
+        r = self.cp.diagnose()
+        self.assertEqual(r["STILL_RUNNING"], "YES")
+        self.assertEqual(r["LAST_PHASE"], "base_model_download_start")
+        self.assertIn("still running", r["ROOT_CAUSE"])
+        self.assertEqual(r["RESUME_OR_FRESH"], "FRESH")
+
 
 if __name__ == "__main__":
     unittest.main()

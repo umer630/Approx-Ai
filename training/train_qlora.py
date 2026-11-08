@@ -27,6 +27,7 @@ import json
 import math
 import os
 import platform
+import signal
 import shutil
 import subprocess
 import sys
@@ -34,7 +35,72 @@ import time
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-EXIT_NO_GPU, EXIT_BASE_UNAVAILABLE, EXIT_BAD_DATA, EXIT_RESUME_MISMATCH = 2, 3, 4, 5
+EXIT_NO_GPU, EXIT_BASE_UNAVAILABLE, EXIT_BAD_DATA, EXIT_RESUME_MISMATCH, EXIT_UNHEALTHY = 2, 3, 4, 5, 6
+MIN_FREE_RAM_GB, MIN_FREE_DISK_GB = 4.0, 15.0   # 3B safetensors are loaded shard-by-shard; ~6.2 GB download + headroom
+
+
+def _mem_available_gb() -> float | None:
+    try:
+        for line in Path("/proc/meminfo").read_text().splitlines():
+            if line.startswith("MemAvailable:"):
+                return round(int(line.split()[1]) * 1024 / 1e9, 2)
+    except OSError:
+        pass
+    return None
+
+
+def _runtime_id() -> str:
+    try:
+        return Path("/proc/sys/kernel/random/boot_id").read_text().strip()
+    except OSError:
+        return platform.node()
+
+
+def training_start_probe(out: Path, model_id: str, smoke: bool) -> dict:
+    """Cheap health snapshot taken immediately before the expensive model download/load. Never records secrets."""
+    from importlib.metadata import PackageNotFoundError, version
+    import torch
+
+    def ver(pkg):
+        try:
+            return version(pkg)
+        except PackageNotFoundError:
+            return None
+    cache = os.environ.get("HF_HOME") or str(Path.home() / ".cache/huggingface")
+    Path(cache).mkdir(parents=True, exist_ok=True)
+    disk = shutil.disk_usage(cache)
+    cuda = torch.cuda.is_available()
+    probe = {
+        "runtime_id": _runtime_id(),
+        "gpu_name": torch.cuda.get_device_name(0) if cuda else None,
+        "gpu_memory_total_gb": round(torch.cuda.get_device_properties(0).total_memory / 1e9, 2) if cuda else None,
+        "gpu_memory_free_gb": round(torch.cuda.mem_get_info(0)[0] / 1e9, 2) if cuda else None,
+        "python_version": platform.python_version(),
+        "torch_version": torch.__version__,
+        "transformers_version": ver("transformers"),
+        "peft_version": ver("peft"),
+        "bitsandbytes_version": ver("bitsandbytes"),
+        "model_id": model_id,
+        "cache_location": cache,
+        "drive_mount_status": "mounted" if os.path.ismount("/content/drive") else ("not_mounted" if Path("/content").exists() else "not_colab"),
+        "output_on_drive": str(out).startswith("/content/drive"),
+        "free_system_ram_gb": _mem_available_gb(),
+        "free_disk_space_gb": round(disk.free / 1e9, 2),
+        "smoke_test": smoke,
+    }
+    problems = []
+    if not smoke and not cuda:
+        problems.append("no CUDA GPU")
+    if probe["free_system_ram_gb"] is not None and probe["free_system_ram_gb"] < MIN_FREE_RAM_GB and not smoke:
+        problems.append(f"only {probe['free_system_ram_gb']} GB free system RAM (< {MIN_FREE_RAM_GB})")
+    if probe["free_disk_space_gb"] < MIN_FREE_DISK_GB and not smoke:
+        problems.append(f"only {probe['free_disk_space_gb']} GB free disk at the model cache (< {MIN_FREE_DISK_GB})")
+    if str(out).startswith("/content/drive") and probe["drive_mount_status"] != "mounted":
+        problems.append("Google Drive is not mounted but the output dir is on Drive")
+    probe["healthy"] = not problems
+    probe["problems"] = problems
+    (out / "training_start_probe.json").write_text(json.dumps(probe, indent=2))
+    return probe
 _OUT: Path | None = None  # set once the output dir is known; phases are then also appended to train_phases.jsonl
 
 
@@ -178,7 +244,13 @@ def _main(argv=None):
         out = out.with_name(out.name + "-SMOKE")
     out.mkdir(parents=True, exist_ok=True)
     _OUT = out
-    phase("entered", output_dir=str(out), smoke=smoke, cuda=torch.cuda.is_available())
+    phase("entered", output_dir=str(out), smoke=smoke, cuda=torch.cuda.is_available(), pid=os.getpid())
+
+    probe = training_start_probe(out, base_id, smoke)
+    phase("training_start_probe", **probe)
+    if not probe["healthy"]:
+        print("BLOCKED: runtime is not healthy enough to start: " + "; ".join(probe["problems"]), file=sys.stderr)
+        return EXIT_UNHEALTHY
 
     # ---- resolve + load base model (STOP if unavailable; never substitute) ----
     resolved_revision = "local-smoke-model" if smoke else None
@@ -201,15 +273,28 @@ def _main(argv=None):
     else:
         compute_dtype = torch.float32
     try:
-        tok = AutoTokenizer.from_pretrained(base_id, revision=revision, use_fast=True)
+        load_path = base_id
+        if not smoke:
+            # Explicit download step (separate markers, resumable by huggingface_hub if interrupted).
+            from huggingface_hub import snapshot_download
+            phase("base_model_download_start", model_id=base_id, revision=revision, cache=os.environ.get("HF_HOME"))
+            t0 = time.time()
+            load_path = snapshot_download(base_id, revision=revision,
+                                          allow_patterns=["*.json", "*.safetensors", "*.txt", "*.model", "tokenizer*", "merges.txt", "vocab.json"])
+            size = sum(f.stat().st_size for f in Path(load_path).rglob("*") if f.is_file())
+            phase("base_model_download_done", path=load_path, bytes=size, seconds=round(time.time() - t0, 1))
+        phase("tokenizer_load_start")
+        tok = AutoTokenizer.from_pretrained(load_path, use_fast=True)
+        phase("tokenizer_loaded", tokenizer=type(tok).__name__)
+        phase("base_model_load_start", quantization="4-bit NF4" if use_cuda else "none (smoke)", ram_free_gb=_mem_available_gb())
         if use_cuda:
             model = AutoModelForCausalLM.from_pretrained(
-                base_id, revision=revision, torch_dtype=compute_dtype, device_map={"": 0},
+                load_path, torch_dtype=compute_dtype, device_map={"": 0}, low_cpu_mem_usage=True,
                 quantization_config=BitsAndBytesConfig(load_in_4bit=q["load_in_4bit"], bnb_4bit_quant_type=q["bnb_4bit_quant_type"],
                                                        bnb_4bit_use_double_quant=q["bnb_4bit_use_double_quant"],
                                                        bnb_4bit_compute_dtype=compute_dtype))
         else:
-            model = AutoModelForCausalLM.from_pretrained(base_id, torch_dtype=torch.float32)
+            model = AutoModelForCausalLM.from_pretrained(load_path, torch_dtype=torch.float32)
     except OSError as e:
         print(f"BLOCKED: could not download/load base model {base_id}@{revision}: {e}. Not substituting another model.", file=sys.stderr)
         return EXIT_BASE_UNAVAILABLE
@@ -225,6 +310,7 @@ def _main(argv=None):
         model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=T["gradient_checkpointing"],
                                                 gradient_checkpointing_kwargs={"use_reentrant": False})
     L = cfg["lora"]
+    phase("lora_init_start", r=L["r"], alpha=L["alpha"])
     targets = [t for t in L["target_modules"] if any(n.endswith(t) for n, _ in model.named_modules())]
     model = get_peft_model(model, LoraConfig(r=L["r"], lora_alpha=L["alpha"], lora_dropout=L["dropout"], target_modules=targets,
                                              bias="none", task_type="CAUSAL_LM"))
@@ -279,6 +365,11 @@ def _main(argv=None):
         def on_train_begin(self, args, state, control, **kw):
             phase("trainer_started", max_steps=state.max_steps, resumed_at_step=state.global_step)
 
+        def on_step_begin(self, args, state, control, **kw):
+            if not getattr(self, "_first", False):
+                self._first = True
+                phase("first_training_step_start", step=state.global_step + 1)
+
         def on_step_end(self, args, state, control, **kw):
             mem = round(torch.cuda.max_memory_allocated(0) / 1e9, 2) if torch.cuda.is_available() else None
             phase("step_completed", step=state.global_step, max_steps=state.max_steps, peak_gpu_mem_gb=mem)
@@ -297,10 +388,12 @@ def _main(argv=None):
         bf16=use_cuda and compute_dtype == torch.bfloat16, fp16=use_cuda and compute_dtype == torch.float16,
         gradient_checkpointing=T["gradient_checkpointing"] and use_cuda, gradient_checkpointing_kwargs={"use_reentrant": False},
         optim="paged_adamw_8bit" if use_cuda else "adamw_torch", report_to="none", seed=T["seed"], data_seed=T["seed"],
-        run_name=cfg["run_name"], use_cpu=not use_cuda, dataloader_num_workers=0, save_safetensors=True)
+        run_name=cfg["run_name"], use_cpu=not use_cuda, disable_tqdm=True, dataloader_num_workers=0, save_safetensors=True)
+    phase("trainer_init_start")
     trainer = Trainer(model=model, args=args, train_dataset=train_ds, eval_dataset=eval_ds,
                       data_collator=DataCollatorForSeq2Seq(tok, padding=True, label_pad_token_id=-100), callbacks=[RunInfoCallback()])
 
+    phase("trainer_init_done")
     resume = None if a.no_resume else find_checkpoint(out, a.resume_search)
     if resume:
         stamp = resume / "approx_run.json"
@@ -310,6 +403,7 @@ def _main(argv=None):
                 print(f"RESUME REFUSED: {resume} was trained on a different dataset/base model. Use --no-resume or a fresh output dir.", file=sys.stderr)
                 return EXIT_RESUME_MISMATCH
         print(f"resuming from {resume}")
+    phase("resume_decision", mode="resume" if resume else "fresh", checkpoint=str(resume) if resume else None)
 
     (out / "train_status.json").write_text(json.dumps({"status": "running", "started_at": time.time(), "resume_from": str(resume) if resume else None}))
     t0 = time.time()
@@ -374,16 +468,25 @@ def _main(argv=None):
     return 0
 
 
+def _on_sigterm(signum, frame):
+    raise SystemExit(128 + signum)  # turns SIGTERM/SIGHUP into a recorded, non-zero exit (SIGKILL cannot be caught)
+
+
 def main(argv=None) -> int:
     """Runs training; on ANY exception prints the full traceback, records it in train_status.json, and exits non-zero."""
     import traceback
+    for sig in (signal.SIGTERM, signal.SIGHUP):
+        signal.signal(sig, _on_sigterm)
     try:
         rc = _main(argv)
     except BaseException as e:  # noqa: BLE001 — record everything, including KeyboardInterrupt / SystemExit with code
         if isinstance(e, SystemExit) and e.code in (0, None):
             raise
         tb = traceback.format_exc()
-        kind = "cuda_out_of_memory" if "out of memory" in tb.lower() else ("cuda_error" if "cuda error" in tb.lower() else type(e).__name__)
+        if isinstance(e, SystemExit) and isinstance(e.code, int) and e.code >= 128:
+            kind = f"terminated_by_signal_{e.code - 128}"
+        else:
+            kind = "cuda_out_of_memory" if "out of memory" in tb.lower() else ("cuda_error" if "cuda error" in tb.lower() else type(e).__name__)
         print("APPROX_TRAIN_EXCEPTION " + json.dumps({"type": type(e).__name__, "kind": kind, "message": str(e)[:2000]}), flush=True)
         print(tb, file=sys.stderr, flush=True)
         try:

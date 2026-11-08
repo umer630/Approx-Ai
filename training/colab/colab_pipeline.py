@@ -501,6 +501,19 @@ def diagnose() -> dict:
             status = json.loads((D["checkpoints"] / "train_status.json").read_text())
         except json.JSONDecodeError:
             pass
+    sup = {}
+    for sp in (D["checkpoints"] / "supervisor_status.json", LOCAL_RUN / "supervisor_status.json"):
+        if sp.exists():
+            try:
+                sup = json.loads(sp.read_text())
+            except json.JSONDecodeError:
+                pass
+    if rc is None and sup.get("state") == "finished":
+        rc = sup.get("exit_code")
+    still_running = sup.get("state") == "running" and _pid_alive(sup.get("supervisor_pid"))
+    probe = {}
+    if (D["checkpoints"] / "training_start_probe.json").exists():
+        probe = json.loads((D["checkpoints"] / "training_start_probe.json").read_text())
     first_error = _first_error(attempt) or (status.get("message") if status.get("status") == "failed" else None)
     if rc is not None and rc < 0 and not first_error:
         first_error = f"process killed by signal {-rc} (no Python exception) — typically Colab host-RAM OOM or runtime disconnect"
@@ -513,7 +526,10 @@ def diagnose() -> dict:
         if stamp.exists() and man.exists():
             resumable = json.loads(stamp.read_text()).get("train_sha256") == json.loads(man.read_text())["files"]["train.jsonl"]["sha256"]
 
-    if not log_text or not attempt:
+    last_phase = next((p["phase"] for p in reversed(phases) if p["phase"] not in ("log",)), None)
+    if still_running:
+        root, fix = "Training is still running (supervisor alive) — not a failure.", "Re-run cell 10 to re-attach to its log."
+    elif not log_text or not attempt:
         root, fix = "Cell 10 never launched train_qlora.py in any runtime that wrote to this Drive folder.", \
             "Run cell 9 (gate) and then cell 10 in the same runtime; check that cell 10 printed '$ … train_qlora.py'."
     elif kind == "cuda_out_of_memory":
@@ -526,8 +542,12 @@ def diagnose() -> dict:
     elif rc == 0 and not adapter_files:
         root, fix = "Trainer exited 0 but no adapter file exists.", "Inspect logs/train.log for the adapter_saved phase."
     else:
-        root, fix = "No error recorded and no exit code: the run was interrupted (runtime disconnect / cell stopped) before finishing.", \
-            "Re-run cell 10 in a healthy runtime; it resumes automatically if a checkpoint exists."
+        root = ("No error and no exit code recorded: the process tree was stopped from outside before finishing "
+                f"(last phase reached: {last_phase or 'none — the run predates phase markers or died immediately'}). "
+                "With the pre-supervisor launcher this happens when the notebook cell is interrupted/stopped or the "
+                "runtime disconnects, because training output was piped through the cell.")
+        fix = ("Use the detached supervisor launcher (cell 10 now); re-run cell 10 in a fresh runtime. "
+               + ("It will resume from the checkpoint." if ckpts else "No checkpoint exists, so it will start fresh."))
 
     yn = lambda b: "YES" if b else "NO"
     rep = {
@@ -544,6 +564,10 @@ def diagnose() -> dict:
         "ROOT_CAUSE": root,
         "FIX": fix,
         "RESUME_OR_FRESH": "RESUME" if resumable else ("FRESH (checkpoint does not match the current dataset)" if ckpts else "FRESH"),
+        "LAST_PHASE": last_phase,
+        "STILL_RUNNING": yn(still_running),
+        "training_start_probe": {k: probe.get(k) for k in ("healthy", "problems", "gpu_name", "free_system_ram_gb", "free_disk_space_gb",
+                                                            "cache_location", "drive_mount_status")} if probe else None,
         "exit_code": rc,
         "phases_seen": [p["phase"] for p in phases if p["phase"] not in ("log", "step_completed")],
         "log_file": str(log_path) if log_path.exists() else None,
@@ -552,17 +576,130 @@ def diagnose() -> dict:
     save("training_diagnosis.json", rep)
     return rep
 
+LOCAL_RUN = Path(os.environ.get("APPROX_LOCAL_RUN_DIR", "/content/approx_run"))   # fast local disk (per runtime)
+HF_CACHE = os.environ.get("APPROX_HF_CACHE", "/content/hf_cache")                   # model cache: local, NOT Drive
+HEARTBEAT_SECONDS, MIRROR_SECONDS = 30, 60
+
+
+def _pid_alive(pid: int | None) -> bool:
+    if not pid:
+        return False
+    try:
+        os.kill(pid, 0)
+        return True
+    except (ProcessLookupError, PermissionError):
+        return False
+
+
+def _dir_size_gb(path: str) -> float:
+    total = 0
+    for root, _, files in os.walk(path):
+        for f in files:
+            try:
+                total += os.path.getsize(os.path.join(root, f))
+            except OSError:
+                pass
+    return round(total / 1e9, 2)
+
+
+def _mem_available_gb():
+    try:
+        for line in Path("/proc/meminfo").read_text().splitlines():
+            if line.startswith("MemAvailable:"):
+                return round(int(line.split()[1]) * 1024 / 1e9, 2)
+    except OSError:
+        return None
+
+
+def _mirror(local_log: Path, local_status: Path) -> None:
+    """Copy the local log/status to Drive (whole-file copies at a low rate: cheap on Drive's FUSE mount)."""
+    try:
+        shutil.copyfile(local_log, D["logs"] / "train.log")
+        if local_status.exists():
+            shutil.copyfile(local_status, D["checkpoints"] / "supervisor_status.json")
+    except OSError as e:
+        print(f"(warning: could not mirror log to Drive: {e})", flush=True)
+
+
+def _follow(local_log: Path, local_status: Path, offset: int = 0) -> int | None:
+    """Print new log output; heartbeat while quiet; mirror to Drive; return the trainer exit code when finished."""
+    last_out = last_mirror = time.time()
+    last_phase = "starting"
+    started = time.time()
+    while True:
+        with local_log.open("r", errors="replace") as fh:
+            fh.seek(offset)
+            chunk = fh.read()
+            offset = fh.tell()
+        if chunk:
+            last_out = time.time()
+            for line in chunk.splitlines():
+                print(line, flush=True)
+                if line.startswith("APPROX_PHASE "):
+                    try:
+                        last_phase = json.loads(line[13:])["phase"]
+                    except (ValueError, KeyError):
+                        pass
+        st = json.loads(local_status.read_text()) if local_status.exists() else {}
+        if time.time() - last_mirror >= MIRROR_SECONDS:
+            _mirror(local_log, local_status)
+            last_mirror = time.time()
+        if st.get("state") == "finished":
+            _mirror(local_log, local_status)
+            return st.get("exit_code")
+        if st.get("state") == "running" and not _pid_alive(st.get("supervisor_pid")):
+            _mirror(local_log, local_status)
+            print("❌ supervisor process disappeared without recording an exit status (runtime-level kill).", flush=True)
+            return None
+        if time.time() - last_out >= HEARTBEAT_SECONDS:
+            print(f"… still running | last phase: {last_phase} | elapsed {int(time.time() - started)}s | "
+                  f"model cache {_dir_size_gb(HF_CACHE)} GB | free RAM {_mem_available_gb()} GB", flush=True)
+            last_out = time.time()
+        time.sleep(2)
+
+
 def train() -> None:
     pf = load("preflight.json", current_runtime_only=True)
     if pf.get("TRAINING_READY") is not True:
         fail("preflight gate has not passed in this runtime — run the gate cell first.")
-    env_extra = {"APPROX_GIT_COMMIT": pf.get("repo_commit") or "", "CUDA_VISIBLE_DEVICES": os.environ.get("CUDA_VISIBLE_DEVICES", "0")}
-    rc = run([PY, "train_qlora.py", "--config", str(D["metadata"] / "training_config.resolved.json"),
-              "--output-dir", str(D["checkpoints"])], "train", env_extra)
-    if rc:
+    LOCAL_RUN.mkdir(parents=True, exist_ok=True)
+    local_log, local_status = LOCAL_RUN / "train.log", LOCAL_RUN / "supervisor_status.json"
+
+    # Re-attach instead of starting a second run if a supervisor from this runtime is still alive.
+    st = json.loads(local_status.read_text()) if local_status.exists() else {}
+    if st.get("state") == "running" and _pid_alive(st.get("supervisor_pid")):
+        print(f"Re-attaching to the training run already in progress (supervisor pid {st['supervisor_pid']}).", flush=True)
+        rc = _follow(local_log, local_status, offset=max(0, local_log.stat().st_size - 4000))
+    else:
+        ckpts = sorted(p.name for p in D["checkpoints"].glob("checkpoint-*") if (p / "trainer_state.json").exists())
+        print("Checkpoint on Drive: " + (f"{ckpts[-1]} — the trainer will RESUME from it if it matches the current dataset"
+                                         if ckpts else "none — this is a FRESH run (no resume possible yet)"), flush=True)
+        if not local_log.exists() and (D["logs"] / "train.log").exists():
+            shutil.copyfile(D["logs"] / "train.log", local_log)   # keep earlier attempts' history in the mirrored log
+        if local_status.exists():
+            local_status.unlink()
+        Path(HF_CACHE).mkdir(parents=True, exist_ok=True)
+        trainer_cmd = [PY, "-u", "train_qlora.py", "--config", str(D["metadata"] / "training_config.resolved.json"),
+                       "--output-dir", str(D["checkpoints"])]
+        env = {**os.environ, "PYTHONUNBUFFERED": "1", "HF_HOME": HF_CACHE, "HF_HUB_DISABLE_PROGRESS_BARS": "1",
+               "TOKENIZERS_PARALLELISM": "false", "APPROX_GIT_COMMIT": pf.get("repo_commit") or "",
+               "CUDA_VISIBLE_DEVICES": os.environ.get("CUDA_VISIBLE_DEVICES", "0")}
+        with local_log.open("a") as fh:
+            fh.write(f"\n=== {time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())} $ {' '.join(trainer_cmd)}\n")
+        offset = local_log.stat().st_size
+        logfh = local_log.open("a")
+        sup = subprocess.Popen([PY, "-u", "colab/train_supervisor.py", "--status-file", str(local_status), "--", *trainer_cmd],
+                               cwd=TRAINING, env=env, stdin=subprocess.DEVNULL, stdout=logfh, stderr=subprocess.STDOUT,
+                               start_new_session=True)      # detached: survives cell interrupts and launcher death
+        logfh.close()
+        print(f"Training launched in the background (supervisor pid {sup.pid}). Log: {local_log} (mirrored to Drive logs/train.log).\n"
+              "Interrupting this cell does NOT stop training; re-run cell 10 to re-attach.", flush=True)
+        rc = _follow(local_log, local_status, offset)
+    if rc != 0:
         print("\n--- automatic diagnosis of the failed training run (read-only) ---")
         diagnose()
-        fail(f"training exited with code {rc} — the first real error is shown above and in metadata/training_diagnosis.json.")
+        fail(f"training did not finish successfully (exit status {rc}) — first real error/last phase shown above "
+             "and in metadata/training_diagnosis.json.")
     src = D["checkpoints"] / "adapter"
     if not (src / "adapter_model.safetensors").exists():
         fail("training finished without adapter_model.safetensors")
@@ -570,6 +707,8 @@ def train() -> None:
         shutil.rmtree(D["adapter"])
     shutil.copytree(src, D["adapter"])
     shutil.copy(D["checkpoints"] / "train_metadata.json", D["metadata"] / "train_metadata.json")
+    if (D["checkpoints"] / "training_start_probe.json").exists():
+        shutil.copy(D["checkpoints"] / "training_start_probe.json", D["metadata"] / "training_start_probe.json")
     ckpts = sorted(p.name for p in D["checkpoints"].glob("checkpoint-*"))
     save("checkpoints.json", {"checkpoint_dir": str(D["checkpoints"]), "checkpoints": ckpts})
     print("TRAINING FINISHED — adapter copied to", D["adapter"])

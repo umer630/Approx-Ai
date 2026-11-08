@@ -20,10 +20,17 @@ TRAINING = os.path.join(REPO_DIR, "training")
 def stage(*names):
     """Run colab_pipeline.py stages; stream output; stop the notebook on the first failure."""
     for name in names:
-        p = subprocess.Popen([sys.executable, "colab/colab_pipeline.py", name], cwd=TRAINING, env=dict(os.environ),
+        p = subprocess.Popen([sys.executable, "-u", "colab/colab_pipeline.py", name], cwd=TRAINING, env=dict(os.environ),
                              stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
-        for line in p.stdout:
-            print(line, end="")
+        try:
+            for line in p.stdout:
+                print(line, end="")
+        except KeyboardInterrupt:
+            p.terminate()   # stops only this stage's follower process
+            if name == "train":
+                print("\nCell interrupted: the training itself keeps running in the background (detached supervisor). "
+                      "Re-run this cell to re-attach to its log.")
+            raise
         if p.wait() != 0:
             raise RuntimeError(f"stage '{name}' failed — see the message above (and logs/ on Drive). Nothing after it will run.")
 '''
@@ -141,7 +148,10 @@ except RuntimeError:
     md("## CELL 9 — Final preflight gate (re-checks GPU + Internet; training starts only if everything is READY)"),
     code('stage("gpu", "internet", "repo", "gate")'),
     md("""## CELL 10 — Actual training (QLoRA on GPU; checkpoints on Drive; re-run to resume)
-On failure this cell prints an automatic read-only diagnosis (first real error, how far training got, checkpoints, resume/fresh).
+Training runs in a **detached background supervisor** (log on local disk, mirrored to Drive every minute; model cache on local
+`/content/hf_cache`). Interrupting this cell or a browser disconnect does **not** stop training — re-run the cell to re-attach.
+A heartbeat line appears every 30 s while the ~6 GB base-model download / 4-bit load is silent.
+On failure this cell prints an automatic read-only diagnosis (first real error, last phase reached, checkpoints, resume/fresh).
 To inspect an earlier failed run **without training**, run cells 1 and 4, then in a new cell: `stage("diagnose")`."""),
     code('stage("train")'),
     md("## CELL 11 — Evaluation (real generation probes: identity, English, Urdu, Roman Urdu, maths, reasoning, coding, safety, malformed input, perplexity)"),
