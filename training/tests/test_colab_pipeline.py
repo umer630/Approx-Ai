@@ -139,6 +139,76 @@ class ColabPipeline(unittest.TestCase):
         self.assertIn("qwen/qwen2.5-3b-instruct", allsrc)
         self.assertNotIn("print(tok", allsrc)  # HF token is never printed
 
+    # ---------------- training-failure diagnosis (read-only) ----------------
+    def _log(self, body, rc):
+        (self.drive / "logs").mkdir(parents=True, exist_ok=True)
+        (self.drive / "logs/train.log").write_text(
+            "\n=== 2026-11-08T10:00:00Z $ /usr/bin/python3 train_qlora.py --config x --output-dir y\n" + body +
+            (f"\n=== exit code {rc}\n" if rc is not None else ""))
+
+    def test_diagnose_no_training_attempt(self):
+        r = self.cp.diagnose()
+        self.assertEqual(r["TRAINING_STAGE_ENTERED"], "NO")
+        self.assertEqual(r["CHECKPOINT_FOUND"], "NO")
+        self.assertEqual(r["ADAPTER_FOUND"], "NO")
+
+    def test_diagnose_cuda_oom_from_legacy_log(self):
+        self._log("dataset OK: 41 train / 4 eval\ntrainable params: 29,933,568 / 3,115,872,256 (0.961%)\n"
+                  "tokenized: 41 train (dropped 0), 4 eval (dropped 0); plan {}\n  0%|          | 0/6 [00:00<?, ?it/s]\n"
+                  "Traceback (most recent call last):\n  File \"train_qlora.py\", line 300, in <module>\n"
+                  "torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.32 GiB.", 1)
+        r = self.cp.diagnose()
+        self.assertEqual((r["TRAINING_STAGE_ENTERED"], r["BASE_MODEL_LOADED"], r["QLORA_INITIALIZED"], r["DATASET_READY"]), ("YES",) * 4)
+        self.assertEqual(r["TRAINING_STEPS_COMPLETED"], 0)
+        self.assertIn("CUDA out of memory", r["FIRST_REAL_ERROR"])
+        self.assertIn("out of memory", r["ROOT_CAUSE"].lower())
+
+    def test_diagnose_signal_kill_and_checkpoint_resume(self):
+        self._log('APPROX_PHASE {"phase": "entered"}\nAPPROX_PHASE {"phase": "base_model_loaded"}\n'
+                  'APPROX_PHASE {"phase": "qlora_initialized"}\nAPPROX_PHASE {"phase": "dataset_tokenized"}\n'
+                  'APPROX_PHASE {"phase": "trainer_started"}\nAPPROX_PHASE {"phase": "step_completed", "step": 3}', -9)
+        ck = self.drive / "checkpoints/checkpoint-3"
+        ck.mkdir(parents=True)
+        (ck / "trainer_state.json").write_text("{}")
+        man = json.loads((ROOT / "data/processed/manifest.json").read_text()) if (ROOT / "data/processed/manifest.json").exists() else None
+        if man:
+            (ck / "approx_run.json").write_text(json.dumps({"train_sha256": man["files"]["train.jsonl"]["sha256"]}))
+        r = self.cp.diagnose()
+        self.assertEqual(r["TRAINING_STEPS_COMPLETED"], 3)
+        self.assertIn("signal 9", r["FIRST_REAL_ERROR"])
+        self.assertEqual(r["CHECKPOINT_FOUND"], "YES")
+        self.assertTrue(r["CHECKPOINT_PATH"].endswith("checkpoint-3"))
+        if man:
+            self.assertEqual(r["RESUME_OR_FRESH"], "RESUME")
+        self.assertTrue(ck.exists(), "diagnose must not delete anything")
+
+    def test_trainer_exception_is_exposed(self):
+        try:
+            import torch  # noqa: F401
+        except ImportError:
+            self.skipTest("torch not installed")
+        tmp = Path(self.tmp.name)
+        subprocess.run([sys.executable, str(ROOT / "tests/make_tiny_model.py"), str(tmp / "tiny")], cwd=ROOT, check=True, capture_output=True)
+        cfg = json.loads((ROOT / "configs/nick-4.8-qlora.json").read_text())
+        cfg["train"]["lr_scheduler"] = "not-a-real-scheduler"          # makes TrainingArguments raise inside training
+        (tmp / "bad.json").write_text(json.dumps(cfg))
+        r = subprocess.run([sys.executable, str(ROOT / "train_qlora.py"), "--config", str(tmp / "bad.json"),
+                            "--smoke-base", str(tmp / "tiny"), "--output-dir", str(tmp / "run")], cwd=ROOT, capture_output=True, text=True)
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("APPROX_TRAIN_EXCEPTION", r.stdout)
+        self.assertIn("Traceback (most recent call last)", r.stderr)
+        st = json.loads((tmp / "run-SMOKE/train_status.json").read_text())
+        self.assertEqual(st["status"], "failed")
+        self.assertIn("ValueError", st["type"])
+        phases = [json.loads(l)["phase"] for l in (tmp / "run-SMOKE/train_phases.jsonl").read_text().splitlines()]
+        self.assertEqual(phases[:4], ["entered", "base_model_loaded", "qlora_initialized", "dataset_tokenized"])
+        self.assertEqual(phases[-1], "failed")
+        # the diagnosis reads it back from a launcher-style log
+        self._log(r.stdout + r.stderr, r.returncode)
+        d = self.cp.diagnose()
+        self.assertEqual(d["QLORA_INITIALIZED"], "YES")
+        self.assertEqual(d["TRAINING_STEP_STARTED"], "NO")
+        self.assertIn("ValueError", d["FIRST_REAL_ERROR"])
 
 if __name__ == "__main__":
     unittest.main()

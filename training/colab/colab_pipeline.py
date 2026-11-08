@@ -107,7 +107,10 @@ def run(cmd: list[str], log: str, env: dict | None = None) -> int:
         for line in p.stdout:
             print(line, end="", flush=True)
             fh.write(line)
-        return p.wait()
+        rc = p.wait()
+        note = f" (killed by signal {-rc}: no Python traceback possible — usually host-RAM OOM or a runtime disconnect)" if rc < 0 else ""
+        fh.write(f"=== exit code {rc}{note}\n")
+        return rc
 
 
 def sha256_file(p: Path) -> str:
@@ -436,6 +439,119 @@ def gate() -> None:
         fail(msg)
 
 
+
+def _last_attempt(log_text: str) -> tuple[str, int | None]:
+    """Text and exit code of the most recent `train_qlora.py` invocation in logs/train.log."""
+    import re
+    starts = [m.start() for m in re.finditer(r"^=== .*\$ .*train_qlora\.py", log_text, re.M)]
+    if not starts:
+        return "", None
+    chunk = log_text[starts[-1]:]
+    m = re.search(r"^=== exit code (-?\d+)", chunk, re.M)
+    return chunk, int(m.group(1)) if m else None
+
+
+def _first_error(text: str) -> str | None:
+    import re
+    lines = text.splitlines()
+    for i, l in enumerate(lines):
+        if l.startswith("APPROX_TRAIN_EXCEPTION "):
+            return l[len("APPROX_TRAIN_EXCEPTION "):]
+    for i, l in enumerate(lines):
+        if l.startswith("Traceback (most recent call last)"):
+            for j in range(i + 1, min(i + 400, len(lines))):
+                if re.match(r"^[A-Za-z_][\w.]*(Error|Exception|Interrupt|Exit)\b.*", lines[j]):
+                    return lines[j].strip()[:1500]
+            return "traceback without a final exception line: " + " | ".join(lines[i:i + 5])[:800]
+    for pat in ("BLOCKED:", "BAD DATA:", "RESUME REFUSED:", "FAILED:", "CUDA out of memory", "CUDA error", "Killed"):
+        for l in lines:
+            if pat in l:
+                return l.strip()[:1500]
+    return None
+
+
+def diagnose() -> dict:
+    """READ-ONLY inspection of checkpoints/, adapter/ and logs/ for the latest training attempt. Deletes nothing."""
+    import re
+    log_path = D["logs"] / "train.log"
+    log_text = log_path.read_text(errors="replace") if log_path.exists() else ""
+    attempt, rc = _last_attempt(log_text)
+    phases = []
+    for l in attempt.splitlines():
+        if l.startswith("APPROX_PHASE "):
+            try:
+                phases.append(json.loads(l[len("APPROX_PHASE "):]))
+            except json.JSONDecodeError:
+                pass
+    seen = {p["phase"] for p in phases}
+    # fall back to the plain-text markers older trainer versions print
+    loaded = "base_model_loaded" in seen or "trainable params:" in attempt
+    qlora = "qlora_initialized" in seen or "trainable params:" in attempt
+    tokenized = "dataset_tokenized" in seen or bool(re.search(r"^tokenized: ", attempt, re.M))
+    step_nums = [p.get("step", 0) for p in phases if p["phase"] == "step_completed"]
+    tqdm_steps = [int(a) for a, b in re.findall(r"\b(\d+)/(\d+) \[", attempt) if int(b) > 0]
+    steps_done = max(step_nums or [0]) or (max(tqdm_steps) if tqdm_steps else 0)
+    ckpts = sorted((p for p in D["checkpoints"].glob("checkpoint-*") if (p / "trainer_state.json").exists()),
+                   key=lambda p: int(p.name.split("-")[-1]) if p.name.split("-")[-1].isdigit() else -1)
+    adapter_files = [p for p in (D["adapter"] / "adapter_model.safetensors", D["checkpoints"] / "adapter" / "adapter_model.safetensors")
+                     if p.exists() and p.stat().st_size > 0]
+    status = {}
+    if (D["checkpoints"] / "train_status.json").exists():
+        try:
+            status = json.loads((D["checkpoints"] / "train_status.json").read_text())
+        except json.JSONDecodeError:
+            pass
+    first_error = _first_error(attempt) or (status.get("message") if status.get("status") == "failed" else None)
+    if rc is not None and rc < 0 and not first_error:
+        first_error = f"process killed by signal {-rc} (no Python exception) — typically Colab host-RAM OOM or runtime disconnect"
+    kind = status.get("kind") or ("cuda_out_of_memory" if first_error and "out of memory" in first_error.lower() else None)
+
+    resumable = False
+    if ckpts:
+        stamp = ckpts[-1] / "approx_run.json"
+        man = TRAINING / "data/processed/manifest.json"
+        if stamp.exists() and man.exists():
+            resumable = json.loads(stamp.read_text()).get("train_sha256") == json.loads(man.read_text())["files"]["train.jsonl"]["sha256"]
+
+    if not log_text or not attempt:
+        root, fix = "Cell 10 never launched train_qlora.py in any runtime that wrote to this Drive folder.", \
+            "Run cell 9 (gate) and then cell 10 in the same runtime; check that cell 10 printed '$ … train_qlora.py'."
+    elif kind == "cuda_out_of_memory":
+        root, fix = "CUDA out of memory during training.", \
+            "Lower max_seq_length (e.g. 1024) or per_device_batch_size to 1 in the VRAM profile, keep effective batch 16 via accumulation, then resume."
+    elif rc is not None and rc < 0:
+        root, fix = first_error, "Re-run cell 10; it resumes from the newest checkpoint. If it recurs, use a High-RAM runtime."
+    elif first_error:
+        root, fix = first_error, "Fix the error shown in FIRST_REAL_ERROR (full traceback in logs/train.log and checkpoints/train_status.json), then re-run cell 10."
+    elif rc == 0 and not adapter_files:
+        root, fix = "Trainer exited 0 but no adapter file exists.", "Inspect logs/train.log for the adapter_saved phase."
+    else:
+        root, fix = "No error recorded and no exit code: the run was interrupted (runtime disconnect / cell stopped) before finishing.", \
+            "Re-run cell 10 in a healthy runtime; it resumes automatically if a checkpoint exists."
+
+    yn = lambda b: "YES" if b else "NO"
+    rep = {
+        "TRAINING_STAGE_ENTERED": yn(bool(attempt)),
+        "BASE_MODEL_LOADED": yn(loaded),
+        "QLORA_INITIALIZED": yn(qlora),
+        "DATASET_READY": yn(tokenized),
+        "TRAINING_STEP_STARTED": yn("trainer_started" in seen or steps_done > 0),
+        "TRAINING_STEPS_COMPLETED": steps_done,
+        "FIRST_REAL_ERROR": first_error or "none recorded",
+        "CHECKPOINT_FOUND": yn(bool(ckpts)),
+        "CHECKPOINT_PATH": str(ckpts[-1]) if ckpts else None,
+        "ADAPTER_FOUND": yn(bool(adapter_files)),
+        "ROOT_CAUSE": root,
+        "FIX": fix,
+        "RESUME_OR_FRESH": "RESUME" if resumable else ("FRESH (checkpoint does not match the current dataset)" if ckpts else "FRESH"),
+        "exit_code": rc,
+        "phases_seen": [p["phase"] for p in phases if p["phase"] not in ("log", "step_completed")],
+        "log_file": str(log_path) if log_path.exists() else None,
+        "log_attempts_found": log_text.count("train_qlora.py") if log_text else 0,
+    }
+    save("training_diagnosis.json", rep)
+    return rep
+
 def train() -> None:
     pf = load("preflight.json", current_runtime_only=True)
     if pf.get("TRAINING_READY") is not True:
@@ -444,7 +560,9 @@ def train() -> None:
     rc = run([PY, "train_qlora.py", "--config", str(D["metadata"] / "training_config.resolved.json"),
               "--output-dir", str(D["checkpoints"])], "train", env_extra)
     if rc:
-        fail(f"training exited with code {rc} — see logs/train.log. Re-running this cell resumes from the last checkpoint.")
+        print("\n--- automatic diagnosis of the failed training run (read-only) ---")
+        diagnose()
+        fail(f"training exited with code {rc} — the first real error is shown above and in metadata/training_diagnosis.json.")
     src = D["checkpoints"] / "adapter"
     if not (src / "adapter_model.safetensors").exists():
         fail("training finished without adapter_model.safetensors")
@@ -561,7 +679,7 @@ def report() -> None:
 
 
 STAGES = {"env": env, "gpu": gpu, "internet": internet, "repo": repo, "deps": deps, "model": model, "data": data,
-          "config": config, "gate": gate, "train": train, "evaluate": evaluate, "verify": verify, "manifest": manifest, "report": report}
+          "config": config, "gate": gate, "train": train, "diagnose": diagnose, "evaluate": evaluate, "verify": verify, "manifest": manifest, "report": report}
 
 if __name__ == "__main__":
     stage = sys.argv[1] if len(sys.argv) > 1 else ""

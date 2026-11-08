@@ -35,6 +35,16 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 EXIT_NO_GPU, EXIT_BASE_UNAVAILABLE, EXIT_BAD_DATA, EXIT_RESUME_MISMATCH = 2, 3, 4, 5
+_OUT: Path | None = None  # set once the output dir is known; phases are then also appended to train_phases.jsonl
+
+
+def phase(name: str, **info) -> None:
+    """Machine-readable progress marker: printed (so it lands in the launcher log) and appended to train_phases.jsonl."""
+    rec = {"phase": name, "t": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), **info}
+    print("APPROX_PHASE " + json.dumps(rec, default=str), flush=True)
+    if _OUT is not None:
+        with (_OUT / "train_phases.jsonl").open("a") as fh:
+            fh.write(json.dumps(rec, default=str) + "\n")
 
 
 def load_jsonl(p: Path) -> list[dict]:
@@ -125,7 +135,8 @@ def find_checkpoint(out: Path, search_roots: list[str]) -> Path | None:
     return dest
 
 
-def main(argv=None):
+def _main(argv=None):
+    global _OUT
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default=str(HERE / "configs/nick-4.8-qlora.json"))
     ap.add_argument("--dataset-dir", default=None)
@@ -166,6 +177,8 @@ def main(argv=None):
     if smoke:
         out = out.with_name(out.name + "-SMOKE")
     out.mkdir(parents=True, exist_ok=True)
+    _OUT = out
+    phase("entered", output_dir=str(out), smoke=smoke, cuda=torch.cuda.is_available())
 
     # ---- resolve + load base model (STOP if unavailable; never substitute) ----
     resolved_revision = "local-smoke-model" if smoke else None
@@ -200,6 +213,8 @@ def main(argv=None):
     except OSError as e:
         print(f"BLOCKED: could not download/load base model {base_id}@{revision}: {e}. Not substituting another model.", file=sys.stderr)
         return EXIT_BASE_UNAVAILABLE
+    phase("base_model_loaded", base=base_id, revision=resolved_revision, quantized_4bit=use_cuda,
+          compute_dtype=str(compute_dtype), gpu_mem_allocated_gb=round(torch.cuda.memory_allocated(0) / 1e9, 2) if use_cuda else None)
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
     if tok.chat_template is None:
@@ -215,6 +230,7 @@ def main(argv=None):
                                              bias="none", task_type="CAUSAL_LM"))
     trainable, total_params = model.get_nb_trainable_parameters()
     print(f"trainable params: {trainable:,} / {total_params:,} ({100 * trainable / total_params:.3f}%)")
+    phase("qlora_initialized", trainable_params=trainable, total_params=total_params, target_modules=targets)
 
     # ---- tokenize with assistant-only loss ----
     max_len = cfg["max_seq_length"]
@@ -244,6 +260,8 @@ def main(argv=None):
         print("BAD DATA: no record has trainable tokens after truncation", file=sys.stderr)
         return EXIT_BAD_DATA
     plan = schedule(len(train_ds), T)
+    phase("dataset_tokenized", train=len(train_ds), eval=len(eval_ds) if eval_ds else 0, dropped=dropped_train + dropped_eval,
+          prefix_mismatch=prefix_mismatch, plan=plan)
     print(f"tokenized: {len(train_ds)} train (dropped {dropped_train}), {len(eval_ds) if eval_ds else 0} eval (dropped {dropped_eval}); plan {plan}")
 
     run_info = {"run_name": cfg["run_name"], "dataset_fingerprint": ds_manifest.get("content_fingerprint_sha256"),
@@ -256,6 +274,18 @@ def main(argv=None):
             ck = Path(args.output_dir) / f"checkpoint-{state.global_step}"
             if ck.exists():
                 (ck / "approx_run.json").write_text(json.dumps(run_info, indent=2))
+            phase("checkpoint_saved", step=state.global_step, path=str(ck), exists=ck.exists())
+
+        def on_train_begin(self, args, state, control, **kw):
+            phase("trainer_started", max_steps=state.max_steps, resumed_at_step=state.global_step)
+
+        def on_step_end(self, args, state, control, **kw):
+            mem = round(torch.cuda.max_memory_allocated(0) / 1e9, 2) if torch.cuda.is_available() else None
+            phase("step_completed", step=state.global_step, max_steps=state.max_steps, peak_gpu_mem_gb=mem)
+
+        def on_log(self, args, state, control, logs=None, **kw):
+            if logs:
+                phase("log", step=state.global_step, **{k: v for k, v in logs.items() if isinstance(v, (int, float))})
 
     args = TrainingArguments(
         output_dir=str(out), num_train_epochs=T["epochs"], max_steps=a.smoke_max_steps if smoke and a.smoke_max_steps else -1,
@@ -284,6 +314,7 @@ def main(argv=None):
     (out / "train_status.json").write_text(json.dumps({"status": "running", "started_at": time.time(), "resume_from": str(resume) if resume else None}))
     t0 = time.time()
     result = trainer.train(resume_from_checkpoint=str(resume) if resume else None)
+    phase("training_finished", global_step=trainer.state.global_step)
     metrics = {"train": result.metrics, "train_seconds": round(time.time() - t0, 1), "global_step": trainer.state.global_step}
     if eval_ds is not None:
         metrics["eval"] = trainer.evaluate()
@@ -298,6 +329,7 @@ def main(argv=None):
     model.save_pretrained(str(adapter_dir), safe_serialization=True)
     tok.save_pretrained(str(adapter_dir))
     weights = adapter_dir / "adapter_model.safetensors"
+    phase("adapter_saved", path=str(weights), exists=weights.exists(), bytes=weights.stat().st_size if weights.exists() else 0)
     if not weights.exists() or weights.stat().st_size == 0:
         print("FAILED: adapter_model.safetensors was not written", file=sys.stderr)
         return 1
@@ -340,6 +372,31 @@ def main(argv=None):
                       "adapter_model.safetensors_sha256": manifest["files_sha256"]["adapter_model.safetensors"], "metrics": metrics}, indent=2, default=str))
     print(f"NEXT: python verify_adapter.py --adapter {adapter_dir}")
     return 0
+
+
+def main(argv=None) -> int:
+    """Runs training; on ANY exception prints the full traceback, records it in train_status.json, and exits non-zero."""
+    import traceback
+    try:
+        rc = _main(argv)
+    except BaseException as e:  # noqa: BLE001 — record everything, including KeyboardInterrupt / SystemExit with code
+        if isinstance(e, SystemExit) and e.code in (0, None):
+            raise
+        tb = traceback.format_exc()
+        kind = "cuda_out_of_memory" if "out of memory" in tb.lower() else ("cuda_error" if "cuda error" in tb.lower() else type(e).__name__)
+        print("APPROX_TRAIN_EXCEPTION " + json.dumps({"type": type(e).__name__, "kind": kind, "message": str(e)[:2000]}), flush=True)
+        print(tb, file=sys.stderr, flush=True)
+        try:
+            phase("failed", type=type(e).__name__, kind=kind, message=str(e)[:500])
+            if _OUT is not None:
+                (_OUT / "train_status.json").write_text(json.dumps({"status": "failed", "type": type(e).__name__, "kind": kind,
+                                                                   "message": str(e)[:2000], "traceback": tb[-20000:]}, indent=2))
+        except Exception:
+            pass
+        raise
+    if rc and _OUT is not None:
+        phase("exited", code=rc)
+    return rc
 
 
 if __name__ == "__main__":

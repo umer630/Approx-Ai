@@ -140,7 +140,9 @@ except RuntimeError:
     code('stage("gpu", "config")'),
     md("## CELL 9 — Final preflight gate (re-checks GPU + Internet; training starts only if everything is READY)"),
     code('stage("gpu", "internet", "repo", "gate")'),
-    md("## CELL 10 — Actual training (QLoRA on GPU; checkpoints on Drive; re-run to resume)"),
+    md("""## CELL 10 — Actual training (QLoRA on GPU; checkpoints on Drive; re-run to resume)
+On failure this cell prints an automatic read-only diagnosis (first real error, how far training got, checkpoints, resume/fresh).
+To inspect an earlier failed run **without training**, run cells 1 and 4, then in a new cell: `stage("diagnose")`."""),
     code('stage("train")'),
     md("## CELL 11 — Evaluation (real generation probes: identity, English, Urdu, Roman Urdu, maths, reasoning, coding, safety, malformed input, perplexity)"),
     code('stage("evaluate")'),
