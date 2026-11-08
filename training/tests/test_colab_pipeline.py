@@ -40,17 +40,50 @@ class ColabPipeline(unittest.TestCase):
         self.assertEqual(p(40)["per_device_batch_size"] * p(40)["gradient_accumulation_steps"], 16)
         self.assertEqual(p(8), {})  # refuses instead of crashing later
 
-    def _write(self, name, data):
-        (self.drive / "metadata" / name).write_text(json.dumps(data))
+    QWEN25_3B = {"hidden_size": 2048, "intermediate_size": 11008, "num_hidden_layers": 36, "num_attention_heads": 16,
+                 "num_key_value_heads": 2, "vocab_size": 151936, "tie_word_embeddings": True}
 
-    def _all_ready(self):
-        self._write("gpu.json", {"GPU_READY": True, "CUDA_READY": True, "gpu_name": "Tesla T4", "vram_gb": 15.8, "bf16_supported": False,
-                                 "profile": self.cp.vram_profile(15.8)})
+    def _write(self, name, data):
+        """Writes like a stage of THIS runtime (stamped with the current runtime id)."""
+        self.cp.save(name, data)
+
+    def _all_ready(self, vram=15.64):
+        prof = self.cp.vram_profile(vram)
+        self._write("gpu.json", {"GPU_READY": True, "CUDA_READY": True, "gpu_name": "Tesla T4", "vram_gb": vram, "bf16_supported": False,
+                                 "profile": prof})
         self._write("internet.json", {"INTERNET_READY": True})
         self._write("repo.json", {"REPO_READY": True, "commit": "abc"})
         self._write("deps.json", {"DEPS_READY": True})
-        self._write("model.json", {"MODEL_READY": True})
+        self._write("model.json", {"MODEL_READY": True, "fits_vram": True, "training_profile": prof})
         self._write("dataset.json", {"DATASET_READY": True, "fingerprint": "f"})
+
+    def test_memory_estimate_matches_actual_qlora_setup_on_t4(self):
+        prof = self.cp.vram_profile(15.64)
+        e = self.cp.estimate_qlora_peak_gb(self.QWEN25_3B, prof, 16, self.cp.BASE_CFG["lora"]["target_modules"])
+        self.assertEqual(e["lora_trainable_params"], 29_933_568)          # PEFT's count for Qwen2.5-3B, r=16, 7 projections
+        self.assertAlmostEqual(e["breakdown_gb"]["base_weights_nf4"], 1.43, places=1)
+        self.assertTrue(10 < e["peak_gb"] < 12)
+        self.assertLessEqual(e["peak_gb"], 15.64 * 0.90)                   # fits a T4 with 10% headroom
+        # a genuinely too-small configuration is still rejected (the check is not a rubber stamp)
+        big = {**prof, "per_device_batch_size": 8}
+        self.assertGreater(self.cp.estimate_qlora_peak_gb(self.QWEN25_3B, big, 16, ["q_proj"])["peak_gb"], 15.64 * 0.90)
+
+    def test_stale_results_from_previous_runtime_are_ignored(self):
+        self._all_ready(); self.cp.config()
+        md = json.loads((self.drive / "metadata/model.json").read_text())
+        md["_runtime_id"] = "previous-runtime"
+        (self.drive / "metadata/model.json").write_text(json.dumps(md))
+        with self.assertRaises(SystemExit):
+            self.cp.gate()
+        pf = json.loads((self.drive / "metadata/preflight.json").read_text())
+        self.assertFalse(pf["MODEL_READY"])
+        self.assertIn("model.json", pf["stale_from_previous_runtime"])
+
+    def test_config_refuses_profile_not_fit_checked(self):
+        self._all_ready()
+        self._write("model.json", {"MODEL_READY": False, "fits_vram": False, "training_profile": {}})
+        with self.assertRaises(SystemExit):
+            self.cp.config()
 
     def test_config_uses_fp16_on_t4_and_locked_base(self):
         self._all_ready()
@@ -70,6 +103,8 @@ class ColabPipeline(unittest.TestCase):
         self._write("internet.json", {"INTERNET_READY": False})
         with self.assertRaises(SystemExit):
             self.cp.gate()
+        pf = json.loads((self.drive / "metadata/preflight.json").read_text())
+        self.assertEqual(pf["not_run_in_this_runtime"], [])
         self.assertFalse(json.loads((self.drive / "metadata/preflight.json").read_text())["TRAINING_READY"])
 
     def test_train_refuses_without_gate(self):

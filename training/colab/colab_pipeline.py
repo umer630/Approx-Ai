@@ -70,15 +70,31 @@ def ensure_dirs() -> None:
         p.mkdir(parents=True, exist_ok=True)
 
 
+def runtime_id() -> str:
+    """Identifies the current VM. Colab gives every new runtime a new boot id; Drive files outlive runtimes."""
+    for p in ("/proc/sys/kernel/random/boot_id",):
+        try:
+            return Path(p).read_text().strip()
+        except OSError:
+            pass
+    return platform.node()
+
+
 def save(name: str, data: dict) -> dict:
+    data = {**data, "_runtime_id": runtime_id(), "_written_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
     (D["metadata"] / name).write_text(json.dumps(data, indent=2, default=str))
     print(json.dumps(data, indent=2, default=str), flush=True)
     return data
 
 
-def load(name: str) -> dict:
+def load(name: str, current_runtime_only: bool = False) -> dict:
     p = D["metadata"] / name
-    return json.loads(p.read_text()) if p.exists() else {}
+    if not p.exists():
+        return {}
+    data = json.loads(p.read_text())
+    if current_runtime_only and data.get("_runtime_id") != runtime_id():
+        return {"_stale": True, "_written_at": data.get("_written_at")}
+    return data
 
 
 def run(cmd: list[str], log: str, env: dict | None = None) -> int:
@@ -111,6 +127,37 @@ def vram_profile(vram_gb: float) -> dict:
     if vram_gb >= 10:
         return {"name": "reduced (10–14 GB)", "per_device_batch_size": 1, "gradient_accumulation_steps": 16, "max_seq_length": 1536}
     return {}
+
+
+def estimate_qlora_peak_gb(arch: dict, prof: dict, lora_r: int, lora_targets: list[str]) -> dict:
+    """Analytic worst-case peak VRAM (GB, 1e9 bytes) for QLoRA training of a decoder-only model with the ACTUAL setup:
+    4-bit NF4 + double-quant base weights, non-quantised embeddings upcast to fp32 by prepare_model_for_kbit_training,
+    LoRA (fp32 weights + fp32 grads + paged 8-bit AdamW), gradient checkpointing, fp16/bf16 activations, every sequence
+    padded to max_seq_length (true worst case — real batches are padded only to the longest example), and the loss path
+    of transformers 4.46 (fp16 logits → fp32 upcast → log-softmax → fp32 grad), which dominates for a 152k vocabulary."""
+    H, I, L = arch["hidden_size"], arch["intermediate_size"], arch["num_hidden_layers"]
+    nh, nkv, V = arch["num_attention_heads"], arch["num_key_value_heads"], arch["vocab_size"]
+    kvd = (H // nh) * nkv
+    T = prof["per_device_batch_size"] * prof["max_seq_length"]
+    shapes = {"q_proj": (H, H), "k_proj": (H, kvd), "v_proj": (H, kvd), "o_proj": (H, H),
+              "gate_proj": (H, I), "up_proj": (H, I), "down_proj": (I, H)}
+    linear_params = L * sum(a * b for a, b in shapes.values())
+    nf4_bytes_per_param = 0.5 * (4.127 / 4)                     # 4-bit + double-quantised absmax ≈ 0.127 bit/param
+    emb_params = V * H * (1 if arch.get("tie_word_embeddings", True) else 2)
+    lora_params = L * sum(lora_r * (a + b) for k, (a, b) in shapes.items() if k in lora_targets)
+    gb = 1e9
+    parts = {
+        "base_weights_nf4": linear_params * nf4_bytes_per_param / gb,
+        "embeddings_fp32": emb_params * 4 / gb,
+        "lora_weights_grads_optimizer": lora_params * (4 + 4 + 2) / gb,
+        "checkpointed_activations": L * T * H * 2 / gb,
+        "recomputed_layer_workspace": (T * (6 * H + 4 * I) * 2 + H * I * 2) / gb,
+        "logits_and_loss": T * V * (2 + 4 + 4) / gb,
+        "cuda_context_and_allocator": 0.6,
+    }
+    total = sum(parts.values())
+    return {"breakdown_gb": {k: round(v, 3) for k, v in parts.items()}, "peak_gb": round(total, 2),
+            "tokens_per_micro_batch": T, "lora_trainable_params": lora_params, "quantised_linear_params": linear_params}
 
 
 # ---------------------------------------------------------------- stages
@@ -265,7 +312,15 @@ files = sorted(s.rfilename for s in (mi.siblings or []))
 out = {"base_model": base, "revision": mi.sha, "gated": bool(getattr(mi, "gated", False)), "model_type": cfg.model_type,
        "architectures": cfg.architectures, "hidden_size": cfg.hidden_size, "num_hidden_layers": cfg.num_hidden_layers,
        "vocab_size": cfg.vocab_size, "tokenizer_class": type(tok).__name__, "has_chat_template": tok.chat_template is not None,
-       "chat_template_tokens": len(ids), "weight_files": [f for f in files if f.endswith(".safetensors")]}
+       "chat_template_tokens": len(ids), "weight_files": [f for f in files if f.endswith(".safetensors")],
+       "arch": {k: getattr(cfg, k) for k in ("hidden_size", "intermediate_size", "num_hidden_layers", "num_attention_heads",
+                                               "num_key_value_heads", "vocab_size", "tie_word_embeddings")}}
+try:
+    import torch
+    out["vram_gb"] = round(torch.cuda.get_device_properties(0).total_memory / 1e9, 2) if torch.cuda.is_available() else 0.0
+    out["gpu_name"] = torch.cuda.get_device_name(0) if torch.cuda.is_available() else None
+except Exception:
+    out["vram_gb"], out["gpu_name"] = 0.0, None
 print("MODEL_JSON " + json.dumps(out))
 """
     p = subprocess.run([PY, "-c", code], capture_output=True, text=True, cwd=TRAINING, env=os.environ.copy())
@@ -276,14 +331,31 @@ print("MODEL_JSON " + json.dumps(out))
         fail("Could not verify Qwen/Qwen2.5-3B-Instruct (config/tokenizer). If it reports 401/403, add an HF_TOKEN in "
              "Colab Secrets and re-run. Not substituting another model.")
     m = json.loads(line[len("MODEL_JSON "):])
-    gpu_info = load("gpu.json")
-    # QLoRA memory estimate for 3B: ~2 GB 4-bit weights + LoRA/optimizer/activations (seq 2048, bs 2, grad ckpt) ≈ 8–10 GB
-    m["estimated_peak_vram_gb"] = 10.0
-    m["fits_vram"] = (gpu_info.get("vram_gb") or 0) >= 10
+    # VRAM is measured in this stage (not read from another stage's file) and the training profile is the one the
+    # config stage will use, so the fit check describes the run that will actually happen.
+    prof = vram_profile(m["vram_gb"])
+    m["training_profile"] = prof
+    if prof:
+        est = estimate_qlora_peak_gb(m["arch"], prof, BASE_CFG["lora"]["r"], BASE_CFG["lora"]["target_modules"])
+        usable = round(m["vram_gb"] * 0.90, 2)          # 10% headroom for fragmentation / driver variance
+        m["memory_estimate"] = {**est, "usable_vram_gb": usable, "headroom_gb": round(usable - est["peak_gb"], 2)}
+        m["estimated_peak_vram_gb"] = est["peak_gb"]
+        m["fits_vram"] = est["peak_gb"] <= usable
+    else:
+        m["memory_estimate"] = None
+        m["estimated_peak_vram_gb"] = None
+        m["fits_vram"] = False
     m["MODEL_READY"] = m["model_type"] == "qwen2" and m["has_chat_template"] and bool(m["weight_files"]) and m["fits_vram"]
     save("model.json", m)
     if not m["MODEL_READY"]:
-        fail("Base model verification failed (wrong type, no chat template, no weights, or insufficient VRAM).")
+        why = []
+        if m["model_type"] != "qwen2": why.append(f"model_type={m['model_type']}")
+        if not m["has_chat_template"]: why.append("no chat template")
+        if not m["weight_files"]: why.append("no safetensors weights")
+        if not m["fits_vram"]:
+            why.append(f"estimated peak {m['estimated_peak_vram_gb']} GB > usable {m.get('memory_estimate', {}) and m['memory_estimate']['usable_vram_gb']} GB"
+                       if prof else f"GPU VRAM {m['vram_gb']} GB is below the 10 GB minimum (or no GPU visible to this stage)")
+        fail("Base model verification failed: " + "; ".join(why))
     print(f"MODEL READY ✅ {BASE_MODEL}@{m['revision']}")
 
 
@@ -313,7 +385,7 @@ def data() -> None:
 
 
 def config() -> None:
-    g = load("gpu.json")
+    g = load("gpu.json", current_runtime_only=True)
     prof = g.get("profile") or {}
     if not prof:
         fail("no GPU profile — run the gpu stage first")
@@ -326,18 +398,29 @@ def config() -> None:
     cfg["platform"] = {"runtime": "google-colab", "gpu": g.get("gpu_name"), "vram_gb": g.get("vram_gb"), "profile": prof["name"]}
     path = D["metadata"] / "training_config.resolved.json"
     path.write_text(json.dumps(cfg, indent=2))
-    print(json.dumps({"profile": prof, "compute_dtype": cfg["quantization"]["bnb_4bit_compute_dtype"], "lora": cfg["lora"],
-                      "epochs": cfg["train"]["epochs"], "lr": cfg["train"]["learning_rate"], "config_path": str(path)}, indent=2))
+    m = load("model.json", current_runtime_only=True)
+    agrees = m.get("training_profile") == prof and m.get("fits_vram") is True
+    save("config.json", {"profile": prof, "compute_dtype": cfg["quantization"]["bnb_4bit_compute_dtype"], "lora": cfg["lora"],
+                         "epochs": cfg["train"]["epochs"], "lr": cfg["train"]["learning_rate"], "config_path": str(path),
+                         "model_fit_checked_for_this_profile": agrees, "CONFIG_READY": agrees})
+    if not agrees:
+        fail("training profile was not fit-checked by the model stage in this runtime — run the model cell first.")
 
 
 def gate() -> None:
-    g, i, r, dp, m, ds = (load(n) for n in ("gpu.json", "internet.json", "repo.json", "deps.json", "model.json", "dataset.json"))
+    names = ("gpu.json", "internet.json", "repo.json", "deps.json", "model.json", "dataset.json", "config.json")
+    loaded = {n: load(n, current_runtime_only=True) for n in names}
+    stale = [n for n, v in loaded.items() if v.get("_stale")]
+    missing = [n for n, v in loaded.items() if not v]
+    g, i, r, dp, m, ds, cf = (loaded[n] for n in names)
     rep = {"GPU_READY": g.get("GPU_READY") is True, "CUDA_READY": g.get("CUDA_READY") is True,
            "INTERNET_READY": i.get("INTERNET_READY") is True, "REPO_READY": r.get("REPO_READY") is True,
            "DEPS_READY": dp.get("DEPS_READY") is True, "MODEL_READY": m.get("MODEL_READY") is True,
            "DATASET_READY": ds.get("DATASET_READY") is True,
-           "CONFIG_READY": (D["metadata"] / "training_config.resolved.json").exists()}
+           "CONFIG_READY": cf.get("CONFIG_READY") is True and (D["metadata"] / "training_config.resolved.json").exists()}
     rep["TRAINING_READY"] = all(rep.values())
+    rep["stale_from_previous_runtime"] = stale
+    rep["not_run_in_this_runtime"] = missing
     rep["checked_at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     rep["repo_commit"] = r.get("commit")
     rep["dataset_fingerprint"] = ds.get("fingerprint")
@@ -345,11 +428,16 @@ def gate() -> None:
     for k in ("GPU_READY", "CUDA_READY", "INTERNET_READY", "MODEL_READY", "DATASET_READY", "TRAINING_READY"):
         print(f"{k}: {'YES' if rep[k] else 'NO'}")
     if not rep["TRAINING_READY"]:
-        fail("preflight gate failed — training will not start: " + ", ".join(k for k, v in rep.items() if v is False))
+        msg = "preflight gate failed — training will not start: " + ", ".join(k for k, v in rep.items() if v is False)
+        if missing:
+            msg += f". Not run in this runtime: {', '.join(missing)} (run cells 4–8 first)"
+        if stale:
+            msg += f". Stale results from a previous runtime ignored: {', '.join(stale)}"
+        fail(msg)
 
 
 def train() -> None:
-    pf = load("preflight.json")
+    pf = load("preflight.json", current_runtime_only=True)
     if pf.get("TRAINING_READY") is not True:
         fail("preflight gate has not passed in this runtime — run the gate cell first.")
     env_extra = {"APPROX_GIT_COMMIT": pf.get("repo_commit") or "", "CUDA_VISIBLE_DEVICES": os.environ.get("CUDA_VISIBLE_DEVICES", "0")}
