@@ -180,30 +180,102 @@ def env() -> None:
     save("env.json", info)
 
 
+GPU_STATES = ("NO_GPU_ATTACHED", "CUDA_UNAVAILABLE", "GPU_ATTACHED_BUT_INCOMPATIBLE", "GPU_READY")
+COLAB_GPU_HELP = ("Colab: Runtime → Change runtime type → Hardware accelerator: T4 GPU → Save, then Runtime → Run all. "
+                  "If Colab connects without a GPU (it says so in a pop-up), your GPU quota is exhausted — wait or use another "
+                  "account. Training will NOT run on CPU.")
+
+
+def gpu_status() -> dict:
+    """Classify the hardware. No package installs, no model downloads.
+       NO_GPU_ATTACHED               no NVIDIA device/driver is visible in this VM (CPU-only runtime)
+       CUDA_UNAVAILABLE              an NVIDIA device is visible but PyTorch cannot use CUDA (CPU-only torch build / driver mismatch)
+       GPU_ATTACHED_BUT_INCOMPATIBLE CUDA works but the GPU is unsuitable (capability < 7.0, < 10 GB VRAM, or broken matmul)
+       GPU_READY                     usable for 4-bit NF4 QLoRA of Qwen2.5-3B"""
+    import glob
+    info = {"torch": None, "torch_cuda_build": None, "cuda_available": False, "gpu_name": None, "vram_gb": 0.0,
+            "compute_capability": None, "bf16_supported": False, "cuda_matmul_ok": False, "profile": {}, "is_t4": False}
+    smi = shutil.which("nvidia-smi")
+    smi_out = ""
+    if smi:
+        try:
+            smi_out = subprocess.run([smi, "--query-gpu=name,memory.total", "--format=csv,noheader"], capture_output=True,
+                                     text=True, timeout=30).stdout.strip()
+        except (OSError, subprocess.TimeoutExpired):
+            smi_out = ""
+    info["nvidia_smi"] = smi_out or ("not found" if not smi else "no GPU listed")
+    info["nvidia_device_nodes"] = sorted(glob.glob("/dev/nvidia[0-9]*"))
+    device_present = bool(info["nvidia_device_nodes"]) or bool(smi_out)
+    try:
+        import torch
+        info.update(torch=torch.__version__, torch_cuda_build=torch.version.cuda, cuda_available=torch.cuda.is_available())
+    except ImportError:
+        torch = None
+    reasons = []
+    if not device_present and not info["cuda_available"]:
+        state = "NO_GPU_ATTACHED"
+        reasons.append("no NVIDIA device or driver visible in this runtime (CPU-only VM)")
+    elif not info["cuda_available"]:
+        state = "CUDA_UNAVAILABLE"
+        reasons.append("PyTorch is a CPU-only build (" + str(info["torch"]) + ")" if info["torch_cuda_build"] is None
+                       else f"PyTorch CUDA {info['torch_cuda_build']} cannot use the attached driver")
+    else:
+        pr = torch.cuda.get_device_properties(0)
+        info["gpu_name"], info["vram_gb"] = pr.name, round(pr.total_memory / 1e9, 2)
+        info["compute_capability"] = list(torch.cuda.get_device_capability(0))
+        info["bf16_supported"] = torch.cuda.is_bf16_supported()
+        info["is_t4"] = "T4" in pr.name
+        try:
+            a = torch.randn(1024, 1024, device="cuda")
+            info["cuda_matmul_ok"] = bool(torch.isfinite(a @ a).all().item())
+        except Exception as e:  # broken CUDA context
+            reasons.append(f"CUDA matmul failed: {type(e).__name__}: {e}"[:200])
+        info["profile"] = vram_profile(info["vram_gb"])
+        if not info["cuda_matmul_ok"] and not reasons:
+            reasons.append("CUDA matmul produced non-finite values")
+        if info["compute_capability"] < [7, 0]:
+            reasons.append(f"compute capability {info['compute_capability']} < 7.0 (bitsandbytes 4-bit needs ≥ 7.0)")
+        if not info["profile"]:
+            reasons.append(f"{info['vram_gb']} GB VRAM < 10 GB minimum for Qwen2.5-3B QLoRA")
+        state = "GPU_READY" if not reasons else "GPU_ATTACHED_BUT_INCOMPATIBLE"
+    info["GPU_STATUS"] = state
+    info["reasons"] = reasons
+    info["CUDA_READY"] = bool(info["cuda_available"] and info["cuda_matmul_ok"])
+    info["GPU_READY"] = state == "GPU_READY"
+    return info
+
+
+def _print_gpu(info: dict) -> None:
+    print(f"torch version          : {info['torch']}")
+    print(f"torch.version.cuda     : {info['torch_cuda_build']}")
+    print(f"torch.cuda.is_available: {info['cuda_available']}")
+    print(f"nvidia-smi             : {info['nvidia_smi']}")
+    print(f"GPU name               : {info['gpu_name'] or '—'}")
+    print(f"VRAM                   : {str(info['vram_gb']) + ' GB' if info['vram_gb'] else '—'}")
+    print(f"CUDA capability        : {info['compute_capability'] or '—'}")
+    print(f"GPU_STATUS             : {info['GPU_STATUS']}")
+    print(f"GPU_READY              : {'YES' if info['GPU_READY'] else 'NO'}")
+
+
+def require_gpu_ready(stage_name: str) -> dict:
+    """Hard stop for every GPU-dependent stage — runs BEFORE any package install, download or model work."""
+    info = gpu_status()
+    save("gpu.json", info)
+    if not info["GPU_READY"]:
+        _print_gpu(info)
+        fail(f"'{stage_name}' requires GPU_READY; this runtime is {info['GPU_STATUS']} ({'; '.join(info['reasons'])}). "
+             f"Nothing was installed or downloaded. {COLAB_GPU_HELP}")
+    return info
+
+
 def gpu() -> None:
-    import torch
-    if not torch.cuda.is_available():
-        save("gpu.json", {"GPU_READY": False, "CUDA_READY": False, "reason": "torch.cuda.is_available() is False"})
-        fail("No CUDA GPU attached. Colab: Runtime → Change runtime type → Hardware accelerator: T4 GPU → Save, then "
-             "Runtime → Restart and run all. If no GPU is offered, your Colab GPU quota may be exhausted — do NOT train on CPU.")
-    pr = torch.cuda.get_device_properties(0)
-    vram = round(pr.total_memory / 1e9, 2)
-    a = torch.randn(1024, 1024, device="cuda")
-    ok = bool(torch.isfinite(a @ a).all().item())
-    cap = list(torch.cuda.get_device_capability(0))
-    prof = vram_profile(vram)
-    data = {"gpu_name": pr.name, "vram_gb": vram, "compute_capability": cap, "bf16_supported": torch.cuda.is_bf16_supported(),
-            "is_t4": "T4" in pr.name, "cuda_matmul_ok": ok, "profile": prof,
-            "CUDA_READY": ok, "GPU_READY": ok and cap >= [7, 0] and bool(prof)}
-    save("gpu.json", data)
-    if not ok:
-        fail("CUDA matmul produced non-finite values — the GPU runtime is broken. Restart the runtime.")
-    if cap < [7, 0]:
-        fail(f"GPU compute capability {cap} < 7.0 is not supported by bitsandbytes 4-bit. Request a T4 or newer.")
-    if not prof:
-        fail(f"{pr.name} has {vram} GB VRAM; Nick 4.8 QLoRA needs ≥ 10 GB. Request a T4 (16 GB).")
-    if not data["is_t4"]:
-        print(f"NOTE: assigned GPU is {pr.name} (not a T4); using profile '{prof['name']}'.")
+    info = gpu_status()
+    save("gpu.json", info)
+    _print_gpu(info)
+    if not info["GPU_READY"]:
+        fail(f"{info['GPU_STATUS']}: {'; '.join(info['reasons'])}. {COLAB_GPU_HELP}")
+    if not info["is_t4"]:
+        print(f"NOTE: assigned GPU is {info['gpu_name']} (not a T4); using profile '{info['profile']['name']}'.")
     print("GPU READY ✅")
 
 
@@ -266,6 +338,7 @@ def _parse_requirements() -> list[tuple[str, str, str]]:
 
 
 def deps() -> None:
+    require_gpu_ready("deps")
     from importlib.metadata import PackageNotFoundError, version
     from packaging.version import Version
     plan, report = [], {}
@@ -301,6 +374,7 @@ def deps() -> None:
 
 
 def model() -> None:
+    require_gpu_ready("model")
     code = r"""
 import json, os
 from huggingface_hub import model_info
@@ -388,6 +462,7 @@ def data() -> None:
 
 
 def config() -> None:
+    require_gpu_ready("config")
     g = load("gpu.json", current_runtime_only=True)
     prof = g.get("profile") or {}
     if not prof:
@@ -659,6 +734,7 @@ def _follow(local_log: Path, local_status: Path, offset: int = 0) -> int | None:
 
 
 def train() -> None:
+    require_gpu_ready("train")
     pf = load("preflight.json", current_runtime_only=True)
     if pf.get("TRAINING_READY") is not True:
         fail("preflight gate has not passed in this runtime — run the gate cell first.")
@@ -715,6 +791,7 @@ def train() -> None:
 
 
 def evaluate() -> None:
+    require_gpu_ready("evaluate")
     if not (D["adapter"] / "adapter_model.safetensors").exists():
         fail("no adapter — training has not completed")
     rc = run([PY, "verify_adapter.py", "--adapter", str(D["adapter"])], "evaluate")
@@ -725,6 +802,7 @@ def evaluate() -> None:
 
 
 def verify() -> None:
+    require_gpu_ready("verify")
     code = r"""
 import json, sys, torch
 from pathlib import Path

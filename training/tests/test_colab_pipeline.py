@@ -47,7 +47,17 @@ class ColabPipeline(unittest.TestCase):
         """Writes like a stage of THIS runtime (stamped with the current runtime id)."""
         self.cp.save(name, data)
 
+    def _fake_gpu_ready(self, vram=15.64):
+        """Simulated GPU_READY hardware (this test container has no GPU)."""
+        prof = self.cp.vram_profile(vram)
+        info = {"GPU_STATUS": "GPU_READY", "GPU_READY": True, "CUDA_READY": True, "reasons": [], "gpu_name": "Tesla T4",
+                "vram_gb": vram, "bf16_supported": False, "compute_capability": [7, 5], "profile": prof, "is_t4": True,
+                "torch": "x", "torch_cuda_build": "12.4", "cuda_available": True, "nvidia_smi": "Tesla T4", "cuda_matmul_ok": True}
+        self.cp.gpu_status = lambda: dict(info)
+        return info
+
     def _all_ready(self, vram=15.64):
+        self._fake_gpu_ready(vram)
         prof = self.cp.vram_profile(vram)
         self._write("gpu.json", {"GPU_READY": True, "CUDA_READY": True, "gpu_name": "Tesla T4", "vram_gb": vram, "bf16_supported": False,
                                  "profile": prof})
@@ -296,6 +306,100 @@ class ColabPipeline(unittest.TestCase):
         self.assertEqual(r["LAST_PHASE"], "base_model_download_start")
         self.assertIn("still running", r["ROOT_CAUSE"])
         self.assertEqual(r["RESUME_OR_FRESH"], "FRESH")
+
+    # ---------------- hardware classification + GPU-only stage guards ----------------
+    def test_this_cpu_container_is_classified_no_gpu_attached(self):
+        info = self.cp.gpu_status()
+        self.assertEqual(info["GPU_STATUS"], "NO_GPU_ATTACHED")
+        self.assertFalse(info["GPU_READY"])
+        self.assertFalse(info["CUDA_READY"])
+
+    def test_cuda_unavailable_when_device_visible_but_torch_is_cpu_build(self):
+        from unittest import mock
+        import torch
+        with mock.patch("glob.glob", return_value=["/dev/nvidia0"]), mock.patch.object(torch.version, "cuda", None), \
+                mock.patch.object(torch.cuda, "is_available", return_value=False):
+            info = self.cp.gpu_status()
+        self.assertEqual(info["GPU_STATUS"], "CUDA_UNAVAILABLE")
+        self.assertIn("CPU-only build", info["reasons"][0])
+        self.assertFalse(info["GPU_READY"])
+
+    def _mock_cuda(self, name, total_bytes, cap):
+        from types import SimpleNamespace
+        from unittest import mock
+        import torch
+        real_randn = torch.randn
+        return [mock.patch.object(torch.cuda, "is_available", return_value=True),
+                mock.patch.object(torch.cuda, "get_device_properties", return_value=SimpleNamespace(name=name, total_memory=total_bytes)),
+                mock.patch.object(torch.cuda, "get_device_capability", return_value=cap),
+                mock.patch.object(torch.cuda, "is_bf16_supported", return_value=False),
+                mock.patch.object(torch, "randn", side_effect=lambda *a, **k: real_randn(*a)),
+                mock.patch("glob.glob", return_value=["/dev/nvidia0"])]
+
+    def _status_with(self, patches):
+        import contextlib
+        with contextlib.ExitStack() as st:
+            for p in patches:
+                st.enter_context(p)
+            return self.cp.gpu_status()
+
+    def test_gpu_ready_for_t4(self):
+        info = self._status_with(self._mock_cuda("Tesla T4", int(15.64e9), (7, 5)))
+        self.assertEqual(info["GPU_STATUS"], "GPU_READY")
+        self.assertTrue(info["GPU_READY"] and info["CUDA_READY"] and info["is_t4"])
+        self.assertEqual(info["profile"]["name"], "T4 16GB")
+
+    def test_gpu_attached_but_incompatible(self):
+        old = self._status_with(self._mock_cuda("Tesla K80", int(12e9), (3, 7)))
+        self.assertEqual(old["GPU_STATUS"], "GPU_ATTACHED_BUT_INCOMPATIBLE")
+        self.assertIn("compute capability", " ".join(old["reasons"]))
+        small = self._status_with(self._mock_cuda("Small GPU", int(8e9), (8, 6)))
+        self.assertEqual(small["GPU_STATUS"], "GPU_ATTACHED_BUT_INCOMPATIBLE")
+        self.assertFalse(small["GPU_READY"])
+
+    def test_gpu_stages_refuse_on_cpu_runtime_before_any_install_or_download(self):
+        for name in ("deps", "model", "config", "train", "evaluate", "verify"):
+            with self.assertRaises(SystemExit, msg=name):
+                self.cp.STAGES[name]()
+            g = json.loads((self.drive / "metadata/gpu.json").read_text())
+            self.assertEqual(g["GPU_STATUS"], "NO_GPU_ATTACHED")
+        self.assertFalse((self.drive / "logs/deps.log").exists(), "pip must not run on a CPU-only runtime")
+        self.assertFalse((self.drive / "metadata/deps.json").exists())
+        self.assertFalse((self.drive / "metadata/model.json").exists())
+        self.assertFalse((self.drive / "logs/model.log").exists(), "no model download on a CPU-only runtime")
+
+    def test_cpu_runtime_never_training_ready(self):
+        # even if every OTHER check were green, a CPU-only gpu.json keeps the hard gate closed
+        self._all_ready()
+        self.cp.config()
+        del self.cp.gpu_status          # back to the real (CPU) classifier
+        import importlib
+        self.cp = importlib.reload(self.cp)
+        self.cp.save("gpu.json", self.cp.gpu_status())
+        with self.assertRaises(SystemExit):
+            self.cp.gate()
+        pf = json.loads((self.drive / "metadata/preflight.json").read_text())
+        self.assertFalse(pf["GPU_READY"])
+        self.assertFalse(pf["TRAINING_READY"])
+
+    def test_notebook_cell2_classifies_and_guards_gpu_cells(self):
+        subprocess.run([sys.executable, str(ROOT / "colab/build_notebook.py")], check=True, capture_output=True)
+        nb = json.loads((ROOT / "colab/nick_4_8_qlora_colab.ipynb").read_text())
+        code = [c["source"] for c in nb["cells"] if c["cell_type"] == "code"]
+        cell2 = code[1]
+        for state in ("NO_GPU_ATTACHED", "CUDA_UNAVAILABLE", "GPU_ATTACHED_BUT_INCOMPATIBLE", "GPU_READY"):
+            self.assertIn(state, cell2)
+        for printed in ("torch.version.cuda", "torch.cuda.is_available", "GPU name", "VRAM", "CUDA capability", "GPU_READY"):
+            self.assertIn(printed, cell2)
+        self.assertNotIn("pip", cell2)
+        helper = code[3]
+        self.assertIn('GPU_STAGES = {"deps", "model", "config", "gate", "train", "evaluate", "verify"}', helper)
+        # executing cell 2 here (CPU container) must stop with NO_GPU_ATTACHED
+        ns = {}
+        with self.assertRaises(RuntimeError) as ctx:
+            exec(cell2, ns)
+        self.assertIn("NO_GPU_ATTACHED", str(ctx.exception))
+        self.assertEqual(ns["GPU_STATUS"], "NO_GPU_ATTACHED")
 
 
 if __name__ == "__main__":

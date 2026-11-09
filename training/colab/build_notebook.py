@@ -17,9 +17,13 @@ HELPER = r'''
 import os, subprocess, sys
 REPO_DIR = "/content/Approx-Ai"
 TRAINING = os.path.join(REPO_DIR, "training")
+GPU_STAGES = {"deps", "model", "config", "gate", "train", "evaluate", "verify"}
 def stage(*names):
     """Run colab_pipeline.py stages; stream output; stop the notebook on the first failure."""
     for name in names:
+        if name in GPU_STAGES and globals().get("GPU_STATUS") != "GPU_READY":
+            raise RuntimeError(f"'{name}' needs a GPU, but cell 2 reported GPU_STATUS={globals().get('GPU_STATUS', 'not run in this kernel')}. "
+                               "Fix the runtime (T4 GPU) and re-run from cell 1. Nothing was installed.")
         p = subprocess.Popen([sys.executable, "-u", "colab/colab_pipeline.py", name], cwd=TRAINING, env=dict(os.environ),
                              stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
         try:
@@ -80,20 +84,50 @@ if torch.cuda.is_available():
 print(subprocess.run(["nvidia-smi"], capture_output=True, text=True).stdout if shutil.which("nvidia-smi") else "nvidia-smi: not found")
 print("Artifacts →", DRIVE_ROOT)
 '''),
-    md("## CELL 2 — GPU / CUDA verification (stops here if no GPU)"),
+    md("""## CELL 2 — Hardware preflight (stops here unless GPU_READY)
+Classifies the runtime as `NO_GPU_ATTACHED`, `CUDA_UNAVAILABLE`, `GPU_ATTACHED_BUT_INCOMPATIBLE` or `GPU_READY`.
+Nothing is installed or downloaded here. Cells 5, 6, 8, 9, 10, 11 and 12 refuse to run unless this cell said `GPU_READY`
+in the current kernel (and the pipeline re-checks the hardware itself before each of them)."""),
     code(r'''
-import torch
-if not torch.cuda.is_available():
-    raise RuntimeError("NO GPU ATTACHED. Runtime → Change runtime type → T4 GPU → Save, then Runtime → Run all. "
-                       "If Colab offers no GPU, your quota is exhausted. Training will NOT run on CPU.")
-pr = torch.cuda.get_device_properties(0)
-a = torch.randn(2048, 2048, device="cuda", dtype=torch.float16)
-assert torch.isfinite(a @ a).all(), "CUDA matmul produced non-finite values — restart the runtime"
-cap = torch.cuda.get_device_capability(0)
-assert cap >= (7, 0), f"compute capability {cap} unsupported by bitsandbytes 4-bit"
-assert pr.total_memory / 1e9 >= 10, f"{pr.name} has {pr.total_memory/1e9:.1f} GB VRAM; need ≥ 10 GB"
-print(f"GPU OK: {pr.name}, {pr.total_memory/1e9:.1f} GB, capability {cap}, bf16={torch.cuda.is_bf16_supported()}",
-      "(T4 ✓)" if "T4" in pr.name else "(not a T4 — a VRAM-based profile will be used)")
+import glob, shutil, subprocess, torch
+GPU_STATUS, reasons = None, []
+smi = shutil.which("nvidia-smi")
+smi_out = subprocess.run([smi, "--query-gpu=name,memory.total", "--format=csv,noheader"], capture_output=True, text=True,
+                         timeout=30).stdout.strip() if smi else ""
+device_present = bool(glob.glob("/dev/nvidia[0-9]*")) or bool(smi_out)
+cuda = torch.cuda.is_available()
+name, vram, cap = None, 0.0, None
+if not device_present and not cuda:
+    GPU_STATUS = "NO_GPU_ATTACHED"; reasons.append("no NVIDIA device/driver in this runtime (CPU-only VM)")
+elif not cuda:
+    GPU_STATUS = "CUDA_UNAVAILABLE"
+    reasons.append(f"PyTorch is a CPU-only build ({torch.__version__})" if torch.version.cuda is None
+                   else f"PyTorch CUDA {torch.version.cuda} cannot use the attached driver")
+else:
+    pr = torch.cuda.get_device_properties(0)
+    name, vram, cap = pr.name, round(pr.total_memory / 1e9, 2), torch.cuda.get_device_capability(0)
+    try:
+        a = torch.randn(1024, 1024, device="cuda"); ok = bool(torch.isfinite(a @ a).all())
+    except Exception as e:
+        ok = False; reasons.append(f"CUDA matmul failed: {e}")
+    if not ok and not reasons: reasons.append("CUDA matmul produced non-finite values")
+    if cap < (7, 0): reasons.append(f"compute capability {cap} < 7.0 (bitsandbytes 4-bit)")
+    if vram < 10: reasons.append(f"{vram} GB VRAM < 10 GB")
+    GPU_STATUS = "GPU_READY" if not reasons else "GPU_ATTACHED_BUT_INCOMPATIBLE"
+print(f"torch version          : {torch.__version__}")
+print(f"torch.version.cuda     : {torch.version.cuda}")
+print(f"torch.cuda.is_available: {cuda}")
+print(f"nvidia-smi             : {smi_out or ('not found' if not smi else 'no GPU listed')}")
+print(f"GPU name               : {name or '—'}")
+print(f"VRAM                   : {str(vram) + ' GB' if vram else '—'}")
+print(f"CUDA capability        : {cap or '—'}")
+print(f"GPU_STATUS             : {GPU_STATUS}")
+print(f"GPU_READY              : {'YES' if GPU_STATUS == 'GPU_READY' else 'NO'}")
+if GPU_STATUS != "GPU_READY":
+    raise RuntimeError(f"{GPU_STATUS}: {'; '.join(reasons)}. Runtime → Change runtime type → T4 GPU → Save, then Runtime → "
+                       "Run all. If Colab connects without a GPU, the GPU quota is exhausted. Training will NOT run on CPU — "
+                       "do not run the later cells in this runtime.")
+print("T4 ✓" if "T4" in name else f"(not a T4 — a VRAM-based profile will be used for {name})")
 '''),
     md("## CELL 3 — Internet verification (DNS, GitHub, Hugging Face)"),
     code(rf'''
