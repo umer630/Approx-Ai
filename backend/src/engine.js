@@ -1,11 +1,10 @@
 // Shared completion engine used by the web/mobile chat and the public API.
 import { one, all, run, now } from './db.js';
 import { HttpError, forbidden, bad } from './http.js';
-import { route, identityPrompt } from './models.js';
+import { route, identityPrompt, modeParams } from './models.js';
 import { consumeQuota } from './quota.js';
 import { streamCompletion } from './providers/index.js';
 
-const MAX_CONTEXT_CHARS = 24_000;
 
 function settingsOf(userId) { return one('SELECT * FROM settings WHERE user_id = ?', userId) || {}; }
 
@@ -61,11 +60,12 @@ export function buildMessages({ user, model, mode, chat, text, attachText, histo
 
   if (systemExtra) system += `\n\n${systemExtra}`;
   const history = given ? given : chat ? all("SELECT role, content FROM messages WHERE chat_id = ? AND user_id = ? AND status = 'complete' ORDER BY created_at", chat.id, user.id) : [];
+  const maxContext = modeParams(model.id, mode).context_chars; // efficiency mode sets the context budget
   const trimmed = [];
   let size = 0;
   for (let i = history.length - 1; i >= 0; i--) {
     size += history[i].content.length;
-    if (size > MAX_CONTEXT_CHARS) break;
+    if (size > maxContext) break;
     trimmed.unshift({ role: history[i].role, content: history[i].content });
   }
   return [{ role: 'system', content: system }, ...trimmed, { role: 'user', content: text + (attachText || '') }];
@@ -77,11 +77,11 @@ const REMEMBER = /^\s*(remember( that)?|yaad rakho( ke)?|یاد رکھو)\s*[:,]
  * Run one completion with full policy enforcement.
  * Returns { route, text, usage, refused, memorySaved }.
  */
-export async function complete({ user, chat, text, requestedModel, requestedMode, attachments, source, requestId, onRoute, onDelta, history, systemExtra, skipMemoryCapture, signal }) {
+export async function complete({ user, chat, text, requestedModel, requestedMode, requestedVersion, attachments, source, requestId, onRoute, onDelta, history, systemExtra, skipMemoryCapture, signal }) {
   if (typeof text !== 'string' || !text.trim()) throw bad('content is required');
   if (text.length > 100_000) throw bad('content is too long (max 100,000 characters)');
   const s = settingsOf(user.id);
-  const r = route(user, { requestedModel, requestedMode: requestedMode ?? s.default_mode, text, defaultModel: s.default_model || 'nick-4.8' });
+  const r = route(user, { requestedModel, requestedMode: requestedMode ?? s.default_mode, requestedVersion, text, defaultModel: s.default_model || 'nick-4.8' });
   onRoute?.(r);
 
   // Explicit, consented memory capture: "remember that …"
@@ -102,7 +102,7 @@ export async function complete({ user, chat, text, requestedModel, requestedMode
   consumeQuota(user, { source, modelId: r.model.id, mode: r.mode, requestId });
   const { text: attachText, meta } = attachmentContext(user.id, attachments);
   const messages = buildMessages({ user, model: r.model, mode: r.mode, chat, text, attachText, history, systemExtra });
-  const out = await streamCompletion({ model: r.model, mode: r.mode, messages, onDelta, signal });
+  const out = await streamCompletion({ model: r.model, mode: r.mode, version: r.version, messages, onDelta, signal });
   return { route: r, text: out.text, usage: out.usage, refused: false, attachments: meta, memorySaved };
 }
 

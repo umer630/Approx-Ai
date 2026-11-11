@@ -1,0 +1,156 @@
+{
+  "schema": "approx.catalog/v1",
+  "_comment": "Single source of truth for the product model catalog: models, their kind, capabilities, base models and the efficiency modes. The frontend, Android app and public API read this through the backend (never hard-code model behaviour in a client). Trained adapters are NOT listed here: they are discovered from the model registry directory (APPROX_MODELS_DIR) as versioned, verified releases.",
+
+  "default_mode": "medium",
+  "efficiency_modes": {
+    "low": {
+      "label": "Low",
+      "description": "Fastest and cheapest: short, direct answers with a small context window.",
+      "max_tokens": 384,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "frequency_penalty": 0.0,
+      "context_chars": 8000,
+      "guidance": "Answer briefly: give the direct answer in a few sentences without extra detail."
+    },
+    "medium": {
+      "label": "Medium",
+      "description": "Balanced speed and depth for everyday use.",
+      "max_tokens": 1024,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "frequency_penalty": 0.0,
+      "context_chars": 24000,
+      "guidance": "Answer directly and efficiently."
+    },
+    "high": {
+      "label": "High",
+      "description": "Most thorough: longer, carefully checked answers with the largest context window. Slower.",
+      "max_tokens": 4096,
+      "temperature": 0.4,
+      "top_p": 0.9,
+      "frequency_penalty": 0.0,
+      "context_chars": 48000,
+      "guidance": "Work carefully: reason step by step internally, check your work, and give a thorough, well-structured answer."
+    }
+  },
+
+  "models": [
+    {
+      "id": "nick-4.8",
+      "name": "Nick 4.8",
+      "family": "nick",
+      "tier": "default",
+      "kind": "language_model",
+      "base_model": "Qwen/Qwen2.5-3B-Instruct",
+      "description": "Educational and everyday assistant: teaching, explanations, maths, science, coding and writing in English, Urdu and Roman Urdu.",
+      "capabilities": ["chat", "education", "explanation", "reasoning", "mathematics", "science", "coding", "writing", "summarization", "translation", "multilingual", "defensive_security_education"],
+      "modalities": { "input": ["text"], "output": ["text"] },
+      "languages": ["en", "ur", "roman-ur", "mixed"],
+      "history_training_allowed": true,
+      "safety_profile": "standard",
+      "training_config": "training/models/nick-4.8.yaml"
+    },
+    {
+      "id": "hike-6.5",
+      "name": "Hike 6.5",
+      "family": "hike",
+      "tier": "advanced",
+      "kind": "language_model",
+      "base_model": "Qwen/Qwen2.5-7B-Instruct",
+      "description": "Stronger reasoning model: multi-step problems, mathematics, coding, research assistance and structured analysis.",
+      "capabilities": ["chat", "education", "advanced_explanation", "reasoning", "mathematics", "science", "coding", "research_assistance", "structured_analysis", "multilingual", "defensive_security_education"],
+      "modalities": { "input": ["text"], "output": ["text"] },
+      "languages": ["en", "ur", "roman-ur", "mixed"],
+      "history_training_allowed": true,
+      "safety_profile": "standard",
+      "training_config": "training/models/hike-6.5.yaml"
+    },
+    {
+      "id": "sona-9.0",
+      "name": "Sona 9.0",
+      "family": "sona",
+      "tier": "premium",
+      "kind": "language_model",
+      "base_model": "Qwen/Qwen2.5-14B-Instruct",
+      "description": "Premium model: advanced reasoning, science, research, academic writing and complex instructions.",
+      "capabilities": ["chat", "education", "advanced_reasoning", "mathematics", "science", "coding", "research", "academic_writing", "complex_instructions", "structured_responses", "multilingual", "defensive_security_education"],
+      "modalities": { "input": ["text"], "output": ["text"] },
+      "languages": ["en", "ur", "roman-ur", "mixed"],
+      "history_training_allowed": true,
+      "safety_profile": "standard",
+      "training_config": "training/models/sona-9.0.yaml"
+    },
+    {
+      "id": "fab-100x",
+      "name": "FAB 100x",
+      "family": "fab",
+      "tier": "restricted",
+      "kind": "language_model",
+      "base_model": null,
+      "description": "Restricted specialist layer: defensive security, application audit, advanced development, reporting.",
+      "capabilities": ["chat", "defensive_security", "application_audit", "reporting"],
+      "modalities": { "input": ["text"], "output": ["text"] },
+      "languages": ["en", "ur", "roman-ur", "mixed"],
+      "history_training_allowed": false,
+      "safety_profile": "restricted_defensive",
+      "training_config": null
+    },
+    {
+      "id": "fab-500x",
+      "name": "FAB 500X",
+      "family": "fab",
+      "tier": "restricted",
+      "kind": "code_model",
+      "base_model": "Qwen/Qwen2.5-Coder-32B-Instruct",
+      "description": "Highest-capability target: advanced coding, architecture, multi-step reasoning and media planning. Image, audio and video generation run on separate pipelines that must be connected before they are available.",
+      "capabilities": ["chat", "advanced_coding", "debugging", "refactoring", "architecture", "repository_analysis", "test_generation", "secure_coding", "advanced_reasoning", "planning", "research_workflows", "media_planning", "defensive_security"],
+      "modalities": { "input": ["text", "code"], "output": ["text", "code"] },
+      "languages": ["en", "ur", "roman-ur", "mixed"],
+      "history_training_allowed": false,
+      "safety_profile": "restricted_defensive",
+      "training_config": "training/models/fab-500x.yaml",
+      "pipelines": ["video-generation", "video-understanding", "image-understanding", "audio"]
+    }
+  ],
+
+  "pipelines": [
+    {
+      "id": "video-generation",
+      "name": "Video generation",
+      "kind": "video_pipeline",
+      "tasks": ["text-to-video", "image-to-video"],
+      "env_url": "APPROX_VIDEO_PIPELINE_URL",
+      "env_key": "APPROX_VIDEO_PIPELINE_KEY",
+      "description": "External video-generation runtime. A text adapter cannot generate video; this pipeline must be connected to a real video model."
+    },
+    {
+      "id": "video-understanding",
+      "name": "Video understanding",
+      "kind": "multimodal_model",
+      "tasks": ["video-understanding"],
+      "env_url": "APPROX_VIDEO_UNDERSTANDING_URL",
+      "env_key": "APPROX_VIDEO_UNDERSTANDING_KEY",
+      "description": "External multimodal model that reads video."
+    },
+    {
+      "id": "image-understanding",
+      "name": "Image understanding",
+      "kind": "multimodal_model",
+      "tasks": ["image-understanding"],
+      "env_url": "APPROX_VISION_URL",
+      "env_key": "APPROX_VISION_KEY",
+      "description": "External vision-language model."
+    },
+    {
+      "id": "audio",
+      "name": "Audio",
+      "kind": "multimodal_model",
+      "tasks": ["speech-to-text", "text-to-speech"],
+      "env_url": "APPROX_AUDIO_URL",
+      "env_key": "APPROX_AUDIO_KEY",
+      "description": "External speech model."
+    }
+  ]
+}

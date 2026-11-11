@@ -60,6 +60,26 @@ export async function readBody(req, limit) {
   return Buffer.concat(chunks);
 }
 
+/** Stream a request body to a file (large uploads). Returns { bytes, sha256 }. */
+export async function readBodyToFile(req, file, limit) {
+  const declared = Number(req.headers['content-length'] || 0);
+  if (declared > limit) throw new HttpError(413, 'payload_too_large', `Body exceeds ${limit} bytes`);
+  const fs = await import('node:fs');
+  const hash = crypto.createHash('sha256');
+  const out = fs.createWriteStream(file, { mode: 0o600 });
+  let bytes = 0;
+  try {
+    for await (const c of req) {
+      bytes += c.length;
+      if (bytes > limit) throw new HttpError(413, 'payload_too_large', `Body exceeds ${limit} bytes`);
+      hash.update(c);
+      if (!out.write(c)) await new Promise((r) => out.once('drain', r));
+    }
+  } catch (e) { out.destroy(); throw e; }
+  await new Promise((resolve, reject) => { out.on('error', reject); out.end(resolve); });
+  return { bytes, sha256: hash.digest('hex') };
+}
+
 export async function readJson(req, limit = 1024 * 1024) {
   const ct = String(req.headers['content-type'] || '');
   if (!ct.includes('application/json')) throw bad('Content-Type must be application/json');
@@ -88,7 +108,7 @@ export function applyCors(req, res) {
   if (origin && config.corsOrigins.includes(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);
     res.setHeader('Vary', 'Origin');
-    res.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type, X-CSRF-Token, X-Filename, X-Project-Id');
+    res.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type, X-CSRF-Token, X-Filename, X-Project-Id, X-Artifact-Sha256');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE');
     res.setHeader('Access-Control-Max-Age', '600');
   }

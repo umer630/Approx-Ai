@@ -7,15 +7,14 @@ const env = process.env;
 const bool = (v, d = false) => (v === undefined ? d : ['1', 'true', 'yes', 'on'].includes(String(v).toLowerCase()));
 const int = (v, d) => (v === undefined || v === '' ? d : Number.parseInt(v, 10));
 
+// Software versions. Model/adapter versions are NOT listed here: they come from the model registry
+// (verified release artifacts) at run time — see registry.js and GET /api/status.
 export const VERSIONS = Object.freeze({
-  product: '1.0.0',
-  backend: '1.0.0',
-  frontend: '1.0.0',
-  api: 'v1 (1.0.0)',
-  apk: '1.0.0 (versionCode 1)',
-  dataset: 'nick-sft-0.1.0 (seed, not yet trained)',
-  model: 'nick-4.8 (base Qwen/Qwen2.5-3B-Instruct)',
-  adapter: 'none — training blocked (no GPU in build env)',
+  product: '1.1.0',
+  backend: '1.1.0',
+  frontend: '1.1.0',
+  api: 'v1 (1.1.0)',
+  apk: '1.1.0 (versionCode 2)',
 });
 
 export const config = {
@@ -59,6 +58,26 @@ export const config = {
 
   // Dev simulator provider — NEVER a real model. Only for local development / automated tests.
   devProvider: bool(env.APPROX_DEV_PROVIDER, false),
+
+  // Model registry: versioned, verified release artifacts produced by the training pipeline.
+  //   <modelsDir>/<model-id>/versions/<x.y.z>/{adapter/, release.json, metadata.json, SHA256SUMS, …}
+  //   <modelsDir>/active.json   ← which version of each model is live (shared with the inference server)
+  registry: {
+    dir: path.resolve(env.APPROX_MODELS_DIR || path.join(env.APPROX_DATA_DIR || path.resolve(here, '../../data'), 'models')),
+    // off (default): a superadmin activates versions explicitly.
+    // production: the newest verified release with production_ready=true is activated automatically.
+    // validated: the newest verified, validated release is activated automatically (even if not production-ready).
+    autoActivate: ['off', 'production', 'validated'].includes(env.APPROX_AUTO_ACTIVATE) ? env.APPROX_AUTO_ACTIVATE : 'off',
+    // Smoke-test artifacts (tiny random models from the CPU test pipeline) can only ever be used outside production.
+    allowSmoke: bool(env.APPROX_ALLOW_SMOKE_MODELS, false) && (env.APPROX_ENV || 'production') !== 'production',
+    scanSeconds: int(env.APPROX_REGISTRY_SCAN_SECONDS, 60),
+    maxArtifactBytes: int(env.APPROX_MAX_ARTIFACT_BYTES, 3 * 1024 * 1024 * 1024),
+    // Optional HMAC key shared with the training pipeline: when set, releases must carry a valid SIGNATURE.
+    signingKey: env.APPROX_RELEASE_SIGNING_KEY || '',
+    // Optional: our inference server's admin endpoint, told to reload right after an activation.
+    inferenceAdminUrl: (env.APPROX_INFERENCE_ADMIN_URL || '').replace(/\/$/, ''),
+    inferenceAdminKey: env.APPROX_INFERENCE_ADMIN_KEY || '',
+  },
 
   search: {
     endpoint: env.SEARCH_API_ENDPOINT || '', // optional web search backend

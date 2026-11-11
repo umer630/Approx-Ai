@@ -1,12 +1,12 @@
 // Model registry, access control, and the Master Router / Orchestrator (spec §7–15).
 import { one, all, now } from './db.js';
 import { forbidden, bad } from './http.js';
+import { MODES, DEFAULT_MODE, modeParams, catalogModel } from './catalog.js';
+import { resolveServingVersion, publicModelState } from './registry.js';
 
-export const MODES = ['medium', 'high'];
-export const MODE_PARAMS = {
-  medium: { max_tokens: 1024, temperature: 0.7, guidance: 'Answer directly and efficiently.' },
-  high: { max_tokens: 4096, temperature: 0.4, guidance: 'Work carefully: reason step by step internally, check your work, and give a thorough, well-structured answer.' },
-};
+// Efficiency modes (low / medium / high) are a separate control from the model: they come from the
+// catalog and change real inference parameters (token budget, temperature, context size, guidance).
+export { MODES, DEFAULT_MODE, modeParams };
 
 export function listModels() { return all('SELECT * FROM models WHERE enabled = 1 ORDER BY rowid'); }
 export function getModel(id) { return one('SELECT * FROM models WHERE id = ? AND enabled = 1', id); }
@@ -25,11 +25,17 @@ export function canUseModel(user, model) {
 }
 
 export function modelsForUser(user) {
-  return listModels().map((m) => ({
-    id: m.id, name: m.name, family: m.family, tier: m.tier, description: m.description,
-    available: canUseModel(user, m),
-    history_training: !!m.history_training_allowed,
-  }));
+  return listModels().map((m) => {
+    const c = catalogModel(m.id) || {};
+    return {
+      id: m.id, name: m.name, family: m.family, tier: m.tier, description: m.description,
+      kind: c.kind || 'language_model', capabilities: c.capabilities || [], modalities: c.modalities || { input: ['text'], output: ['text'] },
+      languages: c.languages || [], pipelines: c.pipelines || [],
+      available: canUseModel(user, m),
+      history_training: !!m.history_training_allowed,
+      ...publicModelState(m.id),
+    };
+  });
 }
 
 // ---------------- Safety policy ----------------
@@ -76,8 +82,8 @@ export function classify(text) {
  * Master Router. Inputs: user, requested model ('auto' or id), requested mode, text.
  * Returns the model+mode to use and a human-readable reason. Never bypasses access.
  */
-export function route(user, { requestedModel = 'auto', requestedMode, text, defaultModel = 'nick-4.8' }) {
-  const mode = requestedMode ?? 'medium';
+export function route(user, { requestedModel = 'auto', requestedMode, requestedVersion, text, defaultModel = 'nick-4.8' }) {
+  const mode = requestedMode ?? DEFAULT_MODE;
   if (!MODES.includes(mode)) throw bad(`mode must be one of: ${MODES.join(', ')} (modes are not models)`);
   const task = classify(text);
   const safety = safetyCheck(text);
@@ -86,7 +92,7 @@ export function route(user, { requestedModel = 'auto', requestedMode, text, defa
     const m = getModel(requestedModel);
     if (!m) throw bad(`Unknown model '${requestedModel}'`, 'unknown_model');
     if (!canUseModel(user, m)) throw forbidden(`Your account does not have access to ${m.name}`, 'model_access_denied');
-    return { model: m, mode, task, safety, reason: 'user-selected' };
+    return { model: m, mode, version: resolveServingVersion(m.id, requestedVersion), task, safety, reason: 'user-selected' };
   }
 
   // Automatic routing — choose the most suitable model the user is permitted to use.
@@ -99,7 +105,7 @@ export function route(user, { requestedModel = 'auto', requestedMode, text, defa
     const m = getModel(id);
     if (m && canUseModel(user, m)) {
       const reason = id === want[0] ? `auto: ${task.primary} task, complexity ${task.complexity}` : `auto: best permitted model for ${task.primary} task (complexity ${task.complexity})`;
-      return { model: m, mode, task, safety, reason };
+      return { model: m, mode, version: resolveServingVersion(m.id, requestedVersion), task, safety, reason };
     }
   }
   throw forbidden('No model available for this account', 'no_model');
@@ -112,5 +118,5 @@ export function identityPrompt(model, mode) {
   const fab = model.family === 'fab'
     ? ' You are a restricted specialist model for defensive cybersecurity, application audits, advanced development and professional reporting. Only assist with authorized, defensive work; refuse to create malware, credential theft, or unauthorized exploitation tooling.'
     : '';
-  return `${base}${fab}\nMode: ${mode.toUpperCase()}. ${MODE_PARAMS[mode].guidance}`;
+  return `${base}${fab}\nMode: ${mode.toUpperCase()}. ${modeParams(model.id, mode).guidance}`;
 }

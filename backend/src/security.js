@@ -145,3 +145,14 @@ export function requireScope(ctx, scope) {
   if (ctx.auth.kind === 'api_key' && !ctx.auth.apiKey.scopes.includes(scope)) throw forbidden(`API key lacks scope '${scope}'`, 'insufficient_scope');
   return ctx.auth.user;
 }
+
+// Privileged API-key scopes (training worker, artifact import): only admins may hold them, and the
+// owner's role is re-checked on every call so a demoted account loses the capability immediately.
+export const PRIVILEGED_SCOPES = ['training:worker', 'registry:import'];
+export function requirePrivileged(ctx, scope) {
+  if (!ctx.auth) throw unauthorized('Missing credentials');
+  const u = ctx.auth.user;
+  if (!['admin', 'superadmin'].includes(u.role)) throw forbidden('This operation requires an administrator', 'admin_required');
+  if (ctx.auth.kind === 'api_key' && !ctx.auth.apiKey.scopes.includes(scope)) throw forbidden(`API key lacks scope '${scope}'`, 'insufficient_scope');
+  return u;
+}

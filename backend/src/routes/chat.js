@@ -2,7 +2,8 @@ import { one, all, run, now, audit } from '../db.js';
 import { readJson, sendJson, notFound, bad, forbidden, newId, startSse, HttpError, str, oneOf, clientIp } from '../http.js';
 import { requireUser, requireVerified, rateLimit } from '../security.js';
 import { modelsForUser, getModel, canUseModel, MODES } from '../models.js';
-import { providerStatus } from '../providers/index.js';
+import { backendStatus } from '../providers/index.js';
+import { modeList, DEFAULT_MODE } from '../catalog.js';
 import { complete } from '../engine.js';
 import { usageSummary } from '../quota.js';
 
@@ -16,7 +17,7 @@ function chatView(c) {
     deleted: !!c.deleted_at, training_eligible: !!c.training_eligible, is_fab: !!c.is_fab, created_at: c.created_at, updated_at: c.updated_at };
 }
 function msgView(m) {
-  return { id: m.id, role: m.role, content: m.content, model_id: m.model_id, mode: m.mode, route_reason: m.route_reason,
+  return { id: m.id, role: m.role, content: m.content, model_id: m.model_id, model_version: m.model_version ?? null, mode: m.mode, route_reason: m.route_reason,
     attachments: JSON.parse(m.attachments || '[]'), status: m.status, created_at: m.created_at };
 }
 
@@ -24,8 +25,10 @@ export function registerChatRoutes(r) {
   r.get('/api/models', async (req, res, ctx) => {
     const u = requireUser(ctx);
     sendJson(res, 200, {
-      models: modelsForUser(u).map((m) => ({ ...m, backend: providerStatus(m.family) })),
+      models: modelsForUser(u).map((m) => ({ ...m, backend: backendStatus(m) })),
       modes: MODES,
+      mode_details: modeList(),
+      default_mode: DEFAULT_MODE,
       router: { id: 'auto', name: 'Master Router (Auto)' },
     });
   });
@@ -154,7 +157,7 @@ async function streamTurn({ req, res, ctx, user, chat, text, model, mode, attach
       onDelta: (d) => {
         if (!sse) {
           sse = startSse(res);
-          sse.send('route', { model_id: routeInfo.model.id, model_name: routeInfo.model.name, mode: routeInfo.mode, reason: routeInfo.reason, task: routeInfo.task.primary, request_id: ctx.requestId });
+          sse.send('route', { model_id: routeInfo.model.id, model_name: routeInfo.model.name, model_version: routeInfo.version, mode: routeInfo.mode, reason: routeInfo.reason, task: routeInfo.task.primary, request_id: ctx.requestId });
         }
         sse.send('delta', { text: d });
       },
@@ -162,8 +165,8 @@ async function streamTurn({ req, res, ctx, user, chat, text, model, mode, attach
     const t = now();
     run('INSERT INTO messages (id,chat_id,user_id,role,content,attachments,created_at) VALUES (?,?,?,?,?,?,?)',
       userMsgId, chat.id, user.id, 'user', text, JSON.stringify(result.attachments || []), t0);
-    run('INSERT INTO messages (id,chat_id,user_id,role,content,model_id,mode,route_reason,status,tokens_in,tokens_out,created_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)',
-      asstId, chat.id, user.id, 'assistant', result.text, result.route.model.id, result.route.mode, result.route.reason,
+    run('INSERT INTO messages (id,chat_id,user_id,role,content,model_id,model_version,mode,route_reason,status,tokens_in,tokens_out,created_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
+      asstId, chat.id, user.id, 'assistant', result.text, result.route.model.id, result.route.version, result.route.mode, result.route.reason,
       result.refused ? 'refused' : 'complete', result.usage.prompt_tokens || 0, result.usage.completion_tokens || 0, Math.max(t, t0 + 1));
     const title = chat.title === 'New chat' ? text.replace(/\s+/g, ' ').trim().slice(0, 60) || 'New chat' : chat.title;
     run('UPDATE chats SET updated_at = ?, title = ?, model_id = ?, mode = ? WHERE id = ?', t, title, result.route.model.id, result.route.mode, chat.id);

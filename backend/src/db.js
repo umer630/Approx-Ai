@@ -4,6 +4,7 @@ import { DatabaseSync } from 'node:sqlite';
 import fs from 'node:fs';
 import path from 'node:path';
 import { config } from './config.js';
+import { catalog } from './catalog.js';
 
 const SCHEMA = `
 PRAGMA journal_mode = WAL;
@@ -33,7 +34,7 @@ CREATE TABLE IF NOT EXISTS profiles (
 CREATE TABLE IF NOT EXISTS settings (
   user_id TEXT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
   default_model TEXT NOT NULL DEFAULT 'nick-4.8',
-  default_mode TEXT NOT NULL DEFAULT 'medium' CHECK (default_mode IN ('medium','high')),
+  default_mode TEXT NOT NULL DEFAULT 'medium' CHECK (default_mode IN ('low','medium','high')),
   memory_enabled INTEGER NOT NULL DEFAULT 1,
   training_opt_in INTEGER NOT NULL DEFAULT 0,
   notifications_email INTEGER NOT NULL DEFAULT 1,
@@ -133,6 +134,7 @@ CREATE TABLE IF NOT EXISTS messages (
   role TEXT NOT NULL CHECK (role IN ('user','assistant','system')),
   content TEXT NOT NULL,
   model_id TEXT,
+  model_version TEXT,
   mode TEXT,
   route_reason TEXT,
   attachments TEXT NOT NULL DEFAULT '[]',
@@ -199,6 +201,7 @@ CREATE TABLE IF NOT EXISTS api_requests (
   api_key_id TEXT,
   endpoint TEXT NOT NULL,
   model_id TEXT,
+  model_version TEXT,
   mode TEXT,
   status INTEGER NOT NULL,
   latency_ms INTEGER NOT NULL,
@@ -328,15 +331,125 @@ CREATE TABLE IF NOT EXISTS rate_buckets (
   count INTEGER NOT NULL,
   reset_at INTEGER NOT NULL
 );
+
+-- Model releases: METADATA mirror of the artifact registry (APPROX_MODELS_DIR). Weights are never
+-- stored in the database — artifact_uri points at a directory / object-storage prefix.
+CREATE TABLE IF NOT EXISTS model_releases (
+  model_id TEXT NOT NULL,
+  version TEXT NOT NULL,
+  kind TEXT NOT NULL DEFAULT 'language_model',
+  status TEXT NOT NULL,
+  production_ready INTEGER NOT NULL DEFAULT 0,
+  verified INTEGER NOT NULL DEFAULT 0,
+  adapter_sha256 TEXT,
+  base_model TEXT,
+  base_model_revision TEXT,
+  dataset_version TEXT,
+  dataset_fingerprint TEXT,
+  evaluation_score REAL,
+  artifact_uri TEXT NOT NULL,
+  source TEXT NOT NULL DEFAULT 'scan',
+  detail TEXT NOT NULL DEFAULT '{}',
+  first_seen_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL,
+  activated_at INTEGER,
+  activated_by TEXT,
+  deactivated_at INTEGER,
+  PRIMARY KEY (model_id, version)
+);
+
+-- GPU compute control plane: jobs requested by admins, executed by GPU workers (e.g. a Colab runtime
+-- running run_all_training.py --worker). The API server itself never trains.
+CREATE TABLE IF NOT EXISTS gpu_jobs (
+  id TEXT PRIMARY KEY,
+  kind TEXT NOT NULL DEFAULT 'training',
+  models TEXT NOT NULL,
+  options TEXT NOT NULL DEFAULT '{}',
+  status TEXT NOT NULL CHECK (status IN ('queued','running','stop_requested','succeeded','failed','stopped','blocked')),
+  requested_by TEXT NOT NULL,
+  worker_id TEXT,
+  phase TEXT,
+  progress TEXT NOT NULL DEFAULT '{}',
+  results TEXT NOT NULL DEFAULT '{}',
+  log_tail TEXT NOT NULL DEFAULT '',
+  created_at INTEGER NOT NULL,
+  started_at INTEGER,
+  updated_at INTEGER NOT NULL,
+  finished_at INTEGER
+);
+CREATE INDEX IF NOT EXISTS idx_gpu_jobs_status ON gpu_jobs(status, created_at);
+CREATE TABLE IF NOT EXISTS gpu_workers (
+  id TEXT PRIMARY KEY,
+  name TEXT NOT NULL DEFAULT '',
+  api_key_id TEXT,
+  gpu TEXT NOT NULL DEFAULT '{}',
+  runtime TEXT NOT NULL DEFAULT '{}',
+  current_job_id TEXT,
+  first_seen_at INTEGER NOT NULL,
+  last_seen_at INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS schema_migrations (
+  id TEXT PRIMARY KEY,
+  applied_at INTEGER NOT NULL
+);
 `;
 
-const MODELS = [
-  ['nick-4.8', 'Nick 4.8', 'nick', 'default', 'Default everyday model: general knowledge, reasoning, maths, coding, writing, English/Urdu/Roman Urdu.', 1],
-  ['hike-6.5', 'Hike 6.5', 'hike', 'advanced', 'Advanced reasoning: multi-step problems, advanced coding, technical research, planning.', 1],
-  ['sona-9.0', 'Sona 9.0', 'sona', 'premium', 'Premium intelligence: deep reasoning, advanced research, professional analysis.', 1],
-  ['fab-100x', 'FAB 100x', 'fab', 'restricted', 'Restricted specialist layer: defensive security, application audit, advanced development, reporting.', 0],
-  ['fab-500x', 'FAB 500x', 'fab', 'restricted', 'Restricted specialist layer (high capacity). Superadmin grant only.', 0],
-];
+// ---- migrations for databases created by earlier releases (fresh databases already match SCHEMA) ----
+function hasColumn(d, table, column) {
+  return d.prepare(`PRAGMA table_info(${table})`).all().some((c) => c.name === column);
+}
+
+function migrate(d) {
+  const applied = new Set(d.prepare('SELECT id FROM schema_migrations').all().map((r) => r.id));
+  const apply = (id, fn) => {
+    if (applied.has(id)) return;
+    d.exec('BEGIN');
+    try {
+      fn();
+      d.prepare('INSERT INTO schema_migrations (id, applied_at) VALUES (?, ?)').run(id, Date.now());
+      d.exec('COMMIT');
+    } catch (e) { d.exec('ROLLBACK'); throw e; }
+  };
+
+  // 1.1.0 — efficiency mode "low": the old CHECK only allowed ('medium','high'); SQLite cannot alter a
+  // CHECK constraint, so the table is rebuilt with identical data.
+  apply('2026-11-settings-low-mode', () => {
+    const row = d.prepare("SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'settings'").get();
+    if (!row || row.sql.includes("'low'")) return;
+    d.exec(`
+      CREATE TABLE settings_new (
+        user_id TEXT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+        default_model TEXT NOT NULL DEFAULT 'nick-4.8',
+        default_mode TEXT NOT NULL DEFAULT 'medium' CHECK (default_mode IN ('low','medium','high')),
+        memory_enabled INTEGER NOT NULL DEFAULT 1,
+        training_opt_in INTEGER NOT NULL DEFAULT 0,
+        notifications_email INTEGER NOT NULL DEFAULT 1,
+        personalization TEXT NOT NULL DEFAULT '',
+        theme TEXT NOT NULL DEFAULT 'dark'
+      );
+      INSERT INTO settings_new (user_id, default_model, default_mode, memory_enabled, training_opt_in, notifications_email, personalization, theme)
+        SELECT user_id, default_model, default_mode, memory_enabled, training_opt_in, notifications_email, personalization, theme FROM settings;
+      DROP TABLE settings;
+      ALTER TABLE settings_new RENAME TO settings;
+    `);
+  });
+
+  // 1.1.0 — record which adapter version produced a message / served an API request.
+  apply('2026-11-model-version-columns', () => {
+    if (!hasColumn(d, 'messages', 'model_version')) d.exec('ALTER TABLE messages ADD COLUMN model_version TEXT');
+    if (!hasColumn(d, 'api_requests', 'model_version')) d.exec('ALTER TABLE api_requests ADD COLUMN model_version TEXT');
+  });
+}
+
+// The `models` table is seeded and kept in sync from the catalog file (name, tier, description…);
+// `enabled` stays under admin control and is never overwritten.
+function syncCatalog(d) {
+  const up = d.prepare(`INSERT INTO models (id, name, family, tier, description, history_training_allowed) VALUES (?,?,?,?,?,?)
+    ON CONFLICT(id) DO UPDATE SET name = excluded.name, family = excluded.family, tier = excluded.tier,
+      description = excluded.description, history_training_allowed = excluded.history_training_allowed`);
+  for (const m of catalog.models) up.run(m.id, m.name, m.family, m.tier, m.description, m.history_training_allowed ? 1 : 0);
+}
 
 let db;
 export function getDb() {
@@ -345,8 +458,8 @@ export function getDb() {
   const file = process.env.APPROX_DB_FILE || path.join(config.dataDir, 'approx.db');
   db = new DatabaseSync(file);
   db.exec(SCHEMA);
-  const ins = db.prepare('INSERT OR IGNORE INTO models (id,name,family,tier,description,history_training_allowed) VALUES (?,?,?,?,?,?)');
-  for (const m of MODELS) ins.run(...m);
+  migrate(db);
+  syncCatalog(db);
   return db;
 }
 

@@ -12,14 +12,17 @@ import { registerAccountRoutes } from './routes/account.js';
 import { registerWorkspaceRoutes } from './routes/workspace.js';
 import { registerDeveloperRoutes } from './routes/developer.js';
 import { registerAdminRoutes } from './routes/admin.js';
-import { providerStatus } from './providers/index.js';
+import { registerPlatformRoutes } from './routes/platform.js';
+import { backendStatus } from './providers/index.js';
+import { listModels } from './models.js';
+import { getActive, startRegistryWatcher } from './registry.js';
 
 export function buildRouter() {
   const r = new Router();
   r.get('/healthz', async (req, res) => sendJson(res, 200, { ok: true }));
   r.get('/api/version', async (req, res) => sendJson(res, 200, {
     product: 'Approx AI', company: 'Approx Technology', versions: VERSIONS, build_id: config.buildId,
-    inference: Object.fromEntries(['nick', 'hike', 'sona', 'fab'].map((f) => [f, providerStatus(f)])),
+    models: Object.fromEntries(listModels().map((m) => [m.id, { backend: backendStatus(m), active_version: getActive(m.id)?.version ?? null }])),
   }));
   registerAuthRoutes(r);
   registerChatRoutes(r);
@@ -28,6 +31,7 @@ export function buildRouter() {
   registerWorkspaceRoutes(r);
   registerDeveloperRoutes(r);
   registerAdminRoutes(r);
+  registerPlatformRoutes(r);
   return r;
 }
 
@@ -85,7 +89,8 @@ export function createServer() {
 
 if (process.argv[1] && process.argv[1].endsWith('server.js')) {
   const server = createServer();
-  server.requestTimeout = 300_000;
+  startRegistryWatcher();
+  server.requestTimeout = 900_000; // large artifact uploads
   server.headersTimeout = 30_000;
   server.listen(config.port, config.host, () => {
     console.log(`Approx AI backend ${VERSIONS.backend} (${config.env}) listening on http://${config.host}:${config.port}`);
