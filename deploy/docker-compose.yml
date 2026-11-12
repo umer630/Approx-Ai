@@ -1,23 +1,30 @@
-# Production-style stack: Approx backend + vLLM serving Qwen2.5-3B-Instruct with the Nick 4.8 adapter.
-# Requires an NVIDIA GPU host for the inference service, a TLS-terminating reverse proxy in front
-# of `approx` (HTTPS is mandatory for the Android app), and a mail provider for verification emails.
+# Production-style stack: Approx backend + the Approx inference server (serves registry-activated adapters).
+# Requires an NVIDIA GPU host for `inference`, a TLS-terminating reverse proxy in front of `approx`
+# (HTTPS is mandatory for the Android app), and a mail provider for verification emails.
+#
+# Both services share the model registry volume: the backend imports/verifies/activates releases and writes
+# active.json; the inference server reads it (read-only), re-verifies each artifact and hot-loads the adapter.
 services:
   approx:
     build: { context: .., dockerfile: deploy/Dockerfile }
     restart: unless-stopped
     ports: ["127.0.0.1:8080:8080"]          # expose only via the TLS reverse proxy
-    volumes: ["approx-data:/data"]
+    volumes: ["approx-data:/data", "approx-models:/models"]
     env_file: [approx.env]                  # copy approx.env.example → approx.env (never commit)
+    environment:
+      APPROX_MODELS_DIR: /models
+      APPROX_INFERENCE_ADMIN_URL: http://inference:8000
     depends_on: [inference]
   inference:
-    image: vllm/vllm-openai:v0.6.4
+    build: { context: .., dockerfile: inference/Dockerfile }
     restart: unless-stopped
-    command: ["--model", "Qwen/Qwen2.5-3B-Instruct", "--enable-lora", "--lora-modules", "nick-4.8=/adapters/nick-4.8", "--max-model-len", "8192"]
-    volumes: ["./adapters:/adapters:ro", "hf-cache:/root/.cache/huggingface"]
+    volumes: ["approx-models:/models:ro", "hf-cache:/hf"]
+    env_file: [inference.env]               # INFERENCE_API_KEY, INFERENCE_ADMIN_KEY, optional HF_TOKEN (never commit)
     deploy:
       resources:
         reservations:
           devices: [{ driver: nvidia, count: 1, capabilities: [gpu] }]
 volumes:
   approx-data: {}
+  approx-models: {}
   hf-cache: {}

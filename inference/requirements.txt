@@ -1,0 +1,9 @@
+# GPU inference host. PyTorch with CUDA must be installed for the host's driver (not pinned here).
+# Same library versions the training pipeline and the CPU smoke tests use.
+torch>=2.3
+transformers==4.46.3
+peft==0.13.2
+accelerate==1.1.1
+safetensors>=0.4.5
+huggingface_hub==0.26.5
+bitsandbytes>=0.45.5
