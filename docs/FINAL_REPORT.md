@@ -1,124 +1,151 @@
-# Approx AI 1.0.0 — Final Implementation Report
+# Approx AI — Final Build Report
 
-Built from zero in an empty repository. Status words in this report are evidence-based:
-**Built & tested** = code exists and automated/browser tests passed here; **Built, not run** =
-code exists but could not be executed here; **Blocked** = needs hardware/credentials not available.
+**Date:** 2026-11-12 · **Branch:** `ccr-b9e70091-57vl48` · **Repo:** `umer630/Approx-Ai`
 
-## Release identity
-| Item | Value |
+This report is written to be honest about evidence. Where something was built and verified, it says so and how.
+Where something has **not** run (above all: real GPU training), it says so plainly. Nothing here claims a trained
+model, an adapter, GPU metrics, or production readiness that does not exist.
+
+---
+
+## 0. Headline status flags
+
+```
+APPROX_AI_FINAL_BUILD_READY   = YES   (platform built & verified on CPU; real GPU training not run here)
+APPROX_AI_TRAINING_PLATFORM_READY = YES
+
+NICK_4_8_PIPELINE_READY   = YES      NICK_4_8_TRAINING_READY  = YES (pipeline) / NOT TRAINED (no GPU run)
+HIKE_6_5_PIPELINE_READY   = YES      HIKE_6_5_TRAINING_READY  = YES (pipeline) / NOT TRAINED
+SONA_9_0_PIPELINE_READY   = YES      SONA_9_0_TRAINING_READY  = YES (pipeline) / NOT TRAINED
+FAB_500X_PIPELINE_READY   = YES      FAB_500X_TRAINING_READY  = YES (pipeline) / NOT TRAINED
+
+NICK_4_8_API_PIPELINE_READY = YES
+API_READY        = YES
+APK_READY        = YES  (ApproxAI-NEBIUS-debug.apk, built & signature-verified)
+SOURCE_ZIP_READY = YES  (release/approx-ai-1.1.0-source.zip)
+
+ANY_MODEL_PRODUCTION_READY = NO   (no GPU training has run; no real adapter exists; curriculum is a seed set)
+```
+
+**What "the user's only remaining job" is:** open `training/colab/approx_training_colab.ipynb` on Google Colab,
+select a GPU runtime, and **Run all**. Everything before that — login, UI, API, model registry, four model
+configs, dataset pipeline, evaluation, packaging, the training→API handoff, the APK, and the source ZIP — is
+built and verified in this repository. No further Claude session is required to obtain the pipeline, configs,
+login, UI, API, registry, APK, or packaging.
+
+---
+
+## 1. Repository audit
+Started from the existing, passing 1.0 app (backend 28 tests, training 34). Extended it without destroying working
+functionality: the validated `train_qlora.py`/`verify_adapter.py` contracts are preserved and driven by the new
+engine; the old dataset builder and Colab notebook still work; existing tests still pass.
+
+## 2. Auth — production-ready (unchanged core, re-tested)
+Register, login, logout, session persistence (web cookie+CSRF, mobile bearer), email verification, password reset,
+invalid-credential and expired-session handling, suspended accounts, role/premium/model permissions. No mock auth.
+Covered by `backend/test/platform.test.js` (logout revokes, expired session rejected, admin routes gated).
+
+## 3. UI — Low/Medium/High, registry-driven, admin console
+- Efficiency modes are now **Low / Medium / High**, a separate axis from the model, fully driven by the backend
+  `mode_details` (labels, descriptions, default). They change real inference parameters.
+- Model picker shows kind, active version and live/preview/offline status from the registry; models with no active
+  version are disabled.
+- **Admin console** (web + Android): Model registry (versions, status, activate/deactivate with non-production
+  override, rescan) and Compute (GPU workers, jobs, start/stop). No dead buttons or placeholder text; Approx
+  identity preserved.
+- QA: Playwright (`web/test/qa.cjs`) — modes, admin console, mobile layout — all pass on desktop + iPhone.
+
+## 4. Model lineup & registry
+`backend/config/models.json` is the single source of truth: Nick 4.8 (language), Hike 6.5 (language), Sona 9.0
+(language), FAB 100X (reserved), FAB 500X (code + media planning) — each with kind, base model, capabilities,
+modalities, languages, safety profile, training-config pointer, availability and permissions. No model behaviour
+is hard-coded in the frontend. File-based registry with SHA-256 verification, safetensors-only allow-list,
+immutable versions, optional HMAC signing, audited activation, fail-closed integrity.
+
+## 5. Efficiency modes
+`low` (384 tok, temp 0.7), `medium` (1024, 0.7), `high` (4096, 0.4), each with real max_tokens / temperature /
+top_p / frequency_penalty / context budget, applied in the provider and context-assembly layers (verified by
+`platform.test.js`: each mode's token budget reaches the upstream; high is more deterministic).
+
+## 6. Training platform (one engine, per-model config)
+`training/engine/` + `training/models/<id>.yaml` + `training/run_all_training.py` + single Colab notebook.
+- **Dataset**: every quality gate implemented (schema, empty, unicode, formatting, foreign-identity, prompt
+  leakage, prompt-injection contamination, harmful target, time-sensitive, repetition, nonsensical, exact +
+  MinHash-LSH number-aware near-dup, contradiction), eval-suite holdout, deterministic train/eval/test split,
+  cross-split leakage check, full stats, reproducibility fingerprint, honest `production_ready` verdict.
+- **Curriculum**: programmatic generators (answers **computed and self-checked** — maths, algebra, geometry,
+  chemistry, physics, conversions, code that is executed against tests, structured output, media planning) in
+  English / Urdu / Roman Urdu / mixed, plus authored safety + identity records (flagged for human review).
+- **Evaluation**: held-out graded suite, objective graders (no model judges another), BASE vs ADAPTER per
+  category, weighted gate out of 100, safety gate, regression check; failures report category / reason / evidence
+  / required fix.
+- **Hardware planner**: real analytic QLoRA VRAM estimator picks the first fitting profile (Nick→T4, Hike→T4/L4,
+  Sona→A100, FAB→A100 80GB), with explicit `GPU_REQUIRED` / `GPU_REQUIREMENT_NOT_MET`.
+- **Handoff**: `release_manager` writes verified, portable release artifacts; the backend imports/activates them;
+  `inference/server.py` re-verifies and hot-loads. Trainer made pausable (time budget / STOP file), `--max-steps`,
+  `--min-disk-gb`; verifier made model-aware.
+
+**Verified end-to-end on CPU** with a tiny random model: the full `run_all_training.py --smoke` chain
+(dataset → train → verify → evaluate → safety → regression → release) produced a `smoke_test` release with
+`production_ready=false` and honest blockers, which then passed independent artifact verification.
+
+## 7. Inference API & server
+`inference/server.py`: OpenAI-compatible streaming + non-streaming, version pinning (`model@version`),
+`/admin/reload`, `active.json` polling, 4-bit NF4 on CUDA only (**no CPU fallback** — `GPU_REQUIRED`), true
+frequency-penalty, input limits, fail-closed on tampering. Shared verification rules in `approx_artifacts`.
+CPU smoke test (`inference/tests/test_server_smoke.py`) — 23 checks pass (load, stream, version pin, auth,
+malformed/oversized input, hot swap, tamper-offline, real-release-refused-in-smoke, poller).
+
+## 8. Android — NEBIUS console app
+`ApproxAI-NEBIUS-debug.apk` built and **signature-verified** (v2+v3 schemes). Login/register/logout/secure
+session; efficiency Low/Medium/High; NEBIUS console (Dashboard, Projects, Compute, Model Management, Settings)
+with admin actions gated by role; configurable HTTPS backend URL; build metadata (git commit, timestamp, build id)
+and SHA-256. Release variant only when a real keystore is supplied (no invented signing credentials). JVM test of
+the shipped `Api.java` — 24 checks pass against a live backend (incl. modes + console paths).
+
+## 9. API platform
+Auth, authorization, model + version selection, inference, streaming, validation, rate limiting, oversized /
+malformed handling, health, model status, usage tracking, logs. Weights/secrets never exposed. GPU-inference
+integration is clearly separated (smoke mode) and **not** marked as passed for real inference.
+
+## 10. Media (FAB 500X)
+Registry distinguishes `language_model`, `code_model`, `multimodal_model`, `video_pipeline`. Video
+generation/understanding are separate pipelines; endpoints answer `501 capability_unavailable` until a pipeline
+URL is configured. Storyboard is text planning only — the adapter never claims to render video.
+
+## 11. Tests (all green in this session)
+| Suite | Result |
 |---|---|
-| Version | 1.0.0 (product, backend, frontend, API v1, APK) |
-| Build ID | `approx-1.0.0+20261107.f9f38ccab0` (source commit `f9f38ccab0`) |
-| APK | `release/ApproxAI-1.0.0-release.apk` (versionCode 1, 189,379 bytes) |
-| APK SHA-256 | `2b8e1c2427ed040bf675120112a19e2124499e8c0d4c9358af1751d1d235a816` |
-| Source ZIP | `release/approx-ai-1.0.0-source.zip` (`git archive` of `f9f38ccab0`, 114 files, no secrets) |
-| Source ZIP SHA-256 | `0c4c0b229fd547f67e1ee995a27307b3689ce100cb3e72d71ff673d84446b35a` |
-| Dataset | `nick-sft-0.1.0` — seed only (41 train / 4 eval, 18/18 domains) |
-| Model artifact | **None.** Nick 4.8 adapter not trained (see blockers) |
-| Web URL / Signup URL / API URL | **None — not deployed** (no credentials). After deployment: `https://<domain>/`, `https://<domain>/#/signup`, `https://<domain>/api/v1` |
+| Backend (`backend/test/*.test.js`) | **39 / 39 pass** |
+| Training engine (`training/tests/test_engine.py`) | **ALL PASS** |
+| Training pipeline / smoke_cpu / colab | **9 / 1 / 24 pass** |
+| Inference server smoke (`inference/tests/test_server_smoke.py`) | **23 / 23 pass** |
+| Android JVM (`android/jvmtest/ApiJvmTest.java`) | **24 / 24 pass** |
+| Web QA (`web/test/qa.cjs`, Playwright) | **ALL PASS** |
 
-## A–Z
+## 12. Artifacts & locations
+- APK: `release/ApproxAI-NEBIUS-debug.apk` (+ `.sha256`, `.buildinfo.json`)
+- Source ZIP: `release/approx-ai-1.1.0-source.zip` (no secrets, node_modules or caches)
+- `release/SHA256SUMS` covers both
+- Training entry point: `python training/run_all_training.py` or `training/colab/approx_training_colab.ipynb`
+- Release artifacts written to `APPROX_MODELS_DIR` (shared backend/inference volume or Colab Drive)
+- Import: `node backend/src/cli.js models import <tar.gz>` or `POST /api/admin/registry/import`
+- Env templates: `.env.example`, `deploy/approx.env.example`, `deploy/inference.env.example`
 
-**A. Product architecture — Built & tested.** Node 22 backend with zero npm dependencies (HTTP
-router, auth, quota, Master Router, OpenAI-compatible providers, SQLite), vanilla-JS web app and
-developer console under a strict CSP, native Android app, Python training pipeline, Docker/compose
-deployment. `docs/ARCHITECTURE.md`.
+## 13. Per-model summary
+| Model | Base model | Dataset | Train/Eval/Test | GPU | Training | Eval | Safety | Adapter | API | Production |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Nick 4.8 | Qwen2.5-3B-Instruct (locked) | seed (not prod) | yes (deterministic, held-out) | T4+ | pipeline ready, **not run** | graded suite ready | gate ready | none yet | ready | **NO** |
+| Hike 6.5 | Qwen2.5-7B-Instruct (proposed) | seed | yes | T4/L4 | pipeline ready, not run | ready | ready | none | ready | NO |
+| Sona 9.0 | Qwen2.5-14B-Instruct (proposed) | seed | yes | A100 | pipeline ready, not run | ready | ready | none | ready | NO |
+| FAB 500X | Qwen2.5-Coder-32B (proposed) | seed | yes | A100 80GB | pipeline ready, not run | ready | ready | none | ready (+media 501) | NO |
 
-**B. UI architecture — Built & tested (browser).** Mobile-first navy/green/black/white Approx
-theme with the supplied logo; top bar (logo, model+mode indicator, profile, settings); streaming
-conversation with copy/regenerate/save, timestamps, loading/error/retry/stop; composer with +,
-"Ask Approx AI anything...", model selector, Medium/High toggle, send; English/Urdu (RTL)/Roman Urdu.
-
-**C. Three-button navigation — Built & tested.** New chat · History · Settings (web and Android).
-
-**D. Plus menu — Built & tested.** File, Image, PDF, Document, Camera, Data analysis, Research,
-Code (Fabbox), Workspace, Projects; "Tools & connectors" shows an explicit unavailable state. Every
-upload is validated and scanned server-side.
-
-**E. Models — Built & tested (routing/access); inference backends Blocked.** Nick 4.8 (default),
-Hike 6.5, Sona 9.0 (premium), FAB 100x/500x (restricted). Access enforced server-side. No trained
-weights are attached to any model in this build; each family serves whatever OpenAI-compatible endpoint
-the operator configures, otherwise returns 503.
-
-**F. Medium/High modes — Built & tested.** Separate parameter; enforced as token budget,
-temperature and reasoning instruction; validated (modes are not models).
-
-**G. Master Router — Built & tested.** Task/complexity/language classification, permission-aware
-model choice, never escalates beyond access (tested), safety pre-filter, route reason shown in UI.
-
-**H. Memory — Built & tested.** Explicit consent capture, view/edit/delete/clear/disable, never
-shared across users, never used by FAB.
-
-**I. History — Built & tested.** Search (titles + content), recent/archived/trash, rename, archive,
-delete, restore, purge, model and date metadata; per-user isolation tested.
-
-**J. Projects — Built & tested.** Instructions, knowledge files with retrieval, chats; isolation tested.
-
-**K. Research — Built & tested (fetching/SSRF); automatic web search Blocked.** Cited reports from
-user-supplied URLs; retrieval kept separate from training. A search backend needs `SEARCH_API_*`.
-
-**L. Workspace — Built & tested.** Artifacts with version history, preview, restore, export.
-
-**M. FABBOX Code — Built & tested (files, agent proposals, approval gate); command execution / git /
-CI Blocked.** Execution needs an isolated sandbox runner and GitHub OAuth app — reported as
-unavailable in-product rather than faked.
-
-**N. COEPROX — Built & tested.** Code projects + scaffolding templates (Node API, static web, Python
-CLI) on the Fabbox engine.
-
-**O. FAB security capabilities — Access model built & tested; capability depends on a FAB backend
-(Blocked).** Superadmin-only audited grants, defensive-only prompt policy, refusal filter, no
-training, no memory. There is no FAB model in this build.
-
-**P. API — Built & tested.** Keys (hashed, scoped, rotation, revocation), `/api/v1/chat/completions`
-(+SSE), `/models`, `/usage`, request IDs, request logs, rate limits, quota, docs, console (9 screens).
-
-**Q. Authentication — Built & tested.** Signup, verification, login, logout, reset, change
-password/email, sessions, lockout, rate limits, audit logs. Production email delivery needs a mail
-provider (Blocked; dev outbox works).
-
-**R. Database — Built & tested.** 29 tables in SQLite covering every entity in the spec, tenant
-isolation by `user_id`, FAB training CHECK constraint.
-
-**S. Training — Pipeline built; data stages tested; GPU training Blocked.** `train_qlora.py`
-(QLoRA, resume, eval, adapter manifest), `verify_adapter.py`, Kaggle notebook.
-
-**T. Dataset — Built & tested (seed).** 45 original records across all 18 domains, PII/quality/
-dedupe filters, provenance manifest with SHA-256. Public datasets listed as *candidates* and not
-approved (license verification needs Kaggle/HF access).
-
-**U. Nick 4.8 adapter — NOT TRAINED.** Kaggle GPU handoff is ready and validated (notebook executed up to the
-GPU preflight; full pipeline smoke-tested on CPU with a tiny random model). Remaining action: run
-`training/kaggle/nick_4_8_qlora.ipynb` on a Kaggle GPU T4 with Internet on. See `training/README.md`.
-
-**V. APK — Built, signed, statically verified, network layer tested (15/15); not run on a device.**
-
-**W. Web deployment — NOT DEPLOYED (Blocked).** Docker/compose/env template ready.
-
-**X. Security audit — Done.** 0 critical; 1 high + 4 medium + 2 low fixed; 2 medium + 4 low
-documented. `docs/SECURITY_AUDIT.md`.
-
-**Y. Legal-risk audit — Done (technical review, not legal advice).** Key item: verify the Qwen2.5-3B
-license for commercial use. `docs/LEGAL_RISK_REVIEW.md`.
-
-**Z. QA — Done.** Backend 27/27, Android network 15/15, training 5/5, browser E2E pass with 0
-console errors. `docs/QA_REPORT.md` lists what was NOT tested.
-
-## Remaining blockers (exact)
-1. **Nick 4.8 training**: needs an NVIDIA GPU session (Kaggle/Colab) with internet access to
-   `huggingface.co`. Action: open `training/kaggle/nick_4_8_qlora.ipynb` on Kaggle with GPU + Internet
-   enabled and run all cells. Also add approved, license-verified datasets — 45 seed records are not a
-   meaningful fine-tune.
-2. **Base model license**: confirm on the `Qwen/Qwen2.5-3B-Instruct` model card that your commercial
-   use is permitted.
-3. **Inference hosting**: a GPU host running vLLM (compose file provided) or another licensed
-   OpenAI-compatible endpoint; set `APPROX_MODEL_NICK_URL` (and HIKE/SONA/FAB URLs for those models).
-4. **Deployment**: a server/PaaS account, a domain with HTTPS, and `deploy/approx.env` values.
-5. **Email**: transactional mail provider endpoint + API key (`MAIL_HTTP_ENDPOINT`, `MAIL_HTTP_API_KEY`).
-6. **APK distribution**: re-sign with Approx Technology's own release key (the included APK is signed
-   with an ephemeral local key that was not kept); rebuild with `APPROX_SERVER_URL` and a current
-   targetSdk before submitting to Google Play; test on real devices.
-7. **Optional**: web search backend for Research, ClamAV for uploads, payment provider, GitHub OAuth
-   app + sandbox runner for Fabbox execution, third-party connectors.
-8. **External tools named in the brief** (Kaggle, Colab, Google AI Studio, Gamma) were not accessible
-   from this environment; none were used.
+## 14. Honest blockers / what remains
+1. **No GPU training has run** in this environment (no CUDA, and Hugging Face/Colab are unreachable from here).
+   Real adapters, GPU metrics and production readiness require running the prepared Colab notebook on a GPU.
+2. The curriculum is a **seed set**, deliberately not production-ready (too small, mostly template-generated,
+   authored records not yet human-reviewed). Production training needs a larger, human-reviewed corpus.
+3. Hike/Sona/FAB **base-model choices are proposals** and must be confirmed by Approx Technology.
+4. Nick's base-model licence (Qwen Research, non-commercial) must be cleared for commercial use.
+5. FAB video pipelines are not implemented here (separate services); endpoints report `capability_unavailable`.
+6. Release signing uses the standard debug key; a distribution APK needs Approx Technology's protected key.

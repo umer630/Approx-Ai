@@ -39,3 +39,26 @@ Server-Sent Events: `event: chunk` (`choices[0].delta.content`) … then `event:
 `DELETE /api/developer/keys/:id`, `GET /api/developer/requests`, `GET /api/developer/overview`.
 Keys are stored as SHA-256 hashes; the secret is shown once. API keys cannot call account endpoints.
 Never embed API keys in mobile apps or browser code.
+
+## Efficiency modes & model versions (1.1)
+- **Efficiency modes** are a separate parameter from the model: `low` | `medium` | `high` (default from the
+  user's settings). They change real inference parameters (max tokens, temperature, top_p, frequency penalty,
+  context budget). Details: `GET /api/models` → `mode_details`.
+- **Model versions**: `POST /api/v1/chat/completions` accepts an optional `version` (e.g. `"1.0.0"`) alongside an
+  explicit `model`. Without it, the active version is used. Responses and the `route` SSE event include
+  `model_version`. A request for a model with no active version returns `503 model_version_not_active`; an unknown
+  version returns `404 unknown_model_version`.
+
+## Platform & admin endpoints (1.1)
+- `GET /api/health`, `GET /api/v1/health` — liveness (no auth).
+- `GET /api/status` — models, inference health, modes, pipelines (admins also see GPU workers + training jobs).
+- `GET /api/capabilities`, `GET /api/v1/models/:id`.
+- Admin registry: `GET /api/admin/registry`, `POST /api/admin/registry/rescan`,
+  `GET /api/admin/registry/:model/:version`, `POST /api/admin/registry/activate` (superadmin),
+  `POST /api/admin/registry/deactivate`, `POST /api/admin/registry/import` (raw tar.gz, `X-Artifact-Sha256`).
+- Compute: `GET /api/admin/compute`, `POST /api/admin/compute/jobs`, `GET /api/admin/compute/jobs/:id`,
+  `POST /api/admin/compute/jobs/:id/stop`. Worker API: `POST /api/v1/worker/claim|jobs|jobs/:id/report`
+  (privileged `training:worker` key).
+- Media (FAB 500X): `POST /api/v1/media/video/generations`, `/api/v1/media/video/understanding`,
+  `/api/v1/media/storyboard`. Video endpoints answer `501 capability_unavailable` until a pipeline URL is set;
+  storyboard is text planning only.
