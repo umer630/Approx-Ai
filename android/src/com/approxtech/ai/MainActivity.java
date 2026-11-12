@@ -25,6 +25,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.HorizontalScrollView;
 import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -73,6 +74,7 @@ public class MainActivity extends Activity {
     private JSONArray models = new JSONArray();
     private String model = "auto";
     private String mode = "medium";
+    static final String[] MODES = {"low", "medium", "high"};
     private String chatId = null;
     private String projectId = null;
     private final List<JSONObject> attachments = new ArrayList<>();
@@ -541,20 +543,23 @@ public class MainActivity extends Activity {
         modelChip.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { pickModel(); } });
         LinearLayout.LayoutParams mlp = new LinearLayout.LayoutParams(-2, -2); mlp.leftMargin = dp(6);
         bar.addView(modelChip, mlp);
-        final TextView med = text("Medium", 13, TEXT, false);
-        final TextView high = text("High", 13, TEXT, false);
         LinearLayout toggle = hbox();
         toggle.setBackground(bgShape(SURFACE2, 999, LINE));
-        for (final TextView t : new TextView[]{med, high}) {
+        final TextView[] modeBtns = new TextView[MODES.length];
+        for (int i = 0; i < MODES.length; i++) {
+            final String mId = MODES[i];
+            final TextView t = text(cap(mId), 13, TEXT, false);
+            modeBtns[i] = t;
             t.setPadding(dp(10), dp(7), dp(10), dp(7));
+            t.setContentDescription(cap(mId) + " efficiency mode");
             t.setOnClickListener(new View.OnClickListener() { public void onClick(View v) {
-                mode = t == high ? "high" : "medium";
-                styleMode(med, high);
+                mode = mId;
+                styleModes(modeBtns);
                 modelIndicator.setText("● " + modelName(model) + " · " + cap(mode));
             } });
             toggle.addView(t);
         }
-        styleMode(med, high);
+        styleModes(modeBtns);
         bar.addView(toggle, mlp);
         View sp = new View(this); bar.addView(sp, new LinearLayout.LayoutParams(0, 1, 1));
         sendBtn = round("➤", true);
@@ -575,12 +580,12 @@ public class MainActivity extends Activity {
         return box;
     }
 
-    void styleMode(TextView med, TextView high) {
-        boolean h = "high".equals(mode);
-        high.setBackground(h ? bgShape(NAVY, 999, GREEN) : null);
-        med.setBackground(!h ? bgShape(NAVY, 999, GREEN) : null);
-        high.setTextColor(h ? TEXT : MUTED);
-        med.setTextColor(!h ? TEXT : MUTED);
+    void styleModes(TextView[] btns) {
+        for (int i = 0; i < btns.length; i++) {
+            boolean on = MODES[i].equals(mode);
+            btns[i].setBackground(on ? bgShape(NAVY, 999, GREEN) : null);
+            btns[i].setTextColor(on ? TEXT : MUTED);
+        }
     }
 
     TextView round(String glyph, boolean primary) {
@@ -740,6 +745,236 @@ public class MainActivity extends Activity {
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(api.getBase() + path)));
     }
 
+    // ------------------------------------------------------------------ NEBIUS console
+    boolean isAdmin() { return user != null && !"user".equals(user.optString("role")); }
+    boolean isSuper() { return user != null && "superadmin".equals(user.optString("role")); }
+
+    LinearLayout card(LinearLayout parent, String title) {
+        LinearLayout c = vbox();
+        c.setPadding(dp(14), dp(12), dp(14), dp(14));
+        c.setBackground(bgShape(SURFACE2, 16, LINE));
+        if (title != null) c.addView(text(title, 15, TEXT, true));
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, -2);
+        lp.topMargin = dp(12);
+        parent.addView(c, lp);
+        return c;
+    }
+
+    void kv(LinearLayout c, String k, String v) {
+        LinearLayout r = hbox();
+        r.setPadding(0, dp(5), 0, dp(5));
+        TextView kt = text(k, 13, MUTED, false);
+        r.addView(kt, new LinearLayout.LayoutParams(0, -2, 1));
+        r.addView(text(v == null ? "—" : v, 13, TEXT, false));
+        c.addView(r);
+    }
+
+    void showConsole(final String tab) {
+        LinearLayout col = vbox();
+        col.setPadding(dp(14), dp(12), dp(14), dp(24));
+        col.addView(link("‹ Back to settings", new Runnable() { public void run() { showSettings(); } }));
+        add(col, text("NEBIUS Console", 20, TEXT, true), 6);
+        add(col, text(isAdmin() ? (isSuper() ? "Signed in as superadmin — full control." : "Signed in as admin.") : "Read-only: admin actions require an admin account.", 12, MUTED, false), 2);
+        // tab bar
+        LinearLayout tabs = hbox();
+        tabs.setPadding(0, dp(10), 0, dp(4));
+        final String[] names = {"Dashboard", "Projects", "Compute", "Models", "Settings"};
+        for (final String nm : names) {
+            TextView t = text(nm, 13, tab.equals(nm) ? TEXT : MUTED, tab.equals(nm));
+            t.setPadding(dp(10), dp(8), dp(10), dp(8));
+            if (tab.equals(nm)) t.setBackground(bgShape(NAVY, 999, GREEN));
+            t.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { showConsole(nm); } });
+            tabs.addView(t);
+        }
+        HorizontalScrollView hsv = new HorizontalScrollView(this);
+        hsv.setHorizontalScrollBarEnabled(false);
+        hsv.addView(tabs);
+        col.addView(hsv);
+        final LinearLayout body = vbox();
+        col.addView(body, new LinearLayout.LayoutParams(-1, -2));
+        ScrollView sv = new ScrollView(this);
+        sv.addView(col);
+        shell(sv, false);
+
+        add(body, text("Loading…", 13, MUTED, false), 12);
+        if ("Projects".equals(tab)) { consoleProjects(body); return; }
+        if ("Settings".equals(tab)) { body.removeAllViews(); consoleSettings(body); return; }
+        // Dashboard / Compute / Models all read /api/status (+ registry/compute for admins)
+        bg(new Job() { public Object run() throws Exception {
+            JSONObject status = api.get("/api/status");
+            JSONObject extra = new JSONObject();
+            if (isAdmin()) {
+                try { extra.put("registry", api.get("/api/admin/registry")); } catch (Exception ignored) {}
+                try { extra.put("compute", api.get("/api/admin/compute")); } catch (Exception ignored) {}
+            }
+            extra.put("status", status);
+            return extra;
+        } }, new Done() { public void ok(Object r) {
+            body.removeAllViews();
+            JSONObject d = (JSONObject) r;
+            if ("Dashboard".equals(tab)) consoleDashboard(body, d);
+            else if ("Compute".equals(tab)) consoleCompute(body, d);
+            else if ("Models".equals(tab)) consoleModels(body, d);
+        } });
+    }
+
+    void consoleDashboard(LinearLayout body, JSONObject d) {
+        JSONObject status = d.optJSONObject("status");
+        LinearLayout c = card(body, "API");
+        kv(c, "Backend", status == null ? "unreachable" : "online · " + status.optString("version", "?"));
+        kv(c, "Environment", status == null ? "—" : status.optString("environment", "—"));
+        JSONArray ms = status == null ? new JSONArray() : status.optJSONArray("models");
+        LinearLayout mc = card(body, "Models");
+        for (int i = 0; ms != null && i < ms.length(); i++) {
+            JSONObject m = ms.optJSONObject(i);
+            String st = m.optString("backend");
+            String ver = m.isNull("active_version") ? "no active version" : "v" + m.optString("active_version");
+            kv(mc, m.optString("id"), ver + " · " + st + (m.optBoolean("production_ready") ? " · live" : ""));
+        }
+        JSONObject gpu = status == null ? null : status.optJSONObject("gpu");
+        LinearLayout gc = card(body, "Compute");
+        kv(gc, "GPU workers online", gpu == null ? (isAdmin() ? "0" : "admin only") : String.valueOf(gpu.optInt("workers_online", 0)));
+        JSONObject training = status == null ? null : status.optJSONObject("training");
+        kv(gc, "Active training job", training == null || training.isNull("active_job") ? "none" : training.optJSONObject("active_job").optString("phase", "running"));
+    }
+
+    void consoleCompute(final LinearLayout body, JSONObject d) {
+        if (!isAdmin()) { card(body, "Compute").addView(text("GPU compute controls require an admin account.", 13, MUTED, false)); return; }
+        JSONObject compute = d.optJSONObject("compute");
+        final JSONArray workers = compute == null ? new JSONArray() : compute.optJSONArray("workers");
+        LinearLayout wc = card(body, "GPU workers");
+        int online = 0;
+        for (int i = 0; workers != null && i < workers.length(); i++) if (workers.optJSONObject(i).optBoolean("online")) online++;
+        if (online == 0) wc.addView(text("No GPU worker connected. Start one with `run_all_training.py --worker` on a GPU runtime (Colab/NEBIUS).", 13, MUTED, false));
+        for (int i = 0; workers != null && i < workers.length(); i++) {
+            JSONObject w = workers.optJSONObject(i);
+            if (!w.optBoolean("online")) continue;
+            JSONObject g = w.optJSONObject("gpu");
+            kv(wc, w.optString("name", w.optString("id")), (g == null ? "GPU" : g.optString("name") + " · " + g.optString("vram_gb") + " GB") + " · " + (w.isNull("current_job_id") ? "idle" : "busy"));
+        }
+        if (isSuper()) {
+            TextView start = button("Start training job", true, new Runnable() { public void run() {
+                final EditText in = new EditText(MainActivity.this);
+                in.setText("nick-4.8");
+                new AlertDialog.Builder(MainActivity.this, android.R.style.Theme_Material_Dialog_Alert)
+                    .setTitle("Models to train (\"all\" or space-separated ids)").setView(in)
+                    .setPositiveButton("Queue", new DialogInterface.OnClickListener() { public void onClick(DialogInterface di, int wi) {
+                        String val = in.getText().toString().trim();
+                        JSONObject b = new JSONObject();
+                        try { b.put("models", val.equals("all") ? "all" : new JSONArray(java.util.Arrays.asList(val.split("\\s+")))); } catch (JSONException ignored) {}
+                        bg(new Job() { public Object run() throws Exception { return api.post("/api/admin/compute/jobs", b); } }, new Done() { public void ok(Object r) {
+                            toast(((JSONObject) r).optString("note", "Job queued")); showConsole("Compute");
+                        } });
+                    } }).setNegativeButton("Cancel", null).show();
+            } });
+            body.addView(start, new LinearLayout.LayoutParams(-2, -2));
+        }
+        final JSONArray jobs = compute == null ? new JSONArray() : compute.optJSONArray("jobs");
+        LinearLayout jc = card(body, "Jobs");
+        if (jobs == null || jobs.length() == 0) jc.addView(text("No training jobs yet.", 13, MUTED, false));
+        for (int i = 0; jobs != null && i < Math.min(jobs.length(), 8); i++) {
+            final JSONObject j = jobs.optJSONObject(i);
+            LinearLayout r = hbox();
+            r.setPadding(0, dp(6), 0, dp(6));
+            LinearLayout info = vbox();
+            info.addView(text(j.optJSONArray("models") + " · " + j.optString("status"), 13, TEXT, false));
+            info.addView(text(j.optString("phase", ""), 12, MUTED, false));
+            r.addView(info, new LinearLayout.LayoutParams(0, -2, 1));
+            String st = j.optString("status");
+            if (isSuper() && (st.equals("queued") || st.equals("running") || st.equals("stop_requested"))) {
+                r.addView(link("Stop", new Runnable() { public void run() {
+                    bg(new Job() { public Object run() throws Exception { return api.post("/api/admin/compute/jobs/" + j.optString("id") + "/stop", new JSONObject()); } },
+                       new Done() { public void ok(Object r2) { toast("Stop requested"); showConsole("Compute"); } });
+                } }));
+            }
+            jc.addView(r);
+        }
+    }
+
+    void consoleModels(final LinearLayout body, JSONObject d) {
+        JSONObject reg = d.optJSONObject("registry");
+        if (reg == null) {
+            JSONObject status = d.optJSONObject("status");
+            JSONArray ms = status == null ? new JSONArray() : status.optJSONArray("models");
+            LinearLayout c = card(body, "Models");
+            for (int i = 0; ms != null && i < ms.length(); i++) {
+                JSONObject m = ms.optJSONObject(i);
+                kv(c, m.optString("id"), m.isNull("active_version") ? "no active version" : "v" + m.optString("active_version"));
+            }
+            c.addView(text("Version activation requires an admin account.", 12, MUTED, false));
+            return;
+        }
+        JSONArray models = reg.optJSONArray("models");
+        kv(card(body, "Registry"), "Models dir", reg.optString("dir", "—"));
+        for (int i = 0; models != null && i < models.length(); i++) {
+            final JSONObject m = models.optJSONObject(i);
+            LinearLayout c = card(body, null);
+            c.addView(text(m.optString("id") + (m.isNull("active_version") ? "  (no active version)" : "  · active v" + m.optString("active_version")), 15, TEXT, true));
+            JSONArray versions = m.optJSONArray("versions");
+            if (versions == null || versions.length() == 0) c.addView(text("No releases imported.", 13, MUTED, false));
+            for (int v = 0; versions != null && v < versions.length(); v++) {
+                final JSONObject ver = versions.optJSONObject(v);
+                LinearLayout r = hbox();
+                r.setPadding(0, dp(6), 0, dp(6));
+                LinearLayout info = vbox();
+                info.addView(text("v" + ver.optString("version") + " · " + ver.optString("status") + (ver.optBoolean("production_ready") ? " · production" : ""), 13, TEXT, false));
+                if (ver.optJSONArray("errors") != null && ver.optJSONArray("errors").length() > 0)
+                    info.addView(text(ver.optJSONArray("errors").optString(0), 12, MUTED, false));
+                r.addView(info, new LinearLayout.LayoutParams(0, -2, 1));
+                boolean canActivate = isSuper() && ver.optBoolean("activatable") && !ver.optString("version").equals(m.optString("active_version"));
+                if (canActivate) {
+                    r.addView(link(ver.optBoolean("production_ready") ? "Activate" : "Activate (override)", new Runnable() { public void run() {
+                        confirm("Activate v" + ver.optString("version"), ver.optBoolean("production_ready") ? "Make this the live version?" : "This release is NOT production-ready. Activate anyway? (audited)", new Runnable() { public void run() {
+                            final JSONObject b = new JSONObject();
+                            try { b.put("model_id", m.optString("id")); b.put("version", ver.optString("version")); if (!ver.optBoolean("production_ready")) { b.put("allow_non_production", true); b.put("reason", "activated from Android console"); } } catch (JSONException ignored) {}
+                            bg(new Job() { public Object run() throws Exception { return api.post("/api/admin/registry/activate", b); } }, new Done() { public void ok(Object r2) { toast("Activated v" + ver.optString("version")); showConsole("Models"); } });
+                        } });
+                    } }));
+                } else if (isSuper() && ver.optString("version").equals(m.optString("active_version"))) {
+                    r.addView(link("Deactivate", new Runnable() { public void run() {
+                        final JSONObject b = new JSONObject();
+                        try { b.put("model_id", m.optString("id")); } catch (JSONException ignored) {}
+                        bg(new Job() { public Object run() throws Exception { return api.post("/api/admin/registry/deactivate", b); } }, new Done() { public void ok(Object r2) { toast("Deactivated"); showConsole("Models"); } });
+                    } }));
+                }
+                c.addView(r);
+            }
+        }
+    }
+
+    void consoleProjects(final LinearLayout body) {
+        bg(new Job() { public Object run() throws Exception { return api.get("/api/projects"); } }, new Done() { public void ok(Object r) {
+            body.removeAllViews();
+            JSONArray ps = ((JSONObject) r).optJSONArray("projects");
+            LinearLayout c = card(body, "Projects");
+            if (ps == null || ps.length() == 0) c.addView(text("No projects yet. Create one from the chat composer or the web app.", 13, MUTED, false));
+            for (int i = 0; ps != null && i < ps.length(); i++) {
+                JSONObject p = ps.optJSONObject(i);
+                kv(c, p.optString("name"), (p.optString("default_model", "auto")));
+            }
+        } });
+    }
+
+    void consoleSettings(LinearLayout body) {
+        LinearLayout c = card(body, "Backend");
+        kv(c, "Server", api.getBase());
+        kv(c, "Signed in", user == null ? "—" : user.optString("email"));
+        kv(c, "Role", user == null ? "—" : user.optString("role"));
+        kv(c, "App version", appVersion());
+        kv(c, "Build", BuildInfo.BUILD_ID);
+        LinearLayout a = card(body, "Admin actions");
+        if (isAdmin()) {
+            a.addView(link("Open full admin console (web)", new Runnable() { public void run() { openWeb("/#/admin"); } }));
+            a.addView(link("Developer / API console (web)", new Runnable() { public void run() { openWeb("/developers/"); } }));
+        } else {
+            a.addView(text("Admin actions require an admin account.", 13, MUTED, false));
+        }
+    }
+
+    String appVersion() {
+        try { return getPackageManager().getPackageInfo(getPackageName(), 0).versionName; } catch (Exception e) { return "?"; }
+    }
+
     void pick(String mime) {
         Intent i = new Intent(Intent.ACTION_GET_CONTENT);
         i.setType(mime);
@@ -888,6 +1123,7 @@ public class MainActivity extends Activity {
                 {"Projects", new Runnable() { public void run() { projectSettings(); } }},
                 {"Files", new Runnable() { public void run() { fileSettings(); } }},
                 {"Subscription", new Runnable() { public void run() { infoPage("Subscription", "Plan: " + (user == null ? "" : user.optString("plan")) + "\n\nFree: Nick 4.8 + Hike 6.5. Pro adds Sona 9.0. FAB is granted individually by Approx Technology.\n\nOnline payments are not enabled in Approx AI 1.0; upgrades are applied by an administrator."); } }},
+                {"NEBIUS console (dashboard, compute, models)", new Runnable() { public void run() { showConsole("Dashboard"); } }},
                 {"API & developer console", new Runnable() { public void run() { openWeb("/developers/"); } }},
                 {"Connected tools", new Runnable() { public void run() { infoPage("Connected tools", "No third-party connectors are available in Approx AI 1.0."); } }},
                 {"Delete account", new Runnable() { public void run() { deleteAccount(); } }},
@@ -986,9 +1222,11 @@ public class MainActivity extends Activity {
             add(col, text(m.optString("description"), 13, MUTED, false), 2);
             if (m.optBoolean("available")) add(col, link("Set as default", new Runnable() { public void run() { call("PATCH", "/api/settings", obj("default_model", m.optString("id")), new Runnable() { public void run() { toast("Default model saved"); } }); } }), 0);
         }
-        add(col, text("Default mode", 15, TEXT, true), 18);
-        add(col, link("Medium", new Runnable() { public void run() { call("PATCH", "/api/settings", obj("default_mode", "medium"), new Runnable() { public void run() { mode = "medium"; toast("Saved"); } }); } }), 0);
-        add(col, link("High", new Runnable() { public void run() { call("PATCH", "/api/settings", obj("default_mode", "high"), new Runnable() { public void run() { mode = "high"; toast("Saved"); } }); } }), 0);
+        add(col, text("Default efficiency mode", 15, TEXT, true), 18);
+        add(col, text("Low = fast and concise · Medium = balanced · High = maximum effort. Separate from the model.", 12, MUTED, false), 2);
+        for (final String md : MODES) {
+            add(col, link(cap(md), new Runnable() { public void run() { call("PATCH", "/api/settings", obj("default_mode", md), new Runnable() { public void run() { mode = md; toast("Saved"); } }); } }), 0);
+        }
     }
 
     void usageSettings() {

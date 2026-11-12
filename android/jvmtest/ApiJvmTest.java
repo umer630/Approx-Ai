@@ -45,6 +45,23 @@ public class ApiJvmTest {
         check(api.get("/api/memory").getJSONArray("memories").length() >= 1, "memory add/list");
         check(api.get("/api/usage").getJSONObject("window").getInt("limit") == 100, "usage/quota");
         try { api.post("/api/chats", new JSONObject().put("model", "fab-100x")); check(false, "FAB locked"); } catch (Api.ApiException e) { check(e.status == 403, "FAB locked for normal user"); }
+
+        // NEBIUS console paths
+        JSONObject modelsResp = api.get("/api/models");
+        JSONArray modes = modelsResp.getJSONArray("modes");
+        check(modes.length() == 3 && modes.getString(0).equals("low") && modes.getString(2).equals("high"), "three efficiency modes low/medium/high");
+        check(modelsResp.has("mode_details") && modelsResp.getJSONArray("mode_details").length() == 3, "mode_details for the toggle");
+        api.patch("/api/settings", new JSONObject().put("default_mode", "low"));
+        check("low".equals(api.get("/api/settings").getJSONObject("settings").getString("default_mode")), "Low mode saved as default");
+        try { api.patch("/api/settings", new JSONObject().put("default_mode", "turbo")); check(false, "bad mode"); } catch (Api.ApiException e) { check(e.status == 400, "invalid mode rejected"); }
+        String lowChat = api.post("/api/chats", new JSONObject().put("model", "nick-4.8").put("mode", "low")).getJSONObject("chat").getString("id");
+        check(lowChat.length() > 0, "chat created in Low mode");
+        JSONObject status = api.get("/api/status");
+        check(status.getJSONArray("models").length() == 5 && status.has("inference"), "console: /api/status dashboard data");
+        check(!status.has("gpu"), "console: GPU/worker details hidden from non-admins");
+        try { api.get("/api/admin/registry"); check(false, "registry admin-only"); } catch (Api.ApiException e) { check(e.status == 403, "console: registry requires admin"); }
+        try { api.get("/api/admin/compute"); check(false, "compute admin-only"); } catch (Api.ApiException e) { check(e.status == 403, "console: compute requires admin"); }
+
         api.post("/api/auth/logout", new JSONObject());
         try { api.get("/api/auth/me"); check(false, "logout"); } catch (Api.ApiException e) { check(e.status == 401, "logout revokes token"); }
         System.out.println(fails == 0 ? "ALL PASS" : fails + " FAILED");
