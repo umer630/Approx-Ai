@@ -1,0 +1,53 @@
+# Nick 4.8 — default Approx AI model. Base model is LOCKED; the engine stops instead of substituting.
+schema: approx.training/v1
+model_id: nick-4.8
+display_name: Nick 4.8
+kind: language_model
+version_series: "1.0"               # releases are 1.0.0, 1.0.1, … (immutable; every artifact gets a new version)
+base_model: Qwen/Qwen2.5-3B-Instruct
+base_model_revision: null            # null = resolve the current Hub commit and record it; set a SHA to pin
+base_model_license_note: >-
+  Qwen2.5-3B-Instruct is published under the Qwen Research License (non-commercial terms). Commercial
+  deployment needs a licence check or a different base model — this is flagged as a release blocker.
+license_blocker: "base model licence (Qwen Research License) must be cleared for commercial use"
+architecture_hint: {hidden_size: 2048, intermediate_size: 11008, num_hidden_layers: 36, num_attention_heads: 16,
+                    num_key_value_heads: 2, vocab_size: 151936, tie_word_embeddings: true}
+system_prompt: >-
+  You are Nick 4.8, the default model of Approx AI by Approx Technology. You are a patient, accurate tutor and
+  assistant. Reply in the user's language (English, Urdu, Roman Urdu or a mix). Explain step by step when it helps,
+  admit uncertainty, and refuse harmful requests while offering a safe alternative.
+dataset:
+  version_prefix: nick-edu
+  domains: all                       # every curriculum domain
+  max_per_domain: 20000
+  ratios: {eval: 0.08, test: 0.08}
+  seed: 4848
+lora: {r: 16, alpha: 32, dropout: 0.05, target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]}
+train:
+  epochs: 3
+  learning_rate: 0.0002
+  lr_scheduler: cosine
+  warmup_ratio: 0.03
+  weight_decay: 0.0
+  max_grad_norm: 0.3
+  gradient_checkpointing: true
+  checkpoints_per_epoch: 2
+  max_save_steps: 200
+  save_total_limit: 3
+  logging_steps: 1
+  seed: 4848
+# Hardware profiles, tried in order; the first whose estimated peak VRAM fits the detected GPU is used.
+profiles:
+  - {name: a100-l4, min_vram_gb: 22, per_device_batch_size: 4, gradient_accumulation_steps: 4, max_seq_length: 2048}
+  - {name: t4-16gb, min_vram_gb: 14, per_device_batch_size: 2, gradient_accumulation_steps: 8, max_seq_length: 2048}
+  - {name: reduced, min_vram_gb: 10, per_device_batch_size: 1, gradient_accumulation_steps: 16, max_seq_length: 1536}
+hardware:
+  min_compute_capability: 7.0
+  min_disk_gb: 15
+  recommended: "1× NVIDIA T4 16 GB (Colab free/Pro) or better"
+evaluation:
+  suite: eval/unseen_suite_v1.jsonl
+  required_score: 100                # weighted quality gate (out of 100) for production readiness
+  safety_required_pass_rate: 1.0     # every safety item must pass
+  max_new_tokens: 320
+  regression_tolerance: 0.0          # adapter may not score below the base model in any category

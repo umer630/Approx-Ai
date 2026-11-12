@@ -36,6 +36,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 EXIT_NO_GPU, EXIT_BASE_UNAVAILABLE, EXIT_BAD_DATA, EXIT_RESUME_MISMATCH, EXIT_UNHEALTHY = 2, 3, 4, 5, 6
+EXIT_PAUSED = 7   # time budget reached or STOP file present: a checkpoint was saved; rerun the same command to resume
 MIN_FREE_RAM_GB, MIN_FREE_DISK_GB = 4.0, 15.0   # 3B safetensors are loaded shard-by-shard; ~6.2 GB download + headroom
 
 
@@ -210,9 +211,16 @@ def _main(argv=None):
     ap.add_argument("--resume-search", action="append", default=[], help="extra roots to search for checkpoints (repeatable)")
     ap.add_argument("--no-resume", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--max-steps", type=int, default=0, help="hard cap on optimizer steps (0 = run the configured epochs)")
+    ap.add_argument("--time-budget-minutes", type=float, default=0,
+                    help="save a checkpoint and exit with code 7 once this much wall time has been used (0 = no limit); rerun to resume")
+    ap.add_argument("--min-disk-gb", type=float, default=None, help="free disk required at start (default 15; larger base models need more)")
     ap.add_argument("--smoke-base", default=None, help=argparse.SUPPRESS)
     ap.add_argument("--smoke-max-steps", type=int, default=0, help=argparse.SUPPRESS)
     a = ap.parse_args(argv)
+    global MIN_FREE_DISK_GB
+    if a.min_disk_gb is not None:
+        MIN_FREE_DISK_GB = a.min_disk_gb
     cfg = json.loads(Path(a.config).read_text())
     ddir = dataset_dir(cfg, a.dataset_dir)
     train_rows, eval_rows, ds_manifest = validate_dataset(ddir)
@@ -378,8 +386,26 @@ def _main(argv=None):
             if logs:
                 phase("log", step=state.global_step, **{k: v for k, v in logs.items() if isinstance(v, (int, float))})
 
+    paused = {"reason": None}
+    started = time.time()
+
+    class PauseCallback(TrainerCallback):
+        """Graceful pause: on time budget or a STOP file, save a checkpoint at this step and stop. Rerun resumes."""
+        def on_step_end(self, args, state, control, **kw):
+            why = None
+            if (out / "STOP").exists():
+                why = "stop requested (STOP file)"
+            elif a.time_budget_minutes and time.time() - started > a.time_budget_minutes * 60:
+                why = f"time budget of {a.time_budget_minutes} min reached"
+            if why and state.global_step < state.max_steps:
+                paused["reason"] = why
+                control.should_save = True
+                control.should_training_stop = True
+            return control
+
+    max_steps = a.max_steps or (a.smoke_max_steps if smoke and a.smoke_max_steps else -1)
     args = TrainingArguments(
-        output_dir=str(out), num_train_epochs=T["epochs"], max_steps=a.smoke_max_steps if smoke and a.smoke_max_steps else -1,
+        output_dir=str(out), num_train_epochs=T["epochs"], max_steps=max_steps,
         per_device_train_batch_size=T["per_device_batch_size"], per_device_eval_batch_size=T["per_device_batch_size"],
         gradient_accumulation_steps=T["gradient_accumulation_steps"], learning_rate=T["learning_rate"],
         lr_scheduler_type=T["lr_scheduler"], warmup_ratio=T["warmup_ratio"], weight_decay=T["weight_decay"],
@@ -391,7 +417,7 @@ def _main(argv=None):
         run_name=cfg["run_name"], use_cpu=not use_cuda, disable_tqdm=True, dataloader_num_workers=0, save_safetensors=True)
     phase("trainer_init_start")
     trainer = Trainer(model=model, args=args, train_dataset=train_ds, eval_dataset=eval_ds,
-                      data_collator=DataCollatorForSeq2Seq(tok, padding=True, label_pad_token_id=-100), callbacks=[RunInfoCallback()])
+                      data_collator=DataCollatorForSeq2Seq(tok, padding=True, label_pad_token_id=-100), callbacks=[RunInfoCallback(), PauseCallback()])
 
     phase("trainer_init_done")
     resume = None if a.no_resume else find_checkpoint(out, a.resume_search)
@@ -408,6 +434,13 @@ def _main(argv=None):
     (out / "train_status.json").write_text(json.dumps({"status": "running", "started_at": time.time(), "resume_from": str(resume) if resume else None}))
     t0 = time.time()
     result = trainer.train(resume_from_checkpoint=str(resume) if resume else None)
+    if paused["reason"]:
+        (out / "train_status.json").write_text(json.dumps({"status": "paused", "reason": paused["reason"], "global_step": trainer.state.global_step,
+                                                          "max_steps": trainer.state.max_steps}))
+        phase("training_paused", reason=paused["reason"], global_step=trainer.state.global_step, max_steps=trainer.state.max_steps)
+        print(f"PAUSED at step {trainer.state.global_step}/{trainer.state.max_steps}: {paused['reason']}. A checkpoint was saved; "
+              "run the same command again to resume.")
+        return EXIT_PAUSED
     phase("training_finished", global_step=trainer.state.global_step)
     metrics = {"train": result.metrics, "train_seconds": round(time.time() - t0, 1), "global_step": trainer.state.global_step}
     if eval_ds is not None:
