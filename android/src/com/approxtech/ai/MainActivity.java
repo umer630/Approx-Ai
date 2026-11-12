@@ -97,9 +97,9 @@ public class MainActivity extends Activity {
         root.setBackgroundColor(BG);
         setContentView(root);
         String server = store.get("server", getString(R.string.default_server_url));
-        if (server == null || server.length() == 0) { showServerSetup(); return; }
+        if (server == null || server.length() == 0) { showWelcome(); return; }
         api = new Api(server, store.getToken());
-        if (api.getToken() == null) showLogin(); else loadSession();
+        if (api.getToken() == null) showWelcome(); else loadSession();
     }
 
     @Override
@@ -231,6 +231,56 @@ public class MainActivity extends Activity {
         JSONObject o = new JSONObject();
         try { for (int i = 0; i + 1 < kv.length; i += 2) o.put((String) kv[i], kv[i + 1]); } catch (JSONException ignored) { }
         return o;
+    }
+
+    // ------------------------------------------------------------------ welcome (server + sign in / create account on one screen)
+    void showWelcome() {
+        LinearLayout col = formPage("Approx AI", "Sign in or create your account.");
+        final String saved = store.get("server", getString(R.string.default_server_url));
+        final EditText url = input("Server address (https://your-approx-server)", InputType.TYPE_TEXT_VARIATION_URI);
+        if (saved != null && saved.length() > 0) url.setText(saved);
+        final EditText email = input("Email", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+        final EditText pw = input("Password", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        add(col, url, 18);
+        add(col, email, 12);
+        add(col, pw, 10);
+        add(col, button("Sign in", true, new Runnable() { public void run() {
+            final String em = email.getText().toString().trim();
+            final String pass = pw.getText().toString();
+            if (em.length() == 0 || pass.length() == 0) { toast("Enter your email and password."); return; }
+            connectThen(url.getText().toString(), new Runnable() { public void run() {
+                final JSONObject body = obj("email", em, "password", pass, "client", "mobile");
+                bg(new Job() { public Object run() throws Exception { return api.post("/api/auth/login", body); } }, new Done() { public void ok(Object r) {
+                    String tok = ((JSONObject) r).optString("token");
+                    store.setToken(tok);
+                    api.setToken(tok);
+                    loadSession();
+                } });
+            } });
+        } }), 16);
+        add(col, button("Create account", false, new Runnable() { public void run() {
+            connectThen(url.getText().toString(), new Runnable() { public void run() { showSignup(); } });
+        } }), 10);
+        LinearLayout links = hbox();
+        links.addView(link("Forgot password?", new Runnable() { public void run() { connectThen(url.getText().toString(), new Runnable() { public void run() { showForgot(); } }); } }));
+        View sp = new View(this); links.addView(sp, new LinearLayout.LayoutParams(0, 1, 1));
+        links.addView(link("Have a verification code?", new Runnable() { public void run() { connectThen(url.getText().toString(), new Runnable() { public void run() { showVerify(); } }); } }));
+        add(col, links, 12);
+        add(col, text("The server address is where your Approx AI backend is hosted. Ask your administrator if you are unsure.", 12, MUTED, false), 14);
+    }
+
+    /** Validate + remember the server, confirm it is an Approx AI backend, then run `then`. */
+    void connectThen(String rawUrl, final Runnable then) {
+        final String s;
+        try { s = Api.normalizeServer(rawUrl); }
+        catch (Api.ApiException e) { toast(e.getMessage()); return; }
+        final Api probe = new Api(s, store.getToken());
+        bg(new Job() { public Object run() throws Exception { return probe.get("/api/version"); } }, new Done() { public void ok(Object r) {
+            if (!"Approx AI".equals(((JSONObject) r).optString("product"))) { toast("That server is not an Approx AI server."); return; }
+            store.put("server", s);
+            api = probe;
+            then.run();
+        } });
     }
 
     // ------------------------------------------------------------------ server setup
