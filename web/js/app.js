@@ -4,7 +4,7 @@ import { markdown } from './md.js';
 import * as views from './views.js';
 
 export const state = {
-  user: null, models: [], modes: ['medium', 'high'], usage: null, settings: null,
+  user: null, models: [], modes: ['low', 'medium', 'high'], modeDetails: [], defaultMode: 'medium', usage: null, settings: null,
   chat: null, messages: [], model: 'auto', mode: 'medium', attachments: [], streaming: null, projectId: null,
 };
 const app = document.getElementById('app');
@@ -44,7 +44,7 @@ async function render() {
 
 async function bootstrap() {
   const [m, s, u] = await Promise.all([api('/api/models'), api('/api/settings'), api('/api/usage')]);
-  state.models = m.models; state.modes = m.modes; state.settings = s.settings; state.usage = u;
+  state.models = m.models; state.modes = m.modes; state.modeDetails = m.mode_details || []; state.defaultMode = m.default_mode || 'medium'; state.settings = s.settings; state.usage = u;
   state.mode = s.settings.default_mode;
   state.model = 'auto';
   document.documentElement.dataset.theme = s.settings.theme === 'light' ? 'light' : 'dark';
@@ -144,34 +144,50 @@ function shell(renderMain) {
 export function setMain(...nodes) { mainEl.replaceChildren(...nodes); }
 export function hideComposer() { composerEl.classList.add('hidden'); }
 
+export function modeLabel(mode = state.mode) {
+  const d = state.modeDetails.find((x) => x.id === mode);
+  return d ? d.label : (mode ? mode[0].toUpperCase() + mode.slice(1) : 'Medium');
+}
 export function modelLabel() {
   const m = state.models.find((x) => x.id === state.model);
-  return `${m ? m.name : 'Auto'} · ${state.mode === 'high' ? 'High' : 'Medium'}`;
+  return `${m ? m.name : 'Auto'} · ${modeLabel()}`;
 }
 function updateIndicator() { const el = document.getElementById('model-indicator'); if (el) el.textContent = modelLabel(); const c = document.getElementById('model-chip'); if (c) c.replaceChildren(h('b', {}, (state.models.find((x) => x.id === state.model)?.name) || 'Auto'), icon('chevron')); }
 
 export function openModelPicker() {
   sheet('Choose model', (s, close) => {
-    s.append(h('p', { class: 'muted small' }, 'Models and modes are separate: the model decides who answers, the mode (Medium / High) decides how much effort it spends.'));
+    s.append(h('p', { class: 'muted small' }, 'Models and modes are separate: the model decides who answers; the efficiency mode (Low / Medium / High) decides how much effort it spends on each reply.'));
     const opt = (id, name, desc, available, badge) => h('button', { class: 'option', role: 'radio', 'aria-checked': String(state.model === id), disabled: !available,
       onclick: () => { state.model = id; updateIndicator(); close(); } },
     h('div', { class: 'grow' }, h('div', { class: 'row' }, h('span', { class: 'name' }, name), badge), h('div', { class: 'small muted' }, desc)));
     s.append(opt('auto', 'Master Router (Auto)', 'Picks the best model you have access to for each message.', true, h('span', { class: 'badge green' }, 'Recommended')));
     for (const m of state.models) {
-      const badge = !m.available ? h('span', { class: 'badge' }, m.tier === 'restricted' ? 'Restricted' : 'Premium') : m.backend === 'unavailable' ? h('span', { class: 'badge warn' }, 'Backend offline') : m.backend === 'dev-simulator' ? h('span', { class: 'badge warn' }, 'Simulator') : null;
-      s.append(opt(m.id, m.name, m.description, m.available, badge));
+      const badge = modelBadge(m);
+      const sub = [m.kind && m.kind !== 'language_model' ? m.kind.replace('_', ' ') : null,
+        m.active_version ? `v${m.active_version}` : (m.available ? 'no active version' : null)].filter(Boolean).join(' · ');
+      s.append(opt(m.id, m.name, m.description + (sub ? `  (${sub})` : ''), m.available && m.backend !== 'unavailable' && m.backend !== 'no_active_version', badge));
     }
     s.append(h('h3', {}, 'Mode'), modeToggle(close));
   });
 }
-function modeToggle(after) {
-  const wrap = h('div', { class: 'mode-toggle', role: 'group', 'aria-label': 'Processing mode' });
-  for (const m of state.modes) {
-    wrap.append(h('button', { type: 'button', 'aria-pressed': String(state.mode === m), onclick: () => {
-      state.mode = m; for (const b of wrap.children) b.setAttribute('aria-pressed', String(b.textContent.toLowerCase() === m)); updateIndicator(); after?.();
-    } }, m === 'high' ? 'High' : 'Medium'));
+export function modeToggle(after) {
+  const wrap = h('div', { class: 'mode-toggle', role: 'group', 'aria-label': 'Efficiency mode' });
+  const modes = state.modeDetails.length ? state.modeDetails : state.modes.map((id) => ({ id, label: id }));
+  for (const d of modes) {
+    wrap.append(h('button', { type: 'button', 'data-mode': d.id, 'aria-pressed': String(state.mode === d.id), title: d.description || '', onclick: () => {
+      state.mode = d.id; for (const b of wrap.children) b.setAttribute('aria-pressed', String(b.getAttribute('data-mode') === d.id)); updateIndicator(); after?.();
+    } }, d.label));
   }
   return wrap;
+}
+function modelBadge(m) {
+  if (!m.available) return h('span', { class: 'badge' }, m.tier === 'restricted' ? 'Restricted' : 'Premium');
+  if (m.backend === 'unavailable') return h('span', { class: 'badge warn' }, 'Offline');
+  if (m.backend === 'no_active_version') return h('span', { class: 'badge warn' }, 'No active version');
+  if (m.backend === 'dev-simulator') return h('span', { class: 'badge warn' }, 'Simulator');
+  if (m.production_ready) return h('span', { class: 'badge green' }, 'Live');
+  if (m.backend === 'active' || m.backend === 'configured') return h('span', { class: 'badge' }, 'Preview');
+  return null;
 }
 
 // ---------------- chat ----------------
@@ -225,7 +241,7 @@ function messageEl(m) {
     !isUser ? h('button', { 'aria-label': 'Regenerate', title: 'Regenerate', onclick: regenerate }, icon('refresh')) : null,
     !isUser ? h('button', { 'aria-label': 'Save to Workspace', title: 'Save to Approx Workspace', onclick: () => saveToWorkspace(m) }, icon('save')) : null);
   const meta = h('div', { class: 'meta' }, actions,
-    !isUser && m.model_id ? h('span', { class: 'tag', title: m.route_reason || '' }, `${state.models.find((x) => x.id === m.model_id)?.name || m.model_id} · ${m.mode === 'high' ? 'High' : 'Medium'}`) : null,
+    !isUser && m.model_id ? h('span', { class: 'tag', title: m.route_reason || '' }, `${state.models.find((x) => x.id === m.model_id)?.name || m.model_id} · ${modeLabel(m.mode)}`) : null,
     m.created_at ? h('span', {}, fmtTime(m.created_at)) : null);
   return h('article', { class: `msg ${m.role} ${m.status === 'error' ? 'error' : ''}`, 'data-id': m.id || '' }, atts, bubble, meta);
 }

@@ -332,5 +332,58 @@ export async function adminView() {
       h('button', { class: 'btn primary', onclick: async () => { try { await api('/api/admin/model-access', { method: 'POST', body: { email: email.value, model_id: model.value, reason: reason.value } }); msg.replaceChildren(h('div', { class: 'alert ok' }, 'Granted')); } catch (e) { msg.replaceChildren(h('div', { class: 'alert error' }, e.message)); } } }, 'Grant'), msg),
     h('h3', {}, 'Users'), h('div', { class: 'list' }, r.users.map((u) => h('div', { class: 'list-item' }, h('div', { class: 'grow' }, h('div', { class: 'title' }, u.email), h('div', { class: 'sub' }, `${u.role} · ${u.plan} · ${u.email_verified ? 'verified' : 'unverified'} · grants: ${u.grants.map((g) => g.model_id).join(', ') || 'none'}`)),
       h('select', { class: 'input', 'aria-label': 'Plan', onchange: async (e) => { await api(`/api/admin/users/${u.id}`, { method: 'PATCH', body: { plan: e.target.value } }); toast('Plan updated'); } }, ['free', 'pro', 'enterprise'].map((p) => h('option', { value: p, selected: u.plan === p }, p)))))),
-    isSuper ? h('button', { class: 'btn', onclick: async () => { try { const d = await api('/api/admin/training/export-consented', { method: 'POST', body: { target_model: 'nick-4.8' } }); toast(`Dataset ${d.dataset.version}: ${d.dataset.stats.pairs} pairs → kept after filters`); } catch (e) { toast(e.message); } } }, 'Export consented Nick dataset') : null));
+    isSuper ? h('button', { class: 'btn', onclick: async () => { try { const d = await api('/api/admin/training/export-consented', { method: 'POST', body: { target_model: 'nick-4.8' } }); toast(`Dataset ${d.dataset.version}: ${d.dataset.stats.pairs} pairs → kept after filters`); } catch (e) { toast(e.message); } } }, 'Export consented Nick dataset') : null,
+    h('h3', {}, 'Model registry'), h('div', { id: 'admin-registry' }, h('p', { class: 'muted small' }, 'Loading…')),
+    h('h3', {}, 'Compute (GPU training)'), h('div', { id: 'admin-compute' }, h('p', { class: 'muted small' }, 'Loading…'))));
+  renderRegistry(isSuper);
+  renderCompute(isSuper);
+}
+
+async function renderRegistry(isSuper) {
+  const box = document.getElementById('admin-registry');
+  if (!box) return;
+  let r;
+  try { r = await api('/api/admin/registry'); } catch (e) { box.replaceChildren(h('div', { class: 'alert error' }, e.message)); return; }
+  const rows = [];
+  for (const m of r.models) {
+    rows.push(h('div', { class: 'list-item' }, h('div', { class: 'grow' },
+      h('div', { class: 'title' }, `${m.id} `, m.active_version ? h('span', { class: 'badge green' }, `active v${m.active_version}`) : h('span', { class: 'badge warn' }, 'no active version'),
+        m.active_problem ? h('span', { class: 'badge error' }, m.active_problem) : null),
+      h('div', { class: 'sub' }, m.versions.length ? m.versions.map((v) => `v${v.version} (${v.status}${v.production_ready ? ', production' : ''}${v.activatable ? '' : ', not activatable'})`).join(' · ') : 'no releases imported'))));
+    for (const v of m.versions) {
+      const canActivate = isSuper && v.activatable && m.active_version !== v.version;
+      rows.push(h('div', { class: 'list-item sub-row' }, h('div', { class: 'grow small' }, h('code', {}, `${m.id}@${v.version}`), ` — ${v.status}`, v.errors && v.errors.length ? h('span', { class: 'muted' }, ` · ${v.errors[0]}`) : null),
+        canActivate ? h('button', { class: 'btn', onclick: async () => {
+          const body = { model_id: m.id, version: v.version };
+          if (!v.production_ready && !confirm(`v${v.version} is not production-ready. Activate anyway? (audited)`)) return;
+          if (!v.production_ready) { body.allow_non_production = true; body.reason = prompt('Reason (audited):') || 'manual activation'; }
+          try { const res = await api('/api/admin/registry/activate', { method: 'POST', body }); toast(`Activated v${v.version} · inference: ${res.inference?.status || 'n/a'}`); renderRegistry(isSuper); } catch (e) { toast(e.message); }
+        } }, v.production_ready ? 'Activate' : 'Activate (override)') : (m.active_version === v.version && isSuper ? h('button', { class: 'btn', onclick: async () => { try { await api('/api/admin/registry/deactivate', { method: 'POST', body: { model_id: m.id } }); toast('Deactivated'); renderRegistry(isSuper); } catch (e) { toast(e.message); } } }, 'Deactivate') : null)));
+    }
+  }
+  box.replaceChildren(h('div', { class: 'row' }, h('button', { class: 'btn', onclick: async () => { await api('/api/admin/registry/rescan', { method: 'POST' }); toast('Rescanned'); renderRegistry(isSuper); } }, 'Rescan'),
+      h('span', { class: 'muted small' }, `dir: ${r.dir || '—'} · auto-activate: ${r.auto_activate}`)),
+    h('div', { class: 'list' }, rows.length ? rows : h('p', { class: 'muted small' }, 'No releases yet. Import with the training pipeline or `cli.js models import`.')),
+    isSuper ? h('p', { class: 'muted small' }, 'Import happens from the training pipeline (POST /api/admin/registry/import with the artifact tar.gz) or the operator CLI. Only verified, validated releases can be activated.') : null);
+}
+
+async function renderCompute(isSuper) {
+  const box = document.getElementById('admin-compute');
+  if (!box) return;
+  let r;
+  try { r = await api('/api/admin/compute'); } catch (e) { box.replaceChildren(h('div', { class: 'alert error' }, e.message)); return; }
+  const workers = r.workers || [];
+  const online = workers.filter((w) => w.online);
+  const start = isSuper ? h('button', { class: 'btn primary', onclick: async () => {
+    const which = prompt('Models to train ("all" or space-separated ids):', 'nick-4.8');
+    if (!which) return;
+    try { const res = await api('/api/admin/compute/jobs', { method: 'POST', body: { models: which.trim() === 'all' ? 'all' : which.trim().split(/\s+/) } }); toast(res.note || `Job ${res.job.id} queued`); renderCompute(isSuper); } catch (e) { toast(e.message); }
+  } }, 'Start training job') : null;
+  box.replaceChildren(
+    h('div', { class: 'row' }, start, h('span', { class: 'muted small' }, `${online.length} worker${online.length === 1 ? '' : 's'} online`)),
+    h('div', { class: 'card' }, h('h4', {}, 'GPU workers'), online.length ? h('div', { class: 'list' }, online.map((w) => h('div', { class: 'list-item' },
+      h('div', { class: 'grow' }, h('div', { class: 'title' }, w.name || w.id), h('div', { class: 'sub' }, `${w.gpu?.name || 'GPU'} · ${w.gpu?.vram_gb || '?'} GB · job: ${w.current_job_id || 'idle'}`))))) : h('p', { class: 'muted small' }, 'No GPU worker is connected. Start one with `run_all_training.py --worker` on a GPU runtime (Colab/NEBIUS).')),
+    h('div', { class: 'card' }, h('h4', {}, 'Jobs'), (r.jobs && r.jobs.length) ? h('div', { class: 'list' }, r.jobs.slice(0, 10).map((j) => h('div', { class: 'list-item' },
+      h('div', { class: 'grow' }, h('div', { class: 'title' }, `${j.models.join(', ')} `, h('span', { class: 'badge' }, j.status)), h('div', { class: 'sub' }, `${j.phase || ''} ${j.worker_id ? '· ' + j.worker_id : ''}`.trim() || '—')),
+      (isSuper && ['queued', 'running', 'stop_requested'].includes(j.status)) ? h('button', { class: 'btn', onclick: async () => { try { await api(`/api/admin/compute/jobs/${j.id}/stop`, { method: 'POST' }); toast('Stop requested'); renderCompute(isSuper); } catch (e) { toast(e.message); } } }, 'Stop') : null))) : h('p', { class: 'muted small' }, 'No training jobs yet.')));
 }

@@ -51,7 +51,7 @@ const VIEWS = {
       h('div', { class: 'stats' }, stat('Active keys', o.active_keys), stat('API requests (24h)', o.requests_24h), stat('Errors (24h)', o.errors_24h),
         stat('Quota left this hour', `${o.usage.window.remaining}/${o.usage.window.limit}`, `Cycle renews ${new Date(o.usage.cycle.renews_at).toLocaleDateString()}`)),
       h('h3', {}, 'Platform versions'), h('div', { class: 'card small' }, Object.entries(o.versions).map(([k, v]) => h('div', {}, h('b', {}, k), ': ', v))),
-      h('h3', {}, 'Quick start'), h('pre', { class: 'block' }, `curl ${ORIGIN}/api/v1/chat/completions \\\n  -H "Authorization: Bearer $APPROX_API_KEY" \\\n  -H "Content-Type: application/json" \\\n  -d '{"model":"nick-4.8","mode":"medium","messages":[{"role":"user","content":"Salam! Introduce yourself."}]}'`));
+      h('h3', {}, 'Quick start'), h('pre', { class: 'block' }, `curl ${ORIGIN}/api/v1/chat/completions \\\n  -H "Authorization: Bearer $APPROX_API_KEY" \\\n  -H "Content-Type: application/json" \\\n  -d '{"model":"nick-4.8","mode":"low","messages":[{"role":"user","content":"Salam! Introduce yourself."}]}'`));
   },
   async keys(m) {
     const r = await api('/api/developer/keys');
@@ -74,10 +74,11 @@ const VIEWS = {
   },
   async models(m) {
     const r = await api('/api/models');
-    m.append(h('h1', {}, 'Models'), h('p', { class: 'muted' }, 'Use "auto" to let the Master Router choose. Modes (medium | high) are a separate parameter — they are not models.'),
-      h('div', { class: 'table-wrap' }, h('table', { class: 't' }, h('thead', {}, h('tr', {}, ['ID', 'Name', 'Tier', 'Your access', 'Backend', 'Description'].map((x) => h('th', {}, x)))),
-        h('tbody', {}, h('tr', {}, h('td', {}, h('code', {}, 'auto')), h('td', {}, 'Master Router'), h('td', {}, 'router'), h('td', {}, 'yes'), h('td', {}, '—'), h('td', {}, 'Routes each request to the best permitted model.')),
-          r.models.map((x) => h('tr', {}, h('td', {}, h('code', {}, x.id)), h('td', {}, x.name), h('td', {}, x.tier), h('td', {}, x.available ? 'yes' : 'no'), h('td', {}, x.backend), h('td', {}, x.description)))))));
+    m.append(h('h1', {}, 'Models'), h('p', { class: 'muted' }, 'Use "auto" to let the Master Router choose. Efficiency modes (low | medium | high) are a separate parameter — they are not models.'),
+      h('div', { class: 'table-wrap' }, h('table', { class: 't' },
+        h('thead', {}, h('tr', {}, ['ID', 'Name', 'Kind', 'Tier', 'Available', 'Active version', 'Backend', 'Description'].map((t) => h('th', {}, t)))),
+      h('tbody', {}, h('tr', {}, h('td', {}, h('code', {}, 'auto')), h('td', {}, 'Master Router'), h('td', {}, '—'), h('td', {}, 'router'), h('td', {}, 'yes'), h('td', {}, '—'), h('td', {}, '—'), h('td', {}, 'Routes each request to the best permitted model.')),
+          r.models.map((x) => h('tr', {}, h('td', {}, h('code', {}, x.id)), h('td', {}, x.name), h('td', {}, (x.kind||'').replace('_',' ')), h('td', {}, x.tier), h('td', {}, x.available ? 'yes' : 'no'), h('td', {}, x.active_version || '—'), h('td', {}, x.backend), h('td', {}, x.description)))))));
   },
   async usage(m) {
     const u = await api('/api/usage');
@@ -95,15 +96,15 @@ const VIEWS = {
   async docs(m) {
     const card = (title, ...c) => h('div', { class: 'card' }, h('h3', {}, title), ...c);
     m.append(h('h1', {}, 'API Documentation'), h('p', { class: 'muted' }, `Base URL: ${ORIGIN}/api/v1 · Auth: Authorization: Bearer apx_… · All responses carry X-Request-Id.`),
-      card('POST /chat/completions', h('p', { class: 'small' }, 'Body: model ("auto" | "nick-4.8" | "hike-6.5" | "sona-9.0" | "fab-100x" | "fab-500x"), mode ("medium" | "high"), messages [{role: user|assistant|system, content}], stream (bool). Scope: chat.'),
-        h('pre', { class: 'block' }, `{\n  "id": "req_…", "object": "chat.completion", "model": "nick-4.8", "mode": "medium",\n  "route_reason": "user-selected",\n  "choices": [{"index":0,"message":{"role":"assistant","content":"…"},"finish_reason":"stop"}],\n  "usage": {"prompt_tokens": 0, "completion_tokens": 0}\n}`),
+      card('POST /chat/completions', h('p', { class: 'small' }, 'Body: model ("auto" | "nick-4.8" | "hike-6.5" | "sona-9.0" | "fab-100x" | "fab-500x"), mode ("low" | "medium" | "high"), messages [{role: user|assistant|system, content}], stream (bool). Scope: chat.'),
+        h('pre', { class: 'block' }, `{\n  "id": "req_…", "object": "chat.completion", "model": "nick-4.8", "mode": "high",\n  "route_reason": "user-selected",\n  "choices": [{"index":0,"message":{"role":"assistant","content":"…"},"finish_reason":"stop"}],\n  "usage": {"prompt_tokens": 0, "completion_tokens": 0}\n}`),
         h('p', { class: 'small' }, 'Streaming: Server-Sent Events. event "chunk" (delta), then "done" (full object) or "error".')),
       card('GET /models', h('p', { class: 'small' }, 'Models your account can use. Scope: models:read.')),
       card('GET /usage', h('p', { class: 'small' }, 'Quota window and cycle. Scope: usage:read.')),
       card('Errors', h('pre', { class: 'block' }, '{"error": {"code": "quota_exceeded", "message": "…", "request_id": "req_…"}}'),
         h('p', { class: 'small' }, '400 invalid_request · 401 unauthorized · 403 insufficient_scope / model_access_denied / email_not_verified · 429 rate_limited / quota_exceeded (Retry-After) · 503 model_backend_unavailable')),
-      card('JavaScript', h('pre', { class: 'block' }, `const r = await fetch("${ORIGIN}/api/v1/chat/completions", {\n  method: "POST",\n  headers: { Authorization: \`Bearer \${process.env.APPROX_API_KEY}\`, "Content-Type": "application/json" },\n  body: JSON.stringify({ model: "auto", mode: "high", messages: [{ role: "user", content: "Explain QLoRA." }] }),\n});\nconsole.log((await r.json()).choices[0].message.content);`)),
-      card('Python', h('pre', { class: 'block' }, `import os, requests\nr = requests.post("${ORIGIN}/api/v1/chat/completions",\n    headers={"Authorization": f"Bearer {os.environ['APPROX_API_KEY']}"},\n    json={"model": "nick-4.8", "mode": "medium", "messages": [{"role": "user", "content": "Kya haal hai?"}]})\nprint(r.json()["choices"][0]["message"]["content"])`)),
+      card('JavaScript', h('pre', { class: 'block' }, `const r = await fetch("${ORIGIN}/api/v1/chat/completions", {\n  method: "POST",\n  headers: { Authorization: \`Bearer \${process.env.APPROX_API_KEY}\`, "Content-Type": "application/json" },\n  body: JSON.stringify({ model: "auto", mode: "low", messages: [{ role: "user", content: "Explain QLoRA." }] }),\n});\nconsole.log((await r.json()).choices[0].message.content);`)),
+      card('Python', h('pre', { class: 'block' }, `import os, requests\nr = requests.post("${ORIGIN}/api/v1/chat/completions",\n    headers={"Authorization": f"Bearer {os.environ['APPROX_API_KEY']}"},\n    json={"model": "nick-4.8", "mode": "high", "messages": [{"role": "user", "content": "Kya haal hai?"}]})\nprint(r.json()["choices"][0]["message"]["content"])`)),
       card('Access rules', h('p', { class: 'small' }, 'Sona requires a Pro plan or grant. FAB requires an explicit superadmin grant, is defensive-only, and FAB traffic is never used for training. The Master Router never routes to a model you cannot access.')));
   },
   async security(m) {

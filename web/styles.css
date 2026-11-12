@@ -190,3 +190,10 @@ svg[aria-hidden="true"] { width: 20px; height: 20px; flex: none; }
 .btn svg, .list-item svg, a.row svg { width: 18px; height: 18px; }
 .toast { top: 72px; bottom: auto; }
 .sheet .list > .list-item > svg:last-child { transform: rotate(-90deg); }
+.badge.error { color: #ffd1d6; background: color-mix(in srgb, var(--danger) 40%, var(--navy)); border-color: transparent; }
+.list-item.sub-row { padding: 6px 6px 6px 18px; cursor: default; }
+.list-item.sub-row code { font-size: 12px; }
+.card h4 { margin: 2px 0 8px; font-size: 14px; }
+.row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 6px 0; }
+.list-item select.input { width: auto; max-width: 150px; flex: 0 0 auto; }
+.list-item.sub-row .btn, .list-item .btn { flex: 0 0 auto; }
