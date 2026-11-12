@@ -33,10 +33,13 @@ import subprocess
 import sys
 import time
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import adapter_finalize as finalize
 
 HERE = Path(__file__).resolve().parent
 EXIT_NO_GPU, EXIT_BASE_UNAVAILABLE, EXIT_BAD_DATA, EXIT_RESUME_MISMATCH, EXIT_UNHEALTHY = 2, 3, 4, 5, 6
 EXIT_PAUSED = 7   # time budget reached or STOP file present: a checkpoint was saved; rerun the same command to resume
+EXIT_INCOMPLETE = 8  # training produced weights but finalization is missing required files (fail closed)
 MIN_FREE_RAM_GB, MIN_FREE_DISK_GB = 4.0, 15.0   # 3B safetensors are loaded shard-by-shard; ~6.2 GB download + headroom
 
 
@@ -442,26 +445,33 @@ def _main(argv=None):
               "run the same command again to resume.")
         return EXIT_PAUSED
     phase("training_finished", global_step=trainer.state.global_step)
-    metrics = {"train": result.metrics, "train_seconds": round(time.time() - t0, 1), "global_step": trainer.state.global_step}
-    if eval_ds is not None:
-        metrics["eval"] = trainer.evaluate()
-    losses = [h["loss"] for h in trainer.state.log_history if "loss" in h]
-    metrics["loss_first"], metrics["loss_last"] = (losses[0], losses[-1]) if losses else (None, None)
-    if any(map(lambda x: x is not None and (math.isnan(x) or math.isinf(x)), [metrics["loss_last"], metrics["train"].get("train_loss")])):
-        (out / "train_status.json").write_text(json.dumps({"status": "failed", "reason": "non-finite loss", "metrics": metrics}, default=str))
-        print("FAILED: non-finite loss", file=sys.stderr)
-        return 1
 
+    # ---- FINALIZE FIRST (fail-closed): write the complete adapter directory BEFORE anything that can crash
+    #      (evaluation, metrics). A later failure must never leave real weights without their manifest/package. ----
     adapter_dir = out / "adapter"
-    model.save_pretrained(str(adapter_dir), safe_serialization=True)
-    tok.save_pretrained(str(adapter_dir))
+    adapter_dir.mkdir(parents=True, exist_ok=True)
+    model.save_pretrained(str(adapter_dir), safe_serialization=True)   # LoRA adapter weights + adapter_config.json
+    tok.save_pretrained(str(adapter_dir))                              # tokenizer_config.json + tokenizer files
     weights = adapter_dir / "adapter_model.safetensors"
     phase("adapter_saved", path=str(weights), exists=weights.exists(), bytes=weights.stat().st_size if weights.exists() else 0)
     if not weights.exists() or weights.stat().st_size == 0:
+        (out / "train_status.json").write_text(json.dumps({"status": "failed", "reason": "adapter_model.safetensors was not written"}))
         print("FAILED: adapter_model.safetensors was not written", file=sys.stderr)
         return 1
     shutil.copy(ddir / "manifest.json", adapter_dir / "dataset_manifest.json")
     (adapter_dir / "training_config.json").write_text(json.dumps(cfg, indent=2))
+
+    # Evaluation + metrics are NON-FATAL: a crash here (e.g. eval OOM) must not lose the finalized adapter.
+    metrics = {"train": result.metrics, "train_seconds": round(time.time() - t0, 1), "global_step": trainer.state.global_step}
+    if eval_ds is not None:
+        try:
+            metrics["eval"] = trainer.evaluate()
+        except Exception as e:  # noqa: BLE001 — recorded, never fatal to finalization
+            metrics["eval_error"] = f"{type(e).__name__}: {e}"
+            phase("eval_failed", error=metrics["eval_error"])
+    losses = [h["loss"] for h in trainer.state.log_history if "loss" in h]
+    metrics["loss_first"], metrics["loss_last"] = (losses[0], losses[-1]) if losses else (None, None)
+    non_finite = any(x is not None and (math.isnan(x) or math.isinf(x)) for x in [metrics["loss_last"], metrics["train"].get("train_loss")])
 
     gpu = {"name": torch.cuda.get_device_name(0), "capability": list(torch.cuda.get_device_capability(0)),
            "total_memory_gb": round(torch.cuda.get_device_properties(0).total_memory / 1e9, 1),
@@ -472,8 +482,9 @@ def _main(argv=None):
         versions.update(bitsandbytes=bitsandbytes.__version__, accelerate=accelerate.__version__, datasets=datasets.__version__)
     except Exception:
         pass
+    run_status = "failed" if non_finite else "completed"
     meta = {
-        "status": "completed", "smoke_test": smoke,
+        "status": run_status, "smoke_test": smoke, "non_finite_loss": non_finite,
         "model_id": cfg["model_id"] if not smoke else "SMOKE-TEST-NOT-NICK", "adapter_version": cfg["adapter_version"] if not smoke else "smoke",
         "base_model": run_info["base_model"], "base_model_revision": resolved_revision,
         "method": "QLoRA (4-bit NF4, double quant) + LoRA" if use_cuda else "LoRA fp32 on CPU (smoke test only)",
@@ -485,16 +496,24 @@ def _main(argv=None):
         "schedule": plan, "resumed_from": str(resume) if resume else None, "metrics": metrics, "gpu": gpu, "versions": versions,
         "git_commit": git_commit(), "finished_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
     }
+    # Canonical metadata + manifest (same schema/SHA-256 logic the recovery tool uses).
+    manifest = finalize.write_adapter_manifest(adapter_dir, meta)
     (out / "train_metadata.json").write_text(json.dumps(meta, indent=2, default=str))
-    (adapter_dir / "train_metadata.json").write_text(json.dumps(meta, indent=2, default=str))
-    manifest = {
-        "model_id": meta["model_id"], "adapter_version": meta["adapter_version"], "base_model": meta["base_model"],
-        "base_model_revision": resolved_revision, "smoke_test": smoke,
-        "files_sha256": {p.name: sha256_file(p) for p in sorted(adapter_dir.iterdir()) if p.is_file() and p.name != "approx_adapter_manifest.json"},
-        "verification_passed": None, "safety_passed": None,
-    }
-    (adapter_dir / "approx_adapter_manifest.json").write_text(json.dumps(manifest, indent=2))
+
+    # Fail-closed completeness check: a run is "completed" only if every required file is present.
+    missing = finalize.missing_required(adapter_dir)
+    if missing:
+        (out / "train_status.json").write_text(json.dumps({"status": "incomplete", "missing_required": missing, "finished_at": meta["finished_at"]}))
+        phase("finalization_incomplete", missing=missing)
+        print(f"INCOMPLETE: adapter finalization is missing required files: {missing}", file=sys.stderr)
+        return EXIT_INCOMPLETE
+    if non_finite:
+        (out / "train_status.json").write_text(json.dumps({"status": "failed", "reason": "non-finite loss", "finished_at": meta["finished_at"]}))
+        phase("training_failed", reason="non-finite loss")
+        print("FAILED: non-finite loss (adapter saved and finalized for inspection; verification will not pass)", file=sys.stderr)
+        return 1
     (out / "train_status.json").write_text(json.dumps({"status": "completed", "finished_at": meta["finished_at"]}))
+    phase("finalized", adapter_dir=str(adapter_dir), files=sorted(p.name for p in adapter_dir.iterdir()))
     print(json.dumps({"status": "completed", "adapter_dir": str(adapter_dir), "adapter_model.safetensors_bytes": weights.stat().st_size,
                       "adapter_model.safetensors_sha256": manifest["files_sha256"]["adapter_model.safetensors"], "metrics": metrics}, indent=2, default=str))
     print(f"NEXT: python verify_adapter.py --adapter {adapter_dir}")

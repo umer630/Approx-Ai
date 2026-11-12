@@ -22,6 +22,7 @@ for _p in (str(TRAINING), str(REPO_ROOT)):
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
+import adapter_finalize as finalize                              # noqa: E402
 from engine import dataset_builder, evaluator, hardware         # noqa: E402
 from engine import safety_evaluator, release_manager            # noqa: E402
 from engine.curriculum import eval_suite                        # noqa: E402
@@ -158,8 +159,12 @@ def train_one(model_cfg_path, models_dir: Path, work_dir: Path, *, smoke: bool =
         stage("training_paused", note="time budget reached; rerun to resume")
         return result
     if rc != 0 or not (adapter_dir / "adapter_model.safetensors").exists():
-        codes = {2: "GPU_REQUIRED", 3: "BASE_MODEL_UNAVAILABLE", 4: "BAD_DATA", 5: "RESUME_MISMATCH", 6: "UNHEALTHY_RUNTIME"}
+        codes = {2: "GPU_REQUIRED", 3: "BASE_MODEL_UNAVAILABLE", 4: "BAD_DATA", 5: "RESUME_MISMATCH", 6: "UNHEALTHY_RUNTIME", 7: "PAUSED", 8: "FINALIZATION_INCOMPLETE"}
         return stop(f"training did not produce an adapter (exit {rc})", codes.get(rc, "TRAINING_FAILED"))
+    # Fail-closed: a real adapter directory must contain every required file before we go near verification/packaging.
+    missing = finalize.missing_required(adapter_dir)
+    if missing:
+        return stop(f"adapter finalization incomplete — missing {missing}; refusing to verify/package", "FINALIZATION_INCOMPLETE")
     train_meta = json.loads((adapter_dir / "train_metadata.json").read_text())
     train_meta.setdefault("dataset", {}).update({"version": manifest["dataset_version"], "fingerprint": manifest["content_fingerprint_sha256"],
                                                  "production_ready": manifest["production_ready"]})

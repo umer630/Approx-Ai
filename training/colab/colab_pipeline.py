@@ -777,8 +777,20 @@ def train() -> None:
         fail(f"training did not finish successfully (exit status {rc}) — first real error/last phase shown above "
              "and in metadata/training_diagnosis.json.")
     src = D["checkpoints"] / "adapter"
+    # Fail-closed: a genuinely finished run writes the COMPLETE adapter directory. If weights exist in a checkpoint
+    # but finalization is missing, stop clearly and point at the recovery tool — never treat it as completed.
+    required = ["adapter_model.safetensors", "adapter_config.json", "tokenizer_config.json", "training_config.json",
+                "train_metadata.json", "approx_adapter_manifest.json"]
+    missing = [f for f in required if not (src / f).exists() or (src / f).stat().st_size == 0]
     if not (src / "adapter_model.safetensors").exists():
-        fail("training finished without adapter_model.safetensors")
+        latest = sorted(D["checkpoints"].glob("checkpoint-*"), key=lambda p: int(p.name.split("-")[1]) if p.name.split("-")[1].isdigit() else 0)
+        hint = (f"\nA checkpoint with real weights exists ({latest[-1]}). Recover WITHOUT retraining:\n"
+                f"  python training/recover_adapter.py --checkpoint {latest[-1]} --out {D['checkpoints'].parent / 'recovered_adapter'}"
+                ) if latest and (latest[-1] / "adapter_model.safetensors").exists() else ""
+        fail("training finished without a final adapter_model.safetensors." + hint)
+    if missing:
+        fail(f"adapter finalization is INCOMPLETE — missing {missing}. The run must not be treated as completed. "
+             f"Recover with: python training/recover_adapter.py --checkpoint {src.parent} --out {src.parent.parent / 'recovered_adapter'}")
     if D["adapter"].exists():
         shutil.rmtree(D["adapter"])
     shutil.copytree(src, D["adapter"])

@@ -240,8 +240,15 @@ def main(argv=None):
     report["malformed_inputs"] = mal_results
     report["checks"]["malformed_input_handled"] = all(m["passed"] for m in mal_results)
 
-    # held-out perplexity: adapter vs base (adapter disabled)
-    ds_dir = HERE / json.loads((adir / "training_config.json").read_text())["dataset_dir"] if (adir / "training_config.json").exists() else None
+    # held-out perplexity: adapter vs base (adapter disabled). Optional — never fatal if the dataset path is absent
+    # (e.g. a recovered adapter whose training_config.json does not carry dataset_dir).
+    ds_dir = None
+    try:
+        tc = json.loads((adir / "training_config.json").read_text()) if (adir / "training_config.json").exists() else {}
+        if tc.get("dataset_dir"):
+            ds_dir = HERE / tc["dataset_dir"]
+    except Exception as e:  # noqa: BLE001
+        report["eval_perplexity_error"] = f"{type(e).__name__}: {e}"
     ev = ds_dir / "eval.jsonl" if ds_dir else None
     if ev and ev.exists():
         def ppl(disable: bool) -> float:
