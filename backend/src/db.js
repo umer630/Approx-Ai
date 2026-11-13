@@ -4,6 +4,7 @@
 //   APPROX_DB_URL        libsql://<db>.turso.io  (serverless)  OR  file:/data/approx.db  (default, local/persistent)
 //   APPROX_DB_AUTH_TOKEN Turso auth token (only for a remote libsql:// URL)
 import { createClient } from '@libsql/client';
+import { AsyncLocalStorage } from 'node:async_hooks';
 import fs from 'node:fs';
 import path from 'node:path';
 import { config } from './config.js';
@@ -461,6 +462,7 @@ async function syncCatalog(c) {
 
 let _client;
 let _initPromise;
+let _local = false;
 function rawClient() {
   if (_client) return _client;
   let url = process.env.APPROX_DB_URL;
@@ -468,7 +470,11 @@ function rawClient() {
     fs.mkdirSync(config.dataDir, { recursive: true });
     url = `file:${process.env.APPROX_DB_FILE || path.join(config.dataDir, 'approx.db')}`;
   }
-  _client = createClient({ url, authToken: process.env.APPROX_DB_AUTH_TOKEN || undefined, intMode: 'number' });
+  // Local file: in-process writes are serialized by `localLock` below; `timeout` only guards against another
+  // process (e.g. the operator CLI) holding the file lock. Remote libsql:// (Turso) handles concurrency itself.
+  _local = url.startsWith('file:');
+  _client = createClient({ url, authToken: process.env.APPROX_DB_AUTH_TOKEN || undefined, intMode: 'number',
+    ...(_local ? { timeout: 15_000 } : {}) });
   return _client;
 }
 
@@ -491,33 +497,59 @@ export const now = () => Date.now();
 // libSQL args must be null (not undefined); booleans are stored as 0/1.
 function norm(p) { return p.map((a) => (a === undefined ? null : typeof a === 'boolean' ? (a ? 1 : 0) : a)); }
 
-// Ambient transaction: tx() sets this so one/all/run inside the callback join the same atomic transaction.
-let _txn = null;
-async function dbTarget() { return _txn || (await getDb()); }
+// Transaction context is per async call chain (AsyncLocalStorage), so concurrent requests never share a
+// transaction: one/all/run inside tx(fn) use that request's transaction; everything else uses the client.
+const txStore = new AsyncLocalStorage();
+
+// Local SQLite file: SQLite allows one writer at a time and its busy-wait is synchronous native code, which would
+// block the event loop and deadlock against a transaction held by another request in this same process. So in
+// local mode an async FIFO lock serializes access: a transaction holds it for its whole duration and a statement
+// outside a transaction holds it for that one statement. (Remote Turso does not need or use this lock.)
+let lockTail = Promise.resolve();
+function localLock() {
+  let release;
+  const held = new Promise((r) => { release = r; });
+  const prev = lockTail;
+  lockTail = prev.then(() => held);
+  return prev.then(() => release);
+}
+
+async function exec(sql, p) {
+  const t = txStore.getStore();
+  if (t) return t.execute({ sql, args: norm(p) });
+  const c = await getDb();
+  if (!_local) return c.execute({ sql, args: norm(p) });
+  const release = await localLock();
+  try { return await c.execute({ sql, args: norm(p) }); } finally { release(); }
+}
 
 // Small async helpers to keep route code terse. SQL is unchanged (SQLite dialect).
-export async function one(sql, ...p) { const r = await (await dbTarget()).execute({ sql, args: norm(p) }); return r.rows[0]; }
-export async function all(sql, ...p) { const r = await (await dbTarget()).execute({ sql, args: norm(p) }); return r.rows; }
+export async function one(sql, ...p) { return (await exec(sql, p)).rows[0]; }
+export async function all(sql, ...p) { return (await exec(sql, p)).rows; }
 export async function run(sql, ...p) {
-  const r = await (await dbTarget()).execute({ sql, args: norm(p) });
+  const r = await exec(sql, p);
   return { changes: r.rowsAffected, lastInsertRowid: r.lastInsertRowid };
 }
 
-/** Atomic transaction. The callback's one/all/run calls run on the same transaction (ambient _txn). */
+/** Atomic transaction scoped to the calling request. A nested tx() joins the outer transaction. */
 export async function tx(fn) {
+  if (txStore.getStore()) return fn();
   const c = await getDb();
-  const t = await c.transaction('write');
-  const prev = _txn;
-  _txn = t;
+  const release = _local ? await localLock() : null;
   try {
-    const r = await fn();
-    await t.commit();
-    return r;
-  } catch (e) {
-    try { await t.rollback(); } catch { /* already closed */ }
-    throw e;
+    const t = await c.transaction('write');
+    try {
+      const r = await txStore.run(t, fn);
+      await t.commit();
+      return r;
+    } catch (e) {
+      try { await t.rollback(); } catch { /* already closed */ }
+      throw e;
+    } finally {
+      t.close();
+    }
   } finally {
-    _txn = prev;
+    if (release) release();
   }
 }
 
@@ -531,4 +563,4 @@ export async function securityEvent(userId, kind, severity, ip, detail = {}) {
 }
 
 /** For tests / graceful shutdown. */
-export function close() { if (_client) { try { _client.close(); } catch { /* ignore */ } _client = null; _initPromise = null; _txn = null; } }
+export function close() { if (_client) { try { _client.close(); } catch { /* ignore */ } _client = null; _initPromise = null; } }
