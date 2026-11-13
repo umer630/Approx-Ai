@@ -86,6 +86,11 @@ public class MainActivity extends Activity {
     private TextView modelIndicator;
     private LinearLayout chipRow;
     private TextView sendBtn;
+    private TextView micBtn;
+    private EditText prompt;
+    private android.speech.SpeechRecognizer recognizer;
+    private boolean listening = false;
+    static final int REQ_MIC = 71;
     private TextView usageNote;
 
     // ------------------------------------------------------------------ lifecycle
@@ -103,7 +108,7 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    protected void onDestroy() { pool.shutdownNow(); super.onDestroy(); }
+    protected void onDestroy() { if (recognizer != null) recognizer.destroy(); pool.shutdownNow(); super.onDestroy(); }
 
     // ------------------------------------------------------------------ async helpers
     interface Job { Object run() throws Exception; }
@@ -439,6 +444,13 @@ public class MainActivity extends Activity {
         av.setContentDescription("Account");
         av.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { showSettings(); } });
         top.addView(av, avlp);
+        TextView dots = text("⋮", 22, TEXT, true);
+        dots.setContentDescription("Menu");
+        dots.setGravity(Gravity.CENTER);
+        dots.setPadding(dp(8), dp(2), dp(6), dp(2));
+        dots.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { threeDotMenu(); } });
+        LinearLayout.LayoutParams dlp = new LinearLayout.LayoutParams(-2, -2); dlp.leftMargin = dp(4);
+        top.addView(dots, dlp);
         page.addView(top);
         View div = new View(this); div.setBackgroundColor(LINE); page.addView(div, new LinearLayout.LayoutParams(-1, dp(1)));
         page.addView(body, new LinearLayout.LayoutParams(-1, 0, 1));
@@ -516,20 +528,66 @@ public class MainActivity extends Activity {
         messageList.addView(w);
     }
 
+    void copyClip(String label, String s) {
+        android.content.ClipboardManager cm = (android.content.ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        cm.setPrimaryClip(android.content.ClipData.newPlainText(label, s));
+        toast("Copied");
+    }
+
+    /** Assistant answer: prose (markdown) interleaved with code-block cards, each with its own Copy button. */
+    View assistantBody(String content) {
+        LinearLayout col = vbox();
+        for (final Md.Segment seg : Md.segments(content)) {
+            if (seg.code) {
+                LinearLayout card = vbox();
+                card.setBackground(bgShape(Color.parseColor("#0A1222"), 12, LINE));
+                LinearLayout head = hbox();
+                head.setPadding(dp(10), dp(6), dp(8), dp(2));
+                head.addView(text(seg.lang != null && !seg.lang.isEmpty() ? seg.lang : "code", 11.5f, MUTED, false));
+                View sp = new View(this); head.addView(sp, new LinearLayout.LayoutParams(0, 1, 1));
+                final String codeText = seg.text.toString();
+                TextView cp = text("⧉ Copy", 11.5f, GREEN, true);
+                cp.setPadding(dp(8), dp(4), dp(8), dp(4));
+                cp.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { copyClip("code", codeText); } });
+                head.addView(cp);
+                card.addView(head);
+                android.widget.HorizontalScrollView hs = new android.widget.HorizontalScrollView(this);
+                hs.setHorizontalScrollBarEnabled(false);
+                TextView code = text(codeText, 13.5f, Color.parseColor("#DFE8F5"), false);
+                code.setTypeface(android.graphics.Typeface.MONOSPACE);
+                code.setTextIsSelectable(true);
+                code.setPadding(dp(12), dp(6), dp(12), dp(12));
+                hs.addView(code);
+                card.addView(hs);
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, -2); lp.topMargin = dp(6); lp.bottomMargin = dp(6);
+                col.addView(card, lp);
+            } else {
+                TextView t = text("", 15.5f, TEXT, false);
+                t.setTextIsSelectable(true);
+                t.setLineSpacing(0, 1.25f);
+                t.setText(seg.text);
+                col.addView(t);
+            }
+        }
+        return col;
+    }
+
     void addMessage(JSONObject m) {
         boolean isUser = "user".equals(m.optString("role"));
         LinearLayout wrap = vbox();
         wrap.setGravity(isUser ? Gravity.END : Gravity.START);
         final String content = m.optString("content");
-        TextView body = text("", 15.5f, TEXT, false);
-        body.setTextIsSelectable(true);
-        body.setLineSpacing(0, 1.25f);
+        final View body;
         if (isUser) {
-            body.setText(content);
-            body.setPadding(dp(14), dp(10), dp(14), dp(10));
-            body.setBackground(bgShape(SURFACE3, 18, 0));
+            TextView t = text("", 15.5f, TEXT, false);
+            t.setTextIsSelectable(true);
+            t.setLineSpacing(0, 1.25f);
+            t.setText(content);
+            t.setPadding(dp(14), dp(10), dp(14), dp(10));
+            t.setBackground(bgShape(SURFACE3, 18, 0));
+            body = t;
         } else {
-            body.setText(Md.render(content));
+            body = assistantBody(content);   // prose + per-code-block Copy cards (markdown, tables, lists)
         }
         JSONArray atts = m.optJSONArray("attachments");
         if (atts != null && atts.length() > 0) {
@@ -572,7 +630,7 @@ public class MainActivity extends Activity {
         chipRow = hbox();
         inner.addView(chipRow);
         renderChips();
-        final EditText prompt = new EditText(this);
+        prompt = new EditText(this);
         prompt.setHint("Ask Approx AI anything...");
         prompt.setHintTextColor(MUTED);
         prompt.setTextColor(TEXT);
@@ -612,6 +670,11 @@ public class MainActivity extends Activity {
         styleModes(modeBtns);
         bar.addView(toggle, mlp);
         View sp = new View(this); bar.addView(sp, new LinearLayout.LayoutParams(0, 1, 1));
+        micBtn = round("🎤", false);
+        micBtn.setContentDescription("Voice input");
+        micBtn.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { onMic(); } });
+        LinearLayout.LayoutParams miclp = new LinearLayout.LayoutParams(-2, -2); miclp.rightMargin = dp(8);
+        bar.addView(micBtn, miclp);
         sendBtn = round("➤", true);
         sendBtn.setContentDescription("Send");
         sendBtn.setOnClickListener(new View.OnClickListener() { public void onClick(View v) {
@@ -628,6 +691,65 @@ public class MainActivity extends Activity {
         usageNote.setGravity(Gravity.CENTER);
         add(box, usageNote, 4);
         return box;
+    }
+
+    // ------------------------------------------------------------------ voice input (device speech → text)
+    void onMic() {
+        if (listening) { stopListening(); return; }
+        if (!android.speech.SpeechRecognizer.isRecognitionAvailable(this)) {
+            toast("No speech recognizer is available on this device. You can still type your message.");
+            return;
+        }
+        if (checkSelfPermission(android.Manifest.permission.RECORD_AUDIO) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{android.Manifest.permission.RECORD_AUDIO}, REQ_MIC);
+            return;
+        }
+        startListening();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int req, String[] perms, int[] res) {
+        if (req == REQ_MIC) {
+            if (res.length > 0 && res[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) startListening();
+            else toast("Microphone permission is needed for voice. You can still type.");
+        }
+    }
+
+    void startListening() {
+        if (prompt == null) return;
+        if (recognizer == null) {
+            recognizer = android.speech.SpeechRecognizer.createSpeechRecognizer(this);
+            recognizer.setRecognitionListener(new android.speech.RecognitionListener() {
+                public void onReadyForSpeech(Bundle p) { }
+                public void onBeginningOfSpeech() { }
+                public void onRmsChanged(float v) { }
+                public void onBufferReceived(byte[] b) { }
+                public void onEndOfSpeech() { }
+                public void onError(int error) { listening = false; setMicActive(false);
+                    if (error == android.speech.SpeechRecognizer.ERROR_NO_MATCH || error == android.speech.SpeechRecognizer.ERROR_SPEECH_TIMEOUT) toast("Didn't catch that — try again.");
+                    else if (error == android.speech.SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS) toast("Microphone permission is required.");
+                }
+                public void onResults(Bundle results) {
+                    listening = false; setMicActive(false);
+                    java.util.ArrayList<String> l = results.getStringArrayList(android.speech.SpeechRecognizer.RESULTS_RECOGNITION);
+                    if (l != null && !l.isEmpty()) { String cur = prompt.getText().toString(); prompt.setText((cur.isEmpty() ? "" : cur + " ") + l.get(0)); prompt.setSelection(prompt.getText().length()); }
+                }
+                public void onPartialResults(Bundle p) { }
+                public void onEvent(int t, Bundle p) { }
+            });
+        }
+        Intent i = new Intent(android.speech.RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        i.putExtra(android.speech.RecognizerIntent.EXTRA_LANGUAGE_MODEL, android.speech.RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        i.putExtra(android.speech.RecognizerIntent.EXTRA_LANGUAGE, java.util.Locale.getDefault());
+        if (android.os.Build.VERSION.SDK_INT >= 23) i.putExtra(android.speech.RecognizerIntent.EXTRA_PREFER_OFFLINE, true);
+        listening = true; setMicActive(true);
+        try { recognizer.startListening(i); } catch (Exception e) { listening = false; setMicActive(false); toast("Could not start voice input."); }
+    }
+
+    void stopListening() { listening = false; setMicActive(false); if (recognizer != null) recognizer.stopListening(); }
+
+    void setMicActive(boolean on) {
+        ui.post(new Runnable() { public void run() { if (micBtn != null) { micBtn.setText(on ? "⏺" : "🎤"); micBtn.setContentDescription(on ? "Stop listening" : "Voice input"); } } });
     }
 
     void styleModes(TextView[] btns) {
@@ -762,13 +884,40 @@ public class MainActivity extends Activity {
             if (!m.optBoolean("available")) ids.add(null);
         }
         new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert)
-                .setTitle("Model (Medium/High is a separate mode)")
+                .setTitle("Choose a model")
                 .setItems(labels.toArray(new String[0]), new DialogInterface.OnClickListener() { public void onClick(DialogInterface d, int which) {
                     String id = ids.get(which);
                     if (id == null) { toast("Your account does not have access to this model."); return; }
                     model = id;
                     if (chatId == null && messageList != null) showChat(null); else showChat(chatId);
                 } }).show();
+    }
+
+    void threeDotMenu() {
+        final List<String> labels = new ArrayList<>();
+        final List<Runnable> actions = new ArrayList<>();
+        labels.add("New chat"); actions.add(new Runnable() { public void run() { chatId = null; projectId = null; attachments.clear(); showChat(null); } });
+        labels.add("Chat history"); actions.add(new Runnable() { public void run() { showHistory(); } });
+        labels.add("Search conversations"); actions.add(new Runnable() { public void run() { showHistory(); } });
+        labels.add("Projects"); actions.add(new Runnable() { public void run() { projectSettings(); } });
+        labels.add("Settings"); actions.add(new Runnable() { public void run() { showSettings(); } });
+        labels.add("Account & profile"); actions.add(new Runnable() { public void run() { accountSettings(); } });
+        if (isAdmin()) { labels.add("NEBIUS console"); actions.add(new Runnable() { public void run() { showConsole("Dashboard"); } }); }
+        labels.add("Help & feedback"); actions.add(new Runnable() { public void run() { helpFeedback(); } });
+        new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert)
+                .setTitle("Approx AI")
+                .setItems(labels.toArray(new String[0]), new DialogInterface.OnClickListener() { public void onClick(DialogInterface d, int w) { actions.get(w).run(); } })
+                .show();
+    }
+
+    void helpFeedback() {
+        new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert)
+                .setTitle("Help & feedback")
+                .setMessage("Approx AI " + appVersion() + " (build " + BuildInfo.BUILD_ID + ")\nServer: " + api.getBase()
+                        + "\n\n• Tap the model name to switch models or efficiency mode.\n• Use + to attach files or open Research / Fabbox / Workspace.\n• Tap the mic to dictate.\n\nFor support, contact your Approx AI administrator.")
+                .setPositiveButton("OK", null)
+                .setNeutralButton("Open web app", new DialogInterface.OnClickListener() { public void onClick(DialogInterface d, int w) { openWeb("/"); } })
+                .show();
     }
 
     void plusMenu() {

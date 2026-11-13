@@ -21,7 +21,7 @@ SERVER_URL=${APPROX_SERVER_URL:-}
 # Variant: a release APK is produced ONLY when a real KEYSTORE is supplied (never auto-invented).
 # Otherwise a debug-signed APK is produced with the standard Android debug key — clearly labelled "debug".
 if [ -n "${KEYSTORE:-}" ]; then VARIANT=release; else VARIANT=debug; fi
-APK_NAME="ApproxAI-NEBIUS-${VARIANT}.apk"
+APK_NAME="ApproxAI-Online-${VARIANT}.apk"
 
 [ -f "$ANDROID_JAR" ] || { echo "android.jar not found: $ANDROID_JAR"; exit 1; }
 if [ -n "$SERVER_URL" ] && [[ "$SERVER_URL" != https://* ]]; then echo "APPROX_SERVER_URL must be https://"; exit 1; fi
