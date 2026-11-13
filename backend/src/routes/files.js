@@ -1,6 +1,7 @@
 // Secure file handling: size limit, type allow-list, magic-byte sniffing, executable blocking,
 // heuristic + optional ClamAV scanning, per-user authorization, random storage keys.
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
@@ -9,8 +10,8 @@ import { one, all, run, now } from '../db.js';
 import { readBody, sendJson, bad, notFound, newId, HttpError, securityHeaders } from '../http.js';
 import { requireUser, rateLimit } from '../security.js';
 import { config } from '../config.js';
+import * as storage from '../storage.js';
 
-const uploadDir = () => { const d = path.join(config.dataDir, 'uploads'); fs.mkdirSync(d, { recursive: true }); return d; };
 
 // extension → [kind, mime, sniff(buf)]
 const TEXT_EXT = ['txt', 'md', 'csv', 'tsv', 'json', 'xml', 'yaml', 'yml', 'log', 'py', 'js', 'ts', 'tsx', 'jsx', 'java', 'kt', 'c', 'cpp', 'h', 'cs', 'go', 'rs', 'rb', 'php', 'swift', 'sql', 'html', 'css', 'sh', 'toml', 'ini'];
@@ -83,13 +84,11 @@ export function extractPdfText(buf) {
   return text || null;
 }
 
-export function removeFileBlobs(rows) {
-  for (const f of rows) {
-    try { fs.unlinkSync(path.join(uploadDir(), f.storage_key)); } catch { /* already gone / blocked files are never stored */ }
-  }
+export async function removeFileBlobs(rows) {
+  for (const f of rows) await storage.del('uploads', f.storage_key); // blocked files were never stored: no-op
 }
 export async function removeUserFiles(userId) {
-  removeFileBlobs(await all('SELECT storage_key FROM files WHERE user_id = ?', userId));
+  await removeFileBlobs(await all('SELECT storage_key FROM files WHERE user_id = ?', userId));
 }
 
 function fileView(f) {
@@ -120,11 +119,15 @@ export function registerFileRoutes(r) {
     if (!sniff(buf)) throw new HttpError(415, 'type_mismatch', 'File content does not match its extension');
 
     const key = crypto.randomBytes(16).toString('hex');
-    const full = path.join(uploadDir(), key);
-    fs.writeFileSync(full, buf, { mode: 0o600 });
-    let threat = heuristicScan(buf, ext) || await clamScan(full);
+    let threat = heuristicScan(buf, ext);
+    if (!threat && config.files.clamdscan) {
+      // ClamAV needs a file path: scan a private temp copy (works on serverless /tmp too), then remove it.
+      const tmp = path.join(os.tmpdir(), `approx-scan-${key}`);
+      fs.writeFileSync(tmp, buf, { mode: 0o600 });
+      try { threat = await clamScan(tmp); } finally { fs.rmSync(tmp, { force: true }); }
+    }
     const scan_status = threat ? (threat === 'scanner_error' ? 'error' : 'blocked') : 'clean';
-    if (scan_status === 'blocked') { fs.unlinkSync(full); }
+    if (scan_status !== 'blocked') await storage.put('uploads', key, buf); // blocked content is never stored
 
     let extracted = null;
     if (scan_status === 'clean') {
@@ -159,6 +162,8 @@ export function registerFileRoutes(r) {
     const u = requireUser(ctx);
     const f = await one("SELECT * FROM files WHERE id = ? AND user_id = ? AND scan_status = 'clean'", p.id, u.id);
     if (!f) throw notFound('File not found');
+    const data = await storage.get('uploads', f.storage_key);
+    if (!data) throw notFound('File content not found');
     securityHeaders(res);
     res.setHeader('Content-Security-Policy', "default-src 'none'; sandbox");
     res.writeHead(200, {
@@ -167,14 +172,14 @@ export function registerFileRoutes(r) {
       'Content-Length': f.size,
       'Cache-Control': 'private, no-store',
     });
-    fs.createReadStream(path.join(uploadDir(), f.storage_key)).pipe(res);
+    res.end(data);
   });
 
   r.delete('/api/files/:id', async (req, res, ctx, p) => {
     const u = requireUser(ctx);
     const f = await one('SELECT * FROM files WHERE id = ? AND user_id = ?', p.id, u.id);
     if (!f) throw notFound('File not found');
-    try { fs.unlinkSync(path.join(uploadDir(), f.storage_key)); } catch { /* blocked files are not stored */ }
+    await storage.del('uploads', f.storage_key); // blocked files are not stored: no-op
     await run('DELETE FROM files WHERE id = ?', f.id);
     sendJson(res, 200, { status: 'deleted' });
   });

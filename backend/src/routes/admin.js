@@ -7,6 +7,7 @@ import { readJson, sendJson, bad, notFound, forbidden, newId, str, oneOf, client
 import { requireRole } from '../security.js';
 import { getModel } from '../models.js';
 import { config } from '../config.js';
+import * as storage from '../storage.js';
 import { scrubPii, qualityOk } from '../pii.js';
 
 export function registerAdminRoutes(r) {
@@ -108,13 +109,12 @@ export function registerAdminRoutes(r) {
       }
     }
     const version = `${target}-history-${new Date().toISOString().slice(0, 10)}-${crypto.randomBytes(3).toString('hex')}`;
-    const dir = path.join(config.dataDir, 'training', 'exports');
-    fs.mkdirSync(dir, { recursive: true });
     const jsonl = records.map((x) => JSON.stringify(x)).join('\n') + (records.length ? '\n' : '');
     const sha = crypto.createHash('sha256').update(jsonl).digest('hex');
-    fs.writeFileSync(path.join(dir, `${version}.jsonl`), jsonl, { mode: 0o600 });
-    const manifest = { version, target_model: target, created_by: admin.id, created_at: new Date().toISOString(), stats, sha256: sha, pipeline: ['explicit_consent', 'user_selected', 'pii_filter', 'quality_filter', 'dedupe', 'fab_excluded'] };
-    fs.writeFileSync(path.join(dir, `${version}.manifest.json`), JSON.stringify(manifest, null, 2), { mode: 0o600 });
+    const manifest = { version, target_model: target, created_by: admin.id, created_at: new Date().toISOString(), stats, sha256: sha, pipeline: ['explicit_consent', 'user_selected', 'pii_filter', 'quality_filter', 'dedupe', 'fab_excluded'],
+      storage: storage.backend() === 'db' ? `db:file_blobs/training/exports/${version}.jsonl` : `data/training/exports/${version}.jsonl` };
+    await storage.put('training/exports', `${version}.jsonl`, Buffer.from(jsonl));
+    await storage.put('training/exports', `${version}.manifest.json`, Buffer.from(JSON.stringify(manifest, null, 2)));
     await run('INSERT INTO training_datasets (id,version,target_model,source,record_count,sha256,manifest,created_at) VALUES (?,?,?,?,?,?,?,?)',
       newId('ds_'), version, target, 'consented_history', records.length, sha, JSON.stringify(manifest), now());
     await audit(null, admin.id, 'training.dataset_exported', version, clientIp(req), stats);

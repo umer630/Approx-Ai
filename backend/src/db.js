@@ -11,6 +11,14 @@ import { config } from './config.js';
 import { catalog } from './catalog.js';
 
 const SCHEMA = `
+-- Blob storage for uploads / training exports when APPROX_FILE_STORAGE=db (serverless deployments).
+CREATE TABLE IF NOT EXISTS file_blobs (
+  storage_key TEXT PRIMARY KEY,
+  data BLOB NOT NULL,
+  size INTEGER NOT NULL,
+  created_at INTEGER NOT NULL
+);
+
 PRAGMA journal_mode = WAL;
 PRAGMA foreign_keys = ON;
 

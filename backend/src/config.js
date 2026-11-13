@@ -17,14 +17,21 @@ export const VERSIONS = Object.freeze({
   apk: '1.1.0 (versionCode 2)',
 });
 
+// Serverless (Vercel): the filesystem is read-only except an ephemeral /tmp that is not shared between
+// invocations, there is no long-running process, and a function request body is capped at 4.5 MB.
+const serverless = !!env.VERCEL;
+const remoteDb = !!env.APPROX_DB_URL && !env.APPROX_DB_URL.startsWith('file:');
+
 export const config = {
   env: env.APPROX_ENV || 'production',
+  serverless,
   port: int(env.PORT, 8080),
   host: env.HOST || '0.0.0.0',
   // Prefer an explicit APPROX_PUBLIC_URL; otherwise auto-detect the host's injected external URL
   // (Render sets RENDER_EXTERNAL_URL) so free deployments need no manual public-URL configuration.
-  publicUrl: (env.APPROX_PUBLIC_URL || env.RENDER_EXTERNAL_URL || '').replace(/\/$/, ''),
-  dataDir: env.APPROX_DATA_DIR || path.resolve(here, '../../data'),
+  publicUrl: (env.APPROX_PUBLIC_URL || env.RENDER_EXTERNAL_URL || (env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${env.VERCEL_PROJECT_PRODUCTION_URL}` : '')).replace(/\/$/, ''),
+  // On serverless this directory is scratch space only (/tmp); persistent data must live in the database.
+  dataDir: env.APPROX_DATA_DIR || (serverless ? '/tmp/approx-data' : path.resolve(here, '../../data')),
   webDir: path.resolve(here, '../../web'),
   buildId: env.APPROX_BUILD_ID || 'local',
   trustProxy: bool(env.APPROX_TRUST_PROXY, false),
@@ -47,8 +54,11 @@ export const config = {
   },
 
   files: {
-    maxBytes: int(env.MAX_UPLOAD_BYTES, 10 * 1024 * 1024),
+    // Vercel rejects function request bodies over 4.5 MB before the app sees them, so cap below that there.
+    maxBytes: Math.min(int(env.MAX_UPLOAD_BYTES, 10 * 1024 * 1024), serverless ? 4 * 1024 * 1024 : Infinity),
     clamdscan: env.CLAMDSCAN_PATH || '', // optional external AV
+    // fs: data/uploads on a persistent disk · db: bytes in the database (needed on serverless)
+    storage: ['fs', 'db'].includes(env.APPROX_FILE_STORAGE) ? env.APPROX_FILE_STORAGE : (serverless || remoteDb ? 'db' : 'fs'),
   },
 
   mail: {

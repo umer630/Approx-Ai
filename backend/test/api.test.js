@@ -367,8 +367,9 @@ test('training export: only consented, eligible, non-FAB chats; PII scrubbed; no
   assert.equal(r.status, 201);
   const fs = await import('node:fs');
   const path = await import('node:path');
-  const file = path.join(process.env.APPROX_DATA_DIR, 'training', 'exports', `${r.data.dataset.version}.jsonl`);
-  const content = fs.readFileSync(file, 'utf8');
+  // Read through the storage layer so the test covers both backends (disk and database blobs).
+  const storage = await import('../src/storage.js');
+  const content = (await storage.get('training/exports', `${r.data.dataset.version}.jsonl`)).toString('utf8');
   assert.ok(!content.includes('ali@example.com'));
   assert.ok(!content.includes('35202-1234567-1'));
   assert.ok(content.includes('[EMAIL]') && content.includes('[CNIC]'));

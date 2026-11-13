@@ -143,7 +143,7 @@ export function registerAccountRoutes(r) {
     const u = requireUser(ctx);
     await ownProject(u.id, p.id);
     const { removeFileBlobs } = await import('./files.js');
-    removeFileBlobs(await all('SELECT storage_key FROM files WHERE project_id = ? AND user_id = ?', p.id, u.id));
+    await removeFileBlobs(await all('SELECT storage_key FROM files WHERE project_id = ? AND user_id = ?', p.id, u.id));
     await run('DELETE FROM projects WHERE id = ? AND user_id = ?', p.id, u.id);
     sendJson(res, 200, { status: 'deleted' });
   });
