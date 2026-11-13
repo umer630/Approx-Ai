@@ -7,7 +7,19 @@ import { config } from './config.js';
 export async function sendMail(to, subject, body) {
   const id = newId('mail_');
   let status = 'stored';
-  if (config.mail.transport === 'http' && config.mail.httpEndpoint && config.mail.httpApiKey) {
+  if (config.mail.transport === 'brevo' && config.mail.httpApiKey) {
+    // Brevo (free plan; can send from a single verified sender address — no domain of your own needed).
+    const m = /^\s*(?:"?([^"<]*?)"?\s*)?<?([^<>\s]+@[^<>\s]+)>?\s*$/.exec(config.mail.from) || [];
+    try {
+      const r = await fetch(config.mail.httpEndpoint || 'https://api.brevo.com/v3/smtp/email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'api-key': config.mail.httpApiKey },
+        body: JSON.stringify({ sender: { email: m[2], name: (m[1] || 'Approx AI').trim() }, to: [{ email: to }], subject, textContent: body }),
+        signal: AbortSignal.timeout(10_000),
+      });
+      status = r.ok ? 'sent' : `failed_${r.status}`;
+    } catch { status = 'failed_network'; }
+  } else if (config.mail.transport === 'http' && config.mail.httpEndpoint && config.mail.httpApiKey) {
     try {
       const r = await fetch(config.mail.httpEndpoint, {
         method: 'POST',

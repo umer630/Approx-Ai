@@ -2,7 +2,9 @@
 import { one, all, now } from './db.js';
 import { forbidden, bad } from './http.js';
 import { MODES, DEFAULT_MODE, modeParams, catalogModel } from './catalog.js';
-import { resolveServingVersion, publicModelState } from './registry.js';
+import { publicModelState } from './registry.js';
+import { servingVersion, upstreamHealth } from './providers/index.js';
+import { config } from './config.js';
 
 // Efficiency modes (low / medium / high) are a separate control from the model: they come from the
 // catalog and change real inference parameters (token budget, temperature, context size, guidance).
@@ -33,9 +35,22 @@ export async function modelsForUser(user) {
       languages: c.languages || [], pipelines: c.pipelines || [],
       available: await canUseModel(user, m),
       history_training: !!m.history_training_allowed,
-      ...(await publicModelState(m.id)),
+      ...(await modelState(m)),
     };
   }));
+}
+
+// Live-version state for the model list. In inference-registry mode (serverless) the inference server is the
+// source of truth: it reports which verified, SHA-pinned version it serves; nothing is assumed when unreachable.
+async function modelState(m) {
+  if (config.registry.source !== 'inference') return publicModelState(m.id);
+  const h = await upstreamHealth(m);
+  const v = h.reachable ? (h.serving?.[m.id] ?? null) : null;
+  return {
+    active_version: v, release_status: v ? 'served' : null, production_ready: false, activated_at: null,
+    problem: h.configured && !h.reachable ? 'inference server unreachable' : null, validated_versions: v ? [v] : [],
+    registry_source: 'inference',
+  };
 }
 
 // ---------------- Safety policy ----------------
@@ -92,7 +107,7 @@ export async function route(user, { requestedModel = 'auto', requestedMode, requ
     const m = await getModel(requestedModel);
     if (!m) throw bad(`Unknown model '${requestedModel}'`, 'unknown_model');
     if (!await canUseModel(user, m)) throw forbidden(`Your account does not have access to ${m.name}`, 'model_access_denied');
-    return { model: m, mode, version: await resolveServingVersion(m.id, requestedVersion), task, safety, reason: 'user-selected' };
+    return { model: m, mode, version: await servingVersion(m, requestedVersion), task, safety, reason: 'user-selected' };
   }
 
   // Automatic routing — choose the most suitable model the user is permitted to use.
@@ -105,7 +120,7 @@ export async function route(user, { requestedModel = 'auto', requestedMode, requ
     const m = await getModel(id);
     if (m && await canUseModel(user, m)) {
       const reason = id === want[0] ? `auto: ${task.primary} task, complexity ${task.complexity}` : `auto: best permitted model for ${task.primary} task (complexity ${task.complexity})`;
-      return { model: m, mode, version: await resolveServingVersion(m.id, requestedVersion), task, safety, reason };
+      return { model: m, mode, version: await servingVersion(m, requestedVersion), task, safety, reason };
     }
   }
   throw forbidden('No model available for this account', 'no_model');

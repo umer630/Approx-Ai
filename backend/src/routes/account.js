@@ -107,7 +107,7 @@ export function registerAccountRoutes(r) {
     const kind = url.searchParams.get('kind');
     const rows = kind ? await all('SELECT * FROM projects WHERE user_id = ? AND kind = ? ORDER BY updated_at DESC', u.id, kind)
       : await all('SELECT * FROM projects WHERE user_id = ? ORDER BY updated_at DESC', u.id);
-    sendJson(res, 200, { projects: rows.map(projView) });
+    sendJson(res, 200, { projects: await Promise.all(rows.map(projView)) });
   });
   r.post('/api/projects', async (req, res, ctx) => {
     const u = requireUser(ctx);

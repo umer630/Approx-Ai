@@ -8,6 +8,7 @@ import { AsyncLocalStorage } from 'node:async_hooks';
 import fs from 'node:fs';
 import path from 'node:path';
 import { config } from './config.js';
+import { HttpError } from './http.js';
 import { catalog } from './catalog.js';
 
 const SCHEMA = `
@@ -474,6 +475,12 @@ let _local = false;
 function rawClient() {
   if (_client) return _client;
   let url = process.env.APPROX_DB_URL;
+  if (config.serverless && (!url || url.startsWith('file:'))) {
+    // Fail closed: a serverless filesystem is ephemeral and per-instance, so a local file database would silently
+    // lose every account and chat. Persistent storage must be a remote libSQL database (Turso).
+    throw new HttpError(503, 'database_not_configured',
+      'Persistent database is not configured: set APPROX_DB_URL to a libsql:// Turso URL and APPROX_DB_AUTH_TOKEN.');
+  }
   if (!url) {
     fs.mkdirSync(config.dataDir, { recursive: true });
     url = `file:${process.env.APPROX_DB_FILE || path.join(config.dataDir, 'approx.db')}`;

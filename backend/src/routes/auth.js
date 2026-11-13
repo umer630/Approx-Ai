@@ -38,6 +38,21 @@ export async function publicUser(u) {
   return { id: u.id, email: u.email, email_verified: !!u.email_verified, role: u.role, plan: u.plan, display_name: p.display_name || '', language: p.language || 'auto', created_at: u.created_at };
 }
 
+// First-admin bootstrap without a terminal (config.bootstrapSuperadminEmail). Only after the address is verified,
+// only while no superadmin exists, atomically, and audited.
+async function bootstrapSuperadmin(userId, ip) {
+  const target = config.bootstrapSuperadminEmail;
+  if (!target) return;
+  const promoted = await tx(async () => {
+    const u = await one("SELECT id, email, email_verified FROM users WHERE id = ? AND status = 'active'", userId);
+    if (!u || !u.email_verified || u.email.toLowerCase() !== target) return false;
+    if (await one("SELECT id FROM users WHERE role = 'superadmin' AND status = 'active'")) return false;
+    await run("UPDATE users SET role = 'superadmin', updated_at = ? WHERE id = ?", now(), u.id);
+    return true;
+  });
+  if (promoted) await audit(userId, 'bootstrap', 'auth.bootstrap_superadmin', userId, ip, { via: 'APPROX_BOOTSTRAP_SUPERADMIN_EMAIL' });
+}
+
 export function registerAuthRoutes(r) {
   r.post('/api/auth/signup', async (req, res) => {
     const ip = clientIp(req);
@@ -77,6 +92,7 @@ export function registerAuthRoutes(r) {
     const row = await consumeEmailToken(b.token, 'verify');
     await run('UPDATE users SET email_verified = 1, updated_at = ? WHERE id = ?', now(), row.user_id);
     await audit(row.user_id, row.user_id, 'auth.email_verified', row.user_id, clientIp(req));
+    await bootstrapSuperadmin(row.user_id, clientIp(req));
     sendJson(res, 200, { status: 'verified' });
   });
 
@@ -117,7 +133,8 @@ export function registerAuthRoutes(r) {
     }
     await run('UPDATE users SET failed_logins = 0, locked_until = NULL WHERE id = ?', user.id);
     await audit(user.id, user.id, 'auth.login', client, ip);
-    sendJson(res, 200, await sessionResponse(res, req, user, client));
+    if (user.email_verified) await bootstrapSuperadmin(user.id, ip);
+    sendJson(res, 200, await sessionResponse(res, req, await one('SELECT * FROM users WHERE id = ?', user.id), client));
   });
 
   r.post('/api/auth/logout', async (req, res, ctx) => {

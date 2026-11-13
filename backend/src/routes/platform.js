@@ -43,8 +43,9 @@ export function registerPlatformRoutes(r) {
   // Public liveness: no secrets, no model details.
   const health = async (req, res) => {
     let db = 'ok';
-    try { await one('SELECT 1 AS x'); } catch { db = 'error'; }
-    sendJson(res, db === 'ok' ? 200 : 503, { status: db === 'ok' ? 'ok' : 'degraded', service: 'approx-ai-api', version: VERSIONS.backend, database: db, time: new Date().toISOString() });
+    try { await one('SELECT 1 AS x'); } catch (e) { db = e.code === 'database_not_configured' ? 'not_configured' : 'error'; }
+    sendJson(res, db === 'ok' ? 200 : 503, { status: db === 'ok' ? 'ok' : 'degraded', service: 'approx-ai-api', version: VERSIONS.backend, database: db,
+      runtime: config.serverless ? 'serverless' : 'server', registry_source: config.registry.source, file_storage: config.files.storage, time: new Date().toISOString() });
   };
   r.get('/api/health', health);
   r.get('/api/v1/health', health);
@@ -98,14 +99,23 @@ export function registerPlatformRoutes(r) {
       production_ready: st.production_ready, versions: st.validated_versions, modes: MODES });
   });
 
+  // In inference-registry mode (serverless) this backend has no persistent artifact store: release import and
+  // activation happen on the GPU inference host, which verifies every artifact and enforces its SHA-256 pin.
+  const requireLocalRegistry = () => {
+    if (config.registry.source === 'inference') {
+      throw new HttpError(409, 'registry_managed_by_inference_server',
+        'This deployment reads the live model version from the inference server. Import and activate releases on the GPU inference host (node backend/src/cli.js models import|activate there).');
+    }
+  };
   // ================= admin: registry =================
   r.get('/api/admin/registry', async (req, res, ctx) => {
     requireRole(ctx, 'admin', 'superadmin');
     const o = await registry.registryOverview();
-    sendJson(res, 200, { ...o, models: await Promise.all(o.models.map(async (m) => ({ ...m, backend: await backendStatus((await getModel(m.id)) || { id: m.id, family: catalogModel(m.id).family }) }))) });
+    sendJson(res, 200, { ...o, source: config.registry.source, models: await Promise.all(o.models.map(async (m) => ({ ...m, backend: await backendStatus((await getModel(m.id)) || { id: m.id, family: catalogModel(m.id).family }) }))) });
   });
   r.post('/api/admin/registry/rescan', async (req, res, ctx) => {
     requireRole(ctx, 'admin', 'superadmin');
+    requireLocalRegistry();
     await registry.scan({ force: true });
     sendJson(res, 200, { status: 'rescanned', registry: await registry.registryOverview() });
   });
@@ -117,6 +127,7 @@ export function registerPlatformRoutes(r) {
   });
   r.post('/api/admin/registry/activate', async (req, res, ctx) => {
     const admin = requireRole(ctx, 'superadmin');
+    requireLocalRegistry();
     await rateLimit(`registry-activate:${admin.id}`, 30, 3600_000);
     const b = await readJson(req);
     const out = await registry.activate(str(b.model_id, 'model_id', { max: 60 }), str(b.version, 'version', { max: 40 }),
@@ -125,6 +136,7 @@ export function registerPlatformRoutes(r) {
   });
   r.post('/api/admin/registry/deactivate', async (req, res, ctx) => {
     const admin = requireRole(ctx, 'superadmin');
+    requireLocalRegistry();
     const b = await readJson(req);
     const out = await registry.deactivate(str(b.model_id, 'model_id', { max: 60 }), { actor: admin.id, reason: str(b.reason, 'reason', { max: 300, required: false }) || '' });
     sendJson(res, 200, { status: 'deactivated', ...out });
@@ -133,6 +145,7 @@ export function registerPlatformRoutes(r) {
   // (used by the training pipeline). Importing never activates anything.
   r.post('/api/admin/registry/import', async (req, res, ctx) => {
     const actor = ctx.auth?.kind === 'api_key' ? requirePrivileged(ctx, 'registry:import') : requireRole(ctx, 'superadmin');
+    requireLocalRegistry();
     await rateLimit(`registry-import:${actor.id}`, 20, 3600_000);
     const declared = String(req.headers['x-artifact-sha256'] || '').toLowerCase();
     if (!/^[a-f0-9]{64}$/.test(declared)) throw bad('X-Artifact-Sha256 header (SHA-256 of the archive) is required', 'sha256_required');

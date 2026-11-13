@@ -247,7 +247,7 @@ export function registerWorkspaceRoutes(r) {
       await tx(async () => {
         for (const c of JSON.parse(prop.changes)) {
           if (c.op === 'delete') await run('DELETE FROM code_files WHERE project_id = ? AND path = ?', proj.id, c.path);
-          else writeFile(proj, u.id, c.path, c.content);
+          else await writeFile(proj, u.id, c.path, c.content);
         }
         await run("UPDATE code_proposals SET status = 'applied', decided_at = ? WHERE id = ?", now(), prop.id);
       });

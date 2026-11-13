@@ -61,8 +61,12 @@ export const config = {
     storage: ['fs', 'db'].includes(env.APPROX_FILE_STORAGE) ? env.APPROX_FILE_STORAGE : (serverless || remoteDb ? 'db' : 'fs'),
   },
 
+  // Optional, phone-friendly first-admin setup: once THIS email address is verified (ownership proven by the
+  // verification link) and no superadmin exists yet, that account is promoted to superadmin (audited, one time).
+  bootstrapSuperadminEmail: (env.APPROX_BOOTSTRAP_SUPERADMIN_EMAIL || '').trim().toLowerCase(),
+
   mail: {
-    transport: env.MAIL_TRANSPORT || 'outbox', // outbox | http
+    transport: env.MAIL_TRANSPORT || 'outbox', // outbox | http (Resend-compatible JSON, Bearer key) | brevo
     httpEndpoint: env.MAIL_HTTP_ENDPOINT || '', // e.g. a transactional mail provider API
     httpApiKey: env.MAIL_HTTP_API_KEY || '',
     from: env.MAIL_FROM || 'Approx AI <no-reply@approx.invalid>',
@@ -75,6 +79,12 @@ export const config = {
   //   <modelsDir>/<model-id>/versions/<x.y.z>/{adapter/, release.json, metadata.json, SHA256SUMS, …}
   //   <modelsDir>/active.json   ← which version of each model is live (shared with the inference server)
   registry: {
+    // Where the live model version comes from:
+    //   local     (default on a persistent server) — this backend's registry dir + active.json, shared with the
+    //             inference server through a volume; imports/activations happen here.
+    //   inference (default on serverless) — the inference server is the source of truth: the backend asks its
+    //             /health which verified (and SHA-pinned) version it serves. Activation is done on the GPU host.
+    source: ['local', 'inference'].includes(env.APPROX_REGISTRY_SOURCE) ? env.APPROX_REGISTRY_SOURCE : (serverless ? 'inference' : 'local'),
     dir: path.resolve(env.APPROX_MODELS_DIR || path.join(env.APPROX_DATA_DIR || path.resolve(here, '../../data'), 'models')),
     // off (default): a superadmin activates versions explicitly.
     // production: the newest verified release with production_ready=true is activated automatically.

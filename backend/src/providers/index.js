@@ -13,7 +13,7 @@
 import { config } from '../config.js';
 import { HttpError } from '../http.js';
 import { modeParams } from '../catalog.js';
-import { getActive, activeProblem } from '../registry.js';
+import { getActive, activeProblem, resolveServingVersion, VERSION_RE } from '../registry.js';
 
 // "Managed" upstream = the Approx inference server, which serves ONLY registry-activated adapter versions
 // and is addressed as <model-id>@<version>. Setting APPROX_MODEL_<FAMILY>_NAME marks the upstream as an
@@ -37,7 +37,32 @@ export function backendStatus(model) {
   const up = upstreamFor(model);
   if (!up) return config.devProvider ? 'dev-simulator' : 'unavailable';
   if (!up.managed) return 'configured';
+  if (config.registry.source === 'inference') {
+    // Last known answer from the inference server (refreshed by upstreamHealth / servingVersion).
+    const hit = healthCache.get(up.url)?.value;
+    if (!hit) return 'configured';
+    if (!hit.reachable) return 'unavailable';
+    return hit.serving?.[model.id] ? 'active' : 'no_active_version';
+  }
   return getActive(model.id) ? 'active' : 'no_active_version';
+}
+
+/**
+ * The version that requests for this model are served with, or null.
+ * local: this backend's registry (active.json). inference: what the managed inference server reports serving —
+ * it only serves verified, validated releases and refuses adapters that fail its SHA-256 pin.
+ */
+export async function servingVersion(model, requested) {
+  const up = upstreamFor(model);
+  if (config.registry.source !== 'inference' || !up || !up.managed) return resolveServingVersion(model.id, requested);
+  const h = await upstreamHealth(model);
+  const active = h.reachable ? (h.serving?.[model.id] ?? null) : null;
+  if (requested === undefined || requested === null || requested === '') return active;
+  if (typeof requested !== 'string' || !VERSION_RE.test(requested)) throw new HttpError(400, 'invalid_version', 'version must look like 1.0.0');
+  if (active !== requested) {
+    throw new HttpError(409, 'model_version_not_active', `${model.id}@${requested} is not the version the inference server is serving`, { active_version: active });
+  }
+  return requested;
 }
 
 export function providerStatus(family) {
@@ -79,6 +104,12 @@ export async function streamCompletion({ model, mode, version = null, messages, 
       `${model.name} inference backend is not configured on this server. An operator must set APPROX_MODEL_${model.family.toUpperCase()}_URL.`);
   }
   if (up.managed && !version) {
+    if (config.registry.source === 'inference') {
+      const h = healthCache.get(up.url)?.value;
+      throw new HttpError(503, 'model_version_not_active', h && !h.reachable
+        ? `${model.name} is offline: its inference server is unreachable.`
+        : `${model.name} is not being served: the inference server reports no verified version for it.`);
+    }
     const problem = activeProblem(model.id);
     throw new HttpError(503, 'model_version_not_active', problem
       ? `${model.name} is offline: ${problem}.`

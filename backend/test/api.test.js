@@ -313,6 +313,12 @@ test('projects inject instructions; workspace versions; fabbox proposals need ap
   const p = await req('POST', '/api/projects', { token: u.token, body: { name: 'Thesis', instructions: 'Answer in formal Urdu.' } });
   const c = await req('POST', '/api/chats', { token: u.token, body: { project_id: p.data.project.id } });
   assert.equal(c.data.chat.project_id, p.data.project.id);
+  const plist = await req('GET', '/api/projects', { token: u.token });
+  const listed = plist.data.projects.find((x) => x.id === p.data.project.id);
+  assert.ok(listed, 'project appears in list');
+  assert.equal(listed.name, 'Thesis');
+  assert.equal(listed.chat_count, 1, 'list includes computed chat_count');
+  assert.equal(listed.user_id, undefined, 'owner id not exposed');
 
   const a = await req('POST', '/api/workspace/artifacts', { token: u.token, body: { title: 'Doc', content: 'v1' } });
   await req('PUT', `/api/workspace/artifacts/${a.data.artifact.id}`, { token: u.token, body: { content: 'v2' } });
@@ -328,8 +334,10 @@ test('projects inject instructions; workspace versions; fabbox proposals need ap
   const prop = await req('POST', `/api/fabbox/${pid}/agent`, { token: u.token, body: { instruction: 'add notes' } });
   assert.equal(prop.status, 201);
   assert.equal((await req('GET', `/api/fabbox/${pid}/file?path=NOTES.md`, { token: u.token })).status, 404, 'not applied before approval');
-  await req('POST', `/api/fabbox/${pid}/proposals/${prop.data.proposal.id}/approve`, { token: u.token });
-  assert.equal((await req('GET', `/api/fabbox/${pid}/file?path=NOTES.md`, { token: u.token })).status, 200);
+  assert.equal((await req('POST', `/api/fabbox/${pid}/proposals/${prop.data.proposal.id}/approve`, { token: u.token })).status, 200);
+  const applied = await req('GET', `/api/fabbox/${pid}/file?path=NOTES.md`, { token: u.token });
+  assert.equal(applied.status, 200);
+  assert.ok(applied.data.file?.content?.length > 0 || applied.data.content?.length > 0, 'applied file has content');
   const caps = await req('GET', '/api/fabbox/capabilities', { token: u.token });
   assert.match(caps.data.command_execution, /^unavailable/);
 });

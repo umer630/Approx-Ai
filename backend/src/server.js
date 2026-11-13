@@ -56,10 +56,10 @@ function serveStatic(req, res, pathname) {
   return true;
 }
 
-export function createServer() {
-  getDb().catch(() => {});
+/** The request handler shared by the long-running server and the serverless (Vercel) function. */
+export function createHandler() {
   const router = buildRouter();
-  return http.createServer(async (req, res) => {
+  return async (req, res) => {
     const requestId = 'req_' + newId();
     res.setHeader('X-Request-Id', requestId);
     try {
@@ -84,7 +84,12 @@ export function createServer() {
     } catch (err) {
       sendError(res, err, requestId);
     }
-  });
+  };
+}
+
+export function createServer() {
+  getDb().catch(() => {});
+  return http.createServer(createHandler());
 }
 
 if (process.argv[1] && process.argv[1].endsWith('server.js')) {
