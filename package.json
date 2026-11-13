@@ -1,0 +1,17 @@
+{
+  "name": "approx-ai",
+  "private": true,
+  "description": "Approx AI — Vercel deployment wrapper. The application lives in backend/ (API) and web/ (frontend).",
+  "type": "module",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "test": "cd backend && npm test",
+    "test:vercel": "node --disable-warning=ExperimentalWarning --test --test-concurrency=1 backend/test/vercel.test.js"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.18.0"
+  }
+}

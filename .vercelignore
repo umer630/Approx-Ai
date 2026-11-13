@@ -1,0 +1,18 @@
+# Only api/, backend/ (code + config) and web/ are needed by the Vercel deployment.
+android
+android-standalone
+training
+inference
+release
+approx_artifacts
+deploy
+docs
+brand
+data
+web/test
+backend/test
+backend/node_modules
+**/*.apk
+**/*.zip
+**/.env
+**/.env.*

@@ -111,6 +111,19 @@ export function registerPlatformRoutes(r) {
   r.get('/api/admin/registry', async (req, res, ctx) => {
     requireRole(ctx, 'admin', 'superadmin');
     const o = await registry.registryOverview();
+    if (config.registry.source === 'inference') {
+      // The GPU inference server is the source of truth here (it verifies releases and enforces SHA-256 pins).
+      // Report what it actually serves, in the same shape the admin console already renders.
+      const models = await Promise.all(o.models.map(async (m) => {
+        const model = (await getModel(m.id)) || { id: m.id, family: catalogModel(m.id).family };
+        const h = await upstreamHealth(model);
+        const served = h.reachable ? (h.serving?.[m.id] ?? null) : null;
+        return { ...m, active_version: served, backend: backendStatus(model),
+          active_problem: !h.configured ? null : !h.reachable ? 'inference server unreachable' : null,
+          versions: served ? [{ version: served, status: 'served by inference server', production_ready: false, activatable: false, errors: [] }] : [] };
+      }));
+      return sendJson(res, 200, { ...o, dir: 'inference server (managed on the GPU host)', auto_activate: false, source: 'inference', models });
+    }
     sendJson(res, 200, { ...o, source: config.registry.source, models: await Promise.all(o.models.map(async (m) => ({ ...m, backend: await backendStatus((await getModel(m.id)) || { id: m.id, family: catalogModel(m.id).family }) }))) });
   });
   r.post('/api/admin/registry/rescan', async (req, res, ctx) => {

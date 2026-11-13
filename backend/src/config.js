@@ -33,8 +33,9 @@ export const config = {
   // On serverless this directory is scratch space only (/tmp); persistent data must live in the database.
   dataDir: env.APPROX_DATA_DIR || (serverless ? '/tmp/approx-data' : path.resolve(here, '../../data')),
   webDir: path.resolve(here, '../../web'),
-  buildId: env.APPROX_BUILD_ID || 'local',
-  trustProxy: bool(env.APPROX_TRUST_PROXY, false),
+  buildId: env.APPROX_BUILD_ID || (env.VERCEL_GIT_COMMIT_SHA ? env.VERCEL_GIT_COMMIT_SHA.slice(0, 12) : 'local'),
+  // Vercel's edge sets X-Forwarded-For itself (client-supplied values are not passed through), so it is trusted there by default.
+  trustProxy: bool(env.APPROX_TRUST_PROXY, serverless),
   // CORS: explicit allow-list only (comma separated). Same-origin web app needs none.
   corsOrigins: (env.APPROX_CORS_ORIGINS || '').split(',').map((s) => s.trim()).filter(Boolean),
 

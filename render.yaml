@@ -32,10 +32,18 @@ services:
       # Render injects the external URL as RENDER_EXTERNAL_URL; the server reads it (see config.js).
       - key: APPROX_PUBLIC_URL
         sync: false   # optional: set to your https://<name>.onrender.com after first deploy
-      # Free tier has no mail provider, so don't block sign-up/chat on email verification.
-      # Set this to true again once you configure MAIL_HTTP_ENDPOINT with a free email API (e.g. Resend).
+      # Email verification stays ON. Verification codes are sent through a free mail provider:
+      # MAIL_TRANSPORT=brevo + MAIL_HTTP_API_KEY (Brevo free plan, single verified sender — no domain needed).
       - key: REQUIRE_VERIFIED_EMAIL
-        value: "false"
+        value: "true"
+      - key: MAIL_TRANSPORT
+        value: brevo
+      - key: MAIL_HTTP_API_KEY
+        sync: false   # secret: entered in the Render dashboard, never committed
+      - key: MAIL_FROM
+        sync: false   # e.g. Approx AI <the-address-you-verified-in-brevo@example.com>
+      - key: APPROX_BOOTSTRAP_SUPERADMIN_EMAIL
+        sync: false   # optional: your email; promoted to superadmin once, after you verify it
       # CORS: empty = same-origin only (correct & secure for this deploy — the web app is same-origin and the APK
       # uses bearer tokens, so no cross-origin CORS is needed). Add origins here only if a different web origin
       # must call the API, e.g. APPROX_CORS_ORIGINS=https://example.com

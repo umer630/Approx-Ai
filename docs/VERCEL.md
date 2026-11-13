@@ -1,59 +1,124 @@
-# Approx AI on Vercel — honest compatibility report
+# Approx AI on Vercel (free Hobby plan)
 
-**Verdict: the Approx AI backend cannot run on Vercel Hobby (free) as it is built, and cannot be made to without
-a major rewrite to an external database.** This document explains exactly why, with evidence from the code, and
-lists the genuinely zero-cost options. No `vercel.json` that pretends to deploy the backend has been created,
-because it would silently break (which you explicitly forbade).
+The backend now runs on Vercel serverless functions. This replaces the earlier "cannot run on Vercel" report,
+which was true of the old synchronous, file-based backend. Docker / Render deployment is unchanged and still
+works (`deploy/`, `render.yaml`).
 
-## Why — the evidence (from this repo)
+**Status: prepared and tested locally. Not deployed yet.** Deploying needs your sign-in to three free
+services. Nothing below needs a terminal, and everything can be done from a phone browser.
 
-Vercel Hobby runs **serverless functions**: each request is a short-lived, stateless invocation, with an
-**ephemeral filesystem** that is **not shared** between invocations or instances, and **no long-running process**.
+## Architecture
 
-The Approx AI backend is the opposite of that:
+```
+Phone APK / browser ──HTTPS──► Vercel (free Hobby)
+                                ├─ web/            static frontend (unchanged)
+                                └─ api/index.js    one serverless function = the same backend handler
+                                       │
+                                       ├──► Turso (free)   libSQL database: users, sessions, chats, projects,
+                                       │                   model permissions, quotas, API keys/logs, audit,
+                                       │                   uploaded file bytes, training exports
+                                       ├──► Brevo (free)   verification / password-reset emails
+                                       └──► GPU inference server (separate; NOT on Vercel)
+                                            serves Nick 4.8 only if the adapter SHA-256 equals
+                                            2faae21620ef0aea6140b296b43ab5fcf5ba2c5b721067f91797b288a09c34c4
+```
 
-| Backend reality | File / line | Breaks on Vercel because |
+| Concern | Before (Docker/Render) | On Vercel |
 |---|---|---|
-| **`node:sqlite` local-file database** (`DatabaseSync`, synchronous) | `backend/src/db.js:3,458` | The SQLite file lives on local disk. On Vercel the filesystem is ephemeral and per-invocation, so the DB would be **empty on every cold start and never shared** → all accounts, sessions and data vanish. `node:sqlite` is also an experimental flagged feature, not supported on Vercel's serverless runtime. |
-| **Long-running HTTP server** (`http.createServer().listen()`) | `backend/src/server.js:59,95` | Serverless has no process to `listen()`; you export a handler, not a server. |
-| **Background timer** (`setInterval` registry watcher) | `backend/src/registry.js:602` | Serverless functions are frozen between requests; timers don't run. |
-| **Local-filesystem uploads** (`fs.writeFileSync` to `data/uploads`) | `backend/src/routes/files.js:124` | Uploaded files would not persist and would not be visible to other invocations. |
-| **222 synchronous DB calls** (`one/all/run` → `.prepare().get/all/run`) across the routes | everywhere | Any real database on Vercel is an **async network call**. Converting 222 synchronous call sites to `await` cascades through the entire codebase — a large, risky rewrite, not a config change. |
+| Database | SQLite file on a disk | Turso libSQL (same SQL, same `@libsql/client` code path) |
+| Uploads | `data/uploads/` | `file_blobs` table in the database (`APPROX_FILE_STORAGE=db`, automatic) |
+| Background timers | registry watcher in the server process | none. The function asks the inference server `/health` (cached 10 s) on demand |
+| Model registry | `active.json` on a shared volume | the inference server is the source of truth (`APPROX_REGISTRY_SOURCE=inference`, automatic) |
+| Missing database | n/a | **fails closed**: every data request returns 503 `database_not_configured`. It never falls back to `/tmp` |
 
-So a `vercel.json` that "deploys the backend" would either (a) use the ephemeral filesystem — silently replacing
-persistent storage with temporary storage (forbidden), or (b) fail at runtime the moment anyone signs up. Neither
-is a genuine deployment.
+## Step 1: Turso database (free)
 
-## What Vercel Hobby *can* host for free (honestly)
+1. Open **turso.tech** and tap **Sign up**. Sign in with GitHub.
+2. In the dashboard, tap **Create Database**. Name it `approx-ai` and pick the region closest to you. Tap **Create**.
+3. Open the database. Copy the **URL**, which starts with `libsql://`.
+4. Tap **Create Token** (Generate token). Choose read & write and no expiry, then copy the token.
+   Keep it private. It goes only into Vercel's environment variables (Step 3).
 
-- **The static web frontend** (`web/` — plain HTML/CSS/JS). That is real and legitimate. But it is only useful
-  if it can reach a running backend API, and the backend must live on a host that fits its architecture.
+If Turso asks for a credit card or a paid plan at any point, **stop**: don't enter it, and tell me.
 
-## Genuinely zero-cost options that actually work
+## Step 2: Brevo email (free)
 
-**Option A — Keep the backend on a host that runs stateful servers (recommended, least work).**
-The backend is a normal Node server with a local database and background jobs. It belongs on a host that gives a
-**persistent process + a small persistent disk**, for free, no card. The repo already has the config for this
-(`deploy/Dockerfile`, `render.yaml`, `docs/DEPLOY_FREE.md`). Free hosts that fit this shape: Render free web
-service (already configured here), or Fly.io's free allowance with a small volume, or Koyeb's free instance.
-Vercel can additionally host the static `web/` frontend pointing at that backend (CORS configured via
-`APPROX_CORS_ORIGINS`) — a legitimate split, if you want Vercel in the picture.
+Email verification stays switched on, so the app needs a way to send codes.
 
-**Option B — Rewrite the backend for Vercel + a free serverless database (real work, I can do it if you choose).**
-To genuinely run on Vercel the backend must become serverless and use an **external free database**:
-- Database: Turso / libSQL (SQLite-compatible, free tier, no card) or Neon Postgres (free, no card).
-- Convert the DB layer (`db.js`) and all 222 call sites from synchronous `node:sqlite` to the async external
-  client (`await` throughout), rework schema/migrations, move uploads to free object storage (e.g. a Vercel Blob
-  free allowance or an external bucket), and replace the `listen()` server + `setInterval` with a serverless
-  handler and an external scheduler.
-- This is a substantial, multi-file re-architecture (not a deployment config). I will only do it as explicit,
-  tested work — not as a quietly-broken `vercel.json`.
+1. Open **brevo.com** and tap **Sign up free**.
+2. Go to **Senders, Domains & Dedicated IPs → Senders → Add a sender**. Use your own email address and confirm
+   the link Brevo emails you.
+3. Go to **SMTP & API → API Keys → Generate a new API key**. Copy it (keep it private).
 
-## What I did NOT do, and why
-- I did **not** create a backend `vercel.json` — it would not genuinely work (see the table) and would violate
-  your rule against silently using temporary storage or faking success.
-- I did **not** change the working backend, Android app, model registry, or Nick 4.8 adapter pinning. All remain
-  intact (Render/Docker/GPU configs untouched).
-- Nick 4.8 GPU serving is unchanged: still a separate GPU host, still hard-pinned to
-  `2faae21620ef0aea6140b296b43ab5fcf5ba2c5b721067f91797b288a09c34c4`, still returns an honest "model unavailable"
-  when no GPU endpoint is connected.
+If Brevo asks for a card, stop and tell me.
+
+## Step 3: Vercel project (free Hobby)
+
+1. Open **vercel.com**, tap **Sign up → Hobby**, and **Continue with GitHub**.
+2. Tap **Add New… → Project**, then find **Approx-Ai** and tap **Import**.
+   (If it isn't listed, tap **Adjust GitHub App Permissions** and allow the repository.)
+3. **Framework Preset**: Other. Leave Root Directory, Build and Output settings as they are, because
+   `vercel.json` sets them.
+4. Open **Environment Variables** and add:
+
+| Name | Value | Secret? |
+|---|---|---|
+| `APPROX_DB_URL` | the `libsql://…` URL from Step 1 | no |
+| `APPROX_DB_AUTH_TOKEN` | the Turso token from Step 1 | **yes** |
+| `MAIL_TRANSPORT` | `brevo` | no |
+| `MAIL_HTTP_API_KEY` | the Brevo API key from Step 2 | **yes** |
+| `MAIL_FROM` | `Approx AI <the-sender-you-verified@…>` | no |
+| `APPROX_BOOTSTRAP_SUPERADMIN_EMAIL` | your email (becomes superadmin once, after you verify it) | no |
+| `APPROX_ENV` | `production` | no |
+| `APPROX_MODEL_NICK_URL` | only when a GPU inference server is running: `https://<gpu-host>/v1` | no |
+| `APPROX_MODEL_NICK_KEY` | that inference server's `INFERENCE_API_KEY` | **yes** |
+
+   Leave the `APPROX_MODEL_*` variables out until a GPU host exists. Nick 4.8 then shows as unavailable and
+   never answers with a different model.
+5. Tap **Deploy**. When it finishes, Vercel shows your address, for example `https://approx-ai-xxxx.vercel.app`.
+
+If Vercel asks for a card or a paid plan, stop and tell me.
+
+## Step 4: Check that it really works
+
+Open `https://<your-address>/api/health` in the phone browser. It must show:
+
+```
+"database":"ok", "runtime":"serverless", "registry_source":"inference", "file_storage":"db"
+```
+
+`"database":"not_configured"` means Step 1's variables are missing or misspelled. Then open the main address,
+create an account with the email from `APPROX_BOOTSTRAP_SUPERADMIN_EMAIL`, enter the emailed code, and sign in.
+Settings should now show **Admin console**.
+
+Send me the address once `/api/health` shows `database: ok`, and I'll run the live checks against it.
+
+## Step 5: Android APK pointed at the real backend
+
+GitHub → **Approx-Ai → Settings → Secrets and variables → Actions → Variables → New repository variable**:
+name `APPROX_SERVER_URL`, value your Vercel address. Then **Actions → Build APK → Run workflow**.
+The workflow refuses to build unless `<address>/api/health` is a live Approx AI backend with `database: ok`,
+so a wrong or placeholder address can't end up inside the APK. Download the APK from the run's **Artifacts**.
+
+## Free-plan limits (honest)
+
+- **Request body 4.5 MB**: uploads are capped at 4 MB on Vercel (10 MB on Docker/Render).
+- **Function duration 60 s** (`maxDuration`): a very long High-mode reply that streams for more than
+  60 s is cut off. The GPU server's speed decides this.
+- **Cold starts**: the first request after idle takes about 1–2 s longer.
+- **Rate limits and quotas** are stored in the database, so they hold across function instances.
+- **Model registry imports and activation** happen on the GPU inference host (`cli.js` there). On Vercel these
+  admin buttons return 409 `registry_managed_by_inference_server`. Showing them as working would be dishonest.
+- Free-tier quotas (Turso storage and reads, Brevo about 300 emails a day, Vercel invocations) are
+  published by each provider and can change. I could not check them from the build environment.
+
+## How this was tested (without a live deployment)
+
+- `backend/test/vercel.test.js` runs the real `api/index.js` with `VERCEL=1`. It covers fail-closed without a
+  database, refusing a local file database in production, Brevo mail, superadmin bootstrap, Nick 4.8 routed to
+  the version the (mock) GPU host serves, honest 503s when it is not served or unreachable, uploads stored in the
+  database, and data surviving a simulated cold start.
+- `web/test/regression-vercel.cjs` (Playwright) runs the unchanged web app through `web/test/vercel-emulator.mjs`
+  (static `web/` + `vercel.json` rewrites + headers) and checks every frozen feature.
+- The database in these tests is a scratch libSQL file (`APPROX_TEST_EPHEMERAL_DB`, ignored in production)
+  because no Turso server is reachable from the build sandbox. Production uses the same client over `libsql://`.

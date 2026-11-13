@@ -28,14 +28,22 @@ jobs:
           yes | "$SDK/cmdline-tools/latest/bin/sdkmanager" "platforms;android-33" "build-tools;34.0.0" >/dev/null
           echo "BT=$SDK/build-tools/34.0.0" >> "$GITHUB_ENV"
           echo "ANDROID_JAR=$SDK/platforms/android-33/android.jar" >> "$GITHUB_ENV"
-      - name: Resolve backend URL
+      - name: Resolve and verify backend URL
+        env:
+          INPUT_URL: ${{ github.event.inputs.server_url }}
+          VAR_URL: ${{ vars.APPROX_SERVER_URL }}
         run: |
-          URL="${{ github.event.inputs.server_url }}"
-          [ -z "$URL" ] && URL="${{ vars.APPROX_SERVER_URL }}"
+          URL="${INPUT_URL:-$VAR_URL}"
+          URL="${URL%/}"
           if [ -z "$URL" ]; then echo "::error::Set the APPROX_SERVER_URL repo variable or pass server_url input."; exit 1; fi
           case "$URL" in https://*) ;; *) echo "::error::URL must be https://"; exit 1;; esac
+          case "$URL" in *[!A-Za-z0-9.:/_-]*) echo "::error::URL contains unexpected characters"; exit 1;; esac
+          # Never bake an unverified address: the URL must be a live Approx AI backend with a working database.
+          BODY=$(curl -fsS --max-time 30 "$URL/api/health") || { echo "::error::$URL/api/health is not reachable"; exit 1; }
+          echo "$BODY" | python3 -c 'import json,sys; h=json.load(sys.stdin); assert h.get("service")=="approx-ai-api", "not an Approx AI backend"; assert h.get("database")=="ok", "backend database is not ok: %s" % h.get("database")' \
+            || { echo "::error::$URL is not a healthy Approx AI backend: $BODY"; exit 1; }
           echo "APPROX_SERVER_URL=$URL" >> "$GITHUB_ENV"
-          echo "Baking backend URL: $URL"
+          echo "Verified and baking backend URL: $URL"
       - name: Build APK
         working-directory: android
         run: |
