@@ -43,7 +43,7 @@ export function registerPlatformRoutes(r) {
   // Public liveness: no secrets, no model details.
   const health = async (req, res) => {
     let db = 'ok';
-    try { one('SELECT 1 AS x'); } catch { db = 'error'; }
+    try { await one('SELECT 1 AS x'); } catch { db = 'error'; }
     sendJson(res, db === 'ok' ? 200 : 503, { status: db === 'ok' ? 'ok' : 'degraded', service: 'approx-ai-api', version: VERSIONS.backend, database: db, time: new Date().toISOString() });
   };
   r.get('/api/health', health);
@@ -53,9 +53,9 @@ export function registerPlatformRoutes(r) {
   r.get('/api/status', async (req, res, ctx) => {
     const u = requireUser(ctx);
     const admin = ['admin', 'superadmin'].includes(u.role);
-    const models = modelsForUser(u).map((m) => ({ ...m, backend: backendStatus(m) }));
+    const models = (await modelsForUser(u)).map((m) => ({ ...m, backend: backendStatus(m) }));
     const inference = {};
-    for (const m of listModels()) {
+    for (const m of await listModels()) {
       if (inference[m.family]) continue;
       const h = await upstreamHealth(m);
       inference[m.family] = admin ? h : { configured: h.configured, reachable: h.reachable ?? false };
@@ -66,9 +66,9 @@ export function registerPlatformRoutes(r) {
       pipelines: catalog.pipelines.map(pipelineStatus),
     };
     if (admin) {
-      const workers = all('SELECT * FROM gpu_workers ORDER BY last_seen_at DESC LIMIT 20').map(workerView);
-      const active = one(`SELECT * FROM gpu_jobs WHERE status IN ('running','stop_requested','queued') ORDER BY created_at DESC LIMIT 1`);
-      const last = one(`SELECT * FROM gpu_jobs ORDER BY updated_at DESC LIMIT 1`);
+      const workers = (await all('SELECT * FROM gpu_workers ORDER BY last_seen_at DESC LIMIT 20')).map(workerView);
+      const active = await one(`SELECT * FROM gpu_jobs WHERE status IN ('running','stop_requested','queued') ORDER BY created_at DESC LIMIT 1`);
+      const last = await one(`SELECT * FROM gpu_jobs ORDER BY updated_at DESC LIMIT 1`);
       body.gpu = { workers_online: workers.filter((w) => w.online).length, workers,
         note: workers.length ? null : 'No GPU worker has connected. Training runs on a GPU worker (e.g. the Colab pipeline), never on the API server.' };
       body.training = { active_job: active ? jobView(active) : null, last_job: last ? jobView(last) : null };
@@ -79,7 +79,7 @@ export function registerPlatformRoutes(r) {
   r.get('/api/capabilities', async (req, res, ctx) => {
     const u = requireUser(ctx);
     sendJson(res, 200, {
-      models: modelsForUser(u).map((m) => ({ id: m.id, name: m.name, kind: m.kind, available: m.available, capabilities: m.capabilities, modalities: m.modalities, pipelines: m.pipelines })),
+      models: (await modelsForUser(u)).map((m) => ({ id: m.id, name: m.name, kind: m.kind, available: m.available, capabilities: m.capabilities, modalities: m.modalities, pipelines: m.pipelines })),
       pipelines: catalog.pipelines.map(pipelineStatus),
       kinds: ['language_model', 'code_model', 'multimodal_model', 'video_pipeline'],
     });
@@ -88,11 +88,11 @@ export function registerPlatformRoutes(r) {
   // ================= public API: models + versions =================
   r.get('/api/v1/models/:id', async (req, res, ctx, p) => {
     const u = requireScope(ctx, 'models:read');
-    const m = getModel(p.id);
+    const m = await getModel(p.id);
     if (!m) throw notFound(`Unknown model '${p.id}'`);
-    if (!canUseModel(u, m)) throw forbidden(`Your account does not have access to ${m.name}`, 'model_access_denied');
+    if (!await canUseModel(u, m)) throw forbidden(`Your account does not have access to ${m.name}`, 'model_access_denied');
     const c = catalogModel(m.id) || {};
-    const st = registry.publicModelState(m.id);
+    const st = await registry.publicModelState(m.id);
     sendJson(res, 200, { id: m.id, object: 'model', name: m.name, tier: m.tier, kind: c.kind, capabilities: c.capabilities || [], modalities: c.modalities,
       owned_by: 'approx-technology', backend: backendStatus(m), active_version: st.active_version, release_status: st.release_status,
       production_ready: st.production_ready, versions: st.validated_versions, modes: MODES });
@@ -101,23 +101,23 @@ export function registerPlatformRoutes(r) {
   // ================= admin: registry =================
   r.get('/api/admin/registry', async (req, res, ctx) => {
     requireRole(ctx, 'admin', 'superadmin');
-    const o = registry.registryOverview();
-    sendJson(res, 200, { ...o, models: o.models.map((m) => ({ ...m, backend: backendStatus(getModel(m.id) || { id: m.id, family: catalogModel(m.id).family }) })) });
+    const o = await registry.registryOverview();
+    sendJson(res, 200, { ...o, models: await Promise.all(o.models.map(async (m) => ({ ...m, backend: await backendStatus((await getModel(m.id)) || { id: m.id, family: catalogModel(m.id).family }) }))) });
   });
   r.post('/api/admin/registry/rescan', async (req, res, ctx) => {
     requireRole(ctx, 'admin', 'superadmin');
-    registry.scan({ force: true });
-    sendJson(res, 200, { status: 'rescanned', registry: registry.registryOverview() });
+    await registry.scan({ force: true });
+    sendJson(res, 200, { status: 'rescanned', registry: await registry.registryOverview() });
   });
   r.get('/api/admin/registry/:model/:version', async (req, res, ctx, p) => {
     requireRole(ctx, 'admin', 'superadmin');
-    const d = registry.releaseDetail(p.model, p.version);
+    const d = await registry.releaseDetail(p.model, p.version);
     if (!d) throw notFound('Release not found');
     sendJson(res, 200, d);
   });
   r.post('/api/admin/registry/activate', async (req, res, ctx) => {
     const admin = requireRole(ctx, 'superadmin');
-    rateLimit(`registry-activate:${admin.id}`, 30, 3600_000);
+    await rateLimit(`registry-activate:${admin.id}`, 30, 3600_000);
     const b = await readJson(req);
     const out = await registry.activate(str(b.model_id, 'model_id', { max: 60 }), str(b.version, 'version', { max: 40 }),
       { actor: admin.id, allowNonProduction: b.allow_non_production === true, reason: str(b.reason, 'reason', { max: 300, required: false }) || '' });
@@ -133,7 +133,7 @@ export function registerPlatformRoutes(r) {
   // (used by the training pipeline). Importing never activates anything.
   r.post('/api/admin/registry/import', async (req, res, ctx) => {
     const actor = ctx.auth?.kind === 'api_key' ? requirePrivileged(ctx, 'registry:import') : requireRole(ctx, 'superadmin');
-    rateLimit(`registry-import:${actor.id}`, 20, 3600_000);
+    await rateLimit(`registry-import:${actor.id}`, 20, 3600_000);
     const declared = String(req.headers['x-artifact-sha256'] || '').toLowerCase();
     if (!/^[a-f0-9]{64}$/.test(declared)) throw bad('X-Artifact-Sha256 header (SHA-256 of the archive) is required', 'sha256_required');
     const tmpDir = path.join(config.dataDir, 'tmp');
@@ -143,10 +143,10 @@ export function registerPlatformRoutes(r) {
       const up = await readBodyToFile(req, tmp, config.registry.maxArtifactBytes);
       if (!up.bytes) throw bad('Empty upload');
       if (up.sha256 !== declared) throw new HttpError(422, 'sha256_mismatch', 'Uploaded archive does not match X-Artifact-Sha256');
-      const out = registry.importArchive(tmp, { actor: actor.id, source: ctx.auth.kind === 'api_key' ? 'training-pipeline' : 'admin-upload' });
+      const out = await registry.importArchive(tmp, { actor: actor.id, source: ctx.auth.kind === 'api_key' ? 'training-pipeline' : 'admin-upload' });
       const { dir: _d, ...release } = out.release || {};
       sendJson(res, out.status === 'imported' ? 201 : 200, { status: out.status, model_id: out.model_id, version: out.version, release,
-        active_version: registry.getActive(out.model_id)?.version ?? null,
+        active_version: (await registry.getActive(out.model_id))?.version ?? null,
         next: release.activatable ? 'A superadmin can now activate this version (POST /api/admin/registry/activate).' : 'This release cannot be activated.' });
     } finally { fs.rmSync(tmp, { force: true }); }
   });
@@ -155,15 +155,15 @@ export function registerPlatformRoutes(r) {
   r.get('/api/admin/compute', async (req, res, ctx) => {
     requireRole(ctx, 'admin', 'superadmin');
     sendJson(res, 200, {
-      workers: all('SELECT * FROM gpu_workers ORDER BY last_seen_at DESC LIMIT 50').map(workerView),
-      jobs: all('SELECT * FROM gpu_jobs ORDER BY created_at DESC LIMIT 50').map((j) => jobView(j)),
+      workers: (await all('SELECT * FROM gpu_workers ORDER BY last_seen_at DESC LIMIT 50')).map(workerView),
+      jobs: (await all('SELECT * FROM gpu_jobs ORDER BY created_at DESC LIMIT 50')).map((j) => jobView(j)),
       trainable_models: trainableModels(),
       note: 'Jobs are executed by GPU workers (run_all_training.py --worker on a GPU runtime). A queued job waits until a worker claims it.',
     });
   });
   r.post('/api/admin/compute/jobs', async (req, res, ctx) => {
     const admin = requireRole(ctx, 'superadmin');
-    rateLimit(`compute-job:${admin.id}`, 30, 3600_000);
+    await rateLimit(`compute-job:${admin.id}`, 30, 3600_000);
     const b = await readJson(req);
     const allowed = trainableModels();
     const models = b.models === 'all' || b.models === undefined ? allowed : b.models;
@@ -172,40 +172,40 @@ export function registerPlatformRoutes(r) {
     for (const k of ['max_hours', 'max_steps']) {
       if (b[k] !== undefined) { const n = Number(b[k]); if (!Number.isFinite(n) || n < 0 || n > 100000) throw bad(`${k} must be a non-negative number`); options[k] = n; }
     }
-    if (one(`SELECT COUNT(*) c FROM gpu_jobs WHERE status IN ('queued','running','stop_requested')`).c >= 5) throw new HttpError(409, 'too_many_jobs', 'There are already 5 active jobs');
+    if ((await one(`SELECT COUNT(*) c FROM gpu_jobs WHERE status IN ('queued','running','stop_requested')`)).c >= 5) throw new HttpError(409, 'too_many_jobs', 'There are already 5 active jobs');
     const id = newId('job_');
-    run('INSERT INTO gpu_jobs (id, kind, models, options, status, requested_by, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?)',
+    await run('INSERT INTO gpu_jobs (id, kind, models, options, status, requested_by, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?)',
       id, 'training', JSON.stringify([...new Set(models)]), JSON.stringify(options), 'queued', admin.id, now(), now());
-    audit(null, admin.id, 'compute.job_created', id, clientIp(req), { models, options });
-    const online = all('SELECT last_seen_at FROM gpu_workers').filter((w) => now() - w.last_seen_at < WORKER_ONLINE_MS).length;
-    sendJson(res, 201, { job: jobView(one('SELECT * FROM gpu_jobs WHERE id = ?', id)),
+    await audit(null, admin.id, 'compute.job_created', id, clientIp(req), { models, options });
+    const online = (await all('SELECT last_seen_at FROM gpu_workers')).filter((w) => now() - w.last_seen_at < WORKER_ONLINE_MS).length;
+    sendJson(res, 201, { job: jobView(await one('SELECT * FROM gpu_jobs WHERE id = ?', id)),
       workers_online: online, note: online ? 'A worker will claim this job shortly.' : 'No GPU worker is online: the job stays queued until one connects.' });
   });
   r.get('/api/admin/compute/jobs/:id', async (req, res, ctx, p) => {
     requireRole(ctx, 'admin', 'superadmin');
-    const j = one('SELECT * FROM gpu_jobs WHERE id = ?', p.id);
+    const j = await one('SELECT * FROM gpu_jobs WHERE id = ?', p.id);
     if (!j) throw notFound('Job not found');
     sendJson(res, 200, { job: jobView(j, { log: true }) });
   });
   r.post('/api/admin/compute/jobs/:id/stop', async (req, res, ctx, p) => {
     const admin = requireRole(ctx, 'superadmin');
-    const j = one('SELECT * FROM gpu_jobs WHERE id = ?', p.id);
+    const j = await one('SELECT * FROM gpu_jobs WHERE id = ?', p.id);
     if (!j) throw notFound('Job not found');
     if (!JOB_ACTIVE.includes(j.status)) throw new HttpError(409, 'job_not_active', `Job is already ${j.status}`);
     const next = j.status === 'queued' ? 'stopped' : 'stop_requested';
-    run('UPDATE gpu_jobs SET status = ?, updated_at = ?, finished_at = ? WHERE id = ?', next, now(), next === 'stopped' ? now() : null, j.id);
-    audit(null, admin.id, 'compute.job_stop_requested', j.id, clientIp(req));
-    sendJson(res, 200, { job: jobView(one('SELECT * FROM gpu_jobs WHERE id = ?', j.id)) });
+    await run('UPDATE gpu_jobs SET status = ?, updated_at = ?, finished_at = ? WHERE id = ?', next, now(), next === 'stopped' ? now() : null, j.id);
+    await audit(null, admin.id, 'compute.job_stop_requested', j.id, clientIp(req));
+    sendJson(res, 200, { job: jobView(await one('SELECT * FROM gpu_jobs WHERE id = ?', j.id)) });
   });
 
   // ----- worker API (admin API key with scope training:worker) -----
-  function touchWorker(ctx, b) {
+  async function touchWorker(ctx, b) {
     const w = b.worker || {};
     const id = str(w.id, 'worker.id', { min: 4, max: 80 });
     if (!/^[A-Za-z0-9._:-]+$/.test(id)) throw bad('worker.id has invalid characters');
     const gpu = JSON.stringify(w.gpu && typeof w.gpu === 'object' ? w.gpu : {}).slice(0, 4000);
     const runtime = JSON.stringify(w.runtime && typeof w.runtime === 'object' ? w.runtime : {}).slice(0, 4000);
-    run(`INSERT INTO gpu_workers (id, name, api_key_id, gpu, runtime, first_seen_at, last_seen_at) VALUES (?,?,?,?,?,?,?)
+    await run(`INSERT INTO gpu_workers (id, name, api_key_id, gpu, runtime, first_seen_at, last_seen_at) VALUES (?,?,?,?,?,?,?)
          ON CONFLICT(id) DO UPDATE SET name = excluded.name, api_key_id = excluded.api_key_id, gpu = excluded.gpu, runtime = excluded.runtime, last_seen_at = excluded.last_seen_at`,
     id, String(w.name || '').slice(0, 80), ctx.auth.apiKey?.id ?? null, gpu, runtime, now(), now());
     return id;
@@ -214,13 +214,13 @@ export function registerPlatformRoutes(r) {
   r.post('/api/v1/worker/claim', async (req, res, ctx) => {
     requirePrivileged(ctx, 'training:worker');
     const b = await readJson(req);
-    const workerId = touchWorker(ctx, b);
+    const workerId = await touchWorker(ctx, b);
     let job = null;
     if (b.claim !== false) {
-      const q = one(`SELECT * FROM gpu_jobs WHERE status = 'queued' ORDER BY created_at LIMIT 1`);
-      if (q && run(`UPDATE gpu_jobs SET status = 'running', worker_id = ?, started_at = ?, updated_at = ? WHERE id = ? AND status = 'queued'`, workerId, now(), now(), q.id).changes) {
-        run('UPDATE gpu_workers SET current_job_id = ? WHERE id = ?', q.id, workerId);
-        job = jobView(one('SELECT * FROM gpu_jobs WHERE id = ?', q.id));
+      const q = await one(`SELECT * FROM gpu_jobs WHERE status = 'queued' ORDER BY created_at LIMIT 1`);
+      if (q && (await run(`UPDATE gpu_jobs SET status = 'running', worker_id = ?, started_at = ?, updated_at = ? WHERE id = ? AND status = 'queued'`, workerId, now(), now(), q.id)).changes) {
+        await run('UPDATE gpu_workers SET current_job_id = ? WHERE id = ?', q.id, workerId);
+        job = jobView(await one('SELECT * FROM gpu_jobs WHERE id = ?', q.id));
       }
     }
     sendJson(res, 200, { worker_id: workerId, job });
@@ -229,21 +229,21 @@ export function registerPlatformRoutes(r) {
   r.post('/api/v1/worker/jobs', async (req, res, ctx) => {
     const u = requirePrivileged(ctx, 'training:worker');
     const b = await readJson(req);
-    const workerId = touchWorker(ctx, b);
+    const workerId = await touchWorker(ctx, b);
     const allowed = trainableModels();
     if (!Array.isArray(b.models) || !b.models.length || b.models.some((m) => !allowed.includes(m))) throw bad(`models must be a list from: ${allowed.join(', ')}`);
     const id = newId('job_');
-    run('INSERT INTO gpu_jobs (id, kind, models, options, status, requested_by, worker_id, created_at, started_at, updated_at) VALUES (?,?,?,?,?,?,?,?,?,?)',
+    await run('INSERT INTO gpu_jobs (id, kind, models, options, status, requested_by, worker_id, created_at, started_at, updated_at) VALUES (?,?,?,?,?,?,?,?,?,?)',
       id, 'training', JSON.stringify(b.models), JSON.stringify({ self_started: true }), 'running', u.id, workerId, now(), now(), now());
-    run('UPDATE gpu_workers SET current_job_id = ? WHERE id = ?', id, workerId);
-    audit(null, u.id, 'compute.job_self_started', id, clientIp(req), { models: b.models, worker: workerId });
-    sendJson(res, 201, { job: jobView(one('SELECT * FROM gpu_jobs WHERE id = ?', id)) });
+    await run('UPDATE gpu_workers SET current_job_id = ? WHERE id = ?', id, workerId);
+    await audit(null, u.id, 'compute.job_self_started', id, clientIp(req), { models: b.models, worker: workerId });
+    sendJson(res, 201, { job: jobView(await one('SELECT * FROM gpu_jobs WHERE id = ?', id)) });
   });
   r.post('/api/v1/worker/jobs/:id/report', async (req, res, ctx, p) => {
     requirePrivileged(ctx, 'training:worker');
     const b = await readJson(req, 512 * 1024);
-    const workerId = touchWorker(ctx, b);
-    const j = one('SELECT * FROM gpu_jobs WHERE id = ?', p.id);
+    const workerId = await touchWorker(ctx, b);
+    const j = await one('SELECT * FROM gpu_jobs WHERE id = ?', p.id);
     if (!j) throw notFound('Job not found');
     if (j.worker_id && j.worker_id !== workerId) throw forbidden('This job belongs to another worker', 'wrong_worker');
     if (!['running', 'stop_requested'].includes(j.status)) return sendJson(res, 409, { error: { code: 'job_not_active', message: `Job is ${j.status}` }, stop_requested: true });
@@ -257,10 +257,10 @@ export function registerPlatformRoutes(r) {
       if (!['succeeded', 'failed', 'stopped', 'blocked'].includes(b.status)) throw bad('status must be succeeded, failed, stopped or blocked');
       final = b.status;
       sets.push('status = ?', 'finished_at = ?'); args.push(final, now());
-      run('UPDATE gpu_workers SET current_job_id = NULL WHERE id = ?', workerId);
+      await run('UPDATE gpu_workers SET current_job_id = NULL WHERE id = ?', workerId);
     }
-    run(`UPDATE gpu_jobs SET ${sets.join(', ')} WHERE id = ?`, ...args, j.id);
-    if (final) audit(null, `worker:${workerId}`, 'compute.job_finished', j.id, clientIp(req), { status: final });
+    await run(`UPDATE gpu_jobs SET ${sets.join(', ')} WHERE id = ?`, ...args, j.id);
+    if (final) await audit(null, `worker:${workerId}`, 'compute.job_finished', j.id, clientIp(req), { status: final });
     sendJson(res, 200, { status: final || j.status, stop_requested: !final && j.status === 'stop_requested' });
   });
 
@@ -281,24 +281,24 @@ export function registerPlatformRoutes(r) {
     if (!r.ok || !body) throw new HttpError(502, 'pipeline_error', `${p.name} pipeline returned HTTP ${r.status}`);
     return { pipeline: p.id, kind: p.kind, task, result: body };
   }
-  function mediaModel(ctx, modelId, pipelineId) {
+  async function mediaModel(ctx, modelId, pipelineId) {
     const u = requireScope(ctx, 'chat');
     requireVerified(u);
-    rateLimit(`media:${u.id}`, 20, 600_000);
-    const m = getModel(modelId || 'fab-500x');
+    await rateLimit(`media:${u.id}`, 20, 600_000);
+    const m = await getModel(modelId || 'fab-500x');
     if (!m) throw bad('Unknown model', 'unknown_model');
-    if (!canUseModel(u, m)) throw forbidden(`Your account does not have access to ${m.name}`, 'model_access_denied');
+    if (!await canUseModel(u, m)) throw forbidden(`Your account does not have access to ${m.name}`, 'model_access_denied');
     if (pipelineId && !(catalogModel(m.id)?.pipelines || []).includes(pipelineId)) throw bad(`${m.name} does not include the ${pipelineId} pipeline`, 'capability_not_supported');
     return { u, m };
   }
   r.post('/api/v1/media/video/generations', async (req, res, ctx) => {
     const b = await readJson(req);
-    const { m } = mediaModel(ctx, b.model, 'video-generation');
+    const { m } = await mediaModel(ctx, b.model, "video-generation");
     const task = b.image_file_id ? 'image-to-video' : 'text-to-video';
     const payload = { prompt: str(b.prompt, 'prompt', { min: 3, max: 4000 }), duration_s: Math.min(60, Math.max(1, Number(b.duration_s) || 5)),
       aspect_ratio: ['16:9', '9:16', '1:1'].includes(b.aspect_ratio) ? b.aspect_ratio : '16:9', storyboard: b.storyboard ?? null };
     if (b.image_file_id) {
-      const f = one("SELECT id, kind FROM files WHERE id = ? AND user_id = ? AND scan_status = 'clean'", String(b.image_file_id), ctx.auth.user.id);
+      const f = await one("SELECT id, kind FROM files WHERE id = ? AND user_id = ? AND scan_status = 'clean'", String(b.image_file_id), ctx.auth.user.id);
       if (!f || f.kind !== 'image') throw bad('image_file_id must be one of your uploaded images', 'attachment_not_found');
       payload.image_file_id = f.id;
     }
@@ -306,13 +306,13 @@ export function registerPlatformRoutes(r) {
   });
   r.post('/api/v1/media/video/understanding', async (req, res, ctx) => {
     const b = await readJson(req);
-    const { m } = mediaModel(ctx, b.model, 'video-understanding');
+    const { m } = await mediaModel(ctx, b.model, "video-understanding");
     sendJson(res, 200, { model: m.id, ...(await callPipeline('video-understanding', 'video-understanding', { question: str(b.question, 'question', { min: 3, max: 2000 }), video_url: str(b.video_url, 'video_url', { max: 2000 }) }, ctx)) });
   });
   // Storyboard / scene / shot planning is TEXT planning done by the language model — it does not render video.
   r.post('/api/v1/media/storyboard', async (req, res, ctx) => {
     const b = await readJson(req);
-    const { u, m } = mediaModel(ctx, b.model, null);
+    const { u, m } = await mediaModel(ctx, b.model, null);
     if (!(catalogModel(m.id)?.capabilities || []).includes('media_planning')) throw bad(`${m.name} does not offer media planning`, 'capability_not_supported');
     const brief = str(b.brief, 'brief', { min: 5, max: 4000 });
     const scenes = Math.min(12, Math.max(1, Number(b.scenes) || 4));

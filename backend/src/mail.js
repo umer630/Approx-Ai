@@ -18,7 +18,7 @@ export async function sendMail(to, subject, body) {
       status = r.ok ? 'sent' : `failed_${r.status}`;
     } catch { status = 'failed_network'; }
   }
-  run('INSERT INTO mail_outbox (id,to_email,subject,body,status,created_at) VALUES (?,?,?,?,?,?)', id, to, subject, body, status, now());
+  await run('INSERT INTO mail_outbox (id,to_email,subject,body,status,created_at) VALUES (?,?,?,?,?,?)', id, to, subject, body, status, now());
   if (config.env === 'development' && status === 'stored') console.log(`[mail:outbox] to=${to} subject="${subject}"\n${body}\n`);
   return status;
 }

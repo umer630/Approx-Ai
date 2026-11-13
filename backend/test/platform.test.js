@@ -57,8 +57,8 @@ async function upload(tarFile, token, { shaHeader } = {}) {
     headers: { authorization: `Bearer ${token}`, 'content-type': 'application/gzip', 'x-artifact-sha256': shaHeader ?? sha(body) } });
   return { status: res.status, data: await res.json() };
 }
-async function superadmin() { const u = await makeUser(); db.run("UPDATE users SET role = 'superadmin' WHERE id = ?", u.id); return u; }
-function resetRegistry() { fs.rmSync(config.registry.dir, { recursive: true, force: true }); registry.scan({ force: true }); }
+async function superadmin() { const u = await makeUser(); await db.run("UPDATE users SET role = 'superadmin' WHERE id = ?", u.id); return u; }
+async function resetRegistry() { fs.rmSync(config.registry.dir, { recursive: true, force: true }); await registry.scan({ force: true }); }
 
 async function mockUpstream() {
   const seen = [];
@@ -104,10 +104,11 @@ test('efficiency modes: low/medium/high are separate from the model and change r
 });
 
 test('database migration: an old database (medium/high CHECK) accepts "low" afterwards and keeps its rows', async () => {
-  const { DatabaseSync } = await import('node:sqlite');
+  // Build a database in the PRE-1.1.0 format with libSQL (the engine the backend now uses).
+  const { createClient } = await import('@libsql/client');
   const file = path.join(tmp, 'old.db');
-  const old = new DatabaseSync(file);
-  old.exec(`CREATE TABLE users (id TEXT PRIMARY KEY, email TEXT NOT NULL UNIQUE COLLATE NOCASE, password_hash TEXT NOT NULL, email_verified INTEGER NOT NULL DEFAULT 0,
+  const old = createClient({ url: `file:${file}` });
+  await old.executeMultiple(`CREATE TABLE users (id TEXT PRIMARY KEY, email TEXT NOT NULL UNIQUE COLLATE NOCASE, password_hash TEXT NOT NULL, email_verified INTEGER NOT NULL DEFAULT 0,
       role TEXT NOT NULL DEFAULT 'user', plan TEXT NOT NULL DEFAULT 'free', failed_logins INTEGER NOT NULL DEFAULT 0, locked_until INTEGER, status TEXT NOT NULL DEFAULT 'active', created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL);
     CREATE TABLE settings (user_id TEXT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE, default_model TEXT NOT NULL DEFAULT 'nick-4.8',
       default_mode TEXT NOT NULL DEFAULT 'medium' CHECK (default_mode IN ('medium','high')), memory_enabled INTEGER NOT NULL DEFAULT 1, training_opt_in INTEGER NOT NULL DEFAULT 0,
@@ -115,27 +116,32 @@ test('database migration: an old database (medium/high CHECK) accepts "low" afte
     CREATE TABLE messages (id TEXT PRIMARY KEY, chat_id TEXT, user_id TEXT, role TEXT, content TEXT, model_id TEXT, mode TEXT, route_reason TEXT, attachments TEXT, status TEXT, tokens_in INTEGER, tokens_out INTEGER, created_at INTEGER);
     INSERT INTO users (id,email,password_hash,created_at,updated_at) VALUES ('u1','old@example.com','x',1,1);
     INSERT INTO settings (user_id, default_mode, personalization) VALUES ('u1','high','keep me');`);
-  assert.throws(() => old.exec("UPDATE settings SET default_mode = 'low'"), /CHECK/);
+  await assert.rejects(old.execute("UPDATE settings SET default_mode = 'low'"), /CHECK/);
+  const before = (await old.execute('SELECT default_mode, personalization FROM settings')).rows[0];
   old.close();
-  const out = execFileSync(process.execPath, ['--disable-warning=ExperimentalWarning', '-e', `
-    const { getDb } = await import(${JSON.stringify(path.resolve('src/db.js'))});
-    const d = getDb();
-    const before = d.prepare('SELECT default_mode, personalization FROM settings').get();
-    d.exec("UPDATE settings SET default_mode = 'low'");
-    const cols = d.prepare('PRAGMA table_info(messages)').all().map((c) => c.name);
-    console.log(JSON.stringify({ before, after: d.prepare('SELECT default_mode FROM settings').get(), hasVersion: cols.includes('model_version'),
-      models: d.prepare('SELECT COUNT(*) c FROM models').get().c }));`],
-  { env: { ...process.env, APPROX_DB_FILE: file }, encoding: 'utf8', input: '' });
+  // Open it with the real backend db.js in a fresh process: schema + migrations run on first use.
+  const out = execFileSync(process.execPath, ['--disable-warning=ExperimentalWarning', '--input-type=module', '-e', `
+    const db = await import(${JSON.stringify(path.resolve('src/db.js'))});
+    await db.run("UPDATE settings SET default_mode = 'low'");
+    const cols = (await db.all('PRAGMA table_info(messages)')).map((c) => c.name);
+    const kept = await db.one('SELECT personalization FROM settings');
+    console.log(JSON.stringify({ after: await db.one('SELECT default_mode FROM settings'), kept, hasVersion: cols.includes('model_version'),
+      models: (await db.one('SELECT COUNT(*) c FROM models')).c,
+      migrations: (await db.all('SELECT id FROM schema_migrations ORDER BY id')).map((r) => r.id) }));
+    db.close();`],
+  { env: { ...process.env, APPROX_DB_URL: '', APPROX_DB_FILE: file }, encoding: 'utf8', input: '' });
   const r = JSON.parse(out.trim().split('\n').pop());
-  assert.deepEqual(r.before, { default_mode: 'high', personalization: 'keep me' });
-  assert.equal(r.after.default_mode, 'low');
+  assert.deepEqual({ default_mode: before.default_mode, personalization: before.personalization }, { default_mode: 'high', personalization: 'keep me' });
+  assert.equal(r.after.default_mode, 'low', 'the rebuilt settings table accepts low');
+  assert.equal(r.kept.personalization, 'keep me', 'existing rows survive the table rebuild');
   assert.equal(r.hasVersion, true);
   assert.equal(r.models, 5);
+  assert.deepEqual(r.migrations, ['2026-11-model-version-columns', '2026-11-settings-low-mode']);
 });
 
 // ---------------------------------------------------------------- registry: happy path to real serving
 test('registry: import → verify → discover → controlled activation → API serves that version', async () => {
-  resetRegistry();
+  await resetRegistry();
   const sa = await superadmin();
   const u = await makeUser();
   const rel = makeRelease({ version: '1.0.0' });
@@ -155,7 +161,7 @@ test('registry: import → verify → discover → controlled activation → API
   assert.equal(nick.versions[0].version, '1.0.0');
   assert.equal(nick.versions[0].adapter_sha256, rel.adapterSha);
   assert.equal(nick.versions[0].adapter_sha256, sha(fs.readFileSync(path.join(config.registry.dir, 'nick-4.8/versions/1.0.0/adapter/adapter_model.safetensors'))));
-  assert.equal(db.one("SELECT adapter_sha256, artifact_uri FROM model_releases WHERE model_id = 'nick-4.8' AND version = '1.0.0'").adapter_sha256, rel.adapterSha);
+  assert.equal((await db.one("SELECT adapter_sha256, artifact_uri FROM model_releases WHERE model_id = 'nick-4.8' AND version = '1.0.0'")).adapter_sha256, rel.adapterSha);
   const detail = await req('GET', '/api/admin/registry/nick-4.8/1.0.0', { token: sa.token });
   assert.equal(detail.data.evaluation.score, 91.5);
 
@@ -185,7 +191,7 @@ test('registry: import → verify → discover → controlled activation → API
     const activeFile = JSON.parse(fs.readFileSync(path.join(config.registry.dir, 'active.json'), 'utf8'));
     assert.equal(activeFile.active['nick-4.8'].version, '1.0.0');
     assert.equal(activeFile.active['nick-4.8'].adapter_sha256, rel.adapterSha);
-    assert.ok(db.one("SELECT COUNT(*) c FROM audit_logs WHERE action = 'registry.activated' AND target = 'nick-4.8@1.0.0'").c === 1, 'activation is audited');
+    assert.ok((await db.one("SELECT COUNT(*) c FROM audit_logs WHERE action = 'registry.activated' AND target = 'nick-4.8@1.0.0'")).c === 1, 'activation is audited');
 
     // the API now serves the registry version
     const served = await chat({});
@@ -204,7 +210,7 @@ test('registry: import → verify → discover → controlled activation → API
     assert.deepEqual(one.data.versions, ['1.0.0']);
     assert.equal((await req('GET', '/api/v1/models/fab-500x', { token: key })).status, 403);
     assert.equal((await req('GET', '/api/v1/models/nope', { token: key })).status, 404);
-    assert.equal(db.one('SELECT model_version FROM api_requests WHERE user_id = ? AND status = 200 ORDER BY created_at DESC', u.id).model_version, '1.0.0');
+    assert.equal((await db.one('SELECT model_version FROM api_requests WHERE user_id = ? AND status = 200 ORDER BY created_at DESC', u.id)).model_version, '1.0.0');
 
     // second version: existing but not active → 409; activation switches; versions are immutable
     const v2 = makeRelease({ version: '1.1.0', productionReady: true });
@@ -226,11 +232,11 @@ test('registry: import → verify → discover → controlled activation → API
 
     // tampering with the live artifact takes the model offline (fail closed) and raises a security event
     fs.appendFileSync(path.join(config.registry.dir, 'nick-4.8/versions/1.1.0/adapter/adapter_model.safetensors'), 'x');
-    registry.scan({ force: true });
+    await registry.scan({ force: true });
     const off = await chat({});
     assert.equal(off.status, 503);
     assert.match(off.data.error.message, /offline/);
-    assert.ok(db.one("SELECT COUNT(*) c FROM security_events WHERE kind = 'registry_active_invalid'").c >= 1);
+    assert.ok((await db.one("SELECT COUNT(*) c FROM security_events WHERE kind = 'registry_active_invalid'")).c >= 1);
 
     // deactivate
     const de = await req('POST', '/api/admin/registry/deactivate', { token: sa.token, body: { model_id: 'nick-4.8' } });
@@ -242,7 +248,7 @@ test('registry: import → verify → discover → controlled activation → API
 });
 
 test('registry: unsafe, unverified, failed, smoke and wrong-base artifacts are rejected or never activatable', async () => {
-  resetRegistry();
+  await resetRegistry();
   const sa = await superadmin();
   const bad = async (opts, code = 'invalid_artifact') => {
     const r = await upload(makeRelease(opts).tar, sa.token);
@@ -287,12 +293,12 @@ test('registry: unsafe, unverified, failed, smoke and wrong-base artifacts are r
     const a = await req('POST', '/api/admin/registry/activate', { token: sa.token, body: { model_id: 'nick-4.8', version: '0.0.1', allow_non_production: true } });
     assert.equal(a.status, 200);
   } finally { config.registry.allowSmoke = false; }
-  registry.scan({ force: true });
+  await registry.scan({ force: true });
   assert.equal(registry.getActive('nick-4.8'), null, 'a smoke version left active is refused again once smoke is disallowed');
 });
 
 test('registry: signing key and automatic activation policy', async () => {
-  resetRegistry();
+  await resetRegistry();
   const sa = await superadmin();
   config.registry.signingKey = 'shared-secret';
   try {
@@ -303,7 +309,7 @@ test('registry: signing key and automatic activation policy', async () => {
     assert.equal(ok.data.release.signed, true);
   } finally { config.registry.signingKey = ''; }
 
-  resetRegistry();
+  await resetRegistry();
   config.registry.autoActivate = 'production';
   try {
     await upload(makeRelease({ version: '1.0.0' }).tar, sa.token);                      // validated, not production-ready
@@ -315,12 +321,12 @@ test('registry: signing key and automatic activation policy', async () => {
     assert.equal(registry.getActive('nick-4.8').version, '1.2.0', 'never downgrades');
     await upload(makeRelease({ version: '1.3.0', status: 'failed' }).tar, sa.token);
     assert.equal(registry.getActive('nick-4.8').version, '1.2.0', 'never activates a failed release');
-    assert.ok(db.one("SELECT COUNT(*) c FROM audit_logs WHERE action = 'registry.activated' AND actor = 'auto-policy'").c >= 1);
+    assert.ok((await db.one("SELECT COUNT(*) c FROM audit_logs WHERE action = 'registry.activated' AND actor = 'auto-policy'")).c >= 1);
   } finally { config.registry.autoActivate = 'off'; }
 });
 
 test('registry import with an admin API key (training pipeline) and privileged-scope rules', async () => {
-  resetRegistry();
+  await resetRegistry();
   const sa = await superadmin();
   const u = await makeUser();
   assert.equal((await req('POST', '/api/developer/keys', { token: u.token, body: { name: 'x', scopes: ['registry:import'] } })).status, 400, 'users cannot mint privileged scopes');
@@ -330,7 +336,7 @@ test('registry import with an admin API key (training pipeline) and privileged-s
   const rel = makeRelease({ version: '3.0.0' });
   assert.equal((await upload(rel.tar, plain.data.secret)).data.error.code, 'insufficient_scope');
   assert.equal((await upload(rel.tar, k.data.secret)).status, 201);
-  db.run("UPDATE users SET role = 'user' WHERE id = ?", sa.id);   // demoted owner → key loses the capability at once
+  await db.run("UPDATE users SET role = 'user' WHERE id = ?", sa.id);   // demoted owner → key loses the capability at once
   assert.equal((await upload(makeRelease({ version: '3.0.1' }).tar, k.data.secret)).status, 403);
 });
 
@@ -460,7 +466,7 @@ test('health/status endpoints, unauthorized access, malformed and oversized inpu
 test('API rate limiting returns 429 with Retry-After', async () => {
   const u = await makeUser();
   const key = (await req('POST', '/api/developer/keys', { token: u.token, body: { name: 'k', scopes: ['models:read', 'chat'] } })).data.secret;
-  db.run('INSERT INTO rate_buckets (key, count, reset_at) VALUES (?,?,?)', `api-burst:${u.id}`, 60, Date.now() + 60_000);
+  await db.run('INSERT INTO rate_buckets (key, count, reset_at) VALUES (?,?,?)', `api-burst:${u.id}`, 60, Date.now() + 60_000);
   const r = await req('POST', '/api/v1/chat/completions', { token: key, body: { messages: [{ role: 'user', content: 'hi' }] } });
   assert.equal(r.status, 429);
   assert.equal(r.data.error.code, 'rate_limited');
@@ -471,11 +477,11 @@ test('sessions: logout revokes, expired sessions are rejected, admin routes need
   const u = await makeUser();
   assert.equal((await req('GET', '/api/auth/me', { token: u.token })).status, 200);
   for (const p of ['/api/admin/users', '/api/admin/audit', '/api/admin/registry', '/api/admin/training']) assert.equal((await req('GET', p, { token: u.token })).status, 403, p);
-  db.run('UPDATE sessions SET expires_at = ? WHERE user_id = ?', Date.now() - 1000, u.id);
+  await db.run('UPDATE sessions SET expires_at = ? WHERE user_id = ?', Date.now() - 1000, u.id);
   assert.equal((await req('GET', '/api/auth/me', { token: u.token })).status, 401, 'expired session');
   const l = await req('POST', '/api/auth/login', { body: { email: u.email, password: u.password, client: 'mobile' } });
   assert.equal((await req('POST', '/api/auth/logout', { token: l.data.token, body: {} })).status, 200);
   assert.equal((await req('GET', '/api/auth/me', { token: l.data.token })).status, 401, 'logged-out session');
-  db.run("UPDATE users SET status = 'suspended' WHERE id = ?", u.id);
+  await db.run("UPDATE users SET status = 'suspended' WHERE id = ?", u.id);
   assert.equal((await req('POST', '/api/auth/login', { body: { email: u.email, password: u.password } })).status, 401, 'suspended account');
 });

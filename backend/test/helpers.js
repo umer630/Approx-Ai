@@ -30,12 +30,12 @@ export async function req(method, p, { body, token, cookie, csrf, headers = {}, 
 
 let n = 0;
 export async function makeUser({ verify = true, password = 'GoodPassw0rd!' } = {}) {
-  db.run("DELETE FROM rate_buckets WHERE key LIKE 'signup:%' OR key LIKE 'login-ip:%'");
+  await db.run("DELETE FROM rate_buckets WHERE key LIKE 'signup:%' OR key LIKE 'login-ip:%'");
   const email = `user${++n}_${Date.now()}@example.com`;
   const s = await req('POST', '/api/auth/signup', { body: { email, password } });
   if (s.status !== 202) throw new Error('signup failed ' + JSON.stringify(s.data));
-  const user = db.one('SELECT * FROM users WHERE email = ?', email);
-  if (verify) db.run('UPDATE users SET email_verified = 1 WHERE id = ?', user.id);
+  const user = await db.one('SELECT * FROM users WHERE email = ?', email);
+  if (verify) await db.run('UPDATE users SET email_verified = 1 WHERE id = ?', user.id);
   const l = await req('POST', '/api/auth/login', { body: { email, password, client: 'mobile' } });
   return { email, password, id: user.id, token: l.data.token };
 }

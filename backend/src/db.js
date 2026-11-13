@@ -1,6 +1,9 @@
-// SQLite (node:sqlite) persistence. Every user-owned table carries user_id and every query
-// in the route layer filters on it — that is the tenant-isolation boundary.
-import { DatabaseSync } from 'node:sqlite';
+// libSQL persistence (SQLite-compatible, async). Works with a local file (file:...) for Docker/Render/local
+// and a remote Turso database (libsql://...) for serverless (Vercel). Every user-owned table carries user_id and
+// every query in the route layer filters on it — that is the tenant-isolation boundary.
+//   APPROX_DB_URL        libsql://<db>.turso.io  (serverless)  OR  file:/data/approx.db  (default, local/persistent)
+//   APPROX_DB_AUTH_TOKEN Turso auth token (only for a remote libsql:// URL)
+import { createClient } from '@libsql/client';
 import fs from 'node:fs';
 import path from 'node:path';
 import { config } from './config.js';
@@ -396,90 +399,136 @@ CREATE TABLE IF NOT EXISTS schema_migrations (
 `;
 
 // ---- migrations for databases created by earlier releases (fresh databases already match SCHEMA) ----
-function hasColumn(d, table, column) {
-  return d.prepare(`PRAGMA table_info(${table})`).all().some((c) => c.name === column);
+async function hasColumn(c, table, column) {
+  const r = await c.execute(`PRAGMA table_info(${table})`);
+  return r.rows.some((col) => col.name === column);
 }
 
-function migrate(d) {
-  const applied = new Set(d.prepare('SELECT id FROM schema_migrations').all().map((r) => r.id));
-  const apply = (id, fn) => {
+async function migrate(c) {
+  const appliedRows = await c.execute('SELECT id FROM schema_migrations');
+  const applied = new Set(appliedRows.rows.map((r) => r.id));
+  const apply = async (id, stmts) => {
     if (applied.has(id)) return;
-    d.exec('BEGIN');
-    try {
-      fn();
-      d.prepare('INSERT INTO schema_migrations (id, applied_at) VALUES (?, ?)').run(id, Date.now());
-      d.exec('COMMIT');
-    } catch (e) { d.exec('ROLLBACK'); throw e; }
+    // libSQL runs a batch atomically (BEGIN/COMMIT/ROLLBACK implied).
+    await c.batch([...stmts, { sql: 'INSERT INTO schema_migrations (id, applied_at) VALUES (?, ?)', args: [id, Date.now()] }], 'write');
   };
 
   // 1.1.0 — efficiency mode "low": the old CHECK only allowed ('medium','high'); SQLite cannot alter a
   // CHECK constraint, so the table is rebuilt with identical data.
-  apply('2026-11-settings-low-mode', () => {
-    const row = d.prepare("SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'settings'").get();
-    if (!row || row.sql.includes("'low'")) return;
-    d.exec(`
-      CREATE TABLE settings_new (
-        user_id TEXT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
-        default_model TEXT NOT NULL DEFAULT 'nick-4.8',
-        default_mode TEXT NOT NULL DEFAULT 'medium' CHECK (default_mode IN ('low','medium','high')),
-        memory_enabled INTEGER NOT NULL DEFAULT 1,
-        training_opt_in INTEGER NOT NULL DEFAULT 0,
-        notifications_email INTEGER NOT NULL DEFAULT 1,
-        personalization TEXT NOT NULL DEFAULT '',
-        theme TEXT NOT NULL DEFAULT 'dark'
-      );
-      INSERT INTO settings_new (user_id, default_model, default_mode, memory_enabled, training_opt_in, notifications_email, personalization, theme)
-        SELECT user_id, default_model, default_mode, memory_enabled, training_opt_in, notifications_email, personalization, theme FROM settings;
-      DROP TABLE settings;
-      ALTER TABLE settings_new RENAME TO settings;
-    `);
-  });
+  if (!applied.has('2026-11-settings-low-mode')) {
+    const row = (await c.execute("SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'settings'")).rows[0];
+    if (row && !row.sql.includes("'low'")) {
+      await apply('2026-11-settings-low-mode', [
+        { sql: `CREATE TABLE settings_new (
+            user_id TEXT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+            default_model TEXT NOT NULL DEFAULT 'nick-4.8',
+            default_mode TEXT NOT NULL DEFAULT 'medium' CHECK (default_mode IN ('low','medium','high')),
+            memory_enabled INTEGER NOT NULL DEFAULT 1,
+            training_opt_in INTEGER NOT NULL DEFAULT 0,
+            notifications_email INTEGER NOT NULL DEFAULT 1,
+            personalization TEXT NOT NULL DEFAULT '',
+            theme TEXT NOT NULL DEFAULT 'dark'
+          )` },
+        { sql: `INSERT INTO settings_new (user_id, default_model, default_mode, memory_enabled, training_opt_in, notifications_email, personalization, theme)
+            SELECT user_id, default_model, default_mode, memory_enabled, training_opt_in, notifications_email, personalization, theme FROM settings` },
+        { sql: 'DROP TABLE settings' },
+        { sql: 'ALTER TABLE settings_new RENAME TO settings' },
+      ]);
+    } else {
+      await apply('2026-11-settings-low-mode', []);
+    }
+  }
 
   // 1.1.0 — record which adapter version produced a message / served an API request.
-  apply('2026-11-model-version-columns', () => {
-    if (!hasColumn(d, 'messages', 'model_version')) d.exec('ALTER TABLE messages ADD COLUMN model_version TEXT');
-    if (!hasColumn(d, 'api_requests', 'model_version')) d.exec('ALTER TABLE api_requests ADD COLUMN model_version TEXT');
-  });
+  if (!applied.has('2026-11-model-version-columns')) {
+    const stmts = [];
+    if (!(await hasColumn(c, 'messages', 'model_version'))) stmts.push({ sql: 'ALTER TABLE messages ADD COLUMN model_version TEXT' });
+    if (!(await hasColumn(c, 'api_requests', 'model_version'))) stmts.push({ sql: 'ALTER TABLE api_requests ADD COLUMN model_version TEXT' });
+    await apply('2026-11-model-version-columns', stmts);
+  }
 }
 
 // The `models` table is seeded and kept in sync from the catalog file (name, tier, description…);
 // `enabled` stays under admin control and is never overwritten.
-function syncCatalog(d) {
-  const up = d.prepare(`INSERT INTO models (id, name, family, tier, description, history_training_allowed) VALUES (?,?,?,?,?,?)
-    ON CONFLICT(id) DO UPDATE SET name = excluded.name, family = excluded.family, tier = excluded.tier,
-      description = excluded.description, history_training_allowed = excluded.history_training_allowed`);
-  for (const m of catalog.models) up.run(m.id, m.name, m.family, m.tier, m.description, m.history_training_allowed ? 1 : 0);
+async function syncCatalog(c) {
+  await c.batch(catalog.models.map((m) => ({
+    sql: `INSERT INTO models (id, name, family, tier, description, history_training_allowed) VALUES (?,?,?,?,?,?)
+      ON CONFLICT(id) DO UPDATE SET name = excluded.name, family = excluded.family, tier = excluded.tier,
+        description = excluded.description, history_training_allowed = excluded.history_training_allowed`,
+    args: [m.id, m.name, m.family, m.tier, m.description, m.history_training_allowed ? 1 : 0],
+  })), 'write');
 }
 
-let db;
+let _client;
+let _initPromise;
+function rawClient() {
+  if (_client) return _client;
+  let url = process.env.APPROX_DB_URL;
+  if (!url) {
+    fs.mkdirSync(config.dataDir, { recursive: true });
+    url = `file:${process.env.APPROX_DB_FILE || path.join(config.dataDir, 'approx.db')}`;
+  }
+  _client = createClient({ url, authToken: process.env.APPROX_DB_AUTH_TOKEN || undefined, intMode: 'number' });
+  return _client;
+}
+
+/** Returns a ready libSQL client (schema applied, migrations + catalog sync run once). */
 export function getDb() {
-  if (db) return db;
-  fs.mkdirSync(config.dataDir, { recursive: true });
-  const file = process.env.APPROX_DB_FILE || path.join(config.dataDir, 'approx.db');
-  db = new DatabaseSync(file);
-  db.exec(SCHEMA);
-  migrate(db);
-  syncCatalog(db);
-  return db;
+  if (!_initPromise) {
+    _initPromise = (async () => {
+      const c = rawClient();
+      await c.executeMultiple(SCHEMA);
+      await migrate(c);
+      await syncCatalog(c);
+      return c;
+    })().catch((e) => { _initPromise = null; throw e; });
+  }
+  return _initPromise;
 }
 
 export const now = () => Date.now();
 
-// Small helpers to keep route code terse.
-export const one = (sql, ...p) => getDb().prepare(sql).get(...p);
-export const all = (sql, ...p) => getDb().prepare(sql).all(...p);
-export const run = (sql, ...p) => getDb().prepare(sql).run(...p);
-export function tx(fn) {
-  const d = getDb();
-  d.exec('BEGIN');
-  try { const r = fn(); d.exec('COMMIT'); return r; } catch (e) { d.exec('ROLLBACK'); throw e; }
+// libSQL args must be null (not undefined); booleans are stored as 0/1.
+function norm(p) { return p.map((a) => (a === undefined ? null : typeof a === 'boolean' ? (a ? 1 : 0) : a)); }
+
+// Ambient transaction: tx() sets this so one/all/run inside the callback join the same atomic transaction.
+let _txn = null;
+async function dbTarget() { return _txn || (await getDb()); }
+
+// Small async helpers to keep route code terse. SQL is unchanged (SQLite dialect).
+export async function one(sql, ...p) { const r = await (await dbTarget()).execute({ sql, args: norm(p) }); return r.rows[0]; }
+export async function all(sql, ...p) { const r = await (await dbTarget()).execute({ sql, args: norm(p) }); return r.rows; }
+export async function run(sql, ...p) {
+  const r = await (await dbTarget()).execute({ sql, args: norm(p) });
+  return { changes: r.rowsAffected, lastInsertRowid: r.lastInsertRowid };
 }
 
-export function audit(userId, actor, action, target = null, ip = null, detail = {}) {
-  run('INSERT INTO audit_logs (user_id,actor,action,target,ip,detail,created_at) VALUES (?,?,?,?,?,?,?)',
+/** Atomic transaction. The callback's one/all/run calls run on the same transaction (ambient _txn). */
+export async function tx(fn) {
+  const c = await getDb();
+  const t = await c.transaction('write');
+  const prev = _txn;
+  _txn = t;
+  try {
+    const r = await fn();
+    await t.commit();
+    return r;
+  } catch (e) {
+    try { await t.rollback(); } catch { /* already closed */ }
+    throw e;
+  } finally {
+    _txn = prev;
+  }
+}
+
+export async function audit(userId, actor, action, target = null, ip = null, detail = {}) {
+  await run('INSERT INTO audit_logs (user_id,actor,action,target,ip,detail,created_at) VALUES (?,?,?,?,?,?,?)',
     userId, actor, action, target, ip, JSON.stringify(detail), now());
 }
-export function securityEvent(userId, kind, severity, ip, detail = {}) {
-  run('INSERT INTO security_events (user_id,kind,severity,ip,detail,created_at) VALUES (?,?,?,?,?,?)',
+export async function securityEvent(userId, kind, severity, ip, detail = {}) {
+  await run('INSERT INTO security_events (user_id,kind,severity,ip,detail,created_at) VALUES (?,?,?,?,?,?)',
     userId, kind, severity, ip, JSON.stringify(detail), now());
 }
+
+/** For tests / graceful shutdown. */
+export function close() { if (_client) { try { _client.close(); } catch { /* ignore */ } _client = null; _initPromise = null; _txn = null; } }

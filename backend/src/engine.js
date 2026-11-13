@@ -6,15 +6,15 @@ import { consumeQuota } from './quota.js';
 import { streamCompletion } from './providers/index.js';
 
 
-function settingsOf(userId) { return one('SELECT * FROM settings WHERE user_id = ?', userId) || {}; }
+async function settingsOf(userId) { return await one('SELECT * FROM settings WHERE user_id = ?', userId) || {}; }
 
-function projectContext(userId, projectId, query) {
+async function projectContext(userId, projectId, query) {
   if (!projectId) return '';
-  const p = one('SELECT * FROM projects WHERE id = ? AND user_id = ?', projectId, userId);
+  const p = await one('SELECT * FROM projects WHERE id = ? AND user_id = ?', projectId, userId);
   if (!p) return '';
   let out = `\n\n# Project: ${p.name}\n${p.instructions ? 'Project instructions:\n' + p.instructions + '\n' : ''}`;
   // Lightweight keyword retrieval over project knowledge files (same-user, same-project only).
-  const files = all("SELECT filename, extracted_text FROM files WHERE user_id = ? AND project_id = ? AND extracted_text IS NOT NULL AND scan_status = 'clean'", userId, projectId);
+  const files = await all("SELECT filename, extracted_text FROM files WHERE user_id = ? AND project_id = ? AND extracted_text IS NOT NULL AND scan_status = 'clean'", userId, projectId);
   const terms = new Set(String(query).toLowerCase().match(/[\p{L}\p{N}]{3,}/gu) || []);
   const scored = files.map((f) => {
     const words = f.extracted_text.toLowerCase().match(/[\p{L}\p{N}]{3,}/gu) || [];
@@ -31,13 +31,13 @@ function projectContext(userId, projectId, query) {
   return out;
 }
 
-function attachmentContext(userId, ids) {
+async function attachmentContext(userId, ids) {
   if (!ids?.length) return { text: '', meta: [] };
   if (!Array.isArray(ids) || ids.length > 10) throw bad('attachments must be an array of up to 10 file ids');
   let text = '';
   const meta = [];
   for (const id of ids) {
-    const f = one('SELECT id, filename, kind, mime, size, scan_status, extracted_text FROM files WHERE id = ? AND user_id = ?', String(id), userId);
+    const f = await one('SELECT id, filename, kind, mime, size, scan_status, extracted_text FROM files WHERE id = ? AND user_id = ?', String(id), userId);
     if (!f) throw bad(`Attachment ${id} not found`, 'attachment_not_found');
     if (f.scan_status !== 'clean') throw forbidden(`Attachment ${f.filename} did not pass the security scan`, 'attachment_blocked');
     meta.push({ id: f.id, filename: f.filename, kind: f.kind, size: f.size });
@@ -47,19 +47,19 @@ function attachmentContext(userId, ids) {
   return { text, meta };
 }
 
-export function buildMessages({ user, model, mode, chat, text, attachText, history: given, systemExtra }) {
-  const s = settingsOf(user.id);
+export async function buildMessages({ user, model, mode, chat, text, attachText, history: given, systemExtra }) {
+  const s = await settingsOf(user.id);
   let system = identityPrompt(model, mode);
   if (s.personalization) system += `\n\nUser personalization preferences: ${s.personalization.slice(0, 1500)}`;
   // Memory is never injected into FAB (spec §12: no cross-session memory for FAB).
   if (model.family !== 'fab' && s.memory_enabled) {
-    const mem = all('SELECT content FROM memories WHERE user_id = ? ORDER BY updated_at DESC LIMIT 30', user.id);
+    const mem = await all('SELECT content FROM memories WHERE user_id = ? ORDER BY updated_at DESC LIMIT 30', user.id);
     if (mem.length) system += '\n\nThings the user asked you to remember:\n' + mem.map((m) => `- ${m.content}`).join('\n');
   }
-  if (chat?.project_id) system += projectContext(user.id, chat.project_id, text);
+  if (chat?.project_id) system += await projectContext(user.id, chat.project_id, text);
 
   if (systemExtra) system += `\n\n${systemExtra}`;
-  const history = given ? given : chat ? all("SELECT role, content FROM messages WHERE chat_id = ? AND user_id = ? AND status = 'complete' ORDER BY created_at", chat.id, user.id) : [];
+  const history = given ? given : chat ? await all("SELECT role, content FROM messages WHERE chat_id = ? AND user_id = ? AND status = 'complete' ORDER BY created_at", chat.id, user.id) : [];
   const maxContext = modeParams(model.id, mode).context_chars; // efficiency mode sets the context budget
   const trimmed = [];
   let size = 0;
@@ -80,8 +80,8 @@ const REMEMBER = /^\s*(remember( that)?|yaad rakho( ke)?|یاد رکھو)\s*[:,]
 export async function complete({ user, chat, text, requestedModel, requestedMode, requestedVersion, attachments, source, requestId, onRoute, onDelta, history, systemExtra, skipMemoryCapture, signal }) {
   if (typeof text !== 'string' || !text.trim()) throw bad('content is required');
   if (text.length > 100_000) throw bad('content is too long (max 100,000 characters)');
-  const s = settingsOf(user.id);
-  const r = route(user, { requestedModel, requestedMode: requestedMode ?? s.default_mode, requestedVersion, text, defaultModel: s.default_model || 'nick-4.8' });
+  const s = await settingsOf(user.id);
+  const r = await route(user, { requestedModel, requestedMode: requestedMode ?? s.default_mode, requestedVersion, text, defaultModel: s.default_model || 'nick-4.8' });
   onRoute?.(r);
 
   // Explicit, consented memory capture: "remember that …"
@@ -89,7 +89,7 @@ export async function complete({ user, chat, text, requestedModel, requestedMode
   const mm = REMEMBER.exec(text);
   if (mm && !skipMemoryCapture && r.model.family !== 'fab' && s.memory_enabled) {
     const id = 'mem_' + crypto.randomUUID().slice(0, 18);
-    run('INSERT INTO memories (id,user_id,content,source,created_at,updated_at) VALUES (?,?,?,?,?,?)', id, user.id, mm[4].trim(), 'chat', now(), now());
+    await run('INSERT INTO memories (id,user_id,content,source,created_at,updated_at) VALUES (?,?,?,?,?,?)', id, user.id, mm[4].trim(), 'chat', now(), now());
     memorySaved = { id, content: mm[4].trim() };
   }
 
@@ -99,9 +99,9 @@ export async function complete({ user, chat, text, requestedModel, requestedMode
     return { route: r, text: msg, usage: { prompt_tokens: 0, completion_tokens: 0 }, refused: true, memorySaved };
   }
 
-  consumeQuota(user, { source, modelId: r.model.id, mode: r.mode, requestId });
-  const { text: attachText, meta } = attachmentContext(user.id, attachments);
-  const messages = buildMessages({ user, model: r.model, mode: r.mode, chat, text, attachText, history, systemExtra });
+  await consumeQuota(user, { source, modelId: r.model.id, mode: r.mode, requestId });
+  const { text: attachText, meta } = await attachmentContext(user.id, attachments);
+  const messages = await buildMessages({ user, model: r.model, mode: r.mode, chat, text, attachText, history, systemExtra });
   const out = await streamCompletion({ model: r.model, mode: r.mode, version: r.version, messages, onDelta, signal });
   return { route: r, text: out.text, usage: out.usage, refused: false, attachments: meta, memorySaved };
 }

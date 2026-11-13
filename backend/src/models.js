@@ -8,14 +8,14 @@ import { resolveServingVersion, publicModelState } from './registry.js';
 // catalog and change real inference parameters (token budget, temperature, context size, guidance).
 export { MODES, DEFAULT_MODE, modeParams };
 
-export function listModels() { return all('SELECT * FROM models WHERE enabled = 1 ORDER BY rowid'); }
-export function getModel(id) { return one('SELECT * FROM models WHERE id = ? AND enabled = 1', id); }
+export async function listModels() { return await all('SELECT * FROM models WHERE enabled = 1 ORDER BY rowid'); }
+export async function getModel(id) { return await one('SELECT * FROM models WHERE id = ? AND enabled = 1', id); }
 
 /** Server-side access decision. The router may never widen this. */
-export function canUseModel(user, model) {
+export async function canUseModel(user, model) {
   if (!model) return false;
   if (user.role === 'superadmin') return true;
-  const grant = one('SELECT * FROM model_access WHERE user_id = ? AND model_id = ? AND (expires_at IS NULL OR expires_at > ?)', user.id, model.id, now());
+  const grant = await one('SELECT * FROM model_access WHERE user_id = ? AND model_id = ? AND (expires_at IS NULL OR expires_at > ?)', user.id, model.id, now());
   switch (model.tier) {
     case 'default': case 'advanced': return true;
     case 'premium': return user.plan !== 'free' || user.role === 'admin' || !!grant;
@@ -24,18 +24,18 @@ export function canUseModel(user, model) {
   }
 }
 
-export function modelsForUser(user) {
-  return listModels().map((m) => {
+export async function modelsForUser(user) {
+  return Promise.all((await listModels()).map(async (m) => {
     const c = catalogModel(m.id) || {};
     return {
       id: m.id, name: m.name, family: m.family, tier: m.tier, description: m.description,
       kind: c.kind || 'language_model', capabilities: c.capabilities || [], modalities: c.modalities || { input: ['text'], output: ['text'] },
       languages: c.languages || [], pipelines: c.pipelines || [],
-      available: canUseModel(user, m),
+      available: await canUseModel(user, m),
       history_training: !!m.history_training_allowed,
-      ...publicModelState(m.id),
+      ...(await publicModelState(m.id)),
     };
-  });
+  }));
 }
 
 // ---------------- Safety policy ----------------
@@ -82,17 +82,17 @@ export function classify(text) {
  * Master Router. Inputs: user, requested model ('auto' or id), requested mode, text.
  * Returns the model+mode to use and a human-readable reason. Never bypasses access.
  */
-export function route(user, { requestedModel = 'auto', requestedMode, requestedVersion, text, defaultModel = 'nick-4.8' }) {
+export async function route(user, { requestedModel = 'auto', requestedMode, requestedVersion, text, defaultModel = 'nick-4.8' }) {
   const mode = requestedMode ?? DEFAULT_MODE;
   if (!MODES.includes(mode)) throw bad(`mode must be one of: ${MODES.join(', ')} (modes are not models)`);
   const task = classify(text);
   const safety = safetyCheck(text);
 
   if (requestedModel && requestedModel !== 'auto') {
-    const m = getModel(requestedModel);
+    const m = await getModel(requestedModel);
     if (!m) throw bad(`Unknown model '${requestedModel}'`, 'unknown_model');
-    if (!canUseModel(user, m)) throw forbidden(`Your account does not have access to ${m.name}`, 'model_access_denied');
-    return { model: m, mode, version: resolveServingVersion(m.id, requestedVersion), task, safety, reason: 'user-selected' };
+    if (!await canUseModel(user, m)) throw forbidden(`Your account does not have access to ${m.name}`, 'model_access_denied');
+    return { model: m, mode, version: await resolveServingVersion(m.id, requestedVersion), task, safety, reason: 'user-selected' };
   }
 
   // Automatic routing — choose the most suitable model the user is permitted to use.
@@ -102,10 +102,10 @@ export function route(user, { requestedModel = 'auto', requestedMode, requestedV
   if (task.complexity >= 2 || ['code', 'math'].includes(task.primary) && task.complexity >= 1) want.push('hike-6.5');
   want.push(defaultModel, 'nick-4.8');
   for (const id of want) {
-    const m = getModel(id);
-    if (m && canUseModel(user, m)) {
+    const m = await getModel(id);
+    if (m && await canUseModel(user, m)) {
       const reason = id === want[0] ? `auto: ${task.primary} task, complexity ${task.complexity}` : `auto: best permitted model for ${task.primary} task (complexity ${task.complexity})`;
-      return { model: m, mode, version: resolveServingVersion(m.id, requestedVersion), task, safety, reason };
+      return { model: m, mode, version: await resolveServingVersion(m.id, requestedVersion), task, safety, reason };
     }
   }
   throw forbidden('No model available for this account', 'no_model');

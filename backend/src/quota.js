@@ -11,13 +11,13 @@ export function cycleBounds(user, t = now()) {
   return { start, end: start + len };
 }
 
-export function usageSummary(user) {
+export async function usageSummary(user) {
   const t = now();
   const winMs = config.quota.windowMinutes * 60_000;
   const winStart = t - winMs;
-  const inWindow = one('SELECT COUNT(*) c, MIN(created_at) first FROM usage_events WHERE user_id = ? AND created_at > ?', user.id, winStart);
+  const inWindow = await one('SELECT COUNT(*) c, MIN(created_at) first FROM usage_events WHERE user_id = ? AND created_at > ?', user.id, winStart);
   const { start, end } = cycleBounds(user, t);
-  const inCycle = one('SELECT COUNT(*) c FROM usage_events WHERE user_id = ? AND created_at >= ?', user.id, start).c;
+  const inCycle = (await one('SELECT COUNT(*) c FROM usage_events WHERE user_id = ? AND created_at >= ?', user.id, start)).c;
   return {
     window: {
       minutes: config.quota.windowMinutes,
@@ -37,8 +37,8 @@ export function usageSummary(user) {
 }
 
 /** Atomically check and record one AI request. Throws 429 when over quota. */
-export function consumeQuota(user, { source, modelId, mode, requestId }) {
-  const u = usageSummary(user);
+export async function consumeQuota(user, { source, modelId, mode, requestId }) {
+  const u = await usageSummary(user);
   if (u.window.used >= u.window.limit) {
     throw new HttpError(429, 'quota_exceeded', `Quota reached: ${u.window.limit} AI requests per ${u.window.minutes} minutes.`,
       { retryAfter: Math.max(1, Math.ceil(((u.window.resets_at || now()) - now()) / 1000)), usage: u });
@@ -47,6 +47,6 @@ export function consumeQuota(user, { source, modelId, mode, requestId }) {
     throw new HttpError(429, 'cycle_quota_exceeded', 'Usage cycle limit reached; it renews automatically.',
       { retryAfter: Math.ceil((u.cycle.renews_at - now()) / 1000), usage: u });
   }
-  run('INSERT INTO usage_events (user_id,source,model_id,mode,request_id,created_at) VALUES (?,?,?,?,?,?)',
+  await run('INSERT INTO usage_events (user_id,source,model_id,mode,request_id,created_at) VALUES (?,?,?,?,?,?)',
     user.id, source, modelId, mode, requestId, now());
 }

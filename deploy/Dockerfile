@@ -1,7 +1,9 @@
-# Approx AI backend + web app (single container). No npm dependencies are required.
+# Approx AI backend + web app (single container). One runtime dependency: @libsql/client (database driver).
 FROM node:22.13-bookworm-slim
 ENV NODE_ENV=production APPROX_ENV=production APPROX_DATA_DIR=/data PORT=8080
 WORKDIR /app
+COPY backend/package.json backend/package-lock.json ./backend/
+RUN cd backend && npm ci --omit=dev && npm cache clean --force
 COPY backend ./backend
 COPY web ./web
 RUN useradd --system --uid 10001 approx && mkdir -p /data && chown approx /data

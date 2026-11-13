@@ -88,8 +88,8 @@ export function removeFileBlobs(rows) {
     try { fs.unlinkSync(path.join(uploadDir(), f.storage_key)); } catch { /* already gone / blocked files are never stored */ }
   }
 }
-export function removeUserFiles(userId) {
-  removeFileBlobs(all('SELECT storage_key FROM files WHERE user_id = ?', userId));
+export async function removeUserFiles(userId) {
+  removeFileBlobs(await all('SELECT storage_key FROM files WHERE user_id = ?', userId));
 }
 
 function fileView(f) {
@@ -101,7 +101,7 @@ export function registerFileRoutes(r) {
   // Upload: raw body; filename in X-Filename (URL-encoded); optional X-Project-Id.
   r.post('/api/files', async (req, res, ctx) => {
     const u = requireUser(ctx);
-    rateLimit(`upload:${u.id}`, 60, 3600_000);
+    await rateLimit(`upload:${u.id}`, 60, 3600_000);
     let rawName;
     try { rawName = decodeURIComponent(String(req.headers['x-filename'] || '')); } catch { throw bad('X-Filename must be URL-encoded'); }
     const filename = path.basename(rawName).replace(/[^\p{L}\p{N}._ -]/gu, '_').slice(0, 150);
@@ -110,8 +110,8 @@ export function registerFileRoutes(r) {
     const type = TYPES[ext];
     if (!type) throw new HttpError(415, 'unsupported_type', `File type .${ext} is not allowed`);
     const projectId = req.headers['x-project-id'] ? String(req.headers['x-project-id']) : null;
-    if (projectId && !one('SELECT id FROM projects WHERE id = ? AND user_id = ?', projectId, u.id)) throw notFound('Project not found');
-    const total = one('SELECT COALESCE(SUM(size),0) s FROM files WHERE user_id = ?', u.id).s;
+    if (projectId && !await one('SELECT id FROM projects WHERE id = ? AND user_id = ?', projectId, u.id)) throw notFound('Project not found');
+    const total = (await one('SELECT COALESCE(SUM(size),0) s FROM files WHERE user_id = ?', u.id)).s;
     if (total > 500 * 1024 * 1024) throw new HttpError(507, 'storage_full', 'Storage limit (500 MB) reached');
 
     const buf = await readBody(req, config.files.maxBytes);
@@ -132,24 +132,24 @@ export function registerFileRoutes(r) {
       else if (kind === 'pdf') extracted = extractPdfText(buf);
     }
     const id = newId('fil_');
-    run(`INSERT INTO files (id,user_id,project_id,filename,mime,kind,size,sha256,storage_key,scan_status,scan_detail,extracted_text,created_at)
+    await run(`INSERT INTO files (id,user_id,project_id,filename,mime,kind,size,sha256,storage_key,scan_status,scan_detail,extracted_text,created_at)
          VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`, id, u.id, projectId, filename, mime, kind, buf.length,
     crypto.createHash('sha256').update(buf).digest('hex'), key, scan_status, threat || '', extracted, now());
-    const f = one('SELECT * FROM files WHERE id = ?', id);
+    const f = await one('SELECT * FROM files WHERE id = ?', id);
     sendJson(res, scan_status === 'blocked' ? 422 : 201, { file: fileView(f) });
   });
 
   r.get('/api/files', async (req, res, ctx, p, url) => {
     const u = requireUser(ctx);
     const proj = url.searchParams.get('project_id');
-    const rows = proj ? all('SELECT * FROM files WHERE user_id = ? AND project_id = ? ORDER BY created_at DESC', u.id, proj)
-      : all('SELECT * FROM files WHERE user_id = ? ORDER BY created_at DESC LIMIT 500', u.id);
+    const rows = proj ? await all('SELECT * FROM files WHERE user_id = ? AND project_id = ? ORDER BY created_at DESC', u.id, proj)
+      : await all('SELECT * FROM files WHERE user_id = ? ORDER BY created_at DESC LIMIT 500', u.id);
     sendJson(res, 200, { files: rows.map(fileView) });
   });
 
   r.get('/api/files/:id', async (req, res, ctx, p) => {
     const u = requireUser(ctx);
-    const f = one('SELECT * FROM files WHERE id = ? AND user_id = ?', p.id, u.id);
+    const f = await one('SELECT * FROM files WHERE id = ? AND user_id = ?', p.id, u.id);
     if (!f) throw notFound('File not found');
     sendJson(res, 200, { file: fileView(f), preview: f.extracted_text ? f.extracted_text.slice(0, 5000) : null });
   });
@@ -157,7 +157,7 @@ export function registerFileRoutes(r) {
   // Download: always as attachment, sandboxed CSP — uploaded content is never rendered inline as HTML.
   r.get('/api/files/:id/download', async (req, res, ctx, p) => {
     const u = requireUser(ctx);
-    const f = one("SELECT * FROM files WHERE id = ? AND user_id = ? AND scan_status = 'clean'", p.id, u.id);
+    const f = await one("SELECT * FROM files WHERE id = ? AND user_id = ? AND scan_status = 'clean'", p.id, u.id);
     if (!f) throw notFound('File not found');
     securityHeaders(res);
     res.setHeader('Content-Security-Policy', "default-src 'none'; sandbox");
@@ -172,10 +172,10 @@ export function registerFileRoutes(r) {
 
   r.delete('/api/files/:id', async (req, res, ctx, p) => {
     const u = requireUser(ctx);
-    const f = one('SELECT * FROM files WHERE id = ? AND user_id = ?', p.id, u.id);
+    const f = await one('SELECT * FROM files WHERE id = ? AND user_id = ?', p.id, u.id);
     if (!f) throw notFound('File not found');
     try { fs.unlinkSync(path.join(uploadDir(), f.storage_key)); } catch { /* blocked files are not stored */ }
-    run('DELETE FROM files WHERE id = ?', f.id);
+    await run('DELETE FROM files WHERE id = ?', f.id);
     sendJson(res, 200, { status: 'deleted' });
   });
 }

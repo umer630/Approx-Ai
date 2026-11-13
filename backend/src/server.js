@@ -22,7 +22,7 @@ export function buildRouter() {
   r.get('/healthz', async (req, res) => sendJson(res, 200, { ok: true }));
   r.get('/api/version', async (req, res) => sendJson(res, 200, {
     product: 'Approx AI', company: 'Approx Technology', versions: VERSIONS, build_id: config.buildId,
-    models: Object.fromEntries(listModels().map((m) => [m.id, { backend: backendStatus(m), active_version: getActive(m.id)?.version ?? null }])),
+    models: Object.fromEntries((await listModels()).map((m) => [m.id, { backend: backendStatus(m), active_version: getActive(m.id)?.version ?? null }])),
   }));
   registerAuthRoutes(r);
   registerChatRoutes(r);
@@ -57,7 +57,7 @@ function serveStatic(req, res, pathname) {
 }
 
 export function createServer() {
-  getDb();
+  getDb().catch(() => {});
   const router = buildRouter();
   return http.createServer(async (req, res) => {
     const requestId = 'req_' + newId();
@@ -78,8 +78,8 @@ export function createServer() {
       const m = router.match(method, url.pathname);
       if (m === 'method') throw new HttpError(405, 'method_not_allowed', 'Method not allowed');
       if (!m) throw notFound('Unknown endpoint');
-      const ctx = { requestId, auth: resolveAuth(req) };
-      enforceCsrf(req, ctx.auth);
+      const ctx = { requestId, auth: await resolveAuth(req) };
+      await enforceCsrf(req, ctx.auth);
       for (const h of m.route.handlers) await h(req, res, ctx, m.params, url);
     } catch (err) {
       sendError(res, err, requestId);
@@ -89,7 +89,7 @@ export function createServer() {
 
 if (process.argv[1] && process.argv[1].endsWith('server.js')) {
   const server = createServer();
-  startRegistryWatcher();
+  await startRegistryWatcher();
   server.requestTimeout = 900_000; // large artifact uploads
   server.headersTimeout = 30_000;
   server.listen(config.port, config.host, () => {

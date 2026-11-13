@@ -5,11 +5,16 @@
   "type": "module",
   "private": true,
   "license": "UNLICENSED",
-  "engines": { "node": ">=22.13" },
+  "engines": {
+    "node": ">=22.13"
+  },
   "scripts": {
     "start": "node --disable-warning=ExperimentalWarning src/server.js",
     "dev": "APPROX_ENV=development APPROX_DEV_PROVIDER=1 node --disable-warning=ExperimentalWarning src/server.js",
     "test": "node --disable-warning=ExperimentalWarning --test --test-concurrency=1 test/*.test.js",
     "admin:grant": "node --disable-warning=ExperimentalWarning src/cli.js"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.18.0"
   }
 }

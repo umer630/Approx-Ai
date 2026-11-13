@@ -225,7 +225,7 @@ function summarize(modelId, version, releaseDir, v) {
 // ---------------------------------------------------------------- scan
 let lastScan = { at: 0, models: new Map(), ignored: [] };
 
-export function scan({ force = false } = {}) {
+export async function scan({ force = false } = {}) {
   if (!force && now() - lastScan.at < 5000) return lastScan;
   const models = new Map();
   const ignored = [];
@@ -248,17 +248,17 @@ export function scan({ force = false } = {}) {
     }
   }
   lastScan = { at: now(), models, ignored };
-  mirrorToDb(models);
-  checkActiveIntegrity();
-  autoActivate();
+  await mirrorToDb(models);
+  await checkActiveIntegrity();
+  await autoActivate();
   return lastScan;
 }
 
-function mirrorToDb(models) {
+async function mirrorToDb(models) {
   const t = now();
   for (const [modelId, list] of models) {
     for (const v of list) {
-      run(`INSERT INTO model_releases (model_id, version, kind, status, production_ready, verified, adapter_sha256, base_model, base_model_revision,
+      await run(`INSERT INTO model_releases (model_id, version, kind, status, production_ready, verified, adapter_sha256, base_model, base_model_revision,
              dataset_version, dataset_fingerprint, evaluation_score, artifact_uri, source, detail, first_seen_at, updated_at)
            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
            ON CONFLICT(model_id, version) DO UPDATE SET kind = excluded.kind, status = excluded.status, production_ready = excluded.production_ready,
@@ -273,8 +273,8 @@ function mirrorToDb(models) {
   }
 }
 
-export function listVersions(modelId) { return scan().models.get(modelId) || []; }
-export function findVersion(modelId, version) { return listVersions(modelId).find((v) => v.version === version) || null; }
+export async function listVersions(modelId) { return (await scan()).models.get(modelId) || []; }
+export async function findVersion(modelId, version) { return (await listVersions(modelId)).find((v) => v.version === version) || null; }
 
 // ---------------------------------------------------------------- active state
 let activeCache = { mtime: -1, data: { active: {} } };
@@ -316,7 +316,7 @@ export function getActive(modelId) {
 }
 export function activeProblem(modelId) { return invalidActive.get(modelId) || null; }
 
-function checkActiveIntegrity() {
+async function checkActiveIntegrity() {
   const active = readActive().active;
   for (const [modelId, a] of Object.entries(active)) {
     const v = (lastScan.models.get(modelId) || []).find((x) => x.version === a.version);
@@ -325,7 +325,7 @@ function checkActiveIntegrity() {
     else if (!v.verified) reason = `active version ${a.version} failed verification: ${v.errors[0] || 'unknown'}`;
     else if (!v.activatable) reason = `active version ${a.version} is no longer activatable`;
     else if (a.adapter_sha256 && v.adapter_sha256 !== a.adapter_sha256) reason = `active version ${a.version} adapter hash changed since activation`;
-    if (reason && invalidActive.get(modelId) !== reason) securityEvent(null, 'registry_active_invalid', 'high', null, { model_id: modelId, reason });
+    if (reason && invalidActive.get(modelId) !== reason) await securityEvent(null, 'registry_active_invalid', 'high', null, { model_id: modelId, reason });
     if (reason) invalidActive.set(modelId, reason); else invalidActive.delete(modelId);
   }
   for (const id of [...invalidActive.keys()]) if (!active[id]) invalidActive.delete(id);
@@ -348,7 +348,7 @@ async function notifyInference() {
   }
 }
 
-function setActive(modelId, v, actor, { reason = '', source = 'manual' } = {}) {
+async function setActive(modelId, v, actor, { reason = '', source = 'manual' } = {}) {
   const data = { active: { ...readActive().active } };
   const previous = data.active[modelId]?.version || null;
   data.active[modelId] = {
@@ -358,9 +358,9 @@ function setActive(modelId, v, actor, { reason = '', source = 'manual' } = {}) {
   writeActive(data);
   invalidActive.delete(modelId);
   const t = now();
-  if (previous && previous !== v.version) run('UPDATE model_releases SET deactivated_at = ? WHERE model_id = ? AND version = ?', t, modelId, previous);
-  run('UPDATE model_releases SET activated_at = ?, activated_by = ?, deactivated_at = NULL WHERE model_id = ? AND version = ?', t, actor, modelId, v.version);
-  audit(null, actor, 'registry.activated', `${modelId}@${v.version}`, null,
+  if (previous && previous !== v.version) await run('UPDATE model_releases SET deactivated_at = ? WHERE model_id = ? AND version = ?', t, modelId, previous);
+  await run('UPDATE model_releases SET activated_at = ?, activated_by = ?, deactivated_at = NULL WHERE model_id = ? AND version = ?', t, actor, modelId, v.version);
+  await audit(null, actor, 'registry.activated', `${modelId}@${v.version}`, null,
     { previous, production_ready: v.production_ready, adapter_sha256: v.adapter_sha256, reason: String(reason).slice(0, 300), source });
   return previous;
 }
@@ -369,8 +369,8 @@ function setActive(modelId, v, actor, { reason = '', source = 'manual' } = {}) {
 export async function activate(modelId, version, { actor, allowNonProduction = false, reason = '' }) {
   if (!catalogModel(modelId)) throw bad(`Unknown model '${modelId}'`, 'unknown_model');
   if (!VERSION_RE.test(String(version))) throw bad('version must look like 1.0.0', 'invalid_version');
-  scan({ force: true });
-  const v = findVersion(modelId, version);
+  await scan({ force: true });
+  const v = await findVersion(modelId, version);
   if (!v) throw new HttpError(404, 'unknown_model_version', `${modelId} has no version ${version} in the registry`);
   if (!v.activatable) {
     throw new HttpError(409, 'version_not_activatable', `${modelId}@${version} cannot be activated: ${v.not_activatable_reasons.join('; ') || 'not validated'}`,
@@ -380,7 +380,7 @@ export async function activate(modelId, version, { actor, allowNonProduction = f
     throw new HttpError(409, 'not_production_ready', `${modelId}@${version} is validated but not production-ready. Activation needs an explicit override.`,
       { blockers: v.blockers });
   }
-  const previous = setActive(modelId, v, actor, { reason });
+  const previous = await setActive(modelId, v, actor, { reason });
   const inference = await notifyInference();
   return { model_id: modelId, version, previous_version: previous, production_ready: v.production_ready, inference };
 }
@@ -393,14 +393,14 @@ export async function deactivate(modelId, { actor, reason = '' }) {
   delete data.active[modelId];
   writeActive(data);
   invalidActive.delete(modelId);
-  run('UPDATE model_releases SET deactivated_at = ? WHERE model_id = ? AND version = ?', now(), modelId, previous);
-  audit(null, actor, 'registry.deactivated', `${modelId}@${previous}`, null, { reason: String(reason).slice(0, 300) });
+  await run('UPDATE model_releases SET deactivated_at = ? WHERE model_id = ? AND version = ?', now(), modelId, previous);
+  await audit(null, actor, 'registry.deactivated', `${modelId}@${previous}`, null, { reason: String(reason).slice(0, 300) });
   const inference = await notifyInference();
   return { model_id: modelId, previous_version: previous, inference };
 }
 
 /** Automatic activation policy (APPROX_AUTO_ACTIVATE). Never downgrades, never activates unverified or smoke artifacts. */
-function autoActivate() {
+async function autoActivate() {
   const policy = config.registry.autoActivate;
   if (policy === 'off') return;
   for (const [modelId, list] of lastScan.models) {
@@ -408,8 +408,8 @@ function autoActivate() {
     if (!candidate) continue;
     const current = readActive().active[modelId];
     if (current && compareVersions(candidate.version, current.version) <= 0) continue;
-    setActive(modelId, candidate, 'auto-policy', { reason: `APPROX_AUTO_ACTIVATE=${policy}`, source: 'auto' });
-    notifyInference().catch(() => {});
+    await setActive(modelId, candidate, 'auto-policy', { reason: `APPROX_AUTO_ACTIVATE=${policy}`, source: 'auto' });
+    await notifyInference().catch(() => {});
   }
 }
 
@@ -418,12 +418,12 @@ function autoActivate() {
  * Which version should serve a request. `requested` is an optional explicit version from the API caller.
  * Only the active version is ever served; asking for another existing version is a clear 409.
  */
-export function resolveServingVersion(modelId, requested) {
-  scan();
+export async function resolveServingVersion(modelId, requested) {
+  await scan();
   const active = getActive(modelId);
   if (requested === undefined || requested === null || requested === '') return active?.version ?? null;
   if (typeof requested !== 'string' || !VERSION_RE.test(requested)) throw bad('version must look like 1.0.0', 'invalid_version');
-  const v = findVersion(modelId, requested);
+  const v = await findVersion(modelId, requested);
   if (!v) throw new HttpError(404, 'unknown_model_version', `${modelId} has no version ${requested}`);
   if (!active || active.version !== requested) {
     throw new HttpError(409, 'model_version_not_active', `${modelId}@${requested} exists but is not the active version`, { active_version: active?.version ?? null });
@@ -431,10 +431,10 @@ export function resolveServingVersion(modelId, requested) {
   return requested;
 }
 
-export function publicModelState(modelId) {
-  scan();
+export async function publicModelState(modelId) {
+  await scan();
   const active = getActive(modelId);
-  const list = listVersions(modelId);
+  const list = await listVersions(modelId);
   const av = active ? list.find((v) => v.version === active.version) : null;
   return {
     active_version: active?.version ?? null,
@@ -510,7 +510,7 @@ function copyDir(src, dest) {
   }
 }
 
-function installVerified(stagedDir, modelId, version, actor, source) {
+async function installVerified(stagedDir, modelId, version, actor, source) {
   const v = verifyReleaseDir(stagedDir, { modelId, version });
   if (!v.ok) throw new HttpError(422, 'invalid_artifact', `artifact failed verification: ${v.errors[0]}`, { errors: v.errors.slice(0, 20) });
   const dest = path.join(dir(), modelId, 'versions', version);
@@ -523,13 +523,13 @@ function installVerified(stagedDir, modelId, version, actor, source) {
   }
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   fs.renameSync(stagedDir, dest);
-  audit(null, actor, 'registry.imported', `${modelId}@${version}`, null, { adapter_sha256: v.adapter_sha256, status: v.release.status, production_ready: v.release.production_ready, source });
-  scan({ force: true });
-  return { model_id: modelId, version, status: 'imported', release: findVersion(modelId, version) };
+  await audit(null, actor, 'registry.imported', `${modelId}@${version}`, null, { adapter_sha256: v.adapter_sha256, status: v.release.status, production_ready: v.release.production_ready, source });
+  await scan({ force: true });
+  return { model_id: modelId, version, status: 'imported', release: await findVersion(modelId, version) };
 }
 
 /** Import a release archive (.tar.gz laid out as <model-id>/versions/<version>/…). Nothing is activated here. */
-export function importArchive(file, { actor, expectedSha256 = null, source = 'upload' }) {
+export async function importArchive(file, { actor, expectedSha256 = null, source = "upload" }) {
   if (!tarAvailable()) throw new HttpError(501, 'tar_unavailable', 'The `tar` program is required on the API server to import artifacts');
   if (expectedSha256 && sha256File(file) !== String(expectedSha256).toLowerCase()) {
     throw new HttpError(422, 'sha256_mismatch', 'Uploaded archive does not match the declared SHA-256');
@@ -544,12 +544,12 @@ export function importArchive(file, { actor, expectedSha256 = null, source = 'up
   fs.mkdirSync(staging, { recursive: true });
   try {
     execFileSync('tar', ['-xzf', file, '-C', staging, '--no-same-owner', '--no-same-permissions'], { stdio: 'ignore' });
-    return installVerified(path.join(staging, modelId, 'versions', version), modelId, version, actor, source);
+    return await installVerified(path.join(staging, modelId, 'versions', version), modelId, version, actor, source);
   } finally { rmrf(staging); }
 }
 
 /** Import a release directory (a version directory, or a tree containing <model-id>/versions/<version>/). CLI use. */
-export function importDirectory(src, { actor, source = 'cli' }) {
+export async function importDirectory(src, { actor, source = 'cli' }) {
   const abs = path.resolve(src);
   let relFile = path.join(abs, 'release.json');
   if (!fs.existsSync(relFile)) throw new HttpError(422, 'invalid_artifact', `${abs} does not contain release.json`);
@@ -559,13 +559,13 @@ export function importDirectory(src, { actor, source = 'cli' }) {
   const staging = path.join(dir(), '.incoming', crypto.randomBytes(8).toString('hex'));
   try {
     copyDir(abs, path.join(staging, 'v'));
-    return installVerified(path.join(staging, 'v'), rel.model_id, rel.version, actor, source);
+    return await installVerified(path.join(staging, 'v'), rel.model_id, rel.version, actor, source);
   } finally { rmrf(staging); }
 }
 
 // ---------------------------------------------------------------- views
-export function registryOverview() {
-  const s = scan({ force: true });
+export async function registryOverview() {
+  const s = await scan({ force: true });
   const active = readActive().active;
   return {
     models_dir: dir(),
@@ -583,9 +583,9 @@ export function registryOverview() {
   };
 }
 
-export function releaseDetail(modelId, version) {
+export async function releaseDetail(modelId, version) {
   if (!catalogModel(modelId) || !VERSION_RE.test(String(version))) return null;
-  const v = findVersion(modelId, version);
+  const v = await findVersion(modelId, version);
   if (!v) return null;
   const read = (name) => {
     try { return JSON.parse(fs.readFileSync(path.join(v.dir, name), 'utf8')); } catch { return null; }
@@ -595,10 +595,10 @@ export function releaseDetail(modelId, version) {
 }
 
 let watcher = null;
-export function startRegistryWatcher() {
+export async function startRegistryWatcher() {
   if (watcher) return;
-  const tick = () => { try { scan({ force: true }); } catch (e) { console.error('[registry] scan failed:', e.message); } };
-  tick();
+  const tick = async () => { try { await scan({ force: true }); } catch (e) { console.error('[registry] scan failed:', e.message); } };
+  await tick();
   watcher = setInterval(tick, Math.max(10, config.registry.scanSeconds) * 1000);
   watcher.unref();
 }

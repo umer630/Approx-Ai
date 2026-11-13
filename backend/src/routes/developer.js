@@ -14,17 +14,17 @@ const scopesFor = (u) => (['admin', 'superadmin'].includes(u.role) ? [...SCOPES,
 function keyView(k) {
   return { id: k.id, name: k.name, prefix: k.prefix, scopes: JSON.parse(k.scopes), created_at: k.created_at, last_used_at: k.last_used_at, revoked_at: k.revoked_at, rotated_from: k.rotated_from };
 }
-function mintKey(userId, name, scopes, rotatedFrom = null) {
+async function mintKey(userId, name, scopes, rotatedFrom = null) {
   const secret = 'apx_' + randomToken(32);
   const id = newId('key_');
-  run('INSERT INTO api_keys (id,user_id,name,prefix,key_hash,scopes,created_at,rotated_from) VALUES (?,?,?,?,?,?,?,?)',
+  await run('INSERT INTO api_keys (id,user_id,name,prefix,key_hash,scopes,created_at,rotated_from) VALUES (?,?,?,?,?,?,?,?)',
     id, userId, name, secret.slice(0, 12), sha256(secret), JSON.stringify(scopes), now(), rotatedFrom);
   return { id, secret };
 }
 
-function logApi(ctx, { endpoint, model, version, mode, status, t0 }) {
+async function logApi(ctx, { endpoint, model, version, mode, status, t0 }) {
   if (ctx.auth?.kind !== 'api_key') return;
-  run('INSERT INTO api_requests (id,user_id,api_key_id,endpoint,model_id,model_version,mode,status,latency_ms,created_at) VALUES (?,?,?,?,?,?,?,?,?,?)',
+  await run('INSERT INTO api_requests (id,user_id,api_key_id,endpoint,model_id,model_version,mode,status,latency_ms,created_at) VALUES (?,?,?,?,?,?,?,?,?,?)',
     ctx.requestId, ctx.auth.user.id, ctx.auth.apiKey.id, endpoint, model || null, version || null, mode || null, status, now() - t0, now());
 }
 
@@ -32,59 +32,59 @@ export function registerDeveloperRoutes(r) {
   // ----- dashboard (session auth) -----
   r.get('/api/developer/keys', async (req, res, ctx) => {
     const u = requireUser(ctx);
-    sendJson(res, 200, { keys: all('SELECT * FROM api_keys WHERE user_id = ? ORDER BY created_at DESC', u.id).map(keyView), available_scopes: scopesFor(u) });
+    sendJson(res, 200, { keys: (await all('SELECT * FROM api_keys WHERE user_id = ? ORDER BY created_at DESC', u.id)).map(keyView), available_scopes: scopesFor(u) });
   });
   r.post('/api/developer/keys', async (req, res, ctx) => {
     const u = requireUser(ctx);
     requireVerified(u);
-    rateLimit(`keys:${u.id}`, 20, 3600_000);
+    await rateLimit(`keys:${u.id}`, 20, 3600_000);
     const b = await readJson(req);
     const scopes = Array.isArray(b.scopes) && b.scopes.length ? b.scopes : ['chat', 'models:read'];
     if (scopes.some((s) => !scopesFor(u).includes(s))) throw bad(`scopes must be from: ${scopesFor(u).join(', ')}`);
-    if (one('SELECT COUNT(*) c FROM api_keys WHERE user_id = ? AND revoked_at IS NULL', u.id).c >= 10) throw bad('Active key limit (10) reached');
-    const k = mintKey(u.id, str(b.name, 'name', { min: 1, max: 60 }), [...new Set(scopes)]);
-    audit(u.id, u.id, 'api_key.created', k.id, clientIp(req));
-    sendJson(res, 201, { key: keyView(one('SELECT * FROM api_keys WHERE id = ?', k.id)), secret: k.secret, warning: 'Store this secret now. It will not be shown again.' });
+    if ((await one('SELECT COUNT(*) c FROM api_keys WHERE user_id = ? AND revoked_at IS NULL', u.id)).c >= 10) throw bad('Active key limit (10) reached');
+    const k = await mintKey(u.id, str(b.name, 'name', { min: 1, max: 60 }), [...new Set(scopes)]);
+    await audit(u.id, u.id, 'api_key.created', k.id, clientIp(req));
+    sendJson(res, 201, { key: keyView(await one('SELECT * FROM api_keys WHERE id = ?', k.id)), secret: k.secret, warning: 'Store this secret now. It will not be shown again.' });
   });
   r.post('/api/developer/keys/:id/rotate', async (req, res, ctx, p) => {
     const u = requireUser(ctx);
-    const old = one('SELECT * FROM api_keys WHERE id = ? AND user_id = ? AND revoked_at IS NULL', p.id, u.id);
+    const old = await one('SELECT * FROM api_keys WHERE id = ? AND user_id = ? AND revoked_at IS NULL', p.id, u.id);
     if (!old) throw notFound('Key not found');
-    const k = mintKey(u.id, old.name, JSON.parse(old.scopes), old.id);
-    run('UPDATE api_keys SET revoked_at = ? WHERE id = ?', now(), old.id);
-    audit(u.id, u.id, 'api_key.rotated', old.id, clientIp(req), { new: k.id });
-    sendJson(res, 201, { key: keyView(one('SELECT * FROM api_keys WHERE id = ?', k.id)), secret: k.secret });
+    const k = await mintKey(u.id, old.name, JSON.parse(old.scopes), old.id);
+    await run('UPDATE api_keys SET revoked_at = ? WHERE id = ?', now(), old.id);
+    await audit(u.id, u.id, 'api_key.rotated', old.id, clientIp(req), { new: k.id });
+    sendJson(res, 201, { key: keyView(await one('SELECT * FROM api_keys WHERE id = ?', k.id)), secret: k.secret });
   });
   r.delete('/api/developer/keys/:id', async (req, res, ctx, p) => {
     const u = requireUser(ctx);
-    if (!run('UPDATE api_keys SET revoked_at = ? WHERE id = ? AND user_id = ? AND revoked_at IS NULL', now(), p.id, u.id).changes) throw notFound('Key not found');
-    audit(u.id, u.id, 'api_key.revoked', p.id, clientIp(req));
+    if (!(await run('UPDATE api_keys SET revoked_at = ? WHERE id = ? AND user_id = ? AND revoked_at IS NULL', now(), p.id, u.id)).changes) throw notFound('Key not found');
+    await audit(u.id, u.id, 'api_key.revoked', p.id, clientIp(req));
     sendJson(res, 200, { status: 'revoked' });
   });
   r.get('/api/developer/requests', async (req, res, ctx) => {
     const u = requireUser(ctx);
-    sendJson(res, 200, { requests: all('SELECT r.*, k.name key_name FROM api_requests r LEFT JOIN api_keys k ON k.id = r.api_key_id WHERE r.user_id = ? ORDER BY r.created_at DESC LIMIT 200', u.id).map((x) => ({ ...x, user_id: undefined })) });
+    sendJson(res, 200, { requests: (await all('SELECT r.*, k.name key_name FROM api_requests r LEFT JOIN api_keys k ON k.id = r.api_key_id WHERE r.user_id = ? ORDER BY r.created_at DESC LIMIT 200', u.id)).map((x) => ({ ...x, user_id: undefined })) });
   });
   r.get('/api/developer/overview', async (req, res, ctx) => {
     const u = requireUser(ctx);
     const day = now() - 86400_000;
     sendJson(res, 200, {
       versions: VERSIONS,
-      usage: usageSummary(u),
-      active_keys: one('SELECT COUNT(*) c FROM api_keys WHERE user_id = ? AND revoked_at IS NULL', u.id).c,
-      requests_24h: one('SELECT COUNT(*) c FROM api_requests WHERE user_id = ? AND created_at > ?', u.id, day).c,
-      errors_24h: one('SELECT COUNT(*) c FROM api_requests WHERE user_id = ? AND created_at > ? AND status >= 400', u.id, day).c,
+      usage: await usageSummary(u),
+      active_keys: (await one('SELECT COUNT(*) c FROM api_keys WHERE user_id = ? AND revoked_at IS NULL', u.id)).c,
+      requests_24h: (await one('SELECT COUNT(*) c FROM api_requests WHERE user_id = ? AND created_at > ?', u.id, day)).c,
+      errors_24h: (await one('SELECT COUNT(*) c FROM api_requests WHERE user_id = ? AND created_at > ? AND status >= 400', u.id, day)).c,
     });
   });
 
   // ----- public API v1 (API key or session bearer) -----
   r.get('/api/v1/models', async (req, res, ctx) => {
     const u = requireScope(ctx, 'models:read');
-    sendJson(res, 200, { object: 'list', data: modelsForUser(u).filter((m) => m.available).map((m) => ({ id: m.id, object: 'model', name: m.name, tier: m.tier, kind: m.kind, owned_by: 'approx-technology',
+    sendJson(res, 200, { object: 'list', data: (await modelsForUser(u)).filter((m) => m.available).map((m) => ({ id: m.id, object: 'model', name: m.name, tier: m.tier, kind: m.kind, owned_by: 'approx-technology',
       backend: backendStatus(m), active_version: m.active_version, production_ready: m.production_ready, versions: m.validated_versions })), modes: MODES });
   });
 
-  r.get('/api/v1/usage', async (req, res, ctx) => sendJson(res, 200, usageSummary(requireScope(ctx, 'usage:read'))));
+  r.get('/api/v1/usage', async (req, res, ctx) => sendJson(res, 200, await usageSummary(requireScope(ctx, 'usage:read'))));
 
   /**
    * POST /api/v1/chat/completions
@@ -95,7 +95,7 @@ export function registerDeveloperRoutes(r) {
     const t0 = now();
     const u = requireScope(ctx, 'chat');
     if (!u.email_verified) throw forbidden('Verify your account email before using the API', 'email_not_verified');
-    rateLimit(`api-burst:${u.id}`, 60, 60_000);
+    await rateLimit(`api-burst:${u.id}`, 60, 60_000);
     const b = await readJson(req, 1024 * 1024);
     if (!Array.isArray(b.messages) || !b.messages.length || b.messages.length > 200) throw bad('messages must be a non-empty array (max 200)');
     const msgs = b.messages.map((m) => {
@@ -119,7 +119,7 @@ export function registerDeveloperRoutes(r) {
           sse.send('chunk', { id: ctx.requestId, object: 'chat.completion.chunk', created, model: routeInfo.model.id, model_version: routeInfo.version, mode: routeInfo.mode, choices: [{ index: 0, delta: { content: d } }] });
         } : undefined,
       });
-      logApi(ctx, { endpoint: 'chat.completions', model: out.route.model.id, version: out.route.version, mode: out.route.mode, status: 200, t0 });
+      await logApi(ctx, { endpoint: 'chat.completions', model: out.route.model.id, version: out.route.version, mode: out.route.mode, status: 200, t0 });
       const body = {
         id: ctx.requestId, object: 'chat.completion', created, model: out.route.model.id, model_version: out.route.version, mode: out.route.mode, route_reason: out.route.reason,
         choices: [{ index: 0, message: { role: 'assistant', content: out.text }, finish_reason: out.refused ? 'content_filter' : 'stop' }],
@@ -128,7 +128,7 @@ export function registerDeveloperRoutes(r) {
       if (b.stream) { if (!sse) sse = startSse(res); sse.send('done', body); return sse.end(); }
       sendJson(res, 200, body);
     } catch (e) {
-      logApi(ctx, { endpoint: 'chat.completions', model: routeInfo?.model.id, version: routeInfo?.version, mode: routeInfo?.mode, status: e instanceof HttpError ? e.status : 500, t0 });
+      await logApi(ctx, { endpoint: 'chat.completions', model: routeInfo?.model.id, version: routeInfo?.version, mode: routeInfo?.mode, status: e instanceof HttpError ? e.status : 500, t0 });
       if (sse) { sse.send('error', { code: e.code || 'internal_error', message: e instanceof HttpError ? e.message : 'Stream interrupted' }); return sse.end(); }
       throw e;
     }
