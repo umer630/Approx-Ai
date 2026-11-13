@@ -63,6 +63,13 @@ MAX_NEW = int(os.environ.get("INFERENCE_MAX_NEW_TOKENS", "4096"))
 MAX_INPUT = int(os.environ.get("INFERENCE_MAX_INPUT_TOKENS", "8192"))
 MAX_BODY = 4 * 1024 * 1024
 ONLY = {m.strip() for m in os.environ.get("INFERENCE_MODELS", "").split(",") if m.strip()}
+# Hard SHA-256 pins: "model_id=hex,model_id=hex". A pinned model is served only if its adapter hash matches.
+PINNED_SHA = {}
+for _item in os.environ.get("INFERENCE_PIN_SHA256", "").split(","):
+    if "=" in _item:
+        _k, _v = _item.split("=", 1)
+        if _k.strip() and _v.strip():
+            PINNED_SHA[_k.strip()] = _v.strip().lower()
 
 
 def log(msg: str) -> None:
@@ -157,6 +164,12 @@ class Engine:
         rel = v["release"]
         if entry.get("adapter_sha256") and entry["adapter_sha256"] != v["adapter_sha256"]:
             raise RuntimeError("adapter SHA-256 differs from the hash recorded at activation")
+        # Optional hard pin: refuse to serve unless the adapter matches a known-good SHA-256 for this model.
+        # Set INFERENCE_PIN_SHA256="nick-4.8=2faae2...,hike-6.5=..." to lock exact weights (never a substitute).
+        pinned = PINNED_SHA.get(model_id)
+        if pinned and pinned != v["adapter_sha256"]:
+            raise RuntimeError(f"adapter SHA-256 {v['adapter_sha256'][:12]}… does not match the pinned hash "
+                               f"{pinned[:12]}… for {model_id} — refusing to serve (possible wrong/substituted adapter)")
         smoke = rel.get("smoke_test") is True
         if smoke and not SMOKE:
             raise RuntimeError("smoke-test artifact refused: this is not a real model")

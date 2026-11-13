@@ -1,0 +1,27 @@
+# Nick 4.8 GPU inference (SEPARATE from the free Render backend — Render free has no GPU).
+# Run this on any NVIDIA GPU host (a GPU VM, or Colab/Kaggle for testing). Then point the backend at it:
+#   APPROX_MODEL_NICK_URL = https://<this-host>/v1    (leave _NAME unset -> serves nick-4.8@<version>)
+#   APPROX_MODEL_NICK_KEY = <INFERENCE_API_KEY below>
+#
+# The adapter is HARD-PINNED to the recovered Nick 4.8 SHA-256 (see inference.env): the server refuses to load
+# any other weights, so a generic model can never be served as "Nick 4.8".
+services:
+  nick-inference:
+    build: { context: .., dockerfile: inference/Dockerfile }
+    restart: unless-stopped
+    env_file: [inference.env]        # copy deploy/inference.env.example -> inference.env (never commit)
+    environment:
+      APPROX_MODELS_DIR: /models
+      INFERENCE_MODELS: nick-4.8
+      INFERENCE_HOST: 0.0.0.0
+      INFERENCE_PORT: "8000"
+    volumes:
+      - ./models:/models:ro          # put the recovered Nick 4.8 release here: ./models/nick-4.8/versions/<v>/...
+      - hf-cache:/hf
+    ports: ["8000:8000"]
+    deploy:
+      resources:
+        reservations:
+          devices: [{ driver: nvidia, count: 1, capabilities: [gpu] }]
+volumes:
+  hf-cache: {}

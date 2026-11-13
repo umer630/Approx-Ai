@@ -69,3 +69,24 @@ app reports this honestly and never substitutes another model for them.
 - Model catalog + selector, efficiency modes, chat history, settings, admin console.
 - The online APK, auto-connecting, with the full chat UI (three-dot menu, +, voice, send/stop, markdown).
 - Honest "model unavailable" until you connect a model endpoint — **no fake responses, ever.**
+
+## Nick 4.8 on a GPU (the real trained adapter, not a substitute)
+Render free has no GPU, so Nick 4.8 serves from a **separate** GPU host. The config is in the repo:
+- GPU image: `inference/Dockerfile` → runs `inference/server.py` (Transformers + PEFT, 4-bit NF4).
+- Compose: `deploy/nick-gpu-compose.yml`.
+- Env: `deploy/inference.env.example` — it **hard-pins** the recovered adapter:
+  `INFERENCE_PIN_SHA256=nick-4.8=2faae21620ef0aea6140b296b43ab5fcf5ba2c5b721067f91797b288a09c34c4`.
+  The server refuses to serve any weights whose SHA-256 differs — a generic model can **never** be served as Nick 4.8.
+
+Steps:
+1. Put the recovered Nick 4.8 release under `deploy/models/nick-4.8/versions/<version>/…` (the directory the recovery
+   tool produced, imported into the registry), and activate it (`cli.js models activate nick-4.8 <version>` or the
+   admin console) so `active.json` points at it.
+2. On a GPU host, `docker compose -f deploy/nick-gpu-compose.yml up` (needs the NVIDIA container toolkit), or run
+   `python inference/server.py` directly on a GPU runtime.
+3. Expose it over HTTPS and set on the Render backend: `APPROX_MODEL_NICK_URL=https://<gpu-host>/v1`,
+   `APPROX_MODEL_NICK_KEY=<INFERENCE_API_KEY>`. Chat then returns **real Nick 4.8** responses.
+
+GPU memory: 4-bit NF4 inference of Qwen2.5-3B + the LoRA adapter needs ~6 GB free VRAM (fits a free Colab/Kaggle
+T4 16 GB); 8 GB+ recommended; compute capability ≥ 7.0. No GPU → the server stays up for `/health` but refuses to
+load (`GPU_REQUIRED`); it never runs on CPU. This is not a free *continuous* option — it runs while your GPU runs.

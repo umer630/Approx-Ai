@@ -36,5 +36,20 @@ services:
       # Set this to true again once you configure MAIL_HTTP_ENDPOINT with a free email API (e.g. Resend).
       - key: REQUIRE_VERIFIED_EMAIL
         value: "false"
-      # Model inference endpoints — leave unset until you have a GPU host or a (clearly non-Nick) LLM API.
-      # Example (OpenAI-compatible, your own key): APPROX_MODEL_NICK_URL / APPROX_MODEL_NICK_KEY / APPROX_MODEL_NICK_NAME
+      # CORS: empty = same-origin only (correct & secure for this deploy — the web app is same-origin and the APK
+      # uses bearer tokens, so no cross-origin CORS is needed). Add origins here only if a different web origin
+      # must call the API, e.g. APPROX_CORS_ORIGINS=https://example.com
+      - key: APPROX_CORS_ORIGINS
+        sync: false
+      # Model inference endpoints — leave unset until you have a GPU host (real Nick 4.8) or an OpenAI-compatible
+      # LLM API (a general assistant, clearly NOT the trained Nick). Set per family, e.g.:
+      #   APPROX_MODEL_NICK_URL  = https://<your-gpu-host>/v1     (leave _NAME unset -> serves nick-4.8@<version>)
+      #   APPROX_MODEL_NICK_KEY  = <the inference server's INFERENCE_API_KEY>
+      - key: APPROX_MODEL_NICK_URL
+        sync: false
+      - key: APPROX_MODEL_NICK_KEY
+        sync: false
+      - key: APPROX_INFERENCE_ADMIN_URL
+        sync: false
+      - key: APPROX_INFERENCE_ADMIN_KEY
+        sync: false
