@@ -1,0 +1,40 @@
+# Approx AI — free deployment Blueprint for Render (https://render.com).
+# Free: no credit card, auto HTTPS URL like https://approx-ai.onrender.com, no custom domain needed.
+#
+# One-time setup (the only step that needs YOU — a free account authorization):
+#   1. Push this repo to your GitHub (already there).
+#   2. On render.com → New → Blueprint → connect your GitHub → pick this repo → Apply.
+#   3. Render builds the Docker image and gives you a public HTTPS URL.
+#
+# Honest notes:
+#   * Free web services sleep after ~15 min idle; the next request cold-starts in ~30-60s. This is a real,
+#     operational server (just slow on the first hit), not a fake one.
+#   * The free disk is ephemeral: the SQLite database at /data resets on each redeploy/restart. Fine for
+#     testing and demos. For durable accounts, attach a paid disk or point APPROX at a managed Postgres later.
+#   * Real AI model responses need a GPU inference endpoint (not free-continuous). Until you connect one
+#     (APPROX_MODEL_*_URL), chat returns an honest "model backend unavailable" — it never fakes answers.
+services:
+  - type: web
+    name: approx-ai
+    runtime: docker
+    dockerfilePath: ./deploy/Dockerfile
+    dockerContext: .
+    plan: free
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: APPROX_ENV
+        value: production
+      - key: PORT
+        value: "8080"
+      - key: APPROX_TRUST_PROXY
+        value: "1"
+      # Render injects the external URL as RENDER_EXTERNAL_URL; the server reads it (see config.js).
+      - key: APPROX_PUBLIC_URL
+        sync: false   # optional: set to your https://<name>.onrender.com after first deploy
+      # Free tier has no mail provider, so don't block sign-up/chat on email verification.
+      # Set this to true again once you configure MAIL_HTTP_ENDPOINT with a free email API (e.g. Resend).
+      - key: REQUIRE_VERIFIED_EMAIL
+        value: "false"
+      # Model inference endpoints — leave unset until you have a GPU host or a (clearly non-Nick) LLM API.
+      # Example (OpenAI-compatible, your own key): APPROX_MODEL_NICK_URL / APPROX_MODEL_NICK_KEY / APPROX_MODEL_NICK_NAME

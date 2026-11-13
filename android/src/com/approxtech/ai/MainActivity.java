@@ -101,11 +101,16 @@ public class MainActivity extends Activity {
         root = new FrameLayout(this);
         root.setBackgroundColor(BG);
         setContentView(root);
+        // Production builds bake the backend URL (APPROX_SERVER_URL → default_server_url); users never type a server.
+        // The server-entry screen appears ONLY for an unconfigured build with no stored server (first-run self-host).
         String server = store.get("server", getString(R.string.default_server_url));
         if (server == null || server.length() == 0) { showWelcome(); return; }
         api = new Api(server, store.getToken());
-        if (api.getToken() == null) showWelcome(); else loadSession();
+        if (api.getToken() == null) showLogin(); else loadSession();
     }
+
+    /** The backend URL baked at build time (empty in an unconfigured build). */
+    String bakedServer() { String s = getString(R.string.default_server_url); return s == null ? "" : s.trim(); }
 
     @Override
     protected void onDestroy() { if (recognizer != null) recognizer.destroy(); pool.shutdownNow(); super.onDestroy(); }
@@ -331,7 +336,11 @@ public class MainActivity extends Activity {
         links.addView(link("Forgot password?", new Runnable() { public void run() { showForgot(); } }));
         add(col, links, 6);
         add(col, link("Have a verification code?", new Runnable() { public void run() { showVerify(); } }), 0);
-        add(col, link("Change server (" + api.getBase() + ")", new Runnable() { public void run() { showServerSetup(); } }), 18);
+        // Ordinary users never see the server: the "Advanced" link appears only when NO production URL is baked
+        // (self-hosted / development builds). Production builds bake APPROX_SERVER_URL and hide it entirely.
+        if (bakedServer().isEmpty()) {
+            add(col, link("Advanced: change server (" + api.getBase() + ")", new Runnable() { public void run() { showServerSetup(); } }), 18);
+        }
     }
 
     void showSignup() {
@@ -910,6 +919,35 @@ public class MainActivity extends Activity {
                 .show();
     }
 
+    void advancedServerSettings() {
+        LinearLayout col = settingsPage("Advanced: server settings");
+        add(col, text("Ordinary users never need this. The app connects to the backend configured for this build.", 13, MUTED, false), 4);
+        add(col, text("Current server", 14, TEXT, true), 16);
+        add(col, text(api.getBase(), 14, GREEN, false), 2);
+        add(col, text("Configured by build (default)", 13, MUTED, false), 10);
+        add(col, text(bakedServer().isEmpty() ? "none baked — entered on first run" : bakedServer(), 13, MUTED, false), 2);
+        final EditText url = input("https://your-approx-server", InputType.TYPE_TEXT_VARIATION_URI);
+        url.setText(api.getBase());
+        add(col, text("Override server (admins / self-host)", 14, TEXT, true), 18);
+        add(col, url, 8);
+        add(col, button("Save & reconnect", true, new Runnable() { public void run() {
+            try {
+                final String s = Api.normalizeServer(url.getText().toString());
+                final Api probe = new Api(s, null);
+                bg(new Job() { public Object run() throws Exception { return probe.get("/api/version"); } }, new Done() { public void ok(Object r) {
+                    if (!"Approx AI".equals(((JSONObject) r).optString("product"))) { toast("That server is not an Approx AI server."); return; }
+                    store.put("server", s); store.setToken(null); api = probe; user = null;
+                    toast("Server updated. Please sign in."); showLogin();
+                } });
+            } catch (Api.ApiException e) { toast(e.getMessage()); }
+        } }), 14);
+        if (!bakedServer().isEmpty()) {
+            add(col, link("Reset to the build default", new Runnable() { public void run() {
+                store.put("server", ""); store.setToken(null); api = new Api(bakedServer(), null); user = null; toast("Reset to " + bakedServer()); showLogin();
+            } }), 12);
+        }
+    }
+
     void helpFeedback() {
         new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert)
                 .setTitle("Help & feedback")
@@ -1325,6 +1363,7 @@ public class MainActivity extends Activity {
                 {"NEBIUS console (dashboard, compute, models)", new Runnable() { public void run() { showConsole("Dashboard"); } }},
                 {"API & developer console", new Runnable() { public void run() { openWeb("/developers/"); } }},
                 {"Connected tools", new Runnable() { public void run() { infoPage("Connected tools", "No third-party connectors are available in Approx AI 1.0."); } }},
+                {"Advanced: server settings", new Runnable() { public void run() { advancedServerSettings(); } }},
                 {"Delete account", new Runnable() { public void run() { deleteAccount(); } }},
                 {"Log out", new Runnable() { public void run() { call("POST", "/api/auth/logout", new JSONObject(), new Runnable() { public void run() { logoutLocal(); } }); } }},
         };

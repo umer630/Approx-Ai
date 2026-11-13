@@ -1,0 +1,56 @@
+# Builds the ONLINE Approx AI APK with your backend URL baked in, so ordinary users never see a server field.
+# No local commands needed: set the repo variable APPROX_SERVER_URL, run this workflow, download the APK artifact.
+#
+# Setup (one time):
+#   Repo → Settings → Secrets and variables → Actions → Variables → New variable
+#     Name:  APPROX_SERVER_URL
+#     Value: https://<your-app>.onrender.com   (your free Render URL, or any HTTPS Approx AI backend)
+#   Then: Actions → "Build Approx AI APK" → Run workflow. Download "ApproxAI-Online-apk" from the run.
+name: Build Approx AI APK
+on:
+  workflow_dispatch:
+    inputs:
+      server_url:
+        description: "Backend HTTPS URL to bake in (overrides the APPROX_SERVER_URL repo variable)"
+        required: false
+        default: ""
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: "17" }
+      - name: Set up Android SDK build-tools
+        run: |
+          set -e
+          SDK="$ANDROID_SDK_ROOT"
+          yes | "$SDK/cmdline-tools/latest/bin/sdkmanager" "platforms;android-33" "build-tools;34.0.0" >/dev/null
+          echo "BT=$SDK/build-tools/34.0.0" >> "$GITHUB_ENV"
+          echo "ANDROID_JAR=$SDK/platforms/android-33/android.jar" >> "$GITHUB_ENV"
+      - name: Resolve backend URL
+        run: |
+          URL="${{ github.event.inputs.server_url }}"
+          [ -z "$URL" ] && URL="${{ vars.APPROX_SERVER_URL }}"
+          if [ -z "$URL" ]; then echo "::error::Set the APPROX_SERVER_URL repo variable or pass server_url input."; exit 1; fi
+          case "$URL" in https://*) ;; *) echo "::error::URL must be https://"; exit 1;; esac
+          echo "APPROX_SERVER_URL=$URL" >> "$GITHUB_ENV"
+          echo "Baking backend URL: $URL"
+      - name: Build APK
+        working-directory: android
+        run: |
+          export PATH="$BT:$PATH"      # aapt, zipalign, apksigner, d8 from build-tools
+          ANDROID_JAR="$ANDROID_JAR" APPROX_SERVER_URL="$APPROX_SERVER_URL" bash build.sh
+      - name: Verify signature + report
+        working-directory: android
+        run: |
+          APK=build/ApproxAI-Online-debug.apk
+          "$BT/apksigner" verify --verbose "$APK" | head -5
+          cat "build/ApproxAI-Online-debug.apk.buildinfo.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ApproxAI-Online-apk
+          path: |
+            android/build/ApproxAI-Online-debug.apk
+            android/build/ApproxAI-Online-debug.apk.sha256
+            android/build/ApproxAI-Online-debug.apk.buildinfo.json

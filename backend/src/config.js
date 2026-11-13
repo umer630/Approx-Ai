@@ -21,7 +21,9 @@ export const config = {
   env: env.APPROX_ENV || 'production',
   port: int(env.PORT, 8080),
   host: env.HOST || '0.0.0.0',
-  publicUrl: (env.APPROX_PUBLIC_URL || '').replace(/\/$/, ''),
+  // Prefer an explicit APPROX_PUBLIC_URL; otherwise auto-detect the host's injected external URL
+  // (Render sets RENDER_EXTERNAL_URL) so free deployments need no manual public-URL configuration.
+  publicUrl: (env.APPROX_PUBLIC_URL || env.RENDER_EXTERNAL_URL || '').replace(/\/$/, ''),
   dataDir: env.APPROX_DATA_DIR || path.resolve(here, '../../data'),
   webDir: path.resolve(here, '../../web'),
   buildId: env.APPROX_BUILD_ID || 'local',

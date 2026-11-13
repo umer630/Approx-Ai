@@ -63,7 +63,16 @@ find src "$OUT/gen" "$OUT/gensrc" -name '*.java' ! -path 'src/com/approxtech/ai/
 javac -nowarn -Xlint:-options -source 8 -target 8 -encoding UTF-8 -bootclasspath "$ANDROID_JAR" -classpath "$ANDROID_JAR" -d "$OUT/classes" @"$OUT/sources.txt"
 
 echo "[3/6] dx: dex"
-dalvik-exchange --dex --min-sdk-version=26 --output="$OUT/classes.dex" "$OUT/classes"
+# Dexing: prefer the classic dx (dalvik-exchange) when present; otherwise use the modern d8 (Android SDK / CI).
+if command -v dalvik-exchange >/dev/null 2>&1; then
+  dalvik-exchange --dex --min-sdk-version=26 --output="$OUT/classes.dex" "$OUT/classes"
+elif command -v dx >/dev/null 2>&1; then
+  dx --dex --min-sdk-version=26 --output="$OUT/classes.dex" "$OUT/classes"
+else
+  D8=${D8:-d8}
+  CLASSES=$(find "$OUT/classes" -name '*.class')
+  "$D8" --min-api 26 --output "$OUT" $CLASSES --lib "$ANDROID_JAR"
+fi
 
 echo "[4/6] aapt: package"
 aapt package -f -M AndroidManifest.xml -S "$OUT/res" -I "$ANDROID_JAR" -F "$OUT/unaligned.apk"
