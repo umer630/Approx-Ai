@@ -1,0 +1,77 @@
+{
+ "nick-4.8": {
+  "status": "BLOCKED — LICENSE",
+  "blockers": [
+   [
+    "LICENSE",
+    "Qwen/Qwen2.5-3B-Instruct is under qwen-research (Qwen RESEARCH LICENSE AGREEMENT: 'Non-Commercial … research or evaluation purposes only'): no commercial use. Keep the config unchanged until you approve an alternative (reports/base_model_options.md)."
+   ],
+   [
+    "HUMAN REVIEW",
+    "0 genuine human reviews / 500 required (auto_verified and source_community_reviewed excluded: 366 / 6,241)"
+   ]
+  ],
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "base_model_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1"
+ },
+ "hike-6.5": {
+  "status": "BLOCKED — HUMAN REVIEW",
+  "blockers": [
+   [
+    "OTHER",
+    "Qwen/Qwen2.5-7B-Instruct revision not pinned (resolved and recorded at training time; current Hub head a09a35458c70). Pin it for a reproducible run."
+   ],
+   [
+    "HUMAN REVIEW",
+    "0 genuine human reviews / 800 required (auto_verified and source_community_reviewed excluded: 486 / 7,005)"
+   ]
+  ],
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "base_model_revision": null
+ },
+ "sona-9.0": {
+  "status": "BLOCKED — HUMAN REVIEW",
+  "blockers": [
+   [
+    "OTHER",
+    "Qwen/Qwen2.5-14B-Instruct revision not pinned (resolved and recorded at training time; current Hub head cf98f3b3bbb4). Pin it for a reproducible run."
+   ],
+   [
+    "HUMAN REVIEW",
+    "0 genuine human reviews / 1,200 required (auto_verified and source_community_reviewed excluded: 515 / 7,242)"
+   ]
+  ],
+  "base_model": "Qwen/Qwen2.5-14B-Instruct",
+  "base_model_revision": null
+ },
+ "fab-100x": {
+  "status": "BLOCKED — BASE MODEL",
+  "blockers": [
+   [
+    "BASE MODEL",
+    "No base model configured. Choose one (options in reports/base_model_options.md) — needs your approval."
+   ],
+   [
+    "HUMAN REVIEW",
+    "0 genuine human reviews / 1,500 required (auto_verified and source_community_reviewed excluded: 577 / 7,379)"
+   ]
+  ],
+  "base_model": null,
+  "base_model_revision": null
+ },
+ "fab-500x": {
+  "status": "BLOCKED — HUMAN REVIEW",
+  "blockers": [
+   [
+    "OTHER",
+    "Qwen/Qwen2.5-Coder-32B-Instruct revision not pinned (resolved and recorded at training time; current Hub head 381fc969f78e). Pin it for a reproducible run."
+   ],
+   [
+    "HUMAN REVIEW",
+    "0 genuine human reviews / 5,000 required (auto_verified and source_community_reviewed excluded: 3,507 / 8,335)"
+   ]
+  ],
+  "base_model": "Qwen/Qwen2.5-Coder-32B-Instruct",
+  "base_model_revision": null
+ }
+}

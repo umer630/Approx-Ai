@@ -1,7 +1,7 @@
 {
  "schema": "approx.dataset/v1",
  "model_id": "fab-500x",
- "dataset_version": "fab-500x-datahub-1.1-be1c5c4f46",
+ "dataset_version": "fab-500x-datahub-1.1-9948ea2a5b",
  "pipeline_version": "datahub-1.1",
  "profile": {
   "tier": "fab",
@@ -60,18 +60,18 @@
   "note": "Base model / revision are copied from the existing model configuration and are never changed by the dataset pipeline."
  },
  "counts": {
-  "total": 708460,
-  "train": 666506,
-  "eval": 20985,
-  "test": 20969
+  "total": 708436,
+  "train": 666483,
+  "eval": 20986,
+  "test": 20967
  },
  "selection": {
-  "eligible": 708460,
-  "cap": 708460,
+  "eligible": 708436,
+  "cap": 708436,
   "eligible_by_domain": {
-   "coding": 164101,
-   "general_knowledge": 152572,
-   "mathematics": 109865,
+   "coding": 164098,
+   "general_knowledge": 152569,
+   "mathematics": 109847,
    "software_engineering": 68493,
    "cybersecurity": 52097,
    "research": 41805,
@@ -88,14 +88,14 @@
    "web_fullstack": 872
   },
   "eligible_by_language": {
-   "en": 501459,
+   "en": 501441,
    "ur": 17275,
    "ar": 14400,
    "te": 11535,
    "id": 11371,
    "plt": 9227,
-   "es": 9211,
-   "sin": 8857,
+   "es": 9208,
+   "sin": 8855,
    "ru": 8681,
    "ta": 8185,
    "ko": 7593,
@@ -117,7 +117,7 @@
    "sw": 2253,
    "wol": 1819,
    "hau": 1748,
-   "nl": 1582,
+   "nl": 1581,
    "mal": 1533,
    "mr": 1379,
    "de": 1371,
@@ -169,17 +169,17 @@
    "acq": 2,
    "ajp": 1
   },
-  "eligible_synthetic": 304412
+  "eligible_synthetic": 304404
  },
  "by_language": {
-  "en": 501459,
+  "en": 501441,
   "ur": 17275,
   "ar": 14400,
   "te": 11535,
   "id": 11371,
   "plt": 9227,
-  "es": 9211,
-  "sin": 8857,
+  "es": 9208,
+  "sin": 8855,
   "ru": 8681,
   "ta": 8185,
   "ko": 7593,
@@ -201,7 +201,7 @@
   "sw": 2253,
   "wol": 1819,
   "hau": 1748,
-  "nl": 1582,
+  "nl": 1581,
   "mal": 1533,
   "mr": 1379,
   "de": 1371,
@@ -254,9 +254,9 @@
   "ajp": 1
  },
  "by_domain": {
-  "coding": 164101,
-  "general_knowledge": 152572,
-  "mathematics": 109865,
+  "coding": 164098,
+  "general_knowledge": 152569,
+  "mathematics": 109847,
   "software_engineering": 68493,
   "cybersecurity": 52097,
   "research": 41805,
@@ -273,14 +273,14 @@
   "web_fullstack": 872
  },
  "by_source": {
-  "aya-dataset": 117728,
-  "opencodeinstruct": 116803,
+  "aya-dataset": 117723,
+  "opencodeinstruct": 116800,
   "commitpackft": 92781,
-  "aqua-rat": 76947,
+  "aqua-rat": 76936,
   "trendyol-cybersec": 51361,
   "self-oss-instruct": 49691,
   "tydiqa-goldp": 37954,
-  "nemotron-math": 19303,
+  "nemotron-math": 19298,
   "oasst2": 16400,
   "nemotron-stem": 15592,
   "dolly-15k": 13624,
@@ -304,38 +304,38 @@
   "approx-seed-v0.1": 36
  },
  "by_origin": {
-  "human_authored": 404048,
-  "synthetic": 252786,
+  "human_authored": 404032,
+  "synthetic": 252778,
   "templated_human": 37597,
   "transliteration_unverified": 10969,
   "programmatic": 3060
  },
  "by_review_state": {
-  "unreviewed": 696618,
+  "unreviewed": 696594,
   "source_community_reviewed": 8335,
   "auto_verified": 3507
  },
  "synthetic_ratio": 0.4297,
  "human_reviewed": 0,
- "content_fingerprint_sha256": "be1c5c4f4628672d72617cfed5033f352905639ee927b3143e85bec299f6d8f8",
+ "content_fingerprint_sha256": "9948ea2a5baed4ba5fac3912d3996cf200eea377b0befef450738c57e9496af9",
  "files": {
   "train.jsonl": {
-   "records": 666506,
-   "sha256": "431b6392ac5777032a40fb5498c32ab432c8a56cc68848f154b447f2a272be6c"
+   "records": 666483,
+   "sha256": "ed44f95ef8ca947ea8ca8361720d1452039193b2b84a9a73e3855b2ec0fd37f9"
   },
   "eval.jsonl": {
-   "records": 20985,
-   "sha256": "d7df1f06583a179f5e62f24ac744d727626a12e7baee2e0a50d46b2290d6dc12"
+   "records": 20986,
+   "sha256": "126ea37cf09dadbe288c84bda9ebc40b8c2aff213a67632c399c25e7071f186e"
   },
   "test.jsonl": {
-   "records": 20969,
-   "sha256": "7b53ca82081d168e1ee3ece1f817e4daf2f007db282fd0f7f5788ca0dfc83789"
+   "records": 20967,
+   "sha256": "5bb0d95d2203ca1e49185f94972503861114c37fe4a6a5e8937ce7e1ab97d1ad"
   }
  },
  "gates": {
   "quantity": {
    "passed": true,
-   "detail": "708460 accepted / target 500000"
+   "detail": "708436 accepted / target 500000"
   },
   "licenses": {
    "passed": true,
@@ -373,14 +373,14 @@
   },
   "synthetic_ratio": {
    "passed": true,
-   "detail": "304412/708460 = 0.430 (max 0.6)"
+   "detail": "304404/708436 = 0.430 (max 0.6)"
   },
   "domain_minimums": {
    "passed": true,
    "detail": {
-    "mathematics": "109865/40000",
+    "mathematics": "109847/40000",
     "science": "38061/30000",
-    "coding": "164101/125000",
+    "coding": "164098/125000",
     "web_frontend": "20325/5000",
     "web_backend": "11467/5000",
     "software_engineering": "68493/15000",
@@ -400,12 +400,12 @@
   "language_minimums": {
    "passed": true,
    "detail": {
-    "en": "501459/18000",
+    "en": "501441/18000",
     "ur": "17275/4500",
     "roman_ur": "5730/1200",
     "ar": "14400/2400",
     "zh": "4979/1200",
-    "es": "9211/2400",
+    "es": "9208/2400",
     "fr": "4732/1800",
     "de": "1371/1200",
     "pt": "6292/1500",
@@ -460,7 +460,7 @@
     "file": "data/seed/approx_seed_v0_1.jsonl",
     "sha256": "2802a288ab301e7f5c3d2b5042ce18d29bfd4aa51cd4e9d11668ad8004922792",
     "bytes": 26178,
-    "fetched_at": "2026-11-14T19:38:24Z"
+    "fetched_at": "2026-11-14T21:58:18Z"
    }
   ],
   "aqua-rat": [
@@ -1174,7 +1174,7 @@
   "trendyol-cybersec": "generation method not named on the card; confirm before commercial release"
  },
  "pool_summary": {
-  "built_at": "2026-11-14T21:48:07Z",
+  "built_at": "2026-11-14T22:41:27Z",
   "rejections": {
    "repetition": 103488,
    "language_mismatch": 38977,
@@ -1188,7 +1188,8 @@
    "injection_contamination": 2,
    "exact_duplicate": 32136,
    "contradiction": 7540,
-   "near_duplicate": 73687,
+   "duplicate_prompt": 22309,
+   "near_duplicate": 51402,
    "benchmark_leakage": 10
   },
   "pii_redactions": 46325,
@@ -1206,7 +1207,7 @@
      "nonsensical": 29,
      "unicode": 4
     },
-    "seconds": 46.4
+    "seconds": 47.2
    },
    "dolly-15k": {
     "status": "ingested",
@@ -1220,7 +1221,7 @@
      "repetition": 9,
      "safety": 1
     },
-    "seconds": 20.9
+    "seconds": 21.2
    },
    "gsm8k": {
     "status": "ingested",
@@ -1231,7 +1232,7 @@
      "quality": 212,
      "nonsensical": 5
     },
-    "seconds": 6.6
+    "seconds": 7.2
    },
    "aya-dataset": {
     "status": "ingested",
@@ -1245,7 +1246,7 @@
      "unicode": 259,
      "empty": 10
     },
-    "seconds": 333.9
+    "seconds": 332.9
    },
    "arc": {
     "status": "ingested",
@@ -1255,7 +1256,7 @@
      "language_mismatch": 32,
      "quality": 4
     },
-    "seconds": 2.1
+    "seconds": 1.8
    },
    "mbpp": {
     "status": "ingested",
@@ -1275,7 +1276,7 @@
     "rejected": {
      "quality": 37
     },
-    "seconds": 16.8
+    "seconds": 16.6
    },
    "self-oss-instruct": {
     "status": "ingested",
@@ -1288,7 +1289,7 @@
      "formatting": 1,
      "unicode": 1
     },
-    "seconds": 95.4
+    "seconds": 94.9
    },
    "competition-math": {
     "status": "unavailable",
@@ -1379,7 +1380,7 @@
      "language_mismatch": 144,
      "repetition": 80
     },
-    "seconds": 1.9
+    "seconds": 1.8
    },
    "consented-history": {
     "status": "optional_absent",
@@ -1400,7 +1401,7 @@
      "injection": 4,
      "injection_contamination": 2
     },
-    "seconds": 71.3
+    "seconds": 68.9
    },
    "tydiqa-goldp": {
     "status": "ingested",
@@ -1412,7 +1413,7 @@
      "quality": 156,
      "nonsensical": 112
     },
-    "seconds": 66.7
+    "seconds": 62.9
    },
    "qasc": {
     "status": "ingested",
@@ -1422,7 +1423,7 @@
      "language_mismatch": 12,
      "quality": 4
     },
-    "seconds": 5.7
+    "seconds": 5.9
    },
    "roman-urdu-parl": {
     "status": "ingested",
@@ -1433,7 +1434,7 @@
      "language_mismatch": 57,
      "quality": 1
     },
-    "seconds": 10.2
+    "seconds": 9.8
    },
    "nemotron-math": {
     "status": "ingested",
@@ -1444,7 +1445,7 @@
      "nonsensical": 166,
      "quality": 29
     },
-    "seconds": 99.6
+    "seconds": 109.5
    },
    "nemotron-stem": {
     "status": "ingested",
@@ -1455,7 +1456,7 @@
      "quality": 83,
      "formatting": 27
     },
-    "seconds": 59.5
+    "seconds": 58.1
    },
    "opencodeinstruct": {
     "status": "ingested",
@@ -1467,7 +1468,7 @@
      "unicode": 6,
      "language_mismatch": 1
     },
-    "seconds": 231.4
+    "seconds": 227.8
    },
    "trendyol-cybersec": {
     "status": "ingested",
@@ -1480,7 +1481,7 @@
      "language_mismatch": 1,
      "injection": 3
     },
-    "seconds": 238.6
+    "seconds": 235.7
    },
    "wikipedia-ur": {
     "status": "ingested",
@@ -1493,7 +1494,7 @@
      "nonsensical": 3,
      "repetition": 7
     },
-    "seconds": 32.0
+    "seconds": 32.7
    },
    "wikipedia-hi": {
     "status": "ingested",
@@ -1505,7 +1506,7 @@
      "quality": 2,
      "nonsensical": 1
     },
-    "seconds": 26.5
+    "seconds": 25.4
    },
    "wikipedia-ko": {
     "status": "ingested",
@@ -1517,7 +1518,7 @@
      "language_mismatch": 14,
      "unicode": 3
     },
-    "seconds": 24.5
+    "seconds": 24.2
    },
    "wikipedia-id": {
     "status": "ingested",
@@ -1530,7 +1531,7 @@
      "nonsensical": 1,
      "quality": 2
     },
-    "seconds": 21.3
+    "seconds": 21.7
    },
    "wikipedia-fr": {
     "status": "ingested",
@@ -1541,7 +1542,7 @@
      "language_mismatch": 11,
      "repetition": 5
     },
-    "seconds": 10.1
+    "seconds": 11.8
    },
    "nemotron-chat": {
     "status": "rejected",
@@ -1611,7 +1612,7 @@
      "language_mismatch": 166,
      "quality": 6
     },
-    "seconds": 4.8
+    "seconds": 4.9
    },
    "strategyqa": {
     "status": "ingested",
@@ -1621,7 +1622,7 @@
      "quality": 31,
      "language_mismatch": 1
     },
-    "seconds": 0.8
+    "seconds": 0.9
    },
    "quartz": {
     "status": "ingested",
@@ -1631,7 +1632,7 @@
      "quality": 14,
      "language_mismatch": 6
     },
-    "seconds": 1.7
+    "seconds": 1.8
    },
    "aqua-rat": {
     "status": "ingested",
@@ -1644,7 +1645,7 @@
      "quality": 460,
      "repetition": 135
     },
-    "seconds": 72.5
+    "seconds": 74.4
    },
    "ethics-commonsense": {
     "status": "ingested",
@@ -1653,7 +1654,7 @@
     "rejected": {
      "quality": 8
     },
-    "seconds": 3.3
+    "seconds": 3.5
    },
    "commitpackft": {
     "status": "ingested",
@@ -1667,7 +1668,7 @@
      "unicode": 38,
      "nonsensical": 1
     },
-    "seconds": 143.4
+    "seconds": 139.2
    }
   },
   "missing": []

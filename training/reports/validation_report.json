@@ -560,15 +560,15 @@
     "check": "artifact_sha256_and_counts",
     "status": "PASS",
     "detail": {
-     "train.jsonl": "431b6392ac5777032a40fb5498c32ab432c8a56cc68848f154b447f2a272be6c",
-     "eval.jsonl": "d7df1f06583a179f5e62f24ac744d727626a12e7baee2e0a50d46b2290d6dc12",
-     "test.jsonl": "7b53ca82081d168e1ee3ece1f817e4daf2f007db282fd0f7f5788ca0dfc83789"
+     "train.jsonl": "ed44f95ef8ca947ea8ca8361720d1452039193b2b84a9a73e3855b2ec0fd37f9",
+     "eval.jsonl": "126ea37cf09dadbe288c84bda9ebc40b8c2aff213a67632c399c25e7071f186e",
+     "test.jsonl": "5bb0d95d2203ca1e49185f94972503861114c37fe4a6a5e8937ce7e1ab97d1ad"
     }
    },
    {
     "check": "record_target",
     "status": "PASS",
-    "detail": "708,460 accepted / 500,000 required"
+    "detail": "708,436 accepted / 500,000 required"
    },
    {
     "check": "licenses_and_eval_separation",
@@ -579,12 +579,12 @@
     "check": "language_minimums",
     "status": "PASS",
     "detail": {
-     "en": "501459/18000",
+     "en": "501441/18000",
      "ur": "17275/4500",
      "roman_ur": "5730/1200",
      "ar": "14400/2400",
      "zh": "4979/1200",
-     "es": "9211/2400",
+     "es": "9208/2400",
      "fr": "4732/1800",
      "de": "1371/1200",
      "pt": "6292/1500",
@@ -602,9 +602,9 @@
     "check": "domain_minimums",
     "status": "PASS",
     "detail": {
-     "mathematics": "109865/40000",
+     "mathematics": "109847/40000",
      "science": "38061/30000",
-     "coding": "164101/125000",
+     "coding": "164098/125000",
      "web_frontend": "20325/5000",
      "web_backend": "11467/5000",
      "software_engineering": "68493/15000",
@@ -633,7 +633,7 @@
    {
     "check": "synthetic_cap",
     "status": "PASS",
-    "detail": "304,412/708,460 = 0.430 ≤ 0.6"
+    "detail": "304,404/708,436 = 0.430 ≤ 0.6"
    },
    {
     "check": "human_review_backed_by_ledger",
@@ -647,8 +647,8 @@
    },
    {
     "check": "no_duplicate_prompts",
-    "status": "FAIL",
-    "detail": "23 duplicate normalised prompts, 0 duplicate ids"
+    "status": "PASS",
+    "detail": "0 duplicate normalised prompts, 0 duplicate ids"
    },
    {
     "check": "no_split_leakage",
@@ -663,7 +663,7 @@
    {
     "check": "shared_opening_turn_info",
     "status": "PASS",
-    "detail": "11,783 multi-turn conversations share an opening user message with another record (different follow-up turns and targets; not duplicates)"
+    "detail": "11,760 multi-turn conversations share an opening user message with another record (different follow-up turns and targets; not duplicates)"
    },
    {
     "check": "production_ready_derived",
@@ -674,9 +674,9 @@
     "check": "fingerprint",
     "status": "PASS",
     "detail": {
-     "dataset_version": "fab-500x-datahub-1.1-be1c5c4f46",
-     "content_fingerprint_sha256": "be1c5c4f4628672d72617cfed5033f352905639ee927b3143e85bec299f6d8f8",
-     "id_set_sha256": "7120fa5a2889bfefc6e000d49b2de797d21fb78b1c9e0bd2f6e98d4a148bd14d"
+     "dataset_version": "fab-500x-datahub-1.1-9948ea2a5b",
+     "content_fingerprint_sha256": "9948ea2a5baed4ba5fac3912d3996cf200eea377b0befef450738c57e9496af9",
+     "id_set_sha256": "0cce6ee46a62d364429feb5ad4db862cccafa9527d53143c441a9540969e9b1e"
     }
    },
    {

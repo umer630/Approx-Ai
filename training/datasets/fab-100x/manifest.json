@@ -64,12 +64,12 @@
   "test": 2662
  },
  "selection": {
-  "eligible": 704963,
+  "eligible": 704941,
   "cap": 90000,
   "eligible_by_domain": {
-   "coding": 164100,
-   "general_knowledge": 149624,
-   "mathematics": 109836,
+   "coding": 164097,
+   "general_knowledge": 149623,
+   "mathematics": 109818,
    "software_engineering": 68493,
    "cybersecurity": 52097,
    "research": 41802,
@@ -86,12 +86,12 @@
    "web_fullstack": 872
   },
   "eligible_by_language": {
-   "en": 501354,
+   "en": 501336,
    "ur": 17252,
    "ar": 14396,
    "te": 11528,
    "id": 11369,
-   "es": 9211,
+   "es": 9208,
    "plt": 9098,
    "ru": 8681,
    "ta": 8185,
@@ -115,7 +115,7 @@
    "sw": 2252,
    "hau": 1721,
    "wol": 1720,
-   "nl": 1580,
+   "nl": 1579,
    "mal": 1462,
    "de": 1371,
    "pl": 1333,
@@ -165,7 +165,7 @@
    "arz": 3,
    "da": 2
   },
-  "eligible_synthetic": 304018
+  "eligible_synthetic": 304010
  },
  "by_language": {
   "en": 54712,
@@ -400,7 +400,7 @@
     "file": "data/seed/approx_seed_v0_1.jsonl",
     "sha256": "2802a288ab301e7f5c3d2b5042ce18d29bfd4aa51cd4e9d11668ad8004922792",
     "bytes": 26178,
-    "fetched_at": "2026-11-14T19:38:24Z"
+    "fetched_at": "2026-11-14T21:58:18Z"
    }
   ],
   "aya-dataset": [
@@ -1024,7 +1024,7 @@
   "trendyol-cybersec": "generation method not named on the card; confirm before commercial release"
  },
  "pool_summary": {
-  "built_at": "2026-11-14T21:48:07Z",
+  "built_at": "2026-11-14T22:41:27Z",
   "rejections": {
    "repetition": 103488,
    "language_mismatch": 38977,
@@ -1038,7 +1038,8 @@
    "injection_contamination": 2,
    "exact_duplicate": 32136,
    "contradiction": 7540,
-   "near_duplicate": 73687,
+   "duplicate_prompt": 22309,
+   "near_duplicate": 51402,
    "benchmark_leakage": 10
   },
   "pii_redactions": 46325,
@@ -1056,7 +1057,7 @@
      "nonsensical": 29,
      "unicode": 4
     },
-    "seconds": 46.4
+    "seconds": 47.2
    },
    "dolly-15k": {
     "status": "ingested",
@@ -1070,7 +1071,7 @@
      "repetition": 9,
      "safety": 1
     },
-    "seconds": 20.9
+    "seconds": 21.2
    },
    "gsm8k": {
     "status": "ingested",
@@ -1081,7 +1082,7 @@
      "quality": 212,
      "nonsensical": 5
     },
-    "seconds": 6.6
+    "seconds": 7.2
    },
    "aya-dataset": {
     "status": "ingested",
@@ -1095,7 +1096,7 @@
      "unicode": 259,
      "empty": 10
     },
-    "seconds": 333.9
+    "seconds": 332.9
    },
    "arc": {
     "status": "ingested",
@@ -1105,7 +1106,7 @@
      "language_mismatch": 32,
      "quality": 4
     },
-    "seconds": 2.1
+    "seconds": 1.8
    },
    "mbpp": {
     "status": "ingested",
@@ -1125,7 +1126,7 @@
     "rejected": {
      "quality": 37
     },
-    "seconds": 16.8
+    "seconds": 16.6
    },
    "self-oss-instruct": {
     "status": "ingested",
@@ -1138,7 +1139,7 @@
      "formatting": 1,
      "unicode": 1
     },
-    "seconds": 95.4
+    "seconds": 94.9
    },
    "competition-math": {
     "status": "unavailable",
@@ -1229,7 +1230,7 @@
      "language_mismatch": 144,
      "repetition": 80
     },
-    "seconds": 1.9
+    "seconds": 1.8
    },
    "consented-history": {
     "status": "optional_absent",
@@ -1250,7 +1251,7 @@
      "injection": 4,
      "injection_contamination": 2
     },
-    "seconds": 71.3
+    "seconds": 68.9
    },
    "tydiqa-goldp": {
     "status": "ingested",
@@ -1262,7 +1263,7 @@
      "quality": 156,
      "nonsensical": 112
     },
-    "seconds": 66.7
+    "seconds": 62.9
    },
    "qasc": {
     "status": "ingested",
@@ -1272,7 +1273,7 @@
      "language_mismatch": 12,
      "quality": 4
     },
-    "seconds": 5.7
+    "seconds": 5.9
    },
    "roman-urdu-parl": {
     "status": "ingested",
@@ -1283,7 +1284,7 @@
      "language_mismatch": 57,
      "quality": 1
     },
-    "seconds": 10.2
+    "seconds": 9.8
    },
    "nemotron-math": {
     "status": "ingested",
@@ -1294,7 +1295,7 @@
      "nonsensical": 166,
      "quality": 29
     },
-    "seconds": 99.6
+    "seconds": 109.5
    },
    "nemotron-stem": {
     "status": "ingested",
@@ -1305,7 +1306,7 @@
      "quality": 83,
      "formatting": 27
     },
-    "seconds": 59.5
+    "seconds": 58.1
    },
    "opencodeinstruct": {
     "status": "ingested",
@@ -1317,7 +1318,7 @@
      "unicode": 6,
      "language_mismatch": 1
     },
-    "seconds": 231.4
+    "seconds": 227.8
    },
    "trendyol-cybersec": {
     "status": "ingested",
@@ -1330,7 +1331,7 @@
      "language_mismatch": 1,
      "injection": 3
     },
-    "seconds": 238.6
+    "seconds": 235.7
    },
    "wikipedia-ur": {
     "status": "ingested",
@@ -1343,7 +1344,7 @@
      "nonsensical": 3,
      "repetition": 7
     },
-    "seconds": 32.0
+    "seconds": 32.7
    },
    "wikipedia-hi": {
     "status": "ingested",
@@ -1355,7 +1356,7 @@
      "quality": 2,
      "nonsensical": 1
     },
-    "seconds": 26.5
+    "seconds": 25.4
    },
    "wikipedia-ko": {
     "status": "ingested",
@@ -1367,7 +1368,7 @@
      "language_mismatch": 14,
      "unicode": 3
     },
-    "seconds": 24.5
+    "seconds": 24.2
    },
    "wikipedia-id": {
     "status": "ingested",
@@ -1380,7 +1381,7 @@
      "nonsensical": 1,
      "quality": 2
     },
-    "seconds": 21.3
+    "seconds": 21.7
    },
    "wikipedia-fr": {
     "status": "ingested",
@@ -1391,7 +1392,7 @@
      "language_mismatch": 11,
      "repetition": 5
     },
-    "seconds": 10.1
+    "seconds": 11.8
    },
    "nemotron-chat": {
     "status": "rejected",
@@ -1461,7 +1462,7 @@
      "language_mismatch": 166,
      "quality": 6
     },
-    "seconds": 4.8
+    "seconds": 4.9
    },
    "strategyqa": {
     "status": "ingested",
@@ -1471,7 +1472,7 @@
      "quality": 31,
      "language_mismatch": 1
     },
-    "seconds": 0.8
+    "seconds": 0.9
    },
    "quartz": {
     "status": "ingested",
@@ -1481,7 +1482,7 @@
      "quality": 14,
      "language_mismatch": 6
     },
-    "seconds": 1.7
+    "seconds": 1.8
    },
    "aqua-rat": {
     "status": "ingested",
@@ -1494,7 +1495,7 @@
      "quality": 460,
      "repetition": 135
     },
-    "seconds": 72.5
+    "seconds": 74.4
    },
    "ethics-commonsense": {
     "status": "ingested",
@@ -1503,7 +1504,7 @@
     "rejected": {
      "quality": 8
     },
-    "seconds": 3.3
+    "seconds": 3.5
    },
    "commitpackft": {
     "status": "ingested",
@@ -1517,7 +1518,7 @@
      "unicode": 38,
      "nonsensical": 1
     },
-    "seconds": 143.4
+    "seconds": 139.2
    }
   },
   "missing": []
