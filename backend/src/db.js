@@ -453,6 +453,12 @@ async function migrate(c) {
     if (!(await hasColumn(c, 'api_requests', 'model_version'))) stmts.push({ sql: 'ALTER TABLE api_requests ADD COLUMN model_version TEXT' });
     await apply('2026-11-model-version-columns', stmts);
   }
+
+  // 1.2.0 — the product's default theme is now the green + white (light) theme. Accounts still on the previous
+  // default move to it once; anyone can switch back to Dark in Settings afterwards.
+  if (!applied.has('2026-11-light-theme-default')) {
+    await apply('2026-11-light-theme-default', [{ sql: "UPDATE settings SET theme = 'light' WHERE theme = 'dark'" }]);
+  }
 }
 
 // The `models` table is seeded and kept in sync from the catalog file (name, tier, description…);

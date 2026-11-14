@@ -136,7 +136,7 @@ test('database migration: an old database (medium/high CHECK) accepts "low" afte
   assert.equal(r.kept.personalization, 'keep me', 'existing rows survive the table rebuild');
   assert.equal(r.hasVersion, true);
   assert.equal(r.models, 5);
-  assert.deepEqual(r.migrations, ['2026-11-model-version-columns', '2026-11-settings-low-mode']);
+  assert.deepEqual(r.migrations, ['2026-11-light-theme-default', '2026-11-model-version-columns', '2026-11-settings-low-mode']);
 });
 
 // ---------------------------------------------------------------- registry: happy path to real serving

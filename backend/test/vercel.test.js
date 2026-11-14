@@ -299,14 +299,51 @@ test('SMTP (Gmail App Password over implicit TLS): verification + password reset
   assert.equal((await fn.call('POST', '/api/auth/login', { json: { email: OWNER, password: 'NewOwnerPassw0rd!', client: 'mobile' } })).status, 200);
   fn.stop();
 
-  // Wrong App Password: Gmail answers 535; sign-up still answers generically and the failure is recorded, not hidden.
+  // Wrong App Password: Gmail answers 535. The person is told honestly that the email could not be sent, the
+  // half-created account is rolled back (so retrying works), and the failure is recorded.
   const bad = await startFunction({ ...env, MAIL_SMTP_PASS: 'wrong wrong wrong wrong' });
   const before = smtp.mails.length;
-  assert.equal((await bad.call('POST', '/api/auth/signup', { json: { email: 'second@gmail.example', password: 'SecondPassw0rd!' } })).status, 202);
+  const failed = await bad.call('POST', '/api/auth/signup', { json: { email: 'second@gmail.example', password: 'SecondPassw0rd!' } });
+  assert.equal(failed.status, 502);
+  assert.equal(failed.data.error.code, 'email_delivery_failed');
   assert.equal(smtp.mails.length, before, 'nothing delivered with a wrong password');
   const db = createClient({ url: `file:${dbFile}` });
   const row = (await db.execute({ sql: 'SELECT status FROM mail_outbox WHERE to_email = ? ORDER BY created_at DESC LIMIT 1', args: ['second@gmail.example'] })).rows[0];
   assert.equal(row.status, 'failed_smtp_535');
+  const users = (await db.execute({ sql: 'SELECT COUNT(*) n FROM users WHERE email = ?', args: ['second@gmail.example'] })).rows[0].n;
+  assert.equal(users, 0, 'failed sign-up rolled back');
   db.close();
   bad.stop();
+  // With the right password the same person can now sign up normally.
+  const good = await startFunction(env);
+  assert.equal((await good.call('POST', '/api/auth/signup', { json: { email: 'second@gmail.example', password: 'SecondPassw0rd!' } })).status, 202);
+  assert.ok(smtp.mails.some((m) => m.to.includes('second@gmail.example')), 'retry delivered');
+  // Signing up again while still unverified sends a fresh verification code (not a dead-end "attempt" notice).
+  assert.equal((await good.call('POST', '/api/auth/signup', { json: { email: 'second@gmail.example', password: 'SecondPassw0rd!' } })).status, 202);
+  const toSecond = smtp.mails.filter((m) => m.to.includes('second@gmail.example'));
+  assert.equal(toSecond.length, 2);
+  assert.match(toSecond[1].raw, /^Subject: Verify your Approx AI email/m);
+  assert.ok(smtpCode(toSecond[1].raw, 'Verification code'));
+  good.stop();
+});
+
+test('production without a working mail transport: sign-up refuses honestly instead of creating an unverifiable account', async () => {
+  const dbFile = path.join(scratch, 'nomail.db');
+  // APPROX_ENV=production refuses a file database, so this uses the non-serverless server path (same handler).
+  const p = spawn(process.execPath, ['--disable-warning=ExperimentalWarning', '--input-type=module', '-e', `
+    const { createServer } = await import(${JSON.stringify(path.join(here, '../src/server.js'))});
+    const s = createServer(); s.listen(0, '127.0.0.1', () => console.log('PORT ' + s.address().port));`],
+  { env: { PATH: process.env.PATH, HOME: process.env.HOME, APPROX_ENV: 'production', APPROX_DB_URL: `file:${dbFile}`, MAIL_TRANSPORT: 'brevo',
+    APPROX_PUBLIC_URL: 'https://approx.example', APPROX_TRUST_PROXY: '0' }, stdio: ['ignore', 'pipe', 'pipe'] });
+  procs.push(p);
+  let err = ''; p.stderr.on('data', (d) => { err += d; });
+  const port = await new Promise((resolve, reject) => { let o = ''; p.stdout.on('data', (d) => { o += d; const m = /PORT (\d+)/.exec(o); if (m) resolve(m[1]); }); p.on('exit', (c) => reject(new Error(err))); });
+  const r = await fetch(`http://127.0.0.1:${port}/api/auth/signup`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: 'x@gmail.example', password: 'GoodPassw0rd!x' }) });
+  const body = await r.json();
+  assert.equal(r.status, 503);
+  assert.equal(body.error.code, 'email_unavailable');
+  const db = createClient({ url: `file:${dbFile}` });
+  assert.equal((await db.execute("SELECT COUNT(*) n FROM users")).rows[0].n, 0, 'no unverifiable account created');
+  db.close();
+  p.kill();
 });

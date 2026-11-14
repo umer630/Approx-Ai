@@ -4,7 +4,7 @@ import {
   hashPassword, verifyPassword, burnPasswordCheck, passwordPolicy, randomToken, sha256, rateLimit,
   createSession, revokeSessions, sessionCookie, requireUser,
 } from '../security.js';
-import { sendMail, appLink } from '../mail.js';
+import { sendMail, appLink, mailConfigured } from '../mail.js';
 import { config } from '../config.js';
 
 const HOUR = 3600_000;
@@ -53,6 +53,17 @@ async function bootstrapSuperadmin(userId, ip) {
   if (promoted) await audit(userId, 'bootstrap', 'auth.bootstrap_superadmin', userId, ip, { via: 'APPROX_BOOTSTRAP_SUPERADMIN_EMAIL' });
 }
 
+// Email is how accounts are verified and passwords reset. In production, refuse to start those flows when no
+// mail transport is configured (instead of telling users to check an inbox that will never receive anything),
+// and report delivery failures instead of claiming the email was sent.
+function requireMailDelivery() {
+  if (config.env === 'production' && !mailConfigured()) {
+    throw new HttpError(503, 'email_unavailable', "Email delivery isn't set up on this server yet, so we can't send verification or reset emails. Please try again later.");
+  }
+}
+const mailFailed = (status) => String(status).startsWith('failed');
+const deliveryError = () => new HttpError(502, 'email_delivery_failed', "We couldn't send the email right now. Please try again in a few minutes.");
+
 export function registerAuthRoutes(r) {
   r.post('/api/auth/signup', async (req, res) => {
     const ip = clientIp(req);
@@ -64,10 +75,19 @@ export function registerAuthRoutes(r) {
     if (pwErr) throw bad(pwErr, 'weak_password');
     await rateLimit(`signup-email:${email}`, 3, HOUR); // applied before lookup: no enumeration, no mail-bombing
     const name = str(b.display_name, 'display_name', { max: 80, required: false }) || '';
-    const existing = await one('SELECT id FROM users WHERE email = ?', email);
+    requireMailDelivery();
+    const existing = await one('SELECT * FROM users WHERE email = ?', email);
     if (existing) {
-      // Do not reveal registration status; tell the existing owner by mail instead.
-      await sendMail(email, 'Approx AI sign-up attempt', 'Someone tried to create an Approx AI account with this email. If it was you, sign in or reset your password.');
+      // Same response as a new sign-up (registration status is never revealed). An unverified owner gets a fresh
+      // verification code so they are not stuck; a verified owner is told someone tried to sign up.
+      let status;
+      if (!existing.email_verified && existing.status === 'active') {
+        const token = await issueEmailToken(existing, 'verify', 24 * HOUR);
+        status = await sendMail(email, 'Verify your Approx AI email', `Welcome to Approx AI.\n\nVerify your email: ${appLink('/#/verify?token=' + token)}\n\nVerification code: ${token}\n\nThis link expires in 24 hours.`);
+      } else {
+        status = await sendMail(email, 'Approx AI sign-up attempt', 'Someone tried to create an Approx AI account with this email. If it was you, sign in or reset your password.');
+      }
+      if (mailFailed(status)) throw deliveryError();
       return sendJson(res, 202, { status: 'verification_sent', message: 'If this email can be registered, a verification link has been sent.' });
     }
     const hash = await hashPassword(b.password);
@@ -76,12 +96,17 @@ export function registerAuthRoutes(r) {
     await tx(async () => {
       await run('INSERT INTO users (id,email,password_hash,created_at,updated_at) VALUES (?,?,?,?,?)', id, email, hash, t, t);
       await run('INSERT INTO profiles (user_id,display_name) VALUES (?,?)', id, name);
-      await run('INSERT INTO settings (user_id) VALUES (?)', id);
+      await run("INSERT INTO settings (user_id, theme) VALUES (?, 'light')", id);
       await run("INSERT INTO subscriptions (id,user_id,plan,status,started_at) VALUES (?,?,'free','active',?)", newId('sub_'), id, t);
     });
     const user = await one('SELECT * FROM users WHERE id = ?', id);
     const token = await issueEmailToken(user, 'verify', 24 * HOUR);
-    await sendMail(email, 'Verify your Approx AI email', `Welcome to Approx AI.\n\nVerify your email: ${appLink('/#/verify?token=' + token)}\n\nVerification code: ${token}\n\nThis link expires in 24 hours.`);
+    const sent = await sendMail(email, 'Verify your Approx AI email', `Welcome to Approx AI.\n\nVerify your email: ${appLink('/#/verify?token=' + token)}\n\nVerification code: ${token}\n\nThis link expires in 24 hours.`);
+    if (mailFailed(sent)) {
+      // Undo the sign-up so the person can simply try again (all user rows cascade from users).
+      await run('DELETE FROM users WHERE id = ?', id);
+      throw deliveryError();
+    }
     await audit(id, id, 'auth.signup', id, ip);
     sendJson(res, 202, { status: 'verification_sent', message: 'If this email can be registered, a verification link has been sent.' });
   });
@@ -101,10 +126,11 @@ export function registerAuthRoutes(r) {
     const email = String(b.email || '').toLowerCase();
     await rateLimit(`resend:${clientIp(req)}`, 5, HOUR);
     await rateLimit(`resend-email:${email}`, 3, HOUR);
+    requireMailDelivery();
     const u = await one('SELECT * FROM users WHERE email = ? AND status = ? AND email_verified = 0', email, 'active');
     if (u) {
       const token = await issueEmailToken(u, 'verify', 24 * HOUR);
-      await sendMail(u.email, 'Verify your Approx AI email', `Verify your email: ${appLink('/#/verify?token=' + token)}\n\nVerification code: ${token}`);
+      if (mailFailed(await sendMail(u.email, 'Verify your Approx AI email', `Verify your email: ${appLink('/#/verify?token=' + token)}\n\nVerification code: ${token}`))) throw deliveryError();
     }
     sendJson(res, 202, { status: 'ok', message: 'If the account exists and is unverified, a new link has been sent.' });
   });
@@ -154,10 +180,11 @@ export function registerAuthRoutes(r) {
     const b = await readJson(req);
     const email = String(b.email || '').toLowerCase().slice(0, 254);
     await rateLimit(`forgot-email:${email}`, 3, HOUR);
+    requireMailDelivery();
     const u = await one("SELECT * FROM users WHERE email = ? AND status = 'active'", email);
     if (u) {
       const token = await issueEmailToken(u, 'reset', HOUR);
-      await sendMail(u.email, 'Reset your Approx AI password', `Reset your password: ${appLink('/#/reset?token=' + token)}\n\nReset code: ${token}\n\nThis link expires in 1 hour. If you did not request this, ignore this email.`);
+      if (mailFailed(await sendMail(u.email, 'Reset your Approx AI password', `Reset your password: ${appLink('/#/reset?token=' + token)}\n\nReset code: ${token}\n\nThis link expires in 1 hour. If you did not request this, ignore this email.`))) throw deliveryError();
       await audit(u.id, 'anonymous', 'auth.password_reset_requested', u.id, ip);
     }
     sendJson(res, 202, { status: 'ok', message: 'If an account exists for this email, a reset link has been sent.' });
