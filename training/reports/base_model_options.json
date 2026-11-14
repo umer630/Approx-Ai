@@ -106,5 +106,42 @@
   "nick-4.8": "Phi-4-mini-instruct if Urdu/Hindi quality and serving cost matter most; Qwen3-4B-Instruct-2507 for the smallest migration. Either way the recovered Qwen2.5-3B adapter (2faae216\u2026) stays archived and research-only; a new version (e.g. nick-4.9) gets a new adapter.",
   "fab-100x": "Qwen3-14B (cost-effective) or Mistral-Small-3.1-24B (better Urdu/Hindi tokenization)."
  },
- "approval_needed": "No profile was changed. Approve one option per model and its revision is pinned in datasets/<model>/profile.json and training/models/<model>.yaml."
+ "approval_needed": "No profile was changed. Approve one option per model and its revision is pinned in datasets/<model>/profile.json and training/models/<model>.yaml.",
+ "configured_bases_verified": {
+  "nick-4.8": {
+   "base": "Qwen/Qwen2.5-3B-Instruct",
+   "pinned_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+   "license": "qwen-research",
+   "commercial_use": false,
+   "verdict": "BLOCKED \u2014 LICENSE (configuration unchanged; awaiting approval of an alternative)"
+  },
+  "hike-6.5": {
+   "base": "Qwen/Qwen2.5-7B-Instruct",
+   "pinned_revision": null,
+   "hub_head": "a09a35458c702b33eeacc393d103063234e8bc28",
+   "license": "apache-2.0",
+   "commercial_use": true,
+   "verdict": "license OK; revision not pinned"
+  },
+  "sona-9.0": {
+   "base": "Qwen/Qwen2.5-14B-Instruct",
+   "pinned_revision": null,
+   "hub_head": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+   "license": "apache-2.0",
+   "commercial_use": true,
+   "verdict": "license OK; revision not pinned"
+  },
+  "fab-100x": {
+   "base": null,
+   "verdict": "BLOCKED \u2014 BASE MODEL (none configured)"
+  },
+  "fab-500x": {
+   "base": "Qwen/Qwen2.5-Coder-32B-Instruct",
+   "pinned_revision": null,
+   "hub_head": "381fc969f78efac66bc87ff7ddeadb7e73c218a7",
+   "license": "apache-2.0",
+   "commercial_use": true,
+   "verdict": "license OK; revision not pinned"
+  }
+ }
 }

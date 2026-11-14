@@ -1,0 +1,689 @@
+{
+ "global": [
+  {
+   "check": "registry_fields_complete",
+   "status": "PASS",
+   "detail": "every approved training source has name, URL, revision, license, commercial-use status, attribution, origin and transformation history"
+  },
+  {
+   "check": "source_provenance_hashes",
+   "status": "PASS",
+   "detail": "every downloaded source file has URL, SHA-256 and fetch timestamp"
+  },
+  {
+   "check": "no_unclear_license_approved",
+   "status": "PASS",
+   "detail": "35 approved, all commercial-use 'yes'; 14 quarantined (review_required/conditional), 9 rejected, 3 unavailable"
+  },
+  {
+   "check": "upstream_risk_flags",
+   "status": "PASS",
+   "detail": {
+    "flagged_sources": {
+     "roman-urdu-parl": "Roman-Urdu authorship (human vs tool) not documented on the card; spot checks show some imperfectly aligned pairs (quality score lowered to 0.5)",
+     "nemotron-math": "prompts collected by NVIDIA from 'public and open corpora' (not itemised per row)",
+     "nemotron-stem": "prompts collected by NVIDIA from 'public and open corpora' (not itemised per row)",
+     "opencodeinstruct": "generator model not named on the card; confirm before commercial release (reject = set status to 'rejected' and rebuild)",
+     "trendyol-cybersec": "generation method not named on the card; confirm before commercial release",
+     "commitpackft": "permissive code licenses (MIT/BSD/Apache) require keeping copyright notices if code is redistributed verbatim; per-row license and repo are kept in the record meta"
+    }
+   }
+  },
+  {
+   "check": "review_ledger_integrity",
+   "status": "PASS",
+   "detail": {
+    "entries": 0,
+    "duplicate_record_reviewer": 0,
+    "non_human_reviewer_ids": 0,
+    "entries_without_issued_sheet": 0
+   }
+  }
+ ],
+ "models": {
+  "nick-4.8": [
+   {
+    "check": "artifact_sha256_and_counts",
+    "status": "PASS",
+    "detail": {
+     "train.jsonl": "9db7a9b1e3c5f72a928ee40f52916392a669f4b84f8aa587d8c1b5b09af92433",
+     "eval.jsonl": "bb2cef8575ac1fd8d445e9f01049ecb548d4ded9fbd0bc85fd1af5dfd43059af",
+     "test.jsonl": "db035dcff0230bf36e24be99f3f717588b95aa77651913c2f79fb31f57290117"
+    }
+   },
+   {
+    "check": "record_target",
+    "status": "PASS",
+    "detail": "30,000 accepted / 30,000 required"
+   },
+   {
+    "check": "licenses_and_eval_separation",
+    "status": "PASS",
+    "detail": "15 approved training sources; no evaluation-only source"
+   },
+   {
+    "check": "language_minimums",
+    "status": "PASS",
+    "detail": {
+     "en": "14806/6000",
+     "ur": "1500/1500",
+     "roman_ur": "400/400",
+     "ar": "800/800",
+     "zh": "762/400",
+     "es": "4406/800",
+     "fr": "600/600",
+     "de": "979/400",
+     "pt": "500/500",
+     "ru": "2268/500",
+     "ja": "400/400",
+     "ko": "300/300",
+     "hi": "500/500",
+     "bn": "300/300",
+     "tr": "300/300",
+     "id": "400/400",
+     "fa": "300/300"
+    }
+   },
+   {
+    "check": "domain_minimums",
+    "status": "PASS",
+    "detail": {
+     "mathematics": "4395/2400",
+     "science": "1896/1800",
+     "coding": "2521/2400",
+     "reasoning": "613/600",
+     "writing": "1589/1500",
+     "general_knowledge": "12610/3000",
+     "education": "825/600",
+     "safety_ethics": "497/60"
+    }
+   },
+   {
+    "check": "domain_maximums",
+    "status": "PASS",
+    "detail": "within caps"
+   },
+   {
+    "check": "science_subtopics_info",
+    "status": "PASS",
+    "detail": {
+     "science_records": 1896,
+     "physics": 101,
+     "chemistry": 108,
+     "biology": 119,
+     "note": "physics/chemistry/biology are tracked inside 'science' (no separate configured minimums); keyword counts, may overlap"
+    }
+   },
+   {
+    "check": "synthetic_cap",
+    "status": "PASS",
+    "detail": "1,961/30,000 = 0.065 ≤ 0.6"
+   },
+   {
+    "check": "human_review_backed_by_ledger",
+    "status": "PASS",
+    "detail": "0 rows marked human_reviewed, 0 without a ledger accept"
+   },
+   {
+    "check": "human_review_minimum",
+    "status": "BLOCKED",
+    "detail": "0 genuine human reviews / 500 required (auto_verified and source_community_reviewed excluded: 366 / 6,241)"
+   },
+   {
+    "check": "no_duplicate_prompts",
+    "status": "PASS",
+    "detail": "0 duplicate normalised prompts, 0 duplicate ids"
+   },
+   {
+    "check": "no_split_leakage",
+    "status": "PASS",
+    "detail": "0 prompts shared between train and eval/test"
+   },
+   {
+    "check": "no_benchmark_leakage",
+    "status": "PASS",
+    "detail": "0 user turns exactly matching an evaluation prompt (18,484 indexed)"
+   },
+   {
+    "check": "shared_opening_turn_info",
+    "status": "PASS",
+    "detail": "7,765 multi-turn conversations share an opening user message with another record (different follow-up turns and targets; not duplicates)"
+   },
+   {
+    "check": "production_ready_derived",
+    "status": "PASS",
+    "detail": "production_ready=False equals AND of 11 gates"
+   },
+   {
+    "check": "fingerprint",
+    "status": "PASS",
+    "detail": {
+     "dataset_version": "nick-4.8-datahub-1.1-df7a0440e5",
+     "content_fingerprint_sha256": "df7a0440e59f7e933c5ed479a364efedefaa9c816e96604833d36f1816140661",
+     "id_set_sha256": "1752005214c72d5c67f70b8545367a36fb4e31331ed71125f7890b82580c5033"
+    }
+   },
+   {
+    "check": "base_model_configured",
+    "status": "PASS",
+    "detail": "Qwen/Qwen2.5-3B-Instruct"
+   }
+  ],
+  "hike-6.5": [
+   {
+    "check": "artifact_sha256_and_counts",
+    "status": "PASS",
+    "detail": {
+     "train.jsonl": "f6682ed88a5bfa0f65c508a5cebf3a4e386896c765830ef26e19c761738780a8",
+     "eval.jsonl": "66ff95447a35b7f28780db619fe57d76982c4842950fd7a1e683fe8bec93c0da",
+     "test.jsonl": "0085d5010e4e5194c1f7c179fb9e106fd08b5751e9e0e81ea9f9e78bc7b0929f"
+    }
+   },
+   {
+    "check": "record_target",
+    "status": "PASS",
+    "detail": "50,000 accepted / 50,000 required"
+   },
+   {
+    "check": "licenses_and_eval_separation",
+    "status": "PASS",
+    "detail": "21 approved training sources; no evaluation-only source"
+   },
+   {
+    "check": "language_minimums",
+    "status": "PASS",
+    "detail": {
+     "en": "26616/8400",
+     "ur": "2100/2100",
+     "roman_ur": "560/560",
+     "ar": "1120/1120",
+     "zh": "958/560",
+     "es": "5019/1120",
+     "fr": "840/840",
+     "de": "1059/560",
+     "pt": "700/700",
+     "ru": "2595/700",
+     "ja": "560/560",
+     "ko": "420/420",
+     "hi": "700/700",
+     "bn": "720/420",
+     "tr": "420/420",
+     "id": "560/560",
+     "fa": "420/420"
+    }
+   },
+   {
+    "check": "domain_minimums",
+    "status": "PASS",
+    "detail": {
+     "mathematics": "6661/5000",
+     "science": "4147/4000",
+     "coding": "6017/6000",
+     "reasoning": "1500/1500",
+     "software_engineering": "1000/1000",
+     "writing": "2751/2500",
+     "general_knowledge": "19789/4000",
+     "education": "1003/1000",
+     "safety_ethics": "522/100"
+    }
+   },
+   {
+    "check": "domain_maximums",
+    "status": "PASS",
+    "detail": "within caps"
+   },
+   {
+    "check": "science_subtopics_info",
+    "status": "PASS",
+    "detail": {
+     "science_records": 4147,
+     "physics": 253,
+     "chemistry": 613,
+     "biology": 366,
+     "note": "physics/chemistry/biology are tracked inside 'science' (no separate configured minimums); keyword counts, may overlap"
+    }
+   },
+   {
+    "check": "synthetic_cap",
+    "status": "PASS",
+    "detail": "6,987/50,000 = 0.140 ≤ 0.6"
+   },
+   {
+    "check": "human_review_backed_by_ledger",
+    "status": "PASS",
+    "detail": "0 rows marked human_reviewed, 0 without a ledger accept"
+   },
+   {
+    "check": "human_review_minimum",
+    "status": "BLOCKED",
+    "detail": "0 genuine human reviews / 800 required (auto_verified and source_community_reviewed excluded: 486 / 7,005)"
+   },
+   {
+    "check": "no_duplicate_prompts",
+    "status": "PASS",
+    "detail": "0 duplicate normalised prompts, 0 duplicate ids"
+   },
+   {
+    "check": "no_split_leakage",
+    "status": "PASS",
+    "detail": "0 prompts shared between train and eval/test"
+   },
+   {
+    "check": "no_benchmark_leakage",
+    "status": "PASS",
+    "detail": "0 user turns exactly matching an evaluation prompt (18,484 indexed)"
+   },
+   {
+    "check": "shared_opening_turn_info",
+    "status": "PASS",
+    "detail": "9,075 multi-turn conversations share an opening user message with another record (different follow-up turns and targets; not duplicates)"
+   },
+   {
+    "check": "production_ready_derived",
+    "status": "PASS",
+    "detail": "production_ready=False equals AND of 11 gates"
+   },
+   {
+    "check": "fingerprint",
+    "status": "PASS",
+    "detail": {
+     "dataset_version": "hike-6.5-datahub-1.1-7beafa5436",
+     "content_fingerprint_sha256": "7beafa5436e410436c37847bf56334bbd6d8924da069f7ab1a3196c1c1ad2adc",
+     "id_set_sha256": "76237d3da13c59dc100482a9f96eab9d9cad7e97cb5dcfbbefee314662a31afe"
+    }
+   },
+   {
+    "check": "base_model_configured",
+    "status": "PASS",
+    "detail": "Qwen/Qwen2.5-7B-Instruct"
+   }
+  ],
+  "sona-9.0": [
+   {
+    "check": "artifact_sha256_and_counts",
+    "status": "PASS",
+    "detail": {
+     "train.jsonl": "c6a60730639517d3b1f5167a0b4771d71a8e5a3113fd2dd63dff45ef58592c30",
+     "eval.jsonl": "96aca80aaae384c1e80af27e66172818461c6ce294b0d609252bedf576b640d1",
+     "test.jsonl": "42f885cf8a8d76e64e21f51514f83e9a7d16a50a45fb659e0cafb015b85a8d28"
+    }
+   },
+   {
+    "check": "record_target",
+    "status": "PASS",
+    "detail": "70,000 accepted / 70,000 required"
+   },
+   {
+    "check": "licenses_and_eval_separation",
+    "status": "PASS",
+    "detail": "23 approved training sources; no evaluation-only source"
+   },
+   {
+    "check": "language_minimums",
+    "status": "PASS",
+    "detail": {
+     "en": "38251/10800",
+     "ur": "2700/2700",
+     "roman_ur": "720/720",
+     "ar": "1647/1440",
+     "zh": "1030/720",
+     "es": "5241/1440",
+     "fr": "1080/1080",
+     "de": "1106/720",
+     "pt": "900/900",
+     "ru": "2806/900",
+     "ja": "720/720",
+     "ko": "540/540",
+     "hi": "900/900",
+     "bn": "1359/540",
+     "tr": "540/540",
+     "id": "720/720",
+     "fa": "540/540"
+    }
+   },
+   {
+    "check": "domain_minimums",
+    "status": "PASS",
+    "detail": {
+     "mathematics": "10029/7000",
+     "science": "7154/7000",
+     "coding": "8419/8400",
+     "reasoning": "2800/2800",
+     "software_engineering": "2100/2100",
+     "research": "4875/2800",
+     "writing": "3200/2800",
+     "general_knowledge": "26433/4200",
+     "safety_ethics": "540/140"
+    }
+   },
+   {
+    "check": "domain_maximums",
+    "status": "PASS",
+    "detail": "within caps"
+   },
+   {
+    "check": "science_subtopics_info",
+    "status": "PASS",
+    "detail": {
+     "science_records": 7154,
+     "physics": 1015,
+     "chemistry": 1337,
+     "biology": 850,
+     "note": "physics/chemistry/biology are tracked inside 'science' (no separate configured minimums); keyword counts, may overlap"
+    }
+   },
+   {
+    "check": "synthetic_cap",
+    "status": "PASS",
+    "detail": "15,278/70,000 = 0.218 ≤ 0.6"
+   },
+   {
+    "check": "human_review_backed_by_ledger",
+    "status": "PASS",
+    "detail": "0 rows marked human_reviewed, 0 without a ledger accept"
+   },
+   {
+    "check": "human_review_minimum",
+    "status": "BLOCKED",
+    "detail": "0 genuine human reviews / 1,200 required (auto_verified and source_community_reviewed excluded: 515 / 7,242)"
+   },
+   {
+    "check": "no_duplicate_prompts",
+    "status": "PASS",
+    "detail": "0 duplicate normalised prompts, 0 duplicate ids"
+   },
+   {
+    "check": "no_split_leakage",
+    "status": "PASS",
+    "detail": "0 prompts shared between train and eval/test"
+   },
+   {
+    "check": "no_benchmark_leakage",
+    "status": "PASS",
+    "detail": "0 user turns exactly matching an evaluation prompt (18,484 indexed)"
+   },
+   {
+    "check": "shared_opening_turn_info",
+    "status": "PASS",
+    "detail": "9,512 multi-turn conversations share an opening user message with another record (different follow-up turns and targets; not duplicates)"
+   },
+   {
+    "check": "production_ready_derived",
+    "status": "PASS",
+    "detail": "production_ready=False equals AND of 11 gates"
+   },
+   {
+    "check": "fingerprint",
+    "status": "PASS",
+    "detail": {
+     "dataset_version": "sona-9.0-datahub-1.1-781f9b7e9b",
+     "content_fingerprint_sha256": "781f9b7e9b6d657bc9f53b66da6e2c43e8fb6f30b264e2d29cdcb770d15a99ec",
+     "id_set_sha256": "b29023741fd891adb2f706f054b2d3e379f1da56642510045843de6ca0ec1da3"
+    }
+   },
+   {
+    "check": "base_model_configured",
+    "status": "PASS",
+    "detail": "Qwen/Qwen2.5-14B-Instruct"
+   }
+  ],
+  "fab-100x": [
+   {
+    "check": "artifact_sha256_and_counts",
+    "status": "PASS",
+    "detail": {
+     "train.jsonl": "2437fbd5d113ff50f8519991b70d277543c5e58227eb6a67c5c2ab0553d16549",
+     "eval.jsonl": "192bb085951f5fc9548143a1d070924edf0bb8c556270748ef8fbf55a02c01be",
+     "test.jsonl": "b68768043eb46362b6c6280aa2dbf813029502aa229529bbf282d59bd3fe1295"
+    }
+   },
+   {
+    "check": "record_target",
+    "status": "PASS",
+    "detail": "90,000 accepted / 90,000 required"
+   },
+   {
+    "check": "licenses_and_eval_separation",
+    "status": "PASS",
+    "detail": "24 approved training sources; no evaluation-only source"
+   },
+   {
+    "check": "language_minimums",
+    "status": "PASS",
+    "detail": {
+     "en": "54712/12000",
+     "ur": "3000/3000",
+     "roman_ur": "800/800",
+     "ar": "2254/1600",
+     "zh": "1081/800",
+     "es": "5370/1600",
+     "fr": "1200/1200",
+     "de": "1128/800",
+     "pt": "1000/1000",
+     "ru": "2956/1000",
+     "ja": "800/800",
+     "ko": "600/600",
+     "hi": "1000/1000",
+     "bn": "1556/600",
+     "tr": "600/600",
+     "id": "800/800",
+     "fa": "600/600"
+    }
+   },
+   {
+    "check": "domain_minimums",
+    "status": "PASS",
+    "detail": {
+     "mathematics": "14579/9000",
+     "science": "7376/7200",
+     "coding": "16199/13500",
+     "software_engineering": "3600/3600",
+     "cybersecurity": "1802/1800",
+     "reasoning": "3600/3600",
+     "research": "5971/3600",
+     "safety_ethics": "552/270"
+    }
+   },
+   {
+    "check": "domain_maximums",
+    "status": "PASS",
+    "detail": "within caps"
+   },
+   {
+    "check": "science_subtopics_info",
+    "status": "PASS",
+    "detail": {
+     "science_records": 7376,
+     "physics": 1106,
+     "chemistry": 1381,
+     "biology": 892,
+     "note": "physics/chemistry/biology are tracked inside 'science' (no separate configured minimums); keyword counts, may overlap"
+    }
+   },
+   {
+    "check": "synthetic_cap",
+    "status": "PASS",
+    "detail": "29,328/90,000 = 0.326 ≤ 0.6"
+   },
+   {
+    "check": "human_review_backed_by_ledger",
+    "status": "PASS",
+    "detail": "0 rows marked human_reviewed, 0 without a ledger accept"
+   },
+   {
+    "check": "human_review_minimum",
+    "status": "BLOCKED",
+    "detail": "0 genuine human reviews / 1,500 required (auto_verified and source_community_reviewed excluded: 577 / 7,379)"
+   },
+   {
+    "check": "no_duplicate_prompts",
+    "status": "PASS",
+    "detail": "0 duplicate normalised prompts, 0 duplicate ids"
+   },
+   {
+    "check": "no_split_leakage",
+    "status": "PASS",
+    "detail": "0 prompts shared between train and eval/test"
+   },
+   {
+    "check": "no_benchmark_leakage",
+    "status": "PASS",
+    "detail": "0 user turns exactly matching an evaluation prompt (18,484 indexed)"
+   },
+   {
+    "check": "shared_opening_turn_info",
+    "status": "PASS",
+    "detail": "9,746 multi-turn conversations share an opening user message with another record (different follow-up turns and targets; not duplicates)"
+   },
+   {
+    "check": "production_ready_derived",
+    "status": "PASS",
+    "detail": "production_ready=False equals AND of 11 gates"
+   },
+   {
+    "check": "fingerprint",
+    "status": "PASS",
+    "detail": {
+     "dataset_version": "fab-100x-datahub-1.1-52df9c5655",
+     "content_fingerprint_sha256": "52df9c5655a809472d2a4b376c8c51afd903ab3acd977594102fc7840aa9460f",
+     "id_set_sha256": "3708cd0afb18300f0c9183483426c2c129003bef68e48ce7dd97a412850222f3"
+    }
+   },
+   {
+    "check": "base_model_configured",
+    "status": "BLOCKED",
+    "detail": "no base model configured (needs approval)"
+   }
+  ],
+  "fab-500x": [
+   {
+    "check": "artifact_sha256_and_counts",
+    "status": "PASS",
+    "detail": {
+     "train.jsonl": "431b6392ac5777032a40fb5498c32ab432c8a56cc68848f154b447f2a272be6c",
+     "eval.jsonl": "d7df1f06583a179f5e62f24ac744d727626a12e7baee2e0a50d46b2290d6dc12",
+     "test.jsonl": "7b53ca82081d168e1ee3ece1f817e4daf2f007db282fd0f7f5788ca0dfc83789"
+    }
+   },
+   {
+    "check": "record_target",
+    "status": "PASS",
+    "detail": "708,460 accepted / 500,000 required"
+   },
+   {
+    "check": "licenses_and_eval_separation",
+    "status": "PASS",
+    "detail": "29 approved training sources; no evaluation-only source"
+   },
+   {
+    "check": "language_minimums",
+    "status": "PASS",
+    "detail": {
+     "en": "501459/18000",
+     "ur": "17275/4500",
+     "roman_ur": "5730/1200",
+     "ar": "14400/2400",
+     "zh": "4979/1200",
+     "es": "9211/2400",
+     "fr": "4732/1800",
+     "de": "1371/1200",
+     "pt": "6292/1500",
+     "ru": "8681/1500",
+     "ja": "3770/1200",
+     "ko": "7593/900",
+     "hi": "6433/1500",
+     "bn": "3192/900",
+     "tr": "3705/900",
+     "id": "11371/1200",
+     "fa": "1121/900"
+    }
+   },
+   {
+    "check": "domain_minimums",
+    "status": "PASS",
+    "detail": {
+     "mathematics": "109865/40000",
+     "science": "38061/30000",
+     "coding": "164101/125000",
+     "web_frontend": "20325/5000",
+     "web_backend": "11467/5000",
+     "software_engineering": "68493/15000",
+     "cybersecurity": "52097/10000",
+     "reasoning": "17131/15000",
+     "research": "41805/10000",
+     "safety_ethics": "6456/1000"
+    }
+   },
+   {
+    "check": "domain_maximums",
+    "status": "PASS",
+    "detail": "within caps"
+   },
+   {
+    "check": "science_subtopics_info",
+    "status": "PASS",
+    "detail": {
+     "science_records": 38061,
+     "physics": 10435,
+     "chemistry": 8086,
+     "biology": 7702,
+     "note": "physics/chemistry/biology are tracked inside 'science' (no separate configured minimums); keyword counts, may overlap"
+    }
+   },
+   {
+    "check": "synthetic_cap",
+    "status": "PASS",
+    "detail": "304,412/708,460 = 0.430 ≤ 0.6"
+   },
+   {
+    "check": "human_review_backed_by_ledger",
+    "status": "PASS",
+    "detail": "0 rows marked human_reviewed, 0 without a ledger accept"
+   },
+   {
+    "check": "human_review_minimum",
+    "status": "BLOCKED",
+    "detail": "0 genuine human reviews / 5,000 required (auto_verified and source_community_reviewed excluded: 3,507 / 8,335)"
+   },
+   {
+    "check": "no_duplicate_prompts",
+    "status": "FAIL",
+    "detail": "23 duplicate normalised prompts, 0 duplicate ids"
+   },
+   {
+    "check": "no_split_leakage",
+    "status": "PASS",
+    "detail": "0 prompts shared between train and eval/test"
+   },
+   {
+    "check": "no_benchmark_leakage",
+    "status": "PASS",
+    "detail": "0 user turns exactly matching an evaluation prompt (18,484 indexed)"
+   },
+   {
+    "check": "shared_opening_turn_info",
+    "status": "PASS",
+    "detail": "11,783 multi-turn conversations share an opening user message with another record (different follow-up turns and targets; not duplicates)"
+   },
+   {
+    "check": "production_ready_derived",
+    "status": "PASS",
+    "detail": "production_ready=False equals AND of 11 gates"
+   },
+   {
+    "check": "fingerprint",
+    "status": "PASS",
+    "detail": {
+     "dataset_version": "fab-500x-datahub-1.1-be1c5c4f46",
+     "content_fingerprint_sha256": "be1c5c4f4628672d72617cfed5033f352905639ee927b3143e85bec299f6d8f8",
+     "id_set_sha256": "7120fa5a2889bfefc6e000d49b2de797d21fb78b1c9e0bd2f6e98d4a148bd14d"
+    }
+   },
+   {
+    "check": "base_model_configured",
+    "status": "PASS",
+    "detail": "Qwen/Qwen2.5-Coder-32B-Instruct"
+   }
+  ]
+ }
+}

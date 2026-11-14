@@ -53,3 +53,16 @@ Checked 2026-11-14. Hugging Face Hub model API (cardData.license, gated, sha, sa
 
 No profile was changed. Approve one option per model and its revision is pinned in datasets/<model>/profile.json and training/models/<model>.yaml.
 Switching Nick's base means a new adapter and full retraining; the recovered adapter `2faae21620ef0aea6140b296b43ab5fcf5ba2c5b721067f91797b288a09c34c4` is kept as-is.
+
+## Configured base models — verified 2026-11-14 (Hub `cardData.license` + LICENSE file)
+
+| Model | Configured base | Revision | License | Commercial use | Verdict |
+|---|---|---|---|---|---|
+| nick-4.8 | `Qwen/Qwen2.5-3B-Instruct` | pinned `aa8e7253…` | qwen-research | **no** | BLOCKED — LICENSE (unchanged; awaiting approval) |
+| hike-6.5 | `Qwen/Qwen2.5-7B-Instruct` | not pinned (Hub head `a09a3545…`) | apache-2.0 | yes | license OK |
+| sona-9.0 | `Qwen/Qwen2.5-14B-Instruct` | not pinned (Hub head `cf98f3b3…`) | apache-2.0 | yes | license OK |
+| fab-100x | — | — | — | — | **BLOCKED — BASE MODEL** (none configured) |
+| fab-500x | `Qwen/Qwen2.5-Coder-32B-Instruct` | not pinned (Hub head `381fc969…`) | apache-2.0 | yes | license OK |
+
+Unpinned revisions are resolved and recorded at training time; pinning them (to the Hub heads above or a chosen
+commit) makes runs reproducible. No configuration was changed.

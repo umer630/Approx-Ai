@@ -1,7 +1,7 @@
 {
  "schema": "approx.dataset/v1",
  "model_id": "hike-6.5",
- "dataset_version": "hike-6.5-datahub-1.1-5cd9d57298",
+ "dataset_version": "hike-6.5-datahub-1.1-7beafa5436",
  "pipeline_version": "datahub-1.1",
  "profile": {
   "tier": "hike",
@@ -57,34 +57,34 @@
  },
  "counts": {
   "total": 50000,
-  "train": 47086,
-  "eval": 1483,
-  "test": 1431
+  "train": 47074,
+  "eval": 1493,
+  "test": 1433
  },
  "selection": {
-  "eligible": 518263,
+  "eligible": 708460,
   "cap": 50000,
   "eligible_by_domain": {
-   "coding": 163837,
+   "coding": 164101,
    "general_knowledge": 152572,
-   "cybersecurity": 51988,
+   "mathematics": 109865,
+   "software_engineering": 68493,
+   "cybersecurity": 52097,
    "research": 41805,
    "science": 38061,
-   "mathematics": 32918,
+   "web_frontend": 20325,
+   "reasoning": 17131,
    "writing": 15799,
+   "web_backend": 11467,
+   "safety_ethics": 6456,
    "islamic_studies": 4222,
-   "software_engineering": 4033,
    "pakistan": 2643,
-   "web_frontend": 2472,
-   "reasoning": 2389,
    "education": 1609,
-   "web_backend": 1504,
    "problem_solving": 942,
-   "web_fullstack": 740,
-   "safety_ethics": 729
+   "web_fullstack": 872
   },
   "eligible_by_language": {
-   "en": 311262,
+   "en": 501459,
    "ur": 17275,
    "ar": 14400,
    "te": 11535,
@@ -165,36 +165,36 @@
    "acq": 2,
    "ajp": 1
   },
-  "eligible_synthetic": 298685
+  "eligible_synthetic": 304412
  },
  "by_language": {
-  "en": 26525,
-  "es": 5026,
-  "ru": 2597,
+  "en": 26616,
+  "es": 5019,
+  "ru": 2595,
   "ur": 2100,
-  "ta": 1944,
+  "ta": 1934,
   "ar": 1120,
-  "te": 1071,
-  "de": 1060,
-  "zh": 959,
+  "te": 1066,
+  "de": 1059,
+  "zh": 958,
   "fr": 840,
-  "bn": 729,
+  "bn": 720,
   "hi": 700,
   "pt": 700,
-  "gu": 631,
+  "gu": 625,
   "roman_ur": 560,
   "id": 560,
   "ja": 560,
-  "vi": 424,
   "fa": 420,
   "ko": 420,
   "tr": 420,
+  "vi": 389,
   "th": 192,
-  "it": 153,
-  "ca": 121,
-  "pl": 71,
-  "pa": 41,
-  "nl": 16,
+  "it": 152,
+  "ca": 120,
+  "pl": 69,
+  "pa": 31,
+  "nl": 15,
   "el": 12,
   "am": 7,
   "eo": 5,
@@ -205,72 +205,74 @@
   "hu": 1
  },
  "by_domain": {
-  "general_knowledge": 19788,
-  "mathematics": 6670,
-  "coding": 6016,
-  "science": 4137,
-  "research": 3553,
+  "general_knowledge": 19789,
+  "mathematics": 6661,
+  "coding": 6017,
+  "science": 4147,
+  "research": 3550,
   "writing": 2751,
   "reasoning": 1500,
   "education": 1003,
   "software_engineering": 1000,
-  "islamic_studies": 693,
+  "islamic_studies": 694,
   "problem_solving": 675,
   "pakistan": 548,
-  "safety_ethics": 523,
+  "safety_ethics": 522,
   "web_frontend": 471,
   "cybersecurity": 294,
   "web_fullstack": 250,
   "web_backend": 128
  },
  "by_source": {
-  "oasst2": 13820,
-  "aya-dataset": 7422,
-  "oasst1": 7006,
-  "gsm8k": 5290,
-  "dolly-15k": 4807,
-  "tydiqa-goldp": 2486,
-  "opencodeinstruct": 2038,
+  "oasst2": 13815,
+  "aya-dataset": 7329,
+  "oasst1": 7005,
+  "gsm8k": 5285,
+  "dolly-15k": 4323,
+  "tydiqa-goldp": 2483,
+  "opencodeinstruct": 2049,
   "scienceqa-text": 1995,
-  "self-oss-instruct": 1899,
+  "self-oss-instruct": 1888,
   "wikipedia-ur": 1725,
+  "strategyqa": 585,
   "wikipedia-hi": 420,
   "approx-curriculum": 306,
   "wikipedia-ko": 285,
   "roman-urdu-parl": 245,
   "mbpp": 180,
-  "nemotron-math": 51,
-  "wikipedia-fr": 9,
+  "nemotron-math": 53,
+  "quartz": 13,
   "approx-seed-v0.1": 9,
-  "wikipedia-id": 7
+  "wikipedia-id": 6,
+  "wikipedia-fr": 1
  },
  "by_origin": {
-  "human_authored": 43006,
-  "synthetic": 3997,
-  "templated_human": 2446,
+  "human_authored": 43013,
+  "synthetic": 3999,
+  "templated_human": 2437,
   "programmatic": 306,
   "transliteration_unverified": 245
  },
  "by_review_state": {
-  "unreviewed": 42508,
-  "source_community_reviewed": 7006,
+  "unreviewed": 42509,
+  "source_community_reviewed": 7005,
   "auto_verified": 486
  },
- "synthetic_ratio": 0.1399,
+ "synthetic_ratio": 0.1397,
  "human_reviewed": 0,
- "content_fingerprint_sha256": "5cd9d572984ac730b9d6063967a4b32f3d36ac845e35e4713a816fdb16d67052",
+ "content_fingerprint_sha256": "7beafa5436e410436c37847bf56334bbd6d8924da069f7ab1a3196c1c1ad2adc",
  "files": {
   "train.jsonl": {
-   "records": 47086,
-   "sha256": "2bb5eb00ce08ce4e7ede8766174c293da4797859f962c74d40428602637e4341"
+   "records": 47074,
+   "sha256": "f6682ed88a5bfa0f65c508a5cebf3a4e386896c765830ef26e19c761738780a8"
   },
   "eval.jsonl": {
-   "records": 1483,
-   "sha256": "0853d96678edbf03c40e67b509b0c84f797ec234e826ec6d339552c158071d7e"
+   "records": 1493,
+   "sha256": "66ff95447a35b7f28780db619fe57d76982c4842950fd7a1e683fe8bec93c0da"
   },
   "test.jsonl": {
-   "records": 1431,
-   "sha256": "3c673a316cd7e3a94e56f0d93a94d57c44fdc3517d2044420498b0803d463580"
+   "records": 1433,
+   "sha256": "0085d5010e4e5194c1f7c179fb9e106fd08b5751e9e0e81ea9f9e78bc7b0929f"
   }
  },
  "gates": {
@@ -291,9 +293,11 @@
     "oasst1",
     "oasst2",
     "opencodeinstruct",
+    "quartz",
     "roman-urdu-parl",
     "scienceqa-text",
     "self-oss-instruct",
+    "strategyqa",
     "tydiqa-goldp",
     "wikipedia-fr",
     "wikipedia-hi",
@@ -304,20 +308,20 @@
   },
   "synthetic_ratio": {
    "passed": true,
-   "detail": "6994/50000 = 0.140 (max 0.6)"
+   "detail": "6987/50000 = 0.140 (max 0.6)"
   },
   "domain_minimums": {
    "passed": true,
    "detail": {
-    "mathematics": "6670/5000",
-    "science": "4137/4000",
-    "coding": "6016/6000",
+    "mathematics": "6661/5000",
+    "science": "4147/4000",
+    "coding": "6017/6000",
     "reasoning": "1500/1500",
     "software_engineering": "1000/1000",
     "writing": "2751/2500",
-    "general_knowledge": "19788/4000",
+    "general_knowledge": "19789/4000",
     "education": "1003/1000",
-    "safety_ethics": "523/100"
+    "safety_ethics": "522/100"
    }
   },
   "domain_maximums": {
@@ -330,20 +334,20 @@
   "language_minimums": {
    "passed": true,
    "detail": {
-    "en": "26525/8400",
+    "en": "26616/8400",
     "ur": "2100/2100",
     "roman_ur": "560/560",
     "ar": "1120/1120",
-    "zh": "959/560",
-    "es": "5026/1120",
+    "zh": "958/560",
+    "es": "5019/1120",
     "fr": "840/840",
-    "de": "1060/560",
+    "de": "1059/560",
     "pt": "700/700",
-    "ru": "2597/700",
+    "ru": "2595/700",
     "ja": "560/560",
     "ko": "420/420",
     "hi": "700/700",
-    "bn": "729/420",
+    "bn": "720/420",
     "tr": "420/420",
     "id": "560/560",
     "fa": "420/420"
@@ -707,6 +711,28 @@
     "source_revision": "8f3ba5bafe4d6e8db46082cf7ae6741bc370604d"
    }
   ],
+  "quartz": [
+   {
+    "file": "quartz/default/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/allenai/quartz/parquet/default/train/0.parquet",
+    "sha256": "edeb1fa716d945ee198c9f5ce5ab6cad4d847e714ff7463834dee422c8450035",
+    "bytes": 415195,
+    "fetched_at": "2026-11-14T20:59:15Z",
+    "config": "default",
+    "split": "train",
+    "source_revision": "28c1dbb56caf"
+   },
+   {
+    "file": "quartz/default/validation/validation-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/allenai/quartz/parquet/default/validation/0.parquet",
+    "sha256": "91afc8bbdb1b6b67f35f05ea4b4dbc1ba718ec2469be665a386c46b4648a1fb4",
+    "bytes": 54296,
+    "fetched_at": "2026-11-14T20:59:16Z",
+    "config": "default",
+    "split": "validation",
+    "source_revision": "28c1dbb56caf"
+   }
+  ],
   "roman-urdu-parl": [
    {
     "file": "roman-urdu-parl/default/train/train-0000.parquet",
@@ -741,6 +767,18 @@
     "config": "default",
     "split": "train",
     "source_revision": "356bb069eee8"
+   }
+  ],
+  "strategyqa": [
+   {
+    "file": "strategyqa/default/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/ChilleD/StrategyQA/parquet/default/train/0.parquet",
+    "sha256": "82262246f9f669cc69128c64d96e81860d232482565ecb9d9c63e7ee2c6574a7",
+    "bytes": 369335,
+    "fetched_at": "2026-11-14T20:59:15Z",
+    "config": "default",
+    "split": "train",
+    "source_revision": "705562638fe1"
    }
   ],
   "tydiqa-goldp": [
@@ -817,24 +855,24 @@
   "roman-urdu-parl": "Roman-Urdu authorship (human vs tool) not documented on the card; spot checks show some imperfectly aligned pairs (quality score lowered to 0.5)"
  },
  "pool_summary": {
-  "built_at": "2026-11-14T20:59:32Z",
+  "built_at": "2026-11-14T21:48:07Z",
   "rejections": {
-   "repetition": 44417,
-   "language_mismatch": 37318,
-   "quality": 14605,
-   "formatting": 73,
+   "repetition": 103488,
+   "language_mismatch": 38977,
+   "quality": 16523,
+   "formatting": 93,
    "injection": 10,
-   "nonsensical": 1178,
-   "unicode": 859,
+   "nonsensical": 9251,
+   "unicode": 2562,
    "safety": 19,
    "empty": 10,
    "injection_contamination": 2,
-   "exact_duplicate": 30497,
-   "contradiction": 7407,
-   "near_duplicate": 65658,
+   "exact_duplicate": 32136,
+   "contradiction": 7540,
+   "near_duplicate": 73687,
    "benchmark_leakage": 10
   },
-  "pii_redactions": 22909,
+  "pii_redactions": 46325,
   "per_source": {
    "oasst1": {
     "status": "ingested",
@@ -849,7 +887,7 @@
      "nonsensical": 29,
      "unicode": 4
     },
-    "seconds": 46.7
+    "seconds": 46.4
    },
    "dolly-15k": {
     "status": "ingested",
@@ -863,7 +901,7 @@
      "repetition": 9,
      "safety": 1
     },
-    "seconds": 19.7
+    "seconds": 20.9
    },
    "gsm8k": {
     "status": "ingested",
@@ -874,7 +912,7 @@
      "quality": 212,
      "nonsensical": 5
     },
-    "seconds": 7.1
+    "seconds": 6.6
    },
    "aya-dataset": {
     "status": "ingested",
@@ -888,7 +926,7 @@
      "unicode": 259,
      "empty": 10
     },
-    "seconds": 335.0
+    "seconds": 333.9
    },
    "arc": {
     "status": "ingested",
@@ -909,7 +947,7 @@
      "nonsensical": 7,
      "language_mismatch": 9
     },
-    "seconds": 8.4
+    "seconds": 7.7
    },
    "scienceqa-text": {
     "status": "ingested",
@@ -918,7 +956,7 @@
     "rejected": {
      "quality": 37
     },
-    "seconds": 17.6
+    "seconds": 16.8
    },
    "self-oss-instruct": {
     "status": "ingested",
@@ -931,7 +969,7 @@
      "formatting": 1,
      "unicode": 1
     },
-    "seconds": 95.8
+    "seconds": 95.4
    },
    "competition-math": {
     "status": "unavailable",
@@ -1043,7 +1081,7 @@
      "injection": 4,
      "injection_contamination": 2
     },
-    "seconds": 71.1
+    "seconds": 71.3
    },
    "tydiqa-goldp": {
     "status": "ingested",
@@ -1055,7 +1093,7 @@
      "quality": 156,
      "nonsensical": 112
     },
-    "seconds": 65.9
+    "seconds": 66.7
    },
    "qasc": {
     "status": "ingested",
@@ -1065,7 +1103,7 @@
      "language_mismatch": 12,
      "quality": 4
     },
-    "seconds": 5.6
+    "seconds": 5.7
    },
    "roman-urdu-parl": {
     "status": "ingested",
@@ -1076,7 +1114,7 @@
      "language_mismatch": 57,
      "quality": 1
     },
-    "seconds": 10.0
+    "seconds": 10.2
    },
    "nemotron-math": {
     "status": "ingested",
@@ -1087,7 +1125,7 @@
      "nonsensical": 166,
      "quality": 29
     },
-    "seconds": 102.5
+    "seconds": 99.6
    },
    "nemotron-stem": {
     "status": "ingested",
@@ -1098,7 +1136,7 @@
      "quality": 83,
      "formatting": 27
     },
-    "seconds": 61.4
+    "seconds": 59.5
    },
    "opencodeinstruct": {
     "status": "ingested",
@@ -1110,7 +1148,7 @@
      "unicode": 6,
      "language_mismatch": 1
     },
-    "seconds": 231.9
+    "seconds": 231.4
    },
    "trendyol-cybersec": {
     "status": "ingested",
@@ -1123,7 +1161,7 @@
      "language_mismatch": 1,
      "injection": 3
     },
-    "seconds": 241.1
+    "seconds": 238.6
    },
    "wikipedia-ur": {
     "status": "ingested",
@@ -1136,7 +1174,7 @@
      "nonsensical": 3,
      "repetition": 7
     },
-    "seconds": 31.0
+    "seconds": 32.0
    },
    "wikipedia-hi": {
     "status": "ingested",
@@ -1148,7 +1186,7 @@
      "quality": 2,
      "nonsensical": 1
     },
-    "seconds": 25.1
+    "seconds": 26.5
    },
    "wikipedia-ko": {
     "status": "ingested",
@@ -1160,7 +1198,7 @@
      "language_mismatch": 14,
      "unicode": 3
     },
-    "seconds": 23.8
+    "seconds": 24.5
    },
    "wikipedia-id": {
     "status": "ingested",
@@ -1173,7 +1211,7 @@
      "nonsensical": 1,
      "quality": 2
     },
-    "seconds": 19.7
+    "seconds": 21.3
    },
    "wikipedia-fr": {
     "status": "ingested",
@@ -1184,7 +1222,7 @@
      "language_mismatch": 11,
      "repetition": 5
     },
-    "seconds": 9.4
+    "seconds": 10.1
    },
    "nemotron-chat": {
     "status": "rejected",
@@ -1245,6 +1283,72 @@
     "status": "review_required",
     "ingested": 0,
     "reason": "Real user prompts with ChatGPT (OpenAI) responses."
+   },
+   "commonsense-qa": {
+    "status": "ingested",
+    "raw": 10962,
+    "accepted_record_gates": 10790,
+    "rejected": {
+     "language_mismatch": 166,
+     "quality": 6
+    },
+    "seconds": 4.8
+   },
+   "strategyqa": {
+    "status": "ingested",
+    "raw": 1603,
+    "accepted_record_gates": 1571,
+    "rejected": {
+     "quality": 31,
+     "language_mismatch": 1
+    },
+    "seconds": 0.8
+   },
+   "quartz": {
+    "status": "ingested",
+    "raw": 3080,
+    "accepted_record_gates": 3060,
+    "rejected": {
+     "quality": 14,
+     "language_mismatch": 6
+    },
+    "seconds": 1.7
+   },
+   "aqua-rat": {
+    "status": "ingested",
+    "raw": 92736,
+    "accepted_record_gates": 80987,
+    "rejected": {
+     "unicode": 1665,
+     "nonsensical": 8072,
+     "language_mismatch": 1417,
+     "quality": 460,
+     "repetition": 135
+    },
+    "seconds": 72.5
+   },
+   "ethics-commonsense": {
+    "status": "ingested",
+    "raw": 6860,
+    "accepted_record_gates": 6852,
+    "rejected": {
+     "quality": 8
+    },
+    "seconds": 3.3
+   },
+   "commitpackft": {
+    "status": "ingested",
+    "raw": 157201,
+    "accepted_record_gates": 96738,
+    "rejected": {
+     "repetition": 58936,
+     "quality": 1399,
+     "language_mismatch": 69,
+     "formatting": 20,
+     "unicode": 38,
+     "nonsensical": 1
+    },
+    "seconds": 143.4
    }
   },
   "missing": []

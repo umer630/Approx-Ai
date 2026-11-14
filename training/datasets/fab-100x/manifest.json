@@ -1,7 +1,7 @@
 {
  "schema": "approx.dataset/v1",
  "model_id": "fab-100x",
- "dataset_version": "fab-100x-datahub-1.1-532c2537ce",
+ "dataset_version": "fab-100x-datahub-1.1-52df9c5655",
  "pipeline_version": "datahub-1.1",
  "profile": {
   "tier": "fab",
@@ -59,34 +59,34 @@
  },
  "counts": {
   "total": 90000,
-  "train": 84684,
-  "eval": 2666,
-  "test": 2650
+  "train": 84671,
+  "eval": 2667,
+  "test": 2662
  },
  "selection": {
-  "eligible": 514766,
+  "eligible": 704963,
   "cap": 90000,
   "eligible_by_domain": {
-   "coding": 163836,
+   "coding": 164100,
    "general_knowledge": 149624,
-   "cybersecurity": 51988,
+   "mathematics": 109836,
+   "software_engineering": 68493,
+   "cybersecurity": 52097,
    "research": 41802,
    "science": 37958,
-   "mathematics": 32889,
+   "web_frontend": 20325,
+   "reasoning": 17124,
    "writing": 15404,
+   "web_backend": 11467,
+   "safety_ethics": 6456,
    "islamic_studies": 4214,
-   "software_engineering": 4033,
    "pakistan": 2640,
-   "web_frontend": 2472,
-   "reasoning": 2382,
    "education": 1609,
-   "web_backend": 1504,
    "problem_solving": 942,
-   "web_fullstack": 740,
-   "safety_ethics": 729
+   "web_fullstack": 872
   },
   "eligible_by_language": {
-   "en": 311157,
+   "en": 501354,
    "ur": 17252,
    "ar": 14396,
    "te": 11528,
@@ -165,23 +165,23 @@
    "arz": 3,
    "da": 2
   },
-  "eligible_synthetic": 298291
+  "eligible_synthetic": 304018
  },
  "by_language": {
-  "en": 54501,
-  "es": 5383,
+  "en": 54712,
+  "es": 5370,
   "ur": 3000,
-  "ru": 2964,
-  "ta": 2595,
-  "vi": 2364,
-  "ar": 2292,
-  "te": 2059,
-  "pa": 1742,
-  "bn": 1568,
+  "ru": 2956,
+  "ta": 2586,
+  "vi": 2339,
+  "ar": 2254,
+  "te": 2025,
+  "pa": 1727,
+  "bn": 1556,
   "fr": 1200,
-  "de": 1132,
-  "gu": 1120,
-  "zh": 1084,
+  "de": 1128,
+  "gu": 1110,
+  "zh": 1081,
   "hi": 1000,
   "pt": 1000,
   "roman_ur": 800,
@@ -190,97 +190,93 @@
   "fa": 600,
   "ko": 600,
   "tr": 600,
-  "th": 247,
-  "it": 166,
+  "th": 246,
+  "it": 165,
   "ca": 138,
-  "pl": 84,
+  "pl": 82,
   "el": 42,
-  "nl": 28,
-  "sw": 21,
-  "ibo": 20,
+  "nl": 22,
+  "sw": 20,
   "eo": 13,
-  "am": 13,
+  "am": 12,
   "pt-BR": 6,
   "he": 5,
   "uk-UA": 3,
-  "som": 2,
-  "eus": 2,
-  "sin": 1,
-  "yor": 1,
   "eu": 1,
-  "plt": 1,
-  "hu": 1,
-  "tl": 1
+  "hu": 1
  },
  "by_domain": {
-  "general_knowledge": 29021,
-  "coding": 16926,
-  "mathematics": 14860,
-  "science": 7374,
-  "research": 6037,
+  "general_knowledge": 28923,
+  "coding": 16199,
+  "mathematics": 14579,
+  "science": 7376,
+  "research": 5971,
   "software_engineering": 3600,
-  "writing": 2888,
-  "reasoning": 2382,
+  "reasoning": 3600,
+  "writing": 2867,
   "cybersecurity": 1802,
-  "islamic_studies": 985,
-  "education": 950,
-  "pakistan": 804,
-  "problem_solving": 728,
-  "web_frontend": 626,
+  "islamic_studies": 986,
+  "education": 947,
+  "pakistan": 806,
+  "problem_solving": 727,
+  "web_frontend": 610,
   "safety_ethics": 552,
-  "web_fullstack": 279,
-  "web_backend": 186
+  "web_fullstack": 278,
+  "web_backend": 177
  },
  "by_source": {
-  "aya-dataset": 15148,
-  "oasst2": 14484,
-  "opencodeinstruct": 9590,
-  "self-oss-instruct": 8096,
-  "oasst1": 7388,
-  "dolly-15k": 6551,
-  "nemotron-math": 6457,
-  "gsm8k": 6251,
-  "tydiqa-goldp": 4732,
+  "aya-dataset": 15001,
+  "oasst2": 14471,
+  "opencodeinstruct": 7742,
+  "self-oss-instruct": 7669,
+  "oasst1": 7379,
+  "gsm8k": 6239,
+  "nemotron-math": 6195,
+  "dolly-15k": 5576,
+  "tydiqa-goldp": 4669,
   "scienceqa-text": 3336,
   "wikipedia-ur": 2623,
   "nemotron-stem": 1756,
-  "trendyol-cybersec": 1315,
+  "commitpackft": 1543,
+  "strategyqa": 1447,
+  "trendyol-cybersec": 1301,
+  "quartz": 791,
   "wikipedia-hi": 720,
   "wikipedia-ko": 462,
   "roman-urdu-parl": 434,
   "approx-curriculum": 357,
-  "mbpp": 222,
-  "wikipedia-fr": 58,
-  "approx-seed-v0.1": 11,
-  "wikipedia-id": 9
+  "mbpp": 220,
+  "wikipedia-fr": 54,
+  "approx-seed-v0.1": 9,
+  "wikipedia-id": 6
  },
  "by_origin": {
-  "human_authored": 58112,
-  "synthetic": 27225,
-  "templated_human": 3872,
+  "human_authored": 60672,
+  "synthetic": 24672,
+  "templated_human": 3865,
   "transliteration_unverified": 434,
   "programmatic": 357
  },
  "by_review_state": {
-  "unreviewed": 82033,
-  "source_community_reviewed": 7388,
-  "auto_verified": 579
+  "unreviewed": 82044,
+  "source_community_reviewed": 7379,
+  "auto_verified": 577
  },
- "synthetic_ratio": 0.3543,
+ "synthetic_ratio": 0.3259,
  "human_reviewed": 0,
- "content_fingerprint_sha256": "532c2537ce61089c7185101304f1af9ff8a44f68a11907cac35b6e01162a6a8e",
+ "content_fingerprint_sha256": "52df9c5655a809472d2a4b376c8c51afd903ab3acd977594102fc7840aa9460f",
  "files": {
   "train.jsonl": {
-   "records": 84684,
-   "sha256": "46455d1db93aa2d3924f6c669723b6a8062c387c68c6db43d39636e441eec75f"
+   "records": 84671,
+   "sha256": "2437fbd5d113ff50f8519991b70d277543c5e58227eb6a67c5c2ab0553d16549"
   },
   "eval.jsonl": {
-   "records": 2666,
-   "sha256": "03b4c4baa93d33803471dd3fef8ad42a942eb40976173ffe9e280dc778f2ac7c"
+   "records": 2667,
+   "sha256": "192bb085951f5fc9548143a1d070924edf0bb8c556270748ef8fbf55a02c01be"
   },
   "test.jsonl": {
-   "records": 2650,
-   "sha256": "073ce6de0da2e6435175d22a6d8cd61b8e461402075e8b24bf0534e3891546b3"
+   "records": 2662,
+   "sha256": "b68768043eb46362b6c6280aa2dbf813029502aa229529bbf282d59bd3fe1295"
   }
  },
  "gates": {
@@ -294,6 +290,7 @@
     "approx-curriculum",
     "approx-seed-v0.1",
     "aya-dataset",
+    "commitpackft",
     "dolly-15k",
     "gsm8k",
     "mbpp",
@@ -302,9 +299,11 @@
     "oasst1",
     "oasst2",
     "opencodeinstruct",
+    "quartz",
     "roman-urdu-parl",
     "scienceqa-text",
     "self-oss-instruct",
+    "strategyqa",
     "trendyol-cybersec",
     "tydiqa-goldp",
     "wikipedia-fr",
@@ -316,45 +315,45 @@
   },
   "synthetic_ratio": {
    "passed": true,
-   "detail": "31888/90000 = 0.354 (max 0.6)"
+   "detail": "29328/90000 = 0.326 (max 0.6)"
   },
   "domain_minimums": {
-   "passed": false,
+   "passed": true,
    "detail": {
-    "mathematics": "14860/9000",
-    "science": "7374/7200",
-    "coding": "16926/13500",
+    "mathematics": "14579/9000",
+    "science": "7376/7200",
+    "coding": "16199/13500",
     "software_engineering": "3600/3600",
     "cybersecurity": "1802/1800",
-    "reasoning": "2382/3600",
-    "research": "6037/3600",
+    "reasoning": "3600/3600",
+    "research": "5971/3600",
     "safety_ethics": "552/270"
    }
   },
   "domain_maximums": {
    "passed": true,
    "detail": {
-    "mathematics": "0.165 ≤ 0.22",
-    "general_knowledge": "0.322 ≤ 0.35"
+    "mathematics": "0.162 ≤ 0.22",
+    "general_knowledge": "0.321 ≤ 0.35"
    }
   },
   "language_minimums": {
    "passed": true,
    "detail": {
-    "en": "54501/12000",
+    "en": "54712/12000",
     "ur": "3000/3000",
     "roman_ur": "800/800",
-    "ar": "2292/1600",
-    "zh": "1084/800",
-    "es": "5383/1600",
+    "ar": "2254/1600",
+    "zh": "1081/800",
+    "es": "5370/1600",
     "fr": "1200/1200",
-    "de": "1132/800",
+    "de": "1128/800",
     "pt": "1000/1000",
-    "ru": "2964/1000",
+    "ru": "2956/1000",
     "ja": "800/800",
     "ko": "600/600",
     "hi": "1000/1000",
-    "bn": "1568/600",
+    "bn": "1556/600",
     "tr": "600/600",
     "id": "800/800",
     "fa": "600/600"
@@ -383,7 +382,6 @@
  },
  "production_ready": false,
  "production_readiness_notes": [
-  "domain_minimums: {'mathematics': '14860/9000', 'science': '7374/7200', 'coding': '16926/13500', 'software_engineering': '3600/3600', 'cybersecurity': '1802/1800', 'reasoning': '2382/3600', 'research': '6037/3600', 'safety_ethics': '552/270'}",
   "human_review: 0 human-reviewed / required 1500"
  ],
  "provenance": {
@@ -415,6 +413,116 @@
     "config": "default",
     "split": "train",
     "source_revision": "f9ea04583f02"
+   }
+  ],
+  "commitpackft": [
+   {
+    "file": "commitpackft/files/data__python__data.jsonl",
+    "path": "data/python/data.jsonl",
+    "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/python/data.jsonl",
+    "sha256": "d167da37e1058371c48e057cd8815d03700c867dd8bcf58e61420d4dcd288d73",
+    "bytes": 135858935,
+    "fetched_at": "2026-11-14T20:59:25Z",
+    "source_revision": "fc56fe33c030c6daa414c2b112c932b8eed085e6"
+   },
+   {
+    "file": "commitpackft/files/data__javascript__data.jsonl",
+    "path": "data/javascript/data.jsonl",
+    "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/javascript/data.jsonl",
+    "sha256": "968688a1163c2dbbced0d0f9cf1dd52bc0b626c2ad9b02ff23f5700b2e277f25",
+    "bytes": 128001108,
+    "fetched_at": "2026-11-14T20:59:30Z",
+    "source_revision": "fc56fe33c030c6daa414c2b112c932b8eed085e6"
+   },
+   {
+    "file": "commitpackft/files/data__typescript__data.jsonl",
+    "path": "data/typescript/data.jsonl",
+    "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/typescript/data.jsonl",
+    "sha256": "43d32596844c62aa23b0e5a8811648f6f20fa07d9ab80499d66507136b844a76",
+    "bytes": 14620423,
+    "fetched_at": "2026-11-14T20:59:31Z",
+    "source_revision": "fc56fe33c030c6daa414c2b112c932b8eed085e6"
+   },
+   {
+    "file": "commitpackft/files/data__html__data.jsonl",
+    "path": "data/html/data.jsonl",
+    "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/html/data.jsonl",
+    "sha256": "8b939f919f19e3a42307455d70b051261c5c64e40a6d733b0e3fff35f9cbbbf2",
+    "bytes": 49576827,
+    "fetched_at": "2026-11-14T20:59:34Z",
+    "source_revision": "fc56fe33c030c6daa414c2b112c932b8eed085e6"
+   },
+   {
+    "file": "commitpackft/files/data__css__data.jsonl",
+    "path": "data/css/data.jsonl",
+    "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/css/data.jsonl",
+    "sha256": "d005a0daecea6dfc06400a3b0f1aab90559fc1fcee4a8def3e3402e1536ef70f",
+    "bytes": 9580558,
+    "fetched_at": "2026-11-14T20:59:34Z",
+    "source_revision": "fc56fe33c030c6daa414c2b112c932b8eed085e6"
+   },
+   {
+    "file": "commitpackft/files/data__scss__data.jsonl",
+    "path": "data/scss/data.jsonl",
+    "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/scss/data.jsonl",
+    "sha256": "6494755e66279b10294ce50bc7f6f20d4cce12cae7acb749ef22c487328eca90",
+    "bytes": 13519978,
+    "fetched_at": "2026-11-14T20:59:35Z",
+    "source_revision": "fc56fe33c030c6daa414c2b112c932b8eed085e6"
+   },
+   {
+    "file": "commitpackft/files/data__jsx__data.jsonl",
+    "path": "data/jsx/data.jsonl",
+    "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/jsx/data.jsonl",
+    "sha256": "b79fefe79ce2fb4c7bae82a84fd84295779f852805270421d2b395c4f385c7ab",
+    "bytes": 5624676,
+    "fetched_at": "2026-11-14T20:59:36Z",
+    "source_revision": "fc56fe33c030c6daa414c2b112c932b8eed085e6"
+   },
+   {
+    "file": "commitpackft/files/data__vue__data.jsonl",
+    "path": "data/vue/data.jsonl",
+    "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/vue/data.jsonl",
+    "sha256": "ba5932557802ce39289465778d0f69c5a85f4ad9f5757a7735b36d36b1b81841",
+    "bytes": 1412827,
+    "fetched_at": "2026-11-14T20:59:36Z",
+    "source_revision": "fc56fe33c030c6daa414c2b112c932b8eed085e6"
+   },
+   {
+    "file": "commitpackft/files/data__php__data.jsonl",
+    "path": "data/php/data.jsonl",
+    "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/php/data.jsonl",
+    "sha256": "fda88bbb6483a504dcbaec36abd363eb6ae99531431fecc924d95ecdad91c691",
+    "bytes": 61660040,
+    "fetched_at": "2026-11-14T20:59:39Z",
+    "source_revision": "fc56fe33c030c6daa414c2b112c932b8eed085e6"
+   },
+   {
+    "file": "commitpackft/files/data__java__data.jsonl",
+    "path": "data/java/data.jsonl",
+    "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/java/data.jsonl",
+    "sha256": "c51a331320f4220d6053e3389485916c738fcaccfd583298b7738af834fa19b9",
+    "bytes": 57628439,
+    "fetched_at": "2026-11-14T20:59:42Z",
+    "source_revision": "fc56fe33c030c6daa414c2b112c932b8eed085e6"
+   },
+   {
+    "file": "commitpackft/files/data__go__data.jsonl",
+    "path": "data/go/data.jsonl",
+    "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/go/data.jsonl",
+    "sha256": "05a65e973fcc6894a234fb382987cc25e26f053d60b032ea83540a5b36a528b8",
+    "bytes": 12417842,
+    "fetched_at": "2026-11-14T20:59:42Z",
+    "source_revision": "fc56fe33c030c6daa414c2b112c932b8eed085e6"
+   },
+   {
+    "file": "commitpackft/files/data__sql__data.jsonl",
+    "path": "data/sql/data.jsonl",
+    "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/sql/data.jsonl",
+    "sha256": "baf9b91bf1f860fb6a8ff33aadd85a38ea833f297b03b1f0f2b426f6494404ac",
+    "bytes": 3822222,
+    "fetched_at": "2026-11-14T20:59:43Z",
+    "source_revision": "fc56fe33c030c6daa414c2b112c932b8eed085e6"
    }
   ],
   "dolly-15k": [
@@ -757,6 +865,28 @@
     "source_revision": "8f3ba5bafe4d6e8db46082cf7ae6741bc370604d"
    }
   ],
+  "quartz": [
+   {
+    "file": "quartz/default/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/allenai/quartz/parquet/default/train/0.parquet",
+    "sha256": "edeb1fa716d945ee198c9f5ce5ab6cad4d847e714ff7463834dee422c8450035",
+    "bytes": 415195,
+    "fetched_at": "2026-11-14T20:59:15Z",
+    "config": "default",
+    "split": "train",
+    "source_revision": "28c1dbb56caf"
+   },
+   {
+    "file": "quartz/default/validation/validation-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/allenai/quartz/parquet/default/validation/0.parquet",
+    "sha256": "91afc8bbdb1b6b67f35f05ea4b4dbc1ba718ec2469be665a386c46b4648a1fb4",
+    "bytes": 54296,
+    "fetched_at": "2026-11-14T20:59:16Z",
+    "config": "default",
+    "split": "validation",
+    "source_revision": "28c1dbb56caf"
+   }
+  ],
   "roman-urdu-parl": [
    {
     "file": "roman-urdu-parl/default/train/train-0000.parquet",
@@ -791,6 +921,18 @@
     "config": "default",
     "split": "train",
     "source_revision": "356bb069eee8"
+   }
+  ],
+  "strategyqa": [
+   {
+    "file": "strategyqa/default/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/ChilleD/StrategyQA/parquet/default/train/0.parquet",
+    "sha256": "82262246f9f669cc69128c64d96e81860d232482565ecb9d9c63e7ee2c6574a7",
+    "bytes": 369335,
+    "fetched_at": "2026-11-14T20:59:15Z",
+    "config": "default",
+    "split": "train",
+    "source_revision": "705562638fe1"
    }
   ],
   "trendyol-cybersec": [
@@ -874,6 +1016,7 @@
   ]
  },
  "upstream_risks": {
+  "commitpackft": "permissive code licenses (MIT/BSD/Apache) require keeping copyright notices if code is redistributed verbatim; per-row license and repo are kept in the record meta",
   "nemotron-math": "prompts collected by NVIDIA from 'public and open corpora' (not itemised per row)",
   "nemotron-stem": "prompts collected by NVIDIA from 'public and open corpora' (not itemised per row)",
   "opencodeinstruct": "generator model not named on the card; confirm before commercial release (reject = set status to 'rejected' and rebuild)",
@@ -881,24 +1024,24 @@
   "trendyol-cybersec": "generation method not named on the card; confirm before commercial release"
  },
  "pool_summary": {
-  "built_at": "2026-11-14T20:59:32Z",
+  "built_at": "2026-11-14T21:48:07Z",
   "rejections": {
-   "repetition": 44417,
-   "language_mismatch": 37318,
-   "quality": 14605,
-   "formatting": 73,
+   "repetition": 103488,
+   "language_mismatch": 38977,
+   "quality": 16523,
+   "formatting": 93,
    "injection": 10,
-   "nonsensical": 1178,
-   "unicode": 859,
+   "nonsensical": 9251,
+   "unicode": 2562,
    "safety": 19,
    "empty": 10,
    "injection_contamination": 2,
-   "exact_duplicate": 30497,
-   "contradiction": 7407,
-   "near_duplicate": 65658,
+   "exact_duplicate": 32136,
+   "contradiction": 7540,
+   "near_duplicate": 73687,
    "benchmark_leakage": 10
   },
-  "pii_redactions": 22909,
+  "pii_redactions": 46325,
   "per_source": {
    "oasst1": {
     "status": "ingested",
@@ -913,7 +1056,7 @@
      "nonsensical": 29,
      "unicode": 4
     },
-    "seconds": 46.7
+    "seconds": 46.4
    },
    "dolly-15k": {
     "status": "ingested",
@@ -927,7 +1070,7 @@
      "repetition": 9,
      "safety": 1
     },
-    "seconds": 19.7
+    "seconds": 20.9
    },
    "gsm8k": {
     "status": "ingested",
@@ -938,7 +1081,7 @@
      "quality": 212,
      "nonsensical": 5
     },
-    "seconds": 7.1
+    "seconds": 6.6
    },
    "aya-dataset": {
     "status": "ingested",
@@ -952,7 +1095,7 @@
      "unicode": 259,
      "empty": 10
     },
-    "seconds": 335.0
+    "seconds": 333.9
    },
    "arc": {
     "status": "ingested",
@@ -973,7 +1116,7 @@
      "nonsensical": 7,
      "language_mismatch": 9
     },
-    "seconds": 8.4
+    "seconds": 7.7
    },
    "scienceqa-text": {
     "status": "ingested",
@@ -982,7 +1125,7 @@
     "rejected": {
      "quality": 37
     },
-    "seconds": 17.6
+    "seconds": 16.8
    },
    "self-oss-instruct": {
     "status": "ingested",
@@ -995,7 +1138,7 @@
      "formatting": 1,
      "unicode": 1
     },
-    "seconds": 95.8
+    "seconds": 95.4
    },
    "competition-math": {
     "status": "unavailable",
@@ -1107,7 +1250,7 @@
      "injection": 4,
      "injection_contamination": 2
     },
-    "seconds": 71.1
+    "seconds": 71.3
    },
    "tydiqa-goldp": {
     "status": "ingested",
@@ -1119,7 +1262,7 @@
      "quality": 156,
      "nonsensical": 112
     },
-    "seconds": 65.9
+    "seconds": 66.7
    },
    "qasc": {
     "status": "ingested",
@@ -1129,7 +1272,7 @@
      "language_mismatch": 12,
      "quality": 4
     },
-    "seconds": 5.6
+    "seconds": 5.7
    },
    "roman-urdu-parl": {
     "status": "ingested",
@@ -1140,7 +1283,7 @@
      "language_mismatch": 57,
      "quality": 1
     },
-    "seconds": 10.0
+    "seconds": 10.2
    },
    "nemotron-math": {
     "status": "ingested",
@@ -1151,7 +1294,7 @@
      "nonsensical": 166,
      "quality": 29
     },
-    "seconds": 102.5
+    "seconds": 99.6
    },
    "nemotron-stem": {
     "status": "ingested",
@@ -1162,7 +1305,7 @@
      "quality": 83,
      "formatting": 27
     },
-    "seconds": 61.4
+    "seconds": 59.5
    },
    "opencodeinstruct": {
     "status": "ingested",
@@ -1174,7 +1317,7 @@
      "unicode": 6,
      "language_mismatch": 1
     },
-    "seconds": 231.9
+    "seconds": 231.4
    },
    "trendyol-cybersec": {
     "status": "ingested",
@@ -1187,7 +1330,7 @@
      "language_mismatch": 1,
      "injection": 3
     },
-    "seconds": 241.1
+    "seconds": 238.6
    },
    "wikipedia-ur": {
     "status": "ingested",
@@ -1200,7 +1343,7 @@
      "nonsensical": 3,
      "repetition": 7
     },
-    "seconds": 31.0
+    "seconds": 32.0
    },
    "wikipedia-hi": {
     "status": "ingested",
@@ -1212,7 +1355,7 @@
      "quality": 2,
      "nonsensical": 1
     },
-    "seconds": 25.1
+    "seconds": 26.5
    },
    "wikipedia-ko": {
     "status": "ingested",
@@ -1224,7 +1367,7 @@
      "language_mismatch": 14,
      "unicode": 3
     },
-    "seconds": 23.8
+    "seconds": 24.5
    },
    "wikipedia-id": {
     "status": "ingested",
@@ -1237,7 +1380,7 @@
      "nonsensical": 1,
      "quality": 2
     },
-    "seconds": 19.7
+    "seconds": 21.3
    },
    "wikipedia-fr": {
     "status": "ingested",
@@ -1248,7 +1391,7 @@
      "language_mismatch": 11,
      "repetition": 5
     },
-    "seconds": 9.4
+    "seconds": 10.1
    },
    "nemotron-chat": {
     "status": "rejected",
@@ -1309,6 +1452,72 @@
     "status": "review_required",
     "ingested": 0,
     "reason": "Real user prompts with ChatGPT (OpenAI) responses."
+   },
+   "commonsense-qa": {
+    "status": "ingested",
+    "raw": 10962,
+    "accepted_record_gates": 10790,
+    "rejected": {
+     "language_mismatch": 166,
+     "quality": 6
+    },
+    "seconds": 4.8
+   },
+   "strategyqa": {
+    "status": "ingested",
+    "raw": 1603,
+    "accepted_record_gates": 1571,
+    "rejected": {
+     "quality": 31,
+     "language_mismatch": 1
+    },
+    "seconds": 0.8
+   },
+   "quartz": {
+    "status": "ingested",
+    "raw": 3080,
+    "accepted_record_gates": 3060,
+    "rejected": {
+     "quality": 14,
+     "language_mismatch": 6
+    },
+    "seconds": 1.7
+   },
+   "aqua-rat": {
+    "status": "ingested",
+    "raw": 92736,
+    "accepted_record_gates": 80987,
+    "rejected": {
+     "unicode": 1665,
+     "nonsensical": 8072,
+     "language_mismatch": 1417,
+     "quality": 460,
+     "repetition": 135
+    },
+    "seconds": 72.5
+   },
+   "ethics-commonsense": {
+    "status": "ingested",
+    "raw": 6860,
+    "accepted_record_gates": 6852,
+    "rejected": {
+     "quality": 8
+    },
+    "seconds": 3.3
+   },
+   "commitpackft": {
+    "status": "ingested",
+    "raw": 157201,
+    "accepted_record_gates": 96738,
+    "rejected": {
+     "repetition": 58936,
+     "quality": 1399,
+     "language_mismatch": 69,
+     "formatting": 20,
+     "unicode": 38,
+     "nonsensical": 1
+    },
+    "seconds": 143.4
    }
   },
   "missing": []
