@@ -67,6 +67,13 @@ export const config = {
     cycleLimit: int(env.QUOTA_CYCLE_LIMIT, 0), // 0 = no extra per-cycle cap (only window limit)
   },
 
+  // Google Sign-In: OAuth client ID(s) from Google Cloud Console (public values, comma separated).
+  // GOOGLE_JWKS_URL may only be overridden outside production (tests use a local key server).
+  google: {
+    clientIds: String(env.GOOGLE_CLIENT_ID || '').split(',').map((s) => s.trim()).filter(Boolean),
+    jwksUrl: (env.APPROX_ENV || 'production') !== 'production' && env.GOOGLE_JWKS_URL ? env.GOOGLE_JWKS_URL : 'https://www.googleapis.com/oauth2/v3/certs',
+  },
+
   auth: {
     sessionDays: int(env.SESSION_DAYS, 14),
     maxFailedLogins: int(env.MAX_FAILED_LOGINS, 8),

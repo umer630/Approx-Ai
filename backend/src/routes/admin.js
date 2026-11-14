@@ -58,6 +58,16 @@ export function registerAdminRoutes(r) {
     sendJson(res, 200, { status: 'revoked' });
   });
 
+  // Response feedback: reported replies first, plus 👍/👎 totals.
+  r.get('/api/admin/feedback', async (req, res, ctx) => {
+    requireRole(ctx, 'admin', 'superadmin');
+    sendJson(res, 200, {
+      totals: await one("SELECT SUM(rating = 'up') up, SUM(rating = 'down') down, SUM(reported) reported FROM message_feedback"),
+      reports: await all(`SELECT f.message_id, f.reason, f.comment, f.rating, f.updated_at, m.model_id, m.chat_id, substr(m.content, 1, 400) excerpt
+        FROM message_feedback f JOIN messages m ON m.id = f.message_id WHERE f.reported = 1 ORDER BY f.updated_at DESC LIMIT 200`),
+    });
+  });
+
   r.get('/api/admin/audit', async (req, res, ctx) => {
     requireRole(ctx, 'admin', 'superadmin');
     sendJson(res, 200, { audit: await all('SELECT * FROM audit_logs ORDER BY id DESC LIMIT 300'), security_events: await all('SELECT * FROM security_events ORDER BY id DESC LIMIT 300') });

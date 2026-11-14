@@ -1,5 +1,5 @@
 import { api, stream, upload, setCsrf, ApiError } from './api.js';
-import { h, icon, toast, sheet, fmtTime, fmtBytes } from './ui.js';
+import { h, icon, toast, sheet, fmtTime, fmtBytes, confirmDialog, promptDialog } from './ui.js';
 import { markdown } from './md.js';
 import { greeting } from './greeting.js';
 import * as views from './views.js';
@@ -18,6 +18,7 @@ const routes = [
   [/^#\/verify/, () => tokenView('verify')],
   [/^#\/reset/, () => tokenView('reset')],
   [/^#\/confirm-email/, () => tokenView('confirm')],
+  [/^#\/google-mobile/, () => googleMobileView()],
   [/^#\/c\/([\w]+)$/, (m) => shell(() => chatView(m[1]))],
   [/^#\/projects$/, () => shell(() => views.projectsView())],
   [/^#\/projects\/([\w]+)$/, (m) => shell(() => views.projectView(m[1]))],
@@ -29,7 +30,7 @@ const routes = [
   [/^#\/admin$/, () => shell(() => views.adminView())],
   [/^#?\/?$/, () => shell(() => chatView(null))],
 ];
-const PUBLIC = /^#\/(login|signup|forgot|verify|reset|confirm-email)/;
+const PUBLIC = /^#\/(login|signup|forgot|verify|reset|confirm-email|google-mobile)/;
 
 export function go(hash) { if (location.hash === hash) render(); else location.hash = hash; }
 window.addEventListener('hashchange', render);
@@ -63,44 +64,126 @@ function authFrame(title, subtitle, ...content) {
 function formMsg() { return h('div', { class: 'hidden', role: 'alert' }); }
 function showMsg(el, text, kind = 'error') { el.className = `alert ${kind}`; el.textContent = text; }
 
+// ---- account helpers (this device only: email + name, never tokens or passwords) ----
+const RECENT_KEY = 'approx.recentAccounts';
+function recentAccounts() { try { return JSON.parse(localStorage.getItem(RECENT_KEY) || '[]').filter((a) => a && typeof a.email === 'string').slice(0, 4); } catch { return []; } }
+function rememberAccount(user) {
+  try {
+    const list = [{ email: user.email, name: user.display_name || '' }, ...recentAccounts().filter((a) => a.email !== user.email)].slice(0, 4);
+    localStorage.setItem(RECENT_KEY, JSON.stringify(list));
+  } catch { /* storage unavailable */ }
+}
+function forgetAccount(email) { try { localStorage.setItem(RECENT_KEY, JSON.stringify(recentAccounts().filter((a) => a.email !== email))); } catch { /* ignore */ } }
+async function signedIn(r) { state.user = r.user; setCsrf(r.csrf_token); rememberAccount(r.user); await bootstrap(); go('#/'); }
+
+/** Password input with a Show/Hide toggle. */
+function passwordField(id, labelText, autocomplete, hint) {
+  const input = h('input', { class: 'input', type: 'password', autocomplete, required: true, id, minlength: '10' });
+  const toggle = h('button', { class: 'pw-toggle', type: 'button', 'aria-label': 'Show password', 'aria-controls': id, onclick: () => {
+    const show = input.type === 'password'; input.type = show ? 'text' : 'password';
+    toggle.textContent = show ? 'Hide' : 'Show'; toggle.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+  } }, 'Show');
+  return { input, el: h('div', { class: 'field' }, h('label', { for: id }, labelText), h('div', { class: 'pw-wrap' }, input, toggle), hint ? h('span', { class: 'small muted' }, hint) : null) };
+}
+
+/** Google's official button + account chooser (Google Identity Services). Only rendered when a client ID is configured. */
+let gisLoad;
+function loadGis() {
+  gisLoad ||= new Promise((resolve, reject) => {
+    const sc = document.createElement('script'); sc.src = 'https://accounts.google.com/gsi/client'; sc.async = true;
+    sc.onload = () => resolve(window.google); sc.onerror = () => { gisLoad = null; reject(new Error("Couldn't load Google sign-in. Check your connection.")); };
+    document.head.append(sc);
+  });
+  return gisLoad;
+}
+function googleSection(msg, onCredential) {
+  const slot = h('div', { class: 'google-slot' });
+  const wrap = h('div', { class: 'google-wrap' }, slot, h('div', { class: 'or' }, h('span', {}, 'or')));
+  (async () => {
+    let cfg; try { cfg = await api('/api/auth/config'); } catch { cfg = null; }
+    if (!cfg?.google?.enabled) {
+      slot.replaceChildren(h('button', { class: 'btn block google-btn', type: 'button', disabled: true, title: 'Not configured' }, h('span', { class: 'g-logo', 'aria-hidden': 'true' }, 'G'), 'Continue with Google'),
+        h('div', { class: 'small muted center' }, 'Google sign-in isn’t set up on this server yet.'));
+      return;
+    }
+    try {
+      const google = await loadGis();
+      google.accounts.id.initialize({ client_id: cfg.google.client_id, ux_mode: 'popup', auto_select: false, cancel_on_tap_outside: true,
+        callback: async (resp) => { try { await onCredential(resp.credential); } catch (e) { showMsg(msg, e.message); } } });
+      google.accounts.id.renderButton(slot, { type: 'standard', theme: 'outline', size: 'large', text: 'continue_with', shape: 'pill', width: Math.min(360, slot.clientWidth || 360) });
+    } catch (e) { slot.replaceChildren(h('div', { class: 'small muted center' }, e.message)); }
+  })();
+  return wrap;
+}
+
 function authView(kind) {
   const msg = formMsg();
   const email = h('input', { class: 'input', type: 'email', autocomplete: 'email', required: true, id: 'email', placeholder: 'you@example.com' });
-  const pw = h('input', { class: 'input', type: 'password', autocomplete: kind === 'signup' ? 'new-password' : 'current-password', required: true, id: 'password', minlength: '10' });
+  const pwf = kind !== 'forgot' ? passwordField('password', 'Password', kind === 'signup' ? 'new-password' : 'current-password', kind === 'signup' ? 'At least 10 characters with letters and numbers.' : null) : null;
+  const pw2 = kind === 'signup' ? passwordField('password2', 'Confirm password', 'new-password') : null;
   const name = h('input', { class: 'input', autocomplete: 'name', id: 'name', maxlength: '80' });
   const btn = h('button', { class: 'btn primary block', type: 'submit' }, kind === 'login' ? 'Sign in' : kind === 'signup' ? 'Create account' : 'Send reset link');
   const label = btn.textContent;
   const busyLabel = kind === 'login' ? 'Signing in…' : kind === 'signup' ? 'Creating account…' : 'Sending…';
-  const form = h('form', { onsubmit: async (e) => {
+  const form = h('form', { novalidate: true, onsubmit: async (e) => {
     e.preventDefault();
     if (btn.disabled) return; // no duplicate submissions
+    // Clear validation messages before any network call.
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) { showMsg(msg, 'Enter a valid email address.'); email.focus(); return; }
+    if (pwf && !pwf.input.value) { showMsg(msg, 'Enter your password.'); pwf.input.focus(); return; }
+    if (kind === 'signup') {
+      if (pwf.input.value.length < 10 || !/[a-z]/i.test(pwf.input.value) || !/\d/.test(pwf.input.value)) { showMsg(msg, 'Use at least 10 characters with letters and numbers.'); pwf.input.focus(); return; }
+      if (pwf.input.value !== pw2.input.value) { showMsg(msg, 'The passwords don’t match.'); pw2.input.focus(); return; }
+    }
     btn.disabled = true; btn.classList.add('loading'); btn.setAttribute('aria-busy', 'true'); btn.textContent = busyLabel;
     msg.className = 'hidden';
     try {
       if (kind === 'login') {
-        const r = await api('/api/auth/login', { method: 'POST', body: { email: email.value, password: pw.value } });
-        state.user = r.user; setCsrf(r.csrf_token); await bootstrap(); go('#/');
+        await signedIn(await api('/api/auth/login', { method: 'POST', body: { email: email.value.trim(), password: pwf.input.value } }));
       } else if (kind === 'signup') {
-        const r = await api('/api/auth/signup', { method: 'POST', body: { email: email.value, password: pw.value, display_name: name.value } });
-        showMsg(msg, `${r.message} Check your inbox, then sign in.`, 'ok'); form.reset();
+        const r = await api('/api/auth/signup', { method: 'POST', body: { email: email.value.trim(), password: pwf.input.value, display_name: name.value } });
+        showMsg(msg, `${r.message} Check your inbox (and spam folder), then open the link to verify.`, 'ok'); form.reset();
       } else {
-        const r = await api('/api/auth/forgot-password', { method: 'POST', body: { email: email.value } });
+        const r = await api('/api/auth/forgot-password', { method: 'POST', body: { email: email.value.trim() } });
         showMsg(msg, r.message, 'ok');
       }
     } catch (err) { showMsg(msg, err.message); } finally { btn.disabled = false; btn.classList.remove('loading'); btn.removeAttribute('aria-busy'); btn.textContent = label; }
   } },
   kind === 'signup' ? h('div', { class: 'field' }, h('label', { for: 'name' }, 'Name (optional)'), name) : null,
   h('div', { class: 'field' }, h('label', { for: 'email' }, 'Email'), email),
-  kind !== 'forgot' ? h('div', { class: 'field' }, h('label', { for: 'password' }, 'Password'), pw, kind === 'signup' ? h('span', { class: 'small muted' }, 'At least 10 characters with letters and numbers.') : null) : null,
-  msg, btn);
+  pwf?.el, pw2?.el, msg, btn);
+
+  // Accounts used on this device before: tap to continue (fills the email; the password is still required).
+  const recent = kind === 'login' ? recentAccounts() : [];
+  const chooser = recent.length ? h('div', { class: 'account-chooser' }, h('div', { class: 'small muted' }, 'Choose an account'),
+    ...recent.map((a) => h('div', { class: 'account-row' },
+      h('button', { class: 'account', type: 'button', onclick: () => { email.value = a.email; pwf.input.focus(); } },
+        h('span', { class: 'account-avatar', 'aria-hidden': 'true' }, (a.name || a.email)[0].toUpperCase()),
+        h('span', { class: 'grow' }, h('b', {}, a.name || a.email.split('@')[0]), h('span', { class: 'small muted' }, a.email))),
+      h('button', { class: 'icon-btn small', type: 'button', 'aria-label': `Remove ${a.email} from this device`, title: 'Remove from this device', onclick: (e) => { forgetAccount(a.email); e.currentTarget.closest('.account-row').remove(); } }, '×')))) : null;
+
+  const google = kind !== 'forgot' ? googleSection(msg, async (credential) => signedIn(await api('/api/auth/google', { method: 'POST', body: { credential } }))) : null;
   const links = h('div', { class: 'auth-links' },
-    kind === 'login' ? h('a', { href: '#/signup' }, 'Create account') : h('a', { href: '#/login' }, 'Sign in'),
-    kind !== 'forgot' ? h('a', { href: '#/forgot' }, 'Forgot password?') : null);
-  if (kind === 'login') {
-    links.append(h('a', { href: '#/verify' }, 'Have a code?'));
-  }
+    kind === 'login' ? h('a', { href: '#/signup' }, 'Create account') : kind === 'signup' ? h('span', {}, 'Already have an account? ', h('a', { href: '#/login' }, 'Sign in')) : h('a', { href: '#/login' }, 'Sign in'),
+    kind === 'login' ? h('a', { href: '#/forgot' }, 'Forgot password?') : null);
+  if (kind === 'login') links.append(h('a', { href: '#/verify' }, 'Have a code?'));
   authFrame(kind === 'login' ? 'Welcome back' : kind === 'signup' ? 'Create your Approx AI account' : 'Reset password',
-    kind === 'login' ? 'Sign in to Approx AI' : null, form, links);
+    kind === 'login' ? 'Sign in to Approx AI' : kind === 'signup' ? 'Free to start — Nick 4.8 and Hike 6.5 included.' : null, chooser, google, form, links);
+}
+
+/** Android "Continue with Google": runs Google sign-in in the browser, then returns to the app with a one-time code. */
+function googleMobileView() {
+  const params = new URLSearchParams(location.hash.split('?')[1] || '');
+  const challenge = params.get('challenge') || ''; const st = params.get('state') || '';
+  const msg = formMsg();
+  if (!/^[A-Za-z0-9_-]{43,64}$/.test(challenge) || !/^[A-Za-z0-9_-]{8,64}$/.test(st)) {
+    return authFrame('Continue with Google', null, h('div', { class: 'alert error' }, 'This sign-in link is incomplete. Start again from the Approx AI app.'));
+  }
+  authFrame('Continue with Google', 'Choose the Google account to use with the Approx AI app.', googleSection(msg, async (credential) => {
+    const r = await api('/api/auth/google/handoff', { method: 'POST', body: { credential, challenge } });
+    showMsg(msg, 'Signed in. Returning to the Approx AI app…', 'ok');
+    location.href = `approxai://auth?code=${encodeURIComponent(r.code)}&state=${encodeURIComponent(st)}`;
+  }), msg);
 }
 
 function tokenView(kind) {
@@ -249,6 +332,45 @@ const SUGGESTIONS = [
   ['Plan', 'Plan a 4-week study schedule for learning SQL from scratch.'],
 ];
 
+// ---- conversation menu (⋯): rename, share, export, archive, delete ----
+function chatHead() {
+  if (!state.chat?.id) return null;
+  return h('div', { class: 'chat-head' }, h('div', { class: 'title grow', id: 'chat-title' }, state.chat.title || 'New conversation'),
+    h('button', { class: 'icon-btn', 'aria-label': 'Conversation options', title: 'Conversation options', onclick: openChatMenu }, icon('more')));
+}
+function conversationMarkdown() {
+  return [`# ${state.chat?.title || 'Conversation'}`, ''].concat(state.messages.filter((m) => m.role !== 'system')
+    .flatMap((m) => [`## ${m.role === 'user' ? 'You' : 'Approx AI'}`, '', m.content, ''])).join('\n');
+}
+function openChatMenu() {
+  const c = state.chat; if (!c?.id) return;
+  sheet('Conversation', (s, close) => {
+    const item = (ic, label, fn, danger) => h('button', { class: `list-item${danger ? ' danger' : ''}`, onclick: async () => { close(); try { await fn(); } catch (e) { toast(e.message); } } }, icon(ic), h('span', { class: 'grow' }, label));
+    s.append(h('div', { class: 'list' },
+      item('edit', 'Rename', async () => {
+        const t = await promptDialog('Rename conversation', 'Title', c.title); if (!t) return;
+        await api(`/api/chats/${c.id}`, { method: 'PATCH', body: { title: t } }); c.title = t;
+        const el = document.getElementById('chat-title'); if (el) el.textContent = t; toast('Renamed');
+      }),
+      item('share', 'Share', async () => {
+        const text = conversationMarkdown();
+        if (navigator.share) { try { await navigator.share({ title: c.title || 'Approx AI conversation', text }); return; } catch (e) { if (e.name === 'AbortError') return; } }
+        await navigator.clipboard.writeText(text); toast('Conversation copied — paste it anywhere to share');
+      }),
+      item('download', 'Export as Markdown', async () => {
+        const r = await fetch(`/api/chats/${c.id}/export?format=md`, { credentials: 'same-origin' });
+        if (!r.ok) throw new Error('Export failed. Please try again.');
+        const blob = await r.blob(); const a = h('a', { href: URL.createObjectURL(blob), download: `${(c.title || 'conversation').replace(/[^\p{L}\p{N} _-]+/gu, '').trim() || 'conversation'}.md` });
+        document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); toast('Exported');
+      }),
+      item('archive', 'Archive', async () => { await api(`/api/chats/${c.id}`, { method: 'PATCH', body: { archived: true } }); toast('Archived'); newChat(); }),
+      item('trash', 'Delete', async () => {
+        if (!(await confirmDialog('Delete conversation?', 'It moves to Trash in History, where you can restore it.', 'Delete', true))) return;
+        await api(`/api/chats/${c.id}`, { method: 'DELETE' }); toast('Moved to trash'); newChat();
+      }, true)));
+  });
+}
+
 function renderMessages() {
   const list = h('div', { class: 'messages', id: 'messages' });
   if (!state.messages.length) {
@@ -262,7 +384,7 @@ function renderMessages() {
       h('div', { class: 'suggestions' }, SUGGESTIONS.map(([t, p]) => h('button', { class: 'suggestion', onclick: () => { const ta = document.getElementById('prompt'); ta.value = p; ta.dispatchEvent(new Event('input')); ta.focus(); } }, h('b', {}, t), h('div', { class: 'muted small' }, p))))));
   }
   for (const m of state.messages) list.append(messageEl(m));
-  setMain(list);
+  setMain(...[chatHead(), list].filter(Boolean));
   scrollDown(true);
 }
 // Follow new output only while the reader is at (or near) the bottom; `force` for the reader's own actions.
@@ -281,11 +403,40 @@ function messageEl(m) {
   const actions = h('div', { class: 'actions' },
     h('button', { 'aria-label': 'Copy', title: 'Copy', onclick: () => { navigator.clipboard.writeText(m.content); toast('Copied'); } }, icon('copy')),
     !isUser ? h('button', { 'aria-label': 'Regenerate', title: 'Regenerate', onclick: regenerate }, icon('refresh')) : null,
-    !isUser ? h('button', { 'aria-label': 'Save to Workspace', title: 'Save to Approx Workspace', onclick: () => saveToWorkspace(m) }, icon('save')) : null);
+    !isUser ? h('button', { 'aria-label': 'Save to Workspace', title: 'Save to Approx Workspace', onclick: () => saveToWorkspace(m) }, icon('save')) : null,
+    ...(!isUser && m.id && state.chat?.id ? feedbackButtons(m) : []),
+    isUser ? h('button', { 'aria-label': 'Edit', title: 'Edit and resend', onclick: () => {
+      const ta = document.getElementById('prompt'); if (!ta) return;
+      ta.value = m.content; ta.dispatchEvent(new Event('input')); ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length);
+    } }, icon('edit')) : null);
   const meta = h('div', { class: 'meta' }, actions,
     !isUser && m.model_id ? h('span', { class: 'tag', title: m.route_reason || '' }, `${state.models.find((x) => x.id === m.model_id)?.name || m.model_id} · ${modeLabel(m.mode)}`) : null,
     m.created_at ? h('span', {}, fmtTime(m.created_at)) : null);
   return h('article', { class: `msg ${m.role} ${m.status === 'error' ? 'error' : ''}`, 'data-id': m.id || '' }, atts, bubble, meta);
+}
+
+// 👍 / 👎 / Report on an assistant reply (stored per message; tapping the active rating clears it).
+function feedbackButtons(m) {
+  const fb = m.feedback || { rating: null, reported: false };
+  const send = async (body) => {
+    const r = await api(`/api/chats/${state.chat.id}/messages/${m.id}/feedback`, { method: 'POST', body });
+    m.feedback = r.feedback; up.setAttribute('aria-pressed', String(r.feedback.rating === 'up')); down.setAttribute('aria-pressed', String(r.feedback.rating === 'down'));
+    flag.classList.toggle('reported', r.feedback.reported);
+  };
+  const up = h('button', { 'aria-label': 'Good response', title: 'Good response', 'aria-pressed': String(fb.rating === 'up'),
+    onclick: () => send({ rating: m.feedback?.rating === 'up' ? null : 'up' }).then(() => toast('Thanks for the feedback')).catch((e) => toast(e.message)) }, icon('up'));
+  const down = h('button', { 'aria-label': 'Bad response', title: 'Bad response', 'aria-pressed': String(fb.rating === 'down'),
+    onclick: () => send({ rating: m.feedback?.rating === 'down' ? null : 'down' }).then(() => toast('Thanks — this helps improve Approx')).catch((e) => toast(e.message)) }, icon('down'));
+  const flag = h('button', { class: fb.reported ? 'reported' : '', 'aria-label': 'Report response', title: 'Report this response', onclick: () => {
+    sheet('Report this response', (s, close) => {
+      const note = h('textarea', { class: 'input', rows: '3', maxlength: '1000', placeholder: 'What went wrong? (optional)' });
+      const reasons = [['incorrect', 'Incorrect or misleading'], ['harmful', 'Harmful or unsafe'], ['unhelpful', 'Not helpful'], ['other', 'Something else']];
+      s.append(h('div', { class: 'list' }, reasons.map(([k, label]) => h('button', { class: 'list-item', onclick: async () => {
+        try { await send({ rating: m.feedback?.rating || 'down', report: true, reason: k, comment: note.value.trim() || undefined }); close(); toast('Report sent. Thank you.'); } catch (e) { toast(e.message); }
+      } }, h('span', { class: 'grow' }, label)))), h('div', { class: 'field' }, note));
+    });
+  } }, icon('flag'));
+  return [up, down, flag];
 }
 
 async function saveToWorkspace(m) {
@@ -315,11 +466,36 @@ function renderComposer() {
   renderChips();
   const plus = h('button', { class: 'round', 'aria-label': 'Add attachments and tools', onclick: () => openPlusMenu(renderChips, ta) }, icon('plus'));
   const modelChip = h('button', { class: 'select-chip', id: 'model-chip', 'aria-label': 'Select model', onclick: openModelPicker });
+  const mic = micButton(ta, sync);
   composerEl.replaceChildren(h('div', { class: 'composer' }, chips, ta,
-    h('div', { class: 'bar' }, plus, modelChip, modeToggle(), h('div', { class: 'spacer' }), send)),
+    h('div', { class: 'bar' }, plus, modelChip, modeToggle(), h('div', { class: 'spacer' }), mic, send)),
   h('div', { class: 'composer-note' }, usageNote()));
   updateIndicator();
 }
+/** Voice input with the browser's own speech recognition. Not rendered where the browser has none (no fake mic). */
+function micButton(ta, sync) {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) return null;
+  let rec = null; let base = '';
+  const btn = h('button', { class: 'round mic', type: 'button', 'aria-label': 'Voice input', title: 'Voice input', 'aria-pressed': 'false' }, icon('mic'));
+  const stop = () => { if (rec) rec.stop(); };
+  const setListening = (on) => { btn.classList.toggle('listening', on); btn.setAttribute('aria-pressed', String(on)); btn.setAttribute('aria-label', on ? 'Stop listening' : 'Voice input'); };
+  btn.addEventListener('click', () => {
+    if (rec) return stop();
+    rec = new SR(); rec.interimResults = true; rec.continuous = false;
+    rec.lang = state.user?.language === 'ur' ? 'ur-PK' : (navigator.language || 'en-US');
+    base = ta.value ? ta.value.replace(/\s*$/, ' ') : '';
+    rec.onresult = (e) => { let t = ''; for (const r of e.results) t += r[0].transcript; ta.value = base + t; sync(); };
+    rec.onerror = (e) => {
+      toast(e.error === 'not-allowed' || e.error === 'service-not-allowed' ? 'Microphone access was blocked. Allow it in your browser settings to use voice input.'
+        : e.error === 'no-speech' ? "Didn't catch that — try again." : 'Voice input stopped. Please try again.');
+    };
+    rec.onend = () => { rec = null; setListening(false); ta.focus(); };
+    try { rec.start(); setListening(true); } catch { rec = null; setListening(false); }
+  });
+  return btn;
+}
+
 function usageNote() {
   const u = state.usage?.window;
   return u ? `${u.remaining}/${u.limit} requests left this hour · Approx AI can make mistakes — verify important info.` : 'Approx AI can make mistakes — verify important info.';
@@ -330,6 +506,7 @@ async function sendMessage(text, sendBtn) {
     try {
       const r = await api('/api/chats', { method: 'POST', body: { model: state.model, mode: state.mode, project_id: state.projectId || undefined } });
       state.chat = r.chat; history.replaceState(null, '', `#/c/${r.chat.id}`);
+      const hd = chatHead(); if (hd) mainEl.prepend(hd);
     } catch (e) { toast(e.message); return; }
   }
   const attachments = state.attachments; state.attachments = [];

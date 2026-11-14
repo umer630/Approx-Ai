@@ -18,7 +18,8 @@ function chatView(c) {
 }
 function msgView(m) {
   return { id: m.id, role: m.role, content: m.content, model_id: m.model_id, model_version: m.model_version ?? null, mode: m.mode, route_reason: m.route_reason,
-    attachments: JSON.parse(m.attachments || '[]'), status: m.status, created_at: m.created_at };
+    attachments: JSON.parse(m.attachments || '[]'), status: m.status, created_at: m.created_at,
+    feedback: m.fb_rating || m.fb_reported ? { rating: m.fb_rating || null, reported: !!m.fb_reported } : null };
 }
 
 export function registerChatRoutes(r) {
@@ -75,8 +76,47 @@ export function registerChatRoutes(r) {
   r.get('/api/chats/:id', async (req, res, ctx, p) => {
     const u = requireUser(ctx);
     const c = await ownChat(u.id, p.id);
-    const msgs = await all('SELECT * FROM messages WHERE chat_id = ? AND user_id = ? ORDER BY created_at', c.id, u.id);
+    const msgs = await all(`SELECT m.*, f.rating fb_rating, f.reported fb_reported FROM messages m
+      LEFT JOIN message_feedback f ON f.message_id = m.id AND f.user_id = m.user_id
+      WHERE m.chat_id = ? AND m.user_id = ? ORDER BY m.created_at`, c.id, u.id);
     sendJson(res, 200, { chat: chatView(c), messages: msgs.map(msgView) });
+  });
+
+  // Feedback on an assistant reply: 👍 / 👎 (rating up|down|null to clear) and/or report with a reason.
+  r.post('/api/chats/:id/messages/:mid/feedback', async (req, res, ctx, p) => {
+    const u = requireUser(ctx);
+    const c = await ownChat(u.id, p.id);
+    const m = await one("SELECT id FROM messages WHERE id = ? AND chat_id = ? AND user_id = ? AND role = 'assistant'", p.mid, c.id, u.id);
+    if (!m) throw notFound('Message not found');
+    const b = await readJson(req);
+    const rating = b.rating === null || b.rating === undefined ? null : oneOf(b.rating, 'rating', ['up', 'down']);
+    const reported = b.report === true ? 1 : 0;
+    const reason = reported ? oneOf(b.reason, 'reason', ['harmful', 'incorrect', 'unhelpful', 'other'], 'other') : null;
+    const comment = str(b.comment, 'comment', { max: 1000, required: false }) || null;
+    await run(`INSERT INTO message_feedback (message_id,user_id,rating,reported,reason,comment,created_at,updated_at) VALUES (?,?,?,?,?,?,?,?)
+      ON CONFLICT(message_id) DO UPDATE SET rating = excluded.rating, reported = MAX(reported, excluded.reported),
+        reason = COALESCE(excluded.reason, reason), comment = COALESCE(excluded.comment, comment), updated_at = excluded.updated_at`,
+    m.id, u.id, rating, reported, reason, comment, now(), now());
+    if (reported) await audit(u.id, u.id, 'chat.response_reported', m.id, clientIp(req), { reason });
+    const f = await one('SELECT rating, reported FROM message_feedback WHERE message_id = ?', m.id);
+    sendJson(res, 200, { feedback: { rating: f.rating || null, reported: !!f.reported } });
+  });
+
+  // Export a conversation (owner only) as Markdown or JSON.
+  r.get('/api/chats/:id/export', async (req, res, ctx, p, url) => {
+    const u = requireUser(ctx);
+    const c = await ownChat(u.id, p.id);
+    const msgs = await all("SELECT role, content, model_id, mode, created_at FROM messages WHERE chat_id = ? AND user_id = ? AND role != 'system' ORDER BY created_at", c.id, u.id);
+    const fmt = url.searchParams.get('format') === 'json' ? 'json' : 'md';
+    const safe = (c.title || 'conversation').replace(/[^\p{L}\p{N} _-]+/gu, '').trim().slice(0, 60) || 'conversation';
+    if (fmt === 'json') {
+      res.setHeader('Content-Disposition', `attachment; filename="${encodeURIComponent(safe)}.json"`);
+      return sendJson(res, 200, { title: c.title, exported_at: new Date().toISOString(), messages: msgs });
+    }
+    const md = [`# ${c.title || 'Conversation'}`, '', `_Exported from Approx AI on ${new Date().toISOString().slice(0, 10)}_`, '']
+      .concat(msgs.flatMap((m) => [`## ${m.role === 'user' ? 'You' : `Approx AI${m.model_id ? ` (${m.model_id})` : ''}`}`, '', m.content, ''])).join('\n');
+    res.writeHead(200, { 'Content-Type': 'text/markdown; charset=utf-8', 'Content-Disposition': `attachment; filename="${encodeURIComponent(safe)}.md"`, 'Cache-Control': 'no-store' });
+    res.end(md);
   });
 
   r.patch('/api/chats/:id', async (req, res, ctx, p) => {

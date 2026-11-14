@@ -52,10 +52,24 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     const errs = []; p.on('console', (m) => { if (m.type() === 'error' && !/40[13]/.test(m.text()) && !m.text().includes('ERR_INTERNET_DISCONNECTED')) errs.push(m.text()); });
     await ctx.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: BASE });
 
+    // Sign-up screen: Google button (disabled: no client ID configured here), password toggle, confirm password, sign-in link.
+    await p.goto(BASE + '/#/signup', { waitUntil: 'networkidle' }); await p.waitForTimeout(400);
+    ok('signup: Continue with Google shown (disabled without a configured client ID)', await p.locator('.google-btn[disabled]').count() === 1 && (await p.locator('.google-slot').innerText()).includes('isn’t set up'));
+    ok('signup: confirm password field', await p.locator('#password2').count() === 1);
+    await p.locator('#password').fill('abc');
+    await p.locator('[aria-controls="password"]').click();
+    ok('password visibility toggle', await p.locator('#password').getAttribute('type') === 'text');
+    ok('signup: "Already have an account? Sign in"', (await p.locator('.auth-links').innerText()).includes('Already have an account?'));
+    await p.locator('#email').fill('x@example.com'); await p.locator('#password').fill('Str0ng!Passw0rd1'); await p.locator('#password2').fill('Different1234');
+    await p.locator('button[type=submit]').click(); await p.waitForTimeout(200);
+    ok('signup: mismatched passwords caught before any request', (await p.locator('[role=alert]').innerText()).includes('don’t match'));
+    await p.screenshot({ path: path.join(S, 'v-00-signup.png') });
     // Auth: signup → verification code (mailed) → verify page → sign in.
     await p.goto(BASE + '/#/signup', { waitUntil: 'networkidle' });
     await p.locator('input[type=email]').fill('owner@example.com');
-    const pws = p.locator('input[type=password]'); for (let i = 0; i < await pws.count(); i++) await pws.nth(i).fill('Str0ng!Passw0rd1');
+    await p.goto(BASE + '/#/signup', { waitUntil: 'networkidle' }); await p.waitForTimeout(300);
+    await p.locator('#email').fill('owner@example.com');
+    await p.locator('#password').fill('Str0ng!Passw0rd1'); await p.locator('#password2').fill('Str0ng!Passw0rd1');
     await p.locator('.btn.primary').first().click(); await p.waitForTimeout(1000);
     ok('signup sends verification mail', mails.length === 1);
     const code = /Verification code: (\S+)/.exec(mails[0]?.textContent || '')?.[1];
@@ -143,6 +157,24 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     await p.screenshot({ path: path.join(S, 'v-04-chat.png') });
     await last.locator('[aria-label="Regenerate"]').click(); await p.waitForTimeout(1500);
     ok('regenerate produced a reply', (await p.locator('.msg.assistant').last().innerText()).includes('console.log'));
+    // Conversation menu (⋯): rename + export work against the backend; feedback persists; edit fills the composer.
+    ok('conversation header with ⋯ menu', await p.locator('[aria-label="Conversation options"]').count() === 1);
+    await p.locator('[aria-label="Conversation options"]').click(); await p.waitForTimeout(300);
+    const menuText = await p.locator('.sheet').innerText();
+    await p.screenshot({ path: path.join(S, 'v-04b-chat-menu.png') });
+    for (const n of ['Rename', 'Share', 'Export as Markdown', 'Archive', 'Delete']) ok(`conversation menu: ${n}`, menuText.includes(n));
+    await p.keyboard.press('Escape');
+    const chatId = /#\/c\/(\w+)/.exec(p.url())[1];
+    const exp = await p.evaluate(async (id) => { const r = await fetch(`/api/chats/${id}/export?format=md`); return [r.status, await r.text()]; }, chatId);
+    ok('export returns the conversation as Markdown', exp[0] === 200 && exp[1].includes('## You') && exp[1].includes('Show me some code'));
+    const lastA = p.locator('.msg.assistant').last();
+    await lastA.locator('[aria-label="Good response"]').click(); await p.waitForTimeout(500);
+    ok('👍 marks the reply', await lastA.locator('[aria-label="Good response"][aria-pressed="true"]').count() === 1);
+    const persisted = await p.evaluate(async (id) => (await (await fetch(`/api/chats/${id}`)).json()).messages.filter((m) => m.role === 'assistant').pop().feedback, chatId);
+    ok('feedback saved on the server', persisted?.rating === 'up', JSON.stringify(persisted));
+    await p.locator('.msg.user').first().locator('[aria-label="Edit"]').click();
+    ok('edit puts the message back in the composer', (await p.locator('#prompt').inputValue()) === 'Show me some code');
+    await p.locator('#prompt').fill('');
 
     // History + search.
     await p.locator('nav.bottom-nav button', { hasText: 'History' }).click(); await p.waitForTimeout(700);

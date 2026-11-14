@@ -1,3 +1,4 @@
+import crypto from 'node:crypto';
 import { one, all, run, now, tx, audit, securityEvent } from '../db.js';
 import { readJson, sendJson, bad, unauthorized, forbidden, HttpError, newId, isEmail, str, clientIp } from '../http.js';
 import {
@@ -6,6 +7,7 @@ import {
 } from '../security.js';
 import { sendMail, appLink, mailConfigured } from '../mail.js';
 import { config } from '../config.js';
+import { verifyGoogleIdToken } from '../google.js';
 
 const HOUR = 3600_000;
 
@@ -161,6 +163,84 @@ export function registerAuthRoutes(r) {
     await audit(user.id, user.id, 'auth.login', client, ip);
     if (user.email_verified) await bootstrapSuperadmin(user.id, ip);
     sendJson(res, 200, await sessionResponse(res, req, await one('SELECT * FROM users WHERE id = ?', user.id), client));
+  });
+
+  // Public auth configuration for the sign-in screens (no secrets: Google client IDs are public by design).
+  r.get('/api/auth/config', async (req, res) => {
+    sendJson(res, 200, { google: { enabled: config.google.clientIds.length > 0, client_id: config.google.clientIds[0] || null },
+      email_password: true, email_verification_required: config.auth.requireVerifiedEmailForChat });
+  });
+
+  /**
+   * Sign in / sign up with Google. Body: { credential: <Google ID token>, client?: 'web'|'mobile' }.
+   * The account is found by its Google `sub`; otherwise an existing Approx account with the same (Google-verified)
+   * email is linked; otherwise a new account is created. Google verified the address, so it is marked verified.
+   */
+  async function googleUser(credential, ip) {
+    const g = await verifyGoogleIdToken(credential);
+    let user = await one("SELECT * FROM users WHERE google_sub = ? AND status = 'active'", g.sub);
+    if (!user) {
+      const byEmail = await one('SELECT * FROM users WHERE email = ?', g.email);
+      if (byEmail && byEmail.status !== 'active') throw forbidden('This account is not active.', 'account_inactive');
+      if (byEmail) {
+        if (byEmail.google_sub && byEmail.google_sub !== g.sub) throw forbidden('This email is linked to a different Google account.', 'google_mismatch');
+        await run('UPDATE users SET google_sub = ?, email_verified = 1, updated_at = ? WHERE id = ?', g.sub, now(), byEmail.id);
+        await audit(byEmail.id, byEmail.id, 'auth.google_linked', byEmail.id, ip);
+      } else {
+        const id = newId('usr_'); const t = now();
+        await tx(async () => {
+          // No password: '!' never matches a password check. The person can add one later via "Forgot password".
+          await run("INSERT INTO users (id,email,password_hash,email_verified,google_sub,created_at,updated_at) VALUES (?,?,'!',1,?,?,?)", id, g.email, g.sub, t, t);
+          await run('INSERT INTO profiles (user_id,display_name) VALUES (?,?)', id, g.name);
+          await run("INSERT INTO settings (user_id, theme) VALUES (?, 'light')", id);
+          await run("INSERT INTO subscriptions (id,user_id,plan,status,started_at) VALUES (?,?,'free','active',?)", newId('sub_'), id, t);
+        });
+        await audit(id, id, 'auth.signup_google', id, ip);
+      }
+      user = await one("SELECT * FROM users WHERE google_sub = ? AND status = 'active'", g.sub);
+    }
+    await bootstrapSuperadmin(user.id, ip);
+    return one('SELECT * FROM users WHERE id = ?', user.id);
+  }
+
+  r.post('/api/auth/google', async (req, res) => {
+    const ip = clientIp(req);
+    await rateLimit(`google:${ip}`, 30, 15 * 60_000);
+    const b = await readJson(req);
+    const user = await googleUser(b.credential, ip);
+    await audit(user.id, user.id, 'auth.login_google', b.client === 'mobile' ? 'mobile' : 'web', ip);
+    sendJson(res, 200, await sessionResponse(res, req, user, b.client === 'mobile' ? 'mobile' : 'web'));
+  });
+
+  // Android: the app opens the web sign-in page with a PKCE-style challenge; after Google sign-in the page gets a
+  // one-time code (2 minutes) that is only redeemable with the matching verifier held by the app.
+  r.post('/api/auth/google/handoff', async (req, res) => {
+    const ip = clientIp(req);
+    await rateLimit(`google:${ip}`, 30, 15 * 60_000);
+    const b = await readJson(req);
+    const challenge = str(b.challenge, 'challenge', { min: 43, max: 64 });
+    if (!/^[A-Za-z0-9_-]+$/.test(challenge)) throw bad('Invalid challenge');
+    const user = await googleUser(b.credential, ip);
+    const code = randomToken(32);
+    await run('INSERT INTO auth_handoffs (code_hash,user_id,challenge,expires_at) VALUES (?,?,?,?)', sha256(code), user.id, challenge, now() + 120_000);
+    sendJson(res, 200, { code });
+  });
+
+  r.post('/api/auth/handoff', async (req, res) => {
+    const ip = clientIp(req);
+    await rateLimit(`handoff:${ip}`, 30, 15 * 60_000);
+    const b = await readJson(req);
+    const row = await one('SELECT * FROM auth_handoffs WHERE code_hash = ?', sha256(String(b.code || '')));
+    const verifier = String(b.verifier || '');
+    const expected = row ? crypto.createHash('sha256').update(verifier).digest('base64url') : '';
+    if (!row || row.used_at || row.expires_at < now() || verifier.length < 43 || expected !== row.challenge) {
+      throw unauthorized('This sign-in link has expired. Please try again.');
+    }
+    await run('UPDATE auth_handoffs SET used_at = ? WHERE code_hash = ?', now(), row.code_hash);
+    const user = await one("SELECT * FROM users WHERE id = ? AND status = 'active'", row.user_id);
+    if (!user) throw unauthorized('Account not available');
+    await audit(user.id, user.id, 'auth.login_google', 'mobile', ip);
+    sendJson(res, 200, await sessionResponse(res, req, user, 'mobile'));
   });
 
   r.post('/api/auth/logout', async (req, res, ctx) => {

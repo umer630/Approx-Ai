@@ -34,6 +34,26 @@ CREATE TABLE IF NOT EXISTS users (
   updated_at INTEGER NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS message_feedback (
+  message_id TEXT PRIMARY KEY REFERENCES messages(id) ON DELETE CASCADE,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  rating TEXT CHECK (rating IN ('up','down')),
+  reported INTEGER NOT NULL DEFAULT 0,
+  reason TEXT,
+  comment TEXT,
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL
+);
+
+-- One-time codes that hand a browser Google sign-in back to the Android app (PKCE-style challenge).
+CREATE TABLE IF NOT EXISTS auth_handoffs (
+  code_hash TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  challenge TEXT NOT NULL,
+  expires_at INTEGER NOT NULL,
+  used_at INTEGER
+);
+
 CREATE TABLE IF NOT EXISTS profiles (
   user_id TEXT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
   display_name TEXT NOT NULL DEFAULT '',
@@ -458,6 +478,16 @@ async function migrate(c) {
   // default move to it once; anyone can switch back to Dark in Settings afterwards.
   if (!applied.has('2026-11-light-theme-default')) {
     await apply('2026-11-light-theme-default', [{ sql: "UPDATE settings SET theme = 'light' WHERE theme = 'dark'" }]);
+  }
+
+  // 1.3.0 — Google Sign-In: the Google account (stable `sub`) linked to an Approx account.
+  if (!applied.has('2026-11-google-sub')) {
+    const stmts = [];
+    if (!(await hasColumn(c, 'users', 'google_sub'))) {
+      stmts.push({ sql: 'ALTER TABLE users ADD COLUMN google_sub TEXT' });
+      stmts.push({ sql: 'CREATE UNIQUE INDEX IF NOT EXISTS users_google_sub ON users(google_sub) WHERE google_sub IS NOT NULL' });
+    }
+    await apply('2026-11-google-sub', stmts);
   }
 }
 
