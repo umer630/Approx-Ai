@@ -52,9 +52,9 @@ def normalise(label: str | None) -> str | None:
 
 def classify(user: str, answer: str, hint: str | None = None) -> str:
     h = normalise(hint)
-    if h == "coding":
+    if h in ("coding", "software_engineering"):
         for d, rx in _COMPILED:
-            if d in CODE_FAMILY and rx.search(user):
+            if d in CODE_FAMILY and d != h and rx.search(user.split("```")[0]):
                 return d
         return h
     if h:

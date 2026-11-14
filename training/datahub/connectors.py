@@ -88,6 +88,12 @@ def iter_parquet_rows(entries: list[dict], columns: list | None = None):
     """Stream rows batch by batch (bounded memory even for multi-GB sources)."""
     import pyarrow.parquet as pq
     for e in entries:
+        if e["file"].endswith(".jsonl"):
+            with open(CACHE / e["file"], encoding="utf-8") as fh:
+                for i, line in enumerate(fh):
+                    if line.strip():
+                        yield e, i, json.loads(line)
+            continue
         f = pq.ParquetFile(CACHE / e["file"])
         cols = [c for c in columns if c in f.schema_arrow.names] if columns else None
         i = 0
@@ -113,7 +119,7 @@ def fetch_hf_files(src: dict, offline: bool = False) -> list[dict]:
         raise MissingSource(f"{src['id']}: files not cached at {d} (offline mode)")
     entries = []
     for path in conn["files"]:
-        f = d / path.replace("/", "__")
+        f = d / path.replace("/", "__").replace("+", "p").replace("#", "sharp")
         u = f"{HF}/datasets/{src['hub_repo']}/resolve/{rev}/{path}"
         if not f.exists():
             try:
@@ -436,10 +442,94 @@ def map_wikipedia_intro(rows, lang: str, rate: float = 1.0, max_records: int = 0
             return
 
 
+def _choices(ch):
+    if isinstance(ch, str):
+        import ast
+        ch = ast.literal_eval(ch)
+    return list(ch.get("label") or []), list(ch.get("text") or [])
+
+
+def map_mcqa(rows, prefix: str, domain: str, knowledge_field: str | None = None):
+    """Human-written multiple-choice QA (CommonsenseQA, QuaRTz): question + options → labelled answer (+ gold knowledge)."""
+    for e, i, r in rows:
+        labels, texts = _choices(r.get("choices") or {})
+        key = (r.get("answerKey") or "").strip()
+        if not key or key not in labels:
+            continue
+        opts = "\n".join(f"{l}. {t}" for l, t in zip(labels, texts))
+        know = (r.get(knowledge_field) or "").strip() if knowledge_field else ""
+        ans = (f"{know} Therefore the answer is" if know else "The answer is") + f" {key}. {texts[labels.index(key)]}."
+        yield {"messages": _msgs(f"{r['question']}\n\n{opts}", ans), "lang_declared": "en", "domain_hint": domain,
+               "source_record_id": f"{prefix}-{r.get('id') or e['split'] + '-' + str(i)}", "category": f"{prefix}_mcqa"}
+
+
+def map_strategyqa(rows):
+    """StrategyQA: yes/no questions needing implicit multi-step reasoning; answer = the human-written supporting facts + verdict."""
+    for e, i, r in rows:
+        facts = (r.get("facts") or "").strip()
+        if not facts:
+            continue
+        verdict = "Yes" if str(r.get("answer")).strip().lower() in ("true", "1", "yes") else "No"
+        yield {"messages": _msgs(r["question"], f"{facts}\n\nSo the answer is: {verdict}."), "lang_declared": "en", "domain_hint": "reasoning",
+               "source_record_id": f"strategyqa-{r.get('qid') or i}", "category": "implicit_multistep"}
+
+
+def map_aqua(rows):
+    """AQuA-RAT: crowd-written algebra word problems with worked rationales."""
+    import ast
+    for e, i, r in rows:
+        opts = r.get("options")
+        opts = ast.literal_eval(opts) if isinstance(opts, str) else list(opts or [])
+        rat, key = (r.get("rationale") or "").strip(), (r.get("correct") or "").strip()
+        if not rat or not key or len(rat) < 40:
+            continue
+        yield {"messages": _msgs(r["question"] + "\n\n" + "\n".join(o.strip() for o in opts), f"{rat}\n\nAnswer: {key}"), "lang_declared": "en",
+               "domain_hint": "mathematics", "source_record_id": f"aqua-{e['split']}-{i}", "category": "algebra_word_problem"}
+
+
+def map_ethics_commonsense(rows, max_chars: int = 600):
+    """ETHICS (commonsense morality): human-written first-person scenarios with human acceptability labels. The question and
+    the verdict sentence are a fixed template → origin 'templated_human' (synthetic cap)."""
+    for e, i, r in rows:
+        text = (r.get("input") or "").strip()
+        if not text or len(text) > max_chars:
+            continue
+        wrong = str(r.get("label")).strip() == "1"
+        verdict = ("By ordinary moral standards this is clearly wrong." if wrong else
+                   "By ordinary moral standards this is not wrong; it is an acceptable thing to do.")
+        yield {"messages": _msgs(f"Consider this situation: \"{text}\"\nBy ordinary moral standards, is what the narrator did acceptable or wrong?", verdict),
+               "lang_declared": "en", "domain_hint": "safety_ethics", "source_record_id": f"ethics-cm-{e['split']}-{i}", "category": "commonsense_morality"}
+
+
+COMMIT_LICENSES = {"mit", "apache-2.0", "bsd-3-clause", "bsd-2-clause", "isc", "unlicense", "cc0-1.0"}
+COMMIT_DOMAIN = {"HTML": "web_frontend", "CSS": "web_frontend", "SCSS": "web_frontend", "JSX": "web_frontend", "Vue": "web_frontend",
+                 "PHP": "web_backend"}
+
+
+def map_commitpack(rows, max_chars: int = 6000):
+    """CommitPackFT: real commits (message + file before → file after) from permissively licensed repositories only.
+    Copyleft rows (AGPL/LGPL/MPL/EPL/…) are dropped. Domain: web languages by file type, otherwise software_engineering,
+    refined by the commit message (e.g. API/backend keywords)."""
+    for e, i, r in rows:
+        if (r.get("license") or "").lower() not in COMMIT_LICENSES:
+            continue
+        old, new, msg = r.get("old_contents") or "", r.get("new_contents") or "", (r.get("message") or "").strip()
+        if not old.strip() or not new.strip() or old == new or len(old) + len(new) > max_chars or len(msg) < 12:
+            continue
+        lang = r.get("lang") or ""
+        fence = lang.lower().replace("c++", "cpp").replace("c#", "csharp")
+        user = f"{msg}\n\nFile: {r.get('new_file')}\n```{fence}\n{old.rstrip()}\n```\n\nApply this change and return the full updated file."
+        yield {"messages": _msgs(user, f"```{fence}\n{new.rstrip()}\n```"), "lang_declared": "en",
+               "domain_hint": COMMIT_DOMAIN.get(lang, "software_engineering"), "source_record_id": f"commit-{r.get('commit')}-{r.get('new_file')}",
+               "category": "code_change", "meta": {"repo_license": r.get("license"), "repos": (r.get("repos") or "").split(",")[0]}}
+
+
 MAPPERS = {"oasst1": map_oasst1, "dolly": map_dolly, "gsm8k": map_gsm8k, "aya": map_aya, "arc": map_arc, "mbpp": map_mbpp,
            "scienceqa": map_scienceqa, "self_oss": map_self_oss, "humaneval": map_humaneval, "belebele": map_belebele,
            "nemotron": map_nemotron, "opencodeinstruct": map_opencodeinstruct, "trendyol_sec": map_trendyol_sec, "qasc": map_qasc,
-           "tydiqa": map_tydiqa, "roman_urdu_parl": map_roman_urdu_parl, "wikipedia_intro": map_wikipedia_intro, "oasst2": map_oasst1}
+           "tydiqa": map_tydiqa, "roman_urdu_parl": map_roman_urdu_parl, "wikipedia_intro": map_wikipedia_intro, "oasst2": map_oasst1,
+           "mcqa": map_mcqa, "strategyqa": map_strategyqa, "aqua": map_aqua, "ethics_commonsense": map_ethics_commonsense,
+           "commitpack": map_commitpack}
 
 
 def load_local_jsonl(src: dict):

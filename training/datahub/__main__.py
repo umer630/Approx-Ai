@@ -31,6 +31,7 @@ def main(argv=None):
     rs.add_argument("--batch", type=int, default=100)
     ri = sub.add_parser("review-import", help="validate a completed sheet and append its decisions to the ledger")
     ri.add_argument("--csv", required=True, nargs="+"); ri.add_argument("--model", required=True)
+    sub.add_parser("validate", help="re-derive and check every dataset gate → reports/validation_report.md")
     rp = sub.add_parser("review-progress", help="per-model human review progress → reports/human_review_progress.md")
     rp.add_argument("--models", nargs="*", default=MODELS)
     a = ap.parse_args(argv)
@@ -73,6 +74,15 @@ def main(argv=None):
             rc |= bool(rep["errors"])
         print("rebuild (`python -m datahub build`) so accepted reviews are counted; rejected records are excluded")
         return rc
+    elif a.cmd == "validate":
+        from . import validate
+        res = validate.write(pipeline.TRAINING / "reports" / "validation_report.md")
+        for c in res["global"]:
+            print(f"{'global':10s} {c['status']:8s} {c['check']}")
+        for m, cs in res["models"].items():
+            for c in cs:
+                print(f"{m:10s} {c['status']:8s} {c['check']}")
+        return 1 if any(c["status"] == "FAIL" for cs in [res["global"], *res["models"].values()] for c in cs) else 0
     elif a.cmd == "review-progress":
         from . import review
         prog = review.write_progress_report(a.models, pipeline.TRAINING / "reports" / "human_review_progress.md")

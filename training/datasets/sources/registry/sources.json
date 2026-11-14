@@ -32,7 +32,11 @@
      "validation"
     ],
     "mapper": "oasst1"
-   }
+   },
+   "transformations": [
+    "rank-0 assistant reply per prompt with ≤4 history turns; deleted/flagged/synthetic messages dropped",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "dolly-15k",
@@ -64,7 +68,11 @@
      "train"
     ],
     "mapper": "dolly"
-   }
+   },
+   "transformations": [
+    "instruction (+context) → response",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "gsm8k",
@@ -96,7 +104,11 @@
      "train"
     ],
     "mapper": "gsm8k"
-   }
+   },
+   "transformations": [
+    "calculator annotations removed; 'Answer: N' appended",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "aya-dataset",
@@ -126,7 +138,11 @@
      "train"
     ],
     "mapper": "aya"
-   }
+   },
+   "transformations": [
+    "inputs → targets; ISO-639-3 → ISO-639-1",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "arc",
@@ -162,7 +178,11 @@
      "train"
     ],
     "mapper": "arc"
-   }
+   },
+   "transformations": [
+    "question + options → labelled answer",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "mbpp",
@@ -196,7 +216,11 @@
      "prompt"
     ],
     "mapper": "mbpp"
-   }
+   },
+   "transformations": [
+    "solution kept only if its tests pass when executed",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "scienceqa-text",
@@ -229,7 +253,11 @@
      "train"
     ],
     "mapper": "scienceqa"
-   }
+   },
+   "transformations": [
+    "text-only items; question + options → answer + lecture/solution",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "self-oss-instruct",
@@ -261,7 +289,11 @@
      "train"
     ],
     "mapper": "self_oss"
-   }
+   },
+   "transformations": [
+    "instruction → response",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "eval-gsm8k-test",
@@ -835,7 +867,11 @@
     "type": "local_jsonl",
     "path": "data/seed/approx_seed_v0_1.jsonl",
     "mapper": "native"
-   }
+   },
+   "transformations": [
+    "records used as provided (messages schema)",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "approx-curriculum",
@@ -862,7 +898,11 @@
    "connector": {
     "type": "curriculum",
     "mapper": "native"
-   }
+   },
+   "transformations": [
+    "records used as provided (messages schema)",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "consented-history",
@@ -888,7 +928,11 @@
     "path": "data/consented/latest.jsonl",
     "mapper": "native"
    },
-   "optional": true
+   "optional": true,
+   "transformations": [
+    "records used as provided (messages schema)",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "oasst2",
@@ -920,7 +964,11 @@
      "validation"
     ],
     "mapper": "oasst2"
-   }
+   },
+   "transformations": [
+    "same as oasst1",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "tydiqa-goldp",
@@ -951,7 +999,11 @@
      "train"
     ],
     "mapper": "tydiqa"
-   }
+   },
+   "transformations": [
+    "passage + question → answer span + its source sentence",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "qasc",
@@ -985,7 +1037,11 @@
      "validation"
     ],
     "mapper": "qasc"
-   }
+   },
+   "transformations": [
+    "question + options → gold facts + labelled answer",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "roman-urdu-parl",
@@ -1025,7 +1081,11 @@
     },
     "max_records": 12000
    },
-   "upstream_risk": "Roman-Urdu authorship (human vs tool) not documented on the card; spot checks show some imperfectly aligned pairs (quality score lowered to 0.5)"
+   "upstream_risk": "Roman-Urdu authorship (human vs tool) not documented on the card; spot checks show some imperfectly aligned pairs (quality score lowered to 0.5)",
+   "transformations": [
+    "sampled (rate 0.06, ≥6 words); alternating Urdu→Roman-Urdu / Roman-Urdu→Urdu transliteration prompts",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "nemotron-math",
@@ -1083,7 +1143,11 @@
     ],
     "mapper": "nemotron"
    },
-   "upstream_risk": "prompts collected by NVIDIA from 'public and open corpora' (not itemised per row)"
+   "upstream_risk": "prompts collected by NVIDIA from 'public and open corpora' (not itemised per row)",
+   "transformations": [
+    "reasoning trace removed; first response per prompt; generators restricted to DeepSeek-R1-0528/Qwen3-235B-A22B (stem: answer must match expected choice)",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "nemotron-stem",
@@ -1130,7 +1194,11 @@
      "verify_mc": true
     }
    },
-   "upstream_risk": "prompts collected by NVIDIA from 'public and open corpora' (not itemised per row)"
+   "upstream_risk": "prompts collected by NVIDIA from 'public and open corpora' (not itemised per row)",
+   "transformations": [
+    "reasoning trace removed; first response per prompt; generators restricted to DeepSeek-R1-0528/Qwen3-235B-A22B (stem: answer must match expected choice)",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "opencodeinstruct",
@@ -1173,7 +1241,11 @@
     ],
     "mapper": "opencodeinstruct"
    },
-   "upstream_risk": "generator model not named on the card; confirm before commercial release (reject = set status to 'rejected' and rebuild)"
+   "upstream_risk": "generator model not named on the card; confirm before commercial release (reject = set status to 'rejected' and rebuild)",
+   "transformations": [
+    "only rows with all publisher-run unit tests passing",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "trendyol-cybersec",
@@ -1207,7 +1279,11 @@
     ],
     "mapper": "trendyol_sec"
    },
-   "upstream_risk": "generation method not named on the card; confirm before commercial release"
+   "upstream_risk": "generation method not named on the card; confirm before commercial release",
+   "transformations": [
+    "dataset system prompt dropped; user → assistant",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "wikipedia-ur",
@@ -1250,7 +1326,11 @@
      "rate": 0.5,
      "max_records": 15000
     }
-   }
+   },
+   "transformations": [
+    "lead paragraphs (≤1,400 chars) under the template 'write a short introduction to <title>'; deterministic sampling",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "wikipedia-hi",
@@ -1293,7 +1373,11 @@
      "rate": 0.3,
      "max_records": 8000
     }
-   }
+   },
+   "transformations": [
+    "lead paragraphs (≤1,400 chars) under the template 'write a short introduction to <title>'; deterministic sampling",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "wikipedia-ko",
@@ -1336,7 +1420,11 @@
      "rate": 0.1,
      "max_records": 8000
     }
-   }
+   },
+   "transformations": [
+    "lead paragraphs (≤1,400 chars) under the template 'write a short introduction to <title>'; deterministic sampling",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "wikipedia-id",
@@ -1379,7 +1467,11 @@
      "rate": 0.1,
      "max_records": 8000
     }
-   }
+   },
+   "transformations": [
+    "lead paragraphs (≤1,400 chars) under the template 'write a short introduction to <title>'; deterministic sampling",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "wikipedia-fr",
@@ -1422,7 +1514,11 @@
      "rate": 0.05,
      "max_records": 3000
     }
-   }
+   },
+   "transformations": [
+    "lead paragraphs (≤1,400 chars) under the template 'write a short introduction to <title>'; deterministic sampling",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   },
   {
    "id": "nemotron-chat",
@@ -1723,6 +1819,252 @@
    "connector": {
     "type": "none"
    }
+  },
+  {
+   "id": "commonsense-qa",
+   "name": "tau/commonsense_qa",
+   "url": "https://huggingface.co/datasets/tau/commonsense_qa",
+   "hub_repo": "tau/commonsense_qa",
+   "revision": "94630fe30dad",
+   "revision_full": "94630fe30dad47192a8546eb75f094926d47e155",
+   "license": "mit",
+   "license_url": "https://huggingface.co/datasets/tau/commonsense_qa",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "CommonsenseQA (Talmor et al. 2019), MIT",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Crowd-written commonsense multiple-choice questions (train+validation; the hidden test split is not used). MIT.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "reasoning"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_parquet",
+    "config": "default",
+    "splits": [
+     "train",
+     "validation"
+    ],
+    "mapper": "mcqa",
+    "options": {
+     "prefix": "csqa",
+     "domain": "reasoning"
+    }
+   },
+   "transformations": [
+    "question + options → (gold knowledge) + labelled answer",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
+  },
+  {
+   "id": "strategyqa",
+   "name": "ChilleD/StrategyQA (StrategyQA)",
+   "url": "https://huggingface.co/datasets/ChilleD/StrategyQA",
+   "hub_repo": "ChilleD/StrategyQA",
+   "revision": "705562638fe1",
+   "revision_full": "705562638fe1d8ca6bb98c66fc8f94d45fda8c83",
+   "license": "mit",
+   "license_url": "https://huggingface.co/datasets/ChilleD/StrategyQA",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "StrategyQA (Geva et al. 2021), AllenAI, MIT",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Implicit multi-step yes/no questions with human-written supporting facts. MIT.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "reasoning"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_parquet",
+    "config": "default",
+    "splits": [
+     "train"
+    ],
+    "mapper": "strategyqa"
+   },
+   "transformations": [
+    "question → human facts + yes/no verdict",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
+  },
+  {
+   "id": "quartz",
+   "name": "allenai/quartz",
+   "url": "https://huggingface.co/datasets/allenai/quartz",
+   "hub_repo": "allenai/quartz",
+   "revision": "28c1dbb56caf",
+   "revision_full": "28c1dbb56caf81799296cb17892fa73402e23464",
+   "license": "cc-by-4.0",
+   "license_url": "https://huggingface.co/datasets/allenai/quartz",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "QuaRTz (Tafjord et al. 2019), AllenAI, CC-BY-4.0",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Crowd-written qualitative-relationship reasoning questions with the gold knowledge sentence. CC-BY-4.0.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "reasoning"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_parquet",
+    "config": "default",
+    "splits": [
+     "train",
+     "validation"
+    ],
+    "mapper": "mcqa",
+    "options": {
+     "prefix": "quartz",
+     "domain": "reasoning",
+     "knowledge_field": "para"
+    }
+   },
+   "transformations": [
+    "question + options → (gold knowledge) + labelled answer",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
+  },
+  {
+   "id": "aqua-rat",
+   "name": "deepmind/aqua_rat",
+   "url": "https://huggingface.co/datasets/deepmind/aqua_rat",
+   "hub_repo": "deepmind/aqua_rat",
+   "revision": "33301c6a050c",
+   "revision_full": "33301c6a050c96af81f63cad5562cb5363e88971",
+   "license": "apache-2.0",
+   "license_url": "https://huggingface.co/datasets/deepmind/aqua_rat",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "AQuA-RAT (Ling et al. 2017), DeepMind, Apache-2.0",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Crowd-written algebra word problems with worked rationales (train split). Apache-2.0. Known to contain paraphrased near-duplicates (removed by the near-dup gate).",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "mathematics"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_parquet",
+    "config": "raw",
+    "splits": [
+     "train"
+    ],
+    "mapper": "aqua"
+   },
+   "transformations": [
+    "question + options → rationale + 'Answer: X'",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
+  },
+  {
+   "id": "ethics-commonsense",
+   "name": "hendrycks/ethics (commonsense)",
+   "url": "https://huggingface.co/datasets/hendrycks/ethics",
+   "hub_repo": "hendrycks/ethics",
+   "revision": "b8b47c589f8b",
+   "revision_full": "b8b47c589f8bee77175b8648e5497278b68da48a",
+   "license": "mit",
+   "license_url": "https://huggingface.co/datasets/hendrycks/ethics",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "ETHICS (Hendrycks et al. 2021), MIT",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Human-written moral scenarios with human acceptability labels (train split); question/verdict wording is a fixed template → counted as synthetic. MIT.",
+   "origin": "templated_human",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "safety_ethics"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_parquet",
+    "config": "commonsense",
+    "splits": [
+     "train"
+    ],
+    "mapper": "ethics_commonsense"
+   },
+   "transformations": [
+    "scenario under a fixed question; label → fixed verdict sentence",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
+  },
+  {
+   "id": "commitpackft",
+   "name": "bigcode/commitpackft (12 languages)",
+   "url": "https://huggingface.co/datasets/bigcode/commitpackft",
+   "hub_repo": "bigcode/commitpackft",
+   "revision": "fc56fe33c030",
+   "revision_full": "fc56fe33c030c6daa414c2b112c932b8eed085e6",
+   "license": "mit",
+   "license_url": "https://huggingface.co/datasets/bigcode/commitpackft",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "CommitPackFT (Muennighoff et al. 2023), BigCode, MIT; code © the respective repository authors under the per-row license",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Real Git commits (human commit message + file before/after) from GitHub repositories. Only rows whose repository license is permissive (MIT, Apache-2.0, BSD-2/3, ISC, Unlicense, CC0) are kept; AGPL/LGPL/MPL/EPL and other copyleft rows are dropped.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "software_engineering",
+    "web_frontend",
+    "web_backend"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_files",
+    "files": [
+     "data/python/data.jsonl",
+     "data/javascript/data.jsonl",
+     "data/typescript/data.jsonl",
+     "data/html/data.jsonl",
+     "data/css/data.jsonl",
+     "data/scss/data.jsonl",
+     "data/jsx/data.jsonl",
+     "data/vue/data.jsonl",
+     "data/php/data.jsonl",
+     "data/java/data.jsonl",
+     "data/go/data.jsonl",
+     "data/sql/data.jsonl"
+    ],
+    "mapper": "commitpack"
+   },
+   "upstream_risk": "permissive code licenses (MIT/BSD/Apache) require keeping copyright notices if code is redistributed verbatim; per-row license and repo are kept in the record meta",
+   "transformations": [
+    "permissive-license rows only; message + old file → new file; ≤6,000 chars",
+    "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+   ]
   }
  ]
 }

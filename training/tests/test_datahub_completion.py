@@ -240,3 +240,55 @@ class TestRegistryCompletion(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestGapSources(unittest.TestCase):
+    def rows(self, items, split="train"):
+        return [({"split": split, "file": "f"}, i, r) for i, r in enumerate(items)]
+
+    def test_commitpack_keeps_only_permissive_licenses(self):
+        base = {"old_contents": "def f():\n    return 1\n", "new_contents": "def f():\n    return 2\n", "message": "Change the return value of f",
+                "lang": "Python", "new_file": "a.py", "commit": "c"}
+        out = list(connectors.map_commitpack(self.rows([{**base, "license": "mit"}, {**base, "license": "agpl-3.0"}, {**base, "license": "lgpl-2.1"},
+                                                        {**base, "license": "mit", "old_contents": ""}])))
+        self.assertEqual(len(out), 1)
+        self.assertEqual(out[0]["meta"]["repo_license"], "mit")
+        self.assertEqual(out[0]["domain_hint"], "software_engineering")
+        html = list(connectors.map_commitpack(self.rows([{**base, "license": "mit", "lang": "HTML"}])))
+        self.assertEqual(html[0]["domain_hint"], "web_frontend")
+
+    def test_mcqa_and_strategyqa_and_aqua(self):
+        cs = list(connectors.map_mcqa(self.rows([{"id": "q1", "question": "Where do you keep milk?", "answerKey": "B",
+                                                  "choices": {"label": ["A", "B"], "text": ["oven", "fridge"]}}]), prefix="csqa", domain="reasoning"))
+        self.assertEqual(cs[0]["messages"][1]["content"], "The answer is B. fridge.")
+        sq = list(connectors.map_strategyqa(self.rows([{"qid": "1", "question": "Can a penguin fly?", "answer": "False", "facts": "Penguins are flightless birds."}])))
+        self.assertTrue(sq[0]["messages"][1]["content"].endswith("So the answer is: No."))
+        aq = list(connectors.map_aqua(self.rows([{"question": "2 apples + 3 apples?", "options": "['A)4', 'B)5']",
+                                                  "rationale": "Adding two apples and three apples gives five apples in total.", "correct": "B"}])))
+        self.assertTrue(aq[0]["messages"][1]["content"].endswith("Answer: B"))
+
+    def test_ethics_is_templated_class(self):
+        reg = {s["id"]: s for s in pipeline.load_registry()["sources"]}
+        self.assertIn(reg["ethics-commonsense"]["origin"], pipeline.SYNTHETIC_ORIGINS)
+        for s in reg.values():
+            if s["status"] == "approved" and s["use"] == "train":
+                self.assertTrue(s.get("transformations"), s["id"])
+
+
+
+class TestValidator(ReviewFixture):
+    def test_validator_rederives_and_flags_unbacked_reviews(self):
+        from datahub import validate
+        c = {x["check"]: x for x in validate.validate(["m"], self.registry)["models"]["m"]}
+        for k in ("artifact_sha256_and_counts", "licenses_and_eval_separation", "no_duplicate_prompts", "no_split_leakage", "human_review_backed_by_ledger",
+                  "production_ready_derived"):
+            self.assertEqual(c[k]["status"], "PASS", (k, c[k]))
+        self.assertEqual(c["human_review_minimum"]["status"], "BLOCKED")
+        # tamper: mark a row human_reviewed without a ledger decision → FAIL, and file hash no longer matches → FAIL
+        p = self.datasets / "m" / "build" / "train.jsonl"
+        lines = p.read_text().splitlines()
+        r = json.loads(lines[0]); r["review_state"] = "human_reviewed"; lines[0] = json.dumps(r, ensure_ascii=False)
+        p.write_text("\n".join(lines) + "\n")
+        c = {x["check"]: x for x in validate.validate(["m"], self.registry)["models"]["m"]}
+        self.assertEqual(c["human_review_backed_by_ledger"]["status"], "FAIL")
+        self.assertEqual(c["artifact_sha256_and_counts"]["status"], "FAIL")
