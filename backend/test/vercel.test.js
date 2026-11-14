@@ -213,3 +213,15 @@ test('serverless: Nick 4.8 not served or GPU unreachable → honest 503, never a
     fn.stop();
   }
 });
+
+test('health reports a sanitized database error (no URL or token) when the database fails', async () => {
+  // An unreachable remote libSQL URL: the driver fails at connect/initialise time, like a misconfigured Turso DB.
+  const fn = await startFunction({ APPROX_ENV: 'test', APPROX_DB_URL: 'http://127.0.0.1:9', APPROX_DB_AUTH_TOKEN: 'eyJhbGciOiJFZERTQSJ9.eyJzZWNyZXQiOiJ5ZXMifQ.c2lnbmF0dXJlc2lnbmF0dXJl' });
+  const h = await fn.call('GET', '/api/health');
+  assert.equal(h.status, 503);
+  assert.equal(h.data.database, 'error');
+  assert.ok(h.data.database_error?.code, 'error code reported');
+  const raw = JSON.stringify(h.data);
+  assert.doesNotMatch(raw, /127\.0\.0\.1:9|eyJhbGci|c2lnbmF0dXJl/, 'no URL or token leaked');
+  fn.stop();
+});

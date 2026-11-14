@@ -3,7 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import { one, all, run, now, audit } from '../db.js';
+import { one, all, run, now, audit, describeDbError } from '../db.js';
 import { readJson, readBodyToFile, sendJson, bad, notFound, forbidden, newId, str, HttpError, clientIp } from '../http.js';
 import { requireUser, requireRole, requireScope, requireVerified, requirePrivileged, rateLimit } from '../security.js';
 import { modelsForUser, getModel, canUseModel, listModels } from '../models.js';
@@ -43,9 +43,15 @@ export function registerPlatformRoutes(r) {
   // Public liveness: no secrets, no model details.
   const health = async (req, res) => {
     let db = 'ok';
-    try { await one('SELECT 1 AS x'); } catch (e) { db = e.code === 'database_not_configured' ? 'not_configured' : 'error'; }
+    let dbError;
+    let foreignKeys;
+    try { await one('SELECT 1 AS x'); foreignKeys = (await one('PRAGMA foreign_keys'))?.foreign_keys === 1 ? 'on' : 'off'; } catch (e) {
+      db = e.code === 'database_not_configured' ? 'not_configured' : 'error';
+      if (db === 'error') { dbError = describeDbError(e); console.error('[health] database error:', e); }
+    }
     sendJson(res, db === 'ok' ? 200 : 503, { status: db === 'ok' ? 'ok' : 'degraded', service: 'approx-ai-api', version: VERSIONS.backend, database: db,
-      runtime: config.serverless ? 'serverless' : 'server', registry_source: config.registry.source, file_storage: config.files.storage, time: new Date().toISOString() });
+      ...(dbError ? { database_error: dbError } : {}), ...(foreignKeys ? { foreign_keys: foreignKeys } : {}),
+      build_id: config.buildId, runtime: config.serverless ? 'serverless' : 'server', registry_source: config.registry.source, file_storage: config.files.storage, time: new Date().toISOString() });
   };
   r.get('/api/health', health);
   r.get('/api/v1/health', health);

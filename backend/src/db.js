@@ -20,9 +20,6 @@ CREATE TABLE IF NOT EXISTS file_blobs (
   created_at INTEGER NOT NULL
 );
 
-PRAGMA journal_mode = WAL;
-PRAGMA foreign_keys = ON;
-
 CREATE TABLE IF NOT EXISTS users (
   id TEXT PRIMARY KEY,
   email TEXT NOT NULL UNIQUE COLLATE NOCASE,
@@ -500,6 +497,11 @@ export function getDb() {
   if (!_initPromise) {
     _initPromise = (async () => {
       const c = rawClient();
+      if (_local) {
+        // Local-file settings. A remote libSQL server (Turso) manages its own journal and rejects journal_mode.
+        await c.execute('PRAGMA journal_mode = WAL');
+        await c.execute('PRAGMA foreign_keys = ON');
+      }
       await c.executeMultiple(SCHEMA);
       await migrate(c);
       await syncCatalog(c);
@@ -510,6 +512,19 @@ export function getDb() {
 }
 
 export const now = () => Date.now();
+
+/**
+ * Short, non-secret description of a database failure for /api/health: the driver's error code plus its message
+ * with any URL or token-like string removed. Full details go to the server log only.
+ */
+export function describeDbError(e) {
+  const msg = String(e?.message || e || '')
+    .replace(/(libsql|https?|wss?|file):\/\/\S+/gi, '<url>')
+    .replace(/eyJ[\w-]{10,}(\.[\w-]+){0,2}/g, '<token>')
+    .replace(/[A-Za-z0-9_-]{40,}/g, '<redacted>')
+    .slice(0, 200);
+  return { code: String(e?.code || e?.name || 'unknown').slice(0, 60), message: msg };
+}
 
 // libSQL args must be null (not undefined); booleans are stored as 0/1.
 function norm(p) { return p.map((a) => (a === undefined ? null : typeof a === 'boolean' ? (a ? 1 : 0) : a)); }
