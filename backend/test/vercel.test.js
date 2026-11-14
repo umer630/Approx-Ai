@@ -225,3 +225,88 @@ test('health reports a sanitized database error (no URL or token) when the datab
   assert.doesNotMatch(raw, /127\.0\.0\.1:9|eyJhbGci|c2lnbmF0dXJl/, 'no URL or token leaked');
   fn.stop();
 });
+
+// ---------- Gmail-style SMTP (implicit TLS on a local port, real SMTP protocol) ----------
+import { SMTPServer } from 'smtp-server';
+import { execFileSync } from 'node:child_process';
+import { createClient } from '@libsql/client';
+
+function selfSignedCert() {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'approx-smtp-tls-'));
+  const key = path.join(dir, 'key.pem'); const cert = path.join(dir, 'cert.pem');
+  execFileSync('openssl', ['req', '-x509', '-newkey', 'rsa:2048', '-nodes', '-keyout', key, '-out', cert, '-days', '1',
+    '-subj', '/CN=localhost', '-addext', 'subjectAltName=DNS:localhost,IP:127.0.0.1'], { stdio: 'ignore' });
+  return { key: fs.readFileSync(key), cert: fs.readFileSync(cert), certPath: cert };
+}
+
+async function mockGmailSmtp({ user, pass }) {
+  const tls = selfSignedCert();
+  const mails = [];
+  const srv = new SMTPServer({
+    secure: true, key: tls.key, cert: tls.cert, authOptional: false, authMethods: ['PLAIN', 'LOGIN'],
+    onAuth(auth, session, cb) {
+      if (auth.username === user && auth.password === pass) return cb(null, { user });
+      const e = new Error('Username and Password not accepted'); e.responseCode = 535; return cb(e);
+    },
+    onMailFrom(addr, session, cb) { session.envFrom = addr.address; cb(); },
+    onData(stream, session, cb) {
+      const c = []; stream.on('data', (d) => c.push(d));
+      stream.on('end', () => { mails.push({ authUser: session.user, envFrom: session.envFrom, to: session.envelope.rcptTo.map((r) => r.address), raw: Buffer.concat(c).toString('utf8') }); cb(); });
+    },
+  });
+  await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+  servers.push(srv.server);
+  return { port: srv.server.address().port, mails, caPath: tls.certPath, close: () => srv.close() };
+}
+const smtpCode = (raw, label) => new RegExp(`${label}: (\\S+)`).exec(raw.replace(/=\r?\n/g, ''))?.[1];
+
+test('SMTP (Gmail App Password over implicit TLS): verification + password reset delivered; secrets never exposed', async () => {
+  const OWNER = 'owner.approx@gmail.example';
+  const APP_PASSWORD = 'abcd efgh ijkl mnop'; // shown by Google with spaces; the spaces are not part of it
+  const smtp = await mockGmailSmtp({ user: OWNER, pass: 'abcdefghijklmnop' });
+  const dbFile = path.join(scratch, 'smtp.db');
+  const env = { APPROX_ENV: 'test', APPROX_DB_URL: `file:${dbFile}`, APPROX_TEST_EPHEMERAL_DB: '1',
+    NODE_EXTRA_CA_CERTS: smtp.caPath, MAIL_TRANSPORT: 'smtp', MAIL_SMTP_HOST: 'localhost', MAIL_SMTP_PORT: String(smtp.port),
+    MAIL_SMTP_PASS: APP_PASSWORD, APPROX_BOOTSTRAP_SUPERADMIN_EMAIL: OWNER };
+  const fn = await startFunction(env);
+
+  const h = await fn.call('GET', '/api/health');
+  assert.equal(h.data.mail_transport, 'smtp');
+  assert.equal(h.data.mail_configured, true);
+  assert.doesNotMatch(JSON.stringify(h.data), /abcd|efgh|mnop/, 'app password never in health');
+
+  // Sign-up → verification email over SMTP (username defaults to the bootstrap address).
+  assert.equal((await fn.call('POST', '/api/auth/signup', { json: { email: OWNER, password: 'OwnerPassw0rd!' } })).status, 202);
+  assert.equal(smtp.mails.length, 1, 'verification email delivered');
+  const v = smtp.mails[0];
+  assert.equal(v.authUser, OWNER, 'authenticated as the Gmail account');
+  assert.equal(v.envFrom, OWNER, 'sent from the authenticated account');
+  assert.deepEqual(v.to, [OWNER]);
+  assert.match(v.raw, /^Subject: Verify your Approx AI email/m);
+  assert.match(v.raw, /^From: "?Approx AI"? <owner\.approx@gmail\.example>/m);
+  const code = smtpCode(v.raw, 'Verification code');
+  assert.ok(code, 'verification code in email body');
+  assert.equal((await fn.call('POST', '/api/auth/verify-email', { json: { token: code } })).status, 200);
+  const login = await fn.call('POST', '/api/auth/login', { json: { email: OWNER, password: 'OwnerPassw0rd!', client: 'mobile' } });
+  assert.equal(login.data.user.role, 'superadmin');
+
+  // Password reset email over SMTP → reset → sign in with the new password.
+  assert.equal((await fn.call('POST', '/api/auth/forgot-password', { json: { email: OWNER } })).status, 202);
+  const r = smtp.mails.find((m) => /^Subject: Reset your Approx AI password/m.test(m.raw));
+  assert.ok(r, 'reset email delivered');
+  const resetCode = smtpCode(r.raw, 'Reset code');
+  assert.equal((await fn.call('POST', '/api/auth/reset-password', { json: { token: resetCode, password: 'NewOwnerPassw0rd!' } })).status, 200);
+  assert.equal((await fn.call('POST', '/api/auth/login', { json: { email: OWNER, password: 'NewOwnerPassw0rd!', client: 'mobile' } })).status, 200);
+  fn.stop();
+
+  // Wrong App Password: Gmail answers 535; sign-up still answers generically and the failure is recorded, not hidden.
+  const bad = await startFunction({ ...env, MAIL_SMTP_PASS: 'wrong wrong wrong wrong' });
+  const before = smtp.mails.length;
+  assert.equal((await bad.call('POST', '/api/auth/signup', { json: { email: 'second@gmail.example', password: 'SecondPassw0rd!' } })).status, 202);
+  assert.equal(smtp.mails.length, before, 'nothing delivered with a wrong password');
+  const db = createClient({ url: `file:${dbFile}` });
+  const row = (await db.execute({ sql: 'SELECT status FROM mail_outbox WHERE to_email = ? ORDER BY created_at DESC LIMIT 1', args: ['second@gmail.example'] })).rows[0];
+  assert.equal(row.status, 'failed_smtp_535');
+  db.close();
+  bad.stop();
+});

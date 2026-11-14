@@ -17,7 +17,7 @@ Phone APK / browser ──HTTPS──► Vercel (free Hobby)
                                        ├──► Turso (free)   libSQL database: users, sessions, chats, projects,
                                        │                   model permissions, quotas, API keys/logs, audit,
                                        │                   uploaded file bytes, training exports
-                                       ├──► Brevo (free)   verification / password-reset emails
+                                       ├──► Gmail SMTP (free) verification / password-reset emails
                                        └──► GPU inference server (separate; NOT on Vercel)
                                             serves Nick 4.8 only if the adapter SHA-256 equals
                                             2faae21620ef0aea6140b296b43ab5fcf5ba2c5b721067f91797b288a09c34c4
@@ -41,16 +41,15 @@ Phone APK / browser ──HTTPS──► Vercel (free Hobby)
 
 If Turso asks for a credit card or a paid plan at any point, **stop**: don't enter it, and tell me.
 
-## Step 2: Brevo email (free)
+## Step 2: Email (Gmail, free)
 
-Email verification stays switched on, so the app needs a way to send codes.
+Email verification and password reset stay switched on. Codes are sent from your Gmail account over Gmail
+SMTP (`smtp.gmail.com`, port 465, TLS) using a **Google App Password**: a 16-letter password Google
+generates for one app. It is not your Google password. Create one at **myaccount.google.com → Security →
+2-Step Verification → App passwords**. 2-Step Verification must be on.
 
-1. Open **brevo.com** and tap **Sign up free**.
-2. Go to **Senders, Domains & Dedicated IPs → Senders → Add a sender**. Use your own email address and confirm
-   the link Brevo emails you.
-3. Go to **SMTP & API → API Keys → Generate a new API key**. Copy it (keep it private).
-
-If Brevo asks for a card, stop and tell me.
+Gmail's free sending limit is about 500 emails a day. Brevo (`MAIL_TRANSPORT=brevo`) still works if you
+prefer it.
 
 ## Step 3: Vercel project (free Hobby)
 
@@ -65,10 +64,9 @@ If Brevo asks for a card, stop and tell me.
 |---|---|---|
 | `APPROX_DB_URL` | the `libsql://…` URL from Step 1 | no |
 | `APPROX_DB_AUTH_TOKEN` | the Turso token from Step 1 | **yes** |
-| `MAIL_TRANSPORT` | `brevo` | no |
-| `MAIL_HTTP_API_KEY` | the Brevo API key from Step 2 | **yes** |
-| `MAIL_FROM` | `Approx AI <the-sender-you-verified@…>` | no |
-| `APPROX_BOOTSTRAP_SUPERADMIN_EMAIL` | your email (becomes superadmin once, after you verify it) | no |
+| `APPROX_BOOTSTRAP_SUPERADMIN_EMAIL` | your Gmail address (also the SMTP username; becomes superadmin once, after you verify it) | no |
+| `MAIL_TRANSPORT` | `smtp` | no |
+| `MAIL_SMTP_PASS` | the 16-letter Google App Password from Step 2 | **yes** |
 | `APPROX_ENV` | `production` | no |
 | `APPROX_MODEL_NICK_URL` | only when a GPU inference server is running: `https://<gpu-host>/v1` | no |
 | `APPROX_MODEL_NICK_KEY` | that inference server's `INFERENCE_API_KEY` | **yes** |
@@ -87,7 +85,7 @@ Open `https://<your-address>/api/health` in the phone browser. It must show:
 "database":"ok", "runtime":"serverless", "registry_source":"inference", "file_storage":"db"
 ```
 
-`"database":"not_configured"` means Step 1's variables are missing or misspelled. Then open the main address,
+`"mail_configured": true` must also appear. `"database":"not_configured"` means Step 1's variables are missing or misspelled. Then open the main address,
 create an account with the email from `APPROX_BOOTSTRAP_SUPERADMIN_EMAIL`, enter the emailed code, and sign in.
 Settings should now show **Admin console**.
 
@@ -109,13 +107,13 @@ so a wrong or placeholder address can't end up inside the APK. Download the APK 
 - **Rate limits and quotas** are stored in the database, so they hold across function instances.
 - **Model registry imports and activation** happen on the GPU inference host (`cli.js` there). On Vercel these
   admin buttons return 409 `registry_managed_by_inference_server`. Showing them as working would be dishonest.
-- Free-tier quotas (Turso storage and reads, Brevo about 300 emails a day, Vercel invocations) are
+- Free-tier quotas (Turso storage and reads, Gmail about 500 emails a day, Vercel invocations) are
   published by each provider and can change. I could not check them from the build environment.
 
 ## How this was tested (without a live deployment)
 
 - `backend/test/vercel.test.js` runs the real `api/index.js` with `VERCEL=1`. It covers fail-closed without a
-  database, refusing a local file database in production, Brevo mail, superadmin bootstrap, Nick 4.8 routed to
+  database, refusing a local file database in production, Gmail-style SMTP over TLS and Brevo mail, superadmin bootstrap, Nick 4.8 routed to
   the version the (mock) GPU host serves, honest 503s when it is not served or unreachable, uploads stored in the
   database, and data surviving a simulated cold start.
 - `web/test/regression-vercel.cjs` (Playwright) runs the unchanged web app through `web/test/vercel-emulator.mjs`

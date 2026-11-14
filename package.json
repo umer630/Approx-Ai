@@ -12,6 +12,7 @@
     "test:vercel": "node --disable-warning=ExperimentalWarning --test --test-concurrency=1 backend/test/vercel.test.js"
   },
   "dependencies": {
-    "@libsql/client": "^0.18.0"
+    "@libsql/client": "^0.18.0",
+    "nodemailer": "^10.5.0"
   }
 }

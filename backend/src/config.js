@@ -67,10 +67,22 @@ export const config = {
   bootstrapSuperadminEmail: (env.APPROX_BOOTSTRAP_SUPERADMIN_EMAIL || '').trim().toLowerCase(),
 
   mail: {
-    transport: env.MAIL_TRANSPORT || 'outbox', // outbox | http (Resend-compatible JSON, Bearer key) | brevo
+    transport: env.MAIL_TRANSPORT || 'outbox', // outbox | smtp (e.g. Gmail + App Password) | http (Resend-compatible JSON) | brevo
+    // SMTP (MAIL_TRANSPORT=smtp). Defaults are Gmail's implicit-TLS endpoint. The username defaults to the
+    // superadmin bootstrap address; the password (a Gmail App Password) is only ever read from the environment.
+    smtp: {
+      host: env.MAIL_SMTP_HOST || 'smtp.gmail.com',
+      port: int(env.MAIL_SMTP_PORT, 465),
+      secure: bool(env.MAIL_SMTP_SECURE, true),
+      user: (env.MAIL_SMTP_USER || env.APPROX_BOOTSTRAP_SUPERADMIN_EMAIL || '').trim(),
+      // Google shows App Passwords as four groups of four letters; the spaces are not part of the password.
+      pass: (env.MAIL_SMTP_PASS || '').replace(/\s+/g, ''),
+    },
     httpEndpoint: env.MAIL_HTTP_ENDPOINT || '', // e.g. a transactional mail provider API
     httpApiKey: env.MAIL_HTTP_API_KEY || '',
-    from: env.MAIL_FROM || 'Approx AI <no-reply@approx.invalid>',
+    // Gmail only sends as the authenticated account, so with SMTP the default sender is that account.
+    from: env.MAIL_FROM || (env.MAIL_TRANSPORT === 'smtp' && (env.MAIL_SMTP_USER || env.APPROX_BOOTSTRAP_SUPERADMIN_EMAIL)
+      ? `Approx AI <${(env.MAIL_SMTP_USER || env.APPROX_BOOTSTRAP_SUPERADMIN_EMAIL).trim()}>` : 'Approx AI <no-reply@approx.invalid>'),
   },
 
   // Dev simulator provider — NEVER a real model. Only for local development / automated tests.
