@@ -1,7 +1,7 @@
 {
  "schema": "approx.dataset/v1",
  "model_id": "hike-6.5",
- "dataset_version": "hike-6.5-datahub-1.1-b5e0de3cfa",
+ "dataset_version": "hike-6.5-datahub-1.1-5cd9d57298",
  "pipeline_version": "datahub-1.1",
  "profile": {
   "tier": "hike",
@@ -58,33 +58,33 @@
  "counts": {
   "total": 50000,
   "train": 47086,
-  "eval": 1480,
-  "test": 1434
+  "eval": 1483,
+  "test": 1431
  },
  "selection": {
-  "eligible": 485738,
+  "eligible": 518263,
   "cap": 50000,
   "eligible_by_domain": {
-   "general_knowledge": 150365,
-   "coding": 136495,
-   "cybersecurity": 51899,
-   "research": 41737,
-   "science": 37740,
-   "mathematics": 32072,
-   "writing": 15776,
-   "islamic_studies": 4203,
-   "software_engineering": 3051,
-   "pakistan": 2641,
-   "reasoning": 2377,
-   "web_frontend": 2283,
-   "education": 1603,
-   "web_backend": 1183,
-   "problem_solving": 902,
-   "safety_ethics": 714,
-   "web_fullstack": 697
+   "coding": 163837,
+   "general_knowledge": 152572,
+   "cybersecurity": 51988,
+   "research": 41805,
+   "science": 38061,
+   "mathematics": 32918,
+   "writing": 15799,
+   "islamic_studies": 4222,
+   "software_engineering": 4033,
+   "pakistan": 2643,
+   "web_frontend": 2472,
+   "reasoning": 2389,
+   "education": 1609,
+   "web_backend": 1504,
+   "problem_solving": 942,
+   "web_fullstack": 740,
+   "safety_ethics": 729
   },
   "eligible_by_language": {
-   "en": 281690,
+   "en": 311262,
    "ur": 17275,
    "ar": 14400,
    "te": 11535,
@@ -97,11 +97,12 @@
    "ko": 7593,
    "vi": 6546,
    "hi": 6433,
-   "pt": 6288,
+   "pt": 6292,
    "roman_ur": 5730,
    "zh": 4979,
    "pa": 4853,
    "yor": 4831,
+   "fr": 4732,
    "kir": 4669,
    "fi": 4192,
    "ja": 3770,
@@ -111,14 +112,13 @@
    "gu": 3049,
    "sw": 2253,
    "wol": 1819,
-   "fr": 1788,
    "hau": 1748,
    "nl": 1582,
    "mal": 1533,
    "mr": 1379,
    "de": 1371,
    "ne": 1349,
-   "pl": 1330,
+   "pl": 1335,
    "fa": 1121,
    "ms": 1067,
    "sna": 986,
@@ -165,27 +165,27 @@
    "acq": 2,
    "ajp": 1
   },
-  "eligible_synthetic": 266160
+  "eligible_synthetic": 298685
  },
  "by_language": {
-  "en": 26533,
+  "en": 26525,
   "es": 5026,
-  "ru": 2598,
+  "ru": 2597,
   "ur": 2100,
-  "ta": 1942,
+  "ta": 1944,
   "ar": 1120,
-  "te": 1069,
+  "te": 1071,
   "de": 1060,
   "zh": 959,
   "fr": 840,
-  "bn": 728,
+  "bn": 729,
   "hi": 700,
   "pt": 700,
-  "gu": 630,
+  "gu": 631,
   "roman_ur": 560,
   "id": 560,
   "ja": 560,
-  "vi": 423,
+  "vi": 424,
   "fa": 420,
   "ko": 420,
   "tr": 420,
@@ -193,7 +193,7 @@
   "it": 153,
   "ca": 121,
   "pl": 71,
-  "pa": 39,
+  "pa": 41,
   "nl": 16,
   "el": 12,
   "am": 7,
@@ -205,17 +205,17 @@
   "hu": 1
  },
  "by_domain": {
-  "general_knowledge": 19785,
+  "general_knowledge": 19788,
   "mathematics": 6670,
   "coding": 6016,
-  "science": 4139,
+  "science": 4137,
   "research": 3553,
   "writing": 2751,
   "reasoning": 1500,
   "education": 1003,
   "software_engineering": 1000,
   "islamic_studies": 693,
-  "problem_solving": 676,
+  "problem_solving": 675,
   "pakistan": 548,
   "safety_ethics": 523,
   "web_frontend": 471,
@@ -224,52 +224,53 @@
   "web_backend": 128
  },
  "by_source": {
-  "oasst2": 13824,
-  "aya-dataset": 7424,
-  "oasst1": 7009,
+  "oasst2": 13820,
+  "aya-dataset": 7422,
+  "oasst1": 7006,
   "gsm8k": 5290,
-  "dolly-15k": 4815,
-  "tydiqa-goldp": 2485,
-  "self-oss-instruct": 2139,
+  "dolly-15k": 4807,
+  "tydiqa-goldp": 2486,
+  "opencodeinstruct": 2038,
   "scienceqa-text": 1995,
-  "opencodeinstruct": 1791,
+  "self-oss-instruct": 1899,
   "wikipedia-ur": 1725,
   "wikipedia-hi": 420,
   "approx-curriculum": 306,
   "wikipedia-ko": 285,
   "roman-urdu-parl": 245,
-  "mbpp": 182,
-  "nemotron-math": 49,
+  "mbpp": 180,
+  "nemotron-math": 51,
+  "wikipedia-fr": 9,
   "approx-seed-v0.1": 9,
   "wikipedia-id": 7
  },
  "by_origin": {
-  "human_authored": 43024,
-  "synthetic": 3988,
-  "templated_human": 2437,
+  "human_authored": 43006,
+  "synthetic": 3997,
+  "templated_human": 2446,
   "programmatic": 306,
   "transliteration_unverified": 245
  },
  "by_review_state": {
-  "unreviewed": 42503,
-  "source_community_reviewed": 7009,
-  "auto_verified": 488
+  "unreviewed": 42508,
+  "source_community_reviewed": 7006,
+  "auto_verified": 486
  },
- "synthetic_ratio": 0.1395,
+ "synthetic_ratio": 0.1399,
  "human_reviewed": 0,
- "content_fingerprint_sha256": "b5e0de3cfa5d800cc701d02e46519b6115bf8ab594447095f243cd12f25305bb",
+ "content_fingerprint_sha256": "5cd9d572984ac730b9d6063967a4b32f3d36ac845e35e4713a816fdb16d67052",
  "files": {
   "train.jsonl": {
    "records": 47086,
-   "sha256": "bd036f60ddf0300a4b0ee8935fac4385cd3818858a1c52f2ed3bf01bfae47dd3"
+   "sha256": "2bb5eb00ce08ce4e7ede8766174c293da4797859f962c74d40428602637e4341"
   },
   "eval.jsonl": {
-   "records": 1480,
-   "sha256": "42abb84a5dfb90c1d8aace26697a9c7de199affee583e250a22919f00cb0c831"
+   "records": 1483,
+   "sha256": "0853d96678edbf03c40e67b509b0c84f797ec234e826ec6d339552c158071d7e"
   },
   "test.jsonl": {
-   "records": 1434,
-   "sha256": "c962665abe9b721ca4ab5f3e47557056d4d5498f684463ee75fad295be3257f9"
+   "records": 1431,
+   "sha256": "3c673a316cd7e3a94e56f0d93a94d57c44fdc3517d2044420498b0803d463580"
   }
  },
  "gates": {
@@ -294,6 +295,7 @@
     "scienceqa-text",
     "self-oss-instruct",
     "tydiqa-goldp",
+    "wikipedia-fr",
     "wikipedia-hi",
     "wikipedia-id",
     "wikipedia-ko",
@@ -302,18 +304,18 @@
   },
   "synthetic_ratio": {
    "passed": true,
-   "detail": "6976/50000 = 0.140 (max 0.6)"
+   "detail": "6994/50000 = 0.140 (max 0.6)"
   },
   "domain_minimums": {
    "passed": true,
    "detail": {
     "mathematics": "6670/5000",
-    "science": "4139/4000",
+    "science": "4137/4000",
     "coding": "6016/6000",
     "reasoning": "1500/1500",
     "software_engineering": "1000/1000",
     "writing": "2751/2500",
-    "general_knowledge": "19785/4000",
+    "general_knowledge": "19788/4000",
     "education": "1003/1000",
     "safety_ethics": "523/100"
    }
@@ -328,7 +330,7 @@
   "language_minimums": {
    "passed": true,
    "detail": {
-    "en": "26533/8400",
+    "en": "26525/8400",
     "ur": "2100/2100",
     "roman_ur": "560/560",
     "ar": "1120/1120",
@@ -337,11 +339,11 @@
     "fr": "840/840",
     "de": "1060/560",
     "pt": "700/700",
-    "ru": "2598/700",
+    "ru": "2597/700",
     "ja": "560/560",
     "ko": "420/420",
     "hi": "700/700",
-    "bn": "728/420",
+    "bn": "729/420",
     "tr": "420/420",
     "id": "560/560",
     "fa": "420/420"
@@ -466,7 +468,7 @@
     "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00000-of-00159.parquet",
     "sha256": "03f192a4046d8a9aae047c89edff784bc575cde6691c08b44135ad253499fe4b",
     "bytes": 208493334,
-    "fetched_at": "2026-11-14T18:45:45Z",
+    "fetched_at": "2026-11-14T20:15:41Z",
     "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
    },
    {
@@ -475,7 +477,7 @@
     "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00001-of-00159.parquet",
     "sha256": "cdea1409048a9fbe80b2e66e1f8c2812c69526dfee70cbcb7a3256e11fad4739",
     "bytes": 207408978,
-    "fetched_at": "2026-11-14T18:45:45Z",
+    "fetched_at": "2026-11-14T20:15:41Z",
     "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
    },
    {
@@ -484,7 +486,7 @@
     "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00002-of-00159.parquet",
     "sha256": "fad69db58f9466a77e328d069c01a173dfe62e6a10e32f007f967d563c084c2a",
     "bytes": 208731300,
-    "fetched_at": "2026-11-14T18:45:46Z",
+    "fetched_at": "2026-11-14T20:15:41Z",
     "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
    },
    {
@@ -493,7 +495,7 @@
     "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00003-of-00159.parquet",
     "sha256": "9c6386676828cc1352b6220ce60fd33c7e4fb20865c5dde89a74abbed8f2e59b",
     "bytes": 209702981,
-    "fetched_at": "2026-11-14T18:45:46Z",
+    "fetched_at": "2026-11-14T20:15:41Z",
     "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
    },
    {
@@ -502,7 +504,7 @@
     "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00004-of-00159.parquet",
     "sha256": "7036093dc789b0d1a278122b0cde94694ed4f6f5284277cb0bc2779981c4ffc1",
     "bytes": 207279207,
-    "fetched_at": "2026-11-14T18:45:46Z",
+    "fetched_at": "2026-11-14T20:15:42Z",
     "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
    },
    {
@@ -511,7 +513,7 @@
     "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00005-of-00159.parquet",
     "sha256": "68cf1611497a6c70c93911a5aa5916015dc033153733b8821381ff55d9fa0f99",
     "bytes": 207815428,
-    "fetched_at": "2026-11-14T18:45:46Z",
+    "fetched_at": "2026-11-14T20:15:42Z",
     "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
    },
    {
@@ -520,7 +522,7 @@
     "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00006-of-00159.parquet",
     "sha256": "1fa86aa5edb42b83809ffdc5501d27f87f4d53bd8838a194cbdfd799f9898ba7",
     "bytes": 210026193,
-    "fetched_at": "2026-11-14T18:46:48Z",
+    "fetched_at": "2026-11-14T20:15:42Z",
     "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
    },
    {
@@ -529,7 +531,7 @@
     "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00007-of-00159.parquet",
     "sha256": "199a398ae768f4e3b0887facb3eb8c8859bfcf1a25b05b252f0dba02ceb16edc",
     "bytes": 208572698,
-    "fetched_at": "2026-11-14T18:46:58Z",
+    "fetched_at": "2026-11-14T20:15:42Z",
     "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
    },
    {
@@ -538,7 +540,7 @@
     "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00008-of-00159.parquet",
     "sha256": "1a0f49baa11da3d41109ab1f3adff16ed97b5e5ff4f38ff1b2ce11d78f092294",
     "bytes": 206797995,
-    "fetched_at": "2026-11-14T18:48:13Z",
+    "fetched_at": "2026-11-14T20:15:43Z",
     "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
    },
    {
@@ -547,7 +549,7 @@
     "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00009-of-00159.parquet",
     "sha256": "3d32adc0d3c307ae5ae948861eb743e0e213d4bd7e2ebaec364e10e6a1362718",
     "bytes": 209014013,
-    "fetched_at": "2026-11-14T18:51:30Z",
+    "fetched_at": "2026-11-14T20:15:43Z",
     "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
    },
    {
@@ -556,7 +558,7 @@
     "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00010-of-00159.parquet",
     "sha256": "de9e1937f27769d0b2627297881cd688aa44c1abbb64623e11f94ac7eca98f1b",
     "bytes": 207979868,
-    "fetched_at": "2026-11-14T18:52:06Z",
+    "fetched_at": "2026-11-14T20:15:43Z",
     "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
    },
    {
@@ -565,7 +567,61 @@
     "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00011-of-00159.parquet",
     "sha256": "77e15407825ec8252391447e30a5cad988466cf28654aac1d50e1209b372bc35",
     "bytes": 205671489,
-    "fetched_at": "2026-11-14T18:52:17Z",
+    "fetched_at": "2026-11-14T20:15:43Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00012-of-00159.parquet",
+    "path": "data/math-00012-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00012-of-00159.parquet",
+    "sha256": "c780946f7c2db2885facce1da3345b5f9a7aea818df3fcf223f30655351ae644",
+    "bytes": 208872797,
+    "fetched_at": "2026-11-14T20:15:52Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00013-of-00159.parquet",
+    "path": "data/math-00013-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00013-of-00159.parquet",
+    "sha256": "2cf5e4cc3aa51c28cf91d131f2572c0509fe302daebad7c104847912ddea6b0c",
+    "bytes": 208285467,
+    "fetched_at": "2026-11-14T20:16:00Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00014-of-00159.parquet",
+    "path": "data/math-00014-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00014-of-00159.parquet",
+    "sha256": "f05bbeef1d5d5241cf9199348e51f033d4066a83301a0177f9fd485b51b173c2",
+    "bytes": 208284276,
+    "fetched_at": "2026-11-14T20:16:39Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00015-of-00159.parquet",
+    "path": "data/math-00015-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00015-of-00159.parquet",
+    "sha256": "a68ff75e5b7e1343f298dce0378190a06e422d192634bb8a1311cb50713d2745",
+    "bytes": 208562037,
+    "fetched_at": "2026-11-14T20:16:58Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00016-of-00159.parquet",
+    "path": "data/math-00016-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00016-of-00159.parquet",
+    "sha256": "0598b23ca493067f5d0bc7408b4bfe72eafff59efee9101a6b9c42d01a72aa36",
+    "bytes": 208527912,
+    "fetched_at": "2026-11-14T20:18:21Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00017-of-00159.parquet",
+    "path": "data/math-00017-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00017-of-00159.parquet",
+    "sha256": "897badf5facf147815ed0fd562637e162427d95971e0bb3c8a14086038c8d082",
+    "bytes": 206922883,
+    "fetched_at": "2026-11-14T20:20:28Z",
     "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
    }
   ],
@@ -620,7 +676,7 @@
     "url": "https://huggingface.co/datasets/nvidia/OpenCodeInstruct/resolve/8f3ba5bafe4d6e8db46082cf7ae6741bc370604d/data/train-00000-of-00050.parquet",
     "sha256": "342757e0c6b706c8f68cf0a867ead5c417d0273726453dbcfc934f5c3c6ca891",
     "bytes": 133476478,
-    "fetched_at": "2026-11-14T18:42:45Z",
+    "fetched_at": "2026-11-14T20:20:29Z",
     "source_revision": "8f3ba5bafe4d6e8db46082cf7ae6741bc370604d"
    },
    {
@@ -629,7 +685,7 @@
     "url": "https://huggingface.co/datasets/nvidia/OpenCodeInstruct/resolve/8f3ba5bafe4d6e8db46082cf7ae6741bc370604d/data/train-00001-of-00050.parquet",
     "sha256": "2e822b1c8503683ab58aafe9eccbc546925f87bec45ced9b6040a43275e1d1d0",
     "bytes": 117050851,
-    "fetched_at": "2026-11-14T18:42:51Z",
+    "fetched_at": "2026-11-14T20:20:29Z",
     "source_revision": "8f3ba5bafe4d6e8db46082cf7ae6741bc370604d"
    },
    {
@@ -638,7 +694,16 @@
     "url": "https://huggingface.co/datasets/nvidia/OpenCodeInstruct/resolve/8f3ba5bafe4d6e8db46082cf7ae6741bc370604d/data/train-00002-of-00050.parquet",
     "sha256": "3fe342d7fb8616f4619a1f9183b71b42d9da3f5e68b9d1ca6d3afd6dbaee5037",
     "bytes": 115849397,
-    "fetched_at": "2026-11-14T18:42:55Z",
+    "fetched_at": "2026-11-14T20:20:29Z",
+    "source_revision": "8f3ba5bafe4d6e8db46082cf7ae6741bc370604d"
+   },
+   {
+    "file": "opencodeinstruct/files/data__train-00003-of-00050.parquet",
+    "path": "data/train-00003-of-00050.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/OpenCodeInstruct/resolve/8f3ba5bafe4d6e8db46082cf7ae6741bc370604d/data/train-00003-of-00050.parquet",
+    "sha256": "19aed4cc15ea04b3e9d842cb5bed9222fd4b0b84d59a206d4768642a27a82046",
+    "bytes": 118088378,
+    "fetched_at": "2026-11-14T20:20:38Z",
     "source_revision": "8f3ba5bafe4d6e8db46082cf7ae6741bc370604d"
    }
   ],
@@ -688,6 +753,17 @@
     "config": "secondary_task",
     "split": "train",
     "source_revision": "da78f23f9119"
+   }
+  ],
+  "wikipedia-fr": [
+   {
+    "file": "wikipedia-fr/files/20231101.fr__train-00002-of-00017.parquet",
+    "path": "20231101.fr/train-00002-of-00017.parquet",
+    "url": "https://huggingface.co/datasets/wikimedia/wikipedia/resolve/b04c8d1ceb2f5cd4588862100d08de323dccfbaa/20231101.fr/train-00002-of-00017.parquet",
+    "sha256": "b051aa3da29efdb86285fc3409320b04241955d318719a561d21a92eac91b36e",
+    "bytes": 348323642,
+    "fetched_at": "2026-11-14T20:21:58Z",
+    "source_revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa"
    }
   ],
   "wikipedia-hi": [
@@ -741,24 +817,24 @@
   "roman-urdu-parl": "Roman-Urdu authorship (human vs tool) not documented on the card; spot checks show some imperfectly aligned pairs (quality score lowered to 0.5)"
  },
  "pool_summary": {
-  "built_at": "2026-11-14T20:14:22Z",
+  "built_at": "2026-11-14T20:59:32Z",
   "rejections": {
-   "repetition": 36413,
-   "language_mismatch": 37306,
-   "quality": 14204,
+   "repetition": 44417,
+   "language_mismatch": 37318,
+   "quality": 14605,
    "formatting": 73,
    "injection": 10,
-   "nonsensical": 1169,
-   "unicode": 856,
+   "nonsensical": 1178,
+   "unicode": 859,
    "safety": 19,
    "empty": 10,
    "injection_contamination": 2,
-   "exact_duplicate": 30041,
-   "contradiction": 5988,
-   "near_duplicate": 59197,
+   "exact_duplicate": 30497,
+   "contradiction": 7407,
+   "near_duplicate": 65658,
    "benchmark_leakage": 10
   },
-  "pii_redactions": 18374,
+  "pii_redactions": 22909,
   "per_source": {
    "oasst1": {
     "status": "ingested",
@@ -773,7 +849,7 @@
      "nonsensical": 29,
      "unicode": 4
     },
-    "seconds": 47.2
+    "seconds": 46.7
    },
    "dolly-15k": {
     "status": "ingested",
@@ -787,7 +863,7 @@
      "repetition": 9,
      "safety": 1
     },
-    "seconds": 20.5
+    "seconds": 19.7
    },
    "gsm8k": {
     "status": "ingested",
@@ -812,7 +888,7 @@
      "unicode": 259,
      "empty": 10
     },
-    "seconds": 336.3
+    "seconds": 335.0
    },
    "arc": {
     "status": "ingested",
@@ -822,7 +898,7 @@
      "language_mismatch": 32,
      "quality": 4
     },
-    "seconds": 2.2
+    "seconds": 2.1
    },
    "mbpp": {
     "status": "ingested",
@@ -833,7 +909,7 @@
      "nonsensical": 7,
      "language_mismatch": 9
     },
-    "seconds": 7.8
+    "seconds": 8.4
    },
    "scienceqa-text": {
     "status": "ingested",
@@ -842,7 +918,7 @@
     "rejected": {
      "quality": 37
     },
-    "seconds": 17.1
+    "seconds": 17.6
    },
    "self-oss-instruct": {
     "status": "ingested",
@@ -855,7 +931,7 @@
      "formatting": 1,
      "unicode": 1
     },
-    "seconds": 98.0
+    "seconds": 95.8
    },
    "competition-math": {
     "status": "unavailable",
@@ -946,7 +1022,7 @@
      "language_mismatch": 144,
      "repetition": 80
     },
-    "seconds": 2.0
+    "seconds": 1.9
    },
    "consented-history": {
     "status": "optional_absent",
@@ -967,7 +1043,7 @@
      "injection": 4,
      "injection_contamination": 2
     },
-    "seconds": 77.0
+    "seconds": 71.1
    },
    "tydiqa-goldp": {
     "status": "ingested",
@@ -979,7 +1055,7 @@
      "quality": 156,
      "nonsensical": 112
     },
-    "seconds": 64.6
+    "seconds": 65.9
    },
    "qasc": {
     "status": "ingested",
@@ -989,7 +1065,7 @@
      "language_mismatch": 12,
      "quality": 4
     },
-    "seconds": 5.8
+    "seconds": 5.6
    },
    "roman-urdu-parl": {
     "status": "ingested",
@@ -1000,18 +1076,18 @@
      "language_mismatch": 57,
      "quality": 1
     },
-    "seconds": 10.5
+    "seconds": 10.0
    },
    "nemotron-math": {
     "status": "ingested",
-    "raw": 28124,
-    "accepted_record_gates": 18717,
+    "raw": 29095,
+    "accepted_record_gates": 19509,
     "rejected": {
-     "repetition": 9222,
-     "nonsensical": 157,
-     "quality": 28
+     "repetition": 9391,
+     "nonsensical": 166,
+     "quality": 29
     },
-    "seconds": 99.5
+    "seconds": 102.5
    },
    "nemotron-stem": {
     "status": "ingested",
@@ -1022,18 +1098,19 @@
      "quality": 83,
      "formatting": 27
     },
-    "seconds": 64.2
+    "seconds": 61.4
    },
    "opencodeinstruct": {
     "status": "ingested",
-    "raw": 127203,
-    "accepted_record_gates": 101730,
+    "raw": 172522,
+    "accepted_record_gates": 138817,
     "rejected": {
-     "repetition": 24213,
-     "quality": 1255,
-     "unicode": 5
+     "repetition": 32043,
+     "quality": 1655,
+     "unicode": 6,
+     "language_mismatch": 1
     },
-    "seconds": 176.6
+    "seconds": 231.9
    },
    "trendyol-cybersec": {
     "status": "ingested",
@@ -1046,7 +1123,7 @@
      "language_mismatch": 1,
      "injection": 3
     },
-    "seconds": 239.1
+    "seconds": 241.1
    },
    "wikipedia-ur": {
     "status": "ingested",
@@ -1059,7 +1136,7 @@
      "nonsensical": 3,
      "repetition": 7
     },
-    "seconds": 31.5
+    "seconds": 31.0
    },
    "wikipedia-hi": {
     "status": "ingested",
@@ -1071,7 +1148,7 @@
      "quality": 2,
      "nonsensical": 1
     },
-    "seconds": 26.4
+    "seconds": 25.1
    },
    "wikipedia-ko": {
     "status": "ingested",
@@ -1083,7 +1160,7 @@
      "language_mismatch": 14,
      "unicode": 3
     },
-    "seconds": 25.3
+    "seconds": 23.8
    },
    "wikipedia-id": {
     "status": "ingested",
@@ -1096,7 +1173,18 @@
      "nonsensical": 1,
      "quality": 2
     },
-    "seconds": 21.6
+    "seconds": 19.7
+   },
+   "wikipedia-fr": {
+    "status": "ingested",
+    "raw": 3000,
+    "accepted_record_gates": 2982,
+    "rejected": {
+     "unicode": 2,
+     "language_mismatch": 11,
+     "repetition": 5
+    },
+    "seconds": 9.4
    },
    "nemotron-chat": {
     "status": "rejected",
