@@ -292,3 +292,26 @@ class TestValidator(ReviewFixture):
         c = {x["check"]: x for x in validate.validate(["m"], self.registry)["models"]["m"]}
         self.assertEqual(c["human_review_backed_by_ledger"]["status"], "FAIL")
         self.assertEqual(c["artifact_sha256_and_counts"]["status"], "FAIL")
+
+
+class TestUnicodeLineSeparators(ReviewFixture):
+    def test_rows_with_u2028_are_read_as_one_record(self):
+        """JSONL is written with ensure_ascii=False, so U+2028/U+0085 appear raw inside strings: readers must split on \\n only."""
+        self.write("sep.jsonl", [rec(f"Explain the separator case number {i} in a little detail please.",
+                                     f"Line one line two\u0085line three — record {i} explains how separators behave.") for i in range(5)])
+        self.registry = self.reg(src("human", "human.jsonl"), src("sep", "sep.jsonl"))
+        self.build()
+        n = sum(1 for f in ("train", "eval", "test") for l in (self.datasets / "m" / "build" / f"{f}.jsonl").open(encoding="utf-8"))
+        self.assertEqual(len(review._build_rows("m")), n)
+        from datahub import validate
+        c = {x["check"]: x for x in validate.validate(["m"], self.registry)["models"]["m"]}
+        self.assertEqual(c["artifact_sha256_and_counts"]["status"], "PASS")
+
+
+class TestPromptDedup(Fixture):
+    def test_same_prompt_with_different_number_formatting_kept_once(self):
+        self.write("a.jsonl", [rec("¿Cuántos minutos son 1 000 segundos?", "Se divide entre sesenta y el resultado es de unos 16.7 minutos.", lang="es"),
+                               rec("¿Cuántos minutos son 1.000 segundos?", "Para pasar de segundos a minutos se divide entre sesenta: unos 16.7 minutos.", lang="es")])
+        pool = self.pool(self.reg(src("a", "a.jsonl")))
+        self.assertEqual(len(pool["records"]), 1)
+        self.assertEqual(pool["stats"].get("rejected:duplicate_prompt", 0), 1)

@@ -1,0 +1,28 @@
+{
+ "source": "ethics-commonsense",
+ "name": "hendrycks/ethics (commonsense)",
+ "url": "https://huggingface.co/datasets/hendrycks/ethics",
+ "hub_repo": "hendrycks/ethics",
+ "revision": "b8b47c589f8bee77175b8648e5497278b68da48a",
+ "license": "mit",
+ "commercial_use": "yes",
+ "attribution": "ETHICS (Hendrycks et al. 2021), MIT",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "scenario under a fixed question; label → fixed verdict sentence",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
+ "files": [
+  {
+   "file": "ethics-commonsense/commonsense/train/train-0000.parquet",
+   "url": "https://huggingface.co/api/datasets/hendrycks/ethics/parquet/commonsense/train/0.parquet",
+   "sha256": "da7fd85fc06869537d090d0487b58c23fcb5fbd54463a5d85861b3b3a7662377",
+   "bytes": 8693837,
+   "fetched_at": "2026-11-14T20:59:19Z",
+   "config": "commonsense",
+   "split": "train"
+  }
+ ]
+}

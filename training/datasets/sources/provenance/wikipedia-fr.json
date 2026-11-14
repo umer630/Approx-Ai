@@ -1,0 +1,27 @@
+{
+ "source": "wikipedia-fr",
+ "name": "wikimedia/wikipedia 20231101.fr (lead sections)",
+ "url": "https://huggingface.co/datasets/wikimedia/wikipedia",
+ "hub_repo": "wikimedia/wikipedia",
+ "revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+ "license": "cc-by-sa-3.0",
+ "commercial_use": "yes",
+ "attribution": "Wikipedia (fr) contributors, CC-BY-SA-3.0 (via wikimedia/wikipedia)",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "lead paragraphs (≤1,400 chars) under the template 'write a short introduction to <title>'; deterministic sampling",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
+ "files": [
+  {
+   "file": "wikipedia-fr/files/20231101.fr__train-00002-of-00017.parquet",
+   "path": "20231101.fr/train-00002-of-00017.parquet",
+   "url": "https://huggingface.co/datasets/wikimedia/wikipedia/resolve/b04c8d1ceb2f5cd4588862100d08de323dccfbaa/20231101.fr/train-00002-of-00017.parquet",
+   "sha256": "b051aa3da29efdb86285fc3409320b04241955d318719a561d21a92eac91b36e",
+   "bytes": 348323642,
+   "fetched_at": "2026-11-14T20:21:58Z"
+  }
+ ]
+}

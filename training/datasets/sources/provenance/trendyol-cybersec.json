@@ -1,0 +1,28 @@
+{
+ "source": "trendyol-cybersec",
+ "name": "Trendyol/Trendyol-Cybersecurity-Instruction-Tuning-Dataset",
+ "url": "https://huggingface.co/datasets/Trendyol/Trendyol-Cybersecurity-Instruction-Tuning-Dataset",
+ "hub_repo": "Trendyol/Trendyol-Cybersecurity-Instruction-Tuning-Dataset",
+ "revision": "357544e7576607d88eaeac9b0adb07e9fd8bb2bb",
+ "license": "apache-2.0",
+ "commercial_use": "yes",
+ "attribution": "Trendyol Cybersecurity Instruction-Tuning Dataset v2, Apache-2.0",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "dataset system prompt dropped; user → assistant",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": "generation method not named on the card; confirm before commercial release",
+ "files": [
+  {
+   "file": "trendyol-cybersec/default/train/train-0000.parquet",
+   "url": "https://huggingface.co/api/datasets/Trendyol/Trendyol-Cybersecurity-Instruction-Tuning-Dataset/parquet/default/train/0.parquet",
+   "sha256": "f90197c647c29e31274240cb6a0cf4ff11842c0cf2fe5e3d2cb99f860e624bc1",
+   "bytes": 62282830,
+   "fetched_at": "2026-11-14T18:42:58Z",
+   "config": "default",
+   "split": "train"
+  }
+ ]
+}

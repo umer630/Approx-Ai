@@ -1,0 +1,37 @@
+{
+ "source": "quartz",
+ "name": "allenai/quartz",
+ "url": "https://huggingface.co/datasets/allenai/quartz",
+ "hub_repo": "allenai/quartz",
+ "revision": "28c1dbb56caf81799296cb17892fa73402e23464",
+ "license": "cc-by-4.0",
+ "commercial_use": "yes",
+ "attribution": "QuaRTz (Tafjord et al. 2019), AllenAI, CC-BY-4.0",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "question + options → (gold knowledge) + labelled answer",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
+ "files": [
+  {
+   "file": "quartz/default/train/train-0000.parquet",
+   "url": "https://huggingface.co/api/datasets/allenai/quartz/parquet/default/train/0.parquet",
+   "sha256": "edeb1fa716d945ee198c9f5ce5ab6cad4d847e714ff7463834dee422c8450035",
+   "bytes": 415195,
+   "fetched_at": "2026-11-14T20:59:15Z",
+   "config": "default",
+   "split": "train"
+  },
+  {
+   "file": "quartz/default/validation/validation-0000.parquet",
+   "url": "https://huggingface.co/api/datasets/allenai/quartz/parquet/default/validation/0.parquet",
+   "sha256": "91afc8bbdb1b6b67f35f05ea4b4dbc1ba718ec2469be665a386c46b4648a1fb4",
+   "bytes": 54296,
+   "fetched_at": "2026-11-14T20:59:16Z",
+   "config": "default",
+   "split": "validation"
+  }
+ ]
+}

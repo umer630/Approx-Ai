@@ -1,0 +1,37 @@
+{
+ "source": "commonsense-qa",
+ "name": "tau/commonsense_qa",
+ "url": "https://huggingface.co/datasets/tau/commonsense_qa",
+ "hub_repo": "tau/commonsense_qa",
+ "revision": "94630fe30dad47192a8546eb75f094926d47e155",
+ "license": "mit",
+ "commercial_use": "yes",
+ "attribution": "CommonsenseQA (Talmor et al. 2019), MIT",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "question + options → (gold knowledge) + labelled answer",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
+ "files": [
+  {
+   "file": "commonsense-qa/default/train/train-0000.parquet",
+   "url": "https://huggingface.co/api/datasets/tau/commonsense_qa/parquet/default/train/0.parquet",
+   "sha256": "b0449767ed986bfc2ca52b1244a46ef12f732756727f3cb0a4ab69ac8b3d282b",
+   "bytes": 1247103,
+   "fetched_at": "2026-11-14T20:59:13Z",
+   "config": "default",
+   "split": "train"
+  },
+  {
+   "file": "commonsense-qa/default/validation/validation-0000.parquet",
+   "url": "https://huggingface.co/api/datasets/tau/commonsense_qa/parquet/default/validation/0.parquet",
+   "sha256": "bdbd9bf9cc4d2349b24901038b2ab2f58e10e4e507ad2fd425dca55cd3cb6660",
+   "bytes": 160240,
+   "fetched_at": "2026-11-14T20:59:14Z",
+   "config": "default",
+   "split": "validation"
+  }
+ ]
+}

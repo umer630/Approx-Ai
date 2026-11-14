@@ -1,7 +1,19 @@
 {
  "source": "scienceqa-text",
+ "name": "derek-thomas/ScienceQA",
+ "url": "https://huggingface.co/datasets/derek-thomas/ScienceQA",
  "hub_repo": "derek-thomas/ScienceQA",
- "declared_revision": "f18b0a70359e",
+ "revision": "f18b0a70359e",
+ "license": "cc-by-sa-4.0",
+ "commercial_use": "yes",
+ "attribution": "ScienceQA (Lu et al. 2022), CC BY-SA 4.0",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "text-only items; question + options → answer + lecture/solution",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
  "files": [
   {
    "file": "scienceqa-text/default/train/train-0000.parquet",

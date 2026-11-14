@@ -1,0 +1,28 @@
+{
+ "source": "roman-urdu-parl",
+ "name": "Mavkif/Roman-Urdu-Parl-split (Roman-Urdu-Parl)",
+ "url": "https://huggingface.co/datasets/Mavkif/Roman-Urdu-Parl-split",
+ "hub_repo": "Mavkif/Roman-Urdu-Parl-split",
+ "revision": "b9ef670661582b5f17eff68b4e65fbe25f3cb0b9",
+ "license": "apache-2.0",
+ "commercial_use": "yes",
+ "attribution": "Roman-Urdu-Parl (Alam & Hussain), split by Mavkif, Apache-2.0",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "sampled (rate 0.06, ≥6 words); alternating Urdu→Roman-Urdu / Roman-Urdu→Urdu transliteration prompts",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": "Roman-Urdu authorship (human vs tool) not documented on the card; spot checks show some imperfectly aligned pairs (quality score lowered to 0.5)",
+ "files": [
+  {
+   "file": "roman-urdu-parl/default/train/train-0000.parquet",
+   "url": "https://huggingface.co/api/datasets/Mavkif/Roman-Urdu-Parl-split/parquet/default/train/0.parquet",
+   "sha256": "165dfa826a1042e1d7da274df48b1ebfe687f56c2680c24066e0be3f85c4b8df",
+   "bytes": 133879286,
+   "fetched_at": "2026-11-14T18:39:52Z",
+   "config": "default",
+   "split": "train"
+  }
+ ]
+}

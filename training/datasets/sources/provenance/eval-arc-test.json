@@ -1,7 +1,16 @@
 {
  "source": "eval-arc-test",
+ "name": "allenai/ai2_arc",
+ "url": "https://huggingface.co/datasets/allenai/ai2_arc",
  "hub_repo": "allenai/ai2_arc",
- "declared_revision": "210d026faf99",
+ "revision": "210d026faf99",
+ "license": "cc-by-sa-4.0",
+ "commercial_use": "yes",
+ "attribution": "ARC, CC BY-SA 4.0",
+ "status": "approved",
+ "use": "eval_only",
+ "transformations": null,
+ "upstream_risk": null,
  "files": [
   {
    "file": "eval-arc-test/ARC-Challenge/test/test-0000.parquet",

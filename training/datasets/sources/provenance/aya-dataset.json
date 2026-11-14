@@ -1,7 +1,19 @@
 {
  "source": "aya-dataset",
+ "name": "CohereForAI/aya_dataset",
+ "url": "https://huggingface.co/datasets/CohereForAI/aya_dataset",
  "hub_repo": "CohereForAI/aya_dataset",
- "declared_revision": "f9ea04583f02",
+ "revision": "f9ea04583f02",
+ "license": "apache-2.0",
+ "commercial_use": "yes",
+ "attribution": "Aya Dataset (Singh et al. 2024), Cohere For AI, Apache-2.0",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "inputs → targets; ISO-639-3 → ISO-639-1",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
  "files": [
   {
    "file": "aya-dataset/default/train/train-0000.parquet",

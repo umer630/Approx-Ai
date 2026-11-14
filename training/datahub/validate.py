@@ -26,7 +26,7 @@ def _rows(model):
     out = {}
     for s in ("train", "eval", "test"):
         p = d / f"{s}.jsonl"
-        out[s] = [json.loads(l) for l in p.read_text(encoding="utf-8").splitlines()] if p.exists() else None
+        out[s] = [json.loads(l) for l in p.read_text(encoding="utf-8").split("\n") if l.strip()] if p.exists() else None
     return out
 
 
@@ -78,7 +78,7 @@ def validate(models: list | None = None, reg: dict | None = None) -> dict:
     # 2. review ledger integrity
     ledger_entries = []
     for f in sorted(pipeline.REVIEWS.glob("*.jsonl")) if pipeline.REVIEWS.exists() else []:
-        ledger_entries += [json.loads(l) for l in f.read_text(encoding="utf-8").splitlines() if l.strip()]
+        ledger_entries += [json.loads(l) for l in f.read_text(encoding="utf-8").split("\n") if l.strip()]
     dup = [k for k, v in Counter((e["record_id"], e["reviewer"]) for e in ledger_entries).items() if v > 1]
     nonhuman = [e["reviewer"] for e in ledger_entries if review.NON_HUMAN.search(e.get("reviewer", "")) or not review.REVIEWER_RX.match(e.get("reviewer", ""))]
     nosheet = [e["record_id"] for e in ledger_entries if not (review.SHEETS / e.get("model", "") / f"{e.get('sheet_id')}.meta.json").exists()]
@@ -89,11 +89,11 @@ def validate(models: list | None = None, reg: dict | None = None) -> dict:
 
     eval_src = {s["id"] for s in reg["sources"] if s["use"] == "eval_only"}
     from engine.curriculum import eval_suite
-    eval_prompts = {pipeline._norm(it["prompt"]) for it in eval_suite.ITEMS if it.get("prompt")}
+    eval_prompts = {pipeline._norm(it["prompt"]) for it in eval_suite.ITEMS if it.get("prompt")} - {""}
     for sid in eval_src:
         try:
             _, recs = connectors.load_source(srcs[sid], offline=True, execute_code=False)
-            eval_prompts |= {pipeline._norm(m["content"]) for r in recs for m in r["messages"] if m["role"] == "user"}
+            eval_prompts |= {k for r in recs for m in r["messages"] if m["role"] == "user" and (k := pipeline._norm(m["content"]))}
         except Exception:  # noqa: BLE001
             pass
 
@@ -149,17 +149,24 @@ def validate(models: list | None = None, reg: dict | None = None) -> dict:
         R.append(check("human_review_minimum", "PASS" if n_ok >= prof.get("min_human_reviewed", 0) else "BLOCKED",
                        f"{n_ok:,} genuine human reviews / {prof.get('min_human_reviewed', 0):,} required (auto_verified and source_community_reviewed excluded: "
                        f"{sum(r['review_state'] == 'auto_verified' for r in allr):,} / {sum(r['review_state'] == 'source_community_reviewed' for r in allr):,})"))
-        # duplicates / leakage
-        keys = {s: [pipeline._norm(_user(r)) for r in rows[s]] for s in rows}
+        # duplicates / leakage — a training example's input is ALL of its user turns (the pipeline's prompt key)
+        from engine import dataset_validator as dv
+        keys = {s: [pipeline._norm(dv.user_text(r)) for r in rows[s]] for s in rows}
         allk = [k for v in keys.values() for k in v]
         dups = len(allk) - len(set(allk))
         cross = len(set(keys["train"]) & (set(keys["eval"]) | set(keys["test"])))
-        leak = sum(1 for k in allk if k in eval_prompts)
+        # exact match of ANY user turn with an evaluation prompt (prompts that normalise to nothing — e.g. '？' or an emoji —
+        # carry no content and are ignored)
+        leak = sum(1 for r in allr for x in r["messages"] if x["role"] == "user" and (k := pipeline._norm(x["content"])) and k in eval_prompts)
+        first = [pipeline._norm(_user(r)) for r in allr]
+        shared_open = len(first) - len(set(first))
         ids = [r["id"] for r in allr]
         R.append(check("no_duplicate_prompts", "PASS" if dups == 0 and len(ids) == len(set(ids)) else "FAIL",
                        f"{dups} duplicate normalised prompts, {len(ids) - len(set(ids))} duplicate ids"))
         R.append(check("no_split_leakage", "PASS" if cross == 0 else "FAIL", f"{cross} prompts shared between train and eval/test"))
-        R.append(check("no_benchmark_leakage", "PASS" if leak == 0 else "FAIL", f"{leak} records whose prompt exactly matches an evaluation prompt ({len(eval_prompts):,} indexed)"))
+        R.append(check("no_benchmark_leakage", "PASS" if leak == 0 else "FAIL", f"{leak} user turns exactly matching an evaluation prompt ({len(eval_prompts):,} indexed)"))
+        R.append(check("shared_opening_turn_info", "PASS", f"{shared_open:,} multi-turn conversations share an opening user message with another "
+                                                         "record (different follow-up turns and targets; not duplicates)"))
         R.append(check("production_ready_derived", "PASS" if man["production_ready"] == all(g["passed"] for g in man["gates"].values()) else "FAIL",
                        f"production_ready={man['production_ready']} equals AND of {len(man['gates'])} gates"))
         fp = hashlib.sha256(json.dumps(sorted(ids)).encode()).hexdigest()

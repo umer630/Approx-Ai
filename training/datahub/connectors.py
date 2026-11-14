@@ -539,7 +539,7 @@ def load_local_jsonl(src: dict):
     prov = [{"file": str(p.relative_to(TRAINING)), "sha256": sha256_file(p), "bytes": p.stat().st_size,
              "fetched_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(p.stat().st_mtime))}]
     recs = []
-    for n, line in enumerate(p.read_text(encoding="utf-8").splitlines()):
+    for n, line in enumerate(p.read_text(encoding="utf-8").split("\n")):
         if not line.strip():
             continue
         try:

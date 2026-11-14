@@ -1,0 +1,28 @@
+{
+ "source": "aqua-rat",
+ "name": "deepmind/aqua_rat",
+ "url": "https://huggingface.co/datasets/deepmind/aqua_rat",
+ "hub_repo": "deepmind/aqua_rat",
+ "revision": "33301c6a050c96af81f63cad5562cb5363e88971",
+ "license": "apache-2.0",
+ "commercial_use": "yes",
+ "attribution": "AQuA-RAT (Ling et al. 2017), DeepMind, Apache-2.0",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "question + options → rationale + 'Answer: X'",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
+ "files": [
+  {
+   "file": "aqua-rat/raw/train/train-0000.parquet",
+   "url": "https://huggingface.co/api/datasets/deepmind/aqua_rat/parquet/raw/train/0.parquet",
+   "sha256": "b9e0ee4d72661e3d00002553fb210938f50528b42cc72809fde18b8119c96778",
+   "bytes": 25418552,
+   "fetched_at": "2026-11-14T20:59:17Z",
+   "config": "raw",
+   "split": "train"
+  }
+ ]
+}

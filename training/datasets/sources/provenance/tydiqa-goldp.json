@@ -1,0 +1,28 @@
+{
+ "source": "tydiqa-goldp",
+ "name": "google-research-datasets/tydiqa (secondary_task / GoldP)",
+ "url": "https://huggingface.co/datasets/google-research-datasets/tydiqa",
+ "hub_repo": "google-research-datasets/tydiqa",
+ "revision": "da78f23f9119363459acbaf46bf89426ff26c259",
+ "license": "apache-2.0",
+ "commercial_use": "yes",
+ "attribution": "TyDi QA (Clark et al. 2020), Google, Apache-2.0; passages from Wikipedia (CC-BY-SA)",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "passage + question → answer span + its source sentence",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
+ "files": [
+  {
+   "file": "tydiqa-goldp/secondary_task/train/train-0000.parquet",
+   "url": "https://huggingface.co/api/datasets/google-research-datasets/tydiqa/parquet/secondary_task/train/0.parquet",
+   "sha256": "8139944554bcd89f6c4b167b93c9a63ec44a6d97b8caebe049061f78fcc0e786",
+   "bytes": 26918058,
+   "fetched_at": "2026-11-14T18:39:45Z",
+   "config": "secondary_task",
+   "split": "train"
+  }
+ ]
+}

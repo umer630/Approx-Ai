@@ -1,7 +1,19 @@
 {
  "source": "arc",
+ "name": "allenai/ai2_arc",
+ "url": "https://huggingface.co/datasets/allenai/ai2_arc",
  "hub_repo": "allenai/ai2_arc",
- "declared_revision": "210d026faf99",
+ "revision": "210d026faf99",
+ "license": "cc-by-sa-4.0",
+ "commercial_use": "yes",
+ "attribution": "AI2 Reasoning Challenge (Clark et al. 2018), CC BY-SA 4.0",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "question + options → labelled answer",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
  "files": [
   {
    "file": "arc/ARC-Challenge/train/train-0000.parquet",

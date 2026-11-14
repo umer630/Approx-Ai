@@ -1,7 +1,16 @@
 {
  "source": "eval-belebele",
+ "name": "facebook/belebele",
+ "url": "https://huggingface.co/datasets/facebook/belebele",
  "hub_repo": "facebook/belebele",
- "declared_revision": "7899cdfa4e1e",
+ "revision": "7899cdfa4e1e",
+ "license": "cc-by-sa-4.0",
+ "commercial_use": "yes",
+ "attribution": "Belebele (Bandarkar et al. 2023), CC BY-SA 4.0",
+ "status": "approved",
+ "use": "eval_only",
+ "transformations": null,
+ "upstream_risk": null,
  "files": [
   {
    "file": "eval-belebele/arb_Arab/test/test-0000.parquet",

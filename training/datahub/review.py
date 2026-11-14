@@ -41,7 +41,9 @@ def _build_rows(model: str) -> list:
         p = d / f"{split}.jsonl"
         if not p.exists():
             raise FileNotFoundError(f"{p} missing — run `python -m datahub build --models {model}` first")
-        for line in p.read_text(encoding="utf-8").splitlines():
+        for line in p.read_text(encoding="utf-8").split("\n"):
+            if not line.strip():
+                continue
             r = json.loads(line)
             r["split"] = split
             rows.append(r)
@@ -60,7 +62,7 @@ def load_ledger(review_dir: Path | None = None) -> dict:
     by_rec = defaultdict(list)
     if d.exists():
         for f in sorted(d.glob("*.jsonl")):
-            for line in f.read_text(encoding="utf-8").splitlines():
+            for line in f.read_text(encoding="utf-8").split("\n"):
                 if not line.strip():
                     continue
                 e = json.loads(line)
@@ -152,7 +154,7 @@ def import_sheet(csv_path: Path, model: str, *, sheets_dir: Path | None = None, 
     ledger_p = ledger_dir / f"{model}.jsonl"
     existing = set()
     if ledger_p.exists():
-        for line in ledger_p.read_text(encoding="utf-8").splitlines():
+        for line in ledger_p.read_text(encoding="utf-8").split("\n"):
             if line.strip():
                 e = json.loads(line)
                 existing.add((e["record_id"], e["reviewer"]))

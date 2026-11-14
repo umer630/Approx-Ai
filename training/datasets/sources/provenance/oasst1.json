@@ -1,7 +1,19 @@
 {
  "source": "oasst1",
+ "name": "OpenAssistant/oasst1",
+ "url": "https://huggingface.co/datasets/OpenAssistant/oasst1",
  "hub_repo": "OpenAssistant/oasst1",
- "declared_revision": "fdf72ae0827c",
+ "revision": "fdf72ae0827c",
+ "license": "apache-2.0",
+ "commercial_use": "yes",
+ "attribution": "OpenAssistant Conversations (oasst1), LAION, Apache-2.0",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "rank-0 assistant reply per prompt with ≤4 history turns; deleted/flagged/synthetic messages dropped",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
  "files": [
   {
    "file": "oasst1/default/train/train-0000.parquet",

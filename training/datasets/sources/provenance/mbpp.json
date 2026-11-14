@@ -1,7 +1,19 @@
 {
  "source": "mbpp",
+ "name": "google-research-datasets/mbpp",
+ "url": "https://huggingface.co/datasets/google-research-datasets/mbpp",
  "hub_repo": "google-research-datasets/mbpp",
- "declared_revision": "4bb6404fdc6c",
+ "revision": "4bb6404fdc6c",
+ "license": "cc-by-4.0",
+ "commercial_use": "yes",
+ "attribution": "MBPP (Austin et al. 2021), Google, CC BY 4.0",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "solution kept only if its tests pass when executed",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
  "files": [
   {
    "file": "mbpp/full/prompt/prompt-0000.parquet",

@@ -1,7 +1,19 @@
 {
  "source": "self-oss-instruct",
+ "name": "bigcode/self-oss-instruct-sc2-exec-filter-50k",
+ "url": "https://huggingface.co/datasets/bigcode/self-oss-instruct-sc2-exec-filter-50k",
  "hub_repo": "bigcode/self-oss-instruct-sc2-exec-filter-50k",
- "declared_revision": "356bb069eee8",
+ "revision": "356bb069eee8",
+ "license": "odc-by",
+ "commercial_use": "yes",
+ "attribution": "StarCoder2-Instruct self-OSS-instruct data, BigCode, ODC-By",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "instruction → response",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
  "files": [
   {
    "file": "self-oss-instruct/default/train/train-0000.parquet",

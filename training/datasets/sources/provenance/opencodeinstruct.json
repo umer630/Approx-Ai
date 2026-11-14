@@ -1,0 +1,51 @@
+{
+ "source": "opencodeinstruct",
+ "name": "nvidia/OpenCodeInstruct (4 of 50 shards)",
+ "url": "https://huggingface.co/datasets/nvidia/OpenCodeInstruct",
+ "hub_repo": "nvidia/OpenCodeInstruct",
+ "revision": "8f3ba5bafe4d6e8db46082cf7ae6741bc370604d",
+ "license": "cc-by-4.0",
+ "commercial_use": "yes",
+ "attribution": "NVIDIA OpenCodeInstruct (Ahmad et al. 2025), CC-BY-4.0",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "only rows with all publisher-run unit tests passing",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": "generator model not named on the card; confirm before commercial release (reject = set status to 'rejected' and rebuild)",
+ "files": [
+  {
+   "file": "opencodeinstruct/files/data__train-00000-of-00050.parquet",
+   "path": "data/train-00000-of-00050.parquet",
+   "url": "https://huggingface.co/datasets/nvidia/OpenCodeInstruct/resolve/8f3ba5bafe4d6e8db46082cf7ae6741bc370604d/data/train-00000-of-00050.parquet",
+   "sha256": "342757e0c6b706c8f68cf0a867ead5c417d0273726453dbcfc934f5c3c6ca891",
+   "bytes": 133476478,
+   "fetched_at": "2026-11-14T20:20:29Z"
+  },
+  {
+   "file": "opencodeinstruct/files/data__train-00001-of-00050.parquet",
+   "path": "data/train-00001-of-00050.parquet",
+   "url": "https://huggingface.co/datasets/nvidia/OpenCodeInstruct/resolve/8f3ba5bafe4d6e8db46082cf7ae6741bc370604d/data/train-00001-of-00050.parquet",
+   "sha256": "2e822b1c8503683ab58aafe9eccbc546925f87bec45ced9b6040a43275e1d1d0",
+   "bytes": 117050851,
+   "fetched_at": "2026-11-14T20:20:29Z"
+  },
+  {
+   "file": "opencodeinstruct/files/data__train-00002-of-00050.parquet",
+   "path": "data/train-00002-of-00050.parquet",
+   "url": "https://huggingface.co/datasets/nvidia/OpenCodeInstruct/resolve/8f3ba5bafe4d6e8db46082cf7ae6741bc370604d/data/train-00002-of-00050.parquet",
+   "sha256": "3fe342d7fb8616f4619a1f9183b71b42d9da3f5e68b9d1ca6d3afd6dbaee5037",
+   "bytes": 115849397,
+   "fetched_at": "2026-11-14T20:20:29Z"
+  },
+  {
+   "file": "opencodeinstruct/files/data__train-00003-of-00050.parquet",
+   "path": "data/train-00003-of-00050.parquet",
+   "url": "https://huggingface.co/datasets/nvidia/OpenCodeInstruct/resolve/8f3ba5bafe4d6e8db46082cf7ae6741bc370604d/data/train-00003-of-00050.parquet",
+   "sha256": "19aed4cc15ea04b3e9d842cb5bed9222fd4b0b84d59a206d4768642a27a82046",
+   "bytes": 118088378,
+   "fetched_at": "2026-11-14T20:20:38Z"
+  }
+ ]
+}

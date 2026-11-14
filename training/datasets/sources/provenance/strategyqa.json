@@ -1,0 +1,28 @@
+{
+ "source": "strategyqa",
+ "name": "ChilleD/StrategyQA (StrategyQA)",
+ "url": "https://huggingface.co/datasets/ChilleD/StrategyQA",
+ "hub_repo": "ChilleD/StrategyQA",
+ "revision": "705562638fe1d8ca6bb98c66fc8f94d45fda8c83",
+ "license": "mit",
+ "commercial_use": "yes",
+ "attribution": "StrategyQA (Geva et al. 2021), AllenAI, MIT",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "question → human facts + yes/no verdict",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
+ "files": [
+  {
+   "file": "strategyqa/default/train/train-0000.parquet",
+   "url": "https://huggingface.co/api/datasets/ChilleD/StrategyQA/parquet/default/train/0.parquet",
+   "sha256": "82262246f9f669cc69128c64d96e81860d232482565ecb9d9c63e7ee2c6574a7",
+   "bytes": 369335,
+   "fetched_at": "2026-11-14T20:59:15Z",
+   "config": "default",
+   "split": "train"
+  }
+ ]
+}

@@ -192,6 +192,16 @@ def build_pool(reg: dict | None = None, *, offline: bool = False, curriculum_sca
     bad = dv.find_contradictions(uniq)
     stats["rejected:contradiction"] += len(bad)
     uniq = [r for i, r in enumerate(uniq) if i not in bad]
+    # Same prompt after normalisation (e.g. "1 000" vs "1.000") → keep only the best-quality record. The MinHash gate
+    # below also requires identical numbers, so these would otherwise both survive.
+    seen_prompt, deduped = set(), []
+    for r in uniq:
+        if r["prompt_key"] in seen_prompt:
+            stats["rejected:duplicate_prompt"] += 1
+            continue
+        seen_prompt.add(r["prompt_key"])
+        deduped.append(r)
+    uniq = deduped
     near, kept = dv.NearDupIndex(threshold=0.85), []
     for r in uniq:
         cid, sig = near.find(dv.user_text(r))

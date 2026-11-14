@@ -1,0 +1,37 @@
+{
+ "source": "oasst2",
+ "name": "OpenAssistant/oasst2",
+ "url": "https://huggingface.co/datasets/OpenAssistant/oasst2",
+ "hub_repo": "OpenAssistant/oasst2",
+ "revision": "179dd21fc55192153d94adb0e0ce8f69e222bf75",
+ "license": "apache-2.0",
+ "commercial_use": "yes",
+ "attribution": "OpenAssistant Conversations (oasst2), Apache-2.0",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "same as oasst1",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
+ "files": [
+  {
+   "file": "oasst2/default/train/train-0000.parquet",
+   "url": "https://huggingface.co/api/datasets/OpenAssistant/oasst2/parquet/default/train/0.parquet",
+   "sha256": "9638227b41b0a4fb69afa5d5c4b52e3fb6abfd56c9870d81bae32c9981e769b1",
+   "bytes": 63494018,
+   "fetched_at": "2026-11-14T18:39:42Z",
+   "config": "default",
+   "split": "train"
+  },
+  {
+   "file": "oasst2/default/validation/validation-0000.parquet",
+   "url": "https://huggingface.co/api/datasets/OpenAssistant/oasst2/parquet/default/validation/0.parquet",
+   "sha256": "fd46c63babc0756909a957ee40975bcf5610d58c5d1ab5ff2c57c0f57be1f273",
+   "bytes": 3180111,
+   "fetched_at": "2026-11-14T18:39:43Z",
+   "config": "default",
+   "split": "validation"
+  }
+ ]
+}

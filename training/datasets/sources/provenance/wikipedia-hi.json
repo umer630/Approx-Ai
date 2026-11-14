@@ -1,0 +1,27 @@
+{
+ "source": "wikipedia-hi",
+ "name": "wikimedia/wikipedia 20231101.hi (lead sections)",
+ "url": "https://huggingface.co/datasets/wikimedia/wikipedia",
+ "hub_repo": "wikimedia/wikipedia",
+ "revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+ "license": "cc-by-sa-3.0",
+ "commercial_use": "yes",
+ "attribution": "Wikipedia (hi) contributors, CC-BY-SA-3.0 (via wikimedia/wikipedia)",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "lead paragraphs (≤1,400 chars) under the template 'write a short introduction to <title>'; deterministic sampling",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
+ "files": [
+  {
+   "file": "wikipedia-hi/files/20231101.hi__train-00000-of-00002.parquet",
+   "path": "20231101.hi/train-00000-of-00002.parquet",
+   "url": "https://huggingface.co/datasets/wikimedia/wikipedia/resolve/b04c8d1ceb2f5cd4588862100d08de323dccfbaa/20231101.hi/train-00000-of-00002.parquet",
+   "sha256": "48001d229cb28d1e74c1f6bac76a1d0ccfc2ffa05c8fb9c2201a5b56108e7c58",
+   "bytes": 134883945,
+   "fetched_at": "2026-11-14T18:44:28Z"
+  }
+ ]
+}

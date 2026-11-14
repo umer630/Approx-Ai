@@ -1,7 +1,19 @@
 {
  "source": "gsm8k",
+ "name": "openai/gsm8k",
+ "url": "https://huggingface.co/datasets/openai/gsm8k",
  "hub_repo": "openai/gsm8k",
- "declared_revision": "740312add88f",
+ "revision": "740312add88f",
+ "license": "mit",
+ "commercial_use": "yes",
+ "attribution": "GSM8K (Cobbe et al. 2021), MIT",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "calculator annotations removed; 'Answer: N' appended",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
  "files": [
   {
    "file": "gsm8k/main/train/train-0000.parquet",

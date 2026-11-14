@@ -1,7 +1,16 @@
 {
  "source": "eval-gsm8k-test",
+ "name": "openai/gsm8k",
+ "url": "https://huggingface.co/datasets/openai/gsm8k",
  "hub_repo": "openai/gsm8k",
- "declared_revision": "740312add88f",
+ "revision": "740312add88f",
+ "license": "mit",
+ "commercial_use": "yes",
+ "attribution": "GSM8K, MIT",
+ "status": "approved",
+ "use": "eval_only",
+ "transformations": null,
+ "upstream_risk": null,
  "files": [
   {
    "file": "eval-gsm8k-test/main/test/test-0000.parquet",

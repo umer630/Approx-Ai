@@ -1,0 +1,51 @@
+{
+ "source": "nemotron-stem",
+ "name": "nvidia/Nemotron-Post-Training-Dataset-v1 (stem, 4 shards)",
+ "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1",
+ "hub_repo": "nvidia/Nemotron-Post-Training-Dataset-v1",
+ "revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8",
+ "license": "cc-by-4.0",
+ "commercial_use": "yes",
+ "attribution": "NVIDIA Nemotron-Post-Training-Dataset-v1, CC-BY-4.0",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "reasoning trace removed; first response per prompt; generators restricted to DeepSeek-R1-0528/Qwen3-235B-A22B (stem: answer must match expected choice)",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": "prompts collected by NVIDIA from 'public and open corpora' (not itemised per row)",
+ "files": [
+  {
+   "file": "nemotron-stem/files/data__stem-00000-of-00660.parquet",
+   "path": "data/stem-00000-of-00660.parquet",
+   "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/stem-00000-of-00660.parquet",
+   "sha256": "aaa2c95ed59d0d3776560b8f4b261d2b1cff8d11ce7ee4e4b22d9ea6f200377e",
+   "bytes": 178477131,
+   "fetched_at": "2026-11-14T18:55:52Z"
+  },
+  {
+   "file": "nemotron-stem/files/data__stem-00001-of-00660.parquet",
+   "path": "data/stem-00001-of-00660.parquet",
+   "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/stem-00001-of-00660.parquet",
+   "sha256": "c400217046456f6c861d3b3ad24d3d3a137e0ff3f25892d75a4ea3c373f02574",
+   "bytes": 179273432,
+   "fetched_at": "2026-11-14T18:55:53Z"
+  },
+  {
+   "file": "nemotron-stem/files/data__stem-00002-of-00660.parquet",
+   "path": "data/stem-00002-of-00660.parquet",
+   "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/stem-00002-of-00660.parquet",
+   "sha256": "4be611a0fe1a81d53018fbf520148bfc39253045002366ef302e7449d9ce702c",
+   "bytes": 180176661,
+   "fetched_at": "2026-11-14T18:56:00Z"
+  },
+  {
+   "file": "nemotron-stem/files/data__stem-00003-of-00660.parquet",
+   "path": "data/stem-00003-of-00660.parquet",
+   "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/stem-00003-of-00660.parquet",
+   "sha256": "edce7e1b81b81d065fe0a8ba2e6fbe4e82de4208cbbb9274321918d725223507",
+   "bytes": 187055454,
+   "fetched_at": "2026-11-14T18:56:07Z"
+  }
+ ]
+}

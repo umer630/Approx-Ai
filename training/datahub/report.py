@@ -12,16 +12,20 @@ ROOT = Path(__file__).resolve().parents[1]
 MODELS = ["nick-4.8", "hike-6.5", "sona-9.0", "fab-100x", "fab-500x"]
 
 BLOCKERS = [
-    ("Human review", "No person has reviewed records yet, so `human_review` fails for every model. The workflow is ready "
-     "(`documentation/HUMAN_REVIEW.md`); it needs real reviewers."),
-    ("Base models (approval needed)", "Nick 4.8's locked base `Qwen/Qwen2.5-3B-Instruct` is under the Qwen Research License "
-     "(non-commercial). FAB 100X has no base model. Options with verified licenses: `reports/base_model_options.md`. Nothing was changed."),
-    ("Sources with upstream risk", "OpenCodeInstruct and Trendyol-Cybersecurity do not name their generator models on their cards; "
-     "Roman-Urdu-Parl does not document how its Roman-Urdu side was produced. They are approved under their declared licenses and flagged "
-     "(`upstream_risk`); set `status` to `rejected` in the registry and rebuild to drop them."),
-    ("Unavailable sources", "Hendrycks MATH (HTTP 400, taken down); Nemotron code split (all prompts withheld); Tatoeba (no parquet export — needs "
-     "downloads.tatoeba.org on the network allowlist or an HF token)."),
-    ("Consented history", "Optional source: no users have opted in, so there is no data. It is reported as absent and never fabricated."),
+    ("Human review (all models)", "No person has reviewed any record yet: 0 / 500 (Nick 4.8), 0 / 800 (Hike 6.5), 0 / 1,200 (Sona 9.0), "
+     "0 / 1,500 (FAB 100X), 0 / 5,000 (FAB 500X). Review sheets are issued (datasets/reviews/sheets/, not committed); reviewers follow "
+     "documentation/HUMAN_REVIEW.md and the operator imports them with `python -m datahub review-import`. Automatic checks never count."),
+    ("FAB 100X base model", "No base model configured — hard blocker. Licensed options for approval: reports/base_model_options.md."),
+    ("Nick 4.8 base-model license", "Qwen/Qwen2.5-3B-Instruct is under the Qwen Research License (non-commercial). The configuration is "
+     "unchanged; commercial alternatives (Phi-4-mini-instruct, MIT; Qwen3-4B-Instruct-2507, Apache-2.0) await approval."),
+    ("Unpinned base revisions", "Hike 6.5, Sona 9.0 and FAB 500X bases are Apache-2.0 but their revisions are unpinned (resolved and recorded at "
+     "training time)."),
+    ("Sources with upstream risk", "OpenCodeInstruct and Trendyol-Cybersecurity do not name their generator models; Roman-Urdu-Parl does not document "
+     "how its Roman-Urdu side was produced; CommitPackFT code keeps per-repository permissive licenses. Approved under declared licenses and flagged "
+     "(`upstream_risk`); set `status` to `rejected` and rebuild to drop any of them."),
+    ("Unavailable / quarantined sources", "Hendrycks MATH (taken down), Nemotron code (prompts withheld), Tatoeba (needs another host or an HF token); "
+     "13 sources are quarantined as review_required and 9 rejected (see datasets/sources/licenses/README.md)."),
+    ("Consented history", "Optional source: no users have opted in; reported as absent, never fabricated."),
     ("Not verified here", "GPU training, `tests/test_recovery.py` and the torch-dependent tests in `test_colab_pipeline` need torch/GPU."),
 ]
 

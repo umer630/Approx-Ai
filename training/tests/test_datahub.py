@@ -170,7 +170,8 @@ class TestRecordGates(Fixture):
         pool = self.pool(self.reg(src("s", "a.jsonl")))
         self.assertEqual(len(pool["records"]), 1)
         self.assertEqual(pool["stats"]["rejected:exact_duplicate"], 1)
-        self.assertEqual(pool["stats"]["rejected:near_duplicate"], 1)
+        # identical after normalisation → caught by the exact-prompt step (a subset of near-duplicates)
+        self.assertEqual(pool["stats"].get("rejected:near_duplicate", 0) + pool["stats"].get("rejected:duplicate_prompt", 0), 1)
 
     def test_contradictions_removed(self):
         self.write("a.jsonl", [rec("What is 12 multiplied by 12? Show the steps.", "Step 1: 12 x 12.\n\nAnswer: 144"),

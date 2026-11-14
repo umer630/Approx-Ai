@@ -1,7 +1,16 @@
 {
  "source": "eval-humaneval",
+ "name": "openai/openai_humaneval",
+ "url": "https://huggingface.co/datasets/openai/openai_humaneval",
  "hub_repo": "openai/openai_humaneval",
- "declared_revision": "7dce6050a7d6",
+ "revision": "7dce6050a7d6",
+ "license": "mit",
+ "commercial_use": "yes",
+ "attribution": "HumanEval, MIT",
+ "status": "approved",
+ "use": "eval_only",
+ "transformations": null,
+ "upstream_risk": null,
  "files": [
   {
    "file": "eval-humaneval/openai_humaneval/test/test-0000.parquet",

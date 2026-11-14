@@ -1,0 +1,37 @@
+{
+ "source": "qasc",
+ "name": "allenai/qasc",
+ "url": "https://huggingface.co/datasets/allenai/qasc",
+ "hub_repo": "allenai/qasc",
+ "revision": "a34ba204eb9a33b919c10cc08f4f1c8dae5ec070",
+ "license": "cc-by-4.0",
+ "commercial_use": "yes",
+ "attribution": "QASC (Khot et al. 2020), AllenAI, CC-BY-4.0",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "question + options → gold facts + labelled answer",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
+ "files": [
+  {
+   "file": "qasc/default/train/train-0000.parquet",
+   "url": "https://huggingface.co/api/datasets/allenai/qasc/parquet/default/train/0.parquet",
+   "sha256": "b9a297b5ab55f1605c7682ffbb7042c26d7ecb9ff1e1aa5a820d4e791c8302d1",
+   "bytes": 1967904,
+   "fetched_at": "2026-11-14T18:39:45Z",
+   "config": "default",
+   "split": "train"
+  },
+  {
+   "file": "qasc/default/validation/validation-0000.parquet",
+   "url": "https://huggingface.co/api/datasets/allenai/qasc/parquet/default/validation/0.parquet",
+   "sha256": "d1ae34ae13c5fce2c55305372c203c6cdb789728d0d7e5ea2956d55bc33f40ae",
+   "bytes": 223553,
+   "fetched_at": "2026-11-14T18:39:46Z",
+   "config": "default",
+   "split": "validation"
+  }
+ ]
+}

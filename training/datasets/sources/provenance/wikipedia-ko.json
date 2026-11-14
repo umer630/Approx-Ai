@@ -1,0 +1,27 @@
+{
+ "source": "wikipedia-ko",
+ "name": "wikimedia/wikipedia 20231101.ko (lead sections)",
+ "url": "https://huggingface.co/datasets/wikimedia/wikipedia",
+ "hub_repo": "wikimedia/wikipedia",
+ "revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+ "license": "cc-by-sa-3.0",
+ "commercial_use": "yes",
+ "attribution": "Wikipedia (ko) contributors, CC-BY-SA-3.0 (via wikimedia/wikipedia)",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "lead paragraphs (≤1,400 chars) under the template 'write a short introduction to <title>'; deterministic sampling",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
+ "files": [
+  {
+   "file": "wikipedia-ko/files/20231101.ko__train-00000-of-00003.parquet",
+   "path": "20231101.ko/train-00000-of-00003.parquet",
+   "url": "https://huggingface.co/datasets/wikimedia/wikipedia/resolve/b04c8d1ceb2f5cd4588862100d08de323dccfbaa/20231101.ko/train-00000-of-00003.parquet",
+   "sha256": "28ff69a402878eba3be42dfd187f37876b917b72eb9b05896ed7469fa681bb03",
+   "bytes": 400000634,
+   "fetched_at": "2026-11-14T18:44:57Z"
+  }
+ ]
+}

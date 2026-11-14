@@ -1,0 +1,115 @@
+{
+ "source": "commitpackft",
+ "name": "bigcode/commitpackft (12 languages)",
+ "url": "https://huggingface.co/datasets/bigcode/commitpackft",
+ "hub_repo": "bigcode/commitpackft",
+ "revision": "fc56fe33c030c6daa414c2b112c932b8eed085e6",
+ "license": "mit",
+ "commercial_use": "yes",
+ "attribution": "CommitPackFT (Muennighoff et al. 2023), BigCode, MIT; code © the respective repository authors under the per-row license",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "permissive-license rows only; message + old file → new file; ≤6,000 chars",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": "permissive code licenses (MIT/BSD/Apache) require keeping copyright notices if code is redistributed verbatim; per-row license and repo are kept in the record meta",
+ "files": [
+  {
+   "file": "commitpackft/files/data__python__data.jsonl",
+   "path": "data/python/data.jsonl",
+   "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/python/data.jsonl",
+   "sha256": "d167da37e1058371c48e057cd8815d03700c867dd8bcf58e61420d4dcd288d73",
+   "bytes": 135858935,
+   "fetched_at": "2026-11-14T20:59:25Z"
+  },
+  {
+   "file": "commitpackft/files/data__javascript__data.jsonl",
+   "path": "data/javascript/data.jsonl",
+   "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/javascript/data.jsonl",
+   "sha256": "968688a1163c2dbbced0d0f9cf1dd52bc0b626c2ad9b02ff23f5700b2e277f25",
+   "bytes": 128001108,
+   "fetched_at": "2026-11-14T20:59:30Z"
+  },
+  {
+   "file": "commitpackft/files/data__typescript__data.jsonl",
+   "path": "data/typescript/data.jsonl",
+   "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/typescript/data.jsonl",
+   "sha256": "43d32596844c62aa23b0e5a8811648f6f20fa07d9ab80499d66507136b844a76",
+   "bytes": 14620423,
+   "fetched_at": "2026-11-14T20:59:31Z"
+  },
+  {
+   "file": "commitpackft/files/data__html__data.jsonl",
+   "path": "data/html/data.jsonl",
+   "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/html/data.jsonl",
+   "sha256": "8b939f919f19e3a42307455d70b051261c5c64e40a6d733b0e3fff35f9cbbbf2",
+   "bytes": 49576827,
+   "fetched_at": "2026-11-14T20:59:34Z"
+  },
+  {
+   "file": "commitpackft/files/data__css__data.jsonl",
+   "path": "data/css/data.jsonl",
+   "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/css/data.jsonl",
+   "sha256": "d005a0daecea6dfc06400a3b0f1aab90559fc1fcee4a8def3e3402e1536ef70f",
+   "bytes": 9580558,
+   "fetched_at": "2026-11-14T20:59:34Z"
+  },
+  {
+   "file": "commitpackft/files/data__scss__data.jsonl",
+   "path": "data/scss/data.jsonl",
+   "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/scss/data.jsonl",
+   "sha256": "6494755e66279b10294ce50bc7f6f20d4cce12cae7acb749ef22c487328eca90",
+   "bytes": 13519978,
+   "fetched_at": "2026-11-14T20:59:35Z"
+  },
+  {
+   "file": "commitpackft/files/data__jsx__data.jsonl",
+   "path": "data/jsx/data.jsonl",
+   "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/jsx/data.jsonl",
+   "sha256": "b79fefe79ce2fb4c7bae82a84fd84295779f852805270421d2b395c4f385c7ab",
+   "bytes": 5624676,
+   "fetched_at": "2026-11-14T20:59:36Z"
+  },
+  {
+   "file": "commitpackft/files/data__vue__data.jsonl",
+   "path": "data/vue/data.jsonl",
+   "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/vue/data.jsonl",
+   "sha256": "ba5932557802ce39289465778d0f69c5a85f4ad9f5757a7735b36d36b1b81841",
+   "bytes": 1412827,
+   "fetched_at": "2026-11-14T20:59:36Z"
+  },
+  {
+   "file": "commitpackft/files/data__php__data.jsonl",
+   "path": "data/php/data.jsonl",
+   "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/php/data.jsonl",
+   "sha256": "fda88bbb6483a504dcbaec36abd363eb6ae99531431fecc924d95ecdad91c691",
+   "bytes": 61660040,
+   "fetched_at": "2026-11-14T20:59:39Z"
+  },
+  {
+   "file": "commitpackft/files/data__java__data.jsonl",
+   "path": "data/java/data.jsonl",
+   "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/java/data.jsonl",
+   "sha256": "c51a331320f4220d6053e3389485916c738fcaccfd583298b7738af834fa19b9",
+   "bytes": 57628439,
+   "fetched_at": "2026-11-14T20:59:42Z"
+  },
+  {
+   "file": "commitpackft/files/data__go__data.jsonl",
+   "path": "data/go/data.jsonl",
+   "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/go/data.jsonl",
+   "sha256": "05a65e973fcc6894a234fb382987cc25e26f053d60b032ea83540a5b36a528b8",
+   "bytes": 12417842,
+   "fetched_at": "2026-11-14T20:59:42Z"
+  },
+  {
+   "file": "commitpackft/files/data__sql__data.jsonl",
+   "path": "data/sql/data.jsonl",
+   "url": "https://huggingface.co/datasets/bigcode/commitpackft/resolve/fc56fe33c030c6daa414c2b112c932b8eed085e6/data/sql/data.jsonl",
+   "sha256": "baf9b91bf1f860fb6a8ff33aadd85a38ea833f297b03b1f0f2b426f6494404ac",
+   "bytes": 3822222,
+   "fetched_at": "2026-11-14T20:59:43Z"
+  }
+ ]
+}

@@ -1,7 +1,19 @@
 {
  "source": "dolly-15k",
+ "name": "databricks/databricks-dolly-15k",
+ "url": "https://huggingface.co/datasets/databricks/databricks-dolly-15k",
  "hub_repo": "databricks/databricks-dolly-15k",
- "declared_revision": "bdd27f4d94b9",
+ "revision": "bdd27f4d94b9",
+ "license": "cc-by-sa-3.0",
+ "commercial_use": "yes",
+ "attribution": "databricks-dolly-15k © Databricks, CC BY-SA 3.0",
+ "status": "approved",
+ "use": "train",
+ "transformations": [
+  "instruction (+context) → response",
+  "then: PII scrub → content/safety gates → injection check → language ID → domain → exact/near dedup → contradiction removal → benchmark-overlap removal"
+ ],
+ "upstream_risk": null,
  "files": [
   {
    "file": "dolly-15k/default/train/train-0000.parquet",
