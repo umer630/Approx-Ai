@@ -43,6 +43,10 @@ if (argv[0] === 'models') {
     if (!['superadmin', 'admin', 'user'].includes(arg)) { console.error('role must be superadmin|admin|user'); process.exit(1); }
     await run('UPDATE users SET role = ? WHERE id = ?', arg, user.id);
   } else if (cmd === 'verify') {
+    // Email verification is owned by Supabase Auth: an unconfirmed Supabase user cannot sign in, whatever this flag
+    // says. This only updates the local copy (e.g. for accounts that sign in with Google). To confirm an email/password
+    // account, use Supabase Dashboard → Authentication → Users → the user → "Confirm email".
+    if (user.supabase_uid) console.warn('note: this account signs in through Supabase; confirm it in the Supabase dashboard (Authentication → Users).');
     await run('UPDATE users SET email_verified = 1 WHERE id = ?', user.id);
   } else if (cmd === 'grant') {
     await run('INSERT OR REPLACE INTO model_access (user_id,model_id,granted_by,reason,created_at) VALUES (?,?,?,?,?)', user.id, arg, 'operator-cli', reason || 'operator grant', now());

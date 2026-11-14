@@ -10,6 +10,7 @@ import { modelsForUser, getModel, canUseModel, listModels } from '../models.js';
 import { backendStatus, upstreamHealth, upstreamFor } from '../providers/index.js';
 import * as lifecycle from '../lifecycle.js';
 import { mailConfigured } from '../mail.js';
+import { supabaseConfigured } from '../supabase.js';
 import { catalog, catalogModel, catalogPipeline, modeList, DEFAULT_MODE, MODES } from '../catalog.js';
 import * as registry from '../registry.js';
 import { complete } from '../engine.js';
@@ -53,7 +54,7 @@ export function registerPlatformRoutes(r) {
     }
     sendJson(res, db === 'ok' ? 200 : 503, { status: db === 'ok' ? 'ok' : 'degraded', service: 'approx-ai-api', version: VERSIONS.backend, database: db,
       ...(dbError ? { database_error: dbError } : {}), ...(foreignKeys ? { foreign_keys: foreignKeys } : {}),
-      build_id: config.buildId, public_url: config.publicUrl || null, mail_transport: config.mail.transport, mail_configured: mailConfigured(), runtime: config.serverless ? 'serverless' : 'server', registry_source: config.registry.source, file_storage: config.files.storage, time: new Date().toISOString() });
+      build_id: config.buildId, public_url: config.publicUrl || null, auth_provider: 'supabase', auth_configured: supabaseConfigured(), auth_callback_url: config.supabase.callbackUrl, mail_transport: config.mail.transport, mail_configured: mailConfigured(), runtime: config.serverless ? 'serverless' : 'server', registry_source: config.registry.source, file_storage: config.files.storage, time: new Date().toISOString() });
   };
   r.get('/api/health', health);
   r.get('/api/v1/health', health);

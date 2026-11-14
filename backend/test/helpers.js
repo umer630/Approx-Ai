@@ -8,6 +8,13 @@ process.env.APPROX_ENV = 'test';
 process.env.APPROX_DEV_PROVIDER = '1';
 process.env.QUOTA_WINDOW_LIMIT = process.env.QUOTA_WINDOW_LIMIT || '100';
 
+// Supabase Auth test double (configuration is read once, at import time, so it must exist before the server loads).
+const { startFakeSupabase } = await import('./fake-supabase.js');
+export const supabase = await startFakeSupabase();
+process.env.SUPABASE_URL = supabase.url;
+process.env.SUPABASE_PUBLISHABLE_KEY = supabase.publishableKey;
+process.env.SUPABASE_SECRET_KEY = supabase.secretKey;
+
 const { createServer } = await import('../src/server.js');
 const db = await import('../src/db.js');
 
@@ -35,7 +42,7 @@ export async function makeUser({ verify = true, password = 'GoodPassw0rd!' } = {
   const s = await req('POST', '/api/auth/signup', { body: { email, password } });
   if (s.status !== 202) throw new Error('signup failed ' + JSON.stringify(s.data));
   const user = await db.one('SELECT * FROM users WHERE email = ?', email);
-  if (verify) await db.run('UPDATE users SET email_verified = 1 WHERE id = ?', user.id);
+  if (verify) supabase.confirm(email); // the person clicked the Supabase confirmation link
   const l = await req('POST', '/api/auth/login', { body: { email, password, client: 'mobile' } });
   return { email, password, id: user.id, token: l.data.token };
 }
@@ -48,4 +55,4 @@ export function parseSse(text) {
   });
 }
 
-export function close() { server.close(); server.closeAllConnections?.(); }
+export function close() { server.close(); server.closeAllConnections?.(); supabase.close(); }

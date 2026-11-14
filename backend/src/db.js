@@ -513,6 +513,16 @@ async function migrate(c) {
     }
     await apply('2026-11-google-sub', stmts);
   }
+
+  // 1.4.0 — Supabase Auth is the identity provider: each Approx account is linked to its Supabase user id.
+  if (!applied.has('2026-11-supabase-uid')) {
+    const stmts = [];
+    if (!(await hasColumn(c, 'users', 'supabase_uid'))) {
+      stmts.push({ sql: 'ALTER TABLE users ADD COLUMN supabase_uid TEXT' });
+      stmts.push({ sql: 'CREATE UNIQUE INDEX IF NOT EXISTS users_supabase_uid ON users(supabase_uid) WHERE supabase_uid IS NOT NULL' });
+    }
+    await apply('2026-11-supabase-uid', stmts);
+  }
 }
 
 // The `models` table is seeded and kept in sync from the catalog file (name, tier, description…);

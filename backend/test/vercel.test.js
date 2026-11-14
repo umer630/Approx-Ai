@@ -15,11 +15,15 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
+import { startFakeSupabase } from './fake-supabase.js';
+
 const here = path.dirname(fileURLToPath(import.meta.url));
+const supabase = await startFakeSupabase();
+const SUPA_ENV = { SUPABASE_URL: supabase.url, SUPABASE_PUBLISHABLE_KEY: supabase.publishableKey };
 const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'approx-vercel-'));
 const procs = [];
 const servers = [];
-after(() => { for (const p of procs) p.kill(); for (const s of servers) { s.close(); s.closeAllConnections?.(); } });
+after(() => { for (const p of procs) p.kill(); for (const s of servers) { s.close(); s.closeAllConnections?.(); } supabase.close(); });
 
 // ---------- mock services ----------
 async function listen(handler) {
@@ -65,7 +69,7 @@ async function mockBrevo() {
 }
 
 // ---------- function process ----------
-const BASE_ENV = { PATH: process.env.PATH, HOME: process.env.HOME, NODE_OPTIONS: '', VERCEL: '1' };
+const BASE_ENV = { PATH: process.env.PATH, HOME: process.env.HOME, NODE_OPTIONS: '', VERCEL: '1', ...SUPA_ENV };
 async function startFunction(env) {
   const p = spawn(process.execPath, ['--disable-warning=ExperimentalWarning', path.join(here, 'vercel-runner.mjs')],
     { env: { ...BASE_ENV, ...env }, stdio: ['ignore', 'pipe', 'pipe'] });
@@ -89,7 +93,7 @@ async function startFunction(env) {
   return { call, stop: () => p.kill() };
 }
 
-const codeFrom = (mail) => /Verification code: (\S+)/.exec(mail.payload.textContent)?.[1];
+const codeFor = (email) => supabase.lastEmail(email, 'signup')?.token_hash; // the code/link Supabase emailed
 
 // ---------- scenarios ----------
 test('serverless without a database fails closed (never falls back to ephemeral /tmp storage)', async () => {
@@ -132,22 +136,19 @@ test('serverless end-to-end: brevo mail, superadmin bootstrap, Nick 4.8 via infe
   assert.deepEqual([h.data.database, h.data.runtime, h.data.registry_source, h.data.file_storage], ['ok', 'serverless', 'inference', 'db']);
   assert.equal(h.headers.get('x-content-type-options'), 'nosniff');
 
-  // Signup → verification mail through Brevo → verify → bootstrap superadmin.
+  // Signup → Supabase confirmation email → verify → bootstrap superadmin.
   assert.equal((await fn.call('POST', '/api/auth/signup', { json: { email: 'owner@example.com', password: 'OwnerPassw0rd!' } })).status, 202);
-  assert.equal(brevo.mails.length, 1);
-  assert.equal(brevo.mails[0].apiKey, 'test-mail-key');
-  assert.deepEqual(brevo.mails[0].payload.sender, { email: 'noreply@example.com', name: 'Approx AI' });
-  assert.deepEqual(brevo.mails[0].payload.to, [{ email: 'owner@example.com' }]);
+  assert.ok(codeFor('owner@example.com'), 'Supabase sent the confirmation email');
   const unverified = await fn.call('POST', '/api/auth/login', { json: { email: 'owner@example.com', password: 'OwnerPassw0rd!', client: 'mobile' } });
-  assert.notEqual(unverified.data.user?.role, 'superadmin', 'no promotion before the email is verified');
-  assert.equal((await fn.call('POST', '/api/auth/verify-email', { json: { token: codeFrom(brevo.mails[0]) } })).status, 200);
+  assert.equal(unverified.status, 403, 'no sign-in (and no promotion) before the email is verified');
+  assert.equal((await fn.call('POST', '/api/auth/verify-email', { json: { token: codeFor('owner@example.com') } })).status, 200);
   const owner = await fn.call('POST', '/api/auth/login', { json: { email: 'owner@example.com', password: 'OwnerPassw0rd!', client: 'mobile' } });
   assert.equal(owner.status, 200);
   assert.equal(owner.data.user.role, 'superadmin');
 
   // A second verified account is a normal user (bootstrap is one-time and email-bound).
   await fn.call('POST', '/api/auth/signup', { json: { email: 'member@example.com', password: 'MemberPassw0rd!' } });
-  await fn.call('POST', '/api/auth/verify-email', { json: { token: codeFrom(brevo.mails.at(-1)) } });
+  await fn.call('POST', '/api/auth/verify-email', { json: { token: codeFor('member@example.com') } });
   const member = await fn.call('POST', '/api/auth/login', { json: { email: 'member@example.com', password: 'MemberPassw0rd!', client: 'mobile' } });
   assert.equal(member.data.user.role, 'user');
 
@@ -198,6 +199,12 @@ test('serverless end-to-end: brevo mail, superadmin bootstrap, Nick 4.8 via infe
   fn = await startFunction(env);
   const again = await fn.call('POST', '/api/auth/login', { json: { email: 'member@example.com', password: 'MemberPassw0rd!', client: 'mobile' } });
   assert.equal(again.status, 200);
+  // Account notices still go through the configured mail adapter (Brevo): password change → notice email.
+  assert.equal((await fn.call('POST', '/api/auth/change-password', { token: again.data.token, json: { current_password: 'MemberPassw0rd!', new_password: 'MemberPassw0rd2!' } })).status, 200);
+  const notice = brevo.mails.at(-1);
+  assert.equal(notice.apiKey, 'test-mail-key');
+  assert.deepEqual(notice.payload.sender, { email: 'noreply@example.com', name: 'Approx AI' });
+  assert.deepEqual(notice.payload.to, [{ email: 'member@example.com' }]);
   const hist = await fn.call('GET', `/api/chats/${chat.data.chat.id}`, { token: again.data.token });
   assert.equal(hist.status, 200);
   assert.ok(hist.data.messages.some((m) => m.role === 'assistant' && m.content.includes('from the GPU host')), 'chat history persisted');
@@ -216,6 +223,7 @@ test('serverless: Nick 4.8 not served or GPU unreachable → honest 503, never a
     const fn = await startFunction({ APPROX_ENV: 'test', APPROX_DB_URL: `file:${dbFile}`, APPROX_TEST_EPHEMERAL_DB: '1',
       APPROX_MODEL_NICK_URL: url, REQUIRE_VERIFIED_EMAIL: 'false' });
     await fn.call('POST', '/api/auth/signup', { json: { email: 'u@example.com', password: 'GoodPassw0rd!' } });
+    supabase.confirm('u@example.com');
     const l = await fn.call('POST', '/api/auth/login', { json: { email: 'u@example.com', password: 'GoodPassw0rd!', client: 'mobile' } });
     const models = await fn.call('GET', '/api/models', { token: l.data.token });
     const nick = models.data.models.find((m) => m.id === 'nick-4.8');
@@ -273,9 +281,8 @@ async function mockGmailSmtp({ user, pass }) {
   servers.push(srv.server);
   return { port: srv.server.address().port, mails, caPath: tls.certPath, close: () => srv.close() };
 }
-const smtpCode = (raw, label) => new RegExp(`${label}: (\\S+)`).exec(raw.replace(/=\r?\n/g, ''))?.[1];
 
-test('SMTP (Gmail App Password over implicit TLS): verification + password reset delivered; secrets never exposed', async () => {
+test('SMTP (Gmail App Password over implicit TLS): account notices delivered; secrets never exposed; delivery failure is honest', async () => {
   const OWNER = 'owner.approx@gmail.example';
   const APP_PASSWORD = 'abcd efgh ijkl mnop'; // shown by Google with spaces; the spaces are not part of it
   const smtp = await mockGmailSmtp({ user: OWNER, pass: 'abcdefghijklmnop' });
@@ -284,81 +291,60 @@ test('SMTP (Gmail App Password over implicit TLS): verification + password reset
     NODE_EXTRA_CA_CERTS: smtp.caPath, MAIL_TRANSPORT: 'smtp', MAIL_SMTP_HOST: 'localhost', MAIL_SMTP_PORT: String(smtp.port),
     MAIL_SMTP_PASS: APP_PASSWORD, APPROX_BOOTSTRAP_SUPERADMIN_EMAIL: OWNER };
   const fn = await startFunction(env);
-
   const h = await fn.call('GET', '/api/health');
   assert.equal(h.data.mail_transport, 'smtp');
   assert.equal(h.data.mail_configured, true);
-  assert.doesNotMatch(JSON.stringify(h.data), /abcd|efgh|mnop/, 'app password never in health');
+  assert.equal(h.data.auth_provider, 'supabase');
+  assert.equal(h.data.auth_configured, true);
+  assert.doesNotMatch(JSON.stringify(h.data), /abcd|efgh|mnop|sb_publishable|sb_secret/, 'no secrets or keys in health');
 
-  // Sign-up → verification email over SMTP (username defaults to the bootstrap address).
+  // Verification emails come from Supabase (not this SMTP account); the verified owner becomes superadmin.
   assert.equal((await fn.call('POST', '/api/auth/signup', { json: { email: OWNER, password: 'OwnerPassw0rd!' } })).status, 202);
-  assert.equal(smtp.mails.length, 1, 'verification email delivered');
-  const v = smtp.mails[0];
+  assert.equal(smtp.mails.length, 0, 'the backend no longer sends verification emails itself');
+  assert.equal((await fn.call('POST', '/api/auth/verify-email', { json: { token: codeFor(OWNER) } })).status, 200);
+  const login = await fn.call('POST', '/api/auth/login', { json: { email: OWNER, password: 'OwnerPassw0rd!', client: 'mobile' } });
+  assert.equal(login.data.user.role, 'superadmin');
+  // Password-change notice over SMTP.
+  assert.equal((await fn.call('POST', '/api/auth/change-password', { token: login.data.token, json: { current_password: 'OwnerPassw0rd!', new_password: 'NewOwnerPassw0rd!' } })).status, 200);
+  const v = smtp.mails.at(-1);
   assert.equal(v.authUser, OWNER, 'authenticated as the Gmail account');
   assert.equal(v.envFrom, OWNER, 'sent from the authenticated account');
   assert.deepEqual(v.to, [OWNER]);
-  assert.match(v.raw, /^Subject: Verify your Approx AI email/m);
-  assert.match(v.raw, /^From: "?Approx AI"? <owner\.approx@gmail\.example>/m);
-  const code = smtpCode(v.raw, 'Verification code');
-  assert.ok(code, 'verification code in email body');
-  assert.equal((await fn.call('POST', '/api/auth/verify-email', { json: { token: code } })).status, 200);
-  const login = await fn.call('POST', '/api/auth/login', { json: { email: OWNER, password: 'OwnerPassw0rd!', client: 'mobile' } });
-  assert.equal(login.data.user.role, 'superadmin');
-
-  // Password reset email over SMTP → reset → sign in with the new password.
-  assert.equal((await fn.call('POST', '/api/auth/forgot-password', { json: { email: OWNER } })).status, 202);
-  const r = smtp.mails.find((m) => /^Subject: Reset your Approx AI password/m.test(m.raw));
-  assert.ok(r, 'reset email delivered');
-  const resetCode = smtpCode(r.raw, 'Reset code');
-  assert.equal((await fn.call('POST', '/api/auth/reset-password', { json: { token: resetCode, password: 'NewOwnerPassw0rd!' } })).status, 200);
-  assert.equal((await fn.call('POST', '/api/auth/login', { json: { email: OWNER, password: 'NewOwnerPassw0rd!', client: 'mobile' } })).status, 200);
+  assert.match(v.raw, /^Subject: Your Approx AI password was changed/m);
   fn.stop();
 
-  // Wrong App Password: Gmail answers 535. The person is told honestly that the email could not be sent, the
-  // half-created account is rolled back (so retrying works), and the failure is recorded.
+  // Wrong App Password: the notice fails (recorded honestly) but the password change itself still succeeds.
   const bad = await startFunction({ ...env, MAIL_SMTP_PASS: 'wrong wrong wrong wrong' });
-  const before = smtp.mails.length;
-  const failed = await bad.call('POST', '/api/auth/signup', { json: { email: 'second@gmail.example', password: 'SecondPassw0rd!' } });
-  assert.equal(failed.status, 502);
-  assert.equal(failed.data.error.code, 'email_delivery_failed');
-  assert.equal(smtp.mails.length, before, 'nothing delivered with a wrong password');
+  const l2 = await bad.call('POST', '/api/auth/login', { json: { email: OWNER, password: 'NewOwnerPassw0rd!', client: 'mobile' } });
+  assert.equal((await bad.call('POST', '/api/auth/change-password', { token: l2.data.token, json: { current_password: 'NewOwnerPassw0rd!', new_password: 'ThirdOwnerPassw0rd!' } })).status, 200);
   const db = createClient({ url: `file:${dbFile}` });
-  const row = (await db.execute({ sql: 'SELECT status FROM mail_outbox WHERE to_email = ? ORDER BY created_at DESC LIMIT 1', args: ['second@gmail.example'] })).rows[0];
+  const row = (await db.execute({ sql: 'SELECT status FROM mail_outbox WHERE to_email = ? ORDER BY created_at DESC LIMIT 1', args: [OWNER] })).rows[0];
   assert.equal(row.status, 'failed_smtp_535');
-  const users = (await db.execute({ sql: 'SELECT COUNT(*) n FROM users WHERE email = ?', args: ['second@gmail.example'] })).rows[0].n;
-  assert.equal(users, 0, 'failed sign-up rolled back');
   db.close();
   bad.stop();
-  // With the right password the same person can now sign up normally.
-  const good = await startFunction(env);
-  assert.equal((await good.call('POST', '/api/auth/signup', { json: { email: 'second@gmail.example', password: 'SecondPassw0rd!' } })).status, 202);
-  assert.ok(smtp.mails.some((m) => m.to.includes('second@gmail.example')), 'retry delivered');
-  // Signing up again while still unverified sends a fresh verification code (not a dead-end "attempt" notice).
-  assert.equal((await good.call('POST', '/api/auth/signup', { json: { email: 'second@gmail.example', password: 'SecondPassw0rd!' } })).status, 202);
-  const toSecond = smtp.mails.filter((m) => m.to.includes('second@gmail.example'));
-  assert.equal(toSecond.length, 2);
-  assert.match(toSecond[1].raw, /^Subject: Verify your Approx AI email/m);
-  assert.ok(smtpCode(toSecond[1].raw, 'Verification code'));
-  good.stop();
 });
 
-test('production without a working mail transport: sign-up refuses honestly instead of creating an unverifiable account', async () => {
-  const dbFile = path.join(scratch, 'nomail.db');
-  // APPROX_ENV=production refuses a file database, so this uses the non-serverless server path (same handler).
+test('production without Supabase Auth configured: sign-up and sign-in refuse honestly; no account is created', async () => {
+  const dbFile = path.join(scratch, 'noauth.db');
+  // APPROX_ENV=production refuses a file database on serverless, so this uses the non-serverless server path (same handler).
   const p = spawn(process.execPath, ['--disable-warning=ExperimentalWarning', '--input-type=module', '-e', `
     const { createServer } = await import(${JSON.stringify(path.join(here, '../src/server.js'))});
     const s = createServer(); s.listen(0, '127.0.0.1', () => console.log('PORT ' + s.address().port));`],
-  { env: { PATH: process.env.PATH, HOME: process.env.HOME, APPROX_ENV: 'production', APPROX_DB_URL: `file:${dbFile}`, MAIL_TRANSPORT: 'brevo',
+  { env: { PATH: process.env.PATH, HOME: process.env.HOME, APPROX_ENV: 'production', APPROX_DB_URL: `file:${dbFile}`,
     APPROX_PUBLIC_URL: 'https://approx.example', APPROX_TRUST_PROXY: '0' }, stdio: ['ignore', 'pipe', 'pipe'] });
   procs.push(p);
   let err = ''; p.stderr.on('data', (d) => { err += d; });
   const port = await new Promise((resolve, reject) => { let o = ''; p.stdout.on('data', (d) => { o += d; const m = /PORT (\d+)/.exec(o); if (m) resolve(m[1]); }); p.on('exit', (c) => reject(new Error(err))); });
-  const r = await fetch(`http://127.0.0.1:${port}/api/auth/signup`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: 'x@gmail.example', password: 'GoodPassw0rd!x' }) });
-  const body = await r.json();
-  assert.equal(r.status, 503);
-  assert.equal(body.error.code, 'email_unavailable');
+  for (const route of ['/api/auth/signup', '/api/auth/login', '/api/auth/forgot-password']) {
+    const r = await fetch(`http://127.0.0.1:${port}${route}`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: 'x@gmail.example', password: 'GoodPassw0rd!x' }) });
+    const body = await r.json();
+    assert.equal(r.status, 503, route);
+    assert.equal(body.error.code, 'auth_not_configured', route);
+  }
+  const h = await (await fetch(`http://127.0.0.1:${port}/api/health`)).json();
+  assert.equal(h.auth_configured, false);
   const db = createClient({ url: `file:${dbFile}` });
-  assert.equal((await db.execute("SELECT COUNT(*) n FROM users")).rows[0].n, 0, 'no unverifiable account created');
+  assert.equal((await db.execute("SELECT COUNT(*) n FROM users")).rows[0].n, 0, 'no account created');
   db.close();
   p.kill();
 });
@@ -372,25 +358,17 @@ test('Vercel with "expose system environment variables" off: still detected as s
   fn.stop();
 });
 
-// ---------- production email links (verify / resend / reset) ----------
+// ---------- production redirect URLs for Supabase emails (verify / resend / reset) ----------
 async function startProdServer(env) {
   const p = spawn(process.execPath, ['--disable-warning=ExperimentalWarning', '--input-type=module', '-e', `
     const { createServer } = await import(${JSON.stringify(path.join(here, '../src/server.js'))});
     const s = createServer(); s.listen(0, '127.0.0.1', () => console.log('PORT ' + s.address().port));`],
-  { env: { PATH: process.env.PATH, HOME: process.env.HOME, APPROX_ENV: 'production', ...env }, stdio: ['ignore', 'pipe', 'pipe'] });
+  { env: { PATH: process.env.PATH, HOME: process.env.HOME, APPROX_ENV: 'production', ...SUPA_ENV, ...env }, stdio: ['ignore', 'pipe', 'pipe'] });
   procs.push(p);
   let err = ''; p.stderr.on('data', (d) => { err += d; });
   const port = await new Promise((resolve, reject) => { let o = ''; p.stdout.on('data', (d) => { o += d; const m = /PORT (\d+)/.exec(o); if (m) resolve(m[1]); }); p.on('exit', () => reject(new Error(err))); });
   const call = async (method, pth, json) => { const r = await fetch(`http://127.0.0.1:${port}${pth}`, { method, headers: json ? { 'content-type': 'application/json' } : {}, body: json ? JSON.stringify(json) : undefined }); return { status: r.status, data: await r.json() }; };
   return { call, stop: () => p.kill() };
-}
-async function plainSmtp() {
-  const mails = [];
-  const srv = new SMTPServer({ secure: false, allowInsecureAuth: true, disabledCommands: ['STARTTLS'], onAuth(a, s, cb) { cb(null, { user: a.username }); },
-    onData(stream, session, cb) { const c = []; stream.on('data', (d) => c.push(d)); stream.on('end', () => { mails.push({ to: session.envelope.rcptTo.map((r) => r.address), raw: Buffer.concat(c).toString('utf8').replace(/=\r?\n/g, '').replace(/=([0-9A-F]{2})/g, (_, h) => String.fromCharCode(parseInt(h, 16))) }); cb(); }); } });
-  await new Promise((r) => srv.listen(0, '127.0.0.1', r));
-  servers.push(srv.server);
-  return { port: srv.server.address().port, mails };
 }
 
 for (const [label, publicUrl, expected] of [
@@ -400,33 +378,31 @@ for (const [label, publicUrl, expected] of [
   ['APPROX_PUBLIC_URL=https://approx-ai.vercel.app', 'https://approx-ai.vercel.app', 'https://approx-ai.vercel.app'],
   ['APPROX_PUBLIC_URL=https://ai.approx.example', 'https://ai.approx.example', 'https://ai.approx.example'],
 ]) {
-  test(`production emails (${label}): verify, resend and reset links use ${expected}, never localhost; tokens work`, async () => {
-    const smtp = await plainSmtp();
+  test(`production (${label}): Supabase verify, resend and reset links return to ${expected}/?auth=callback, never localhost; they work`, async () => {
     const slug = `${label.length}-${label.replace(/[^a-z0-9]+/gi, '-').slice(-30)}`;   // unique per case
-    const srv = await startProdServer({ APPROX_DB_URL: `file:${path.join(scratch, `links-${slug}.db`)}`, MAIL_TRANSPORT: 'smtp', MAIL_SMTP_HOST: '127.0.0.1',
-      MAIL_SMTP_PORT: String(smtp.port), MAIL_SMTP_SECURE: 'false', MAIL_SMTP_USER: 'owner@gmail.example', MAIL_SMTP_PASS: 'x',
-      ...(publicUrl !== undefined ? { APPROX_PUBLIC_URL: publicUrl } : {}) });
+    const srv = await startProdServer({ APPROX_DB_URL: `file:${path.join(scratch, `links-${slug}.db`)}`, ...(publicUrl !== undefined ? { APPROX_PUBLIC_URL: publicUrl } : {}) });
     const h = await srv.call('GET', '/api/health');
     assert.equal(h.data.public_url, expected);
-    const email = 'person@gmail.example';
+    assert.equal(h.data.auth_callback_url, `${expected}/?auth=callback`);
+    const email = `person-${slug}@gmail.example`.toLowerCase();
     assert.equal((await srv.call('POST', '/api/auth/signup', { email, password: 'GoodPassw0rd!x' })).status, 202);
     assert.equal((await srv.call('POST', '/api/auth/resend-verification', { email })).status, 202);
-    const linkRe = (route) => new RegExp(`${expected.replace(/[.]/g, '\\.')}/#/${route}\\?token=([A-Za-z0-9_-]+)`);
-    assert.equal(smtp.mails.length, 2);
-    for (const m of smtp.mails) {
-      assert.doesNotMatch(m.raw, /localhost|127\.0\.0\.1|0\.0\.0\.0/i, 'no local URL in production email');
-      assert.match(m.raw, linkRe('verify'));
+    const sent = supabase.emails.filter((m) => m.to === email);
+    assert.equal(sent.length, 2);
+    for (const m of sent) {
+      assert.equal(m.redirect_to, `${expected}/?auth=callback`);
+      assert.doesNotMatch(m.redirect_to, /localhost|127\.0\.0\.1|0\.0\.0\.0/i, 'no local URL in production links');
     }
-    // The token in the (resent) link verifies the account.
-    const token = linkRe('verify').exec(smtp.mails[1].raw)[1];
-    assert.equal((await srv.call('POST', '/api/auth/verify-email', { token })).status, 200);
+    // Clicking the resent link lands on the app with a session → the account is verified.
+    const v = await supabase.click(sent[1].link);
+    assert.equal(v.target, `${expected}/?auth=callback`);
+    assert.equal((await srv.call('POST', '/api/auth/verify-email', { access_token: v.params.access_token })).status, 200);
     // Password reset link.
     assert.equal((await srv.call('POST', '/api/auth/forgot-password', { email })).status, 202);
-    const reset = smtp.mails[2];
-    assert.doesNotMatch(reset.raw, /localhost|127\.0\.0\.1/i);
-    const rt = linkRe('reset').exec(reset.raw)?.[1];
-    assert.ok(rt, 'reset link uses the public origin');
-    assert.equal((await srv.call('POST', '/api/auth/reset-password', { token: rt, password: 'NewGoodPassw0rd!x' })).status, 200);
+    const reset = supabase.lastEmail(email, 'recovery');
+    assert.equal(reset.redirect_to, `${expected}/?auth=callback`);
+    const r = await supabase.click(reset.link);
+    assert.equal((await srv.call('POST', '/api/auth/reset-password', { access_token: r.params.access_token, password: 'NewGoodPassw0rd!x' })).status, 200);
     assert.equal((await srv.call('POST', '/api/auth/login', { email, password: 'NewGoodPassw0rd!x', client: 'mobile' })).status, 200);
     srv.stop();
   });

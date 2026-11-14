@@ -32,6 +32,26 @@ const routes = [
 ];
 const PUBLIC = /^#\/(login|signup|forgot|verify|reset|confirm-email|google-mobile)/;
 
+// ---------------- Supabase Auth email links ----------------
+// Confirmation / reset / email-change links go to Supabase, which redirects to `/?auth=callback` with the result in
+// the URL fragment (#access_token=…&type=signup, or #error=…&error_code=otp_expired) or, with custom email templates,
+// in the query (?token_hash=…&type=…). Read it once at startup, then remove it from the address bar and history so a
+// token is never kept in the URL or resubmitted on reload.
+let authCallback = null;
+(function captureAuthCallback() {
+  const q = new URLSearchParams(location.search);
+  if (q.get('auth') !== 'callback') return;
+  const f = new URLSearchParams(location.hash.replace(/^#\/?/, ''));
+  const get = (k) => f.get(k) || q.get(k) || '';
+  authCallback = { access_token: get('access_token'), token_hash: get('token_hash'), type: get('type'),
+    error: get('error_code') || get('error'), error_description: get('error_description').replace(/\+/g, ' ') };
+  const route = authCallback.error ? '#/verify' : authCallback.type === 'recovery' ? '#/reset'
+    : authCallback.type === 'email_change' ? '#/confirm-email' : '#/verify';
+  history.replaceState(null, '', `${location.pathname}${route}`);
+})();
+const takeCallback = () => { const c = authCallback; authCallback = null; return c; };
+const callbackBody = (c) => (c.access_token ? { access_token: c.access_token } : { token_hash: c.token_hash, type: c.type || undefined });
+
 export function go(hash) { if (location.hash === hash) render(); else location.hash = hash; }
 window.addEventListener('hashchange', render);
 
@@ -147,7 +167,17 @@ function authView(kind) {
         const r = await api('/api/auth/forgot-password', { method: 'POST', body: { email: email.value.trim() } });
         showMsg(msg, r.message, 'ok');
       }
-    } catch (err) { showMsg(msg, err.message); } finally { btn.disabled = false; btn.classList.remove('loading'); btn.removeAttribute('aria-busy'); btn.textContent = label; }
+    } catch (err) {
+      if (err.code === 'account_migration_required') showMsg(msg, err.message, 'ok');
+      else if (err.code === 'email_not_verified') {
+        showMsg(msg, err.message);
+        msg.append(' ', h('button', { class: 'btn small', type: 'button', onclick: async (ev) => {
+          ev.target.disabled = true;
+          const r = await api('/api/auth/resend-verification', { method: 'POST', body: { email: email.value.trim() } }).catch((e2) => ({ message: e2.message }));
+          showMsg(msg, r.message, 'ok');
+        } }, 'Resend link'));
+      } else showMsg(msg, err.message);
+    } finally { btn.disabled = false; btn.classList.remove('loading'); btn.removeAttribute('aria-busy'); btn.textContent = label; }
   } },
   kind === 'signup' ? h('div', { class: 'field' }, h('label', { for: 'name' }, 'Name (optional)'), name) : null,
   h('div', { class: 'field' }, h('label', { for: 'email' }, 'Email'), email),
@@ -188,33 +218,39 @@ function googleMobileView() {
 
 function tokenView(kind) {
   const params = new URLSearchParams(location.hash.split('?')[1] || '');
+  const cb = takeCallback(); // set when the person arrived from a Supabase email link
   const msg = formMsg();
   const tok = h('input', { class: 'input', value: params.get('token') || '', id: 'token', autocomplete: 'one-time-code' });
   const pw = h('input', { class: 'input', type: 'password', autocomplete: 'new-password', id: 'newpw' });
   const resendEmail = h('input', { class: 'input', type: 'email', placeholder: 'you@example.com' });
   const btn = h('button', { class: 'btn primary block', type: 'submit' }, kind === 'reset' ? 'Set new password' : 'Confirm');
+  const linkProof = cb && !cb.error && (cb.access_token || cb.token_hash) ? callbackBody(cb) : null;
   const form = h('form', { onsubmit: async (e) => {
     e.preventDefault();
     if (btn.disabled) return;
     const label = btn.textContent;
     btn.disabled = true; btn.classList.add('loading'); btn.setAttribute('aria-busy', 'true'); btn.textContent = 'Please wait…';
     try {
+      const proof = linkProof || { token: tok.value.trim() };
       if (kind === 'verify') {
-        await api('/api/auth/verify-email', { method: 'POST', body: { token: tok.value.trim() } });
+        const r = await api('/api/auth/verify-email', { method: 'POST', body: { ...proof, sign_in: !!linkProof } });
+        if (r.user) { state.user = r.user; setCsrf(r.csrf_token); rememberAccount(r.user); await bootstrap(); }
         if (state.user) state.user.email_verified = true;
         return done('Email verified', 'Your email address is confirmed. You can now use Approx AI.');
       } else if (kind === 'reset') {
-        await api('/api/auth/reset-password', { method: 'POST', body: { token: tok.value.trim(), password: pw.value } });
+        if (pw.value.length < 10 || !/[a-z]/i.test(pw.value) || !/\d/.test(pw.value)) { showMsg(msg, 'Use at least 10 characters with letters and numbers.'); return; }
+        await api('/api/auth/reset-password', { method: 'POST', body: { ...proof, password: pw.value } });
         state.user = null;
         return done('Password updated', 'Your password has been changed. Sign in with your new password.');
       } else {
-        await api('/api/auth/confirm-email-change', { method: 'POST', body: { token: tok.value.trim() } });
+        const r = await api('/api/auth/confirm-email-change', { method: 'POST', body: proof });
+        if (r.status === 'confirmation_pending') return done('Almost done', r.message);
         state.user = null;
         return done('Email changed', 'Your new email address is confirmed. Please sign in again.');
       }
     } catch (err) { showMsg(msg, err.message); } finally { btn.disabled = false; btn.classList.remove('loading'); btn.removeAttribute('aria-busy'); btn.textContent = label; }
   } },
-  h('div', { class: 'field' }, h('label', { for: 'token' }, 'Code from your email'), tok),
+  linkProof ? null : h('div', { class: 'field' }, h('label', { for: 'token' }, 'Code from your email'), tok),
   kind === 'reset' ? h('div', { class: 'field' }, h('label', { for: 'newpw' }, 'New password'), pw) : null, msg, btn);
   const extra = kind === 'verify' ? h('details', { class: 'small' }, h('summary', { class: 'muted' }, 'Resend verification email'),
     h('div', { class: 'row' }, resendEmail, h('button', { class: 'btn', type: 'button', onclick: async () => {
@@ -231,8 +267,14 @@ function tokenView(kind) {
   }
   authFrame(kind === 'verify' ? 'Verify your email' : kind === 'reset' ? 'Choose a new password' : 'Confirm email change', null, form, extra,
     h('div', { class: 'auth-links' }, h('a', { href: state.user ? '#/' : '#/login' }, state.user ? 'Back to chat' : 'Sign in')));
-  // Opened from the email link (token in the URL fragment): submit once automatically. Reset still needs a password.
-  if (params.get('token') && kind !== 'reset') form.requestSubmit();
+  if (cb?.error) {
+    showMsg(msg, cb.error === 'otp_expired' || /expired|invalid/i.test(cb.error_description)
+      ? 'This email link is invalid or has expired. Request a new one below (or reset your password again).'
+      : `This email link could not be used: ${cb.error_description || cb.error}.`);
+    if (extra) extra.open = true;
+  }
+  // Opened from the email link: submit once automatically. Reset still needs the new password.
+  if ((linkProof || params.get('token')) && kind !== 'reset') form.requestSubmit();
 }
 
 // ---------------- shell: top bar + main + composer + three-button nav ----------------

@@ -2,29 +2,82 @@ import crypto from 'node:crypto';
 import { one, all, run, now, tx, audit, securityEvent } from '../db.js';
 import { readJson, sendJson, bad, unauthorized, forbidden, HttpError, newId, isEmail, str, clientIp } from '../http.js';
 import {
-  hashPassword, verifyPassword, burnPasswordCheck, passwordPolicy, randomToken, sha256, rateLimit,
+  verifyPassword, burnPasswordCheck, passwordPolicy, randomToken, sha256, rateLimit,
   createSession, revokeSessions, sessionCookie, requireUser,
 } from '../security.js';
-import { sendMail, appLink, mailConfigured } from '../mail.js';
+import { sendMail } from '../mail.js';
+import { sb, SupabaseError, toHttpError, requireSupabase, supabaseConfigured } from '../supabase.js';
 import { config } from '../config.js';
 import { verifyGoogleIdToken } from '../google.js';
 
 const HOUR = 3600_000;
 
-async function issueEmailToken(user, purpose, ttlMs, payload = null) {
-  const token = randomToken(32);
-  await run('UPDATE email_tokens SET used_at = ? WHERE user_id = ? AND purpose = ? AND used_at IS NULL', now(), user.id, purpose);
-  await run('INSERT INTO email_tokens (id,user_id,purpose,token_hash,payload,expires_at,created_at) VALUES (?,?,?,?,?,?,?)',
-    newId('et_'), user.id, purpose, sha256(token), payload, now() + ttlMs, now());
-  return token;
+
+// Supabase Auth is the identity provider for email + password accounts. The backend never sees or stores those
+// passwords (accounts linked to Supabase carry password_hash '!'): it asks Supabase to verify them and then issues its
+// own Approx session (cookie for web, bearer token for the Android app), so roles, plans, quota and CSRF are unchanged.
+async function localUserFor(sbUser, ip, { displayName = '' } = {}) {
+  const uid = String(sbUser.id);
+  const email = String(sbUser.email || '').toLowerCase();
+  const verified = !!(sbUser.email_confirmed_at || sbUser.confirmed_at);
+  let u = await one('SELECT * FROM users WHERE supabase_uid = ?', uid);
+  if (!u) {
+    const byEmail = await one('SELECT * FROM users WHERE email = ?', email);
+    if (byEmail) {
+      if (byEmail.supabase_uid && byEmail.supabase_uid !== uid) throw forbidden('This email is linked to a different sign-in account.', 'account_conflict');
+      if (!verified) return null; // never link an existing account before Supabase has confirmed the address
+      // Existing account (earlier sign-in system or Google): link it. Its old local password stops working.
+      await run("UPDATE users SET supabase_uid = ?, password_hash = '!', email_verified = 1, failed_logins = 0, locked_until = NULL, updated_at = ? WHERE id = ?",
+        uid, now(), byEmail.id);
+      await audit(byEmail.id, byEmail.id, 'auth.supabase_linked', byEmail.id, ip);
+    } else {
+      const id = newId('usr_'); const t = now();
+      await tx(async () => {
+        await run("INSERT INTO users (id,email,password_hash,email_verified,supabase_uid,created_at,updated_at) VALUES (?,?,'!',?,?,?,?)", id, email, verified ? 1 : 0, uid, t, t);
+        await run('INSERT INTO profiles (user_id,display_name) VALUES (?,?)', id, String(displayName || sbUser.user_metadata?.display_name || '').slice(0, 80));
+        await run("INSERT INTO settings (user_id, theme) VALUES (?, 'light')", id);
+        await run("INSERT INTO subscriptions (id,user_id,plan,status,started_at) VALUES (?,?,'free','active',?)", newId('sub_'), id, t);
+      });
+      await audit(id, id, 'auth.signup', id, ip);
+    }
+    u = await one('SELECT * FROM users WHERE supabase_uid = ?', uid);
+  } else {
+    // Keep the local copy in sync with Supabase (verification state and a confirmed email change).
+    if (verified && email && email !== u.email && !(await one('SELECT id FROM users WHERE email = ? AND id != ?', email, u.id))) {
+      await run('UPDATE users SET email = ?, updated_at = ? WHERE id = ?', email, now(), u.id);
+      await audit(u.id, u.id, 'auth.email_changed', u.id, ip);
+    }
+    if (verified && !u.email_verified) await run('UPDATE users SET email_verified = 1, updated_at = ? WHERE id = ?', now(), u.id);
+    u = await one('SELECT * FROM users WHERE id = ?', u.id);
+  }
+  // Suspended / deleted accounts get the same answer as a wrong password (account status is never revealed).
+  if (u.status !== 'active') throw unauthorized('Incorrect email or password');
+  return u;
 }
 
-async function consumeEmailToken(token, purpose) {
-  if (typeof token !== 'string' || token.length < 20 || token.length > 100) throw bad('Invalid or expired token', 'invalid_token');
-  const row = await one('SELECT * FROM email_tokens WHERE token_hash = ? AND purpose = ?', sha256(token), purpose);
-  if (!row || row.used_at || row.expires_at < now()) throw bad('Invalid or expired token', 'invalid_token');
-  await run('UPDATE email_tokens SET used_at = ? WHERE id = ?', now(), row.id);
-  return row;
+// Supabase calls → HTTP errors the apps understand.
+async function viaSupabase(fn) {
+  try { return await fn(); } catch (e) { throw toHttpError(e); }
+}
+
+// A pasted code (Android / "Have a code?") is the token hash from the Supabase email; a link lands on the web app with
+// an access token (implicit flow) or a token hash (custom email templates). Returns { user, accessToken }.
+async function identityFromCallback(b, types) {
+  if (typeof b.access_token === 'string' && b.access_token.length > 20) {
+    const user = await viaSupabase(() => sb.getUser(b.access_token));
+    return { user, accessToken: b.access_token };
+  }
+  const th = String(b.token_hash || b.token || '').trim();
+  if (th.length < 6 || th.length > 200) throw bad('Invalid or expired token', 'invalid_token');
+  const tryTypes = b.type && types.includes(b.type) ? [b.type] : types;
+  let last;
+  for (const type of tryTypes) {
+    try {
+      const s = await sb.verifyTokenHash(th, type);
+      return { user: s.user, accessToken: s.access_token };
+    } catch (e) { last = e; }
+  }
+  throw toHttpError(last);
 }
 
 async function sessionResponse(res, req, user, client) {
@@ -55,17 +108,6 @@ async function bootstrapSuperadmin(userId, ip) {
   if (promoted) await audit(userId, 'bootstrap', 'auth.bootstrap_superadmin', userId, ip, { via: 'APPROX_BOOTSTRAP_SUPERADMIN_EMAIL' });
 }
 
-// Email is how accounts are verified and passwords reset. In production, refuse to start those flows when no
-// mail transport is configured (instead of telling users to check an inbox that will never receive anything),
-// and report delivery failures instead of claiming the email was sent.
-function requireMailDelivery() {
-  if (config.env === 'production' && !mailConfigured()) {
-    throw new HttpError(503, 'email_unavailable', "Email delivery isn't set up on this server yet, so we can't send verification or reset emails. Please try again later.");
-  }
-}
-const mailFailed = (status) => String(status).startsWith('failed');
-const deliveryError = () => new HttpError(502, 'email_delivery_failed', "We couldn't send the email right now. Please try again in a few minutes.");
-
 export function registerAuthRoutes(r) {
   r.post('/api/auth/signup', async (req, res) => {
     const ip = clientIp(req);
@@ -75,65 +117,43 @@ export function registerAuthRoutes(r) {
     if (!isEmail(email)) throw bad('A valid email address is required');
     const pwErr = passwordPolicy(b.password);
     if (pwErr) throw bad(pwErr, 'weak_password');
-    await rateLimit(`signup-email:${email}`, 3, HOUR); // applied before lookup: no enumeration, no mail-bombing
+    await rateLimit(`signup-email:${email}`, 3, HOUR); // applied before any lookup: no enumeration, no mail-bombing
     const name = str(b.display_name, 'display_name', { max: 80, required: false }) || '';
-    requireMailDelivery();
-    const existing = await one('SELECT * FROM users WHERE email = ?', email);
-    if (existing) {
-      // Same response as a new sign-up (registration status is never revealed). An unverified owner gets a fresh
-      // verification code so they are not stuck; a verified owner is told someone tried to sign up.
-      let status;
-      if (!existing.email_verified && existing.status === 'active') {
-        const token = await issueEmailToken(existing, 'verify', 24 * HOUR);
-        status = await sendMail(email, 'Verify your Approx AI email', `Welcome to Approx AI.\n\nVerify your email: ${appLink('/#/verify?token=' + token)}\n\nVerification code: ${token}\n\nThis link expires in 24 hours.`);
-      } else {
-        status = await sendMail(email, 'Approx AI sign-up attempt', 'Someone tried to create an Approx AI account with this email. If it was you, sign in or reset your password.');
-      }
-      if (mailFailed(status)) throw deliveryError();
-      return sendJson(res, 202, { status: 'verification_sent', message: 'If this email can be registered, a verification link has been sent.' });
+    requireSupabase();
+    // Supabase creates the unconfirmed user and sends the confirmation email. For an address that is already
+    // registered it answers the same way (no enumeration) and re-sends the link if that account is still unconfirmed.
+    const created = await viaSupabase(() => sb.signUp(email, b.password, name));
+    const sbUser = created?.user || created;
+    if (sbUser?.id && Array.isArray(sbUser.identities) && sbUser.identities.length && !(await one('SELECT id FROM users WHERE email = ?', email))) {
+      await localUserFor(sbUser, ip, { displayName: name });
     }
-    const hash = await hashPassword(b.password);
-    const id = newId('usr_');
-    const t = now();
-    await tx(async () => {
-      await run('INSERT INTO users (id,email,password_hash,created_at,updated_at) VALUES (?,?,?,?,?)', id, email, hash, t, t);
-      await run('INSERT INTO profiles (user_id,display_name) VALUES (?,?)', id, name);
-      await run("INSERT INTO settings (user_id, theme) VALUES (?, 'light')", id);
-      await run("INSERT INTO subscriptions (id,user_id,plan,status,started_at) VALUES (?,?,'free','active',?)", newId('sub_'), id, t);
-    });
-    const user = await one('SELECT * FROM users WHERE id = ?', id);
-    const token = await issueEmailToken(user, 'verify', 24 * HOUR);
-    const sent = await sendMail(email, 'Verify your Approx AI email', `Welcome to Approx AI.\n\nVerify your email: ${appLink('/#/verify?token=' + token)}\n\nVerification code: ${token}\n\nThis link expires in 24 hours.`);
-    if (mailFailed(sent)) {
-      // Undo the sign-up so the person can simply try again (all user rows cascade from users).
-      await run('DELETE FROM users WHERE id = ?', id);
-      throw deliveryError();
-    }
-    await audit(id, id, 'auth.signup', id, ip);
     sendJson(res, 202, { status: 'verification_sent', message: 'If this email can be registered, a verification link has been sent.' });
   });
 
   r.post('/api/auth/verify-email', async (req, res) => {
-    await rateLimit(`verify:${clientIp(req)}`, 30, HOUR);
+    const ip = clientIp(req);
+    await rateLimit(`verify:${ip}`, 30, HOUR);
     const b = await readJson(req);
-    const row = await consumeEmailToken(b.token, 'verify');
-    await run('UPDATE users SET email_verified = 1, updated_at = ? WHERE id = ?', now(), row.user_id);
-    await audit(row.user_id, row.user_id, 'auth.email_verified', row.user_id, clientIp(req));
-    await bootstrapSuperadmin(row.user_id, clientIp(req));
+    requireSupabase();
+    const { user: sbUser, accessToken } = await identityFromCallback(b, ['signup', 'email']);
+    if (!(sbUser?.email_confirmed_at || sbUser?.confirmed_at)) throw bad('Invalid or expired token', 'invalid_token');
+    const u = await localUserFor(sbUser, ip);
+    await audit(u.id, u.id, 'auth.email_verified', u.id, ip);
+    await bootstrapSuperadmin(u.id, ip);
+    if (accessToken) await sb.logout(accessToken);
+    // The web app signs the person in straight from the confirmation link; the Android app shows its sign-in screen.
+    if (b.sign_in === true) return sendJson(res, 200, { status: 'verified', ...(await sessionResponse(res, req, await one('SELECT * FROM users WHERE id = ?', u.id), 'web')) });
     sendJson(res, 200, { status: 'verified' });
   });
 
   r.post('/api/auth/resend-verification', async (req, res) => {
     const b = await readJson(req);
-    const email = String(b.email || '').toLowerCase();
+    const email = String(b.email || '').toLowerCase().slice(0, 254);
     await rateLimit(`resend:${clientIp(req)}`, 5, HOUR);
     await rateLimit(`resend-email:${email}`, 3, HOUR);
-    requireMailDelivery();
-    const u = await one('SELECT * FROM users WHERE email = ? AND status = ? AND email_verified = 0', email, 'active');
-    if (u) {
-      const token = await issueEmailToken(u, 'verify', 24 * HOUR);
-      if (mailFailed(await sendMail(u.email, 'Verify your Approx AI email', `Verify your email: ${appLink('/#/verify?token=' + token)}\n\nVerification code: ${token}`))) throw deliveryError();
-    }
+    if (!isEmail(email)) throw bad('A valid email address is required');
+    requireSupabase();
+    await viaSupabase(() => sb.resendSignup(email));
     sendJson(res, 202, { status: 'ok', message: 'If the account exists and is unverified, a new link has been sent.' });
   });
 
@@ -145,30 +165,41 @@ export function registerAuthRoutes(r) {
     const password = typeof b.password === 'string' ? b.password.slice(0, 256) : '';
     const client = b.client === 'mobile' ? 'mobile' : 'web';
     await rateLimit(`login-email:${email}`, 15, 15 * 60_000);
-    const user = await one("SELECT * FROM users WHERE email = ? AND status = 'active'", email);
-    if (!user) { await burnPasswordCheck(password); throw unauthorized('Incorrect email or password'); }
-    if (user.locked_until && user.locked_until > now()) {
-      await securityEvent(user.id, 'login_while_locked', 'medium', ip);
-      throw new HttpError(423, 'account_locked', 'Account temporarily locked after repeated failed sign-ins. Try again later or reset your password.',
-        { retryAfter: Math.ceil((user.locked_until - now()) / 1000) });
+    if (!email || !password) throw unauthorized('Incorrect email or password');
+    requireSupabase();
+    let grant;
+    try {
+      grant = await sb.passwordGrant(email, password);
+    } catch (e) {
+      if (e instanceof SupabaseError && ['invalid_credentials', 'invalid_grant'].includes(e.code)) {
+        // One-time migration of an account created by the earlier sign-in system: if its old password is correct,
+        // create the Supabase account with that password (Supabase emails a confirmation link) instead of failing.
+        const legacy = await one("SELECT * FROM users WHERE email = ? AND status = 'active' AND supabase_uid IS NULL AND password_hash LIKE 'scrypt$%'", email);
+        if (legacy && await verifyPassword(password, legacy.password_hash)) {
+          await viaSupabase(() => sb.signUp(email, password, ''));
+          await audit(legacy.id, legacy.id, 'auth.migration_email_sent', legacy.id, ip);
+          throw new HttpError(409, 'account_migration_required',
+            'Approx AI has moved to a new sign-in system. We emailed you a confirmation link — open it, then sign in again with the same password.');
+        }
+        if (!legacy) await burnPasswordCheck(password);
+        const known = await one('SELECT id FROM users WHERE email = ?', email);
+        if (known) await securityEvent(known.id, 'login_failed', 'low', ip);
+      }
+      throw toHttpError(e);
     }
-    if (!(await verifyPassword(password, user.password_hash))) {
-      const fails = user.failed_logins + 1;
-      const lock = fails >= config.auth.maxFailedLogins ? now() + config.auth.lockMinutes * 60_000 : null;
-      await run('UPDATE users SET failed_logins = ?, locked_until = ? WHERE id = ?', lock ? 0 : fails, lock, user.id);
-      await securityEvent(user.id, lock ? 'account_locked' : 'login_failed', lock ? 'high' : 'low', ip, { fails });
-      throw unauthorized('Incorrect email or password');
-    }
-    await run('UPDATE users SET failed_logins = 0, locked_until = NULL WHERE id = ?', user.id);
-    await audit(user.id, user.id, 'auth.login', client, ip);
-    if (user.email_verified) await bootstrapSuperadmin(user.id, ip);
-    sendJson(res, 200, await sessionResponse(res, req, await one('SELECT * FROM users WHERE id = ?', user.id), client));
+    const u = await localUserFor(grant.user, ip);
+    await sb.logout(grant.access_token);
+    if (!u) throw unauthorized('Incorrect email or password');
+    await audit(u.id, u.id, 'auth.login', client, ip);
+    if (u.email_verified) await bootstrapSuperadmin(u.id, ip);
+    sendJson(res, 200, await sessionResponse(res, req, await one('SELECT * FROM users WHERE id = ?', u.id), client));
   });
 
   // Public auth configuration for the sign-in screens (no secrets: Google client IDs are public by design).
   r.get('/api/auth/config', async (req, res) => {
     sendJson(res, 200, { google: { enabled: config.google.clientIds.length > 0, client_id: config.google.clientIds[0] || null },
-      email_password: true, email_verification_required: config.auth.requireVerifiedEmailForChat });
+      email_password: true, email_verification_required: config.auth.requireVerifiedEmailForChat,
+      provider: 'supabase', provider_configured: supabaseConfigured() });
   });
 
   /**
@@ -260,37 +291,53 @@ export function registerAuthRoutes(r) {
     const b = await readJson(req);
     const email = String(b.email || '').toLowerCase().slice(0, 254);
     await rateLimit(`forgot-email:${email}`, 3, HOUR);
-    requireMailDelivery();
-    const u = await one("SELECT * FROM users WHERE email = ? AND status = 'active'", email);
-    if (u) {
-      const token = await issueEmailToken(u, 'reset', HOUR);
-      if (mailFailed(await sendMail(u.email, 'Reset your Approx AI password', `Reset your password: ${appLink('/#/reset?token=' + token)}\n\nReset code: ${token}\n\nThis link expires in 1 hour. If you did not request this, ignore this email.`))) throw deliveryError();
-      await audit(u.id, 'anonymous', 'auth.password_reset_requested', u.id, ip);
-    }
+    if (!isEmail(email)) throw bad('A valid email address is required');
+    requireSupabase();
+    await viaSupabase(() => sb.recover(email)); // Supabase sends the reset link; unknown addresses get the same answer
+    const u = await one("SELECT id FROM users WHERE email = ? AND status = 'active'", email);
+    if (u) await audit(u.id, 'anonymous', 'auth.password_reset_requested', u.id, ip);
     sendJson(res, 202, { status: 'ok', message: 'If an account exists for this email, a reset link has been sent.' });
   });
 
   r.post('/api/auth/reset-password', async (req, res) => {
-    await rateLimit(`reset:${clientIp(req)}`, 10, HOUR);
+    const ip = clientIp(req);
+    await rateLimit(`reset:${ip}`, 10, HOUR);
     const b = await readJson(req);
     const pwErr = passwordPolicy(b.password);
     if (pwErr) throw bad(pwErr, 'weak_password');
-    const row = await consumeEmailToken(b.token, 'reset');
-    const hash = await hashPassword(b.password);
-    await run('UPDATE users SET password_hash = ?, failed_logins = 0, locked_until = NULL, email_verified = 1, updated_at = ? WHERE id = ?', hash, now(), row.user_id);
-    await revokeSessions(row.user_id);
-    await audit(row.user_id, row.user_id, 'auth.password_reset', row.user_id, clientIp(req));
+    requireSupabase();
+    const { user: sbUser, accessToken } = await identityFromCallback(b, ['recovery']);
+    await viaSupabase(() => sb.updateUser(accessToken, { password: b.password }));
+    // The reset link proved control of the mailbox, so the address counts as verified.
+    const u = await localUserFor({ ...sbUser, email_confirmed_at: sbUser.email_confirmed_at || new Date().toISOString() }, ip);
+    await sb.logout(accessToken);
+    if (u) {
+      await run('UPDATE users SET failed_logins = 0, locked_until = NULL, email_verified = 1, updated_at = ? WHERE id = ?', now(), u.id);
+      await revokeSessions(u.id);
+      await audit(u.id, u.id, 'auth.password_reset', u.id, ip);
+    }
     sendJson(res, 200, { status: 'password_reset', message: 'Password updated. All sessions were signed out.' });
   });
+
+  // Re-authenticate with Supabase (current password) and return its short-lived access token.
+  async function reauth(u, password) {
+    if (!u.supabase_uid) throw forbidden('This account signs in with Google. Use "Forgot password" to add an email password first.', 'no_password');
+    try { return await sb.passwordGrant(u.email, String(password || '').slice(0, 256)); } catch (e) {
+      if (e instanceof SupabaseError && ['invalid_credentials', 'invalid_grant'].includes(e.code)) throw forbidden('Password is incorrect', 'wrong_password');
+      throw toHttpError(e);
+    }
+  }
 
   r.post('/api/auth/change-password', async (req, res, ctx) => {
     const u = requireUser(ctx);
     await rateLimit(`chpw:${u.id}`, 10, HOUR);
     const b = await readJson(req);
-    if (!(await verifyPassword(String(b.current_password || ''), u.password_hash))) throw forbidden('Current password is incorrect', 'wrong_password');
     const pwErr = passwordPolicy(b.new_password);
     if (pwErr) throw bad(pwErr, 'weak_password');
-    await run('UPDATE users SET password_hash = ?, updated_at = ? WHERE id = ?', await hashPassword(b.new_password), now(), u.id);
+    requireSupabase();
+    const g = await reauth(u, b.current_password).catch((e) => { throw e.code === 'wrong_password' ? forbidden('Current password is incorrect', 'wrong_password') : e; });
+    await viaSupabase(() => sb.updateUser(g.access_token, { password: b.new_password }));
+    await sb.logout(g.access_token);
     await revokeSessions(u.id, ctx.auth.session.id); // keep current session, revoke all others
     await audit(u.id, u.id, 'auth.password_changed', u.id, clientIp(req));
     await sendMail(u.email, 'Your Approx AI password was changed', 'Your password was changed. If this was not you, reset your password immediately.');
@@ -301,23 +348,30 @@ export function registerAuthRoutes(r) {
     const u = requireUser(ctx);
     await rateLimit(`chemail:${u.id}`, 5, HOUR);
     const b = await readJson(req);
-    if (!(await verifyPassword(String(b.password || ''), u.password_hash))) throw forbidden('Password is incorrect', 'wrong_password');
     const email = String(b.new_email || '').toLowerCase();
     if (!isEmail(email)) throw bad('A valid email address is required');
-    const token = await issueEmailToken(u, 'email_change', 24 * HOUR, email);
-    if (!await one('SELECT id FROM users WHERE email = ?', email)) {
-      await sendMail(email, 'Confirm your new Approx AI email', `Confirm: ${appLink('/#/confirm-email?token=' + token)}\n\nCode: ${token}`);
-    }
+    requireSupabase();
+    const g = await reauth(u, b.password);
+    // Supabase emails the confirmation link(s) (with "secure email change" on: one to each address).
+    await viaSupabase(() => sb.updateUser(g.access_token, { email }));
+    await sb.logout(g.access_token);
     sendJson(res, 202, { status: 'confirmation_sent' });
   });
 
   r.post('/api/auth/confirm-email-change', async (req, res) => {
+    const ip = clientIp(req);
+    await rateLimit(`confirm-email:${ip}`, 30, HOUR);
     const b = await readJson(req);
-    const row = await consumeEmailToken(b.token, 'email_change');
-    if (await one('SELECT id FROM users WHERE email = ?', row.payload)) throw bad('Email is already in use');
-    await run('UPDATE users SET email = ?, email_verified = 1, updated_at = ? WHERE id = ?', row.payload, now(), row.user_id);
-    await revokeSessions(row.user_id);
-    await audit(row.user_id, row.user_id, 'auth.email_changed', row.user_id, clientIp(req));
+    requireSupabase();
+    const { user: sbUser, accessToken } = await identityFromCallback(b, ['email_change']);
+    if (sbUser.new_email) { // the other address still has to confirm
+      if (accessToken) await sb.logout(accessToken);
+      return sendJson(res, 202, { status: 'confirmation_pending', message: 'Confirmed. Now open the link sent to your other email address to finish the change.' });
+    }
+    const before = await one('SELECT * FROM users WHERE supabase_uid = ?', String(sbUser.id));
+    const u = await localUserFor(sbUser, ip);
+    if (accessToken) await sb.logout(accessToken);
+    if (before && u && before.email !== u.email) await revokeSessions(u.id);
     sendJson(res, 200, { status: 'email_changed' });
   });
 
@@ -342,15 +396,24 @@ export function registerAuthRoutes(r) {
   r.post('/api/account/delete', async (req, res, ctx) => {
     const u = requireUser(ctx);
     const b = await readJson(req);
-    if (!(await verifyPassword(String(b.password || ''), u.password_hash))) throw forbidden('Password is incorrect', 'wrong_password');
     if (b.confirm !== 'DELETE') throw bad("Type DELETE to confirm");
+    let supabaseDeleted = false;
+    if (u.supabase_uid) {
+      requireSupabase();
+      const g = await reauth(u, b.password);
+      await sb.logout(g.access_token);
+      // With the server-only secret key the Supabase identity is deleted too; otherwise it stays (and the deleted
+      // Approx account refuses to sign in again) until removed in the Supabase dashboard.
+      try { supabaseDeleted = !!(await sb.adminDeleteUser(u.supabase_uid)); } catch { supabaseDeleted = false; }
+    } else if (!(await verifyPassword(String(b.password || ''), u.password_hash))) throw forbidden('Password is incorrect', 'wrong_password');
     // Hard-delete all user content (cascade) and anonymize the user row for audit integrity.
     const { removeUserFiles } = await import('./files.js');
     await removeUserFiles(u.id);
     await tx(async () => {
       for (const t of ['messages', 'chats', 'memories', 'files', 'projects', 'artifacts', 'code_files', 'code_proposals', 'api_keys', 'model_access', 'usage_events', 'notifications', 'sessions', 'email_tokens', 'api_requests'])
         await run(`DELETE FROM ${t} WHERE user_id = ?`, u.id);
-      await run("UPDATE users SET email = ?, password_hash = '!', status = 'deleted', updated_at = ? WHERE id = ?", `deleted+${u.id}@approx.invalid`, now(), u.id);
+      await run("UPDATE users SET email = ?, password_hash = '!', status = 'deleted', supabase_uid = CASE WHEN ? THEN NULL ELSE supabase_uid END, updated_at = ? WHERE id = ?",
+        `deleted+${u.id}@approx.invalid`, supabaseDeleted ? 1 : 0, now(), u.id);
       await run("UPDATE profiles SET display_name = '' WHERE user_id = ?", u.id);
     });
     await audit(u.id, u.id, 'account.deleted', u.id, clientIp(req));

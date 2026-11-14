@@ -1,66 +1,127 @@
 import test, { after } from 'node:test';
 import assert from 'node:assert/strict';
-import { req, makeUser, parseSse, db, close } from './helpers.js';
+import { req, makeUser, parseSse, db, close, supabase } from './helpers.js';
 import { isPublicIp, safeFetchText } from '../src/netguard.js';
 import { scrubPii } from '../src/pii.js';
 import { classify } from '../src/models.js';
 
 after(close);
 
-// ---------------- auth ----------------
-test('signup enforces password policy and does not leak existing accounts', async () => {
+// ---------------- auth (Supabase Auth is the identity provider; test double in fake-supabase.js) ----------------
+test('signup enforces password policy, goes through Supabase with the app callback, and does not leak existing accounts', async () => {
   const weak = await req('POST', '/api/auth/signup', { body: { email: 'weak@example.com', password: 'short' } });
   assert.equal(weak.status, 400);
   assert.equal(weak.data.error.code, 'weak_password');
   const u = await makeUser();
+  const call = supabase.calls.findLast((c) => c.path === '/signup' && c.body.email === u.email);
+  assert.match(call.query.redirect_to, /\/\?auth=callback$/, 'confirmation links return to the app callback');
   const again = await req('POST', '/api/auth/signup', { body: { email: u.email, password: 'AnotherPass123' } });
   assert.equal(again.status, 202, 'same response for existing email (no enumeration)');
+  assert.equal((await db.one('SELECT COUNT(*) c FROM users WHERE email = ?', u.email)).c, 1, 'no duplicate local account');
 });
 
-test('email verification token flow (single use) and unverified users cannot chat', async () => {
+test('a second, separate sign-up works end to end (link → verified → signed in), and an unverified repeat sign-up re-sends the link', async () => {
+  for (const email of [`first_${Date.now()}@example.com`, `second_${Date.now()}@example.com`]) {
+    assert.equal((await req('POST', '/api/auth/signup', { body: { email, password: 'SecondUser123' } })).status, 202);
+    const unverified = await req('POST', '/api/auth/login', { body: { email, password: 'SecondUser123', client: 'mobile' } });
+    assert.equal(unverified.status, 403);
+    assert.equal(unverified.data.error.code, 'email_not_verified');
+    assert.equal((await req('POST', '/api/auth/signup', { body: { email, password: 'SecondUser123' } })).status, 202);
+    const links = supabase.emails.filter((m) => m.to === email && m.type === 'signup');
+    assert.equal(links.length, 2, 'repeat sign-up of an unconfirmed address sends a fresh link');
+    const { target, params } = await supabase.click(links.at(-1).link);
+    assert.match(target, /\/\?auth=callback$/);
+    assert.equal(params.type, 'signup');
+    const v = await req('POST', '/api/auth/verify-email', { body: { access_token: params.access_token, sign_in: true } });
+    assert.equal(v.status, 200);
+    assert.equal(v.data.status, 'verified');
+    assert.equal(v.data.user.email_verified, true);
+    assert.match(v.headers.get('set-cookie'), /approx_session=/, 'the confirmation link signs the person in');
+    const l = await req('POST', '/api/auth/login', { body: { email, password: 'SecondUser123', client: 'mobile' } });
+    assert.equal(l.status, 200);
+    const chat = await req('POST', '/api/chats', { token: l.data.token, body: {} });
+    assert.equal((await req('POST', `/api/chats/${chat.data.chat.id}/messages`, { token: l.data.token, body: { content: 'hi' } })).status, 200);
+  }
+});
+
+test('verification by pasted code (token hash) is single use; resend works; expired links are rejected', async () => {
   const email = `verify_${Date.now()}@example.com`;
   await req('POST', '/api/auth/signup', { body: { email, password: 'VerifyMe12345' } });
-  const outbox = await db.one('SELECT body FROM mail_outbox WHERE to_email = ? ORDER BY created_at DESC', email);
-  const token = /Verification code: (\S+)/.exec(outbox.body)[1];
-  const login = await req('POST', '/api/auth/login', { body: { email, password: 'VerifyMe12345', client: 'mobile' } });
-  const chat = await req('POST', '/api/chats', { token: login.data.token, body: {} });
-  const send = await req('POST', `/api/chats/${chat.data.chat.id}/messages`, { token: login.data.token, body: { content: 'hi' } });
-  assert.equal(send.status, 403);
-  assert.equal(send.data.error.code, 'email_not_verified');
-  assert.equal((await req('POST', '/api/auth/verify-email', { body: { token } })).status, 200);
-  assert.equal((await req('POST', '/api/auth/verify-email', { body: { token } })).status, 400, 'token is single-use');
-  const send2 = await req('POST', `/api/chats/${chat.data.chat.id}/messages`, { token: login.data.token, body: { content: 'hi' } });
-  assert.equal(send2.status, 200);
+  assert.equal((await req('POST', '/api/auth/resend-verification', { body: { email } })).status, 202);
+  const code = supabase.lastEmail(email, 'signup').token_hash;
+  assert.equal((await req('POST', '/api/auth/verify-email', { body: { token: code } })).status, 200);
+  assert.equal((await req('POST', '/api/auth/verify-email', { body: { token: code } })).status, 400, 'code is single-use');
+  const used = await supabase.click(supabase.emails.find((m) => m.to === email).link);
+  assert.equal(used.params.error_code, 'otp_expired', 'an old link lands on the app with an error fragment');
+  const l = await req('POST', '/api/auth/login', { body: { email, password: 'VerifyMe12345', client: 'mobile' } });
+  assert.equal(l.status, 200);
+  assert.equal(l.data.user.email_verified, true);
 });
 
-test('login: wrong password rejected; account locks after repeated failures', async () => {
+test('login: wrong password rejected without revealing whether the account exists', async () => {
   const u = await makeUser();
-  for (let i = 0; i < 8; i++) {
-    const r = await req('POST', '/api/auth/login', { body: { email: u.email, password: 'wrong-password-1' } });
-    assert.equal(r.status, 401);
-  }
-  const locked = await req('POST', '/api/auth/login', { body: { email: u.email, password: u.password } });
-  assert.equal(locked.status, 423);
-  assert.ok((await db.one("SELECT COUNT(*) c FROM security_events WHERE user_id = ? AND kind = 'account_locked'", u.id)).c >= 1);
+  const wrong = await req('POST', '/api/auth/login', { body: { email: u.email, password: 'wrong-password-1' } });
+  const unknown = await req('POST', '/api/auth/login', { body: { email: `nobody_${Date.now()}@example.com`, password: 'wrong-password-1' } });
+  assert.deepEqual([wrong.status, unknown.status], [401, 401]);
+  assert.equal(wrong.data.error.message, unknown.data.error.message);
+  assert.ok((await db.one("SELECT COUNT(*) c FROM security_events WHERE user_id = ? AND kind = 'login_failed'", u.id)).c >= 1);
 });
 
-test('password hashes are scrypt, never plaintext', async () => {
+test('passwords live only in Supabase: the local account stores no password hash', async () => {
   const u = await makeUser();
-  const row = await db.one('SELECT password_hash FROM users WHERE id = ?', u.id);
-  assert.match(row.password_hash, /^scrypt\$/);
-  assert.ok(!row.password_hash.includes(u.password));
+  const row = await db.one('SELECT password_hash, supabase_uid FROM users WHERE id = ?', u.id);
+  assert.equal(row.password_hash, '!');
+  assert.equal(row.supabase_uid, supabase.users.get(u.email).id);
 });
 
-test('password reset revokes all sessions', async () => {
+test('password reset (link and pasted code) revokes all sessions', async () => {
   const u = await makeUser();
-  await req('POST', '/api/auth/forgot-password', { body: { email: u.email } });
-  const mail = await db.one("SELECT body FROM mail_outbox WHERE to_email = ? AND subject LIKE '%Reset%' ORDER BY created_at DESC", u.email);
-  const token = /Reset code: (\S+)/.exec(mail.body)[1];
-  const r = await req('POST', '/api/auth/reset-password', { body: { token, password: 'BrandNewPass99' } });
+  assert.equal((await req('POST', '/api/auth/forgot-password', { body: { email: u.email } })).status, 202);
+  const mail = supabase.lastEmail(u.email, 'recovery');
+  assert.match(mail.redirect_to, /\/\?auth=callback$/);
+  const { params } = await supabase.click(mail.link);
+  assert.equal(params.type, 'recovery');
+  assert.equal((await req('POST', '/api/auth/reset-password', { body: { access_token: params.access_token, password: 'short' } })).status, 400);
+  const r = await req('POST', '/api/auth/reset-password', { body: { access_token: params.access_token, password: 'BrandNewPass99' } });
   assert.equal(r.status, 200);
   assert.equal((await req('GET', '/api/auth/me', { token: u.token })).status, 401, 'old session revoked');
-  const l = await req('POST', '/api/auth/login', { body: { email: u.email, password: 'BrandNewPass99', client: 'mobile' } });
+  assert.equal((await req('POST', '/api/auth/login', { body: { email: u.email, password: u.password, client: 'mobile' } })).status, 401, 'old password no longer works');
+  assert.equal((await req('POST', '/api/auth/login', { body: { email: u.email, password: 'BrandNewPass99', client: 'mobile' } })).status, 200);
+  // Android / "have a code": the token hash from the email.
+  await req('POST', '/api/auth/forgot-password', { body: { email: u.email } });
+  const code = supabase.lastEmail(u.email, 'recovery').token_hash;
+  assert.equal((await req('POST', '/api/auth/reset-password', { body: { token: code, password: 'ThirdPassword77' } })).status, 200);
+  assert.equal((await req('POST', '/api/auth/reset-password', { body: { token: code, password: 'FourthPassword7' } })).status, 400, 'single use');
+  assert.equal((await req('POST', '/api/auth/login', { body: { email: u.email, password: 'ThirdPassword77', client: 'mobile' } })).status, 200);
+  // Unknown address: same answer, no email.
+  const before = supabase.emails.length;
+  assert.equal((await req('POST', '/api/auth/forgot-password', { body: { email: `ghost_${Date.now()}@example.com` } })).status, 202);
+  assert.equal(supabase.emails.length, before);
+});
+
+test('accounts from the earlier sign-in system migrate to Supabase on first sign-in (same account, data kept)', async () => {
+  const { hashPassword } = await import('../src/security.js');
+  const email = `legacy_${Date.now()}@example.com`;
+  const id = 'usr_legacy' + Date.now();
+  await db.run('INSERT INTO users (id,email,password_hash,email_verified,created_at,updated_at) VALUES (?,?,?,1,?,?)', id, email, await hashPassword('LegacyPass123'), Date.now(), Date.now());
+  await db.run('INSERT INTO profiles (user_id, display_name) VALUES (?, ?)', id, 'Legacy');
+  assert.equal((await req('POST', '/api/auth/login', { body: { email, password: 'WrongLegacy123' } })).status, 401);
+  const first = await req('POST', '/api/auth/login', { body: { email, password: 'LegacyPass123', client: 'mobile' } });
+  assert.equal(first.status, 409);
+  assert.equal(first.data.error.code, 'account_migration_required');
+  const { params } = await supabase.click(supabase.lastEmail(email, 'signup').link);
+  assert.equal((await req('POST', '/api/auth/verify-email', { body: { access_token: params.access_token } })).status, 200);
+  const l = await req('POST', '/api/auth/login', { body: { email, password: 'LegacyPass123', client: 'mobile' } });
   assert.equal(l.status, 200);
+  assert.equal(l.data.user.id, id, 'linked to the existing account');
+  assert.equal((await db.one('SELECT password_hash FROM users WHERE id = ?', id)).password_hash, '!', 'old local hash disabled');
+});
+
+test('change password goes through Supabase; wrong current password refused', async () => {
+  const u = await makeUser();
+  assert.equal((await req('POST', '/api/auth/change-password', { token: u.token, body: { current_password: 'nope-wrong-1', new_password: 'Changed12345' } })).data.error.code, 'wrong_password');
+  assert.equal((await req('POST', '/api/auth/change-password', { token: u.token, body: { current_password: u.password, new_password: 'Changed12345' } })).status, 200);
+  assert.equal((await req('POST', '/api/auth/login', { body: { email: u.email, password: 'Changed12345', client: 'mobile' } })).status, 200);
 });
 
 test('cookie sessions require CSRF token for state-changing requests', async () => {
@@ -410,6 +471,7 @@ test('account deletion removes user content and invalidates sessions', async () 
   assert.equal((await db.one('SELECT COUNT(*) c FROM messages WHERE user_id = ?', u.id)).c, 0);
   assert.equal((await req('GET', '/api/auth/me', { token: u.token })).status, 401);
   assert.equal((await req('POST', '/api/auth/login', { body: { email: u.email, password: u.password } })).status, 401);
+  assert.equal(supabase.users.has(u.email), false, 'Supabase identity deleted (server-only secret key configured)');
 });
 
 // ---------------- HTTP hardening ----------------

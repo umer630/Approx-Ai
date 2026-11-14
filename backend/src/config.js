@@ -112,6 +112,19 @@ export const config = {
       ? `Approx AI <${(env.MAIL_SMTP_USER || env.APPROX_BOOTSTRAP_SUPERADMIN_EMAIL).trim()}>` : 'Approx AI <no-reply@approx.invalid>'),
   },
 
+  // Supabase Auth: the authoritative identity provider (sign-up, email verification, password, reset). The URL and the
+  // PUBLISHABLE key are public values; SUPABASE_SECRET_KEY (optional, server-only) is used solely to delete the auth
+  // user when an account is deleted — never exposed to the web app or the APK.
+  supabase: {
+    // Read on use (not at import) so the values always reflect the process environment.
+    get url() { return (env.SUPABASE_URL || '').trim().replace(/\/+$/, ''); },
+    get publishableKey() { return (env.SUPABASE_PUBLISHABLE_KEY || env.SUPABASE_ANON_KEY || '').trim(); },
+    get secretKey() { return (env.SUPABASE_SECRET_KEY || env.SUPABASE_SERVICE_ROLE_KEY || '').trim(); },
+    // Where Supabase sends people after they click a confirmation / reset link. Must be listed under
+    // Authentication → URL Configuration → Redirect URLs in the Supabase dashboard.
+    get callbackUrl() { return `${config.publicUrl || `http://localhost:${int(env.PORT, 8080)}`}/?auth=callback`; },
+  },
+
   // Dev simulator provider — NEVER a real model. Only for local development / automated tests.
   devProvider: bool(env.APPROX_DEV_PROVIDER, false),
 

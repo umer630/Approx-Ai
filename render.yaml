@@ -32,8 +32,14 @@ services:
       # Render injects the external URL as RENDER_EXTERNAL_URL; the server reads it (see config.js).
       - key: APPROX_PUBLIC_URL
         sync: false   # optional: set to your https://<name>.onrender.com after first deploy
-      # Email verification stays ON. Verification codes are sent through a free mail provider:
-      # MAIL_TRANSPORT=brevo + MAIL_HTTP_API_KEY (Brevo free plan, single verified sender — no domain needed).
+      # Sign-in: Supabase Auth sends the verification and password-reset emails (configure SMTP in Supabase).
+      - key: SUPABASE_URL
+        value: https://uyatvhgngzrrvelahebi.supabase.co
+      - key: SUPABASE_PUBLISHABLE_KEY
+        sync: false   # the project's publishable key (public, but kept out of the repo)
+      - key: SUPABASE_SECRET_KEY
+        sync: false   # optional, server-only: enables full account deletion
+      # Email verification stays ON. Account notices go through MAIL_TRANSPORT (Brevo free plan works).
       - key: REQUIRE_VERIFIED_EMAIL
         value: "true"
       - key: MAIL_TRANSPORT

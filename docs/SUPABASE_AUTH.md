@@ -1,0 +1,90 @@
+# Sign-in with Supabase Auth
+
+Supabase Auth (project `uyatvhgngzrrvelahebi`) is the authoritative identity provider for email + password accounts:
+it stores the passwords, sends the verification and password-reset emails, and decides whether an address is
+confirmed. The Approx backend never stores those passwords (linked accounts carry `password_hash = '!'`).
+
+```
+web app / Android app ──► Approx backend /api/auth/* ──► Supabase Auth (GoTrue REST, publishable key only)
+                               │  after Supabase confirms the identity
+                               └─► Approx session (HttpOnly cookie + CSRF for web, bearer token for Android)
+```
+
+Keeping the existing `/api/auth/*` endpoints means the installed Android app keeps working without a new APK, and
+roles, plans, quota, CSRF and session revocation are unchanged. Google sign-in stays a separate backend flow (Google
+ID token), because the Google provider is not enabled in this Supabase project.
+
+| Flow | What happens |
+|---|---|
+| Sign up | `POST /api/auth/signup` → Supabase `/signup` (redirect `…/?auth=callback`) → Supabase emails the confirmation link. Existing addresses get the same answer (no enumeration); an unconfirmed address gets a fresh link. |
+| Verify | The link goes to Supabase, which redirects to `https://approx-ai.vercel.app/?auth=callback#access_token=…&type=signup`; the web app sends the token to `POST /api/auth/verify-email`, which checks it with Supabase, marks the account verified and signs the person in. A pasted code (token hash, used by the Android app) works too. |
+| Resend | `POST /api/auth/resend-verification` → Supabase `/resend`. Also offered on the sign-in page when an unverified account tries to sign in. |
+| Sign in | `POST /api/auth/login` → Supabase password grant → Approx session. Unconfirmed → `403 email_not_verified`. |
+| Reset | `POST /api/auth/forgot-password` → Supabase `/recover`; the link lands on `/?auth=callback#…type=recovery` → "Choose a new password" → `POST /api/auth/reset-password` updates the password in Supabase and signs out all Approx sessions. |
+| Change password / email | Re-authenticates with Supabase (current password), then updates the Supabase user. |
+| Sign out | Revokes the Approx session (cookie cleared). The Supabase session used to prove identity is closed right after sign-in. |
+| Accounts from the earlier system | First sign-in with the old (correct) password creates the Supabase account and Supabase emails a confirmation link (`409 account_migration_required`); after confirming, the same Approx account (chats, files, role) is linked. |
+
+## Environment variables (Vercel → Project → Settings → Environment Variables)
+
+| Name | Value | Notes |
+|---|---|---|
+| `SUPABASE_URL` | `https://uyatvhgngzrrvelahebi.supabase.co` | public |
+| `SUPABASE_PUBLISHABLE_KEY` | `sb_publishable_…` from Supabase → Project Settings → API Keys | public by design |
+| `SUPABASE_SECRET_KEY` | optional `sb_secret_…` | **server-only**; only used to delete the Supabase user when someone deletes their account. Never in the web app, the APK, GitHub or a `NEXT_PUBLIC_`/`VITE_` variable. |
+| `APPROX_PUBLIC_URL` | `https://approx-ai.vercel.app` | email links return to `<this>/?auth=callback` |
+
+Without `SUPABASE_URL` / `SUPABASE_PUBLISHABLE_KEY` the auth endpoints answer `503 auth_not_configured` (no account
+is created). `/api/health` shows `auth_provider`, `auth_configured` and `auth_callback_url` (never a key).
+
+## Supabase dashboard settings (manual — these cannot be set from the repository)
+
+Read from the live project on 2026-11-14 via the public settings endpoint: email sign-in **enabled**, sign-ups
+**enabled**, "Confirm email" **on** (`mailer_autoconfirm: false`), Google provider **off**. Everything below still
+has to be checked or set by you in the dashboard.
+
+1. **Authentication → URL Configuration**
+   - **Site URL:** `https://approx-ai.vercel.app`
+   - **Redirect URLs → Add URL:** `https://approx-ai.vercel.app/?auth=callback`
+     (Supabase only redirects to listed URLs; anything else falls back to the Site URL. If the Site URL is still the
+     default `http://localhost:3000`, links would open localhost — that is the usual cause of "verification link
+     doesn't work".)
+2. **Authentication → Emails → SMTP Settings → Enable custom SMTP** — required for real users. Supabase's built-in
+   email service only delivers to members of your Supabase team and only a few emails per hour, so a second sign-up
+   (any address outside your team) never receives its email without this. Use the SMTP account you already use:
+   - Gmail: host `smtp.gmail.com`, port `465`, username = your Gmail address, password = the 16-letter Google App
+     Password (no spaces), sender email = the same Gmail address, sender name `Approx AI`.
+   - or Brevo: host `smtp-relay.brevo.com`, port `587`, username = your Brevo SMTP login, password = a Brevo SMTP
+     key, sender email = your verified Brevo sender, sender name `Approx AI`.
+3. **Authentication → Rate Limits** (after custom SMTP is on): raise **Rate limit for sending emails** to e.g.
+   `30` per hour. All sign-in requests reach Supabase from the backend's servers, so if many people sign in at once,
+   raise **Rate limit for sign-ups and sign-ins** (per 5 minutes per IP) as well.
+4. **Authentication → Sign In / Providers → Email:** keep **Confirm email** on and **Secure email change** on. Set
+   **Minimum password length** to `10` and **Password requirements** to "Letters and digits" so Supabase enforces the
+   same rule as the app.
+5. **Authentication → Emails → Templates** (recommended — needed for typing a code in the Android app): in
+   **Confirm signup** and **Reset password**, keep the link and add the code line, e.g.
+
+   ```html
+   <h2>Confirm your Approx AI email</h2>
+   <p><a href="{{ .ConfirmationURL }}">Confirm your email</a></p>
+   <p>Or enter this code in the app: <code>{{ .TokenHash }}</code></p>
+   ```
+
+   (Use the same pattern with "Reset your Approx AI password" for the reset template.) Without this line the
+   emailed link still works everywhere; only the "paste a code" screens have nothing to paste.
+
+## How to verify after deploying
+
+1. Open `https://approx-ai.vercel.app/api/health` → `auth_provider: "supabase"`, `auth_configured: true`,
+   `auth_callback_url: "https://approx-ai.vercel.app/?auth=callback"`.
+2. **Second sign-up:** create an account with an address that is **not** a member of your Supabase team (e.g. a
+   second Gmail). The email must arrive from your SMTP sender. Signing in before confirming shows "Please verify your
+   email first" with **Resend link**.
+3. Click the link → you land on `https://approx-ai.vercel.app/` showing "Email verified" and are signed in; the
+   address bar no longer contains a token. In Supabase → Authentication → Users the user shows as confirmed.
+4. **Password reset:** Sign in → Forgot password → open the email → "Choose a new password" → sign in with the new
+   password; the old password no longer works and other devices are signed out.
+5. Sign out, reload: you stay signed out. Sign in, reload: you stay signed in (session persistence).
+6. Android app (existing APK): sign in with the confirmed account; "Forgot password" sends the reset email; if you
+   added the code line to the templates, the code from the email works on the app's code screens.

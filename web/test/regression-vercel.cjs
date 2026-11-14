@@ -18,6 +18,9 @@ const listen = (h) => new Promise((r) => { const s = http.createServer(h); s.lis
 const readBody = async (req) => { const c = []; for await (const x of req) c.push(x); return Buffer.concat(c).toString('utf8'); };
 
 (async () => {
+  // Supabase Auth test double (the same one the backend test suite uses).
+  const { startFakeSupabase } = await import(path.join(__dirname, '../../backend/test/fake-supabase.js'));
+  const supabase = await startFakeSupabase();
   const mails = [];
   const brevo = await listen(async (req, res) => { mails.push(JSON.parse(await readBody(req))); res.writeHead(201); res.end('{}'); });
   const REPLY = ['Here is **bold** text and code:\n\n', '```js\nconsole.log("approx");\n```\n'];
@@ -36,7 +39,8 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     env: { PATH: process.env.PATH, HOME: process.env.HOME, VERCEL: '1', APPROX_ENV: 'test', APPROX_TEST_EPHEMERAL_DB: '1',
       APPROX_DB_URL: `file:${path.join(scratch, 'db.sqlite')}`, APPROX_MODEL_NICK_URL: `http://127.0.0.1:${inf.address().port}/v1`,
       MAIL_TRANSPORT: 'brevo', MAIL_HTTP_ENDPOINT: `http://127.0.0.1:${brevo.address().port}`, MAIL_HTTP_API_KEY: 'test-key',
-      MAIL_FROM: 'Approx AI <noreply@example.com>', APPROX_BOOTSTRAP_SUPERADMIN_EMAIL: 'owner@example.com', APPROX_PUBLIC_URL: 'https://approx-ai.vercel.app' },
+      MAIL_FROM: 'Approx AI <noreply@example.com>', APPROX_BOOTSTRAP_SUPERADMIN_EMAIL: 'owner@example.com', APPROX_PUBLIC_URL: 'https://approx-ai.vercel.app',
+      SUPABASE_URL: supabase.url, SUPABASE_PUBLISHABLE_KEY: supabase.publishableKey },
     stdio: ['ignore', 'pipe', 'inherit'] });
   const port = await new Promise((r) => { let o = ''; emu.stdout.on('data', (d) => { o += d; const m = /PORT (\d+)/.exec(o); if (m) r(m[1]); }); });
   const BASE = `http://127.0.0.1:${port}`;
@@ -74,20 +78,49 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     await p.locator('#email').fill('owner@example.com');
     await p.locator('#password').fill('Str0ng!Passw0rd1'); await p.locator('#password2').fill('Str0ng!Passw0rd1');
     await p.locator('.btn.primary').first().click(); await p.waitForTimeout(1000);
-    ok('signup sends verification mail', mails.length === 1);
-    const code = /Verification code: (\S+)/.exec(mails[0]?.textContent || '')?.[1];
-    ok('verification email link uses the configured public origin (no localhost)', /https:\/\/approx-ai\.vercel\.app\/#\/verify\?token=/.test(mails[0]?.textContent || '') && !/localhost/.test(mails[0]?.textContent || ''), (mails[0]?.textContent || '').slice(0, 200));
-    // Open the emailed link: the page reads the token from the URL fragment and confirms automatically.
-    await p.goto(BASE + `/#/verify?token=${encodeURIComponent(code || '')}`, { waitUntil: 'networkidle' });
-    await p.waitForTimeout(800);
-    ok('verify link auto-confirms the email', (await p.locator('body').innerText()).includes('Email verified'));
-    ok('used token removed from the address bar', !p.url().includes('token='), p.url());
-    await p.reload({ waitUntil: 'networkidle' }); await p.waitForTimeout(500);
-    ok('reload after verifying: no loop, no error', !(await p.locator('.alert.error').count()) && (await p.locator('body').innerText()).includes('Verify your email'));
-    const errsBefore = errs.length;   // the next request is EXPECTED to fail (400): don't count it as a console error
-    await p.goto(BASE + `/#/verify?token=${encodeURIComponent(code || '')}`, { waitUntil: 'networkidle' }); await p.waitForTimeout(800);
-    ok('re-used token shows a clear error', (await p.locator('.alert.error').innerText().catch(() => '')).includes('Invalid or expired'));
+    const vmail = supabase.lastEmail('owner@example.com', 'signup');
+    ok('signup: Supabase sends the confirmation email', !!vmail);
+    ok('confirmation link returns to the public origin callback (no localhost)', vmail?.redirect_to === 'https://approx-ai.vercel.app/?auth=callback', vmail?.redirect_to);
+    // Unverified sign-in: clear message + resend button.
+    await p.goto(BASE + '/#/login', { waitUntil: 'networkidle' });
+    await p.locator('input[type=email]').fill('owner@example.com'); await p.locator('input[type=password]').first().fill('Str0ng!Passw0rd1');
+    let errsBefore = errs.length;
+    await p.getByRole('button', { name: 'Sign in' }).first().click(); await p.waitForTimeout(800);
+    ok('unverified sign-in explains and offers "Resend link"', (await p.locator('[role=alert]').innerText()).includes('verify your email') && await p.getByRole('button', { name: 'Resend link' }).count() === 1);
+    await p.getByRole('button', { name: 'Resend link' }).click(); await p.waitForTimeout(600);
+    ok('resend from the sign-in page sends a new link', supabase.emails.filter((m) => m.to === 'owner@example.com' && m.type === 'signup').length === 2);
     errs.length = errsBefore;
+    // Click the emailed link: Supabase redirects to /?auth=callback#access_token=…; the app confirms and signs in.
+    const landed = await supabase.click(supabase.lastEmail('owner@example.com', 'signup').link);
+    const frag = new URLSearchParams(landed.params).toString();
+    await p.goto(BASE + `/?auth=callback#${frag}`, { waitUntil: 'networkidle' }); await p.waitForTimeout(1200);
+    ok('confirmation link verifies the email and signs the person in', (await p.locator('body').innerText()).includes('Email verified') && (await p.locator('body').innerText()).includes('Continue to Approx AI'));
+    ok('tokens removed from the address bar', !/access_token|auth=callback/.test(p.url()), p.url());
+    await p.reload({ waitUntil: 'networkidle' }); await p.waitForTimeout(500);
+    ok('reload after verifying: no loop, no error', !(await p.locator('.alert.error').count()));
+    // An old (superseded) link lands with an error fragment → clear message, resend offered.
+    errsBefore = errs.length;
+    const old = await supabase.click(supabase.emails.find((m) => m.to === 'owner@example.com').link);
+    await p.goto(BASE + `/?auth=callback#${new URLSearchParams(old.params)}`, { waitUntil: 'networkidle' }); await p.waitForTimeout(600);
+    ok('expired link shows a clear error with a resend option', (await p.locator('.alert.error').innerText().catch(() => '')).includes('invalid or has expired') && await p.locator('details[open]').count() === 1);
+    errs.length = errsBefore;
+    await fetch(BASE + '/api/auth/logout', { method: 'POST' });
+    await ctx.clearCookies();
+    // Password reset: Forgot password → Supabase email → link lands on /?auth=callback#…type=recovery → new password.
+    await p.goto(BASE + '/#/forgot', { waitUntil: 'networkidle' });
+    await p.locator('input[type=email]').fill('owner@example.com');
+    await p.locator('.btn.primary').first().click(); await p.waitForTimeout(800);
+    const rmail = supabase.lastEmail('owner@example.com', 'recovery');
+    ok('forgot password: Supabase sends the reset email to the public callback', rmail?.redirect_to === 'https://approx-ai.vercel.app/?auth=callback');
+    const rl = await supabase.click(rmail.link);
+    await p.goto(BASE + `/?auth=callback#${new URLSearchParams(rl.params)}`, { waitUntil: 'networkidle' }); await p.waitForTimeout(600);
+    ok('reset link opens "Choose a new password" without asking for a code', (await p.locator('body').innerText()).includes('Choose a new password') && await p.locator('#token').count() === 0);
+    await p.locator('#newpw').fill('Str0ng!Passw0rd2'); await p.locator('button[type=submit]').click(); await p.waitForTimeout(1000);
+    ok('new password saved', (await p.locator('body').innerText()).includes('Password updated'));
+    await fetch(BASE + '/api/auth/forgot-password', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: 'owner@example.com' }) });
+    const back = await fetch(BASE + '/api/auth/reset-password', { method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ token: supabase.lastEmail('owner@example.com', 'recovery').token_hash, password: 'Str0ng!Passw0rd1' }) });
+    ok('reset by pasted code (Android path) works', back.status === 200);
     await p.goto(BASE + '/#/login', { waitUntil: 'networkidle' });
     // Auth UX: green + white page, logo mark (transparent, no dark tile), friendly offline error, loading state.
     ok('auth page background is white', await p.evaluate(() => getComputedStyle(document.body).backgroundColor) === 'rgb(255, 255, 255)');
@@ -227,7 +260,7 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     await mp.screenshot({ path: path.join(S, 'v-09-mobile.png') });
     ok('no console errors', errs.length === 0, errs.join(' | '));
   } catch (e) { ok('run completed', false, e.stack); }
-  await b.close(); emu.kill(); brevo.close(); inf.close();
+  await b.close(); emu.kill(); brevo.close(); inf.close(); supabase.close();
   const fails = results.filter((r) => !r[1]);
   console.log(`\n${results.length - fails.length}/${results.length} passed${fails.length ? ' — FAILED: ' + fails.map((f) => f[0]).join('; ') : ''}`);
   process.exit(fails.length ? 1 : 0);

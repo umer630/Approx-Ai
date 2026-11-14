@@ -68,7 +68,10 @@ prefer it.
 | `MAIL_TRANSPORT` | `smtp` | no |
 | `MAIL_SMTP_PASS` | the 16-letter Google App Password from Step 2 | **yes** |
 | `APPROX_ENV` | `production` | no |
-| `APPROX_PUBLIC_URL` | `https://approx-ai.vercel.app` — base for links in verification / reset emails (origin only; localhost is ignored in production) | no |
+| `SUPABASE_URL` | `https://uyatvhgngzrrvelahebi.supabase.co` | no |
+| `SUPABASE_PUBLISHABLE_KEY` | the project's `sb_publishable_…` key (Supabase → Project Settings → API Keys) | no (public) |
+| `SUPABASE_SECRET_KEY` | optional, server-only `sb_secret_…` key — only for full account deletion; never in the web app or APK | **yes** |
+| `APPROX_PUBLIC_URL` | `https://approx-ai.vercel.app` — Supabase email links return to `<this>/?auth=callback` (origin only; localhost is ignored in production) | no |
 | `APPROX_MODEL_NICK_URL` | only when a GPU inference server is running: `https://<gpu-host>/v1` | no |
 | `APPROX_MODEL_NICK_KEY` | that inference server's `INFERENCE_API_KEY` | **yes** |
 
@@ -121,3 +124,9 @@ so a wrong or placeholder address can't end up inside the APK. Download the APK 
   (static `web/` + `vercel.json` rewrites + headers) and checks every frozen feature.
 - The database in these tests is a scratch libSQL file (`APPROX_TEST_EPHEMERAL_DB`, ignored in production)
   because no Turso server is reachable from the build sandbox. Production uses the same client over `libsql://`.
+
+
+## Sign-in (Supabase Auth)
+
+Email + password accounts are managed by Supabase Auth; see [SUPABASE_AUTH.md](SUPABASE_AUTH.md) for the required
+dashboard settings (Site URL, Redirect URLs, SMTP, email templates).
