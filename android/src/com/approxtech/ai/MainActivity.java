@@ -103,14 +103,31 @@ public class MainActivity extends Activity {
         setContentView(root);
         // Production builds bake the backend URL (APPROX_SERVER_URL → default_server_url); users never type a server.
         // The server-entry screen appears ONLY for an unconfigured build with no stored server (first-run self-host).
-        String server = store.get("server", getString(R.string.default_server_url));
-        if (server == null || server.length() == 0) { showWelcome(); return; }
+        String server = resolveServer();
+        if (server.length() == 0) { showWelcome(); return; }
         api = new Api(server, store.getToken());
         if (api.getToken() == null) showLogin(); else loadSession();
     }
 
     /** The backend URL baked at build time (empty in an unconfigured build). */
     String bakedServer() { String s = getString(R.string.default_server_url); return s == null ? "" : s.trim(); }
+
+    /**
+     * Server to use: a saved override (admins / self-host) only if it was saved under THIS build's baked URL;
+     * otherwise the baked production URL. An override left over from a build with a different baked URL is
+     * discarded together with its session token, so an update always connects to the new production backend.
+     */
+    String resolveServer() {
+        String baked = bakedServer();
+        String override = store.get("server", "");
+        if (override == null) override = "";
+        if (override.length() > 0 && !baked.equals(store.get("server_for_build", ""))) {
+            store.put("server", ""); store.setToken(null); override = "";
+        }
+        return override.length() > 0 ? override : baked;
+    }
+    /** Persist a user-chosen server, remembering which baked URL it overrides. */
+    void saveServer(String s) { store.put("server", s); store.put("server_for_build", bakedServer()); }
 
     @Override
     protected void onDestroy() { if (recognizer != null) recognizer.destroy(); pool.shutdownNow(); super.onDestroy(); }
@@ -246,7 +263,7 @@ public class MainActivity extends Activity {
     // ------------------------------------------------------------------ welcome (server + sign in / create account on one screen)
     void showWelcome() {
         LinearLayout col = formPage("Approx AI", "Sign in or create your account.");
-        final String saved = store.get("server", getString(R.string.default_server_url));
+        final String saved = resolveServer();
         final EditText url = input("Server address (https://your-approx-server)", InputType.TYPE_TEXT_VARIATION_URI);
         if (saved != null && saved.length() > 0) url.setText(saved);
         final EditText email = input("Email", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
@@ -287,7 +304,7 @@ public class MainActivity extends Activity {
         final Api probe = new Api(s, store.getToken());
         bg(new Job() { public Object run() throws Exception { return probe.get("/api/version"); } }, new Done() { public void ok(Object r) {
             if (!"Approx AI".equals(((JSONObject) r).optString("product"))) { toast("That server is not an Approx AI server."); return; }
-            store.put("server", s);
+            saveServer(s);
             api = probe;
             then.run();
         } });
@@ -305,7 +322,7 @@ public class MainActivity extends Activity {
                 bg(new Job() { public Object run() throws Exception { return probe.get("/api/version"); } }, new Done() { public void ok(Object r) {
                     JSONObject v = (JSONObject) r;
                     if (!"Approx AI".equals(v.optString("product"))) { toast("That server is not an Approx AI server."); return; }
-                    store.put("server", s);
+                    saveServer(s);
                     api = probe;
                     showLogin();
                 } });
@@ -936,7 +953,7 @@ public class MainActivity extends Activity {
                 final Api probe = new Api(s, null);
                 bg(new Job() { public Object run() throws Exception { return probe.get("/api/version"); } }, new Done() { public void ok(Object r) {
                     if (!"Approx AI".equals(((JSONObject) r).optString("product"))) { toast("That server is not an Approx AI server."); return; }
-                    store.put("server", s); store.setToken(null); api = probe; user = null;
+                    saveServer(s); store.setToken(null); api = probe; user = null;
                     toast("Server updated. Please sign in."); showLogin();
                 } });
             } catch (Api.ApiException e) { toast(e.getMessage()); }
