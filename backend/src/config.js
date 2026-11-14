@@ -21,6 +21,20 @@ export const VERSIONS = Object.freeze({
 // invocations, there is no long-running process, and a function request body is capped at 4.5 MB.
 // Vercel sets VERCEL=1 only while "Automatically expose System Environment Variables" is on; its functions always run
 // on AWS Lambda, which sets AWS_LAMBDA_FUNCTION_NAME, so serverless mode is detected either way.
+export const PRODUCTION_ORIGIN = 'https://approx-ai.vercel.app';
+const isLocalUrl = (u) => /^https?:\/\/(localhost|127\.|0\.0\.0\.0|\[::1\])/i.test(u);
+function resolvePublicUrl() {
+  const isProd = (env.APPROX_ENV || 'production') === 'production';
+  const candidates = [env.APPROX_PUBLIC_URL, env.RENDER_EXTERNAL_URL, env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${env.VERCEL_PROJECT_PRODUCTION_URL}` : '']
+    .map((u) => String(u || '').trim().replace(/\/+$/, '')).filter(Boolean);
+  for (const u of candidates) {
+    if (!/^https?:\/\/[^/\s]+$/i.test(u)) continue;          // origin only: no path / fragment such as "/#/login"
+    if (isProd && (isLocalUrl(u) || !u.startsWith('https://'))) continue;
+    return u;
+  }
+  return isProd ? PRODUCTION_ORIGIN : '';
+}
+
 const serverless = !!(env.VERCEL || env.VERCEL_REGION || (env.AWS_LAMBDA_FUNCTION_NAME && env.APPROX_RUNTIME !== 'server'));
 const remoteDb = !!env.APPROX_DB_URL && !env.APPROX_DB_URL.startsWith('file:');
 
@@ -31,7 +45,11 @@ export const config = {
   host: env.HOST || '0.0.0.0',
   // Prefer an explicit APPROX_PUBLIC_URL; otherwise auto-detect the host's injected external URL
   // (Render sets RENDER_EXTERNAL_URL) so free deployments need no manual public-URL configuration.
-  publicUrl: (env.APPROX_PUBLIC_URL || env.RENDER_EXTERNAL_URL || (env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${env.VERCEL_PROJECT_PRODUCTION_URL}` : '')).replace(/\/$/, ''),
+  // Public origin of the web app, used for links in emails (verify / reset / confirm-email). Never derived from the
+  // request's Host header (that would allow host-header injection into password-reset links). Order:
+  //   APPROX_PUBLIC_URL → platform-provided URL (Render / Vercel system variables) → in production: the product's
+  //   production origin → in development: http://localhost:<port>. A localhost value is ignored in production.
+  publicUrl: resolvePublicUrl(),
   // On serverless this directory is scratch space only (/tmp); persistent data must live in the database.
   dataDir: env.APPROX_DATA_DIR || (serverless ? '/tmp/approx-data' : path.resolve(here, '../../data')),
   webDir: path.resolve(here, '../../web'),

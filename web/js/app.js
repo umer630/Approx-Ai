@@ -116,9 +116,19 @@ function tokenView(kind) {
     const label = btn.textContent;
     btn.disabled = true; btn.classList.add('loading'); btn.setAttribute('aria-busy', 'true'); btn.textContent = 'Please wait…';
     try {
-      if (kind === 'verify') { await api('/api/auth/verify-email', { method: 'POST', body: { token: tok.value.trim() } }); showMsg(msg, 'Email verified. You can sign in now.', 'ok'); if (state.user) state.user.email_verified = true; }
-      else if (kind === 'reset') { const r = await api('/api/auth/reset-password', { method: 'POST', body: { token: tok.value.trim(), password: pw.value } }); showMsg(msg, r.message, 'ok'); }
-      else { await api('/api/auth/confirm-email-change', { method: 'POST', body: { token: tok.value.trim() } }); showMsg(msg, 'Email changed. Please sign in again.', 'ok'); state.user = null; }
+      if (kind === 'verify') {
+        await api('/api/auth/verify-email', { method: 'POST', body: { token: tok.value.trim() } });
+        if (state.user) state.user.email_verified = true;
+        return done('Email verified', 'Your email address is confirmed. You can now use Approx AI.');
+      } else if (kind === 'reset') {
+        await api('/api/auth/reset-password', { method: 'POST', body: { token: tok.value.trim(), password: pw.value } });
+        state.user = null;
+        return done('Password updated', 'Your password has been changed. Sign in with your new password.');
+      } else {
+        await api('/api/auth/confirm-email-change', { method: 'POST', body: { token: tok.value.trim() } });
+        state.user = null;
+        return done('Email changed', 'Your new email address is confirmed. Please sign in again.');
+      }
     } catch (err) { showMsg(msg, err.message); } finally { btn.disabled = false; btn.classList.remove('loading'); btn.removeAttribute('aria-busy'); btn.textContent = label; }
   } },
   h('div', { class: 'field' }, h('label', { for: 'token' }, 'Code from your email'), tok),
@@ -128,8 +138,18 @@ function tokenView(kind) {
       const r = await api('/api/auth/resend-verification', { method: 'POST', body: { email: resendEmail.value } }).catch((e) => ({ message: e.message }));
       showMsg(msg, r.message, 'ok');
     } }, 'Send'))) : null;
+  // Success: one clear next step. The token is removed from the address bar first, so reloading this page can never
+  // resubmit a used token or bounce between routes.
+  function done(title, text) {
+    history.replaceState(null, '', `#/${kind === 'confirm' ? 'confirm-email' : kind}`);
+    const next = state.user ? ['#/', 'Continue to Approx AI'] : ['#/login', 'Continue to sign in'];
+    authFrame(title, null, h('div', { class: 'alert ok', role: 'status' }, text),
+      h('button', { class: 'btn primary block', type: 'button', onclick: () => go(next[0]) }, next[1]));
+  }
   authFrame(kind === 'verify' ? 'Verify your email' : kind === 'reset' ? 'Choose a new password' : 'Confirm email change', null, form, extra,
     h('div', { class: 'auth-links' }, h('a', { href: state.user ? '#/' : '#/login' }, state.user ? 'Back to chat' : 'Sign in')));
+  // Opened from the email link (token in the URL fragment): submit once automatically. Reset still needs a password.
+  if (params.get('token') && kind !== 'reset') form.requestSubmit();
 }
 
 // ---------------- shell: top bar + main + composer + three-button nav ----------------

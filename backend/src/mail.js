@@ -72,6 +72,9 @@ async function sendSmtp(to, subject, body) {
   }
 }
 
+/** Absolute link into the web app for emails. Production never yields localhost (see config.publicUrl). */
 export function appLink(path) {
-  return (config.publicUrl || `http://localhost:${config.port}`) + path;
+  const base = config.publicUrl || (config.env !== 'production' ? `http://localhost:${config.port}` : '');
+  if (!base) throw new Error('No public URL configured for email links');
+  return base + path;
 }

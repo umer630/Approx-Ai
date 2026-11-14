@@ -348,18 +348,71 @@ test('production without a working mail transport: sign-up refuses honestly inst
   p.kill();
 });
 
-test('Vercel with "expose system environment variables" off: still serverless, email links use the real host', async () => {
-  const brevo = await mockBrevo();
+test('Vercel with "expose system environment variables" off: still detected as serverless', async () => {
   const fn = await startFunction({ VERCEL: '', AWS_LAMBDA_FUNCTION_NAME: 'approx-fn', APPROX_ENV: 'test',
-    APPROX_DB_URL: `file:${path.join(scratch, 'hidden-sysvars.db')}`, APPROX_TEST_EPHEMERAL_DB: '1',
-    MAIL_TRANSPORT: 'brevo', MAIL_HTTP_ENDPOINT: brevo.url, MAIL_HTTP_API_KEY: 'k', MAIL_FROM: 'Approx AI <noreply@example.com>' });
+    APPROX_DB_URL: `file:${path.join(scratch, 'hidden-sysvars.db')}`, APPROX_TEST_EPHEMERAL_DB: '1' });
   const h = await fn.call('GET', '/api/health');
   assert.equal(h.data.runtime, 'serverless');
   assert.equal(h.data.registry_source, 'inference');
-  await fn.call('POST', '/api/auth/signup', { json: { email: 'links@example.com', password: 'GoodPassw0rd!x' } });
-  // fetch() cannot override Host, so the request's real Host (127.0.0.1:<port>) is what the link must use;
-  // on Vercel that header is the public domain (e.g. approx-ai.vercel.app).
-  assert.match(brevo.mails[0].payload.textContent, /https:\/\/127\.0\.0\.1:\d+\/#\/verify\?token=/, 'verification link uses the request host');
-  assert.doesNotMatch(brevo.mails[0].payload.textContent, /localhost:8080/);
   fn.stop();
 });
+
+// ---------- production email links (verify / resend / reset) ----------
+async function startProdServer(env) {
+  const p = spawn(process.execPath, ['--disable-warning=ExperimentalWarning', '--input-type=module', '-e', `
+    const { createServer } = await import(${JSON.stringify(path.join(here, '../src/server.js'))});
+    const s = createServer(); s.listen(0, '127.0.0.1', () => console.log('PORT ' + s.address().port));`],
+  { env: { PATH: process.env.PATH, HOME: process.env.HOME, APPROX_ENV: 'production', ...env }, stdio: ['ignore', 'pipe', 'pipe'] });
+  procs.push(p);
+  let err = ''; p.stderr.on('data', (d) => { err += d; });
+  const port = await new Promise((resolve, reject) => { let o = ''; p.stdout.on('data', (d) => { o += d; const m = /PORT (\d+)/.exec(o); if (m) resolve(m[1]); }); p.on('exit', () => reject(new Error(err))); });
+  const call = async (method, pth, json) => { const r = await fetch(`http://127.0.0.1:${port}${pth}`, { method, headers: json ? { 'content-type': 'application/json' } : {}, body: json ? JSON.stringify(json) : undefined }); return { status: r.status, data: await r.json() }; };
+  return { call, stop: () => p.kill() };
+}
+async function plainSmtp() {
+  const mails = [];
+  const srv = new SMTPServer({ secure: false, allowInsecureAuth: true, disabledCommands: ['STARTTLS'], onAuth(a, s, cb) { cb(null, { user: a.username }); },
+    onData(stream, session, cb) { const c = []; stream.on('data', (d) => c.push(d)); stream.on('end', () => { mails.push({ to: session.envelope.rcptTo.map((r) => r.address), raw: Buffer.concat(c).toString('utf8').replace(/=\r?\n/g, '').replace(/=([0-9A-F]{2})/g, (_, h) => String.fromCharCode(parseInt(h, 16))) }); cb(); }); } });
+  await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+  servers.push(srv.server);
+  return { port: srv.server.address().port, mails };
+}
+
+for (const [label, publicUrl, expected] of [
+  ['APPROX_PUBLIC_URL unset', undefined, 'https://approx-ai.vercel.app'],
+  ['APPROX_PUBLIC_URL=http://localhost:8080 (ignored in production)', 'http://localhost:8080', 'https://approx-ai.vercel.app'],
+  ['APPROX_PUBLIC_URL=https://approx-ai.vercel.app/#/login (not an origin, ignored)', 'https://approx-ai.vercel.app/#/login', 'https://approx-ai.vercel.app'],
+  ['APPROX_PUBLIC_URL=https://approx-ai.vercel.app', 'https://approx-ai.vercel.app', 'https://approx-ai.vercel.app'],
+  ['APPROX_PUBLIC_URL=https://ai.approx.example', 'https://ai.approx.example', 'https://ai.approx.example'],
+]) {
+  test(`production emails (${label}): verify, resend and reset links use ${expected}, never localhost; tokens work`, async () => {
+    const smtp = await plainSmtp();
+    const slug = `${label.length}-${label.replace(/[^a-z0-9]+/gi, '-').slice(-30)}`;   // unique per case
+    const srv = await startProdServer({ APPROX_DB_URL: `file:${path.join(scratch, `links-${slug}.db`)}`, MAIL_TRANSPORT: 'smtp', MAIL_SMTP_HOST: '127.0.0.1',
+      MAIL_SMTP_PORT: String(smtp.port), MAIL_SMTP_SECURE: 'false', MAIL_SMTP_USER: 'owner@gmail.example', MAIL_SMTP_PASS: 'x',
+      ...(publicUrl !== undefined ? { APPROX_PUBLIC_URL: publicUrl } : {}) });
+    const h = await srv.call('GET', '/api/health');
+    assert.equal(h.data.public_url, expected);
+    const email = 'person@gmail.example';
+    assert.equal((await srv.call('POST', '/api/auth/signup', { email, password: 'GoodPassw0rd!x' })).status, 202);
+    assert.equal((await srv.call('POST', '/api/auth/resend-verification', { email })).status, 202);
+    const linkRe = (route) => new RegExp(`${expected.replace(/[.]/g, '\\.')}/#/${route}\\?token=([A-Za-z0-9_-]+)`);
+    assert.equal(smtp.mails.length, 2);
+    for (const m of smtp.mails) {
+      assert.doesNotMatch(m.raw, /localhost|127\.0\.0\.1|0\.0\.0\.0/i, 'no local URL in production email');
+      assert.match(m.raw, linkRe('verify'));
+    }
+    // The token in the (resent) link verifies the account.
+    const token = linkRe('verify').exec(smtp.mails[1].raw)[1];
+    assert.equal((await srv.call('POST', '/api/auth/verify-email', { token })).status, 200);
+    // Password reset link.
+    assert.equal((await srv.call('POST', '/api/auth/forgot-password', { email })).status, 202);
+    const reset = smtp.mails[2];
+    assert.doesNotMatch(reset.raw, /localhost|127\.0\.0\.1/i);
+    const rt = linkRe('reset').exec(reset.raw)?.[1];
+    assert.ok(rt, 'reset link uses the public origin');
+    assert.equal((await srv.call('POST', '/api/auth/reset-password', { token: rt, password: 'NewGoodPassw0rd!x' })).status, 200);
+    assert.equal((await srv.call('POST', '/api/auth/login', { email, password: 'NewGoodPassw0rd!x', client: 'mobile' })).status, 200);
+    srv.stop();
+  });
+}

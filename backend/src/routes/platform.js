@@ -52,7 +52,7 @@ export function registerPlatformRoutes(r) {
     }
     sendJson(res, db === 'ok' ? 200 : 503, { status: db === 'ok' ? 'ok' : 'degraded', service: 'approx-ai-api', version: VERSIONS.backend, database: db,
       ...(dbError ? { database_error: dbError } : {}), ...(foreignKeys ? { foreign_keys: foreignKeys } : {}),
-      build_id: config.buildId, mail_transport: config.mail.transport, mail_configured: mailConfigured(), runtime: config.serverless ? 'serverless' : 'server', registry_source: config.registry.source, file_storage: config.files.storage, time: new Date().toISOString() });
+      build_id: config.buildId, public_url: config.publicUrl || null, mail_transport: config.mail.transport, mail_configured: mailConfigured(), runtime: config.serverless ? 'serverless' : 'server', registry_source: config.registry.source, file_storage: config.files.storage, time: new Date().toISOString() });
   };
   r.get('/api/health', health);
   r.get('/api/v1/health', health);

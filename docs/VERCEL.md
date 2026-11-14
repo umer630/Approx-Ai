@@ -68,6 +68,7 @@ prefer it.
 | `MAIL_TRANSPORT` | `smtp` | no |
 | `MAIL_SMTP_PASS` | the 16-letter Google App Password from Step 2 | **yes** |
 | `APPROX_ENV` | `production` | no |
+| `APPROX_PUBLIC_URL` | `https://approx-ai.vercel.app` — base for links in verification / reset emails (origin only; localhost is ignored in production) | no |
 | `APPROX_MODEL_NICK_URL` | only when a GPU inference server is running: `https://<gpu-host>/v1` | no |
 | `APPROX_MODEL_NICK_KEY` | that inference server's `INFERENCE_API_KEY` | **yes** |
 

@@ -33,7 +33,7 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     env: { PATH: process.env.PATH, HOME: process.env.HOME, VERCEL: '1', APPROX_ENV: 'test', APPROX_TEST_EPHEMERAL_DB: '1',
       APPROX_DB_URL: `file:${path.join(scratch, 'db.sqlite')}`, APPROX_MODEL_NICK_URL: `http://127.0.0.1:${inf.address().port}/v1`,
       MAIL_TRANSPORT: 'brevo', MAIL_HTTP_ENDPOINT: `http://127.0.0.1:${brevo.address().port}`, MAIL_HTTP_API_KEY: 'test-key',
-      MAIL_FROM: 'Approx AI <noreply@example.com>', APPROX_BOOTSTRAP_SUPERADMIN_EMAIL: 'owner@example.com' },
+      MAIL_FROM: 'Approx AI <noreply@example.com>', APPROX_BOOTSTRAP_SUPERADMIN_EMAIL: 'owner@example.com', APPROX_PUBLIC_URL: 'https://approx-ai.vercel.app' },
     stdio: ['ignore', 'pipe', 'inherit'] });
   const port = await new Promise((r) => { let o = ''; emu.stdout.on('data', (d) => { o += d; const m = /PORT (\d+)/.exec(o); if (m) r(m[1]); }); });
   const BASE = `http://127.0.0.1:${port}`;
@@ -59,9 +59,18 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     await p.locator('.btn.primary').first().click(); await p.waitForTimeout(1000);
     ok('signup sends verification mail', mails.length === 1);
     const code = /Verification code: (\S+)/.exec(mails[0]?.textContent || '')?.[1];
+    ok('verification email link uses the configured public origin (no localhost)', /https:\/\/approx-ai\.vercel\.app\/#\/verify\?token=/.test(mails[0]?.textContent || '') && !/localhost/.test(mails[0]?.textContent || ''), (mails[0]?.textContent || '').slice(0, 200));
+    // Open the emailed link: the page reads the token from the URL fragment and confirms automatically.
     await p.goto(BASE + `/#/verify?token=${encodeURIComponent(code || '')}`, { waitUntil: 'networkidle' });
-    await p.locator('button[type=submit]').click(); await p.waitForTimeout(800);
-    ok('verify page confirms email', (await p.locator('body').innerText()).includes('Email verified'));
+    await p.waitForTimeout(800);
+    ok('verify link auto-confirms the email', (await p.locator('body').innerText()).includes('Email verified'));
+    ok('used token removed from the address bar', !p.url().includes('token='), p.url());
+    await p.reload({ waitUntil: 'networkidle' }); await p.waitForTimeout(500);
+    ok('reload after verifying: no loop, no error', !(await p.locator('.alert.error').count()) && (await p.locator('body').innerText()).includes('Verify your email'));
+    const errsBefore = errs.length;   // the next request is EXPECTED to fail (400): don't count it as a console error
+    await p.goto(BASE + `/#/verify?token=${encodeURIComponent(code || '')}`, { waitUntil: 'networkidle' }); await p.waitForTimeout(800);
+    ok('re-used token shows a clear error', (await p.locator('.alert.error').innerText().catch(() => '')).includes('Invalid or expired'));
+    errs.length = errsBefore;
     await p.goto(BASE + '/#/login', { waitUntil: 'networkidle' });
     // Auth UX: green + white page, logo mark (transparent, no dark tile), friendly offline error, loading state.
     ok('auth page background is white', await p.evaluate(() => getComputedStyle(document.body).backgroundColor) === 'rgb(255, 255, 255)');
