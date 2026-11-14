@@ -131,7 +131,10 @@ export function sendError(res, err, requestId) {
   // `cause` is only the error's type/code (e.g. SQLITE_ERROR, TypeError) — never its message or any data — so a
   // failure can be diagnosed from the response without exposing internals.
   const cause = String(err?.code || err?.name || 'Error').replace(/[^A-Za-z0-9_]/g, '').slice(0, 40);
-  return sendJson(res, 500, { error: { code: 'internal_error', message: 'Something went wrong on our side. Please try again.', cause, request_id: requestId } });
+  // `at`: file:line of the first frame in Approx's own code (no message, no values).
+  const frame = /\/(?:backend\/src|api)\/([\w/.-]+\.js):(\d+)/.exec(String(err?.stack || ''));
+  const at = frame ? `${frame[1]}:${frame[2]}` : undefined;
+  return sendJson(res, 500, { error: { code: 'internal_error', message: 'Something went wrong on our side. Please try again.', cause, at, request_id: requestId } });
 }
 
 // Server-Sent Events helper used by chat + API streaming.

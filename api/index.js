@@ -6,7 +6,10 @@
 // Persistence: set APPROX_DB_URL (libsql://… Turso) and APPROX_DB_AUTH_TOKEN. Without them every
 // request that needs data fails closed with 503 database_not_configured — the function never falls
 // back to the ephemeral /tmp filesystem.
-import { createHandler } from '../backend/src/server.js';
+// This file is only ever loaded by Vercel, so it declares serverless mode itself. That keeps the backend correct
+// even when the project hides Vercel's system environment variables (VERCEL=1 etc.).
+process.env.APPROX_RUNTIME = 'serverless';
+const { createHandler } = await import('../backend/src/server.js');
 
 const handler = createHandler();
 

@@ -35,7 +35,7 @@ function resolvePublicUrl() {
   return isProd ? PRODUCTION_ORIGIN : '';
 }
 
-const serverless = !!(env.VERCEL || env.VERCEL_REGION || (env.AWS_LAMBDA_FUNCTION_NAME && env.APPROX_RUNTIME !== 'server'));
+const serverless = env.APPROX_RUNTIME === 'serverless' || (env.APPROX_RUNTIME !== 'server' && !!(env.VERCEL || env.VERCEL_REGION || env.AWS_LAMBDA_FUNCTION_NAME));
 const remoteDb = !!env.APPROX_DB_URL && !env.APPROX_DB_URL.startsWith('file:');
 
 export const config = {
