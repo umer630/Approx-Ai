@@ -9,6 +9,7 @@ contracts). This module renders their JSON config from the YAML and runs the eva
 from __future__ import annotations
 
 import json
+import re
 import os
 import subprocess
 import sys
@@ -103,13 +104,44 @@ def generate_eval_answers(adapter_dir: Path | None, base_model: str, items: list
     return answers
 
 
+def prepare_dataset(model_id: str, ds_dir: Path, *, smoke: bool = False, smoke_scale: float = 0.05) -> dict:
+    """The unified datahub pipeline (registry-approved sources only). Uses the prebuilt, checksum-verified dataset in
+    training/datasets/<model>/build when present; otherwise builds it. Smoke runs build curriculum-only at tiny scale."""
+    import shutil
+    from datahub import pipeline as dh
+    if smoke:
+        pool = dh.build_pool(only={"approx-curriculum"}, curriculum_scale=smoke_scale, log=lambda *a: None)
+        prof = dict(dh.load_profile(model_id), min_records=10, max_records=400, language_min={}, domain_min_share={}, min_human_reviewed=0)
+        return dh.build_model(model_id, pool, ds_dir, prof, publish=False)
+    pre = dh.DATASETS / model_id / "build"
+    if (pre / "manifest.json").exists():
+        man = json.loads((pre / "manifest.json").read_text())
+        ds_dir.mkdir(parents=True, exist_ok=True)
+        for name, meta in man["files"].items():
+            got = dh.connectors.sha256_file(pre / name)
+            if got != meta["sha256"]:
+                raise RuntimeError(f"dataset file {name} does not match its manifest (sha256 {got[:12]}… != {meta['sha256'][:12]}…)")
+            shutil.copy2(pre / name, ds_dir / name)
+        shutil.copy2(pre / "manifest.json", ds_dir / "manifest.json")
+        return man
+    return dh.build_model(model_id, dh.build_pool(), ds_dir)
+
+
 def train_one(model_cfg_path, models_dir: Path, work_dir: Path, *, smoke: bool = False, smoke_base: str | None = None,
               smoke_scale: float = 0.05, smoke_max_steps: int = 2, time_budget_minutes: float = 0, signing_key: str = "",
-              report=lambda **_: None) -> dict:
-    """Full pipeline for one model. Returns a result dict; never raises for an expected blocker (records it instead)."""
+              report=lambda **_: None, run_id: str | None = None, resume: bool = False) -> dict:
+    """Full pipeline for one model. Returns a result dict; never raises for an expected blocker (records it instead).
+
+    Every run writes to <work_dir>/<model>/runs/<run_id>/ — never to an earlier run's directory (the recovered Nick 4.8
+    checkpoint lives in <work_dir>/nick-4.8/train_output and is never read or written). Reusing a run id requires resume."""
     cfg = load_model_cfg(model_cfg_path)
     model_id = cfg["model_id"]
-    work = Path(work_dir) / model_id
+    run_id = run_id or time.strftime("%Y%m%dT%H%M%SZ", time.gmtime()) + ("-smoke" if smoke else "")
+    if not re.fullmatch(r"[A-Za-z0-9._-]{3,80}", run_id):
+        raise ValueError("run_id must be 3-80 characters of letters, digits, . _ -")
+    work = Path(work_dir) / model_id / "runs" / run_id
+    if work.exists() and any(work.iterdir()) and not resume:
+        raise FileExistsError(f"{work} already exists — use a new --run-id, or --resume to continue that run")
     logs = work / "logs"
     result = {"model_id": model_id, "display_name": cfg.get("display_name"), "smoke": smoke, "stages": {}, "status": "pending", "blockers": []}
 
@@ -126,7 +158,7 @@ def train_one(model_cfg_path, models_dir: Path, work_dir: Path, *, smoke: bool =
 
     # 1. dataset
     ds_dir = work / "dataset"
-    manifest = dataset_builder.build(ds_dir, cfg, seed=cfg["dataset"].get("seed", 4848), scale=smoke_scale if smoke else 1.0)
+    manifest = prepare_dataset(model_id, ds_dir, smoke=smoke, smoke_scale=smoke_scale)
     stage("dataset", version=manifest["dataset_version"], train=manifest["counts"]["train"], test=manifest["counts"]["test"],
           production_ready=manifest["production_ready"], notes=manifest["production_readiness_notes"])
 

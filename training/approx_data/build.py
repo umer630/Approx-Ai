@@ -246,6 +246,13 @@ def build(out_dir: Path, version: str, sources_cfg: Path, eval_ratio: float, see
 
 
 def main(argv=None):
+    # Superseded: the single authoritative pipeline is `python -m datahub build` (training/datahub), which reads the
+    # source registry training/datasets/sources/registry/sources.json and is what the training runner uses.
+    if "--legacy" not in (argv if argv is not None else sys.argv[1:]):
+        print("DEPRECATED: datasets are built by the unified pipeline: cd training && python -m datahub build\n"
+              "(pass --legacy to run this old Nick-only builder anyway)", file=sys.stderr)
+        return 2
+    argv = [x for x in (argv if argv is not None else sys.argv[1:]) if x != "--legacy"]
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=str(ROOT / "data/processed"))
     ap.add_argument("--version", default="nick-sft-0.1.0")

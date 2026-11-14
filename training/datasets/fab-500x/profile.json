@@ -1,0 +1,56 @@
+{
+ "tier": "fab",
+ "min_records": 500000,
+ "max_records": 10000000,
+ "min_quality": 0.5,
+ "base_model": "Qwen/Qwen2.5-Coder-32B-Instruct",
+ "base_model_revision": null,
+ "capability": "Highest-tier experimental dataset and evaluation profile (a product tier name, not a literal multiplier).",
+ "domain_min_share": {
+  "mathematics": 0.08,
+  "science": 0.06,
+  "coding": 0.25,
+  "web_frontend": 0.01,
+  "web_backend": 0.01,
+  "software_engineering": 0.03,
+  "cybersecurity": 0.02,
+  "reasoning": 0.03,
+  "research": 0.02,
+  "safety_ethics": 0.002
+ },
+ "domain_max_share": {
+  "mathematics": 0.22,
+  "general_knowledge": 0.35
+ },
+ "language_min": {
+  "en": 18000,
+  "ur": 4500,
+  "roman_ur": 1200,
+  "ar": 2400,
+  "zh": 1200,
+  "es": 2400,
+  "fr": 1800,
+  "de": 1200,
+  "pt": 1500,
+  "ru": 1500,
+  "ja": 1200,
+  "ko": 900,
+  "hi": 1500,
+  "bn": 900,
+  "tr": 900,
+  "id": 1200,
+  "fa": 900
+ },
+ "min_human_reviewed": 5000,
+ "exclude_sources": [
+  "consented-history"
+ ],
+ "model_id": "fab-500x",
+ "schema": "approx.dataset-profile/v1",
+ "synthetic_max": 0.6,
+ "split_ratios": {
+  "eval": 0.03,
+  "test": 0.03
+ },
+ "note": "Base model / revision are copied from the existing model configuration and are never changed by the dataset pipeline."
+}

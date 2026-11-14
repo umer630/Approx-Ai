@@ -1,0 +1,25 @@
+{
+ "source": "arc",
+ "hub_repo": "allenai/ai2_arc",
+ "declared_revision": "210d026faf99",
+ "files": [
+  {
+   "file": "arc/ARC-Challenge/train/train-0000.parquet",
+   "url": "https://huggingface.co/api/datasets/allenai/ai2_arc/parquet/ARC-Challenge/train/0.parquet",
+   "sha256": "e488c1587ffdcfc8443f916c53488a95cd471c5790e0746c6bfe4cecf20962cb",
+   "bytes": 189909,
+   "fetched_at": "2026-11-14T18:02:45Z",
+   "config": "ARC-Challenge",
+   "split": "train"
+  },
+  {
+   "file": "arc/ARC-Easy/train/train-0000.parquet",
+   "url": "https://huggingface.co/api/datasets/allenai/ai2_arc/parquet/ARC-Easy/train/0.parquet",
+   "sha256": "b315db8a4be597dc7daa50a4e70d48dd7c990c32085629e6ccd8c926beaa80b5",
+   "bytes": 330598,
+   "fetched_at": "2026-11-14T18:02:46Z",
+   "config": "ARC-Easy",
+   "split": "train"
+  }
+ ]
+}

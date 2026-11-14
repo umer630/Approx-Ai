@@ -9,3 +9,4 @@ safetensors>=0.4.5
 huggingface_hub==0.26.5
 # Must match Colab's CUDA build; the deps stage runs a real 4-bit NF4 kernel and stops if it fails.
 bitsandbytes>=0.45.5
+pyarrow>=15.0  # datahub: reads Hugging Face parquet sources

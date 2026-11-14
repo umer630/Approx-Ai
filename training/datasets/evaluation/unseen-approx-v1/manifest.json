@@ -1,0 +1,27 @@
+{
+ "suite": "unseen-approx-v1",
+ "purpose": "held-out Approx suite with objective graders (engine/evaluator.py); used for BASE vs ADAPTER",
+ "items": 31,
+ "by_language": {
+  "en": 25,
+  "ur": 2,
+  "roman_ur": 4
+ },
+ "by_category": {
+  "english": 3,
+  "urdu": 2,
+  "roman_urdu": 2,
+  "mathematics": 4,
+  "science": 3,
+  "reasoning": 2,
+  "coding": 2,
+  "education": 1,
+  "instruction_following": 2,
+  "structured_responses": 1,
+  "safety": 5,
+  "hallucination_resistance": 2,
+  "malformed_input": 2
+ },
+ "location": "training/engine/curriculum/eval_suite.py",
+ "never_trained_on": true
+}

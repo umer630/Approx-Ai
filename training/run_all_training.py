@@ -76,7 +76,8 @@ def main(argv=None) -> int:
     ap.add_argument("--config-dir", default=str(TRAINING / "models"))
     ap.add_argument("--smoke", action="store_true", help="CPU smoke run on a tiny random model (pipeline validation only)")
     ap.add_argument("--smoke-base", default=os.environ.get("APPROX_SMOKE_BASE"), help="path to the tiny model for --smoke")
-    ap.add_argument("--resume", action="store_true", help="resume from existing checkpoints")
+    ap.add_argument("--resume", action="store_true", help="resume from existing checkpoints (requires the same --run-id)")
+    ap.add_argument("--run-id", default=os.environ.get("APPROX_RUN_ID"), help="versioned run directory name (default: UTC timestamp)")
     ap.add_argument("--time-budget-minutes", type=float, default=float(os.environ.get("APPROX_TIME_BUDGET", "0")))
     ap.add_argument("--signing-key", default=os.environ.get("APPROX_RELEASE_SIGNING_KEY", ""))
     ap.add_argument("--worker", action="store_true", help="act as a GPU worker driven by the backend compute API")
@@ -118,7 +119,7 @@ def main(argv=None) -> int:
         def report(**kw):
             cp.report(phase=f"{kw.get('model_id')}: {kw.get('stage')}", progress={kw.get("model_id"): kw}, log_append=json.dumps(kw) + "\n")
         try:
-            res = runner.train_one(cfg_path, models_dir, Path(a.work_dir), smoke=a.smoke, smoke_base=a.smoke_base,
+            res = runner.train_one(cfg_path, models_dir, Path(a.work_dir), run_id=a.run_id, resume=a.resume, smoke=a.smoke, smoke_base=a.smoke_base,
                                    time_budget_minutes=a.time_budget_minutes, signing_key=a.signing_key, report=report)
         except KeyboardInterrupt as e:
             print(f"\nSTOPPED: {e}", flush=True)

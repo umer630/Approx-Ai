@@ -1,0 +1,78 @@
+# Approx AI data pipeline (`datahub`)
+
+One pipeline builds every model's dataset. It replaces `approx_data/build.py` (now deprecated; `--legacy` still runs it)
+and the dataset step inside `engine/runner.py`, which now calls `datahub` through `prepare_dataset()`.
+
+## Flow
+
+```
+registry/sources.json ──► connectors (approved only; provenance: URL, revision, SHA-256, time)
+   ──► normalise ──► PII scrub ──► content gates (engine.dataset_validator)
+   ──► prompt-injection check ──► language ID (+ declared-language mismatch) ──► domain ──► quality score
+   ──► review state (ledger) ──► POOL
+POOL ──► exact dedup ──► contradictions (all conflicting answers dropped) ──► MinHash near-dup (0.85)
+     ──► benchmark / unseen-suite leakage removal
+     ──► per-model selection (profile quotas: domain min/max share, language minimums, synthetic cap, excluded sources)
+     ──► deterministic split (hash of normalised prompt → train/eval/test, no prompt in two splits)
+     ──► datasets/<model>/build/{train,eval,test}.jsonl + manifest.json (gates, counts, hashes)
+```
+
+`production_ready` is the AND of all gates. Profiles cannot set it (the key is removed on load).
+
+Gates: `quantity`, `licenses`, `synthetic_ratio`, `domain_minimums`, `domain_maximums`, `language_minimums`,
+`human_review`, `no_split_leakage`, `benchmark_leakage_removed`, `no_missing_sources`, `user_history_policy`.
+
+## Commands (run from `training/`)
+
+```bash
+pip install -r requirements-kaggle.txt          # includes pyarrow
+python -m datahub sources                       # registry status table
+python -m datahub fetch                         # download approved sources into datasets/.cache (gitignored)
+python -m datahub build                         # all five models; --models nick-4.8,hike-6.5 to limit
+python -m datahub eval-suites                   # held-out evaluation suites
+python -m datahub review-sheet --model nick-4.8 --n 500 --out review_nick.csv
+python -m datahub review-import --csv review_nick_done.csv --model nick-4.8
+python -m unittest tests.test_datahub -v
+```
+
+## Records
+
+Each record carries `id, messages, lang, script, lang_confidence, domain, source, license, origin, review_state,
+quality, split`. Origins: `human_authored`, `synthetic`, `programmatic`, `machine_translated`; the last three count
+toward the 60 % synthetic cap.
+
+Review states:
+
+| State | Meaning |
+|---|---|
+| `human_reviewed` | Present in `datasets/reviews/<model>.jsonl` with a named reviewer and an `accept` verdict. Nothing else sets it. |
+| `source_community_reviewed` | The source's own community review (OASST1 ranking / review flags). Not counted as Approx human review. |
+| `auto_verified` | Machine-checked: MBPP code executed against its tests; programmatic curriculum answers. |
+| `unreviewed` | Everything else. |
+
+## Human review workflow
+
+1. `review-sheet` exports a CSV of sampled records with empty `reviewer` and `verdict` columns.
+2. A person reads each row and fills `reviewer` (their name) and `verdict` (`accept` / `reject`), optionally `notes`.
+3. `review-import` appends the decisions to the ledger; rows without a reviewer or a valid verdict are refused.
+4. Rebuild. Rejected records are excluded; accepted ones count toward `min_human_reviewed`.
+
+## Adding a source
+
+Add an entry to `datasets/sources/registry/sources.json` with `id, name, hub_repo, revision, license,
+commercial_use, origin, use (train|eval), status`. Only `status: approved` with `commercial_use: yes` is ingested;
+anything else raises `PermissionError`. Add a mapper in `datahub/connectors.py` that yields
+`{"messages": [...], "lang": ..., "domain": ...}`. Record the license and attribution in
+`datasets/sources/licenses/README.md` (regenerate from the registry).
+
+## Adding a language
+
+Add its script range or function-word list in `datahub/langid.py`, add a Belebele config (if one exists) to
+`eval-belebele`, and add a `language_min` entry to the profiles that should require it. Measured accuracy is in
+`reports/langid_accuracy.json`; re-measure after changes.
+
+## Training runs
+
+`run_all_training.py --run-id <id>` writes to `<work-dir>/<model>/runs/<id>/` and refuses to reuse a non-empty
+directory unless `--resume` is given. The Nick 4.8 adapter (SHA-256 `2faae216…09c34c4`) lives in the old
+`work/nick-4.8/` path and is never written to by new runs.

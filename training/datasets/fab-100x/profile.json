@@ -1,0 +1,54 @@
+{
+ "tier": "fab",
+ "min_records": 90000,
+ "max_records": 90000,
+ "min_quality": 0.55,
+ "base_model": null,
+ "base_model_revision": null,
+ "capability": "Restricted premium tier: advanced reasoning and high-complexity technical tasks (a product tier name, not a literal multiplier).",
+ "domain_min_share": {
+  "mathematics": 0.1,
+  "science": 0.08,
+  "coding": 0.15,
+  "software_engineering": 0.04,
+  "cybersecurity": 0.02,
+  "reasoning": 0.04,
+  "research": 0.04,
+  "safety_ethics": 0.003
+ },
+ "domain_max_share": {
+  "mathematics": 0.22,
+  "general_knowledge": 0.35
+ },
+ "language_min": {
+  "en": 12000,
+  "ur": 3000,
+  "roman_ur": 800,
+  "ar": 1600,
+  "zh": 800,
+  "es": 1600,
+  "fr": 1200,
+  "de": 800,
+  "pt": 1000,
+  "ru": 1000,
+  "ja": 800,
+  "ko": 600,
+  "hi": 1000,
+  "bn": 600,
+  "tr": 600,
+  "id": 800,
+  "fa": 600
+ },
+ "min_human_reviewed": 1500,
+ "exclude_sources": [
+  "consented-history"
+ ],
+ "model_id": "fab-100x",
+ "schema": "approx.dataset-profile/v1",
+ "synthetic_max": 0.6,
+ "split_ratios": {
+  "eval": 0.03,
+  "test": 0.03
+ },
+ "note": "Base model / revision are copied from the existing model configuration and are never changed by the dataset pipeline."
+}

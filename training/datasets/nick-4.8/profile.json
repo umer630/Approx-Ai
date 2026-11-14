@@ -1,0 +1,51 @@
+{
+ "tier": "nick",
+ "min_records": 30000,
+ "max_records": 30000,
+ "min_quality": 0.45,
+ "base_model": "Qwen/Qwen2.5-3B-Instruct",
+ "base_model_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+ "capability": "Reliable everyday assistant: multilingual communication, mathematics, science, coding and general reasoning.",
+ "domain_min_share": {
+  "mathematics": 0.08,
+  "science": 0.06,
+  "coding": 0.08,
+  "reasoning": 0.02,
+  "writing": 0.05,
+  "general_knowledge": 0.1,
+  "education": 0.02,
+  "safety_ethics": 0.002
+ },
+ "domain_max_share": {
+  "mathematics": 0.25,
+  "general_knowledge": 0.5
+ },
+ "language_min": {
+  "en": 6000,
+  "ur": 1500,
+  "roman_ur": 400,
+  "ar": 800,
+  "zh": 400,
+  "es": 800,
+  "fr": 600,
+  "de": 400,
+  "pt": 500,
+  "ru": 500,
+  "ja": 400,
+  "ko": 300,
+  "hi": 500,
+  "bn": 300,
+  "tr": 300,
+  "id": 400,
+  "fa": 300
+ },
+ "min_human_reviewed": 500,
+ "model_id": "nick-4.8",
+ "schema": "approx.dataset-profile/v1",
+ "synthetic_max": 0.6,
+ "split_ratios": {
+  "eval": 0.03,
+  "test": 0.03
+ },
+ "note": "Base model / revision are copied from the existing model configuration and are never changed by the dataset pipeline."
+}

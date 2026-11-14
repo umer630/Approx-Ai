@@ -1,0 +1,893 @@
+{
+ "schema": "approx.sources/v1",
+ "updated": "2026-11-14",
+ "policy": "Only status=approved sources are ingested. conditional = approved in principle, not enabled. review_required / rejected / unavailable are never ingested. eval_only sources are never trained on.",
+ "sources": [
+  {
+   "id": "oasst1",
+   "name": "OpenAssistant/oasst1",
+   "url": "https://huggingface.co/datasets/OpenAssistant/oasst1",
+   "hub_repo": "OpenAssistant/oasst1",
+   "revision": "fdf72ae0827c",
+   "license": "apache-2.0",
+   "license_url": "https://huggingface.co/datasets/OpenAssistant/oasst1",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "OpenAssistant Conversations (oasst1), LAION, Apache-2.0",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Human-written, crowd-ranked conversations; Apache-2.0.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "hf_parquet",
+    "config": "default",
+    "splits": [
+     "train",
+     "validation"
+    ],
+    "mapper": "oasst1"
+   }
+  },
+  {
+   "id": "dolly-15k",
+   "name": "databricks/databricks-dolly-15k",
+   "url": "https://huggingface.co/datasets/databricks/databricks-dolly-15k",
+   "hub_repo": "databricks/databricks-dolly-15k",
+   "revision": "bdd27f4d94b9",
+   "license": "cc-by-sa-3.0",
+   "license_url": "https://huggingface.co/datasets/databricks/databricks-dolly-15k",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "databricks-dolly-15k © Databricks, CC BY-SA 3.0",
+   "share_alike": true,
+   "status": "approved",
+   "reason": "Human-written by Databricks employees. Attribution required; derived DATASETS redistributed must stay CC BY-SA (model weights are not redistributed data).",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_parquet",
+    "config": "default",
+    "splits": [
+     "train"
+    ],
+    "mapper": "dolly"
+   }
+  },
+  {
+   "id": "gsm8k",
+   "name": "openai/gsm8k",
+   "url": "https://huggingface.co/datasets/openai/gsm8k",
+   "hub_repo": "openai/gsm8k",
+   "revision": "740312add88f",
+   "license": "mit",
+   "license_url": "https://huggingface.co/datasets/openai/gsm8k",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "GSM8K (Cobbe et al. 2021), MIT",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Human-written grade-school math with worked solutions. TRAIN split only; the test split is evaluation-only.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "mathematics"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_parquet",
+    "config": "main",
+    "splits": [
+     "train"
+    ],
+    "mapper": "gsm8k"
+   }
+  },
+  {
+   "id": "aya-dataset",
+   "name": "CohereForAI/aya_dataset",
+   "url": "https://huggingface.co/datasets/CohereForAI/aya_dataset",
+   "hub_repo": "CohereForAI/aya_dataset",
+   "revision": "f9ea04583f02",
+   "license": "apache-2.0",
+   "license_url": "https://huggingface.co/datasets/CohereForAI/aya_dataset",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "Aya Dataset (Singh et al. 2024), Cohere For AI, Apache-2.0",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Human-annotated multilingual prompt/completion pairs (65 languages).",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "hf_parquet",
+    "config": "default",
+    "splits": [
+     "train"
+    ],
+    "mapper": "aya"
+   }
+  },
+  {
+   "id": "arc",
+   "name": "allenai/ai2_arc",
+   "url": "https://huggingface.co/datasets/allenai/ai2_arc",
+   "hub_repo": "allenai/ai2_arc",
+   "revision": "210d026faf99",
+   "license": "cc-by-sa-4.0",
+   "license_url": "https://huggingface.co/datasets/allenai/ai2_arc",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "AI2 Reasoning Challenge (Clark et al. 2018), CC BY-SA 4.0",
+   "share_alike": true,
+   "status": "approved",
+   "reason": "Human-written grade-school science questions. Train split only; test split evaluation-only.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "science",
+    "reasoning"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_parquet",
+    "configs": [
+     "ARC-Challenge",
+     "ARC-Easy"
+    ],
+    "splits": [
+     "train"
+    ],
+    "mapper": "arc"
+   }
+  },
+  {
+   "id": "mbpp",
+   "name": "google-research-datasets/mbpp",
+   "url": "https://huggingface.co/datasets/google-research-datasets/mbpp",
+   "hub_repo": "google-research-datasets/mbpp",
+   "revision": "4bb6404fdc6c",
+   "license": "cc-by-4.0",
+   "license_url": "https://huggingface.co/datasets/google-research-datasets/mbpp",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "MBPP (Austin et al. 2021), Google, CC BY 4.0",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Human-written Python tasks with tests; every solution is EXECUTED against its tests before acceptance. Test split evaluation-only.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "coding"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_parquet",
+    "config": "full",
+    "splits": [
+     "train",
+     "validation",
+     "prompt"
+    ],
+    "mapper": "mbpp"
+   }
+  },
+  {
+   "id": "scienceqa-text",
+   "name": "derek-thomas/ScienceQA",
+   "url": "https://huggingface.co/datasets/derek-thomas/ScienceQA",
+   "hub_repo": "derek-thomas/ScienceQA",
+   "revision": "f18b0a70359e",
+   "license": "cc-by-sa-4.0",
+   "license_url": "https://huggingface.co/datasets/derek-thomas/ScienceQA",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "ScienceQA (Lu et al. 2022), CC BY-SA 4.0",
+   "share_alike": true,
+   "status": "approved",
+   "reason": "Human-curated science questions with lectures/explanations. Text-only items (no image) from the train split.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "science",
+    "education"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_parquet",
+    "config": "default",
+    "splits": [
+     "train"
+    ],
+    "mapper": "scienceqa"
+   }
+  },
+  {
+   "id": "self-oss-instruct",
+   "name": "bigcode/self-oss-instruct-sc2-exec-filter-50k",
+   "url": "https://huggingface.co/datasets/bigcode/self-oss-instruct-sc2-exec-filter-50k",
+   "hub_repo": "bigcode/self-oss-instruct-sc2-exec-filter-50k",
+   "revision": "356bb069eee8",
+   "license": "odc-by",
+   "license_url": "https://huggingface.co/datasets/bigcode/self-oss-instruct-sc2-exec-filter-50k",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "StarCoder2-Instruct self-OSS-instruct data, BigCode, ODC-By",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Generated by StarCoder2-15B (open model, BigCode OpenRAIL-M) and execution-filtered by its authors. SYNTHETIC — counts toward the synthetic cap.",
+   "origin": "synthetic",
+   "synthetic_generator": "bigcode/starcoder2-15b",
+   "use": "train",
+   "domains": [
+    "coding"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_parquet",
+    "config": "default",
+    "splits": [
+     "train"
+    ],
+    "mapper": "self_oss"
+   }
+  },
+  {
+   "id": "eval-gsm8k-test",
+   "name": "openai/gsm8k",
+   "url": "https://huggingface.co/datasets/openai/gsm8k",
+   "hub_repo": "openai/gsm8k",
+   "revision": "740312add88f",
+   "license": "mit",
+   "license_url": "https://huggingface.co/datasets/openai/gsm8k",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "GSM8K, MIT",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Evaluation only.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "eval_only",
+   "domains": [
+    "mathematics"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_parquet",
+    "config": "main",
+    "splits": [
+     "test"
+    ],
+    "mapper": "gsm8k"
+   }
+  },
+  {
+   "id": "eval-arc-test",
+   "name": "allenai/ai2_arc",
+   "url": "https://huggingface.co/datasets/allenai/ai2_arc",
+   "hub_repo": "allenai/ai2_arc",
+   "revision": "210d026faf99",
+   "license": "cc-by-sa-4.0",
+   "license_url": "https://huggingface.co/datasets/allenai/ai2_arc",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "ARC, CC BY-SA 4.0",
+   "share_alike": true,
+   "status": "approved",
+   "reason": "Evaluation only.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "eval_only",
+   "domains": [
+    "science",
+    "reasoning"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_parquet",
+    "configs": [
+     "ARC-Challenge"
+    ],
+    "splits": [
+     "test"
+    ],
+    "mapper": "arc"
+   }
+  },
+  {
+   "id": "eval-mbpp-test",
+   "name": "google-research-datasets/mbpp",
+   "url": "https://huggingface.co/datasets/google-research-datasets/mbpp",
+   "hub_repo": "google-research-datasets/mbpp",
+   "revision": "4bb6404fdc6c",
+   "license": "cc-by-4.0",
+   "license_url": "https://huggingface.co/datasets/google-research-datasets/mbpp",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "MBPP, CC BY 4.0",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Evaluation only.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "eval_only",
+   "domains": [
+    "coding"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_parquet",
+    "config": "full",
+    "splits": [
+     "test"
+    ],
+    "mapper": "mbpp"
+   }
+  },
+  {
+   "id": "eval-humaneval",
+   "name": "openai/openai_humaneval",
+   "url": "https://huggingface.co/datasets/openai/openai_humaneval",
+   "hub_repo": "openai/openai_humaneval",
+   "revision": "7dce6050a7d6",
+   "license": "mit",
+   "license_url": "https://huggingface.co/datasets/openai/openai_humaneval",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "HumanEval, MIT",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Evaluation only.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "eval_only",
+   "domains": [
+    "coding"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_parquet",
+    "config": "openai_humaneval",
+    "splits": [
+     "test"
+    ],
+    "mapper": "humaneval"
+   }
+  },
+  {
+   "id": "eval-belebele",
+   "name": "facebook/belebele",
+   "url": "https://huggingface.co/datasets/facebook/belebele",
+   "hub_repo": "facebook/belebele",
+   "revision": "7899cdfa4e1e",
+   "license": "cc-by-sa-4.0",
+   "license_url": "https://huggingface.co/datasets/facebook/belebele",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "Belebele (Bandarkar et al. 2023), CC BY-SA 4.0",
+   "share_alike": true,
+   "status": "approved",
+   "reason": "Multilingual reading comprehension, evaluation only (cross-language consistency: same questions in every language).",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "eval_only",
+   "domains": [
+    "reasoning"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "hf_parquet",
+    "configs": [
+     "eng_Latn",
+     "urd_Arab",
+     "arb_Arab",
+     "zho_Hans",
+     "spa_Latn",
+     "fra_Latn",
+     "deu_Latn",
+     "por_Latn",
+     "rus_Cyrl",
+     "jpn_Jpan",
+     "kor_Hang",
+     "hin_Deva",
+     "ben_Beng",
+     "tur_Latn",
+     "ind_Latn",
+     "pes_Arab",
+     "urd_Latn"
+    ],
+    "splits": [
+     "test"
+    ],
+    "mapper": "belebele"
+   }
+  },
+  {
+   "id": "competition-math",
+   "name": "hendrycks/competition_math",
+   "url": "https://huggingface.co/datasets/hendrycks/competition_math",
+   "hub_repo": "hendrycks/competition_math",
+   "revision": null,
+   "license": "mit",
+   "license_url": "https://huggingface.co/datasets/hendrycks/competition_math",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "MATH (Hendrycks et al.)",
+   "share_alike": false,
+   "status": "unavailable",
+   "reason": "The Hub refuses to serve this dataset (parquet API HTTP 400; reported takedown). Not ingested from any mirror.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "mathematics"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "sciq",
+   "name": "allenai/sciq",
+   "url": "https://huggingface.co/datasets/allenai/sciq",
+   "hub_repo": "allenai/sciq",
+   "revision": "2c94ad3e1aaf",
+   "license": "cc-by-nc-3.0",
+   "license_url": "https://huggingface.co/datasets/allenai/sciq",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "no",
+   "attribution": "",
+   "share_alike": false,
+   "status": "rejected",
+   "reason": "Non-commercial license (NC).",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "science"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "alpaca",
+   "name": "tatsu-lab/alpaca",
+   "url": "https://huggingface.co/datasets/tatsu-lab/alpaca",
+   "hub_repo": "tatsu-lab/alpaca",
+   "revision": "dce01c9b08f8",
+   "license": "cc-by-nc-4.0",
+   "license_url": "https://huggingface.co/datasets/tatsu-lab/alpaca",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "no",
+   "attribution": "",
+   "share_alike": false,
+   "status": "rejected",
+   "reason": "Non-commercial license; generated by text-davinci-003.",
+   "origin": "synthetic",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "no-robots",
+   "name": "HuggingFaceH4/no_robots",
+   "url": "https://huggingface.co/datasets/HuggingFaceH4/no_robots",
+   "hub_repo": "HuggingFaceH4/no_robots",
+   "revision": "e6f9a4ac5c37",
+   "license": "cc-by-nc-4.0",
+   "license_url": "https://huggingface.co/datasets/HuggingFaceH4/no_robots",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "no",
+   "attribution": "",
+   "share_alike": false,
+   "status": "rejected",
+   "reason": "Non-commercial license (NC).",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "openhermes-2.5",
+   "name": "teknium/OpenHermes-2.5",
+   "url": "https://huggingface.co/datasets/teknium/OpenHermes-2.5",
+   "hub_repo": "teknium/OpenHermes-2.5",
+   "revision": "b82037821055",
+   "license": null,
+   "license_url": "https://huggingface.co/datasets/teknium/OpenHermes-2.5",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "unknown",
+   "attribution": "",
+   "share_alike": false,
+   "status": "rejected",
+   "reason": "No license declared.",
+   "origin": "synthetic",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "smoltalk",
+   "name": "HuggingFaceTB/smoltalk",
+   "url": "https://huggingface.co/datasets/HuggingFaceTB/smoltalk",
+   "hub_repo": "HuggingFaceTB/smoltalk",
+   "revision": "5feaf2fd3ffc",
+   "license": null,
+   "license_url": "https://huggingface.co/datasets/HuggingFaceTB/smoltalk",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "unknown",
+   "attribution": "",
+   "share_alike": false,
+   "status": "rejected",
+   "reason": "No license declared on the card.",
+   "origin": "synthetic",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "slimorca",
+   "name": "Open-Orca/SlimOrca",
+   "url": "https://huggingface.co/datasets/Open-Orca/SlimOrca",
+   "hub_repo": "Open-Orca/SlimOrca",
+   "revision": "ce9ed009ef32",
+   "license": "mit",
+   "license_url": "https://huggingface.co/datasets/Open-Orca/SlimOrca",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "conditional",
+   "attribution": "",
+   "share_alike": false,
+   "status": "review_required",
+   "reason": "MIT-tagged but generated with OpenAI GPT-4/3.5; the generator's terms restrict building competing models. Needs legal review.",
+   "origin": "synthetic",
+   "synthetic_generator": "OpenAI GPT-4 / GPT-3.5",
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "metamathqa",
+   "name": "meta-math/MetaMathQA",
+   "url": "https://huggingface.co/datasets/meta-math/MetaMathQA",
+   "hub_repo": "meta-math/MetaMathQA",
+   "revision": "aa4f34d3d2d3",
+   "license": "mit",
+   "license_url": "https://huggingface.co/datasets/meta-math/MetaMathQA",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "conditional",
+   "attribution": "",
+   "share_alike": false,
+   "status": "review_required",
+   "reason": "Generated with GPT-3.5; legal review of generator terms required.",
+   "origin": "synthetic",
+   "synthetic_generator": "OpenAI GPT-3.5",
+   "use": "train",
+   "domains": [
+    "mathematics"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "orca-math",
+   "name": "microsoft/orca-math-word-problems-200k",
+   "url": "https://huggingface.co/datasets/microsoft/orca-math-word-problems-200k",
+   "hub_repo": "microsoft/orca-math-word-problems-200k",
+   "revision": "29255d1770cc",
+   "license": "mit",
+   "license_url": "https://huggingface.co/datasets/microsoft/orca-math-word-problems-200k",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "conditional",
+   "attribution": "",
+   "share_alike": false,
+   "status": "review_required",
+   "reason": "Generated with GPT-4 Turbo; legal review of generator terms required.",
+   "origin": "synthetic",
+   "synthetic_generator": "OpenAI GPT-4 Turbo",
+   "use": "train",
+   "domains": [
+    "mathematics"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "magicoder-oss",
+   "name": "ise-uiuc/Magicoder-OSS-Instruct-75K",
+   "url": "https://huggingface.co/datasets/ise-uiuc/Magicoder-OSS-Instruct-75K",
+   "hub_repo": "ise-uiuc/Magicoder-OSS-Instruct-75K",
+   "revision": "5f839b1f368a",
+   "license": "mit",
+   "license_url": "https://huggingface.co/datasets/ise-uiuc/Magicoder-OSS-Instruct-75K",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "conditional",
+   "attribution": "",
+   "share_alike": false,
+   "status": "review_required",
+   "reason": "Generated with gpt-3.5-turbo; legal review required.",
+   "origin": "synthetic",
+   "synthetic_generator": "OpenAI gpt-3.5-turbo",
+   "use": "train",
+   "domains": [
+    "coding"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "codealpaca",
+   "name": "sahil2801/CodeAlpaca-20k",
+   "url": "https://huggingface.co/datasets/sahil2801/CodeAlpaca-20k",
+   "hub_repo": "sahil2801/CodeAlpaca-20k",
+   "revision": "152bb5e9a296",
+   "license": "cc-by-4.0",
+   "license_url": "https://huggingface.co/datasets/sahil2801/CodeAlpaca-20k",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "conditional",
+   "attribution": "",
+   "share_alike": false,
+   "status": "review_required",
+   "reason": "Generated with text-davinci-003; legal review required.",
+   "origin": "synthetic",
+   "synthetic_generator": "OpenAI text-davinci-003",
+   "use": "train",
+   "domains": [
+    "coding"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "helpsteer2",
+   "name": "nvidia/HelpSteer2",
+   "url": "https://huggingface.co/datasets/nvidia/HelpSteer2",
+   "hub_repo": "nvidia/HelpSteer2",
+   "revision": "990b2711a361",
+   "license": "cc-by-4.0",
+   "license_url": "https://huggingface.co/datasets/nvidia/HelpSteer2",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "conditional",
+   "attribution": "",
+   "share_alike": false,
+   "status": "review_required",
+   "reason": "Prompts largely from ShareGPT (third-party chat logs; privacy/ToS review needed); responses model-generated.",
+   "origin": "mixed",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "tulu-3-sft",
+   "name": "allenai/tulu-3-sft-mixture",
+   "url": "https://huggingface.co/datasets/allenai/tulu-3-sft-mixture",
+   "hub_repo": "allenai/tulu-3-sft-mixture",
+   "revision": "b14afda60f1b",
+   "license": "odc-by",
+   "license_url": "https://huggingface.co/datasets/allenai/tulu-3-sft-mixture",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "conditional",
+   "attribution": "",
+   "share_alike": false,
+   "status": "review_required",
+   "reason": "Aggregate of many sources with their own licenses (some non-commercial / model-generated); must be filtered per subset.",
+   "origin": "mixed",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "aya-collection",
+   "name": "CohereForAI/aya_collection",
+   "url": "https://huggingface.co/datasets/CohereForAI/aya_collection",
+   "hub_repo": "CohereForAI/aya_collection",
+   "revision": "09069079fad9",
+   "license": "apache-2.0",
+   "license_url": "https://huggingface.co/datasets/CohereForAI/aya_collection",
+   "license_verified_via": "Hugging Face Hub API cardData.license + license tags, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "Aya Collection, Apache-2.0",
+   "share_alike": false,
+   "status": "conditional",
+   "reason": "Templated + machine-translated (513M rows). Approved in principle as MACHINE_TRANSLATED data (counts as synthetic); not ingested in this build (size) — enable per language subset.",
+   "origin": "machine_translated",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "approx-seed-v0.1",
+   "name": "Approx seed set v0.1",
+   "url": "repo:training/data/seed/approx_seed_v0_1.jsonl",
+   "license": "proprietary (Approx Technology)",
+   "commercial_use": "yes",
+   "status": "approved",
+   "origin": "synthetic",
+   "synthetic_generator": "AI-assisted authoring during the 1.0 build (not human-reviewed)",
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "reason": "Written for this product with AI assistance; counted as SYNTHETIC and unreviewed (never labelled human-authored).",
+   "connector": {
+    "type": "local_jsonl",
+    "path": "data/seed/approx_seed_v0_1.jsonl",
+    "mapper": "native"
+   }
+  },
+  {
+   "id": "approx-curriculum",
+   "name": "Approx curriculum (authored + programmatic generators)",
+   "url": "repo:training/engine/curriculum",
+   "license": "proprietary (Approx Technology)",
+   "commercial_use": "yes",
+   "status": "approved",
+   "origin": "programmatic",
+   "synthetic_generator": "deterministic templates with programmatically verified answers",
+   "use": "train",
+   "domains": [
+    "mathematics",
+    "science",
+    "coding",
+    "safety"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "roman_ur"
+   ],
+   "reason": "Programmatic templates (answers computed, not guessed). SYNTHETIC; capped per domain so templates cannot dominate.",
+   "connector": {
+    "type": "curriculum",
+    "mapper": "native"
+   }
+  },
+  {
+   "id": "consented-history",
+   "name": "Approx AI consented user history",
+   "url": "admin export /api/admin/training/export-consented",
+   "license": "user consent (Approx AI terms)",
+   "commercial_use": "yes",
+   "status": "approved",
+   "origin": "human_authored",
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "privacy": "explicit opt-in, user-selected chats, PII-scrubbed server-side and again here, no user ids; FAB chats excluded",
+   "excluded_models": [
+    "fab-100x",
+    "fab-500x"
+   ],
+   "reason": "Only when an export file exists; FAB models never receive user history unless separately authorized.",
+   "connector": {
+    "type": "local_jsonl",
+    "path": "data/consented/latest.jsonl",
+    "mapper": "native"
+   }
+  }
+ ]
+}

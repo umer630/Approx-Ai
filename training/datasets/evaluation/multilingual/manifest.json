@@ -1,0 +1,35 @@
+{
+ "suite": "multilingual",
+ "purpose": "reading comprehension in 17 languages; identical questions across languages → cross-language consistency",
+ "sources": {
+  "eval-belebele": {
+   "license": "cc-by-sa-4.0",
+   "revision": "7899cdfa4e1e",
+   "attribution": "Belebele (Bandarkar et al. 2023), CC BY-SA 4.0"
+  }
+ },
+ "items": 15300,
+ "by_language": {
+  "ar": 900,
+  "bn": 900,
+  "de": 900,
+  "en": 900,
+  "es": 900,
+  "fa": 900,
+  "fr": 900,
+  "hi": 900,
+  "id": 900,
+  "ja": 900,
+  "ko": 900,
+  "pt": 900,
+  "roman_ur": 900,
+  "ru": 900,
+  "tr": 900,
+  "ur": 900,
+  "zh": 900
+ },
+ "cross_language_groups": 900,
+ "fingerprint_sha256": "a9a1212bfb18e3a66195fe56ce51b1860ad1f40f47e71aa7ad6c5257b7ad81ea",
+ "file_sha256": "53ed578e9aa55e73ba99fee85f07efbd78654899beeb1744761c447e0d26e76c",
+ "never_trained_on": true
+}

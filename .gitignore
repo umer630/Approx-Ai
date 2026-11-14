@@ -19,3 +19,6 @@ __pycache__/
 android-standalone/build/
 deploy/models/
 deploy/inference.env
+training/datasets/.cache/
+training/datasets/*/build/
+training/datasets/evaluation/*/build/

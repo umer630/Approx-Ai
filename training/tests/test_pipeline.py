@@ -61,7 +61,7 @@ class Pipeline(unittest.TestCase):
 
     def test_dry_run_validates_real_dataset(self):
         subprocess.run([sys.executable, str(ROOT / "data/seed/make_seed.py")], check=True, capture_output=True)
-        subprocess.run([sys.executable, "-m", "approx_data.build"], cwd=ROOT, check=True, capture_output=True)
+        subprocess.run([sys.executable, "-m", "approx_data.build", "--legacy"], cwd=ROOT, check=True, capture_output=True)
         r = subprocess.run([sys.executable, "train_qlora.py", "--dry-run"], cwd=ROOT, capture_output=True, text=True)
         self.assertEqual(r.returncode, 0, r.stderr)
         self.assertIn("dataset OK", r.stdout)

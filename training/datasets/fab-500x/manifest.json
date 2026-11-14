@@ -1,0 +1,683 @@
+{
+ "schema": "approx.dataset/v1",
+ "model_id": "fab-500x",
+ "dataset_version": "fab-500x-datahub-1.0-035a22b74b",
+ "pipeline_version": "datahub-1.0",
+ "profile": {
+  "tier": "fab",
+  "min_records": 500000,
+  "max_records": 10000000,
+  "min_quality": 0.5,
+  "base_model": "Qwen/Qwen2.5-Coder-32B-Instruct",
+  "base_model_revision": null,
+  "capability": "Highest-tier experimental dataset and evaluation profile (a product tier name, not a literal multiplier).",
+  "domain_min_share": {
+   "mathematics": 0.08,
+   "science": 0.06,
+   "coding": 0.25,
+   "web_frontend": 0.01,
+   "web_backend": 0.01,
+   "software_engineering": 0.03,
+   "cybersecurity": 0.02,
+   "reasoning": 0.03,
+   "research": 0.02,
+   "safety_ethics": 0.002
+  },
+  "domain_max_share": {
+   "mathematics": 0.22,
+   "general_knowledge": 0.35
+  },
+  "language_min": {
+   "en": 18000,
+   "ur": 4500,
+   "roman_ur": 1200,
+   "ar": 2400,
+   "zh": 1200,
+   "es": 2400,
+   "fr": 1800,
+   "de": 1200,
+   "pt": 1500,
+   "ru": 1500,
+   "ja": 1200,
+   "ko": 900,
+   "hi": 1500,
+   "bn": 900,
+   "tr": 900,
+   "id": 1200,
+   "fa": 900
+  },
+  "min_human_reviewed": 5000,
+  "exclude_sources": [
+   "consented-history"
+  ],
+  "model_id": "fab-500x",
+  "schema": "approx.dataset-profile/v1",
+  "synthetic_max": 0.6,
+  "split_ratios": {
+   "eval": 0.03,
+   "test": 0.03
+  },
+  "note": "Base model / revision are copied from the existing model configuration and are never changed by the dataset pipeline."
+ },
+ "counts": {
+  "total": 218168,
+  "train": 205475,
+  "eval": 6379,
+  "test": 6314
+ },
+ "selection": {
+  "eligible": 218168,
+  "cap": 10000000
+ },
+ "by_language": {
+  "en": 92759,
+  "es": 9545,
+  "sin": 8971,
+  "pt": 8855,
+  "plt": 8756,
+  "ta": 8166,
+  "te": 7072,
+  "vi": 6546,
+  "ru": 6502,
+  "pa": 4824,
+  "zh": 4172,
+  "tr": 3904,
+  "yor": 3725,
+  "ja": 3653,
+  "ar": 3547,
+  "som": 3289,
+  "gu": 3057,
+  "pl": 2411,
+  "fr": 1916,
+  "nl": 1643,
+  "sw": 1626,
+  "mal": 1546,
+  "bn": 1414,
+  "mr": 1390,
+  "ne": 1344,
+  "fa": 1162,
+  "wol": 1010,
+  "it": 988,
+  "sna": 977,
+  "th": 951,
+  "de": 906,
+  "zul": 897,
+  "hi": 839,
+  "ur": 823,
+  "id": 757,
+  "am": 711,
+  "ms": 706,
+  "el": 568,
+  "lit": 566,
+  "roman_ur": 559,
+  "fin": 497,
+  "uk": 460,
+  "tl": 401,
+  "swe": 370,
+  "pbt": 369,
+  "nya": 348,
+  "mya": 347,
+  "eus": 311,
+  "ceb": 301,
+  "ko": 286,
+  "kan": 238,
+  "ibo": 232,
+  "xho": 204,
+  "gle": 167,
+  "jav": 154,
+  "sun": 87,
+  "hau": 81,
+  "snd": 70,
+  "ary": 50,
+  "eu": 46,
+  "ckb": 39,
+  "dan": 13,
+  "hat": 12,
+  "hun": 11,
+  "als": 5,
+  "hu": 4,
+  "fi": 3,
+  "ca": 2,
+  "acq": 2,
+  "nso": 2,
+  "srp": 2,
+  "ajp": 1
+ },
+ "by_domain": {
+  "general_knowledge": 122572,
+  "coding": 52750,
+  "mathematics": 16382,
+  "science": 12096,
+  "writing": 4383,
+  "research": 3355,
+  "reasoning": 2300,
+  "education": 1191,
+  "web_frontend": 832,
+  "problem_solving": 619,
+  "safety_ethics": 446,
+  "islamic_studies": 356,
+  "cybersecurity": 240,
+  "web_fullstack": 224,
+  "software_engineering": 200,
+  "web_backend": 125,
+  "pakistan": 97
+ },
+ "by_source": {
+  "aya-dataset": 118282,
+  "self-oss-instruct": 49691,
+  "oasst1": 16806,
+  "dolly-15k": 13640,
+  "gsm8k": 7213,
+  "scienceqa-text": 5658,
+  "arc": 3330,
+  "approx-curriculum": 3061,
+  "mbpp": 450,
+  "approx-seed-v0.1": 37
+ },
+ "by_origin": {
+  "human_authored": 165379,
+  "synthetic": 49728,
+  "programmatic": 3061
+ },
+ "by_review_state": {
+  "unreviewed": 197851,
+  "source_community_reviewed": 16806,
+  "auto_verified": 3511
+ },
+ "synthetic_ratio": 0.242,
+ "human_reviewed": 0,
+ "content_fingerprint_sha256": "035a22b74b10755242113f4c219f50140d03fae335d6aa2badc5d6c8d95b364f",
+ "files": {
+  "train.jsonl": {
+   "records": 205475,
+   "sha256": "0f8db373f4400df6ad57e7bf5e08d61c46b5bc40222a6c0c62f1bd56dd82d6b1"
+  },
+  "eval.jsonl": {
+   "records": 6379,
+   "sha256": "4046ebc93ee0956c9d508091fb76e380ded87821c04b29dbb7fa1caf94fd2638"
+  },
+  "test.jsonl": {
+   "records": 6314,
+   "sha256": "2fb74463d382d36afeaf4f84be0a717db4730023747ef08b0876f51aff486853"
+  }
+ },
+ "gates": {
+  "quantity": {
+   "passed": false,
+   "detail": "218168 accepted / target 500000"
+  },
+  "licenses": {
+   "passed": true,
+   "detail": [
+    "approx-curriculum",
+    "approx-seed-v0.1",
+    "arc",
+    "aya-dataset",
+    "dolly-15k",
+    "gsm8k",
+    "mbpp",
+    "oasst1",
+    "scienceqa-text",
+    "self-oss-instruct"
+   ]
+  },
+  "synthetic_ratio": {
+   "passed": true,
+   "detail": "52789/218168 = 0.242 (max 0.6)"
+  },
+  "domain_minimums": {
+   "passed": false,
+   "detail": {
+    "mathematics": "16382/40000",
+    "science": "12096/30000",
+    "coding": "52750/125000",
+    "web_frontend": "832/5000",
+    "web_backend": "125/5000",
+    "software_engineering": "200/15000",
+    "cybersecurity": "240/10000",
+    "reasoning": "2300/15000",
+    "research": "3355/10000",
+    "safety_ethics": "446/1000"
+   }
+  },
+  "domain_maximums": {
+   "passed": false,
+   "detail": {
+    "mathematics": "0.075 ≤ 0.22",
+    "general_knowledge": "0.562 ≤ 0.35"
+   }
+  },
+  "language_minimums": {
+   "passed": false,
+   "detail": {
+    "en": "92759/18000",
+    "ur": "823/4500",
+    "roman_ur": "559/1200",
+    "ar": "3547/2400",
+    "zh": "4172/1200",
+    "es": "9545/2400",
+    "fr": "1916/1800",
+    "de": "906/1200",
+    "pt": "8855/1500",
+    "ru": "6502/1500",
+    "ja": "3653/1200",
+    "ko": "286/900",
+    "hi": "839/1500",
+    "bn": "1414/900",
+    "tr": "3904/900",
+    "id": "757/1200",
+    "fa": "1162/900"
+   }
+  },
+  "human_review": {
+   "passed": false,
+   "detail": "0 human-reviewed / required 5000"
+  },
+  "no_split_leakage": {
+   "passed": true,
+   "detail": "0 prompts shared between train and eval/test"
+  },
+  "benchmark_leakage_removed": {
+   "passed": true,
+   "detail": "18486 evaluation prompts indexed; 7 training records removed"
+  },
+  "no_missing_sources": {
+   "passed": false,
+   "detail": [
+    {
+     "source": "consented-history",
+     "error": "consented-history: file not found: data/consented/latest.jsonl"
+    }
+   ]
+  },
+  "user_history_policy": {
+   "passed": true,
+   "detail": "FAB never uses user history"
+  }
+ },
+ "production_ready": false,
+ "production_readiness_notes": [
+  "quantity: 218168 accepted / target 500000",
+  "domain_minimums: {'mathematics': '16382/40000', 'science': '12096/30000', 'coding': '52750/125000', 'web_frontend': '832/5000', 'web_backend': '125/5000', 'software_engineering': '200/15000', 'cybersecurity': '240/10000', 'reasoning': '2300/15000', 'research': '3355/10000', 'safety_ethics': '446/1000'}",
+  "domain_maximums: {'mathematics': '0.075 ≤ 0.22', 'general_knowledge': '0.562 ≤ 0.35'}",
+  "language_minimums: {'en': '92759/18000', 'ur': '823/4500', 'roman_ur': '559/1200', 'ar': '3547/2400', 'zh': '4172/1200', 'es': '9545/2400', 'fr': '1916/1800', 'de': '906/1200', 'pt': '8855/1500', 'ru': '6502/1500', 'ja': '3653/1200', 'ko': '286/900', 'hi': '839/1500', 'bn': '1414/900', 'tr': '3904/900', 'id': '757/1200', 'fa': '1162/900'}",
+  "human_review: 0 human-reviewed / required 5000",
+  "no_missing_sources: [{'source': 'consented-history', 'error': 'consented-history: file not found: data/consented/latest.jsonl'}]"
+ ],
+ "provenance": {
+  "approx-curriculum": [
+   {
+    "file": "engine/curriculum (generated)",
+    "sha256": "85dcaae3b32e9d5359fc7e5cefe586101e1bd6029c9478e237fc3e1a0cd24228",
+    "params": {
+     "seed": 4848,
+     "scale": 1.0
+    }
+   }
+  ],
+  "approx-seed-v0.1": [
+   {
+    "file": "data/seed/approx_seed_v0_1.jsonl",
+    "sha256": "2802a288ab301e7f5c3d2b5042ce18d29bfd4aa51cd4e9d11668ad8004922792",
+    "bytes": 26178,
+    "fetched_at": "2026-11-14T18:15:05Z"
+   }
+  ],
+  "arc": [
+   {
+    "file": "arc/ARC-Challenge/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/allenai/ai2_arc/parquet/ARC-Challenge/train/0.parquet",
+    "sha256": "e488c1587ffdcfc8443f916c53488a95cd471c5790e0746c6bfe4cecf20962cb",
+    "bytes": 189909,
+    "fetched_at": "2026-11-14T18:02:45Z",
+    "config": "ARC-Challenge",
+    "split": "train",
+    "source_revision": "210d026faf99"
+   },
+   {
+    "file": "arc/ARC-Easy/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/allenai/ai2_arc/parquet/ARC-Easy/train/0.parquet",
+    "sha256": "b315db8a4be597dc7daa50a4e70d48dd7c990c32085629e6ccd8c926beaa80b5",
+    "bytes": 330598,
+    "fetched_at": "2026-11-14T18:02:46Z",
+    "config": "ARC-Easy",
+    "split": "train",
+    "source_revision": "210d026faf99"
+   }
+  ],
+  "aya-dataset": [
+   {
+    "file": "aya-dataset/default/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/CohereLabs/aya_dataset/parquet/default/train/0.parquet",
+    "sha256": "51baa85043b569ba117f41516b32d1b0e4e2647fb203a08933f98a556fb1fb06",
+    "bytes": 137195800,
+    "fetched_at": "2026-11-14T18:02:45Z",
+    "config": "default",
+    "split": "train",
+    "source_revision": "f9ea04583f02"
+   }
+  ],
+  "dolly-15k": [
+   {
+    "file": "dolly-15k/default/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/databricks/databricks-dolly-15k/parquet/default/train/0.parquet",
+    "sha256": "51c85bb925785765bad9dd961e9db144b555cc79d58803242c9bf883375b938b",
+    "bytes": 7747823,
+    "fetched_at": "2026-11-14T18:02:38Z",
+    "config": "default",
+    "split": "train",
+    "source_revision": "bdd27f4d94b9"
+   }
+  ],
+  "gsm8k": [
+   {
+    "file": "gsm8k/main/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/openai/gsm8k/parquet/main/train/0.parquet",
+    "sha256": "ea82612ea9582142387730c793eb67d3b12849002bc0b7fa6f8efafa7351419d",
+    "bytes": 2306545,
+    "fetched_at": "2026-11-14T18:02:39Z",
+    "config": "main",
+    "split": "train",
+    "source_revision": "740312add88f"
+   }
+  ],
+  "mbpp": [
+   {
+    "file": "mbpp/full/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/google-research-datasets/mbpp/parquet/full/train/0.parquet",
+    "sha256": "09d125ca31edacb7800be8c67c45abff618faf0214ff551291817d06bdb914ae",
+    "bytes": 87223,
+    "fetched_at": "2026-11-14T18:02:46Z",
+    "config": "full",
+    "split": "train",
+    "source_revision": "4bb6404fdc6c"
+   },
+   {
+    "file": "mbpp/full/validation/validation-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/google-research-datasets/mbpp/parquet/full/validation/0.parquet",
+    "sha256": "3f0ec060987432d99fe8fb409d31e6c67445b208a01741c5583517c80a10fe80",
+    "bytes": 25144,
+    "fetched_at": "2026-11-14T18:02:47Z",
+    "config": "full",
+    "split": "validation",
+    "source_revision": "4bb6404fdc6c"
+   },
+   {
+    "file": "mbpp/full/prompt/prompt-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/google-research-datasets/mbpp/parquet/full/prompt/0.parquet",
+    "sha256": "a053e4bb85ceb77430ae80592addb4ca4dc6ba087592f9e04537800ee88b7431",
+    "bytes": 7878,
+    "fetched_at": "2026-11-14T18:02:47Z",
+    "config": "full",
+    "split": "prompt",
+    "source_revision": "4bb6404fdc6c"
+   }
+  ],
+  "oasst1": [
+   {
+    "file": "oasst1/default/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/OpenAssistant/oasst1/parquet/default/train/0.parquet",
+    "sha256": "bbfadf5ed1278ba2208c837fdcad865adf65f5df55d80abadab2745db13fcb5e",
+    "bytes": 39516251,
+    "fetched_at": "2026-11-14T18:02:36Z",
+    "config": "default",
+    "split": "train",
+    "source_revision": "fdf72ae0827c"
+   },
+   {
+    "file": "oasst1/default/validation/validation-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/OpenAssistant/oasst1/parquet/default/validation/0.parquet",
+    "sha256": "24002597bb13a7edd42d92f773762f25e285f72c31a70449393d0ded1dc7b416",
+    "bytes": 2080179,
+    "fetched_at": "2026-11-14T18:02:37Z",
+    "config": "default",
+    "split": "validation",
+    "source_revision": "fdf72ae0827c"
+   }
+  ],
+  "scienceqa-text": [
+   {
+    "file": "scienceqa-text/default/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/derek-thomas/ScienceQA/parquet/default/train/0.parquet",
+    "sha256": "62c90a28e3fb1bc0ad7bbcab1ac62b483ae6758291a655944d8f494bf6445745",
+    "bytes": 377460993,
+    "fetched_at": "2026-11-14T18:03:02Z",
+    "config": "default",
+    "split": "train",
+    "source_revision": "f18b0a70359e"
+   }
+  ],
+  "self-oss-instruct": [
+   {
+    "file": "self-oss-instruct/default/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/bigcode/self-oss-instruct-sc2-exec-filter-50k/parquet/default/train/0.parquet",
+    "sha256": "7bd6092e9940aedebe31f7049c460ba1549a920de5cb4b9bb36b0093cd51fc93",
+    "bytes": 90128158,
+    "fetched_at": "2026-11-14T18:03:06Z",
+    "config": "default",
+    "split": "train",
+    "source_revision": "356bb069eee8"
+   }
+  ]
+ },
+ "pool_summary": {
+  "built_at": "2026-11-14T18:24:31Z",
+  "rejections": {
+   "repetition": 1948,
+   "language_mismatch": 34054,
+   "quality": 11875,
+   "formatting": 15,
+   "injection": 3,
+   "nonsensical": 840,
+   "unicode": 282,
+   "safety": 1,
+   "empty": 10,
+   "exact_duplicate": 11744,
+   "contradiction": 3912,
+   "near_duplicate": 26640,
+   "benchmark_leakage": 7
+  },
+  "pii_redactions": 2163,
+  "per_source": {
+   "oasst1": {
+    "status": "ingested",
+    "raw": 18899,
+    "accepted_record_gates": 17510,
+    "rejected": {
+     "repetition": 395,
+     "language_mismatch": 541,
+     "quality": 403,
+     "formatting": 14,
+     "injection": 3,
+     "nonsensical": 29,
+     "unicode": 4
+    },
+    "seconds": 47.6
+   },
+   "dolly-15k": {
+    "status": "ingested",
+    "raw": 15011,
+    "accepted_record_gates": 14171,
+    "rejected": {
+     "quality": 704,
+     "language_mismatch": 94,
+     "nonsensical": 14,
+     "unicode": 18,
+     "repetition": 9,
+     "safety": 1
+    },
+    "seconds": 21.2
+   },
+   "gsm8k": {
+    "status": "ingested",
+    "raw": 7473,
+    "accepted_record_gates": 7214,
+    "rejected": {
+     "language_mismatch": 42,
+     "quality": 212,
+     "nonsensical": 5
+    },
+    "seconds": 7.1
+   },
+   "aya-dataset": {
+    "status": "ingested",
+    "raw": 202362,
+    "accepted_record_gates": 157554,
+    "rejected": {
+     "repetition": 598,
+     "language_mismatch": 33189,
+     "quality": 10320,
+     "nonsensical": 432,
+     "unicode": 259,
+     "empty": 10
+    },
+    "seconds": 342.0
+   },
+   "arc": {
+    "status": "ingested",
+    "raw": 3370,
+    "accepted_record_gates": 3334,
+    "rejected": {
+     "language_mismatch": 32,
+     "quality": 4
+    },
+    "seconds": 2.5
+   },
+   "mbpp": {
+    "status": "ingested",
+    "raw": 473,
+    "accepted_record_gates": 454,
+    "rejected": {
+     "repetition": 3,
+     "nonsensical": 7,
+     "language_mismatch": 9
+    },
+    "seconds": 8.0
+   },
+   "scienceqa-text": {
+    "status": "ingested",
+    "raw": 6508,
+    "accepted_record_gates": 6471,
+    "rejected": {
+     "quality": 37
+    },
+    "seconds": 17.2
+   },
+   "self-oss-instruct": {
+    "status": "ingested",
+    "raw": 50661,
+    "accepted_record_gates": 49696,
+    "rejected": {
+     "repetition": 863,
+     "quality": 97,
+     "language_mismatch": 3,
+     "formatting": 1,
+     "unicode": 1
+    },
+    "seconds": 94.5
+   },
+   "competition-math": {
+    "status": "unavailable",
+    "ingested": 0,
+    "reason": "The Hub refuses to serve this dataset (parquet API HTTP 400; reported takedown). Not ingested from any mirror."
+   },
+   "sciq": {
+    "status": "rejected",
+    "ingested": 0,
+    "reason": "Non-commercial license (NC)."
+   },
+   "alpaca": {
+    "status": "rejected",
+    "ingested": 0,
+    "reason": "Non-commercial license; generated by text-davinci-003."
+   },
+   "no-robots": {
+    "status": "rejected",
+    "ingested": 0,
+    "reason": "Non-commercial license (NC)."
+   },
+   "openhermes-2.5": {
+    "status": "rejected",
+    "ingested": 0,
+    "reason": "No license declared."
+   },
+   "smoltalk": {
+    "status": "rejected",
+    "ingested": 0,
+    "reason": "No license declared on the card."
+   },
+   "slimorca": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "MIT-tagged but generated with OpenAI GPT-4/3.5; the generator's terms restrict building competing models. Needs legal review."
+   },
+   "metamathqa": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "Generated with GPT-3.5; legal review of generator terms required."
+   },
+   "orca-math": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "Generated with GPT-4 Turbo; legal review of generator terms required."
+   },
+   "magicoder-oss": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "Generated with gpt-3.5-turbo; legal review required."
+   },
+   "codealpaca": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "Generated with text-davinci-003; legal review required."
+   },
+   "helpsteer2": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "Prompts largely from ShareGPT (third-party chat logs; privacy/ToS review needed); responses model-generated."
+   },
+   "tulu-3-sft": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "Aggregate of many sources with their own licenses (some non-commercial / model-generated); must be filtered per subset."
+   },
+   "aya-collection": {
+    "status": "conditional",
+    "ingested": 0,
+    "reason": "Templated + machine-translated (513M rows). Approved in principle as MACHINE_TRANSLATED data (counts as synthetic); not ingested in this build (size) — enable per language subset."
+   },
+   "approx-seed-v0.1": {
+    "status": "ingested",
+    "raw": 45,
+    "accepted_record_gates": 43,
+    "rejected": {
+     "nonsensical": 2
+    },
+    "seconds": 0.1
+   },
+   "approx-curriculum": {
+    "status": "ingested",
+    "raw": 4697,
+    "accepted_record_gates": 4024,
+    "rejected": {
+     "quality": 98,
+     "nonsensical": 351,
+     "language_mismatch": 144,
+     "repetition": 80
+    },
+    "seconds": 1.7
+   },
+   "consented-history": {
+    "status": "missing",
+    "ingested": 0,
+    "error": "consented-history: file not found: data/consented/latest.jsonl"
+   }
+  },
+  "missing": [
+   {
+    "source": "consented-history",
+    "error": "consented-history: file not found: data/consented/latest.jsonl"
+   }
+  ]
+ }
+}

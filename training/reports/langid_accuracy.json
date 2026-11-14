@@ -1,0 +1,212 @@
+{
+ "evaluated_on": "Belebele flores passages (human language labels), 17 languages",
+ "overall_accuracy": 0.9926,
+ "per_language": {
+  "ar": {
+   "n": 900,
+   "accuracy": 1.0,
+   "confusions": [
+    [
+     "ar",
+     900
+    ]
+   ]
+  },
+  "bn": {
+   "n": 900,
+   "accuracy": 1.0,
+   "confusions": [
+    [
+     "bn",
+     900
+    ]
+   ]
+  },
+  "de": {
+   "n": 900,
+   "accuracy": 0.9956,
+   "confusions": [
+    [
+     "de",
+     896
+    ],
+    [
+     "en",
+     4
+    ]
+   ]
+  },
+  "en": {
+   "n": 900,
+   "accuracy": 0.9956,
+   "confusions": [
+    [
+     "en",
+     896
+    ],
+    [
+     "pt",
+     2
+    ],
+    [
+     "und",
+     2
+    ]
+   ]
+  },
+  "es": {
+   "n": 900,
+   "accuracy": 1.0,
+   "confusions": [
+    [
+     "es",
+     900
+    ]
+   ]
+  },
+  "fa": {
+   "n": 900,
+   "accuracy": 1.0,
+   "confusions": [
+    [
+     "fa",
+     900
+    ]
+   ]
+  },
+  "fr": {
+   "n": 900,
+   "accuracy": 1.0,
+   "confusions": [
+    [
+     "fr",
+     900
+    ]
+   ]
+  },
+  "hi": {
+   "n": 900,
+   "accuracy": 0.9933,
+   "confusions": [
+    [
+     "hi",
+     894
+    ],
+    [
+     "und",
+     6
+    ]
+   ]
+  },
+  "id": {
+   "n": 900,
+   "accuracy": 0.9956,
+   "confusions": [
+    [
+     "id",
+     896
+    ],
+    [
+     "und",
+     4
+    ]
+   ]
+  },
+  "ja": {
+   "n": 900,
+   "accuracy": 0.9978,
+   "confusions": [
+    [
+     "ja",
+     898
+    ],
+    [
+     "und",
+     2
+    ]
+   ]
+  },
+  "ko": {
+   "n": 900,
+   "accuracy": 1.0,
+   "confusions": [
+    [
+     "ko",
+     900
+    ]
+   ]
+  },
+  "pt": {
+   "n": 900,
+   "accuracy": 1.0,
+   "confusions": [
+    [
+     "pt",
+     900
+    ]
+   ]
+  },
+  "roman_ur": {
+   "n": 900,
+   "accuracy": 0.9356,
+   "confusions": [
+    [
+     "roman_ur",
+     842
+    ],
+    [
+     "und",
+     58
+    ]
+   ]
+  },
+  "ru": {
+   "n": 900,
+   "accuracy": 1.0,
+   "confusions": [
+    [
+     "ru",
+     900
+    ]
+   ]
+  },
+  "tr": {
+   "n": 900,
+   "accuracy": 0.9611,
+   "confusions": [
+    [
+     "tr",
+     865
+    ],
+    [
+     "und",
+     26
+    ],
+    [
+     "id",
+     2
+    ]
+   ]
+  },
+  "ur": {
+   "n": 900,
+   "accuracy": 1.0,
+   "confusions": [
+    [
+     "ur",
+     900
+    ]
+   ]
+  },
+  "zh": {
+   "n": 900,
+   "accuracy": 1.0,
+   "confusions": [
+    [
+     "zh",
+     900
+    ]
+   ]
+  }
+ }
+}

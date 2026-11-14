@@ -1,0 +1,25 @@
+{
+ "source": "oasst1",
+ "hub_repo": "OpenAssistant/oasst1",
+ "declared_revision": "fdf72ae0827c",
+ "files": [
+  {
+   "file": "oasst1/default/train/train-0000.parquet",
+   "url": "https://huggingface.co/api/datasets/OpenAssistant/oasst1/parquet/default/train/0.parquet",
+   "sha256": "bbfadf5ed1278ba2208c837fdcad865adf65f5df55d80abadab2745db13fcb5e",
+   "bytes": 39516251,
+   "fetched_at": "2026-11-14T18:02:36Z",
+   "config": "default",
+   "split": "train"
+  },
+  {
+   "file": "oasst1/default/validation/validation-0000.parquet",
+   "url": "https://huggingface.co/api/datasets/OpenAssistant/oasst1/parquet/default/validation/0.parquet",
+   "sha256": "24002597bb13a7edd42d92f773762f25e285f72c31a70449393d0ded1dc7b416",
+   "bytes": 2080179,
+   "fetched_at": "2026-11-14T18:02:37Z",
+   "config": "default",
+   "split": "validation"
+  }
+ ]
+}

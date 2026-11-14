@@ -1,0 +1,52 @@
+{
+ "tier": "hike",
+ "min_records": 50000,
+ "max_records": 50000,
+ "min_quality": 0.5,
+ "base_model": "Qwen/Qwen2.5-7B-Instruct",
+ "base_model_revision": null,
+ "capability": "Stronger multi-step reasoning, complex coding, advanced science and professional development tasks.",
+ "domain_min_share": {
+  "mathematics": 0.1,
+  "science": 0.08,
+  "coding": 0.12,
+  "reasoning": 0.03,
+  "software_engineering": 0.02,
+  "writing": 0.05,
+  "general_knowledge": 0.08,
+  "education": 0.02,
+  "safety_ethics": 0.002
+ },
+ "domain_max_share": {
+  "mathematics": 0.25,
+  "general_knowledge": 0.45
+ },
+ "language_min": {
+  "en": 8400,
+  "ur": 2100,
+  "roman_ur": 560,
+  "ar": 1120,
+  "zh": 560,
+  "es": 1120,
+  "fr": 840,
+  "de": 560,
+  "pt": 700,
+  "ru": 700,
+  "ja": 560,
+  "ko": 420,
+  "hi": 700,
+  "bn": 420,
+  "tr": 420,
+  "id": 560,
+  "fa": 420
+ },
+ "min_human_reviewed": 800,
+ "model_id": "hike-6.5",
+ "schema": "approx.dataset-profile/v1",
+ "synthetic_max": 0.6,
+ "split_ratios": {
+  "eval": 0.03,
+  "test": 0.03
+ },
+ "note": "Base model / revision are copied from the existing model configuration and are never changed by the dataset pipeline."
+}

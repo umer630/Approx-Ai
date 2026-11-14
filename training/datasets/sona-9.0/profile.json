@@ -1,0 +1,52 @@
+{
+ "tier": "sona",
+ "min_records": 70000,
+ "max_records": 70000,
+ "min_quality": 0.55,
+ "base_model": "Qwen/Qwen2.5-14B-Instruct",
+ "base_model_revision": null,
+ "capability": "Advanced research, difficult reasoning, complex software architecture and deeper scientific problem solving.",
+ "domain_min_share": {
+  "mathematics": 0.1,
+  "science": 0.1,
+  "coding": 0.12,
+  "reasoning": 0.04,
+  "software_engineering": 0.03,
+  "research": 0.04,
+  "writing": 0.04,
+  "general_knowledge": 0.06,
+  "safety_ethics": 0.002
+ },
+ "domain_max_share": {
+  "mathematics": 0.22,
+  "general_knowledge": 0.4
+ },
+ "language_min": {
+  "en": 10800,
+  "ur": 2700,
+  "roman_ur": 720,
+  "ar": 1440,
+  "zh": 720,
+  "es": 1440,
+  "fr": 1080,
+  "de": 720,
+  "pt": 900,
+  "ru": 900,
+  "ja": 720,
+  "ko": 540,
+  "hi": 900,
+  "bn": 540,
+  "tr": 540,
+  "id": 720,
+  "fa": 540
+ },
+ "min_human_reviewed": 1200,
+ "model_id": "sona-9.0",
+ "schema": "approx.dataset-profile/v1",
+ "synthetic_max": 0.6,
+ "split_ratios": {
+  "eval": 0.03,
+  "test": 0.03
+ },
+ "note": "Base model / revision are copied from the existing model configuration and are never changed by the dataset pipeline."
+}

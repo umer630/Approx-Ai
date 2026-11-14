@@ -1,0 +1,19 @@
+{
+ "suite": "mathematics",
+ "purpose": "multi-step arithmetic word problems (exact final answer)",
+ "sources": {
+  "eval-gsm8k-test": {
+   "license": "mit",
+   "revision": "740312add88f",
+   "attribution": "GSM8K, MIT"
+  }
+ },
+ "items": 1319,
+ "by_language": {
+  "en": 1319
+ },
+ "cross_language_groups": 0,
+ "fingerprint_sha256": "19324bb7f207b3021ef008f089c6b2486baab32baa986fd3a5419dc66f0c01a0",
+ "file_sha256": "e73c087d9516dc19b66481d23fb76a116802a21bb34645b22f0d4e6a587b26d0",
+ "never_trained_on": true
+}

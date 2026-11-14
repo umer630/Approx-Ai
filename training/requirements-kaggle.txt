@@ -9,3 +9,4 @@ huggingface_hub==0.26.5
 # bitsandbytes must match the image's CUDA; >=0.45.5 covers CUDA 11.8–12.8+. The notebook's preflight stage runs a
 # real 4-bit NF4 kernel on the GPU and stops before any model download if it fails. Installed version is recorded.
 bitsandbytes>=0.45.5
+pyarrow>=15.0  # datahub: reads Hugging Face parquet sources

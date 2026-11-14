@@ -121,7 +121,8 @@ def _repetitive(text: str) -> bool:
 
 def _nonsensical(text: str, domain: str) -> bool:
     t = re.sub(r"```.*?```", " ", text, flags=re.S)
-    letters = len(re.findall(r"[A-Za-z؀-ۿ]", t))
+    # Letters of ANY script (Unicode categories L*): Latin-only counting would reject Chinese, Hindi, Russian, Korean…
+    letters = sum(1 for ch in t if unicodedata.category(ch).startswith("L"))
     visible = len(re.sub(r"\s", "", t))
     if visible >= 20 and domain not in ("mathematics", "coding", "structured_output", "physics", "chemistry", "science", "media_planning") and letters / visible < 0.35:
         return True
