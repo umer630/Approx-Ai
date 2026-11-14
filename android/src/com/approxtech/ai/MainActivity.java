@@ -118,6 +118,7 @@ public class MainActivity extends Activity {
         if (server.length() == 0) { showWelcome(); return; }
         api = new Api(server, store.getToken());
         if (api.getToken() == null) showLogin(); else loadSession();
+        handleAuthIntent(getIntent());   // returning from Google sign-in in the browser
     }
 
     /** The backend URL baked at build time (empty in an unconfigured build). */
@@ -263,6 +264,84 @@ public class MainActivity extends Activity {
         return s;
     }
 
+    /** Password input + a Show/Hide toggle under it. */
+    EditText addPassword(LinearLayout col, String hint, int topDp) {
+        final EditText pw = input(hint, InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        add(col, pw, topDp);
+        final TextView toggle = text("Show password", 13, GREEN_TEXT, true);
+        toggle.setPadding(dp(4), dp(8), dp(4), dp(2));
+        toggle.setClickable(true);
+        toggle.setOnClickListener(new View.OnClickListener() { public void onClick(View v) {
+            boolean hidden = (pw.getInputType() & InputType.TYPE_TEXT_VARIATION_PASSWORD) == InputType.TYPE_TEXT_VARIATION_PASSWORD;
+            int sel = pw.getSelectionEnd();
+            pw.setInputType(InputType.TYPE_CLASS_TEXT | (hidden ? InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD : InputType.TYPE_TEXT_VARIATION_PASSWORD));
+            pw.setTypeface(Typeface.DEFAULT);
+            if (sel >= 0) pw.setSelection(Math.min(sel, pw.length()));
+            toggle.setText(hidden ? "Hide password" : "Show password");
+        } });
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-2, -2);
+        col.addView(toggle, lp);
+        return pw;
+    }
+
+    // ---------- accounts used on this device (email + name only; never tokens or passwords) ----------
+    JSONArray recentAccounts() { try { return new JSONArray(store.get("recent_accounts", "[]")); } catch (Exception e) { return new JSONArray(); } }
+    void rememberAccount(JSONObject u) {
+        if (u == null) return;
+        try {
+            JSONArray out = new JSONArray(); out.put(new JSONObject().put("email", u.optString("email")).put("name", u.optString("display_name")));
+            JSONArray old = recentAccounts();
+            for (int i = 0; i < old.length() && out.length() < 4; i++) if (!old.getJSONObject(i).optString("email").equals(u.optString("email"))) out.put(old.getJSONObject(i));
+            store.put("recent_accounts", out.toString());
+        } catch (Exception ignored) { }
+    }
+    void forgetAccount(String email) {
+        try { JSONArray old = recentAccounts(), out = new JSONArray(); for (int i = 0; i < old.length(); i++) if (!old.getJSONObject(i).optString("email").equals(email)) out.put(old.getJSONObject(i)); store.put("recent_accounts", out.toString()); } catch (Exception ignored) { }
+    }
+
+    // ---------- Continue with Google (Google's own account chooser in the browser → one-time code back to the app) ----------
+    TextView orDivider() { TextView t = text("or", 13, MUTED, false); t.setGravity(Gravity.CENTER_HORIZONTAL); return t; }
+
+    View googleButton() {
+        final TextView g = button("G   Continue with Google", false, new Runnable() { public void run() { startGoogleSignIn(); } });
+        g.setTextColor(TEXT);
+        return g;
+    }
+    void startGoogleSignIn() {
+        bg(new Job() { public Object run() throws Exception { return api.get("/api/auth/config"); } }, new Done() { public void ok(Object r) {
+            JSONObject gc = ((JSONObject) r).optJSONObject("google");
+            if (gc == null || !gc.optBoolean("enabled")) { toast("Google sign-in isn't set up on this server yet. Use email and password."); return; }
+            java.security.SecureRandom rnd = new java.security.SecureRandom();
+            byte[] v = new byte[32]; rnd.nextBytes(v); byte[] st = new byte[16]; rnd.nextBytes(st);
+            int f = android.util.Base64.URL_SAFE | android.util.Base64.NO_PADDING | android.util.Base64.NO_WRAP;
+            String verifier = android.util.Base64.encodeToString(v, f), state = android.util.Base64.encodeToString(st, f);
+            String challenge;
+            try { challenge = android.util.Base64.encodeToString(java.security.MessageDigest.getInstance("SHA-256").digest(verifier.getBytes("US-ASCII")), f); }
+            catch (Exception e) { toast("Google sign-in is unavailable on this device."); return; }
+            store.put("g_verifier", verifier); store.put("g_state", state);
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(api.getBase() + "/#/google-mobile?challenge=" + challenge + "&state=" + state)));
+        } });
+    }
+    /** approxai://auth?code=…&state=… from the browser after Google sign-in. */
+    void handleAuthIntent(Intent intent) {
+        Uri d = intent == null ? null : intent.getData();
+        if (d == null || !"approxai".equals(d.getScheme()) || !"auth".equals(d.getHost())) return;
+        String code = d.getQueryParameter("code"), state = d.getQueryParameter("state");
+        final String verifier = store.get("g_verifier", "");
+        boolean ok = code != null && state != null && state.equals(store.get("g_state", "")) && verifier.length() > 0;
+        store.put("g_verifier", ""); store.put("g_state", "");
+        intent.setData(null);
+        if (!ok) { toast("That sign-in link isn't valid. Please try again."); return; }
+        final JSONObject body = obj("code", code, "verifier", verifier);
+        bg(new Job() { public Object run() throws Exception { return api.post("/api/auth/handoff", body); } }, new Done() { public void ok(Object r) {
+            String tok = ((JSONObject) r).optString("token");
+            store.setToken(tok); api.setToken(tok); loadSession();
+        } });
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) { super.onNewIntent(intent); setIntent(intent); if (api != null) handleAuthIntent(intent); }
+
     LinearLayout vbox() { LinearLayout l = new LinearLayout(this); l.setOrientation(LinearLayout.VERTICAL); return l; }
     LinearLayout hbox() { LinearLayout l = new LinearLayout(this); l.setOrientation(LinearLayout.HORIZONTAL); l.setGravity(Gravity.CENTER_VERTICAL); return l; }
 
@@ -324,10 +403,31 @@ public class MainActivity extends Activity {
     void showLogin() {
         LinearLayout col = formPage("Welcome back", "Sign in to Approx AI");
         final EditText email = input("Email", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-        final EditText pw = input("Password", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-        add(col, email, 24);
-        add(col, pw, 10);
+        // "Choose an account": accounts used on this phone before (tap to continue, long-press to remove).
+        final JSONArray recent = recentAccounts();
+        final EditText[] pwRef = new EditText[1];
+        if (recent.length() > 0) {
+            add(col, text("Choose an account", 13, MUTED, false), 20);
+            for (int i = 0; i < recent.length(); i++) {
+                final JSONObject a = recent.optJSONObject(i); if (a == null) continue;
+                final String em = a.optString("email"); final String nm = a.optString("name");
+                final TextView row = text((nm.length() > 0 ? nm + "\n" : "") + em, 14, TEXT, false);
+                row.setPadding(dp(14), dp(12), dp(14), dp(12));
+                row.setBackground(pressable(bgShape(SURFACE, 14, LINE), bgShape(SURFACE3, 14, LINE)));
+                row.setClickable(true);
+                row.setContentDescription("Continue as " + em);
+                row.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { email.setText(em); if (pwRef[0] != null) pwRef[0].requestFocus(); } });
+                row.setOnLongClickListener(new View.OnLongClickListener() { public boolean onLongClick(View v) { forgetAccount(em); ((ViewGroup) v.getParent()).removeView(v); toast("Removed from this phone"); return true; } });
+                add(col, row, 6);
+            }
+        }
+        add(col, googleButton(), 18);
+        add(col, orDivider(), 10);
+        add(col, email, 10);
+        final EditText pw = addPassword(col, "Password", 10);
+        pwRef[0] = pw;
         add(col, button("Sign in", true, new Runnable() { public void run() {
+            if (email.getText().toString().trim().length() == 0 || pw.getText().length() == 0) { toast("Enter your email and password."); return; }
             final JSONObject body = obj("email", email.getText().toString().trim(), "password", pw.getText().toString(), "client", "mobile");
             bg(new Job() { public Object run() throws Exception { return api.post("/api/auth/login", body); } }, new Done() { public void ok(Object r) {
                 JSONObject o = (JSONObject) r;
@@ -349,9 +449,16 @@ public class MainActivity extends Activity {
         LinearLayout col = formPage("Create your account", "Approx AI by Approx Technology");
         final EditText name = input("Name (optional)", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         final EditText email = input("Email", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-        final EditText pw = input("Password (10+ chars, letters & numbers)", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-        add(col, name, 24); add(col, email, 10); add(col, pw, 10);
+        add(col, googleButton(), 20);
+        add(col, orDivider(), 10);
+        add(col, name, 10); add(col, email, 10);
+        final EditText pw = addPassword(col, "Password (10+ chars, letters & numbers)", 10);
+        final EditText pw2 = addPassword(col, "Confirm password", 8);
         add(col, button("Create account", true, new Runnable() { public void run() {
+            String p1 = pw.getText().toString();
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email.getText().toString().trim()).matches()) { toast("Enter a valid email address."); return; }
+            if (p1.length() < 10 || !p1.matches(".*[A-Za-z].*") || !p1.matches(".*\\d.*")) { toast("Use at least 10 characters with letters and numbers."); return; }
+            if (!p1.equals(pw2.getText().toString())) { toast("The passwords don't match."); return; }
             final JSONObject body = obj("email", email.getText().toString().trim(), "password", pw.getText().toString(), "display_name", name.getText().toString().trim());
             bg(new Job() { public Object run() throws Exception { return api.post("/api/auth/signup", body); } }, new Done() { public void ok(Object r) {
                 toast("Check your email for a verification code.");
@@ -408,6 +515,7 @@ public class MainActivity extends Activity {
         } }, new Done() { public void ok(Object r) {
             JSONObject[] a = (JSONObject[]) r;
             user = a[0].optJSONObject("user");
+            rememberAccount(user);
             models = a[1].optJSONArray("models");
             mode = a[2].optJSONObject("settings").optString("default_mode", "medium");
             showChat(null);
@@ -631,12 +739,42 @@ public class MainActivity extends Activity {
             regen.setPadding(0, dp(4), dp(14), dp(4));
             regen.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { regenerate(); } });
             meta.addView(regen);
+            final String mid = m.optString("id", "");
+            if (mid.length() > 0 && chatId != null) {
+                JSONObject fb = m.optJSONObject("feedback");
+                final String rating = fb == null ? "" : fb.optString("rating", "");
+                final TextView up = text("👍", 13, "up".equals(rating) ? GREEN_TEXT : MUTED, false);
+                final TextView down = text("👎", 13, "down".equals(rating) ? GREEN_TEXT : MUTED, false);
+                final TextView rep = text("Report", 12, fb != null && fb.optBoolean("reported") ? DANGER : MUTED, false);
+                up.setContentDescription("Good response"); down.setContentDescription("Bad response"); rep.setContentDescription("Report response");
+                for (TextView x : new TextView[]{up, down, rep}) { x.setPadding(0, dp(4), dp(14), dp(4)); x.setClickable(true); }
+                up.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { sendFeedback(mid, obj("rating", "up"), up, down, rep); } });
+                down.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { sendFeedback(mid, obj("rating", "down"), up, down, rep); } });
+                rep.setOnClickListener(new View.OnClickListener() { public void onClick(View v) {
+                    final String[] keys = {"incorrect", "harmful", "unhelpful", "other"};
+                    new AlertDialog.Builder(MainActivity.this, android.R.style.Theme_Material_Light_Dialog_Alert).setTitle("Report this response")
+                        .setItems(new String[]{"Incorrect or misleading", "Harmful or unsafe", "Not helpful", "Something else"}, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface d, int w) { JSONObject b = obj("report", true, "reason", keys[w]); try { b.put("rating", "down"); } catch (Exception ignored) { } sendFeedback(mid, b, up, down, rep); toast("Report sent. Thank you."); }
+                        }).show();
+                } });
+                meta.addView(up); meta.addView(down); meta.addView(rep);
+            }
             if (m.has("model_id") && !m.isNull("model_id")) meta.addView(text(modelName(m.optString("model_id")) + " · " + cap(m.optString("mode", "medium")), 12, MUTED, false));
         }
         long t = m.optLong("created_at", 0);
         if (t > 0) { TextView ts = text("  " + DateUtils.getRelativeTimeSpanString(t), 12, MUTED, false); meta.addView(ts); }
         wrap.addView(meta);
         add(messageList, wrap, 14);
+    }
+
+    void sendFeedback(String mid, JSONObject body, final TextView up, final TextView down, final TextView rep) {
+        final String cid = chatId; final JSONObject b = body;
+        bg(new Job() { public Object run() throws Exception { return api.post("/api/chats/" + cid + "/messages/" + mid + "/feedback", b); } }, new Done() { public void ok(Object r) {
+            JSONObject f = ((JSONObject) r).optJSONObject("feedback");
+            String rt = f == null ? "" : f.optString("rating", "");
+            up.setTextColor("up".equals(rt) ? GREEN_TEXT : MUTED); down.setTextColor("down".equals(rt) ? GREEN_TEXT : MUTED);
+            rep.setTextColor(f != null && f.optBoolean("reported") ? DANGER : MUTED);
+        } });
     }
 
     void scrollDown() { messageScroll.post(new Runnable() { public void run() { messageScroll.fullScroll(View.FOCUS_DOWN); } }); }
@@ -914,9 +1052,46 @@ public class MainActivity extends Activity {
                 } }).show();
     }
 
+    /** Share the conversation as Markdown through Android's share sheet (save to Files/Drive, email, messaging…). */
+    void shareConversation(final String cid) {
+        bg(new Job() { public Object run() throws Exception { return api.get("/api/chats/" + cid + "/export?format=json"); } }, new Done() { public void ok(Object r) {
+            JSONObject o = (JSONObject) r;
+            StringBuilder md = new StringBuilder("# ").append(o.optString("title", "Conversation")).append("\n\n");
+            JSONArray ms = o.optJSONArray("messages");
+            for (int i = 0; ms != null && i < ms.length(); i++) {
+                JSONObject m = ms.optJSONObject(i);
+                md.append("## ").append("user".equals(m.optString("role")) ? "You" : "Approx AI").append("\n\n").append(m.optString("content")).append("\n\n");
+            }
+            Intent send = new Intent(Intent.ACTION_SEND);
+            send.setType("text/markdown");
+            send.putExtra(Intent.EXTRA_SUBJECT, o.optString("title", "Approx AI conversation") + ".md");
+            send.putExtra(Intent.EXTRA_TEXT, md.toString());
+            startActivity(Intent.createChooser(send, "Share or export conversation"));
+        } });
+    }
+
     void threeDotMenu() {
         final List<String> labels = new ArrayList<>();
         final List<Runnable> actions = new ArrayList<>();
+        if (chatId != null) {
+            final String cid = chatId;
+            labels.add("Rename conversation"); actions.add(new Runnable() { public void run() {
+                final EditText e = input("Title", InputType.TYPE_CLASS_TEXT);
+                new AlertDialog.Builder(MainActivity.this, android.R.style.Theme_Material_Light_Dialog_Alert).setTitle("Rename conversation").setView(e)
+                    .setPositiveButton("Save", new DialogInterface.OnClickListener() { public void onClick(DialogInterface d, int w) {
+                        call("PATCH", "/api/chats/" + cid, obj("title", e.getText().toString().trim()), new Runnable() { public void run() { toast("Renamed"); } });
+                    } }).setNegativeButton("Cancel", null).show();
+            } });
+            labels.add("Share or export conversation"); actions.add(new Runnable() { public void run() { shareConversation(cid); } });
+            labels.add("Archive conversation"); actions.add(new Runnable() { public void run() {
+                call("PATCH", "/api/chats/" + cid, obj("archived", true), new Runnable() { public void run() { toast("Archived"); chatId = null; showChat(null); } });
+            } });
+            labels.add("Delete conversation"); actions.add(new Runnable() { public void run() {
+                confirm("Delete conversation?", "It moves to Trash in Chat history, where you can restore it.", new Runnable() { public void run() {
+                    call("DELETE", "/api/chats/" + cid, null, new Runnable() { public void run() { toast("Moved to trash"); chatId = null; showChat(null); } });
+                } });
+            } });
+        }
         labels.add("New chat"); actions.add(new Runnable() { public void run() { chatId = null; projectId = null; attachments.clear(); showChat(null); } });
         labels.add("Chat history"); actions.add(new Runnable() { public void run() { showHistory(); } });
         labels.add("Search conversations"); actions.add(new Runnable() { public void run() { showHistory(); } });

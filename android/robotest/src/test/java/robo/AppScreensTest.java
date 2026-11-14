@@ -99,6 +99,16 @@ public class AppScreensTest {
         shadowOf(Looper.getMainLooper()).idleFor(300, TimeUnit.MILLISECONDS);
         assertEquals("released → back to normal", 1f, signIn.getScaleX(), 0.001f);
 
+        // Google + password toggle on sign-in.
+        assertNotNull("Continue with Google", textView(root, "G   Continue with Google"));
+        EditText pw = null;
+        for (View v : all(root)) if (v instanceof EditText && "Password".contentEquals(((EditText) v).getHint())) pw = (EditText) v;
+        assertNotNull(pw);
+        assertTrue("hidden by default", (pw.getInputType() & android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD) == android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        textView(root, "Show password").performClick();
+        assertEquals("Show → visible", android.text.InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD, pw.getInputType() & android.text.InputType.TYPE_MASK_VARIATION);
+        assertNotNull(textView(root, "Hide password"));
+
         // Create account screen.
         textView(root, "Create account").performClick();
         idle();
@@ -106,6 +116,9 @@ public class AppScreensTest {
         assertNotNull(textView(root, "Create your account"));
         assertTrue(hints(root).contains("Email"));
         for (String x : hints(root)) assertFalse("no server field on sign-up", x.toLowerCase().contains("server"));
+        assertTrue("confirm password field", hints(root).contains("Confirm password"));
+        assertNotNull("Google on sign-up", textView(root, "G   Continue with Google"));
+        assertNotNull(textView(root, "Already have an account? Sign in"));
         shot(root, "android-02-signup.png");
     }
 
@@ -131,5 +144,30 @@ public class AppScreensTest {
         assertTrue("composer input present: " + hints(root), prompt);
         for (String m : new String[]{"Low", "Medium", "High"}) assertNotNull("mode " + m, textView(root, m));
         shot(root, "android-03-chat.png");
+    }
+
+    @Test
+    public void recentAccountChooser_and_forgedGoogleReturnRejected() throws Exception {
+        ActivityController<MainActivity> c = Robolectric.buildActivity(MainActivity.class).setup();
+        MainActivity a = c.get();
+        idle();
+        java.lang.reflect.Method remember = MainActivity.class.getDeclaredMethod("rememberAccount", JSONObject.class);
+        remember.setAccessible(true);
+        remember.invoke(a, new JSONObject().put("email", "umer@example.com").put("display_name", "Umer"));
+        java.lang.reflect.Method login = MainActivity.class.getDeclaredMethod("showLogin");
+        login.setAccessible(true); login.invoke(a); idle();
+        View root = a.findViewById(android.R.id.content);
+        assertNotNull("chooser title", textView(root, "Choose an account"));
+        TextView row = textView(root, "Umer\numer@example.com");
+        assertNotNull("recent account row (no token/password shown)", row);
+        row.performClick();
+        EditText email = null; for (View v : all(root)) if (v instanceof EditText && "Email".contentEquals(((EditText) v).getHint())) email = (EditText) v;
+        assertEquals("tap fills the email", "umer@example.com", email.getText().toString());
+        // Forged return link: state does not match anything this app started → rejected, no session.
+        a.onNewIntent(new android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse("approxai://auth?code=stolen&state=forged")));
+        idle();
+        assertNull("no session from a forged link", ((Api) get(a, "api")).getToken());
+        assertEquals("That sign-in link isn't valid. Please try again.", org.robolectric.shadows.ShadowToast.getTextOfLatestToast());
+        shot(root, "android-00-login-chooser.png");
     }
 }
