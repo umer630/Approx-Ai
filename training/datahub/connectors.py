@@ -407,7 +407,7 @@ def map_roman_urdu_parl(rows, rate: float = 1.0, min_words: int = 6):
 
 WIKI_PROMPT = {"ur": "{t} کے بارے میں ایک مختصر تعارف لکھیں۔", "hi": "{t} के बारे में एक संक्षिप्त परिचय लिखिए।",
                "ko": "{t}에 대해 간단히 소개해 주세요.", "id": "Jelaskan secara singkat tentang {t}.",
-               "bn": "{t} সম্পর্কে একটি সংক্ষিপ্ত পরিচিতি লিখুন।", "fa": "دربارهٔ {t} یک معرفی کوتاه بنویسید."}
+               "fr": "Présente brièvement : {t}.", "bn": "{t} সম্পর্কে একটি সংক্ষিপ্ত পরিচিতি লিখুন।", "fa": "دربارهٔ {t} یک معرفی کوتاه بنویسید."}
 
 
 def map_wikipedia_intro(rows, lang: str, rate: float = 1.0, max_records: int = 0, min_chars: int = 350, max_chars: int = 1400):

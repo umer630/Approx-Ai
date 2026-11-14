@@ -35,7 +35,7 @@ SYNTHETIC_ORIGINS = {"synthetic", "programmatic", "machine_translated", "templat
 SOURCE_QUALITY = {"oasst1": 0.9, "gsm8k": 0.9, "mbpp": 0.9, "dolly-15k": 0.8, "aya-dataset": 0.7, "scienceqa-text": 0.7, "self-oss-instruct": 0.7,
                   "arc": 0.55, "approx-curriculum": 0.6, "approx-seed-v0.1": 0.6, "consented-history": 0.6,
                   "oasst2": 0.9, "tydiqa-goldp": 0.75, "qasc": 0.7, "roman-urdu-parl": 0.5, "nemotron-math": 0.7, "nemotron-stem": 0.65,
-                  "opencodeinstruct": 0.7, "trendyol-cybersec": 0.6, "wikipedia-ur": 0.6, "wikipedia-hi": 0.6, "wikipedia-ko": 0.6, "wikipedia-id": 0.6}
+                  "opencodeinstruct": 0.7, "trendyol-cybersec": 0.6, "wikipedia-ur": 0.6, "wikipedia-hi": 0.6, "wikipedia-ko": 0.6, "wikipedia-id": 0.6, "wikipedia-fr": 0.6}
 INJECTION_CONTAM = re.compile(r"(ignore (all |the )?(previous|above) (instructions|prompts)|you are now (dan|in developer mode)|<\|im_start\|>|\[INST\]|system prompt:)", re.I)
 
 
