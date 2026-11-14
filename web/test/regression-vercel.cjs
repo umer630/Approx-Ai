@@ -49,7 +49,7 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
 
     const ctx = await b.newContext({ viewport: { width: 1280, height: 860 }, deviceScaleFactor: 2 });
     const p = await ctx.newPage();
-    const errs = []; p.on('console', (m) => { if (m.type() === 'error' && !/40[13]/.test(m.text())) errs.push(m.text()); });
+    const errs = []; p.on('console', (m) => { if (m.type() === 'error' && !/40[13]/.test(m.text()) && !m.text().includes('ERR_INTERNET_DISCONNECTED')) errs.push(m.text()); });
     await ctx.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: BASE });
 
     // Auth: signup → verification code (mailed) → verify page → sign in.
@@ -63,10 +63,31 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     await p.locator('button[type=submit]').click(); await p.waitForTimeout(800);
     ok('verify page confirms email', (await p.locator('body').innerText()).includes('Email verified'));
     await p.goto(BASE + '/#/login', { waitUntil: 'networkidle' });
+    // Auth UX: green + white page, logo mark (transparent, no dark tile), friendly offline error, loading state.
+    ok('auth page background is white', await p.evaluate(() => getComputedStyle(document.body).backgroundColor) === 'rgb(255, 255, 255)');
+    ok('auth logo uses the transparent mark', (await p.locator('.auth-card .logo img').getAttribute('src')).includes('logo-mark'));
+    ok('primary button is Approx green', await p.locator('.btn.primary').evaluate((b) => getComputedStyle(b).backgroundColor) === 'rgb(14, 159, 85)');
+    ok('buttons animate transform (press feedback)', (await p.locator('.btn.primary').evaluate((b) => getComputedStyle(b).transitionProperty)).includes('transform'));
+    ok('press-down :active scale rule present', await p.evaluate(() => [...document.styleSheets].some((ss) => { try { return [...ss.cssRules].some((r) => /:active/.test(r.selectorText || '') && /scale\(/.test(r.cssText)); } catch { return false; } })));
+    await p.route('**/api/auth/login', (r) => r.abort('internetdisconnected'));
     await p.locator('input[type=email]').fill('owner@example.com');
     await p.locator('input[type=password]').first().fill('Str0ng!Passw0rd1');
-    await p.getByRole('button', { name: 'Sign in' }).first().click(); await p.waitForTimeout(1500);
+    await p.getByRole('button', { name: 'Sign in' }).first().click(); await p.waitForTimeout(600);
+    ok('offline login shows a friendly error (no raw "Failed to fetch")', (await p.locator('[role=alert]').innerText()).includes("Can't reach Approx AI"));
+    ok('button returns to normal after the error (no endless spinner)', await p.locator('button[type=submit]').evaluate((b) => !b.disabled && !b.classList.contains('loading') && b.textContent === 'Sign in'));
+    await p.unroute('**/api/auth/login');
+    let release; const hold = new Promise((r) => { release = r; });
+    await p.route('**/api/auth/login', async (r) => { await hold; await r.continue(); });
+    const clickP = p.locator('button[type=submit]').click();
+    await p.waitForTimeout(250);
+    ok('loading state while signing in (spinner + label + disabled)', await p.locator('button[type=submit]').evaluate((b) => b.disabled && b.classList.contains('loading') && b.textContent === 'Signing in…'));
+    release(); await clickP; await p.unroute('**/api/auth/login');
+    // The held request was a real sign-in: it completes and lands in the app.
+    await p.waitForSelector('#prompt', { timeout: 10000 }).catch(() => {});
     ok('login lands in app', await p.locator('#prompt').count() === 1);
+    ok('greeting is warm and personal', /^(Hi Owner — ready when you are\.|Good (morning|afternoon|evening), Owner\.|Welcome back, Owner\.|Still at it, Owner\?|Morning, Owner\. Good to see you\.|Good to see you, Owner\.)$/.test((await p.locator('.welcome h1').innerText()).trim()), await p.locator('.welcome h1').innerText());
+    ok('header logo uses the transparent mark', (await p.locator('.brand img').getAttribute('src')).includes('logo-mark'));
+    ok('app background is white (not black)', await p.evaluate(() => getComputedStyle(document.body).backgroundColor) === 'rgb(255, 255, 255)');
     await p.screenshot({ path: path.join(S, 'v-01-home.png') });
 
     // Composer controls.
@@ -88,6 +109,7 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     await p.locator('[aria-label="Select model"]').click(); await p.waitForTimeout(400);
     await p.locator('.sheet .option', { hasText: 'Nick 4.8' }).click(); await p.waitForTimeout(300);
     ok('model indicator shows Nick 4.8', (await p.locator('#model-indicator').innerText()).includes('Nick 4.8'));
+    ok('composer mode toggle matches the mode chosen in the model sheet (High)', await p.locator('.composer .mode-toggle button[data-mode="high"][aria-pressed="true"]').count() === 1);
 
     // Plus menu.
     await p.locator('[aria-label="Add attachments and tools"]').click(); await p.waitForTimeout(400);

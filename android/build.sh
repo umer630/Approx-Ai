@@ -17,14 +17,19 @@ cd "$(dirname "$0")"
 VERSION_NAME=$(grep -o 'versionName="[^"]*"' AndroidManifest.xml | cut -d'"' -f2)
 ANDROID_JAR=${ANDROID_JAR:-/usr/lib/android-sdk/platforms/android-23/android.jar}
 OUT=build
-SERVER_URL=${APPROX_SERVER_URL:-}
+# Production backend (API base = the origin, never a web route such as /#/login). Override with APPROX_SERVER_URL.
+SERVER_URL=${APPROX_SERVER_URL:-https://approx-ai.vercel.app}
 # Variant: a release APK is produced ONLY when a real KEYSTORE is supplied (never auto-invented).
 # Otherwise a debug-signed APK is produced with the standard Android debug key — clearly labelled "debug".
 if [ -n "${KEYSTORE:-}" ]; then VARIANT=release; else VARIANT=debug; fi
 APK_NAME="ApproxAI-Online-${VARIANT}.apk"
 
 [ -f "$ANDROID_JAR" ] || { echo "android.jar not found: $ANDROID_JAR"; exit 1; }
-if [ -n "$SERVER_URL" ] && [[ "$SERVER_URL" != https://* ]]; then echo "APPROX_SERVER_URL must be https://"; exit 1; fi
+SERVER_URL="${SERVER_URL%/}"
+# Refuse to build an APK that would have to ask the user for a server: an https origin is mandatory.
+if ! [[ "$SERVER_URL" =~ ^https://[A-Za-z0-9.-]+(:[0-9]+)?$ ]]; then
+  echo "APPROX_SERVER_URL must be an https origin like https://approx-ai.vercel.app (got: '$SERVER_URL')"; exit 1
+fi
 
 rm -rf "$OUT"
 mkdir -p "$OUT/gen" "$OUT/classes" "$OUT/res"
@@ -35,7 +40,9 @@ python3 - "$OUT/res/values/strings.xml" "$SERVER_URL" <<'PY'
 import sys, html
 p, url = sys.argv[1], sys.argv[2]
 s = open(p, encoding='utf-8').read()
-s = s.replace('<string name="default_server_url"></string>', f'<string name="default_server_url">{html.escape(url)}</string>')
+import re
+s, n = re.subn(r'<string name="default_server_url">[^<]*</string>', f'<string name="default_server_url">{html.escape(url)}</string>', s)
+assert n == 1, 'default_server_url not found'
 open(p, 'w', encoding='utf-8').write(s)
 PY
 

@@ -60,6 +60,9 @@ function serveStatic(req, res, pathname) {
 export function createHandler() {
   const router = buildRouter();
   return async (req, res) => {
+    // Without APPROX_PUBLIC_URL (and with Vercel's system variables hidden), learn the public origin from the
+    // request: Vercel's edge sets Host, so email links point at the real site instead of localhost.
+    if (!config.publicUrl && config.serverless && /^[a-z0-9.-]+(:\d+)?$/i.test(String(req.headers.host || ''))) config.publicUrl = `https://${req.headers.host}`;
     const requestId = 'req_' + newId();
     res.setHeader('X-Request-Id', requestId);
     try {

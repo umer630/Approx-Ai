@@ -14,10 +14,21 @@ export async function api(path, { method = 'GET', body, headers = {}, raw } = {}
   if (method !== 'GET' && csrf) h['X-CSRF-Token'] = csrf;
   let payload = body;
   if (body !== undefined && !raw) { h['Content-Type'] = 'application/json'; payload = JSON.stringify(body); }
-  const res = await fetch(path, { method, headers: h, body: payload, credentials: 'same-origin' });
+  let res;
+  try {
+    // A timeout guarantees no request can leave a button spinning forever (uploads get longer).
+    res = await fetch(path, { method, headers: h, body: payload, credentials: 'same-origin', signal: AbortSignal.timeout(raw ? 120_000 : 30_000) });
+  } catch (e) {
+    throw new ApiError(0, { error: { code: e.name === 'TimeoutError' ? 'timeout' : 'network_error',
+      message: e.name === 'TimeoutError' ? 'Approx AI is taking too long to respond. Please try again.' : "Can't reach Approx AI. Check your internet connection and try again." } });
+  }
   const ct = res.headers.get('content-type') || '';
   const data = ct.includes('application/json') ? await res.json() : await res.text();
-  if (!res.ok) throw new ApiError(res.status, typeof data === 'object' ? data : { error: { message: String(data).slice(0, 200) } });
+  if (!res.ok) {
+    const friendly = res.status >= 500 && !(typeof data === 'object' && data?.error?.message)
+      ? 'Approx AI is having trouble right now. Please try again in a moment.' : String(data).slice(0, 200);
+    throw new ApiError(res.status, typeof data === 'object' ? data : { error: { message: friendly } });
+  }
   return data;
 }
 

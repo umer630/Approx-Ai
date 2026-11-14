@@ -20,7 +20,7 @@ async function render() {
   }
   const main = h('main', { class: 'dev-main' });
   root.replaceChildren(h('nav', { class: 'dev-nav', 'aria-label': 'Developer console' },
-    h('a', { class: 'brand', href: '/' }, h('img', { src: '/assets/logo-64.png', alt: '' }), h('span', {}, 'Approx ', h('span', { class: 'ai' }, 'AI'), ' API')),
+    h('a', { class: 'brand', href: '/' }, h('img', { src: '/assets/logo-mark-64.png', alt: '' }), h('span', {}, 'Approx ', h('span', { class: 'ai' }, 'AI'), ' API')),
     PAGES.map(([k, l]) => h('a', { href: `#/${k}`, class: k === page ? 'active' : '' }, l)),
     h('a', { href: '/' }, '← Back to chat')), main);
   try { await (VIEWS[page] || VIEWS.dashboard)(main); } catch (e) { main.append(h('div', { class: 'alert error' }, e.message)); }
@@ -32,7 +32,7 @@ function loginView() {
   const pw = h('input', { class: 'input', type: 'password', autocomplete: 'current-password' });
   const msg = h('div');
   root.replaceChildren(h('div', { class: 'auth' }, h('div', { class: 'auth-card' },
-    h('div', { class: 'logo' }, h('img', { src: '/assets/logo-192.png', alt: 'Approx AI' }), h('h1', {}, 'Approx AI Developer Platform'), h('div', { class: 'muted' }, 'Sign in with your Approx AI account')),
+    h('div', { class: 'logo' }, h('img', { src: '/assets/logo-mark-192.png', alt: 'Approx AI' }), h('h1', {}, 'Approx AI Developer Platform'), h('div', { class: 'muted' }, 'Sign in with your Approx AI account')),
     h('form', { onsubmit: async (e) => {
       e.preventDefault();
       try { const r = await api('/api/auth/login', { method: 'POST', body: { email: email.value, password: pw.value } }); user = r.user; setCsrf(r.csrf_token); render(); }

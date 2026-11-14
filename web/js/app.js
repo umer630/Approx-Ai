@@ -1,6 +1,7 @@
 import { api, stream, upload, setCsrf, ApiError } from './api.js';
 import { h, icon, toast, sheet, fmtTime, fmtBytes } from './ui.js';
 import { markdown } from './md.js';
+import { greeting } from './greeting.js';
 import * as views from './views.js';
 
 export const state = {
@@ -47,14 +48,15 @@ async function bootstrap() {
   state.models = m.models; state.modes = m.modes; state.modeDetails = m.mode_details || []; state.defaultMode = m.default_mode || 'medium'; state.settings = s.settings; state.usage = u;
   state.mode = s.settings.default_mode;
   state.model = 'auto';
-  document.documentElement.dataset.theme = s.settings.theme === 'light' ? 'light' : 'dark';
+  // Green + white is the default; Dark is an explicit choice in Settings.
+  document.documentElement.dataset.theme = s.settings.theme === 'dark' ? 'dark' : 'light';
 }
 export async function refreshUsage() { try { state.usage = await api('/api/usage'); } catch { /* ignore */ } }
 
 // ---------------- auth views ----------------
 function authFrame(title, subtitle, ...content) {
   app.replaceChildren(h('div', { class: 'auth' }, h('div', { class: 'auth-card' },
-    h('div', { class: 'logo' }, h('img', { src: '/assets/logo-192.png', alt: 'Approx AI logo' }), h('h1', {}, title), subtitle ? h('div', { class: 'muted' }, subtitle) : null),
+    h('div', { class: 'logo' }, h('img', { src: '/assets/logo-mark-192.png', alt: 'Approx AI logo' }), h('h1', {}, title), subtitle ? h('div', { class: 'muted' }, subtitle) : null),
     ...content,
     h('p', { class: 'muted small', }, '© Approx Technology'))));
 }
@@ -67,8 +69,13 @@ function authView(kind) {
   const pw = h('input', { class: 'input', type: 'password', autocomplete: kind === 'signup' ? 'new-password' : 'current-password', required: true, id: 'password', minlength: '10' });
   const name = h('input', { class: 'input', autocomplete: 'name', id: 'name', maxlength: '80' });
   const btn = h('button', { class: 'btn primary block', type: 'submit' }, kind === 'login' ? 'Sign in' : kind === 'signup' ? 'Create account' : 'Send reset link');
+  const label = btn.textContent;
+  const busyLabel = kind === 'login' ? 'Signing in…' : kind === 'signup' ? 'Creating account…' : 'Sending…';
   const form = h('form', { onsubmit: async (e) => {
-    e.preventDefault(); btn.disabled = true;
+    e.preventDefault();
+    if (btn.disabled) return; // no duplicate submissions
+    btn.disabled = true; btn.classList.add('loading'); btn.setAttribute('aria-busy', 'true'); btn.textContent = busyLabel;
+    msg.className = 'hidden';
     try {
       if (kind === 'login') {
         const r = await api('/api/auth/login', { method: 'POST', body: { email: email.value, password: pw.value } });
@@ -80,7 +87,7 @@ function authView(kind) {
         const r = await api('/api/auth/forgot-password', { method: 'POST', body: { email: email.value } });
         showMsg(msg, r.message, 'ok');
       }
-    } catch (err) { showMsg(msg, err.message); } finally { btn.disabled = false; }
+    } catch (err) { showMsg(msg, err.message); } finally { btn.disabled = false; btn.classList.remove('loading'); btn.removeAttribute('aria-busy'); btn.textContent = label; }
   } },
   kind === 'signup' ? h('div', { class: 'field' }, h('label', { for: 'name' }, 'Name (optional)'), name) : null,
   h('div', { class: 'field' }, h('label', { for: 'email' }, 'Email'), email),
@@ -104,12 +111,15 @@ function tokenView(kind) {
   const resendEmail = h('input', { class: 'input', type: 'email', placeholder: 'you@example.com' });
   const btn = h('button', { class: 'btn primary block', type: 'submit' }, kind === 'reset' ? 'Set new password' : 'Confirm');
   const form = h('form', { onsubmit: async (e) => {
-    e.preventDefault(); btn.disabled = true;
+    e.preventDefault();
+    if (btn.disabled) return;
+    const label = btn.textContent;
+    btn.disabled = true; btn.classList.add('loading'); btn.setAttribute('aria-busy', 'true'); btn.textContent = 'Please wait…';
     try {
       if (kind === 'verify') { await api('/api/auth/verify-email', { method: 'POST', body: { token: tok.value.trim() } }); showMsg(msg, 'Email verified. You can sign in now.', 'ok'); if (state.user) state.user.email_verified = true; }
       else if (kind === 'reset') { const r = await api('/api/auth/reset-password', { method: 'POST', body: { token: tok.value.trim(), password: pw.value } }); showMsg(msg, r.message, 'ok'); }
       else { await api('/api/auth/confirm-email-change', { method: 'POST', body: { token: tok.value.trim() } }); showMsg(msg, 'Email changed. Please sign in again.', 'ok'); state.user = null; }
-    } catch (err) { showMsg(msg, err.message); } finally { btn.disabled = false; }
+    } catch (err) { showMsg(msg, err.message); } finally { btn.disabled = false; btn.classList.remove('loading'); btn.removeAttribute('aria-busy'); btn.textContent = label; }
   } },
   h('div', { class: 'field' }, h('label', { for: 'token' }, 'Code from your email'), tok),
   kind === 'reset' ? h('div', { class: 'field' }, h('label', { for: 'newpw' }, 'New password'), pw) : null, msg, btn);
@@ -127,7 +137,7 @@ let mainEl; let composerEl;
 function shell(renderMain) {
   const initials = (state.user.display_name || state.user.email).trim()[0].toUpperCase();
   const top = h('header', { class: 'topbar' },
-    h('a', { class: 'brand', href: '#/', 'aria-label': 'Approx AI home' }, h('img', { src: '/assets/logo-64.png', alt: '' }), h('span', {}, 'Approx ', h('span', { class: 'ai' }, 'AI'))),
+    h('a', { class: 'brand', href: '#/', 'aria-label': 'Approx AI home' }, h('img', { src: '/assets/logo-mark-64.png', alt: '' }), h('span', {}, 'Approx ', h('span', { class: 'ai' }, 'AI'))),
     h('div', { class: 'spacer' }),
     h('button', { class: 'model-pill', 'aria-label': 'Current model', onclick: openModelPicker }, h('span', { class: 'dot' }), h('span', { id: 'model-indicator' }, modelLabel())),
     h('button', { class: 'avatar', 'aria-label': 'Account', title: state.user.email, onclick: () => views.openSettings('account') }, initials),
@@ -152,7 +162,12 @@ export function modelLabel() {
   const m = state.models.find((x) => x.id === state.model);
   return `${m ? m.name : 'Auto'} · ${modeLabel()}`;
 }
-function updateIndicator() { const el = document.getElementById('model-indicator'); if (el) el.textContent = modelLabel(); const c = document.getElementById('model-chip'); if (c) c.replaceChildren(h('b', {}, (state.models.find((x) => x.id === state.model)?.name) || 'Auto'), icon('chevron')); }
+function updateIndicator() {
+  const el = document.getElementById('model-indicator'); if (el) el.textContent = modelLabel();
+  const c = document.getElementById('model-chip'); if (c) c.replaceChildren(h('b', {}, (state.models.find((x) => x.id === state.model)?.name) || 'Auto'), icon('chevron'));
+  // Keep every mode toggle on screen (composer + model sheet) showing the same selected mode.
+  for (const b of document.querySelectorAll('.mode-toggle button[data-mode]')) b.setAttribute('aria-pressed', String(b.dataset.mode === state.mode));
+}
 
 export function openModelPicker() {
   sheet('Choose model', (s, close) => {
@@ -217,17 +232,24 @@ const SUGGESTIONS = [
 function renderMessages() {
   const list = h('div', { class: 'messages', id: 'messages' });
   if (!state.messages.length) {
-    const name = state.user.display_name ? `, ${state.user.display_name.split(' ')[0]}` : '';
-    list.append(h('div', { class: 'welcome' }, h('img', { src: '/assets/logo-192.png', alt: '' }), h('h1', {}, `How can I help${name}?`),
-      h('p', { class: 'muted' }, 'English · اردو · Roman Urdu — ask anything.'),
+    let returning = false;
+    try { returning = localStorage.getItem('approx.seen') === '1'; localStorage.setItem('approx.seen', '1'); } catch { /* private mode */ }
+    const g = greeting({ displayName: state.user.display_name, email: state.user.email, returning });
+    list.append(h('div', { class: 'welcome' }, h('img', { src: '/assets/logo-mark-192.png', alt: '' }), h('h1', {}, g.title),
+      h('p', { class: 'lead' }, g.subtitle),
+      h('p', { class: 'muted small' }, 'English · اردو · Roman Urdu — ask anything.'),
       !state.user.email_verified ? h('div', { class: 'alert warn' }, 'Verify your email to start chatting. ', h('a', { href: '#/verify' }, 'Enter code')) : null,
       h('div', { class: 'suggestions' }, SUGGESTIONS.map(([t, p]) => h('button', { class: 'suggestion', onclick: () => { const ta = document.getElementById('prompt'); ta.value = p; ta.dispatchEvent(new Event('input')); ta.focus(); } }, h('b', {}, t), h('div', { class: 'muted small' }, p))))));
   }
   for (const m of state.messages) list.append(messageEl(m));
   setMain(list);
-  scrollDown();
+  scrollDown(true);
 }
-function scrollDown() { requestAnimationFrame(() => { mainEl.scrollTop = mainEl.scrollHeight; }); }
+// Follow new output only while the reader is at (or near) the bottom; `force` for the reader's own actions.
+function scrollDown(force = false) {
+  const near = mainEl.scrollHeight - mainEl.scrollTop - mainEl.clientHeight < 140;
+  if (force || near) requestAnimationFrame(() => { mainEl.scrollTop = mainEl.scrollHeight; });
+}
 
 function messageEl(m) {
   const isUser = m.role === 'user';
@@ -298,7 +320,7 @@ async function sendMessage(text, sendBtn) {
   list.querySelector('.welcome')?.remove();
   list.append(messageEl(userMsg));
   const live = h('article', { class: 'msg assistant' }, h('div', { class: 'bubble md' }, h('span', { class: 'typing', 'aria-label': 'Approx AI is responding' }, h('i'), h('i'), h('i'))));
-  list.append(live); scrollDown();
+  list.append(live); scrollDown(true);
   const ctrl = new AbortController();
   state.streaming = ctrl; sendBtn.replaceChildren(icon('stop')); sendBtn.disabled = false; sendBtn.setAttribute('aria-label', 'Stop');
   let acc = ''; let routeInfo = null; let pending = false;

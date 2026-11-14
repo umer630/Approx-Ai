@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>approx</groupId><artifactId>robo</artifactId><version>1</version>
+  <properties><maven.compiler.release>17</maven.compiler.release><project.build.sourceEncoding>UTF-8</project.build.sourceEncoding></properties>
+  <dependencies>
+    <dependency><groupId>org.robolectric</groupId><artifactId>android-all</artifactId><version>13-robolectric-9030017</version><scope>provided</scope></dependency>
+    <dependency><groupId>local</groupId><artifactId>monitor-1.7.2</artifactId><version>1</version><scope>system</scope><systemPath>${project.basedir}/libs/monitor-1.7.2.jar</systemPath></dependency>
+    <dependency><groupId>local</groupId><artifactId>espresso-idling-resource-3.6.1</artifactId><version>1</version><scope>system</scope><systemPath>${project.basedir}/libs/espresso-idling-resource-3.6.1.jar</systemPath></dependency>
+    <dependency><groupId>local</groupId><artifactId>annotation-1.0.1</artifactId><version>1</version><scope>system</scope><systemPath>${project.basedir}/libs/annotation-1.0.1.jar</systemPath></dependency>
+    <dependency><groupId>junit</groupId><artifactId>junit</artifactId><version>4.13.2</version><scope>test</scope></dependency>
+    <dependency><groupId>org.robolectric</groupId><artifactId>robolectric</artifactId><version>4.14.1</version><scope>test</scope>
+      <exclusions><exclusion><groupId>androidx.test</groupId><artifactId>monitor</artifactId></exclusion>
+        <exclusion><groupId>androidx.test.espresso</groupId><artifactId>espresso-idling-resource</artifactId></exclusion></exclusions></dependency>
+  </dependencies>
+  <build>
+    <testSourceDirectory>src/test/java</testSourceDirectory>
+    <plugins>
+      <plugin><groupId>org.codehaus.mojo</groupId><artifactId>build-helper-maven-plugin</artifactId><version>3.6.0</version>
+        <executions><execution><id>add-app-src</id><phase>generate-test-sources</phase><goals><goal>add-test-source</goal></goals>
+          <configuration><sources><source>${app.src}</source><source>${app.gen}</source></sources></configuration></execution></executions></plugin>
+      <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>3.5.2</version>
+        <configuration><systemPropertyVariables><shots>${shots}</shots></systemPropertyVariables><trimStackTrace>false</trimStackTrace></configuration></plugin>
+    </plugins>
+  </build>
+</project>

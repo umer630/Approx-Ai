@@ -45,12 +45,23 @@ public class Api {
         this.token = token;
     }
 
-    /** Validates a user-entered server URL. Only https:// is accepted. */
+    /**
+     * Validates a server URL and reduces it to its origin (https://host[:port]). The API lives at the origin, so
+     * anything after it — a web route like "/#/login", a path, a query — is dropped and can never become the base.
+     */
     public static String normalizeServer(String url) throws ApiException {
-        String u = url == null ? "" : url.trim().replaceAll("/+$", "");
+        String u = url == null ? "" : url.trim();
         if (!u.startsWith("https://")) throw new ApiException(0, "insecure_url", "Server URL must start with https://");
-        try { new URL(u); } catch (IOException e) { throw new ApiException(0, "bad_url", "Invalid server URL"); }
-        return u;
+        URL p;
+        try { p = new URL(u); } catch (IOException e) { throw new ApiException(0, "bad_url", "Invalid server URL"); }
+        if (p.getHost() == null || p.getHost().isEmpty()) throw new ApiException(0, "bad_url", "Invalid server URL");
+        return "https://" + p.getHost().toLowerCase(java.util.Locale.ROOT) + (p.getPort() > 0 && p.getPort() != 443 ? ":" + p.getPort() : "");
+    }
+
+    /** People-friendly text for a failed connection (never raw exception text). */
+    static ApiException networkError(IOException e) {
+        if (e instanceof java.net.SocketTimeoutException) return new ApiException(0, "timeout", "Approx AI is taking too long to respond. Please try again.");
+        return new ApiException(0, "network", "Can't reach Approx AI. Check your internet connection and try again.");
     }
 
     public void setToken(String t) { token = t; }
@@ -103,6 +114,7 @@ public class Api {
         HttpURLConnection c = null;
         try {
             c = open(method, path);
+            c.setReadTimeout(45000);   // a normal API call never needs minutes: fail clearly instead of hanging
             if (body != null) {
                 c.setDoOutput(true);
                 c.setRequestProperty("Content-Type", "application/json");
@@ -117,7 +129,7 @@ public class Api {
             if (status >= 400) throw toError(status, text);
             return text.length() == 0 ? new JSONObject() : new JSONObject(text);
         } catch (IOException e) {
-            throw new ApiException(0, "network", "Network error: " + e.getMessage());
+            throw networkError(e);
         } catch (JSONException e) {
             throw new ApiException(0, "bad_response", "Unexpected server response");
         } finally {
@@ -148,7 +160,7 @@ public class Api {
             if (status == 422) throw new ApiException(422, "blocked", "File blocked by security scan: " + r.getJSONObject("file").optString("scan_detail"));
             return r;
         } catch (IOException e) {
-            throw new ApiException(0, "network", "Upload failed: " + e.getMessage());
+            throw networkError(e);
         } catch (JSONException e) {
             throw new ApiException(0, "bad_response", "Unexpected server response");
         } finally {
@@ -188,7 +200,7 @@ public class Api {
             }
             if (data.length() > 0) dispatch(event, data.toString(), h);
         } catch (IOException e) {
-            throw new ApiException(0, "network", "Connection interrupted");
+            throw new ApiException(0, "network", "The connection was interrupted. Please try again.");
         } finally {
             activeStream = null;
             if (c != null) c.disconnect();

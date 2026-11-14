@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Approx AI</string>
-    <!-- Injected by build.sh from APPROX_SERVER_URL. Empty = ask the user on first launch. -->
-    <string name="default_server_url"></string>
+    <!-- Production backend (origin only). build.sh replaces it with APPROX_SERVER_URL when given and refuses to
+         build without a valid https origin, so a production APK can never ask the user for a server. -->
+    <string name="default_server_url">https://approx-ai.vercel.app</string>
 </resources>

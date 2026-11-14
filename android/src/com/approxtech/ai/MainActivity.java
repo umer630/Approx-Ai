@@ -50,17 +50,25 @@ import java.util.concurrent.Executors;
  */
 public class MainActivity extends Activity {
     // Brand palette
-    static final int BG = Color.parseColor("#04060A");
-    static final int SURFACE = Color.parseColor("#0A1324");
-    static final int SURFACE2 = Color.parseColor("#0F1C34");
-    static final int SURFACE3 = Color.parseColor("#15274A");
-    static final int LINE = Color.parseColor("#1C2E52");
-    static final int TEXT = Color.parseColor("#F4F7FB");
-    static final int MUTED = Color.parseColor("#93A3BF");
-    static final int GREEN = Color.parseColor("#22D37A");
-    static final int TEAL = Color.parseColor("#10D9A0");
+    // Green + white theme (matches web/styles.css): white surfaces, dark neutral text, Approx green accents.
+    static final int BG = Color.parseColor("#FFFFFF");
+    static final int SURFACE = Color.parseColor("#FFFFFF");
+    static final int SURFACE2 = Color.parseColor("#F5F8F6");
+    static final int SURFACE3 = Color.parseColor("#ECF2EE");
+    static final int LINE = Color.parseColor("#E3E9E5");
+    static final int LINE_STRONG = Color.parseColor("#CFD9D3");
+    static final int TEXT = Color.parseColor("#13201A");
+    static final int MUTED = Color.parseColor("#5D6D66");
+    static final int GREEN = Color.parseColor("#0E9F55");
+    static final int GREEN_TEXT = Color.parseColor("#0B8547");
+    static final int GREEN_STRONG = Color.parseColor("#0A7A41");
+    static final int GREEN_SOFT = Color.parseColor("#E9F7EF");
+    static final int ON_GREEN = Color.WHITE;
+    static final int TEAL = Color.parseColor("#0B8547");
     static final int NAVY = Color.parseColor("#0B1F4A");
-    static final int DANGER = Color.parseColor("#FF5D6C");
+    static final int DANGER = Color.parseColor("#C62F3E");
+    static final int CODE_BG = Color.parseColor("#F6F8F7");
+    static final int CODE_TEXT = Color.parseColor("#1D2A24");
     static final int REQ_PICK_FILE = 41;
 
     private final Handler ui = new Handler(Looper.getMainLooper());
@@ -101,8 +109,11 @@ public class MainActivity extends Activity {
         root = new FrameLayout(this);
         root.setBackgroundColor(BG);
         setContentView(root);
-        // Production builds bake the backend URL (APPROX_SERVER_URL → default_server_url); users never type a server.
-        // The server-entry screen appears ONLY for an unconfigured build with no stored server (first-run self-host).
+        // Every tappable view gets the same subtle press-down/release feedback, including views added later.
+        root.getViewTreeObserver().addOnGlobalLayoutListener(new android.view.ViewTreeObserver.OnGlobalLayoutListener() {
+            public void onGlobalLayout() { installPressFeedback(root); }
+        });
+        // Production builds bake the backend URL (APPROX_SERVER_URL → default_server_url): fresh install → sign in.
         String server = resolveServer();
         if (server.length() == 0) { showWelcome(); return; }
         api = new Api(server, store.getToken());
@@ -118,13 +129,9 @@ public class MainActivity extends Activity {
      * discarded together with its session token, so an update always connects to the new production backend.
      */
     String resolveServer() {
-        String baked = bakedServer();
-        String override = store.get("server", "");
-        if (override == null) override = "";
-        if (override.length() > 0 && !baked.equals(store.get("server_for_build", ""))) {
-            store.put("server", ""); store.setToken(null); override = "";
-        }
-        return override.length() > 0 ? override : baked;
+        String[] r = ServerConfig.resolve(bakedServer(), store.get("server", ""), store.get("server_for_build", ""));
+        if ("1".equals(r[1])) { store.put("server", ""); store.setToken(null); }
+        return r[0];
     }
     /** Persist a user-chosen server, remembering which baked URL it overrides. */
     void saveServer(String s) { store.put("server", s); store.put("server_for_build", bakedServer()); }
@@ -137,13 +144,19 @@ public class MainActivity extends Activity {
     interface Done { void ok(Object r); }
 
     void bg(final Job job, final Done done) {
+        // A network job started by a button tap shows a loading state on that button until it finishes.
+        final TextView busy = lastPressed != null && android.os.SystemClock.uptimeMillis() - lastPressedAt < 400 ? lastPressed : null;
+        lastPressed = null;
+        final CharSequence label = busy == null ? null : busy.getText();
+        if (busy != null) { busy.setEnabled(false); busy.setAlpha(0.75f); busy.setText("Please wait…"); }
+        final Runnable restore = new Runnable() { public void run() { if (busy != null) { busy.setEnabled(true); busy.setAlpha(1f); busy.setText(label); } } };
         pool.execute(new Runnable() {
             public void run() {
                 try {
                     final Object r = job.run();
-                    ui.post(new Runnable() { public void run() { if (done != null) done.ok(r); } });
+                    ui.post(new Runnable() { public void run() { restore.run(); if (done != null) done.ok(r); } });
                 } catch (final Exception e) {
-                    ui.post(new Runnable() { public void run() { handleError(e); } });
+                    ui.post(new Runnable() { public void run() { restore.run(); handleError(e); } });
                 }
             }
         });
@@ -155,7 +168,7 @@ public class MainActivity extends Activity {
             if (a.status == 401 && user != null) { logoutLocal(); toast("Session expired. Please sign in again."); return; }
             toast(a.getMessage());
         } else {
-            toast("Error: " + e.getMessage());
+            toast("Something went wrong. Please try again.");
         }
     }
 
@@ -183,20 +196,50 @@ public class MainActivity extends Activity {
     }
 
     TextView button(String label, boolean primary, final Runnable onClick) {
-        TextView b = text(label, 15, primary ? Color.parseColor("#03140C") : TEXT, true);
+        final TextView b = text(label, 15, primary ? ON_GREEN : TEXT, true);
         b.setGravity(Gravity.CENTER);
-        b.setPadding(dp(16), dp(12), dp(16), dp(12));
-        if (primary) {
-            GradientDrawable g = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{Color.parseColor("#0A5A8A"), TEAL, Color.parseColor("#8CF25B")});
-            g.setCornerRadius(dp(12));
-            b.setBackground(g);
-        } else {
-            b.setBackground(bgShape(SURFACE2, 12, LINE));
-        }
+        b.setPadding(dp(16), dp(13), dp(16), dp(13));
+        if (primary) b.setBackground(pressable(bgShape(GREEN, 12, 0), bgShape(GREEN_STRONG, 12, 0)));
+        else b.setBackground(pressable(bgShape(SURFACE, 12, LINE_STRONG), bgShape(SURFACE3, 12, LINE_STRONG)));
         b.setClickable(true);
         b.setFocusable(true);
-        b.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { onClick.run(); } });
+        b.setOnClickListener(new View.OnClickListener() { public void onClick(View v) {
+            long t = android.os.SystemClock.uptimeMillis();
+            if (!b.isEnabled() || t - lastClickAt < 450) return;   // ignore double taps / taps while busy
+            lastClickAt = t;
+            lastPressed = b; lastPressedAt = t;
+            onClick.run();
+        } });
         return b;
+    }
+
+    long lastClickAt;
+    TextView lastPressed; long lastPressedAt;
+
+    /** Background that switches to `pressed` while the finger is down (instant visual feedback). */
+    android.graphics.drawable.StateListDrawable pressable(android.graphics.drawable.Drawable normal, android.graphics.drawable.Drawable pressed) {
+        android.graphics.drawable.StateListDrawable s = new android.graphics.drawable.StateListDrawable();
+        s.addState(new int[]{android.R.attr.state_pressed}, pressed);
+        s.addState(new int[]{}, normal);
+        s.setExitFadeDuration(120);
+        return s;
+    }
+
+    /**
+     * Subtle press-down / release animation for every tappable view, applied once per view as screens are built
+     * (idle → pressed 0.96 → released → normal). Returns false so the click itself is never delayed.
+     */
+    void installPressFeedback(View v) {
+        if (v.isClickable() && v.getTag(R.id.press_fx) == null && !(v instanceof EditText)) {
+            v.setTag(R.id.press_fx, Boolean.TRUE);
+            v.setOnTouchListener(new View.OnTouchListener() { public boolean onTouch(View x, android.view.MotionEvent e) {
+                int a = e.getActionMasked();
+                if (a == android.view.MotionEvent.ACTION_DOWN && x.isEnabled()) x.animate().scaleX(0.96f).scaleY(0.96f).alpha(0.92f).setDuration(70).start();
+                else if (a == android.view.MotionEvent.ACTION_UP || a == android.view.MotionEvent.ACTION_CANCEL) x.animate().scaleX(1f).scaleY(1f).alpha(1f).setDuration(140).setInterpolator(new android.view.animation.DecelerateInterpolator()).start();
+                return false;
+            } });
+        }
+        if (v instanceof ViewGroup) { ViewGroup g = (ViewGroup) v; for (int i = 0; i < g.getChildCount(); i++) installPressFeedback(g.getChildAt(i)); }
     }
 
     EditText input(String hint, int type) {
@@ -206,10 +249,18 @@ public class MainActivity extends Activity {
         e.setTextColor(TEXT);
         e.setTextSize(16);
         e.setInputType(type);
-        e.setBackground(bgShape(SURFACE2, 12, LINE));
-        e.setPadding(dp(14), dp(12), dp(14), dp(12));
+        e.setTypeface(Typeface.DEFAULT);   // password fields otherwise switch to a monospace font
+        e.setBackground(pressableFocus(bgShape(SURFACE, 12, LINE_STRONG), bgShape(SURFACE, 12, GREEN)));
+        e.setPadding(dp(14), dp(13), dp(14), dp(13));
         e.setTextDirection(View.TEXT_DIRECTION_FIRST_STRONG);
         return e;
+    }
+
+    android.graphics.drawable.StateListDrawable pressableFocus(android.graphics.drawable.Drawable normal, android.graphics.drawable.Drawable focused) {
+        android.graphics.drawable.StateListDrawable s = new android.graphics.drawable.StateListDrawable();
+        s.addState(new int[]{android.R.attr.state_focused}, focused);
+        s.addState(new int[]{}, normal);
+        return s;
     }
 
     LinearLayout vbox() { LinearLayout l = new LinearLayout(this); l.setOrientation(LinearLayout.VERTICAL); return l; }
@@ -223,7 +274,7 @@ public class MainActivity extends Activity {
 
     ImageView logo(int sizeDp) {
         ImageView iv = new ImageView(this);
-        iv.setImageResource(R.drawable.logo);
+        iv.setImageResource(R.drawable.logo_mark);   // transparent mark: no dark tile on the white UI
         iv.setLayoutParams(new LinearLayout.LayoutParams(dp(sizeDp), dp(sizeDp)));
         iv.setContentDescription("Approx AI logo");
         return iv;
@@ -262,72 +313,11 @@ public class MainActivity extends Activity {
 
     // ------------------------------------------------------------------ welcome (server + sign in / create account on one screen)
     void showWelcome() {
-        LinearLayout col = formPage("Approx AI", "Sign in or create your account.");
-        final String saved = resolveServer();
-        final EditText url = input("Server address (https://your-approx-server)", InputType.TYPE_TEXT_VARIATION_URI);
-        if (saved != null && saved.length() > 0) url.setText(saved);
-        final EditText email = input("Email", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-        final EditText pw = input("Password", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-        add(col, url, 18);
-        add(col, email, 12);
-        add(col, pw, 10);
-        add(col, button("Sign in", true, new Runnable() { public void run() {
-            final String em = email.getText().toString().trim();
-            final String pass = pw.getText().toString();
-            if (em.length() == 0 || pass.length() == 0) { toast("Enter your email and password."); return; }
-            connectThen(url.getText().toString(), new Runnable() { public void run() {
-                final JSONObject body = obj("email", em, "password", pass, "client", "mobile");
-                bg(new Job() { public Object run() throws Exception { return api.post("/api/auth/login", body); } }, new Done() { public void ok(Object r) {
-                    String tok = ((JSONObject) r).optString("token");
-                    store.setToken(tok);
-                    api.setToken(tok);
-                    loadSession();
-                } });
-            } });
-        } }), 16);
-        add(col, button("Create account", false, new Runnable() { public void run() {
-            connectThen(url.getText().toString(), new Runnable() { public void run() { showSignup(); } });
-        } }), 10);
-        LinearLayout links = hbox();
-        links.addView(link("Forgot password?", new Runnable() { public void run() { connectThen(url.getText().toString(), new Runnable() { public void run() { showForgot(); } }); } }));
-        View sp = new View(this); links.addView(sp, new LinearLayout.LayoutParams(0, 1, 1));
-        links.addView(link("Have a verification code?", new Runnable() { public void run() { connectThen(url.getText().toString(), new Runnable() { public void run() { showVerify(); } }); } }));
-        add(col, links, 12);
-        add(col, text("The server address is where your Approx AI backend is hosted. Ask your administrator if you are unsure.", 12, MUTED, false), 14);
-    }
-
-    /** Validate + remember the server, confirm it is an Approx AI backend, then run `then`. */
-    void connectThen(String rawUrl, final Runnable then) {
-        final String s;
-        try { s = Api.normalizeServer(rawUrl); }
-        catch (Api.ApiException e) { toast(e.getMessage()); return; }
-        final Api probe = new Api(s, store.getToken());
-        bg(new Job() { public Object run() throws Exception { return probe.get("/api/version"); } }, new Done() { public void ok(Object r) {
-            if (!"Approx AI".equals(((JSONObject) r).optString("product"))) { toast("That server is not an Approx AI server."); return; }
-            saveServer(s);
-            api = probe;
-            then.run();
-        } });
-    }
-
-    // ------------------------------------------------------------------ server setup
-    void showServerSetup() {
-        LinearLayout col = formPage("Connect to Approx AI", "Enter your Approx AI server address (HTTPS).");
-        final EditText url = input("https://ai.example.com", InputType.TYPE_TEXT_VARIATION_URI);
-        add(col, url, 20);
-        add(col, button("Continue", true, new Runnable() { public void run() {
-            try {
-                final String s = Api.normalizeServer(url.getText().toString());
-                final Api probe = new Api(s, null);
-                bg(new Job() { public Object run() throws Exception { return probe.get("/api/version"); } }, new Done() { public void ok(Object r) {
-                    JSONObject v = (JSONObject) r;
-                    if (!"Approx AI".equals(v.optString("product"))) { toast("That server is not an Approx AI server."); return; }
-                    saveServer(s);
-                    api = probe;
-                    showLogin();
-                } });
-            } catch (Api.ApiException e) { toast(e.getMessage()); }
-        } }), 14);
+        // Production builds always carry the backend URL (build.sh refuses to build without one), so people are never
+        // asked for a server. If a build somehow has none, say so plainly instead of asking for a URL.
+        if (resolveServer().length() > 0) { api = new Api(resolveServer(), store.getToken()); showLogin(); return; }
+        LinearLayout col = formPage("Approx AI", "This app build is not connected to a server.");
+        add(col, text("Please install the official Approx AI app.", 14, MUTED, false), 16);
     }
 
     // ------------------------------------------------------------------ auth
@@ -353,11 +343,6 @@ public class MainActivity extends Activity {
         links.addView(link("Forgot password?", new Runnable() { public void run() { showForgot(); } }));
         add(col, links, 6);
         add(col, link("Have a verification code?", new Runnable() { public void run() { showVerify(); } }), 0);
-        // Ordinary users never see the server: the "Advanced" link appears only when NO production URL is baked
-        // (self-hosted / development builds). Production builds bake APPROX_SERVER_URL and hide it entirely.
-        if (bakedServer().isEmpty()) {
-            add(col, link("Advanced: change server (" + api.getBase() + ")", new Runnable() { public void run() { showServerSetup(); } }), 18);
-        }
     }
 
     void showSignup() {
@@ -456,13 +441,14 @@ public class MainActivity extends Activity {
         View sp = new View(this); top.addView(sp, new LinearLayout.LayoutParams(0, 1, 1));
         modelIndicator = text("● " + modelName(model) + " · " + cap(mode), 13, TEXT, false);
         modelIndicator.setPadding(dp(10), dp(6), dp(10), dp(6));
-        modelIndicator.setBackground(bgShape(SURFACE2, 999, LINE));
+        modelIndicator.setBackground(pressable(bgShape(SURFACE, 999, LINE), bgShape(SURFACE3, 999, LINE)));
         modelIndicator.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { pickModel(); } });
         top.addView(modelIndicator);
         String initial = user == null ? "A" : (user.optString("display_name").length() > 0 ? user.optString("display_name") : user.optString("email")).substring(0, 1).toUpperCase();
-        TextView av = text(initial, 14, Color.parseColor("#04121F"), true);
+        TextView av = text(initial, 14, ON_GREEN, true);
         av.setGravity(Gravity.CENTER);
-        GradientDrawable g = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{TEAL, Color.parseColor("#8CF25B")});
+        GradientDrawable g = new GradientDrawable();
+        g.setColor(GREEN);
         g.setShape(GradientDrawable.OVAL);
         av.setBackground(g);
         LinearLayout.LayoutParams avlp = new LinearLayout.LayoutParams(dp(32), dp(32));
@@ -492,6 +478,7 @@ public class MainActivity extends Activity {
     View bottomNav() {
         LinearLayout nav = hbox();
         nav.setBackgroundColor(SURFACE);
+        nav.setElevation(dp(2));
         String[] labels = {"New chat", "History", "Settings"};
         String[] glyphs = {"✎", "◷", "⚙"};
         for (int i = 0; i < 3; i++) {
@@ -499,8 +486,9 @@ public class MainActivity extends Activity {
             LinearLayout b = vbox();
             b.setGravity(Gravity.CENTER);
             b.setPadding(0, dp(8), 0, dp(10));
-            b.addView(text(glyphs[i], 18, MUTED, false));
-            b.addView(text(labels[i], 12, MUTED, false));
+            // Children of a vertical LinearLayout default to full width, so centre the text itself.
+            TextView ic = text(glyphs[i], 18, MUTED, false); ic.setGravity(Gravity.CENTER_HORIZONTAL); b.addView(ic);
+            TextView lb = text(labels[i], 12, MUTED, false); lb.setGravity(Gravity.CENTER_HORIZONTAL); b.addView(lb);
             b.setContentDescription(labels[i]);
             b.setClickable(true);
             b.setOnClickListener(new View.OnClickListener() { public void onClick(View v) {
@@ -541,13 +529,19 @@ public class MainActivity extends Activity {
         w.setGravity(Gravity.CENTER_HORIZONTAL);
         w.setPadding(0, dp(48), 0, 0);
         w.addView(logo(72));
-        String name = user != null && user.optString("display_name").length() > 0 ? ", " + user.optString("display_name").split(" ")[0] : "";
-        TextView h = text("How can I help" + name + "?", 24, TEXT, true);
+        boolean returning = "1".equals(store.get("seen", ""));
+        store.put("seen", "1");
+        String[] g = Greeting.of(user == null ? "" : user.optString("display_name"), user == null ? "" : user.optString("email"),
+                java.util.Calendar.getInstance().get(java.util.Calendar.HOUR_OF_DAY), returning, System.currentTimeMillis() / 86_400_000L);
+        TextView h = text(g[0], 24, TEXT, true);
         h.setGravity(Gravity.CENTER);
         add(w, h, 16);
-        TextView s = text("English · اردو · Roman Urdu — ask anything.", 14, MUTED, false);
+        TextView sub = text(g[1], 16, MUTED, false);
+        sub.setGravity(Gravity.CENTER);
+        add(w, sub, 4);
+        TextView s = text("English · اردو · Roman Urdu — ask anything.", 13, MUTED, false);
         s.setGravity(Gravity.CENTER);
-        add(w, s, 6);
+        add(w, s, 8);
         if (user != null && !user.optBoolean("email_verified")) {
             add(w, button("Verify your email to start chatting", false, new Runnable() { public void run() { showVerify(); } }), 18);
         }
@@ -566,7 +560,7 @@ public class MainActivity extends Activity {
         for (final Md.Segment seg : Md.segments(content)) {
             if (seg.code) {
                 LinearLayout card = vbox();
-                card.setBackground(bgShape(Color.parseColor("#0A1222"), 12, LINE));
+                card.setBackground(bgShape(CODE_BG, 12, LINE));
                 LinearLayout head = hbox();
                 head.setPadding(dp(10), dp(6), dp(8), dp(2));
                 head.addView(text(seg.lang != null && !seg.lang.isEmpty() ? seg.lang : "code", 11.5f, MUTED, false));
@@ -579,7 +573,7 @@ public class MainActivity extends Activity {
                 card.addView(head);
                 android.widget.HorizontalScrollView hs = new android.widget.HorizontalScrollView(this);
                 hs.setHorizontalScrollBarEnabled(false);
-                TextView code = text(codeText, 13.5f, Color.parseColor("#DFE8F5"), false);
+                TextView code = text(codeText, 13.5f, CODE_TEXT, false);
                 code.setTypeface(android.graphics.Typeface.MONOSPACE);
                 code.setTextIsSelectable(true);
                 code.setPadding(dp(12), dp(6), dp(12), dp(12));
@@ -610,7 +604,7 @@ public class MainActivity extends Activity {
             t.setLineSpacing(0, 1.25f);
             t.setText(content);
             t.setPadding(dp(14), dp(10), dp(14), dp(10));
-            t.setBackground(bgShape(SURFACE3, 18, 0));
+            t.setBackground(bgShape(GREEN_SOFT, 18, Color.parseColor("#D3EDDF")));
             body = t;
         } else {
             body = assistantBody(content);   // prose + per-code-block Copy cards (markdown, tables, lists)
@@ -781,18 +775,19 @@ public class MainActivity extends Activity {
     void styleModes(TextView[] btns) {
         for (int i = 0; i < btns.length; i++) {
             boolean on = MODES[i].equals(mode);
-            btns[i].setBackground(on ? bgShape(NAVY, 999, GREEN) : null);
-            btns[i].setTextColor(on ? TEXT : MUTED);
+            btns[i].setBackground(on ? bgShape(SURFACE, 999, GREEN) : null);
+            btns[i].setTextColor(on ? GREEN_TEXT : MUTED);
         }
     }
 
     TextView round(String glyph, boolean primary) {
-        TextView t = text(glyph, 18, primary ? Color.parseColor("#03140C") : TEXT, true);
+        TextView t = text(glyph, 18, primary ? ON_GREEN : TEXT, true);
         t.setGravity(Gravity.CENTER);
-        GradientDrawable g = primary ? new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{Color.parseColor("#0A5A8A"), TEAL, Color.parseColor("#8CF25B")}) : new GradientDrawable();
-        g.setShape(GradientDrawable.OVAL);
-        if (!primary) { g.setColor(SURFACE2); g.setStroke(dp(1), LINE); }
-        t.setBackground(g);
+        GradientDrawable g = new GradientDrawable(); g.setShape(GradientDrawable.OVAL);
+        GradientDrawable gp = new GradientDrawable(); gp.setShape(GradientDrawable.OVAL);
+        if (primary) { g.setColor(GREEN); gp.setColor(GREEN_STRONG); }
+        else { g.setColor(SURFACE); g.setStroke(dp(1), LINE); gp.setColor(SURFACE3); gp.setStroke(dp(1), LINE); }
+        t.setBackground(pressable(g, gp));
         t.setLayoutParams(new LinearLayout.LayoutParams(dp(40), dp(40)));
         return t;
     }
@@ -909,7 +904,7 @@ public class MainActivity extends Activity {
             else labels.add(m.optString("name") + " — locked (" + m.optString("tier") + ")");
             if (!m.optBoolean("available")) ids.add(null);
         }
-        new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert)
+        new AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert)
                 .setTitle("Choose a model")
                 .setItems(labels.toArray(new String[0]), new DialogInterface.OnClickListener() { public void onClick(DialogInterface d, int which) {
                     String id = ids.get(which);
@@ -930,7 +925,7 @@ public class MainActivity extends Activity {
         labels.add("Account & profile"); actions.add(new Runnable() { public void run() { accountSettings(); } });
         if (isAdmin()) { labels.add("NEBIUS console"); actions.add(new Runnable() { public void run() { showConsole("Dashboard"); } }); }
         labels.add("Help & feedback"); actions.add(new Runnable() { public void run() { helpFeedback(); } });
-        new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert)
+        new AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert)
                 .setTitle("Approx AI")
                 .setItems(labels.toArray(new String[0]), new DialogInterface.OnClickListener() { public void onClick(DialogInterface d, int w) { actions.get(w).run(); } })
                 .show();
@@ -943,7 +938,7 @@ public class MainActivity extends Activity {
         add(col, text(api.getBase(), 14, GREEN, false), 2);
         add(col, text("Configured by build (default)", 13, MUTED, false), 10);
         add(col, text(bakedServer().isEmpty() ? "none baked — entered on first run" : bakedServer(), 13, MUTED, false), 2);
-        final EditText url = input("https://your-approx-server", InputType.TYPE_TEXT_VARIATION_URI);
+        final EditText url = input("https://", InputType.TYPE_TEXT_VARIATION_URI);
         url.setText(api.getBase());
         add(col, text("Override server (admins / self-host)", 14, TEXT, true), 18);
         add(col, url, 8);
@@ -966,7 +961,7 @@ public class MainActivity extends Activity {
     }
 
     void helpFeedback() {
-        new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert)
+        new AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert)
                 .setTitle("Help & feedback")
                 .setMessage("Approx AI " + appVersion() + " (build " + BuildInfo.BUILD_ID + ")\nServer: " + api.getBase()
                         + "\n\n• Tap the model name to switch models or efficiency mode.\n• Use + to attach files or open Research / Fabbox / Workspace.\n• Tap the mic to dictate.\n\nFor support, contact your Approx AI administrator.")
@@ -977,7 +972,7 @@ public class MainActivity extends Activity {
 
     void plusMenu() {
         final String[] items = {"File", "Image", "PDF", "Document", "Camera / photo", "Data analysis (CSV/JSON)", "Research", "Code (Fabbox)", "Workspace", "Tools & connectors"};
-        new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert)
+        new AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert)
                 .setTitle("Add to message")
                 .setItems(items, new DialogInterface.OnClickListener() { public void onClick(DialogInterface d, int w) {
                     switch (w) {
@@ -988,7 +983,7 @@ public class MainActivity extends Activity {
                         case 5: pick("text/*"); break;
                         case 6: case 7: case 8: openWeb(w == 6 ? "/#/research" : w == 7 ? "/#/code" : "/#/workspace"); break;
                         default:
-                            new AlertDialog.Builder(MainActivity.this, android.R.style.Theme_Material_Dialog_Alert).setTitle("Tools & connectors")
+                            new AlertDialog.Builder(MainActivity.this, android.R.style.Theme_Material_Light_Dialog_Alert).setTitle("Tools & connectors")
                                     .setMessage("Third-party connectors are not available in Approx AI 1.0. Nothing is connected to your account.").setPositiveButton("OK", null).show();
                     }
                 } }).show();
@@ -1036,7 +1031,7 @@ public class MainActivity extends Activity {
         for (final String nm : names) {
             TextView t = text(nm, 13, tab.equals(nm) ? TEXT : MUTED, tab.equals(nm));
             t.setPadding(dp(10), dp(8), dp(10), dp(8));
-            if (tab.equals(nm)) t.setBackground(bgShape(NAVY, 999, GREEN));
+            if (tab.equals(nm)) { t.setBackground(bgShape(GREEN_SOFT, 999, GREEN)); t.setTextColor(GREEN_TEXT); }
             t.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { showConsole(nm); } });
             tabs.addView(t);
         }
@@ -1110,7 +1105,7 @@ public class MainActivity extends Activity {
             TextView start = button("Start training job", true, new Runnable() { public void run() {
                 final EditText in = new EditText(MainActivity.this);
                 in.setText("nick-4.8");
-                new AlertDialog.Builder(MainActivity.this, android.R.style.Theme_Material_Dialog_Alert)
+                new AlertDialog.Builder(MainActivity.this, android.R.style.Theme_Material_Light_Dialog_Alert)
                     .setTitle("Models to train (\"all\" or space-separated ids)").setView(in)
                     .setPositiveButton("Queue", new DialogInterface.OnClickListener() { public void onClick(DialogInterface di, int wi) {
                         String val = in.getText().toString().trim();
@@ -1211,7 +1206,7 @@ public class MainActivity extends Activity {
 
     void consoleSettings(LinearLayout body) {
         LinearLayout c = card(body, "Backend");
-        kv(c, "Server", api.getBase());
+        if (isAdmin()) kv(c, "Server", api.getBase());
         kv(c, "Signed in", user == null ? "—" : user.optString("email"));
         kv(c, "Role", user == null ? "—" : user.optString("role"));
         kv(c, "App version", appVersion());
@@ -1318,13 +1313,13 @@ public class MainActivity extends Activity {
     void historyActions(final JSONObject c, final String view, final Runnable reload) {
         final String id = c.optString("id");
         final String[] items = "trash".equals(view) ? new String[]{"Restore", "Delete forever"} : new String[]{"Rename", "archived".equals(view) ? "Unarchive" : "Archive", "Move to trash"};
-        new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert).setTitle(c.optString("title")).setItems(items, new DialogInterface.OnClickListener() {
+        new AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert).setTitle(c.optString("title")).setItems(items, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface d, int w) {
                 final String act = items[w];
                 if ("Rename".equals(act)) {
                     final EditText e = input("Title", InputType.TYPE_CLASS_TEXT);
                     e.setText(c.optString("title"));
-                    new AlertDialog.Builder(MainActivity.this, android.R.style.Theme_Material_Dialog_Alert).setTitle("Rename").setView(e).setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                    new AlertDialog.Builder(MainActivity.this, android.R.style.Theme_Material_Light_Dialog_Alert).setTitle("Rename").setView(e).setPositiveButton("Save", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface d2, int x) { call("PATCH", "/api/chats/" + id, obj("title", e.getText().toString()), reload); }
                     }).setNegativeButton("Cancel", null).show();
                 } else if ("Archive".equals(act) || "Unarchive".equals(act)) call("PATCH", "/api/chats/" + id, obj("archived", "Archive".equals(act)), reload);
@@ -1340,7 +1335,7 @@ public class MainActivity extends Activity {
     }
 
     void confirm(String title, String msg, final Runnable yes) {
-        new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert).setTitle(title).setMessage(msg)
+        new AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert).setTitle(title).setMessage(msg)
                 .setPositiveButton("Confirm", new DialogInterface.OnClickListener() { public void onClick(DialogInterface d, int w) { yes.run(); } })
                 .setNegativeButton("Cancel", null).show();
     }
@@ -1380,11 +1375,11 @@ public class MainActivity extends Activity {
                 {"NEBIUS console (dashboard, compute, models)", new Runnable() { public void run() { showConsole("Dashboard"); } }},
                 {"API & developer console", new Runnable() { public void run() { openWeb("/developers/"); } }},
                 {"Connected tools", new Runnable() { public void run() { infoPage("Connected tools", "No third-party connectors are available in Approx AI 1.0."); } }},
-                {"Advanced: server settings", new Runnable() { public void run() { advancedServerSettings(); } }},
+                {isAdmin() ? "Advanced: server settings" : null, new Runnable() { public void run() { advancedServerSettings(); } }},
                 {"Delete account", new Runnable() { public void run() { deleteAccount(); } }},
                 {"Log out", new Runnable() { public void run() { call("POST", "/api/auth/logout", new JSONObject(), new Runnable() { public void run() { logoutLocal(); } }); } }},
         };
-        for (Object[] r : rows) add(col, row((String) r[0], (Runnable) r[1]), 0);
+        for (Object[] r : rows) if (r[0] != null) add(col, row((String) r[0], (Runnable) r[1]), 0);   // null label = hidden for this role
         add(col, text("Approx AI 1.0.0 · Approx Technology · " + api.getBase(), 12, MUTED, false), 18);
     }
 

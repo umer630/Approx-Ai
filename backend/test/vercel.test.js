@@ -347,3 +347,19 @@ test('production without a working mail transport: sign-up refuses honestly inst
   db.close();
   p.kill();
 });
+
+test('Vercel with "expose system environment variables" off: still serverless, email links use the real host', async () => {
+  const brevo = await mockBrevo();
+  const fn = await startFunction({ VERCEL: '', AWS_LAMBDA_FUNCTION_NAME: 'approx-fn', APPROX_ENV: 'test',
+    APPROX_DB_URL: `file:${path.join(scratch, 'hidden-sysvars.db')}`, APPROX_TEST_EPHEMERAL_DB: '1',
+    MAIL_TRANSPORT: 'brevo', MAIL_HTTP_ENDPOINT: brevo.url, MAIL_HTTP_API_KEY: 'k', MAIL_FROM: 'Approx AI <noreply@example.com>' });
+  const h = await fn.call('GET', '/api/health');
+  assert.equal(h.data.runtime, 'serverless');
+  assert.equal(h.data.registry_source, 'inference');
+  await fn.call('POST', '/api/auth/signup', { json: { email: 'links@example.com', password: 'GoodPassw0rd!x' } });
+  // fetch() cannot override Host, so the request's real Host (127.0.0.1:<port>) is what the link must use;
+  // on Vercel that header is the public domain (e.g. approx-ai.vercel.app).
+  assert.match(brevo.mails[0].payload.textContent, /https:\/\/127\.0\.0\.1:\d+\/#\/verify\?token=/, 'verification link uses the request host');
+  assert.doesNotMatch(brevo.mails[0].payload.textContent, /localhost:8080/);
+  fn.stop();
+});

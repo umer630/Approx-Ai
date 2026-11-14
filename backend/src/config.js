@@ -19,7 +19,9 @@ export const VERSIONS = Object.freeze({
 
 // Serverless (Vercel): the filesystem is read-only except an ephemeral /tmp that is not shared between
 // invocations, there is no long-running process, and a function request body is capped at 4.5 MB.
-const serverless = !!env.VERCEL;
+// Vercel sets VERCEL=1 only while "Automatically expose System Environment Variables" is on; its functions always run
+// on AWS Lambda, which sets AWS_LAMBDA_FUNCTION_NAME, so serverless mode is detected either way.
+const serverless = !!(env.VERCEL || env.VERCEL_REGION || (env.AWS_LAMBDA_FUNCTION_NAME && env.APPROX_RUNTIME !== 'server'));
 const remoteDb = !!env.APPROX_DB_URL && !env.APPROX_DB_URL.startsWith('file:');
 
 export const config = {

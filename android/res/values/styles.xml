@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="ApproxTheme" parent="@android:style/Theme.Material.NoActionBar">
-        <item name="android:colorPrimary">#0B1F4A</item>
-        <item name="android:colorPrimaryDark">#04060A</item>
-        <item name="android:colorAccent">#22D37A</item>
-        <item name="android:windowBackground">@android:color/black</item>
-        <item name="android:statusBarColor">#04060A</item>
-        <item name="android:navigationBarColor">#0A1324</item>
-        <item name="android:textColorPrimary">#F4F7FB</item>
+    <!-- Green + white theme. API 26 cannot draw dark navigation-bar icons, so its bar stays dark (see values-v27). -->
+    <style name="ApproxTheme" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:colorPrimary">#0E9F55</item>
+        <item name="android:colorPrimaryDark">#FFFFFF</item>
+        <item name="android:colorAccent">#0E9F55</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:statusBarColor">#FFFFFF</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">#13201A</item>
+        <item name="android:textColorPrimary">#13201A</item>
     </style>
 </resources>
