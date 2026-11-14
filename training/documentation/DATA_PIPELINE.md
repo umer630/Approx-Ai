@@ -30,8 +30,10 @@ python -m datahub sources                       # registry status table
 python -m datahub fetch                         # download approved sources into datasets/.cache (gitignored)
 python -m datahub build                         # all five models; --models nick-4.8,hike-6.5 to limit
 python -m datahub eval-suites                   # held-out evaluation suites
-python -m datahub review-sheet --model nick-4.8 --n 500 --out review_nick.csv
-python -m datahub review-import --csv review_nick_done.csv --model nick-4.8
+python -m datahub review-sheet --model nick-4.8          # stratified CSV batches (see HUMAN_REVIEW.md)
+python -m datahub review-import --model nick-4.8 --csv completed.csv
+python -m datahub review-progress                       # reports/human_review_progress.md
+python -m datahub.report                                # reports/dataset_status.md + domain_requirements.json
 python -m unittest tests.test_datahub -v
 ```
 
@@ -39,7 +41,11 @@ python -m unittest tests.test_datahub -v
 
 Each record carries `id, messages, lang, script, lang_confidence, domain, source, license, origin, review_state,
 quality, split`. Origins: `human_authored`, `synthetic`, `programmatic`, `machine_translated`; the last three count
-toward the 60 % synthetic cap.
+toward the 60 % synthetic cap, as do `templated_human` (human-written text under a fixed prompt template, e.g. Wikipedia
+lead sections) and `transliteration_unverified` (parallel corpora whose authorship is not documented).
+
+A source's own per-record language label is authoritative unless language ID confidently contradicts it (then the
+record is rejected). Translation/transliteration records take their language from the answer (`lang_from: answer`).
 
 Review states:
 
@@ -52,15 +58,18 @@ Review states:
 
 ## Human review workflow
 
-1. `review-sheet` exports a CSV of sampled records with empty `reviewer` and `verdict` columns.
-2. A person reads each row and fills `reviewer` (their name) and `verdict` (`accept` / `reject`), optionally `notes`.
-3. `review-import` appends the decisions to the ledger; rows without a reviewer or a valid verdict are refused.
-4. Rebuild. Rejected records are excluded; accepted ones count toward `min_human_reviewed`.
+See [HUMAN_REVIEW.md](HUMAN_REVIEW.md). Sheets are issued per model, imports are validated against the issued sheet
+(content hash, reviewer ID, verdict, reasons), the ledger is append-only, a reject from any reviewer wins, accepted
+records are always selected first, and reviews of text that later changed stop counting.
 
 ## Adding a source
 
 Add an entry to `datasets/sources/registry/sources.json` with `id, name, hub_repo, revision, license,
-commercial_use, origin, use (train|eval), status`. Only `status: approved` with `commercial_use: yes` is ingested;
+commercial_use, origin, use (train|eval), status`. Connector types: `hf_parquet` (Hub parquet export; `max_files`
+limits shards), `hf_files` (specific repo files downloaded at the pinned `revision_full` — for very large repos),
+`local_jsonl`, `curriculum`. Optional sources (`"optional": true`) are reported as absent instead of failing the
+`no_missing_sources` gate. Record any residual concern in `upstream_risk`; it is copied into every manifest that uses
+the source. Profiles may cap a source with `source_max_share`. Only `status: approved` with `commercial_use: yes` is ingested;
 anything else raises `PermissionError`. Add a mapper in `datahub/connectors.py` that yields
 `{"messages": [...], "lang": ..., "domain": ...}`. Record the license and attribution in
 `datasets/sources/licenses/README.md` (regenerate from the registry).

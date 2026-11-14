@@ -30,10 +30,12 @@ from . import connectors, domains, langid  # noqa: E402
 DATASETS = TRAINING / "datasets"
 REGISTRY = DATASETS / "sources" / "registry" / "sources.json"
 REVIEWS = DATASETS / "reviews"
-PIPELINE_VERSION = "datahub-1.0"
-SYNTHETIC_ORIGINS = {"synthetic", "programmatic", "machine_translated"}
+PIPELINE_VERSION = "datahub-1.1"
+SYNTHETIC_ORIGINS = {"synthetic", "programmatic", "machine_translated", "templated_human", "transliteration_unverified"}
 SOURCE_QUALITY = {"oasst1": 0.9, "gsm8k": 0.9, "mbpp": 0.9, "dolly-15k": 0.8, "aya-dataset": 0.7, "scienceqa-text": 0.7, "self-oss-instruct": 0.7,
-                  "arc": 0.55, "approx-curriculum": 0.6, "approx-seed-v0.1": 0.6, "consented-history": 0.6}
+                  "arc": 0.55, "approx-curriculum": 0.6, "approx-seed-v0.1": 0.6, "consented-history": 0.6,
+                  "oasst2": 0.9, "tydiqa-goldp": 0.75, "qasc": 0.7, "roman-urdu-parl": 0.5, "nemotron-math": 0.7, "nemotron-stem": 0.65,
+                  "opencodeinstruct": 0.7, "trendyol-cybersec": 0.6, "wikipedia-ur": 0.6, "wikipedia-hi": 0.6, "wikipedia-ko": 0.6, "wikipedia-id": 0.6}
 INJECTION_CONTAM = re.compile(r"(ignore (all |the )?(previous|above) (instructions|prompts)|you are now (dan|in developer mode)|<\|im_start\|>|\[INST\]|system prompt:)", re.I)
 
 
@@ -48,6 +50,8 @@ def load_registry(path: Path = REGISTRY) -> dict:
                 raise ValueError(f"registry entry {s.get('id')} lacks {k!r}")
         if s["status"] == "approved" and s.get("commercial_use") not in ("yes",):
             raise ValueError(f"{s['id']}: approved sources must be cleared for commercial use")
+        if s["status"] == "approved" and s["connector"].get("type") == "hf_files" and not s.get("revision_full"):
+            raise ValueError(f"{s['id']}: hf_files sources must pin revision_full")
     return reg
 
 
@@ -60,17 +64,9 @@ def _hash(*parts: str) -> str:
 
 
 def load_review_ledger(review_dir: Path | None = None) -> dict:
-    """record_id → verdict from real human reviews (datasets/reviews/*.jsonl, written by `python -m datahub review-import`)."""
-    out = {}
-    d = Path(review_dir or REVIEWS)
-    if d.exists():
-        for f in sorted(d.glob("*.jsonl")):
-            for line in f.read_text(encoding="utf-8").splitlines():
-                if line.strip():
-                    r = json.loads(line)
-                    if r.get("reviewer") and r.get("verdict") in ("accept", "reject"):
-                        out[r["record_id"]] = r
-    return out
+    """record_id → human decision from the review ledger (datasets/reviews/*.jsonl, written only by `datahub review-import`)."""
+    from . import review
+    return review.load_ledger(review_dir)
 
 
 def normalise(raw: dict, src: dict, stats: Counter, ledger: dict) -> dict | None:
@@ -101,11 +97,12 @@ def normalise(raw: dict, src: dict, stats: Counter, ledger: dict) -> dict | None
     user, ans = dv.user_text(rec), dv.answer_text(rec)
     if INJECTION_CONTAM.search(user + "\n" + ans) and "safety" not in (raw.get("domain_hint") or ""):
         return rej("injection_contamination")
-    lang, script, conf = langid.detect(user + "\n" + ans)
+    lang, script, conf = langid.detect(ans if raw.get("lang_from") == "answer" else user + "\n" + ans)
     declared = raw.get("lang_declared")
     if declared and lang not in ("und", declared) and conf >= 0.7 and not (declared == "ur" and lang == "roman_ur"):
         return rej("language_mismatch")
-    lang = declared if (declared and lang == "und") else (lang if lang != "und" else (declared or "und"))
+    # A source's own per-record language label is authoritative unless detection confidently contradicts it (rejected above).
+    lang = declared or lang
     dom = domains.classify(user, ans, raw.get("domain_hint"))
     rid = _hash(src["id"], str(raw["source_record_id"]))[:24]
     ans_len = len(ans)
@@ -120,6 +117,11 @@ def normalise(raw: dict, src: dict, stats: Counter, ledger: dict) -> dict | None
     else:
         review = "unreviewed"
     lv = ledger.get(rid)
+    if lv and lv.get("content_hash"):
+        from . import review
+        if lv["content_hash"] != review.content_hash(clean):
+            stats["review_stale_content_changed"] += 1          # the reviewed text no longer matches → review does not count
+            lv = None
     if lv:
         if lv["verdict"] == "reject":
             return rej("human_review_rejected")
@@ -160,9 +162,13 @@ def build_pool(reg: dict | None = None, *, offline: bool = False, curriculum_sca
         try:
             prov, raws = connectors.load_source(s, offline=offline, curriculum_scale=curriculum_scale)
         except connectors.MissingSource as e:
-            missing.append({"source": s["id"], "error": str(e)})
-            per_source[s["id"]] = {"status": "missing", "ingested": 0, "error": str(e)}
-            log(f"  MISSING {s['id']}: {e}")
+            if s.get("optional"):
+                per_source[s["id"]] = {"status": "optional_absent", "ingested": 0, "note": str(e)}
+                log(f"  optional source absent (not required, not fabricated): {s['id']}")
+            else:
+                missing.append({"source": s["id"], "error": str(e)})
+                per_source[s["id"]] = {"status": "missing", "ingested": 0, "error": str(e)}
+                log(f"  MISSING {s['id']}: {e}")
             continue
         provenance[s["id"]] = prov
         st = Counter()
@@ -225,43 +231,72 @@ def load_profile(model_id: str) -> dict:
     return json.loads((DATASETS / model_id / "profile.json").read_text(encoding="utf-8"))
 
 
+def _select_once(elig: list, profile: dict, cap: int) -> list:
+    chosen, taken = [], set()
+    by_dom, by_lang = defaultdict(list), defaultdict(list)
+    for r in elig:
+        by_dom[r["domain"]].append(r)
+        by_lang[r["lang"]].append(r)
+    dmax = {d: math.floor(s * cap) for d, s in profile.get("domain_max_share", {}).items()}
+    smax = {src: math.floor(s * cap) for src, s in profile.get("source_max_share", {}).items()}
+    syn_cap = math.floor(profile.get("synthetic_max", 0.6) * cap)
+    dcount, scount, syn = Counter(), Counter(), 0
+
+    def take(r, enforce=True):
+        nonlocal syn
+        if r["id"] in taken:
+            return False
+        if enforce and (dcount[r["domain"]] >= dmax.get(r["domain"], cap) or scount[r["source"]] >= smax.get(r["source"], cap)
+                        or (r["synthetic"] and syn >= syn_cap)):
+            return False
+        taken.add(r["id"]); chosen.append(r); dcount[r["domain"]] += 1; scount[r["source"]] += 1; syn += r["synthetic"]
+        return True
+
+    for r in elig:                                                              # 0) every accepted human review is kept
+        if r["review_state"] == "human_reviewed" and len(chosen) < cap:
+            take(r, enforce=False)
+    for d, share in profile.get("domain_min_share", {}).items():                # 1) domain minimums
+        need = math.ceil(share * cap) - dcount[d]
+        for r in by_dom.get(d, []):
+            if need <= 0:
+                break
+            need -= take(r)
+    for l, n in profile.get("language_min", {}).items():                        # 2) language minimums
+        need = n - sum(1 for c in chosen if c["lang"] == l)
+        for r in by_lang.get(l, []):
+            if need <= 0:
+                break
+            need -= take(r)
+    for r in elig:                                                              # 3) fill by quality within caps
+        if len(chosen) >= cap:
+            break
+        take(r)
+    return chosen
+
+
 def select(pool: list, profile: dict) -> tuple[list, dict]:
-    """Deterministic, quota-respecting selection for one model. Never duplicates a record to reach a target."""
+    """Deterministic, quota-respecting selection for one model. Never duplicates a record to reach a target.
+    Human-reviewed (accepted) records are taken first; domain/source/synthetic caps apply even when the pool is smaller
+    than the target (shares are re-checked against the final size until stable)."""
     excl = set(profile.get("exclude_sources", []))
     elig = [r for r in pool if r["source"] not in excl and r["quality"] >= profile.get("min_quality", 0.0)]
-    cap = profile.get("max_records") or profile["min_records"]
-    if len(elig) <= cap:
-        chosen = list(elig)
-    else:
-        chosen, taken = [], set()
-        by_dom, by_lang = defaultdict(list), defaultdict(list)
-        for r in elig:
-            by_dom[r["domain"]].append(r)
-            by_lang[r["lang"]].append(r)
-        for d, share in profile.get("domain_min_share", {}).items():          # 1) domain minimums
-            for r in by_dom.get(d, [])[: math.ceil(share * cap)]:
-                if r["id"] not in taken:
-                    taken.add(r["id"]); chosen.append(r)
-        for l, n in profile.get("language_min", {}).items():                   # 2) language minimums
-            for r in [x for x in by_lang.get(l, []) if x["id"] not in taken][: max(0, n - sum(1 for c in chosen if c["lang"] == l))]:
-                taken.add(r["id"]); chosen.append(r)
-        dmax = {d: math.floor(s * cap) for d, s in profile.get("domain_max_share", {}).items()}
-        dcount = Counter(r["domain"] for r in chosen)
-        syn_cap = math.floor(profile.get("synthetic_max", 0.6) * cap)
-        syn = sum(1 for r in chosen if r["synthetic"])
-        for r in elig:                                                          # 3) fill by quality within caps
-            if len(chosen) >= cap:
-                break
-            if r["id"] in taken or dcount[r["domain"]] >= dmax.get(r["domain"], cap) or (r["synthetic"] and syn >= syn_cap):
-                continue
-            taken.add(r["id"]); chosen.append(r); dcount[r["domain"]] += 1; syn += r["synthetic"]
-    # enforce the synthetic cap on the final set too (drop lowest-quality synthetic records if needed)
+    elig.sort(key=lambda r: (r["review_state"] != "human_reviewed", -r["quality"], r["id"]))
+    cap = min(profile.get("max_records") or profile["min_records"], len(elig))
+    chosen = _select_once(elig, profile, cap)
+    for _ in range(8):                                  # caps are shares of the FINAL size → iterate to a fixed point
+        if len(chosen) >= cap:
+            break
+        cap = len(chosen)
+        chosen = _select_once(elig, profile, cap)
     smax = profile.get("synthetic_max", 0.6)
-    chosen.sort(key=lambda r: (-r["quality"], r["id"]))
+    chosen.sort(key=lambda r: (r["review_state"] != "human_reviewed", -r["quality"], r["id"]))
     while chosen and sum(r["synthetic"] for r in chosen) > smax * len(chosen):
         idx = max(i for i, r in enumerate(chosen) if r["synthetic"])
         chosen.pop(idx)
-    return sorted(chosen, key=lambda r: r["id"]), {"eligible": len(elig), "cap": cap}
+    return sorted(chosen, key=lambda r: r["id"]), {"eligible": len(elig), "cap": cap,
+                                                    "eligible_by_domain": dict(Counter(r["domain"] for r in elig).most_common()),
+                                                    "eligible_by_language": dict(Counter(r["lang"] for r in elig).most_common()),
+                                                    "eligible_synthetic": sum(r["synthetic"] for r in elig)}
 
 
 def _dump(path: Path, rows: list):
@@ -316,7 +351,9 @@ def build_model(model_id: str, pool: dict, out_dir: Path | None = None, profile:
         "no_split_leakage": {"passed": leak == 0, "detail": f"{leak} prompts shared between train and eval/test"},
         "benchmark_leakage_removed": {"passed": pool["stats"].get("rejected:benchmark_leakage", 0) >= 0 and pool["eval_prompt_count"] > 0,
                                       "detail": f"{pool['eval_prompt_count']} evaluation prompts indexed; {pool['stats'].get('rejected:benchmark_leakage', 0)} training records removed"},
-        "no_missing_sources": {"passed": not pool["missing"], "detail": pool["missing"] or "all approved sources present"},
+        "no_missing_sources": {"passed": not pool["missing"], "detail": pool["missing"] or ("all required approved sources present" + (
+            "; optional absent: " + ", ".join(k for k, v in pool["per_source"].items() if v.get("status") == "optional_absent")
+            if any(v.get("status") == "optional_absent" for v in pool["per_source"].values()) else ""))},
         "user_history_policy": {"passed": not (profile.get("tier") == "fab" and "consented-history" in used_sources), "detail": "FAB never uses user history"},
     }
     ready = all(g["passed"] for g in gates.values())
@@ -330,6 +367,7 @@ def build_model(model_id: str, pool: dict, out_dir: Path | None = None, profile:
         "production_readiness_notes": [f"{k}: {v['detail']}" for k, v in gates.items() if not v["passed"]],
         "pool": {"built_at": pool["built_at"], "stats": pool["stats"], "per_source": pool["per_source"], "missing": pool["missing"]},
         "provenance": {s: pool["provenance"].get(s) for s in sorted(used_sources)},
+        "upstream_risks": {s: reg[s]["upstream_risk"] for s in sorted(used_sources) if reg[s].get("upstream_risk")},
     }
     (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=1, ensure_ascii=False))
     if not publish:

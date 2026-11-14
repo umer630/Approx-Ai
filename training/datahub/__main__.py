@@ -25,10 +25,14 @@ def main(argv=None):
     b.add_argument("--curriculum-scale", type=float, default=1.0)
     es = sub.add_parser("eval-suites", help="build evaluation suites from evaluation-only sources")
     es.add_argument("--offline", action="store_true")
-    rs = sub.add_parser("review-sheet", help="export a random sample for HUMAN reviewers (CSV)")
-    rs.add_argument("--model", required=True); rs.add_argument("--n", type=int, default=500); rs.add_argument("--out", required=True)
-    ri = sub.add_parser("review-import", help="import a completed review CSV (reviewer + verdict columns required)")
-    ri.add_argument("--csv", required=True); ri.add_argument("--model", required=True)
+    rs = sub.add_parser("review-sheet", help="issue stratified CSV review sheets for HUMAN reviewers")
+    rs.add_argument("--model", required=True)
+    rs.add_argument("--n", type=int, default=None, help="rows (default: remaining requirement + 10%%)")
+    rs.add_argument("--batch", type=int, default=100)
+    ri = sub.add_parser("review-import", help="validate a completed sheet and append its decisions to the ledger")
+    ri.add_argument("--csv", required=True, nargs="+"); ri.add_argument("--model", required=True)
+    rp = sub.add_parser("review-progress", help="per-model human review progress → reports/human_review_progress.md")
+    rp.add_argument("--models", nargs="*", default=MODELS)
     a = ap.parse_args(argv)
     reg = pipeline.load_registry()
     if a.cmd == "sources":
@@ -36,8 +40,9 @@ def main(argv=None):
             print(f"{s['status']:16s} {s['use']:9s} {s['origin']:18s} {str(s['license']):16s} {s['id']}")
     elif a.cmd == "fetch":
         for s in reg["sources"]:
-            if s["status"] == "approved" and s["connector"]["type"] == "hf_parquet" and (not a.only or s["id"] in a.only):
-                prov = connectors.fetch_hf(s)
+            kind = s["connector"]["type"]
+            if s["status"] == "approved" and kind in ("hf_parquet", "hf_files") and (not a.only or s["id"] in a.only):
+                prov = connectors.fetch_hf(s) if kind == "hf_parquet" else connectors.fetch_hf_files(s)
                 print(f"{s['id']:22s} files={len(prov)} bytes={sum(p['bytes'] for p in prov)}")
     elif a.cmd == "build":
         t = time.time()
@@ -52,28 +57,28 @@ def main(argv=None):
         for name, m in pipeline.build_eval_suites(reg, offline=a.offline).items():
             print(f"{name:20s} items={m['items']:6d} languages={len(m['by_language'])}")
     elif a.cmd == "review-sheet":
-        import random
-        rows = [json.loads(l) for l in (pipeline.DATASETS / a.model / "build" / "train.jsonl").read_text(encoding="utf-8").splitlines()]
-        rnd = random.Random(f"review-{a.model}")
-        sample = rnd.sample(rows, min(a.n, len(rows)))
-        with open(a.out, "w", newline="", encoding="utf-8") as fh:
-            w = csv.writer(fh)
-            w.writerow(["record_id", "lang", "domain", "source", "prompt", "answer", "reviewer", "verdict", "notes"])
-            for r in sample:
-                u = next(m["content"] for m in r["messages"] if m["role"] == "user")
-                w.writerow([r["id"], r["lang"], r["domain"], r["source"], u, r["messages"][-1]["content"], "", "", ""])
-        print(f"wrote {len(sample)} rows to {a.out}: a person fills 'reviewer' and 'verdict' (accept/reject) for each row")
+        from . import review
+        paths = review.make_sheets(a.model, n=a.n, batch=a.batch)
+        print(f"issued {len(paths)} sheet(s) for {a.model}" + (f" in {paths[0].parent}" if paths else " (requirement already met)"))
+        print("reviewers: follow documentation/HUMAN_REVIEW.md — fill reviewer, verdict (accept/reject), issue_tags, notes; never edit prompt/answer")
     elif a.cmd == "review-import":
-        out = pipeline.REVIEWS / f"{a.model}.jsonl"
-        out.parent.mkdir(parents=True, exist_ok=True)
-        n = 0
-        with open(a.csv, encoding="utf-8") as fh, open(out, "a", encoding="utf-8") as o:
-            for r in csv.DictReader(fh):
-                if (r.get("reviewer") or "").strip() and r.get("verdict") in ("accept", "reject"):
-                    o.write(json.dumps({"record_id": r["record_id"], "reviewer": r["reviewer"].strip(), "verdict": r["verdict"],
-                                        "notes": r.get("notes", ""), "imported_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}) + "\n")
-                    n += 1
-        print(f"imported {n} human reviews (rows without a reviewer name or verdict are ignored)")
+        from . import review
+        rc = 0
+        for c in a.csv:
+            try:
+                rep = review.import_sheet(Path(c), a.model)
+            except ValueError as e:
+                print(f"REFUSED {c}: {e}"); rc = 1; continue
+            print(json.dumps(rep, indent=1, ensure_ascii=False))
+            rc |= bool(rep["errors"])
+        print("rebuild (`python -m datahub build`) so accepted reviews are counted; rejected records are excluded")
+        return rc
+    elif a.cmd == "review-progress":
+        from . import review
+        prog = review.write_progress_report(a.models, pipeline.TRAINING / "reports" / "human_review_progress.md")
+        for m, p in prog.items():
+            print(f"{m:10s} accepted={p['accepted_in_dataset']:6d} required={p['required']:6d} remaining={p['remaining']:6d} pending_rows={p['rows_pending']}")
+    return 0
 
 
 if __name__ == "__main__":

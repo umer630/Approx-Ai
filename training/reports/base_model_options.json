@@ -1,0 +1,110 @@
+{
+ "checked_at": "2026-11-14",
+ "method": "Hugging Face Hub model API (cardData.license, gated, sha, safetensors parameter count) + LICENSE text; tokenizer fertility measured on 300 Belebele passages per language (reports/tokenizer_fertility.json).",
+ "current": {
+  "nick-4.8": {
+   "base": "Qwen/Qwen2.5-3B-Instruct",
+   "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+   "license": "qwen-research (Qwen RESEARCH LICENSE AGREEMENT: 'Non-Commercial \u2026 for research or evaluation purposes only')",
+   "commercial_use": "no \u2014 separate commercial license from Alibaba Cloud required",
+   "status": "LOCKED, unchanged"
+  },
+  "fab-100x": {
+   "base": null,
+   "status": "not chosen \u2014 training blocked"
+  }
+ },
+ "candidates": {
+  "nick-4.8": [
+   {
+    "model": "microsoft/Phi-4-mini-instruct",
+    "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+    "license": "mit",
+    "gated": false,
+    "params_b": 3.84,
+    "fit": "QLoRA on a 16 GB T4/L4",
+    "pros": "MIT; best tokenizer for ur/hi/bn/fa (about half Qwen's tokens per character)",
+    "cons": "Urdu/Hindi not in its declared language list; different chat template \u2192 full retrain, new adapter"
+   },
+   {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+    "license": "apache-2.0",
+    "gated": false,
+    "params_b": 4.02,
+    "fit": "QLoRA on a 16 GB T4/L4",
+    "pros": "Apache-2.0; same tokenizer family as the current base (smallest migration); card claims 100+ languages",
+    "cons": "Urdu/Hindi tokenization as costly as Qwen2.5; new adapter required"
+   },
+   {
+    "model": "HuggingFaceTB/SmolLM3-3B",
+    "revision": "a07cc9a04f16550a088caea529712d1d335b0ac1",
+    "license": "apache-2.0",
+    "gated": false,
+    "params_b": 3.08,
+    "fit": "QLoRA on a 16 GB GPU",
+    "pros": "Apache-2.0, same size as today",
+    "cons": "officially 6 European languages; weak fit for Urdu"
+   }
+  ],
+  "fab-100x": [
+   {
+    "model": "Qwen/Qwen3-14B",
+    "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+    "license": "apache-2.0",
+    "gated": false,
+    "params_b": 14.77,
+    "fit": "QLoRA on 24 GB (L4) or 40 GB A100",
+    "pros": "Apache-2.0; strong reasoning/coding; 100+ languages claimed",
+    "cons": "Urdu/Hindi tokenization costly"
+   },
+   {
+    "model": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+    "revision": "68faf511d618ef198fef186659617cfd2eb8e33a",
+    "license": "apache-2.0",
+    "gated": false,
+    "params_b": 24.01,
+    "fit": "QLoRA on 40\u201380 GB A100",
+    "pros": "Apache-2.0; much better ur/hi/fa tokenization than Qwen",
+    "cons": "larger \u2192 higher GPU cost; vision tower unused"
+   },
+   {
+    "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+    "revision": "0d7cf23991f47feeb3a57ecb4c9cee8ea4a17bfe",
+    "license": "apache-2.0",
+    "gated": false,
+    "params_b": 30.53,
+    "fit": "MoE; 80 GB A100 for LoRA",
+    "pros": "Apache-2.0; fast inference (3B active)",
+    "cons": "MoE fine-tuning is less mature"
+   }
+  ]
+ },
+ "not_recommended": [
+  {
+   "model": "meta-llama/Llama-3.2-3B-Instruct",
+   "license": "llama3.2",
+   "reason": "gated; license adds naming/acceptable-use obligations"
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "license": "gemma",
+   "reason": "gated; Gemma terms of use add use restrictions"
+  },
+  {
+   "model": "CohereLabs/aya-expanse-8b",
+   "license": "cc-by-nc-4.0",
+   "reason": "non-commercial"
+  },
+  {
+   "model": "ibm-granite/granite-3.3-8b-instruct",
+   "license": "apache-2.0",
+   "reason": "permissive but worst tokenizer for ur/hi in this comparison"
+  }
+ ],
+ "recommendation": {
+  "nick-4.8": "Phi-4-mini-instruct if Urdu/Hindi quality and serving cost matter most; Qwen3-4B-Instruct-2507 for the smallest migration. Either way the recovered Qwen2.5-3B adapter (2faae216\u2026) stays archived and research-only; a new version (e.g. nick-4.9) gets a new adapter.",
+  "fab-100x": "Qwen3-14B (cost-effective) or Mistral-Small-3.1-24B (better Urdu/Hindi tokenization)."
+ },
+ "approval_needed": "No profile was changed. Approve one option per model and its revision is pinned in datasets/<model>/profile.json and training/models/<model>.yaml."
+}

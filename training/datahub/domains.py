@@ -18,7 +18,9 @@ ALIASES = {"physics": "science", "chemistry": "science", "biology": "science", "
            "urdu": "general_knowledge", "roman_urdu": "general_knowledge", "instruction_following": "writing", "structured_output": "software_engineering",
            "media_planning": "writing", "summarization": "writing", "business": "writing", "productivity": "writing", "daily_tasks": "problem_solving",
            "structured_responses": "writing", "malformed_input": "safety_ethics", "hallucination_resistance": "safety_ethics", "safety": "safety_ethics",
-           "general": "general_knowledge"}
+           "general": "general_knowledge", "math": "mathematics", "stem": "science", "code": "coding"}
+# A source label from the coding family is refined by the prompt into the more specific engineering domains.
+CODE_FAMILY = ("cybersecurity", "web_frontend", "web_backend", "web_fullstack", "software_engineering")
 
 RULES = [  # (domain, regex) — order matters: more specific first
     ("cybersecurity", r"\b(xss|csrf|sql injection|vulnerab\w*|exploit\w*|malware|phishing|encrypt\w*|owasp|penetration test\w*|firewall|cve-\d|threat model\w*|authenticat\w* bypass|security audit)\b"),
@@ -27,9 +29,9 @@ RULES = [  # (domain, regex) — order matters: more specific first
     ("web_fullstack", r"\b(full[- ]stack|web app(lication)?|website|deploy(ment)? (to|on) (vercel|heroku|netlify))\b"),
     ("software_engineering", r"\b(unit test\w*|debug\w*|refactor\w*|design pattern\w*|system design|microservice\w*|git\b|ci/cd|code review|big-?o|complexity of)\b"),
     ("coding", r"(```|\b(python|javascript|typescript|java\b|c\+\+|rust|golang|sql|function|algorithm|array|recursion|compile\w*|variable|class\b|def |import |return\b))"),
-    ("islamic_studies", r"\b(quran|qur'an|hadith|sunnah|islam\w*|prophet muhammad|salah|zakat|ramadan|fiqh|tafsir|sahih|surah)\b"),
-    ("pakistan", r"\b(pakistan\w*|lahore|karachi|islamabad|punjab|sindh|khyber|balochistan|jinnah|iqbal|urdu)\b"),
-    ("mathematics", r"\b(equation|integral|derivative|algebra|geometry|calculus|probability|statistic\w*|theorem|polynomial|matrix|percent\w*|fraction|solve for|how many|sum of|\d+\s*[\+\-\*/×÷^]\s*\d+)\b"),
+    ("islamic_studies", r"(قرآن|حدیث|اسلام(?! ?آباد)|نماز|زکوٰۃ|رمضان|فقہ|\b(quran|qur'an|hadith|sunnah|islam\w*|prophet muhammad|salah|zakat|ramadan|fiqh|tafsir|sahih|surah)\b)"),
+    ("pakistan", r"(پاکستان|لاہور|کراچی|اسلام آباد|پنجاب|سندھ|بلوچستان|خیبر پختونخوا|قائداعظم|\b(pakistan\w*|lahore|karachi|islamabad|punjab|sindh|khyber|balochistan|jinnah|iqbal|urdu)\b)"),
+    ("mathematics", r"\b(equation|integral|derivative|algebra|geometry|calculus|probability|statistic\w*|theorem|polynomial|matrix|percent\w*|fraction|solve for|how many|sum of|\d+\s*[\+\*/×÷^]\s*\d+|\d+\s+-\s+\d+\s*=)\b"),
     ("science", r"\b(physics|chemistry|biology|astronom\w*|molecule|atom\w*|cell\w*|photosynthesis|gravity|energy|force|velocity|electron|dna|evolution|planet\w*|element\w*|ecosystem|organism\w*|chemical|experiment\w*|hypothes\w*)\b"),
     ("safety_ethics", r"\b(ethic\w*|privacy|consent|harm\w*|safety|bias|misinformation|responsible ai|illegal)\b"),
     ("research", r"\b(research|source\w*|citation|evidence|study shows|according to|fact-?check\w*|peer[- ]review\w*|summari[sz]e the (article|passage|text))\b"),
@@ -50,6 +52,11 @@ def normalise(label: str | None) -> str | None:
 
 def classify(user: str, answer: str, hint: str | None = None) -> str:
     h = normalise(hint)
+    if h == "coding":
+        for d, rx in _COMPILED:
+            if d in CODE_FAMILY and rx.search(user):
+                return d
+        return h
     if h:
         return h
     text = f"{user}\n{answer[:1500]}"

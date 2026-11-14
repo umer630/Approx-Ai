@@ -882,11 +882,796 @@
     "fab-100x",
     "fab-500x"
    ],
-   "reason": "Only when an export file exists; FAB models never receive user history unless separately authorized.",
+   "reason": "Only when an export file exists; FAB models never receive user history unless separately authorized. OPTIONAL: exists only after users opt in; its absence is reported, not treated as a missing required source. Never fabricated.",
    "connector": {
     "type": "local_jsonl",
     "path": "data/consented/latest.jsonl",
     "mapper": "native"
+   },
+   "optional": true
+  },
+  {
+   "id": "oasst2",
+   "name": "OpenAssistant/oasst2",
+   "url": "https://huggingface.co/datasets/OpenAssistant/oasst2",
+   "hub_repo": "OpenAssistant/oasst2",
+   "revision": "179dd21fc551",
+   "revision_full": "179dd21fc55192153d94adb0e0ce8f69e222bf75",
+   "license": "apache-2.0",
+   "license_url": "https://huggingface.co/datasets/OpenAssistant/oasst2",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "OpenAssistant Conversations (oasst2), Apache-2.0",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Human-written, crowd-ranked conversations (superset of oasst1; overlap removed by exact dedup). Apache-2.0.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "hf_parquet",
+    "config": "default",
+    "splits": [
+     "train",
+     "validation"
+    ],
+    "mapper": "oasst2"
+   }
+  },
+  {
+   "id": "tydiqa-goldp",
+   "name": "google-research-datasets/tydiqa (secondary_task / GoldP)",
+   "url": "https://huggingface.co/datasets/google-research-datasets/tydiqa",
+   "hub_repo": "google-research-datasets/tydiqa",
+   "revision": "da78f23f9119",
+   "revision_full": "da78f23f9119363459acbaf46bf89426ff26c259",
+   "license": "apache-2.0",
+   "license_url": "https://huggingface.co/datasets/google-research-datasets/tydiqa",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "TyDi QA (Clark et al. 2020), Google, Apache-2.0; passages from Wikipedia (CC-BY-SA)",
+   "share_alike": true,
+   "status": "approved",
+   "reason": "Native-speaker questions with human-selected answer spans in Wikipedia passages (11 languages incl. Korean, Indonesian). Dataset Apache-2.0; passages are Wikipedia text (CC-BY-SA).",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "research"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "hf_parquet",
+    "config": "secondary_task",
+    "splits": [
+     "train"
+    ],
+    "mapper": "tydiqa"
+   }
+  },
+  {
+   "id": "qasc",
+   "name": "allenai/qasc",
+   "url": "https://huggingface.co/datasets/allenai/qasc",
+   "hub_repo": "allenai/qasc",
+   "revision": "a34ba204eb9a",
+   "revision_full": "a34ba204eb9a33b919c10cc08f4f1c8dae5ec070",
+   "license": "cc-by-4.0",
+   "license_url": "https://huggingface.co/datasets/allenai/qasc",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "QASC (Khot et al. 2020), AllenAI, CC-BY-4.0",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Crowd-written multi-hop science questions with gold facts. CC-BY-4.0.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "science"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_parquet",
+    "config": "default",
+    "splits": [
+     "train",
+     "validation"
+    ],
+    "mapper": "qasc"
+   }
+  },
+  {
+   "id": "roman-urdu-parl",
+   "name": "Mavkif/Roman-Urdu-Parl-split (Roman-Urdu-Parl)",
+   "url": "https://huggingface.co/datasets/Mavkif/Roman-Urdu-Parl-split",
+   "hub_repo": "Mavkif/Roman-Urdu-Parl-split",
+   "revision": "b9ef67066158",
+   "revision_full": "b9ef670661582b5f17eff68b4e65fbe25f3cb0b9",
+   "license": "apache-2.0",
+   "license_url": "https://huggingface.co/datasets/Mavkif/Roman-Urdu-Parl-split",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "Roman-Urdu-Parl (Alam & Hussain), split by Mavkif, Apache-2.0",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Urdu ↔ Roman-Urdu parallel sentences, declared Apache-2.0. The card does not state whether the Roman-Urdu side was written by people or produced by a transliteration tool, so records count toward the SYNTHETIC cap. Sampled (first parquet shard, ≥6 words).",
+   "origin": "transliteration_unverified",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "writing"
+   ],
+   "languages": [
+    "ur",
+    "roman_ur"
+   ],
+   "connector": {
+    "type": "hf_parquet",
+    "config": "default",
+    "splits": [
+     "train"
+    ],
+    "max_files": 1,
+    "mapper": "roman_urdu_parl",
+    "options": {
+     "rate": 0.06
+    },
+    "max_records": 12000
+   },
+   "upstream_risk": "Roman-Urdu authorship (human vs tool) not documented on the card; spot checks show some imperfectly aligned pairs (quality score lowered to 0.5)"
+  },
+  {
+   "id": "nemotron-math",
+   "name": "nvidia/Nemotron-Post-Training-Dataset-v1 (math, 12 shards)",
+   "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1",
+   "hub_repo": "nvidia/Nemotron-Post-Training-Dataset-v1",
+   "revision": "74e23eb6f830",
+   "revision_full": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8",
+   "license": "cc-by-4.0",
+   "license_url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "NVIDIA Nemotron-Post-Training-Dataset-v1, CC-BY-4.0",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Responses generated by DeepSeek-R1-0528 (MIT) / Qwen3-235B-A22B (Apache-2.0); rows from any other generator are dropped. Reasoning traces removed; one response per prompt. SYNTHETIC.",
+   "origin": "synthetic",
+   "synthetic_generator": "DeepSeek-R1-0528 / Qwen3-235B-A22B",
+   "use": "train",
+   "domains": [
+    "mathematics"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_files",
+    "files": [
+     "data/math-00000-of-00159.parquet",
+     "data/math-00001-of-00159.parquet",
+     "data/math-00002-of-00159.parquet",
+     "data/math-00003-of-00159.parquet",
+     "data/math-00004-of-00159.parquet",
+     "data/math-00005-of-00159.parquet",
+     "data/math-00006-of-00159.parquet",
+     "data/math-00007-of-00159.parquet",
+     "data/math-00008-of-00159.parquet",
+     "data/math-00009-of-00159.parquet",
+     "data/math-00010-of-00159.parquet",
+     "data/math-00011-of-00159.parquet"
+    ],
+    "columns": [
+     "uuid",
+     "generator",
+     "category",
+     "reasoning",
+     "messages",
+     "metadata"
+    ],
+    "mapper": "nemotron"
+   },
+   "upstream_risk": "prompts collected by NVIDIA from 'public and open corpora' (not itemised per row)"
+  },
+  {
+   "id": "nemotron-stem",
+   "name": "nvidia/Nemotron-Post-Training-Dataset-v1 (stem, 4 shards)",
+   "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1",
+   "hub_repo": "nvidia/Nemotron-Post-Training-Dataset-v1",
+   "revision": "74e23eb6f830",
+   "revision_full": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8",
+   "license": "cc-by-4.0",
+   "license_url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "NVIDIA Nemotron-Post-Training-Dataset-v1, CC-BY-4.0",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Science multiple-choice; DeepSeek-R1-0528 responses kept only when the final answer matches the row's expected answer. SYNTHETIC.",
+   "origin": "synthetic",
+   "synthetic_generator": "DeepSeek-R1-0528 / Qwen3-235B-A22B",
+   "use": "train",
+   "domains": [
+    "science"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_files",
+    "files": [
+     "data/stem-00000-of-00660.parquet",
+     "data/stem-00001-of-00660.parquet",
+     "data/stem-00002-of-00660.parquet",
+     "data/stem-00003-of-00660.parquet"
+    ],
+    "columns": [
+     "uuid",
+     "generator",
+     "category",
+     "reasoning",
+     "messages",
+     "metadata"
+    ],
+    "mapper": "nemotron",
+    "options": {
+     "verify_mc": true
+    }
+   },
+   "upstream_risk": "prompts collected by NVIDIA from 'public and open corpora' (not itemised per row)"
+  },
+  {
+   "id": "opencodeinstruct",
+   "name": "nvidia/OpenCodeInstruct (3 of 50 shards)",
+   "url": "https://huggingface.co/datasets/nvidia/OpenCodeInstruct",
+   "hub_repo": "nvidia/OpenCodeInstruct",
+   "revision": "8f3ba5bafe4d",
+   "revision_full": "8f3ba5bafe4d6e8db46082cf7ae6741bc370604d",
+   "license": "cc-by-4.0",
+   "license_url": "https://huggingface.co/datasets/nvidia/OpenCodeInstruct",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "NVIDIA OpenCodeInstruct (Ahmad et al. 2025), CC-BY-4.0",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Code instructions/solutions; only rows whose publisher-run unit tests all pass (average_test_score = 1.0). Card states the data 'may be freely used to train models'. SYNTHETIC.",
+   "origin": "synthetic",
+   "synthetic_generator": "undisclosed on the dataset card",
+   "use": "train",
+   "domains": [
+    "coding"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_files",
+    "files": [
+     "data/train-00000-of-00050.parquet",
+     "data/train-00001-of-00050.parquet",
+     "data/train-00002-of-00050.parquet"
+    ],
+    "columns": [
+     "id",
+     "input",
+     "output",
+     "generation_algorithm",
+     "average_test_score"
+    ],
+    "mapper": "opencodeinstruct"
+   },
+   "upstream_risk": "generator model not named on the card; confirm before commercial release (reject = set status to 'rejected' and rebuild)"
+  },
+  {
+   "id": "trendyol-cybersec",
+   "name": "Trendyol/Trendyol-Cybersecurity-Instruction-Tuning-Dataset",
+   "url": "https://huggingface.co/datasets/Trendyol/Trendyol-Cybersecurity-Instruction-Tuning-Dataset",
+   "hub_repo": "Trendyol/Trendyol-Cybersecurity-Instruction-Tuning-Dataset",
+   "revision": "357544e75766",
+   "revision_full": "357544e7576607d88eaeac9b0adb07e9fd8bb2bb",
+   "license": "apache-2.0",
+   "license_url": "https://huggingface.co/datasets/Trendyol/Trendyol-Cybersecurity-Instruction-Tuning-Dataset",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "Trendyol Cybersecurity Instruction-Tuning Dataset v2, Apache-2.0",
+   "share_alike": false,
+   "status": "approved",
+   "reason": "Defensive-security instruction data from Trendyol's security team, Apache-2.0. Treated as SYNTHETIC because the card does not say how answers were written.",
+   "origin": "synthetic",
+   "synthetic_generator": "undisclosed on the dataset card",
+   "use": "train",
+   "domains": [
+    "cybersecurity"
+   ],
+   "languages": [
+    "en"
+   ],
+   "connector": {
+    "type": "hf_parquet",
+    "config": "default",
+    "splits": [
+     "train"
+    ],
+    "mapper": "trendyol_sec"
+   },
+   "upstream_risk": "generation method not named on the card; confirm before commercial release"
+  },
+  {
+   "id": "wikipedia-ur",
+   "name": "wikimedia/wikipedia 20231101.ur (lead sections)",
+   "url": "https://huggingface.co/datasets/wikimedia/wikipedia",
+   "hub_repo": "wikimedia/wikipedia",
+   "revision": "b04c8d1ceb2f",
+   "revision_full": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+   "license": "cc-by-sa-3.0",
+   "license_url": "https://huggingface.co/datasets/wikimedia/wikipedia",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "Wikipedia (ur) contributors, CC-BY-SA-3.0 (via wikimedia/wikipedia)",
+   "share_alike": true,
+   "status": "approved",
+   "reason": "Human-written Wikipedia lead sections under a fixed prompt template ('write a short introduction to <title>'). Share-alike. Template prompts → counted toward the synthetic cap.",
+   "origin": "templated_human",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": [
+    "ur"
+   ],
+   "connector": {
+    "type": "hf_files",
+    "files": [
+     "20231101.ur/train-00000-of-00001.parquet"
+    ],
+    "columns": [
+     "id",
+     "url",
+     "title",
+     "text"
+    ],
+    "mapper": "wikipedia_intro",
+    "options": {
+     "lang": "ur",
+     "rate": 0.5,
+     "max_records": 15000
+    }
+   }
+  },
+  {
+   "id": "wikipedia-hi",
+   "name": "wikimedia/wikipedia 20231101.hi (lead sections)",
+   "url": "https://huggingface.co/datasets/wikimedia/wikipedia",
+   "hub_repo": "wikimedia/wikipedia",
+   "revision": "b04c8d1ceb2f",
+   "revision_full": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+   "license": "cc-by-sa-3.0",
+   "license_url": "https://huggingface.co/datasets/wikimedia/wikipedia",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "Wikipedia (hi) contributors, CC-BY-SA-3.0 (via wikimedia/wikipedia)",
+   "share_alike": true,
+   "status": "approved",
+   "reason": "Human-written Wikipedia lead sections under a fixed prompt template ('write a short introduction to <title>'). Share-alike. Template prompts → counted toward the synthetic cap.",
+   "origin": "templated_human",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": [
+    "hi"
+   ],
+   "connector": {
+    "type": "hf_files",
+    "files": [
+     "20231101.hi/train-00000-of-00002.parquet"
+    ],
+    "columns": [
+     "id",
+     "url",
+     "title",
+     "text"
+    ],
+    "mapper": "wikipedia_intro",
+    "options": {
+     "lang": "hi",
+     "rate": 0.3,
+     "max_records": 8000
+    }
+   }
+  },
+  {
+   "id": "wikipedia-ko",
+   "name": "wikimedia/wikipedia 20231101.ko (lead sections)",
+   "url": "https://huggingface.co/datasets/wikimedia/wikipedia",
+   "hub_repo": "wikimedia/wikipedia",
+   "revision": "b04c8d1ceb2f",
+   "revision_full": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+   "license": "cc-by-sa-3.0",
+   "license_url": "https://huggingface.co/datasets/wikimedia/wikipedia",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "Wikipedia (ko) contributors, CC-BY-SA-3.0 (via wikimedia/wikipedia)",
+   "share_alike": true,
+   "status": "approved",
+   "reason": "Human-written Wikipedia lead sections under a fixed prompt template ('write a short introduction to <title>'). Share-alike. Template prompts → counted toward the synthetic cap.",
+   "origin": "templated_human",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": [
+    "ko"
+   ],
+   "connector": {
+    "type": "hf_files",
+    "files": [
+     "20231101.ko/train-00000-of-00003.parquet"
+    ],
+    "columns": [
+     "id",
+     "url",
+     "title",
+     "text"
+    ],
+    "mapper": "wikipedia_intro",
+    "options": {
+     "lang": "ko",
+     "rate": 0.1,
+     "max_records": 8000
+    }
+   }
+  },
+  {
+   "id": "wikipedia-id",
+   "name": "wikimedia/wikipedia 20231101.id (lead sections)",
+   "url": "https://huggingface.co/datasets/wikimedia/wikipedia",
+   "hub_repo": "wikimedia/wikipedia",
+   "revision": "b04c8d1ceb2f",
+   "revision_full": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+   "license": "cc-by-sa-3.0",
+   "license_url": "https://huggingface.co/datasets/wikimedia/wikipedia",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": "Wikipedia (id) contributors, CC-BY-SA-3.0 (via wikimedia/wikipedia)",
+   "share_alike": true,
+   "status": "approved",
+   "reason": "Human-written Wikipedia lead sections under a fixed prompt template ('write a short introduction to <title>'). Share-alike. Template prompts → counted toward the synthetic cap.",
+   "origin": "templated_human",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": [
+    "id"
+   ],
+   "connector": {
+    "type": "hf_files",
+    "files": [
+     "20231101.id/train-00000-of-00003.parquet"
+    ],
+    "columns": [
+     "id",
+     "url",
+     "title",
+     "text"
+    ],
+    "mapper": "wikipedia_intro",
+    "options": {
+     "lang": "id",
+     "rate": 0.1,
+     "max_records": 8000
+    }
+   }
+  },
+  {
+   "id": "nemotron-chat",
+   "name": "nvidia/Nemotron-Post-Training-Dataset-v1 (chat)",
+   "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1",
+   "hub_repo": "nvidia/Nemotron-Post-Training-Dataset-v1",
+   "revision": null,
+   "license": "cc-by-4.0",
+   "license_url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "unclear",
+   "attribution": null,
+   "share_alike": false,
+   "status": "rejected",
+   "reason": "Prompts are taken from LMSYS-Chat-1M, which is distributed under its own restrictive agreement.",
+   "origin": "synthetic",
+   "synthetic_generator": "Qwen3-235B-A22B",
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "nemotron-code",
+   "name": "nvidia/Nemotron-Post-Training-Dataset-v1 (code)",
+   "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1",
+   "hub_repo": "nvidia/Nemotron-Post-Training-Dataset-v1",
+   "revision": null,
+   "license": "cc-by-4.0",
+   "license_url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "unclear",
+   "attribution": null,
+   "share_alike": false,
+   "status": "unavailable",
+   "reason": "Every inspected prompt is withheld ('-'); prompts must be rebuilt from TACO/APPS/CodeContests, whose licenses differ.",
+   "origin": "synthetic",
+   "synthetic_generator": "DeepSeek-R1-0528",
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "openmathinstruct-2",
+   "name": "nvidia/OpenMathInstruct-2",
+   "url": "https://huggingface.co/datasets/nvidia/OpenMathInstruct-2",
+   "hub_repo": "nvidia/OpenMathInstruct-2",
+   "revision": null,
+   "license": "cc-by-4.0",
+   "license_url": "https://huggingface.co/datasets/nvidia/OpenMathInstruct-2",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "unclear",
+   "attribution": null,
+   "share_alike": false,
+   "status": "review_required",
+   "reason": "Generated with Llama-3.1-405B; the Llama 3.1 license requires derived model names to start with 'Llama'.",
+   "origin": "synthetic",
+   "synthetic_generator": "Llama-3.1-405B-Instruct",
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "samvaad-hi",
+   "name": "sarvamai/samvaad-hi-v1",
+   "url": "https://huggingface.co/datasets/sarvamai/samvaad-hi-v1",
+   "hub_repo": "sarvamai/samvaad-hi-v1",
+   "revision": null,
+   "license": "apache-2.0",
+   "license_url": "https://huggingface.co/datasets/sarvamai/samvaad-hi-v1",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "unclear",
+   "attribution": null,
+   "share_alike": false,
+   "status": "review_required",
+   "reason": "Hindi/Hinglish conversations; the card does not say how they were generated.",
+   "origin": "synthetic",
+   "synthetic_generator": "undisclosed",
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "urdu-instruct",
+   "name": "large-traversaal/urdu-instruct",
+   "url": "https://huggingface.co/datasets/large-traversaal/urdu-instruct",
+   "hub_repo": "large-traversaal/urdu-instruct",
+   "revision": null,
+   "license": "cc-by-sa-4.0",
+   "license_url": "https://huggingface.co/datasets/large-traversaal/urdu-instruct",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "unclear",
+   "attribution": null,
+   "share_alike": false,
+   "status": "review_required",
+   "reason": "Generated with GPT-4o (OpenAI terms restrict building competing models).",
+   "origin": "synthetic",
+   "synthetic_generator": "GPT-4o",
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "urdu-assistant",
+   "name": "mahwizzzz/UrduAssistant",
+   "url": "https://huggingface.co/datasets/mahwizzzz/UrduAssistant",
+   "hub_repo": "mahwizzzz/UrduAssistant",
+   "revision": null,
+   "license": "mit",
+   "license_url": "https://huggingface.co/datasets/mahwizzzz/UrduAssistant",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "unclear",
+   "attribution": null,
+   "share_alike": false,
+   "status": "rejected",
+   "reason": "Urdu translation of Alpaca-style data (Alpaca is CC-BY-NC; text-davinci-003 outputs).",
+   "origin": "machine_translated",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "mt-urdu-english",
+   "name": "HaiderSultanArc/MT-Urdu-English",
+   "url": "https://huggingface.co/datasets/HaiderSultanArc/MT-Urdu-English",
+   "hub_repo": "HaiderSultanArc/MT-Urdu-English",
+   "revision": null,
+   "license": "mit",
+   "license_url": "https://huggingface.co/datasets/HaiderSultanArc/MT-Urdu-English",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "unclear",
+   "attribution": null,
+   "share_alike": false,
+   "status": "review_required",
+   "reason": "1.4M aggregated pairs (Quran, Bible, subtitles…); upstream corpus licenses not itemised.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "roman-urdu-toxic",
+   "name": "hafiz-hassaan-saeed/Parallel-Urdu-Roman-Urdu-Corpus",
+   "url": "https://huggingface.co/datasets/hafiz-hassaan-saeed/Parallel-Urdu-Roman-Urdu-Corpus",
+   "hub_repo": "hafiz-hassaan-saeed/Parallel-Urdu-Roman-Urdu-Corpus",
+   "revision": null,
+   "license": "cc-by-4.0",
+   "license_url": "https://huggingface.co/datasets/hafiz-hassaan-saeed/Parallel-Urdu-Roman-Urdu-Corpus",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": null,
+   "share_alike": false,
+   "status": "rejected",
+   "reason": "Toxic-comment corpus (abusive language) — unsuitable as assistant targets.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "tatoeba",
+   "name": "Helsinki-NLP/tatoeba",
+   "url": "https://huggingface.co/datasets/Helsinki-NLP/tatoeba",
+   "hub_repo": "Helsinki-NLP/tatoeba",
+   "revision": null,
+   "license": "cc-by-2.0",
+   "license_url": "https://huggingface.co/datasets/Helsinki-NLP/tatoeba",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "yes",
+   "attribution": null,
+   "share_alike": false,
+   "status": "unavailable",
+   "reason": "Human translations (CC-BY-2.0) but no parquet export; needs downloads.tatoeba.org on the network allowlist or an HF token for tatoeba_mt.",
+   "origin": "human_authored",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "kullm-v2",
+   "name": "nlpai-lab/kullm-v2",
+   "url": "https://huggingface.co/datasets/nlpai-lab/kullm-v2",
+   "hub_repo": "nlpai-lab/kullm-v2",
+   "revision": null,
+   "license": "apache-2.0",
+   "license_url": "https://huggingface.co/datasets/nlpai-lab/kullm-v2",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "unclear",
+   "attribution": null,
+   "share_alike": false,
+   "status": "review_required",
+   "reason": "Korean DeepL translations of GPT4All/Dolly/Vicuna — contains OpenAI-model outputs and ShareGPT conversations.",
+   "origin": "machine_translated",
+   "synthetic_generator": null,
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "cybernative-dpo",
+   "name": "CyberNative/Code_Vulnerability_Security_DPO",
+   "url": "https://huggingface.co/datasets/CyberNative/Code_Vulnerability_Security_DPO",
+   "hub_repo": "CyberNative/Code_Vulnerability_Security_DPO",
+   "revision": null,
+   "license": "apache-2.0",
+   "license_url": "https://huggingface.co/datasets/CyberNative/Code_Vulnerability_Security_DPO",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "unclear",
+   "attribution": null,
+   "share_alike": false,
+   "status": "rejected",
+   "reason": "Card warns labels are unverified and training on it degraded coding accuracy.",
+   "origin": "synthetic",
+   "synthetic_generator": "deepseek-coder-33b-instruct",
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "none"
+   }
+  },
+  {
+   "id": "wildchat-1m",
+   "name": "allenai/WildChat-1M",
+   "url": "https://huggingface.co/datasets/allenai/WildChat-1M",
+   "hub_repo": "allenai/WildChat-1M",
+   "revision": null,
+   "license": "odc-by",
+   "license_url": "https://huggingface.co/datasets/allenai/WildChat-1M",
+   "license_verified_via": "Hugging Face Hub API cardData.license + dataset card, read 2026-11-14",
+   "commercial_use": "unclear",
+   "attribution": null,
+   "share_alike": false,
+   "status": "review_required",
+   "reason": "Real user prompts with ChatGPT (OpenAI) responses.",
+   "origin": "synthetic",
+   "synthetic_generator": "gpt-3.5/gpt-4",
+   "use": "train",
+   "domains": [
+    "general"
+   ],
+   "languages": "multi",
+   "connector": {
+    "type": "none"
    }
   }
  ]

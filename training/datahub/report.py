@@ -1,63 +1,108 @@
-"""Generate reports/dataset_status.md (+ blockers) from the committed per-model manifests. Numbers come only from manifests."""
+"""reports/dataset_status.md + reports/domain_requirements.json from the committed manifests (no estimates).
+
+python -m datahub.report
+"""
 from __future__ import annotations
 
 import json
+import math
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MODELS = ["nick-4.8", "hike-6.5", "sona-9.0", "fab-100x", "fab-500x"]
 
-STATIC_BLOCKERS = [
-    ("Human review", "0 records are human-reviewed. No reviewer has used `datahub review-sheet` / `review-import` yet. "
-     "The `human_review` gate fails for every model and cannot be passed without real reviewers."),
-    ("Base-model license (Nick 4.8)", "`Qwen/Qwen2.5-3B-Instruct` is released under the `qwen-research` license (Hub card), which does not "
-     "grant commercial use. Commercial alternatives verified on the Hub: `Qwen/Qwen2.5-1.5B-Instruct` (Apache-2.0), "
-     "`Qwen/Qwen2.5-7B-Instruct` (Apache-2.0), `microsoft/Phi-3.5-mini-instruct` (MIT), `HuggingFaceTB/SmolLM2-1.7B-Instruct` (Apache-2.0). "
-     "The base model was NOT changed: switching it means a new model version and a full retrain, which is your decision."),
-    ("FAB 100X base model", "`fab-100x` has no base model in its profile. Training is blocked until a base model (and license) is chosen."),
-    ("Unavailable source", "Hendrycks MATH (`competition-math`) returns HTTP 400 from the Hub (taken down). Mathematics relies on GSM8K + curriculum."),
-    ("Sources awaiting license review", "SlimOrca, MetaMathQA, Orca-Math, Magicoder-OSS, CodeAlpaca (OpenAI-generated outputs, terms restrict "
-     "competing models), HelpSteer2 (ShareGPT-derived prompts), Tulu-3-SFT (mixed per-subset licenses). Not ingested."),
-    ("Rejected sources", "SciQ, Alpaca, No Robots (non-commercial licenses); OpenHermes-2.5, SmolTalk (no declared license)."),
-    ("Language and domain gaps", "The approved-source pool is short of Urdu (823 records), Korean (286), Roman Urdu (559), Hindi (839) and "
-     "Indonesian (757), and of software_engineering (200), cybersecurity (240), web_backend (125) and safety_ethics records. "
-     "Closing these needs new licensed sources or human-authored data, not duplication."),
-    ("Consented history", "`no_missing_sources` fails because `data/consented/latest.jsonl` (opt-in user history, Nick/Hike/Sona only) does not "
-     "exist. No consented user data exists yet; FAB never uses it."),
-    ("Known issue", "Some Aya ISO-639-3 codes are not mapped to ISO-639-1 (e.g. `eus`/`eu`, `fin`/`fi`, `hun`/`hu`, `swe`), so a few "
-     "small languages appear under two codes. None of the 17 target languages is affected."),
-    ("Not verified here", "GPU training, `tests/test_recovery.py` and the 4 torch-dependent tests in `test_colab_pipeline` need torch/GPU "
-     "and were not run in this environment."),
+BLOCKERS = [
+    ("Human review", "No person has reviewed records yet, so `human_review` fails for every model. The workflow is ready "
+     "(`documentation/HUMAN_REVIEW.md`); it needs real reviewers."),
+    ("Base models (approval needed)", "Nick 4.8's locked base `Qwen/Qwen2.5-3B-Instruct` is under the Qwen Research License "
+     "(non-commercial). FAB 100X has no base model. Options with verified licenses: `reports/base_model_options.md`. Nothing was changed."),
+    ("Sources with upstream risk", "OpenCodeInstruct and Trendyol-Cybersecurity do not name their generator models on their cards; "
+     "Roman-Urdu-Parl does not document how its Roman-Urdu side was produced. They are approved under their declared licenses and flagged "
+     "(`upstream_risk`); set `status` to `rejected` in the registry and rebuild to drop them."),
+    ("Unavailable sources", "Hendrycks MATH (HTTP 400, taken down); Nemotron code split (all prompts withheld); Tatoeba (no parquet export — needs "
+     "downloads.tatoeba.org on the network allowlist or an HF token)."),
+    ("Consented history", "Optional source: no users have opted in, so there is no data. It is reported as absent and never fabricated."),
+    ("Not verified here", "GPU training, `tests/test_recovery.py` and the torch-dependent tests in `test_colab_pipeline` need torch/GPU."),
 ]
 
 
+def load(m):
+    p = ROOT / "datasets" / m / "manifest.json"
+    return json.loads(p.read_text()) if p.exists() else None
+
+
+def requirements(man):
+    prof, sel = man["profile"], man.get("selection", {})
+    target = prof["min_records"]
+    elig_d, elig_l = sel.get("eligible_by_domain", {}), sel.get("eligible_by_language", {})
+    dom = {}
+    for d, s in prof.get("domain_min_share", {}).items():
+        need, have = math.ceil(s * target), man["by_domain"].get(d, 0)
+        dom[d] = {"required": need, "selected": have, "remaining": max(0, need - have), "eligible_in_pool": elig_d.get(d, 0),
+                  "needs_new_data": elig_d.get(d, 0) < need}
+    dmax = {d: {"max_share": s, "share": round(man["by_domain"].get(d, 0) / max(1, man["counts"]["total"]), 3)}
+            for d, s in prof.get("domain_max_share", {}).items()}
+    lang = {}
+    for l, n in prof.get("language_min", {}).items():
+        have = man["by_language"].get(l, 0)
+        lang[l] = {"required": n, "selected": have, "remaining": max(0, n - have), "eligible_in_pool": elig_l.get(l, 0), "needs_new_data": elig_l.get(l, 0) < n}
+    return {"target_records": target, "accepted": man["counts"]["total"], "remaining_records": max(0, target - man["counts"]["total"]),
+            "domains": dom, "domain_max": dmax, "languages": lang,
+            "human_review": {"required": prof.get("min_human_reviewed", 0), "accepted": man["human_reviewed"],
+                             "remaining": max(0, prof.get("min_human_reviewed", 0) - man["human_reviewed"])},
+            "failed_gates": [k for k, g in man["gates"].items() if not g["passed"]]}
+
+
 def main() -> None:
-    lines = ["# Dataset status and blockers", "", "Generated by `python -m datahub.report` from `datasets/<model>/manifest.json`. "
-             "Every number below is read from a manifest; nothing is estimated.", "",
-             "| Model | Accepted | Target | Meets target | Train / Eval / Test | Synthetic | Human-reviewed | production_ready |",
-             "|---|---|---|---|---|---|---|---|"]
-    details = []
-    for m in MODELS:
-        p = ROOT / "datasets" / m / "manifest.json"
-        if not p.exists():
-            lines.append(f"| {m} | — | — | no manifest | — | — | — | false |")
+    mans = {m: load(m) for m in MODELS}
+    reqs = {m: requirements(x) for m, x in mans.items() if x}
+    (ROOT / "reports" / "domain_requirements.json").write_text(json.dumps(reqs, indent=1, ensure_ascii=False))
+    L = ["# Dataset status, remaining requirements and blockers", "",
+         "Generated by `python -m datahub.report` from `datasets/<model>/manifest.json`. Every number is read from a manifest.", "",
+         "## Summary", "",
+         "| Model | Accepted | Target | Remaining | Synthetic | Human-reviewed / required | Failed gates | production_ready |", "|---|---|---|---|---|---|---|---|"]
+    for m, man in mans.items():
+        if not man:
+            L.append(f"| {m} | — | — | — | — | — | no manifest | false |"); continue
+        r = reqs[m]
+        L.append(f"| {m} | {r['accepted']:,} | {r['target_records']:,} | {r['remaining_records']:,} | {man['synthetic_ratio']:.1%} | "
+                 f"{r['human_review']['accepted']:,} / {r['human_review']['required']:,} | {', '.join(r['failed_gates']) or '—'} | {str(man['production_ready']).lower()} |")
+    L += ["", "## Blockers", ""] + [f"- **{t}.** {d}" for t, d in BLOCKERS]
+    L += ["", "## Remaining domain requirements", "",
+          "`remaining` = records still missing from the selection; `pool` = eligible records available to that model. "
+          "When `pool` < `required`, the gap needs new licensed or human-authored data.", ""]
+    for m, r in reqs.items():
+        gaps = {d: v for d, v in r["domains"].items() if v["remaining"]}
+        over = {d: v for d, v in r["domain_max"].items() if v["share"] > v["max_share"]}
+        L.append(f"### {m}")
+        if not gaps and not over:
+            L += ["", "All domain minimums and maximums met.", ""]; continue
+        L += ["", "| Domain | Required | Selected | Remaining | Pool | Needs new data |", "|---|---|---|---|---|---|"]
+        L += [f"| {d} | {v['required']:,} | {v['selected']:,} | **{v['remaining']:,}** | {v['eligible_in_pool']:,} | {'yes' if v['needs_new_data'] else 'no (selection)'} |"
+              for d, v in gaps.items()]
+        L += [f"| {d} (max share) | ≤ {v['max_share']} | {v['share']} | over cap | | |" for d, v in over.items()]
+        L.append("")
+    L += ["## Remaining language requirements", ""]
+    for m, r in reqs.items():
+        gaps = {l: v for l, v in r["languages"].items() if v["remaining"]}
+        L.append(f"- **{m}**: " + ("all language minimums met" if not gaps else
+                 "; ".join(f"{l} {v['selected']:,}/{v['required']:,} (needs {v['remaining']:,}, pool {v['eligible_in_pool']:,})" for l, v in gaps.items())))
+    L += ["", "## Per-model detail", ""]
+    for m, man in mans.items():
+        if not man:
             continue
-        man = json.loads(p.read_text())
-        c, prof = man["counts"], man["profile"]
-        lines.append(f"| {m} | {c['total']:,} | {prof['min_records']:,} | {'yes' if c['total'] >= prof['min_records'] else 'NO'} | "
-                     f"{c['train']:,} / {c['eval']:,} / {c['test']:,} | {man['synthetic_ratio']:.1%} | {man['human_reviewed']} | {str(man['production_ready']).lower()} |")
-        details += [f"## {m}", "", f"Dataset version `{man['dataset_version']}`; fingerprint `{man['content_fingerprint_sha256'][:16]}…`", "",
-                    "Gates:", ""] + [f"- {'PASS' if g['passed'] else '**FAIL**'} `{k}` — {g['detail'] if isinstance(g['detail'], str) else json.dumps(g['detail'], ensure_ascii=False)}"
-                                     for k, g in man["gates"].items()]
-        details += ["", "Languages: " + ", ".join(f"{k} {v:,}" for k, v in man["by_language"].items()),
-                    "", "Domains: " + ", ".join(f"{k} {v:,}" for k, v in man["by_domain"].items()),
-                    "", "Sources: " + ", ".join(f"{k} {v:,}" for k, v in man["by_source"].items()),
-                    "", "Origins: " + ", ".join(f"{k} {v:,}" for k, v in man["by_origin"].items()),
-                    "", "Review states: " + ", ".join(f"{k} {v:,}" for k, v in man["by_review_state"].items()), ""]
-    lines += ["", "## Blockers", ""] + [f"- **{t}.** {d}" for t, d in STATIC_BLOCKERS] + ["", *details]
-    out = ROOT / "reports" / "dataset_status.md"
-    out.write_text("\n".join(lines) + "\n")
-    print(out)
+        L += [f"### {m}", "", f"Dataset version `{man['dataset_version']}` · fingerprint `{man['content_fingerprint_sha256'][:16]}…` · "
+              f"train/eval/test {man['counts']['train']:,}/{man['counts']['eval']:,}/{man['counts']['test']:,}", ""]
+        L += [f"- {'PASS' if g['passed'] else '**FAIL**'} `{k}` — {g['detail'] if isinstance(g['detail'], str) else json.dumps(g['detail'], ensure_ascii=False)}"
+              for k, g in man["gates"].items()]
+        for title, key in (("Languages", "by_language"), ("Domains", "by_domain"), ("Sources", "by_source"), ("Origins", "by_origin"),
+                           ("Review states", "by_review_state")):
+            L += ["", f"{title}: " + ", ".join(f"{k} {v:,}" for k, v in man[key].items())]
+        if man.get("upstream_risks"):
+            L += ["", "Upstream risks: " + "; ".join(f"{k}: {v}" for k, v in man["upstream_risks"].items())]
+        L.append("")
+    (ROOT / "reports" / "dataset_status.md").write_text("\n".join(L) + "\n")
+    print(ROOT / "reports" / "dataset_status.md")
 
 
 if __name__ == "__main__":
