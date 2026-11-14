@@ -203,34 +203,47 @@ def _minhash(sh: set) -> tuple:
 
 
 class NearDupIndex:
-    """Number-aware near-duplicate detection: Jaccard > threshold on 5-gram shingles AND identical numbers."""
+    """Number-aware near-duplicate detection: estimated Jaccard > threshold on 5-gram shingles AND identical numbers.
+
+    Memory-bounded for large pools: only the 64-value MinHash signature (as a compact uint64 array) is kept per item —
+    never the shingle set — and the fraction of matching signature positions estimates the Jaccard similarity
+    (standard MinHash; std ≈ 0.045 at J = 0.85). LSH banding (16 bands × 4 rows) selects the candidates.
+    """
 
     def __init__(self, threshold: float = 0.85):
         self.threshold = threshold
-        self.buckets = defaultdict(list)
-        self.items = []    # (shingles, numbers, cluster_id)
+        self.buckets = {}
+        self.items = []    # (signature array, numbers, cluster_id)
 
     def find(self, text: str):
-        sh = _shingles(text)
+        from array import array
+        mh = _minhash(_shingles(text))
         nums = tuple(NUM.findall(text))
-        mh = _minhash(sh)
         rows = _PERMS // _BANDS
+        keys = [hash((b,) + mh[b * rows:(b + 1) * rows]) for b in range(_BANDS)]
         cands = set()
-        keys = [(b, mh[b * rows:(b + 1) * rows]) for b in range(_BANDS)]
         for k in keys:
-            cands.update(self.buckets.get(k, ()))
+            v = self.buckets.get(k)
+            if v is not None:
+                cands.update(v if isinstance(v, list) else (v,))
         for i in sorted(cands):
-            osh, onums, cid = self.items[i]
-            if onums == nums and len(sh & osh) / max(1, len(sh | osh)) > self.threshold:
-                return cid, (sh, nums, keys)
-        return None, (sh, nums, keys)
+            osig, onums, cid = self.items[i]
+            if onums == nums and sum(1 for x, y in zip(mh, osig) if x == y) / _PERMS > self.threshold:
+                return cid, (array("Q", mh), nums, keys)
+        return None, (array("Q", mh), nums, keys)
 
     def add(self, sig, cluster_id: str):
-        sh, nums, keys = sig
+        arr, nums, keys = sig
         idx = len(self.items)
-        self.items.append((sh, nums, cluster_id))
+        self.items.append((arr, nums, cluster_id))
         for k in keys:
-            self.buckets[k].append(idx)
+            v = self.buckets.get(k)
+            if v is None:
+                self.buckets[k] = idx            # single int until a second item shares the bucket
+            elif isinstance(v, list):
+                v.append(idx)
+            else:
+                self.buckets[k] = [v, idx]
 
 
 def find_contradictions(records: list) -> set:
