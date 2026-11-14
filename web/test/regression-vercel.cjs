@@ -21,9 +21,12 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
   const mails = [];
   const brevo = await listen(async (req, res) => { mails.push(JSON.parse(await readBody(req))); res.writeHead(201); res.end('{}'); });
   const REPLY = ['Here is **bold** text and code:\n\n', '```js\nconsole.log("approx");\n```\n'];
+  const NICK_PIN = '2faae21620ef0aea6140b296b43ab5fcf5ba2c5b721067f91797b288a09c34c4';
   const inf = await listen(async (req, res) => {
-    if (req.url === '/health') { res.writeHead(200, { 'Content-Type': 'application/json' }); return res.end(JSON.stringify({ status: 'ok', serving: { 'nick-4.8': '1.0.0' } })); }
-    await readBody(req);
+    if (req.url === '/health') { res.writeHead(200, { 'Content-Type': 'application/json' }); return res.end(JSON.stringify({ status: 'ok', serving: { 'nick-4.8': '1.0.0' },
+      details: { 'nick-4.8': { version: '1.0.0', adapter_sha256: NICK_PIN, production_ready: true, smoke_test: false } } })); }
+    const reqBody = JSON.parse((await readBody(req)) || '{}');
+    if (reqBody.stream === false) { res.writeHead(200, { 'Content-Type': 'application/json' }); return res.end(JSON.stringify({ choices: [{ message: { content: 'Ready.' } }] })); }
     res.writeHead(200, { 'Content-Type': 'text/event-stream' });
     for (const p of REPLY) res.write(`data: ${JSON.stringify({ choices: [{ delta: { content: p } }] })}\n\n`);
     res.end('data: [DONE]\n\n');
@@ -108,6 +111,15 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     // The held request was a real sign-in: it completes and lands in the app.
     await p.waitForSelector('#prompt', { timeout: 10000 }).catch(() => {});
     ok('login lands in app', await p.locator('#prompt').count() === 1);
+    // Activate Nick 4.8 through the real lifecycle flow (superadmin; backend verifies health + SHA-256 + generation).
+    const act = await p.evaluate(async (pin) => {
+      const me = await (await fetch('/api/auth/me')).json();
+      const r = await fetch('/api/admin/models/nick-4.8/lifecycle', { method: 'POST', headers: { 'content-type': 'application/json', 'x-csrf-token': me.csrf_token },
+        body: JSON.stringify({ to: 'DEPLOYING', version: '1.0.0', artifact: { uri: 'gs://approx-models/nick-4.8/1.0.0/adapter.tar.gz', sha256: pin, base_model: 'Qwen/Qwen2.5-3B-Instruct', base_revision: 'aa8e72537993ba99e69dfaafa59ed015b17504d1' } }) });
+      return [r.status, await r.json()];
+    }, NICK_PIN);
+    ok('Nick 4.8 activated via lifecycle verification', act[0] === 200 && act[1].lifecycle?.state === 'ACTIVE', JSON.stringify(act[1]).slice(0, 200));
+    await p.reload({ waitUntil: 'networkidle' }); await p.waitForTimeout(800);
     ok('greeting is warm and personal', /^(Hi Owner — ready when you are\.|Good (morning|afternoon|evening), Owner\.|Welcome back, Owner\.|Still at it, Owner\?|Morning, Owner\. Good to see you\.|Good to see you, Owner\.)$/.test((await p.locator('.welcome h1').innerText()).trim()), await p.locator('.welcome h1').innerText());
     ok('header logo uses the transparent mark', (await p.locator('.brand img').getAttribute('src')).includes('logo-mark'));
     ok('app background is white (not black)', await p.evaluate(() => getComputedStyle(document.body).backgroundColor) === 'rgb(255, 255, 255)');

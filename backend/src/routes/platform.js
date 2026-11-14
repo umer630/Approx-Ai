@@ -7,7 +7,8 @@ import { one, all, run, now, audit, describeDbError } from '../db.js';
 import { readJson, readBodyToFile, sendJson, bad, notFound, forbidden, newId, str, HttpError, clientIp } from '../http.js';
 import { requireUser, requireRole, requireScope, requireVerified, requirePrivileged, rateLimit } from '../security.js';
 import { modelsForUser, getModel, canUseModel, listModels } from '../models.js';
-import { backendStatus, upstreamHealth } from '../providers/index.js';
+import { backendStatus, upstreamHealth, upstreamFor } from '../providers/index.js';
+import * as lifecycle from '../lifecycle.js';
 import { mailConfigured } from '../mail.js';
 import { catalog, catalogModel, catalogPipeline, modeList, DEFAULT_MODE, MODES } from '../catalog.js';
 import * as registry from '../registry.js';
@@ -206,6 +207,10 @@ export function registerPlatformRoutes(r) {
       if (b[k] !== undefined) { const n = Number(b[k]); if (!Number.isFinite(n) || n < 0 || n > 100000) throw bad(`${k} must be a non-negative number`); options[k] = n; }
     }
     if ((await one(`SELECT COUNT(*) c FROM gpu_jobs WHERE status IN ('queued','running','stop_requested')`)).c >= 5) throw new HttpError(409, 'too_many_jobs', 'There are already 5 active jobs');
+    // No duplicate training: a model with a queued/running job cannot be queued again.
+    const busy = new Set((await all(`SELECT models FROM gpu_jobs WHERE status IN ('queued','running','stop_requested')`)).flatMap((j) => JSON.parse(j.models)));
+    const dup = [...new Set(models)].filter((m) => busy.has(m));
+    if (dup.length) throw new HttpError(409, 'duplicate_job', `Already queued or training: ${dup.join(', ')}`, { models: dup });
     const id = newId('job_');
     await run('INSERT INTO gpu_jobs (id, kind, models, options, status, requested_by, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?)',
       id, 'training', JSON.stringify([...new Set(models)]), JSON.stringify(options), 'queued', admin.id, now(), now());
@@ -220,6 +225,21 @@ export function registerPlatformRoutes(r) {
     if (!j) throw notFound('Job not found');
     sendJson(res, 200, { job: jobView(j, { log: true }) });
   });
+  // Retry a failed / stopped / blocked job with the same models and options (duplicate check still applies).
+  r.post('/api/admin/compute/jobs/:id/retry', async (req, res, ctx, p) => {
+    const admin = requireRole(ctx, 'superadmin');
+    const j = await one('SELECT * FROM gpu_jobs WHERE id = ?', p.id);
+    if (!j) throw notFound('Job not found');
+    if (!['failed', 'stopped', 'blocked'].includes(j.status)) throw new HttpError(409, 'not_retryable', `Job is ${j.status}`);
+    const models = JSON.parse(j.models);
+    const busy = new Set((await all(`SELECT models FROM gpu_jobs WHERE status IN ('queued','running','stop_requested')`)).flatMap((x) => JSON.parse(x.models)));
+    if (models.some((m) => busy.has(m))) throw new HttpError(409, 'duplicate_job', 'One of these models already has an active job');
+    const id = newId('job_');
+    await run('INSERT INTO gpu_jobs (id, kind, models, options, status, requested_by, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?)',
+      id, j.kind, j.models, JSON.stringify({ ...JSON.parse(j.options || '{}'), retry_of: j.id }), 'queued', admin.id, now(), now());
+    await audit(null, admin.id, 'compute.job_retried', id, clientIp(req), { retry_of: j.id });
+    sendJson(res, 201, { job: jobView(await one('SELECT * FROM gpu_jobs WHERE id = ?', id)) });
+  });
   r.post('/api/admin/compute/jobs/:id/stop', async (req, res, ctx, p) => {
     const admin = requireRole(ctx, 'superadmin');
     const j = await one('SELECT * FROM gpu_jobs WHERE id = ?', p.id);
@@ -229,6 +249,49 @@ export function registerPlatformRoutes(r) {
     await run('UPDATE gpu_jobs SET status = ?, updated_at = ?, finished_at = ? WHERE id = ?', next, now(), next === 'stopped' ? now() : null, j.id);
     await audit(null, admin.id, 'compute.job_stop_requested', j.id, clientIp(req));
     sendJson(res, 200, { job: jobView(await one('SELECT * FROM gpu_jobs WHERE id = ?', j.id)) });
+  });
+
+  // Training jobs move their models' lifecycle (only forward from a state that allows it; never to ACTIVE).
+  async function syncJobLifecycle(models, to, actor, detail, failedStage) {
+    for (const id of models) {
+      const lc = await one('SELECT state FROM model_lifecycle WHERE model_id = ?', id);
+      if (!lc) continue;
+      const allowed = to === 'TRAINING' ? ['TRAINING_REQUIRED', 'REGISTERED', 'FAILED'] : ['TRAINING'];
+      if (!allowed.includes(lc.state)) continue;
+      try { await lifecycle.transition(id, { to, reason: detail, failed_stage: failedStage }, actor); } catch { /* recorded state wins */ }
+    }
+  }
+
+  // ================= model lifecycle (activation only after real deployment verification) =================
+  const verifyFor = (modelId, actor) => {
+    const m = catalog.models.find((x) => x.id === modelId);
+    const up = m ? upstreamFor({ id: m.id, family: m.family }) : null;
+    return lifecycle.verifyDeployment(modelId, actor, up && up.managed ? { url: up.url, key: up.key } : null);
+  };
+  r.get('/api/admin/models/lifecycle', async (req, res, ctx) => {
+    requireRole(ctx, 'admin', 'superadmin');
+    const rows = await all('SELECT * FROM model_lifecycle ORDER BY model_id');
+    sendJson(res, 200, { states: lifecycle.STATES, models: rows.map(lifecycle.lifecycleView).map((v, i) => ({ model_id: rows[i].model_id, ...v,
+      pinned_sha256: lifecycle.pinnedSha(rows[i].model_id) })),
+    events: await all('SELECT model_id, from_state, to_state, actor, detail, created_at FROM model_lifecycle_events ORDER BY id DESC LIMIT 200') });
+  });
+  r.post('/api/admin/models/:id/lifecycle', async (req, res, ctx, p) => {
+    const admin = requireRole(ctx, 'superadmin');
+    const b = await readJson(req);
+    const out = await lifecycle.transition(p.id, b, admin.id, { verify: verifyFor });
+    await audit(null, admin.id, 'model.lifecycle', p.id, clientIp(req), { to: b.to });
+    sendJson(res, 200, { model_id: p.id, lifecycle: out });
+  });
+  r.post('/api/admin/models/:id/verify-deployment', async (req, res, ctx, p) => {
+    const admin = requireRole(ctx, 'superadmin');
+    sendJson(res, 200, { model_id: p.id, lifecycle: await verifyFor(p.id, admin.id) });
+  });
+  // GPU workers report training progress (API key with scope training:worker). Workers can never activate a model:
+  // DEPLOYING triggers the same backend verification as an admin would.
+  r.post('/api/v1/worker/models/:id/lifecycle', async (req, res, ctx, p) => {
+    const u = requirePrivileged(ctx, 'training:worker');
+    const b = await readJson(req);
+    sendJson(res, 200, { model_id: p.id, lifecycle: await lifecycle.transition(p.id, b, `worker:${u.id}`, { verify: verifyFor }) });
   });
 
   // ----- worker API (admin API key with scope training:worker) -----
@@ -253,6 +316,7 @@ export function registerPlatformRoutes(r) {
       const q = await one(`SELECT * FROM gpu_jobs WHERE status = 'queued' ORDER BY created_at LIMIT 1`);
       if (q && (await run(`UPDATE gpu_jobs SET status = 'running', worker_id = ?, started_at = ?, updated_at = ? WHERE id = ? AND status = 'queued'`, workerId, now(), now(), q.id)).changes) {
         await run('UPDATE gpu_workers SET current_job_id = ? WHERE id = ?', q.id, workerId);
+        await syncJobLifecycle(JSON.parse(q.models), 'TRAINING', `worker:${workerId}`, `training job ${q.id} started`);
         job = jobView(await one('SELECT * FROM gpu_jobs WHERE id = ?', q.id));
       }
     }
@@ -294,6 +358,11 @@ export function registerPlatformRoutes(r) {
     }
     await run(`UPDATE gpu_jobs SET ${sets.join(', ')} WHERE id = ?`, ...args, j.id);
     if (final) await audit(null, `worker:${workerId}`, 'compute.job_finished', j.id, clientIp(req), { status: final });
+    if (final && final !== 'succeeded') {
+      await syncJobLifecycle(JSON.parse(j.models), 'FAILED', `worker:${workerId}`, `training job ${j.id} ${final}${b.error ? `: ${String(b.error).slice(0, 300)}` : ''}`, 'training');
+    }
+    // A succeeded job does NOT activate anything: the worker registers the artifact (TRAINING_COMPLETE) and the
+    // evaluation (VERIFIED); activation still requires deployment verification.
     sendJson(res, 200, { status: final || j.status, stop_requested: !final && j.status === 'stop_requested' });
   });
 

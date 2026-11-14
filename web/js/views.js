@@ -333,10 +333,57 @@ export async function adminView() {
     h('h3', {}, 'Users'), h('div', { class: 'list' }, r.users.map((u) => h('div', { class: 'list-item' }, h('div', { class: 'grow' }, h('div', { class: 'title' }, u.email), h('div', { class: 'sub' }, `${u.role} · ${u.plan} · ${u.email_verified ? 'verified' : 'unverified'} · grants: ${u.grants.map((g) => g.model_id).join(', ') || 'none'}`)),
       h('select', { class: 'input', 'aria-label': 'Plan', onchange: async (e) => { await api(`/api/admin/users/${u.id}`, { method: 'PATCH', body: { plan: e.target.value } }); toast('Plan updated'); } }, ['free', 'pro', 'enterprise'].map((p) => h('option', { value: p, selected: u.plan === p }, p)))))),
     isSuper ? h('button', { class: 'btn', onclick: async () => { try { const d = await api('/api/admin/training/export-consented', { method: 'POST', body: { target_model: 'nick-4.8' } }); toast(`Dataset ${d.dataset.version}: ${d.dataset.stats.pairs} pairs → kept after filters`); } catch (e) { toast(e.message); } } }, 'Export consented Nick dataset') : null,
+    h('h3', {}, 'Model lifecycle'), h('div', { id: 'admin-lifecycle' }, h('p', { class: 'muted small' }, 'Loading…')),
     h('h3', {}, 'Model registry'), h('div', { id: 'admin-registry' }, h('p', { class: 'muted small' }, 'Loading…')),
     h('h3', {}, 'Compute (GPU training)'), h('div', { id: 'admin-compute' }, h('p', { class: 'muted small' }, 'Loading…'))));
+  renderLifecycle(isSuper);
   renderRegistry(isSuper);
   renderCompute(isSuper);
+}
+
+// Lifecycle: REGISTERED → TRAINING → … → DEPLOYING → ACTIVE. ACTIVE is reached only when the backend verifies the
+// live inference server (exact version + adapter SHA-256 + a real generation).
+async function renderLifecycle(isSuper) {
+  const box = document.getElementById('admin-lifecycle');
+  if (!box) return;
+  let r;
+  try { r = await api('/api/admin/models/lifecycle'); } catch (e) { box.replaceChildren(h('div', { class: 'alert error' }, e.message)); return; }
+  const badge = (st) => h('span', { class: `badge ${st === 'ACTIVE' ? 'green' : st === 'FAILED' ? 'error' : 'warn'}` }, st);
+  const rows = r.models.map((m) => {
+    const form = isSuper && ['REGISTERED', 'VERIFIED', 'FAILED'].includes(m.state) ? deployForm(m, () => renderLifecycle(isSuper)) : null;
+    return h('div', { class: 'card' },
+      h('div', { class: 'row' }, h('b', { class: 'grow' }, m.model_id), badge(m.state)),
+      h('div', { class: 'small muted' }, [m.label, m.version ? `v${m.version}` : null, m.adapter_sha256 ? `sha256 ${m.adapter_sha256.slice(0, 12)}…` : (m.pinned_sha256 ? `pinned ${m.pinned_sha256.slice(0, 12)}…` : null),
+        m.base_model, m.base_model_revision ? `rev ${m.base_model_revision.slice(0, 12)}` : null].filter(Boolean).join(' · ')),
+      m.failed_stage ? h('div', { class: 'alert error small' }, `Failed at ${m.failed_stage}: ${m.detail}`) : (m.detail ? h('div', { class: 'small muted' }, m.detail) : null),
+      isSuper && ['DEPLOYING', 'ACTIVE'].includes(m.state) ? h('button', { class: 'btn', onclick: async (e) => {
+        e.currentTarget.disabled = true;
+        try { await api(`/api/admin/models/${m.model_id}/verify-deployment`, { method: 'POST' }); toast('Verified'); } catch (err) { toast(err.message); }
+        renderLifecycle(isSuper);
+      } }, 'Re-verify deployment') : null,
+      form);
+  });
+  box.replaceChildren(...rows, h('details', { class: 'small' }, h('summary', { class: 'muted' }, 'Recent lifecycle events'),
+    h('div', { class: 'list' }, r.events.slice(0, 30).map((e) => h('div', { class: 'list-item sub-row' }, h('span', { class: 'grow' }, `${e.model_id}: ${e.from_state || '—'} → ${e.to_state} · ${e.detail || ''}`), h('span', { class: 'muted' }, new Date(e.created_at).toLocaleString()))))));
+}
+function deployForm(m, done) {
+  const msg = h('div');
+  const field = (label, attrs) => { const i = h('input', { class: 'input', ...attrs }); return [i, h('div', { class: 'field' }, h('label', {}, label), i)]; };
+  const [version, fv] = field('Version', { placeholder: '1.0.0', value: m.version || '' });
+  const [uri, fu] = field('Artifact location (persistent storage)', { placeholder: 'gs://bucket/path/adapter.tar.gz', value: m.artifact_uri || '' });
+  const [sha, fs] = field('adapter_model.safetensors SHA-256', { value: m.adapter_sha256 || m.pinned_sha256 || '' });
+  const [rev, fr] = field(`Exact base revision of ${m.base_model || 'the base model'}`, { placeholder: 'commit hash from train_metadata.json', value: m.base_model_revision || '' });
+  const needsArtifact = m.state === 'REGISTERED';
+  return h('details', {}, h('summary', { class: 'muted small' }, needsArtifact ? 'Deploy trained adapter & verify' : 'Deploy & verify'),
+    needsArtifact ? [fv, fu, fs, fr] : null,
+    h('button', { class: 'btn primary', onclick: async (e) => {
+      const b = e.currentTarget; if (b.disabled) return; b.disabled = true; b.classList.add('loading'); b.textContent = 'Verifying deployment…';
+      try {
+        const body = needsArtifact ? { to: 'DEPLOYING', version: version.value.trim(), artifact: { uri: uri.value.trim(), sha256: sha.value.trim().toLowerCase(), base_model: m.base_model, base_revision: rev.value.trim() } } : { to: 'DEPLOYING' };
+        const r = await api(`/api/admin/models/${m.model_id}/lifecycle`, { method: 'POST', body });
+        toast(`${m.model_id} is ${r.lifecycle.state}`); done();
+      } catch (err) { msg.replaceChildren(h('div', { class: 'alert error' }, err.message)); b.disabled = false; b.classList.remove('loading'); b.textContent = 'Deploy & verify'; }
+    } }, 'Deploy & verify'), msg);
 }
 
 async function renderRegistry(isSuper) {

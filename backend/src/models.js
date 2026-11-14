@@ -3,8 +3,9 @@ import { one, all, now } from './db.js';
 import { forbidden, bad } from './http.js';
 import { MODES, DEFAULT_MODE, modeParams, catalogModel } from './catalog.js';
 import { publicModelState } from './registry.js';
-import { servingVersion, upstreamHealth } from './providers/index.js';
+import { servingVersion, upstreamHealth, backendStatus } from './providers/index.js';
 import { config } from './config.js';
+import { lifecycleOf, lifecycleView, gateServed } from './lifecycle.js';
 
 // Efficiency modes (low / medium / high) are a separate control from the model: they come from the
 // catalog and change real inference parameters (token budget, temperature, context size, guidance).
@@ -43,10 +44,12 @@ export async function modelsForUser(user) {
 // Live-version state for the model list. In inference-registry mode (serverless) the inference server is the
 // source of truth: it reports which verified, SHA-pinned version it serves; nothing is assumed when unreachable.
 async function modelState(m) {
-  if (config.registry.source !== 'inference') return publicModelState(m.id);
+  const lifecycle = lifecycleView(await lifecycleOf(m.id));
+  if (config.registry.source !== 'inference') return { ...(await publicModelState(m.id)), lifecycle };
   const h = await upstreamHealth(m);
-  const v = h.reachable ? (h.serving?.[m.id] ?? null) : null;
+  const v = gateServed(m.id, h.reachable ? (h.serving?.[m.id] ?? null) : null);
   return {
+    lifecycle,
     active_version: v, release_status: v ? 'served' : null, production_ready: false, activated_at: null,
     problem: h.configured && !h.reachable ? 'inference server unreachable' : null, validated_versions: v ? [v] : [],
     registry_source: 'inference',
@@ -116,13 +119,19 @@ export async function route(user, { requestedModel = 'auto', requestedMode, requ
   if (task.complexity >= 4) want.push('sona-9.0');
   if (task.complexity >= 2 || ['code', 'math'].includes(task.primary) && task.complexity >= 1) want.push('hike-6.5');
   want.push(defaultModel, 'nick-4.8');
-  for (const id of want) {
+  // Pick the most suitable permitted model that can answer right now (an untrained / not-yet-active model is
+  // skipped). If none can, return the first permitted one so the caller gets that model's honest "unavailable" error.
+  let fallback = null;
+  for (const id of [...new Set(want)]) {
     const m = await getModel(id);
-    if (m && await canUseModel(user, m)) {
-      const reason = id === want[0] ? `auto: ${task.primary} task, complexity ${task.complexity}` : `auto: best permitted model for ${task.primary} task (complexity ${task.complexity})`;
-      return { model: m, mode, version: await servingVersion(m, requestedVersion), task, safety, reason };
-    }
+    if (!m || !await canUseModel(user, m)) continue;
+    const version = await servingVersion(m, requestedVersion);
+    const reason = id === want[0] ? `auto: ${task.primary} task, complexity ${task.complexity}` : `auto: best available model for ${task.primary} task (complexity ${task.complexity})`;
+    const pick = { model: m, mode, version, task, safety, reason };
+    if (version || ['dev-simulator', 'configured'].includes(backendStatus(m))) return pick;
+    fallback ||= pick;
   }
+  if (fallback) return fallback;
   throw forbidden('No model available for this account', 'no_model');
 }
 

@@ -1038,15 +1038,19 @@ public class MainActivity extends Activity {
         ids.add("auto"); labels.add("Master Router (Auto) — best permitted model");
         for (int i = 0; i < models.length(); i++) {
             JSONObject m = models.optJSONObject(i);
-            if (m.optBoolean("available")) { ids.add(m.optString("id")); labels.add(m.optString("name") + ("unavailable".equals(m.optString("backend")) ? " (backend offline)" : "")); }
-            else labels.add(m.optString("name") + " — locked (" + m.optString("tier") + ")");
-            if (!m.optBoolean("available")) ids.add(null);
+            // Availability comes from the backend (lifecycle): a model becomes selectable when it is ACTIVE, no app update needed.
+            JSONObject lc = m.optJSONObject("lifecycle");
+            boolean notActive = lc != null && !"ACTIVE".equals(lc.optString("state"));
+            if (!m.optBoolean("available")) { labels.add(m.optString("name") + " — locked (" + m.optString("tier") + ")"); ids.add(null); }
+            else if (notActive) { labels.add(m.optString("name") + " — " + lc.optString("label", lc.optString("state"))); ids.add("#status:" + m.optString("name") + " is not available yet (" + lc.optString("label", lc.optString("state")) + ")."); }
+            else { ids.add(m.optString("id")); labels.add(m.optString("name") + ("unavailable".equals(m.optString("backend")) ? " (backend offline)" : "")); }
         }
         new AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert)
                 .setTitle("Choose a model")
                 .setItems(labels.toArray(new String[0]), new DialogInterface.OnClickListener() { public void onClick(DialogInterface d, int which) {
                     String id = ids.get(which);
                     if (id == null) { toast("Your account does not have access to this model."); return; }
+                    if (id.startsWith("#status:")) { toast(id.substring(8)); return; }
                     model = id;
                     if (chatId == null && messageList != null) showChat(null); else showChat(chatId);
                 } }).show();

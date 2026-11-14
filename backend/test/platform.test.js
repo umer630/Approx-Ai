@@ -388,8 +388,12 @@ test('compute: admin starts/stops jobs; a GPU worker claims, reports progress an
   assert.equal(self.status, 201);
   assert.equal(self.data.job.options.self_started, true);
   // queued job can be cancelled before any worker takes it
-  const q = await req('POST', '/api/admin/compute/jobs', { token: sa.token, body: { models: 'all' } });
-  assert.deepEqual(q.data.job.models, ['nick-4.8', 'hike-6.5', 'sona-9.0', 'fab-500x']);
+  // Nick 4.8 is still training in the self-started job → queuing it again is refused (no duplicate jobs).
+  const dupAll = await req('POST', '/api/admin/compute/jobs', { token: sa.token, body: { models: 'all' } });
+  assert.equal(dupAll.status, 409);
+  assert.equal(dupAll.data.error.code, 'duplicate_job');
+  const q = await req('POST', '/api/admin/compute/jobs', { token: sa.token, body: { models: ['hike-6.5', 'sona-9.0', 'fab-500x'] } });
+  assert.deepEqual(q.data.job.models, ['hike-6.5', 'sona-9.0', 'fab-500x']);
   assert.equal((await req('POST', `/api/admin/compute/jobs/${q.data.job.id}/stop`, { token: sa.token })).data.job.status, 'stopped');
 });
 

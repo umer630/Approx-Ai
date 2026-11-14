@@ -16,13 +16,17 @@ import { registerPlatformRoutes } from './routes/platform.js';
 import { backendStatus } from './providers/index.js';
 import { listModels } from './models.js';
 import { getActive, startRegistryWatcher } from './registry.js';
+import { lifecycleOf } from './lifecycle.js';
 
 export function buildRouter() {
   const r = new Router();
   r.get('/healthz', async (req, res) => sendJson(res, 200, { ok: true }));
   r.get('/api/version', async (req, res) => sendJson(res, 200, {
     product: 'Approx AI', company: 'Approx Technology', versions: VERSIONS, build_id: config.buildId,
-    models: Object.fromEntries((await listModels()).map((m) => [m.id, { backend: backendStatus(m), active_version: getActive(m.id)?.version ?? null }])),
+    models: Object.fromEntries(await Promise.all((await listModels()).map(async (m) => {
+      const lc = await lifecycleOf(m.id);
+      return [m.id, { backend: backendStatus(m), active_version: config.registry.source === 'inference' ? null : (getActive(m.id)?.version ?? null), lifecycle_state: lc?.state ?? null }];
+    }))),
   }));
   registerAuthRoutes(r);
   registerChatRoutes(r);

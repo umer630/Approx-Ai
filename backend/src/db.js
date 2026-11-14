@@ -9,6 +9,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { config } from './config.js';
 import { HttpError } from './http.js';
+import { seedLifecycle } from './lifecycle.js';
 import { catalog } from './catalog.js';
 
 const SCHEMA = `
@@ -32,6 +33,29 @@ CREATE TABLE IF NOT EXISTS users (
   status TEXT NOT NULL DEFAULT 'active' CHECK (status IN ('active','deleted','suspended')),
   created_at INTEGER NOT NULL,
   updated_at INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS model_lifecycle (
+  model_id TEXT PRIMARY KEY,
+  state TEXT NOT NULL,
+  version TEXT,
+  adapter_sha256 TEXT,
+  artifact_uri TEXT,
+  base_model TEXT,
+  base_revision TEXT,
+  failed_stage TEXT,
+  detail TEXT NOT NULL DEFAULT '',
+  verified_at INTEGER,
+  updated_at INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS model_lifecycle_events (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  model_id TEXT NOT NULL,
+  from_state TEXT,
+  to_state TEXT NOT NULL,
+  actor TEXT NOT NULL,
+  detail TEXT NOT NULL DEFAULT '',
+  created_at INTEGER NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS message_feedback (
@@ -541,6 +565,7 @@ export function getDb() {
       await c.executeMultiple(SCHEMA);
       await migrate(c);
       await syncCatalog(c);
+      await seedLifecycle(c);
       return c;
     })().catch((e) => { _initPromise = null; throw e; });
   }

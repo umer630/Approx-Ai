@@ -44,6 +44,7 @@
       "tier": "default",
       "kind": "language_model",
       "base_model": "Qwen/Qwen2.5-3B-Instruct",
+      "pinned_adapter_sha256": "2faae21620ef0aea6140b296b43ab5fcf5ba2c5b721067f91797b288a09c34c4",
       "description": "Educational and everyday assistant: teaching, explanations, maths, science, coding and writing in English, Urdu and Roman Urdu.",
       "capabilities": ["chat", "education", "explanation", "reasoning", "mathematics", "science", "coding", "writing", "summarization", "translation", "multilingual", "defensive_security_education"],
       "modalities": { "input": ["text"], "output": ["text"] },

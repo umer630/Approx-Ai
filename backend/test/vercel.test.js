@@ -31,16 +31,19 @@ async function listen(handler) {
 async function body(req) { const c = []; for await (const x of req) c.push(x); return Buffer.concat(c).toString('utf8'); }
 
 /** Mock GPU inference server (inference/server.py contract): /health reports what it serves; streams OpenAI SSE. */
-async function mockInference(serving) {
+const NICK_PIN = '2faae21620ef0aea6140b296b43ab5fcf5ba2c5b721067f91797b288a09c34c4';
+async function mockInference(serving, { sha = NICK_PIN, productionReady = true } = {}) {
   const calls = [];
   const url = await listen(async (req, res) => {
     if (req.method === 'GET' && req.url === '/health') {
       res.writeHead(200, { 'Content-Type': 'application/json' });
-      return res.end(JSON.stringify({ status: 'ok', serving, gpu: null }));
+      const details = Object.fromEntries(Object.entries(serving).map(([m, v]) => [m, { version: v, adapter_sha256: sha, production_ready: productionReady, smoke_test: false }]));
+      return res.end(JSON.stringify({ status: 'ok', serving, details, gpu: null }));
     }
     if (req.method === 'POST' && req.url === '/v1/chat/completions') {
       const b = JSON.parse(await body(req));
-      calls.push({ auth: req.headers.authorization, model: b.model });
+      calls.push({ auth: req.headers.authorization, model: b.model, stream: b.stream });
+      if (b.stream === false) { res.writeHead(200, { 'Content-Type': 'application/json' }); return res.end(JSON.stringify({ choices: [{ message: { role: 'assistant', content: 'Ready.' } }] })); }
       res.writeHead(200, { 'Content-Type': 'text/event-stream' });
       for (const piece of ['Hello ', 'from the GPU host.']) res.write(`data: ${JSON.stringify({ choices: [{ delta: { content: piece } }] })}\n\n`);
       res.write('data: [DONE]\n\n');
@@ -148,6 +151,18 @@ test('serverless end-to-end: brevo mail, superadmin bootstrap, Nick 4.8 via infe
   const member = await fn.call('POST', '/api/auth/login', { json: { email: 'member@example.com', password: 'MemberPassw0rd!', client: 'mobile' } });
   assert.equal(member.data.user.role, 'user');
 
+  // Before activation the loaded model is NOT served (lifecycle REGISTERED).
+  const pre = await fn.call('GET', '/api/models', { token: member.data.token });
+  assert.equal(pre.data.models.find((m) => m.id === 'nick-4.8').lifecycle.state, 'REGISTERED');
+  assert.equal(pre.data.models.find((m) => m.id === 'nick-4.8').active_version, null, 'loaded on the GPU host is not enough');
+  // Superadmin deploys the trained, pinned artifact → the backend verifies health + SHA-256 + a real generation → ACTIVE.
+  const act = await fn.call('POST', '/api/admin/models/nick-4.8/lifecycle', { token: owner.data.token, json: { to: 'DEPLOYING', version: '1.0.0',
+    artifact: { uri: 'gs://approx-models/nick-4.8/1.0.0/adapter.tar.gz', sha256: NICK_PIN, base_model: 'Qwen/Qwen2.5-3B-Instruct', base_revision: 'aa8e72537993ba99e69dfaafa59ed015b17504d1' } } });
+  assert.equal(act.status, 200, JSON.stringify(act.data));
+  assert.equal(act.data.lifecycle.state, 'ACTIVE');
+  assert.equal(act.data.lifecycle.generation_sample, 'Ready.');
+  assert.deepEqual(inf.calls.at(-1), { auth: 'Bearer test-inference-key', model: 'nick-4.8@1.0.0', stream: false });
+
   // Nick 4.8 is served by the inference server's verified version; the backend never relabels another model.
   const models = await fn.call('GET', '/api/models', { token: member.data.token });
   const nick = (models.data.models || []).find((m) => m.id === 'nick-4.8');
@@ -158,7 +173,7 @@ test('serverless end-to-end: brevo mail, superadmin bootstrap, Nick 4.8 via infe
   const send = await fn.call('POST', `/api/chats/${chat.data.chat.id}/messages`, { token: member.data.token, json: { content: 'hello' } });
   assert.equal(send.status, 200);
   assert.match(send.data, /from the GPU host/);
-  assert.deepEqual(inf.calls.at(-1), { auth: 'Bearer test-inference-key', model: 'nick-4.8@1.0.0' });
+  assert.deepEqual(inf.calls.at(-1), { auth: 'Bearer test-inference-key', model: 'nick-4.8@1.0.0', stream: true });
 
   // Admin registry view reports what the GPU host actually serves.
   const reg = await fn.call('GET', '/api/admin/registry', { token: owner.data.token });
@@ -194,7 +209,7 @@ test('serverless end-to-end: brevo mail, superadmin bootstrap, Nick 4.8 via infe
 
 test('serverless: Nick 4.8 not served or GPU unreachable → honest 503, never a substitute model', async () => {
   for (const [label, url, re] of [
-    ['not serving', (await mockInference({})).url, /not being served/],
+    ['not serving', (await mockInference({})).url, /not being served|not available yet/],
     ['unreachable', 'http://127.0.0.1:9/v1', /offline|unreachable/],
   ]) {
     const dbFile = path.join(scratch, `down-${label.replace(' ', '')}.db`);

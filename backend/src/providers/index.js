@@ -11,6 +11,7 @@
 // The dev simulator (APPROX_DEV_PROVIDER=1) exists only for local development and automated
 // tests, and every reply it produces is explicitly labelled as simulated.
 import { config } from '../config.js';
+import { lifecycleOf, lifecycleCached, gateServed, LABELS } from '../lifecycle.js';
 import { HttpError } from '../http.js';
 import { modeParams } from '../catalog.js';
 import { getActive, activeProblem, resolveServingVersion, VERSION_RE } from '../registry.js';
@@ -18,7 +19,7 @@ import { getActive, activeProblem, resolveServingVersion, VERSION_RE } from '../
 // "Managed" upstream = the Approx inference server, which serves ONLY registry-activated adapter versions
 // and is addressed as <model-id>@<version>. Setting APPROX_MODEL_<FAMILY>_NAME marks the upstream as an
 // external endpoint with its own model name (e.g. vLLM with a manually configured LoRA): unmanaged.
-function upstreamFor(model, version = null) {
+export function upstreamFor(model, version = null) {
   const F = model.family.toUpperCase();
   const e = process.env;
   const url = e[`APPROX_MODEL_${F}_URL`] || e.APPROX_MODEL_DEFAULT_URL;
@@ -40,9 +41,9 @@ export function backendStatus(model) {
   if (config.registry.source === 'inference') {
     // Last known answer from the inference server (refreshed by upstreamHealth / servingVersion).
     const hit = healthCache.get(up.url)?.value;
-    if (!hit) return 'configured';
+    if (!hit) return lifecycleCached(model.id) && lifecycleCached(model.id).state !== 'ACTIVE' ? 'no_active_version' : 'configured';
     if (!hit.reachable) return 'unavailable';
-    return hit.serving?.[model.id] ? 'active' : 'no_active_version';
+    return gateServed(model.id, hit.serving?.[model.id] ?? null) ? 'active' : 'no_active_version';
   }
   return getActive(model.id) ? 'active' : 'no_active_version';
 }
@@ -56,7 +57,9 @@ export async function servingVersion(model, requested) {
   const up = upstreamFor(model);
   if (config.registry.source !== 'inference' || !up || !up.managed) return resolveServingVersion(model.id, requested);
   const h = await upstreamHealth(model);
-  const active = h.reachable ? (h.serving?.[model.id] ?? null) : null;
+  await lifecycleOf(model.id);
+  // Only the lifecycle-verified ACTIVE version may serve (a model that is merely loaded on the GPU host is not enough).
+  const active = gateServed(model.id, h.reachable ? (h.serving?.[model.id] ?? null) : null);
   if (requested === undefined || requested === null || requested === '') return active;
   if (typeof requested !== 'string' || !VERSION_RE.test(requested)) throw new HttpError(400, 'invalid_version', 'version must look like 1.0.0');
   if (active !== requested) {
@@ -106,9 +109,12 @@ export async function streamCompletion({ model, mode, version = null, messages, 
   if (up.managed && !version) {
     if (config.registry.source === 'inference') {
       const h = healthCache.get(up.url)?.value;
+      const lc = lifecycleCached(model.id);
       throw new HttpError(503, 'model_version_not_active', h && !h.reachable
         ? `${model.name} is offline: its inference server is unreachable.`
-        : `${model.name} is not being served: the inference server reports no verified version for it.`);
+        : lc && lc.state !== 'ACTIVE'
+          ? `${model.name} is not available yet (${LABELS[lc.state] || lc.state}).`
+          : `${model.name} is not being served: the inference server reports no verified version for it.`);
     }
     const problem = activeProblem(model.id);
     throw new HttpError(503, 'model_version_not_active', problem

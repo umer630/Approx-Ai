@@ -282,7 +282,7 @@ export function openModelPicker() {
     for (const m of state.models) {
       const badge = modelBadge(m);
       const sub = [m.kind && m.kind !== 'language_model' ? m.kind.replace('_', ' ') : null,
-        m.active_version ? `v${m.active_version}` : (m.available ? 'no active version' : null)].filter(Boolean).join(' · ');
+        m.active_version ? `v${m.active_version}` : (m.lifecycle && m.lifecycle.state !== 'ACTIVE' ? m.lifecycle.label : (m.available ? 'no active version' : null))].filter(Boolean).join(' · ');
       s.append(opt(m.id, m.name, m.description + (sub ? `  (${sub})` : ''), m.available && m.backend !== 'unavailable' && m.backend !== 'no_active_version', badge));
     }
     s.append(h('h3', {}, 'Mode'), modeToggle(close));
