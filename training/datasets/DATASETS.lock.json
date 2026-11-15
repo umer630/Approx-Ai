@@ -156,6 +156,140 @@
      ]
     }
    }
+  },
+  "fab-100x": {
+   "dataset_version": "fab-100x-datahub-1.1-e5b1030e93",
+   "content_fingerprint_sha256": "e5b1030e936f4e94b5777a9a4854060bdd3c7c8e9da7cd4fa8b6ba34d225c123",
+   "target_records": 100000,
+   "counts": {
+    "total": 100000,
+    "train": 94077,
+    "eval": 2952,
+    "test": 2971
+   },
+   "production_ready": true,
+   "review_basis": "owner_attestation",
+   "manifest_sha256": "1a67fcf2b9d48ed58e4bced32fdf504cbde19a9cf3009ec304d106b253798333",
+   "splits": {
+    "train": {
+     "sha256": "ecb7eb2c7aab403612f4f8a7815ec582240799990fff0f9eb86eafcbdfc3cf20",
+     "records": 94077,
+     "bytes": 217078209,
+     "shards": [
+      {
+       "path": "training/datasets/dist/fab-100x/train.000.jsonl.gz",
+       "sha256": "1c6053a16515833b20fd80b1e059723d79472f6b4cc0bdb95b35d4dcdf52b2ac",
+       "bytes": 52025043
+      },
+      {
+       "path": "training/datasets/dist/fab-100x/train.001.jsonl.gz",
+       "sha256": "730b314baf7ad2ef18b5558ed196f9cc88d6bf869355cd3cc493acc6bb395819",
+       "bytes": 15087265
+      }
+     ]
+    },
+    "eval": {
+     "sha256": "1a2d28c145a3999204b01c83943efaaabd4d236f1718f883150b92d5f02143d9",
+     "records": 2952,
+     "bytes": 6921145,
+     "shards": [
+      {
+       "path": "training/datasets/dist/fab-100x/eval.000.jsonl.gz",
+       "sha256": "33a4f651e6dc0d9734dac54bace0ab16910b72b4a01ba54ba65600c821d69cd9",
+       "bytes": 2134654
+      }
+     ]
+    },
+    "test": {
+     "sha256": "95881183f0523f7ce8e1c1aa5f6254f1ddbe9befb11c4c3db30ac2a116194ba5",
+     "records": 2971,
+     "bytes": 6685554,
+     "shards": [
+      {
+       "path": "training/datasets/dist/fab-100x/test.000.jsonl.gz",
+       "sha256": "b51f5eeb7e7199e7431ca4eb315754d05a41c9341d4db2f5dc4438ecf9478a1b",
+       "bytes": 2071271
+      }
+     ]
+    }
+   }
+  },
+  "fab-500x": {
+   "dataset_version": "fab-500x-datahub-1.1-e669f7f943",
+   "content_fingerprint_sha256": "e669f7f94329eb6eaaee1561dba707cf18409fe599b8f753317dee777eba33b5",
+   "target_records": 500000,
+   "counts": {
+    "total": 500000,
+    "train": 470326,
+    "eval": 14787,
+    "test": 14887
+   },
+   "production_ready": true,
+   "review_basis": "owner_attestation",
+   "manifest_sha256": "c5d0d79722ce1de3a76bcf08c29a0eb54459ecef79de96c5318567c4663e37dd",
+   "splits": {
+    "train": {
+     "sha256": "e9f31654ec54c5c218176dfd531944bd12ef92f64a7e060908a0b155ac05ec80",
+     "records": 470326,
+     "bytes": 886147175,
+     "shards": [
+      {
+       "path": "training/datasets/dist/fab-500x/train.000.jsonl.gz",
+       "sha256": "500e8b10de6a6b53e3773a4c3cac8505759bc7803d8ee56d09c016dfd367ad64",
+       "bytes": 50130350
+      },
+      {
+       "path": "training/datasets/dist/fab-500x/train.001.jsonl.gz",
+       "sha256": "79a050a35fbc88568134936da3dc8324135d2fb9a4441e623a89fffd2d6fd32d",
+       "bytes": 49940555
+      },
+      {
+       "path": "training/datasets/dist/fab-500x/train.002.jsonl.gz",
+       "sha256": "ac5aee4defa1a63c1b2e641ddb58949cbe242b0292254e122de842eb910429e4",
+       "bytes": 49669100
+      },
+      {
+       "path": "training/datasets/dist/fab-500x/train.003.jsonl.gz",
+       "sha256": "4f17fb018edc23a7577ad9760446998e6d466bc3516f5c105f79ecb9314d7c07",
+       "bytes": 49395569
+      },
+      {
+       "path": "training/datasets/dist/fab-500x/train.004.jsonl.gz",
+       "sha256": "ff0f9bdb7eb701e42a6f9bcdfd6bf671cd5afe4f26598776d3a0e459394f1a2d",
+       "bytes": 49258996
+      },
+      {
+       "path": "training/datasets/dist/fab-500x/train.005.jsonl.gz",
+       "sha256": "06b755edeb320553845a5dcc6e731fa5c1c724314d0e34b2c12d6121ad57fbf2",
+       "bytes": 13858548
+      }
+     ]
+    },
+    "eval": {
+     "sha256": "652693e6442cc66e51942fb69aa310d85c30b4a4fb9ab6373aa3d3c87aba5f6d",
+     "records": 14787,
+     "bytes": 28017818,
+     "shards": [
+      {
+       "path": "training/datasets/dist/fab-500x/eval.000.jsonl.gz",
+       "sha256": "ddf64d16c10e2316bf25d6cfe1f3fb617573323e4f55fb4f70825cb4132ae332",
+       "bytes": 8295482
+      }
+     ]
+    },
+    "test": {
+     "sha256": "48661f2423e7e4a974e5bdc935a1292787e7ae003c5fedea03ad3a3d95b67469",
+     "records": 14887,
+     "bytes": 27772043,
+     "shards": [
+      {
+       "path": "training/datasets/dist/fab-500x/test.000.jsonl.gz",
+       "sha256": "c780e742496dcb2ecf140a4a9914ebef1131b65004465b0027f00c11cbd96a4a",
+       "bytes": 8202718
+      }
+     ]
+    }
+   }
   }
  }
 }

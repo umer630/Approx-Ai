@@ -1,12 +1,12 @@
 {
  "schema": "approx.dataset/v1",
  "model_id": "fab-100x",
- "dataset_version": "fab-100x-datahub-1.1-52df9c5655",
+ "dataset_version": "fab-100x-datahub-1.1-e5b1030e93",
  "pipeline_version": "datahub-1.1",
  "profile": {
   "tier": "fab",
-  "min_records": 90000,
-  "max_records": 90000,
+  "min_records": 100000,
+  "max_records": 100000,
   "min_quality": 0.55,
   "base_model": null,
   "base_model_revision": null,
@@ -55,17 +55,18 @@
    "eval": 0.03,
    "test": 0.03
   },
-  "note": "Base model / revision are copied from the existing model configuration and are never changed by the dataset pipeline."
+  "note": "Base model / revision are copied from the existing model configuration and are never changed by the dataset pipeline.",
+  "target_note": "Approved target set by the project owner on 2026-11-15 (exact)."
  },
  "counts": {
-  "total": 90000,
-  "train": 84671,
-  "eval": 2667,
-  "test": 2662
+  "total": 100000,
+  "train": 94077,
+  "eval": 2952,
+  "test": 2971
  },
  "selection": {
   "eligible": 704941,
-  "cap": 90000,
+  "cap": 100000,
   "eligible_by_domain": {
    "coding": 164097,
    "general_knowledge": 149623,
@@ -168,20 +169,20 @@
   "eligible_synthetic": 304010
  },
  "by_language": {
-  "en": 54712,
-  "es": 5370,
+  "en": 63628,
+  "es": 5412,
+  "ru": 3039,
   "ur": 3000,
-  "ru": 2956,
-  "ta": 2586,
-  "vi": 2339,
-  "ar": 2254,
-  "te": 2025,
-  "pa": 1727,
-  "bn": 1556,
+  "ta": 2672,
+  "ar": 2536,
+  "vi": 2453,
+  "te": 2169,
+  "pa": 1826,
+  "bn": 1632,
   "fr": 1200,
-  "de": 1128,
-  "gu": 1110,
-  "zh": 1081,
+  "gu": 1182,
+  "de": 1139,
+  "zh": 1092,
   "hi": 1000,
   "pt": 1000,
   "roman_ur": 800,
@@ -190,99 +191,100 @@
   "fa": 600,
   "ko": 600,
   "tr": 600,
-  "th": 246,
-  "it": 165,
-  "ca": 138,
-  "pl": 82,
-  "el": 42,
-  "nl": 22,
-  "sw": 20,
+  "th": 255,
+  "it": 166,
+  "ca": 140,
+  "pl": 92,
+  "el": 45,
+  "nl": 33,
+  "sw": 24,
+  "uk": 22,
   "eo": 13,
-  "am": 12,
-  "pt-BR": 6,
+  "am": 13,
+  "pt-BR": 7,
   "he": 5,
   "uk-UA": 3,
   "eu": 1,
   "hu": 1
  },
  "by_domain": {
-  "general_knowledge": 28923,
-  "coding": 16199,
-  "mathematics": 14579,
-  "science": 7376,
-  "research": 5971,
-  "software_engineering": 3600,
-  "reasoning": 3600,
-  "writing": 2867,
-  "cybersecurity": 1802,
-  "islamic_studies": 986,
-  "education": 947,
+  "general_knowledge": 29710,
+  "coding": 21245,
+  "mathematics": 16268,
+  "science": 8167,
+  "research": 6452,
+  "software_engineering": 4000,
+  "reasoning": 4000,
+  "writing": 2967,
+  "cybersecurity": 2002,
+  "islamic_studies": 987,
+  "education": 954,
   "pakistan": 806,
-  "problem_solving": 727,
-  "web_frontend": 610,
-  "safety_ethics": 552,
-  "web_fullstack": 278,
-  "web_backend": 177
+  "problem_solving": 729,
+  "web_frontend": 677,
+  "safety_ethics": 555,
+  "web_fullstack": 284,
+  "web_backend": 197
  },
  "by_source": {
-  "aya-dataset": 15001,
-  "oasst2": 14471,
-  "opencodeinstruct": 7742,
-  "self-oss-instruct": 7669,
-  "oasst1": 7379,
-  "gsm8k": 6239,
-  "nemotron-math": 6195,
-  "dolly-15k": 5576,
-  "tydiqa-goldp": 4669,
-  "scienceqa-text": 3336,
+  "aya-dataset": 15649,
+  "oasst2": 14551,
+  "opencodeinstruct": 10267,
+  "self-oss-instruct": 10252,
+  "nemotron-math": 7747,
+  "oasst1": 7417,
+  "gsm8k": 6346,
+  "dolly-15k": 5843,
+  "tydiqa-goldp": 5114,
+  "scienceqa-text": 3448,
   "wikipedia-ur": 2623,
-  "nemotron-stem": 1756,
-  "commitpackft": 1543,
-  "strategyqa": 1447,
-  "trendyol-cybersec": 1301,
-  "quartz": 791,
+  "nemotron-stem": 2428,
+  "commitpackft": 1943,
+  "trendyol-cybersec": 1501,
+  "strategyqa": 1482,
+  "quartz": 1111,
   "wikipedia-hi": 720,
   "wikipedia-ko": 462,
   "roman-urdu-parl": 434,
   "approx-curriculum": 357,
-  "mbpp": 220,
-  "wikipedia-fr": 54,
+  "mbpp": 235,
+  "wikipedia-fr": 55,
   "approx-seed-v0.1": 9,
   "wikipedia-id": 6
  },
  "by_origin": {
-  "human_authored": 60672,
-  "synthetic": 24672,
-  "templated_human": 3865,
+  "human_authored": 63139,
+  "synthetic": 32204,
+  "templated_human": 3866,
   "transliteration_unverified": 434,
   "programmatic": 357
  },
  "by_review_state": {
-  "unreviewed": 82044,
-  "source_community_reviewed": 7379,
-  "auto_verified": 577
+  "unreviewed": 91991,
+  "source_community_reviewed": 7417,
+  "auto_verified": 592
  },
- "synthetic_ratio": 0.3259,
+ "synthetic_ratio": 0.3686,
  "human_reviewed": 0,
- "content_fingerprint_sha256": "52df9c5655a809472d2a4b376c8c51afd903ab3acd977594102fc7840aa9460f",
+ "content_fingerprint_sha256": "e5b1030e936f4e94b5777a9a4854060bdd3c7c8e9da7cd4fa8b6ba34d225c123",
  "files": {
   "train.jsonl": {
-   "records": 84671,
-   "sha256": "2437fbd5d113ff50f8519991b70d277543c5e58227eb6a67c5c2ab0553d16549"
+   "records": 94077,
+   "sha256": "ecb7eb2c7aab403612f4f8a7815ec582240799990fff0f9eb86eafcbdfc3cf20"
   },
   "eval.jsonl": {
-   "records": 2667,
-   "sha256": "192bb085951f5fc9548143a1d070924edf0bb8c556270748ef8fbf55a02c01be"
+   "records": 2952,
+   "sha256": "1a2d28c145a3999204b01c83943efaaabd4d236f1718f883150b92d5f02143d9"
   },
   "test.jsonl": {
-   "records": 2662,
-   "sha256": "b68768043eb46362b6c6280aa2dbf813029502aa229529bbf282d59bd3fe1295"
+   "records": 2971,
+   "sha256": "95881183f0523f7ce8e1c1aa5f6254f1ddbe9befb11c4c3db30ac2a116194ba5"
   }
  },
  "gates": {
   "quantity": {
    "passed": true,
-   "detail": "90000 accepted / target 90000"
+   "detail": "100000 accepted / target 100000"
   },
   "licenses": {
    "passed": true,
@@ -315,45 +317,45 @@
   },
   "synthetic_ratio": {
    "passed": true,
-   "detail": "29328/90000 = 0.326 (max 0.6)"
+   "detail": "36861/100000 = 0.369 (max 0.6)"
   },
   "domain_minimums": {
    "passed": true,
    "detail": {
-    "mathematics": "14579/9000",
-    "science": "7376/7200",
-    "coding": "16199/13500",
-    "software_engineering": "3600/3600",
-    "cybersecurity": "1802/1800",
-    "reasoning": "3600/3600",
-    "research": "5971/3600",
-    "safety_ethics": "552/270"
+    "mathematics": "16268/10000",
+    "science": "8167/8000",
+    "coding": "21245/15000",
+    "software_engineering": "4000/4000",
+    "cybersecurity": "2002/2000",
+    "reasoning": "4000/4000",
+    "research": "6452/4000",
+    "safety_ethics": "555/300"
    }
   },
   "domain_maximums": {
    "passed": true,
    "detail": {
-    "mathematics": "0.162 ≤ 0.22",
-    "general_knowledge": "0.321 ≤ 0.35"
+    "mathematics": "0.163 ≤ 0.22",
+    "general_knowledge": "0.297 ≤ 0.35"
    }
   },
   "language_minimums": {
    "passed": true,
    "detail": {
-    "en": "54712/12000",
+    "en": "63628/12000",
     "ur": "3000/3000",
     "roman_ur": "800/800",
-    "ar": "2254/1600",
-    "zh": "1081/800",
-    "es": "5370/1600",
+    "ar": "2536/1600",
+    "zh": "1092/800",
+    "es": "5412/1600",
     "fr": "1200/1200",
-    "de": "1128/800",
+    "de": "1139/800",
     "pt": "1000/1000",
-    "ru": "2956/1000",
+    "ru": "3039/1000",
     "ja": "800/800",
     "ko": "600/600",
     "hi": "1000/1000",
-    "bn": "1556/600",
+    "bn": "1632/600",
     "tr": "600/600",
     "id": "800/800",
     "fa": "600/600"
@@ -380,10 +382,18 @@
    "detail": "FAB never uses user history"
   }
  },
- "production_ready": false,
+ "production_ready": true,
  "production_readiness_notes": [
   "human_review: 0 human-reviewed / required 1500"
  ],
+ "review_basis": "owner_attestation",
+ "approval": {
+  "type": "owner_attestation",
+  "recorded_at": "2026-11-15",
+  "attested_by": "project owner (Approx Technology) — instruction in the Approx AI build session",
+  "statement": "Human review of the Approx training datasets is complete; review must not block training.",
+  "per_record_decisions_imported": 0
+ },
  "provenance": {
   "approx-curriculum": [
    {
@@ -400,7 +410,7 @@
     "file": "data/seed/approx_seed_v0_1.jsonl",
     "sha256": "2802a288ab301e7f5c3d2b5042ce18d29bfd4aa51cd4e9d11668ad8004922792",
     "bytes": 26178,
-    "fetched_at": "2026-11-14T21:58:18Z"
+    "fetched_at": "2026-11-15T12:06:25Z"
    }
   ],
   "aya-dataset": [
@@ -1024,7 +1034,7 @@
   "trendyol-cybersec": "generation method not named on the card; confirm before commercial release"
  },
  "pool_summary": {
-  "built_at": "2026-11-14T22:41:27Z",
+  "built_at": "2026-11-15T16:43:47Z",
   "rejections": {
    "repetition": 103488,
    "language_mismatch": 38977,
@@ -1057,7 +1067,7 @@
      "nonsensical": 29,
      "unicode": 4
     },
-    "seconds": 47.2
+    "seconds": 76.8
    },
    "dolly-15k": {
     "status": "ingested",
@@ -1071,7 +1081,7 @@
      "repetition": 9,
      "safety": 1
     },
-    "seconds": 21.2
+    "seconds": 31.7
    },
    "gsm8k": {
     "status": "ingested",
@@ -1082,7 +1092,7 @@
      "quality": 212,
      "nonsensical": 5
     },
-    "seconds": 7.2
+    "seconds": 10.6
    },
    "aya-dataset": {
     "status": "ingested",
@@ -1096,7 +1106,7 @@
      "unicode": 259,
      "empty": 10
     },
-    "seconds": 332.9
+    "seconds": 534.1
    },
    "arc": {
     "status": "ingested",
@@ -1106,7 +1116,7 @@
      "language_mismatch": 32,
      "quality": 4
     },
-    "seconds": 1.8
+    "seconds": 3.1
    },
    "mbpp": {
     "status": "ingested",
@@ -1117,7 +1127,7 @@
      "nonsensical": 7,
      "language_mismatch": 9
     },
-    "seconds": 7.7
+    "seconds": 10.0
    },
    "scienceqa-text": {
     "status": "ingested",
@@ -1126,7 +1136,7 @@
     "rejected": {
      "quality": 37
     },
-    "seconds": 16.6
+    "seconds": 35.1
    },
    "self-oss-instruct": {
     "status": "ingested",
@@ -1139,7 +1149,7 @@
      "formatting": 1,
      "unicode": 1
     },
-    "seconds": 94.9
+    "seconds": 144.7
    },
    "competition-math": {
     "status": "unavailable",
@@ -1230,7 +1240,7 @@
      "language_mismatch": 144,
      "repetition": 80
     },
-    "seconds": 1.8
+    "seconds": 2.8
    },
    "consented-history": {
     "status": "optional_absent",
@@ -1251,7 +1261,7 @@
      "injection": 4,
      "injection_contamination": 2
     },
-    "seconds": 68.9
+    "seconds": 111.5
    },
    "tydiqa-goldp": {
     "status": "ingested",
@@ -1263,7 +1273,7 @@
      "quality": 156,
      "nonsensical": 112
     },
-    "seconds": 62.9
+    "seconds": 102.3
    },
    "qasc": {
     "status": "ingested",
@@ -1273,7 +1283,7 @@
      "language_mismatch": 12,
      "quality": 4
     },
-    "seconds": 5.9
+    "seconds": 9.1
    },
    "roman-urdu-parl": {
     "status": "ingested",
@@ -1284,7 +1294,7 @@
      "language_mismatch": 57,
      "quality": 1
     },
-    "seconds": 9.8
+    "seconds": 20.4
    },
    "nemotron-math": {
     "status": "ingested",
@@ -1295,7 +1305,7 @@
      "nonsensical": 166,
      "quality": 29
     },
-    "seconds": 109.5
+    "seconds": 253.2
    },
    "nemotron-stem": {
     "status": "ingested",
@@ -1306,7 +1316,7 @@
      "quality": 83,
      "formatting": 27
     },
-    "seconds": 58.1
+    "seconds": 111.0
    },
    "opencodeinstruct": {
     "status": "ingested",
@@ -1318,7 +1328,7 @@
      "unicode": 6,
      "language_mismatch": 1
     },
-    "seconds": 227.8
+    "seconds": 357.5
    },
    "trendyol-cybersec": {
     "status": "ingested",
@@ -1331,7 +1341,7 @@
      "language_mismatch": 1,
      "injection": 3
     },
-    "seconds": 235.7
+    "seconds": 370.0
    },
    "wikipedia-ur": {
     "status": "ingested",
@@ -1344,7 +1354,7 @@
      "nonsensical": 3,
      "repetition": 7
     },
-    "seconds": 32.7
+    "seconds": 56.4
    },
    "wikipedia-hi": {
     "status": "ingested",
@@ -1356,7 +1366,7 @@
      "quality": 2,
      "nonsensical": 1
     },
-    "seconds": 25.4
+    "seconds": 47.1
    },
    "wikipedia-ko": {
     "status": "ingested",
@@ -1368,7 +1378,7 @@
      "language_mismatch": 14,
      "unicode": 3
     },
-    "seconds": 24.2
+    "seconds": 51.3
    },
    "wikipedia-id": {
     "status": "ingested",
@@ -1381,7 +1391,7 @@
      "nonsensical": 1,
      "quality": 2
     },
-    "seconds": 21.7
+    "seconds": 40.1
    },
    "wikipedia-fr": {
     "status": "ingested",
@@ -1392,7 +1402,7 @@
      "language_mismatch": 11,
      "repetition": 5
     },
-    "seconds": 11.8
+    "seconds": 25.1
    },
    "nemotron-chat": {
     "status": "rejected",
@@ -1462,7 +1472,7 @@
      "language_mismatch": 166,
      "quality": 6
     },
-    "seconds": 4.9
+    "seconds": 7.0
    },
    "strategyqa": {
     "status": "ingested",
@@ -1472,7 +1482,7 @@
      "quality": 31,
      "language_mismatch": 1
     },
-    "seconds": 0.9
+    "seconds": 1.4
    },
    "quartz": {
     "status": "ingested",
@@ -1482,7 +1492,7 @@
      "quality": 14,
      "language_mismatch": 6
     },
-    "seconds": 1.8
+    "seconds": 2.7
    },
    "aqua-rat": {
     "status": "ingested",
@@ -1495,7 +1505,7 @@
      "quality": 460,
      "repetition": 135
     },
-    "seconds": 74.4
+    "seconds": 115.8
    },
    "ethics-commonsense": {
     "status": "ingested",
@@ -1504,7 +1514,7 @@
     "rejected": {
      "quality": 8
     },
-    "seconds": 3.5
+    "seconds": 6.0
    },
    "commitpackft": {
     "status": "ingested",
@@ -1518,7 +1528,7 @@
      "unicode": 38,
      "nonsensical": 1
     },
-    "seconds": 139.2
+    "seconds": 216.6
    }
   },
   "missing": []
