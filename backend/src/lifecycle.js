@@ -211,3 +211,32 @@ export async function seedLifecycle(c) {
   });
   if (stmts.length) await c.batch(stmts, 'write');
 }
+
+// ---------------- automatic activation ----------------
+// TRAINING → TRAINING_COMPLETE → EVALUATING → VERIFIED is reported by the training pipeline (worker API). The moment the
+// model's inference server serves exactly the VERIFIED version and adapter SHA-256, the backend runs verifyDeployment()
+// itself: ACTIVE only if every check passes, otherwise FAILED with the stage and reason (NOT ACTIVATED).
+// APPROX_AUTO_ACTIVATE_VERIFIED=0 turns this off (then a superadmin deploys manually).
+const autoTried = new Map();
+export async function autoActivate(modelId, served, upstream) {
+  if (process.env.APPROX_AUTO_ACTIVATE_VERIFIED === '0' || !served) return null;
+  const cur = await one('SELECT * FROM model_lifecycle WHERE model_id = ?', modelId);
+  if (!cur || cur.state !== 'VERIFIED' || !cur.version) return null;
+  if (served.version !== cur.version || String(served.adapter_sha256 || '').toLowerCase() !== cur.adapter_sha256) return null;
+  const key = `${modelId}@${cur.version}`;
+  if (Date.now() - (autoTried.get(key) || 0) < 60_000) return null;
+  autoTried.set(key, Date.now());
+  try {
+    await tx(async () => {
+      await run("UPDATE model_lifecycle SET state = 'DEPLOYING', detail = ?, updated_at = ? WHERE model_id = ? AND state = 'VERIFIED'",
+        'auto-activation: verified version detected on the inference server', now(), modelId);
+      await record(modelId, 'VERIFIED', 'DEPLOYING', 'auto-activation', 'verified version detected on the inference server');
+    });
+    invalidateLifecycleCache();
+    const out = await verifyDeployment(modelId, 'auto-activation', upstream);
+    await audit(null, 'auto-activation', 'model.auto_activated', modelId, null, { version: cur.version });
+    return out;
+  } catch (e) {
+    return { activated: false, reason: e.message };   // verifyDeployment already recorded FAILED + reason
+  }
+}

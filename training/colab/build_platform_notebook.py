@@ -129,8 +129,20 @@ print("READY" if rc == 0 else "NOT READY — see the table above")
 if TRAIN:
     cmd = [sys.executable, "-u", "training/run_all.py", "--models", *SEL, "--run-id", RUN_ID, "--skip-restore",
            "--time-budget-minutes", str(TIME_BUDGET_MINUTES), "--work-dir", f"{ROOT}/pipeline", "--models-dir", f"{ROOT}/models"]
+    # Optional: report TRAINING → … → VERIFIED / FAILED to the Approx backend lifecycle. Add a Colab Secret named
+    # APPROX_WORKER_API_KEY (an apx_ key with scope training:worker, created by a superadmin). The key is read from
+    # Colab Secrets at run time and passed via the environment — it is never written into this notebook.
+    env = dict(os.environ)
+    try:
+        from google.colab import userdata
+        k = userdata.get("APPROX_WORKER_API_KEY")
+        if k:
+            env.update(APPROX_WORKER_API_KEY=k, APPROX_CONTROL_PLANE_URL="https://approx-ai.vercel.app")
+            print("Lifecycle reporting: ON (verified releases are activated by the backend after its own deployment check)")
+    except Exception:
+        print("Lifecycle reporting: off (no APPROX_WORKER_API_KEY Colab Secret)")
     print("$", " ".join(shlex.quote(c) for c in cmd), flush=True)
-    rc = subprocess.run(cmd, cwd=REPO_DIR).returncode
+    rc = subprocess.run(cmd, cwd=REPO_DIR, env=env).returncode
     print({0: "COMPLETED", 3: "PAUSED — Run all again with the same RUN_ID to resume",
            1: "NOT ALL MODELS COMPLETED — see the table above"}.get(rc, f"exit {rc}"))
     rep = f"{ROOT}/models/pipeline_report.json"

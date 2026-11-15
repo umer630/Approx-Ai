@@ -26,6 +26,8 @@ public class Api {
     public static class ApiException extends Exception {
         public final int status;
         public final String code;
+        /** Seconds to wait before retrying (server error field retry_after_s, e.g. the Supabase email cooldown); 0 if none. */
+        public int retryAfter;
         public ApiException(int status, String code, String message) { super(message); this.status = status; this.code = code; }
     }
 
@@ -104,7 +106,9 @@ public class Api {
     private static ApiException toError(int status, String body) {
         try {
             JSONObject e = new JSONObject(body).getJSONObject("error");
-            return new ApiException(status, e.optString("code"), e.optString("message", "Request failed"));
+            ApiException ex = new ApiException(status, e.optString("code"), e.optString("message", "Request failed"));
+            ex.retryAfter = e.optInt("retry_after_s", 0);
+            return ex;
         } catch (JSONException ex) {
             return new ApiException(status, "http_" + status, "Request failed (HTTP " + status + ")");
         }

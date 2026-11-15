@@ -92,6 +92,9 @@ export async function startFakeSupabase({ publishableKey = 'sb_publishable_test_
       return ok(res, session(u));
     }
     if (req.method === 'POST' && p === '/resend') {
+      // Mirrors real Supabase limits (observed on the production project): a per-address cooldown and an hourly cap.
+      if (flags.resendCooldownSecs) return err(res, 429, 'over_email_send_rate_limit', `For security purposes, you can only request this after ${flags.resendCooldownSecs} seconds.`);
+      if (flags.emailHourlyCap) return err(res, 429, 'over_email_send_rate_limit', 'email rate limit exceeded');
       const u = users.get(String(body.email || '').toLowerCase());
       if (body.type === 'signup' && u && !u.confirmed_at) {
         if (flags.failEmails) return err(res, 500, 'unexpected_failure', 'Error sending confirmation email');

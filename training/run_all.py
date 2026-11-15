@@ -98,7 +98,7 @@ def restore_datasets(models: list, skip: bool) -> dict:
     return dist.restore(models)
 
 
-def main(argv=None, *, train_fn=None, gpu=None, restore_fn=None) -> int:
+def main(argv=None, *, train_fn=None, gpu=None, restore_fn=None, publisher=None) -> int:
     ap = argparse.ArgumentParser(description="Approx AI one-command training pipeline")
     ap.add_argument("--models", nargs="+", default=["all"], help="'all' or any of: " + " ".join(ORDER))
     ap.add_argument("--run-id", default=os.environ.get("APPROX_RUN_ID") or "approx-full-r1")
@@ -109,6 +109,9 @@ def main(argv=None, *, train_fn=None, gpu=None, restore_fn=None) -> int:
     ap.add_argument("--config-dir", default=str(TRAINING / "models"))
     ap.add_argument("--skip-restore", action="store_true", help="use local datasets (still SHA-256 verified against the lock)")
     ap.add_argument("--retry-failed", action="store_true", help="retry models that failed in an earlier invocation of this run")
+    ap.add_argument("--control-plane-url", default=os.environ.get("APPROX_CONTROL_PLANE_URL", ""),
+                    help="Approx backend URL: report TRAINING → … → VERIFIED / FAILED to the model lifecycle (worker API)")
+    ap.add_argument("--api-key", default=os.environ.get("APPROX_WORKER_API_KEY", ""), help="worker API key (scope training:worker); never stored")
     ap.add_argument("--plan-only", action="store_true", help="readiness only: verify datasets + show what this GPU can train, then exit")
     ap.add_argument("--signing-key", default=os.environ.get("APPROX_RELEASE_SIGNING_KEY", ""))
     a = ap.parse_args(argv)
@@ -169,6 +172,10 @@ def main(argv=None, *, train_fn=None, gpu=None, restore_fn=None) -> int:
         return 0 if ready else 1
 
     train = train_fn or runner.train_one
+    from engine.publisher import Publisher
+    pub = publisher or Publisher(a.control_plane_url, a.api_key)
+    if pub.enabled:
+        print(f"Lifecycle reporting → {a.control_plane_url} (VERIFIED models are activated by the backend after its own deployment check)")
     paused = False
     for m in todo:
         if not plan[m]["feasible"]:
@@ -185,6 +192,7 @@ def main(argv=None, *, train_fn=None, gpu=None, restore_fn=None) -> int:
         prev = state.get(m)
         resume = prev["status"] in ("paused", "running", "interrupted", "failed") and prev.get("attempts", 0) > 0
         state.set(m, status="running", attempts=prev.get("attempts", 0) + 1, started_at=now())
+        pub.started(m)
         print(f"\n######## {m} ({'resume' if resume else 'start'}) ########", flush=True)
         try:
             res = train(Path(a.config_dir) / f"{m}.yaml", models_dir, work, run_id=a.run_id, resume=resume,
@@ -195,6 +203,7 @@ def main(argv=None, *, train_fn=None, gpu=None, restore_fn=None) -> int:
             return 3
         except Exception as e:   # one model failing never stops the others
             state.set(m, status="failed", reason=f"{type(e).__name__}: {e}", traceback=traceback.format_exc()[-4000:])
+            pub.failed(m, "training", f"{type(e).__name__}: {e}")
             print(f"---- {m}: FAILED ({type(e).__name__}: {e}); logs kept under {work / m / 'runs' / a.run_id}; continuing")
             continue
         st = res.get("status")
@@ -203,6 +212,10 @@ def main(argv=None, *, train_fn=None, gpu=None, restore_fn=None) -> int:
             state.set(m, status="completed", release={k: rel.get(k) for k in ("version", "status", "production_ready", "blockers", "adapter_sha256", "dir", "archive_sha256")},
                       evaluation=res.get("evaluation"))
             print(f"---- {m}: COMPLETED · release {rel.get('version')} status={rel.get('status')} production_ready={rel.get('production_ready')}")
+            if pub.enabled and rel.get("dir"):
+                outcome = pub.completed(m, rel["dir"])
+                state.set(m, lifecycle=outcome)
+                print(f"     lifecycle: {'VERIFIED' if outcome['verified'] else 'NOT ACTIVATED'} — {outcome['reason']}")
         elif st == "paused":
             state.set(m, status="paused")
             paused = True
@@ -210,6 +223,7 @@ def main(argv=None, *, train_fn=None, gpu=None, restore_fn=None) -> int:
             break
         else:
             state.set(m, status="failed", reason="; ".join(res.get("blockers", [])) or st, code=res.get("blocker_code"), stages=res.get("stages"))
+            pub.failed(m, str(res.get("blocker_code") or "training").lower(), "; ".join(res.get("blockers", [])) or str(st))
             print(f"---- {m}: {st.upper()} · {res.get('blocker_code')} · {res.get('blockers')}; continuing")
 
     summary = {m: {k: v for k, v in state.get(m).items() if k not in ("traceback", "stages")} for m in models}

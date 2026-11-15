@@ -11,7 +11,7 @@
 // The dev simulator (APPROX_DEV_PROVIDER=1) exists only for local development and automated
 // tests, and every reply it produces is explicitly labelled as simulated.
 import { config } from '../config.js';
-import { lifecycleOf, lifecycleCached, gateServed, LABELS } from '../lifecycle.js';
+import { lifecycleOf, lifecycleCached, gateServed, LABELS, autoActivate } from '../lifecycle.js';
 import { HttpError } from '../http.js';
 import { modeParams } from '../catalog.js';
 import { getActive, activeProblem, resolveServingVersion, VERSION_RE } from '../registry.js';
@@ -90,6 +90,9 @@ export async function upstreamHealth(model) {
     const r = await fetch(`${up.url.replace(/\/v1$/, '')}/health`, { signal: AbortSignal.timeout(2500), headers: up.key ? { Authorization: `Bearer ${up.key}` } : {} });
     const body = await r.json().catch(() => null);
     value = { configured: true, managed: up.managed, reachable: r.ok, status: body?.status ?? null, serving: body?.serving ?? null, gpu: body?.gpu ?? null };
+    // A VERIFIED model whose server now serves exactly that version + adapter is promoted through the full deployment
+    // check (health, version, SHA-256, production release, real generation) — never activated without it.
+    if (r.ok && up.managed && config.registry.source === 'inference') await autoActivate(model.id, body?.details?.[model.id], { url: up.url, key: up.key });
   } catch (e) {
     value = { configured: true, managed: up.managed, reachable: false, error: e.name };
   }

@@ -97,8 +97,13 @@ export function toHttpError(e) {
       return new HttpError(400, 'same_password', 'Choose a password different from your current one.');
     case 'otp_expired': case 'flow_state_expired': case 'bad_jwt': case 'session_not_found': case 'user_not_found': case 'not_found':
       return new HttpError(400, 'invalid_token', 'This link or code is invalid or has expired. Request a new one.');
-    case 'over_email_send_rate_limit':
-      return new HttpError(429, 'rate_limited', 'Too many emails were requested. Please wait a few minutes and try again.');
+    case 'over_email_send_rate_limit': {
+      // Supabase sends two different limits under this code: a per-address cooldown ("…only request this after 47
+      // seconds") and the project-wide hourly email cap ("email rate limit exceeded"). Report which one, with the wait.
+      const secs = Number(/after (\d+) seconds?/i.exec(e.message || '')?.[1]);
+      if (secs > 0) return new HttpError(429, 'email_cooldown', `Please wait ${secs} seconds before requesting another email for this address.`, { retry_after_s: secs, retryAfter: secs });
+      return new HttpError(429, 'email_rate_limited', 'The email sending limit for Approx AI has been reached for now. Please try again later (it resets within the hour).', { retry_after_s: 600, retryAfter: 600 });
+    }
     case 'over_request_rate_limit':
       return new HttpError(429, 'rate_limited', 'Too many requests. Please slow down.');
     case 'email_address_invalid': case 'validation_failed':

@@ -10,11 +10,14 @@ const int = (v, d) => (v === undefined || v === '' ? d : Number.parseInt(v, 10))
 // Software versions. Model/adapter versions are NOT listed here: they come from the model registry
 // (verified release artifacts) at run time — see registry.js and GET /api/status.
 export const VERSIONS = Object.freeze({
-  product: '1.1.0',
-  backend: '1.1.0',
-  frontend: '1.1.0',
-  api: 'v1 (1.1.0)',
-  apk: '1.1.0 (versionCode 2)',
+  product: '1.3.0',
+  backend: '1.3.0',
+  frontend: '1.3.0',
+  api: 'v1 (1.3.0)',
+  apk: '1.3.0 (versionCode 5)',
+  // Client contract shared by web and Android: models, status/selectable, active versions come from /api/models.
+  api_contract: '1.7',
+  min_apk_version_code: 5,
 });
 
 // Serverless (Vercel): the filesystem is read-only except an ephemeral /tmp that is not shared between

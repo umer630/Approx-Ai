@@ -11,7 +11,7 @@ import { upstreamHealth } from '../providers/index.js';
 import { catalogModel } from '../catalog.js';
 import { usageSummary } from '../quota.js';
 import { lifecycleOf } from '../lifecycle.js';
-import { config } from '../config.js';
+import { config, VERSIONS } from '../config.js';
 import { localUserFor } from './auth.js';
 import { adminCookie, createAdminSession, isAllowlistedAdmin, adminEmails, CLIENT_STATUSES, platformSetting, setPlatformSetting } from '../admin.js';
 
@@ -359,6 +359,45 @@ export function registerAdminPanelRoutes(r) {
     await audit(null, actor(a), 'admin.model_availability', m.id, clientIp(req), changes);
     const n = await one('SELECT * FROM models WHERE id = ?', m.id);
     sendJson(res, 200, { model: m.id, available: n.available !== 0, visibility: n.visibility });
+  });
+
+  // Diagnostics: Supabase Auth, email requests, API, model registry, inference, training, APK contract. No secrets.
+  r.get('/api/admin/diagnostics', async (req, res, ctx) => {
+    requireRole(ctx, ...ADMIN);
+    const sbUrl = config.supabase.url; const key = config.supabase.publishableKey;
+    const probe = async (path) => {
+      if (!sbUrl || !key) return { ok: false, error: 'not configured' };
+      const t = Date.now();
+      try {
+        const r2 = await fetch(`${sbUrl}/auth/v1${path}`, { headers: { apikey: key }, signal: AbortSignal.timeout(6000) });
+        return { ok: r2.ok, status: r2.status, ms: Date.now() - t, body: r2.ok ? await r2.json().catch(() => null) : null };
+      } catch (e) { return { ok: false, error: e.name, ms: Date.now() - t }; }
+    };
+    const [health, settings] = await Promise.all([probe('/health'), probe('/settings')]);
+    const st = settings.body || {};
+    const since = now() - DAY;
+    const emails = await all(`SELECT action, json_extract(detail, '$.outcome') outcome, COUNT(*) n, MAX(created_at) last_at FROM audit_logs
+      WHERE action IN ('auth.email_signup','auth.email_resend','auth.email_recovery') AND created_at >= ? GROUP BY action, outcome ORDER BY action, n DESC`, since);
+    const models = await Promise.all((await all('SELECT * FROM models ORDER BY rowid')).map(async (m) => {
+      const lc = await lifecycleOf(m.id);
+      const s2 = await modelStatus(m);
+      const hh = await upstreamHealth(m);
+      return { id: m.id, status: s2.status, reason: s2.reason, lifecycle: lc?.state || null, version: lc?.version || null,
+        inference: hh.configured ? (hh.reachable ? 'reachable' : `unreachable${hh.error ? ` (${hh.error})` : ''}`) : 'not configured', available: m.available !== 0 };
+    }));
+    const job = await one('SELECT id, status, phase, created_at, finished_at FROM gpu_jobs ORDER BY created_at DESC LIMIT 1').catch(() => null);
+    sendJson(res, 200, {
+      supabase_auth: { configured: !!(sbUrl && key), host: sbUrl ? new URL(sbUrl).host : null, reachable: health.ok, latency_ms: health.ms ?? null,
+        version: health.body?.version || null, email_signup_enabled: st.external ? !!st.external.email : null, signup_disabled: st.disable_signup ?? null,
+        email_autoconfirm: st.mailer_autoconfirm ?? null, callback_url: config.supabase.callbackUrl,
+        note: 'SMTP host/credentials and inbox delivery are not visible through the public Auth API; check Supabase → Authentication → Emails (SMTP) and Logs → Auth.' },
+      email_requests_24h: emails.map((x) => ({ kind: x.action.replace('auth.email_', ''), outcome: x.outcome, count: x.n, last_at: x.last_at })),
+      api: { status: 'ok', versions: VERSIONS, build_id: config.buildId, public_url: config.publicUrl },
+      admin: { allowlist_configured: adminEmails().length > 0, allowlisted_count: adminEmails().length },
+      models, training: { latest_job: job || null },
+      apk: { api_contract: VERSIONS.api_contract, min_version_code: VERSIONS.min_apk_version_code, api_url: config.publicUrl,
+        model_discovery: 'GET /api/models (status, selectable, active_version) — no versions are built into the APK' },
+    });
   });
 
   r.get('/api/admin/platform-settings', async (req, res, ctx) => {

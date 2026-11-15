@@ -91,6 +91,22 @@ has to be checked or set by you in the dashboard.
 
 ## Troubleshooting
 
+**"Verification sent" but nothing arrives, then "Too many attempts" on Resend** — measured on the production project
+on 2026-11-15 (diagnostic `@example.com` address, no personal data):
+1. A new address: Supabase accepted the confirmation email (HTTP 202). SMTP now hands mail over; the earlier
+   `Error sending confirmation email` failure is no longer happening.
+2. An immediate Resend: Supabase answered `429 over_email_send_rate_limit` (per-address cooldown). After ~60 s the
+   same Resend was accepted. The old app allowed instant retries and showed a vague "wait a few minutes"; it now shows
+   the exact seconds and disables the button for that long (web + Android).
+3. An address that is **already registered and confirmed**: Supabase deliberately answers like a success but sends
+   **no email** (anti-enumeration). The old message said "a verification link has been sent"; it now says that
+   existing accounts get no new link and should sign in or use Forgot password. This is the most common reason for
+   "the link never came" when re-testing with the same Gmail.
+Inbox delivery after Supabase accepts the email (Gmail spam filtering, sender reputation) is not visible to Approx:
+check Supabase → **Logs → Auth** and the Gmail Spam folder. Admin → `GET /api/admin/diagnostics` shows the last 24 h
+of email-request outcomes (`accepted_by_supabase`, `existing_account_no_email`, `email_cooldown`, …).
+
+
 **Sign-up / resend / reset answer `email_delivery_failed` ("We couldn't send the email…")** — Supabase itself
 returned `500 unexpected_failure: Error sending confirmation email` (or `…recovery email`): its SMTP settings cannot
 deliver, and Supabase rolled the sign-up back (no half-created account). Verified on 2026-11-15 against this project

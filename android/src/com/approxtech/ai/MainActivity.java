@@ -352,8 +352,25 @@ public class MainActivity extends Activity {
         } });
     }
     /** approxai://auth?code=…&state=… from the browser after Google sign-in. */
+    /** Disable a button and count down; re-enable with its label afterwards. */
+    void cooldown(final TextView b, final int secs, final String label) {
+        final int[] left = { Math.max(1, secs) };
+        b.setEnabled(false); b.setAlpha(0.6f);
+        ui.post(new Runnable() { public void run() {
+            if (left[0] <= 0) { b.setEnabled(true); b.setAlpha(1f); b.setText(label); return; }
+            b.setText(label + " (" + left[0] + "s)"); left[0]--; ui.postDelayed(this, 1000);
+        } });
+    }
+
     void handleAuthIntent(Intent intent) {
         Uri d = intent == null ? null : intent.getData();
+        // Back from the email-verification page in the phone browser: no token travels in this link; just sign in.
+        if (d != null && "approxai".equals(d.getScheme()) && "auth".equals(d.getHost()) && "1".equals(d.getQueryParameter("verified"))) {
+            intent.setData(null);
+            toast("Email verified. Please sign in.");
+            if (user == null) showLogin();
+            return;
+        }
         if (d == null || !"approxai".equals(d.getScheme()) || !"auth".equals(d.getHost())) return;
         String code = d.getQueryParameter("code"), state = d.getQueryParameter("state");
         final String verifier = store.get("g_verifier", "");
@@ -510,10 +527,20 @@ public class MainActivity extends Activity {
         } }), 16);
         final EditText email = input("Email (to resend)", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
         add(col, email, 28);
-        add(col, button("Resend code", false, new Runnable() { public void run() {
+        // Resend with a cooldown (60 s, or the server's exact wait on 429) so the app never triggers Supabase's limit.
+        final TextView[] rb = new TextView[1];
+        rb[0] = button("Resend code", false, new Runnable() { public void run() {
             final JSONObject body = obj("email", email.getText().toString().trim());
-            bg(new Job() { public Object run() throws Exception { return api.post("/api/auth/resend-verification", body); } }, new Done() { public void ok(Object r) { toast(((JSONObject) r).optString("message")); } });
-        } }), 8);
+            bg(new Job() { public Object run() throws Exception {
+                try { return api.post("/api/auth/resend-verification", body); }
+                catch (Api.ApiException e) { if (e.status == 429) return obj("message", e.getMessage(), "cooldown", e.retryAfter > 0 ? e.retryAfter : 60); throw e; }
+            } }, new Done() { public void ok(Object r) {
+                JSONObject j = (JSONObject) r;
+                toast(j.optString("message"));
+                cooldown(rb[0], j.has("cooldown") ? j.optInt("cooldown") : j.optInt("resend_after_s", 60), "Resend code");
+            } });
+        } });
+        add(col, rb[0], 8);
         add(col, link("Back", new Runnable() { public void run() { if (user != null) showChat(null); else showLogin(); } }), 6);
     }
 

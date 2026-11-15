@@ -118,6 +118,12 @@ async function bootstrapSuperadmin(userId, ip) {
   if (promoted) await audit(userId, 'bootstrap', 'auth.bootstrap_superadmin', userId, ip, { via: 'APPROX_BOOTSTRAP_SUPERADMIN_EMAIL' });
 }
 
+// Outcome of every verification-email request, for the admin diagnostics (no address, no token — outcome only).
+// "accepted_by_supabase" means Supabase handed the email to its mail service; inbox delivery is not observable here.
+async function emailEvent(kind, outcome, ip) {
+  try { await audit(null, 'system', `auth.email_${kind}`, null, ip, { outcome: String(outcome).slice(0, 60) }); } catch { /* never block auth */ }
+}
+
 export function registerAuthRoutes(r) {
   r.post('/api/auth/signup', async (req, res) => {
     const ip = clientIp(req);
@@ -132,12 +138,18 @@ export function registerAuthRoutes(r) {
     requireSupabase();
     // Supabase creates the unconfirmed user and sends the confirmation email. For an address that is already
     // registered it answers the same way (no enumeration) and re-sends the link if that account is still unconfirmed.
-    const created = await viaSupabase(() => sb.signUp(email, b.password, name));
+    let created;
+    try { created = await viaSupabase(() => sb.signUp(email, b.password, name)); }
+    catch (e) { await emailEvent('signup', e.code || 'error', ip); throw e; }
     const sbUser = created?.user || created;
-    if (sbUser?.id && Array.isArray(sbUser.identities) && sbUser.identities.length && !(await one('SELECT id FROM users WHERE email = ?', email))) {
-      await localUserFor(sbUser, ip, { displayName: name });
-    }
-    sendJson(res, 202, { status: 'verification_sent', message: 'If this email can be registered, a verification link has been sent.' });
+    // Supabase hides existing accounts: for an address that is already registered AND confirmed it answers like a
+    // success but returns no identities and sends NO email. That is the "signup said sent, but nothing arrived" case.
+    const newOrUnconfirmed = !!(sbUser?.id && Array.isArray(sbUser.identities) && sbUser.identities.length);
+    if (newOrUnconfirmed && !(await one('SELECT id FROM users WHERE email = ?', email))) await localUserFor(sbUser, ip, { displayName: name });
+    await emailEvent('signup', newOrUnconfirmed ? 'accepted_by_supabase' : 'existing_account_no_email', ip);
+    // Same answer either way (no account enumeration), but it no longer implies an email was sent to existing accounts.
+    sendJson(res, 202, { status: 'verification_sent', resend_after_s: 60,
+      message: 'If this email is new, a verification link is on its way (check Spam too). If you already have an Approx account with this email, no new link is sent — sign in, or use Forgot password.' });
   });
 
   r.post('/api/auth/verify-email', async (req, res) => {
@@ -163,8 +175,11 @@ export function registerAuthRoutes(r) {
     await rateLimit(`resend-email:${email}`, 3, HOUR);
     if (!isEmail(email)) throw bad('A valid email address is required');
     requireSupabase();
-    await viaSupabase(() => sb.resendSignup(email));
-    sendJson(res, 202, { status: 'ok', message: 'If the account exists and is unverified, a new link has been sent.' });
+    try { await viaSupabase(() => sb.resendSignup(email)); }
+    catch (e) { await emailEvent('resend', e.code || 'error', clientIp(req)); throw e; }
+    await emailEvent('resend', 'accepted_by_supabase', clientIp(req));
+    sendJson(res, 202, { status: 'ok', resend_after_s: 60,
+      message: 'If this account exists and is not verified yet, a new link is on its way (check Spam too). Verified accounts do not get a new link — sign in instead.' });
   });
 
   r.post('/api/auth/login', async (req, res) => {
@@ -319,7 +334,9 @@ export function registerAuthRoutes(r) {
     await rateLimit(`forgot-email:${email}`, 3, HOUR);
     if (!isEmail(email)) throw bad('A valid email address is required');
     requireSupabase();
-    await viaSupabase(() => sb.recover(email)); // Supabase sends the reset link; unknown addresses get the same answer
+    try { await viaSupabase(() => sb.recover(email)); } // Supabase sends the reset link; unknown addresses get the same answer
+    catch (e) { await emailEvent('recovery', e.code || 'error', ip); throw e; }
+    await emailEvent('recovery', 'accepted_by_supabase', ip);
     const u = await one("SELECT id FROM users WHERE email = ? AND status = 'active'", email);
     if (u) await audit(u.id, 'anonymous', 'auth.password_reset_requested', u.id, ip);
     sendJson(res, 202, { status: 'ok', message: 'If an account exists for this email, a reset link has been sent.' });

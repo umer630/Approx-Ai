@@ -220,11 +220,8 @@ function authView(kind) {
       if (err.code === 'account_migration_required') showMsg(msg, err.message, 'ok');
       else if (err.code === 'email_not_verified') {
         showMsg(msg, err.message);
-        msg.append(' ', h('button', { class: 'btn small', type: 'button', onclick: async (ev) => {
-          ev.target.disabled = true;
-          const r = await api('/api/auth/resend-verification', { method: 'POST', body: { email: email.value.trim() } }).catch((e2) => ({ message: e2.message }));
-          showMsg(msg, r.message, 'ok');
-        } }, 'Resend link'));
+        const rb = h('button', { class: 'btn small', type: 'button', onclick: () => resendVerification(rb, email.value.trim(), msg, 'Resend link') }, 'Resend link');
+        msg.append(' ', rb);
       } else showMsg(msg, err.message);
     } finally { btn.disabled = false; btn.classList.remove('loading'); btn.removeAttribute('aria-busy'); btn.textContent = label; }
   } },
@@ -251,16 +248,34 @@ function authView(kind) {
 }
 
 /** After sign-up: one clear next step — open the email Supabase sent — with a resend button. No questionnaire. */
+// Resend with a visible cooldown: 60 s after a send, or exactly what the server says on 429 (Supabase cooldown).
+// The button stays disabled while counting down, so the app never spams Supabase into "too many attempts".
+function startCooldown(btn, seconds, label) {
+  clearInterval(btn._cd);
+  let left = Math.max(1, Math.round(seconds));
+  btn.disabled = true;
+  const tick = () => { btn.textContent = `${label} (${left}s)`; if (left-- <= 0) { clearInterval(btn._cd); btn.disabled = false; btn.textContent = label; } };
+  tick(); btn._cd = setInterval(tick, 1000);
+}
+async function resendVerification(btn, address, msg, label) {
+  if (btn.disabled) return;
+  btn.disabled = true; btn.classList.add('loading');
+  try {
+    const r = await api('/api/auth/resend-verification', { method: 'POST', body: { email: address } });
+    showMsg(msg, r.message, 'ok'); btn.classList.remove('loading'); startCooldown(btn, r.resend_after_s || 60, label);
+  } catch (e) {
+    btn.classList.remove('loading');
+    showMsg(msg, e.message);
+    if (e.status === 429) startCooldown(btn, e.body?.error?.retry_after_s || 60, label); else btn.disabled = false;
+  }
+}
+
 function checkEmailView(address) {
   const msg = formMsg();
-  const resend = h('button', { class: 'btn block', type: 'button', onclick: async () => {
-    resend.disabled = true; resend.classList.add('loading');
-    try { const r = await api('/api/auth/resend-verification', { method: 'POST', body: { email: address } }); showMsg(msg, r.message, 'ok'); }
-    catch (e) { showMsg(msg, e.message); } finally { resend.disabled = false; resend.classList.remove('loading'); }
-  } }, 'Resend verification email');
+  const resend = h('button', { class: 'btn block', type: 'button', onclick: () => resendVerification(resend, address, msg, 'Resend verification email') }, 'Resend verification email');
   authFrame('Check your email', null,
-    h('p', { class: 'center' }, 'We sent a verification link to ', h('b', {}, address), '. Open it to activate your account — you’ll go straight into Approx.'),
-    h('p', { class: 'center small muted' }, 'Can’t find it? Check spam or promotions.'), msg, resend,
+    h('p', { class: 'center' }, 'If ', h('b', {}, address), ' is new to Approx, a verification link is on its way. Open it to activate your account.'),
+    h('p', { class: 'center small muted' }, 'Can’t find it? Check Spam and Promotions. Already have an account with this email? No new link is sent — sign in or use Forgot password.'), msg, resend,
     h('div', { class: 'auth-links' }, h('a', { href: '#/login' }, 'Back to sign in'), h('a', { href: '#/verify' }, 'Have a code?')));
 }
 
@@ -316,17 +331,18 @@ function tokenView(kind) {
   linkProof ? null : h('div', { class: 'field' }, h('label', { for: 'token' }, 'Code from your email'), tok),
   kind === 'reset' ? h('div', { class: 'field' }, h('label', { for: 'newpw' }, 'New password'), pw) : null, msg, btn);
   const extra = kind === 'verify' ? h('details', { class: 'small' }, h('summary', { class: 'muted' }, 'Resend verification email'),
-    h('div', { class: 'row' }, resendEmail, h('button', { class: 'btn', type: 'button', onclick: async () => {
-      const r = await api('/api/auth/resend-verification', { method: 'POST', body: { email: resendEmail.value } }).catch((e) => ({ message: e.message }));
-      showMsg(msg, r.message, 'ok');
-    } }, 'Send'))) : null;
+    h('div', { class: 'row' }, resendEmail, (() => { const sb2 = h('button', { class: 'btn', type: 'button', onclick: () => resendVerification(sb2, resendEmail.value.trim(), msg, 'Send') }, 'Send'); return sb2; })())) : null;
   // Success: one clear next step. The token is removed from the address bar first, so reloading this page can never
   // resubmit a used token or bounce between routes.
   function done(title, text) {
     history.replaceState(null, '', `#/${kind === 'confirm' ? 'confirm-email' : kind}`);
     const next = state.user ? ['#/', 'Continue to Approx AI'] : ['#/login', 'Continue to sign in'];
+    // On Android the email link opens in the browser: offer to go back to the Approx app (no token in this link —
+    // the app just shows "Email verified, sign in").
+    const android = /Android/i.test(navigator.userAgent) && kind === 'verify';
     authFrame(title, null, h('div', { class: 'alert ok', role: 'status' }, text),
-      h('button', { class: 'btn primary block', type: 'button', onclick: () => go(next[0]) }, next[1]));
+      android ? h('a', { class: 'btn primary block', href: 'approxai://auth?verified=1' }, 'Open the Approx app') : null,
+      h('button', { class: `btn ${android ? '' : 'primary '}block`, type: 'button', onclick: () => go(next[0]) }, android ? 'Continue in the browser' : next[1]));
   }
   authFrame(kind === 'verify' ? 'Verify your email' : kind === 'reset' ? 'Choose a new password' : 'Confirm email change', null, form, extra,
     h('div', { class: 'auth-links' }, h('a', { href: state.user ? '#/' : '#/login' }, state.user ? 'Back to chat' : 'Sign in')));
