@@ -65,6 +65,7 @@ prefer it.
 | `APPROX_DB_URL` | the `libsql://…` URL from Step 1 | no |
 | `APPROX_DB_AUTH_TOKEN` | the Turso token from Step 1 | **yes** |
 | `APPROX_BOOTSTRAP_SUPERADMIN_EMAIL` | your Gmail address (also the SMTP username; becomes superadmin once, after you verify it) | no |
+| `APPROX_ADMIN_EMAILS` | email(s) allowed to sign in at `/admin` (comma-separated; see [ADMIN.md](ADMIN.md)) | no (but server-only) |
 | `MAIL_TRANSPORT` | `smtp` | no |
 | `MAIL_SMTP_PASS` | the 16-letter Google App Password from Step 2 | **yes** |
 | `APPROX_ENV` | `production` | no |

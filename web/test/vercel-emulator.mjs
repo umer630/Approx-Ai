@@ -30,7 +30,12 @@ const server = http.createServer((req, res) => {
   let file = path.join(outDir, rel);
   if (!file.startsWith(outDir)) { res.writeHead(404); return res.end(); }
   if (fs.existsSync(file) && fs.statSync(file).isDirectory()) file = path.join(file, 'index.html');
-  if (!fs.existsSync(file)) { res.writeHead(404); return res.end('NOT_FOUND'); }
+  if (!fs.existsSync(file)) {
+    // Vercel checks the filesystem first, then applies non-API rewrites (e.g. /admin/:path* → /admin/index.html).
+    const rw = (vc.rewrites || []).find((r) => r.destination !== '/api/index' && toRe(r.source).test(pathname));
+    if (!rw) { res.writeHead(404); return res.end('NOT_FOUND'); }
+    file = path.join(outDir, rw.destination);
+  }
   res.writeHead(200, { 'Content-Type': MIME[path.extname(file)] || 'application/octet-stream' });
   fs.createReadStream(file).pipe(res);
 });

@@ -59,8 +59,8 @@ public class ApiJvmTest {
         JSONObject status = api.get("/api/status");
         check(status.getJSONArray("models").length() == 5 && status.has("inference"), "console: /api/status dashboard data");
         check(!status.has("gpu"), "console: GPU/worker details hidden from non-admins");
-        try { api.get("/api/admin/registry"); check(false, "registry admin-only"); } catch (Api.ApiException e) { check(e.status == 403, "console: registry requires admin"); }
-        try { api.get("/api/admin/compute"); check(false, "compute admin-only"); } catch (Api.ApiException e) { check(e.status == 403, "console: compute requires admin"); }
+        try { api.get("/api/admin/registry"); check(false, "registry admin-only"); } catch (Api.ApiException e) { check(e.status == 401, "console: registry refuses client sessions (admin panel only)"); }
+        try { api.get("/api/admin/compute"); check(false, "compute admin-only"); } catch (Api.ApiException e) { check(e.status == 401, "console: compute refuses client sessions (admin panel only)"); }
 
         api.post("/api/auth/logout", new JSONObject());
         try { api.get("/api/auth/me"); check(false, "logout"); } catch (Api.ApiException e) { check(e.status == 401, "logout revokes token"); }

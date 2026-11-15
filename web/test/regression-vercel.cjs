@@ -39,7 +39,7 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     env: { PATH: process.env.PATH, HOME: process.env.HOME, VERCEL: '1', APPROX_ENV: 'test', APPROX_TEST_EPHEMERAL_DB: '1',
       APPROX_DB_URL: `file:${path.join(scratch, 'db.sqlite')}`, APPROX_MODEL_NICK_URL: `http://127.0.0.1:${inf.address().port}/v1`,
       MAIL_TRANSPORT: 'brevo', MAIL_HTTP_ENDPOINT: `http://127.0.0.1:${brevo.address().port}`, MAIL_HTTP_API_KEY: 'test-key',
-      MAIL_FROM: 'Approx AI <noreply@example.com>', APPROX_BOOTSTRAP_SUPERADMIN_EMAIL: 'owner@example.com', APPROX_PUBLIC_URL: 'https://approx-ai.vercel.app',
+      MAIL_FROM: 'Approx AI <noreply@example.com>', APPROX_BOOTSTRAP_SUPERADMIN_EMAIL: 'owner@example.com', APPROX_ADMIN_EMAILS: 'owner@example.com', APPROX_PUBLIC_URL: 'https://approx-ai.vercel.app',
       SUPABASE_URL: supabase.url, SUPABASE_PUBLISHABLE_KEY: supabase.publishableKey },
     stdio: ['ignore', 'pipe', 'inherit'] });
   const port = await new Promise((r) => { let o = ''; emu.stdout.on('data', (d) => { o += d; const m = /PORT (\d+)/.exec(o); if (m) r(m[1]); }); });
@@ -161,12 +161,16 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     await p.waitForSelector('#prompt', { timeout: 10000 }).catch(() => {});
     ok('login lands in app', await p.locator('#prompt').count() === 1);
     // Activate Nick 4.8 through the real lifecycle flow (superadmin; backend verifies health + SHA-256 + generation).
+    // The client session (even the owner's) is never accepted by /api/admin: the admin signs in separately.
     const act = await p.evaluate(async (pin) => {
       const me = await (await fetch('/api/auth/me')).json();
-      const r = await fetch('/api/admin/models/nick-4.8/lifecycle', { method: 'POST', headers: { 'content-type': 'application/json', 'x-csrf-token': me.csrf_token },
+      const viaClient = await fetch('/api/admin/models/lifecycle', { headers: { 'x-csrf-token': me.csrf_token } });
+      const login = await (await fetch('/api/admin/auth/login', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: 'owner@example.com', password: 'Str0ng!Passw0rd1' }) })).json();
+      const r = await fetch('/api/admin/models/nick-4.8/lifecycle', { method: 'POST', headers: { 'content-type': 'application/json', 'x-admin-csrf': login.csrf_token },
         body: JSON.stringify({ to: 'DEPLOYING', version: '1.0.0', artifact: { uri: 'gs://approx-models/nick-4.8/1.0.0/adapter.tar.gz', sha256: pin, base_model: 'Qwen/Qwen2.5-3B-Instruct', base_revision: 'aa8e72537993ba99e69dfaafa59ed015b17504d1' } }) });
-      return [r.status, await r.json()];
+      return [r.status, await r.json(), viaClient.status];
     }, NICK_PIN);
+    ok('client session is refused by the admin API (401)', act[2] === 401);
     ok('Nick 4.8 activated via lifecycle verification', act[0] === 200 && act[1].lifecycle?.state === 'ACTIVE', JSON.stringify(act[1]).slice(0, 200));
     await p.reload({ waitUntil: 'networkidle' }); await p.waitForTimeout(1000);
     // Returning user: session restored straight into the workspace — no login, no questionnaire.
@@ -312,7 +316,8 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     await p.waitForSelector('.settings-list'); const setMs = Date.now() - t0;
     ok(`Settings opens fast (${setMs} ms)`, setMs < 1500);
     const set = await p.locator('#main').innerText();
-    for (const n of ['Profile', 'Billing', 'Usage', 'Capabilities', 'Approx Code', 'Connectors', 'Notifications', 'Security', 'Appearance', 'Account', 'Help & Support', 'Admin console', 'Log out']) ok(`settings: ${n}`, set.includes(n));
+    for (const n of ['Profile', 'Billing', 'Usage', 'Capabilities', 'Approx Code', 'Connectors', 'Notifications', 'Security', 'Appearance', 'Account', 'Help & Support', 'Log out']) ok(`settings: ${n}`, set.includes(n));
+    ok('client settings have no Admin entry', !/admin/i.test(set));
     ok('settings rows have icons', await p.locator('.settings-row .settings-icon svg').count() >= 11);
     await p.screenshot({ path: path.join(S, 'v-06-settings.png') });
     for (const key of ['profile', 'billing', 'usage', 'capabilities', 'code', 'connectors', 'notifications', 'security', 'appearance', 'account', 'help', 'memory', 'models', 'privacy', 'personalization', 'api']) {
@@ -342,15 +347,87 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     ok('Schedule states the missing scheduler backend honestly (no fake schedules)', (await p.locator('#main').innerText()).includes('aren’t available yet'));
 
     // Feature pages: Projects, Workspace (Approx Work equivalent), Code (Approx Code equivalent), Research, Admin.
-    for (const [route, label] of [['#/projects', 'Projects'], ['#/workspace', 'Workspace'], ['#/code', 'Code'], ['#/research', 'Research'], ['#/admin', 'Admin']]) {
+    for (const [route, label] of [['#/projects', 'Projects'], ['#/workspace', 'Workspace'], ['#/code', 'Code'], ['#/research', 'Research']]) {
       await p.goto(BASE + '/' + route, { waitUntil: 'networkidle' }); await p.waitForTimeout(600);
       const t = await p.locator('#main').innerText().catch(() => '');
       ok(`page ${route} loads`, t.length > 10 && !/Unknown endpoint|Internal error/i.test(t), t.slice(0, 120));
       await p.screenshot({ path: path.join(S, `v-07-${label.toLowerCase()}.png`) });
     }
-    const adminText = await p.locator('#main').innerText();
-    ok('admin registry shows Nick 4.8 served by the GPU host', /nick-4\.8\s*active v1\.0\.0/.test(adminText) && adminText.includes('served by inference server'), adminText.slice(adminText.indexOf('Model registry'), adminText.indexOf('Model registry') + 300));
-    ok('admin registry does not claim versions for unserved models', /hike-6\.5\s*no active version/.test(adminText));
+    await p.goto(BASE + '/#/admin', { waitUntil: 'networkidle' }); await p.waitForTimeout(500);
+    ok('old client #/admin route is gone (falls back to chat)', await p.locator('#prompt').count() === 1 && !/Admin console/.test(await p.locator('body').innerText()));
+
+    // ================= Secure admin panel (/admin) =================
+    const ac = await b.newContext({ viewport: { width: 1366, height: 900 }, deviceScaleFactor: 2 });
+    const ap = await ac.newPage();
+    const aerrs = []; ap.on('console', (m) => { if (m.type() === 'error' && !/40[13]/.test(m.text())) aerrs.push(m.text()); });
+    const adminHtml = await (await fetch(BASE + '/admin/clients')).text();
+    ok('admin: deep link served by the admin page (direct URL → sign-in screen, no data in HTML)', adminHtml.includes('/admin/admin.js') && !/owner@example\.com|password\s*[:=]/i.test(adminHtml));
+    ok('admin: page is noindex', /noindex/.test((await fetch(BASE + '/admin/')).headers.get('x-robots-tag') || ''));
+    await ap.goto(BASE + '/admin/clients', { waitUntil: 'networkidle' }); await ap.waitForTimeout(400);
+    ok('admin: direct URL without an admin session → Administrator Sign In', ap.url().endsWith('/admin/login') && (await ap.locator('body').innerText()).includes('Administrator Sign In'));
+    ok('admin: sign-in has Admin email + Admin password + Sign in', await ap.getByLabel('Admin email').count() === 1 && await ap.getByLabel('Admin password').count() === 1 && await ap.getByRole('button', { name: 'Sign in' }).count() === 1);
+    // A signed-in CLIENT session does not open the admin panel (even for an allowlisted person).
+    await ap.evaluate(async () => fetch('/api/auth/login', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: 'owner@example.com', password: 'Str0ng!Passw0rd1' }) }));
+    await ap.goto(BASE + '/admin', { waitUntil: 'networkidle' }); await ap.waitForTimeout(400);
+    ok('admin: a client session cannot open /admin', ap.url().endsWith('/admin/login'));
+    // Forged front-end state changes nothing.
+    await ap.evaluate(() => { localStorage.setItem('isAdmin', 'true'); localStorage.setItem('role', 'superadmin'); document.cookie = 'approx_admin=forged; path=/'; });
+    await ap.goto(BASE + '/admin?isAdmin=true&role=admin', { waitUntil: 'networkidle' }); await ap.waitForTimeout(400);
+    ok('admin: localStorage / URL / forged cookie do not grant access', ap.url().includes('/admin/login'));
+    await ap.screenshot({ path: path.join(S, 'a-01-login.png') });
+    await ap.getByLabel('Admin email').fill('owner@example.com'); await ap.getByLabel('Admin password').fill('wrong-Passw0rd!');
+    await ap.getByRole('button', { name: 'Sign in' }).click(); await ap.waitForTimeout(600);
+    ok('admin: wrong password → "Invalid administrator credentials"', (await ap.locator('[role=alert]').innerText()).includes('Invalid administrator credentials') && ap.url().endsWith('/admin/login'));
+    ok('admin: password field cleared after a failure', (await ap.getByLabel('Admin password').inputValue()) === '');
+    await ap.getByLabel('Admin email').fill('owner@example.com'); await ap.getByLabel('Admin password').fill('Str0ng!Passw0rd1');
+    await ap.getByRole('button', { name: 'Sign in' }).click(); await ap.waitForSelector('.adm-stat', { timeout: 8000 }).catch(() => {});
+    ok('admin: valid sign-in → dashboard', /\/admin\/?$/.test(ap.url()) && (await ap.locator('main').innerText()).includes('Total clients'));
+    const ov = await ap.evaluate(async () => (await (await fetch('/api/admin/overview')).json()));
+    const statOf = async (k) => (await ap.locator('.adm-stat', { hasText: k }).first().locator('.v').innerText()).replace(/,/g, '');
+    ok('admin: dashboard numbers are the real API numbers', await statOf('Total clients') === String(ov.clients.total) && await statOf('Requests total') === String(ov.requests.total) && ov.requests.total >= 1, JSON.stringify(ov.clients));
+    ok('admin: chart + users by country (Unknown when not available)', await ap.locator('svg.chart rect').count() > 0 && (await ap.locator('main').innerText()).includes('Users by country') && (await ap.locator('main').innerText()).includes('Unknown'));
+    await ap.screenshot({ path: path.join(S, 'a-02-dashboard.png'), fullPage: true });
+    await ap.locator('.adm-nav a', { hasText: 'Clients' }).click(); await ap.waitForSelector('.adm-table tbody tr', { timeout: 5000 }).catch(() => {});
+    ok('admin: clients table lists real clients', (await ap.locator('.adm-table').innerText()).includes('owner@example.com'));
+    await ap.locator('input[type=search]').fill('nobody-matches-this'); await ap.waitForTimeout(700);
+    ok('admin: search filters the list', (await ap.locator('main').innerText()).includes('No clients match'));
+    await ap.locator('input[type=search]').fill('owner'); await ap.waitForTimeout(700);
+    await ap.screenshot({ path: path.join(S, 'a-03-clients.png') });
+    await ap.locator('.adm-table tbody tr').first().click(); await ap.waitForSelector('.kv', { timeout: 5000 }).catch(() => {});
+    const det = await ap.locator('main').innerText();
+    ok('admin: client detail shows account, usage, access, quota', /\/admin\/clients\/usr_/.test(ap.url()) && ['Account', 'Usage', 'Model permissions', 'Quota limits', 'Recent activity'].every((x) => det.includes(x)), det.slice(0, 200));
+    ok('admin: own account cannot be changed here', det.includes('This is your own account'));
+    await ap.screenshot({ path: path.join(S, 'a-04-client.png'), fullPage: true });
+    for (const [n, want] of [['Usage', 'Requests by model'], ['Models', 'Deployment lifecycle'], ['Activity', 'Live feed'], ['Audit log', 'Admin signed in']]) {
+      await ap.locator('.adm-nav a', { hasText: n }).click(); await ap.waitForTimeout(900);
+      const t = await ap.locator('main').innerText();
+      ok(`admin: ${n} page loads`, t.includes(want) && await ap.locator('main .alert.error').count() === 0, t.slice(0, 160));
+      await ap.screenshot({ path: path.join(S, `a-05-${n.toLowerCase().replace(/ /g, '-')}.png`), fullPage: true });
+      if (n === 'Models') ok('admin: Nick 4.8 lifecycle ACTIVE (verified deployment)', /nick-4\.8[\s\S]{0,120}ACTIVE/.test(t));
+      if (n === 'Audit log') ok('admin: audit shows the failed sign-in too', t.includes('Failed admin sign-in'));
+    }
+    ok('admin desktop: sidebar visible, no horizontal overflow', await ap.locator('.adm-side').isVisible() && await ap.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+    // Mobile admin.
+    const am = await b.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, storageState: await ac.storageState() });
+    const amp = await am.newPage(); await amp.goto(BASE + '/admin/clients', { waitUntil: 'networkidle' }); await amp.waitForTimeout(900);
+    ok('admin mobile: session carried, clients render as cards', (await amp.locator('main').innerText()).includes('owner@example.com') && await amp.evaluate(() => getComputedStyle(document.querySelector('.adm-table thead')).display) === 'none');
+    ok('admin mobile: no horizontal overflow', await amp.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+    await amp.screenshot({ path: path.join(S, 'a-06-mobile-clients.png') });
+    await amp.locator('.adm-top [aria-label=Menu]').tap(); await amp.waitForTimeout(350);
+    ok('admin mobile: menu opens the navigation', await amp.evaluate(() => document.querySelector('.adm-shell').classList.contains('nav-open')));
+    await amp.screenshot({ path: path.join(S, 'a-07-mobile-nav.png') });
+    await amp.locator('.adm-nav a', { hasText: 'Dashboard' }).tap(); await amp.waitForTimeout(900);
+    ok('admin mobile: dashboard fits the screen', await amp.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1) && (await amp.locator('main').innerText()).includes('Total clients'));
+    await amp.screenshot({ path: path.join(S, 'a-08-mobile-dashboard.png'), fullPage: true });
+    await am.close();
+    // Logout ends the admin session server-side.
+    await ap.locator('.adm-side .btn', { hasText: 'Sign out' }).click(); await ap.waitForTimeout(700);
+    ok('admin: sign out → sign-in screen', ap.url().endsWith('/admin/login'));
+    ok('admin: after sign out the admin API refuses (401)', await ap.evaluate(async () => (await fetch('/api/admin/overview')).status) === 401);
+    await ap.goto(BASE + '/admin/audit', { waitUntil: 'networkidle' }); await ap.waitForTimeout(400);
+    ok('admin: after sign out, direct URL is blocked', ap.url().endsWith('/admin/login'));
+    ok('admin: no console errors', aerrs.length === 0, aerrs.join(' | '));
+    await ac.close();
 
     // Developer console with API key creation.
     await p.goto(BASE + '/developers/', { waitUntil: 'networkidle' }); await p.waitForTimeout(800);

@@ -135,10 +135,11 @@ export function requireUser(ctx) {
 export function requireVerified(user) {
   if (config.auth.requireVerifiedEmailForChat && !user.email_verified) throw forbidden('Please verify your email address first', 'email_not_verified');
 }
+/** Admin endpoints: only a verified ADMIN SESSION (see admin.js) counts — never a client session, token or role field. */
 export function requireRole(ctx, ...roles) {
-  const u = requireUser(ctx);
-  if (!roles.includes(u.role)) throw forbidden('Insufficient role');
-  return u;
+  if (!ctx.admin) throw new HttpError(401, 'admin_session_required', 'Administrator sign-in required.');
+  if (!roles.includes(ctx.admin.user.role)) throw forbidden('This action needs a higher administrator role', 'insufficient_role');
+  return ctx.admin.user;
 }
 export function requireScope(ctx, scope) {
   if (!ctx.auth) throw unauthorized('Missing API key');
@@ -150,9 +151,12 @@ export function requireScope(ctx, scope) {
 // owner's role is re-checked on every call so a demoted account loses the capability immediately.
 export const PRIVILEGED_SCOPES = ['training:worker', 'registry:import'];
 export function requirePrivileged(ctx, scope) {
+  // An admin session, or a scoped API key owned by an administrator (training worker / CI artifact import).
+  if (ctx.admin) return ctx.admin.user;
   if (!ctx.auth) throw unauthorized('Missing credentials');
   const u = ctx.auth.user;
+  if (ctx.auth.kind !== 'api_key') throw forbidden('This operation requires an administrator session or a scoped API key', 'admin_required');
   if (!['admin', 'superadmin'].includes(u.role)) throw forbidden('This operation requires an administrator', 'admin_required');
-  if (ctx.auth.kind === 'api_key' && !ctx.auth.apiKey.scopes.includes(scope)) throw forbidden(`API key lacks scope '${scope}'`, 'insufficient_scope');
+  if (!ctx.auth.apiKey.scopes.includes(scope)) throw forbidden(`API key lacks scope '${scope}'`, 'insufficient_scope');
   return u;
 }

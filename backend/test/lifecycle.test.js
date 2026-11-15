@@ -25,7 +25,7 @@ await new Promise((r) => srv.listen(0, '127.0.0.1', r));
 process.env.APPROX_REGISTRY_SOURCE = 'inference';
 process.env.APPROX_MODEL_DEFAULT_URL = `http://127.0.0.1:${srv.address().port}/v1`;
 process.env.APPROX_DEV_PROVIDER = '0';
-const { req, db, makeUser, close } = await import('./helpers.js');
+const { req, db, makeUser, close, asAdmin } = await import('./helpers.js');
 const lifecycle = await import('../src/lifecycle.js');
 after(() => { srv.close(); close(); });
 
@@ -36,7 +36,7 @@ const goodEval = (sha, base) => ({ verification_passed: true, safety_passed: tru
 
 let sa; let user;
 test('setup: superadmin + normal user; initial registry entries', async () => {
-  sa = await makeUser(); await db.run("UPDATE users SET role = 'superadmin' WHERE id = ?", sa.id);
+  sa = await makeUser(); await asAdmin(sa, 'superadmin');
   user = await makeUser();
   const r = await req('GET', '/api/admin/models/lifecycle', { token: sa.token });
   const st = Object.fromEntries(r.data.models.map((m) => [m.model_id, m.state]));
@@ -75,7 +75,7 @@ test('guards: ACTIVE cannot be set; bad artifacts, wrong base, wrong pin and fai
   assert.equal((await post('hike-6.5', { to: 'VERIFIED', evaluation: goodEval('c'.repeat(64), 'Qwen/Qwen2.5-7B-Instruct') })).data.error.code, 'sha256_mismatch');
   assert.equal((await post('hike-6.5', { to: 'VERIFIED', evaluation: goodEval(HIKE_SHA, 'Qwen/Qwen2.5-7B-Instruct') })).data.lifecycle.state, 'VERIFIED');
   // Not authorized: ordinary users / admins cannot move models.
-  assert.equal((await req('POST', '/api/admin/models/hike-6.5/lifecycle', { token: user.token, body: { to: 'DEPLOYING' } })).status, 403);
+  assert.equal((await req('POST', '/api/admin/models/hike-6.5/lifecycle', { token: user.token, body: { to: 'DEPLOYING' } })).status, 401);
 });
 
 test('deployment verification: wrong loaded adapter → FAILED and never served; correct one → ACTIVE and selectable without an app update', async () => {

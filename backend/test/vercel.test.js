@@ -127,7 +127,7 @@ test('serverless end-to-end: brevo mail, superadmin bootstrap, Nick 4.8 via infe
     APPROX_ENV: 'test', APPROX_DB_URL: `file:${dbFile}`, APPROX_TEST_EPHEMERAL_DB: '1',
     APPROX_MODEL_NICK_URL: inf.url, APPROX_MODEL_NICK_KEY: 'test-inference-key',
     MAIL_TRANSPORT: 'brevo', MAIL_HTTP_ENDPOINT: brevo.url, MAIL_HTTP_API_KEY: 'test-mail-key', MAIL_FROM: 'Approx AI <noreply@example.com>',
-    APPROX_BOOTSTRAP_SUPERADMIN_EMAIL: 'owner@example.com',
+    APPROX_BOOTSTRAP_SUPERADMIN_EMAIL: 'owner@example.com', APPROX_ADMIN_EMAILS: 'owner@example.com',
   };
   let fn = await startFunction(env);
 
@@ -152,12 +152,19 @@ test('serverless end-to-end: brevo mail, superadmin bootstrap, Nick 4.8 via infe
   const member = await fn.call('POST', '/api/auth/login', { json: { email: 'member@example.com', password: 'MemberPassw0rd!', client: 'mobile' } });
   assert.equal(member.data.user.role, 'user');
 
+  // The admin API never accepts client sessions: the owner signs in separately at /api/admin/auth/login.
+  assert.equal((await fn.call('GET', '/api/admin/registry', { token: owner.data.token })).status, 401);
+  assert.equal((await fn.call('POST', '/api/admin/auth/login', { json: { email: 'member@example.com', password: 'MemberPassw0rd!' } })).data.error.code, 'invalid_admin_credentials');
+  const al = await fn.call('POST', '/api/admin/auth/login', { json: { email: 'owner@example.com', password: 'OwnerPassw0rd!' } });
+  assert.equal(al.status, 200, JSON.stringify(al.data));
+  const adminH = { cookie: al.headers.get('set-cookie').split(';')[0], 'x-admin-csrf': al.data.csrf_token };
+
   // Before activation the loaded model is NOT served (lifecycle REGISTERED).
   const pre = await fn.call('GET', '/api/models', { token: member.data.token });
   assert.equal(pre.data.models.find((m) => m.id === 'nick-4.8').lifecycle.state, 'REGISTERED');
   assert.equal(pre.data.models.find((m) => m.id === 'nick-4.8').active_version, null, 'loaded on the GPU host is not enough');
   // Superadmin deploys the trained, pinned artifact → the backend verifies health + SHA-256 + a real generation → ACTIVE.
-  const act = await fn.call('POST', '/api/admin/models/nick-4.8/lifecycle', { token: owner.data.token, json: { to: 'DEPLOYING', version: '1.0.0',
+  const act = await fn.call('POST', '/api/admin/models/nick-4.8/lifecycle', { headers: adminH, json: { to: 'DEPLOYING', version: '1.0.0',
     artifact: { uri: 'gs://approx-models/nick-4.8/1.0.0/adapter.tar.gz', sha256: NICK_PIN, base_model: 'Qwen/Qwen2.5-3B-Instruct', base_revision: 'aa8e72537993ba99e69dfaafa59ed015b17504d1' } } });
   assert.equal(act.status, 200, JSON.stringify(act.data));
   assert.equal(act.data.lifecycle.state, 'ACTIVE');
@@ -177,7 +184,7 @@ test('serverless end-to-end: brevo mail, superadmin bootstrap, Nick 4.8 via infe
   assert.deepEqual(inf.calls.at(-1), { auth: 'Bearer test-inference-key', model: 'nick-4.8@1.0.0', stream: true });
 
   // Admin registry view reports what the GPU host actually serves.
-  const reg = await fn.call('GET', '/api/admin/registry', { token: owner.data.token });
+  const reg = await fn.call('GET', '/api/admin/registry', { headers: adminH });
   assert.equal(reg.data.source, 'inference');
   const regNick = reg.data.models.find((m) => m.id === 'nick-4.8');
   assert.equal(regNick.active_version, '1.0.0');
@@ -185,7 +192,7 @@ test('serverless end-to-end: brevo mail, superadmin bootstrap, Nick 4.8 via infe
   assert.equal(reg.data.models.find((m) => m.id === 'hike-6.5').active_version, null, 'Hike is not served → no version claimed');
 
   // Registry writes belong to the GPU host in inference mode.
-  const imp = await fn.call('POST', '/api/admin/registry/rescan', { token: owner.data.token, json: {} });
+  const imp = await fn.call('POST', '/api/admin/registry/rescan', { headers: adminH, json: {} });
   assert.equal(imp.status, 409);
   assert.equal(imp.data.error.code, 'registry_managed_by_inference_server');
 

@@ -11,8 +11,17 @@ export function cycleBounds(user, t = now()) {
   return { start, end: start + len };
 }
 
+/** Per-client limits set by an administrator (null = platform default). */
+export async function limitsFor(user) {
+  const l = await one('SELECT * FROM user_limits WHERE user_id = ?', user.id);
+  let models = {}; try { models = JSON.parse(l?.model_limits || '{}'); } catch { models = {}; }
+  return { window: l?.window_limit ?? config.quota.windowLimit, cycle: l?.cycle_limit ?? (config.quota.cycleLimit || null), models,
+    overridden: !!l };
+}
+
 export async function usageSummary(user) {
   const t = now();
+  const lim = await limitsFor(user);
   const winMs = config.quota.windowMinutes * 60_000;
   const winStart = t - winMs;
   const inWindow = await one('SELECT COUNT(*) c, MIN(created_at) first FROM usage_events WHERE user_id = ? AND created_at > ?', user.id, winStart);
@@ -21,9 +30,9 @@ export async function usageSummary(user) {
   return {
     window: {
       minutes: config.quota.windowMinutes,
-      limit: config.quota.windowLimit,
+      limit: lim.window,
       used: inWindow.c,
-      remaining: Math.max(0, config.quota.windowLimit - inWindow.c),
+      remaining: Math.max(0, lim.window - inWindow.c),
       resets_at: inWindow.first ? inWindow.first + winMs : null,
     },
     cycle: {
@@ -31,8 +40,10 @@ export async function usageSummary(user) {
       started_at: start,
       renews_at: end,
       used: inCycle,
-      limit: config.quota.cycleLimit || null,
+      limit: lim.cycle || null,
     },
+    model_limits: lim.models,
+    custom_limits: lim.overridden,
   };
 }
 
@@ -46,6 +57,14 @@ export async function consumeQuota(user, { source, modelId, mode, requestId }) {
   if (u.cycle.limit && u.cycle.used >= u.cycle.limit) {
     throw new HttpError(429, 'cycle_quota_exceeded', 'Usage cycle limit reached; it renews automatically.',
       { retryAfter: Math.ceil((u.cycle.renews_at - now()) / 1000), usage: u });
+  }
+  const modelLimit = u.model_limits?.[modelId];
+  if (modelLimit != null) {
+    const used = (await one('SELECT COUNT(*) c FROM usage_events WHERE user_id = ? AND model_id = ? AND created_at >= ?', user.id, modelId, u.cycle.started_at)).c;
+    if (used >= modelLimit) {
+      throw new HttpError(429, 'model_quota_exceeded', `You have used this model's limit for the current usage cycle (${modelLimit} requests).`,
+        { retryAfter: Math.ceil((u.cycle.renews_at - now()) / 1000), usage: u });
+    }
   }
   await run('INSERT INTO usage_events (user_id,source,model_id,mode,request_id,created_at) VALUES (?,?,?,?,?,?)',
     user.id, source, modelId, mode, requestId, now());

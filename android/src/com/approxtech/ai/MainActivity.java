@@ -1102,7 +1102,7 @@ public class MainActivity extends Activity {
         labels.add("Projects"); actions.add(new Runnable() { public void run() { projectSettings(); } });
         labels.add("Settings"); actions.add(new Runnable() { public void run() { showSettings(); } });
         labels.add("Account & profile"); actions.add(new Runnable() { public void run() { accountSettings(); } });
-        if (isAdmin()) { labels.add("NEBIUS console"); actions.add(new Runnable() { public void run() { showConsole("Dashboard"); } }); }
+        // Administration moved to the separate web Admin panel (/admin); the client app has no admin entry.
         labels.add("Help & feedback"); actions.add(new Runnable() { public void run() { helpFeedback(); } });
         new AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert)
                 .setTitle("Approx AI")

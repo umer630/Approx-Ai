@@ -9,6 +9,7 @@ import { sendMail } from '../mail.js';
 import { sb, SupabaseError, toHttpError, requireSupabase, supabaseConfigured, isEmailDeliveryFailure } from '../supabase.js';
 import { config } from '../config.js';
 import { verifyGoogleIdToken } from '../google.js';
+import { platformSetting, requestCountry, statusMessage } from '../admin.js';
 
 const HOUR = 3600_000;
 
@@ -16,7 +17,7 @@ const HOUR = 3600_000;
 // Supabase Auth is the identity provider for email + password accounts. The backend never sees or stores those
 // passwords (accounts linked to Supabase carry password_hash '!'): it asks Supabase to verify them and then issues its
 // own Approx session (cookie for web, bearer token for the Android app), so roles, plans, quota and CSRF are unchanged.
-async function localUserFor(sbUser, ip, { displayName = '' } = {}) {
+export async function localUserFor(sbUser, ip, { displayName = '' } = {}) {
   const uid = String(sbUser.id);
   const email = String(sbUser.email || '').toLowerCase();
   const verified = !!(sbUser.email_confirmed_at || sbUser.confirmed_at);
@@ -33,7 +34,8 @@ async function localUserFor(sbUser, ip, { displayName = '' } = {}) {
     } else {
       const id = newId('usr_'); const t = now();
       await tx(async () => {
-        await run("INSERT INTO users (id,email,password_hash,email_verified,supabase_uid,created_at,updated_at) VALUES (?,?,'!',?,?,?,?)", id, email, verified ? 1 : 0, uid, t, t);
+        const approval = (await platformSetting('require_approval', '0')) === '1' ? 'pending' : 'approved';
+        await run("INSERT INTO users (id,email,password_hash,email_verified,supabase_uid,approval_status,created_at,updated_at) VALUES (?,?,'!',?,?,?,?,?)", id, email, verified ? 1 : 0, uid, approval, t, t);
         await run('INSERT INTO profiles (user_id,display_name) VALUES (?,?)', id, String(displayName || sbUser.user_metadata?.display_name || '').slice(0, 80));
         await run("INSERT INTO settings (user_id, theme) VALUES (?, 'light')", id);
         await run("INSERT INTO subscriptions (id,user_id,plan,status,started_at) VALUES (?,?,'free','active',?)", newId('sub_'), id, t);
@@ -81,6 +83,12 @@ async function identityFromCallback(b, types) {
 }
 
 async function sessionResponse(res, req, user, client) {
+  // Suspended / rejected / disabled accounts never get a session (pending accounts do, with limited access).
+  if (['suspended', 'rejected', 'disabled'].includes(user.approval_status)) {
+    throw new HttpError(403, `account_${user.approval_status}`, statusMessage(user.approval_status));
+  }
+  const country = requestCountry(req);
+  await run('UPDATE users SET last_login_at = ?, country = COALESCE(?, country) WHERE id = ?', now(), country, user.id);
   const s = await createSession(user.id, req, client);
   const body = { user: await publicUser(user), csrf_token: s.csrf };
   if (client === 'mobile') body.token = s.token; // Android stores this in app-private storage
@@ -90,7 +98,9 @@ async function sessionResponse(res, req, user, client) {
 
 export async function publicUser(u) {
   const p = await one('SELECT display_name, language FROM profiles WHERE user_id = ?', u.id) || {};
-  return { id: u.id, email: u.email, email_verified: !!u.email_verified, role: u.role, plan: u.plan, display_name: p.display_name || '', language: p.language || 'auto', created_at: u.created_at };
+  const approval = u.approval_status || 'approved';
+  return { id: u.id, email: u.email, email_verified: !!u.email_verified, role: u.role, plan: u.plan, display_name: p.display_name || '', language: p.language || 'auto', created_at: u.created_at,
+    approval_status: approval, status_message: statusMessage(approval) };
 }
 
 // First-admin bootstrap without a terminal (config.bootstrapSuperadminEmail). Only after the address is verified,
@@ -233,7 +243,8 @@ export function registerAuthRoutes(r) {
         const id = newId('usr_'); const t = now();
         await tx(async () => {
           // No password: '!' never matches a password check. The person can add one later via "Forgot password".
-          await run("INSERT INTO users (id,email,password_hash,email_verified,google_sub,created_at,updated_at) VALUES (?,?,'!',1,?,?,?)", id, g.email, g.sub, t, t);
+          const approval = (await platformSetting('require_approval', '0')) === '1' ? 'pending' : 'approved';
+          await run("INSERT INTO users (id,email,password_hash,email_verified,google_sub,approval_status,created_at,updated_at) VALUES (?,?,'!',1,?,?,?,?)", id, g.email, g.sub, approval, t, t);
           await run('INSERT INTO profiles (user_id,display_name) VALUES (?,?)', id, g.name);
           await run("INSERT INTO settings (user_id, theme) VALUES (?, 'light')", id);
           await run("INSERT INTO subscriptions (id,user_id,plan,status,started_at) VALUES (?,?,'free','active',?)", newId('sub_'), id, t);
@@ -287,7 +298,10 @@ export function registerAuthRoutes(r) {
   });
 
   r.post('/api/auth/logout', async (req, res, ctx) => {
-    if (ctx.auth?.session) await run('UPDATE sessions SET revoked_at = ? WHERE id = ?', now(), ctx.auth.session.id);
+    if (ctx.auth?.session) {
+      await run('UPDATE sessions SET revoked_at = ? WHERE id = ?', now(), ctx.auth.session.id);
+      await audit(ctx.auth.user.id, ctx.auth.user.id, 'auth.logout', ctx.auth.session.client, clientIp(req));
+    }
     res.setHeader('Set-Cookie', sessionCookie('', 0));
     sendJson(res, 200, { status: 'logged_out' });
   });

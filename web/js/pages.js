@@ -128,7 +128,6 @@ export function settingsHome() {
       h('div', { class: 'grow' }, h('b', {}, u.display_name || u.email.split('@')[0]), h('div', { class: 'small muted' }, u.email)), h('span', { class: 'badge green' }, `${u.plan}`)),
     h('div', { class: 'settings-list' }, SECTIONS.map(([k, ic, label, sub]) => h('a', { class: 'settings-row', href: `#/settings/${k}` },
       h('span', { class: 'settings-icon' }, icon(ic)), h('span', { class: 'grow' }, h('span', { class: 'title' }, label), h('span', { class: 'sub' }, sub)), icon('chevron')))),
-    u.role !== 'user' ? h('a', { class: 'settings-row', href: '#/admin' }, h('span', { class: 'settings-icon' }, icon('shield')), h('span', { class: 'grow' }, h('span', { class: 'title' }, 'Admin console')), icon('chevron')) : null,
     h('button', { class: 'settings-row signout', onclick: signOut }, h('span', { class: 'settings-icon' }, icon('logout')), h('span', { class: 'grow' }, h('span', { class: 'title' }, 'Log out')))));
 }
 async function signOut() {

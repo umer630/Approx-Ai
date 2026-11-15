@@ -17,12 +17,14 @@ export async function getModel(id) { return await one('SELECT * FROM models WHER
 /** Server-side access decision. The router may never widen this. */
 export async function canUseModel(user, model) {
   if (!model) return false;
-  if (user.role === 'superadmin') return true;
   const grant = await one('SELECT * FROM model_access WHERE user_id = ? AND model_id = ? AND (expires_at IS NULL OR expires_at > ?)', user.id, model.id, now());
+  // An administrator's explicit restriction wins over plan, tier and role.
+  if (grant && grant.access === 'deny') return false;
+  if (user.role === 'superadmin') return true;
   switch (model.tier) {
     case 'default': case 'advanced': return true;
     case 'premium': return user.plan !== 'free' || user.role === 'admin' || !!grant;
-    case 'restricted': return !!grant; // FAB: explicit grant only
+    case 'restricted': return !!grant; // FAB: explicit grant only (deny rows returned false above)
     default: return false;
   }
 }

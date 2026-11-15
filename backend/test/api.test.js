@@ -1,6 +1,6 @@
 import test, { after } from 'node:test';
 import assert from 'node:assert/strict';
-import { req, makeUser, parseSse, db, close, supabase } from './helpers.js';
+import { req, makeUser, parseSse, db, close, supabase, asAdmin } from './helpers.js';
 import { isPublicIp, safeFetchText } from '../src/netguard.js';
 import { scrubPii } from '../src/pii.js';
 import { classify } from '../src/models.js';
@@ -291,13 +291,13 @@ test('free users cannot use Sona or FAB; the router never routes there', async (
 });
 
 test('FAB requires superadmin grant; admins cannot grant FAB; FAB chats never trainable', async () => {
-  const sa = await makeUser(); await db.run("UPDATE users SET role = 'superadmin' WHERE id = ?", sa.id);
-  const admin = await makeUser(); await db.run("UPDATE users SET role = 'admin' WHERE id = ?", admin.id);
+  const sa = await makeUser(); await asAdmin(sa, 'superadmin');
+  const admin = await makeUser(); await asAdmin(admin, 'admin');
   const u = await makeUser();
   const denied = await req('POST', '/api/admin/model-access', { token: admin.token, body: { email: u.email, model_id: 'fab-100x', reason: 'test' } });
   assert.equal(denied.status, 403);
   const userTry = await req('POST', '/api/admin/model-access', { token: u.token, body: { email: u.email, model_id: 'fab-100x', reason: 'self' } });
-  assert.equal(userTry.status, 403);
+  assert.equal(userTry.status, 401, 'a client token is never an admin session');
   const ok = await req('POST', '/api/admin/model-access', { token: sa.token, body: { email: u.email, model_id: 'fab-100x', reason: 'authorized security engagement' } });
   assert.equal(ok.status, 200);
   await req('PATCH', '/api/settings', { token: u.token, body: { training_opt_in: true } });
@@ -499,7 +499,7 @@ test('SSRF guard blocks private, loopback, metadata and non-http targets', async
 
 // ---------------- training pipeline (server half) ----------------
 test('training export: only consented, eligible, non-FAB chats; PII scrubbed; no user ids', async () => {
-  const sa = await makeUser(); await db.run("UPDATE users SET role = 'superadmin' WHERE id = ?", sa.id);
+  const sa = await makeUser(); await asAdmin(sa, 'superadmin');
   const yes = await makeUser();
   const no = await makeUser();
   await req('PATCH', '/api/settings', { token: yes.token, body: { training_opt_in: true } });
@@ -529,7 +529,7 @@ test('training export: only consented, eligible, non-FAB chats; PII scrubbed; no
   await req('PATCH', '/api/settings', { token: yes.token, body: { training_opt_in: false } });
   assert.equal((await db.one('SELECT training_eligible FROM chats WHERE id = ?', c1.data.chat.id)).training_eligible, 0);
   // non-superadmin cannot export
-  assert.equal((await req('POST', '/api/admin/training/export-consented', { token: yes.token, body: {} })).status, 403);
+  assert.equal((await req('POST', '/api/admin/training/export-consented', { token: yes.token, body: {} })).status, 401);
 });
 
 test('PII scrubber and router classifier units', () => {
@@ -617,7 +617,7 @@ test('provider: streams from an OpenAI-compatible upstream; reports 503 when not
 });
 
 test('adapter registry: only verified, non-smoke, safety-passed Nick adapters on the right base are accepted', async () => {
-  const sa = await makeUser(); await db.run("UPDATE users SET role = 'superadmin' WHERE id = ?", sa.id);
+  const sa = await makeUser(); await asAdmin(sa, 'superadmin');
   const sha = 'a'.repeat(64);
   const checks = Object.fromEntries(['files_exist', 'hashes_match', 'weights_nonempty', 'adapter_trained', 'adapter_loads', 'generation_works', 'malformed_input_handled'].map((k) => [k, true]));
   const good = { verification_passed: true, safety_passed: true, smoke_test: false, checks, base_model: 'Qwen/Qwen2.5-3B-Instruct', adapter_model_safetensors: { sha256: sha } };

@@ -178,7 +178,7 @@ export function registerPlatformRoutes(r) {
       const up = await readBodyToFile(req, tmp, config.registry.maxArtifactBytes);
       if (!up.bytes) throw bad('Empty upload');
       if (up.sha256 !== declared) throw new HttpError(422, 'sha256_mismatch', 'Uploaded archive does not match X-Artifact-Sha256');
-      const out = await registry.importArchive(tmp, { actor: actor.id, source: ctx.auth.kind === 'api_key' ? 'training-pipeline' : 'admin-upload' });
+      const out = await registry.importArchive(tmp, { actor: actor.id, source: ctx.auth?.kind === 'api_key' ? 'training-pipeline' : 'admin-upload' });
       const { dir: _d, ...release } = out.release || {};
       sendJson(res, out.status === 'imported' ? 201 : 200, { status: out.status, model_id: out.model_id, version: out.version, release,
         active_version: (await registry.getActive(out.model_id))?.version ?? null,

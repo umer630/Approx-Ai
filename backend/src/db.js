@@ -533,6 +533,32 @@ async function migrate(c) {
     }
     await apply('2026-11-workspace-shell', stmts);
   }
+
+  // 1.6.0 — secure admin panel: client approval status, country/last login, admin sessions, per-client limits and model
+  // allow/deny overrides, platform settings, and an append-only audit log (UPDATE/DELETE refused by triggers).
+  if (!applied.has('2026-11-admin-panel')) {
+    const stmts = [];
+    const addCol = async (table, col, ddl) => { if (!(await hasColumn(c, table, col))) stmts.push({ sql: `ALTER TABLE ${table} ADD COLUMN ${ddl}` }); };
+    await addCol('users', 'approval_status', "approval_status TEXT NOT NULL DEFAULT 'approved'");   // existing accounts stay usable
+    await addCol('users', 'approval_reason', 'approval_reason TEXT');
+    await addCol('users', 'approval_updated_at', 'approval_updated_at INTEGER');
+    await addCol('users', 'country', 'country TEXT');
+    await addCol('users', 'last_login_at', 'last_login_at INTEGER');
+    await addCol('model_access', 'access', "access TEXT NOT NULL DEFAULT 'grant'");
+    stmts.push(
+      { sql: `CREATE TABLE IF NOT EXISTS admin_sessions (id TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+        token_hash TEXT NOT NULL UNIQUE, csrf_token TEXT NOT NULL, ip TEXT, user_agent TEXT, created_at INTEGER NOT NULL, last_seen_at INTEGER NOT NULL,
+        expires_at INTEGER NOT NULL, revoked_at INTEGER)` },
+      { sql: `CREATE TABLE IF NOT EXISTS user_limits (user_id TEXT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE, window_limit INTEGER,
+        cycle_limit INTEGER, model_limits TEXT NOT NULL DEFAULT '{}', updated_by TEXT NOT NULL, updated_at INTEGER NOT NULL)` },
+      { sql: 'CREATE TABLE IF NOT EXISTS platform_settings (key TEXT PRIMARY KEY, value TEXT NOT NULL, updated_by TEXT NOT NULL, updated_at INTEGER NOT NULL)' },
+      { sql: 'CREATE INDEX IF NOT EXISTS idx_users_created ON users(created_at)' },
+      { sql: 'CREATE INDEX IF NOT EXISTS idx_usage_created ON usage_events(created_at)' },
+      { sql: "CREATE TRIGGER IF NOT EXISTS audit_logs_no_update BEFORE UPDATE ON audit_logs BEGIN SELECT RAISE(ABORT, 'audit_logs is append-only'); END" },
+      { sql: "CREATE TRIGGER IF NOT EXISTS audit_logs_no_delete BEFORE DELETE ON audit_logs BEGIN SELECT RAISE(ABORT, 'audit_logs is append-only'); END" },
+    );
+    await apply('2026-11-admin-panel', stmts);
+  }
 }
 
 // The `models` table is seeded and kept in sync from the catalog file (name, tier, description…);

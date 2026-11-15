@@ -33,7 +33,6 @@ const routes = [
   [/^#\/schedule$/, () => shell(() => pages.schedulePage(), { composer: false })],
   [/^#\/settings$/, () => shell(() => pages.settingsHome(), { composer: false })],
   [/^#\/settings\/([\w-]+)$/, (m) => shell(() => pages.settingsSection(m[1]), { composer: false })],
-  [/^#\/admin$/, () => shell(() => views.adminView())],
   [/^#?\/?$/, () => shell(() => chatView(null))],
 ];
 const PUBLIC = /^#\/(login|signup|forgot|verify|reset|confirm-email|google-mobile)/;
@@ -68,11 +67,29 @@ async function render() {
     // One session check per page load: a returning user goes straight to the workspace (no login screen).
     try { const me = await api('/api/auth/me'); state.user = me.user; setCsrf(me.csrf_token); await bootstrap(); } catch { hideSplash(); return go('#/login'); }
   }
+  if (notApproved() && !PUBLIC.test(hash)) { hideSplash(); return accountStatusView(); }
   for (const [re, fn] of routes) {
     const m = re.exec(hash);
     if (m) { try { await fn(m); } finally { hideSplash(); } return; }
   }
   go('#/');
+}
+
+// ---------------- account approval status (server-enforced; this screen only explains it) ----------------
+function accountStatusView() {
+  shellEl = null;
+  const st = state.user.approval_status;
+  const title = { pending: 'Waiting for approval', suspended: 'Account suspended', rejected: 'Application not approved', disabled: 'Account disabled' }[st] || 'Account unavailable';
+  const msg = h('div');
+  app.replaceChildren(h('div', { class: 'auth' }, h('div', { class: 'auth-card status-card' },
+    h('img', { src: '/assets/logo-mark-192.png', alt: '', width: 64, height: 64 }),
+    h('h1', {}, title), h('p', { class: 'muted' }, state.user.status_message || ''),
+    h('p', { class: 'small muted' }, `Signed in as ${state.user.email}`),
+    st === 'pending' ? h('button', { class: 'btn primary', onclick: async () => {
+      try { const me = await api('/api/auth/me'); state.user = me.user; if (!notApproved()) { await bootstrap(); go('#/'); } else msg.replaceChildren(h('div', { class: 'alert warn small' }, 'Still waiting for approval.')); }
+      catch (e) { msg.replaceChildren(h('div', { class: 'alert error small' }, e.message)); }
+    } }, 'Check again') : null,
+    h('button', { class: 'btn', onclick: async () => { try { await api('/api/auth/logout', { method: 'POST' }); } catch { /* ignore */ } signOutLocal(); go('#/login'); } }, 'Sign out'), msg)));
 }
 
 // ---------------- splash ----------------
@@ -86,7 +103,9 @@ function hideSplash() {
   setTimeout(() => { el.classList.add('out'); setTimeout(() => el.remove(), 320); }, wait);
 }
 
+const notApproved = () => state.user && (state.user.approval_status || 'approved') !== 'approved';
 async function bootstrap() {
+  if (notApproved()) return;   // pending / blocked accounts: the server refuses workspace APIs; show the status screen
   const [m, s, u] = await Promise.all([api('/api/models'), api('/api/settings'), api('/api/usage')]);
   state.models = m.models; state.modes = m.modes; state.modeDetails = m.mode_details || []; state.defaultMode = m.default_mode || 'medium'; state.settings = s.settings; state.usage = u;
   state.mode = s.settings.default_mode;
@@ -370,7 +389,7 @@ function shell(renderMain, { composer = true } = {}) {
 }
 function pageTitle(route) {
   return { '#/history': 'History', '#/work': 'Approx Work', '#/schedule': 'Schedule', '#/projects': 'Projects', '#/code': 'Approx Code',
-    '#/workspace': 'Artifacts', '#/research': 'Research', '#/admin': 'Admin' }[route] || (route.startsWith('#/settings') ? 'Settings' : '');
+    '#/workspace': 'Artifacts', '#/research': 'Research' }[route] || (route.startsWith('#/settings') ? 'Settings' : '');
 }
 export function setHeaderTitle(t) { if (titleEl) titleEl.textContent = t; if (moreBtn) moreBtn.classList.toggle('hidden', !state.chat?.id || !location.hash.startsWith('#/c/')); }
 

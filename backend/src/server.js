@@ -5,6 +5,7 @@ import { config, VERSIONS } from './config.js';
 import { getDb } from './db.js';
 import { Router, sendJson, sendError, securityHeaders, applyCors, newId, notFound, HttpError } from './http.js';
 import { resolveAuth, enforceCsrf } from './security.js';
+import { resolveAdmin, enforceAdminCsrf, enforceAccountStatus } from './admin.js';
 import { registerAuthRoutes } from './routes/auth.js';
 import { registerChatRoutes } from './routes/chat.js';
 import { registerFileRoutes } from './routes/files.js';
@@ -14,6 +15,7 @@ import { registerDeveloperRoutes } from './routes/developer.js';
 import { registerAdminRoutes } from './routes/admin.js';
 import { registerPlatformRoutes } from './routes/platform.js';
 import { registerMeRoutes } from './routes/me.js';
+import { registerAdminPanelRoutes } from './routes/adminpanel.js';
 import { backendStatus } from './providers/index.js';
 import { listModels } from './models.js';
 import { getActive, startRegistryWatcher } from './registry.js';
@@ -36,6 +38,7 @@ export function buildRouter() {
   registerAccountRoutes(r);
   registerWorkspaceRoutes(r);
   registerDeveloperRoutes(r);
+  registerAdminPanelRoutes(r);
   registerAdminRoutes(r);
   registerPlatformRoutes(r);
   return r;
@@ -52,7 +55,7 @@ function serveStatic(req, res, pathname) {
   let file = full;
   if (!fs.existsSync(file) || fs.statSync(file).isDirectory()) {
     if (fs.existsSync(path.join(full, 'index.html'))) file = path.join(full, 'index.html');
-    else if (!path.extname(rel)) file = path.join(root, rel.startsWith('/developers') ? 'developers/index.html' : 'index.html'); // SPA fallback
+    else if (!path.extname(rel)) file = path.join(root, rel.startsWith('/developers') ? 'developers/index.html' : rel === '/admin' || rel.startsWith('/admin/') ? 'admin/index.html' : 'index.html'); // SPA fallback
     else return false;
   }
   securityHeaders(res);
@@ -84,8 +87,19 @@ export function createHandler() {
       const m = router.match(method, url.pathname);
       if (m === 'method') throw new HttpError(405, 'method_not_allowed', 'Method not allowed');
       if (!m) throw notFound('Unknown endpoint');
-      const ctx = { requestId, auth: await resolveAuth(req) };
-      await enforceCsrf(req, ctx.auth);
+      let ctx;
+      if (url.pathname.startsWith('/api/admin/')) {
+        // Admin API: client sessions are never resolved here. Only an admin session (cookie scoped to /api/admin) or a
+        // scoped API key (Authorization: Bearer apx_…, for the training worker / CI) can authenticate.
+        const bearer = String(req.headers.authorization || '');
+        const auth = bearer.startsWith('Bearer apx_') ? await resolveAuth(req) : null;
+        ctx = { requestId, auth, admin: await resolveAdmin(req) };
+        enforceAdminCsrf(req, ctx.admin);
+      } else {
+        ctx = { requestId, auth: await resolveAuth(req) };
+        await enforceCsrf(req, ctx.auth);
+        enforceAccountStatus(url.pathname, ctx.auth);   // pending / suspended / rejected / disabled accounts
+      }
       for (const h of m.route.handlers) await h(req, res, ctx, m.params, url);
     } catch (err) {
       sendError(res, err, requestId);

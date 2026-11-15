@@ -8,7 +8,7 @@ import path from 'node:path';
 import http from 'node:http';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
-import { req, makeUser, parseSse, db, close, BASE } from './helpers.js';
+import { req, makeUser, parseSse, db, close, BASE, asAdmin, adminAuthHeaders } from './helpers.js';
 import { config } from '../src/config.js';
 import * as registry from '../src/registry.js';
 
@@ -54,10 +54,10 @@ function makeRelease({ model = 'nick-4.8', version = '1.0.0', status = 'validate
 async function upload(tarFile, token, { shaHeader } = {}) {
   const body = fs.readFileSync(tarFile);
   const res = await fetch(`${BASE}/api/admin/registry/import`, { method: 'POST', body,
-    headers: { authorization: `Bearer ${token}`, 'content-type': 'application/gzip', 'x-artifact-sha256': shaHeader ?? sha(body) } });
+    headers: { ...adminAuthHeaders(token), 'content-type': 'application/gzip', 'x-artifact-sha256': shaHeader ?? sha(body) } });
   return { status: res.status, data: await res.json() };
 }
-async function superadmin() { const u = await makeUser(); await db.run("UPDATE users SET role = 'superadmin' WHERE id = ?", u.id); return u; }
+async function superadmin() { const u = await makeUser(); await asAdmin(u, 'superadmin'); return u; }
 async function resetRegistry() { fs.rmSync(config.registry.dir, { recursive: true, force: true }); await registry.scan({ force: true }); }
 
 async function mockUpstream() {
@@ -136,7 +136,7 @@ test('database migration: an old database (medium/high CHECK) accepts "low" afte
   assert.equal(r.kept.personalization, 'keep me', 'existing rows survive the table rebuild');
   assert.equal(r.hasVersion, true);
   assert.equal(r.models, 5);
-  assert.deepEqual(r.migrations, ['2026-11-google-sub', '2026-11-light-theme-default', '2026-11-model-version-columns', '2026-11-settings-low-mode', '2026-11-supabase-uid', '2026-11-workspace-shell']);
+  assert.deepEqual(r.migrations, ['2026-11-admin-panel', '2026-11-google-sub', '2026-11-light-theme-default', '2026-11-model-version-columns', '2026-11-settings-low-mode', '2026-11-supabase-uid', '2026-11-workspace-shell']);
 });
 
 // ---------------------------------------------------------------- registry: happy path to real serving
@@ -146,7 +146,7 @@ test('registry: import → verify → discover → controlled activation → API
   const u = await makeUser();
   const rel = makeRelease({ version: '1.0.0' });
 
-  assert.equal((await upload(rel.tar, u.token)).status, 403, 'ordinary users cannot import');
+  assert.equal((await upload(rel.tar, u.token)).status, 401, 'ordinary users cannot import (client tokens are not admin sessions)');
   assert.equal((await upload(rel.tar, sa.token, { shaHeader: 'a'.repeat(64) })).data.error.code, 'sha256_mismatch');
   const imp = await upload(rel.tar, sa.token);
   assert.equal(imp.status, 201);
@@ -179,7 +179,7 @@ test('registry: import → verify → discover → controlled activation → API
 
     // activation: superadmin only; not production-ready needs an explicit override
     const act = (token, body) => req('POST', '/api/admin/registry/activate', { token, body: { model_id: 'nick-4.8', version: '1.0.0', ...body } });
-    assert.equal((await act(u.token, {})).status, 403);
+    assert.equal((await act(u.token, {})).status, 401);
     const blocked = await act(sa.token, {});
     assert.equal(blocked.status, 409);
     assert.equal(blocked.data.error.code, 'not_production_ready');
@@ -344,8 +344,8 @@ test('registry import with an admin API key (training pipeline) and privileged-s
 test('compute: admin starts/stops jobs; a GPU worker claims, reports progress and finishes', async () => {
   const sa = await superadmin();
   const u = await makeUser();
-  assert.equal((await req('GET', '/api/admin/compute', { token: u.token })).status, 403);
-  assert.equal((await req('POST', '/api/admin/compute/jobs', { token: u.token, body: {} })).status, 403);
+  assert.equal((await req('GET', '/api/admin/compute', { token: u.token })).status, 401);
+  assert.equal((await req('POST', '/api/admin/compute/jobs', { token: u.token, body: {} })).status, 401);
   assert.equal((await req('POST', '/api/admin/compute/jobs', { token: sa.token, body: { models: ['fab-100x'] } })).status, 400, 'no training config for fab-100x');
   const j = await req('POST', '/api/admin/compute/jobs', { token: sa.token, body: { models: ['nick-4.8', 'hike-6.5'], max_hours: 2 } });
   assert.equal(j.status, 201);
@@ -480,7 +480,7 @@ test('API rate limiting returns 429 with Retry-After', async () => {
 test('sessions: logout revokes, expired sessions are rejected, admin routes need the role', async () => {
   const u = await makeUser();
   assert.equal((await req('GET', '/api/auth/me', { token: u.token })).status, 200);
-  for (const p of ['/api/admin/users', '/api/admin/audit', '/api/admin/registry', '/api/admin/training']) assert.equal((await req('GET', p, { token: u.token })).status, 403, p);
+  for (const p of ['/api/admin/users', '/api/admin/audit', '/api/admin/registry', '/api/admin/training']) assert.equal((await req('GET', p, { token: u.token })).status, 401, p);
   await db.run('UPDATE sessions SET expires_at = ? WHERE user_id = ?', Date.now() - 1000, u.id);
   assert.equal((await req('GET', '/api/auth/me', { token: u.token })).status, 401, 'expired session');
   const l = await req('POST', '/api/auth/login', { body: { email: u.email, password: u.password, client: 'mobile' } });
