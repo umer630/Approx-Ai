@@ -144,7 +144,7 @@ test('serverless end-to-end: brevo mail, superadmin bootstrap, Nick 4.8 via infe
   assert.equal((await fn.call('POST', '/api/auth/verify-email', { json: { token: codeFor('owner@example.com') } })).status, 200);
   const owner = await fn.call('POST', '/api/auth/login', { json: { email: 'owner@example.com', password: 'OwnerPassw0rd!', client: 'mobile' } });
   assert.equal(owner.status, 200);
-  assert.equal(owner.data.user.role, 'superadmin');
+  assert.equal(owner.data.user.role, 'user', 'client sign-up / verification / login never elevates (even the bootstrap address)');
 
   // A second verified account is a normal user (bootstrap is one-time and email-bound).
   await fn.call('POST', '/api/auth/signup', { json: { email: 'member@example.com', password: 'MemberPassw0rd!' } });
@@ -157,6 +157,7 @@ test('serverless end-to-end: brevo mail, superadmin bootstrap, Nick 4.8 via infe
   assert.equal((await fn.call('POST', '/api/admin/auth/login', { json: { email: 'member@example.com', password: 'MemberPassw0rd!' } })).data.error.code, 'invalid_admin_credentials');
   const al = await fn.call('POST', '/api/admin/auth/login', { json: { email: 'owner@example.com', password: 'OwnerPassw0rd!' } });
   assert.equal(al.status, 200, JSON.stringify(al.data));
+  assert.equal(al.data.admin.role, 'superadmin', 'the allowlisted bootstrap address becomes superadmin only through the admin sign-in');
   const adminH = { cookie: al.headers.get('set-cookie').split(';')[0], 'x-admin-csrf': al.data.csrf_token };
 
   // Before activation the loaded model is NOT served (lifecycle REGISTERED).
@@ -305,12 +306,12 @@ test('SMTP (Gmail App Password over implicit TLS): account notices delivered; se
   assert.equal(h.data.auth_configured, true);
   assert.doesNotMatch(JSON.stringify(h.data), /abcd|efgh|mnop|sb_publishable|sb_secret/, 'no secrets or keys in health');
 
-  // Verification emails come from Supabase (not this SMTP account); the verified owner becomes superadmin.
+  // Verification emails come from Supabase (not this SMTP account); a client sign-in never elevates the account.
   assert.equal((await fn.call('POST', '/api/auth/signup', { json: { email: OWNER, password: 'OwnerPassw0rd!' } })).status, 202);
   assert.equal(smtp.mails.length, 0, 'the backend no longer sends verification emails itself');
   assert.equal((await fn.call('POST', '/api/auth/verify-email', { json: { token: codeFor(OWNER) } })).status, 200);
   const login = await fn.call('POST', '/api/auth/login', { json: { email: OWNER, password: 'OwnerPassw0rd!', client: 'mobile' } });
-  assert.equal(login.data.user.role, 'superadmin');
+  assert.equal(login.data.user.role, 'user');
   // Password-change notice over SMTP.
   assert.equal((await fn.call('POST', '/api/auth/change-password', { token: login.data.token, json: { current_password: 'OwnerPassw0rd!', new_password: 'NewOwnerPassw0rd!' } })).status, 200);
   const v = smtp.mails.at(-1);

@@ -214,3 +214,24 @@ test('13: logout ends the admin session', async () => {
   assert.match(out.headers.get('set-cookie'), /approx_admin=; .*Max-Age=0/);
   assert.equal((await aget(s, '/api/admin/overview')).status, 401);
 });
+
+test('client sign-up never creates an admin — even for an allowlisted / bootstrap address; elevation only via /admin/login', async () => {
+  await db.run("DELETE FROM rate_buckets WHERE key LIKE 'signup%' OR key LIKE 'login%' OR key LIKE 'admin-login%'");
+  const c = await makeUser();   // signs up + verifies + client login through the normal Supabase flow
+  process.env.APPROX_ADMIN_EMAILS = `${process.env.APPROX_ADMIN_EMAILS},${c.email}`;
+  process.env.APPROX_BOOTSTRAP_SUPERADMIN_EMAIL = c.email;
+  try {
+    const relog = await req('POST', '/api/auth/login', { body: { email: c.email, password: c.password, client: 'mobile' } });
+    assert.equal(relog.data.user.role, 'user', 'client login does not elevate');
+    assert.equal((await db.one('SELECT role FROM users WHERE id = ?', c.id)).role, 'user');
+    assert.equal((await req('GET', '/api/admin/overview', { token: relog.data.token })).status, 401, 'client token is not an admin session');
+    const k = await req('POST', '/api/developer/keys', { token: relog.data.token, body: { name: 'w', scopes: ['training:worker'] } });
+    assert.notEqual(k.status, 201, 'no privileged worker keys for a client');
+    // Only the separate administrator sign-in elevates (allowlist + Supabase password + verified email). A superadmin
+    // already exists in this test database, so the allowlisted account becomes admin (not a second superadmin).
+    const al = await req('POST', '/api/admin/auth/login', { body: { email: c.email, password: c.password } });
+    assert.equal(al.status, 200);
+    assert.equal(al.data.admin.role, 'admin');
+    assert.ok(await db.one("SELECT 1 FROM audit_logs WHERE action = 'admin.role_granted_by_allowlist' AND user_id = ?", c.id));
+  } finally { delete process.env.APPROX_BOOTSTRAP_SUPERADMIN_EMAIL; }
+});

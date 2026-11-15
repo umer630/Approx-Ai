@@ -103,9 +103,11 @@ export async function publicUser(u) {
     approval_status: approval, status_message: statusMessage(approval) };
 }
 
-// First-admin bootstrap without a terminal (config.bootstrapSuperadminEmail). Only after the address is verified,
-// only while no superadmin exists, atomically, and audited.
-async function bootstrapSuperadmin(userId, ip) {
+// First superadmin. Called ONLY from the administrator sign-in (/api/admin/auth/login), never from client sign-up,
+// verification or client login: a client account is never elevated by signing up. Requires the address to be on the
+// server allowlist (checked by the caller), verified, equal to APPROX_BOOTSTRAP_SUPERADMIN_EMAIL, and no active
+// superadmin to exist yet. Atomic and audited.
+export async function bootstrapSuperadmin(userId, ip) {
   const target = config.bootstrapSuperadminEmail;
   if (!target) return;
   const promoted = await tx(async () => {
@@ -115,7 +117,8 @@ async function bootstrapSuperadmin(userId, ip) {
     await run("UPDATE users SET role = 'superadmin', updated_at = ? WHERE id = ?", now(), u.id);
     return true;
   });
-  if (promoted) await audit(userId, 'bootstrap', 'auth.bootstrap_superadmin', userId, ip, { via: 'APPROX_BOOTSTRAP_SUPERADMIN_EMAIL' });
+  if (promoted) await audit(userId, 'bootstrap', 'auth.bootstrap_superadmin', userId, ip, { via: 'admin sign-in + APPROX_BOOTSTRAP_SUPERADMIN_EMAIL' });
+  return promoted;
 }
 
 // Outcome of every verification-email request, for the admin diagnostics (no address, no token — outcome only).
@@ -161,7 +164,6 @@ export function registerAuthRoutes(r) {
     if (!(sbUser?.email_confirmed_at || sbUser?.confirmed_at)) throw bad('Invalid or expired token', 'invalid_token');
     const u = await localUserFor(sbUser, ip);
     await audit(u.id, u.id, 'auth.email_verified', u.id, ip);
-    await bootstrapSuperadmin(u.id, ip);
     if (accessToken) await sb.logout(accessToken);
     // The web app signs the person in straight from the confirmation link; the Android app shows its sign-in screen.
     if (b.sign_in === true) return sendJson(res, 200, { status: 'verified', ...(await sessionResponse(res, req, await one('SELECT * FROM users WHERE id = ?', u.id), 'web')) });
@@ -228,7 +230,6 @@ export function registerAuthRoutes(r) {
     await sb.logout(grant.access_token);
     if (!u) throw unauthorized('Incorrect email or password');
     await audit(u.id, u.id, 'auth.login', client, ip);
-    if (u.email_verified) await bootstrapSuperadmin(u.id, ip);
     sendJson(res, 200, await sessionResponse(res, req, await one('SELECT * FROM users WHERE id = ?', u.id), client));
   });
 
@@ -268,7 +269,6 @@ export function registerAuthRoutes(r) {
       }
       user = await one("SELECT * FROM users WHERE google_sub = ? AND status = 'active'", g.sub);
     }
-    await bootstrapSuperadmin(user.id, ip);
     return one('SELECT * FROM users WHERE id = ?', user.id);
   }
 

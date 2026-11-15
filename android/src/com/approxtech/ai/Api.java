@@ -123,7 +123,9 @@ public class Api {
                 c.setDoOutput(true);
                 c.setRequestProperty("Content-Type", "application/json");
                 byte[] b = body.toString().getBytes(StandardCharsets.UTF_8);
-                c.setFixedLengthStreamingMode(b.length);
+                // Small JSON bodies are buffered: in streaming mode HttpURLConnection cannot expose the body of a 401
+                // (e.g. "Incorrect email or password"), which would surface as a generic "Request failed (HTTP 401)".
+                if (b.length > 1_000_000) c.setFixedLengthStreamingMode(b.length);
                 OutputStream os = c.getOutputStream();
                 os.write(b);
                 os.close();

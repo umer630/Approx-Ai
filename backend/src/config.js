@@ -14,7 +14,7 @@ export const VERSIONS = Object.freeze({
   backend: '1.3.0',
   frontend: '1.3.0',
   api: 'v1 (1.3.0)',
-  apk: '1.3.0 (versionCode 5)',
+  apk: '1.3.1 (versionCode 6)',
   // Client contract shared by web and Android: models, status/selectable, active versions come from /api/models.
   api_contract: '1.7',
   min_apk_version_code: 5,

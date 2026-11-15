@@ -12,7 +12,7 @@ import { catalogModel } from '../catalog.js';
 import { usageSummary } from '../quota.js';
 import { lifecycleOf } from '../lifecycle.js';
 import { config, VERSIONS } from '../config.js';
-import { localUserFor } from './auth.js';
+import { localUserFor, bootstrapSuperadmin } from './auth.js';
 import { adminCookie, createAdminSession, isAllowlistedAdmin, adminEmails, CLIENT_STATUSES, platformSetting, setPlatformSetting } from '../admin.js';
 
 const ADMIN = ['admin', 'superadmin'];
@@ -59,8 +59,10 @@ export function registerAdminPanelRoutes(r) {
     let u;
     try { u = await localUserFor(grant.user, ip); } catch { return fail('account_inactive'); }
     if (!u || u.status !== 'active' || (u.approval_status || 'approved') !== 'approved') return fail('account_inactive');
+    // Elevation happens ONLY here, after the allowlist + Supabase password + verified-email checks above:
+    // the bootstrap address becomes the first superadmin (if none exists); any other allowlisted account becomes admin.
+    if (u.role !== 'superadmin' && await bootstrapSuperadmin(u.id, ip)) u = await one('SELECT * FROM users WHERE id = ?', u.id);
     if (!ADMIN.includes(u.role)) {
-      // On the server-side allowlist but not yet an admin in the database: grant the admin role (audited).
       await run("UPDATE users SET role = 'admin', updated_at = ? WHERE id = ?", now(), u.id);
       await audit(u.id, 'system', 'admin.role_granted_by_allowlist', u.id, ip);
       u = await one('SELECT * FROM users WHERE id = ?', u.id);
