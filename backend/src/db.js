@@ -523,6 +523,16 @@ async function migrate(c) {
     }
     await apply('2026-11-supabase-uid', stmts);
   }
+
+  // 1.5.0 — app shell: per-user tool permission mode (manual | automatic) and general product feedback.
+  if (!applied.has('2026-11-workspace-shell')) {
+    const stmts = [{ sql: `CREATE TABLE IF NOT EXISTS app_feedback (id TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      category TEXT NOT NULL, message TEXT NOT NULL, chat_id TEXT, user_agent TEXT, created_at INTEGER NOT NULL)` }];
+    if (!(await hasColumn(c, 'settings', 'permissions_mode'))) {
+      stmts.push({ sql: "ALTER TABLE settings ADD COLUMN permissions_mode TEXT NOT NULL DEFAULT 'manual'" });
+    }
+    await apply('2026-11-workspace-shell', stmts);
+  }
 }
 
 // The `models` table is seeded and kept in sync from the catalog file (name, tier, description…);

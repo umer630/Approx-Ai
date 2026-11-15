@@ -1,8 +1,9 @@
-import { api, stream, upload, setCsrf, ApiError } from './api.js';
+import { api, stream, upload, setCsrf, ApiError, cached, invalidate, clearCache } from './api.js';
 import { h, icon, toast, sheet, fmtTime, fmtBytes, confirmDialog, promptDialog } from './ui.js';
 import { markdown } from './md.js';
-import { greeting } from './greeting.js';
+import { firstName } from './greeting.js';
 import * as views from './views.js';
+import * as pages from './pages.js';
 
 export const state = {
   user: null, models: [], modes: ['low', 'medium', 'high'], modeDetails: [], defaultMode: 'medium', usage: null, settings: null,
@@ -27,6 +28,11 @@ const routes = [
   [/^#\/code$/, () => shell(() => views.codeProjectsView())],
   [/^#\/code\/([\w]+)$/, (m) => shell(() => views.codeView(m[1]))],
   [/^#\/research$/, () => shell(() => views.researchView())],
+  [/^#\/history$/, () => shell(() => pages.historyPage(), { composer: false })],
+  [/^#\/work$/, () => shell(() => pages.workPage(), { composer: false })],
+  [/^#\/schedule$/, () => shell(() => pages.schedulePage(), { composer: false })],
+  [/^#\/settings$/, () => shell(() => pages.settingsHome(), { composer: false })],
+  [/^#\/settings\/([\w-]+)$/, (m) => shell(() => pages.settingsSection(m[1]), { composer: false })],
   [/^#\/admin$/, () => shell(() => views.adminView())],
   [/^#?\/?$/, () => shell(() => chatView(null))],
 ];
@@ -57,11 +63,27 @@ window.addEventListener('hashchange', render);
 
 async function render() {
   const hash = location.hash || '#/';
+  closeDrawer();
   if (!state.user && !PUBLIC.test(hash)) {
-    try { const me = await api('/api/auth/me'); state.user = me.user; setCsrf(me.csrf_token); await bootstrap(); } catch { return go('#/login'); }
+    // One session check per page load: a returning user goes straight to the workspace (no login screen).
+    try { const me = await api('/api/auth/me'); state.user = me.user; setCsrf(me.csrf_token); await bootstrap(); } catch { hideSplash(); return go('#/login'); }
   }
-  for (const [re, fn] of routes) { const m = re.exec(hash); if (m) return fn(m); }
+  for (const [re, fn] of routes) {
+    const m = re.exec(hash);
+    if (m) { try { await fn(m); } finally { hideSplash(); } return; }
+  }
   go('#/');
+}
+
+// ---------------- splash ----------------
+const BOOT = performance.now();
+let splashGone = false;
+function hideSplash() {
+  if (splashGone) return; splashGone = true;
+  const el = document.getElementById('splash'); if (!el) return;
+  // Long enough to read "by Approx Technology", never a blocking wait: at most ~600 ms after start.
+  const wait = Math.max(0, 600 - (performance.now() - BOOT));
+  setTimeout(() => { el.classList.add('out'); setTimeout(() => el.remove(), 320); }, wait);
 }
 
 async function bootstrap() {
@@ -69,8 +91,12 @@ async function bootstrap() {
   state.models = m.models; state.modes = m.modes; state.modeDetails = m.mode_details || []; state.defaultMode = m.default_mode || 'medium'; state.settings = s.settings; state.usage = u;
   state.mode = s.settings.default_mode;
   state.model = 'auto';
-  // Green + white is the default; Dark is an explicit choice in Settings.
-  document.documentElement.dataset.theme = s.settings.theme === 'dark' ? 'dark' : 'light';
+  applyTheme(s.settings.theme);
+}
+/** light (default) | dark | system (follows the device). */
+export function applyTheme(t) {
+  const dark = t === 'dark' || (t === 'system' && window.matchMedia?.('(prefers-color-scheme: dark)').matches);
+  document.documentElement.dataset.theme = dark ? 'dark' : 'light';
 }
 export async function refreshUsage() { try { state.usage = await api('/api/usage'); } catch { /* ignore */ } }
 
@@ -151,6 +177,7 @@ function authView(kind) {
     // Clear validation messages before any network call.
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) { showMsg(msg, 'Enter a valid email address.'); email.focus(); return; }
     if (pwf && !pwf.input.value) { showMsg(msg, 'Enter your password.'); pwf.input.focus(); return; }
+    if (kind === 'signup' && !name.value.trim()) { showMsg(msg, 'Enter your name.'); name.focus(); return; }
     if (kind === 'signup') {
       if (pwf.input.value.length < 10 || !/[a-z]/i.test(pwf.input.value) || !/\d/.test(pwf.input.value)) { showMsg(msg, 'Use at least 10 characters with letters and numbers.'); pwf.input.focus(); return; }
       if (pwf.input.value !== pw2.input.value) { showMsg(msg, 'The passwords don’t match.'); pw2.input.focus(); return; }
@@ -161,8 +188,8 @@ function authView(kind) {
       if (kind === 'login') {
         await signedIn(await api('/api/auth/login', { method: 'POST', body: { email: email.value.trim(), password: pwf.input.value } }));
       } else if (kind === 'signup') {
-        const r = await api('/api/auth/signup', { method: 'POST', body: { email: email.value.trim(), password: pwf.input.value, display_name: name.value } });
-        showMsg(msg, `${r.message} Check your inbox (and spam folder), then open the link to verify.`, 'ok'); form.reset();
+        await api('/api/auth/signup', { method: 'POST', body: { email: email.value.trim(), password: pwf.input.value, display_name: name.value.trim() } });
+        return checkEmailView(email.value.trim());
       } else {
         const r = await api('/api/auth/forgot-password', { method: 'POST', body: { email: email.value.trim() } });
         showMsg(msg, r.message, 'ok');
@@ -179,7 +206,7 @@ function authView(kind) {
       } else showMsg(msg, err.message);
     } finally { btn.disabled = false; btn.classList.remove('loading'); btn.removeAttribute('aria-busy'); btn.textContent = label; }
   } },
-  kind === 'signup' ? h('div', { class: 'field' }, h('label', { for: 'name' }, 'Name (optional)'), name) : null,
+  kind === 'signup' ? h('div', { class: 'field' }, h('label', { for: 'name' }, 'Name'), name) : null,
   h('div', { class: 'field' }, h('label', { for: 'email' }, 'Email'), email),
   pwf?.el, pw2?.el, msg, btn);
 
@@ -197,8 +224,22 @@ function authView(kind) {
     kind === 'login' ? h('a', { href: '#/signup' }, 'Create account') : kind === 'signup' ? h('span', {}, 'Already have an account? ', h('a', { href: '#/login' }, 'Sign in')) : h('a', { href: '#/login' }, 'Sign in'),
     kind === 'login' ? h('a', { href: '#/forgot' }, 'Forgot password?') : null);
   if (kind === 'login') links.append(h('a', { href: '#/verify' }, 'Have a code?'));
-  authFrame(kind === 'login' ? 'Welcome back' : kind === 'signup' ? 'Create your Approx AI account' : 'Reset password',
-    kind === 'login' ? 'Sign in to Approx AI' : kind === 'signup' ? 'Free to start — Nick 4.8 and Hike 6.5 included.' : null, chooser, google, form, links);
+  authFrame(kind === 'login' ? 'Welcome to Approx AI' : kind === 'signup' ? 'Create your Approx account' : 'Reset password',
+    kind === 'login' ? 'Sign in to continue' : kind === 'signup' ? null : 'We’ll email you a link to choose a new password.', chooser, google, form, links);
+}
+
+/** After sign-up: one clear next step — open the email Supabase sent — with a resend button. No questionnaire. */
+function checkEmailView(address) {
+  const msg = formMsg();
+  const resend = h('button', { class: 'btn block', type: 'button', onclick: async () => {
+    resend.disabled = true; resend.classList.add('loading');
+    try { const r = await api('/api/auth/resend-verification', { method: 'POST', body: { email: address } }); showMsg(msg, r.message, 'ok'); }
+    catch (e) { showMsg(msg, e.message); } finally { resend.disabled = false; resend.classList.remove('loading'); }
+  } }, 'Resend verification email');
+  authFrame('Check your email', null,
+    h('p', { class: 'center' }, 'We sent a verification link to ', h('b', {}, address), '. Open it to activate your account — you’ll go straight into Approx.'),
+    h('p', { class: 'center small muted' }, 'Can’t find it? Check spam or promotions.'), msg, resend,
+    h('div', { class: 'auth-links' }, h('a', { href: '#/login' }, 'Back to sign in'), h('a', { href: '#/verify' }, 'Have a code?')));
 }
 
 /** Android "Continue with Google": runs Google sign-in in the browser, then returns to the app with a one-time code. */
@@ -278,23 +319,72 @@ function tokenView(kind) {
 }
 
 // ---------------- shell: top bar + main + composer + three-button nav ----------------
-let mainEl; let composerEl;
-function shell(renderMain) {
+// ---------------- persistent app shell: drawer + header + main + composer + bottom nav ----------------
+// Built once per sign-in and kept: navigating only swaps the main area (no full re-render, no reload).
+let mainEl; let composerEl; let shellEl; let titleEl; let moreBtn; let drawerEl; let recentEl;
+const NAV = [['#/', 'chat', 'Chat'], ['#/history', 'history', 'History'], ['#/work', 'work', 'Work'], ['#/settings', 'settings', 'Settings']];
+const DRAWER_LINKS = [['#/projects', 'folder', 'Projects'], ['#/code', 'code', 'Approx Code'], ['#/workspace', 'layers', 'Artifacts'], ['#/schedule', 'calendar', 'Schedule'], ['#/work', 'work', 'Approx Work']];
+
+function buildShell() {
   const initials = (state.user.display_name || state.user.email).trim()[0].toUpperCase();
+  titleEl = h('div', { class: 'head-title', id: 'chat-title' }, 'New chat');
+  moreBtn = h('button', { class: 'icon-btn', 'aria-label': 'Session options', title: 'Session options', onclick: openChatMenu }, icon('more'));
   const top = h('header', { class: 'topbar' },
-    h('a', { class: 'brand', href: '#/', 'aria-label': 'Approx AI home' }, h('img', { src: '/assets/logo-mark-64.png', alt: '' }), h('span', {}, 'Approx ', h('span', { class: 'ai' }, 'AI'))),
+    h('button', { class: 'icon-btn drawer-toggle', 'aria-label': 'Open menu', 'aria-controls': 'drawer', onclick: openDrawer }, icon('menu')),
+    h('a', { class: 'brand', href: '#/', 'aria-label': 'Approx AI home' }, h('img', { src: '/assets/logo-mark-64.png', alt: '' }),
+      h('span', { class: 'brand-stack' }, h('span', { class: 'brand-name' }, 'Approx ', h('span', { class: 'ai' }, 'AI')), titleEl)),
     h('div', { class: 'spacer' }),
-    h('button', { class: 'model-pill', 'aria-label': 'Current model', onclick: openModelPicker }, h('span', { class: 'dot' }), h('span', { id: 'model-indicator' }, modelLabel())),
-    h('button', { class: 'avatar', 'aria-label': 'Account', title: state.user.email, onclick: () => views.openSettings('account') }, initials),
-    h('button', { class: 'icon-btn hide-sm', 'aria-label': 'Settings', onclick: () => views.openSettings() }, icon('settings')));
+    h('button', { class: 'icon-btn', 'aria-label': 'New chat', title: 'New chat (Ctrl+K)', onclick: newChat }, icon('edit')),
+    moreBtn);
+  recentEl = h('div', { class: 'drawer-recent', id: 'drawer-recent' });
+  drawerEl = h('aside', { class: 'drawer', id: 'drawer', 'aria-label': 'Approx navigation' },
+    h('div', { class: 'drawer-head' }, h('img', { src: '/assets/logo-mark-64.png', alt: '' }), h('b', { class: 'grow' }, 'Approx'),
+      h('button', { class: 'icon-btn drawer-close', 'aria-label': 'Close menu', onclick: closeDrawer }, icon('close'))),
+    h('button', { class: 'btn primary block drawer-new', onclick: () => { closeDrawer(); newChat(); } }, icon('plus'), 'New chat'),
+    h('nav', { class: 'drawer-nav' }, DRAWER_LINKS.map(([href, ic, label]) => h('a', { href, 'data-route': href }, icon(ic), h('span', {}, label)))),
+    h('div', { class: 'drawer-label' }, 'Recent'), recentEl,
+    h('a', { class: 'drawer-more', href: '#/history' }, 'All history', icon('chevron')),
+    h('a', { class: 'drawer-user', href: '#/settings/profile' }, h('span', { class: 'avatar' }, initials),
+      h('span', { class: 'grow' }, h('b', {}, state.user.display_name || state.user.email.split('@')[0]), h('span', { class: 'small muted' }, `${state.user.plan} plan`))));
+  const scrim = h('div', { class: 'drawer-scrim', onclick: closeDrawer });
   mainEl = h('main', { class: 'main', id: 'main' });
   composerEl = h('div', { class: 'composer-wrap' });
   const nav = h('nav', { class: 'bottom-nav', 'aria-label': 'Primary' },
-    h('button', { onclick: newChat, class: location.hash.startsWith('#/c/') || location.hash === '#/' || !location.hash ? 'active' : '' }, icon('chat'), 'New chat'),
-    h('button', { onclick: () => views.openHistory() }, icon('history'), 'History'),
-    h('button', { onclick: () => views.openSettings() }, icon('settings'), 'Settings'));
-  app.replaceChildren(top, mainEl, composerEl, nav);
-  renderMain();
+    NAV.map(([href, ic, label]) => h('a', { href, 'data-route': href, 'aria-label': label }, icon(ic), h('span', {}, label))));
+  shellEl = h('div', { class: 'shell' }, drawerEl, scrim, h('div', { class: 'workspace' }, top, mainEl, composerEl, nav));
+  app.replaceChildren(shellEl);
+  refreshRecent();
+}
+
+function shell(renderMain, { composer = true } = {}) {
+  if (!shellEl || !app.contains(shellEl)) buildShell();
+  composerEl.classList.toggle('hidden', !composer);
+  const route = location.hash.startsWith('#/c/') || !location.hash || location.hash === '#/' ? '#/' : location.hash;
+  for (const a of shellEl.querySelectorAll('[data-route]')) {
+    const r = a.getAttribute('data-route');
+    a.classList.toggle('active', r === '#/' ? route === '#/' : route.startsWith(r));
+  }
+  setHeaderTitle(composer ? (state.chat?.title || 'New chat') : pageTitle(route));
+  mainEl.scrollTop = 0;
+  return renderMain();
+}
+function pageTitle(route) {
+  return { '#/history': 'History', '#/work': 'Approx Work', '#/schedule': 'Schedule', '#/projects': 'Projects', '#/code': 'Approx Code',
+    '#/workspace': 'Artifacts', '#/research': 'Research', '#/admin': 'Admin' }[route] || (route.startsWith('#/settings') ? 'Settings' : '');
+}
+export function setHeaderTitle(t) { if (titleEl) titleEl.textContent = t; if (moreBtn) moreBtn.classList.toggle('hidden', !state.chat?.id || !location.hash.startsWith('#/c/')); }
+
+export function openDrawer() { shellEl?.classList.add('drawer-open'); refreshRecent(); drawerEl?.querySelector('a, button')?.focus({ preventScroll: true }); }
+export function closeDrawer() { shellEl?.classList.remove('drawer-open'); }
+
+/** Recent sessions in the drawer: real chats from the backend, cached (instant) and refreshed in the background. */
+export function refreshRecent(force = false) {
+  if (!recentEl) return;
+  if (force) invalidate('/api/chats?view=active&limit=15');
+  const draw = (r) => recentEl.replaceChildren(...(r.chats.length ? r.chats.map((c) => h('a', { href: `#/c/${c.id}`, class: `recent-item${state.chat?.id === c.id ? ' active' : ''}`, title: c.title }, c.title))
+    : [h('div', { class: 'small muted pad' }, 'No conversations yet.')]));
+  if (!recentEl.childElementCount) recentEl.replaceChildren(...[1, 2, 3, 4].map(() => h('div', { class: 'skeleton line' })));
+  cached('/api/chats?view=active&limit=15', 15_000, draw).then(draw).catch(() => recentEl.replaceChildren(h('div', { class: 'small muted pad' }, 'Could not load recent chats.')));
 }
 export function setMain(...nodes) { mainEl.replaceChildren(...nodes); }
 export function hideComposer() { composerEl.classList.add('hidden'); }
@@ -305,29 +395,30 @@ export function modeLabel(mode = state.mode) {
 }
 export function modelLabel() {
   const m = state.models.find((x) => x.id === state.model);
-  return `${m ? m.name : 'Auto'} · ${modeLabel()}`;
+  return m ? m.name : 'Auto';
 }
 function updateIndicator() {
   const el = document.getElementById('model-indicator'); if (el) el.textContent = modelLabel();
-  const c = document.getElementById('model-chip'); if (c) c.replaceChildren(h('b', {}, (state.models.find((x) => x.id === state.model)?.name) || 'Auto'), icon('chevron'));
+  const c = document.getElementById('model-chip'); if (c) c.replaceChildren(h('span', { class: 'dot' }), h('b', {}, modelLabel()), h('span', { class: 'mode-tag' }, modeLabel()), icon('chevron'));
   // Keep every mode toggle on screen (composer + model sheet) showing the same selected mode.
   for (const b of document.querySelectorAll('.mode-toggle button[data-mode]')) b.setAttribute('aria-pressed', String(b.dataset.mode === state.mode));
 }
 
 export function openModelPicker() {
-  sheet('Choose model', (s, close) => {
-    s.append(h('p', { class: 'muted small' }, 'Models and modes are separate: the model decides who answers; the efficiency mode (Low / Medium / High) decides how much effort it spends on each reply.'));
-    const opt = (id, name, desc, available, badge) => h('button', { class: 'option', role: 'radio', 'aria-checked': String(state.model === id), disabled: !available,
+  sheet('Model', (s, close) => {
+    const opt = (id, name, desc, usable, badge) => h('button', { class: 'option', role: 'radio', 'aria-checked': String(state.model === id), disabled: !usable,
       onclick: () => { state.model = id; updateIndicator(); close(); } },
     h('div', { class: 'grow' }, h('div', { class: 'row' }, h('span', { class: 'name' }, name), badge), h('div', { class: 'small muted' }, desc)));
-    s.append(opt('auto', 'Master Router (Auto)', 'Picks the best model you have access to for each message.', true, h('span', { class: 'badge green' }, 'Recommended')));
-    for (const m of state.models) {
-      const badge = modelBadge(m);
-      const sub = [m.kind && m.kind !== 'language_model' ? m.kind.replace('_', ' ') : null,
-        m.active_version ? `v${m.active_version}` : (m.lifecycle && m.lifecycle.state !== 'ACTIVE' ? m.lifecycle.label : (m.available ? 'no active version' : null))].filter(Boolean).join(' · ');
-      s.append(opt(m.id, m.name, m.description + (sub ? `  (${sub})` : ''), m.available && m.backend !== 'unavailable' && m.backend !== 'no_active_version', badge));
+    s.append(opt('auto', 'Auto', 'Approx routes each message to the best model you have access to.', true, h('span', { class: 'badge green' }, 'Recommended')));
+    // Only models this account is allowed to use are listed; a permitted model that is not being served right now is
+    // shown as unavailable rather than hidden or faked.
+    for (const m of state.models.filter((x) => x.available)) {
+      const sub = [m.active_version ? `v${m.active_version}` : (m.lifecycle && m.lifecycle.state !== 'ACTIVE' ? m.lifecycle.label : null)].filter(Boolean).join(' · ');
+      s.append(opt(m.id, m.name, m.description + (sub ? `  (${sub})` : ''), m.backend !== 'unavailable' && m.backend !== 'no_active_version', modelBadge(m)));
     }
-    s.append(h('h3', {}, 'Mode'), modeToggle(close));
+    const locked = state.models.filter((x) => !x.available).length;
+    if (locked) s.append(h('p', { class: 'small muted' }, `${locked} more model${locked > 1 ? 's' : ''} need a different plan or access grant — see Settings → Capabilities.`));
+    s.append(h('h3', {}, 'Response mode'), h('p', { class: 'small muted' }, 'How much effort the model spends on each reply. Separate from the model.'), modeToggle(close));
   });
 }
 export function modeToggle(after) {
@@ -361,54 +452,47 @@ async function chatView(id) {
       state.chat = r.chat; state.messages = r.messages; state.mode = r.chat.mode; state.projectId = r.chat.project_id;
     } catch (e) { toast(e.message); return go('#/'); }
   } else if (!state.chat || state.chat.id) { state.chat = null; state.messages = []; }
+  setHeaderTitle(state.chat?.title || 'New chat');
+  for (const a of document.querySelectorAll('.recent-item')) a.classList.toggle('active', a.getAttribute('href') === `#/c/${state.chat?.id}`);
   renderMessages();
   renderComposer();
 }
 
-const SUGGESTIONS = [
-  ['Explain a concept', 'Explain how vaccines train the immune system, simply.'],
-  ['Roman Urdu', 'Mujhe ek professional email likhne mein madad karo.'],
-  ['اردو', 'علامہ اقبال کی شاعری کے بنیادی موضوعات بیان کریں۔'],
-  ['Code', 'Write a Python function that validates a Pakistani CNIC number format.'],
-  ['Security', 'Review this login flow for OWASP Top 10 risks: email + password, JWT in localStorage.'],
-  ['Plan', 'Plan a 4-week study schedule for learning SQL from scratch.'],
-];
-
 // ---- conversation menu (⋯): rename, share, export, archive, delete ----
-function chatHead() {
-  if (!state.chat?.id) return null;
-  return h('div', { class: 'chat-head' }, h('div', { class: 'title grow', id: 'chat-title' }, state.chat.title || 'New conversation'),
-    h('button', { class: 'icon-btn', 'aria-label': 'Conversation options', title: 'Conversation options', onclick: openChatMenu }, icon('more')));
-}
 function conversationMarkdown() {
   return [`# ${state.chat?.title || 'Conversation'}`, ''].concat(state.messages.filter((m) => m.role !== 'system')
     .flatMap((m) => [`## ${m.role === 'user' ? 'You' : 'Approx AI'}`, '', m.content, ''])).join('\n');
 }
 function openChatMenu() {
   const c = state.chat; if (!c?.id) return;
-  sheet('Conversation', (s, close) => {
+  sheet('Session', (s, close) => {
     const item = (ic, label, fn, danger) => h('button', { class: `list-item${danger ? ' danger' : ''}`, onclick: async () => { close(); try { await fn(); } catch (e) { toast(e.message); } } }, icon(ic), h('span', { class: 'grow' }, label));
     s.append(h('div', { class: 'list' },
-      item('edit', 'Rename', async () => {
-        const t = await promptDialog('Rename conversation', 'Title', c.title); if (!t) return;
-        await api(`/api/chats/${c.id}`, { method: 'PATCH', body: { title: t } }); c.title = t;
-        const el = document.getElementById('chat-title'); if (el) el.textContent = t; toast('Renamed');
+      item('branch', 'Copy branch', async () => {
+        const r = await api(`/api/chats/${c.id}/branch`, { method: 'POST', body: {} });
+        refreshRecent(true); toast(`Branch created (${r.copied_messages} messages)`); go(`#/c/${r.chat.id}`);
       }),
+      item('tasks', 'Background tasks', () => pages.openTasksSheet()),
       item('share', 'Share', async () => {
         const text = conversationMarkdown();
         if (navigator.share) { try { await navigator.share({ title: c.title || 'Approx AI conversation', text }); return; } catch (e) { if (e.name === 'AbortError') return; } }
         await navigator.clipboard.writeText(text); toast('Conversation copied — paste it anywhere to share');
       }),
+      item('edit', 'Rename', async () => {
+        const t = await promptDialog('Rename session', 'Title', c.title); if (!t) return;
+        await api(`/api/chats/${c.id}`, { method: 'PATCH', body: { title: t } }); c.title = t; setHeaderTitle(t); refreshRecent(true); toast('Renamed');
+      }),
+      item('archive', 'Archive', async () => { await api(`/api/chats/${c.id}`, { method: 'PATCH', body: { archived: true } }); refreshRecent(true); toast('Archived'); newChat(); }),
+      item('flag', 'Send feedback', () => pages.openFeedbackSheet({ chatId: c.id })),
       item('download', 'Export as Markdown', async () => {
         const r = await fetch(`/api/chats/${c.id}/export?format=md`, { credentials: 'same-origin' });
         if (!r.ok) throw new Error('Export failed. Please try again.');
         const blob = await r.blob(); const a = h('a', { href: URL.createObjectURL(blob), download: `${(c.title || 'conversation').replace(/[^\p{L}\p{N} _-]+/gu, '').trim() || 'conversation'}.md` });
         document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); toast('Exported');
       }),
-      item('archive', 'Archive', async () => { await api(`/api/chats/${c.id}`, { method: 'PATCH', body: { archived: true } }); toast('Archived'); newChat(); }),
       item('trash', 'Delete', async () => {
-        if (!(await confirmDialog('Delete conversation?', 'It moves to Trash in History, where you can restore it.', 'Delete', true))) return;
-        await api(`/api/chats/${c.id}`, { method: 'DELETE' }); toast('Moved to trash'); newChat();
+        if (!(await confirmDialog('Delete session?', 'It moves to Trash in History, where you can restore it.', 'Delete', true))) return;
+        await api(`/api/chats/${c.id}`, { method: 'DELETE' }); refreshRecent(true); toast('Moved to trash'); newChat();
       }, true)));
   });
 }
@@ -416,17 +500,15 @@ function openChatMenu() {
 function renderMessages() {
   const list = h('div', { class: 'messages', id: 'messages' });
   if (!state.messages.length) {
-    let returning = false;
-    try { returning = localStorage.getItem('approx.seen') === '1'; localStorage.setItem('approx.seen', '1'); } catch { /* private mode */ }
-    const g = greeting({ displayName: state.user.display_name, email: state.user.email, returning });
-    list.append(h('div', { class: 'welcome' }, h('img', { src: '/assets/logo-mark-192.png', alt: '' }), h('h1', {}, g.title),
-      h('p', { class: 'lead' }, g.subtitle),
-      h('p', { class: 'muted small' }, 'English · اردو · Roman Urdu — ask anything.'),
-      !state.user.email_verified ? h('div', { class: 'alert warn' }, 'Verify your email to start chatting. ', h('a', { href: '#/verify' }, 'Enter code')) : null,
-      h('div', { class: 'suggestions' }, SUGGESTIONS.map(([t, p]) => h('button', { class: 'suggestion', onclick: () => { const ta = document.getElementById('prompt'); ta.value = p; ta.dispatchEvent(new Event('input')); ta.focus(); } }, h('b', {}, t), h('div', { class: 'muted small' }, p))))));
+    // Minimal welcome: a greeting and the composer. No questionnaire, no task categories — the person just types.
+    const n = firstName({ displayName: state.user.display_name, email: state.user.email });
+    list.append(h('div', { class: 'welcome' }, h('img', { src: '/assets/logo-mark-192.png', alt: '' }),
+      h('h1', {}, n ? `Peace be upon you, ${n}` : 'Peace be upon you'),
+      h('p', { class: 'lead' }, 'How can I help you today?'),
+      !state.user.email_verified ? h('div', { class: 'alert warn' }, 'Verify your email to start chatting. ', h('a', { href: '#/verify' }, 'Enter code')) : null));
   }
   for (const m of state.messages) list.append(messageEl(m));
-  setMain(...[chatHead(), list].filter(Boolean));
+  setMain(list);
   scrollDown(true);
 }
 // Follow new output only while the reader is at (or near) the bottom; `force` for the reader's own actions.
@@ -489,7 +571,7 @@ async function saveToWorkspace(m) {
 }
 
 function renderComposer() {
-  const ta = h('textarea', { id: 'prompt', rows: '1', placeholder: 'Ask Approx AI anything...', 'aria-label': 'Message', dir: 'auto', maxlength: '100000' });
+  const ta = h('textarea', { id: 'prompt', rows: '1', placeholder: 'Write your message…', 'aria-label': 'Message', dir: 'auto', maxlength: '100000', enterkeyhint: 'send' });
   const send = h('button', { class: 'round send', 'aria-label': 'Send', disabled: true }, icon('send'));
   const chips = h('div', { class: 'att-chips', id: 'att-chips' });
   const sync = () => {
@@ -510,7 +592,7 @@ function renderComposer() {
   const modelChip = h('button', { class: 'select-chip', id: 'model-chip', 'aria-label': 'Select model', onclick: openModelPicker });
   const mic = micButton(ta, sync);
   composerEl.replaceChildren(h('div', { class: 'composer' }, chips, ta,
-    h('div', { class: 'bar' }, plus, modelChip, modeToggle(), h('div', { class: 'spacer' }), mic, send)),
+    h('div', { class: 'bar' }, plus, modelChip, h('div', { class: 'spacer' }), mic, send)),
   h('div', { class: 'composer-note' }, usageNote()));
   updateIndicator();
 }
@@ -548,7 +630,7 @@ async function sendMessage(text, sendBtn) {
     try {
       const r = await api('/api/chats', { method: 'POST', body: { model: state.model, mode: state.mode, project_id: state.projectId || undefined } });
       state.chat = r.chat; history.replaceState(null, '', `#/c/${r.chat.id}`);
-      const hd = chatHead(); if (hd) mainEl.prepend(hd);
+      setHeaderTitle(r.chat.title);
     } catch (e) { toast(e.message); return; }
   }
   const attachments = state.attachments; state.attachments = [];
@@ -572,7 +654,7 @@ async function sendMessage(text, sendBtn) {
       done: (d) => {
         state.usage = d.usage;
         if (d.memory_saved) toast(`Saved to memory: “${d.memory_saved.content.slice(0, 40)}”`);
-        state.chat.title = d.title;
+        state.chat.title = d.title; setHeaderTitle(d.title); refreshRecent(true);
         const msg = { id: d.message_id, role: 'assistant', content: acc, model_id: routeInfo?.model_id, mode: routeInfo?.mode, route_reason: routeInfo?.reason, created_at: Date.now() };
         state.messages.push(msg); live.replaceWith(messageEl(msg));
       },
@@ -639,29 +721,82 @@ function pickFiles(accept, renderChips, { capture, after } = {}) {
 }
 
 function openPlusMenu(renderChips, ta) {
-  sheet('Add to message', (s, close) => {
-    const item = (ic, label, fn, note) => h('button', { class: 'menu-item', onclick: () => { close(); fn(); } }, icon(ic), label, note ? h('span', { class: 'soon' }, note) : null);
-    s.append(h('div', { class: 'menu-grid' },
-      item('file', 'File', () => pickFiles(ACCEPT.file, renderChips)),
-      item('image', 'Image', () => pickFiles(ACCEPT.image, renderChips)),
-      item('pdf', 'PDF', () => pickFiles(ACCEPT.pdf, renderChips)),
-      item('doc', 'Document', () => pickFiles(ACCEPT.document, renderChips)),
-      item('camera', 'Camera', () => pickFiles('image/*', renderChips, { capture: 'environment' })),
-      item('data', 'Data analysis', () => pickFiles(ACCEPT.data, renderChips, { after: () => { if (!ta.value) { ta.value = 'Analyze this dataset: describe the columns, key statistics, notable patterns and data quality issues.'; ta.dispatchEvent(new Event('input')); } } })),
-      item('search', 'Research', () => go('#/research')),
-      item('code', 'Code (Fabbox)', () => go('#/code')),
-      item('layers', 'Workspace', () => go('#/workspace')),
-      item('folder', 'Projects', () => go('#/projects')),
-      item('plug', 'Tools & connectors', showConnectors, 'Not yet available'),
-    ));
+  sheet('Add', (s, close) => {
+    const item = (ic, label, sub, fn) => h('button', { class: 'list-item', onclick: () => { close(); fn(); } }, h('span', { class: 'li-icon' }, icon(ic)),
+      h('span', { class: 'grow' }, h('span', { class: 'title' }, label), sub ? h('span', { class: 'sub' }, sub) : null), icon('chevron'));
+    const perm = state.settings?.permissions_mode === 'automatic' ? 'Automatic' : 'Manual';
+    s.append(h('div', { class: 'list' },
+      item('image', 'Photo', 'Choose images from your gallery', () => pickFiles('image/*', renderChips)),
+      item('file', 'Files', 'Documents, code, data, PDFs', () => pickFiles(ACCEPT.file, renderChips)),
+      item('camera', 'Camera', 'Take a photo', () => pickFiles('image/*', renderChips, { capture: 'environment' })),
+      item('layers', 'Add to session', 'Attach files you uploaded before', () => addFromLibrary(renderChips)),
+      item('folder', 'Add to project', state.projectId ? 'This session is in a project' : 'Keep this session in a project', () => addToProject()),
+      item('shield', 'Permissions', `${perm} — how Approx applies changes`, () => openPermissions())));
+    void ta;
   });
 }
-function showConnectors() {
-  sheet('Tools & connectors', (s) => {
-    s.append(h('div', { class: 'alert warn' }, 'Third-party connectors (Google Drive, GitHub, email, calendars) are not available in Approx AI 1.0. They require OAuth apps registered by Approx Technology, which have not been configured yet. Nothing is connected to your account.'),
-      h('p', { class: 'muted small' }, 'Available built-in tools: file attachments, Research (URL sources), Approx Workspace, Fabbox Code / Coeprox, Projects.'));
+/** Re-use files already in the person's library (no re-upload). */
+async function addFromLibrary(renderChips) {
+  sheet('Add to session', async (s, close) => {
+    const list = h('div', { class: 'list' }, h('div', { class: 'skeleton line' }), h('div', { class: 'skeleton line' }));
+    s.append(list);
+    try {
+      const r = await api('/api/files');
+      const files = (r.files || []).filter((f) => !state.attachments.some((a) => a.id === f.id));
+      list.replaceChildren(...(files.length ? files.slice(0, 50).map((f) => h('button', { class: 'list-item', onclick: () => { state.attachments.push(f); renderChips(); close(); toast(`${f.filename} added`); } },
+        icon(f.kind === 'image' ? 'image' : 'file'), h('span', { class: 'grow' }, h('span', { class: 'title' }, f.filename), h('span', { class: 'sub' }, `${fmtBytes(f.size)} · ${fmtTime(f.created_at)}`))))
+        : [h('p', { class: 'muted' }, 'No uploaded files yet. Use Photo, Files or Camera to add one.')]));
+    } catch (e) { list.replaceChildren(h('div', { class: 'alert error' }, e.message)); }
   });
 }
+/** Put this session (or the next new one) into a project; create a project inline if needed. */
+async function addToProject() {
+  sheet('Add to project', async (s, close) => {
+    const list = h('div', { class: 'list' }, h('div', { class: 'skeleton line' }));
+    const name = h('input', { class: 'input', placeholder: 'New project name', maxlength: '80', 'aria-label': 'New project name' });
+    const apply = async (pid, pname) => {
+      if (state.chat?.id) { await api(`/api/chats/${state.chat.id}`, { method: 'PATCH', body: { project_id: pid } }); state.chat.project_id = pid; }
+      state.projectId = pid; invalidate('/api/projects'); close(); toast(`Added to ${pname}`);
+    };
+    s.append(list, h('div', { class: 'row' }, name, h('button', { class: 'btn', onclick: async () => {
+      if (!name.value.trim()) return name.focus();
+      try { const r = await api('/api/projects', { method: 'POST', body: { name: name.value.trim() } }); await apply(r.project.id, r.project.name); } catch (e) { toast(e.message); }
+    } }, 'Create')));
+    try {
+      const r = await api('/api/projects');
+      list.replaceChildren(...(r.projects.length ? r.projects.map((p) => h('button', { class: 'list-item', 'aria-checked': String(state.projectId === p.id), onclick: () => apply(p.id, p.name).catch((e) => toast(e.message)) },
+        icon('folder'), h('span', { class: 'grow' }, h('span', { class: 'title' }, p.name), h('span', { class: 'sub' }, p.kind)), state.projectId === p.id ? icon('check') : null))
+        : [h('p', { class: 'muted small' }, 'No projects yet — create one below.')]));
+      if (state.projectId) list.append(h('button', { class: 'list-item', onclick: () => apply(null, 'no project').catch((e) => toast(e.message)) }, icon('close'), h('span', { class: 'grow' }, 'Remove from project')));
+    } catch (e) { list.replaceChildren(h('div', { class: 'alert error' }, e.message)); }
+  });
+}
+/** Manual: Approx Code agent changes wait for your review. Automatic: they are applied as soon as they are proposed. */
+export function openPermissions() {
+  sheet('Permissions', (s, close) => {
+    const cur = state.settings?.permissions_mode || 'manual';
+    const opt = (v, title, desc) => h('button', { class: 'option', role: 'radio', 'aria-checked': String(cur === v), onclick: async () => {
+      try { await api('/api/settings', { method: 'PATCH', body: { permissions_mode: v } }); state.settings.permissions_mode = v; invalidate('/api/settings'); toast(`Permissions: ${title}`); close(); }
+      catch (e) { toast(e.message); }
+    } }, h('div', { class: 'grow' }, h('div', { class: 'name' }, title), h('div', { class: 'small muted' }, desc)));
+    s.append(opt('manual', 'Manual', 'Approx asks before applying changes: Approx Code proposals wait for your review.'),
+      opt('automatic', 'Automatic', 'Approx applies Approx Code changes as soon as they are proposed. You can still review the history.'));
+  });
+}
+
+// Desktop shortcuts: Ctrl/⌘+K new chat · "/" focuses the composer · Esc closes the drawer.
+document.addEventListener('keydown', (e) => {
+  if (!state.user) return;
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); newChat(); setTimeout(() => document.getElementById('prompt')?.focus(), 50); }
+  else if (e.key === '/' && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName) && !document.querySelector('.scrim')) { const ta = document.getElementById('prompt'); if (ta) { e.preventDefault(); ta.focus(); } }
+  else if (e.key === 'Escape') closeDrawer();
+});
+// Keyboard-aware layout: keep the composer above the on-screen keyboard where the browser doesn't resize the page.
+if (window.visualViewport) {
+  const fit = () => document.documentElement.style.setProperty('--vvh', `${window.visualViewport.height}px`);
+  window.visualViewport.addEventListener('resize', fit); fit();
+}
+export function signOutLocal() { state.user = null; state.chat = null; state.messages = []; setCsrf(''); clearCache(); shellEl = null; }
 
 export { api, toast, render };
 render();

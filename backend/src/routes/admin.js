@@ -65,6 +65,7 @@ export function registerAdminRoutes(r) {
       totals: await one("SELECT SUM(rating = 'up') up, SUM(rating = 'down') down, SUM(reported) reported FROM message_feedback"),
       reports: await all(`SELECT f.message_id, f.reason, f.comment, f.rating, f.updated_at, m.model_id, m.chat_id, substr(m.content, 1, 400) excerpt
         FROM message_feedback f JOIN messages m ON m.id = f.message_id WHERE f.reported = 1 ORDER BY f.updated_at DESC LIMIT 200`),
+      app_feedback: await all('SELECT id, user_id, category, message, chat_id, created_at FROM app_feedback ORDER BY created_at DESC LIMIT 200'),
     });
   });
 

@@ -13,6 +13,7 @@ import { registerWorkspaceRoutes } from './routes/workspace.js';
 import { registerDeveloperRoutes } from './routes/developer.js';
 import { registerAdminRoutes } from './routes/admin.js';
 import { registerPlatformRoutes } from './routes/platform.js';
+import { registerMeRoutes } from './routes/me.js';
 import { backendStatus } from './providers/index.js';
 import { listModels } from './models.js';
 import { getActive, startRegistryWatcher } from './registry.js';
@@ -30,6 +31,7 @@ export function buildRouter() {
   }));
   registerAuthRoutes(r);
   registerChatRoutes(r);
+  registerMeRoutes(r);
   registerFileRoutes(r);
   registerAccountRoutes(r);
   registerWorkspaceRoutes(r);

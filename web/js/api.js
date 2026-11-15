@@ -68,3 +68,28 @@ export async function upload(file, projectId) {
   if (projectId) headers['X-Project-Id'] = projectId;
   return api('/api/files', { method: 'POST', body: file, headers, raw: true });
 }
+
+// ---- small stale-while-revalidate cache for read-only GETs (instant navigation; fresh data follows) ----
+const CACHE = new Map(); // path → { at, value, inflight }
+/**
+ * cached(path, ttlMs, onFresh?) → Promise of the value. A cached value (even stale) resolves immediately; when it is
+ * older than ttlMs a background refresh runs and onFresh(newValue) is called once it arrives.
+ */
+export function cached(path, ttlMs = 30_000, onFresh) {
+  const e = CACHE.get(path);
+  const refresh = () => {
+    if (e?.inflight) return e.inflight;
+    const p = api(path).then((v) => { CACHE.set(path, { at: Date.now(), value: v }); return v; })
+      .catch((err) => { const cur = CACHE.get(path); if (cur) delete cur.inflight; throw err; });
+    CACHE.set(path, { ...(e || {}), inflight: p });
+    return p;
+  };
+  if (e && 'value' in e) {
+    if (Date.now() - e.at > ttlMs) refresh().then((v) => onFresh?.(v)).catch(() => {});
+    return Promise.resolve(e.value);
+  }
+  return refresh();
+}
+/** Drop cached entries whose path starts with any of the prefixes (call after a write). */
+export function invalidate(...prefixes) { for (const k of [...CACHE.keys()]) if (prefixes.some((p) => k.startsWith(p))) CACHE.delete(k); }
+export function clearCache() { CACHE.clear(); }

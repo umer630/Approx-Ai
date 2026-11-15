@@ -52,8 +52,12 @@ export function registerChatRoutes(r) {
       const like = '%' + q.replace(/[\\%_]/g, (x) => '\\' + x) + '%';
       args.push(like, like);
     }
-    const rows = await all(`SELECT c.* FROM chats c WHERE ${where.join(' AND ')} ORDER BY c.updated_at DESC LIMIT 200`, ...args);
-    sendJson(res, 200, { chats: rows.map(chatView) });
+    // Pagination: ?limit=1..200 (default 200) and ?before=<updated_at of the last row> for the next page.
+    const limit = Math.min(200, Math.max(1, parseInt(url.searchParams.get('limit') || '200', 10) || 200));
+    const before = parseInt(url.searchParams.get('before') || '', 10);
+    if (before) { where.push('c.updated_at < ?'); args.push(before); }
+    const rows = await all(`SELECT c.* FROM chats c WHERE ${where.join(' AND ')} ORDER BY c.updated_at DESC LIMIT ${limit + 1}`, ...args);
+    sendJson(res, 200, { chats: rows.slice(0, limit).map(chatView), has_more: rows.length > limit });
   });
 
   r.post('/api/chats', async (req, res, ctx) => {

@@ -11,6 +11,12 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+  <!-- Splash: plain HTML/CSS so it paints before any JavaScript runs (no blank screen). Removed by app.js. -->
+  <div id="splash" role="status" aria-label="Approx AI is starting">
+    <img src="/assets/logo-mark-192.png" alt="Approx AI" width="88" height="88">
+    <div class="splash-name">Approx <span>AI</span></div>
+    <div class="splash-by">by Approx Technology</div>
+  </div>
   <div id="app" aria-live="polite"></div>
   <noscript>Approx AI requires JavaScript.</noscript>
   <script type="module" src="/js/app.js"></script>

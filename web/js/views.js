@@ -89,7 +89,7 @@ function form(fields, submitLabel, onSubmit) {
   return f;
 }
 
-const SETTINGS = {
+export const SETTINGS = {
   async account(b) {
     const r = await api('/api/settings');
     const name = h('input', { class: 'input', value: r.user.display_name, maxlength: '80', id: 'dn' });
@@ -283,9 +283,19 @@ export async function codeView(pid) {
     h('h3', {}, 'Agent'), instr,
     h('div', { class: 'row' }, h('button', { class: 'btn primary', onclick: async (e) => {
       e.target.disabled = true; out.replaceChildren(h('p', { class: 'muted' }, 'Agent is working…'));
-      try { const p = await api(`/api/fabbox/${pid}/agent`, { method: 'POST', body: { instruction: instr.value, model: state.model, mode: 'high' } }); if (p.refused) out.replaceChildren(h('div', { class: 'alert error' }, p.message)); else codeView(pid); }
+      try {
+        const p = await api(`/api/fabbox/${pid}/agent`, { method: 'POST', body: { instruction: instr.value, model: state.model, mode: 'high' } });
+        if (p.refused) { out.replaceChildren(h('div', { class: 'alert error' }, p.message)); return; }
+        // Permissions → Automatic: apply the proposal right away (same endpoint as "Approve & apply").
+        if (state.settings?.permissions_mode === 'automatic' && p.proposal?.id) {
+          await api(`/api/fabbox/${pid}/proposals/${p.proposal.id}/approve`, { method: 'POST' });
+          toast('Changes applied automatically (Permissions: Automatic)');
+        }
+        codeView(pid);
+      }
       catch (err) { out.replaceChildren(h('div', { class: 'alert error' }, err.message)); } finally { e.target.disabled = false; }
-    } }, 'Run agent'), h('span', { class: 'small muted' }, 'Proposals require your approval.')), out,
+    } }, 'Run agent'), h('span', { class: 'small muted' }, state.settings?.permissions_mode === 'automatic'
+      ? 'Permissions: Automatic — changes are applied as soon as they are proposed.' : 'Permissions: Manual — proposals wait for your approval.')), out,
     props.proposals.map(propEl),
     h('h3', {}, 'Files'), r.files.length ? h('div', { class: 'list file-tree' }, r.files.map((f) => h('button', { class: 'list-item', onclick: () => open(f.path) }, h('span', { class: 'grow' }, f.path), h('span', { class: 'sub' }, fmtBytes(f.size))))) : h('p', { class: 'muted' }, 'No files yet.'),
     h('div', { class: 'row' }, tplSel, h('button', { class: 'btn', onclick: async () => { await api(`/api/coeprox/${pid}/scaffold`, { method: 'POST', body: { template: tplSel.value } }); codeView(pid); } }, 'Scaffold template')),

@@ -13,6 +13,7 @@ export function registerAccountRoutes(r) {
     sendJson(res, 200, { user: await publicUser(u), settings: {
       default_model: s.default_model, default_mode: s.default_mode, memory_enabled: !!s.memory_enabled,
       training_opt_in: !!s.training_opt_in, notifications_email: !!s.notifications_email, personalization: s.personalization, theme: s.theme,
+      permissions_mode: s.permissions_mode || 'manual',
     } });
   });
 
@@ -32,6 +33,7 @@ export function registerAccountRoutes(r) {
     }
     if (b.personalization !== undefined) { sets.push('personalization = ?'); args.push(str(b.personalization, 'personalization', { max: 1500, required: false }) || ''); }
     if (b.theme !== undefined) { sets.push('theme = ?'); args.push(oneOf(b.theme, 'theme', ['dark', 'light', 'system'])); }
+    if (b.permissions_mode !== undefined) { sets.push('permissions_mode = ?'); args.push(oneOf(b.permissions_mode, 'permissions_mode', ['manual', 'automatic'])); }
     if (sets.length) await run(`UPDATE settings SET ${sets.join(', ')} WHERE user_id = ?`, ...args, u.id);
     if (b.training_opt_in === false) {
       // Withdrawing consent removes every chat from training eligibility immediately.
