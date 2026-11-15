@@ -16,7 +16,18 @@ export function requireSupabase() {
 
 /** Supabase error → { status, code, message } (handles both the current and the older GoTrue error shapes). */
 export class SupabaseError extends Error {
-  constructor(status, code, message) { super(message); this.status = status; this.code = code; }
+  constructor(status, code, message, errorId = null) { super(message); this.status = status; this.code = code; this.errorId = errorId; }
+}
+
+// Supabase answers 500 "Error sending confirmation email" (or recovery / email-change / magic-link email) when its SMTP
+// settings cannot deliver: the sign-up is rolled back, so this is a delivery failure, not an outage.
+const EMAIL_SEND_FAILURE = /error sending (confirmation|recovery|magic link|email change|invite|reauthentication)/i;
+export const isEmailDeliveryFailure = (e) => e instanceof SupabaseError && e.status >= 500 && EMAIL_SEND_FAILURE.test(e.message || '');
+
+/** Server-side diagnostics for failed Supabase calls. Never includes request bodies, emails, passwords or tokens. */
+function logSupabaseError(path, e) {
+  if (process.env.APPROX_ENV === 'test' && !process.env.APPROX_LOG_AUTH_ERRORS) return;
+  console.error(JSON.stringify({ event: 'supabase_auth_error', path, status: e.status, code: e.code, message: String(e.message).slice(0, 200), error_id: e.errorId }));
 }
 
 async function call(method, path, { body, query, bearer, admin = false } = {}) {
@@ -31,7 +42,9 @@ async function call(method, path, { body, query, bearer, admin = false } = {}) {
   try {
     res = await fetch(url, { method, headers, body: body ? JSON.stringify(body) : undefined, signal: AbortSignal.timeout(15_000) });
   } catch (e) {
-    throw new SupabaseError(503, 'auth_unreachable', `Supabase Auth is unreachable: ${e.name}`);
+    const err = new SupabaseError(503, 'auth_unreachable', `Supabase Auth is unreachable: ${e.name}`);
+    logSupabaseError(path, err);
+    throw err;
   }
   const text = await res.text();
   let data = null;
@@ -39,11 +52,16 @@ async function call(method, path, { body, query, bearer, admin = false } = {}) {
   if (!res.ok) {
     const code = data?.error_code || data?.code_name || data?.error || (res.status === 429 ? 'over_request_rate_limit' : `http_${res.status}`);
     const msg = data?.msg || data?.message || data?.error_description || `Supabase Auth error ${res.status}`;
-    throw new SupabaseError(res.status, String(code), String(msg));
+    const err = new SupabaseError(res.status, String(code), String(msg), data?.error_id || res.headers.get('x-request-id') || null);
+    // Expected outcomes (wrong password, unconfirmed email, expired link…) are not logged; anything else is.
+    if (res.status >= 500 || !EXPECTED.has(err.code)) logSupabaseError(path, err);
+    throw err;
   }
   return data;
 }
 
+const EXPECTED = new Set(['invalid_credentials', 'invalid_grant', 'email_not_confirmed', 'weak_password', 'same_password', 'otp_expired',
+  'bad_jwt', 'session_not_found', 'user_not_found', 'email_exists', 'user_already_exists', 'over_email_send_rate_limit', 'over_request_rate_limit']);
 const redirectTo = () => config.supabase.callbackUrl;
 
 export const sb = {
@@ -64,6 +82,10 @@ export const sb = {
 /** Map a Supabase error to the HTTP error shown to the person (never leaks internals). */
 export function toHttpError(e) {
   if (!(e instanceof SupabaseError)) return e;
+  if (isEmailDeliveryFailure(e)) {
+    return new HttpError(502, 'email_delivery_failed',
+      "We couldn't send the email (the email service is not delivering right now), so nothing was changed. Please try again later.");
+  }
   switch (e.code) {
     case 'email_not_confirmed':
       return new HttpError(403, 'email_not_verified', 'Please verify your email first. Check your inbox (and spam folder) for the confirmation link, or resend it.');
@@ -81,14 +103,18 @@ export function toHttpError(e) {
       return new HttpError(429, 'rate_limited', 'Too many requests. Please slow down.');
     case 'email_address_invalid': case 'validation_failed':
       return new HttpError(400, 'bad_request', 'A valid email address is required');
+    case 'captcha_failed':
+      return new HttpError(400, 'captcha_required', 'Sign-in is protected by a CAPTCHA in Supabase, which this app does not support. Turn off CAPTCHA protection in Supabase Auth settings.');
     case 'signup_disabled':
       return new HttpError(403, 'signup_disabled', 'New sign-ups are currently disabled.');
     case 'email_exists': case 'user_already_exists':
       return new HttpError(400, 'email_in_use', 'Email is already in use');
     case 'auth_unreachable':
       return new HttpError(503, 'auth_unavailable', 'Sign-in service is temporarily unavailable. Please try again.');
+    case 'no_api_key': case 'invalid_api_key':
+      return new HttpError(503, 'auth_not_configured', 'Sign-in is misconfigured on this server (Supabase API key rejected).');
     default:
-      if (e.status >= 500) return new HttpError(502, 'auth_unavailable', 'Sign-in service error. Please try again.');
+      if (e.status >= 500) return new HttpError(502, 'auth_unavailable', `Sign-in service error (${e.code}). Please try again.`);
       if (e.status === 401 || e.status === 403) return new HttpError(400, 'invalid_token', 'This link or code is invalid or has expired. Request a new one.');
       return new HttpError(400, 'auth_error', e.message);
   }

@@ -88,3 +88,34 @@ has to be checked or set by you in the dashboard.
 5. Sign out, reload: you stay signed out. Sign in, reload: you stay signed in (session persistence).
 6. Android app (existing APK): sign in with the confirmed account; "Forgot password" sends the reset email; if you
    added the code line to the templates, the code from the email works on the app's code screens.
+
+## Troubleshooting
+
+**Sign-up / resend / reset answer `email_delivery_failed` ("We couldn't send the email…")** — Supabase itself
+returned `500 unexpected_failure: Error sending confirmation email` (or `…recovery email`): its SMTP settings cannot
+deliver, and Supabase rolled the sign-up back (no half-created account). Verified on 2026-11-15 against this project
+with a diagnostic address. Saving the SMTP form does not test it. Check in Supabase → Authentication → Emails → SMTP:
+
+| Field | Gmail value |
+|---|---|
+| Host | `smtp.gmail.com` |
+| Port | `465` (or `587`) |
+| Username | the full Gmail address |
+| Password | a 16-character **App Password** (Google Account → Security → 2-Step Verification must be on → App passwords), typed **without spaces** — not the normal Gmail password |
+| Sender email | exactly the same Gmail address (Gmail rejects or rewrites other senders) |
+| Sender name | `Approx AI` |
+
+The exact SMTP error is in Supabase → **Logs → Auth** (search for "Error sending" or the `error_id` from the Vercel
+function log line `{"event":"supabase_auth_error",…}`), e.g. `535 5.7.8 Username and Password not accepted` = wrong
+App Password / username. After fixing, test from Supabase → Authentication → Users → **Add user → Send invitation**
+(or "Send password recovery") to your own address before retrying sign-up. The "personal email provider" warning is
+informational; Gmail allows about 500 emails a day.
+
+**Existing account says "Incorrect email or password"** — accounts created before the Supabase migration are not in
+Supabase yet. With the correct old password the first sign-in creates the Supabase account and needs to send one
+confirmation email; while SMTP is failing this answers `email_delivery_failed` ("…your account needs a one-time
+confirmation email…"). "Incorrect email or password" means the old password did not match (or the account signs in
+with Google). Data is never lost: after confirming, the same Approx account is linked.
+
+Every unexpected Supabase error is logged server-side as one JSON line (`supabase_auth_error`: path, status, code,
+message, error_id) — never request bodies, emails, passwords or tokens.

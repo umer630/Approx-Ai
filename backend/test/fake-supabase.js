@@ -13,6 +13,7 @@ export async function startFakeSupabase({ publishableKey = 'sb_publishable_test_
   const emails = [];             // what Supabase would have emailed: { to, type, token_hash, link, redirect_to }
   const calls = [];              // { method, path, query } for assertions
   let base = '';
+  const flags = { failEmails: false }; // simulate broken SMTP: Supabase answers 500 and rolls the sign-up back
 
   const rnd = (n = 24) => crypto.randomBytes(n).toString('hex');
   const pub = (u) => ({ id: u.id, aud: 'authenticated', role: 'authenticated', email: u.email, new_email: u.new_email || undefined,
@@ -56,6 +57,7 @@ export async function startFakeSupabase({ publishableKey = 'sb_publishable_test_
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return err(res, 400, 'email_address_invalid', 'Email address is invalid');
       if (String(body.password || '').length < 6) return err(res, 422, 'weak_password', 'Password should be at least 6 characters.');
       const ex = users.get(email);
+      if (flags.failEmails && !(ex && ex.confirmed_at)) return err(res, 500, 'unexpected_failure', 'Error sending confirmation email');
       if (ex && ex.confirmed_at) return ok(res, { id: crypto.randomUUID(), email, identities: [], user_metadata: {} }); // obfuscated
       if (ex) { ex.password = body.password; send(email, 'signup', redirectTo); return ok(res, pub(ex)); }
       const u = { id: crypto.randomUUID(), email, password: body.password, confirmed_at: null, user_metadata: body.data || {}, created_at: new Date().toISOString() };
@@ -91,11 +93,15 @@ export async function startFakeSupabase({ publishableKey = 'sb_publishable_test_
     }
     if (req.method === 'POST' && p === '/resend') {
       const u = users.get(String(body.email || '').toLowerCase());
-      if (body.type === 'signup' && u && !u.confirmed_at) send(u.email, 'signup', redirectTo);
+      if (body.type === 'signup' && u && !u.confirmed_at) {
+        if (flags.failEmails) return err(res, 500, 'unexpected_failure', 'Error sending confirmation email');
+        send(u.email, 'signup', redirectTo);
+      }
       return ok(res, {});
     }
     if (req.method === 'POST' && p === '/recover') {
       const u = users.get(String(body.email || '').toLowerCase());
+      if (u && flags.failEmails) return err(res, 500, 'unexpected_failure', 'Error sending recovery email');
       if (u) send(u.email, 'recovery', redirectTo);
       return ok(res, {});
     }
@@ -136,5 +142,5 @@ export async function startFakeSupabase({ publishableKey = 'sb_publishable_test_
   }
   const lastEmail = (to, type) => [...emails].reverse().find((m) => m.to === to && (!type || m.type === type));
   const confirm = (email) => { const u = users.get(email.toLowerCase()); if (u) u.confirmed_at ||= new Date().toISOString(); };
-  return { url: base, publishableKey, secretKey, users, emails, calls, click, lastEmail, confirm, close: () => server.close() };
+  return { url: base, flags, publishableKey, secretKey, users, emails, calls, click, lastEmail, confirm, close: () => server.close() };
 }

@@ -6,7 +6,7 @@ import {
   createSession, revokeSessions, sessionCookie, requireUser,
 } from '../security.js';
 import { sendMail } from '../mail.js';
-import { sb, SupabaseError, toHttpError, requireSupabase, supabaseConfigured } from '../supabase.js';
+import { sb, SupabaseError, toHttpError, requireSupabase, supabaseConfigured, isEmailDeliveryFailure } from '../supabase.js';
 import { config } from '../config.js';
 import { verifyGoogleIdToken } from '../google.js';
 
@@ -176,7 +176,13 @@ export function registerAuthRoutes(r) {
         // create the Supabase account with that password (Supabase emails a confirmation link) instead of failing.
         const legacy = await one("SELECT * FROM users WHERE email = ? AND status = 'active' AND supabase_uid IS NULL AND password_hash LIKE 'scrypt$%'", email);
         if (legacy && await verifyPassword(password, legacy.password_hash)) {
-          await viaSupabase(() => sb.signUp(email, password, ''));
+          try { await sb.signUp(email, password, ''); } catch (e2) {
+            if (isEmailDeliveryFailure(e2)) {
+              throw new HttpError(502, 'email_delivery_failed', 'Approx AI has moved to a new sign-in system and your account needs a one-time '
+                + "confirmation email, but the email could not be sent right now. Your account and data are safe — please try again later.");
+            }
+            throw toHttpError(e2);
+          }
           await audit(legacy.id, legacy.id, 'auth.migration_email_sent', legacy.id, ip);
           throw new HttpError(409, 'account_migration_required',
             'Approx AI has moved to a new sign-in system. We emailed you a confirmation link — open it, then sign in again with the same password.');
@@ -186,6 +192,12 @@ export function registerAuthRoutes(r) {
         if (known) await securityEvent(known.id, 'login_failed', 'low', ip);
       }
       throw toHttpError(e);
+    }
+    // The grant comes straight from Supabase over TLS; still require a complete, confirmed identity before trusting it.
+    if (!grant?.access_token || !grant?.user?.id || !grant.user.email) throw new HttpError(502, 'auth_unavailable', 'Sign-in service returned an incomplete response. Please try again.');
+    if (!(grant.user.email_confirmed_at || grant.user.confirmed_at)) {
+      await sb.logout(grant.access_token);
+      throw new HttpError(403, 'email_not_verified', 'Please verify your email first. Check your inbox (and spam folder) for the confirmation link, or resend it.');
     }
     const u = await localUserFor(grant.user, ip);
     await sb.logout(grant.access_token);

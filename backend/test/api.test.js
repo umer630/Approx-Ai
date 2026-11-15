@@ -124,6 +124,87 @@ test('change password goes through Supabase; wrong current password refused', as
   assert.equal((await req('POST', '/api/auth/login', { body: { email: u.email, password: 'Changed12345', client: 'mobile' } })).status, 200);
 });
 
+test('broken Supabase SMTP: sign-up, resend, reset and legacy migration report email_delivery_failed (never a fake success); nothing half-created', async () => {
+  const email = `smtpfail_${Date.now()}@example.com`;
+  const u = await makeUser();          // a confirmed account, created while email still works
+  supabase.flags.failEmails = true;
+  try {
+    const s = await req('POST', '/api/auth/signup', { body: { email, password: 'SmtpFails12345' } });
+    assert.equal(s.status, 502);
+    assert.equal(s.data.error.code, 'email_delivery_failed');
+    assert.doesNotMatch(s.data.error.message, /Sign-in service error/);
+    assert.equal(await db.one('SELECT id FROM users WHERE email = ?', email), undefined, 'no local account');
+    assert.equal(supabase.users.has(email), false, 'no Supabase account (rolled back)');
+    // existing, unconfirmed account → resend fails honestly
+    supabase.flags.failEmails = false;
+    await req('POST', '/api/auth/signup', { body: { email, password: 'SmtpFails12345' } });
+    supabase.flags.failEmails = true;
+    assert.equal((await req('POST', '/api/auth/resend-verification', { body: { email } })).data.error.code, 'email_delivery_failed');
+    // password reset email for a confirmed account
+    assert.equal((await req('POST', '/api/auth/forgot-password', { body: { email: u.email } })).data.error.code, 'email_delivery_failed');
+    // account from the earlier sign-in system: correct old password, but the confirmation email cannot be sent
+    const { hashPassword } = await import('../src/security.js');
+    const legacy = `legacy_smtp_${Date.now()}@example.com`;
+    await db.run('INSERT INTO users (id,email,password_hash,email_verified,created_at,updated_at) VALUES (?,?,?,1,?,?)', 'usr_lsmtp' + Date.now(), legacy, await hashPassword('LegacyPass123'), Date.now(), Date.now());
+    const l = await req('POST', '/api/auth/login', { body: { email: legacy, password: 'LegacyPass123', client: 'mobile' } });
+    assert.equal(l.status, 502);
+    assert.equal(l.data.error.code, 'email_delivery_failed');
+    assert.match(l.data.error.message, /new sign-in system/);
+    assert.equal((await req('POST', '/api/auth/login', { body: { email: legacy, password: 'WrongLegacy123', client: 'mobile' } })).status, 401, 'wrong old password is still just wrong');
+  } finally { supabase.flags.failEmails = false; }
+  // once SMTP works again, the same sign-up succeeds
+  const again = `smtpfixed_${Date.now()}@example.com`;
+  assert.equal((await req('POST', '/api/auth/signup', { body: { email: again, password: 'SmtpFixed12345' } })).status, 202);
+});
+
+test('Supabase failures are logged for diagnosis without passwords, tokens or emails', async () => {
+  const email = `logcheck_${Date.now()}@example.com`;
+  const lines = []; const orig = console.error;
+  process.env.APPROX_LOG_AUTH_ERRORS = '1';
+  console.error = (...a) => lines.push(a.join(' '));
+  supabase.flags.failEmails = true;
+  try { await req('POST', '/api/auth/signup', { body: { email, password: 'LogCheckPass123' } }); }
+  finally { supabase.flags.failEmails = false; console.error = orig; delete process.env.APPROX_LOG_AUTH_ERRORS; }
+  const out = lines.join('\n');
+  assert.match(out, /"event":"supabase_auth_error"/);
+  assert.match(out, /Error sending confirmation email/);
+  assert.doesNotMatch(out, /LogCheckPass123|logcheck_|access_token|sb_publishable/);
+});
+
+test('Supabase unreachable or API key rejected → honest 503, no account created', async () => {
+  const saved = { url: process.env.SUPABASE_URL, key: process.env.SUPABASE_PUBLISHABLE_KEY };
+  const email = `down_${Date.now()}@example.com`;
+  try {
+    process.env.SUPABASE_URL = 'http://127.0.0.1:9';
+    for (const [route, body] of [['/api/auth/signup', { email, password: 'DownPass12345' }], ['/api/auth/login', { email, password: 'DownPass12345' }]]) {
+      const r = await req('POST', route, { body });
+      assert.equal(r.status, 503, route);
+      assert.equal(r.data.error.code, 'auth_unavailable', route);
+    }
+    process.env.SUPABASE_URL = saved.url;
+    process.env.SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_wrong';
+    const k = await req('POST', '/api/auth/signup', { body: { email, password: 'DownPass12345' } });
+    assert.equal(k.status, 503);
+    assert.equal(k.data.error.code, 'auth_not_configured');
+    process.env.SUPABASE_PUBLISHABLE_KEY = '';
+    assert.equal((await req('POST', '/api/auth/login', { body: { email, password: 'DownPass12345' } })).data.error.code, 'auth_not_configured');
+  } finally { process.env.SUPABASE_URL = saved.url; process.env.SUPABASE_PUBLISHABLE_KEY = saved.key; }
+  assert.equal(await db.one('SELECT id FROM users WHERE email = ?', email), undefined);
+});
+
+test('session: created on login, validated by /me, revoked by logout', async () => {
+  const u = await makeUser();
+  const l = await req('POST', '/api/auth/login', { body: { email: u.email, password: u.password } });
+  assert.equal(l.status, 200);
+  const cookie = l.headers.get('set-cookie').split(';')[0];
+  const me = await req('GET', '/api/auth/me', { cookie });
+  assert.equal(me.status, 200);
+  assert.equal(me.data.user.email, u.email);
+  assert.equal((await req('GET', '/api/auth/me', { token: u.token })).status, 200, 'mobile bearer session valid');
+  assert.equal((await req('POST', '/api/auth/logout', { cookie, csrf: l.data.csrf_token })).status, 200);
+  assert.equal((await req('GET', '/api/auth/me', { cookie })).status, 401);
+});
+
 test('cookie sessions require CSRF token for state-changing requests', async () => {
   const u = await makeUser();
   const l = await req('POST', '/api/auth/login', { body: { email: u.email, password: u.password } });
