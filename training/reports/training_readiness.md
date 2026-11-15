@@ -5,7 +5,7 @@ Training must not start for any model that is not READY FOR TRAINING.
 
 | Model | Status | Base model |
 |---|---|---|
-| nick-4.8 | **BLOCKED — LICENSE** | Qwen/Qwen2.5-3B-Instruct |
+| nick-4.8 | **BLOCKED — HUMAN REVIEW** | microsoft/Phi-4-mini-instruct |
 | hike-6.5 | **BLOCKED — HUMAN REVIEW** | Qwen/Qwen2.5-7B-Instruct |
 | sona-9.0 | **BLOCKED — HUMAN REVIEW** | Qwen/Qwen2.5-14B-Instruct |
 | fab-100x | **BLOCKED — BASE MODEL** | — |
@@ -13,7 +13,6 @@ Training must not start for any model that is not READY FOR TRAINING.
 
 ## nick-4.8
 
-- **LICENSE** — Qwen/Qwen2.5-3B-Instruct is under qwen-research (Qwen RESEARCH LICENSE AGREEMENT: 'Non-Commercial … research or evaluation purposes only'): no commercial use. Keep the config unchanged until you approve an alternative (reports/base_model_options.md).
 - **HUMAN REVIEW** — 0 genuine human reviews / 500 required (auto_verified and source_community_reviewed excluded: 366 / 6,241)
 
 ## hike-6.5

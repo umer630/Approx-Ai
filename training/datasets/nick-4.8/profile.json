@@ -3,8 +3,8 @@
  "min_records": 30000,
  "max_records": 30000,
  "min_quality": 0.45,
- "base_model": "Qwen/Qwen2.5-3B-Instruct",
- "base_model_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+ "base_model": "microsoft/Phi-4-mini-instruct",
+ "base_model_revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
  "capability": "Reliable everyday assistant: multilingual communication, mathematics, science, coding and general reasoning.",
  "domain_min_share": {
   "mathematics": 0.08,
@@ -47,5 +47,5 @@
   "eval": 0.03,
   "test": 0.03
  },
- "note": "Base model / revision are copied from the existing model configuration and are never changed by the dataset pipeline."
+ "note": "Base model / revision are copied from training/models/nick-4.8.yaml and are never changed by the dataset pipeline. Changed 2026-11-15 (owner decision): Qwen2.5-3B-Instruct (non-commercial) → Phi-4-mini-instruct (MIT)."
 }

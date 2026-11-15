@@ -28,7 +28,7 @@ class SmokeCPU(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             d = Path(d)
             self.run_py("data/seed/make_seed.py")
-            self.run_py("-m", "approx_data.build")
+            self.run_py("-m", "approx_data.build", "--legacy")   # the legacy Nick-only trainer reads data/processed
             self.run_py("tests/make_tiny_model.py", str(d / "tiny"))
             self.run_py("train_qlora.py", "--smoke-base", str(d / "tiny"), "--output-dir", str(d / "run"))
             out = d / "run-SMOKE"

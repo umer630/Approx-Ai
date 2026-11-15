@@ -90,7 +90,8 @@ class TestTargetsAndProfiles(unittest.TestCase):
 
     def test_nick_base_model_locked(self):
         p = pipeline.load_profile("nick-4.8")
-        self.assertEqual((p["base_model"], p["base_model_revision"]), ("Qwen/Qwen2.5-3B-Instruct", "aa8e72537993ba99e69dfaafa59ed015b17504d1"))
+        # owner-approved change 2026-11-15 (Qwen2.5-3B research licence → MIT); pinned revision
+        self.assertEqual((p["base_model"], p["base_model_revision"]), ("microsoft/Phi-4-mini-instruct", "cfbefacb99257ffa30c83adab238a50856ac3083"))
 
     def test_math_never_dominates(self):
         for m in ("nick-4.8", "hike-6.5", "sona-9.0", "fab-100x", "fab-500x"):

@@ -104,6 +104,10 @@ def generate_eval_answers(adapter_dir: Path | None, base_model: str, items: list
     return answers
 
 
+def _ver(v: str) -> tuple:
+    return tuple(int(x) for x in re.findall(r"\d+", v)[:3])
+
+
 def prepare_dataset(model_id: str, ds_dir: Path, *, smoke: bool = False, smoke_scale: float = 0.05) -> dict:
     """The unified datahub pipeline (registry-approved sources only). Uses the prebuilt, checksum-verified dataset in
     training/datasets/<model>/build when present; otherwise builds it. Smoke runs build curriculum-only at tiny scale."""
@@ -168,6 +172,17 @@ def train_one(model_cfg_path, models_dir: Path, work_dir: Path, *, smoke: bool =
     manifest = prepare_dataset(model_id, ds_dir, smoke=smoke, smoke_scale=smoke_scale)
     stage("dataset", version=manifest["dataset_version"], train=manifest["counts"]["train"], test=manifest["counts"]["test"],
           production_ready=manifest["production_ready"], notes=manifest["production_readiness_notes"])
+
+    # 1b. library compatibility: refuse (instead of silently mis-training) when the base needs a newer transformers
+    need = cfg.get("min_transformers_version")
+    if need and not smoke:
+        try:
+            import transformers
+            have = transformers.__version__
+        except ImportError:
+            have = None
+        if have is None or _ver(have) < _ver(need):
+            return stop(f"{cfg['base_model']} needs transformers >= {need} (installed: {have or 'none'}); install the pinned requirements", "DEPENDENCY_TOO_OLD")
 
     # 2. hardware plan
     vram, cc, gpu_name = hardware.detect_gpu()

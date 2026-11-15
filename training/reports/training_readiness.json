@@ -1,18 +1,14 @@
 {
  "nick-4.8": {
-  "status": "BLOCKED — LICENSE",
+  "status": "BLOCKED — HUMAN REVIEW",
   "blockers": [
-   [
-    "LICENSE",
-    "Qwen/Qwen2.5-3B-Instruct is under qwen-research (Qwen RESEARCH LICENSE AGREEMENT: 'Non-Commercial … research or evaluation purposes only'): no commercial use. Keep the config unchanged until you approve an alternative (reports/base_model_options.md)."
-   ],
    [
     "HUMAN REVIEW",
     "0 genuine human reviews / 500 required (auto_verified and source_community_reviewed excluded: 366 / 6,241)"
    ]
   ],
-  "base_model": "Qwen/Qwen2.5-3B-Instruct",
-  "base_model_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1"
+  "base_model": "microsoft/Phi-4-mini-instruct",
+  "base_model_revision": "cfbefacb99257ffa30c83adab238a50856ac3083"
  },
  "hike-6.5": {
   "status": "BLOCKED — HUMAN REVIEW",

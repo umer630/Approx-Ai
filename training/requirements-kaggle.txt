@@ -1,6 +1,6 @@
 # Installed on top of the Kaggle GPU image. PyTorch + CUDA come from the Kaggle image (do NOT reinstall torch).
 # These exact versions were exercised end-to-end by the CPU smoke test (tests/test_smoke_cpu.py) with torch 2.5.1.
-transformers==4.46.3
+transformers==4.49.0
 peft==0.13.2
 accelerate==1.1.1
 datasets==3.1.0

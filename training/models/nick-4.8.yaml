@@ -4,14 +4,19 @@ model_id: nick-4.8
 display_name: Nick 4.8
 kind: language_model
 version_series: "1.0"               # releases are 1.0.0, 1.0.1, … (immutable; every artifact gets a new version)
-base_model: Qwen/Qwen2.5-3B-Instruct
-base_model_revision: null            # null = resolve the current Hub commit and record it; set a SHA to pin
+# Base changed 2026-11-15 by owner decision: Qwen2.5-3B-Instruct (Qwen Research License, non-commercial) →
+# Phi-4-mini-instruct (MIT). The recovered Qwen-based adapter (sha256 2faae216…c34c4) is kept untouched and is
+# research-only; Nick 4.8 releases from this config are new adapters on the new base.
+base_model: microsoft/Phi-4-mini-instruct
+base_model_revision: cfbefacb99257ffa30c83adab238a50856ac3083   # pinned (Hub commit verified 2026-11-15)
 base_model_license_note: >-
-  Qwen2.5-3B-Instruct is published under the Qwen Research License (non-commercial terms). Commercial
-  deployment needs a licence check or a different base model — this is flagged as a release blocker.
-license_blocker: "base model licence (Qwen Research License) must be cleared for commercial use"
-architecture_hint: {hidden_size: 2048, intermediate_size: 11008, num_hidden_layers: 36, num_attention_heads: 16,
-                    num_key_value_heads: 2, vocab_size: 151936, tie_word_embeddings: true}
+  Phi-4-mini-instruct is published under the MIT License (verified on the Hub card and LICENSE file).
+license_blocker: null
+# Phi-4-mini uses partial rotary embeddings (partial_rotary_factor 0.75), supported natively only from
+# transformers 4.49.0; older versions would silently mis-train, so the runner refuses to start below this.
+min_transformers_version: "4.49.0"
+architecture_hint: {hidden_size: 3072, intermediate_size: 8192, num_hidden_layers: 32, num_attention_heads: 24,
+                    num_key_value_heads: 8, vocab_size: 200064, tie_word_embeddings: true}
 system_prompt: >-
   You are Nick 4.8, the default model of Approx AI by Approx Technology. You are a patient, accurate tutor and
   assistant. Reply in the user's language (English, Urdu, Roman Urdu or a mix). Explain step by step when it helps,
@@ -22,7 +27,7 @@ dataset:
   max_per_domain: 20000
   ratios: {eval: 0.08, test: 0.08}
   seed: 4848
-lora: {r: 16, alpha: 32, dropout: 0.05, target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]}
+lora: {r: 16, alpha: 32, dropout: 0.05, target_modules: [qkv_proj, o_proj, gate_up_proj, down_proj]}   # Phi-3 fused projections
 train:
   epochs: 3
   learning_rate: 0.0002

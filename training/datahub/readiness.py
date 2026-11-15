@@ -16,6 +16,7 @@ ORDER = ["BASE MODEL", "LICENSE", "DATA", "HUMAN REVIEW", "OTHER"]
 # Verified on the Hugging Face Hub (cardData.license + LICENSE file), 2026-11-14.
 BASE_LICENSES = {
     "Qwen/Qwen2.5-3B-Instruct": ("qwen-research", False, "Qwen RESEARCH LICENSE AGREEMENT: 'Non-Commercial … research or evaluation purposes only'"),
+    "microsoft/Phi-4-mini-instruct": ("mit", True, "MIT License"),
     "Qwen/Qwen2.5-7B-Instruct": ("apache-2.0", True, "Apache License 2.0"),
     "Qwen/Qwen2.5-14B-Instruct": ("apache-2.0", True, "Apache License 2.0"),
     "Qwen/Qwen2.5-Coder-32B-Instruct": ("apache-2.0", True, "Apache License 2.0"),

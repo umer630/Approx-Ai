@@ -234,7 +234,7 @@ class TestRegistryCompletion(unittest.TestCase):
     def test_base_models_unchanged(self):
         nick = pipeline.load_profile("nick-4.8")
         self.assertEqual((nick["base_model"], nick["base_model_revision"]),
-                         ("Qwen/Qwen2.5-3B-Instruct", "aa8e72537993ba99e69dfaafa59ed015b17504d1"))
+                         ("microsoft/Phi-4-mini-instruct", "cfbefacb99257ffa30c83adab238a50856ac3083"))
         self.assertIsNone(pipeline.load_profile("fab-100x")["base_model"])
 
 
@@ -335,3 +335,48 @@ class TestResumeReusesRunDataset(ReviewFixture):
         got2 = runner.prepare_dataset("m", ds)
         self.assertEqual(got2["files"]["train.jsonl"]["sha256"], man["files"]["train.jsonl"]["sha256"])
         self.assertNotEqual((ds / "train.jsonl").read_text(), "tampered\n")
+
+
+class TestNickBaseChange(unittest.TestCase):
+    def test_phi4_mini_config_is_consistent(self):
+        import yaml
+        from engine import runner
+        cfg = yaml.safe_load((TRAINING / "models" / "nick-4.8.yaml").read_text())
+        self.assertEqual(cfg["base_model"], "microsoft/Phi-4-mini-instruct")
+        self.assertEqual(len(cfg["base_model_revision"]), 40)
+        self.assertIsNone(cfg["license_blocker"])
+        self.assertEqual(cfg["lora"]["target_modules"], ["qkv_proj", "o_proj", "gate_up_proj", "down_proj"])
+        self.assertEqual(cfg["min_transformers_version"], "4.49.0")
+        self.assertLess(runner._ver("4.46.3"), runner._ver(cfg["min_transformers_version"]))
+        for req in (TRAINING / "requirements-kaggle.txt", TRAINING / "colab" / "requirements-colab.txt", TRAINING.parent / "inference" / "requirements.txt"):
+            self.assertIn("transformers==4.49.0", req.read_text(), req)
+
+
+class TestRestoreBundle(ReviewFixture):
+    def _bundle(self, out):
+        import hashlib, tarfile
+        out.mkdir(parents=True, exist_ok=True)
+        t = out / "m-test.tar.gz"
+        with tarfile.open(t, "w:gz") as tf:
+            for f in ("train.jsonl", "eval.jsonl", "test.jsonl", "manifest.json"):
+                tf.add(self.datasets / "m" / "build" / f, arcname=f"m/build/{f}")
+        (out / "SHA256SUMS").write_text(f"{hashlib.sha256(t.read_bytes()).hexdigest()}  {t.name}\n")
+        return t
+
+    def test_verified_restore_and_fail_closed_cases(self):
+        from datahub import restore_bundle as rb
+        shutil_dir = self.tmp / "drive"
+        t = self._bundle(shutil_dir)
+        (self.datasets / "m" / "manifest.json").write_text((self.datasets / "m" / "build" / "manifest.json").read_text())
+        r = rb.restore("m", shutil_dir, self.datasets)
+        self.assertEqual(r["records"]["total"], sum(1 for f in ("train", "eval", "test") for _ in (self.datasets / "m" / "build" / f"{f}.jsonl").open()))
+        data = bytearray(t.read_bytes()); data[-50] ^= 0xFF; t.write_bytes(bytes(data))
+        with self.assertRaises(SystemExit):
+            rb.restore("m", shutil_dir, self.datasets)                       # corrupted upload
+        self._bundle(shutil_dir)
+        m = json.loads((self.datasets / "m" / "manifest.json").read_text()); m["content_fingerprint_sha256"] = "0" * 64
+        (self.datasets / "m" / "manifest.json").write_text(json.dumps(m))
+        with self.assertRaises(SystemExit):
+            rb.restore("m", shutil_dir, self.datasets)                       # bundle from a different build
+        with self.assertRaises(SystemExit):
+            rb.restore("other", shutil_dir, self.datasets)                   # missing bundle

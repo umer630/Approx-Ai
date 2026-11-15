@@ -73,6 +73,18 @@ else:
 print("repo at", subprocess.run(["git","-C",REPO_DIR,"rev-parse","HEAD"], capture_output=True, text=True).stdout.strip())
 '''),
     code('''
+#@title 2b · Restore the verified datasets from Drive (no regeneration)
+# Upload the bundles + SHA256SUMS to MyDrive/ApproxAI/datasets/ once (see docs/DRIVE_DATASETS.md). Each bundle is checked
+# against SHA256SUMS, its files against their manifest, and its fingerprint against the manifest in this repository.
+# A missing or mismatching bundle STOPS here — nothing is rebuilt silently.
+import subprocess, sys, os
+DATASETS_DIR = os.path.join(DRIVE_ROOT, "datasets")
+rc = subprocess.run([sys.executable, "-m", "datahub.restore_bundle", "--bundles-dir", DATASETS_DIR, "--models", *MODELS.split()],
+                    cwd=os.path.join(REPO_DIR, "training")).returncode
+if rc != 0:
+    raise RuntimeError("DATASET_NOT_RESTORED: fix the bundle in Drive (see the message above), then Run all again.")
+'''),
+    code('''
 #@title 3 · GPU preflight (stops here if no GPU)
 import torch
 if not torch.cuda.is_available():
