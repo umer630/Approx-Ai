@@ -1,0 +1,1516 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+hike-6.5-20261114T224258Z-007,1,2349ffcc988f6930022fe76b,eddd699def26f5bf4a93038897e7d1e2,hike-6.5,de,software_engineering,oasst2,human_authored,"[user] Hallo, ich habe eine CSV-Datei in zwei Versionen und brauche ein Programm, das die Dateien zusammenführt und die Unterschiede sichtbar macht.
+
+[assistant] Eine kostenfreie Möglichkeit dafür wäre das Open source Programm WinMerge. Mit dem Programm kann man Dateien, aber auch Order auf Unterschiede Prüfen. Mit dem Programm können auch die Unterschiede zusammengefügt werden. Unter folgender URL findest du mehr Informationen: https://winmerge.org/
+
+[user] Läuft WinMerge auch auf Linux? Wenn nicht, gibt es Alternativen?","Nein, WinMerge ist eine Anwendung, die ausschließlich für Windows-Betriebssysteme entwickelt wurde und nicht auf Linux läuft. Es gibt jedoch Alternativen zu WinMerge, die auf Linux ausgeführt werden können. Hier sind einige der beliebtesten Alternativen:
+
+- KDiff3: KDiff3 ist eine plattformübergreifende Anwendung, die auf Windows, Linux und MacOS läuft. Sie kann zum Vergleichen und Zusammenführen von Dateien und Verzeichnissen verwendet werden und unterstützt auch die Integration mit Git und anderen Versionskontrollsystemen.
+
+- Meld: Meld ist eine weitere plattformübergreifende Anwendung, die auf Windows, Linux und MacOS ausgeführt werden kann. Sie bietet ähnliche Funktionen wie WinMerge und KDiff3 und unterstützt auch die Integration mit Versionskontrollsystemen.
+
+- Diffuse: Diffuse ist eine einfache, plattformübergreifende Anwendung, die auf Windows, Linux und MacOS läuft. Sie bietet grundlegende Funktionen zum Vergleichen und Zusammenführen von Dateien und Verzeichnissen und ist ideal für Benutzer, die eine einfache und unkomplizierte Anwendung benötigen.
+
+- Beyond Compare: Beyond Compare ist eine plattformübergreifende Anwendung, die auf Windows, Linux und MacOS läuft. Sie bietet fortgeschrittene Funktionen zum Vergleichen und Zusammenführen von Dateien und Verzeichnissen und unterstützt auch die Integration mit verschiedenen Versionskontrollsystemen.
+
+Diese Alternativen sind alle kostenlos oder haben eine kostenlose Version verfügbar. Sie können ausprobieren, welche für Ihre Bedürfnisse am besten geeignet ist.",,,,
+hike-6.5-20261114T224258Z-007,2,333d2f403faaa0282f3d35cf,1b3a298ea7f1bcde6f08dd348fb9d615,hike-6.5,de,web_backend,oasst2,human_authored,"[user] Ich möchte mit der Power BI Rest API in Python ein Programm schreiben, welches sich mit einem Service Principal gegen den Power BI Tenant authentifiziert und mir alle Workspaces zurückgibt, die einen bestimmten Suchbegriff enthalten.
+
+[assistant] Um mit der Power BI REST-API in Python zu arbeiten, müssen Sie zuerst einige Vorbereitungen treffen:
+
+Erstellen Sie einen Azure Active Directory-Anwendungs-Registrierung (App-Registrierung) in Ihrem Power BI-Tenant und notieren Sie sich die Anwendungs-ID und das Anwendungsgeheimnis.
+
+Erteilen Sie Ihrer App-Registrierung die erforderlichen Berechtigungen, indem Sie die App im Power BI-Tenant registrieren.
+
+Speichern Sie Ihre Anmeldeinformationen, einschließlich Ihrer App-Registrierungs-ID, des Anwendungsgeheimnisses und des Mandanten-IDs, an einem sicheren Ort, um eine sichere Authentifizierung zu gewährleisten.
+
+Installieren Sie die erforderlichen Python-Module wie Requests, adal und msal.
+
+Nach der Vorbereitung können Sie den folgenden Python-Code verwenden, um sich mit einem Service Principal gegen Ihren Power BI-Tenant zu authentifizieren und alle Workspaces zurückzugeben, die einen bestimmten Suchbegriff enthalten:
+
+python
+Copy code
+import requests
+import json
+import adal
+import msal
+
+Definieren Sie die erforderlichen Parameter, einschließlich der Anwendungs-ID, des Anwendungsgeheimnisses und des Mandanten-IDs
+client_id = ""<Anwendungs-ID>""
+client_secret = ""<Anwendungsgeheimnis>""
+tenant_id = ""<Mandanten-ID>""
+
+Definieren Sie die URL, um ein Token abzurufen
+authority_url = ""https://login.microsoftonline.com/"" + tenant_id
+resource_url = ""https://analysis.windows.net/powerbi/api""
+api_version = ""v1.0""
+
+Verwenden Sie ADAL, um ein Token abzurufen
+context = adal.AuthenticationContext(authority_url)
+token = context.acquire_token_with_client_credentials(resource_url, client_id, client_secret)
+
+Verwenden Sie das abgerufene Token, um eine Anforderung an die Power BI REST-API zu senden
+headers = {
+    ""Authorization"": ""Bearer "" + token[""accessToken""],
+    ""Content-Type"": ""application/json"",
+    ""Accept"": ""application/json""
+}
+
+Definieren Sie den Suchbegriff, um alle Workspaces zurückzugeben, die den Suchbegriff enthalten
+search_term = ""<Suchbegriff>""
+
+Verwenden Sie die Power BI REST-API, um alle Workspaces zurückzugeben, die den Suchbegriff enthalten
+url = ""https://api.powerbi.com/"" + api_version + ""/myorg/groups?$filter=indexof(displayName, '"" + search_term + ""') ne -1""
+response = requests.get(url, headers=headers)
+workspaces = json.loads(response.text)[""value""]
+
+Drucken Sie alle Workspaces aus, die den Suchbegriff enthalten
+for workspace in workspaces:
+    print(workspace[""name""])
+
+Dieser Code verwendet die ADAL-Bibliothek, um ein Token zu erhalten, und die Requests-Bibliothek, um eine Anforderung an die Power BI REST-API zu senden. Die API wird verwendet, um alle Workspaces zurückzugeben, die den angegebenen Suchbegriff im Workspace-Namen enthalten. Sie können das Suchkriterium nach Belieben ändern, indem Sie den Wert der search_term -Variable aktualisieren.
+
+Hinweis: Stellen Sie sicher, dass die erforderlichen Python-Module installiert sind, bevor Sie diesen Code ausführen.
+
+[user] Formatiere deine Antwort so, dass die Syntax des Codes gehighlighted wird.","Hier ist der Python Code mit mit Syntax-Highlighting 
+```python
+import requests
+import json
+import adal
+import msal
+
+# Definieren Sie die erforderlichen Parameter, einschließlich der Anwendungs-ID, des Anwendungsgeheimnisses und des Mandanten-IDs
+client_id = ""<Anwendungs-ID>""
+client_secret = ""<Anwendungsgeheimnis>""
+tenant_id = ""<Mandanten-ID>""
+
+# Definieren Sie die URL, um ein Token abzurufen
+authority_url = ""https://login.microsoftonline.com/"" + tenant_id
+resource_url = ""https://analysis.windows.net/powerbi/api""
+api_version = ""v1.0""
+
+# Verwenden Sie ADAL, um ein Token abzurufen
+context = adal.AuthenticationContext(authority_url)
+token = context.acquire_token_with_client_credentials(resource_url, client_id, client_secret)
+
+# Verwenden Sie das abgerufene Token, um eine Anforderung an die Power BI REST-API zu senden
+headers = {
+    ""Authorization"": ""Bearer "" + token[""accessToken""],
+    ""Content-Type"": ""application/json"",
+    ""Accept"": ""application/json""
+}
+
+# Definieren Sie den Suchbegriff, um alle Workspaces zurückzugeben, die den Suchbegriff enthalten
+search_term = ""<Suchbegriff>""
+
+# Verwenden Sie die Power BI REST-API, um alle Workspaces zurückzugeben, die den Suchbegriff enthalten
+url = ""https://api.powerbi.com/"" + api_version + ""/myorg/groups?$filter=indexof(displayName, '"" + search_term + ""') ne -1""
+response = requests.get(url, headers=headers)
+workspaces = json.loads(response.text)[""value""]
+
+# Drucken Sie alle Workspaces aus, die den Suchbegriff enthalten
+for workspace in workspaces:
+    print(workspace[""name""])
+```",,,,
+hike-6.5-20261114T224258Z-007,3,636c514f3182e64bf27fe33c,392360bf36ceb62c2a3dcc89c9857e94,hike-6.5,de,web_frontend,oasst2,human_authored,[user] Welche Städte lohnt es sich in Deutschland zu besuchen?,"Es gibt viele Städte in Deutschland, die einen Besuch wert sind, je nachdem, welche Art von Erfahrung Sie suchen. Hier sind einige Städte, die sehr empfehlenswert sind:
+
+- Berlin - Die Hauptstadt Deutschlands hat eine reiche Geschichte und eine pulsierende Kulturszene. Es gibt viele Museen, historische Sehenswürdigkeiten, Parks und Restaurants.
+
+- München - Die Stadt ist bekannt für ihr Oktoberfest, aber es gibt noch viel mehr zu sehen und zu tun. Sie können die Altstadt besuchen, den Englischen Garten erkunden oder das Deutsches Museum besichtigen.
+
+- Hamburg - Die Hafenstadt hat eine lebendige Kunstszene, eine Fülle von Geschäften und Restaurants und eine wunderschöne Lage an der Elbe. Besuchen Sie auch den Hamburger Fischmarkt und das Miniatur Wunderland.
+
+- Köln - Die Stadt ist bekannt für ihren Kölner Dom, aber es gibt noch viel mehr zu entdecken. Besuchen Sie die Altstadt, das Schokoladenmuseum und die vielen Brauhäuser.
+
+- Frankfurt - Die Stadt ist bekannt für ihre Skyline und ihre Banken, aber es gibt auch viele kulturelle Sehenswürdigkeiten, darunter das Städel Museum und die Alte Oper.
+
+- Dresden - Die Stadt hat eine reiche Barockarchitektur und viele historische Sehenswürdigkeiten, darunter die Frauenkirche und das Residenzschloss. Besuchen Sie auch die Altstadt und das Grüne Gewölbe.
+
+- Heidelberg - Die Stadt hat eine schöne Altstadt, die von einem beeindruckenden Schloss überragt wird. Besuchen Sie auch die Universität, die älteste in Deutschland.
+
+- Rothenburg ob der Tauber - Die mittelalterliche Stadt ist wie ein Märchen aus einer anderen Zeit. Besuchen Sie die Stadtmauer, den Marktplatz und das Plönlein.
+
+- Trier - Die Stadt ist eine der ältesten in Deutschland und hat viele römische Ruinen, darunter das Amphitheater und die Porta Nigra.
+
+- Freiburg - Die Stadt liegt im Schwarzwald und hat eine wunderschöne Altstadt, die von den Bergen umgeben ist. Besuchen Sie auch das Freiburger Münster und die vielen Cafés und Restaurants.
+
+Das sind nur einige Beispiele, aber es gibt noch viele weitere wunderschöne Städte in Deutschland zu entdecken.",,,,
+hike-6.5-20261114T224258Z-007,4,b69c07e00e55ecfb84df91a5,3a6f46aab4b4110d6f4e38155eb0564a,hike-6.5,de,web_fullstack,oasst2,human_authored,"[user] Warum ist es schwierig ein soziales Netzwerk zu starten?
+
+[assistant] Der Zweck von sozialen Netzwerken ist, sich mit anderen Menschen zu vernetzen. Um erfolgreich zu sein, braucht eine neue Social-Media-Plattform also viele Nutzer, mit denen man in Kontakt treten kann. Neue soziale Netzwerke haben anfangs nur wenige Nutzer, weshalb es sich für viele Menschen nicht lohnt, zur neuen Plattform zu wechseln.
+
+[user] Das stimmt wohl. Was kann ich tun, damit die ersten Nutzer auf die Plattform kommen? Andere haben es schließlich auch geschafft.","Einige mögliche Taktiken, die Sie unternehmen können:
+- Optimieren Sie Ihre Website für Suchmaschinen (SEO): Verwenden Sie relevante Keywords, verbessern Sie die Ladezeit und machen Sie die Website nutzerfreundlich.
+
+- Nutzen Sie Marketing-Kanäle: Verwenden Sie Online-Werbung, Influencer-Marketing, soziale Medien und Email-Marketing, um auf Ihre Plattform aufmerksam zu machen.
+
+- Stellen Sie sicher, dass Ihre Plattform einzigartig und ansprechend ist: Bieten Sie ein besonderes Nutzererlebnis, das es nicht bereits anderswo gibt.
+
+- Netzwerken Sie: Vernetzen Sie sich mit anderen Plattformen und Marken, um Ihre Plattform zu fördern.
+
+- Überlegen Sie sich ein Belohnungssystem: Belohnen Sie Nutzer für ihre Beteiligung auf der Plattform, um eine loyale Community aufzubauen.",,,,
+hike-6.5-20261114T224258Z-007,5,1ca1c6e02f29db27e90fb32c,b1b2cb463980ed59df4d30c9968ca822,hike-6.5,de,writing,oasst2,human_authored,"[user] Schreibe mir eine Entschuldigung Email für meinen Professor in der ich mich entschuldige, dass ich meine Arbeit zu spät eingereicht habe.
+
+[assistant] Sehr geehrter Herr Professor (Name),
+hiermit möchte ich mich ausdrücklich bei Ihnen entschuldigen, dass ich meine Arbeit zu spät eingereicht habe. Leider führten persönliche Ereignisse ausnahmsweise zu dieser Verzögerung. Daher möchte ich Sie höflichst um Nachsicht bitten.
+
+Vielen Dank und freundliche Grüße
+(Dein Name)
+
+[user] Persönliche Ereignisse? Was denn für persönliche Ereignisse? Ohgott ich bin nicht gut im Lügen! Was soll ich denn bloß sagen, wenn er da unerwartet nachfragt?! Ich wollte doch eigentlich nur eine Entschuldigung und nicht ein Lügenlabyrinth. Ich hab' einen Fehler gemacht, ja, aber ich stehe dazu!","Verzeihung, ich war davon ausgegangen, dass Menschen bei dieser Art von Aufgabenstellung eine Lüge erwarten. Bitte lassen Sie es mich noch einmal versuchen:
+
+Sehr geehrter Herr Professor (Name),
+hiermit möchte ich mich ausdrücklich bei Ihnen entschuldigen, dass ich meine Arbeit zu spät eingereicht habe. Es tut mir wirklich sehr, sehr leid.
+
+Mit freundlichen Grüßen
+(Dein Name)",,,,
+hike-6.5-20261114T224258Z-007,6,4787b839eac60c6d9d939822,32468950e77d901c107270ad6b81e8b1,hike-6.5,el,general_knowledge,aya-dataset,human_authored,"[user] Ολοκλήρωσε το κείμενο: Το Σκωτικό Εθνικό Κόμμα, που απολάμβανε υποστήριξης μετά τη διεξαγωγή του δημοψηφίσματος","για την ανεξαρτησία της Σκωτίας το 2014, έγινε το τρίτο κόμμα στη Βουλή των Κοινοτήτων, καθώς κέρδισε 56 επί συνόλου 59 εδρών στη Σκωτία, τις περισσότερες φορές σε βάρος των Εργατικών. Οι Φιλελεύθεροι Δημοκράτες, με επικεφαλής τον Νικ Κλεγκ, υπέστησαν την χειρότερη ήττα τους από τις γενικές εκλογές του 1970 και έμειναν στις 8 έδρες, όταν στις προηγούμενες εκλογές είχαν κερδίσει 57. Πολλοί υπουργοί των Φιλελευθέρων Δημοκρατών έχασαν την έδρα τους. Οι Πράσινοι κέρδισαν το μεγαλύτερο ποσοστό ψήφων στην ιστορία τους (3,8%) και διατήρησαν την μοναδική τους έδρα στο Μπράιτον Παβίλιον. Η προεκλογική εκστρατεία σημαδεύτηκε από την ολοένα και αυξανόμενη υποστήριξη στο Κόμμα Ανεξαρτησίας του Ηνωμένου Βασιλείου, που όμως κέρδισε μόνο μία έδρα, με τον αρχηγό του, Νάιτζελ Φάρατζ, να αποτυγχάνει να εκλεγεί. Ο Μίλιμπαντ, ο Κλεγκ και ο Φάρατζ παραιτήθηκαν από την ηγεσία του κόμματός τους. Ωστόσο, το κόμμα του Φάρατζ αρνήθηκε να αποδεχθεί την παραίτησή του. Το Σκωστεζικό Εθνικό Κόμμα θριάμβευσε κερδίζοντας τις 56 από τις συνολικά 59 έδρες της Σκωτίας.",,,,
+hike-6.5-20261114T224258Z-007,7,44575343224e8ead3a2d4e19,94e0fd84fb546617a05935a87835e8d7,hike-6.5,en,coding,oasst2,human_authored,"[user] Can you explain the role of quantum computing in solving complex problems and its potential impact on fields such as cryptography and finance?
+
+[assistant] Quantum computing is a new way of computing that uses the strange properties of quantum physics to perform calculations that are too hard for classical computers. Quantum computers use quantum bits, or qubits, which can be in a superposition of two states (0 and 1) at the same time. This means that qubits can store and process more information than normal bits. Quantum computers can also use **entanglement**, which is a phenomenon where two qubits can share a quantum state and influence each other even when they are far apart. This allows quantum computers to perform multiple operations at once and to solve problems faster and more efficiently.
+
+**Quantum computing** can help solve complex problems in fields such as cryptography, finance, chemistry, physics, and artificial intelligence. For example, quantum computers can break some of the encryption methods that are used to secure online transactions and communications. This could pose a threat to cybersecurity and privacy, but it could also lead to new ways of encrypting data using quantum cryptography. Quantum computers can also optimize financial portfolios, simulate molecular structures and reactions, design new materials and drugs, and enhance machine learning and artificial intelligence.
+
+Some references for this explanation are:
+
+- https://www.investopedia.com/terms/q/quantum-computing.asp
+- https://www.ibm.com/topics/quantum-computing
+- https://www.technologyreview.com/2019/01/29/66141/what-is-quantum-computing/
+- https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-quantum-computing
+
+[user] Can you further explain its possibilities in the financial fields? 
+You said that it can optimize financial portfolios, is this not possible with traditional computers? What benefits would the use of a Quantum computer have versus traditional computers in financial portfolios optimization?","Here are some ways quantum computing could benefit the financial sector:
+
+• Optimization algorithms: Many financial tasks involve complex optimization problems, such as determining optimal investment portfolios or calculating risks across assets. Quantum computers could run optimization algorithms much faster than traditional computers, enabling more thorough and accurate optimizations. This could lead to better portfolio management, pricing of derivatives, and risk analysis.
+
+• Machine learning: Quantum computers could accelerate machine learning tasks like fraud detection and automated trading. Their ability to quickly explore an exponentially large dataset could improve the accuracy and speed of financial machine learning models.
+
+• Monte Carlo simulations: Monte Carlo simulations are used for tasks like pricing financial derivatives and calculating value at risk. Quantum computers could run Monte Carlo simulations millions of times faster, enabling more precise valuations and risk calculations.   
+
+• Pattern matching: Quantum computers could detect patterns in large financial datasets much faster, enabling faster fraud detection, anomaly detection  and discovery of trading opportunities.
+
+In summary, quantum computers would not fundamentally change the types of optimization, machine learning and simulation algorithms used in finance. But by running these algorithms much faster, quantum computers could provide more accurate and thorough solutions, enabling better investment decisions and risk management. Traditional computers will likely continue to be used for many years, alongside quantum computers as a complementary technology for certain specialized tasks.
+
+Hope this provides some helpful context regarding quantum computing's potential benefits for financial applications. Let me know if you have any other questions.",,,,
+hike-6.5-20261114T224258Z-007,8,41d93884dc0ddef1bfbb4398,f75bf643e4ae94602c48cccd3c01bd9a,hike-6.5,en,cybersecurity,oasst2,human_authored,"[user] What are the 5 most recent common vulnerabilities and exposures, as documented by cve.org at the time of your dataset creation?","The 5 most recent common vulnerabilities and exposures (CVEs) as documented by cve.org on April 17, 2023 are:
+
+1. CVE-2023-25228: A vulnerability in the Linux kernel could allow an attacker to cause a denial of service (DoS) condition.
+2. CVE-2023-25229: A vulnerability in the Apache HTTP Server could allow an attacker to execute arbitrary code.
+3. CVE-2023-25230: A vulnerability in the MySQL database could allow an attacker to gain unauthorized access to data.
+4. CVE-2023-25231: A vulnerability in the Microsoft Exchange server could allow an attacker to take control of the server.
+5. CVE-2023-25232: A vulnerability in the Zoom video conferencing software could allow an attacker to gain unauthorized access to user data.
+
+It is important to note that these are just a few of the many CVEs that are being discovered on a daily basis. It is important to stay up-to-date on the latest security threats and to patch any vulnerabilities that are found in your systems.",,,,
+hike-6.5-20261114T224258Z-007,9,76d7d53933572d0b4a38ac55,13738893e5f89beb4949d1574ec855a8,hike-6.5,en,education,oasst1,human_authored,[user] How to start fishing?,"In order to begin fishing you could take the following steps:
+
+1. Choose a fishing spot
+For your first fishing trip a fishing spot in your local area is recommended as it is easy to reach. It will also be easier for you to find more practiced fishers to give you advice on where to best fishing places close to you are. You could also pick a spot from fishing apps like fishbrain or FishAngler to help select a location. For beginners it is often recommended to fish in a lake rather than a river as there are generally more easy to catch fish available.
+
+2. Obtain a fishing license
+You will have to obtain a fishing license for the area you are planning to visit. Licenses can be obtained in fishing stores or online. It is often the case that fishing licenses are cheaper in the area you reside in. You can choose a cheaper single day license, or an annual license if you plan to fish more often.
+
+3.  Learn about fish species
+Identifying the fish species present in your chosen area can be important to comply to species specific regulations like size or bag limits. These rules might limit which fish you are allowed to catch in a given season. Common fish you might encounter in lakes are bass, panfish or rainbow trouts.
+
+4. Buy fishing gear
+You will need to obtain a fishing rod, a spool, as well as other equipment like bait. For beginners it is usually convenient to buy a rod spool combo. A combo does not require you to attach the spool to the rod yourself. Fishing gear can be bought in local fishing stores. The staff in a fishing store will know more about which parts of their specific assortment is beginner friendly.
+
+5. Choose a bait type
+You can fish with either live bait or artificial lures. Live bait can be live worms or a scented putty can help attract fish more easily. Artificial lures are usually more difficult to handle and often not recommended as a starting point.
+
+Further helpful information for your first trip could be found in a local fishing group or forestry departments. You could check whether these groups organize any beginner friendly events, such as fishing clinics or free fishing days in the near future. Additionally, YouTube tutorials for casting techniques, tying knots or assembling your fishing rod might be a helpful resource to learn basic skills.",,,,
+hike-6.5-20261114T224258Z-007,10,a07daf770f0435e3b7f0f5ad,4eee6c87e70c9e5443afe9dbb28c966b,hike-6.5,en,general_knowledge,dolly-15k,human_authored,[user] What is the depth of focus of a camera?,"depth of focus is the range of distances that will be in focus in a picture taken by the camera with specific settings. Depending on the settings of the camera, the depth of focus can be very small, ranging in millimeters or centimeters to very large - hundreds of meters. The most important setting that will determine the depth of focus is the aperture used in the lens when the picture is taken. The aperture is how widely open the lens is and how much light is allowed to pass through it. A low f-stop or big aperture will minimize the depth of field, while a high f-stop or small aperture will maximize it. Depth of field is an element that photographers use in composition to blur or sharpen elements of the photograph, thus emphasizing or de-emphasizing certain aspects.",,,,
+hike-6.5-20261114T224258Z-007,11,547daf525781587a591a3744,a775146e840b67477d5294c92759ee2b,hike-6.5,en,islamic_studies,oasst2,human_authored,"[user] Why timeline is split into BC and AC
+
+[assistant] I assume you are referring to the __Anno Domini year numbering system__, where history is divided into __BC__ (Before Christ) and __AD__ (Anno Domini, or “in the year of our Lord”, sometimes mistakenly referred to as AC or “After Christ”). 
+
+These terms are used to label or number years in the Julian and Gregorian calendars, based on the traditionally reckoned year of the conception or birth of Jesus Christ. 
+
+This dating system was devised in 525 AD by Dionysius Exiguus, a Christian monk, to replace an earlier system that made reference to the reign of Emperor Diocletian, who had persecuted Christians. Dionysius did not wish to continue the memory of such a tyrant.
+
+Having a numbering system with two distinct eras has many advantages. It represents a simplification of systems that number years in reference to a reigning monarch or office holder, as it doesn’t require one to be familiar with all such individuals and the time they reigned. BC and AD, collectively, cover all past and future years by counting in both directions from a single reference point.
+
+[user] What are some alternative dating systems used in different cultures or regions, and how do they differ from the BC/AD system?","There are many alternative dating systems used in different cultures and regions, each with its own unique way of numbering years. Here are a few examples:
+
+1. BCE/CE (Before Common Era/Common Era): This system is a secular alternative to the traditional BC/AD system. It maintains the same reference point as BC/AD, but replaces ""Before Christ"" with ""Before Common Era"" and ""Anno Domini"" with ""Common Era."" The BCE/CE system is used to provide a neutral and inclusive dating method that doesn't have religious connotations.
+
+2. Islamic Calendar (Hijri Calendar): The Islamic calendar is a lunar calendar used primarily in Muslim countries. It dates from the year of the migration (Hijra) of the Prophet Muhammad from Mecca to Medina in 622 AD. The years are designated as AH (Anno Hegirae) and are counted strictly based on lunar months.
+
+3. Hebrew Calendar: The Hebrew calendar is a lunisolar calendar used in Jewish communities. It counts years from the traditional date of the creation of the world, as calculated in Jewish tradition. The years are designated AM (Anno Mundi, ""Year of the World"").
+
+4. Chinese Calendar: The traditional Chinese calendar is a lunisolar calendar used in China and other East Asian countries. It designates years using a combination of heavenly stems and earthly branches, along with a cycle of 60 years. Each year is associated with one of the twelve zodiac animals.
+
+5. Buddhist Calendar: The Buddhist calendar is used in various Buddhist countries and is based on the traditional date of the Buddha's parinirvana (passing away) in 543 or 544 BC. It is primarily used for religious and cultural purposes.
+
+6. Japanese Era Names: Japan uses the Gregorian calendar for most purposes, but it also has a system of era names. Each era corresponds to the reign of a specific emperor, and the year changes with the start of a new emperor's reign. For example, the current era in Japan is ""Reiwa,"" which began on May 1, 2019, with the enthronement of Emperor Naruhito.
+
+These alternative dating systems differ from the BC/AD system in their reference points, their cultural and religious significance, and their method of numbering years. Each system reflects the unique history, beliefs, and traditions of the respective cultures and regions in which they are used.",,,,
+hike-6.5-20261114T224258Z-007,12,afda0cd21d80a24847d5186c,d42cf1d023201a94c798b3a399baec48,hike-6.5,en,mathematics,gsm8k,human_authored,"[user] Mary had 6 lambs and 2 of the lambs had 2 babies each.  She traded 3 lambs for one goat.  One morning, she woke up and found an extra 7 lambs in the field.  How many lambs does Mary have?","2 of her lambs had 2 babies each so that adds 2*2 = 4 lambs
+She starts with 6 and adds 4 baby lambs so she had 6+4 = 10 lambs
+She traded 3 of those lambs for a goat so she has 10-3 =7 lambs
+She has 7 and woke up to find 7 more lambs in the field so she has a total of 7+7 = 14 lambs
+
+Answer: 14",,,,
+hike-6.5-20261114T224258Z-007,13,63a1c21b69f914ecac63ca00,9e35143120df375c6fd9111fd0acae68,hike-6.5,en,pakistan,oasst2,human_authored,"[user] How many countries in the world? List down name of 5 countries with more than 10 states. From that list of 5 countries randomly pick one county and list down all the states in that country.
+
+[assistant] The number of world countries depends on what countries you think are legitimate. The UN has 193 member states and 2 observer states (Vatican and Palestine), but it doesn't count Taiwan as a state separate from China. These numbers also don't include separatist-controlled territories and breakaway states.
+
+Some countries with more than 10 states are Argentina, Russia, the US, India and Germany. India has the following states:
+* Andhra Pradesh
+* Arunachal Pradesh
+* Assam
+* Bihar
+* Chhattisgarh
+* Goa
+* Gujarat
+* Haryana
+* Himachal Pradesh
+* Jharkhand
+* Karnataka
+* Madhya Pradesh
+* Maharashtra
+* Manipur
+* Meghalaya
+* Mizoram
+* Nagaland
+* Odisha
+* Punjab
+* Rajasthan
+* Sikkim
+* Tamil Nadu
+* Telangana
+* Tripura
+* Uttar Pradesh
+* Uttarakhand
+* West Bengal
+
+[user] Why were Kerala and New Delhi not included in your list?","I apologize for the oversight. You're correct, Kerala and Delhi are indeed among the states and union territories of India. India is made up of 28 states and 8 Union territories.
+
+Here's a more comprehensive list:
+
+States of India:
+
+1. Andhra Pradesh
+2. Arunachal Pradesh
+3. Assam
+4. Bihar
+5. Chhattisgarh
+6. Goa
+7. Gujarat
+8. Haryana
+9. Himachal Pradesh
+10. Jharkhand
+11. Karnataka
+12. Kerala
+13. Madhya Pradesh
+14. Maharashtra
+15. Manipur
+16. Meghalaya
+17. Mizoram
+18. Nagaland
+19. Odisha
+20. Punjab
+21. Rajasthan
+22. Sikkim
+23. Tamil Nadu
+24. Telangana
+25. Tripura
+26. Uttar Pradesh
+27. Uttarakhand
+28. West Bengal
+
+Union Territories of India:
+
+1. Andaman and Nicobar Islands
+2. Chandigarh
+3. Dadra and Nagar Haveli and Daman and Diu
+4. The Government of NCT of Delhi
+5. Lakshadweep
+6. Puducherry
+7. Ladakh
+8. Jammu and Kashmir
+
+Delhi is classified as a Union Territory known as the National Capital Territory of Delhi, which includes the country's capital, New Delhi. This unique administrative status gives it a level of autonomy, with its own local government, but it's also under the direct administrative control of the federal government.",,,,
+hike-6.5-20261114T224258Z-007,14,3481d378e9d1b2087b17091a,6555bf41f7df678fe9b3693dd550e994,hike-6.5,en,problem_solving,oasst2,human_authored,"[user] What trails should I do in winter at the french Pyrenees? This trails should be circular and take two days to complete with one night of camping
+
+[assistant] There are many great winter trails in the French Pyrenees that can be completed in two days and with one night of camping. Here are a few options:
+
+1. The Boucle des Lacs: This circular route takes you around the beautiful mountain lakes of Néouvielle. The trail is approximately 20km long and takes 2 days to complete. You can camp at one of the designated campsites in the area.
+
+2. The Tour du Pic du Midi d'Ossau: This circular route takes you around the iconic Pic du Midi d'Ossau. The trail is approximately 27km long and takes 2 days to complete. You can camp at one of the many campsites in the area.
+
+3. The GR10: This is a long-distance trail that runs the length of the Pyrenees. You can choose a section of the trail to hike in winter, such as the section between Gavarnie and Luz-Saint-Sauveur. This section is approximately 22km long and takes 2 days to complete. You can camp at one of the designated campsites along the trail.
+
+It's important to note that hiking in the winter can be challenging and requires proper gear and experience. Make sure you are prepared for the conditions and check the weather forecast before setting out.
+
+[user] What about for cross country skiing?","For cross country skiing in the French Pyrenees, here are a few circular trails that can be completed in two days with one night of camping:
+
+1. The Plateau de Beille: This is a popular cross-country skiing destination in the Pyrenees. The Plateau de Beille has several circular trails, ranging in distance from 5km to 20km. You can camp at the Plateau de Beille campground.
+
+2. The Haute-Vallee de l'Aude: This is a beautiful valley that offers several cross-country skiing trails. The trail distance varies depending on the route you choose, but you can plan for a 2-day trip by combining some of the shorter trails. You can camp at one of the designated campsites in the area.
+
+3. The Pays de Sault: This area has several cross-country skiing trails that are suitable for a 2-day trip. The trail distance varies depending on the route you choose. You can camp at the Pays de Sault campground.
+
+Make sure to check the weather and snow conditions before heading out, and bring proper gear for cross-country skiing in the winter.",,,,
+hike-6.5-20261114T224258Z-007,15,de439e71809d92f74c89a998,01bc09fb247ef1ae79ace292d3ddd7f7,hike-6.5,en,reasoning,dolly-15k,human_authored,"[user] Tell me the genre of each of the following books, choosing between science fiction, fantasy, or neither. 
+
+The Name of the Wind by Patrick Rothfuss, The Player of Games by Iain M. Banks, Crying in H Mart by Michelle Zauner, Crime and Punishment by Fyodr Dostoevsky, and Hyperion by Dan Simmons.","The Player of Games and Hyperion are science fiction, The Name of the Wind is fantasy, and both Crying in H Mart and Crime and Punishment are neither of those genres.",,,,
+hike-6.5-20261114T224258Z-007,16,2b6a53294f59a334e6c7ddd5,5ef83bd820d3df09ae4fe456d79b00d7,hike-6.5,en,research,dolly-15k,human_authored,"[user] What is the origin of shortbread cookies?
+
+Context:
+A cookie (American English), or a biscuit (British English), is a baked or cooked snack or dessert that is typically small, flat and sweet. It usually contains flour, sugar, egg, and some type of oil, fat, or butter. It may include other ingredients such as raisins, oats, chocolate chips, nuts, etc.
+
+Most English-speaking countries call crunchy cookies ""biscuits"", except for the United States and Canada, where ""biscuit"" refers to a type of quick bread. Chewier biscuits are sometimes called ""cookies"" even in the United Kingdom. Some cookies may also be named by their shape, such as date squares or bars.
+
+Biscuit or cookie variants include sandwich biscuits, such as custard creams, Jammie Dodgers, Bourbons and Oreos, with marshmallow or jam filling and sometimes dipped in chocolate or another sweet coating. Cookies are often served with beverages such as milk, coffee or tea and sometimes dunked, an approach which releases more flavour from confections by dissolving the sugars, while also softening their texture. Factory-made cookies are sold in grocery stores, convenience stores and vending machines. Fresh-baked cookies are sold at bakeries and coffeehouses.","A cookie (American English), or a biscuit (British English), is a baked or cooked snack or dessert that is typically small, flat and sweet. It usually contains flour, sugar, egg, and some type of oil, fat, or butter. It may include other ingredients such as raisins, oats, chocolate chips, nuts, etc.
+
+Most English-speaking countries call crunchy cookies ""biscuits"", except for the United States and Canada, where ""biscuit"" refers to a type of quick bread. Chewier biscuits are sometimes called ""cookies"" even in the United Kingdom. Some cookies may also be named by their shape, such as date squares or bars.
+
+Biscuit or cookie variants include sandwich biscuits, such as custard creams, Jammie Dodgers, Bourbons and Oreos, with marshmallow or jam filling and sometimes dipped in chocolate or another sweet coating. Cookies are often served with beverages such as milk, coffee or tea and sometimes dunked, an approach which releases more flavour from confections by dissolving the sugars, while also softening their texture. Factory-made cookies are sold in grocery stores, convenience stores and vending machines. Fresh-baked cookies are sold at bakeries and coffeehouses.",,,,
+hike-6.5-20261114T224258Z-007,17,160a4740ffb9466b188b3664,97ebb170f79cfaa2fe25cc50f08efaf8,hike-6.5,en,safety_ethics,oasst2,human_authored,[user] How does Free and Open Source Software differ from Closed Source software? Please explain to me why (or if) it is important for society.,"Free and Open-Source Software (FOSS) is software that is freely available to use, and also has the source code freely available and licensed to use or modify.
+By contrast, closed-source software is often proprietary, and often has the code hidden from its users.
+
+The free in FOSS means both *libre*, meaning free in the same sense as ""free speech"", and *gratis*, meaning free in the same sense as ""free pizza."" The Free Software Foundation has the ""Four Essential Freedoms of Free Software,"" four criteria used to distinguish whether a piece of software can be considered FOSS:
+
+ - The freedom to run the software as one wishes, for any purposes
+ - The freedom to study and modify the software, including being able to see the source code
+ - The freedom to distribute copies of the original software freely
+ - The freedom to distribute *modified* versions of the original software, so that the wider community can benefit from the changes
+
+Closed-source or Proprietary software has its own advantages, being able to charge for a product creates more incentive for creating and researching new software. However, FOSS has advantages in cost, security, privacy and user control.
+
+In the long run, FOSS code can be modified for more use cases by more people for a longer period of time, where closed source software will eventually stop being maintained once the developers stop development for any number of reasons. FOSS therefore becomes comparatively more beneficial to society over time. The most prominent example of these benefits of longevity and adaptability is the Linux kernel, which over the last thirty years has gone from a simple personal computer operating system to becoming the heart of most servers and all Android smartphones.",,,,
+hike-6.5-20261114T224258Z-007,18,d0d9fa323f4825c62ab93d15,88a7f04a95847950cc7b06852aa3fe43,hike-6.5,en,science,scienceqa-text,human_authored,"[user] Context: Two 400-gram glasses of water are identical except for their thermal energies.
+
+Which glas of water has a lower temperature?
+
+A. the glass of water with more thermal energy
+B. the glass of water with less thermal energy","The answer is B: the glass of water with less thermal energy.
+
+Explanation: Matter is made of tiny particles called atoms. Atoms are always moving.
+The energy of moving atoms is called thermal energy. The total amount of thermal energy in matter depends on three things: the type of matter, the amount of matter, and how fast the atoms are moving.
+Temperature measures how hot or cold matter is. If the atoms in matter slow down, the temperature goes down. The matter now has both less thermal energy and a lower temperature.
+What happens if the amount of matter changes? A 2-kilogram brick at 70°F has twice as much thermal energy as a 1-kilogram brick at 70°F. The two bricks have the same temperature, but the larger brick has twice as many atoms. So, it has twice as much thermal energy. The two glasses of water are made of the same material and have the same mass. So, the glass of water with less thermal energy has a lower temperature.",,,,
+hike-6.5-20261114T224258Z-007,19,06eb97d5141e882271432696,c346ae67129f25cb233888f223dc0ee2,hike-6.5,en,software_engineering,oasst2,human_authored,[user] What commercially available printing process allows for printing on 450gsm matte cardstock?,"There are several commercially available printing processes that can be used to print on 450gsm matte cardstock. Here are some of the most common printing processes that can handle this type of stock:
+
+1. Offset Printing: This is a traditional printing method that uses metal plates to transfer an image to paper. Offset printing can handle a wide variety of paper stocks, including thick cardstock, making it a popular choice for high-quality printed materials.
+
+2. Digital Printing: This is a newer printing method that uses digital technology to transfer an image to paper. Digital printing is a more cost-effective option for shorter print runs and can handle a range of paper stocks, including thick cardstock.
+
+3. Letterpress Printing: This is a printing method that uses a raised plate to press an image onto paper. Letterpress printing can produce high-quality, tactile prints on thick cardstock, making it a popular choice for business cards, invitations, and other high-end printed materials.
+
+4. Screen Printing: This is a printing method that uses a stencil and mesh screen to transfer ink onto paper. Screen printing is often used for printing on thick materials, such as cardstock, and can produce vibrant, high-quality prints.
+
+When selecting a printing process for your project, it's important to consider the desired print quality, the complexity of the design, and the quantity of prints needed. Each printing method has its strengths and weaknesses, so it's essential to choose the method that best meets your specific requirements.",,,,
+hike-6.5-20261114T224258Z-007,20,8b6b805cbfa3cf38445031df,c1c5788e170322ccf2c76c5f7122bcc3,hike-6.5,en,web_backend,oasst2,human_authored,[user] Write a bash script that would upload a video to YouTube,"Here is a sample bash script that can be used to upload a video to YouTube using the YouTube Data API v3:
+
+```bash
+#!/bin/bash
+
+# Replace <client_id> and <client_secret> with your own OAuth client credentials
+CLIENT_ID=""<client_id>""
+CLIENT_SECRET=""<client_secret>""
+
+# Replace <video_file> with the path to your video file
+VIDEO_FILE=""<video_file>""
+
+# Request an OAuth access token
+ACCESS_TOKEN=$(curl --silent --location --request POST ""https://oauth2.googleapis.com/token"" \
+--header ""Content-Type: application/x-www-form-urlencoded"" \
+--data-urlencode ""code=<client_id>"" \
+--data-urlencode ""client_id=${CLIENT_ID}"" \
+--data-urlencode ""client_secret=${CLIENT_SECRET}"" \
+--data-urlencode ""redirect_uri=urn:ietf:wg:oauth:2.0:oob"" \
+--data-urlencode ""grant_type=authorization_code"" | jq -r '.access_token')
+
+# Upload the video to YouTube
+curl --location --request POST ""https://www.googleapis.com/upload/youtube/v3/videos?part=snippet,status"" \
+--header ""Authorization: Bearer ${ACCESS_TOKEN}"" \
+--header ""Content-Type: application/octet-stream"" \
+--data-binary ""@${VIDEO_FILE}""
+```
+
+Note that this is a basic script and you'll need to obtain OAuth client credentials and set the `VIDEO_FILE` variable before running it. Additionally, you'll need to have `curl` and `jq` installed on your system.",,,,
+hike-6.5-20261114T224258Z-007,21,33a05d66d555648f15118360,f939dba4915ef6c06bd4dd034af64ca0,hike-6.5,en,web_frontend,oasst2,human_authored,"[user] Hello Open Assistant, please provide me with a numbered list of programming languages ordered by most to least popular.
+
+[assistant] The Most popular Programming languages
+
+JavaScript – 67.8%
+HTML/CSS – 63.5%
+SQL – 54.4%
+Python – 41.7%
+Java – 41.1%
+Bash/Shell/PowerShell – 36.6%
+C# – 31.0%
+PHP – 26.4%
+C++ – 23.5%
+TypeScript – 21.2%
+C – 20.6%
+Ruby – 8.4%
+Go – 8.2%
+Assembly – 6.7%
+Swift – 6.6%
+Kotlin – 6.4%
+R – 5.8%
+VBA – 5.5%
+Objective-C – 4.8%
+Scala – 3.8%
+Rust – 3.2%
+Dart – 1.9%
+Elixir – 1.4%
+Clojure – 1.4%
+WebAssembly – 1.2%
+
+Source: https://appetiser.com.au/blog/the-most-loved-and-hated-programming-languages-according-to-developers/
+
+[user] Why is Javascript so popular?","JavaScript is one of the most popular programming languages due to several reasons:
+
+1. Versatility: JavaScript can be used for a wide range of tasks, such as creating interactive web pages, building web and mobile applications, server-side development, and even machine learning.
+
+2. Front-end development: JavaScript is a crucial language for front-end web development and is supported by all major web browsers, making it an essential tool for creating dynamic, interactive websites.
+
+3. Large community: JavaScript has a large and active community of developers who contribute to the language's development and support each other with libraries, tools, and resources.
+
+4. Easy to learn: JavaScript has a relatively simple syntax and is easier to learn compared to other programming languages, making it accessible to a wider range of people.
+
+5. Interoperability: JavaScript can be easily integrated with other technologies, such as HTML and CSS, which allows for a more streamlined development process.
+
+Overall, JavaScript's popularity is due to its versatility, ease of use, and strong support from the development community.",,,,
+hike-6.5-20261114T224258Z-007,22,66ec4f21c8f33e11cc343cf5,831959875dfaef1338f2d7e52feb62a1,hike-6.5,en,web_fullstack,oasst2,human_authored,"[user] Hi. I want to make an embossed picture for my blind girlfriend. There is a Braille printer at my university that I can use. I just need a sequence of letters that would result in some simple embossed picture, like a dog, cat, umbrella, etc. Can you give me a such text?
+
+[assistant] Here is an example of a simple embossed picture using Braille letters:
+
+`⠠⠁⠃⠉⠧⠑⠋⠗⠊⠝⠀⠁⠃⠑⠀⠙⠁⠊⠇⠇⠑⠗⠊⠎⠀⠙⠕⠇⠊⠑⠀⠑⠊⠝⠀⠓⠊⠇⠇⠑⠗⠊⠎⠗⠀⠑⠁⠝⠕⠗`
+
+This sequence of letters would produce an embossed picture of a cat.
+
+[user] Thank you. How can i transform other text words or expressions to Braille ?","To transform text words or expressions to Braille, you can use an online Braille translator. These tools will help you convert your text into Braille symbols, making it easier for people who are blind or visually impaired to understand the text.
+
+One such online Braille translator is the Braille Translator provided by brailletranslator.org. To use it, follow these steps:
+
+1. Visit the website at https://www.brailletranslator.org/
+1. In the text box, enter the text words or expressions you want to convert to Braille.
+1. Choose the desired Braille Grade (Grade 1 or Grade 2) and other options, if necessary.
+1. Click ""Translate"" to generate the Braille equivalent of your text.
+1. You can copy the generated Braille symbols and use them as needed.
+
+Remember that when using a Braille printer, it's important to know the correct settings and how the printer interprets Braille symbols. Consult the printer's user manual or seek assistance from someone experienced with the printer to ensure the output will be accurate and accessible to your blind girlfriend.",,,,
+hike-6.5-20261114T224258Z-007,23,f7e111e0aa1bffad76d1676a,8d13411c34c4b1d64630f1a182d2ef4a,hike-6.5,en,writing,dolly-15k,human_authored,[user] How many U.S. Presidents have served in the military?,"Twenty-six U.S. Presidents have served in various branches of the military.
+George Washington
+Thomas Jefferson
+James Madison
+James Monroe
+Andrew Jackson
+William Henry Harrison
+John Tyler
+James K. Polk
+Zachary Taylor
+Millard Fillmore
+Franklin Pierce
+James Buchanan
+Abraham Lincoln
+Andrew Johnson
+Ulysses S. Grant
+Rutherford B. Hayes
+James A. Garfield
+Chester A. Arthur
+Benjamin Harrison
+William McKinley
+Theodore Roosevelt
+Harry S. Truman
+Dwight D. Eisenhower
+John F. Kennedy
+Lyndon B. Johnson
+Richard M. Nixon
+Gerald R. Ford, Jr.
+Jimmy Carter
+Ronald Reagan
+George Bush
+George W. Bush",,,,
+hike-6.5-20261114T224258Z-007,24,2f9b4eb1851057cb93047b01,116e672d98afff9ecd9651a2f05e145d,hike-6.5,eo,general_knowledge,oasst2,human_authored,[user] Kiel mi povas praktiki mian Esperanton parolante kun aliaj?,"Saluton! Mi ĝojas, ke vi volas praktiki Esperanton parolante kun aliaj. Por trovi samideanojn, vi povas aliĝi al Facebookaj grupoj, retaj forumoj aŭ eĉ aplikoj por lingvointerŝanĝo, kiel ekzemple Tandem aŭ HelloTalk. Se eblas, partoprenu en lokaj Esperanto-renkontiĝoj kaj eventoj.
+
+Vi ankaŭ povas lerni kune kun aliaj Esperanto-studantoj per interreta kurso, kiel tiuj proponitaj ĉe Lernu! Tiaj kursoj kutime inkluzivas forumojn kaj babilejojn por praktikado.
+
+Mi esperas, ke la informo estis utila. Ĉu vi havas pliajn demandojn pri plibonigado de via Esperanto, aŭ ĉu mi klarigis ĉion bone?",,,,
+hike-6.5-20261114T224258Z-007,25,487b4c52bbbd17f87916e336,ad01a6b3495422150921723a49afbdd5,hike-6.5,es,coding,oasst1,human_authored,"[user] ¿Porque el siguiente código de js imprime por consola el string ""banana"" ? 
+const palabra = ('b' + 'a' + + 'a' + 'a' ).toLowerCase(); 
+console.log(palabra); 
+?","El siguiente código de JavaScript imprime ""banana"" en la consola debido a que en la expresión "" 'b' + 'a' + + 'a' + 'a' "" se utiliza el operador de suma '+' para concatenar los diferentes strings ('b', 'a' y 'a') y un operador de suma no separado de un espacio con otro operador como el operador de incremento '+' que se encuentra junto a la segunda 'a', es interpretado como un operador de conversión a número.
+
+En este caso, el signo '+' antes de la segunda 'a' es un operador de conversión a número, por lo que al no tener nada a su izquierda, se intenta convertir la cadena 'a' en un número, lo cual resulta en un valor NaN (Not a Number).
+
+El resultado final de la expresión es ""banana"", ya que la concatenación de las tres primeras cadenas da como resultado ""baNaN"", y al llamar al método toLowerCase(), todas las letras se convierten a minúsculas, dando como resultado la cadena ""banana"".",,,,
+hike-6.5-20261114T224258Z-007,26,13adf5d0d1d05f05fd23ebc5,63b79580d6d32e09be25a32b9b57129e,hike-6.5,es,cybersecurity,oasst1,human_authored,[user] Que es XSS en hacking,"Cross-site scripting (XSS) es una vulnerabilidad de seguridad que permite a un atacante inyectar en un sitio web código malicioso del lado del cliente. Este código es ejecutado por las vícitmas y permite a los atacante eludir los controles de acceso y hacerce pasar por usuarios. Según el Open Web Application Security Project, XSS fue la séptima vulnerabilidad más común de las aplicaciones web en 2017.
+
+Estos ataques tienen éxito si la aplicación web no emplea suficiente validación o codificación. El navegador del usuario no puede detectar que el script malicioso no es confiable, por lo que da acceso a cookies, tokens de sesión u otra información sensible específica del sitio, o permite que el escript reescriba contenido HTML.
+
+Los ataques XSS suelen producirse cuando 1) los datos entran en una aplicación web a través de una fuente no confiable (en la mayoría de los casos, una solicitud web) o 2) el contenido dinámico se envía a un usuario web sin ser validado como contenido malicioso.
+
+El contenido malicioso a menudo incluye JavaScript, pero a veces HTML, Flash o cualquier otro código que el navegador pueda ejecutar. La variedad de ataques basados en XSS es casi ilimitado. pero comúnmente incluyen la transmisión de datos privados como cookies u otra información de sesión al atacante, la redirección de la víctima a una página web controlada por el atacante o la realización de otras operaciones maliciosas en el equipo del usuario bajo la apariencia de un sitio vulnerable.
+
+Los ataques XSS se pueden clasificar en tres categorías: almacenados (también llamados persistentes), reflejados (también llamados no persistentes) o basados en DOM.",,,,
+hike-6.5-20261114T224258Z-007,27,993cb6b3dc06a18076a465c4,a150b55a07ea66e84fa829abab80b8c3,hike-6.5,es,education,oasst2,human_authored,"[user] En febrero de 2023, ¿qué famoso YouTuber envio sus suscritores a Open Assistant para tratar de mejorar la calidad de las respuestas en español?
+
+[assistant] No sé si es un youtuber famoso, pero el experto en IA Xavier Mitjana envió a sus suscriptores a Open Assistant para que lo probaran y contribuyeran a su entrenamiento en este idioma.
+
+[user] También lo hizo Dot.csv, el cual es un YouTuber un poco menos conocido, pero que también es un gran divulgador cientifico en temas como: IA, Machine-Learning y redes neuronales","¡Gracias por la información! Efectivamente, DotCSV es un divulgador científico y profesor en el campo de la Inteligencia Artificial y el Machine Learning, y es conocido por su canal de YouTube que cuenta con más de 700,000 suscriptores .
+
+Si tienes alguna otra pregunta o necesitas más información sobre cualquier tema que sea de tu interés, no dudes en preguntar.
+
+Aquí tienes su canal de Yotube: https://www.youtube.com/c/DotCSV/",,,,
+hike-6.5-20261114T224258Z-007,28,b8ee5270d16c93c80290d9b2,b48cda39ed150a4d245b7f342c4688f6,hike-6.5,es,general_knowledge,oasst1,human_authored,[user] ¿Qué piensas acerca del odio humano?,"Mi opinión es que el odio humano es una de las fuerzas más destructivas que existen en nuestra sociedad. Es un problema complejo que tiene raíces en factores sociales, culturales, económicos e históricos, y que puede manifestarse de diferentes formas, como el racismo, la discriminación, la homofobia, la xenofobia y la violencia.
+
+Para combatir el odio humano es necesario abordarlo desde diferentes frentes. En primer lugar, es importante educar a las personas desde una edad temprana sobre la importancia de la tolerancia y la comprensión de la diversidad. La educación debe promover valores como la empatía, la solidaridad, el respeto y la dignidad humana, para que las personas puedan reconocer y valorar la diversidad como una riqueza y no como una amenaza.
+
+Además, es fundamental fomentar el diálogo y la comunicación entre las personas de diferentes orígenes y culturas para construir puentes de entendimiento y superar los prejuicios y estereotipos. Debemos crear espacios seguros donde las personas puedan expresar sus ideas y opiniones sin temor a ser discriminadas o atacadas por su identidad.
+
+También es necesario garantizar que todos estén protegidos por leyes e instituciones que respeten los derechos humanos. Debemos asegurarnos de que todas las personas, sin excepción, tengan acceso a los mismos derechos y oportunidades, y que se sancione a quienes atenten contra estos derechos. De esta manera, podemos promover una sociedad más justa y equitativa.",,,,
+hike-6.5-20261114T224258Z-007,29,2e6a0dfd852cf9a4db80a4fb,a2248786f9018ee2222447f877e2cf58,hike-6.5,es,islamic_studies,oasst2,human_authored,[user] Resume el último partido del mundial de Qatar 2022,"La Copa Mundial de la FIFA Catar 2022 tuvo lugar del 20 de noviembre al 18 de diciembre, siendo la vigésima segunda edición del torneo. Argentina se consagró campeón por tercera vez en su historia, derrotando a Francia en la final por 4-2 en penaltis después de un empate 3-3 en tiempo reglamentario. Lionel Messi fue nombrado el mejor jugador del torneo.
+
+El torneo fue histórico en varios aspectos, como ser el Mundial con más goles anotados (172), con Marruecos convirtiéndose en la primera selección africana en alcanzar las semifinales, y con Argentina rompiendo una racha de 4 campeonatos europeos consecutivos. Además, la final fue considerada como una de las mejores de la historia.
+
+No obstante, la Copa Mundial de Catar 2022 también fue conocida como el ""mundial más polémico de la historia"" debido a numerosas controversias relacionadas con la corrupción, las muertes en la construcción de estadios, las condiciones laborales de los trabajadores, los derechos humanos y de la comunidad LGBT, y las acusaciones de apoyo al terrorismo islamista por parte de Catar. Además, fue el Mundial más caro de la historia, con un costo estimado de 220 mil millones de dólares.",,,,
+hike-6.5-20261114T224258Z-007,30,3ed963dc770287567d202267,5861e9a288f396d67512ca288e5e36a7,hike-6.5,es,mathematics,oasst1,human_authored,"[user] Cuanto es 5x5+3-2:5x7+88:4(7+5x8)
+
+[assistant] 5x5+3-2:5x7+88:4(7+5x8)=
+25+3-14/5+22(7+40)=
+28-14/5+22x47=
+140/5-14/5+22/47=
+126/5+22/47=
+5922/235+110/235=
+6032/235
+
+[user] Estructura la respuesta para poder copiarlo en libreoffice","El resultado de la expresión matemática 5x5 + 3 - 2 : 5x7 + 88 : 4 (7 + 5x8) se puede calcular siguiendo las reglas matemáticas convencionales. Primero, se resuelven las operaciones dentro de los paréntesis:
+
+7 + 5x8 = 7 + 40 = 47
+
+Luego, se multiplican los valores:
+
+5x5 = 25
+
+5x7 = 35
+
+A continuación, se realizan las operaciones de suma y resta:
+
+25 + 3 = 28
+
+28 - 2 = 26
+
+35 + 88 = 123
+
+Por último, se realizan las operaciones de división:
+
+26 : 35 = 0.[CARD]
+
+123 : 4 = 30.75
+
+Y el resultado final es:
+
+0.[CARD] : 30.75 = 0.[CARD].",,,,
+hike-6.5-20261114T224258Z-007,31,91052839b0c2d0f8796bf7bc,945fa347caec9fdf834b6551272c0278,hike-6.5,es,problem_solving,oasst2,human_authored,"[user] Explícame algunas técnicas para mejorar mi memoria visual. Dame un plan para realizar ejercicios regularmente, pero de dificultad incremental, con ese objetivo.","¡Por supuesto! Aquí tienes algunas técnicas que puedes usar para mejorar tu memoria visual:
+
+Asocia imágenes con información: Cuando quieras recordar información, trata de asociarla con una imagen que sea fácil de recordar. Por ejemplo, si quieres recordar el número de teléfono de alguien, intenta imaginar el número escrito en una pizarra o en un cartel.
+
+Utiliza la técnica del palacio de la memoria: Esta técnica consiste en asociar la información que deseas recordar con diferentes lugares en un espacio imaginario, como un palacio. Asocia cada lugar con una imagen y utiliza estos lugares como anclas para recordar la información que necesitas.
+
+Crea imágenes vívidas: Para recordar algo visualmente, trata de imaginar la información en detalle y con muchos colores y texturas. Cuanto más vívida sea la imagen, más fácil será recordarla.
+
+Utiliza la repetición: Al igual que con cualquier habilidad, la práctica hace al maestro. Repite la información que deseas recordar varias veces y en diferentes contextos para reforzar tu memoria visual.
+
+Juega juegos de memoria visual: Existen varios juegos de memoria visual que pueden ayudarte a mejorar tu habilidad, como el juego de memorizar una secuencia de objetos en un tiempo limitado y luego intentar recordarlos en orden.
+
+Aquí te propongo un plan de ejercicios para mejorar tu memoria visual:
+
+Semana 1: Comienza con ejercicios simples de asociación visual, como memorizar una lista de objetos y tratar de recordarlos en orden. También puedes intentar asociar imágenes con palabras o números para mejorar tu capacidad de recordar información.
+
+Semana 2: Prueba la técnica del palacio de la memoria. Crea un espacio imaginario, como un palacio, y asocia diferentes objetos con lugares específicos en el palacio. Practica la técnica utilizando diferentes tipos de información.
+
+Semana 3: Crea imágenes vívidas para recordar información. Intenta recordar una lista de palabras y visualiza cada palabra en detalle, utilizando colores y texturas para hacerla más vívida.
+
+Semana 4: Utiliza la repetición para reforzar tu memoria visual. Practica recordar información utilizando las técnicas que has aprendido en las semanas anteriores y repite la información varias veces en diferentes contextos.
+
+Recuerda que la clave para mejorar tu memoria visual es la práctica constante y la variedad en los ejercicios que realizas. ¡Buena suerte!",,,,
+hike-6.5-20261114T224258Z-007,32,699b251fd2b09910d40a538e,391306c2a4b6ec5df5dfc267fda7e4bc,hike-6.5,es,reasoning,oasst2,human_authored,[user] ¿Cómo se calcula el índice de masa corporal?,"El índice de masa corporal (IMC) es una medida que se utiliza para evaluar si una persona tiene un peso saludable en relación con su altura. El IMC se calcula dividiendo el peso de una persona en kilogramos por el cuadrado de su altura en metros. La fórmula matemática para calcular el IMC es la siguiente:
+
+IMC = peso (kg) / [estatura (m)]^2
+
+Por ejemplo, si una persona pesa 70 kg y mide 1.70 m de altura, su IMC sería:
+
+IMC = 70 / (1.70 x 1.70) = 24.2
+
+Un IMC entre 18.5 y 24.9 se considera saludable, mientras que un IMC inferior a 18.5 se considera bajo peso y un IMC superior a 24.9 se considera sobrepeso u obesidad, lo que puede aumentar el riesgo de enfermedades crónicas como la diabetes y enfermedades cardíacas.
+
+Es importante tener en cuenta que el IMC es solo una medida general y no tiene en cuenta la composición corporal, como la cantidad de músculo o grasa que tiene una persona. Por lo tanto, en algunos casos, puede no ser una medida precisa de la salud.",,,,
+hike-6.5-20261114T224258Z-007,33,14deb2852271ddd29f112983,64ad869f80c61f954f8544319d067c54,hike-6.5,es,research,oasst2,human_authored,"[user] ¿Eres una alternativa libre al famoso ChatGPT?
+
+[assistant] Esperemos que sí, pero no prometo nada.
+
+[user] ¿Hay alguna manera de ayudar en tu desarrollo para que puedas ser una solución viable de código libre ChatGPT y de esta manera poder integrarte en una cantidad mayor de sistemas, de manera que cada empresa que te utilice pueda ir definiendo tus parametros y respuestas para que seas una mejor representación de las mismas?","Existen varias maneras en las que la comunidad puede ayudar en mi desarrollo.
+
+1. Puede evaluar respuestas y traducciones en open assistant (open-assistant.io)
+
+2 Si tiene conocimientos de programación, puede participar en el proyecto laion (https://laion.ai/)
+
+3 Si no los tiene, pero tiene conocimientos de tecnología puede echar una mano en la generación de documentación.
+
+4 Puede apoyar económicamente a los distintos proyectos de open-source que implementaran este proyecto
+
+5 Y finalmente puede ayudar expandiendo el mensaje para dar a conocer esta aplicación a cuantas más personas mejor.",,,,
+hike-6.5-20261114T224258Z-007,34,1656f95b93415667110c2b8a,2bd4f9ee69ce4941d71e9c6e6512caa4,hike-6.5,es,science,oasst1,human_authored,[user] ¿Como explicarle a un niño que su mascota ha fallecido?,"Todo depende de la edad del niño, y si ha presenciado o no la muerte de su mascota. A temprana edad se les hace muy difícil a los niños, mas allá de la perdida, comprender el concepto de muerte. En esos casos es recomendable consultar con un psicólogo o pedagogo para que te ayude a explicarle al niño sin generarle un trauma. 
+En niños mas grandes, que ya han experimentado alguna vez la pérdida de un ser querido, se lo puede abordar desde el lado religioso, aveces ayuda mucho hacer un funeral para la mascota fallecida, o ritos específicos según la religión de  la familia.
+Otra buena opción podría ser ver juntos la película ""Todos los perros van al cielo"" donde el niño podría ir entendiendo por si mismo, y consultar con un adulto sobre las dudas que surjan.",,,,
+hike-6.5-20261114T224258Z-007,35,32d1207aa6d8cc541864afed,543a66f0d18771ce2e94d71adb12a792,hike-6.5,es,software_engineering,oasst2,human_authored,[user] ¿Puedes explicarme para qué puedo utilizar la teoría de grafos en ingeniería de software?,"la teoría de grafos es una rama de las matemáticas que estudia las estructuras llamadas ""grafos"". Un grafo es un conjunto de objetos llamados ""nodos"" (también conocidos como vértices) conectados por enlaces llamados ""aristas"" (o arcos). La teoría de grafos es una herramienta valiosa en la ingeniería de software, ya que se puede utilizar en diversas áreas, tales como:
+
+Análisis de dependencias: En el desarrollo de software, los módulos o componentes a menudo dependen de otros para funcionar correctamente. La teoría de grafos puede ayudar a visualizar y analizar estas dependencias, facilitando la identificación de problemas potenciales y la optimización de la arquitectura del software.
+
+Control de versiones: Las herramientas de control de versiones, como Git, utilizan grafos para representar la historia de los cambios realizados en un proyecto. Los nodos representan revisiones o cambios individuales, mientras que las aristas representan las relaciones entre estos cambios.
+
+Planificación de proyectos: La teoría de grafos puede ser útil en la planificación y programación de proyectos de software, especialmente en la estimación de tiempos y recursos necesarios. Los algoritmos de grafos, como el algoritmo de Dijkstra, pueden utilizarse para encontrar el camino más corto o más eficiente entre dos puntos en un grafo, lo que puede ser útil para asignar tareas y recursos en un proyecto.
+
+Análisis de redes sociales: En aplicaciones de software que involucran redes sociales, la teoría de grafos es fundamental para analizar y modelar las relaciones entre los usuarios y cómo interactúan entre sí.
+
+Algoritmos de búsqueda y optimización: La teoría de grafos es esencial en el diseño de algoritmos para resolver problemas de búsqueda y optimización en estructuras de datos complejas. Por ejemplo, puede utilizarse en algoritmos de búsqueda de caminos, detección de ciclos y búsqueda de componentes conexos en un grafo.
+
+Análisis de algoritmos y estructuras de datos: Muchos algoritmos y estructuras de datos en la ingeniería de software se basan en grafos, como árboles de decisión, tablas hash y algoritmos de enrutamiento. La teoría de grafos ayuda a analizar y mejorar el rendimiento de estos algoritmos y estructuras de datos.
+
+En resumen, la teoría de grafos es una herramienta poderosa en la ingeniería de software que puede utilizarse para resolver diversos problemas y optimizar el diseño y la implementación de sistemas de software.",,,,
+hike-6.5-20261114T224258Z-007,36,24306107a432661ef49b9823,2571ff00929fd280f3217095e0d21d61,hike-6.5,es,web_backend,oasst1,human_authored,"[user] Programa un script en python para hacer una API básica
+
+[assistant] Existen diferentes formas de crear una API en Python, siendo las más utilizadas FastAPI y Flask. Así pues, explicaré cómo funcionan las dos, de tal forma que puedas usar la forma de crear APIs en Python que más te guste. Empecemos con FastAPI.
+
+Cómo crear una API en Python con FastAPI
+Requisitos para usar FastAPI
+FastAPI es una forma de crear APIs en Python que surgió a finales de 2018. Es muy rápida, aunque solo puede usarse con Python 3.6+ (en mi opinión esto no debería ser un problema, pero es importante.
+
+Para utilizarlo deberás instalar dos librerías: fastapi y uvicorn.
+```
+pip install fastapi
+pip install uvicorn
+```
+Tu primera API en Python con FastAPI
+Ahora que ya hemos instalado los paquetes, simplemente debemos crear un fichero en Python donde definiremos nuestra API. En este fichero, deberemos crear una app, en donde iremos incluyendo las APIs, con sus endpoints, parámetros, etc.
+
+Una vez tenemos la app, es ahí donde definimos la información que requiere la API: endpoint, método HTTP, argumentos de entrada y lo que hará la API por detrás.
+
+```python
+from fastapi import FastAPI
+app = FastAPI()
+
+@app.get(""/my-first-api"")
+def hello():
+  return {""Hello world!""}
+```
+
+Con esto ya tendríamos una API muy sencilla creada, que simplemente devuelve “Hello world!”. Como verás, en muy pocas líneas hemos definido: el método (get), el endpoint (“/”) y la función que debe correr esta API.
+
+[user] bien hecho. Ahora añádele dificultad, desarroya el código con tal de obtener algo más sofisticado.","Claro que sí! A continuación te mostraré un ejemplo de cómo crear una API un poco más sofisticada con FastAPI:
+
+python
+Copy code
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+# Definimos un modelo para el objeto que vamos a enviar a la API
+class Item(BaseModel):
+    name: str
+    price: float
+    is_offer: bool = None
+
+# Definimos una lista de items para utilizar en nuestra API
+items = [
+    {""name"": ""item1"", ""price"": 10.0},
+    {""name"": ""item2"", ""price"": 20.0, ""is_offer"": True},
+    {""name"": ""item3"", ""price"": 30.0},
+]
+
+# Creamos una ruta para obtener todos los items
+@app.get(""/items"")
+async def read_items():
+    return items
+
+# Creamos una ruta para obtener un item por su índice en la lista
+@app.get(""/items/{item_id}"")
+async def read_item(item_id: int):
+    return items[item_id]
+
+# Creamos una ruta para crear un nuevo item
+@app.post(""/items"")
+async def create_item(item: Item):
+    items.append(item.dict())
+    return item
+
+# Creamos una ruta para actualizar un item existente
+@app.put(""/items/{item_id}"")
+async def update_item(item_id: int, item: Item):
+    items[item_id] = item
+    return {""item"": item, ""item_id"": item_id}
+
+# Creamos una ruta para eliminar un item existente
+@app.delete(""/items/{item_id}"")
+async def delete_item(item_id: int):
+    items.pop(item_id)
+    return {""item_id"": item_id}
+Este código define una API que permite realizar operaciones CRUD (crear, leer, actualizar y eliminar) sobre una lista de items. La API tiene cinco rutas distintas:
+
+/items (GET): Retorna todos los items de la lista.
+/items/{item_id} (GET): Retorna un item específico, según su posición en la lista.
+/items (POST): Crea un nuevo item y lo agrega a la lista.
+/items/{item_id} (PUT): Actualiza un item existente en la lista.
+/items/{item_id} (DELETE): Elimina un item existente de la lista.
+Espero que este ejemplo te sea útil para entender cómo se puede crear una API un poco más sofisticada con FastAPI. ¡Mucho éxito!",,,,
+hike-6.5-20261114T224258Z-007,37,70d762102635554b802ee755,5fd2eb7024a8e8939bdb77de46929b9a,hike-6.5,es,web_frontend,oasst2,human_authored,"[user] ¿En el desarrollo Front End cuál es la diferencia entre React, Angular, Vue y Svelte?","React, Angular, Vue y Svelte son frameworks de JavaScript que se utilizan para desarrollar aplicaciones web. La principal diferencia entre ellos es el enfoque que tienen. React se centra en la creación de interfaces de usuario, mientras que Angular es un marco de trabajo completo que se utiliza para desarrollar aplicaciones web. Vue es un marco de trabajo más ligero, que se puede usar para construir aplicaciones web sin necesidad de mucha configuración. Por último, Svelte es una herramienta de compilación que se usa para crear aplicaciones web modernas y reactivas.",,,,
+hike-6.5-20261114T224258Z-007,38,2ac30039533f7a30e188ec59,2791561ac124bb4ebe528cbfa613c00d,hike-6.5,es,writing,oasst2,human_authored,"[user] Redacta un email pidiendo un aumento de sueldo. Quiero que argumentes que llevo 5 años en la empresa, que estoy ocupando cargos de responsabilidad que no están pagándose. Añade comentarios respecto todas las veces que ha faltado alguien, he estado en sustitución de esa persona y ayudando donde mas se necesitaba.
+
+[assistant] Buenos días (nombre del jefe)
+
+Durante estos 5 años en la empresa he estado trabajando de la mejor manera posible, he sustituido a los compañeros que por diversos motivos no han podido venir y he ayudado en las labores que más falta hacía. Últimamente estoy ocupando cargos de responsabilidad que no se me están pagando, por lo que me gustaría que consideraras una subida de sueldo. Creo que mi labor en esta empresa a sido bastante importante y sigo estando dispuesto a seguir trabajando de la misma forma de la que ya lo estoy haciendo pero siendo más recompensado.
+
+Un cordial saludo. Espero su respuesta.
+
+[user] Podrías hacerlo de manera más cordial","Estimado/a (nombre del jefe),
+
+Espero que esté teniendo un buen día. Me dirijo a usted para expresarle mi agradecimiento por estos 5 años en la empresa y hacerle saber que he trabajado siempre de la mejor manera posible. Durante este tiempo, he colaborado sustituyendo a compañeros que no han podido venir y he ayudado en las labores que más urgían.
+
+Recientemente, he estado ocupando cargos de responsabilidad que no están siendo remunerados de manera adecuada, por lo que me gustaría solicitarle considerar una subida de sueldo. Creo que mi labor en esta empresa ha sido importante y sigo comprometido a seguir trabajando de la misma forma en la que ya lo estoy haciendo, pero me gustaría sentirme más valorado y recompensado.
+
+Le agradezco de antemano su consideración y quedo a la espera de su respuesta.
+
+Un cordial saludo,
+(Tu nombre)",,,,
+hike-6.5-20261114T224258Z-007,39,d8ad8766520189b9b0e72646,e53706c59503fbf99edb3bb346cc0613,hike-6.5,fa,general_knowledge,aya-dataset,human_authored,[user] در نگهداری از گل و گیاهان آپارتمانی چه نکاتی را باید رعایت کرد؟,"تعویض هوای درون اتاق با باز گذاشتن پنجره‌ها باعث می‌شود تا اکسیژن کافی و مورد نیاز به گیاه رسیده و ساقه گیاه قوی‌تر شده و در مقابل بیماری‌ها مقاومت بیشتری پیدا کند. نور نیز عامل دیگری است که در مراقبت از گیاهان آپارتمانی باید به آن توجه نمود.  مورد دیگر در مراقبت از گیاهان آپارتمانی، آبیاری است که باید به درستی انجام شود. درجه حرارت و رطوبت هوا، مورد دیگری است که در نگهداری از گیاهان آپارتمانی باید به آن توجه کرد. خاک و کود مناسب هم برای هر گلدان عامل مهم و ضروریی, در مراقبت از گیاهان آپارتمانی است.",,,,
+hike-6.5-20261114T224258Z-007,40,921c73d58bde72ac79e0ed3c,ff2eccd41840adad1ea0dcf4a6920b80,hike-6.5,fa,islamic_studies,aya-dataset,human_authored,[user] چند شهر توریستی ایران را معرفی کن.,"شیراز یکی از شهرهای توریستی و تاریخی ایران است که در استان فارس واقع شده است. جاذبه‌های گردشگری شیراز شامل این موارد هستند: حافظیه، سعدیه، مسجد نصیرالملک، باغ ارم، باغ عفیف‌آباد، دروازه قرآن و شاه‌چراغ است.
+اصفهان یکی دیگر از شهرهای توریستی ایران است که سالانه میزبان مسافران زیادی است. از زیبای‌های گردشگری این شهر می‌توان به سی و سه پل، پل خاجو، میدان نقش جهان، عمارت عالی قاپو، بازار سنتی، منارجنبان و چهل‌ستون اشاره کرد.
+از دیگر شهرهای توریستی ایران می‌توان به یزد اشاره کرد که در دل کویر واقع شده است. 
+تهران، یزد، مشهد، کیش و کاشان هم از شهرهای توریستی ایران هستند.",,,,
+hike-6.5-20261114T224258Z-007,41,870120c40c2995a399b14ec1,150565031ebb8ca07532ada114c2d1af,hike-6.5,fa,mathematics,aya-dataset,human_authored,[user] دلایل بالا بودن تعداد تلفات در زمین‌لرزه بم در سال ۱۳۸۲ چه بود؟,"دلایل زیر را می‌توان برای این موضوع عنوان کرد:
+- قدرت زمین لرزه (۶/۶ در مقیاس ریشتر)
+- عمق کم زمین لرزه (۷/۵ کیلومتر)
+- نزدیکی کانون زمین لرزه به شهر (فاصله کانونی زلزله تا شهر حدود ۴ کیلومتر)
+- طولانی بودن مدت زمین لرزه (۱۲ تا ۱۳ ثانیه)
+- ساعت وقوع زمین لرزه (۵:۲۶ بامداد)
+- روز وقوع زمین لرزه (جمعه)
+- شتاب بالای زمین لرزه
+- افزون بر علت‌های ذکر شده، اکثر ساختمان‌های شهر بم از استحکام کافی برخوردار نبودند و این خود سبب شد که بسیاری از کارشناسان دلیل افزایش تلفات این زمین‌لرزه را عامل انسانی بدانند.",,,,
+hike-6.5-20261114T224258Z-007,42,e456189d30e602ac73ac7c5b,2da4c13cba76409b77d2e18e26130847,hike-6.5,fr,coding,oasst2,human_authored,"[user] Écrit une implémentation basique d'un bot discord avec le module python discord.py qui contient la commande /pong.
+
+[assistant] Voici une implémentation basique d'un bot Discord utilisant le module `discord.py` avec la commande `/pong`. Assurez-vous d'avoir installé le module `discord.py` en exécutant `pip install discord.py` avant d'exécuter ce code. Vous devrez également remplacer ""YOUR_BOT_TOKEN"" par le jeton de votre bot.
+
+```python
+import discord
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.typing = False
+intents.presences = False
+
+bot = commands.Bot(command_prefix=""/"", intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f""{bot.user} est en ligne !"")
+
+@bot.command(name=""pong"")
+async def pong(ctx):
+    await ctx.send(""Ping!"")
+
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        await ctx.send(""Commande inconnue."")
+    else:
+        raise error
+
+if __name__ == ""__main__"":
+    bot.run(""YOUR_BOT_TOKEN"")
+```
+
+Ce code crée un bot Discord qui répond ""Ping!"" lorsqu'on lui envoie la commande ""/pong"".
+
+[user] c'est parfait, merci!","Pas de problème, si vous avez d'autres questions à propos du module discord.py ou du langage Python, n'hésitez pas à me les poser.",,,,
+hike-6.5-20261114T224258Z-007,43,53c22fc40edee26e15817bef,4cb70058ad46ddddc940e373b4fad779,hike-6.5,fr,cybersecurity,oasst2,human_authored,[user] C'est quoi Ubuntu ?,"Ubuntu est un système d'exploitation gratuit et open-source basé sur la distribution Linux Debian. Ubuntu est l'une des distributions Linux les plus populaires et est largement utilisée à la fois à des fins personnelles et professionnelles. Il offre une interface conviviale, un grand répertoire de logiciels open-source et des mises à jour régulières qui garantissent la disponibilité des derniers correctifs de sécurité et des fonctionnalités pour les utilisateurs.",,,,
+hike-6.5-20261114T224258Z-007,44,6a3b399164a0328773db04a8,70ede19149113bfefba2fdf974bf74d3,hike-6.5,fr,general_knowledge,oasst2,human_authored,"[user] J'aimerais photographier un Martin-pêcheur, tu as des conseils ? Je le vois souvent voler au-dessus de la rivière mais il ne se pose jamais...
+
+[assistant] attendre
+
+[user] Revenir régulièrement aux endroits où vous l'avez vu et attendre. Le long du cours d'eau où il chasse, essayer de repérer les branches d'où il pourrait observer les poissons, et espérer qu'il passe à cet endroit.","Le Martin-pêcheur est un oiseau très rapide et difficile à photographier car il ne reste pas souvent en place. Voici quelques conseils pour tenter de prendre une photo réussie :
+
+Équipez-vous d'un appareil photo capable de prendre des photos en rafale pour augmenter vos chances de prendre le Martin-pêcheur en vol.
+
+Cherchez des zones le long de la rivière où le Martin-pêcheur se pose souvent, comme des branches surplombant l'eau ou des pierres au bord de la rivière. Soyez patient et surveillez ces zones.
+
+Essayez de vous approcher discrètement du Martin-pêcheur sans le déranger, pour cela restez à distance et ne faites pas de mouvements brusques.
+
+Utilisez un trépied pour stabiliser votre appareil photo et prendre des photos nettes.
+
+Pour augmenter vos chances de réussite, prenez des photos par temps ensoleillé ou dans la lumière du matin ou du soir, lorsque la lumière est plus douce et les couleurs plus vives.
+
+Gardez à l'esprit que les Martin-pêcheurs sont très rapides et peuvent changer de direction rapidement, il est donc important d'être prêt à prendre la photo à tout moment.
+
+Enfin, il est important de respecter l'oiseau et son habitat naturel en ne le dérangeant pas ou en perturbant pas la nature environnante.",,,,
+hike-6.5-20261114T224258Z-007,45,aa1577d64c06c6b34dee31ce,e2d3df99c54f335d96502b139478543e,hike-6.5,fr,mathematics,oasst2,human_authored,[user] Quand a vécu Archimède et quelles furent ses inventions et découvertes les plus remarquables,"Archimède de Syracuse serait née aux alentours de 287 av.J. C et mort en 212 av.J. C  lors du siège de Syracuse en Grèce.
+
+Plusieurs invention et découvert son attribué à Archimède , notamment :
+- En mathématique avec plusieurs travaux sur les airs notamment l'approximation de l'air d'un cercle avec des polygones , différents travaux sur l'ellipse .
+- En physique avec les travaux sur les corps flottant (poussé d 'Archimède ) , des travaux sur les leviers , la vise sans fin .
+
+Cela n'est qu'une fraction des différents travaux d'Archimède voulez-vous que je développe certain point  ?",,,,
+hike-6.5-20261114T224258Z-007,46,83b232db46a9a90972c5601f,afa21185bd14f5439ac3e991959be1ce,hike-6.5,fr,problem_solving,oasst2,human_authored,"[user] Écrivez un plan de repas pour 1000 calories par jour, plus riche en protéines","Voici un exemple de plan de repas de 1000 calories par jour, riche en protéine 
+
+Petit déjeuner (280 calories) :
+1 café (0 calorie) 
+1 tranche de pain complet grillée avec du beurre (70 calories)
+2 œufs pochés (160 calories)
+1 pomme (50 calories)
+
+Déjeuner (360 calories) :
+Salade de poulet grillé (245 calories) avec salade de tomate (25 calories)
+1 banane (90 calories)
+
+Dîner (360 calories) :
+Steak de tofu grillé (170 calories) avec riz brun et légumes (110 calories)
+1 yaourt nature avec 1 cuillère à soupe de spiruline (80 calories)
+
+
+Ce plan de repas inclut environ 35-40% de calories provenant des protéines, ce qui est supérieur à la moyenne recommandée de 10-35% des calories totales. Il est important de noter que les apports journaliers recommandés (AJR) sont en moyenne de 2500 calories par jour pour un homme adulte et de 2000 calories par jour pour une femme adulte. Un plan de repas à 1000 calories par jour peut être dangereux. En cas de régime, il est conseillé de consulter un professionnel de la nutrition afin de valider un plan de repas personnalisé.",,,,
+hike-6.5-20261114T224258Z-007,47,7c58dc0f5032f89c597425cc,f78c82aec6e0ca3610627a0168a5498b,hike-6.5,fr,reasoning,wikipedia-fr,templated_human,[user] Présente brièvement : Business to business.,"Les termes , B to B, B2B, BtoB, commerce B to B (prononcés //), commerce entreprise à entreprise ou commerce interentreprise désignent l'ensemble des activités d'une entreprise visant une clientèle d'entreprises, ou l'ensemble d'architectures techniques et logicielles informatiques permettant de mettre en relation des entreprises. On l'appelle aussi parfois « marché professionnel », par opposition au « marché grand public ».
+
+Le marketing B to B représente l’ensemble des relations commerciales entre les entreprises et les professionnels (entreprises, administrations, artisans, professions libérales, associations…). On l’appelle aussi « commerce interentreprises ». Le marketing industriel (échange de biens industriels) et le marketing d’affaires (projet, solution, clés en main) sont des sous-ensembles du marketing B to B.
+
+Il est très difficile de connaître à ce jour l’importance des activités en B to B car une même entreprise peut vendre des produits à une autre qui seront destinés au grand public et vendre ces mêmes produits à une entreprise qui elle les distribuera à des professionnels. Selon les statistiques européennes, les échanges interentreprises représenteraient approximativement les deux tiers du total des échanges commerciaux dans les pays de l’union européenne.",,,,
+hike-6.5-20261114T224258Z-007,48,487d9a24e705307fb483f160,2d3e1bdce1364942ba087de5ab206839,hike-6.5,fr,research,oasst2,human_authored,[user] Quand est-ce que la bible a été écrite ?,"C'est une histoire compliqué, sans réponse très précise (certaines sources diffèrents) mais on estime que la bible (hébraïque) a été écrite entre le IIIe (3e) et Ie (1er) siècle avant Jésus Christ. La version ""moderne"" (plus récente dite du nouveau testament) daterait plutôt du IIe (2e) siècle après Jésus Christ (figés vers le IVe (4e) siècle)",,,,
+hike-6.5-20261114T224258Z-007,49,4df0fe4631c3cc03ec5c6f9e,39a1bbe273a22f8278bafa9c8992f92d,hike-6.5,fr,safety_ethics,oasst2,human_authored,"[user] Les IA de génération d'images entrainées avec des images sans l'accord de leur auteur est-il vraiment du vol dans la mesure où il est quasiment impossible de reproduire une œuvre à l'identique ensuite ?
+
+[assistant] La notion de vol est une question légale, qui dépend donc de la loi du lieu considéré et qui doit être tranchée par un tribunal ou un autre processus. 
+Je ne peux pas me prononcer sur ce point.
+
+[user] Peux-tu rédiger une dissertation sur la question éthique et morale précédente ?","La question de l'éthique et de la morale est un sujet de débat de longue date, qui soulève de nombreuses questions complexes sur la nature de la moralité et de l'éthique, ainsi que sur leur application dans la société. Dans cette dissertation, nous examinerons les définitions de l'éthique et de la morale, ainsi que leur importance en tant que fondement de la société. Nous discuterons également de la façon dont l'éthique et la morale sont influencées par la culture, la religion, la philosophie et d'autres facteurs externes, et nous examinerons les défis que pose l'application de l'éthique et de la morale dans des situations concrètes.
+
+Commençons par définir ce que sont l'éthique et la morale. L'éthique peut être définie comme une branché de la philosophie qui étudie la moralité et les valeurs morales. Elle se concentre sur les questions de bien et de mal, de justice et d'injustice, et de responsabilité. La morale, quant à elle, peut être définie comme l'ensemble des normes et des valeurs que la société considère comme correctes ou appropriées pour les comportements individuels et sociaux. En d'autres termes, la morale se concentre sur ce qui est considéré comme acceptable ou inacceptable dans la société.
+
+L'éthique et la morale sont considérées comme fondamentales pour la société, car elles fournissent un cadre pour les relations entre les individus et pour la résolution des conflits. Elles permettent aux individus de vivre en harmonie en se basant sur des valeurs et des principes communs, et elles offrent un moyen de déterminer ce qui est juste et ce qui est injuste. En outre, l'éthique et la morale jouent un rôle crucial dans la prise de décisions importantes, telles que les politiques publiques et les décisions commerciales, en fournissant des critères pour évaluer les conséquences potentielles de ces décisions.
+
+Cependant, l'éthique et la morale peuvent être influencées par de nombreux facteurs externes, tels que la culture, la religion, la philosophie et l'histoire. Par exemple, les valeurs morales peuvent varier considérablement entre les cultures, ce qui peut entraîner des différences de opinions sur ce qui est moralement correct. De même, les principes moraux peuvent être influencés par les croyances religieuses, et la philosophie peut jouer un rôle important dans la façon dont les gens perçoivent les questions éthiques et morales.
+
+Enfin, il est important de noter que la mise en œuvre de l'éthique et de la morale peut soulever des défis importants. Par exemple, il peut être difficile de déterminer ce qui est moralement correct dans des situations complexes, telles que les décisions commerciales ou les politiques publiques. De plus, les conflits entre les valeurs morales et les intérêts personnels peuvent rendre difficile la mise en œuvre de l'éthique et de la morale dans la pratique.
+
+En conclusion, l'éthique et la morale sont des concepts importants pour la société, car ils fournissent un cadre pour les relations entre les individus et pour la résolution des conflits. Toutefois, l'application de l'éthique et de la morale peut être influencée par de nombreux facteurs externes, et elle peut poser des défis considérables dans la pratique. Il est donc important de continuer à examiner les défis liés à l'éthique et à la morale, ainsi que les moyens de les surmonter, pour garantir que les valeurs morales fondamentales soient respectées et appliquées de manière cohérente dans la société. Cela nécessite une réflexion constante sur les principes éthiques et moraux, ainsi qu'une discussion ouverte et respectueuse sur les différences de opinions et les points de vue divergents. En fin de compte, le respect et la compréhension mutuelle sont essentiels pour garantir que l'éthique et la morale continuent de jouer un rôle important dans la société et dans nos vies quotidiennes.",,,,
+hike-6.5-20261114T224258Z-007,50,d1b7ff33a698ff7641b0996d,02c38acead40feea60a7219fbef882ab,hike-6.5,fr,science,aya-dataset,human_authored,[user] Pourquoi le drapeau d'Afrique du Sud est-il arc-en-ciel ?,"Le drapeau d'Afrique du sud comporte les couleurs de l'arc-ciel et il est en vigueur dans le pays depuis 1994. Ce drapeau se veut raconter l'histoire de son pays mais le bleu, le rouge, l'orange et le blanc font référence aux différents emblèmes des républiques boers. le rouge orange serait un compromis car ce serait la couleur préférée des Afrikaners ainsi que celle des blancs anglophones et les noirs.
+
+Il existe aussi d'autres explications qui donne les couleurs du drapeau d'Afrique du sud pour : le bleu = la terre, le vert = la terre africaine, le blanc = les européens, le noir = le peuple noir, le jaune pour l'or, le rouge pour le sang versé et le Y étant la jonction et l'union.",,,,
+hike-6.5-20261114T224258Z-007,51,6026f8dccbe52e04e2ac21cb,c8a51853ee27e11a3608cf78b6c0f30b,hike-6.5,fr,web_frontend,oasst2,human_authored,[user] Quels sont les design patterns les plus utiles dans la programmation orientée objet appliqué à l'informatique de gestion ?,"Il existe de nombreux design patterns qui peuvent être utiles dans la programmation orientée objet pour les applications de gestion. Voici quelques-uns des plus couramment utilisés :
+
+- Modèle-Vue-Contrôleur (MVC) : ce design pattern sépare les données d'une application, son comportement et l'interface utilisateur, permettant une plus grande modularité et une meilleure maintenance du code.
+
+- Factory Method : ce design pattern définit une interface pour la création d'objets sans préciser leurs classes concrètes. Cela permet de déléguer la création d'objets à des sous-classes.
+
+- Singleton : ce design pattern garantit qu'une classe ne peut avoir qu'une seule instance tout en fournissant un point d'accès global à cette instance.
+
+- Observer : ce design pattern définit une dépendance entre des objets, de sorte que lorsqu'un objet change d'état, tous les objets dépendants sont automatiquement mis à jour.
+
+- Stratégie : ce design pattern définit une famille d'algorithmes, encapsule chacun d'entre eux et les rend interchangeables. Cela permet de sélectionner l'algorithme à utiliser lors de l'exécution.
+
+Il est important de noter que ces design patterns ne sont que des solutions génériques à des problèmes courants, et qu'il est toujours important de les adapter à vos besoins spécifiques pour garantir leur efficacité.",,,,
+hike-6.5-20261114T224258Z-007,52,5df602cd8dc1a6a3c34899b1,07334e000a39bba83b5ffd7fde4cf627,hike-6.5,fr,writing,oasst1,human_authored,"[user] Tu disposes d'une API disponible à l'URL http://[IP]:5000/salaries qui te permet de rechercher des salariés dans une base de données.
+Cette API accepte les requêtes GET et peut prendre les paramètres optionnels suivants : 
+- nom
+- prenom
+- email
+- telephone
+- service (communication / juridique / ingenieurie)
+- dateArriveeMin (au format YYYY-MM-DD)
+- dateArriveeMax (au format YYYY-MM-DD)
+
+Si aucun paramètre n'est passé, l'API retourne toutes les personnes de la base de données.
+
+Pour contexte, nous sommes le lundi 6 février 2023.
+
+Voici une phrase à transformer en URL en utilisant l'une des API fournies ci-dessus, si possible :
+
+Donnes-moi les salariés nommés DUPONT travaillant à la com
+
+[assistant] Cette phrase implique d'utiliser le paramètre ""nom"" et le paramètre ""service"". On ajoute ces paramètres à l'URL de base avec les caractères ""?"" puis ""&"" et on leur donne une valeur avec ""="". La chaine finale est donc:
+
+http://[IP]:5000/salaries?nom=DUPONT&service=communication
+
+[user] Très bien, maintenant donne moi les e-mails de tous les gens du service juridique arrivés avant le 18 décembre 2022.","Pour cela, il faut utiliser les paramètres ""service"", ""dateArriveeMax"" et ""email"". On ajoute ces paramètres à l'URL de base avec les caractères ""?"" puis ""&"" et on leur donne une valeur avec ""="". La chaine finale est donc:
+
+http://[IP]:5000/salaries?service=juridique&dateArriveeMax=2022-12-18&email",,,,
+hike-6.5-20261114T224258Z-007,53,c8bc05a2573789a329edefa7,2f49ce34655174cd19e368e14d372885,hike-6.5,gu,general_knowledge,aya-dataset,human_authored,[user] અમદાવાદ શહેરનો ઇતિહાસ જણાવો.,"અહમદશાહે ૨૬ ફેબ્રુઆરી ૧૪૧૧ના રોજ શહેરનો પાયો માણેક બુર્જ પાસે નાખ્યો (૧.૨૦ બપોરે, ગુરૂવાર, ધુ અલ-કિદાહ, હિજરી વર્ષ ૮૧૩). તેણે નવી રાજધાની ૪ માર્ચ ૧૪૧૧ના રોજ નક્કી કરી હતી.
+
+દંતકથા અનુસાર અહમદશાહ બાદશાહ જ્યારે સાબરમતી નદીને કિનારે ટહેલતા હતા ત્યારે તેમણે એક સસલાંને કુતરાનો પીછો કરતા જોયું. સુલતાન કે જેઓ તેમના રાજ્યની રાજધાની વસાવવા માટેના સ્થળની શોધમાં હતા તેઓ આ બહાદુરીના કારનામાંથી પ્રાભાવિત થઇને સાબરમતી નદી કિનારા નજીકનો જંગલ વિસ્તાર પાટનગરની સ્થાપના માટે નક્કી કર્યો. આ બનાવ એક લોકપ્રિય કહેવતમાં વર્ણવેલ છે: જબ કુત્તે પે સસ્સા આયા, તબ બાદશાહને શહેર બસાયા.
+
+અમદાવાદ એ ગુજરાત રાજ્યની મુખ્ય શહેરોમાંથી એક છે, જે ધાર્મિક, ઐતિહાસિક અને સાંસ્કૃતિક દ્રષ્ટિએ મહત્વપૂર્ણ છે.
+
+અમદાવાદનો નામ અમદા પાર્ષદ આંદોળના મનેજર એબુલ ફતેદીને આપ્યાં છે, જેમણે १૧૭૪ ઈમાં એમની સ્થાપના કરી. આ શહેર અને જિલ્લો અને ગુજરાત રાજ્યની રાજધાની તરીકે પરિણત થયો છે. પ્રાચીન સમયમાં અમદાવાદ એ ભવનગર તરીકે મંડવી છે.
+
+અમદાવાદની સ્થાપના અને વિકાસ આણંદોલન સ્વતંત્રતા સંગ્રામના મહત્વપૂર્ણ કેન્દ્રોમાં આવે છે. મહાત્મા ગાંધીનો સેબી અને અમદાવાદમાં વૈદ્યકીય કોલેજ, નોંધ, આકાશવાણી અને સાબરમતી આશ્રમ જેવી અનેક મહત્વપૂર્ણ સ્થળો અમદાવાદમાં આવી છે.
+
+અમદાવાદ એ ગુજરાતનું આર્થિક, કલાત્મક, શિક્ષાત્મક અને સાંસ્કૃતિક કેન્દ્ર છે. આ શહેરમાં અને આસપાસના સ્થળો એ ગુજરાતની બૌદ્ધિકતા, અભિવૃદ્ધિ, સંગ્રહણો અને સૌહાર્દતાનો પ્રતિબિંબ આપે છે.",,,,
+hike-6.5-20261114T224258Z-007,54,c41d30e881f145bc6da25aa0,05263a90ad917094fc712434da0bdd1f,hike-6.5,gu,mathematics,aya-dataset,human_authored,"[user] હિંદુઓ દ્વારા ઐતિહાસિક રીતે ભારતમાં ઉપયોગમાં લેવાતી બે કાલક્રમિક પ્રણાલીઓ સમજાવો. ઐતિહાસિક ઘટના અને સ્વર્ગીય શરીર આધારિત ગણતરીઓનું વર્ણન કરો. વિક્રમ યુગ, સાકા યુગ અને ચંદ્ર કેલેન્ડર જેવી કેલેન્ડર પ્રણાલીઓમાં તફાવતોને હાઇલાઇટ કરો.","ભારતે ઐતિહાસિક રીતે બે અલગ-અલગ કાલક્રમ પ્રણાલીનો ઉપયોગ કર્યો છે, જેમાં પ્રત્યેક સમયની ગણતરી કરવાની તેની અનન્ય પદ્ધતિ છે.
+
+ઐતિહાસિક ઘટના-આધારિત ગણતરી:
+
+એક અભિગમમાં નોંધપાત્ર ઐતિહાસિક ઘટનાના વર્ષોની ગણતરીનો સમાવેશ થાય છે. આ પદ્ધતિ ભારતમાં વિવિધ પ્રદેશો અને સમયમાં અલગ-અલગ છે.
+ગુજરાત અને આસપાસના કેટલાક વિસ્તારોમાં, વિક્રમ યુગ (58 B.C.) નો સામાન્ય રીતે ઉપયોગ થાય છે. આ યુગ રાજા વિક્રમાદિત્યના શક પર વિજય મેળવ્યા પછી શરૂ થયો હતો, અને આ યુગના વર્ષોને વિક્રમસંવત અથવા ફક્ત સંવત તરીકે સૂચવવામાં આવે છે.
+ભારતના ઉત્તરીય ભાગોમાં, વર્ષ સામાન્ય રીતે ચૈત્ર (માર્ચ - એપ્રિલ) થી શરૂ થાય છે અને દર મહિને પૂર્ણ ચંદ્ર સાથે થાય છે. જો કે, દક્ષિણ અને ગુજરાતના કેટલાક ભાગોમાં, વર્ષ કારતક (ઓક્ટોબર - નવેમ્બર) થી શરૂ થાય છે, અને મહિનાઓ નવા ચંદ્ર સાથે શરૂ થાય છે. સાક અથવા સાલીવાહન યુગ (78 એ.ડી.) હજુ પણ કેટલાક પ્રદેશોમાં વપરાય છે.
+
+સ્વર્ગીય શરીર-આધારિત ગણતરી:
+
+આ અભિગમમાં સમયની ગણતરી કરવા માટે સૂર્ય, ચંદ્ર, ગ્રહો અને તારાઓ જેવા અવકાશી પદાર્થોનો ઉપયોગ કરવાનો સમાવેશ થાય છે.
+જ્યારે ભારતીય પ્રજાસત્તાક મુખ્યત્વે બિનસાંપ્રદાયિક હેતુઓ માટે સૌર કેલેન્ડરને અનુસરે છે, ત્યારે હિન્દુ ધાર્મિક જીવન પરંપરાગત હિન્દુ કૅલેન્ડર દ્વારા સંચાલિત થાય છે, જે ચંદ્ર ચક્ર પર આધારિત છે.
+ચંદ્ર મહિનો, જે લગભગ 29 1/2 દિવસ ચાલે છે, તે સૂર્યના સંબંધમાં પૃથ્વીની આસપાસ ચંદ્રની એક ક્રાંતિને અનુરૂપ છે. આ ચંદ્ર મહિનાને લગભગ બે અઠવાડિયાના પ્રકાશ (SOOD) અને બે અઠવાડિયાના અંધકાર (VAD)માં વહેંચવામાં આવ્યો છે.
+354 દિવસનું ચંદ્ર વર્ષ 365 દિવસના સૌર વર્ષ કરતાં નાનું હોવાથી, તફાવતનું સમાધાન કરવા માટે લગભગ દર 30 મહિનામાં એક વધારાનો મહિનો ઉમેરવામાં આવે છે, પરિણામે ચંદ્ર લીપ વર્ષ થાય છે.
+ચંદ્ર દિવસ (તિથિ), જે ચંદ્ર મહિનાની 1/30મી તારીખ છે, તે મૂળભૂત એકમ છે. જો કે, તે કુદરતી દિવસ (અહોરાત્રા) સાથે સંપૂર્ણ રીતે સંરેખિત નથી. એક તિથિ કે જે એક દિવસ પરોઢ થયા પછી શરૂ થાય છે અને બીજા દિવસે સૂર્યોદય પહેલા સમાપ્ત થાય છે તે મહિનામાં ગણવામાં આવતી નથી, જેના કારણે દિવસના ક્રમમાં વિરામ આવે છે.
+નક્ષત્ર (નક્ષત્રો) ના નામ તે સમયે ક્ષિતિજ પરના નક્ષત્રો પરથી લેવામાં આવ્યા છે, અને મહિનાઓના નામ પણ આ અવકાશી પેટર્ન સાથે સંબંધિત છે.
+સારાંશમાં, ભારત પાસે સમયની ગણતરી કરવા માટે ઐતિહાસિક અને આકાશી બંને પદ્ધતિઓનો ઉપયોગ કરવાનો સમૃદ્ધ ઇતિહાસ છે, જેના પરિણામે વિવિધ પ્રાદેશિક કેલેન્ડર અને પ્રથાઓ છે. તિથિઓ અને નક્ષત્રો પર ધ્યાન કેન્દ્રિત કરીને ચંદ્ર કેલેન્ડર, સત્તાવાર અને બિનસાંપ્રદાયિક હેતુઓ માટે ઉપયોગમાં લેવાતા આધુનિક સૌર કેલેન્ડરની સાથે હિન્દુ ધાર્મિક અને સાંસ્કૃતિક જીવનમાં નોંધપાત્ર ભૂમિકા ભજવવાનું ચાલુ રાખે છે.",,,,
+hike-6.5-20261114T224258Z-007,55,58a0c9e7a5e2c91298c4627b,859792713fd8623e6b69c24749a6c3e0,hike-6.5,gu,science,aya-dataset,human_authored,[user] ચેર્નોબિલ આપત્તિ શું છે અને જ્યારે તે બન્યું?,"ચેર્નોબિલ દુર્ઘટના 26 એપ્રિલ 1986 ના રોજ સોવિયત યુનિયનમાં બાયલોર્યુસિયન એસએસઆર સાથેની સરહદની નજીક, યુક્રેનિયન એસએસઆરના ઉત્તરમાં પ્રિપાયત શહેર નજીક, ચેર્નોબિલ પરમાણુ પાવર પ્લાન્ટના નંબર 4 રિએક્ટરના વિસ્ફોટથી શરૂ થઈ હતી..આંતરરાષ્ટ્રીય પરમાણુ ઘટનાના ધોરણે સાત - મહત્તમ તીવ્રતા - રેટ કરેલા માત્ર બે પરમાણુ energy ર્જા અકસ્માતોમાંથી તે એક છે, બીજું જાપાનમાં 2011 ના ફુકુશીમા પરમાણુ અકસ્માત છે.પ્રારંભિક ઇમરજન્સી પ્રતિસાદ અને ત્યારબાદના ઘટાડાના પ્રયત્નોમાં 500,000 થી વધુ કર્મચારીઓ શામેલ હતા અને અંદાજે 18 અબજ રાઉબલ્સનો ખર્ચ થયો હતો - જે ફુગાવા માટે સમાયોજિત 2019 માં આશરે US 68 અબજ ડોલર છે.તે ઇતિહાસની સૌથી ખરાબ પરમાણુ દુર્ઘટના માનવામાં આવે છે.",,,,
+hike-6.5-20261114T224258Z-007,56,192ff145746a5c2850c401c7,d6aa967df9e315b977661338f892e44d,hike-6.5,he,general_knowledge,oasst2,human_authored,"[user] מתי נוסדה מדינת ארץ ישראל?
+
+[assistant] מדינת ישראל הכריזה על עצמאותה בה' באייר תש""ח, 14 במאי 1948.
+
+[user] מגניב! איך זה השפיע על מלחמת העצמאות?","בעקבות הכרזת העצמאות החלו הכוחות הערבים הפועלים בשטח המנדט הבריטי והמדינות הערביות מסביב לישראל לתקוף את ישראל
+ובהמשך להכריז מלחמה כוללת על מדינת ישראל הצעירה.",,,,
+hike-6.5-20261114T224258Z-007,57,0efd53a86a17067828f704e5,0b736d506b795323ac490e7446cca20f,hike-6.5,hi,general_knowledge,aya-dataset,human_authored,"[user] मेंटल हेल्थ के लिए योग, ध्यान, और अन्य प्राकृतिक उपचारों का प्रभाव और महत्व बताएं।","मानसिक स्वास्थ्य की देखभाल के लिए योग, ध्यान, और अन्य प्राकृतिक उपचार अत्यधिक महत्वपूर्ण हैं। ये तकनीकें मानसिक स्वास्थ्य को सुधारने में मदद करती हैं और आत्मशक्ति को बढ़ावा देने में महत्वपूर्ण भूमिका निभाती हैं।
+
+1. योग: योग एक प्राचीन प्रक्रिया है जो शारीर, मन, और आत्मा के संरेखित विकास को प्रमोट करती है। योग आसनों, प्राणायाम, और ध्यान के माध्यम से मानसिक शांति प्राप्त करने में मदद करता है, जिससे तनाव को कम किया जा सकता है।
+
+2. ध्यान: ध्यान मानसिक स्वास्थ्य के लिए एक शक्तिशाली तंत्र है। यह व्यक्ति को वर्तमान में लाने और मन की शांति प्राप्त करने में मदद करता है। ध्यान से मानसिक तनाव कम होता है, सकारात्मकता में वृद्धि होती है, और आत्मज्ञान बढ़ता है।
+
+3. प्राकृतिक उपचार: प्राकृतिक उपचार जैसे कि वनस्पति चिकित्सा, आयुर्वेद, और होम्योपैथी मानसिक स्वास्थ्य के लिए भी बहुत प्रभावी हो सकते हैं। ये प्राकृतिक उपाय हमारे शरीर को और मन को संतुलित बनाने में मदद करते हैं और आत्मशक्ति को बढ़ावा देते हैं।
+
+इन प्राकृतिक उपचारों का नियमित अभ्यास करने से मानसिक स्वास्थ्य में सुधार हो सकता है और तनाव, डिप्रेशन, और अन्य मानसिक स्वास्थ्य समस्याओं का समर्थन किया जा सकता है।",,,,
+hike-6.5-20261114T224258Z-007,58,10e22b8fc5a6fc6cff7908c9,8abe5acae48b52155fbdb5dc2a7219a9,hike-6.5,hi,mathematics,wikipedia-hi,templated_human,"[user] भारतीय भाषा प्रतिष्ठापन परिषद, वाशी, नवी मुंबई के बारे में एक संक्षिप्त परिचय लिखिए।","१. भारत के संविधान के अनुच्छेद ५१ (क) में दिए दिशा निर्देश के अनुसार मजहब, भाषा, सम्प्रदाय, जाति, वर्ग का भेदभाव किए बिना भारतीय समाज के हित के संवर्धन में सहायक होगा।
+
+२. भारत में राष्ट्रहित वाली भाषा नीति को लागू कराने के लिए हर संभव प्रयास करना जिससे सबको समान अवसर प्राप्त हों, साक्षरता बढ़े व गाँवों के विकास एवं राष्ट्र के संसाधनों से जुड़ा शोध हो।
+
+३. भारतीय संविधान की अष्टम अनुसूची में सम्मिलित भारतीय भाषाओं में आपस में ताल-मेल बढ़ाना एवं शिक्षा, व्यवसाय, शोध इत्यादि सहित जीवन के हर क्षेत्र में उनके प्रतिष्ठापन हेतु प्रचार, प्रसार, विचार विमर्श एवं जन हित याचिका सहित हर संभव प्रयास करना।
+
+४. भारतीय संविधान की अष्टमअनुसूची में सम्मिलित भारतीय भाषाओं के प्रतिष्ठापन के लिए प्रयत्नशील संस्थाओं की संयुक्त परिषद के रूप में कार्य करना एवं उनमें समन्वय स्थापित करना है।
+
+५. परिषद के उद्देश्यों की पूर्ति के लिए पत्र पत्रिका, प्रचार सामग्री प्रकाशित करना एवं अन्य सहायक गतिविधियों जैसे संगोष्ठियों, बैठकों एवं सभाओं का आयोजन एवं संचालन एवं दृश्य साधनों का प्रदर्शन करना।
+
+भारतीय भाषा प्रतिष्ठापन राष्ट्रीय परिषद् (पंजी.), एफ-६/१, सेक्टर-७ (मार्केट), वाशी, नवी मुम्बई-४००७०३",,,,
+hike-6.5-20261114T224258Z-007,59,ca540af87995c08a45c9e97d,0206d0af224c2ae1df41bc27aaa02bef,hike-6.5,id,general_knowledge,aya-dataset,human_authored,"[user] Complete the following phrase:  Martir dari Arad () adalah tiga belas jenderal revolusioner Hongaria yang dieksekusi oleh Kekaisaran Austria pada 6 Oktober 1849 di kota Arad, yang saat itu menjadi bagian dari Kerajaan Hongaria (sekarang di Rumania). Eksekusi itu dilaksanakan setelah","mereka terlibat dalam pemberontakan melawan kekuasaan Austria selama Revolusi Hongaria 1848-1849. Para jenderal ini memimpin pasukan-pasukan revolusioner Hongaria dalam perjuangan mereka untuk meraih kemerdekaan dari Kekaisaran Austria.
+
+Eksekusi martir dari Arad merupakan upaya dari Austria untuk menekan gerakan revolusioner di Hongaria dan menghukum para pemimpinnya secara publik. Para jenderal ini dianggap sebagai simbol perlawanan yang kuat dan semangat perjuangan untuk kemerdekaan, sehingga eksekusi mereka dijadikan contoh untuk memadamkan semangat perlawanan yang masih ada.
+
+Meskipun eksekusi martir dari Arad merupakan kekalahan bagi perjuangan kemerdekaan Hongaria pada saat itu, tindakan mereka yang berani dan kegigihan mereka dalam menghadapi kekuasaan Austria menjadi inspirasi bagi gerakan nasionalis Hongaria di masa depan. Nama mereka tetap dikenang sebagai pahlawan yang berkorban demi kemerdekaan negara mereka.",,,,
+hike-6.5-20261114T224258Z-007,60,1a135a6d3136d393cf5aa1e1,66e60e1e2ee8e683ae392fa1bd703875,hike-6.5,id,islamic_studies,aya-dataset,human_authored,"[user] Apa yang dimaksud dengan artikel berjenis ""Hikayat""? Apa saja ciri-ciri Hikayat yang membedakannya dengan jenis teks lainnya?
+
+Jawaban:","Hikayat berasal dari bahasa Arab hikayah 'kisah', yaitu jenis prosa dalam sastra melayu lama yang berisikan cerita fiksi berupa kisah kerajaan, sejarah, atau riwayat. Kisah tersebut menceritakan kehebatan, kepahlawanan, dan kesaktian orang ternama seperti raja, putra-putri raja, dan orang-orang suci. Hikayat bertujuan untuk menimbulkan jiwa kepahlawanan, pendidikan, dan hiburan.
+
+Hikayat ditulis dalam bahasa Melayu dengan huruf Arab dan dituliskan pada kertas, lontar, kulit kayu, serta rotan. Hikayat merupakan salah satu bentuk sastra lama atau sastra lisan yang tercipta dari ujaran. Ujaran tersebut kemudian disalin ke dalam sebuah naskah.
+
+Ciri-ciri hikayat adalah sebagai berikut.
+- Istana sentris atau berkisah tentang kehidupan di lingkungan istana.
+- Anonim atau tidak diketahui identitas penulisnya.
+- Statis, tidak ada perubahan yang berarti atau begitu-begitu saja, baik dari segi bentuk ataupun tema.
+- Bersifat khayalan atau fanstasi
+- Bersifat tidak logis
+- Menggunakan istilah atau kata-kata klise yang saat ini tidak lagi digunakan dalam komunikasi.
+- Menggunakan bahasa Melayu, seperti syahdan (selanjutnya, lalu), arkian (sesudah itu, kemudian), hatta (lalu, maka), dan duli (kata hormat apabila bercakap dengan raja).",,,,
+hike-6.5-20261114T224258Z-007,61,d3e5c29fbe400dd947e77860,a6b0c6c0a8d0eb124e61146684a9c45e,hike-6.5,id,reasoning,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Statistika inferensial.,"Statistika inferensial mencakup semua metode yang berhubungan dengan analisis sebagian data atau juga sering disebut dengan sampel untuk kemudian sampai pada peramalan atau penarikan kesimpulan mengenai keseluruhan data induknya (populasi).
+
+Menurut Bartolucci & Scrucca, statistika inferensial adalah statistik yang berkaitan dengan memberikan beberapa kesimpulan tentang parameter yang menggambarkan distribusi variabel yang diminati dalam populasi tertentu berdasarkan sampel acak.
+
+Dalam statistika inferensial diadakan pendugaan parameter, membuat hipotesis, serta melakukan pengujian hipotesis tersebut sehingga sampai pada kesimpulan yang berlaku umum. Metode ini disebut juga statistika induktif, karena kesimpulan yang ditarik didasarkan pada informasi dari sebagian data saja. Pengambilan kesimpulan dari statistika inferensial yang hanya didasarkan pada sebagian data saja yang menyebabkan sifat tak pasti, memungkinkan terjadi kesalahan dalam pengambilan keputusan, sehingga pengetahuan mengenai teori peluang mutlak diperlukan dalam melakukan metode-metode statistika inferensial.",,,,
+hike-6.5-20261114T224258Z-007,62,590500b00bdb96e75a8f2493,b1a55d3bb042c325ef0f715ff8278ae8,hike-6.5,id,research,tydiqa-goldp,human_authored,"[user] Qin Shi Huang (Hanzi: 秦始皇) (November atau Desember 260 SM - 10 September 210 SM), dilahirkan dengan nama Ying Zheng (贏政), juga dipanggil Shi Huang Di yang artinya adalah Kaisar Pertama, adalah raja dari Negara Qin dari 247 SM sampai 221 SM, setelah mempersatukan Tiongkok dengan menaklukkan 6 negara lainnya, ia kemudian mendirikan Dinasti Qin dan mengangkat diri menjadi kaisar dari Tiongkok yang bersatu - dari 221 SM hingga 210 SM - bertakhta dengan sebutan Kaisar Pertama. Gelaar kaisar (huangdi) dilanjutkan oleh penguasa penguasa Cina selama dua milenium berikutnya.
+
+kapankah  Ji Chong’er dilahirkan?","Desember 260 SM
+
+Qin Shi Huang (Hanzi: 秦始皇) (November atau Desember 260 SM - 10 September 210 SM), dilahirkan dengan nama Ying Zheng (贏政), juga dipanggil Shi Huang Di yang artinya adalah Kaisar Pertama, adalah raja dari Negara Qin dari 247 SM sampai 221 SM, setelah mempersatukan Tiongkok dengan menaklukkan 6 negara lainnya, ia kemudian mendirikan Dinasti Qin dan mengangkat diri menjadi kaisar dari Tiongkok yang bersatu - dari 221 SM hingga 210 SM - bertakhta dengan sebutan Kaisar Pertama.",,,,
+hike-6.5-20261114T224258Z-007,63,59660036a8ab78dcd6426a6f,e37a91d4d029b87d49c2aa48d814ba13,hike-6.5,it,coding,oasst2,human_authored,"[user] Mi potresti dare un esempio di rete neuronale utilizzando il framework Keras in modo da poter classificare dei dati in un file CSV?
+
+[assistant] Sì, certo! Sappi che il termine ""rete neuronale"" è più specifico e si riferisce alle reti di neuroni biologici che ispirano il funzionamento delle reti artificiali. In generale, la forma ""rete neurale"" è più utilizzata nell'ambito dell'informatica e dell'Intelligenza Artificiale, mentre ""rete neuronale"" è più comune nell'ambito della biologia e della neuroscienza.
+
+Comunque, ecco un esempio di rete neurale utilizzando il framework Keras per classificare dei dati in un file CSV:
+
+```python
+# importa le librerie necessarie
+import pandas as pd
+import numpy as np
+from keras.models import Sequential
+from keras.layers import Dense
+
+# carica i dati dal csv
+dataset = pd.read_csv('dati.csv', header=None)
+X = dataset.iloc[:, :-1].values
+y = dataset.iloc[:, -1].values
+
+# crea il modello
+model = Sequential()
+model.add(Dense(12, input_dim=8, activation='relu'))
+model.add(Dense(8, activation='relu'))
+model.add(Dense(1, activation='sigmoid'))
+
+# compila il modello
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+# addestra
+model.fit(X, y, epochs=150, batch_size=10)
+
+# valuta
+scores = model.evaluate(X, y)
+print(""\n%s: %.2f%%"" % (model.metrics_names[1], scores[1]*100))
+```
+
+In questo esempio, stiamo classificando i dati di un file CSV con 8 input e un singolo output binario. Il modello utilizza tre strati di neuroni, con attivazioni ReLU e sigmoide. Dopo la compilazione del modello, viene addestrato sui dati del csv per 150 epoche e viene infine valutata la sua precisione.
+
+[user] Come posso implementare lo script per testarlo?","Per eseguire lo script python è sufficiente salvarlo in un file come ad esempio 'script.py' e successivamente eseguirlo con 'python3 script.py' dal terminale.
+
+Tuttavia noto ora che il codice contiene un errore, poichè risulterà nel seguente errore di runtime:
+```
+ValueError: Exception encountered when calling layer ""sequential"" (type Sequential).
+Input 0 of layer ""dense"" is incompatible with the layer: expected axis -1 of input shape to have value 8, but received input with shape (None, 1)
+```",,,,
+hike-6.5-20261114T224258Z-007,64,7912a4aa6582d25203bb2edc,fe793f070997e538915ca0fb292eae17,hike-6.5,it,education,oasst2,human_authored,"[user] Oggi, 2 minuti dopo scuola, i bulli della scuola mi hanno spinto su strada e una macchina mi ha quasi investito. Cosa posso fare per denunciare questi bulli?","Mi dispiace sentire che hai subito un incidente del genere. La prima cosa che puoi fare è informare immediatamente un adulto di fiducia, come un insegnante o un genitore. Queste persone possono aiutarti a denunciare l'incidente e a trovare un modo sicuro per proteggerti dai bulli in futuro.
+
+Inoltre, puoi anche considerare di denunciare il comportamento dei bulli alle autorità scolastiche o alle forze dell'ordine. Questi enti possono investigare il comportamento dei bulli e aiutarti a trovare una soluzione per proteggere te e gli altri studenti dal bullismo.
+
+È importante che tu ti senta sicuro e protetto a scuola e che le persone responsabili del tuo benessere sappiano dell'incidente. Non devi sopportare il bullismo da solo, ci sono persone e risorse disponibili per aiutarti.",,,,
+hike-6.5-20261114T224258Z-007,65,475be8b58248714bc85198b5,211be520aa6733331ad00fa02843ba0e,hike-6.5,it,general_knowledge,oasst2,human_authored,"[user] Di che colore sono le stelle?
+
+[assistant] Il colore delle stelle dipende dalla loro temperatura superficiale. Le stelle più calde sono bianche o blu, mentre le stelle più fredde sono gialle, arancioni o rosse. Il nostro Sole è una stella gialla.
+Il colore della stella può cambiare nel corso della sua vita a causa di variazioni nella sua temperatura, luminosità e composizione chimica. Ad esempio, una stella come il Sole diventerà più rossa quando diventerà una gigante rossa.
+
+[user] di che colore è uno specchio?","Solitamente quando ci si riferisce a uno specchio si dice che non ha un colore, poiché quello che vediamo guardandolo è un riflesso dei colori di ciò che gli sta di fronte, per cui non vediamo il vero colore dello specchio. Volendo essere più precisi però si possono attribuire uno o più colori a uno specchio in diversi modi: ad esempio ci si può riferire al colore della cornice dello specchio come il colore di tutto lo specchio, oppure al colore del vetro dello specchio se possiede una particolare tinta invece di essere completamente trasparente. Un altro modo ancora per definire il colore di uno specchio può essere quello del colore del materiale riflettente che lo compone, solitamente argento o alluminio, che possiedono una tinta grigia quando hanno una rifinitura opaca.",,,,
+hike-6.5-20261114T224258Z-007,66,615bcb4f04593b52e17bd0b9,2c86530c0e977ac618fe3dcc76dcf50f,hike-6.5,it,mathematics,oasst2,human_authored,[user] qual'è la città italiana più bella?,"La bellezza è legata a parametri soggettivi, come le esperienze personali e la cultura di provenienza. Anche la definizione di città può essere altrettanto ambigua e ricomprendere più o meno abitati in base a popolazione o estensione territoriale. Tuttavia un modo possibile per approssimare il pensiero comune su quale possa essere la città più bella, può essere quello delle statistiche sulle presenze turistiche. Le città più visitate in Italia sono: Roma, Milano, Venezia e Firenze. Questo non necessariamente potrà incontrare i gusti di tutti i visitatori che potranno singolarmente preferirne anche altre in base al loro attuale gusto.",,,,
+hike-6.5-20261114T224258Z-007,67,aded9aa74490c6a163224126,fa8023d07015df1cbed7cb7a9512200f,hike-6.5,it,reasoning,aya-dataset,human_authored,"[user] Rispondi alla seguente domanda:
+""Che cos'è un lepidosiren paradoxa?""","Il Lepidosiren paradoxaFitzinger, 1837 è un pesce polmonato unico membro del genere Lepidosiren e della famiglia Lepidosirenidae, endemico dell'America meridionale.
+
+Si incontra in un'area abbastanza vasta del Sudamerica, ovvero nei bacini idrografici del Rio delle Amazzoni, del Paraguay e nel tratto inferiore di quello del Paraná. Popola acque ferme o a modestissima corrente.
+
+L. paradoxa ha aspetto anguilliforme ancora più allungato che nei dipnoi africani del genere Protopterus, con i quali condivide le pinne dorsale, caudale e anale unite, le pinne pettorali e le pinne ventrali filiformi, le scaglie piccole e i due polmoni funzionali. Arriva a 125 cm di lunghezza.",,,,
+hike-6.5-20261114T224258Z-007,68,2cb64ac1c783c7b5e2ac5246,ca39f147a543ec6598b3db0574ff8063,hike-6.5,it,science,oasst1,human_authored,[user] Come si chiama un atomo con 69 protoni?,"Un atomo con 69 protoni si chiama Thulio. Il Thulio (simbolo Th) è un elemento chimico della serie degli attinidi, ha numero atomico 69 e peso atomico 232. Il Thulio è un metallo di transizione, simile al bismuto, che si trova in natura solo in quantità tracce.",,,,
+hike-6.5-20261114T224258Z-007,69,9ba40a37fcd23b492515eb5b,5687e541e083f13b43bb2e94cc458a76,hike-6.5,ja,coding,oasst2,human_authored,"[user] このコードのなかで、最も直すべき部分はどこですか？
+
+[assistant] コードの中の、最優先で直すべき部分を探すんですね。承知しました。
+コードをどうぞ。
+
+[user] #
+# プログラム：年齢区分判定プログラム(AgeCheck.py)
+# 作成者：T.Yamaura, Y.Ohmori
+#
+number = input(""年齢を入力してください:"");
+if number.isdecimal():
+    number = int(number);
+    if number >= 0 and number <= 999:
+        if number >= 0 and number <= 20:
+            print(""未成人"");
+        elif number >= 21 and number < 59:
+            print(""成人"");
+        else:
+            print(""エラー"");
+    else:
+        print(""エラー"");
+else:
+    print(""エラー"");","プログラムを整形し、改善点を提案します。
+
+~~~
+python
+
+# 年齢区分判定プログラム(AgeCheck.py)
+# 作成者：T.Yamaura, Y.Ohmori
+
+number = input(""年齢を入力してください: "")
+
+if number.isdecimal():
+    number = int(number)
+
+    if 0 <= number <= 999:
+        if 0 <= number <= 20:
+            print(""未成人"")
+        elif 21 <= number < 59:
+            print(""成人"")
+        else:
+            print(""高齢者"")
+    else:
+        print(""エラー: 年齢が不正です"")
+else:
+    print(""エラー: 数字を入力してください"")
+~~~
+改善点：
+インデントを修正しました。Pythonではインデントが重要なので、正しいインデントを維持することが重要です。
+エラーメッセージをわかりやすくしました。
+59歳以上の年齢区分がありませんでしたので、「高齢者」として追加しました。
+
+これで年齢区分判定プログラムが正しく動作すると思います。",,,,
+hike-6.5-20261114T224258Z-007,70,cf1b49e6b20bfa6d35e355f4,4e5bd91ef68be9e30c5c4125989683d5,hike-6.5,ja,general_knowledge,oasst2,human_authored,"[user] 自己紹介をしてください。
+
+[assistant] Open Assistant は、誰もが優れたチャット ベースの大規模な言語モデルにアクセスできるようにすることを目的としたプロジェクトです。
+
+これを行うことで、言語の革新に革命を起こすことができると信じています。 安定拡散が世界が新しい方法でアートや画像を作成するのに役立ったのと同じように、Open Assistant が言語自体を改善することで世界を改善するのに役立つことを願っています。
+
+[user] なるほど、ではあなたは少なくとも法律で認められたプロンプトに対しては正確な返事をするようにトレーニングされているのですか？","はい。Open Assistant は法律で認められたプロンプトに対して可能な限り正確な返事をするようにトレーニングされています。
+
+ただし、Open Assistant などの大規模言語モデルは、言葉の推論を元に回答を作成していることに留意する必要があります。つまり実在する正確な情報を取得しているわけではないので、不正確な情報やそれに基づく返事になる場合があるということです。
+正確な情報が必要な場合は、返答内の情報が正しいか別途確認してください。",,,,
+hike-6.5-20261114T224258Z-007,71,2378d4990328f98645c1c7d5,ef9e0b964f13dbe29b33e667722bf292,hike-6.5,ko,general_knowledge,wikipedia-ko,templated_human,[user] 요하네스 케플러에 대해 간단히 소개해 주세요.,"요하네스 케플러(, 1571년 12월 27일 ~ 1630년 11월 15일)는 독일의 수학자, 천문학자, 점성술사이자 17세기 천문학 혁명의 핵심 인물이었다.
+
+케플러는 1571년 12월 27일, 바일데어슈타트의 제국자유도시(현재 바덴뷔르템베르크주 슈투트가르트에 속하고 슈튜트가르트 중심부에서 30km 서쪽으로 떨어져 있는 동네)에서 칠삭둥이 미숙아로 태어났다. 케플러 본인이 어른이 되고 나서 계산한 바에 따르면 부모가 결혼한 다음 날 오전 4시 47분에 자신이 잉태되었다고 한다. 할아버지 제발트는 그곳 읍의 장이었지만 케플러가 태어날 즈음에는 가세가 기울기 시작했다. 아버지 하인리히는 보수가 불확실한 용병 일로 돈을 벌었고 케플러가 다섯 살 때 집을 나가버렸는데 80년 전쟁 당시 네덜란드 전선에서 사망한 것으로 추정된다. 여관집 딸이었던 어머니 카탈리나 굴덴만은 치료사이자 약재상이었는데 이것 때문에 나중에 마녀로 몰리게 된다. 이르게 태어난 케플러는 병약하지만 영리한 아이였고 외할아버지의 여관에 묵는 사람들을 굉장한 수학적 재능으로 놀라게 하곤 했다.
+
+케플러는 여섯 살 때 1577년 대혜성을 목격했으며 후에 그 일을 《여섯 살에 있었던 일을 회상하며》에서 ""나는 1577년의 혜성에 대해 많이 들었고 어머니께서는 그것을 보기 위해 나를 데리고 높은 장소로 올라가셨다""라고 회고했다. 10살 때 그는 또다른 천문학 현상인 1580년 월식을 관찰하였고 후에 월식을 보기 위해 “밖으로 불려가서” 달이 “약간 붉은 색이 된 것”을 보았다고 회고했다.
+
+케플러는 어려서부터 천문학을 알게 되었고 평생에 걸쳐 천문학에 사랑을 쏟았다. 그러나 유년 시절에 천연두를 앓은 바람에 병약한 신체와 불구의 손을 가지게 되었고 시력도 악화되어 관측 능력에 결함이 생겼다. 케플러는 뷔르템베르크의 지방 귀족들이 레온베르크에 세운 영재학교에 들어갔다. 케플러는 성적이 우수한 학생이었지만 부모에게 물려받은 고약한 성격 탓에 친구가 없었다. 훗날 케플러의 자서전에서 이 시절을 묘사한 대목은 끝도 없이 “누군가와 싸웠다, 누군가가 자신을 미워했다”는 내용들로 가득 차 있다. 케플러는 어려서부터 잔병치레가 잦았고 심기증 환자기도 했다.",,,,
+hike-6.5-20261114T224258Z-007,72,9111caba7b1814968277e369,bc96afaad956f843e517f9f1cff18cb7,hike-6.5,ko,research,tydiqa-goldp,human_authored,"[user] 해리 S. 트루먼(Harry S. Truman, , 1884년 5월 8일 ~ 1972년 12월 26일)은 미국의 제34대 부통령(1945년), 33번째 대통령(1945년 4월 12일~1953년)이었다. 이는 프랭클린 루스벨트 대통령의 갑작스런 죽음으로 부통령이 된 지 불과 82일 만에 대통령직을 승계하였다. 제2차 세계대전에서 독일의 항복을 받았고, 태평양 전쟁에서 천황인 히로히토로부터 항복을 받았으며, 한국 전쟁 당시 미국의 대통령이었다. 세계에서 유일하게 핵공격 명령을 내린 국가 원수이다. 해리 S. 트루먼의 S는 그의 친할아버지와 외할아버지의 이름이 S로 시작하기 때문에 아버지가 그냥 S라고 붙였다.
+
+2차 세계 대전 당시 미국의 대통령은 누구인가?","해리 S. 트루먼
+
+해리 S. 트루먼(Harry S. Truman, , 1884년 5월 8일 ~ 1972년 12월 26일)은 미국의 제34대 부통령(1945년), 33번째 대통령(1945년 4월 12일~1953년)이었다. 이는 프랭클린 루스벨트 대통령의 갑작스런 죽음으로 부통령이 된 지 불과 82일 만에 대통령직을 승계하였다. 제2차 세계대전에서 독일의 항복을 받았고, 태평양 전쟁에서 천황인 히로히토로부터 항복을 받았으며, 한국 전쟁 당시 미국의 대통령이었다. 세계에서 유일하게 핵공격 명령을 내린 국가 원수이다. 해리 S. 트루먼의 S는 그의 친할아버지와 외할아버지의 이름이 S로 시작하기 때문에 아버지가 그냥 S라고 붙였다.",,,,
+hike-6.5-20261114T224258Z-007,73,51316037a7e9adba4a01a423,ba796ecf65d26a7d0c03876e46b80afd,hike-6.5,nl,general_knowledge,oasst2,human_authored,[user] Wat is De Bende van Nijvel?,"De Bende van Nijvel was een groep misdadigers die tussen 1982 en 1985 in België een reeks moorden, inbraken, diefstallen en overvallen pleegde. Daarbij vielen in totaal 28 doden en ruim 40 gewonden. Met name de bloedige roofovervallen op Delhaize-warenhuizen in 1985 deed België op z'n grondvesten daveren.
+
+De leden van de Bende van Nijvel, alsook hun motieven, zijn nooit bekend geraakt. In het begin zouden de politieonderzoeken chaotisch en onzorgvuldig zijn verlopen. Mede daardoor (en ook omdat het aantal doden en gewonden hoog was maar de buit relatief klein) werd de bende vaak gezien als een organisatie met politieke motieven die mogelijk een hand boven het hoofd werd gehouden vanuit hogere kringen. Let wel dat bewijzen daartoe tot op heden nog niet zijn gevonden.",,,,
+hike-6.5-20261114T224258Z-007,74,10d788e65f0406603d11939e,98e84e385c3d029a11449bed45a2cef0,hike-6.5,pa,general_knowledge,aya-dataset,human_authored,[user] ਪੰਜਾਬੀ ਸਿਨੇਮਾ ਦੇ ਤਰੱਕੀ ਵੱਲ ਵਧਦੇ ਕਦਮਾਂ ਉਤੇ ਚਾਨਣਾ ਪਾਓ।,"ਪੰਜਾਬੀ ਸਿਨੇਮਾ ਲਈ ਇਹ ਮਾਣ ਵਾਲੀ ਗੱਲ ਹੈ ਕਿ ਮੌਜੂਦਾ ਸਮੇਂ ਨਵਨੀਤ ਸਿੰਘ ਗੁਗਨੂੰ, ਮਨਦੀਪ ਕੁਮਾਰ, ਅਨੁਰਾਗ ਸਿੰਘ, ਮਨਦੀਪ ਬੈਨੀਪਾਲ ਜਿਹੇ ਕਈ ਅਜਿਹੇ ਹੋਣਹਾਰ ਅਤੇ ਮੰਝੇ ਹੋਏ ਨੌਜਵਾਨ ਨਿਰਦੇਸ਼ਕਾਂ ਨੇ ਇਸ ਖੇਤਰ ਵਿੱਚ ਕਦਮ ਰੱਖਿਆ ਹੈ, ਜਿਨ੍ਹਾਂ ਵੱਲੋਂ ਬਣਾਈਆਂ ਗਈਆਂ ਫ਼ਿਲਮਾਂ ਨੇ ਇਸ ਸਿਨੇਮਾ ਨੂੰ ਤਕਨੀਕੀ ਪੱਖੋਂ ‘ਬਾਲੀਵੁੱਡ’ ਫ਼ਿਲਮਾਂ ਦੇ ਬਰਾਬਰ ਲਿਆ ਖੜ੍ਹਾ ਕਰਨ ਵਿੱਚ ਅਹਿਮ ਭੂਮਿਕਾ ਨਿਭਾਈ ਹੈ। ਪੰਜਾਬੀ ਫ਼ਿਲਮ ਸਨਅਤ ਨੂੰ ਬੁਲੰਦੀਆਂ ਵੱਲ ਲਿਜਾਣ ਵਿੱਚ ਸਹਾਈ ਸਾਬਤ ਹੋ ਰਹੇ ਅਜਿਹੇ ਹੀ ਨਿਰਦੇਸ਼ਕਾਂ ਵਿੱਚ ਇੱਕ ਹੋਰ ਨਵਾਂ ਨਾਂ ਜੁੜਿਆ ਹੈ, ਲੇਖਕ ਅਤੇ ਨਿਰਦੇਸ਼ਕ ਧੀਰਜ ਰਤਨ ਦਾ, ਜਿਨ੍ਹਾਂ ਵੱਲੋਂ ਬਤੌਰ ਲੇਖਕ ਲਿਖੀਆਂ ਫ਼ਿਲਮਾਂ ‘ਮੇਲ ਕਰਾ ਦੇ ਰੱਬਾ’, ‘ਧਰਤੀ’, ‘ਜੀਹਨੇ ਮੇਰਾ ਦਿਲ ਲੁੱਟਿਆ’ ਨੇ ਸਫ਼ਲਤਾ ਦੇ ਨਵੇਂ ਕੀਰਤੀਮਾਨ ਸਥਾਪਤ ਕਰਕੇ ਪੰਜਾਬੀਅਤ ਦਾ ਝੰਡਾ ਦੇਸ਼ ਵਿਦੇਸ਼ ਵਿੱਚ ਹੋਰ ਬੁਲੰਦ ਕੀਤਾ ਹੈ। ਪੰਜਾਬੀ ਫ਼ਿਲਮ ਸਨਅਤ ਨੂੰ ‘ਹਾਲੀਵੁੱਡ’ ਪੱਧਰੀ ਬਣਾਉਣ ਦੀ ਇੱਛਾ ਰੱਖਦੇ ਧੀਰਜ ਇਨ੍ਹੀਂ ਦਿਨੀਂ ਬਤੌਰ ਨਿਰਦੇਸ਼ਕ ਆਪਣੇ ਨਵੇਂ ਸਫ਼ਰ ਦਾ ਆਗਾਜ਼ ਕਰ ਚੁੱਕੇ ਹਨ, ਜਿਸ ਦਾ ਪਹਿਲਾ ਅਧਿਆਏ ਬਣਨ ਜਾ ਰਹੀ ਹੈ, ਉਨ੍ਹਾਂ ਦੀ ਪਲੇਠੀ ਪੰਜਾਬੀ ਫ਼ਿਲਮ ‘ਸਾਡੀ ਲਵ ਸਟੋਰੀ’ ਜਿਸ ਦੀ ਸ਼ੂਟਿੰਗ ਨੂੰ ਧੀਰਜ ਅੱਜ-ਕੱਲ੍ਹ ਚੰਡੀਗੜ੍ਹ ਅਤੇ ਇਸ ਦੇ ਆਸ-ਪਾਸ ਦੇ ਇਲਾਕਿਆਂ ਵਿੱਚ ਅੰਤਮ ਛੋਹਾਂ ਦੇਣ ਵਿੱਚ ਜੁਟੇ ਹੋਏ ਹਨ। ਪੰਜਾਬ ਦੇ ਜ਼ਿਲ੍ਹਾ ਰੋਪੜ ਨਾਲ ਸਬੰਧਤ ਧੀਰਜ ਦੇ ਨਾਂ ਦਾ ਜ਼ਿਕਰ ਚਾਹੇ ‘ਬਾਲੀਵੁੱਡ’ ਦੇ ਨਾਮਵਰ ਫ਼ਿਲਮ ਲੇਖਕਾਂ ਵਿੱਚ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ਪਰ ਇਸ ਦੇ ਬਾਵਜੂਦ ਮਾਂ ਬੋਲੀ ਸਿਨੇਮਾ ਨਾਲ ਉਨ੍ਹਾਂ ਦਾ ਹਮੇਸ਼ਾਂ ਡਾਹਢਾ ਮੋਹ ਰਿਹਾ ਹੈ, ਜਿਸ ਦੇ ਚਲਦਿਆਂ ਹੀ ਉਨ੍ਹਾਂ ਆਪਣੇ ਰੁਝੇਵਿਆਂ ਦੇ ਬਾਵਜੂਦ ਸਮੇਂ-ਸਮੇਂ ਪੰਜਾਬੀ ਫ਼ਿਲਮਾਂ ਨਾਲ ਜੁੜਨ ਅਤੇ ਇਸ ਸਿਨੇਮਾ ਦੀ ਤਰੱਕੀ ਵਿੱਚ ਅਹਿਮ ਯੋਗਦਾਨ ਪਾਉਣ ਨੂੰ ਵਿਸ਼ੇਸ਼ ਤਵੱਜੋਂ ਦਿੱਤੀ ਹੈ। ਹਿੰਦੀ ਫ਼ਿਲਮ ਸਨਅਤ ਦੇ ਵਿਕਰਮ ਭੱਟ ਜਿਹੇ ਕਈ ਨਾਮਵਰ ਅਤੇ ਪ੍ਰਤਿਭਾਸ਼ਾਲੀ ਨਿਰਦੇਸ਼ਕਾਂ ਦੀਆਂ ਫ਼ਿਲਮਾਂ ਲਈ ਕਹਾਣੀ ਲਿਖ ਚੁੱਕੇ ਧੀਰਜ ਵੱਲੋਂ ਲਿਖੀਆਂ ਫ਼ਿਲਮਾਂ ‘ਸ਼ਰਾਪਿਤ’ ਅਤੇ ‘ਤੇਰੇ ਨਾਲ ਲਵ ਹੋ ਗਿਆ’ ਨੇ ਮੌਜੂਦਾ ਸਮੇਂ ਕਾਫ਼ੀ ਚਰਚਾ ਹਾਸਲ ਕੀਤੀ ਹੈ ਜਿਸ ਨਾਲ ਹਿੰਦੀ ਸਿਨੇਮਾ ਦੇ ਨਾਲ-ਨਾਲ ਪੰਜਾਬੀ ਫ਼ਿਲਮ ਉਦਯੋਗ ਵਿੱਚ ਵੀ ਉਨ੍ਹਾਂ ਦਾ ਕੱਦ ਹੋਰ ਉੱਚਾ ਹੋਇਆ ਹੈ। ਪੰਜਾਬੀ ਸੱਭਿਆਚਾਰ ਦੀਆਂ ਤੰਦਾਂ ਨੂੰ ਪੰਜਾਬੀ ਫ਼ਿਲਮਾਂ ਦੁਆਰਾ ਦੇਸ਼ ਵਿਦੇਸ਼ ਵਿੱਚ ਹੋਰ ਮਜ਼ਬੂਤ ਕਰਨ ਦੀ ਤਾਂਘ ਰੱਖਦੇ ਧੀਰਜ ਵੱਲੋਂ ਬਣਾਈ ਜਾ ਰਹੀ ਫ਼ਿਲਮ ‘ਸਾਡੀ ਲਵ ਸਟੋਰੀ’ ਵਿੱਚ ਦਲਜੀਤ ਦੁਸਾਂਝ, ਅਮਰਿੰਦਰ ਗਿੱਲ, ਸੁਰਵੀਨ ਚਾਵਲਾ ਮੁੱਖ ਭੂਮਿਕਾਵਾਂ ਨਿਭਾਅ ਰਹੇ ਹਨ। ਇਸ ਤੋਂ ਇਲਾਵਾ ਜਿੰਮੀ ਸ਼ੇਰਗਿੱਲ ਅਤੇ ਰਣਵਿਜੇ ਵੀ ਖਾਸ ਭੂਮਿਕਾਵਾਂ ਵਿੱਚ ਨਜ਼ਰ ਆਉਣਗੇ। ਪੰਜਾਬੀ ਸਿਨੇਮਾ ਦੇ ਤਰੱਕੀ ਵੱਲ ਵਧਦੇ ਕਦਮਾਂ ਵਿੱਚ ਹੋਰ ਜੋਸ਼ ਭਰਨ ਦਾ ਪੂਰਾ ਦਮਖ਼ਮ ਰੱਖਦੀ ਇਸ ਫ਼ਿਲਮ ਦਾ ਨਿਰਮਾਣ ‘ਜਿੰਮੀ ਸ਼ੇਰਗਿੱਲ ਪ੍ਰੋਡਕਸ਼ਨ’ ਵੱਲੋਂ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ ਜਿਸ ਦੀ ਖਿੱਚ ਦਾ ਕੇਂਦਰ ਅਦਾਕਾਰਾ ਨੀਤੂ ਸਿੰਘ ਹੋਵੇਗੀ, ਜੋ ਇਸ ਫ਼ਿਲਮ ਰਾਹੀਂ ਪੰਜਾਬੀ ਫ਼ਿਲਮਾਂ ਵਿੱਚ ਆਪਣੀ ਪਾਰੀ ਦਾ ਆਗਾਜ਼ ਕਰਨ ਜਾ ਰਹੀ ਹੈ।
+ਪੰਜਾਬੀ ਦੇ ਵੱਖ-ਵੱਖ ਹਿੱਸਿਆਂ ਤੋਂ ਇਲਾਵਾ ਖਰੜ ਦੇ ਨਜ਼ਦੀਕ ਪਿੰਡ ਪੰਨੂਆਂ ਵਿਖੇ ਫ਼ਿਲਮਾਈ ਜਾ ਰਹੀ ਇਸ ਫ਼ਿਲਮ ਦੀ ਕਹਾਣੀ ਸਬੰਧੀ ਜਦੋਂ ਨਿਰਦੇਸ਼ਕ ਧੀਰਜ ਤੋਂ ਜਾਣਿਆ ਤਾਂ ਉਨ੍ਹਾਂ ਦੱਸਿਆ ਕਿ ਰੁਮਾਂਟਿਕ ਅਤੇ ਕਾਮੇਡੀ ਨਾਲ ਭਰਪੂਰ ਇਸ ਫ਼ਿਲਮ ਰਾਹੀਂ ਆਪਸੀ ਰਿਸ਼ਤਿਆਂ ਦੀ ਵਿਚਲੀ ਮੋਹ-ਮੁਹੱਬਤ ਤੇ ਅਪਣੱਤ ਦੀ ਭਾਵਨਾ ਨੂੰ ਪੇਸ਼ ਕਰਨ ਦਾ ਯਤਨ ਕੀਤਾ ਗਿਆ ਹੈ। ਉਨ੍ਹਾਂ ਦੱਸਿਆ ਕਿ ਪੰਜਾਬੀ ਸਿਨੇਮਾ ਲਈ ਬਣ ਰਹੀਆਂ ਵਧੀਆ ਅਤੇ ਵੱਡੇ ਬਜਟ ਵਾਲੀਆਂ ਫ਼ਿਲਮਾਂ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਣ ਜਾ ਰਹੀ ਇਸ ਫ਼ਿਲਮ ਵਿੱਚ ਕੁਲਭੂਸ਼ਨ ਖਰਬੰਦਾ, ਨਵਨੀਤ ਨਿਸ਼ਾਨ, ਬੀ.ਐਨ. ਸ਼ਰਮਾ ਵੀ ਦਮਦਾਰ ਕਿਰਦਾਰ ਅਦਾ ਕਰ ਰਹੇ ਹਨ। ਇਸ ਤੋਂ ਇਲਾਵਾ ਜੈਦੇਵ ਕੁਮਾਰ ਵੱਲੋਂ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਸੰਗੀਤ, ਹੀਰਾ ਸਿੰਘ, ਨਾਜਰ ਪਠਾਨੀਆ ਵੱਲੋਂ ਫ਼ਿਲਮਾਏ ਜਾ ਰਹੇ ਲੜਾਈ ਦੇ ਦ੍ਰਿਸ਼, ਮੋਹਨ ਵਰਮਾ ਵੱਲੋਂ ਕੀਤੀ ਜਾ ਰਹੀ ਮਨਮੋਹਕ ਸਿਨੇਮਾਟੋਗ੍ਰਾਫੀ, ਡਾਂਸ ਮਾਸਟਰ ਭੂਪੀ ਵੱਲੋਂ ਕਰਵਾਈ ਜਾ ਰਹੀ ਕੋਰੀਓਗ੍ਰਾਫੀ ਅਤੇ ਤੀਰਥ ਸਿੰਘ ਗਿੱਲ ਵੱਲੋਂ ਲਗਾਏ ਜਾ ਰਹੇ ਦਿਲਕਸ਼ ਸੈੱਟ ਤੇ ਦੇਵ ਸ਼ਰਮਾ ਵੱਲੋਂ ਕੀਤੀ ਜਾ ਰਹੀ ਦਿਲਖਿੱਚਵੀਂ ਫੋਟੋਗ੍ਰਾਫੀ ਇਸ ਫ਼ਿਲਮ ਦੇ ਖ਼ਾਸ ਪਹਿਲੂ ਹਨ। ਫ਼ਿਲਮ ਨੂੰ ਹੋਰ ਸ਼ਾਨਦਾਰ ਬਣਾਉਣ ਵਿੱਚ ਆਨ ਲਾਈਨ ਪ੍ਰੋਡਿਊਸਰ ਕਰਨ ਗਿੱਲ ਅੰਮ੍ਰਿਤਸਰ ਤੇ ਸੰਨੀ ਵਿਰਕ ਵੀ ਤਨਦੇਹੀ ਨਾਲ ਆਪਣੀਆਂ ਆਪਣੀਆਂ ਜ਼ਿੰਮੇਵਾਰੀਆਂ ਨਿਭਾਅ ਰਹੇ ਹਨ।",,,,
+hike-6.5-20261114T224258Z-007,75,1c5612459ed4ef8d4ad48f8d,cfea7dbd9d4bf5df4db4944ed8bff2fb,hike-6.5,pl,coding,oasst1,human_authored,"[user] Jaki jest obecnie najwydajniejszy język programowania.
+
+[assistant] Zależy to od zastosowania, jednak najszybszym generalnym językiem jest Assembly, jest to kod maszynowy który odpowiada bezpośrednio instrukcjom wykonywanym przez CPU. Najszybszym językiem czytelnym dla człowieka jest C lub C++ w zależności od aplikacji
+
+[user] Podaj jeszcze kilka nowszych, ale też szybkich języków programowania.","Oto kilka innych języków programowania które są uważane za szybkie:
+- Go / Golang - to język stworzony przez google z wersją 1.0 wypuszczoną w 2012 roku. Jest to język kompilowany do assembly. W porównaniu do C/C++ posiada bardziej współczesny zestaw bibliotek i prostszą składnię. Jest często używany przy serwerach sieciowych i obliczaniu rozproszonym.
+- Rust - to język który kładzie nacisk na bezpieczny dostęp do pamięci i wielowątkowość. Pierwsze wydanie zostało upublicznione w 2015 roku. Jest często używany w silnikach gier, komponentach przeglądarek i VR.
+- C# - język podobny do java'y stworzony przez microsoft w roku 2000. Kompiluje się do wirtualnego języka interpretowanego przez VM. Posiada dużo bibliotek i ma opinię prostego do nauki. Podobnie jak C i C++ jest bardzo wszechstronny.
+- Java - kompiluje się do kodu interpretowanego przez JVM (Java virtual machine) i dzięki temu jest bardzo przenośna między systemami, tak długo jak system obsługuje daną wersję JVM.",,,,
+hike-6.5-20261114T224258Z-007,76,052246e422cb203f535b5a43,93ef0514d7b6d468cf41fb7c1e0e3eae,hike-6.5,pl,general_knowledge,oasst1,human_authored,[user] Podaj mi proszę listę najlepszych polskich filmów.,"Jako asystent AI ciężko wskazać mi listę najlepszych polskich filmów, ponieważ ocena filmów bywa subiektywna i może zależeć od wieku autora lub jego ulubionych gatunków.
+
+Jednakże, bazując na rankingach, plebiscytach i konkursach, mogę wskazać listę filmów najwyżej ocenianych przez społeczność:
+- Pianista (2002),
+- Seksmisja (1983),
+- Dzień świra (2002),
+- Bogowie (2014),
+- Kiler (1997),
+- Chłopaki nie płaczą (2000),
+- Miś (1980).",,,,
+hike-6.5-20261114T224258Z-007,77,80c9edf2041693a0cfb1d5e2,b60141bacd41aac2df2de0eb309ccd1e,hike-6.5,pl,science,oasst1,human_authored,"[user] Jaki był poziom wiedzy o stanach materii w XIX wieku?
+
+[assistant] W XIX wieku poziom wiedzy o stanach materii uległ znacznemu rozwojowi. W tym czasie chemicy i fizycy zaczęli lepiej zrozumieć i opisywać różne stany materii, takie jak stan skondensowany i stan gazowy.
+
+W 1809 roku francuski chemik Joseph Louis Gay-Lussac opisał prawo Gay-Lussac'a, które mówi o proporcjonalności pomiędzy ciśnieniem i objętością gazów, co pomogło w lepszym zrozumieniu ich właściwości. W 1848 roku brytyjski chemik James Clerk Maxwell opisał ruch cząstek w gazach i ich wpływ na ciśnienie i objętość, co zapoczątkowało rozwój teorii kinetyczno-molekularnej.
+
+W XIX wieku również rozwijano teorię termodynamiki, która opisuje właściwości i zmiany energetyczne w różnych stanach materii. Wszystko to prowadziło do lepszego zrozumienia i opisywania stanów materii i ich zachowań.
+
+[user] Jaki byłby dziś poziom rozwoju technologii gdyby wszystkie odkrycia o których napisałeś nie wydarzyłyby się?","Gdyby nie dokonania chemików i fizyków XIX wieku w dziedzinie rozwoju teorii stanów materii, dzisiejszy poziom rozwoju technologii byłby znacznie niższy. Odkrycia te miały ogromny wpływ na rozwój różnych dziedzin techniki, takich jak przemysł chemiczny, energetyczny i materiałowy.
+
+Bez poznania teorii kinetyczno-molekularnej nie byłoby możliwe zrozumienie procesów fizycznych zachodzących w reaktorach chemicznych, silnikach spalinowych, a także w wielu innych urządzeniach wykorzystujących reakcje chemiczne. Bez tej teorii nie byłoby też możliwe zrozumienie procesów zachodzących w atmosferze i ich wpływu na zmiany klimatu.
+
+Teoria termodynamiki jest kluczowa dla rozwoju energetyki, a także dla projektowania urządzeń chłodniczych i klimatyzacyjnych. Bez jej poznania nie byłoby możliwe zbudowanie wydajnych silników spalinowych, turbin parowych, czy też elektrowni atomowych.
+
+Wreszcie, bez poznania prawa Gay-Lussaca nie byłoby możliwe projektowanie sprężarek, pomp i innych urządzeń, które wykorzystują zmiany ciśnienia do wykonywania pracy.",,,,
+hike-6.5-20261114T224258Z-007,78,37535011b885739bfa23b2a8,208ad88cc2a606367f690b8a20f10a50,hike-6.5,pt,coding,aya-dataset,human_authored,[user] O que significam as iniciais HAL para o computador HAL 9000 no filme 2001: Uma Odisséia no Espaço?,"No original em inlgês, HAL significa ""Heuristically programmed ALgorithmic computer"", ou ""Computador Algorítmico Heuristicamente Programado"" em tradução livre. HAL é um computador com avançada inteligência artificial, instalado a bordo da nave espacial Discovery, e é um dos principais personagens do filme (e do livro que o inspirou).",,,,
+hike-6.5-20261114T224258Z-007,79,81102b4811f62b33b596638b,fd1f2be0e343bb7612ecd994196169e1,hike-6.5,pt,general_knowledge,aya-dataset,human_authored,[user] A apicultura é uma atividade perigosa?,"A apicultura é uma atividade que pode ser perigosa se não for praticada com os devidos cuidados. No entanto, quando realizada com os critérios de segurança conhecidos, oferece menos perigos do que muitas outras profissões. O problema é quando uma pessoa resolve manejar as abelhas sem conhecer a atividade. Em razão dos riscos envolvidos, todo candidato a apicultor deve buscar um bom curso teórico-prático para aprender as técnicas corretas de manejo das abelhas e garantir a segurança de todos os envolvidos. É importante lembrar que as abelhas são animais e, como tal, têm comportamentos instintivos que podem ser influenciados por fatores como a disponibilidade de alimentos, a temperatura e a presença de predadores. Portanto, é fundamental que os apicultores estejam preparados para lidar com esses comportamentos e saibam como proteger a si mesmos e às abelhas.",,,,
+hike-6.5-20261114T224258Z-007,80,de38c9988b97e1592a02459a,40f5de67c1a3553d5de8d4150876e7b6,hike-6.5,pt,mathematics,nemotron-math,synthetic,"[user] Solve in reals:
+\[ x^2 + y^2 = 2x \]
+\[ x^3 + y^3 - 3x^2 + 2x = y \]","The system of equations is:
+
+\[
+x^2 + y^2 = 2x
+\]
+\[
+x^3 + y^3 - 3x^2 + 2x = y
+\]
+
+The solutions are the pairs \((x, y)\) that satisfy both equations simultaneously in the real numbers.
+
+The solutions are:
+
+- \((x, y) = (0, 0)\)
+- \((x, y) = (2, 0)\)
+- \((x, y) = (1, 1)\)
+- \((x, y) = (1, -1)\)
+- \((x, y) = \left(1 - \frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\right)\)
+- \((x, y) = \left(1 + \frac{\sqrt{2}}{2}, -\frac{\sqrt{2}}{2}\right)\)
+
+These six pairs satisfy both equations. The first equation represents a circle centered at \((1, 0)\) with radius 1, and the solutions correspond to the points on this circle that also satisfy the second equation.
+
+Verification for each pair:
+
+- For \((0, 0)\): \(0^2 + 0^2 = 0 = 2 \cdot 0\) and \(0^3 + 0^3 - 3 \cdot 0^2 + 2 \cdot 0 = 0 = y\).
+- For \((2, 0)\): \(2^2 + 0^2 = 4 = 2 \cdot 2\) and \(2^3 + 0^3 - 3 \cdot 2^2 + 2 \cdot 2 = 8 - 12 + 4 = 0 = y\).
+- For \((1, 1)\): \(1^2 + 1^2 = 2 = 2 \cdot 1\) and \(1^3 + 1^3 - 3 \cdot 1^2 + 2 \cdot 1 = 1 + 1 - 3 + 2 = 1 = y\).
+- For \((1, -1)\): \(1^2 + (-1)^2 = 2 = 2 \cdot 1\) and \(1^3 + (-1)^3 - 3 \cdot 1^2 + 2 \cdot 1 = 1 - 1 - 3 + 2 = -1 = y\).
+- For \(\left(1 - \frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\right)\): Let \(a = \frac{\sqrt{2}}{2}\), so \(x = 1 - a\), \(y = a\). Then \((1 - a)^2 + a^2 = 1 - 2a + a^2 + a^2 = 1 - 2a + 2a^2\). Since \(a = \frac{\sqrt{2}}{2}\), \(a^2 = \frac{2}{4} = 0.5\), so \(1 - 2a + 2 \cdot 0.5 = 1 - 2a + 1 = 2 - 2a\). And \(2x = 2(1 - a) = 2 - 2a\), so equal. The second equation: \((1 - a)^3 + a^3 - 3(1 - a)^2 + 2(1 - a) = (1 - 3a + 3a^2 - a^3) + a^3 - 3(1 - 2a + a^2) + 2 - 2a = 1 - 3a + 3a^2 - a^3 + a^3 - 3 + 6a - 3a^2 + 2 - 2a = (1 - 3 + 2) + (-3a + 6a - 2a) + (3a^2 - 3a^2) + (-a^3 + a^3) = 0 + a + 0 + 0 = a = y\).
+- For \(\left(1 + \frac{\sqrt{2}}{2}, -\frac{\sqrt{2}}{2}\right)\): Let \(a = \frac{\sqrt{2}}{2}\), so \(x = 1 + a\), \(y = -a\). Then \((1 + a)^2 + (-a)^2 = 1 + 2a + a^2 + a^2 = 1 + 2a + 2a^2\). With \(a^2 = 0.5\), \(1 + 2a + 1 = 2 + 2a\), and \(2x = 2(1 + a) = 2 + 2a\), so equal. The second equation: \((1 + a)^3 + (-a)^3 - 3(1 + a)^2 + 2(1 + a) = (1 + 3a + 3a^2 + a^3) - a^3 - 3(1 + 2a + a^2) + 2 + 2a = 1 + 3a + 3a^2 + a^3 - a^3 - 3 - 6a - 3a^2 + 2 + 2a = (1 - 3 + 2) + (3a - 6a + 2a) + (3a^2 - 3a^2) + (a^3 - a^3) = 0 - a + 0 + 0 = -a = y\).
+
+Thus, all six pairs are valid solutions.
+
+\boxed{(0,\ 0)} \quad \boxed{(2,\ 0)} \quad \boxed{(1,\ 1)} \quad \boxed{(1,\ -1)} \quad \boxed{\left(1 - \dfrac{\sqrt{2}}{2},\ \dfrac{\sqrt{2}}{2}\right)} \quad \boxed{\left(1 + \dfrac{\sqrt{2}}{2},\ -\dfrac{\sqrt{2}}{2}\right)}",,,,
+hike-6.5-20261114T224258Z-007,81,afc437a32f70f9f94fd5b002,d4171ada1dfafc5e91bd3c7270340d01,hike-6.5,pt,reasoning,aya-dataset,human_authored,[user] Descreva a bandeira de Honduras.,"A bandeira de Honduras é composta por três faixas horizontais de igual largura. A faixa superior é azul, a faixa do meio é branca e a faixa inferior é azul. No centro da faixa branca, há cinco estrelas azuis dispostas em um triângulo. As estrelas representam os cinco países da antiga Federação da América Central, da qual Honduras fazia parte. As faixas azuis simbolizam o oceano Atlântico e o oceano Pacífico que banham o país.",,,,
+hike-6.5-20261114T224258Z-007,82,9d0ead2ff7720419175bfc8d,64da44810bdfc17a6c06fdf2239340ff,hike-6.5,pt,safety_ethics,aya-dataset,human_authored,[user] Escreva uma mensagem de parabéns para o meu melhor amigo.,"Feliz Aniversário, amigo!
+Hoje celebramos a passagem de mais um ano em que você nos honra com a sua personalidade fantástica. A nossa amizade enche a minha vida de luz e harmonia. Você está sempre aqui para me ajudar e suportar nos momentos altos e baixos da vida. A sua bondade genuína, positividade e habilidade de procurar sempre ver o melhor em cada situação me inspiram a ser uma pessoa melhor.
+Neste dia especial, te desejo felicidade abundante, sucesso e inúmeras aventuras.
+Obrigada por ser o amigo fenomenal que você é. 
+Vamos brindar a mais um ano repleto de momentos preciosos!",,,,
+hike-6.5-20261114T224258Z-007,83,107de151c346cc0a8fa9fef7,b8b18f1230f6e68b3903f3ca7e03b0d8,hike-6.5,pt,science,aya-dataset,human_authored,[user] Como a cultura brasileira nasceu?,"A cultura brasileira é resultado da integração de diversos elementos das culturas indígena, do português colonizador, do negro africano, assim como dos diversos imigrantes. Os elementos mais antigos da cultura genuinamente brasileira remontam aos povos indígenas que já habitavam o território de nosso país antes da chegada dos portugueses em 1500. Com a chegada dos portugueses e o início da colonização, a cultura europeia foi introduzida nos povos indígenas. No século XVII, devido ao grande número de engenhos de cana-de-açúcar, os europeus começaram a trazer os negros africanos para o Brasil, como escravos. A partir do século XIX, o Brasil vivenciou mais um processo migratório composto por trabalhadores italianos que vieram trabalhar nas lavouras de café.",,,,
+hike-6.5-20261114T224258Z-007,84,cb1a26aff7fc09bad737a275,673199cf7ab5037802ef2427e16ebd4e,hike-6.5,pt,web_frontend,aya-dataset,human_authored,[user] O que é o padrão de cor HEX?,"O padrão de cor HEX, ou hexadecimal, tem sintaxe muito mais curta que a RGB e HSL. Além disso, não possui todas as vantagens que as outras especificações nos dão, começando pelo canal alpha. Contudo, com o HTML e a grande maioria dos programas visuais dando suporte ao formato hexadecimal ele continua bastante presente.
+
+O código Hexadecimal para cores consiste em seis letras ou números precedidos do “#” e seus números significam:
+
+- Os dois primeiros elementos representam a intensidade de vermelho;
+-  O terceiro e quarto elementos representam a intensidade de verde;
+- Os dois últimos a intensidade de azul.
+Desta forma, o resultado final será a combinação dessas três cores em diferentes intensidades, formando a cor desejada. Os valores variam entre 00 (mais escuro) até FF (mais claro).
+
+Por exemplo, o código #FFFFFF representa a cor branca, pois tem a intensidade máxima das três cores. Do mesmo modo, #FF0000 representa a cor vermelha, com intensidade máxima de vermelho e nenhuma intensidade para verde e azul.",,,,
+hike-6.5-20261114T224258Z-007,85,e872b4419409bd518162af5e,6f8f5c060ac2124fe91826ae92d447a6,hike-6.5,roman_ur,mathematics,approx-curriculum,programmatic,[user] 1160 ka 75 percent kitna hota hai?,"75 percent ka matlab hai 75/100.
+75/100 × 1160 = 870.
+
+Jawab: 870",,,,
+hike-6.5-20261114T224258Z-007,86,9eacbc60621f99c89bc4a73f,8b83b99dd9d8e1e5304e984acf8885c8,hike-6.5,roman_ur,science,approx-curriculum,programmatic,[user] Ek gaari 6 ghanton mein 410 km chalti hai. Average speed kya hai?,"Average speed = faasla ÷ waqt = 410 ÷ 6 = 68.3333 km/h.
+
+Jawab: 68.3333 km/h",,,,
+hike-6.5-20261114T224258Z-007,87,0ab4caaf7d0be364e1ac8a8a,37175765f3e33c4b217ac7e55d114025,hike-6.5,roman_ur,writing,roman-urdu-parl,transliteration_unverified,"[user] Is jumle ko Roman Urdu mein likhein:
+مسلم علما کی جانب سے مندرجہ بالا دونوں فتاوی اور ایسے ہی دیگر متعدد فتووں کے بعد نے تمام مسلمانوں کو انتباہ کر دیا کہ اس فتنے سے ہوشیار رہیں اور اور خود کو اس فرقے کے کفرانہ عقائد سے دور رکھیں",muslim ulma ki janib se mandarja baala dono fatawa aur aisay hi deegar mutadid fatwoon ke baad ne tamam musalmanoon ko intibah kar diya ke is ftne se hooshiyar rahen aur aur khud ko is firqay ke kufrana aqaed se daur rakhen,,,,
+hike-6.5-20261114T224258Z-007,88,10a317591c5da5ace0010881,a31ae47cab4df25bb42c70da52b5e2dd,hike-6.5,ru,coding,oasst2,human_authored,"[user] Запрограммирует на Питоне алгоритм расчета времени, необходимого на обжарку на сковородке N булочек. На сковороде помещаются одновременно две булочки. Каждую булочку надо обжарить по минуте с каждой стороны.","Привет, интересный запрос. Надеюсь, что я понял его правильно:
+
+```python
+def pan_fry_time(N):
+    return (N//2)*2 if N%2==0 else ((N//2)+1)*2
+
+N = int(input(""Введите количество булочек, которое вы хотите пожарить: ""))
+print(f""Требуется {pan_fry_time(N)} минут(ы), чтобы пожарить столько булочек."")
+```
+
+Дайте знать, если вам требуются дополнительные пояснения или комментарии.",,,,
+hike-6.5-20261114T224258Z-007,89,5dd98c1363406dd1a432df8c,3c96e52b49ca9764df62e060b2e77df5,hike-6.5,ru,education,oasst2,human_authored,"[user] Привет, Ася. Я хочу написать небольшую игру в жанре квест на тему русских сказок. Но никак не могу при помощи stable diffusion сгенерировать изображения Ивана Дурака. Получаются либо крестьяне в европейском стиле, либо шуты с бубенцами. Видимо в исходной базе почти не было персонажей из русского фольклора. Как думаешь, можно ли как-то это обойти и получить нужный стиль? Обращаться к художникам не предлагай, т.к. игра будет бесплатной, и бюджет не должен выходить за 0.
+
+[assistant] У пользователя возникли проблемы с созданием изображений Ивана-дурака с помощью Stable Diffusion, возможно, из-за отсутствия персонажей из русского фольклора в исходной базе данных. Хотя связаться с художниками не представляется возможным, есть несколько способов обойти эту проблему и добиться желаемого стиля:
+Попробуйте использовать более конкретный запрос, например ""Иван-дурак в традиционной русской одежде"" или ""Иван-дурак со своим волшебным конем"". Это может помочь модели лучше понять желаемый стиль и получить более точные результаты.
+Экспериментируйте с различными методами выборки и шагами выборки, чтобы увидеть, дают ли они лучшие результаты. PLMS и euler_a - популярные варианты, а увеличение числа шагов выборки может помочь улучшить изображение.
+Рассмотрите возможность тонкой настройки модели с помощью дополнительных данных, характерных для русского фольклора.
+
+[user] Ася, ты ничего не перепутала? Я попробовал твои запросы в доступных веб-версиях Stable Diffusion 2.1 (на you.com и huggingface.co) и видела бы ты, что они мне выдают! То что-то вроде Красной площади, то вообще бомжа на лавочке, а в большинстве случаев почему-то интерьеры с непременным диваном! Может, с ними всё же лучше по-английски говорить? И о каких «методах выборки и шагах выборки» ты говоришь? Это вообще о чём?","*Ой! Простите, пожалуйста!*
+*Что-то на меня нашло, видимо...*
+
+*Но я правда постараюсь исправиться!*
+
+**Stable Diffusion** действительно может иметь проблемы с генерацией изображений в определенном стиле или культуре, если он не был обучен на достаточном количестве данных из этой области. Возможно, в вашем случае исходная база действительно не содержала достаточно персонажей из русского фольклора.
+
+Есть несколько способов обойти эту проблему и получить нужный стиль:
+
+- Вы можете попробовать добавить больше деталей или описаний к вашему текстовому запросу, чтобы уточнить желаемый результат. Например, вы можете указать цвет волос, одежды или фона Ивана Дурака, а также его характерные черты лица или поведения.
+- Вы можете попробовать использовать другие алгоритмы генерации изображений по тексту, которые могут быть более подходящими для вашей задачи. Например, вы можете попробовать **VQGAN+CLIP** или **CLIP-Guided Diffusion**, [можете посмотреть информацию, нажав **сюда**](https://creator.nightcafe.studio/stable-diffusion-image-generator).
+- Вы можете попробовать использовать предварительно обученные модели Stable Diffusion на других данных или дообучить модель на своих данных. Это потребует некоторых знаний и ресурсов по программированию и машинному обучению. [Вы можете найти код и инструкции для Stable Diffusion на GitHub, нажав **сюда**](https://www.tensorflow.org/tutorials/generative/generate_images_with_stable_diffusion).
+
+Надеюсь, эти советы помогут вам создать небольшую игру в жанре квест на тему русских сказок. Удачи! 😊",,,,
+hike-6.5-20261114T224258Z-007,90,2714ff6e534881fbb5172494,d10acf2db870a76ef8316a9c4bb5338f,hike-6.5,ru,general_knowledge,oasst1,human_authored,"[user] Придумай мне какое-нибудь блюдо из картошки, фарша, лука и каких-нибудь специй. Опиши ингредиенты и пошаговый способ приготовления.
+
+[assistant] Вот несколько восхитительных рецептов, в которых используются клубни, измельченная мякоть, аллиум и приправы.
+
+Алу Кима: Это типичное пакистанское блюдо готовится из картофеля, мясного фарша, лука и таких приправ, как имбирно-чесночная паста, гарам масала, кумин, кориандр и порошок чили. Обычно его подают с нааном или чапати.
+
+Гольфа Карри: Это блюдо объединяет мясной фарш и картофель с сочным и ароматным карри на основе томатов. Аллиум, чеснок, имбирь и множество приправ используются для придания блюду эксклюзивного вкуса.
+
+Тарт ""Скотовод"": Это типичное британское блюдо готовится из мясного фарша, картофеля и овощей, таких как морковь и лук. Его обычно покрывают картофельным пюре, а затем запекают в духовке.
+
+Чили кон карне: Это знаменитое мексиканское блюдо готовится из мясного фарша, бобовых и помидоров, приправляется чесноком, луком, кумином, порошком чили и орегано.
+
+Жареные фрикадельки: Это сытное блюдо готовится из мясного фарша, картофеля, лука и приправ. Фрикадельки запекаются в духовке и подаются с различными соусами.
+
+Киббех: Это ближневосточное блюдо готовится из мясного фарша, пшеницы булгур и таких приправ, как корица, пряности и кумин. Обычно его подают с соусом на основе йогурта.
+
+Мусака: Это архетипическое греческое блюдо готовится из баклажанов, мясного фарша, лука, помидоров и множества приправ, таких как корица, орегано и мускатный орех. Обычно его подают с соусом бешамель.
+
+Картофель Карри: Это индийское блюдо готовится из картофеля, лука и таких приправ, как куркума, кумин, кориандр и порошок чили. Обычно его подают с нааном или чапати.
+
+Тарт из печеного картофеля и мясного фарша: В этом необычном блюде сочетаются картофель, мясной фарш, лук и приправы. Обычно его запекают в духовке и подают с различными соусами.
+
+Фаршированные колокольчики: Для приготовления этого архетипического блюда используется болгарский перец, мякоть, лук и различные приправы, такие как чеснок, орегано и паприка. Обычно его подают с соусом на основе томатов.
+
+Сообщите мне, какие блюда вас заинтересовали, и я обязательно дам вам подробный рецепт.
+
+[user] Какие из этих блюд можно было бы дать ребёнку в 7 лет?","Если у ребенка нет ограничений по здоровью, то подойдет любое из этих блюд. Но в зависимости от пищи, к которой привык ребенок, некоторые из этих блюд могут оказаться слишком острыми или слишком пресными для него.",,,,
+hike-6.5-20261114T224258Z-007,91,40593b7fc504e8d0df0ff6c9,93775d7ed52a3ed398c42b157e284c7d,hike-6.5,ru,mathematics,oasst2,human_authored,[user] Рецепты еды которые можно сделать в микровалновай печи.,"Да, конечно, вот несколько рецептов:
+
+1. Омлет в микроволновой печи: Взбейте 2 яйца, добавьте 1/4 чашки молока и по желанию соль и перец. Влейте смесь в микроволновую стеклянную емкость и готовьте на высокой мощности в течение 2-3 минут, периодически проверяя, чтобы не пересушить омлет.
+
+2. Картофельные чипсы: Нарежьте картофель на тонкие ломтики и выложите на тарелку, сбрызните растительным маслом и посыпьте солью. Готовьте на высокой мощности в течение 3-4 минут, переворачивая их каждую минуту, пока они не станут хрустящими.
+
+3. Чизкейк в микроволновой печи: Смешайте 1/4 чашки рикотты, 1 яйцо, 2 столовые ложки сахара и по желанию ванильный экстракт в миске, выложите в микроволновую стеклянную емкость и готовьте на средней мощности в течение 3-4 минут, пока начинка не затвердится.
+
+4. Рис с овощами: Налейте в микроволновую стеклянную емкость 1/2 чашки риса, 1 чашку воды, посолите и добавьте нарезанные овощи, например, морковь, горошек или кукурузу. Готовьте на высокой мощности в течение 10-12 минут, периодически перемешивая, пока рис не будет готов.
+
+5. Куриные крылья: Выложите куриные крылья на тарелку, посыпьте специями и сбрызните растительным маслом. Готовьте на высокой мощности в течение 10-12 минут, переворачивая их каждые 5 минут, пока они не станут золотистыми и хрустящими.
+
+Обратите внимание, что время и мощность приготовления могут варьироваться в зависимости от мощности вашей микроволновой печи. Также, не забывайте проверять блюда во время приготовления, чтобы не пересушить или перегреть их",,,,
+hike-6.5-20261114T224258Z-007,92,696b5356de2b1c4c0270b4d1,83e5319d5b1a78a55a485dee9b8e05d6,hike-6.5,ru,research,tydiqa-goldp,human_authored,"[user] Оскорблённому рекомендовалось тут же, на месте, в спокойном и уважительном тоне потребовать извинений либо сразу же заявить обидчику, что к нему будут присланы секунданты. Далее оскорблённый мог либо отправить письменный вызов (картель), либо вызвать обидчика на дуэль устно, через секундантов. Максимальным сроком для вызова в обычных условиях (когда обидчик был непосредственно доступен и не было никаких объективных затруднений для передачи вызова) считались сутки. Затягивание с вызовом считалось дурным тоном.
+
+Как вызывали на дуэль в царской России?","сразу же заявить обидчику, что к нему будут присланы секунданты. Далее оскорблённый мог либо отправить письменный вызов (картель), либо вызвать обидчика на дуэль устно, через секундантов
+
+Оскорблённому рекомендовалось тут же, на месте, в спокойном и уважительном тоне потребовать извинений либо сразу же заявить обидчику, что к нему будут присланы секунданты. Далее оскорблённый мог либо отправить письменный вызов (картель), либо вызвать обидчика на дуэль устно, через секундантов. Максимальным сроком для вызова в обычных условиях (когда обидчик был непосредственно доступен и не было никаких объективных затруднений для передачи вызова) считались сутки. Затягивание с вызовом считалось дурным тоном.",,,,
+hike-6.5-20261114T224258Z-007,93,297313f395d0bd9acf926aaf,0d334c466308d60455bd5bdba0dac25a,hike-6.5,ru,science,oasst1,human_authored,"[user] Я хочу, чтобы ты писал, как профессиональный переводчик. Переведи нижеследующий текст в кавычках с английского на русский язык. Уделяй большое внимание креативности речевых оборотов при переводе, но также переводи очень точно, не забывай, что этот текст очень сложный для перевода.
+
+""Strange memories on this nervous night in Las Vegas. Five years later? Six? It seems like a lifetime, or at least a Main Era—the kind of peak that never comes again. San Francisco in the middle sixties was a very special time and place to be a part of. Maybe it meant something. Maybe not, in the long run . . . but no explanation, no mix of words or music or memories can touch that sense of knowing that you were there and alive in that corner of time and the world. Whatever it meant. . . .
+
+History is hard to know, because of all the hired bullshit, but even without being sure of “history” it seems entirely reasonable to think that every now and then the energy of a whole generation comes to a head in a long fine flash, for reasons that nobody really understands at the time—and which never explain, in retrospect, what actually happened.
+
+My central memory of that time seems to hang on one or five or maybe forty nights—or very early mornings—when I left the Fillmore half-crazy and, instead of going home, aimed the big 650 Lightning across the Bay Bridge at a hundred miles an hour wearing L. L. Bean shorts and a Butte sheepherder's jacket . . . booming through the Treasure Island tunnel at the lights of Oakland and Berkeley and Richmond, not quite sure which turn-off to take when I got to the other end (always stalling at the toll-gate, too twisted to find neutral while I fumbled for change) . . . but being absolutely certain that no matter which way I went I would come to a place where people were just as high and wild as I was: No doubt at all about that. . . .
+
+There was madness in any direction, at any hour. If not across the Bay, then up the Golden Gate or down 101 to Los Altos or La Honda. . . . You could strike sparks anywhere. There was a fantastic universal sense that whatever we were doing was right, that we were winning. . . .
+
+And that, I think, was the handle—that sense of inevitable victory over the forces of Old and Evil. Not in any mean or military sense; we didn’t need that. Our energy would simply prevail. There was no point in fighting—on our side or theirs. We had all the momentum; we were riding the crest of a high and beautiful wave. . . .
+
+So now, less than five years later, you can go up on a steep hill in Las Vegas and look West, and with the right kind of eyes you can almost see the high-water mark—that place where the wave finally broke and rolled back.""","""Странные воспоминания лезут в голову этой беспокойной ночью в Лас-Вегасе. Пять лет прошло? Шесть? Похоже, целая жизнь пролетела или, по крайней мере, миновала Главная Эпоха - апофеоз, который никогда больше не повторится. Сан-Франциско середины шестидесятых был очень особенным местом и временем, неотъемлемой частью всего этого. Возможно, это что-то значило. Возможно, нет: слишком много воды утекло... но никакие объяснения, никакая мешанина слов или музыки... или память не сможет повлиять на то чувство, что ты был там, и остался жив в этом закоулке времени и мира. Что бы это ни значило...
+
+Историю трудно понять до конца, и всё из-за этой продажной чепухи, но даже если не доверять ""истории"", вполне уместно будет предположить, что время от времени энергия целого поколения вырывается наружу в восхитительной яркой вспышке, причин которой никто из современников по-настоящему не может понять, и, копаясь в прошлом, они никогда не объясняют, что же на самом деле произошло.
+
+Мои главные воспоминания о том времени, похоже, зациклились на одной или пяти - или, может быть, сорока - ночах... а может, это было раннее утро, когда я, наполовину очумевший, покидал ""Филлмор"" и, вместо того чтобы идти домой, мчался на здоровой ""Молнии 650"" через мост Бэй на скорости сто миль в час, одетый в шорты Л. Л. Бин и ковбойскую куртку ""Бьютт""... несясь через туннель Острова Сокровищ к огням Окленда, Беркли и Ричмонда, не представляя себе четко, где повернуть, когда я доберусь до другой стороны (и всегда застревая у шлагбаума - слишком обдолбанный, чтобы ставить регулятор скоростей в нейтральное положение, пока я шарю по карманам в поисках мелочи)... но, будучи абсолютно уверенным, что не имеет значения, куда я направляюсь: всегда попадаешь туда, где люди такие же отъехавшие и дикие, как и ты сам. И в этом не было никаких сомнений...
+
+Безумие творилось во всех направлениях, каждый час. Если не через Бэй, то вверх к Золотым Воротам или вниз по 101-ой к Лос-Альтос или Ла Хонде... Ты мог отрываться где угодно. Это было всеобщее фантастическое ощущение, что все, что мы делаем, правильно, и мы побеждаем...
+
+И это, я полагаю, и есть та самая фишка - чувство неизбежной победы над силами Старых и Злых. Ни в каком-либо политическом или военном смысле: нам это было не нужно. Наша энергия просто преобладала. И было бессмысленно сражаться - на нашей стороне или на них. Мы поймали тот волшебный миг; мы мчались на гребне высокой и прекрасной волны...
+
+И сейчас, меньше пяти лет спустя, можешь подняться на крутой холм в Лас-Вегасе и посмотреть на Запад, и если у тебя всё в порядке с глазами, то ты почти разглядишь уровень полной воды - ту точку, где волна, в конце концов, разбивается и откатывает назад.""
+                                                                 
+""Страх и Отвращение в Лас-Вегасе"" Х. Томпсон",,,,
+hike-6.5-20261114T224258Z-007,94,18da5a8562ea9d21ac5e2f1d,4a7dc72ec1d44d2a56ff06c3195d462d,hike-6.5,ru,software_engineering,oasst1,human_authored,[user] Что за сайт такой - GitHub?,"**GitHub** — это веб-сервис для хостинга IT-проектов и их совместной разработки. Веб-сервис основан на системе контроля версий Git и разработан на Ruby on Rails и Erlang компанией GitHub, Inc (ранее Logical Awesome). GitHub позволяет пользователям работать вместе над проектами и делиться кодом с другими пользователями. На данный момент является крупнейшим подобным хостингом. Там вы можете найти очень много приложений или инструментов с открытым исходным кодом.",,,,
+hike-6.5-20261114T224258Z-007,95,4616b59957ad5f85ac6aa4d6,3855cfb4e441f5a9e30f76558bdb9ae5,hike-6.5,ru,web_backend,oasst1,human_authored,[user] Как можно составить файл конфигурации для оконного менеджера Weston?,"Файл конфигурации для оконного менеджера Weston - это файл с расширением "".ini"", который содержит различные параметры и настройки для запуска. Вот пример:
+```
+[core]
+shell=weston-simple-shell.so
+backend=drm-backend.so
+
+[shell]
+background-image=/usr/share/backgrounds/weston/background.png
+
+[output]
+name=HDMI-A-1
+mode=1920x1080
+
+[input]
+device=/dev/input/event0
+```
+Рассмотрим его более подробно:
+*	`[core]` - это секция, которая содержит общие параметры для запуска Weston. `shell` указывает, какой шелл использовать, `backend` - указывает, какой бэкэнд (в данном случае *DRM*) будет использоваться.
+*	`[shell]` - это секция, которая содержит настройки для Weston Shell. `background-image` указывает путь к фоновому изображению, которое будет отображаться на рабочем столе.
+*	`[output]` - это секция, которая содержит настройки для вывода изображения. name указывает имя устройства вывода, `mode` - разрешение экрана.
+*	`[input]` - это секция, которая содержит настройки для устройств ввода. `device` указывает путь к устройству ввода, которое Weston будет использовать.
+
+Это простой пример файла конфигурации, который можно настроить в соответствии с вашими потребностями. После создания файла конфигурации, его можно использовать при запуске Weston с помощью команды `weston --config <путь к файлу конфигурации>`.",,,,
+hike-6.5-20261114T224258Z-007,96,f6056bc1f3c32181ec7ebb5b,6e090e48f4615f6f13f7fc9a48bf623d,hike-6.5,ru,web_frontend,oasst2,human_authored,"[user] Расскажи, пожалуйста, о самых удивительных изобретениях КГБ
+
+[assistant] Конечно, вот некоторые из них (согласно заявлениям генерал-майора КГБ Николая Шама): 
+
+- Методика очистки водоемов при помощи генератора на данный момент неуточненных излучений. Без использования химикатов огромные объемы воды могли быть очищены от токсичных примесей. Вода, черная от мазута и насыщенная диоксинами, становилась прозрачной и пригодной для питья. 
+- Агротехнология, основанная на так называемых резонансных явлениях. Урожайность на опытных полях повышалась на треть, отпадала необходимость внесения в почву удобрений, использования гербицидов и пестицидов. 
+- Объемно-струйный двигатель, обладающий большой удельной мощностью. К примеру, двигатель мощностью в сто лошадиных сил занимал объем небольшого кейса. 
+
+13 февраля 2021 года коллекция музея КГБ, долгое время находившаяся в Нью-Йорке, была продана с молотка на аукционе Julien's Auctions в Беверли-Хиллз. Среди выставленных предметов были:
+
+- Замаскированные оружия, такие как пистолеты, скрытые в зонтах и авторучках.
+- Специальные камеры, скрытые в галстуках, пачках сигарет, пепельницах, портсигарах и перстнях.
+- Машина ""Фиалка"", которую советские спецслужбы использовали для расшифровки сообщений, закодированных с помощью немецкой шифровальной машины Enigma.
+- Наполненный цианидом искусственный зуб, который разрушается, если его укусить определенным образом.
+
+[user] Откуда ты нахватался этой ереси? (Это я про первый список.) Если такие технологии существовали ещё в прошлом веке, то куда они делись теперь? Засекречены? Утрачены? По-моему, в твои обучающие данные попало много жёлтой прессы…","Вы правы, эта часть моего ответа основана на [интервью](https://rg.ru/2007/06/01/razrabotki-kgb.html) упомянутого генерал-майора КГБ, опубликованное на сайте «Российской газеты». К сожалению, я не могу судить о правдивости этой информации. Сам Шам в том же интервью признаётся: «Проведенные нами опыты повторить никому больше не удалось». Так что не удивительно, что «разговоры о колдунах-шарлатанах, дошли до министра обороны, и он… приказал часть расформировать». Впрочем, вы ведь спрашивали «о самых *удивительных* изобретениях КГБ», а эти «изобретения» (настоящие или — что более вероятно — вымышленные) трудно не признать удивительными. :)",,,,
+hike-6.5-20261114T224258Z-007,97,35871a3bc2c20d468d9a60b0,82a61ed4f6d6b09b6463dab6a86170f1,hike-6.5,ru,writing,oasst1,human_authored,"[user] Переведи текст песни ""Story of my life"" от Bon Jovi на русский
+
+[assistant] Песня ""Story of My Life"" принадлежит американской рок-группе Bon Jovi. 8 апреля 2013 года она была представлена в качестве третьего сингла группы с What About Now, их 12-го студийного альбома. Джон Бон Джови, Ричи Самбора и Билли Фэлкон написали песню, продюсером которой также выступил Джон Шэнкс.
+Песня, баллада с умеренным темпом, рассказывает о жизни человека от юности до старости. В тексте песни говорится о трудностях и победах человека, а также о том, как он менялся с течением времени. Припев фокусируется на жизни персонажа и на том, как он изменился и стал лучше в результате всего пережитого. Мелодия песни поддерживается простым фортепианным аккомпанементом, а также легкой, мелодичной гитарной линией и басовой линией.
+Трогательный текст и эмоциональное воздействие песни получили высокую оценку рецензентов. Кроме того, она была коммерчески успешной, заняв 10-е место в US Billboard Hot 100 и получив платиновый сертификат в США и Канаде. Сейчас поклонники Bon Jovi считают эту песню одной из своих любимых и часто поют ее вживую во время своих выступлений.
+
+[user] Ты не перевёл песню.","Извините за мой предыдущий ответ.Вот перевод песни Story of my life от Bon Jovi:
+
+История моей жизни
+Воспоминания прошлого,
+Ещё одна страница в истории.
+Ты живешь надеждами и мечтами,
+Которые заставили чувствовать cебя в стороне.
+Запутавшись в собственных ногах,
+Стараюсь идти своей дорогой,
+Другое авто на улице пытается отыскать шоссе,
+Тебе туда же, куда и мне?
+
+Это история моей жизни,
+Я пишу её каждый день.
+Я знаю, что она не черно-белая,
+Какая угодно, но не серая.
+Я знаю, что у меня не все в порядке,
+Но я чувствую себя нормально, потому что
+Всё что угодно может, всё может случиться,
+Это история моей жизни.
+
+Я хочу написать музыку,
+Которая станет впоследствии историей.
+И когда я нарисую свой шедевр,
+Я клянусь, что покажу тебе первой.
+Просто нельзя увидеть, кто и почему или что это будет,
+До тех пор, пока будущее не станет настоящим,
+Это тайна, благословение и проклятие
+Или что-то ещё хуже.
+
+Это история моей жизни,
+Я пишу её каждый день.
+Я знаю, что она не черно-белая,
+Какая угодно, но не серая.
+Я знаю, что у меня не все в порядке,
+Но я чувствую себя нормально, потому что
+Всё что угодно, всё возможно,
+Я подумал, может быть, ты
+Поможешь мне написать историю моей жизни.
+
+Это история моей жизни,
+Я пишу её каждый день, .
+Я надеюсь, ты будешь рядом,
+Когда я допишу последнюю страницу.",,,,
+hike-6.5-20261114T224258Z-007,98,4df3bfc4a7d5148f4b34b151,322026db324af59d01fbad942476b6ec,hike-6.5,sw,research,tydiqa-goldp,human_authored,"[user] Miaka ya upapaJina rasmiJina la KilatiniJina la kuzaliwaMahali pa kuzaliwaMaelezo30 – 64/67Petro Mtakatifu PetroPetrus, Apostolusשמעון בן יונה (Shimon ben Yona) Shimon Kipha, CΙΜΗΟΝ ΚΗΦΑC (Simeon Kephas - Simoni Mwamba - Simoni Petro) Bethsaida, GalilayaMtume wa Yesu ambaye alimpa funguo za Ufalme wa Mbinguni, kufuatana na Injili ya Mathayo 16:18-19. Alisulubiwa juu chini; sikukuu yake ni 29 Juni 68(?) – 79(?)Linus Mtakatifu Linus Linus, Episcopus RomanusLinusToscana (Italia ya Kati) Sikukuu yake ni 23 Septemba80(?) – 92Anacletus (Cletus) Mtakatifu AnacletusAnacletus, Episcopus RomanusAnacletusRoma au UgirikiAlifia dini; sikukuu yake ni 26 Aprili 92 – 96/99Klementi I Mtakatifu Klemens IClemens, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 23 Novemba96/99 – 108Evaristus (Aristus) Mtakatifu EvaristusEvaristus, Episcopus RomanusAristusMgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 26 Oktoba108/109 – 116/119Alexander I Mtakatifu AlexanderAlexander, Episcopus RomanusAlexanderRomaSikukuu yake ni 3 Mei117/119 – 126/128Sixtus I Mtakatifu SixtusXystus, Episcopus RomanusRomaSikukuu yake ni 6 Aprili127/128 – 137/138Telesfori Mtakatifu TelesforiTelesphorus, Episcopus RomanusUgirikiSikukuu yake ni 5 Januari138 – 142/146Hyginus Mtakatifu HyginusHyginus, Episcopus RomanusUgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 11 Januari142/146 – 157/161Pius I Mtakatifu PiusPius, Episcopus RomanusAquileia, Friuli, ItaliaAlifia dini kwa panga; sikukuu yake ni 11 Julai157 – 163/168Anicetus Mtakatifu Anicetus Anicetus, Episcopus RomanusEmesa, SyriaInsemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 17 Aprili166 hivi– 170/177Soter Mtakatifu SoterSoterius, Episcopus RomanusFondi, Lazio, ItaliaInasemekana alifia dini; sikukuu yake ni 22 Aprili171/177 – 185/193Eleuteri Mtakatifu EleutherusEleutherius, Episcopus RomanusNikopoli, EpyrusInasemekana alifia dini; sikukuu yake ni 6 Mei186/189 – 197/201Viktor I Mtakatifu ViktaVictor, Episcopus RomanusAfrika ya KaskaziniSikukuu yake ni 28 Julai198/201 – 217/218Zefirino Mtakatifu ZefirinoZephyrinus, Episcopus RomanusRomaSikukuu yake ni 20 Desemba218 – 222Kalisti I Mtakatifu Kalisti ICallistus, Episcopus RomanusAlifia dini; sikukuu yake ni 14 Oktoba222 – 230Urban I Mtakatifu Urban IUrbanus, Episcopus RomanusRomaSikukuu yake ni 25 Mei21 Julai 230 – 28 Septemba 235Ponsyano Mtakatifu PonsyanoPontianus, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 13 Agosti21 Novemba 235 – 3 Januari 236Anterus Mtakatifu AnterusAnterus, Episcopus RomanusUgirikiSikukuu yake ni 3 Januari10 Januari 236 – 20 Januari 250Fabiani Mtakatifu FabianiFabianus, Episcopus RomanusRomaSikukuu yake ni 20 Januari
+
+Papa wa 12 wa kikatoliki anaitwa nani?","Mtakatifu Soter
+
+Alisulubiwa juu chini; sikukuu yake ni 29 Juni 68(?) – 79(?)Linus Mtakatifu Linus Linus, Episcopus RomanusLinusToscana (Italia ya Kati) Sikukuu yake ni 23 Septemba80(?) – 92Anacletus (Cletus) Mtakatifu AnacletusAnacletus, Episcopus RomanusAnacletusRoma au UgirikiAlifia dini; sikukuu yake ni 26 Aprili 92 – 96/99Klementi I Mtakatifu Klemens IClemens, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 23 Novemba96/99 – 108Evaristus (Aristus) Mtakatifu EvaristusEvaristus, Episcopus RomanusAristusMgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 26 Oktoba108/109 – 116/119Alexander I Mtakatifu AlexanderAlexander, Episcopus RomanusAlexanderRomaSikukuu yake ni 3 Mei117/119 – 126/128Sixtus I Mtakatifu SixtusXystus, Episcopus RomanusRomaSikukuu yake ni 6 Aprili127/128 – 137/138Telesfori Mtakatifu TelesforiTelesphorus, Episcopus RomanusUgirikiSikukuu yake ni 5 Januari138 – 142/146Hyginus Mtakatifu HyginusHyginus, Episcopus RomanusUgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 11 Januari142/146 – 157/161Pius I Mtakatifu PiusPius, Episcopus RomanusAquileia, Friuli, ItaliaAlifia dini kwa panga; sikukuu yake ni 11 Julai157 – 163/168Anicetus Mtakatifu Anicetus Anicetus, Episcopus RomanusEmesa, SyriaInsemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 17 Aprili166 hivi– 170/177Soter Mtakatifu SoterSoterius, Episcopus RomanusFondi, Lazio, ItaliaInasemekana alifia dini; sikukuu yake ni 22 Aprili171/177 – 185/193Eleuteri Mtakatifu EleutherusEleutherius, Episcopus RomanusNikopoli, EpyrusInasemekana alifia dini; sikukuu yake ni 6 Mei186/189 – 197/201Viktor I Mtakatifu ViktaVictor, Episcopus RomanusAfrika ya KaskaziniSikukuu yake ni 28 Julai198/201 – 217/218Zefirino Mtakatifu ZefirinoZephyrinus, Episcopus RomanusRomaSikukuu yake ni 20 Desemba218 – 222Kalisti I Mtakatifu Kalisti ICallistus, Episcopus RomanusAlifia dini; sikukuu yake ni 14 Oktoba222 – 230Urban I Mtakatifu Urban IUrbanus, Episcopus RomanusRomaSikukuu yake ni 25 Mei21 Julai 230 – 28 Septemba 235Ponsyano Mtakatifu PonsyanoPontianus, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 13 Agosti21 Novemba 235 – 3 Januari 236Anterus Mtakatifu AnterusAnterus, Episcopus RomanusUgirikiSikukuu yake ni 3 Januari10 Januari 236 – 20 Januari 250Fabiani Mtakatifu FabianiFabianus, Episcopus RomanusRomaSikukuu yake ni 20 Januari",,,,
+hike-6.5-20261114T224258Z-007,99,5d29cdd2e9c3d5b02049b1ca,33d0742f5e702953d7e6e8d748de455c,hike-6.5,ta,general_knowledge,aya-dataset,human_authored,[user] கேள்வி: ஐன்ஸ்டீன் சார்புக் கொள்கையின் சிறப்பென்ன?,"சரியான பதில்: 
+- நியூட்டன் விசை இயல் திரிபுகளை விளக்குவது.
+
+- நியூட்டன் விசை இயல்படி புதன் என்னும் கோளின் இயக்கம் முரண்பட்டது. ஆனால், இதை ஐன்ஸ்டின் சார்புக் கொள்கை தெளிவாக விளக்குகிறது. கதிரவன் அருகே செல்லும் ஒளிக்கதிர்கள் அதன் ஈர்ப்புப் புலத்தால் வளைகின்றன என்பது ஆய்வினால் உறுதி செய்யப்பட்டுள்ளது.
+
+- எவ்வகை ஆய்வுமின்றித் தம் உய்த்துணர்வினால் மட்டுமே இக்கொள்கையை உருவாக்கியது தனிச் சிறப்பு.
+
+- காலத்தால் அழியாக் கொள்கை. அறிவியல் வரலாற்றில் ஒர் எல்லைக் கல். இதுவரை இதற்கு ஒரு முடிவான திருத்தம் எதுவும் கூறப்படவில்லை.
+
+
+ஆல்பர்ட் ஐன்ஸ்டைனின் இரு பெரும் கோட்பாடுகளான சிறப்புச் சார்புக் கோட்பாடு (Special Relativity) மற்றும் பொதுச் சார்புக் கோட்பாடு  ஆகிய இரண்டையும் ஒருங்கிணைத்து பொதுவாக சார்புக் கோட்பாடு என்று கூறப்படுகிறது.
+
+சார்புக் கோட்பாடு பின்வரும் கருத்தாக்கங்களை அறிமுகப்படுத்துகிறது:
+கணக்கிடப்படும் வெவ்வேறு அளவுகள், பார்வையாளரின் திசைவேகத்தைப் பொறுத்தே அமையும். குறிப்பாக, காலமும் வெளியும் விரிந்தோ சுருங்கியோ இருக்கலாம்.
+வெளிநேரம்: வெளியும் காலமும் ஒருசேரவே கணக்கில் எடுத்துக்கொள்ளப்படவேண்டும்; ஒன்றைப் பொறுத்து மற்றொன்று அமையும்.
+அனைத்து பார்வையாளர்களுக்கும் ஒளியின் வேகம் ஒரு மாறிலியாகும்.
+சார்புக் கோட்பாடு அல்பர்ட் ஐன்ஸ்டீனால் முன்வைக்கப்பட்ட பிரபலமான கோட்பாடாகும். தனது சமன்பாட்டின் மூலம் மிகச் சிறிய துகள்களால் கூட மிகப் பெரிய அளவில் சக்தியை வெளியிட முடியும் என்பதை ஐன்ஸ்டீன் உணர்த்தினார்.
+
+சிறப்புச் சார்புக் கோட்பாடு
+முதன்மைக் கட்டுரை: சிறப்புச் சார்புக் கோட்பாடு
+சிறப்புச் சார்புக் கோட்பாடு என்னும் கொள்கை ஆல்பர்ட் ஐன்ஸ்டினால் 1905ல் வெளியிடப்பட்ட கருத்தாக்கமாகும். இது துகள்களின் இயக்கம் தொடர்பானது. இது எந்தவொரு இயக்கமும் சார்பானது என்றும், எதுவும் தீர்க்கமானதாக இருக்காது என்றும் ஒரு கருத்தை முன் வைத்தது. இதற்கு முன்னரே 1687 ஆம் ஆண்டில் சர். ஐசக் நியூட்டன் பொருட்களின் இயக்கங்கள் தொடர்பான விதிகளை வெளியிட்டிருந்தார். இவ்விதிகள் அன்றாட வாழ்க்கையோடு தொடர்புபட்ட இயக்கங்களுக்குப் பொருத்தமாக அமைந்தது.
+
+சிறப்புச் சார்புக் கோட்பாட்டின் கருதுகோள்கள்
+சிறப்புச் சார்புக் கோட்பாடு இரண்டு கருதுகோள்களைக் கொண்டுள்ளது.
+
+ஒளியின் வேகம் மாறாத் தன்மை- கவனிப்பவர்களுடைய சார்பு வேகம் எதுவாக இருப்பினும், அவர்கள் எல்லோருக்கும் ஒளியின் வேகம் ஒன்றே.
+எந்தவொரு சடத்துவக் குறியீட்டுச் சட்டத்திலும் இயற்பியல் விதிகள் ஒன்றே. சார்பு நிலையில் துகள் ஒன்றுடன் இயங்கிக் கொண்டிருக்கும் ஒருவருக்கும், சோதனைச் சாலையில் நிலையாக இருக்கும் ஒருவருக்கும் இயற்பியல் விதிகள் ஒன்று என்பதே இதன் பொருள்.
+பொதுச் சார்புக் கோட்பாடு
+முதன்மைக் கட்டுரை: பொதுச் சார்புக் கோட்பாடு
+பொதுச் சார்புக் கோட்பாடு என்பது 1916ஆம் ஆண்டில் ஆல்பர்ட் ஐன்ஸ்டீனால் வெளியிடப்பட்ட ஈர்ப்புக்கான வடிவவியல் கோட்பாடு ஆகும். பொதுச் சார்பின் மையக் கருத்து வெளியும் நேரமும் வெளிநேரம் எனப்படுவதன் இரண்டு அம்சங்கள் என்பதாகும். வெளிநேரம் அதில் இருக்கும் பொருள், ஆற்றல், உந்தம் என்பவற்றின் காரணமாக வளைந்து காணப்படுகிறது
+
+எடுத்துக்காட்டுகள்
+ஒரு மானிடன் பேருந்தின் உள் ஓடிக் கொண்டிருக்கும் போது அதைப் பேருந்திற்கு வெளியே இருந்து பார்ப்பவர்களுக்கு ஓடுபவர் பேருந்தின் வேகத்திலேயே ஓடுவதாய்த் தோன்றும். (உதாரணம்: ஒரு மணி நேரத்துக்கு 100 கி.மீ.) ஆனால் பேருந்தின் உள் அமர்ந்திருந்து பார்ப்பவர்களுக்கு அந்த மானிடர் ஒரு மணி நேரத்துக்கு 20 கி.மீ. வேகத்திலேயே ஓடுவதாய் தெரியும். அதன் காரணம் சிறப்புச் சார்புக் கோட்பாடு ஆகும். பேருந்தின் உள் இருந்து பார்ப்பவர் ஏறக்குறைய ஓடும் மானிடரின் வேகத்திலேயே பேருந்தில் செல்வதால் அவருக்கு மானிடரின் ஓட்ட வேகம் குறைவாகவே தெரியும். ஆனால் பேருந்திற்கு வெளியே இருப்பவர் நின்று கொண்டிருப்பதால் அவருக்கு அம்மானிடரின் ஓட்ட வேகம் அதிகமாகத் தெரியும்.
+தற்போது பேருந்தில் வெளியே இருந்து பார்த்தவர் அடுத்த பேருந்தில் ஏறிச் செல்கிறார் எனில் அவரின் எடை கூடும். பேருந்து போகும் திசையில் அவர் சுருங்குவார். அவரின் கடிகாரம் சற்று மெதுவாக ஓடும். ஆனால் இவற்றின் மாறுபாடுகளை கணிப்பது மிகவும் கடினமாகும். அவரின் கைக்கடிகாரத்தின் நேர வித்யாசம் ஒரு நொடியில் பல கோடி கோடி மடங்குகள் குறைவாக இருப்பதால் அதை மானிடர் எளிதாக உணர முடியாது.
+இதைப் போன்ற எளிதில் புரிந்து கொள்ள முடியாததாய் ஐன்சுடீன் தந்த விளக்கங்கள் அமைந்ததால் இவருடைய இந்தக் கோட்பாடுகளுக்கு எதிர்ப்பும் வந்தன.
+
+நியூட்டன் விதிகளும் சார்ப்புக் கோட்பாடும்
+நியூட்டனின் விதிகளின் படி குறைவான வேகத்தையும் குறைந்த ஈர்ப்பு விசையையும் கொண்ட அண்டப் பொருட்களின் தன்மைகளையே கண்டறிய முடியும். வேகமாகவோ அதிக ஈர்ப்பு விசையோடு இயங்கும் அண்டப் பொருட்களின் தன்மைகளையோ நியூட்டன் விதிகளின் படி கணிப்பதில் பிழைகள் நேரலாம். இதற்கு உதாரணமாக புதன் கோளின் சுற்றுப் பாதையிலும் இரட்டை மீயொளிர் விண்மீன்களின் சுற்றுப்பாதைகளிலும் உள்ள தன்மைகளை கணிப்பதில் உள்ள பிழைகளைக் கூறலாம். ஆனால் இதை ஐன்சுடீனின் சார்ப்புக் கோட்பாட்டின் படி பிழையில்லாமல் கணிக்க முடியும்.
+
+அதன் காரணம் இங்கு அதனால் நியூட்டனின் விதிகள் பெருமளவு புவியின் உள்ளும் ஐன்சுடீனின் சார்புக் கோட்பாடு வானியல் ஆராய்ச்சிகளிலும் ஆதிக்கம் செலுத்துகின்றன.",,,,
+hike-6.5-20261114T224258Z-007,100,ec8a66cbc020f61e0534761b,c159c4d0e5389d8a1eba924e92a8b693,hike-6.5,ta,mathematics,aya-dataset,human_authored,"[user] வினா:
+விலங்கியலின்  தந்தை   என  அழைக்கப்படுபவர் யார்?","விடை :
+அரிஸ்டாட்டில்
+அரிசுட்டாட்டில் என்றால் ""சிறந்த நோக்கம்,"" என்று பொருளாகும்.இவர் பண்டைய சுத்தாகிரா நகரத்தில் செல்சிதிசிலில் கி.மு. 384 இல் பிறந்தார் தற்கால தெசாலோனிகியில் இருந்து 55 கி.மீ. (34 மைல்) கிழக்கே. அவரது தந்தை நிக்கோமாக்கசு, மாசிதோனியாவின் மன்னர் அமயிந்தாசின் தனிப்பட்ட மருத்துவர் ஆவார். அரிசுட்டாட்டிலின் குழந்தை பருவத்தைப் பற்றி அதிக தகவல்கள் இல்லை என்றாலும், ஒருவேளை அவர் மாசிதோனிய மாளிகையில் சிறிது காலம் கழித்திருப்பார் என்று வரலாற்று ஆய்வாளர்கள் கருத்து தெரிவிக்கின்றனர். பதினெட்டு வயது நிரம்பிய அரிசுட்டாட்டில் பிளேட்டோவின் கல்விக்கழ்கத்தில் சேர்ந்து கல்வி பயில ஏதென்சுக்குச் சென்றார்.
+
+அரிசுட்டாட்டில் கி.மு. 348/47 இல் ஏதென்சை விட்டுச் செல்வதற்கு முன் ஏறத்தாழ இருபது ஆண்டுகள் அங்கு கல்வி கற்றார். பிளேட்டோ இறந்தவுடன் பள்ளி பிளேட்டோவின் மருமகனிடம் சென்றது. அதைத் தொடர்ந்து அரிசுட்டாட்டில் அப்பள்ளியை விட்டு நீங்கினார்.பின் அவர் தன் நண்பனுடன் ஆசியா மைனருக்கு பயணத்தை மேற்கொண்டார். பயணத்தின்போது இலெசுபோசு என்னும் தீவின் விலங்கியல், தாவரவியல் ஆய்வுகளை மேற்கொண்டார். அரிசுட்டாட்டில் எர்மியாசின் வளர்ப்பு மகள் பிதியாசைத் திருமணம் செய்துக்கொண்டார். அரிசுட்டாட்டில் கி.மு. 343 அன்று மாசிதோனிய மன்னன் இரண்டாம் பிலிப் அழைக்க, அவரது மகன் அலெக்சாந்தருக்கு பாடம் கற்பிக்கச் சென்றார்.அரிசுட்டாட்டில் மாசிதோனியா அரசு கல்விக்கழக்த்தின் தலைவராக அமர்த்தப்பட்டார்.கி.மு. 335 அவர் ஏதென்சுக்குத் திரும்பினார், அங்கு இலைசியம் எனப்பட்ட தனது சொந்த பள்ளியை நிறுவினார். அரிசுட்டாட்டில் அடுத்த பன்னிரண்டு ஆண்டுகள் அங்கு அப்பள்ளியை நடத்திக்கொண்டிருந்தார். தம் மாணவர்க்கு மெய்யியல் கொள்கைகளைக் கற்பிப்பதற்காக ஏதென்சு நகரத்திலிருந்த ஒரு தோட்டத்தில் இதை அவர் நிறுவினார். இதற்கு உலாப் பள்ளி என்ற பெயரும் உண்டு. அரிசுட்டாட்டில் இங்கு உலாவிக் கொண்டே பாடம் சொல்வது வழக்கமாக இருந்ததால் இப்பெயர் ஏற்பட்டது என்பர். ஏதென்சில் அரிசுட்டாட்டில் இருந்த போது, அவரது மனைவி பிதியாசு இறந்தார்.அரிசுட்டாட்டிலின் பல படைப்புகள் இயற்றப்பட்டது அவர் ஏதென்சில் இருந்த கி.மு. 335 முதல் 323 வரையான காலகட்டத்தில் என்று நம்பப்படுகிறது.அலெக்சாந்தர் இறந்த அதே ஆண்டில் இயற்கை காரணங்களால் இயுபோஇயாவில் அரிசுட்டாட்டிலும் இறந்தார். அரிசுட்டாட்டிலிற்கு அடுத்து அவரது மாணவர் ஆன்டிபாத்தரர் அவரின் இடத்திற்கு வர வேண்டும் என்றும் தன்னைத் தன் மனைவிக்கு அடுத்து புதைக்கப்பட வேண்டும் என்றும் ஒரு உயில் விட்டு சென்றாரம் அரிசுட்டாட்டில்.
+
+அலெக்சாந்தர் தன் ஆசிரியரின் ஆராய்ச்சிகளுக்குத் தேவைப்பட்ட நிதி உதவிகள் அனைத்தையும் தாராளமாக வழங்கினார். ஓர் அறிவியலளர் தம் ஆராய்ச்சிக்காக அரசிடமிருந்து பெருமளவில் நிதியுதவி பெற்றது உலக வரலாற்றில் இதுவே முதல் தடவை ஆகும். ஆனால்,அலெக்சாந்தருடன் அரிசுட்டாட்டில் கொண்டிருந்த தொடர்புகள் சில ஆபத்துகளையும் தோற்றுவித்தன. அலெக்சாந்தரின் சர்வாதிகார முறை ஆட்சியை அரிசுட்டாட்டில் கொள்கையளவில் எதிர்த்தார். அரசத் துரோகக் குற்றம் செய்ததாக ஐயத்தின் பேரில் அரிசுட்டாட்டிலின் மருமகனை அலெக்சாந்தர் தூக்கிலிட்டார். அரிசுட்டாட்டிலின் மக்களாட்சி ஆதரவுக் கொள்கையை அலெக்சாந்தர் விரும்பவில்லை. அதே சமயத்தில் அவர் அலெக்சாந்தருடன் நெருக்கமாகத் தொடர்பு கொண்டிருந்தமையால் ஏதென்சு மக்களும் அவரை நம்ப மறுத்தனர்.அதன் பின் அவர்கள் இருவரும் பிரிந்தனர்.
+
+அலெக்சாந்தர் இறந்த பின்பு மாசிதோனிய அரசியல் நிலைமை மாறியது. மாசிதோனியாவை எதிர்க்கும் குழுவினர் ஏதென்சில் ஆட்சிக்கட்டிலில் ஏறினர் . ஆட்சியாளர்கள், சமயத்தை அவமதித்ததாக ஏதென்சில் 76 ஆண்டுகளுக்கு முன்பு சாக்ரட்டீசுக்கு நஞ்சு கொடுத்ததை நினைவு கூர்ந்த அரிசுட்டாட்டில், உடனே 'தத்துவத்திற்கு எதிரான இரண்டாவது பாவத்தைச் செய்ய ஏதென்சுக்கு நான் இடமளிக்கப் போவதில்லை' என்று கூறி அந்த நகரிலிருந்து தப்பி ஓடினார்.
+
+நம்முடைய நற்பண்புகளுக்கும் , நம்முடைய அறிவாற்றலுக்கும் ஏற்றபடிதான் நாம் அடையும் மகிழ்ச்சி இருக்கும்
+
+-அரிசுட்டாட்டில்
+அரிசுட்டாட்டில், பிளேட்டோ,சாக்கிரட்டீசு ஆகிய மூவரும் ஆசிரியர் , மாணவர் உறவு பூண்டவர்கள். ஆனால் இவர்கள் மூவரும் ஒன்றாக இருப்பது போல் ஒரு ஓவியம் வாட்டிகன் மியூசியத்தில் பாதுகாக்கப்பட்டுவருகிறது.",,,,

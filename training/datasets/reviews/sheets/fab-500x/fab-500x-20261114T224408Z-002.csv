@@ -1,0 +1,960 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-002,1,2ba0d47705af8d498a3b22d4,740593818645862363e6d60c544e67fe,fab-500x,eus,education,aya-dataset,human_authored,"[user] Aste honetan, hizkuntzaren eta teknologiaren arteko interakzioaren gaineko mintegia egin nuen. Zein teknologia moderno pentsatzen duzu hizkuntzalaritzan erabili daitezkeenik, eta zergatik?","Machine Learning teknikak erabil daitezke hizkuntza egituren azterketan, edo hizkuntzen arteko itzulpen automatikoetan. Hizkuntza naturalaren prozesamendua teknologia hauen bidez hobetu daiteke.",,,,
+fab-500x-20261114T224408Z-002,2,62b17319a8bf3a006f19cfa1,7bd8b4ab85eeaa4905c2409a6c1119fe,fab-500x,eus,general_knowledge,aya-dataset,human_authored,[user] Euskal pintxoak zer dira eta zer ezaugarri bereizgarri daukate?,"Pintxoak janari txikiak dira, ogi xerrarekin edo gabe, normalean sukaldariaren sormenaren erakusketa. Bere ezaugarri bereizgarria da bere diversitatea eta sukaldura teknikak erabiliz egindako diseinua.",,,,
+fab-500x-20261114T224408Z-002,3,92596650ec359d14e8c70ad7,85d7cc2eb50fce55b65fa781b259455f,fab-500x,eus,mathematics,aya-dataset,human_authored,[user] Nola eragin du e-merkataritzaren goraldia ohiko denda fisikoen negozioetan?,"E-merkataritzak lehiaketa globala, erosketa 24/7 eta prezio baxuagoak sartu ditu. Denda tradizionalak trafiko gutxituaren erronkak baina ere aukerak integra dezakete erosketa online eta offline.",,,,
+fab-500x-20261114T224408Z-002,4,251b0374f2f2d3b539891319,c9d4e83baafea4f2943238cd99e10ae0,fab-500x,eus,reasoning,aya-dataset,human_authored,[user] Zer da Sudoku jokoa?,"Sudoku jokoa zenbakiak erabiliz egindako puzzle bat da, non 9x9ko taula bete behar den zenbakiak errepikatu gabe.",,,,
+fab-500x-20261114T224408Z-002,5,6d2c5826a90b96bb5dce4464,d4a4623cd17569b36174cec264bc95cd,fab-500x,eus,safety_ethics,aya-dataset,human_authored,"[user] Zer da musikan serialismoa, eta nola eragiten du tonuen eta soinuen antolaketa?","Serialismoa da musikaren teknika non tonuak, erritmoak eta dinamikak serie batzuen arabera antolatzen diren. Hau musikaren egitura matematiko eta abstraktua sortzen du, tradizio harmonikoak desafiatuz.",,,,
+fab-500x-20261114T224408Z-002,6,1df09fec74d053700484704d,e8bb6db1b2158c036f7eb0873cbe050c,fab-500x,eus,science,aya-dataset,human_authored,"[user] Zer da astronomia optikoa, eta nola erabiltzen da zeru-gorputzak ikusteko?","Astronomia optikoa da argi ikusgarriaren bidez zeru-gorputzak ikertzen duen astronomiaren adar bat. Zeru-gorputzak ikusteko, astronomia optikoa erabiltzen du teleskopioak eta beste tresna optikoak.",,,,
+fab-500x-20261114T224408Z-002,7,556ed21595a492945971b392,d9d59cf6859fa2832f15710515a9177f,fab-500x,fa,coding,aya-dataset,human_authored,[user] یک تابع پایتون بنویس که یه عدد رو به عنوان ورودی گرفته. اگر عدد زوج بود آن را به توان دو برساند اگر فرد بود آن را دو برابر کرده و نتیجه را برگرداند.,"یک تابع پایتون ورودی گرفته اگر عدد زوج بود آن را به توان دو می رساند اگر فرد بود آن را دو برابر کرده و نتیجه را برمیگرداند.
+
+
+
+def process_number(number):
+  if number % 2 == 0:
+    return number ** 2
+  else:
+    return number * 2",,,,
+fab-500x-20261114T224408Z-002,8,e3c617f46fb577becf6ca960,7bda8c9313dbac128d9823acbc1ee610,fab-500x,fa,education,aya-dataset,human_authored,[user] یادگیری عمیق (deep learning) چیست؟,"یک زیر شاخه از یادگیری ماشین و بر مبنای مجموعه‌ای از الگوریتم‌ها است که در تلاشند تا مفاهیم انتزاعی سطح بالا در دادگان را مدل نمایند که این فرایند را با استفاده از یک گراف عمیق که دارای چندین لایه پردازشی متشکل از چندین لایه تبدیلات خطی و غیرخطی هستند، مدل می‌کنند. به بیان دیگر پایهٔ آن بر یادگیری نمایش دانش و ویژگی‌ها در لایه‌های مدل است.
+به قولی دیگر «یادگیری عمیق» یک نوع «یادگیری ماشین» به همراه شبکه‌های عصبی چندلایه است که با دقتی فزاینده الگو‌های موجود در داده‌ها کشف کرده و به همین‌خاطر می‌تواند علائق کاربر را بشناسد، اشیا را شناسایی کرده و زبان‌ها را بفهمد.",,,,
+fab-500x-20261114T224408Z-002,9,49f3b788dd8f014da593082f,b3ad404d9b08e1c4f8cf20537ba2f723,fab-500x,fa,general_knowledge,aya-dataset,human_authored,[user] انتقال نیرو در ترمز در خودرو چگونه است؟,"سیستمهایی که برای ترمز اصلی (پایی) خودروهای سواری استفاده می‌شود از نوع روغنی (هیدورلیکی) است. البته سیستم ترمز دستی بصورت مکانیکی و با استفاده از سیم می‌باشد. بنابراین سیستم ترمز اصلی باید مجهز به روغن ترمز باشد که وظیفه این روغن انتقال نیرو می باشد.
+انتقال نیرو در ترمز خودرو خیلی ساده است. اولین گام، فشار دادن پدال ترمز است. این عمل باعث ایجاد فشار در سیستم ترمز می‌شود و سپس نیرو به سیستم ترمز انتقال داده می‌شود. اگر خودرو دارای ترمز هیدرولیکی باشد، این نیرو به سیلندرها منتقل می‌شود که سپس باعث فشردن ترمزها بر روی دیسک‌ها یا غلتک‌ها می‌شود.
+
+در صورتی که خودرو دارای ترمز دیسکی است، پدال ترمز فشار به سیلندرهای ترمز اعمال کرده و ترمزها بر روی دیسک‌ها فشرده می‌شوند. در صورت وجود ترمز بسترن، نیرو به کالیپرهای ترمز منتقل می‌شود و آنها دیسک را فشرده کرده و ترمز ایجاد می‌کنند. در هر صورت، انتقال نیرو به ترمز از طریق فشار به یک سیستم هیدرولیک یا مکانیکی صورت می‌پذیرد.",,,,
+fab-500x-20261114T224408Z-002,10,921c73d58bde72ac79e0ed3c,ff2eccd41840adad1ea0dcf4a6920b80,fab-500x,fa,islamic_studies,aya-dataset,human_authored,[user] چند شهر توریستی ایران را معرفی کن.,"شیراز یکی از شهرهای توریستی و تاریخی ایران است که در استان فارس واقع شده است. جاذبه‌های گردشگری شیراز شامل این موارد هستند: حافظیه، سعدیه، مسجد نصیرالملک، باغ ارم، باغ عفیف‌آباد، دروازه قرآن و شاه‌چراغ است.
+اصفهان یکی دیگر از شهرهای توریستی ایران است که سالانه میزبان مسافران زیادی است. از زیبای‌های گردشگری این شهر می‌توان به سی و سه پل، پل خاجو، میدان نقش جهان، عمارت عالی قاپو، بازار سنتی، منارجنبان و چهل‌ستون اشاره کرد.
+از دیگر شهرهای توریستی ایران می‌توان به یزد اشاره کرد که در دل کویر واقع شده است. 
+تهران، یزد، مشهد، کیش و کاشان هم از شهرهای توریستی ایران هستند.",,,,
+fab-500x-20261114T224408Z-002,11,14220ba3a8b2651f6275e151,e6a19168bbab4ac72cb88d9b1856f43e,fab-500x,fa,mathematics,aya-dataset,human_authored,"[user] این جمله را کامل کن.
+
+با انتخاب حسن روحانی به سمت ریاست‌جمهور و شکل‌گیری دولت یازدهم، برنامه نجات دریاچه ارومیه مورد تأکید قرار گرفت و کارگروه","ملی نجات دریاچه ارومیه به مدیریت معاون اول رئیس‌جمهور تشکیل شد. این کارگروه موضوعاتی همچون مقابله با ریزگردها، وضعیت کشاورزی، الگوی کشت در منطقه و تعداد زیاد چاه‌های آب را مورد بررسی قرار داد. برخی کارشناسان اعتقاد دارند فعالیت‌های ترمیمی انجام شده در این دوره در کنار حمایت‌های مردمی، موجب کاهش روند تخریب دریاچه ارومیه و در برخی بخش‌ها باعث بهبود شرایط شده‌ است.
+به رغم برنامه‌ریزی‌های صورت گرفته، وضعیت دریاچه ارومیه وخیم‌تر شده است. در ۲۹ مهر ۱۳۹۶ خورشیدی، تراز سطح آب این دریاچه ۱۲۷۰٫۲۵ متر اعلام شد. این تراز نسبت به روز مشابه در سال ۱۳۹۵ خورشیدی، ۲۳ سانتی‌متر و نسبت به میانگین دراز مدت ۴٫۵ متر کاهش نشان می‌داد. مساحت این دریاچه نیز در ۲۹ مهر ۱۳۹۶ خورشیدی، ۱۶۹۸٫۶۴ کیلومتر مربع اعلام شد که نسبت به روز مشابه در سال ۱۳۹۵ خورشیدی، ۲۷۸٫۷۴ کیلومتر مربع و نسبت به میانگین دراز مدت، ۲۸۲۸٫۰۹ کیلومتر مربع کاهش یافته‌بود. حجم آب موجود در این دریاچه نیز در ۲۹ مهر ۱۳۹۶ خورشیدی، ۱٫۰۱ میلیارد متر مکعب اعلام شد که نسبت به روز مشابه در سال ۱۳۹۵ خورشیدی، ۰٫۴۳ میلیارد متر مکعب کاهش را نشان می‌داد. در نیمه اول آبان ۱۳۹۶ خورشیدی نیز اعلام شد که سطح تراز آب دریاچه ارومیه به ۱۲۷۰٫۱۹ متر رسیده‌است. همچنین اعلام شد که وسعت این دریاچه به ۱۵۹۴ کیلومتر مربع رسیده‌است. با توجه به بارندگی‌های بهار سال ۱۳۹۸ این دریاچه نیز از آب‌های سر ریز سدها و سیلاب‌ها تغذیه شده‌است به طوری که طبق گفته مدیر ستاد احیای دریاچه میزان تراز دریاچه بیش از ۱۱۸ سانتی‌متر افزایش داشته و به ۱۲۷۱/۱۹ رسیده‌است.",,,,
+fab-500x-20261114T224408Z-002,12,3cc01b57bd45e13ed9fdb4fe,281f35ae8ca6b93d676a4c1b0eaba204,fab-500x,fa,pakistan,aya-dataset,human_authored,"[user] با توجه به متن به سؤال پاسخ بده.
+متن: «در این مسابقه و در دقیقه 6، ضربه محمد خلیل مران به یکی از مدافعان پاکستان برخورد کرد و برابر صالح الشهری قرار گرفت که شوت او از پشت محوطه جریمه به گل نخست بازی تبدیل شد.
+سعودی ها در ابتدای نیمه دوم به گل رسیدند. صالح الشهری در محوطه جریمه پاکستان سرنگون شد و داور یک خطای پنالتی برای عربستان اعلام کرد. خود این بازیکن پشت توپ ایستاد و آن را به گل دوم تیمش تبدیل کرد.
+عربستان در وقت های تلف شده به گل های سوم و چهارم دست یافت. ارسال سعود عبدالحمید در دقیقه 90+1 به روی دروازه با ضربه فنی و بغل پای عبدالرحمن غریب همراه شد و این بازیکن توانست اختلاف را افزایش دهد.»
+
+سؤال: گل دوم تیم عربستان چگونه به ثمر رسید؟",گل دوم تیم عربستان در ابتدای نیمه دوم از روی نقطه پنالتی و توسط صالح الشهری، که رویش خطا انجام گرفته بود، به ثمر رسید.,,,,
+fab-500x-20261114T224408Z-002,13,3f66fed44c97bf450716903d,771b120edb62beb77d1e25f8e77ad876,fab-500x,fi,coding,oasst2,human_authored,"[user] Kirjoita minulle C-ohjelma, joka laskee ja tulostaa fibbonachin luvut yhdestä kymmeneen.","Tässä on C-ohjelma, joka laskee Fibbonaccin luvut yhdestä kymmeneen:
+```c
+#include <stdio.h>
+
+
+// Fibbonaccin lukujono kohdalla n ( F(n) ) lasketaan seuraavasti
+// F(n) = F(n-1) + F(n-2)
+// Lukujonolla on kuitenkin kaksi ennalta määriteltyä pistettä, 0 ja 1.
+// F(1) = 1
+// F(0) = 0
+int fib(unsigned int n){
+
+    if(n <= 1)
+        return n;
+
+    return fib(n-1) + fib(n-2);
+
+}
+
+int main(){
+
+    // Toisto yhdestä kymmeneen
+    for(int i = 1; i<=10; i++){
+
+        // Tulosta F(n)
+        printf(""%i"",fib(i));
+
+    }
+
+    return 0;
+
+}
+```",,,,
+fab-500x-20261114T224408Z-002,14,3b7a22f4f83da1657d95cec1,76b496e0855df28d9ee4155feccf84d1,fab-500x,fi,general_knowledge,oasst2,human_authored,"[user] Kirjoitanko koittaa vai koettaa?
+
+[assistant] Sanat _koittaa_ ja _koettaa_ ovat molemmat suomen kielen verbejä. Kielitoimiston sanakirjan (https://www.kielitoimistonsanakirja.fi/) mukaan näiden merkitykset ovat seuraavat:
+
+- _koittaa_: sarastaa, valjeta. (esimerkki: _Aamu koittaa._)
+- _koettaa_: tunnustella, kokeilla, tutkia, testata; yrittää. (esimerkki: _Koettaa tehdä jotakin._)
+
+Oikea muoto riippuu siis siitä, kumpaa merkitystä haetaan.
+
+[user] Luin kirjaa, jossa oli lause: ""Hän koitti avata ovea."" Onko kirjailija siis käyttänyt tässä väärää verbiä?","Kielitoimiston sanakirjan määritelmien perusteella lauseessa ""Hän koitti avata ovea"" on väärä verbi, ja lauseen tulisi olla ""Hän koetti avata ovea"". Sanat _koittaa_ ja _koettaa_ menevät helposti sekaisin, ja hakukoneen tuloksen perusteella ""koittaa avata"" on intenetistä löytyvissä teksteissä jopa yleisempi kuin ""koettaa avata"". On mahdollista että tulevaisuudessa nyt virheellisenä pidetty muoto vakiintuu hyväksyttäväksi.",,,,
+fab-500x-20261114T224408Z-002,15,d322f5da6000ade112fe3d86,051e55b45284b5bf1d991f8221774720,fab-500x,fi,mathematics,oasst2,human_authored,"[user] Kuinka kauan kestää matkustaa Helsingistä Kuopioon? Onko matka nopeampi autolla vai junalla?
+
+[assistant] Matka Helsingistä Kuopioon kestää autolla noin neljä ja puoli tuntia. Helsingistä Kuopioon kulkee myös suora junayhteys, jolla matka on Pendolino- tai InterCity junalla vain hieman yli neljä tuntia. Matkan voi siis tehdä nopeammin junalla.
+
+[user] Kumpi vaihtoehto on halvempi, jos haluaisin viedä perheeni sinne? Autoni kuluttaa bensaa noin 7 litraa sadalta kilometriltä.","Junamatkan hinta riippuu valitusta yhteydestä, junatyypistä ja siitä, milloin lippu ostetaan. Lisäksi hintaan vaikuttaa kuinka monta jäsentä perheeseen kuuluu. Jos ostaa lipun 13.4.2023 kuukauden päähän päivälle 11.5. saa menolipun Helsingistä Kuopioon halvimmillaan hintaan 17,70 (Pendolino, lähtö klo 5:57). Kalleimmillaan samana päivänä on iltapäivällä lähtevä InterCity juna, johon lippu maksaa 57,60.
+Jos matka tehdään autolla on tarvittava bensamäärä 23,52 litraa. Bensiinin hinta on huhtikuussa 2023 keskimäärin 1,92 euroa/litra.
+Bensan hinnaksi välille Helsinki -  Kuopio tulee 45,14 euroa (23,52 * 1,92 = 45,14).",,,,
+fab-500x-20261114T224408Z-002,16,c62309906cdb40238fec74c7,04fa833006f6b6451b2677e3524df183,fab-500x,fi,research,tydiqa-goldp,human_authored,"[user] Hersonin kuvernementti (, ) oli Venäjän keisarikunnan kuvernementti vuosina 1802–1920, joskin aivan aluksi, nimenä oli kuvernementtikaupungin mukaan Mykolajivin (Nikolajevin) kuvernementti (1802-1803). Kuvernementti perustettiin vuonna 1802  pilkottaessa aluelaajennusten kasvattamaa Uuden Venäjän kuvernementtiä (, Novorossijskaja gubernija) pienempiin osiin.
+
+Mikä Hersonin kuvernementti oli?","Venäjän keisarikunnan kuvernementti vuosina 1802–1920
+
+Hersonin kuvernementti (, ) oli Venäjän keisarikunnan kuvernementti vuosina 1802–1920, joskin aivan aluksi, nimenä oli kuvernementtikaupungin mukaan Mykolajivin (Nikolajevin) kuvernementti (1802-1803).",,,,
+fab-500x-20261114T224408Z-002,17,fc50065bf9f289a416b41105,806a0cd321f5762fac5cfc00dc670cb4,fab-500x,fi,web_frontend,oasst2,human_authored,"[user] Miksi suomen kielessä on niin monimutkaiset pilkkusäännöt?
+
+[assistant] Pilkut ovat tärkeitä, koska ne jaksottavat tekstiä ja tekevät varsinkin pitkät virkkeet paljon helpommin luettaviksi.
+
+Monella kirjoittajalla tuntuu olevan taipumus käyttää pilkkuja suunnilleen oikea määrä mutta väärissä kohdissa. Silloin pilkut jaksottavat virkkeen - mutta väärin, jolloin ne eivät helpota lukemista vaan vaikeuttavat sitä.
+
+Seuraavassa on yksinkertaisia pilkkusääntöjä. Ensimmäinen lienee tärkein, koska se auttaa lukijaa jäsentämään pitkät virkkeet.
+
+<strong>Sivulause erotetaan päälauseesta pilkulla.</strong> Jos sivulause on päälauseen sisällä, sen molemmille puolille kuuluu pilkku. Esimerkki: ""Talo, jonka rakensi Jussi, on hyvä."" Tällaisia päälauseen sisään upotettuja sivulauseita kannattaa usein välttää, koska ne tekevät virkerakenteen raskaaksi. Sivulauseen aloittavat yleensä mm. sanat ""joka"", ""mikä"", ""että"", ""kun"" ja ""koska"", mutta niiden eteen ei suinkaan aina tule pilkkua. Sana ""ja"" voi aloittaa lauseen tai olla aloittamatta; asia riippuu siitä, millaisia kielellisiä ilmaisuja sana ""ja"" yhdistää.
+
+<strong>Lauseenvastiketta ei eroteta pilkulla.</strong> Esimerkki: ""Työtaakan kasvaessa leluhommat nousevat pinnalle."" Siis lauseenvastikkeen ""työtaakan kasvaessa"" perään ei tule pilkkua. Jos sen sijaan käytettäisiin vastaavaa sivulausetta, olisi pilkkua käytettävä: ""Kun työtaakka kasvaa, leluhommat nousevat pinnalle."" - Joskus lauseenvastike on niin pitkä, että pilkku tuntuisi tarpeelliselta, mutta silloin on parasta korvata lauseenvastike sivulauseella. Lauseenvastikkeita ei juurikaan käytetä puhekielessä, ja siksi etenkin pitkät lauseenvastikkeet tekevät tekstin raskaaksi.
+
+<strong>Rinnasteiset päälauseet erotetaan pilkulla.</strong> Esimerkki: ""Unix on hyvä, ja tämä pitsa on maukas"". Poikkeus: pilkkua ei käytetä, jos lauseilla on yhteinen lauseenjäsen. Esimerkki: ""Unix on hyvä ja sopii moneen tarkoitukseen"" (missä lauseilla on yhteinen subjekti ""Unix"").
+
+<strong>Rinnasteisia sivulauseita ei eroteta toisistaan pilkulla.</strong> Esimerkki: ""Tämä on tietokone, joka on hyvin nopea ja jonka saat halvalla."" Tässä siis ensimmäinen sivulause erotetaan pilkulla päälauseesta mutta ei seuraavasta sivulauseesta. Kyseiset sivulauseet ovat rinnasteisia, koska ne liittyvät samaan päälauseen sanaan ""tietokone"", johon sekä ensimmäisen sivulauseen ""joka"" että toiseen sivulauseen ""jonka"" viittaavat. Toisaalta kirjoitetaan esim. ""Tämä on tietokone, jossa on Unix, joka on hyvä."", koska sivulauseet eivät ole rinnasteisia vaan jälkimmäinen viittaa edellisessä olevaan sanaan. - Vaikka että-sanan eteen useimmiten kuuluu pilkku, tämä ei koske sekä-että-rakennetta, koska siinä että-sana ei aloita sivulausetta.
+
+<strong>Lyhyistä virkkeistä voi jättää pilkkuja pois harkinnan mukaan.</strong> Esimerkiksi virkkeessä ""Sataa ja tuulee"" on oikeastaan kaksi rinnasteista päälausetta, joten tiukasti muodollisten sääntöjen mukaan ja-sanan eteen kuuluisi pilkku, mutta on tavanomaista ja järkevää jättää se pois.
+
+Lähde: https://jkorpela.fi/pilkut.html
+
+[user] Mitä tarkoitat noilla ""<strong>"" jutuilla?","""<strong>"" on html merkintä, joka aloittaa ""tärkeän"" tekstinosan. ""</strong>"" taas päättää tärkeän tekstin alueen. Käytännössä näiden merkintöjen ei pitäisi näkyä käyttäjälle, vaan käyttäjälle tällaisten merkintöjen välissä olevan tekstin pitäisi näkyä lihavoituna.",,,,
+fab-500x-20261114T224408Z-002,18,3e73fbd10986efed05ae9913,d29f9c1933fb941ee840db617e748804,fab-500x,fin,general_knowledge,aya-dataset,human_authored,[user] Mitä ovat Staphylococcus aureus ja MRSA?,"MRSA eli metisilliiniresistentti Staphylococcus aureus on tietyille antibiooteille vastustuskykyinen stafylokokkibakteeri. 
+
+Staphylococcus aureus on yleinen bakteeri, jota löytyy terveiden henkilöiden iholta ja nenän limakalvolta. Usein sitä kutsutaan pelkästään stafylokokiksi. 
+
+Stafylokokki-infektioita hoidetaan yleensä penisilliinin sukuisilla antibiooteilla. Jotkut stafylokokit, kuten MRSA, ovat kuitenkin kehittyneet vastustuskykyiseksi näille tavallisille stafylokokkiantibiooteille.",,,,
+fab-500x-20261114T224408Z-002,19,a253b5e7b83fbd2db480ffa1,15714c5bd5f68ed07ec040221416d760,fab-500x,fin,mathematics,aya-dataset,human_authored,[user] Mitä luonnonsuojelulaissa säädetään rauhoitetuista lajeista?,"Luonnonsuojelulaki kieltää rauhoitettujen eläinten:
+
+tahallisen tappamisen ja pyydystämisen;
+pesien, sekä munien ja yksilöiden muiden kehitysasteiden ottamisen haltuun, siirtämisen toiseen paikkaan tai muun tahallisen vahingoittamisen; ja
+tahallisen häiritsemisen, erityisesti eläinten lisääntymisaikana, tärkeillä muutonaikaisilla levähdysalueilla tai muutoin niiden elämänkierron kannalta tärkeillä paikoilla.
+Tahalliseksi häirinnäksi katsotaan sellainen toiminta, josta voidaan etukäteen arvioida, että toiminnasta aiheutuu häiriötä. Toiminnan tavoitteena ei siis tarvitse olla eläinten häirintä. Esim. pesintää häiritsevä rakennuksen purku katsotaan pesinnän häirinnäksi, vaikka purkamisen tavoitteena ei ole häiritä pesintää vaan saada talo purettua.
+
+Edellä lueteltujen rauhoitussäännösten lisäksi tiettyjen luontodirektiivin tiukasti suojelemien lajien (esim. liito-orava, lepakot, vuollejokisimpukka, viitasammakko) lisääntymis- ja levähdyspaikkojen heikentäminen ja/tai hävittäminen on kielletty.
+
+Rauhoitettujen kasvilajien kerääminen, siirtäminen ja hävittäminen on kielletty.
+
+Rauhoitettujen lajien myynti ja vaihdanta on kielletty.
+
+Jos haluat perehtyä tarkemmin, luonnonsuojelulain löydät osoitteesta: 
+
+https://finlex.fi/fi/laki/ajantasa/2023/20230009",,,,
+fab-500x-20261114T224408Z-002,20,d2623b2e5e5866d2677b1c69,f1317425f5288a0fd8a77f058bc60e66,fab-500x,fin,safety_ethics,aya-dataset,human_authored,[user] Mitkä ovat hepatiitti E -infektion oireet?,"Hepatiitti E -infektio on suurimmalla osalla tartunnan saaneista oireeton. Jos oireita ilmenee, niitä voivat olla  
+
+kuume
+väsymys
+ruokahaluttomuus
+pahoinvointi
+oksentelu
+vatsakipu
+ihon ja silmien kovakalvon keltaisuus
+tumma virtsa 
+harmaa uloste 
+nivelkipu
+Oireet ilmaantuvat yleensä 15-60 (keskimäärin 40) päivän kuluttua tartunnan saamisesta.",,,,
+fab-500x-20261114T224408Z-002,21,c0a9ace095df573a3240343d,00e07eea540f8ce57b594b8e28e3214e,fab-500x,fin,science,aya-dataset,human_authored,[user] Mihin tarkoituksiin lisäaineita käytetään?,"Elintarvikelisäaineita voidaan käyttää useisiin eri tarkoituksiin. EU:n lainsäädännössä määritetään 26 teknologista syytä niiden käytölle. Lisäaineita ovat muun muassa seuraavat:
+
+väriaineita käytetään lisäämään tai antamaan väriä elintarvikkeeseen
+säilöntäaineet pidentävät elintarvikkeiden säilyvyyttä suojelemalla niitä mikro-organismeilta
+hapettumisenestoaineet ovat aineita, jotka pidentävät elintarvikkeiden säilyvyyttä suojaamalla niitä hapettumiselta, kuten rasvan härskiintymiseltä ja värinmuutoksilta
+jauhon käsittelyaineita lisätään jauhoon tai taikinaan sen leivontaominaisuuksien parantamiseksi.",,,,
+fab-500x-20261114T224408Z-002,22,072c183c0286669068c0577c,c74e9135153a94a76bb51d6e5bd00400,fab-500x,fin,writing,aya-dataset,human_authored,[user] Saako äänitykkiä käyttää lintujen karkottamiseen?,"Äänitykin ja muiden äänipelotteiden käyttö edellyttää poikkeuslupaa pesimäaikana sekä muuttoaikana tärkeillä muuttoalueilla tai muilla lajin elinkierron kannalta tärkeillä alueilla. Lisäksi on syytä huomata, että äänitykin käytön osalta on tiedusteltava kunnan ympäristönsuojeluviranomaiselta, edellyttääkö äänitykin käyttö kunnalle tehtävää meluilmoitusta. Lintujen on havaittu tottuvan nopeasti äänitykkiin eikä äänitykin karkotusteho ole välttämättä hyvä pidemmällä tähtäimellä. 
+
+Pyydä ennen karkotustoimiin ryhtymistä Varsinais-Suomen ELY-keskukselta arvio siitä, onko alue, jolla karkotustoimintaa on tarkoitus tehdä, lajille tärkeä muuttoalue tai muuten lajin elinkierron kannalta tärkeä alue (esim. poikastenkasvatusalue), niin saat tiedon siitä, vaativatko suunnittelemasi karkotustoimenpiteet poikkeusluvan. Pyyntö toimitetaan Varsinais-Suomen ELY-keskuksen kirjaamoon [EMAIL] . Vastaa pyynnössäsi kaikkiin seuraaviin kysymyksiin, jotta lupatarpeen arvio voidaan tehdä: 1) mistä lajista ja paikasta on kyse (osoite, kiinteistötunnus tai tilatunnus), 2) mitä toimenpiteitä aiot tehdä, 3) mihin ajankohtaan (esim. kesäkuussa) toimenpiteitä on aikomus tehdä, 4) onko karkotettavaksi aiottuja lintuja esiintynyt alueella toistuvasti vai onko kyse uudesta ongelmasta ja 5) onko alueella muita lintuja ja jos, niin mitä.",,,,
+fab-500x-20261114T224408Z-002,23,978de616b42e70f140a072fc,939bc848ab22bd7be362683af8ef81ce,fab-500x,fr,coding,wikipedia-fr,templated_human,[user] Présente brièvement : Équation d'Euler-Lagrange.,"L’équation d'Euler-Lagrange (en anglais, Euler–Lagrange equation ou ELE) est un résultat mathématique qui joue un rôle fondamental dans le calcul des variations. On retrouve cette équation dans de nombreux problèmes réels de minimisation de longueur d'arc, tels que le problème brachistochrone ou bien encore les problèmes géodésiques. Elle est nommée d'après Leonhard Euler et Joseph-Louis Lagrange.
+
+désignera un espace vectoriel normé,  un intervalle réel, et  l'espace affine des fonctions  de classe C telles que , où  sont deux vecteurs fixés de .
+
+Le vecteur dérivé d'une fonction  en un point  est noté .
+
+On se donne par ailleurs une fonction  de classe C.
+
+Ses trois variables étant notées  (ce qui risque de prêter à confusion avec la notation précédente mais est d'un usage courant), ses trois applications différentielles partielles sont notées
+
+Lorsqu'on les compose par la fonction  pour une fonction donnée , on obtient trois fonctions définies sur  (encore à valeurs respectivement dans ,  et ), que l'on note usuellement de la même façon (bien que, à nouveau, cela prête à confusion), ce qui donne en particulier un sens aux deux fonctions",,,,
+fab-500x-20261114T224408Z-002,24,74ed9c6862db9828f8e9d3f6,8a1f1c4a94d45bd4f9c92dace554cf8c,fab-500x,fr,cybersecurity,wikipedia-fr,templated_human,[user] Présente brièvement : File Alteration Monitor.,"En informatique, le File Alteration Monitor (FAM) est un sous-système sous Unix/Linux dont le but est de prévenir les applications dès que certains fichiers sont modifiés. Elle n'est plus maintenue et a été remplacée par la bibliothèque Gamin du projet GNOME, qui est totalement compatible avec FAM.
+
+En français, la traduction de ce terme pourrait être Moniteur de modifications de fichier. Il arrive que la traduction trompeuse soit ""Moniteur d'altération de fichier"", mais le terme altération prête à confusion.
+
+Ce logiciel aussi connu sous le nom de sgi_fam fournit un sous-système (développé par SGI) pour les systèmes d'exploitation basés sur Unix (Linux et autres). Le sous-système FAM prévient d'autres applications dès que certains fichiers sont modifiés.
+
+Cela simplifie de beaucoup la tâche des programmeurs pour les applications clientes, sinon il serait nécessaire de programmer une lecture répétitive du disque pour détecter tout changement, ce qui serait pénalisant en temps de développement et, plus important, pour les performances des applications.
+
+Par exemple, un gestionnaire de fichiers est prévenu lorsque des fichiers sont modifiés et il peut rafraîchir si nécessaire la représentation de ce fichier dans l'interface graphique.
+
+Le sous-système FAM est composé de deux parties :",,,,
+fab-500x-20261114T224408Z-002,25,15a97ccb3e3a53322bdf9a35,3651e49978b9691d26feef9f7c732437,fab-500x,fr,education,wikipedia-fr,templated_human,[user] Présente brièvement : Robin Spry.,"Robin Spry, né le  à Toronto, et décédé dans un accident de voiture le  à Montréal (Canada), est un producteur, réalisateur et scénariste canadien. Il était rattaché à la compagnie de production Telescene (qui a produit entre autres les premières saisons de la série télévisée Le Loup-garou du campus).
+
+1973 : Reaction: A Portrait of a Society in Crisis
+
+1974 : Action: The October Crisis of 1970 (« Les évènements d' »)
+
+1988 : You've Come a Long Way, Ladies (TV)
+
+1992 : Mary Higgins Clark : En mémoire de Caroline (A Cry in the Night) (TV)
+
+1997-1999 : Les Prédateurs (The Hunger) (série télévisée)
+
+1998 : Sauvetage à Wildcat Canyon (Escape from Wildcat Canyon)
+
+1999 : Le Monde perdu (The Lost World) (série télévisée)
+
+2000 : Live Through This (série télévisée)
+
+2002 : Matthew Blackheart: Monster Smasher (TV)
+
+2002 : Franchement bizarre (Seriously Weird) (série télévisée)
+
+2003 : Séductrice malgré elle (Student Seduction) (TV)
+
+1973 : Reaction: A Portrait of a Society in Crisis
+
+1974 : Action: The October Crisis of 1970
+
+1992 : Mary Higgins Clark : En mémoire de Caroline (A Cry in the Night) (TV)
+
+1992 : Mary Higgins Clark : En mémoire de Caroline (A Cry in the Night) (TV)
+
+1972 : Québec : Duplessis et après… : Lecteur du Rapport Durham (1838)
+
+Étudiant de la London School of Economics
+
+Mort dans un accident de la route au Canada",,,,
+fab-500x-20261114T224408Z-002,26,2238e7f86b46b14d8befe927,851365743a444310e0c8f535dd27085f,fab-500x,fr,general_knowledge,oasst2,human_authored,"[user] Je dois écrire une lettre administrative à la Caisse d'Assurance Maladie. Je dois leur demander si c'est possible de changer mon compte pour les remboursements parce qu'ils ont enregistré un ancien compte que je n'utilise plus. 
+Je souhaite le remplacer par mes nouvelles informations: 
+Les informations de mon compte multi devise en Euro commencent par les lettre BE pour la Belgique. Leur portail en ligne ne me laisse pas mettre un IBAN qui ne commence pas pas les lettres FR donc je dois faire une demande par écrit. Je suis nulle en courier administratif et j'ai besoin d'une lettre claire, avec les formules de politesses type.
+
+[assistant] Comment intervenir dans les projets
+
+[user] Objet : Demande de modification de mes coordonnées bancaires pour les remboursements
+
+Madame, Monsieur,
+
+Je vous écris aujourd'hui pour vous demander s'il est possible de modifier les coordonnées bancaires enregistrées pour mes remboursements. En effet, vous avez enregistré un compte bancaire que je n'utilise plus et j'aimerais le remplacer par mon compte multi-devise en Euro, qui commence par les lettres BE pour la Belgique.
+
+Cependant, je me suis aperçu(e) que votre portail en ligne ne permettait pas de saisir un IBAN qui ne commence pas par les lettres FR. C'est pourquoi je vous sollicite par la présente pour vous demander de bien vouloir modifier mes coordonnées bancaires pour les remboursements en utilisant mon nouveau compte multi-devise en Euro. Voici mes nouvelles informations bancaires :
+
+[Nom du titulaire du compte] : [Vos nom et prénom]
+[IBAN] : [Votre IBAN commençant par les lettres BE]
+[BIC/SWIFT] : [Le BIC/SWIFT correspondant à votre compte]
+
+Je vous prie donc de bien vouloir mettre à jour votre système avec ces nouvelles coordonnées bancaires pour les remboursements. N'hésitez pas à me contacter si vous avez besoin de plus amples informations.
+
+Je vous remercie pour votre compréhension et votre diligence dans cette affaire.
+
+Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.
+
+[Votre nom et prénom]","Demande : changement de coordonnées bancaires hors France
+
+Madame, Monsieur,
+
+A la suite d'un changement de compte, je voudrais modifier les coordonnées bancaires enregistrées pour mes remboursements vers un autre compte multi-devise en Euro, qui commence par les lettres BE pour la Belgique, au lieu de FR actuellement.
+
+Or, je me suis aperçu(e) que votre portail en ligne ne permettait pas de la faire et refuse de saisir un IBAN qui commence par d'autres lettres que FR. 
+Je vous serais très reconnaissant(e) de bien vouloir modifier mes coordonnées bancaires pour les remboursements en utilisant mon nouveau compte multi-devise en Euro avec mes nouvelles coordonnées :
+
+[Nom du titulaire du compte] : [Vos nom et prénom]
+[IBAN] : [Votre IBAN commençant par les lettres BE]
+[BIC/SWIFT] : [Le BIC/SWIFT correspondant à votre compte]
+
+Je vous remercie de votre diligence et reste à votre disposition si vous avez besoin de plus amples informations de ma part.
+
+Avec me cordiales salutations
+
+[Votre nom et prénom]",,,,
+fab-500x-20261114T224408Z-002,27,a9c9c3589230103d3ac407a4,1bc9cdc02777abe89e5504c7441a19fd,fab-500x,fr,islamic_studies,wikipedia-fr,templated_human,[user] Présente brièvement : Jubbada Hoose.,"Jubbada Hoose, ou Lower Juba, est une région à l’extrême sud de la Somalie, avec façade orientale sur l'Océan Indien, limitrophe des provinces somalies de Jubbada Dhexe au nord est, et de Gedo au nord, et à la frontière avec le Kenya (provinces de Mandhera et Wajir).
+
+Les villes principales sont Afmadow, Jamaame, Kismayo (capitale).
+
+La région présente divers sites archéologiques, dont Port Dunford, Rasini, Bas Bar Balla, Miandi.
+
+Depuis 1998, le nouveau Jubaland regroupe les trois anciennes régions officielles de Somalie :
+
+Gedo (partiellement) (capitale : Garbahaarreey).
+
+Avec des différends sérieux avec ses voisins.
+
+Depuis 2006, la région a été soumise aux tribunaux islamiques somaliens et aux chebabs.",,,,
+fab-500x-20261114T224408Z-002,28,12f4895b5297fc70a35139bd,c764eb35ee689d72837e7bcb22967919,fab-500x,fr,mathematics,wikipedia-fr,templated_human,[user] Présente brièvement : Iturmendi.,"Iturmendi est une ville et une municipalité de la Communauté forale de Navarre (Espagne).
+
+Elle est située dans la zone bascophone de la province où la langue basque est coofficielle avec l'espagnol, dans la vallée de la Burunda et mérindade de Pampelune qui est à . Le secrétaire de mairie est aussi celui de Bakaiku.
+
+En accord avec Loi forale 18/1986 du  sur le basque, la Navarre est linguistiquement divisée en trois zones. Cette municipalité fait partie de la zone bascophone où l'utilisation du basque y est majoritaire. Le basque et le castillan sont utilisés dans d'administration publique, les médias, les manifestations culturelles et en éducation cependant l'usage du basque y est courant et encouragé le plus souvent.",,,,
+fab-500x-20261114T224408Z-002,29,f486c6ce6fd1c2419f7eec67,436a10ecfdfe2a6d502fb59ff86a5313,fab-500x,fr,pakistan,aya-dataset,human_authored,[user] Qui était l'artiste Ejaz Asi ?,"Ejaz Asi, un artiste canadien contemporain d'origine pakistanaise, crée des peintures miniatures complexes et détaillées qui mélangent les techniques traditionnelles sud-asiatiques avec des sujets contemporains. Ses œuvres, comme « Bazaar », reflètent sa fascination pour la diversité culturelle, l'identité et l'intersection du passé et du présent.",,,,
+fab-500x-20261114T224408Z-002,30,f53b72f5fa47f38eb1024f42,b5dcdb71feee97f9222b0c0a6eb4c855,fab-500x,fr,problem_solving,wikipedia-fr,templated_human,[user] Présente brièvement : Politiets Efterretningstjeneste.,"Le Politiets Efterretningstjeneste (PET, en français Service de renseignement de la police) est le service de renseignement du Danemark. C’est un service de la police du Danemark qui dépend du ministère de la Justice fondé le . Ses activités : lutte contre le terrorisme international, surveillance des groupes extrémistes, collecte et analyse de l’information. Il est également chargé de veiller à la sécurité de la famille royale de Danemark. Son quartier général est situé à Copenhague. Le PET dispose aussi d’antennes à Århus et Odense. Son directeur est Finn Borch Andersen.
+
+Il emploie au  environ 780 personnes et dispose à cette date d'un budget d'environ  de couronnes danoises ( d'euros en 2013).
+
+Forsvarets Efterretningstjeneste, service de renseignement militaire",,,,
+fab-500x-20261114T224408Z-002,31,1c2f8000bb34267eafb75c46,357c2c541cef3ccc979743e4f4479e8b,fab-500x,fr,reasoning,wikipedia-fr,templated_human,[user] Présente brièvement : Mary Louise Cleave.,"Mary Louise Cleave est une astronaute américaine née le .
+
+Cleave est née à Southampton, dans l'état de New York, elle est la fille de Howard Cleave et Barbara Cleave. Elle a grandi à Great Neck, à proximité de New York.
+
+Cleave est diplômée en 1965 de Great Neck School. En 1969, elle obtient un baccalauréat ès sciences en sciences biologiques à l'université d'État du Colorado, et en 1975 elle obtient une maîtrise ès sciences en écologie microbienne à l'université d'État de l'Utah. En 1979, elle a reçu un doctorat en génie civil et environnemental à l'université d'État de l'Utah.
+
+Cleave a été sélectionnée comme astronaute en . Ses missions techniques incluaient : la vérification des logiciels de vol dans les laboratoires d'intégration de la navette. Cleave a enregistré un total de 10 jours, 22 heures, 02 minutes ,24 secondes dans l'espace. Elle a voyagé  millions de miles. Elle était une spécialiste de la mission STS-61-B (du  au ) et STS-30 (du 4 au ).
+
+Une biographie officielle sur le site de la NASA
+
+Étudiant de l'université d'État de l'Utah
+
+Étudiant de l'université d'État du Colorado",,,,
+fab-500x-20261114T224408Z-002,32,8f129d87cb26948263400a1f,589ba8f4457021540f28e9420de58398,fab-500x,fr,research,wikipedia-fr,templated_human,[user] Présente brièvement : Thalbach.,"Le Thalbach est un ruisseau français qui coule dans le Sundgau (sud de l'Alsace). Il prend sa source vers Folgensbourg, descend la vallée de Hundsbach et se jette dans l'Ill à la hauteur de Walheim, en aval de la ville d'Altkirch.
+
+Knœringue, Berentzwiller, Jettingen, Franken, Hundsbach, Hausgauen, Schwoben, Tagsdorf, Wittersdorf, Emlingen, Altkirch, Walheim
+
+Débits caractéristiques du Thalbach (code A10_020)",,,,
+fab-500x-20261114T224408Z-002,33,88d133efb740268ac588698a,a10955910b462a39698cdd10446547b5,fab-500x,fr,safety_ethics,wikipedia-fr,templated_human,[user] Présente brièvement : Francesco Cilea.,"Francesco Cilea (parfois écrit Cilèa) est un compositeur italien, né le  à Palmi (région de Calabre) et mort le , à Varazze (région de Ligurie). Son Adriana Lecouvreur reste son opéra le plus connu, créé avec Enrico Caruso. Son dernier opéra est Gloria (1907).
+
+Francesco Cilea commence ses études au Conservatoire de Naples (1881-1889) avec Beniamino Cesi pour le piano et Paolo Serrao pour la composition.
+
+Il donne son premier opéra, Gina, en 1889. Il enseigne le piano (1894-1896) et l'harmonie à l'Instituto Musicale de Florence. Son œuvre marquante est L'Arlesiana d'après Alphonse Daudet, remaniée deux fois, pour ne trouver sa forme définitive qu'à la reprise en 1912 au Teatro San Carlo de Naples.
+
+Il dirige le conservatoire de Palerme (1913-1916) puis le conservatoire San Pietro a Majella de Naples de Naples (1916-1935).
+
+Il est membre de l'Accademia musicale de Florence (1898) et fait chevalier de l'ordre de la Couronne d'Italie (1893).
+
+Proche du vérisme italien dans ses premiers opéras, il s'en écarte ensuite pour faire une orchestration plus limpide en utilisant une écriture vocale plus nuancée.
+
+L'Arlesiana, d'après Daudet (Milan,  - révisé et réduit de 4 à 3 actes et créé à Milan le ),
+
+Adriana Lecouvreur, d'après Eugène Scribe, son plus célèbre opéra (Milan,  - Covent Garden,  - Metropolitan Opera, ),
+
+Poema sinfonico pour soliste, chœur et orchestre (Gênes, ),",,,,
+fab-500x-20261114T224408Z-002,34,b22dea309e58205dcc1d8d1b,387a04682bbe591ea340a05e64c86918,fab-500x,fr,science,wikipedia-fr,templated_human,[user] Présente brièvement : Lawrence Hargrave.,"Lawrence Hargrave ( - ), pionnier en aéronautique australien, a fait son premier vol en cerf-volant le . Il a vécu à Stanwell Park en Australie.
+
+Lawrence Hargrave est né à Greenwich, en Angleterre. Il est le second fils de John Fletcher Hargrave. Il est scolarisé à la Queen Elizabeth's Grammar School, à Kirkby Lonsdale dans le Westmorland. Cet établissement comporte aujourd'hui un bâtiment nommé en sa mémoire. En 1865, il immigre en Australie avec sa famille. Il arrivera ainsi à Sydney le 5 novembre 1865 abord d'un navire baptisé La Hogue. En 1867, il accepte un poste d'apprenti ingénieur dans l'entreprise Australasian Steam Navigation Company. Cet apprentissage lui fut très utile quand il en vint à se lancer dans la construction de ses propres modèles d'engins volants (voir section ”aéronautique"").
+
+Après une brève carrière dans la marine australienne, de 1872 à 1877, il prit en 1878 un poste d'astronome assistant à l'observatoire de Sydney (Sydney Observatory). Il exerça pendant cinq ans avant de se retirer en 1883 pour se consacrer à des travaux de recherche.
+
+Il meurt le 14 juillet 1915 à l'âge de 65 ans, d'une péritonite.",,,,
+fab-500x-20261114T224408Z-002,35,1ed9f1ba291ebd3b37d4d994,f63c058a416771ed92262a1a54085344,fab-500x,fr,software_engineering,wikipedia-fr,templated_human,[user] Présente brièvement : Karen Mok.,"Karen Mok Man-Wai (莫文蔚) est une actrice et chanteuse née à Hong Kong le . Elle est considérée comme une « fille de Sing ».
+
+Bien que connue sous le nom de Karen Mok dans les films chinois, les films hollywoodiens conservent son nom de naissance à savoir Karen Joy Morris.
+
+Née à Hong Kong en 1970, Karen a des origines à la fois chinoises, galloises (de par son grandpère paternel), iraniennes et allemandes. Elle est la sœur du producteur-scénariste Trevor Morris et la descendante de Alfred Morris, le premier principal de King's College, Hong Kong.
+
+Après des études au United World College de Trieste en Italie, elle étudia durant deux années la littérature italienne à l'université de Londres.
+
+Karen Mok parle anglais, cantonais, mandarin, italien et français. Elle ne s'enregistre toutefois qu'en cantonais et en mandarin. Aussi adepte de rap, Karen Mok est surnommée en Iran ""Mok Kahba"" ou « Beauté transcendante ».
+
+1994 : Le Roi singe  (Sai yau gei: Dai yat baak ling yat wui ji - Yut gwong bou haap)
+
+1994 : Le Roi singe  (Sai yau gei: Daai git guk ji - Sin leui kei yun)
+
+1995 : Les Anges déchus (Duo luo tian shi)
+
+1996 : wkw/tk/1996@7'55hk.net (court-métrage)
+
+1996 : Those Were the Days (Si ge 32A he yi ge xiang jiao shao nian)
+
+1996 : Young and Dangerous 3 (Gu huo zai san)
+
+1996 : Sexy and Dangerous (Gu huo nu zhi jue zhan jiang hu)",,,,
+fab-500x-20261114T224408Z-002,36,89c51ef7eb5b0cfa8978e077,3e180572cc8608ed091b4940820d5996,fab-500x,fr,web_backend,oasst2,human_authored,"[user] Traduis ce texte de l'anglais vers le français:
+If you are interested in taking a look at the current state of the project, you can set up an entire stack needed to run Open-Assistant, including the website, backend, and associated dependent services.
+###","Je le traduirais ainsi :
+""Si vous souhaitez jeter un coup d'œil à l'état actuel du projet, vous pouvez mettre en place une stack complète nécessaire au fonctionnement d'Open-Assistant, y compris le site web, le backend et les services dépendants associés.""",,,,
+fab-500x-20261114T224408Z-002,37,89d76af614f779adfabd7af0,b61def0987032e3baa40535f60020f24,fab-500x,fr,web_frontend,aya-dataset,human_authored,[user] Quels sont les bons endroits à visiter à Québec?,"Il y a beaucoup des choses a faire à Québec:
+
+Vieux-Québec
+Déambuler dans les plus vieilles rues en Amérique du Nord
+Parcourez les fortifications entourant le Vieux-Québec,  joyau du patrimoine mondial de l'UNESCO et berceau de l'Amérique française. Faites un tour guidé à pied et visitez des lieux témoins de l'histoire : le Petit-Champlain, la place Royale, les plaines d'Abraham et l'hôtel du Parlement. Profitez d'une balade sur la terrasse Dufferin pour prendre un cliché du célèbre Château Frontenac, l'hôtel le plus photographié au monde! Voici les principaux attraits touristiques du Vieux-Québec :
+
+Le Château Frontenac
+Étant l’emblème de Québec par excellence, ce château est aussi l’hôtel le plus photographié au monde. Pour une visite ou un séjour, le Château Frontenac vaut le détour!
+
+La terrasse Dufferin
+Animée été comme hiver, profitez d’une vue imprenable sur le fleuve Saint-Laurent et le Château Frontenac lors d’une promenade sur l’immense terrasse Dufferin. Nommée ainsi en l’honneur de Lord Dufferin, un gouverneur général du Canada amoureux de la ville de Québec, la terrasse est si appréciée qu’elle été agrandie à deux reprises au cours de son histoire. Faites d’une pierre deux coups en visitant les vestiges des Forts-et-Châteaux-Saint-Louis qui se trouvent en dessous de ce lieu iconique.
+
+Les fortifications et les portes
+Saviez-vous que Québec est la seule ville fortifiée au nord de Mexico? Les fortifications et les 4 portes qui entourent la vieille ville vous donneront l’impression de voyager dans le temps.
+
+Le Petit-Champlain
+Cette charmante rue piétonne saura vous charmer à coup sûr avec ses nombreux commerces locaux et son ambiance féérique en toutes saisons. Aussi considéré comme un excellent repère de galeries d’art de bons bistrots, le Petit-Champlain est une véritable fabrique à souvenirs.
+
+La place Royale
+Véritable joyau historique, la place Royale est le lieu officiel de la fondation de Québec. Son architecture unique témoigne avec authenticité des influences françaises et britanniques qui ont façonné l’urbanisme de la ville.
+
+Les plaines d’Abraham
+Le 13 septembre 1759, le site des plaines d'Abraham a été le théâtre de la fameuse bataille de Québec qui a décidé du sort de l’Amérique. C’est à l’issue de cette bataille que les Français ont cédé la ville aux Britanniques.
+
+La Citadelle de Québec
+Au sommet du célèbre cap Diamant se trouve la plus importante forteresse britannique en Amérique du Nord. Construite entre 1820 et 1850 par les Anglais pour défendre la ville, la Citadelle de Québec est un héritage militaire d’exception. Celle-ci comprend le Musée Royal 22e régiment où vous pourrez apprendre tout ce qu’il y a à savoir sur son histoire.
+
+La Basilique-cathédrale Notre-Dame de Québec
+Située au coeur du Vieux-Québec, la Basilique-cathédrale Notre-Dame de Québec fut l’église de la première paroisse catholique au nord des colonies espagnoles. Son histoire est aussi importante pour le patrimoine que son architecture exceptionnelle.
+
+Le Vieux-Port 
+Les rues du Vieux-Port sont parfaites pour flâner dans les galeries d'art et les boutiques d’antiquités. Les rues pittoresques sont bordées de magnifiques maisons et de points de vue sur le fleuve. C'est aussi le point de départ pour faire une excursion en bateau.",,,,
+fab-500x-20261114T224408Z-002,38,0b29a6cbc778625b220658ef,938466e778f7165102a23eb66d81ec0d,fab-500x,fr,writing,aya-dataset,human_authored,"[user] Étant donné que ""Tha Smokin' Nephew est le premier album studio du rappeur Baby Bash et son troisième album au total. Sorti par Universal Records, il est entré dans le ""Billboard"" 200 au numéro 48. Cinq mois après sa sortie, l'album a été certifié disque d'or par la RIAA. En mars 2005, l'album s'était vendu à 531 000 exemplaires aux États-Unis."", il doit donc être vrai que ""Baby Bash n'est pas principalement connu pour la musique country."" ? ""vrai"", ""faux"", ou ""incertain"" ?""","C'est incertain. Baby Bash est évidemment connu pour son album Tha Smokin' Nephew, mais le paragraph ne mention pas la musique country. Il y a des musiciens comme Lil Nas X qui sont connus pour leur musique ""country hip-hop.""",,,,
+fab-500x-20261114T224408Z-002,39,12d4d3983a06edadc048e066,f86fe8116ae7bfcdf9b828d6fad15037,fab-500x,gle,cybersecurity,aya-dataset,human_authored,[user] What kind of privacy settings are there on a PC to make it safe for a child to use?,"Más mian leat rialú a dhéanamh ar na cineálacha faisnéise is féidir le do leanbh a fheiceáil nó a úsáid, ansin ba chóir duit clár balla dóiteáin a úsáid ar a ríomhaire, agus é a chumrú chun roinnt láithreáin ghréasáin a bhac agus an t-ábhar is féidir leo a fheiceáil a shrianadh. Tá na cláir seo ar fáil i Windows App Store, agus tá siad deartha chun oibriú le Windows 10. Níl an aip seo ach sampla amháin de go leor, agus tá súil agam go gcabhróidh sé leat, ach ba chóir duit gnéitheas na n-aipeanna balla dóiteána seo go léir a sheiceáil sula n-instalaíonn tú ceann, ionas nach mbeidh fadhbanna le malware nó víris agat.",,,,
+fab-500x-20261114T224408Z-002,40,18b09850d1f7afb10b5fded1,abfa149f9ca84f82e60b88e94e272672,fab-500x,gle,education,aya-dataset,human_authored,[user] An bhfuil Maine ina áit chrua chun teach a cheannach?,"Is féidir é a bheith má tá tú ag súil le teach níos mó a cheannach le go leor seomra. Tá an margadh tithíochta i Maine beagán lag ar an iomlán faoi láthair. Tá an praghas tithíochta meán i Maine faoi láthair $263,000. I mí Aibreáin 2018, bhí an dara praghas tithe meán stáit is ísle sa tír i Maine.",,,,
+fab-500x-20261114T224408Z-002,41,27c6281e450a5aa8bcdbb852,4ce4710fe757b2b186b246bdb1ce89bb,fab-500x,gle,general_knowledge,aya-dataset,human_authored,[user] Cé hé Howard James Hubbard?,"Is prealáid de chuid na hEaglaise Caitlicí Rómhánaí agus Easpag Emeritus de Dheoise Albany é Howard James Hubbard (rugadh 31 Deireadh Fómhair, 1938). Ba é Hubbard an naoú Easpag Albany, ag fónamh mar easpag ó 27 Márta 1977 go 10 Aibreán 2014. 
+
+Rugadh Howard Hubbard i Troy, Nua-Eabhrac, do Howard agus Elizabeth Hubbard. D’fhreastail sé ar Scoil Phádraig agus ar Institiúid La Salle, ag dul isteach i Seimineár Mater Christi sa bhliain 1956 . Chuir sé a chuid staidéir ar aghaidh ag St. Joseph's Seminary, Dunwoodie, (áit a bhfuair sé céim choláiste san fhealsúnacht) agus ag an <i>Pontificia Università Gregoriana</i> sa Róimh. Le linn dó a bheith sa Róimh, gaireadh Hubbard chun na sagartachta ar 18 Nollaig, 1963. Rinne sé staidéar iarchéime i réimse na seirbhísí sóisialta ag Ollscoil Chaitliceach Mheiriceá i Washington, DC.",,,,
+fab-500x-20261114T224408Z-002,42,51a562b7ffc8aacd199d8623,dc89b5a62eb7d6df534ed2248f3edec0,fab-500x,gle,mathematics,aya-dataset,human_authored,[user] Cé hé Ronnie Bunting?,"Bhí Ronnie Bunting (1947/1948 - 15 Deireadh Fómhair 1980) ina cheannaire ar an INLA (Arm Saoirse Náisiúnta na hÉireann). Dúnmharaíodh é ar an 15 Deireadh Fómhair 1980, i Downfine Gardens, Béal Feirste.
+I Mí na Márta 1969, chaith Ian Paisley seal sa phríosún in éineacht le Major Ronald Bunting, athair Ronnie. Bhí an bheirt sin (Paisley agus athair Ronnie) i ndiaidh frithléirsiú neamhdhlíthiúil a chóiriú mar agóid in aghaidh an mhórshiúil a bhí ag Cumann Cearta Sibhialta Thuaisceart Éireann (NICRA) in Ard Mhacha.
+
+Íorónta go leor, cé gur Protastúnach a bhí ann, chuaigh Ronnie, mac Ronald Bunting nó Ronald Óg le poblachtánachas ina dhiaidh sin, agus é ar dhuine de bhunaitheoirí an INLA.",,,,
+fab-500x-20261114T224408Z-002,43,713a5ce25cc0b6e2720f1ffe,027973a82ca7a875acaa21e98e5b27c2,fab-500x,gle,science,aya-dataset,human_authored,[user] An féidir leat aon leabhair cócaireachta a mholadh chun miasa vegan a dhéanamh? Agus an féidir leat ceann a aimsiú le haghaidh bia na hIodáile?,"Bain triail as le do thoil: ""The Plant-Powered Diet: Heal Yourself and the Planet with the Ultimate Vegan Cookbook"" le Kim Lutz agus Matthew Lutz. Déan iarracht le do thoil, ""Vegan Italiano"" ag Kristen Chun agus Melanie Fallon.",,,,
+fab-500x-20261114T224408Z-002,44,7ceeaf955c5ab6ed65b7f504,c173680e4542245739431db8815f2f72,fab-500x,gle,web_backend,aya-dataset,human_authored,[user] Tá mé ag lorg aon chineál drámaí Cóiré atá tóir air! An féidir leat ceann a mholadh?,"Tá brón orm nach bhfuil a fhios agam ar bith. An mbeadh suim agat i radharc ar seánra drámaí eile seachas K-Drama? Mar shampla, drámaí gníomhaíochta cosúil le drámaí ""Ninja"", tá se cosuil le seó ""Game of Thrones"".",,,,
+fab-500x-20261114T224408Z-002,45,b8245d96a295f3685fe70fe2,9095f259539e3d87a78a0fcfc2f86f7a,fab-500x,gle,web_frontend,aya-dataset,human_authored,[user] Inis dom faoi Pápa Urban VI.,Ba Phápa ar an Eaglais Chaitliceach é Urban VI. Tá sé 70/71 bliana d'aois. Rugadh sé ar an 15 Deireadh Fómhair 1389.,,,,
+fab-500x-20261114T224408Z-002,46,dccd75306aeab16595648f0b,0ed99959b29ea75f8d8954b86579dd9d,fab-500x,gle,writing,aya-dataset,human_authored,"[user] Scríobh leanúint ar aghaidh don mhír seo - Dhá lá déag ina dhiaidh sin ar an 15 Iúil, 1981, bhí na Jets i mbun déileála trí bhealach leis na Colorado Rockies agus Vancouver Canucks. I dtús báire, rinne Winnipeg Ivan Hlinka a thrádáil chuig na Vancouver Canucks in éagmais le Brent Ashton agus an ceathrú babhta dréachta Canucks ag dréacht iontrála An tSraith Náisiúnta Haca (NHL) 1982",. D'athraigh na Jets ansin Ashton agus a gcuid rogha tríú babhta féin i 1982 Draft Iontrála NHL chuig Colorado Rockies le haghaidh Lucien DeBlois. Bhí 26 sprioc agus 42 pointe ag DeBlois i 74 chluiche le Colorado le linn séasúr 1980-81.,,,,
+fab-500x-20261114T224408Z-002,47,00b2b107be1ca52476de129f,333b40b6c085f078c387a689f4a9e562,fab-500x,gu,coding,aya-dataset,human_authored,[user] C (પ્રોગ્રામિંગ ભાષા) વિશે લખો.,"C એ સામાન્ય હેતુ તેમજ સીસ્ટમ પ્રોગ્રામિંગ માટે વપરતી પ્રોગ્રામિંગ ભાષા છે. જેની રચના ૧૯૬૯ થી ૧૯૭૩ વચ્ચે ડેનીસ રીચી દ્વારા AT&T Bell Lab માં થઇ આવી હતી. એ સમયે તેનો મુખ્ય ઉદેશ્ય Unix ઓપરેટીંગ સિસ્ટમ ને C મા ફરી થી લખવા નો હતો. આ ભાષાની ડિઝાઈનની સૂચનાઓનું મશીનની સૂચનાઓમાં સરળ રીતે રૂપાંતર થાય છે. ઘણી ભાષાઓ C માંથી વિકસાવવામાં આવેલી છે જેમકે C++, C શાર્પ (C#), PHP, પાયથોન, જાવા, જાવાસ્ક્રિપ્ટ વગેરે.",,,,
+fab-500x-20261114T224408Z-002,48,4eaf7898efb2e386c66b7ca8,a5b3086689930bc0c64df3e6d87e2fc7,fab-500x,gu,general_knowledge,aya-dataset,human_authored,[user] સર્બિયન ઇતિહાસ,"સર્બિયન મુખ્યત્વે સર્બ્સ દ્વારા ઉપયોગમાં લેવામાં આવતી સર્બો-ક્રોએશિયન ભાષાની પ્રમાણિત વિવિધતા છે.તે સર્બિયાની સત્તાવાર અને રાષ્ટ્રીય ભાષા છે, બોસ્નીયા અને હર્ઝેગોવિનાની ત્રણ સત્તાવાર ભાષાઓમાંની એક અને મોન્ટેનેગ્રો અને કોસોવોમાં સહ-સત્તાવાર છે.તે ક્રોએશિયા, ઉત્તર મેસેડોનિયા, રોમાનિયા, હંગેરી, સ્લોવાકિયા અને ચેક રિપબ્લિકમાં માન્યતા પ્રાપ્ત લઘુમતી ભાષા છે.
+
+સ્ટાન્ડર્ડ સર્બિયન સર્બો-ક્રોએશિયન, શ્ટોકાવિયનની સૌથી વ્યાપક બોલી પર આધારિત છે, જે સ્ટાન્ડર્ડ ક્રોએશિયન, બોસ્નિયન અને મોન્ટેનેગ્રિન જાતો [૧ 14] નો પણ આધાર છે અને તેથી ક્રોટ્સ, બોસ્નીઆક્સ, સર્બ્સ અને મોન્ટેનેગ્રિન્સની સામાન્ય ભાષા વિશેની ઘોષણા2017 માં જારી કરવામાં આવી હતી. સર્બ્સ દ્વારા બોલાતી અન્ય બોલી દક્ષિણપૂર્વ સર્બિયામાં ટોરલકિયન છે, જે મેસેડોનિયન અને બલ્ગેરિયનમાં સંક્રમિત છે.""",,,,
+fab-500x-20261114T224408Z-002,49,fe3d0f3fa3d318ad97de3e92,85a227a745df7c5ed0c81e23086232e9,fab-500x,gu,mathematics,aya-dataset,human_authored,[user] ચણા મસાલા બનાવવાની રેસીપી લાખો.,"૧ કપ ચણાની દાળ
+૧/૨ કપ ઘઉંનો લોટ
+૧/૨ ચમચી હળદર
+૧/૨ ચમચી મીઠું
+૧/૨ ચમચી ધાણાજીરું પાવડર
+૧/૨ ચમચી મરચું પાવડર
+૧ ચમચી ખાંડ
+૧ ચમચી તેલ
+પાણી જેટલું જરૂરી
+રીત:
+
+૧. ચણાની દાળને ૪-૫ કલાક પલાળી રાખો.
+
+૨. પલાળેલી દાળને મિક્સરમાં નાખીને નાજુક પેસ્ટ બનાવી લો.
+
+૩. એક બાઉલમાં ઘઉંનો લોટ, હળદર, મીઠું, ધાણાજીરું પાવડર, મરચું પાવડર અને ખાંડ ઉમેરીને મિક્સ કરો.
+
+૪. પલાળેલી દાળની પેસ્ટ ઉમેરીને બરાબર મિક્સ કરો. ૫. જરૂર પડ્યે પાણી ઉમેરીને કઠણ લોટ બાંધી લો.
+Image of પલાળેલી દાળની પેસ્ટ ઉમેરીને બરાબર મિક્સ કરોOpens in a new window
+www.instagram.com
+પલાળેલી દાળની પેસ્ટ ઉમેરીને બરાબર મિક્સ કરો
+
+૬. લોટને ૧૦-૧૨ નાના ટુકડાઓમાં વહેંચી લો.
+
+૭. દરેક ટુકડાને પાતળી રોટલી જેવું બાંધો.
+
+૮. રોટલીને ગરમ તવા પર શેકો.
+
+૯. બંને બાજુથી શેકી લો. ૧૦. ગરમા-ગરમ ખખરાને સર્વ કરો.
+Image of બંને બાજુથી શેકી લોOpens in a new window
+rasoinirani.jentilal.com
+બંને બાજુથી શેકી લો
+
+ટીપ્સ:
+
+લોટને ખૂબ જ કઠણ ન બાંધો, નહીં તો ખખરા કાચા રહી જશે.
+રોટલીને શેકતી વખતે થોડું તેલ લગાવો.
+ખખરાને ગરમા-ગરમ સર્વ કરવાથી તેઓ વધુ સ્વાદિષ્ટ લાગે છે.
+profile picture
+Pizza recipe in Gujarati 
+પીઝા બનાવવાની રેસીપી
+
+સામગ્રી:
+
+૨૦૦ ગ્રામ લોટ
+૧ ચમચી તેલ
+૧ ચમચી યીસ્ટ
+૧/૨ ચમચી મીઠું
+૧/૨ ચમચી સ્વાદ મુજબ મરી નાંખો
+૧/૨ ચમચી ખાંડ
+૨/૩ કપ પાણી
+પીઝા સોસ માટે:
+
+૨ ટેબલસ્પૂન તેલ
+૧/૨ ડુંગળી, સમારેલી
+૧/૨ ટીસ્પૂન આદુ, મસળેલી
+૧ ટીસ્પૂન લસણ, મસળેલો
+૧ ટીસ્પૂન મરચું પાવડર
+૧/૨ ચમચી ઓરેગાનો
+૧ ચમચી ગ્રેવી પાઉડર
+૧ ચમચી ટોમેટો સોસ
+૧/૪ કપ પાણી
+તૈયારી:
+
+૧. લોટમાં બધી સામગ્રી ઉમેરીને સરસ મિક્સર કરો. જો લોટ ખૂબ જ કઠણ લાગે તો થોડું પાણી ઉમેરો. સારી રીતે મિક્સ કર્યા પછી લોટને ઢાંકીને ૧૦-૧૫ મિનિટ માટે રહેવા દો.
+
+૨. તેલને ગરમ કરો.
+
+૩. સમારેલી ડુંગળી, આદુ, લસણ ઉમેરીને સારી રીતે સેકો.
+
+૪. તેમાં મરચું પાવડર, ઓરેગાનો, ગ્રેવી પાઉડર, ટોમેટો સોસ અને પાણી ઉમેરીને સારી રીતે મિક્સ કરો. સોસને ખૂબ જ સારી રીતે સ્ટીમ કરો.
+
+૫. મોટી બાઉલમાં લોટ લો. તેને સ્પાટ અને ચપટુ બનાવો.
+
+૬. એક ફોર્મમાં લોટને કાઢો અને તેને ફોર્મમાં ફેલાવો. જો તમે ટોપિંગ્સ ઉમેરવા માંગતા હોવ તો તે કરો.
+
+७. ઓવનને ૨૦૦ ડિગ્રી સેલ્સિયસ પર preheat કરો.
+
+૮. લોટને ઓવનમાં ૧૦-૧૫ મિનિટ માટે શેકી લો.
+
+૯. શેકેલા લોટ પર પીઝા સોસ લગાવો.
+
+૧૦. તમારી પસંદગીની ટોપિંગ્સ ઉમેરો.
+
+૧૧. પીઝાને ઓવનમાં પાછું મૂકો અને ૫-૧૦ મિનિટ માટે શેકી લો.
+
+૧૨. ગરમાગરમ પીઝાને સર્વ કરો.
+
+ટીપ્સ:
+
+લોટને ક્યારેય ખૂબ જ સખત બનાવશો નહીં, નહીં તો પીઝા સુકાઈ જશે.
+
+ઓવનમાં શેકતા પહેલા પીઝાને ખૂબ જ ચપટું બનાવો.
+
+ટોપિંગ્સ ઉમેરતા પહેલા સોસ પર સારી રીતે spread કરો.
+
+પીઝ
+
+profile picture
+Gujarati famous writers
+Gujarati literature boasts a rich and vibrant tradition, with numerous renowned writers who have contributed to the field. Here are some of the most celebrated Gujarati writers, their notable works, and their contributions to Gujarati literature:
+
+Hemchandracharya (1088–1178 CE)
+Image of Hemchandracharya Gujarati famous writerOpens in a new window
+www.exoticindiaart.com
+Hemchandracharya Gujarati famous writer
+Hemchandracharya was a multifaceted scholar, a renowned linguist, philosopher, and poet. He is considered the father of Gujarati literature and is credited with composing the first complete Gujarati grammar, Siddhahemchandra Vyakaranam. His other notable works include the Jain religious epics Prithviraja Vijay and Kumarpanji.
+
+Narsinh Mehta (1414–1481 CE)
+Image of Narsinh Mehta Gujarati famous writerOpens in a new window
+www.baps.org
+Narsinh Mehta Gujarati famous writer
+Narsinh Mehta was a devotional poet who played a pivotal role in popularizing the Bhakti movement in Gujarat. His poetry, imbued with love and devotion for Lord Krishna, resonated deeply with the masses, making him one of the most revered figures in Gujarati literature. His masterpiece, the Bhajanmala, is a collection of over 8,000 devotional hymns that are still widely sung and cherished in Gujarat.
+
+Mirabai (1498–1543 CE)
+Image of Mirabai Gujarati famous writerOpens in a new window
+www.exoticindiaart.com
+Mirabai Gujarati famous writer
+Mirabai was a Rajput princess who defied societal norms to pursue her devotion to Lord Krishna. Her passionate and unconventional poetry, infused with intense love and longing for her divine beloved, has made her one of the most celebrated devotional poets in Hinduism. Her verses, often sung in the form of folk songs, continue to inspire and move people across generations.
+
+Akho (15th-16th century CE)
+Image of Akho Gujarati famous writerOpens in a new window
+www.vedadhara.com
+Akho Gujarati famous writer
+Akho was a mystic poet who questioned the established religious and social norms of his time. His deeply philosophical poetry, often characterized by skepticism and self-reflection, challenged conventional beliefs and opened up new avenues of thought. His works, such as Akho Katha, continue to provoke and inspire readers to 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ચણા મસાલા બનાવવાની રેસીપી
+
+સામગ્રી:
+
+૧ કપ ચણા, પાણીમાં પલાળેલા
+૧/૨ કપ ટામેટો, સમારેલા
+૧ ડુંગળી, સમારેલી
+૧/૨ ટીસ્પૂન આદુ, મસળેલો
+૧ ટીસ્પૂન લસણ, મસળેલો
+૧ ટીસ્પૂન ધાણાજીરું, ટેક્કો કરેલું
+૧/૨ ટીસ્પૂન મરચું પાવડર
+૧/૪ ટીસ્પૂન હળદર પાવડર
+૧/૪ ટીસ્પૂન જીરું પાવડર
+૧/૪ ચમચી ધાણાજીરું પાવડર
+૧/૪ ચમચી ગરમ મસાલો
+૧/૪ ચમચી કાળા મરી પાવડર
+સ્વાદ મુજબ મીઠું
+૨ ટેબલસ્પૂન તેલ
+૧/૨ કપ પાણી
+તૈયારી:
+
+૧. પાણીમાં પલાળેલા ચણાને ધોઈને સાફ કરો અને ઉકાળો.
+
+૨. એક કડાઈમાં તેલ ગરમ કરો અને તેમાં ધાણાજીરું, ટેક્કો કરેલું નાખીને શેકો.
+
+૩. તેમાં સમારેલી ડુંગળી નાખીને શેકો.
+
+૪. તેમાં આદુ-લસણ નાખીને શેકો.
+
+૫. તેમાં મરચું પાવડર, હળદર પાવડર, જીરું પાવડર, ધાણાજીરું પાવડર, ગરમ મસાલો અને કાળા મરી પાવડર ઉમેરો અને સારી રીતે મિક્સ કરો.
+
+૬. તેમાં સમારેલા ટામેટો ઉમેરો અને શેકો.
+
+૭. શેકેલા ટામેટોમાં ઉકાળેલા ચણા ઉમેરો અને સારી રીતે મિક્સ કરો.
+
+૮. તેમાં જરૂર પડે તેટલું પાણી ઉમેરો અને ઢાંકણ ઢાંકીને ચડવા દો.
+
+૯. ચણા મસાલો થાય ત્યારે તેમાં મીઠું ઉમેરીને ગરમ-ગરમ પીરસો.
+
+ટીપ્સ:
+
+ચણા મસાલાને ચોખા, રોટલી, પુરી વગેરે સાથે પીરસી શકાય છે.
+
+ચણાને વધુ પાણીમાં પલાળવાથી તે ખૂબ નરમ થશે અને ચણા મસાલામાં સારી રીતે મળી જશે.
+
+ચણા મસાલાને ઓછું પાણી ઉમેરી શકાય છે, પરંતુ તેને ગાઢું રાખવા માટે જોઈએ.
+
+જો તમે ચણા મસાલાને વધુ તીખું કરવા માંગતા હો, તો તમે મરચું પાવડર વધારી શકો છો.",,,,
+fab-500x-20261114T224408Z-002,50,58a0c9e7a5e2c91298c4627b,859792713fd8623e6b69c24749a6c3e0,fab-500x,gu,science,aya-dataset,human_authored,[user] ચેર્નોબિલ આપત્તિ શું છે અને જ્યારે તે બન્યું?,"ચેર્નોબિલ દુર્ઘટના 26 એપ્રિલ 1986 ના રોજ સોવિયત યુનિયનમાં બાયલોર્યુસિયન એસએસઆર સાથેની સરહદની નજીક, યુક્રેનિયન એસએસઆરના ઉત્તરમાં પ્રિપાયત શહેર નજીક, ચેર્નોબિલ પરમાણુ પાવર પ્લાન્ટના નંબર 4 રિએક્ટરના વિસ્ફોટથી શરૂ થઈ હતી..આંતરરાષ્ટ્રીય પરમાણુ ઘટનાના ધોરણે સાત - મહત્તમ તીવ્રતા - રેટ કરેલા માત્ર બે પરમાણુ energy ર્જા અકસ્માતોમાંથી તે એક છે, બીજું જાપાનમાં 2011 ના ફુકુશીમા પરમાણુ અકસ્માત છે.પ્રારંભિક ઇમરજન્સી પ્રતિસાદ અને ત્યારબાદના ઘટાડાના પ્રયત્નોમાં 500,000 થી વધુ કર્મચારીઓ શામેલ હતા અને અંદાજે 18 અબજ રાઉબલ્સનો ખર્ચ થયો હતો - જે ફુગાવા માટે સમાયોજિત 2019 માં આશરે US 68 અબજ ડોલર છે.તે ઇતિહાસની સૌથી ખરાબ પરમાણુ દુર્ઘટના માનવામાં આવે છે.",,,,
+fab-500x-20261114T224408Z-002,51,21272f9f402b2cedc3f325b4,341a17a77d2e1874947c51e173e95bd9,fab-500x,gu,web_frontend,aya-dataset,human_authored,"[user] ""પી એચ પી"" પ્રોગ્રામિંગ ભાષાનો ઉપયોગ શેના માટે થાય છે?","પી એચ પી  એ કોમ્પ્યુટરની સર્વર-સાઇડ સ્ક્રિપ્ટીંગ લેંગ્વેજ છે. જે ડાયનેમિક વેબ પેજીસ બનાવવા માટે વપરાય છે. પીએચપીની શોધ રેસમસ લર્ડોર્ફે ૧૯૯૫માં કરી હતી. પીએચપી એ પી એચ પી જવું તથા GNU GPL પરવાના હેઠળનો મુફ્ત સોફ્ટવેર છે. પીએચપીનું પુરુ નામ શરૂઆતમાં પર્સનલ હોમ પેજ હતું, જે હવે હાયપરટેક્ષ્ટ પ્રીપ્રોસેસર છે. આ સ્ક્રિપ્ટીંગ લેંગ્વેજને HTML ની અંદર વણી શકાય છે. તેમાં કમાન્ડ લાઇન ઇન્ટરફેસની સવલતો પણ ઉપલબ્ધ છે અને તેનો ઉપયોગ સ્ટેન્ડઅલોન ગ્રાફીકલ એપ્લિકેશનમાં થાય છે.",,,,
+fab-500x-20261114T224408Z-002,52,f5d72623c6dd8f96a9cfc15d,537d4a5dca33e2fb9d264c39ee07bf4b,fab-500x,gu,writing,aya-dataset,human_authored,[user] નિબંધ- 14 સેપ્ટેમ્બર હિંદી દિવસ,"14 સેપ્ટેમબર હિંદી દિવસ Essay Hindi diwas 
+વિશ્વની બીજી સૌથી મોટી ભાષા છે હિંદી. ચીની ભાષા પછી આ વિશ્વમાં સૌથી વધારે બોલીએ છે. ભારત અને બીજા દેશોમાં 60 કરોડથી વધારે લોકો હિંદી બોલતા વચતા અને લખે છેૢ 
+ 
+આટલું જ નહી ફિજી, મોરીશસ, ગુયાના, સુરીનામ જેવા બીજા દેશોમાં વધારેપણ લોકો હિંદી જ બોલે છે. ભારતથી લાગેલા નેપાલીની પણ કેટલાક લોકો હિંદી બોલે છે. આજે હિંડી રાજભાષા, સંપર્ક ભાષા જનભાષાના સોપાનોને પાર કરી વિશ્વભાષાની તરફ અગ્રસર છે. 
+ 
+હિંદી ભાષા પ્રેમ, મિલન અને સૌહાર્દની ભાષા છે. આ મુખ્યરૂપથી આર્યો અને પારસીઓની દેન છે. હિંદી વધારેપણુ શબ્દ સંસ્કૃત, અરબી અને ફારસી ભાષાથી લીધેલા છે. હિંદી તેમનામાં એક સમર્થ ભાષા છે. પ્રકૃતિથી ઉદાર ગ્રહણશીલ, સહિષ્ણુ અને ભારતની રાષ્ટ્રીય ચેતનાની સંવાહિકા છે હિંદી. 
+ 
+આ વિશ્વની એક પ્રાચીન, સમૃદ્ધ અને મહાન ભાષા હોવાની સાથે અમારી રાજ્યભાષા પણ છે. ભારતની સ્વતંત્રતા પછી 14 સેપ્ટેમબર 1949ને સંવિધાન સભાએ એમતથી આ નિર્ણય લીધું કે હિંદી જ ભારતની રાજભાષા હશે.  આ મહત્વપૂર્ણ નિર્ણય પછી જ હિંદીને દરેક ક્ષેત્રમાં પ્રચારિત પ્રસારિત કરવા રાશ્ટ્રભાષાનો પ્રચાર સમિતિ વર્ધાના અનુરોધ સન 1953થી સંપૂર્ણ ભારતમાં 14 સેપ્ટેમબર હિંદી દિવસના રૂપમાં ઉજવાય છે. 
+ 
+અંતરાષ્ટ્રીય સ્તર પર  હિંદીના પ્રત્યે જાગરૂકતા પેદા કરવા અને હિંદીના પ્રયોગને પ્રોત્સાહન આપવાના ઉદ્દેશ્યથી વિશ્વ હિંદી સમ્મેલન  જેવા સમારોહની પણ શરૂઆત કરાઈ છે. 10 જાન્યુઆરી 1975ને નાગપુરથી શરૂ થયું આ યાત્રા આજે પણ છે. હવે આ દિવસને વિશ્વ હિંદી દિવસના રૂપમાં પણ ઉજવાય છે. 
+ 
+હિંદી ભારતની જ નહી પણ આખા વિશ્વમાં એક વિશાળ ક્ષેત્ર અને જનસમૂહની ભાષા છે. 1952માં ઉપયોગ કરાતી ભાષાના આધારે આ વિશ્વમાં પાંચમા ક્રમાકે હતી. 1980ની આસપાસ તે ચીની અને અંગ્રેજી પછી ત્રીજા સ્થાન પર આવી ગઈ.",,,,
+fab-500x-20261114T224408Z-002,53,a8cf47b8ac19827a6802bfa0,f52ab6c17c52a70d2b6222bf7c827815,fab-500x,hat,general_knowledge,aya-dataset,human_authored,[user] Fason dan zuit yo rele patèl la fèt,"Gen yon kalite zuit yo rele patèl ki gen fòm kone, ki gen dan ki di anpil. Dan yo fèt ak yon mineral ki di e ki gen fè ladan l yo rele gotit, e li melanje ak yon pwoteyin ki pi mou.
+
+Fè yon ti reflechi: Zuit sa a gen yon bagay ki tankou yon lang nan bouch li ki kouvri ak plizyè ranje dan, chak dan mezire mwens pase yon milimèt ki tankou yon lim. Chak dan yo dwe di anpil pou yo kapab manje limon ki kole sou wòch yo ki anba dlo.
+
+Moun k ap fè rechèch yo te itilize yon mikwoskòp ki fò anpil pou yo mezire kantite pwa li kapab sipòte anvan l kase. Yo rive wè dan patèl yo pi di pase tout lòt bagay yo te deja egzamine, li menm pi di pase fil arenyen. Moun ki pran latèt nan rechèch la te di: “Nou ta dwe reflechi sou fason nou kapab imite dan zuit yo rele patèl la nan sa n ap fè yo.”
+
+Moun k ap fè rechèch yo kwè yo kapab fè yon materyo ki tankou dan zuit yo rele patèl la pou yo fè machin, bato, avyon e pou yo menm fè fo dan pou moun.",,,,
+fab-500x-20261114T224408Z-002,54,8e6a0ee4b5abbba6e5d1d07c,619ff43100145ea80ceab95305173879,fab-500x,hau,cybersecurity,aya-dataset,human_authored,"[user] Menene taƙaitaccen jumla guda ɗaya na labarin na gaba? Idan ba ka san mutumin da kake sayen daga gare shi ba, ka guji ba su muhimman bayanai, kamar bayanan asusunka na banki, adireshinka, lambar tsaro na zamantakewa, ko kalmomin shiga. Idan mai saye ko mai sayarwa ya nemi wani bayani da ba ka jin dadi ba, ka guji aiki tare da su. Idan kun taɓa jin rashin jin daɗi ta hanyar abin da mai siye ko mai siyarwa ke nema daga gare ku, ku guji yin aiki tare da su. Kada ka sanya bayananka a cikin saƙo na sirri ga mai siye ko mai siyarwa a shafuka kamar Etsy, Craigslist, Facebook, ko eBay. Katunan bashi yawanci suna da manufofin rashin alhaki, wanda ke nufin ba za ku biya bashin ma'amaloli da ba ku ba da izini ba idan wani ya saci bayananku. Tun da katunan kuɗi ba su da irin wannan kariya na alhakin, share duk wani bayanin bashin da kuka ajiye a kasuwa kuma maye gurbin su da katin bashi da kuke amfani da shi. Yi rajista don faɗakarwar zamba ta hanyar kamfanin katin kuɗin ku don ku sami sanarwa idan duk wani caji bai yi daidai ba. Biya katin bashi da zarar ka sayi wani abu don kada a caje ka ƙarin riba. Hakanan zaka iya amfani da PayPal don yin sayayya akan shafuka kamar eBay ko Etsy. Idan kana sayen, kawo kawai adadin da ka amince da biya don haka da sauran mutum ba ya kokarin fitar da farashin. Lokacin da kake sayarwa, ka gaya wa mutumin da kake son tsabar kudi kuma ka kasance mai ƙarfi a kan adadin da kake nema. Ka riƙe wasu ƙananan kuɗaɗe idan kana bukatar canja su. Wannan aiki mafi kyau ga sayen ko sayar da abubuwa ta hanyar Facebook Marketplace ko Craigslist. Kawai musanya kudi bayan ka ba ko karɓi samfurin. Ta wannan hanyar, mutumin ba zai iya sata daga gare ku ba. Ƙirƙiri asusu ta amfani da amintaccen aikace-aikacen biyan kuɗi, kamar PayPal, Venmo, ko Cash App. Haɗa asusunka na banki ko katin kuɗi zuwa app ɗin don ku sami damar samun kuɗin ku. Tabbatar da ma'amala ta wuce gaba daya kafin musayar samfurin. Saita kuɗin don su saka a cikin bankinka ko ajiye su a cikin manhajar don sayayya ta gaba. Kada ka ba da bayanan shiga don wasu mutane za su iya samun damar kuɗinka. Masu zamba da yawa suna amfani da hanyar tura kuɗi don su nemi kuɗi, kuma suna iya ƙoƙarin su saci bayanai ko kuma su karɓi kuɗinku ba tare da aika abin da aka turo ba. Suna kuma iya yin amfani da takardun kuɗi na jabu ko kuma ba su da isasshen kuɗi, wanda zai iya sa ka shiga matsala da bankinka sa'ad da ka yi ƙoƙarin karɓan kuɗin. Idan mutumin ya ce ka biya ko karɓi kuɗi ta amfani da ɗaya daga cikin waɗannan hanyoyin, ka guji yin aiki tare da shi ko kuma ka yi ƙoƙarin ba da shawarar wata hanyar da ta fi aminci. Yawancin masu zamba za su buƙaci waɗannan nau'ikan biyan kuɗi ta hanyar Craigslist ko Facebook Marketplace Guji amfani da hanyoyin sadarwar wifi waɗanda ba su da kariya ta kalmar sirri tunda kowa na iya samun damar su kuma yana iya samun bayanan ku. Koyaushe shiga cikin hanyar sadarwar WiFi tare da kalmar sirri ko amfani da sabis na bayanai akan wayarka idan kana buƙatar yin sayayya. Ba ka da su damu game da bayanai idan kana plugged kai tsaye a cikin na'ura mai ba da hanya tsakanin hanyoyin sadarwa ko modem tun da shi ke riga kare ta wani firewall.  Takaitawa:",Kada ka ba da bayanan sirri ga masu saye ko masu sayarwa marasa aminci. Yi amfani da katin kuɗi maimakon katin kuɗi lokacin da kake sayayya. Ya zaɓi yin amfani da tsabar kudi lokacin sayen ko sayarwa a cikin mutum. Yi amfani da manhajar biyan kuɗi na mutum-zuwa-mutum idan ba ku da kuɗi. Ka guji yin amfani da canja wurin kuɗi ko cak ko kana saye ko sayarwa. Ka yi sayayya ta hanyar yanargizo mai tsaro.,,,,
+fab-500x-20261114T224408Z-002,55,2d7528dc63f9c95046b96c69,6304fc4485c15782b0683b9b64d1019e,fab-500x,hau,general_knowledge,aya-dataset,human_authored,[user] Tambaya: wane dare ne mafi muhimmanci na Hanukkah,Amsa: ranar karshe ta Hanukkah,,,,
+fab-500x-20261114T224408Z-002,56,1ceeab4b3c5e411efdfff17c,73db4d4d3f7245d7b5423947a5409808,fab-500x,hau,islamic_studies,aya-dataset,human_authored,[user] Menene Hukuncin tafiya da takalmi a cikin maƙabar ta?,"Amsa: Sunnah ga wanda ya shiga maƙabarta shine ya cire takalmin sa, Amma idan acikin Maƙabartar akwai ƙaya wanda zai cutar dashi to babu laifi ya sanya takalmin sa, saboda lalura.",,,,
+fab-500x-20261114T224408Z-002,57,5fd3e3ad6fa2a65b67437c37,a4b883ebd96f7309e42ae865b916815d,fab-500x,hau,mathematics,aya-dataset,human_authored,[user] A wace shekara Maji-da Abdi ya koma Ethopia?,"An haifi Maija-da Abdi a Habasha wato Ethopia amma ta girma a Kenya da kuma Kanada, inda ta karatun ta. Ta koma ƙasarta Habasha (Ethopia)kuma tayi fina-finai na gaskiya irin su KOGI MAI RABA (2001), wanda ke bincika abubuwan da matan Habashan suka fuskanta a lokacin yaƙi. A matsayin furodusa, Abdi na kula da ayyuka da yawa, ciki har da fim ɗin da ya sami lambar yabo da yawa HEREMAKONO na Abderrahmane Sissako na Mali. Ta kuma tuntubi kungiyar Tarayyar Afirka kan fina-finan Afirka. (07/09)",,,,
+fab-500x-20261114T224408Z-002,58,5b7b6bab865167edb41852cb,88913cc3b4ce21f4c3a4ac66a6aac2f0,fab-500x,hau,pakistan,aya-dataset,human_authored,"[user] Ƙirƙiri kanun labarai dan wannan labari mai zuwa: Dan wasan kwallon kasar Denmark Christian Eriksen ya shafe daren shi na uku a asibiti ana yi masa gwaje-gwaje, bayan wani ciwon bugun zuciya a lokacin gasar wasan kwallon kafa ta zakarun Turai ranar Asabar. Amma har yanzu likitoci ba su da tabbas kan ko me ya sa babu zato babu tsammani zuciyarsa ta tsaya - kuma gano dalilan da suka sa shi ne abu mafi muhimmanci a yanzu. ""Mai shekaru 29 na kokarin ceton rayuwarsa,'' Farfesa Sanjay Sharma, likitan zuciya kuma shugaban kwamitin al'amuran da suka shafi zuciya na kungiyar kwararru a harkar wasan kwallon kafa ya shaida wa BBC. ""Yanzu muna bukatar kokarin gano ainihin abin da ya faru."" Daya daga cikin abubuwan da suka fi haifar da ciwon bugun zuciya shi ne bugawar zuciyar da ba a cika samu ba, kamar yadda kungiyar kula da masu ciwon zuciya ta Birtaniya (BHF) ta bayyana. Sauran dalilan sun hada da cardiomyopathy - wata cuta da ke shafar tsokar zuciya da ke kuma shafar girman ta, wadda akan yi gado - da kuma acute myocarditis, ko kuma radadin tsokar zuciya. Yanzu haka za a gudanar da aikin daukar hotunan kwakwaf mai cike da sarkakiya na zuciyar Mista Eriksen don gano duk wani tabo - wani abu da bai cika faruwa ba a gwajin da aka saba yi wa zuciyar 'yan wasan kwallon kafa, a cewar Farfesa Sharma. Wadannan gwaje-gwaje wajibi ne a Birtaniya, ana yin su a ko wace shekara biyu daga shekaru 16 zuwa 25. Sukan duba duk wani abu da ba a yarda da shi ba na yadda zuciya take aiki da kuma yanayin tsarin ta - amma duk da wannan namijin kokari na likitoci, wadannan gwaje-gwaje ba su da tabbacin nasara dari bisa dari cewa za a iya gano wasu boyayyun matsaloli. ""Wadannan matsaloli ba su cika nunawa ba a lokacin shekarun matasa ko daga masu shekarar 16 zuwa 25,"" in ji Farfesa Sharma. ""Ba lallai su nuna ba har sai sun kai shekara 20 zuwa 30."" Wani lokaci samun wasu alamu na daban kan faru a lokacin da 'yan kwallon suke tsakiyar buga wasa, ko kuma za a iya danganta shi da wata rashin lafiya da ba su dade da yi ba wacce ta sa zuciyar ta galabaita. Idan aka gano matsaloli, wasu za a iya magancewa - amma wasu kan kasance babu waraka. Ciwon bugun zuciya na faruwa ne idan cikin lokaci kankane zuciya ta daina kai jini jikin dan adam, tare da hana kwakwalwa samun iskar oxygen lamarin da ke sa mutum ya fadi ya suma kana ya daina numfashi. Tana da bambanci da ciwon zuciya, wanda ke faruwa a lokacin da hanyoyin samun jini zuwa tsokar zuciya suka toshe, yawanci saboda daskarewar jini a daya daga cikin manyan jijiyoyin da ke kai jinin zuwa cikin zuciya. Ba Eriksen kadai ne dan wasan kwallon kafa da ya taba samun buguwar zuciya ba. A shekarar 2012, wani dan wasan kwallon kafar, Fabrice Muamba, ya yanke jiki ya fadi a filin wasan kuma zuciyarsa ta tsaya cik har na tsawon mintuna 78. Marc-Vivien Foe ya mutu a lokacin da yake tsakiyar buga wasa ga kasar Kamaru yana da shekara 28, kana tsohon mai tsaron gid na Ingila Ugo Ehiogu, wanda kuma kocin kungiyar wasan kwallaon kafa na Spurs ne, ya mutu a shekarar 2017 yana da shekara 44. ""Tsananin motsa jiki kan saka rayuwar 'yan wasan motsa jikin cikin hadari saboda suna galabaitar da zuciyoyinsu - kana hakan ka iya haifar da babbar matsala,"" in ji Dakta Zafar Iqbal, shugaban bangaren kula da lafiyar 'yan wasa na kungiyar kwallon kafar Crystal Palace. Ya kara da cewa: ""Amma wadannan abubuwa ne da ba su cika faruwa ba."" Bugun zuciya kan faru ga kowa a kuma ko wane lokaci - ba sai 'yan kwallo ba. A ko wane mako a Birtaniya, mutane 12 masu shekaru daga 12 zuwa kasa da 35 na mutuwa sakamakon bugun zuciya. Kana a Birtaniyar a ko wace shekara, ana samun aukuwar bugun zuciya 30,000 a wajen asibitoci - duka masu bukatar taimakon gaggawa na farfadowa, inda akan samu mutane 10 kacal da ke rayuwa. Zuciyoyin 'yan wasan kwallon kafa kan kasance da girma kana da yin aiki sosai fiye da na sauran mutane, wanda ke saka su zama mafi karanci cikin na masu hadarin kamuwa da sauran matsaloli na zuciya kamar na toshewar jijiyoyin da ke kai jini cikin zuciya, da galibi aka fi samu a tsakanin masu shan taba sigari ko masu cin abincin da babu kiwon lafiya. Amma idan aka kara wa zuciya wata matsala daga rashin shan ruwa, da zafi da kuma wasu cututtuka za su iya yin mummunan tasiri. Dakta Iqbal ya ce yana da matukar muhimmanci cewa a fara yi wa Mista Eriksen aikin farfado da numfashi ta hanyar bubbuga gefen kirjinsa wato (CPR) ba tare da bata lokaci ba, daga nan sai a bi hanyar amfani da na'urar defibrillator mai wayoyin lantarki, wajen farfado da numfashin da ake kira (automated external defibrillator), kuma wata hanya ce da ya kamata kowa ya san yadda ake yi. Yana so ya ga an kai irin wadannan wayoyi da ake amfani da wutar lantarki wajen zaburar da zuciyar ko wace makarantar sakandae. Ya ce: ""Bata lokaci na ko wane minti daya na rage damar samun rayuwa da kashi 10 bisa dari."" Aikin farfado da zuciyar na CPR ka iya ninka damar ceton rayuwar mutum a wasu lokuta. ""Ko wace dakika na da amfani idan mutum na fama da bugun zuciya - idan kowa ya san yadda ake yi za a iya ceton rayuka da dama,"" in ji Dakta Sonya Babu-Narayan, wata likitar zuciya kana daraktar cibiyar lura da masu ciwon zuciya ta Birtaniya. Akan ajiye na'urori masu dauke da wayoyin lantarkin a wuraren aiki da filayen jiragen sama da kuma cibiyoyin taruwar al'umma. Kowa zai iya amfani da su, kana kwararru sun jaddada cewa babu wata hanya da za a yi amfani da su kuma a yi kuskure. Na'urar za ta zaburar da zuciya ne kawai idan bukatar hakan ta taso, bayan kai tsaye ta nuna yanayin bugawar zuciyar.","Tabbas, ga kanun labarai don rubutun da aka bayar - Christian Eriksen: Abin da ke jawo bugawar zuciya",,,,
+fab-500x-20261114T224408Z-002,59,1abf6026a6c5b1c131d83fc4,498159125bba705031bd2ea618c56df6,fab-500x,hau,science,aya-dataset,human_authored,[user] Menene lamba atomic na Zinare?,"Zinariya ƙarfe ne a rukunin IB na tebur na waje (periodic table)tare da lambar atomic 79, nauyin atom ɗin 196.97, da yawan 19.3 Mg/m3. Matsayinsa na narkewa shine 1063 C, kuma yana tafasa a 2970 C.",,,,
+fab-500x-20261114T224408Z-002,60,83269e3b7578005fe1cfca94,c85fc7119dcee25f5bf6ea65e681c56b,fab-500x,hau,writing,aya-dataset,human_authored,"[user] Ƙirƙiri kanun labarai dan wannan labari mai zuwa: Sashen Turancin broka wato BBC Pidgin ya kaddamar da gasar rubutun zube da harshen Pidgin a ranar Alhamis 1 ga watan Agustan 2019. Gasar a bude take ga dukkanin daliban manyan makarantun gaba da sakandare a nahiyar Afirka. Masu sha'awar shiga gasar za su rubuta makala ne mai kalmomin da ba su wuce 800 ba kan maudu'in ""ko mace za ta iya jagorancin siyasa a nahiyar Afirka?"" (""Is Africa ready for female political leadership?""). Wani rukunin alkalai da suka hada da malamai da 'yan jarida da marubuta na harshen Pidgin wadanda suka fito daga Afirka ta Yamma ne za su zabi mutum daya wanda ya yi nasara. Wajibi ne kowacce makala ta dace da tsarin harshen Pidgin tare da bin ka'idojin rubutu. Za a sanar da wanda ya yi nasarar ne a Legas ranar 20 ga watan Satumban 2019. Sannan za a ba shi kyautar dala $500 (kusan naira 180,000) Za a rufe shiga gasar ne a ranar Juma'a 30 ga watan Agustan 2019. A aiko da makala zuwa adireshin imel na [EMAIL]","Tabbas, ga kanun labarai don rubutun da aka bayar - BBC ta bude gasar rubutu a harshen Pidgin",,,,
+fab-500x-20261114T224408Z-002,61,51773e4b405bafb0d048a399,992339089d84024a3f66139bc1595a1d,fab-500x,he,general_knowledge,oasst2,human_authored,"[user] איזה מאכל נכין לארוחת ערב
+
+[assistant] פסטה!!
+
+[user] יאמי! איך אפשר להכין פסטה?","זה די קל. הנה רשימת פעולות להכנת פסטה:
+
+1. הרתיח/י מים בסיר והוסיף/י כפית מלח
+2. הוסף את הפסטה למים, ותנ/י לה להתבשל כ 7-8 דקות, תוך כדי ערבוב מפעם לפעם ובדיקה האם הפסטה מבושלת דייה.
+3. שפוך את המים מהסיר, ושטוף את הפסטה במים קרים.
+4. העבר את הפסטה למחבת, שפוך לתוכו רוטב וחמם כ 3 דקות
+5. הוסף גבינה ותבלינים, והגש
+
+בתיאבון.",,,,
+fab-500x-20261114T224408Z-002,62,938353af02c25eb0dcbbdbac,7d3832dc4cbaa3720e688c77ac8bf949,fab-500x,hi,coding,wikipedia-hi,templated_human,[user] अवोगाद्रो का नियम के बारे में एक संक्षिप्त परिचय लिखिए।,"अवोगाद्रो का नियम गैस से सम्बन्धित एक नियम है जिसका नाम अमेदिओ अवोगाद्रो (Amedeo Avogadro) के नाम पर रखा गया है। इसे ""अवोगाद्रो की परिकल्पना"" (Avogadro's hypothesis) एवं ""अवोगाद्रो का सिद्धान्त"" के नाम से भी जाना जाता है। सन् १८११ में अवोगाद्रो ने यह परिकल्पना प्रस्तुत की, जो इस प्रकार है -
+
+समान ताप व दाब पर सभी आदर्श गैसों के समान आयतन में कणों या अणुओं की संख्या समान होती है।
+
+(Equal volumes of ideal or perfect gases, at the same temperature and pressure, contain the same number of particles, or molecules.) Class 11th NCERT ke anusar  आवोगाद्रो का नियम सन 1811 में आवोगाद्रो ने प्रस्तावित किया कि समान ताप और दाब पर सभी गैसों के समान आयतन में अणुओं की संख्या सामान होनी चाहिए उन्होंने परमाणु और अणु के बीच अंतर व्याख्या की जो आज आसानी से समझ में आती है यदि हम हाइड्रोजन और ऑक्सीजन की जल बनाने की अभिक्रिया को दोबारा देखे तो यह कह सकते हैं कि आयोजन के दो आयतन और ऑक्सीजन का एक आयतन आपस में संयुक्त होकर जल के दो आयतन देते हैं और ऑक्सीजन लेश मात्र भी नहीं बचती
+
+सन् 1811 ई. में इटली के रसायनज्ञ आवोगाड्रो ने अणु और परमाणु में भेद स्पष्ट करते हुए बताया कि परमाणु किसी तत्त्व का वह सूक्ष्मतम कण है जो रासायनिक क्रिया में भाग लेता है और इसका स्वतंत्र अस्तित्व हो भी सकता है और नहीं भी। अणु पदार्थ का वह छोटे से छोटा कण हे जिसमें पदार्थ के सारे गुण विद्यमान हों और उसका स्वतंत्र अस्तित्व संभव हो।",,,,
+fab-500x-20261114T224408Z-002,63,d38664f2e283afa378bd0927,006ea9da1c9035e59764c200a7df1ee7,fab-500x,hi,cybersecurity,wikipedia-hi,templated_human,[user] एनिग्मा (मशीन) के बारे में एक संक्षिप्त परिचय लिखिए।,"एनिग्मा (Enigma) विद्युत-यांत्रिक रोटर मशीनों के एक परिवार का नाम है जो जर्मन सेना द्वारा द्वितीय विश्वयुद्ध के समय गुप्त सन्देशों के कूटलेखन या कूटलेखों के पठन के लिये प्रयुक्त हुई थी। प्रथम एनिग्मा मशीन जर्मनी के इंजीनियर आर्थर सर्बिअस (Arthur Scherbius) द्वारा प्रथम विश्वयुद्ध के समय विकसित की गयी थी। 'एनिग्मा', यूनानी भाषा का शब्द है जिसका अर्थ 'पहेली' (रिडिल) होता है।
+
+Detailed photos of various Enigma models and parts
+
+Cipher Machines & Cryptology Historical and technical details on the Enigma
+
+A Flash depicting the step-by-step process of encrypting a letter via the machine
+
+Enigma Cipher Tool, all known variants Java, with GUI
+
+An Enigma M3/M4 simulator for iPhone/iPod Touch
+
+Frode's CryptoCellar various Enigma documents and Breaking Wehrmacht Ciphers
+
+Bletchley Park National Code Center Home of the British codebreakers durings the Second World War
+
+Enigma and the Bombe Graham Ellsbury's pages on the breaking of Enigma
+
+Pictures of a four-rotor naval enigma, including Flash (SWF) views of the machine
+
+The origins of the Enigma/ULTRA by Dr. Wladyslaw Kozaczuk
+
+Enigma Pictures and Demonstration by NSA Employee at RSA",,,,
+fab-500x-20261114T224408Z-002,64,155deb334c26d5bc388350a7,e67107a1829b819fe3fd3b408f93e7f8,fab-500x,hi,education,wikipedia-hi,templated_human,[user] माइकेल्सन व्यतिकरणमापी के बारे में एक संक्षिप्त परिचय लिखिए।,"प्रोफेसर ए. ए. माइकेल्सन के प्रारंभिक व्यतिकरणमापी मे दाहिनी ओर से एक प्रकाशकिरण दर्पण M पर आती है। M दर्पण का आधा भाग रजतित (silvered) होता है। जिससे केवल आधा प्रकाश परावर्तित होकर दर्पण M1 पर जाता है और शेष आधा प्रकाश अरजतित भाग से पारगमित होकर सीधा दर्पण M2 पर आपतित होता है तथा अपने पथ पर परावर्तित हो जाता है। दर्पण M1 तथा M2 एक दूसरे पर लंब होते हैं। दर्पण M1 तथा M2 से परावर्तित होनेवाली प्रकाश की किरणपुंजें पुन: दर्पण M पर आपतित होती है और प्रेक्षक इन दोनों किरणों के द्वारा बनी व्यतिकरण फ्रंजों को देखता है।
+
+माइकेल्सन ने अपने व्यतिकरणमापी की सहायता से प्रकाश का वेग तथा प्रकाश की तरंग लंबाई मापी तथा सर्वप्रथम तारों का कोणीय व्यास ज्ञात किया। बीटेलजूज़ (Betelguese) प्रथम तारा है, जिसका कोणीय व्यास (0.049'') ज्ञात किया गया था। दूरदर्शक से युक्त माइकेल्सन व्यतिकरणमापी से अत्यधिक दूर स्थित तारों तथा मंद तारों की मापें ज्ञात करना संभव हो गया है। तारों से प्राप्त होनेवाली प्रकाशतरंगों से व्यतिकरण द्वारा तारों की दिशा, दूरी तथा विस्तार का निर्धारण किया जाता है।
+
+Application of a step-phase interferometer in optical communication
+
+A satellite view of the VIRGO interferometer
+
+A useful free software, to simulate and understand the Michelson interferometer principles, made by students of Faculty of Engineering of the University of Porto
+
+Block Engineering Michelson interferometer technology description",,,,
+fab-500x-20261114T224408Z-002,65,005c1b2faeb0b62a141bb593,ac6bc3cc448f2972b2a69ebb150d98c1,fab-500x,hi,general_knowledge,wikipedia-hi,templated_human,[user] शिक्षक के बारे में एक संक्षिप्त परिचय लिखिए।,"शिक्षा देने वाले को शिक्षक ( अध्यापक ) कहते हैं। शिक्षिका ( अध्यापिका ) शब्द 'शिक्षक' ( अध्यापक )  का स्त्रीलिंग रूप है। यह एकवचन अथवा बहुवचन दोनों तरह से प्रयुक्त किया जा सकता है।
+
+शिष्य के मन में सीखने की इच्छा को जो जागृत कर पाते हैं वे ही शिक्षक कहलाते हैं। सुप्रसिद्ध कवि व आलोचक गोलेन्द्र पटेल ने शिक्षक के संदर्भ में कहा है कि ""शिक्षक चेतना के चिराग़ हैं।""
+
+शिक्षक के द्वारा व्यक्ति के भविष्य को बनाया जाता है एवं शिक्षक ही वह सुधार लाने वाला व्यक्ति होता है। प्राचीन भारतीय मान्यताओं के अनुसार शिक्षक का स्थान भगवान से भी ऊँचा माना जाता है क्योंकि शिक्षक ही हमें सही या गलत  के मार्ग का चयन करना सिखाता है।इस बात को कुछ ऐसे प्रदर्शित किया गया है-गुरु:ब्रह्मा गुरुर् विष्णु: गुरु: देवो महेश्वर: गुरु:साक्षात् परम् ब्रह्म तस्मै श्री गुरुवे नम:। कबीर कहते हैं गुरु गोविंद दोऊ खड़े काके लागू पांय बलिहारि गुरु आपनो गोविंद दियो बताय।शिक्षक आम तौर से समाज को बुराई से बचाता है और लोगों को एक सर्वश्रेष्ठ व्यक्ति बनाने का प्रयास करता है। इसलिए हम यह कह सकते है कि शिक्षक अपने शिष्य का सच्चा पथ प्रदर्शक है।",,,,
+fab-500x-20261114T224408Z-002,66,644b4c7250cd356b28ec3a8f,6db34f77544e33622ffe31cb5f5d1d1f,fab-500x,hi,islamic_studies,wikipedia-hi,templated_human,[user] ईरानी इस्लामी गणराज्य का राष्ट्रगान के बारे में एक संक्षिप्त परिचय लिखिए।,"ईरानी इस्लामी गणराज्य का राष्ट्रगान (फ़ारसी: سرود ملی جمهوری اسلامی ایران) के संघटक हसन रियाही थे और साथ ही में इन्होंने इस गान के बोल भी लिखे। इसे १९९० में ईरान का राष्ट्रगान चुना गया, जिसने आयतोल्लाह खुमैनी के समय से प्रयुक्त राष्ट्रगान को प्रतिस्थापित किया।
+
+پیامت ای امام، استقلال، آزادی نقش جان ماست
+
+ऊपर क्षितिज पर पूर्व में सूर्य उदय होता है
+
+न्याय में विश्वासियों की आँखों में प्रकाश
+
+तुम्हारा सन्देश, हे इमाम, स्वतन्त्रता और मुक्ति, हमारे जीने का उद्देश्य,
+
+हे शहीदों! तुम्हारी चीख समय के कर्णों में प्रतिध्वनि है
+
+ईरानी इस्लामी गणतन्त्र का राष्ट्रगान (एमपीथ्री)",,,,
+fab-500x-20261114T224408Z-002,67,b66dc4224c3213a5af7da423,ad54248ea434f7e05ea81e750e15fc61,fab-500x,hi,mathematics,wikipedia-hi,templated_human,[user] फ़्रैंकफ़र्ट विमानक्षेत्र के बारे में एक संक्षिप्त परिचय लिखिए।,"फ़्रैंकफ़र्ट ऍम मेन विमानक्षेत्र  , प्रायः जिसे फ़्रैंकफ़र्ट एयरपोर्ट एवं स्थाणीय जर्मन में Flughafen Frankfurt am Main या Rhein-Main-Flughafen कहा जाता है, फ़्रैंकफ़र्ट, जर्मनी में स्थित एक प्रधान अन्तर्राष्ट्रीय विमानक्षेत्र है।
+
+यातायात कंपनी फ़्रैपोर्ट द्वारा संचालित, फ़्रैंकफ़र्ट विमानक्षेत्र वर्ष २०११ में जर्मनी में यात्री यातायात की मद में व्यस्ततम विमानक्षेत्र, यूरोप में तृतीय व्यस्ततम (लंदन-हीथ्रो एवं पैरिस चार्ल्स डि-गॉल के बाद) एवं विश्व का नौंवां व्यस्ततम विमानक्षेत्र रहा है। इस वर्ष में यहां की यात्री संख्या 5.64 करोड़ रही। 2011/2012 के शीतकाल में, फ़्रैंकफ़र्ट विमानक्षेत्र द्वारा विश्व के अधिकांश अन्तर्राष्ट्रीय गंतव्यों से आगमन उड़ानों को सेवाएं मिलीं, जिनमें १११ देशॊं के २७५ गंतव्य आते हैं। इसी वर्ष यहां से 21.7 लाख मीट्रिक टन का माल यातायात संपन्न हुआ। कार्गो यातायात की मद में यह यूरोप का व्यस्ततम विमानक्षेत्र रहा है। इस विमानक्षेत्र का दक्षिणी भाग र्हेइन – मेन वायु बेस के प्रयोग में है, जो संयुक्त राज्य का १९४७ से २००५ तक एक प्रधान वायु-बेस रहा है। इसके उपरांत यह बेस बंद कर दिया गया व भूमि का अधिग्रहण फ़्रैपोर्ट ने कर लिया।
+
+फ़्रैंकफ़र्ट विमानक्षेत्र लुफ़्थान्सा, जर्मनी के ध्वजवाही वायुसेवा का एवं कॉन्डोर फ़्लगडीन्स्ट का प्रमुख केन्द्र (हब) रहा है। फ़्रैंकफ़र्ट की क्षमता सीमा के कारण लुफ़्थान्सा ने अप[अना एक द्वितीयक हब म्यूनिख विमानक्षेत्र में आरंभ किया है, जहां कई महत्त्वपूर्ण मध्यम एवं लंबी यात्रा वाले मार्ग (रूट) उपलब्ध हैं।",,,,
+fab-500x-20261114T224408Z-002,68,afc4e967f21d2ae31fc95851,f4c63ef4178b645f4bb89d360fc9f2bb,fab-500x,hi,pakistan,wikipedia-hi,templated_human,[user] पंजाबी भाषा के बारे में एक संक्षिप्त परिचय लिखिए।,"पंजाबी (गुरमुखी: ਪੰਜਾਬੀ ; शाहमुखी: پنجابی) एक हिंद-आर्यन भाषा है और ऐतिहासिक पंजाब क्षेत्र (अब भारत और पाकिस्तान के बीच विभाजित) के निवासियों तथा प्रवासियों द्वारा बोली जाती है। इसके बोलने वालों में सिख, मुसलमान और हिंदू सभी शामिल हैं। पाकिस्तान की १९९८ की जनगणना और २००१ की भारत की जनगणना के अनुसार, भारत और पाकिस्तान में भाषा के कुल वक्ताओं की संख्या लगभग ९-१३ करोड़ है, जिसके अनुसार यह विश्व की ११वीं सबसे व्यापक भाषा है। कम से कम पिछले ३०० वर्षों से लिखित पंजाबी भाषा का मानक रूप, माझी बोली पर आधारित है, जो ऐतिहासिक माझा क्षेत्र की भाषा है।",,,,
+fab-500x-20261114T224408Z-002,69,5a8f119e3c07babf48f1ad7a,fc4604b25a88da10e81f0f4d4a7d57d4,fab-500x,hi,problem_solving,wikipedia-hi,templated_human,[user] शारीरिक योजना के बारे में एक संक्षिप्त परिचय लिखिए।,"शारीरिक योजना (body plan) किसी जीव के शरीर के ढाँचे व अकार, उसके अंगों और उनके आपस में काम करने के ढंग को कहा जाता है। जीव के बदन का आकार इस शारीरिक योजना का एक बुनियादी पहलू है और हर बहुकोशिकीय जीव की जाति की अपनी पहचाने जानी वाली शारीरिक योजना होती है। शारीरिक योजना के आधार पर ही भिन्न प्राणियों को जीववैज्ञानिक संघों में बाँटा जाता है। उदाहरण के लिए रज्जुकी (कोरडेटाए, Chordatae) संघ के सभी जानवरों के जीवनकाल के किसी-न-किसी समय पर एक रीढ़ या रीढ़नुमा ढाँचा होता है और उनके शरीर पर बाहरी त्वचा, फिर एक अंदरूनी भाग होता है जिसमें उनके गुर्दे जैसे अंदरूनी अंग बंद होते हैं। उनके जीवनकाल में किसी समय पर पूँछ या पूँछ जैसी कोई चीज़ ज़रूर होती है (मनुष्य शरीर में भी गर्भावस्था के आरंभिक दौर में यह होता है)।",,,,
+fab-500x-20261114T224408Z-002,70,4ff63121b2c0279dabbd6119,110297dd4ad028fb7507a08f0f84e188,fab-500x,hi,reasoning,wikipedia-hi,templated_human,[user] भावविवेक के बारे में एक संक्षिप्त परिचय लिखिए।,"भावविवेक या भाव्य (तिब्बती भाषा : slob-dpon bha-vya or skal-ldan/legs-ldan, 500 ई से 578 ई), बौद्ध धर्म के माध्यमक शाखा के स्वातंत्रिक परम्परा के संस्थापक दार्शनिक थे। वे भावविवेक, भाविवेक और भव्य - इन तीनों नामों से ये ख्यात थे । एम्स (Ames 1993: p. 210), का विचार है कि भावविवेक उन प्रथम तर्कशास्त्रियों में से हैं जिन्होने 'प्रयोग-वाक्य' के रूप में विधिवत उपपत्ति (formal syllogism) का प्रयोग किया।
+
+इन्होंने अनेक ग्रन्थों की रचना संस्कृत भाषा में की है । दुर्भाग्य से इनकी एक भी मूल रचना सम्प्रति उपलब्ध नहीं है, परन्तु तिब्बती और चीनी भाषा में इनका अनुवाद उपलब्ध है । इनकी चार रचनाएँ उपलब्ध हैं -
+
+(1) माध्यमिककारिका व्याख्या - यह नागार्जुन के ग्रन्थों की व्याख्या है ।
+
+(2) मध्यहृदयकारिका - माध्यमिक दर्शन पर मौलिक रचना।
+
+(3) मध्यमार्थ संग्रह - तिब्बतीय भाषा में इसका अनुवादमात्र उपलब्ध है ।
+
+(4) हस्तरत्न या करमणि : चीनी भाषा में अनुवादमात्र उपलब्ध । इसमें आत्मा का खण्डन और तथता एवं धर्मता की स्थापना की गई है ।
+
+Berzin, Alexander (2008). Buddhist-Muslim Doctrinal Relations: Past, Present, and Future. (accessed: Wednesday March 4, 2009) NB: originally published with extensive footnotes in Buddhist Attitudes toward Other Religions, ed. Perry Schmidt-Leukel. St. Ottilien: EOS Verlag, 2008.",,,,
+fab-500x-20261114T224408Z-002,71,f7b840ae2a2db96cb6e235d3,3ac202ea0d2c02d78101fc4cec05cc48,fab-500x,hi,research,wikipedia-hi,templated_human,[user] भूमि सुधार के बारे में एक संक्षिप्त परिचय लिखिए।,"भूमि सुधार (Land reform) के अन्तर्गत भूमि से संबन्धित कानूनों तथा प्रथाओं में परिवर्तन आते हैं। यह सरकार द्वारा आरम्भ की जाती है या सरकार के समर्थन से चलायी जाती है जिसमें मुख्यतः कृषि भूमिं के पुनर्वितरण पर बल दिया जाता है। भारतीय कृषि में सुधार लाने हेतु भूमि सुधार नीति को अपनाया गया है।
+
+भूमि सुधार में व्यक्तिगत स्वामित्व से भूमि का हस्तांतरण भी शामिल हो सकता है - यहां तक ​​कि छोटी जोत में किसानों का स्वामित्व - सरकार के स्वामित्व वाले सामूहिक खेतों में;  अन्य समयों और स्थानों में भी, इसका ठीक विपरीत उल्लेख किया गया है: सरकारी स्वामित्व वाले सामूहिक खेतों को छोटे जोतों में विभाजित करना था।हालाँकि, सभी भूमि सुधारों की सामान्य विशेषता भूमि के कब्जे और उपयोग को नियंत्रित करने वाली मौजूदा संस्थागत व्यवस्थाओं का संशोधन या प्रतिस्थापन है।  इस प्रकार, जबकि भूमि सुधार प्रकृति में कट्टरपंथी हो सकता है, जैसे कि एक समूह से दूसरे समूह में भूमि के बड़े पैमाने पर हस्तांतरण के माध्यम से, यह कम नाटकीय भी हो सकता है, जैसे भूमि प्रशासन में सुधार के उद्देश्य से नियामक सुधार।
+
+फिर भी, किसी देश के भूमि कानूनों में कोई भी संशोधन या सुधार अभी भी एक गहन राजनीतिक प्रक्रिया हो सकती है, क्योंकि भूमि नीतियों में सुधार समुदायों के बीच और साथ ही समुदायों और राज्य के बीच संबंधों को बदलने का काम करता है।  इस प्रकार छोटे पैमाने के भूमि सुधार और कानूनी संशोधन भी गहन बहस या संघर्ष के अधीन हो सकते हैं।
+
+Land Research Action Network:News, Analysis, and Research on Land Reform",,,,
+fab-500x-20261114T224408Z-002,72,e3966310b71f9bbe5fbde7a4,a692c1f96db64dff4a6419e36568a60a,fab-500x,hi,safety_ethics,wikipedia-hi,templated_human,[user] आत्मक्षति के बारे में एक संक्षिप्त परिचय लिखिए।,"जानबूझकर, किन्तु आत्महत्या के इच्छा से नहीं, अपने शरीर को क्षति पहुँचाना आत्मक्षति (Self-harm (SH) या deliberate self-harm (DSH)) कहलाता है। इसके अन्तर्गत अपने-आप को चोट पहुंचाना, स्वयं को विष देना भी सम्मिलित हैं। 'त्वचा को काटना' इसका सबसे सामान्य रूप है। इसके अलावा जलना, खरोंचना, शरीर के अंगों पर प्रहार करना, बाल-खींचना, तथा विषैले पदार्थ निगलना आदि भी आत्मक्षति के अन्तर्गत आते हैं।
+
+Information about self-harm from the Royal College of Psychiatrists
+
+shtml Men Who Self Harm BBC Radio 4 item discussing Self-Harm.
+
+Understanding self-harm from Mind: A mental health charity in England and Wales
+
+Youth & Self Injury Information from the Canadian Mental Health Association",,,,
+fab-500x-20261114T224408Z-002,73,bed2a83749c9eae4dfce940b,93f9332c702ac0b8ebea8390a1385b92,fab-500x,hi,science,wikipedia-hi,templated_human,[user] जीएसएम विकास हेतु वर्धित डाटा दर के बारे में एक संक्षिप्त परिचय लिखिए।,"जीएसएम विकास हेतु वर्धित डाटा दर (अंग्रेज़ी:एन्हान्स्ड डेटा रेट्स फ़ॉर जीएसएम इवॉल्यूशन, Enhanced Data rates for GSM Evolution) जिसे एड्ज (EDGE) या ई-जीपीआरएस भी कहा जाता है एक डिजिटल मोबाइल फोन तकनीक है, जिसके द्वारा डाटा प्रसारण दर में वर्धन किया जाता है। ये जीएसएम के बैकवर्ड कम्पैटिबल रूप में किया जाता है। एड्ज को ३जी रेडियो प्रौद्योगिकी माना जाता है और अंतर्राष्ट्रीय दूरसंचार संघ की ३जी परिभाषा का ही भाग है। एड्ज को २००३ में आरंभ हो रहे जीएसएम नेटवर्कों पर लागू किया गया था - मूल रूप में सिंगुलर (अब एटी एण्ड टी), संयुक्त राज्य द्वारा।",,,,
+fab-500x-20261114T224408Z-002,74,d2f630330a185bc8594aaab2,1a4bdbffafd4bca88e80f3adec41670d,fab-500x,hi,web_frontend,wikipedia-hi,templated_human,[user] विशिष्टाद्वैत के बारे में एक संक्षिप्त परिचय लिखिए।,"विशिष्टाद्वैत (विशिष्ट+अद्वैत) आचार्य रामानुज (सन् 1017-1137 ईं.) का प्रतिपादित किया हुआ यह दार्शनिक मत है। इसके अनुसार यद्यपि जगत् और जीवात्मा दोनों कार्यतः ब्रह्म से भिन्न हैं फिर भी वे ब्रह्म से ही उदभूत हैं और ब्रह्म से उसका उसी प्रकार का संबंध है जैसा कि किरणों का सूर्य से है, अतः ब्रह्म एक होने पर भी अनेक हैं।
+
+इस सिद्धांत में आदि शंकराचार्य के मायावाद का खंडन है। शंकराचार्य ने जगत को माया करार देते हुए इसे मिथ्या बताया है। लेकिन रामानुज ने अपने सिद्धांत में यह स्थापित किया है कि जगत भी ब्रह्म ने ही बनाया है। परिणामस्वरूप यह मिथ्या नहीं हो सकता।
+
+Biographies of Ramanuja and Vedanta Desika
+
+https://web.archive.org/web/[CARD]/http://www.vaishnava.com/shrivaishnavaintro.htm
+
+https://web.archive.org/web/[CARD]/http://www.hinduweb.org/home/dharma_and_philosophy/vvh/vvh.htm
+
+https://web.archive.org/web/[CARD]/http://www.hinduweb.org/home/dharma_and_philosophy/vvh/raghavan.html
+
+The non-absolutist school of Hindu philosophy",,,,
+fab-500x-20261114T224408Z-002,75,d1f7dee49631e1d68bf2acb5,08c24af736376969283a36c05e1533a0,fab-500x,hi,web_fullstack,wikipedia-hi,templated_human,[user] अंग्रेज़ी गृहयुद्ध के बारे में एक संक्षिप्त परिचय लिखिए।,"१६वीं तथा १७वीं शताब्दी में ऐंग्लिकन राजधर्म को प्रोटेस्टैंट धर्म की ओर प्रवृत्त करनेवाले कट्टर प्रोटेस्टैंट 'प्युरिटन' कहलाते हैं। उनके आंदोलन के फलस्वरूप सामूहिक चर्चवाद (कांग्रेगशनैलिज्म) का उदय हुआ था। वे आचरण की शुद्धता, पूजा की आडंबरहीनता तथा रविवार को पवित्र रखने पर बहुत बल देते थे। इस कारण आजकल 'प्यूरिटनवाद' उस विचारधारा का नाम बन गया है जिसमें आचरण, सिद्धांत आदि के विषय में संयम तथा शुद्धता का अधिक ध्यान रखा जाता है।
+
+Englishcivilwar.org News, comment and discussion about the English Civil War
+
+Official website of the English Civil War Society
+
+This page has links to some transcriptions of contemporary documents concerning eastern England
+
+Civil War chronology for Lincolnshire and its environs",,,,
+fab-500x-20261114T224408Z-002,76,56a350bc63bf70d7bf3101b8,ebfc686ee4d779c3e5f4211860e1f520,fab-500x,hi,writing,aya-dataset,human_authored,[user] Write a short story set in a post-apocalyptic world where survivors must navigate a changed environment to rebuild society.,एक पोस्ट-अपोकलिप्टिक दुनिया में स्थापित कहानी लिखें जहां बचे हुए लोगों को समाज को पुनर्निर्माण के लिए परिवर्तित पर्यावरण में नेविगेट करना है।,,,,
+fab-500x-20261114T224408Z-002,77,480847e94c37e6b779046aac,f3312bf9c709ac104956c04e5170bb77,fab-500x,hu,general_knowledge,oasst2,human_authored,[user] Mivel tudom kiváltani a túrót egy édességben?,"Ime néhány dolog amivel helyettesítheted a túrót:
+-  totu avagy tojás túró: Az elkészítéséhez tojást kell önteni forrásban lévő citromsavas vízbe, majd ha megfőtt leszürni.
+-  köles, ha laktózérzékenység miatt szeretnéd kiváltani.
+- mascarpone 
+- görög joghurt
+
+Fontos megjegyezni hogy az hogy melyik helyettesítőt érdemes használnod függ attól hogy mibe fogod beletenni.",,,,
+fab-500x-20261114T224408Z-002,78,89bfdd3710597772f352b816,1682815e9aca47987494dc16ea390de7,fab-500x,hun,general_knowledge,aya-dataset,human_authored,[user] Ajánlj néhány újévi fogadalmat!,"Az alábbi néhány újévi fogadalommal tudok szolgálni:
+- tanulj meg egy új nyelvet
+- egyél egészségesebben
+- járj edzeni rendszeresen",,,,
+fab-500x-20261114T224408Z-002,79,ade75e9b22e7e7ad004689a4,8be55207d68e5f2852c8317449f66c37,fab-500x,hun,safety_ethics,aya-dataset,human_authored,"[user] what important event is this text about: Az elődöntőt 2006. május 18-án rendezték meg, míg a döntőre május 20-án került sor. Az adások műsorvezetői Maria Menounos és Sakis Rouvas voltak. Utóbbi 2004-ben és 2009-ben képviselte Görögországot az Eurovízión, előbb harmadik, később hetedik helyen végzett.",2006-os Eurovízió Görögországi válogató elődöntőjéről és döntőjéről,,,,
+fab-500x-20261114T224408Z-002,80,b8b94dbbe5a4a055e0c9dfe1,9c46deb11ea9ec15be1a3a91b1330b98,fab-500x,ibo,coding,aya-dataset,human_authored,[user] Kedụ ọmụmaatụ akara ụdaolu?,"Ka anyị were ezi ọmụmaatụ gosipụta mkpụrụokwu na akara ụdaolu ha nke ga-eme ka nghọta ha zuo oke kpọmkwem.
+
+Ụdaelu Ụdaelu:
+i.	ímí		-	nose.
+ii.	ísí		-	head.
+iii.	áfọ́	-	stomach.
+iv.	égbé	-	kite.
+v.	éké	-	python.
+vi.	áká	-	hand.
+vii.	ányá	-	eye. 
+viii.	óché	-	chair.
+ix.	íké		-	strength.
+
+Ụdaala Ụdaala:
+i.	àlà		-	land.
+ii.	ùdù		-	earthen pot.
+iii.	àgwà		-	beans.
+iv.	àgbà		-	jaw.
+v.	òkè		-	share. 
+vi.	ìsì		-	blindness. 
+vii.	àkwà		-	bed, bridge. 
+viii.	ùgò		-	eagle.
+
+Ụdaelu Ụdansụda:
+i.	ájā		-	sand.
+ii.	ódō		-	mortar.
+iii.	égō		-	money.
+iv.	érō		-	mushroom.
+v.	élū		-	up. 
+vi.	ọ́nụ̄		-	mouth.
+vii.	ḿmā		-	beauty 
+viii.	írī		-	to eat.
+
+Ụdaelu Ụdaala:
+i.	ókè		-	boundary.
+ii.	ísì		-	smell/odour.
+iii.	ọ́kà		-	corn.
+iv.	ụ́kà		-	church.
+v.	ụ́lọ̀		-	house.
+vi.	ákwà		-	cloth.
+vii.	ázụ̀		-	fish.
+
+Ụdaala Ụdaelu:
+i.	m̀má		-	knife.
+ii.	àkwá		-	egg.
+iii.	òké		-	rat.
+iv.	ìsé		-	five.
+v.	ìgbé		-	box.
+vi.	ǹché		-	security watch.",,,,
+fab-500x-20261114T224408Z-002,81,707c1271e7d95046697068c4,68ccb08f8a8ab4492e810cf8b23fb066,fab-500x,ibo,general_knowledge,aya-dataset,human_authored,[user] Iwu,Olundi - nra,,,,
+fab-500x-20261114T224408Z-002,82,93ee485755cc73931b750b17,b8c556ef7f4108bbc20f6a6bc0624669,fab-500x,ibo,islamic_studies,aya-dataset,human_authored,"[user] Mepụta isi okwu maka ederede a:
+Chi ndị Liverpool zọpụtara ha n'ọnụ agụ dịka Leeds United gbachara egwu ndị ọ kara obi. Leeds United ka si na Championship gbagote gosiri Liverpool na ha abịaghị ọgbọegwuregwu Anfield ịgụ oche ha ọnụ, dịka ha na ha mere 'nzọgbu nzọgbu' na be ha. Goolu nọ na-awụbanye ka mmiri ozuzo ebe otu abụọ a nọ na-eme 'i mee m m megwara gị anaghị ese okwu', mana Liverpool mechara merie na ngwụcha ya bụ egwu. Mohamed Salah nke Liverpool nyere goolu atọ na nkeji anọ, nkeji 33 na nkeji 88, nke abụọ n'ime ha bụ penariti; ebe Virgil Van Dijk nyere nke ya na nkeji 20. N'otu aka ahụ, Leeds si n'azụ bịa saa goolu atọ n'ime ya tupu Salah emewaa ha obi. Goolu atọ ahụ si n'ụkwụ Jack Harrison na nkeji 18, Patrick Bamford na nkeji 30 nakwa Mateusz Klich mezuru ya atọ na nkeji 66. Arsenal ji ọkpụ goolu atọ asataghị ihe ọbụla fachie Fulham ọnụ na be ha, dịka afọ ọhụrụ Premier League malitere. Arsenal abịaghị igwu egwu, n'agbanyeghi na Fulham nabatara ha dịka ọbịa na be ha. Willian gbara bọọlụ mbụ dịka onye Arsenal ka o si Chelsea gafete, ghọrọ agụ dịka ọ bụ ya dọnyere nri n'efere e ji gbakanyechaa goolu atọ ahụ Arsenal nyere. Alexandre Lacazette nyere goolu mbụ na nkeji asatọ e ji bido bọọlụ. Gabriel dos Santos Magalhães mezuru ya abụọ na nkeji 49, tupu Pierre-Emerick Aubameyang emezuo ya atọ na nkeji 57. Goolu Aubameyang nyere n'egwuregwu a mere ya nke 57 ọ na-enye na Premier League kemgbe afọ 2018 ọ malitere ịgbara Arsenal bọọlụ. Nke a bụ egwuregwu nke mbụ a na-agba na Premier League n'afọ ọhụrụ a.","N'ezie, nke a bụ isi okwu maka ederede enyere- Liverpool Vs Leeds United: Chi ndị Liverpool azọpụtala ha n'ọnụ agụ",,,,
+fab-500x-20261114T224408Z-002,83,b88b5b399ab00a47a59b8aca,18547df8fe0c0d309480628ec5ac295c,fab-500x,ibo,mathematics,aya-dataset,human_authored,[user] Kedu egwuregwu eji mara Ngozi Nwokocha,Ngozi Nwokocha amụrụ ya na mkpụrụ ụbọchị iri abụọ na asatọ n' ọnwa itoolu (Septemba) n'afọ 1986. Ọ bụ nwaanyi Naijiria amaara maka egwuregwu ịgba ọsọ. Ọ gbara ọsọ ụmụ nwaanyị nke women's 4 × 400 metres relay na 2004 Summer Olympics.,,,,
+fab-500x-20261114T224408Z-002,84,e397f1b44d18c46c715e6a94,900fdfa5071bdb20aec4b552163258b7,fab-500x,ibo,reasoning,aya-dataset,human_authored,"[user] Gịnị bụ bu azịza gwam gwam gwam(riddle) a
+
+Gwa m ihe nọ n'elu ụlọ nne gị na-agọrọ gị ọfọ",Ọ bụ Ngwere (lizard),,,,
+fab-500x-20261114T224408Z-002,85,f6c77011b36659189e7aa58a,11b6b7801f836b14cee89dce8045495d,fab-500x,ibo,safety_ethics,aya-dataset,human_authored,"[user] Ederede ntinye: ""Jikere maka mmemme egwu Fusion na-enye ọkụ, nke ga eme na Harmony Park site na Septemba 15 ruo 17. Ihe omume ụbọchị atọ a ga-egosipụta ụdị dị iche iche nke ndị na eti egwu na ụdị dị iche iche, na-ekwe nkwa ahụmahụ na-agaghị echefu echefu maka ndị na-anụ ọkụ n'obi egwu. Site na akụkọ rock ruo ndị na-eme egwuregwu eletrọnịkị""  Chọpụta ihe omume:","Aha mmemme: Egwu mmemme Fusion 
+Ọnọdụ: Harmony Park
+Ụbọchị: Septemba 15 ruo 17",,,,
+fab-500x-20261114T224408Z-002,86,a4419fae182a63636ef287cc,4ff6d26afa75d37311856fa38ba68aee,fab-500x,ibo,science,aya-dataset,human_authored,[user] Kedụ Ụdị ọrịa shuga dị iche iche enwere?,"E nwere ụdị ọrịa shuga dị iche iche.
+
+Na nke a kpọrọ 'type 1', anyịnya na-akwụsị imepụta 'insulin', nke na-eme ka shuga gbalite n'ọbara.
+
+Ndị ọkachara mara sayensị amaghị ihe na-ebute nke a mana ha kwenyere na o si n'ọbara maọbụ nje na-ebute ọrịa nke na-emebi ọwọ (cell) na-emepụta 'insulin'.
+
+Ihe dịka pasent mmadụ iri nwere ọrịa shuga nke 'Type 1'.
+
+N'ọrịa shuga nke 'type 2' , anyịnya anaghị emepụta 'insulin' zuru ezu maọbụ nke emepụtara anaghị arụ ọrụ.
+
+
+Nke a na-emekarị na ndị gbaliterela n'afọ, ndị na-eto eto, ndị buru ibu, ndị na-anọkarị na-emegharịghị ahụ, nakwa ndị si mba ndịda Asia na-enwekwa ya.
+
+Ụmụnwaanyị dị ime nwekwara ike ịria ọrịa shuga nwaanyị dị ime( gestational diabetes) ma ọ bụrụ na ahụ ha enweghị ike imepụta insulin ga-ezuru ha na nwa ha.
+
+Ọtụtụ nchọpụta na-ekwu na ihe dịka pasent 6 rue 16 ụmụnwaanyị dị ime ga-enwe ọrịa shuga.
+
+Ọ dị mkpa ka ha lebe anya n'ihe ha na-eri, na-emegharị ahụ iji gbochie ọrịa shuaga type 2.
+
+Mmadụ nwekwara ike inwe ọnọdu na akwado ịbanye ọrịa shuga- ọnọdụ shuga dị n'ọbaara igbalite elu nke nwere ike ịdaba n'ọrịa shuga.",,,,
+fab-500x-20261114T224408Z-002,87,c3aaf7e7b05e917b4b5515c8,7788cea76dcde4ca34ec15598c023e6a,fab-500x,ibo,web_fullstack,aya-dataset,human_authored,[user] Kedụ aha onye hiwere website bụ wikipedia?,"Maazị Jimmy Wales bụ otu n’ime ndị bidoro ya. Wikipedia bụ edemede eji asụsụ dị iche iche wee dee tinye na web, ka onye ọ masịrị gụọ. Ndị volunteers;( bụ ndi ọrụ ngo ma ọ bụ ọrụ akwụ ụgwọ) gbakọtara aka ọnụ wee dee edemede ndị a na Wikipedia. Onye ọbụla nwere nghọta gbasara webụ saịtị nwere ike idezi maọbụ idegharị ihe edere ede ndi a maọbụkwanụ denye nke ya. Aha ya bụ portmanteau  nke mkpụrụokwu wiki (nke a bụ ụdị njikọtaọnụ nke webụ saịtị)  na akwụkwọ mmụta ihe niile akpọrọ encyclopedia.  Ebe  servers  ya dị bụ na Tampa, Florida, ebe sava ndị ọzọ dị  na Amsterdam na Seoul.
+
+Ebidoro Wikipedia na mbụ dịka English Wikipedia  na 15 Jenụwarị afọ 2001, iji wee kwado Nupedia, ezigbo akwụkwọ ederede bụ nke emechigoro. Ugbu a ọ bụ ndị Wikimedia Foundation, a non-profit organization  na elekota ya.",,,,
+fab-500x-20261114T224408Z-002,88,29af5f1e123b6887cc9f61b1,21460d246e160e0dfc3c49d8a93a55da,fab-500x,ibo,writing,aya-dataset,human_authored,[user] Ònye dèrè poem Akpaala Ókwú?,"""Akpaala Ókwú"" bụ uri J.N.Ọnwụchekwa dere n'afọ 1979. Aha ""Akpaala Ókwú"" sụgharịrị ""Basket of Words"" na bekee.",,,,
+fab-500x-20261114T224408Z-002,89,3cbc7ca6c19e73a0ce6c3119,61437e7f29d890cf5ada74408ab37162,fab-500x,id,coding,wikipedia-id,templated_human,"[user] Jelaskan secara singkat tentang Tosari, Pasuruan.","Tosari adalah sebuah kecamatan di sebelah tenggara Kabupaten Pasuruan, Provinsi Jawa Timur, Indonesia. Kecamatan ini berada di Pegunungan Tengger dengan ketinggian 1.700 meter di atas permukaan laut dengan suhu udara rata-rata 5 - 10 derajat Celcius. Kecamatan Tosari merupakan kecamatan tertinggi di Jawa Timur dan salah satu yang tertinggi di Pulau Jawa. Sebagian besar penduduk Tosari merupakan suku Tengger.
+
+Kecamatan Tosari dibagi menjadi 8 desa, yaitu:
+
+Tosari merupakan wilayah tanam strategis nasional penghasil gandum, benih tersebut diadakan uji adaptasi di Kecamatan Tosari pada tahun 2001, selanjutnya dikembangkan sampai dengan tahun 2005 di Kecamatan Tosari dan Puspo dengan luas tanam ± 135 Ha dengan produksi yang dihasilkan mencapai 1,2-2 Ton/Ha. Tahun 2006 dikembangkan di 7 (tujuh) kecamatan antara lain: Tosari, Puspo, Tutur, Purwodadi, Purwosari, Prigen dan Lumbang dengan luas tanam ± 110 Ha dengan produksi yang diharapkan di atas 2 Ton/Ha.
+
+Tosari merupakan salah satu akses masuk ke Gunung Bromo di kawasan wisata Taman Nasional Bromo Tengger Semeru dari arah Pasuruan.
+
+Profil Tosari di situs web java.uluwatu.org",,,,
+fab-500x-20261114T224408Z-002,90,81ba3dd345e542fbcb7b2c39,128a9989dfd312a55f6b76ecab3b2582,fab-500x,id,cybersecurity,aya-dataset,human_authored,"[user] Setelah menjawab kutipan teks berikut dari Wikipedia, jawablah pertanyaan berikut: Apakah perakam ketikan dapat digunakan untuk pencurian kata sandi? 
+
+Perekam ketikan merupakan sebuah perangkat baik perangkat keras atau perangkat lunak yang digunakan untuk memantau penekanan tombol papan ketik. Sebuah perekam ketikan biasanya akan menyimpan hasil pemantauan penekanan tombol papan ketik tersebut ke dalam sebuah berkas catatan (log file). Beberapa perekam ketikan tertentu bahkan dapat mengirimkan hasil rekamannya ke surel tertentu secara berkala.
+
+Perekam ketikan dapat digunakan untuk kepentingan yang baik atau bahkan bisa digunakan untuk kepentingan yang jahat. Kepentingan yang baik antara lain untuk memantau produktivitas karyawan, untuk penegakan hukum dan pencarian bukti kejahatan. Kepentingan yang buruk antara lain pencurian data dan password.
+Perekam ketikan yang berupa perangkat keras berukuran seperti baterai ukuran AA. Perekam ketikan jenis ini dipasangkan pada ujung papan ketik, sehingga mencegat data yang dialirkan dari perekam ketikan ke CPU. Sementara itu, perekam ketikan dalam bentuk perangkat lunak terpasang di dalam komputer dan bekerja secara tersembunyi. Cara sederhana untuk menghindari dampak adanya perekam ketikan pada sistem operasi Microsoft Windows adalah dengan menggunakan fitur on-screen keyboard (osk.exe). 
+
+Secara teoretis, perekam ketikan dapat berada dalam malware hypervisor yang berjalan di bawah sistem operasi, yang tetap tak tersentuh. Keylogger ini secara efektif menjadi sebuah mesin virtual. Blue Pill adalah contohnya.","Ya, perakam ketikan dapat digunakan untuk pencurian kata sandi.",,,,
+fab-500x-20261114T224408Z-002,91,8a49fdddbacb28dfbea25595,8a3a673fec78c3e612fd8c0ae4b1238d,fab-500x,id,education,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Cedilla.,"Tanda kait bawah atau cedilla () atau cedille adalah sebuah kait (¸) yang ditambahkan di bawah huruf konsonan tertentu sebagai tanda diakritik untuk mengubah pengucapannya.
+
+Ekornya muncul sebagai setengah bawah miniatur lengkungan ""z"" (zed). Kata ""cedilla"" adalah diminutif dari nama Spanyol untuk huruf ini ceda, dimana kata ini pertama digunakan. Spanyol Modern tidak lagi menggunakan diakritik ini, meskipun masih ada di bahasa Portugis. Bahasa Prancis menggunakan tanda diakritik ini dan memberikan bahasa Inggris pengucapan alternatif cedille dari kata Prancis cédille. Pengucapan awal cedilla adalah cerilla. Penggunaan awal dalam bahasa Inggris dijelaskan oleh Oxford English Dictionary adalah dalam sebuah kamus Spanyol-Inggris 1599. Chambers' Cyclopædia mengatakan ceceril pernah digunakan pada tahun 1738.
+
+Diacritics Project—All you need to design a font with correct accents
+
+Keyboard Help—Learn how to create world language accent marks and other diacriticals on a computer",,,,
+fab-500x-20261114T224408Z-002,92,aa1eb621c08e74df67b1fbf7,4e6ae4394daff2310e8068b99487b57c,fab-500x,id,general_knowledge,aya-dataset,human_authored,[user] Tolong kasih jokes bapack-bapack dong,"Hewan apa yang bersaudara?
+Katak beradik",,,,
+fab-500x-20261114T224408Z-002,93,e6634a0949e9e1a400017b0a,00ed495df01f254fbfbc6b4787909a5f,fab-500x,id,islamic_studies,wikipedia-id,templated_human,"[user] Jelaskan secara singkat tentang Cipanas, Cipanas, Cianjur.","Cipanas merupakan sebuah desa di Kecamatan Cipanas, Cianjur Kabupaten Cianjur, Jawa Barat, Indonesia
+
+Desa Cipanas adalah salah satu desa di kecamatan Cipanas, Kabupaten Cianjur, Jawa Barat.
+
+Cipanas adalah nama Desa dan di wilayah kecamatan Pacet Kewedanaan Pacet Kabupaten Cianjur Provinsi Jawa Barat. Pada tahun 1978 desa Cipanas dimekarkan menjadi tiga wilayah yaitu Desa Cipanas, Desa Sindanglaya dan Desa Sindangjaya. Kecamatan Pacet sendiri dimekarkan dengan Kamantren Sukaresmi (sebelum akhirnya menjadi Kecamatan Sukaresmi. Desa Cipanas kemudian dimekarkan lagi dengan Desa Gadog dan Desa Sukatani. Pada Tahun 2004 Cipanas yang semula hanya desa menjadi kecamatan sebagai pemekaran wilayah dari Kecamatan Pacet. Dan menjadi juara 1 desa terbaik se kabupaten cianjur 2021 , desa terbaik se wilayah 3 Jawa Barat 2021, desa terbaik se Jawa Barat tahun 2022.
+
+Menurut sejarahnya, Desa Cipanas mulai berdiri sejak tahun 1926 dan secara administratif resmi berdiri pada tahun 1936, kemudian Desa Cipanas mengalami pemekaran wilayah pada tanggal 1 Oktober 1977, menjadi 3 (tiga) desa yaitu Desa Cipanas sebagai Desa asal, Desa Cipendawa dan Desa Sindanglaya sebagai desa-desa pemekaran (berdasarkan Surat Keputusan Bapak Bupati KDH TK II Cianjur tanggal 1 Oktober 1977 Nomor:100/HK.021.1/PM/015.3/1977).",,,,
+fab-500x-20261114T224408Z-002,94,e9b032f332c8fea3a11cf6ce,451ba3374e3c5bf29ef2d4ce7decc6aa,fab-500x,id,mathematics,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang SD Santo Antonius I.,"SD Santo Antonius I atau nama lengkapnya Sekolah Dasar Santo Antonius I merupakan sebuah Sekolah Dasar Swasta yang terletak di Jl. Otto Iskandardinata 76-A, Jakarta Timur, Indonesia.
+
+Sekolah Dasar Santo Antonius I memiliki kode NPSN 20108864 dan kode NSS 104016403012. Pada 2010, SD Santo Antonius I memiliki 179 pelajar lelaki dan 154 pelajar perempuan, menjadikan jumlah keseluruhan murid sebanyak 333 orang. Ia mempunyai sebanyak 19 orang guru.2010
+
+Jl. Otto Iskandardinata 76-A, Jakarta Timur, DKI Jakarta
+
+Laman di Kementerian Pendidikan Nasional, Republik Indonesia 2010 / 2011",,,,
+fab-500x-20261114T224408Z-002,95,771863b834e8b5589bc153f8,1ef3a565a9c637c8304ed11964e1b73a,fab-500x,id,pakistan,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Bangsa Indo-Arya.,"Bangsa Indo-Arya mengacu pada dua arti menurut pembagian waktu, yaitu bangsa Indo-Arya Kuno dan Indo-Arya Modern. Bangsa Indo-Arya Kuno adalah penggembala dan keturunannya yang bermigrasi dari Asia Tengah ke Asia Selatan pada milenium kedua SM. memperkenalkan bahasa Proto-Indo-Arya dan turunannya, yang terkenal adalah bahasa Sanskerta dan bahasa-bahasa Prakerta. Bangsa Indo-Arya Modern mengacu hanya pada penutur jati bahasa-bahasa Indo-Arya modern.
+
+Pengenalan bahasa Indo-Arya di anak benua India adalah hasil dari migrasi Indo-Arya dari Asia Tengah ke anak benua India utara (kini Bangladesh, Bhutan, India, Afghanistan, Nepal, Pakistan, dan Sri Lanka modern). Migrasi ini dimulai sekitar 1.800 SM,setelah penemuan kereta perang, dan juga membawa bahasa-bahasa Indo-Arya ke Syam (lihat Superstratum Indo-Arya di Mitanni) dan mungkin Asia Dalam (lihat Wusun).",,,,
+fab-500x-20261114T224408Z-002,96,91fc0da0799de839cb0bd305,5adfa3a265a5a5a8a9dd00e6f5f959de,fab-500x,id,problem_solving,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang 24 Februari.,"24 Februari adalah hari ke-55 dalam kalender Gregorian.
+
+1303 - Pertempuran Roslin dalam Perang Kemerdekaan Skotlandia Pertama.
+
+1386 - Raja Charles III dari Napoli dan Hungaria dibunuh di Buda.
+
+1525 - Pasukan gabungan Spanyol-Austria mengalahkan pasukan Prancis dalam Pertempuran Pavia.
+
+1538 - Perjanian Nagyvárad antara Ferdinand I dan János Zápolya.
+
+1582 - Paus Gregorius XIII mendekretkan Kalender Gregorian.
+
+1739 - Pertempuran Karnal: Pasukan Kerajaan Iran pimpinan Nader Shah mengalahkan pasukan Kekaisaran Mughal dari India, Muhammad Shah.
+
+1821 - Tahap akhir Perang Kemerdekaan Meksiko dari Spanyol dengan Plan Iguala.
+
+1826 - Penandatanganan Perjanjian Yandaboo menandai akhir Perang Birma Pertama.
+
+1831 - Perjanjian Dancing Rabbit Creek, perjanjian penghapusan pertama dalam kaitan dengan Indian Removal Act, diproklamirkan. Suku Choctaw di Mississippi melepas lahan di sisi timur sungai dengan imbalan pembayaran dan lahan di sisi barat.
+
+1848 - Raja Prancis Louis-Philippe I turun dari tahtanya.
+
+1863 - Arizona ditetapkan sebagai Teritori Amerika Serikat.
+
+1868 - Andrew Johnson menjadi Presiden Amerika Serikat pertama yang digugat oleh DPR Amerika Serikat. Ia kemudian dibebaskan dari tuduhan di Senat.",,,,
+fab-500x-20261114T224408Z-002,97,d3e5c29fbe400dd947e77860,a6b0c6c0a8d0eb124e61146684a9c45e,fab-500x,id,reasoning,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Statistika inferensial.,"Statistika inferensial mencakup semua metode yang berhubungan dengan analisis sebagian data atau juga sering disebut dengan sampel untuk kemudian sampai pada peramalan atau penarikan kesimpulan mengenai keseluruhan data induknya (populasi).
+
+Menurut Bartolucci & Scrucca, statistika inferensial adalah statistik yang berkaitan dengan memberikan beberapa kesimpulan tentang parameter yang menggambarkan distribusi variabel yang diminati dalam populasi tertentu berdasarkan sampel acak.
+
+Dalam statistika inferensial diadakan pendugaan parameter, membuat hipotesis, serta melakukan pengujian hipotesis tersebut sehingga sampai pada kesimpulan yang berlaku umum. Metode ini disebut juga statistika induktif, karena kesimpulan yang ditarik didasarkan pada informasi dari sebagian data saja. Pengambilan kesimpulan dari statistika inferensial yang hanya didasarkan pada sebagian data saja yang menyebabkan sifat tak pasti, memungkinkan terjadi kesalahan dalam pengambilan keputusan, sehingga pengetahuan mengenai teori peluang mutlak diperlukan dalam melakukan metode-metode statistika inferensial.",,,,
+fab-500x-20261114T224408Z-002,98,8ebeea3826710be8dc74fbe5,b968183863e621d38384064aeaef454c,fab-500x,id,research,tydiqa-goldp,human_authored,"[user] Toksin (dari Ancient Greek: τοξικόν, romanized:toxikon) adalah sebuah zat beracun yang diproduksi di dalam sel atau organisme hidup,[1][2] kecuali zat buatan manusia yang diciptakan melalui proses artifisial. Kata ini pertama dipakai oleh kimiawan organik Ludwig Brieger (1849–1919).[3]
+
+Apa yang dimaksud dengan toksin ?","zat beracun yang diproduksi di dalam sel atau organisme hidup,[1][2] kecuali zat buatan manusia yang diciptakan melalui proses artifisial
+
+Toksin (dari Ancient Greek: τοξικόν, romanized:toxikon) adalah sebuah zat beracun yang diproduksi di dalam sel atau organisme hidup,[1][2] kecuali zat buatan manusia yang diciptakan melalui proses artifisial.",,,,
+fab-500x-20261114T224408Z-002,99,378ec2e59492ec2f2b88de37,1a5dc83a767a79b5242916331fa4a815,fab-500x,id,safety_ethics,aya-dataset,human_authored,"[user] Buatlah artikel pendek untuk menjawab pertanyaan-pertanyaan berikut.
+
+Topik: Norma Sosial
+
+Pertanyaan:
+- Apa itu Norma?
+- Sebutkan ciri-ciri Norma Sosial
+- Sebutkan fungsi Norma Sosial
+
+Jawaban:","Norma merupakan seperangkat aturan konkret yang berfungsi untuk mengatur dan membatasi perilaku anggota masyarakat secara luas. Norma mengatur perilaku hubungan antar warga masyarakat agar tercipta hubungan yang harmonis, serasi dan selaras. Norma sosial berperan penting dalam mendorong terciptanya keteraturan sosial dan meminimalisir terjadinya bentuk-bentuk penyimpangan sosial. Norma sosial ada yang ada yang tertulis dan ada yang tidak tertulis. Individu yang melanggar norma/aturan yang berlaku akan mendapatkan sanksi sosial yang jelas dan tegas.
+
+Ada beberapa ciri-ciri norma sosial, yaitu sebagai berikut:
+1. Norma bersumber dari nilai-nilai dalam masyarakat;
+2. Norma merupakan produk sosial yang disepakati, ditaati dan dipraktekan oleh masyarakat luas;
+3. Norma ada yang tertulis dan ada yang tidak tertulis;
+4. Norma memiliki tingkatan yang menentukan seberapa besar pengaruhnya terhadap individu;
+5. Norma dapat berubah sesuai dengan keinginan dan kebutuhan masyarakat;
+6. Norma bersifat mengikat sehingga terdapat sanksi sosial yang jelas dan tegas bagi para pelanggarnya.
+
+Norma sosial memiliki tiga fungsi utama bagi kehidupan sosial bermasyarakat, yaitu sebagai berikut:
+1. Mengatur dan membatasi perilaku individu agar sesuai dengan nilai-nilai yang telah menjadi kesepakatan bersama dalam masyarakat;
+2. Mendorong terciptanya keteraturan sosial dan meminimalisir terjadinya bentuk-bentuk penyimpangan sosial;
+3. Sebagai sarana untuk melakukan kontrol sosial dalam masyarakat;",,,,
+fab-500x-20261114T224408Z-002,100,05a62f78707f0f552e7ef8d2,d796909be6d56d30a7f98834dd134d89,fab-500x,id,science,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Kopernisium.,"Kopernisium (hingga 19 Februari 2010 memiliki nama sementara ununbium) adalah suatu unsur kimia dalam tabel periodik yang memiliki lambang Cn (sebelumnya Uub) dan nomor atom 112. Unsur 112 tergolong unsur yang sangat berat. Jika mengikuti kecenderungan pada tabel periodik, seharusnya wujudnya berupa metal cair yang lebih volatil (mudah menguap) daripada raksa.
+
+Ununbium secara resmi dinamakan Kopernisium dengan simbol Cn pada ulang tahun ke 537 Nicolaus Copernicus oleh IUPAC.",,,,

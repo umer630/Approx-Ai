@@ -1,0 +1,938 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-006,1,a3e8f05467272790be808b03,7fb7b75b1c76d34df0ae31cfb077d94e,fab-500x,tr,safety_ethics,aya-dataset,human_authored,[user] Çiçek coşturmak için ne yapmalı?,Hamur işlerinin vazgeçilmezi kuru mayadır. Çiçek ve bitkilerin kısa zaman içinde sağlıklı ve canlı görünmesine yardım eder. Bu durum için tek yapmanız gereken; üç litre suya bir yemek kaşığı kadar kuru maya ekleyerek harmanlamak ve üretilen suyla çiçekleri sulamak.,,,,
+fab-500x-20261114T224408Z-006,2,e4ac843b6cf1267204e51093,3a8ce10d955f389f0d2e437c5126f3ab,fab-500x,tr,science,aya-dataset,human_authored,[user] Pirinç karışım mı?,"Pirinç, bakıra çinko katılarak elde edilen sarı renkteki alaşımların genel ismi. Pirinçte bulunabilen diğer bazı elementler, kalay, kurşun, nikel, mangan, demir, alüminyum, arsenik, antimon ve fosfordur. Mangan ihtiva eden bazı pirinçlere tunç da denilmektedir. Aslında tunç (veya bronz) bakır-kalay alaşımıdır.",,,,
+fab-500x-20261114T224408Z-006,3,1dc27fb25ad89a863464920c,9ff555674503f2e02ad009f62d2c5794,fab-500x,tr,software_engineering,aya-dataset,human_authored,"[user] Yenilenebilir olmayan kaynak olarak hangisi kabul edilir? 
+A) Yağ
+B) Toprak
+C) Yemeği
+D) Suyu","Cevap belli değil sorulan sorudaki tüm seçenekler yenilenebilir kaynaklar arasına girmemektedir.
+
+Yenilenebilir enerji kaynakları, hidro, jeotermal, güneş, rüzgar, odun, bitki artıkları, biyokütle, gel-git ve dalga olarak kabul edilmektedir.",,,,
+fab-500x-20261114T224408Z-006,4,70b901c692a4d5428f687d5e,a11817c1d8ded47c333302d712b02153,fab-500x,tr,web_frontend,aya-dataset,human_authored,[user] Inline script nedir?,"İnline js olarak da anılan html içi javascript, harici bir kaynaktan çağırılmayarak html kod yapısı içerisine <script type=""text/javascript""></script> şeklinde yerleştirilerek sitede html kodu gibi görünen ve gereksiz yere yük olan bu tür kodlamalar için kullanılmaktadır.",,,,
+fab-500x-20261114T224408Z-006,5,851259d2350121cfe6781863,d174f34798505ca2b76ee2e2d4d7778c,fab-500x,tr,writing,aya-dataset,human_authored,[user] Paragrafı tamamlayın: Bulls takımı 2002-03 sezonuna fazla iyimser girerek başladı. 2002 NBA Seçmeleri,"'nde geçen sezonki başarısızlıklarının ödülü olarak 2. sıradan Jay Williams'ı draft ettiler. Takım Bill Cartwright'ın koçluğunda genç ve ellerinde bulundurdukları potansiyelli kadroyla Jalen Rose, Crawford, Fizer yeni gelen Donyell Marshall, Curry, Chandler ve gard Trenton Hassell ile 30-52 galibiyet yüzdesiyle önceki sezonlara göre başarılı bir sezon geçirdiler. Sezon sonunda takımı üstüne kurmayı planladıkları Jay Williams en iyi ikinci çaylak beşine seçildi.",,,,
+fab-500x-20261114T224408Z-006,6,de43ae4e20bf54a24d1adc51,c0556e198c76d2645774cc5bebf3ea83,fab-500x,uk,general_knowledge,aya-dataset,human_authored,"[user] Вирішити задачу: на літніх канікулах хлопці робили фото комах. Вітя зробив на 8 фото більше, ніж Ян, а Сергій на 5 фото більше, ніж Вітя. На скільки більше фото зробив Сергій, ніж Ян?",Відповідь: 13.,,,,
+fab-500x-20261114T224408Z-006,7,8b866379657eb93f59c8c85a,ad15617a97e2eb641f91073b18ac6505,fab-500x,uk,mathematics,aya-dataset,human_authored,"[user] Про що йдеться утексті: У 1675-1683 роках відбувся черговий масовий набір, спричинений війнами з Туреччиною ( 672-1676 та 1683-1699 ), а кількість волоських підрозділів у 1676 році налічувала навіть 26 знамен. Під час правління Яна III Собеського було внесено кілька змін. Волохи були організовані в окремі полки з комбінованих татаро-волоських підрозділів, чисельність солдат в хоругві зменшилась до приблизно 60-100 коней. Полковника обрали з числа ротмістрів . Офіцерами (ротмістр, поручник, хорунжий) зазвичай були поляки, а українці та молдавани були товаришами та почтовими. Легка кавалерія становила тоді 1/5 армії. З 1683 року ""татар"" і ""волохів"" офіційно стали називати легкою кавалерією.",Текст розповідає про масовий набір в армію у 1675-1683 роках на війну з Туреччиною.,,,,
+fab-500x-20261114T224408Z-006,8,dfd59bec720a1d7ccbfd2414,1148e2d63c711879c479cc97b456ede2,fab-500x,uk,problem_solving,aya-dataset,human_authored,"[user] Перекажіть головний зміст статті:  (Budget Travel) - Не хочу ображати столицю країни, але пам'ятки нашої спадщини виходять далеко за межі округу Колумбія. У Йеллоустоунському національному парку зберігається величезне багатство природи, включаючи 10 000 гарячих джерел і 300 гейзерів. Купа Сірс (Купа Вілліса) Це доречно, що найвища будівля країни, Купа Сірс (ми також не погодилися з новою назвою), знаходиться в тому ж місті, де побудовано перший хмарочос, Будівля страхування житла, зруйнований в 1931 році. Новаторство Чикаго викликало світову гонку, яка продовжує змінювати горизонти міст від Лондона до Дубая і Тайбея. Немає кращого способу відчути надзвичайне бачення цих ранніх архітекторів, ніж стояти на ""Леджі"" в Skydeck Chicago, прозорому спостережному корпусі, який підвішує вас на висоті 1353 футів над рівнем вулиці, на шклянці товщиною всього лише півтора дюйма. Геттісбург, Пенсільванія. Геттісбургський національний військовий парк, місце найкровавішої битви в громадянській війні і однієї з найвідоміших промов Авраама Лінкольна, є пам'ятником спустошення, спричиненого і причин війни, яка переробила Союз. У своїх успішних зусиллях відбитися від натрапливого розвитку, Геттісберг також відображає боротьбу багатьох історичних місць, щоб зберегти святість своєї землі. nps.gov/gett. Національний парк Йеллоустоун. Так, інші національні парки є приголомшливими (Великий каньйон і Йосеміт приходять на думку), але Йеллоустоун, заснований президентом Улісесом Грантом в 1872 році, був першим у світі - і створив ранній прецедент для охоронців землі на міжнародному рівні. У цьому величному парку, що межує з Вайомінгом, Монтаною та Айдахо, зберігається величезний природний багатство: в ньому 10 000 гарячих джерел і 300 гейзерів, численні озера і річки, а також дикі тварини, такі як вівці з великими рогами, бізони, гризлі-медведи та понад 1000 сивих вовків. Нью-Йоркська гавань. Все ще легко уявити залив так, як мільйони іммігрантів могли сприймати його на шляху до Сполучених Штатів: обіцянка...","Budget Travel назвав вісім неминучих американських визначних пам'яток. Монтічелло, Національний парк Йеллоустоун і Грейсленд входять до списку. Редактори також розглянули міст ""Золоті Ворота"", Великий Каньйон і багато іншого.",,,,
+fab-500x-20261114T224408Z-006,9,29a80e686be2b729d8731152,d9a6cd65966ecca3972332d07cf84228,fab-500x,uk,research,aya-dataset,human_authored,"[user] Напиши продовження тексту: Ці дані оприлюднила українська компанія «Research & Branding Group». Соціологи дізнавалися про ставлення українців до незалежності України, а також щодо подій серпня 1991 року","в різних регіонах. Так, кожний п'ятий українець визначив серпневий путч як «епізод боротьби за владу серед найвищого керівництва країни». На заході ж більшість українців охарактеризувала путч як «перемогу демократичної революції, яка покінчила із владою КПРС».",,,,
+fab-500x-20261114T224408Z-006,10,a56f41901b6fb21a84d1acc5,d4b5429dda7e95071d34392a7e2851e7,fab-500x,uk,writing,aya-dataset,human_authored,"[user] Write a continuation for this paragraph - У складі збірної брав участь в чемпіонаті світу з хокею 1979 року. Роком раніше перейшов з СК «Берлін» до «Маннхаймер ЕРК», за який відіграв п'ять сезонів. Це були також найкращі роки в його кар'єрі. У 1979 році визнаний найкращим гравцем року, а у 1980 році стає чемпіоном Німеччини. У 1983 році знову брав участь у чемпіонаті світу з хокею, після чого переїхав до «Дюссельдорф ЕГ». А вже в 1986 році вдруге бере участь у чемпіонаті світу з хокею,",після якого Еріх завершив кар'єру хокеїста.,,,,
+fab-500x-20261114T224408Z-006,11,b41af4a7b70590d96815ca79,fd062a00b89889f3fe234c1232a877a7,fab-500x,uk-UA,coding,oasst1,human_authored,"[user] У мене є ось такий запит на SQL:
+SELECT log, ts, host
+FROM service_logs
+WHERE severity = 'ERROR'
+ORDER BY ts DESC
+LIMIT 50;
+
+Поясни будь ласка, що він робить?","Цей запит витягує значення полів log, ts, host з таблиці service_logs, де severity = 'ERROR'. Далі він сортує результати у спадаючому порядку по полю ts і обирає 50 перших рядків.
+
+Якщо коротко, запит витягує останні 50 помилок (їх текст - log, час - ts, і сервер - host) у логах якогось сервісу.",,,,
+fab-500x-20261114T224408Z-006,12,09cdd868d06481a606ece6c0,fc27d8b82a113a3a22053bcd20d2976b,fab-500x,uk-UA,general_knowledge,oasst2,human_authored,"[user] Згенеруй пароль з заданими характеристиками:
+1. Довжина більша ніж 10 символів.
+2. Має бути один чи більше спецсимволів (#,$,%,_,!) (кома також можлива).
+3. Краще фраза.","Ось декілька можливих варіантів Вашого пароля:
+1) muSic$LikeR
+2) w%ooD_fanAT
+3) less#taking4breathe
+4) passport!of_uKraine
+5) simp*le$mon@ey
+Сподіваюся, щось із цього Вам до душі.",,,,
+fab-500x-20261114T224408Z-006,13,1612567e1e676248205cf4c8,26b3251f8a805b83f59216640e3844d4,fab-500x,uk-UA,mathematics,oasst2,human_authored,"[user] Переклади цей текст українською:
+""We received a signal of mysterious radio station called Noir FM that plays obscure Jazz music 24/7. We don't have any information about location of this radio station and before it disappeared completely from our radars we had an opportunity to record only one part of their scheduled programming broadcast called ""Nightluxury"". We tried to recognize songs played during this broadcast but we couldn't. Instead of credits to original compositions and artists we called every track by it's mood and an atmosphere.""
+
+[assistant] Ми отримали сигнал загадкової радіостанції під назвою Noir FM, яка відтворює маловідому джазову музику 24/7. Ми не маємо жодної інформації про місцезнаходження цієї радіостанції, і до того, як вона повністю зникла з наших радарів, ми мали можливість записати лише одну частину їхнього запланованого програмного мовлення під назвою ""Nightluxury"". Ми намагалися розпізнати пісні, зіграні під час цього ефіру, але не змогли. Замість атрибуції до оригінальних композицій та виконавців, ми назвали кожен трек за його настроєм та атмосферою.
+
+[user] Продовжи цю історію.","Надіємося, ви теж відчуєте цю таємничість, прослухавши запис.
+
+Перший трек: ""Записка у давно покинутій котельній"" 
+Таймкод: 0:00
+Опис: Стишений звук, що доноситься наче з підвального приміщення, де стоять іржаві парові котли. Хтось залишив записку з одним реченням, написаним нечітким почерком - ""Той, хто недостатньо сміливий, щоб на нього дивились з безодні, недостатньо сміливий, щоб дивитися в неї сам.""
+
+Другий трек: ""Погляд""
+Таймкод: 1:30
+Опис: О першій годині ночі, взимку, коли люди повернулись додому грітись, ти дивишся на місто, усамітнившись на оглядовому майданчику. Абсолютна тиша створює відчуття нереальності і лімінальності. В тебе в горняті міцна кава, однак вона стигне від холоду.
+
+Третій трек: ""Блиск вітрин зачиненого торгового центру""
+Таймкод: 6:29
+Опис: Охоронець напівдрімає на своєму кріслі. Світло залишили ввімкненим лише в одному магазині. Воно світить червоним і час від часу відблискує зеленими кольорами. Ескалатори та ліфти зупинились. На повторі грає цей трек. 
+
+Четвертий трек: ""Елегантний ранок близького майбутнього, після якого ми нарешті продовжимо своє життя""
+Таймкод: 9:20
+Опис: 5 година ранку, ледь світає. Все затихло в очікуванні нового дня, де будь-які загрози зникли, але й ще невідомо, як жити з цим несподівано світлим майбутнім. Перший птах починає елегантно співати, час від часу прислухаючись до приглушених відповідей своєї партнерки на іншому дереві.",,,,
+fab-500x-20261114T224408Z-006,14,f8c75a88a890ec0b538b4f60,7500ebdbf56149276c5390dfec9e0306,fab-500x,uk-UA,research,oasst2,human_authored,"[user] Що таке зетелькастен?
+
+[assistant] Метод Zettelkasten - це особистий стратегічний процес мислення та письма. Як один із найефективніших методів управління знаннями, його найкраще можна описати як систему організації, яка допомагає організувати ваші знання під час роботи (навчання чи дослідження).
+
+Що робить метод Zettelkasten таким чудовим, так це те, що система не тільки допомагає вам зберігати та систематизувати ваші знання, але й покращує вашу пам’ять і збереження знань. Розвиток зв’язків знань значно покращує запам’ятовування, а їх формування також тренує ваш розум бачити закономірності.
+
+Zettelkasten - німецьке слово, яке перекладається як «коробка для нотаток». У визначенні пояснюється, з яким матеріалом працювати та яка система файлів використовується. Розберімо його на частини:
+
+«Zettel» - це листок або записка. Інформація, яку ми хочемо зберегти, записується на Zettel. Класична форма Zettel - це клейка нотатка, індексна картка або аркуш блокнота для запису ваших думок.
+
+Слово «kasten» буквально перекладається як коробка. Однак у цьому контексті це саме коробка індексних карток. Коробки індексних карток дозволяють організовувати систему картотеки, зберігаючи схожі нотатки або zettel, згруповані та класифіковані в одному місці.
+
+[user] Порадь програми для Зетелькастену на телефон чи ноутбук.","Поширеними багатоплатформними програмами є Notion (безкоштовна), Obsidian (безкоштовна),  та Roam Research (платна підписка).
+
+Під десктоп (Linux, macOS, Windows) також є доступним Zettlr, а для iOS та macOS - Bear App.",,,,
+fab-500x-20261114T224408Z-006,15,40078bb7f0e2913cc66c1cf1,5cb48ed2a46a639a0dff0d41f63f8734,fab-500x,und,mathematics,nemotron-math,synthetic,[user] Compute $$\frac{0.8:\left(\frac{4}{5}\cdot 1.25\right)} {0.64-\frac{1}{25}} +\frac{\left(1.08-\frac{2}{25}\right):\frac{4}{7}} {\left(6\frac{5}{9}-3\frac{1}{4}\right)\cdot 2\frac{2}{17}} +(1.2\cdot 0.5):\frac{4}{5}$$,"The expression is evaluated step by step by simplifying each part separately and then summing the results.
+
+**First part:**  
+\(\frac{0.8 \div \left( \frac{4}{5} \times 1.25 \right)}{0.64 - \frac{1}{25}}\)  
+- Convert decimals to fractions: \(0.8 = \frac{4}{5}\), \(1.25 = \frac{5}{4}\), \(0.64 = \frac{16}{25}\).  
+- Numerator: \(\frac{4}{5} \div \left( \frac{4}{5} \times \frac{5}{4} \right) = \frac{4}{5} \div 1 = \frac{4}{5}\).  
+- Denominator: \(\frac{16}{25} - \frac{1}{25} = \frac{15}{25} = \frac{3}{5}\).  
+- Simplify: \(\frac{\frac{4}{5}}{\frac{3}{5}} = \frac{4}{5} \times \frac{5}{3} = \frac{4}{3}\).  
+
+**Second part:**  
+\(\frac{\left(1.08 - \frac{2}{25}\right) \div \frac{4}{7}}{\left(6\frac{5}{9} - 3\frac{1}{4}\right) \times 2\frac{2}{17}}\)  
+- Convert \(1.08 = \frac{27}{25}\), so \(1.08 - \frac{2}{25} = \frac{27}{25} - \frac{2}{25} = 1\).  
+- Numerator: \(1 \div \frac{4}{7} = 1 \times \frac{7}{4} = \frac{7}{4}\).  
+- Mixed numbers to improper fractions: \(6\frac{5}{9} = \frac{59}{9}\), \(3\frac{1}{4} = \frac{13}{4}\).  
+- Subtract: \(\frac{59}{9} - \frac{13}{4} = \frac{236}{36} - \frac{117}{36} = \frac{119}{36}\).  
+- Convert \(2\frac{2}{17} = \frac{36}{17}\).  
+- Denominator: \(\frac{119}{36} \times \frac{36}{17} = \frac{119}{17} = 7\).  
+- Simplify: \(\frac{\frac{7}{4}}{7} = \frac{7}{4} \times \frac{1}{7} = \frac{1}{4}\).  
+
+**Third part:**  
+\((1.2 \times 0.5) \div \frac{4}{5}\)  
+- \(1.2 = \frac{6}{5}\), \(0.5 = \frac{1}{2}\), so \(1.2 \times 0.5 = \frac{6}{5} \times \frac{1}{2} = \frac{6}{10} = \frac{3}{5}\).  
+- Divide: \(\frac{3}{5} \div \frac{4}{5} = \frac{3}{5} \times \frac{5}{4} = \frac{3}{4}\).  
+
+**Sum:**  
+\(\frac{4}{3} + \frac{1}{4} + \frac{3}{4} = \frac{4}{3} + \left( \frac{1}{4} + \frac{3}{4} \right) = \frac{4}{3} + 1 = \frac{4}{3} + \frac{3}{3} = \frac{7}{3}\).  
+
+The result is \(\frac{7}{3}\).
+
+\boxed{\dfrac{7}{3}}",,,,
+fab-500x-20261114T224408Z-006,16,717e2dd1560100502bfbafde,48087ec493a2bd45d9e506a4443aee9b,fab-500x,ur,coding,wikipedia-ur,templated_human,[user] معلق مندر کے بارے میں ایک مختصر تعارف لکھیں۔,"ہوا میں کھڑا مندر، یا ہوا میں خانقاہ یا شوآن کونگ مندر () شمالی چین کے شانشی صوبے میں ہنگ نامی پہاڑی کی ایک کھڑی چٹان پر بنایا گیا ایک مندر ہے۔ اس مندر کا قریبی نگر داتونگ ہے، جو شمال مغرب میں 64.23 کلو میٹر دور ہے۔ یہاں یانگ گانگ غاروں کے علاوہ ہوا میں کھڑا مندر تاریخی جگہ ہونے کی وجہ سے لوگوں کی توجہ کا مرکز ہے۔ چین کا یہ واحد مندر ہے جو بدھ، تاؤ اور کنفیوشس ادیان کے ملے جلے طرز سے بنا بے مثال مندر ہے۔ دسمبر 2010ء میں ٹائم میگزین نے اس کو دنیا کے سب سے عجیب اور خطرناک عمارتوں میں شامل کیا ہے۔
+
+روایات کے مطابق اس مندر کو تعمیر کرنے والا لیاؤ ران (了然) نامی ایک بھکشو تھا۔ یہ مندر 1600 سال سے زیادہ پرانا ہے جس کی کئی بار مرمت ہو چکی ہے۔
+
+Hanging Temple, Class II Protected Sites in China, from ChinaCulture.org. Retrieved d.d. January 1, 2010.
+
+مضامین جن میں آسان چینی زبان کا متن شامل ہے
+
+مضامین جن میں روایتی چینی زبان کا متن شامل ہے
+
+ویکی ڈیٹا سے مطابقت رکھنے والی مختصر تفصیل",,,,
+fab-500x-20261114T224408Z-006,17,36d619aa9adc2bd4cef8eabe,7e417e8ff8922207b59abc5e0c0abbeb,fab-500x,ur,cybersecurity,wikipedia-ur,templated_human,[user] اشاریہ ماحولیاتی ضرر پزیری کے بارے میں ایک مختصر تعارف لکھیں۔,"مشعر ماحولیاتی خطرہ (Environmental Vulnerability Index) ایک پیمائش ہے جسے جنوبی بحر الکاہل اطلاقی جیو سائنس کمیشن (South Pacific Applied Geoscience Commission) نے وضع کیا ہے۔
+
+243		 	 خطرے میں* جنوبی جارجیا اور جنوبی سینڈوچ جزائر		245		 	 خطرے میں
+
+جمہوری جمہوریہ کانگو 	288		 	 خطرے سے دوچار
+
+292		 	 خطرے سے دوچار* جزائر کیکس و ترکیہ		292		 	 خطرے سے دوچار
+
+293		 	 خطرے سے دوچار* جزیرہ ہرڈ و جزائر مکڈونلڈ		294		 	 خطرے سے دوچار* برطانوی بحرھند کا خطہ		295		 	 خطرے سے دوچار
+
+296		 	 خطرے سے دوچار* سینٹ پیئر و میکیلون	 	296		 	 خطرے سے دوچار
+
+سینٹ وینسینٹ و گریناڈائنز	337		 	 بہت زیادہ خطرے سے دوچار
+
+341		 	 بہت زیادہ خطرے سے دوچار* مونٹسیراٹ	342		 	 بہت زیادہ خطرے سے دوچار
+
+جزیرہ کرسمس	350		 	 بہت زیادہ خطرے سے دوچار
+
+سینٹ کیٹز و ناویس 	359		 	 بہت زیادہ خطرے سے دوچار
+
+برطانوی جزائر ورجن	377		 	 انتہائی خطرے سے دوچار
+
+امریکی جزائر ورجن	396		 	 انتہائی خطرے سے دوچار",,,,
+fab-500x-20261114T224408Z-006,18,6b693f92ee9cb4014ca212d9,3ae209b1cdbdd48492346db0a0f68dff,fab-500x,ur,education,wikipedia-ur,templated_human,[user] فرانسس بیکن کے بارے میں ایک مختصر تعارف لکھیں۔,"فرانسس انگریز وکیل اور فلسفی تھا۔ وہ 1582 میں بار کا رکن بنا اور 1584 میں رکن پارلیمنٹ ہوا۔ 1589 میں اپنی سیاسی پیش قدمی کے لیے اس نے ارل آف اسیکس (Earl of Essex) ثانی سے دوستی کی مگر 1601 میں اس نے اپنے محسن کے خلاف بغاوت کے مقدمے میں مخالفین کا ساتھ دیا۔ جیمز اول کی حکومت میں (1603–25) بیکن کو خاصی کامیابیاں حاصل ہوئیں۔ وہ برطانیہ اور اسکاٹ لینڈ کی یونین کا کمشنر مقرر کیا گیا۔ 1604 ء میں اٹارنی جنرل مقرر ہوا۔ 1613- 1618ء میں لارڈ چانسلر بنا
+
+1621ء میں البتہ اس کو رشوت کے جرم میں ملوث پایا گیا اور چالیس ہزار پونڈ جرمانہ کیا گیا اور پارلیمنٹ اور سرکاری عہدے کے لیے معزول کر دیا گیا۔
+
+اس کی شہرت کی وجہ اس کی فلسفیانہ اور ادبی تحریریں ہیں۔ اس نے سترھویں صدی کی سائنسی فکر کو کافی متاثر کیا۔
+
+اس کی کتاب The Advancement of Learning میں اس نے علوم کی نئی جماعت بندی کی۔ پھر 1623ء میں ایک اور کتاب کے ذریعے اس کو مزید وسعت دی۔ پھر 1624 ء میں اس نے Norum Organum Scientiarum میں استدلال کیا کہ علم صرف تجربے ہی سے حاصل کیا جاسکتا ہے۔
+
+ویکی ڈیٹا سے مطابقت رکھنے والی مختصر تفصیل",,,,
+fab-500x-20261114T224408Z-006,19,cee915f5d0e9c397802a3342,da8140da35be7916059508f69b65c9d2,fab-500x,ur,general_knowledge,wikipedia-ur,templated_human,[user] ماورائے قفقازی اشتراکی وفاقی سوویت جمہوریہ کے بارے میں ایک مختصر تعارف لکھیں۔,"ماورائے قفقازی اشتراکی وفاقی سوویت جمہوریہ (transcaucasian socialist federative soviet republic) (روسی: Закавказская Советская Федеративная Социалистическая Республика) جسے ماورائے قفقازی ایس ایس آر (transcaucasian ssr) کے طور پر بھی جانا جاتا ہے سوویت اتحاد کی ایک ریاست تھی۔
+
+1936ء میں تحلیل ہونے والی ریاستیں اور عملداریاں
+
+آذربائیجانی زبان بولنے والے ممالک اور علاقہ جات
+
+آرمینیائی زبان بولنے والے ممالک اور علاقہ جات
+
+علامت کیپشن یا ٹائپ پیرامیٹرز کے ساتھ خانہ معلومات ملک یا خانہ معلومات سابقہ ملک استعمال کرنے والے صفحات",,,,
+fab-500x-20261114T224408Z-006,20,cbc06d3b23971609b3081a02,4df20cc2ecc9825a054170c48af5e078,fab-500x,ur,islamic_studies,wikipedia-ur,templated_human,[user] ابوالحسن کبیر ٹھٹوی سندھی کے بارے میں ایک مختصر تعارف لکھیں۔,"شیخ ابو الحسن محمد بن عبد الہادی ٹھٹوی سندھی مدنی المعروف شیخ سندھی (وفات: بدھ 12 شوال 1138ھ/ 12 جون 1726ء) سندھ کے مشہور تاریخی شہر ٹھٹہ سے تعلق رکھنے والے سترہویں صدی کے عالمی شہرت یافتہ محدث اور فقیہ تھے۔ فقہ حنفی سے نسبت خاص کے سبب عرب دنیا میں امام السِّندی الحنفی کے نام سے پہچانے جاتے ہیں۔
+
+شیخ ابو الحسن کا نام محمد بن عبد الہادی ہے۔ کنیت ابو الحسن اور لقب نور الدین ہے۔ والد کا نام عبد الہادی تھا۔
+
+شیخ ابوالحسن محمد بن عبد الہادی سندھ کے شہر ٹھٹہ میں پیدا ہوئے، البتہ سال ولادت معلوم نہیں ہو سکا۔ ابتدائی زندگی ٹھٹہ اور سندھ کے شہروں میں گذری۔ ۔ عمر کے وسطی زمانہ سفر حجاز کے واسطے روانہ ہوئے اور قلیل عرصہ ایران کے شہر شوشتر میں مقیم رہے۔ بعد ازاں مدینہ منورہ پہنچے اور تمام عمر مدینہ منورہ میں بسر کی۔ وہاں محدث علامہ ابراہیم کر دی کورانی، شیخ محمد بن عبد الرسول برزنجی مدنی اورشیخ عبد اللہ بن سالم اور دیگر علما سے علم حاصل کیا اور سند لی۔ شیخ ابو الحسن نے باقی عمر وہیں علمِ حدیث کی خدمت اور درس و تدریس میں بسر کی۔ مدینہ منورہ کے علما و فضلا ان کی شاگردی کو اپنے لیے باعث عزت و شرف سمجھتے تھے۔ مشرق و مغرب کے ہزا رہا علما و فضلا نے ان سے حدیث کی سندیں حاصل کیں۔
+
+شیخ ابو الحسن نے درس و تدریس کے علاوہ احادیث کی کتابوں پر بھی عمدہ حواشی تحریر کیے، جن میں چھ کتب کے حواشی مصر میں بھی شائع ہوچکے ہیں۔ تحریر کردہ تصانیف اور حواشی کی تفصیل یوں ہے:",,,,
+fab-500x-20261114T224408Z-006,21,4d3292fec1b4d91035c0b600,c76bbf7f62f92efcf53537eea6b82213,fab-500x,ur,mathematics,approx-curriculum,programmatic,[user] ایک دکان میں 87 آم تھے۔ 36 بک گئے۔ اب کتنے باقی ہیں؟,"مرحلہ 1: یہاں عمل - ہے۔
+مرحلہ 2: 87 - 36 = 51
+
+جواب: 51 آم۔",,,,
+fab-500x-20261114T224408Z-006,22,db675dc25cee7ee25422ff97,055a7d6f0fd20459f5ff08ee27b09483,fab-500x,ur,pakistan,wikipedia-ur,templated_human,[user] گورنر پنجاب، پاکستان کے بارے میں ایک مختصر تعارف لکھیں۔,"گورنر پنجاب پنجاب، پاکستان کی صوبائی حکومت کا سربراہ ریاست مقرر کیا جاتا ہے۔ گورنر کا تقرر صدر پاکستان ،وزیر اعظم پاکستان کے مشورہ سے کرتا ہے اور عموماً یہ ایک رسمی عہدہ ہوتا ہے یعنی اس کے پاس بہت زیادہ اختیارات نہیں ہوتے۔ تاہم ملکی تاریخ میں متعدد بار ایسے مواقع آئے ہیں جب صوبائی گورنروں کو اضافی و مکمل اختیارات ملے ہیں خاص طور پر اس صورت میں جب صوبائی اسمبلی تحلیل کر دی گئی ہو، تب انتظامی اختیارات براہ راست گورنر کے پاس آ جاتے ہیں جیسا کہ 1958ء سے 1972ء اور 1977ء سے 1985ء تک کے فوجی قوانین (مارشل لاز) اور 1999ء سے 2002ء تک کے گورنر راج میں۔ پنجاب میں 1949ء سے 1951ء تک گورنر راج نافذ رہا ہے۔
+
+ویکی ڈیٹا سے مطابقت رکھنے والی مختصر تفصیل",,,,
+fab-500x-20261114T224408Z-006,23,41074aa880db25db8a37e01b,8ad3f0c3b5a38c625c9987189bfe3b5d,fab-500x,ur,problem_solving,wikipedia-ur,templated_human,[user] کولمبو پلان کے بارے میں ایک مختصر تعارف لکھیں۔,"کولمبو پلان is a regional organisation that embodies the concept of collective intergovernmental effort to strengthen economic and social development of member countries in the ایشیا بحر الکاہل region. The primary focus of all Colombo Plan activities is on human resources development۔
+
+The Colombo Plan has four permanent programmes:
+
+Long-Term Scholarships Programme (LTSP, estd: 1951)
+
+Drug Advisory Programme (DAP, estd: 1973)
+
+Programme for Private Sector Development (PPSD, estd: 1995)
+
+Programme for Public Administration & Environment (PPA/E, estd: 1995)
+
+In 2014, a programme on gender called the Gender Affairs Programme (GAP) was established. The programme expects to address gender issues in the region.
+
+کولمبو پلان میں فی الحال 27 ارکان ہیں، ایشیا پیسفک کے علاقے میں بھی شامل ہیں، غیر دولت مشترکہ ممالک اور وہ ممالک جو علاقائی تنظیموں سے تعلق رکھتے ہیں جیسے کہ جنوب مشرقی ایشیائی اقوام کی تنظیم اور جنوبی ایشیائی علاقائی تعاون کی تنظیم کے رکن ممالک۔
+
+1950 میں دو بانی ارکان سمیت کولمبو منصوبہ کے چار ماضی کے ارکان ہیں، کینیڈا اور مملکت متحدہ۔ جنوبی ویت نام نے 1951ء میں شمولیت اختیار کی اور 2 جولائی 1976 تک رہا پھر اشتراکی جمہوریہ ویت نام بننے پر 1978ء میں نکل گیا۔ ویت نام 5 نومبر 2001 تا 18 نومبر 2003 تک ایک عارضی رکن رہا۔
+
+International Organisations – The Colombo Plan
+
+خانہ معلومات ملک یا خانہ معلومات سابقہ ملک پرچم سرخی یا قسم پیرامیٹر استعمال کرنے والے صفحات",,,,
+fab-500x-20261114T224408Z-006,24,62b7a488550f832624329acd,7ca2fffcef62d16980226df42799a57c,fab-500x,ur,reasoning,wikipedia-ur,templated_human,[user] جارج ولہلم فریڈریک ہیگل کے بارے میں ایک مختصر تعارف لکھیں۔,"جارج ولہلم فریڈریک ہیگل (; ; اگست 27, 1770 – نومبر 14, 1831) ایک جرمن فلسفی اور جرمن مثالیت کی اہم شخص تھا۔ یہ اپنے دور میں بہت مشہور ہوا اور براعظمی روایت فلسفہ اور تجزیاتی روایت میں بھی بااثر ثابت ہوا۔ اگرچہ ہیگل ایک متنازع شخصیت رہتا ہے، لیکن مغربی فلسفہ میں اس کی علمی قد و قامت تسلیم شدہ ہے۔
+
+The secondary literature on Hegel is vast. The following references provide only a small selection of introductory English-language texts. (For a more complete listing, see the External links section or the Library resources box to the right.)
+
+Beiser, Frederick C. (ed.)، 1993. The Cambridge Companion to Hegel۔ Cambridge: Cambridge University Press. ۔
+
+Beiser, Frederick C.، 2005. Hegel۔ New York: Routledge.
+
+Burbidge, John, 2006. The Logic of Hegel's Logic: An Introduction۔ Broadview Press.
+
+Findlay, J. N.، 1958. Hegel: A Re-examination۔ New York: Oxford University Press.
+
+Francke, Kuno, Howard, William Guild, Schiller, Friedrich, 1913–1914
+
+Harris, H. S.، 1995. Hegel: Phenomenology and System۔ Indianapolis: Hackett.
+
+Houlgate, Stephen, 2005. An Introduction to Hegel. Freedom, Truth and History۔ Oxford: Blackwell
+
+Houlgate, Stephen, 2005. The Opening of Hegel's Logic: From Being to Infinity۔ Purdue University Press.",,,,
+fab-500x-20261114T224408Z-006,25,f4b1828a0e091a62feb624d0,cd81649f0efe216e80df82cf9347f9c0,fab-500x,ur,research,wikipedia-ur,templated_human,[user] دستاویزی مفروضہ کے بارے میں ایک مختصر تعارف لکھیں۔,"دستاویزی مفروضہ  یا صرف (DH) عہد نامہ قدیم کی پہلی 5 کتب یعنی تورات کے مآخذ سے متعلق ایک نظریہ ہے۔ جس کے مطابق تورات کا متن اصل میں آزاد، متوازی اور مکمل روایتوں سے حاصل کیا گیا تھا۔ جسے بعد میں مدونین کا ایک سلسلہ مل گیا تھا جس نے اسے مدون کیا۔ ان روایات کی تعداد عام طور پر چار مقرر ہے، لیکن درست تعداد مفروضے کا لازمی جزو نہیں ہے۔ اسے جولیس ویل ہاسن نے پیش کیا، اسی کی نسبت سے اسے کبھی کبھی ویل ہاسن مفروضہ بھی کہا جاتا ہے۔
+
+Yahwist ماخذ (J) : 950 قبل از مسیح جنوبی مملکت یہودہ میں لکھا گیا۔
+
+Elohist ماخذ (E) : 850 قبل از مسیح شمالی مملکت اسرائیل میں لکھا گیا۔
+
+Deuteronomist (D) : 600 قبل از مسیح یروشلم میں مذہبی اصلاح کی مدت کے دوران لکھا گیا۔
+
+Priestly source (P) : 500 قبل از مسیح کاہن (یہودی کاہنوں) کے ذریعہ جلاوطنی کے دوران بابل میں لکھا گیا۔
+
+دستاویزی نظریہ سب سے پہلے تورات کی ناموافقت کی وجوہات پر اٹھارہویں اور انیسویں صدی میں سامنے آیا۔ انیسویں صدی کے آخر تک، اس پر اتفاق ہو گیا کہ یہ اصل میں چار بنیادی مآخذ سے اخذ کی گئی ہے۔ جن کو انگریزی میں jedp کہا جاتا ہے۔
+
+جے سے یہوواہ (Jehovah) بنتا ہے۔ کیونکہ تورات کی پہلی کتاب پیدائش میں یہوداہ کا لفظ اس ہستی کے لیے استعمال ہوتا ہے جس نے دنیا اور انسان کو بنایا جو نسب ناموں ک وبیان کرتا اور جزا و سزا، گناہ ثواب کا ذکر کرتا ہے۔",,,,
+fab-500x-20261114T224408Z-006,26,4df9d83b6b5f6d8f216434ac,a6219064195b909ab1abe896c485cd1f,fab-500x,ur,safety_ethics,wikipedia-ur,templated_human,[user] ملٹی وائبریٹر کے بارے میں ایک مختصر تعارف لکھیں۔,"ملٹی وائبریٹر (multivibrator) ایسے الیکٹرانی سرکٹ ہوتے ہیں جن سے دو حالتوں والے سادہ سسٹم (oscillator, timer, flip-flop) بنائے جا سکتے ہیں۔ ان میں دو ٹرانزسٹر استعمال ہوتے ہیں۔ ماضی میں یہ دو vacuum tubes (جنہیں valve بھی کہا جاتا تھا) سے بنائے جاتے تھے۔ ابتدا میں بننے والے ایسے سرکٹ بغیر input کے oscillator کا کام کرتے تھے اور ان کی output میں harmonics کی بھرمار ہوتی تھی اس لیے ان کا نام ملٹی وائبریٹر پڑ گیا۔
+
+ملٹی وائبریٹر سرکٹ کی تین قسمیں ہوتی ہیں۔
+
+غیر مستحکم یعنی astable۔ یہ دونوں حالتوں (آن اور آف) میں غیر مستحکم رہتے ہیں اور انہیں input کی بھی ضرورت نہیں ہوتی۔ یہ مسلسل ایک حالت سے دوسری حالت میں تبدیل ہوتے رہتے ہیں۔ یہ سرکٹ oscillator بنانے میں استعمال ہوتے ہیں۔ IC7400 میں چار NAND گیٹ ہوتے ہیں ان میں سے صرف دو کو استعمال کرتے ہوئے یہ ملٹی وائبریٹر بنایا جا سکتا ہے۔
+
+Monostable یا one shot۔ یہ ایک حالت میں تو مستحکم ہوتے ہیں مگر دوسری حالت میں کچھ مدت کے لیے غیر مستحکم ہوتے ہیں۔ جب ایک انپٹ پلس (input pulse) آتی ہے تو یہ سرکٹ بھی ایک آوٹ پٹ پلس خارج کرتا ہے اور غیر مستحکم (آف) حالت میں چلا جاتا ہے اور پھر ایک مقررہ وقت کے بعد دوبارہ مستحکم (آن) حالت میں واپس آ جاتا ہے۔ جتنی دیر یہ غیر مستحکم حالت میں رہتا ہے اس دورانیہ میں آنے والی کسی دوسری انپٹ پلس پر یہ کوئی آوٹ پٹ پلس نہیں دیتا۔ اس طرح یہ ایک مخصوص وقفہ پیدا کرنے کے لیے استعمال ہوتا ہے۔ اسے pulse source کے طور پر بھی استعمال کرتے ہیں اور frequency divider کے طور پر بھی۔",,,,
+fab-500x-20261114T224408Z-006,27,2a4d526dd8788f291cc96fc8,42279fa425265a62eab4af9f0596ff79,fab-500x,ur,science,approx-curriculum,programmatic,[user] ایک گاڑی 11 گھنٹوں میں 330 کلومیٹر فاصلہ طے کرتی ہے۔ اس کی اوسط رفتار کیا ہے؟,"اوسط رفتار = فاصلہ ÷ وقت = 330 ÷ 11 = 30 کلومیٹر فی گھنٹہ
+
+جواب: 30 کلومیٹر فی گھنٹہ",,,,
+fab-500x-20261114T224408Z-006,28,d678c709d3ee5113b1d77a74,d63c496a6189f353c45bd6ed379af92e,fab-500x,ur,software_engineering,wikipedia-ur,templated_human,[user] رومن نویسی کے بارے میں ایک مختصر تعارف لکھیں۔,"رومن سازی یا رومن نویسی (romanization or latinization) لسانیات میں مختلف تحریری نظاموں کو لاطینی رسم الخط میں تبادلہ کا ایک نظام ہے۔ رومن سازی کے طریقوں میں تحریری متن کی نمائندگی کرنے کے لیے نقل حرفی اور ترجمہ کا استعمال کیا جاتا ہے۔
+
+IPA for Urdu and Roman Urdu for Mobile and Internet Users (Download)
+
+Microsoft Transliteration Utility – A tool for creating, debugging and using transliteration modules from any script to any other script.
+
+Randall Barry (ed.) ALA-LC Romanization Tables U.S. Library of Congress, 1997, ISBN 0-8444-0940-5. (One of the few printed books with lists of romanizations)
+
+U.S. Library of Congress Romanization Tables in PDF format
+
+UNGEGN Working Group on Romanization Systems
+
+Chinese Phonetic Conversion Tool – Converts between Pinyin and other formats
+
+Cyrillic Transliteration and Transcription ONLINE (Cyrillic -> Latin)
+
+Lingua::Translit – پرل module covering a variety of writing systems e.g. Cyrillic or Greek. Provides a lot of standards as well as common transliteration schemes.
+
+Arabeasy – Arabic Transliteration (free chrome extension exists, also works for Persian, Urdu)
+
+Russianeasy – Russian Transliteration (free chrome extension exists)
+
+چھوٹے پیغام خانوں کا استعمال کرنے والے مضامین
+
+Short description is different from Wikidata",,,,
+fab-500x-20261114T224408Z-006,29,f1a6f5b2412c8799c955d1e9,54e7675bc0242f0e83f4a7776849fd29,fab-500x,ur,web_frontend,wikipedia-ur,templated_human,[user] فرہنگ اصطلاحات طبیعیات کے بارے میں ایک مختصر تعارف لکھیں۔,"طبیعیاتی اصطلاحات کی فرہنگ دراصل طبیعیات، اس کی ذیلی شاخوں اور متعلقہ شعبہ جات کی تعریفوں کی ایک فہرست ہے۔
+
+Absolute zero – مطلق صفر : یہ نظریاتی طور پر کسی بھی چیز کا ممکنہ کم ترین درجہ حرارت ہے۔
+
+Acceleration – اسراع : سمتار میں تبدیلی کی شرح کو اسراع کہتے ہیں۔
+
+Alloy–بھرت : دو یا دو سے زائد عناصر یا دھاتوں کی ملاوٹ کو بھرت کہاجاتا ہے۔
+
+Alternating current - متبادل رو یا متغیر برقی رو: اگر برقی رو کی سمت وقت کے برابر وقفوں میں تبدیل ہو رہی ہو تو اسے متبادل رو (AC) کہتے ہیں۔ یا کسی برقی جہد کے ذریعے سے پیدا ہونے والی برقی رو جس کی قطبیت (Polarity) وقت کے ساتھ ساتھ بدلتی ہو ۔
+
+Ammeter - ایمیٹر : ایمیٹر ایک ﭘﯿﻤﺎئشی ﺁﻟﮧ ہے جو برقی دوران (electrical circuits) میں برقی رو (electric current) ماپنے کے لیے ﺍﺳﺘﻌﻤﺎﻝ کیا جاتا ﮨﮯ۔
+
+Angular momentum - زاویائی معیار حرکت : پوزیشن ویکٹر اور خطی معیارِ حرکت کا ضربی حاصلِ ضرب (rxp)
+
+Annihilation – جوڑے کی فنا : کوئی ذرہ اور اس کا ضد ذرہ (antiparticle) ایک دوسرے کے مقابل آجائیں یا مل جائیں تو فنا ہو کر کسی اور ذرہ میں تبدیل ہوجاتے ہیں۔
+
+Antimatter – ضد مادہ : ضد ذرہ کے نظریہ کو اگر وسعت دے کر مادہ تک پھیلا دیا جائے تو، ضد مادہ کا نظریہ وجود میں آتا ہے۔
+
+Antiparticle – ضد ذرہ : طبیعیات میں ہر ذرے کے لیے ایک ضد ذرہ ہوتا ہے جو کمیت (mass) میں اس کے برابر اور برقی بار (Electric charge) میں اس کے مخالف ہوتا ہے۔
+
+Adiabatic process - حرارت بند نظام: ایک مکمل حرارت بند نظام جس میں حرارت کا تبادلہ نہ ہو سکے",,,,
+fab-500x-20261114T224408Z-006,30,3d913eb23b74f2dcb6f29b44,8dbe33627c9ab28adee43c9205c1a59d,fab-500x,ur,web_fullstack,wikipedia-ur,templated_human,[user] عریشہ رازی کے بارے میں ایک مختصر تعارف لکھیں۔,"عریشہ رازی اردو ٹیلی ویژن انڈسٹری میں ایک پاکستانی اداکارہ اور ٹیلی ویژن کی میزبان تھیں۔ انہوں نے اپنے کیریئر کا آغاز کچھ برانڈڈ اشتہارات کے اشتہاروں سے ادا کیا تھا۔ اس نے اپنا پہلا کمرشل ساڑھے تین سال کی عمر میں کیا تھا۔ اس نے اپنی بڑی بہن سارہ رضی خان کے ساتھ کراچی میں اپنا لباس برانڈ کھولا۔وہ مزاحیہ پروگرام  ہم سب امید سے ہیں  میں اداکاری کرنے والی ایک مشہور چائلڈ آرٹسٹ بن گئیں۔وہ متعدد تجارتی لحاظ سے کامیاب ٹیلی ویژن سیریز میں اپنی اداکاری کے لیے مشہور ہیں ، جن میں 'عمر،دادی اور گھر والے' '،' 'مستانہ ماہی' '،' 'کتنی گرہیں باقی ہیں شامل ہیں۔ '،' 'آستانہ' '،' ' سناٹا' '،' 'نہ کہو تم میرے نہیں' '،' ' تنہائی  ،  ملکہ عالیہ  ،  ابڑو  ،  صدقے تمھارے  ، ' بابا جانی
+
+انہوں نے ڈراما  مستانا ماہی  ،  نہ کہو تم میرے نہیں  ، عمر دادی اور گھر والے میں کام کرنا شروع کیا ، انہوں نے مشہور مزاحیہ شو ' ہم سب امیدید سے ہیں' میں ایک حصے کی میزبانی کی ۔ بعد ازاں انہوں نے بچوں کے لیے ایک نعت مقابلہ 'واہ واہ سبحان اللہ' کی میزبانی بھی کی۔ وہ گوہر ممتاز ، عائشہ عمر ، اظفر رحمان اور صبا حمید کے ساتھ 'تنہائی' میں نظر آئیں۔  تنہائی  ہم ٹی وی پر نشر کیا گیا۔
+
+https://itsforucloset.com/Personal website
+
+ویکی ڈیٹا سے مطابقت رکھنے والی مختصر تفصیل",,,,
+fab-500x-20261114T224408Z-006,31,2910f3e293bc990b76e28f00,379fb81c62c2187e52cc6565205c5864,fab-500x,ur,writing,roman-urdu-parl,transliteration_unverified,"[user] اس جملے کو اردو رسم الخط میں لکھیں:
+Fawad aalam al-noor jmkhanh Wahab Riaz al-noor jmkhanh zwalqrnin Haider pi and tea jmkhanh yasir hammeed Peshawar cricket club anwar Ali Pakistan cricket club owais zia pak korngi Abdul Al Razaq muslim cricket club waghera",فواد عالم النور جمخانہ وہاب ریاض النور جمخانہ ذوالقرنین حیدر پی اینڈ ٹی جمخانہ یاسر حمید پشاور کرکٹ کلب انور علی پاکستان کرکٹ کلب اویس ضیا پاک کورنگی عبد الرزاق مسلم کرکٹ کلب وغیرہ,,,,
+fab-500x-20261114T224408Z-006,32,19033324292a1ff119424135,f0261bc01e52c6a54518f8ee10815e9d,fab-500x,vi,coding,aya-dataset,human_authored,[user] Thánh địa Phật giáo lớn nhất thế giới ở nước này được UNESCO công nhận Di sản thế giới năm nào?,"Borobudur Temple được UNESCO công nhận là Di sản thế giới vào năm 1991. Đây là một ngôi chùa hay tu viện Phật giáo Đại thừa, được xây dựng vào thế kỷ thứ 9 trong thung lũng Kedu, thành phố Magelang, tỉnh Central Java, Indonesia.
+
+Công trình được xây dựng trên một ngọn đồi tự nhiên, cao khoảng 42 m. Borobudur có hình dạng kim tự tháp dạng bậc. Kiến trúc của công trình thể hiện sự giao hòa giữa kiến trúc Phật giáo và giáo phái bản địa thờ cúng tổ tiên tại Indonesia.
+
+Borobudur Temple có 460 bức phù điêu và 504 bảo tháp, là một trong những điểm du lịch nổi tiếng nhất ở Indonesia.",,,,
+fab-500x-20261114T224408Z-006,33,869509ee8383ef219d4f1448,a2e141a4c173e2ed47d13fcc3139e736,fab-500x,vi,education,aya-dataset,human_authored,[user] Địa phương nào có hai thành phố học tập toàn cầu của UNESCO?,"Đồng Tháp hiện là địa phương duy nhất ở Việt Nam có hai thành phố được vinh danh là ""thành phố học tập toàn cầu"" gồm Cao Lãnh và Sa Đéc.
+
+""Thành phố học tập toàn cầu"" là giải thưởng được Tổ chức Giáo dục, Khoa học và Văn hóa Liên hợp quốc (UNESCO), được trao lần đầu tiên vào năm 2015 tại Mexico, và vinh danh hai năm một lần. 
+
+Giải thưởng trao cho các thành phố đạt được tiến bộ đột phá với các nền tảng như thúc đẩy cơ hội học tập từ cơ bản tới đại học một cách bình đẳng cho mọi người; thúc đẩy học tập trong gia đình và trong cộng đồng; tạo điều kiện học tập phục vụ công việc và tại nơi làm việc. 
+
+Năm 2012, Viện Học tập suốt đời của UNESCO (UNESCO Institute for Lifelong Learning), đã xây dựng ""Mạng lưới thành phố học tập toàn cầu UNESCO"", gồm các thành phố thúc đẩy thành công việc học tập suốt đời trong cộng đồng để chia sẻ cảm hứng, kinh nghiệm chuyên môn, cũng như các kinh nghiệm thực tiễn trong xây dựng một thành phố học tập.",,,,
+fab-500x-20261114T224408Z-006,34,5ea221478a79ee8d223e2bc2,f11ff8618e6ba257691b1661d946aff3,fab-500x,vi,general_knowledge,aya-dataset,human_authored,"[user] Hãy viết một bài báo có thể sử dụng tiêu đề sau đây: 
+
+""Xu hướng du lịch người Việt ngày càng ưa chuộng"".","Theo công ty nghiên cứu thị trường du lịch Outbox, hoạt động du lịch kết hợp tham gia giải chạy được gọi là race-cation, được ghép từ ""race"" (chạy bộ) và ""vacation"" (kỳ nghỉ). Đây là một là kiểu du lịch mới, thuộc loại hình du lịch thể thao, du khách dành kỳ nghỉ để tham gia các giải thi đấu không chuyên.
+
+Tổ chức Du lịch Thế giới của Liên hợp quốc (UNWTO) định nghĩa du lịch thể thao (Sports Tourism) liên quan một cách chủ động hoặc thụ động đến trải nghiệm du lịch khi du khách tham gia hoặc quan sát một sự kiện thể thao mang tính cạnh tranh, được tổ chức tại một địa điểm cụ thể nào đó.
+
+Anh Phương tham gia một giải chạy địa hình ở Đà Lạt hồi tháng 3. Ảnh: Anh Phương
+Hồ Lê Anh Phương tham gia một giải chạy địa hình ở Đà Lạt hồi tháng 3. Ảnh: NVCC
+
+Theo Outbox, nhóm khách race-cation và khách du lịch thông thường có ""động lực điểm du lịch khác nhau"". Du khách thông thường muốn ghé thăm điểm đến để vui chơi, tham quan và nghỉ dưỡng, khách race-cation lại lựa chọn điểm đến vì sự kiện thể thao tại đó. Họ muốn tham dự giải thể thao để thử thách bản thân và rèn luyện sức khoẻ, sau đó mới tính đến việc du lịch.
+
+Ngoài mục đích nâng cao sức khỏe, còn nhiều yếu tố khác giúp thúc đẩy du khách tìm đến xu hướng du lịch kết hợp tham gia giải thể thao. Có người tham gia vì ""vui là chính"", một số người nhằm nâng cao thành tích cá nhân, tận hưởng phong cảnh, trải nghiệm ở điểm tổ chức giải hoặc người có thói quen trekking, hiking muốn ""đổi gió"".
+
+Đối với Hoàng Phong, kỹ sư 27 tuổi ở TP HCM, tham gia giải chạy ở đâu đó là một kiểu ""du lịch lành mạnh"" cùng gia đình vào dịp cuối tuần. ""Những chuyến đi chơi kết hợp chạy marathon vừa giúp tôi rèn luyện thể lực, vừa được dịp thăm thú điểm đến"" Phong nói. Cho đến nay, anh đã tham gia ba giải marathon.
+
+Tại hội thảo Vietnam Race-cation, diễn ra trong khuôn khổ hội chợ du lịch quốc tế TP HCM 2023, các chuyên gia nhận định một trong những đặc tính hành vi đáng chú ý của du khách Việt trong năm nay là tìm kiếm giá trị về sức khỏe và cân bằng về tinh thần khi đi du lịch. Xu hướng này có tính định hình thị trường, nhất là sau đại dịch, du lịch về sức khỏe đã được tiếp nhận rõ ràng và rộng rãi hơn.
+
+Trong năm 2023, Việt Nam có hơn 35 giải chạy quy mô lớn, thu hút khoảng 190.000 người tham dự. Ông Ngô Mạnh Cường, đại diện Ban tổ chức VnExpress Marathon, một trong 5 giải có trên 10.000 người tham gia, nói giải lần đầu được tổ chức tại Quy Nhơn tháng 6/2019. Sau 4 năm, giải đã mở rộng quy mô thi đấu tại 6 tỉnh thành gồm Quy Nhơn, Nha Trang, Huế, TP HCM, Hà Nội, Hạ Long. Năm 2023, giải đã được tổ chức ở 5 tỉnh thành. Tại mỗi điểm đến, giải chạy được kỳ vọng quảng bá các sản phẩm, ẩm thực, dịch vụ du lịch tới người tham dự, thúc đẩy kinh tế địa phương.
+
+Theo khảo sát của Outbox thực hiện hồi tháng 8, gần 45% số người được hỏi trả lời thường xuyên kết hợp du lịch khi tham gia các giải marathon ngoài nơi cư trú của họ. Các chuyến race-cation thường kéo dài 2-3 ngày. Chi phí dao động từ 5 đến 10 triệu đồng, gồm các hạng mục như lưu trú tại điểm đến, phương tiện di chuyển, phụ kiện thể thao, đồ công nghệ, trang phục thể thao, thực phẩm hỗ trợ sức khoẻ và hoạt động giải trí ngoài thời gian thi đấu. Lưu trú là hạng mục được chi tiêu nhiều nhất. Khách race-cation có xu hướng đi cùng gia đình hoặc theo nhóm. Điều này tạo sức lan toả trong việc chi tiêu, mang lại nguồn thu cho điểm đến.",,,,
+fab-500x-20261114T224408Z-006,35,bfdc0ce94fe6b56d8871d99e,b5fc3f1d17f9a18b65f8d09d41c8102d,fab-500x,vi,islamic_studies,aya-dataset,human_authored,"[user] Hãy viết một đoạn văn ít nhất 200 chữ dựa trên nội dung được nói tới trong câu sau: Thua Liverpool, Man City vẫn là ứng viên số 1 vô địch Ngoại hạng Anh","Ở trận tranh Siêu cúp Anh, dù rất cố gắng nhưng Man City lại không thể tận dụng được những cơ hội của mình và để thua Liverpool 1-3. Tuy nhiên, cần phải biết rằng chỉ 1 trong 10 năm gần nhất nhà vô địch Siêu cúp Anh có thể nâng cao cúp bạc Ngoại hạng Anh vào cuối mùa. Theo đánh giá của các nhà cái hàng đầu, Man City vẫn là ứng viên số 1 cho chức vô địch. Theo bet365, tỷ lệ vô địch của City là 8/13 (đặt 13 ăn 8). Tiếp theo lần lượt là Liverpool (5/2), Tottenham (12/1), Chelsea (16). Man United tiếp tục không được đánh giá cao khi chỉ đứng thứ 5, với tỷ lệ dao động từ 28 tới 40/1. Ở một diễn biến khác, tân binh Erling Haaland có màn chào sân nước Anh không thành công khi bỏ lỡ 2 cơ hội ngon ăn, trong đó đặc biệt là cú sút cận thành đưa bóng thằng lên trời. Rõ ràng, so với Darwin Nunez, người ghi bàn ấn định chiến thắng 3-1, Haaland lép vế rất nhiều. Nhưng một lần nữa, các nhà cái vẫn đánh giá cao người Man City. Trong cuộc đua giành Chiếc giày vàng, bet365 cho rằng Haaland là số 1 với tỷ lệ 11/4 (đặt 4 ăn 11). Trong khi đó, Nunez chỉ đứng thứ 4 với 12/1, ở giữa là Mo Salah (9/2) và Harry Kane (5/1).",,,,
+fab-500x-20261114T224408Z-006,36,46fd1ef98c3b09664549ae0a,79fecb8a207557373939e33916acc066,fab-500x,vi,mathematics,aya-dataset,human_authored,"[user] Ngôi trường nào từng mang tên hai trí thức yêu nước?
+
+Chọn câu trả lời đúng cho câu hỏi trên trong những câu sau:
+
+A. Trường THPT Phan Đình Phùng
+B. Trường THPT Việt Đức
+C. Trường THPT Kim Liên","A. Trường THPT Phan Đình Phùng
+
+Tháng 9/1977, UBND thành phố Hà Nội quyết định thành lập trường phổ thông cấp 3 Hoàng Diệu (học buổi chiều) dùng chung địa điểm với trường phổ thông cấp 3 Phan Đình Phùng (học buổi sáng). Một số giáo viên và học sinh Phan Đình Phùng được chuyển sang giảng dạy và học tập tại trường Hoàng Diệu. Trường phổ thông cấp 3 Hoàng Diệu mang tên tổng đốc Hoàng Diệu.
+
+Tổng đốc Hoàng Diệu quê ở Quảng Nam, đỗ cử nhân rồi phó bảng, kinh qua các chức vụ tham tri bộ Hình, bộ Lại. Đầu năm 1880, ông làm tổng đốc Hà Ninh, lãnh chức thượng thư bộ Binh, trực tiếp trấn thủ thành Hà Nội.
+
+Ngự sử Phan Đình Phùng quê Hà Tĩnh. Ngoài 20 tuổi, ông đỗ Đình Nguyên tiến sĩ làm quan tới chức Ngự sử trong triều đình Huế. Khi thực dân Pháp xâm lược, ông đứng về phe chủ chiến trong triều.
+
+Suốt 19 năm sau đó, cả hai ngôi trường song song hoạt động, phát huy truyền thống yêu nước của hai vị anh hùng chống Pháp, đào tạo cho đất nước những thế hệ công dân đáng tự hào. 
+
+Năm 1996, thành phố có chủ trương sáp nhập các trường cùng địa điểm nên trường phổ thông cấp 3 Phan Đình Phùng và trường phổ thông cấp 3 Hoàng Diệu được sáp nhập lại thành trường mới mang tên THPT Phan Đình Phùng.",,,,
+fab-500x-20261114T224408Z-006,37,a1a07cc6b94030eda35144fc,8f62e3d3b4653a46fca11ee9c2e19d53,fab-500x,vi,pakistan,aya-dataset,human_authored,"[user] Hãy tiếp tục đoạn văn sau: Vào tháng 4 năm 1978, Đảng Dân chủ Nhân dân Afghanistan theo cộng sản (PDPA) đã lên nắm quyền trong một cuộc đảo chính đẫm máu chống lại Tổng thống khi đó là Mohammed Daoud Khan, được gọi là","Cách mạng Saur. PDPA tuyên bố thành lập Cộng hòa Dân chủ Afghanistan, với lãnh đạo đầu tiên của nước này là Tổng bí thư Đảng Dân chủ Nhân dân Nur Muhammad Taraki. Điều này sẽ kích hoạt một loạt các sự kiện khiến Afghanistan thay đổi đáng kể từ một quốc gia nghèo nàn và hẻo lánh (và yên bình) trở thành một điểm nóng của khủng bố quốc tế. PDPA đã khởi xướng nhiều cải cách xã hội, phân phối đất đai, gây ra sự phản đối mạnh mẽ, đồng thời đàn áp dã man những người bất đồng chính kiến. Điều này gây ra tình trạng bất ổn và nhanh chóng mở rộng thành tình trạng nội chiến vào năm 1979, do các nhóm du kích ""mujahideen"" (và các du kích Maoist nhỏ hơn) tiến hành chống lại các lực lượng của chế độ trên toàn quốc. Nó nhanh chóng biến thành một cuộc chiến tranh ủy nhiệm khi chính phủ Pakistan cung cấp cho những người nổi dậy này các trung tâm huấn luyện bí mật, Hoa Kỳ hỗ trợ họ thông qua Cơ quan Tình báo Liên ngành của Pakistan (ISI), và Liên Xô đã cử hàng nghìn cố vấn quân sự đến hỗ trợ chế độ PDPA. Trong khi đó, ngày càng có nhiều xích mích thù địch giữa các phe phái cạnh tranh bên trong PDPA, với nhóm Khalq chiếm ưu thế và Parcham ôn hòa hơn.",,,,
+fab-500x-20261114T224408Z-006,38,f244c000e8a9df4853e98334,0bf7e2b1e6b0e01451f26a22b29e315b,fab-500x,vi,reasoning,aya-dataset,human_authored,"[user] Tóm tắt văn bản sau: PARLACEN được thành lập cuối tháng 10.1991 gồm 6 thành viên ở khu vực Trung Mỹ là Guatemala, El Salvador, Honduras, Nicaragua, Panama và CH Dominica. Những thành viên này đều từng có thời công nhận ngoại giao với Đài Loan nhưng đến nay, trừ Guatemala, đều đã cắt đứt với Đài Loan và chuyển sang thiết lập quan hệ ngoại giao chính thức với Trung Quốc. Vì thế, việc PARLACEN buông bỏ Đài Loan và nghiêng hẳn về Bắc Kinh là diễn biến logic và không thể khác.
+
+Quyết định trên của PARLACEN khiến Mỹ và Đài Loan hậm hực bao nhiêu thì lại làm cho Trung Quốc hài lòng bấy nhiêu. Nó là bằng chứng về ảnh hưởng và vị thế ngày càng tăng của Trung Quốc ở vùng vốn từng được coi là ""sân sau của Mỹ"". Việc này diễn ra trong bối cảnh Mỹ và đồng minh tăng cường hậu thuẫn Đài Loan cũng như tăng cường hợp tác và liên kết đối phó Trung Quốc ở Ấn Độ Dương - Thái Bình Dương nói chung và trong vấn đề Đài Loan nói riêng.
+
+PARLACEN biện giải cho quyết định chấm dứt quy chế quan sát viên của Đài Loan bằng lý do LHQ ngay từ năm 1971 đã chuyển từ công nhận Đài Loan sang công nhận Trung Quốc. Quan điểm này của LHQ đã không cản trở PARLACEN dành cho Đài Loan quy chế quan sát viên nhưng bây giờ lại được viện dẫn làm lý do chính. Qua đó có thể thấy thực chất ở đây là vì lợi ích của PARLACEN trong quan hệ với Trung Quốc.",Nghị viện Trung Mỹ (PARLACEN) hôm 21.8 quyết định thu hồi quy chế quan sát viên đã dành cho Đài Loan kể từ năm 1999 đến nay và chuyển sang dành cho Trung Quốc.,,,,
+fab-500x-20261114T224408Z-006,39,d501c09fc3a6e09c57909a14,332c9f9dba1e6fa1a12628048ea30ad2,fab-500x,vi,research,aya-dataset,human_authored,"[user] Trả lời câu hỏi sau bằng cách chọn câu trả lời phù hợp trong các câu dưới đây.
+
+Câu hỏi: Quốc gia nào giàu nhất thế giới năm 2022?
+
+A. Mỹ
+B. Đan Mạch
+C. Luxembourg
+D. Ireland","C. Luxembourg
+
+Luxembourg là một quốc gia nhỏ không giáp biển, nằm ở Tây Âu, giáp với Bỉ, Pháp và Đức. Với dân số 642.371 người, theo dữ liệu từ World Economics Research, Luxembourg có GDP bình quân đầu người năm 2022 là 131.813 USD (3,1 tỷ đồng) và là quốc gia giàu nhất thế giới xét theo tiêu chí này.
+
+Đứng thứ hai là Ireland với GPD bình quân đầu người 125.292 USD và thứ ba là Singapore với mức 109.330 USD.",,,,
+fab-500x-20261114T224408Z-006,40,a312e44de496bbdcd1c049de,60b302f05667e48bfacd1a20be13b75f,fab-500x,vi,safety_ethics,aya-dataset,human_authored,"[user] Văn bản này nói về sự kiện quan trọng nào? - Sau khi phát hành, ""I Like It"" nhận được những phản ứng tích cực từ các nhà phê bình âm nhạc, trong đó họ đánh giá cao giai điệu bắt tai và thích hợp với không khí mùa hè cũng như quá trình sản xuất nó, đồng thời gọi đây là một điểm nhấn nổi bật từ ""Invasion of Privacy"". Ngoài ra, bài hát còn lọt vào danh sách những tác phẩm xuất sắc nhất năm 2018 bởi nhiều tổ chức và ấn phẩm âm nhạc, như ""Billboard"", ""Rolling Stone"", ""The New York Times"", ""Los Angeles Times"" và ""Entertainment Weekly"". ""I Like It"" đã gặt hái nhiều giải thưởng và đề cử tại những lễ trao giải lớn, bao gồm một đề cử giải Grammy cho Thu âm của năm tại lễ trao giải thường niên lần thứ 61 và chiến thắng một hạng mục trên tổng số năm đề cử tại giải thưởng âm nhạc ""Billboard"" năm 2019 cho Top Bài hát Rap. ""I Like It"" cũng tiếp nhận những thành công lớn về mặt thương mại với việc lọt vào top 10 ở nhiều quốc gia trên thế giới, bao gồm những thị trường lớn như Canada, Ireland, New Zealand, Bồ Đào Nha, Tây Ban Nha, Thụy Sĩ và Vương quốc Anh. Tại Hoa Kỳ, bài hát đạt vị trí số một trên bảng xếp hạng ""Billboard"" Hot 100, trở thành đĩa đơn quán quân thứ hai của Cardi B và đầu tiên của Bad Bunny và J Balvin, đồng thời giúp cô trở thành rapper nữ đầu tiên trong lịch sử có hai đĩa đơn đầu bảng tại đây.","Văn bản này nói về sự kiện: lễ trao giải Grammy thường niên lần thứ 61 và giải thưởng âm nhạc ""Billboard"" năm 2019",,,,
+fab-500x-20261114T224408Z-006,41,12b6386492b044765a249be1,553db6a392785d2cdfbaf96af5144277,fab-500x,vi,science,aya-dataset,human_authored,"[user] Hãy viết tiếp nội dung cho đoạn văn sau: Hãy đặt một tiêu đề phù hợp với đoạn văn sau: Kết quả điều tra cho thấy, từ tháng 1-2020 đến tháng 10-2021, Sở Y tế, CDC Cà Mau và Bệnh viện đa khoa tỉnh thực hiện 11 gói thầu mua sinh phẩm xét nghiệm Covid-19, máy tách chiết DNA/RNA tự động, hóa chất, sinh phẩm và thiết bị phục vụ công tác phòng chống dịch Covid-19 của Công ty Việt Á, với số tiền trên 49,4 tỷ đồng. Chưa dừng lại ở đó, Sở Y tế mua sinh phẩm xét nghiệm Covid-19 của Công ty Việt Á cao hơn so với chi phí sản xuất (đã bao gồm 5% lợi nhuận và chi phí khác), dẫn đến thiệt hại trên 9,1 tỷ đồng. Còn lại gói thầu 40.000 sinh phẩm xét nghiệm chưa thanh quyết toán. CDC Cà Mau mua sinh phẩm xét nghiệm Covid-19 của Công ty Việt Á cao hơn so với giá của chi phí sản xuất (đã bao gồm 5% lợi nhuận và chi phí khác), dẫn đến thiệt hại trên 3 tỷ đồng. Quá trình thực hiện hồ sơ đấu thầu mua sinh phẩm xét nghiệm Covid-19 của Công ty Việt Á, Lê Ngọc Định, Đặng Hải Đăng và Hồ Quang Nhu thực hiện không đúng quy định về đấu thầu, ""không bảo đảm công bằng, minh bạch"", vi phạm các hành vi bị cấm trong đấu thầu quy định tại khoản 6 Điều 89 Luật Đấu thầu; gây thiệt hại cho ngân sách nhà nước trên 12,2 tỷ đồng. Hành vi của 3 đối tượng nêu trên đủ yếu tố cấu thành tội ""Vi phạm quy định về đấu thầu gây hậu quả nghiêm trọng"" quy định tại khoản 3 Điều 222 Bộ luật Hình sự năm 2015 (sửa đổi năm 2017). Hiện Cơ quan Cảnh sát điều tra Công an tỉnh Cà Mau tiếp tục điều tra làm rõ vụ việc để xử lý theo đúng pháp luật. Trước đó, ngày 18-4, Cơ quan Cảnh sát điều tra Công an tỉnh Cà Mau ra Quyết định khởi tố vụ án hình sự số 17/CSKT, về tội ""Vi phạm quy định về đấu thầu gây hậu quả nghiêm trọng"" xảy ra tại Sở Y tế và CDC Cà Mau.","""Bắt tạm giam Giám đốc CDC Cà Mau liên quan đến mua sinh phẩm xét nghiệm của Công ty Việt Á""",,,,
+fab-500x-20261114T224408Z-006,42,ceb6056713baf8af24e55aa3,94da3deb2b2cf4c64baa5a1e06711a96,fab-500x,vi,web_frontend,aya-dataset,human_authored,"[user] Đoạn văn sau đang nói về vấn đề gì? Chị Phạm Minh Hương - một nhà đầu tư bất động sản, cũng là người bạn học cùng quê với tôi cho hay, hiện chị còn 4 lô đang bị ""chôn vốn"" chưa ra hàng được, trong đó 2 lô đất nền tại Thạch Thất với khoảng hơn 3 tỷ, một lô tại Sơn Tây hơn 2 tỷ và một lô ở Lâm Đồng gần 1 tỷ đồng. Cả 4 lô, dù đã rao bán về mức giá mua vào hơn một tháng nay nhưng vẫn chưa thể bán được. ""Một lô ở Bình Dương tôi bán lúc đỉnh nên may mắn có lời khá ổn, tuy nhiên 4 lô còn lại thì chưa biết đến khi nào mới hồi vốn. Thị trường đang rơi vào tình trạng trầm lắng, việc đăng tin rao bán cũng rầm rộ nhưng không có khách hỏi. Nếu tiếp tục tình trạng này, tôi sẽ phải chấp nhận cắt lỗ để thu hồi vốn làm việc khác"", chị Hương nói.  Sau khi chốt lời từ chứng khoán, đầu năm nay cô bạn thân của tôi ""khoe"" tranh thủ mua được 5 lô đất Được biết, đầu năm 2022 nhờ đầu tư chứng khoán đúng nhịp, Hương may mắn chốt lời được 5 tỷ đồng. Trong lúc thị trường chứng khoán bất ổn, chị Hương đã cùng bạn trong nhóm đầu tư rủ nhau ""quay xe"" sang bất động sản. Thời điểm đó, chứng kiến thị trường nóng sốt và tăng giá từng ngày, nhận thấy có nhiều tiềm năng, chị Hương quyết định dành thời gian tìm hiểu thị trường đất nền vùng ven và xuống tiền. Chỉ trong khoảng hai tháng từ tháng 3 đến đầu tháng 4, chị Hương đã chốt mua 5 lô đất và tính toán chỉ ""lướt sóng"" chứ không ngâm lâu. ""Lúc đó, thị trường đang sôi động nên bạn bè tôi ai mua - bán cũng có lời chóng vánh và tôi mạnh dạn mua theo. Trong 5 lô tôi mua, lô tại Bình Dương chỉ sau gần 1 tháng mua tôi đã nhanh chóng nhượng lại cho chủ đất bên cạnh. Vì gặp khách mua nhiệt tình nên lô đó tôi bán được giá và khá thuận lợi. Tuy nhiên, sau đó thị trường trầm lắng dần, những lô còn lại tôi lần lượt rao bán nhưng chưa thể bán nổi""… Được biết, câu chuyện nhà đầu tư ""ôm đống nợ"" hoặc dành chục tỷ mua đất ""chỉ để nuôi cỏ"" như chị Hương quả thực không hiếm. Nhiều nhà đầu tư tay ngang đang ""đứng ngồi không yên"" vì không rút được vốn để chuyển sang kinh doanh lĩnh vực khác.  Theo cơn sốt đất, nhiều nhà đầu tư dành cả chục tỷ mua đất ""chỉ để nuôi cỏ"" Theo ghi nhận của phóng viên, giá đất tại nhiều khu vực từng là điểm nóng hồi cuối năm 2021 và đầu năm 2022 giờ đã hạ nhiệt, mức giá chững lại và nhiều nơi hầu như không có giao dịch. Cụ thể, các lô đất thổ cư Hòa Lạc, giá đất vẫn dao động 9- 25 triệu đồng/m2. Giá khu vực Đồng Mô, Yên Bài (Ba Vì) giá khoảng 5 - 7 triệu đồng/m2 nhưng có diện tích lớn, tương đương giá trị 5-10 tỷ đồng/lô. Những khu đất trước đó ""cò đất"" kéo về tạo sóng, đẩy giá như: Dự án 93 lô Cổ Đông (Sơn Tây), 108 lô Bãi Dài và 72 Lô Bãi Dài tại xã Tiến Xuân (huyện Thạch Thất)… giờ không một bóng người, để hoang hóa cho cỏ mọc. Trong khi hàng nghìn tỷ đồng của nhà đầu tư bị ""chôn vùi"" trong đất. Những mảnh đất phân lô tại dự án 108 lô Bãi Dài đang để cỏ mọc hoang. Tại khu đất 72 lô Bãi Dài, (xã Tiến Xuân) cũng rơi vào tình trạng tương tự. Nhiều khu vực đường trong dự án phân lô bị xuống cấp, sụt lún. Hạ tầng xuống cấp trầm trọng… Theo báo cáo thị trường quý II/2022 của một đơn vị nghiên cứu BĐS, thị trường đất nền đã hạ nhiệt sau khi trải qua vùng đỉnh cao nhất được xác lập vào quý 2/2021. Số liệu thống kê của đơn vị nghiên cứu cho thấy, trong quý II/2022 lượt tìm kiếm đất nền giảm khoảng 13% so với đỉnh quý II/2021, một chỉ báo cho thấy cơn sốt đất nền đã đi qua vùng nóng và đang trong quá trình hoàn thiện một chu kỳ. Chuyên gia bất động sản Phan Công Chánh cho biết, đầu tư khi ""sốt đất"" thì thực tế chỉ có khoảng 20% là nhà đầu tư có tầm nhìn trung và dài hạn, còn lại 80% là các nhà đầu cơ với mong muốn thu được biên độ lợi nhuận tốt trong thời gian ngắn, hoặc thậm chí là lướt sóng từ lúc thị trường bắt đầu lên đến lúc chạm đỉnh. Vị chuyên gia này thẳng thắn cho rằng, xu hướng lướt sóng khi thị trường nóng hổi hay bắt đáy để chờ thời cơ chỉ dành cho những nhà đầu tư chuyên nghiệp, thành thạo thị trường và có tầm nhìn dài hạn, chiến lược. Còn các nhà đầu tư ""chết vì sốt đất"" thường là những nhà đầu tư F0, mới tham gia thị trường, đầu tư chạy theo tâm lý đám đông, nắm thông tin chậm, ít kiến thức và non kinh nghiệm thị trường. Nguồn: https://arttimes.vn/kinh-te/co-ban-than-tung-khoe-mua-5-lo-dat-trong-hai-thang-gio-thi-tham-lam-...Nguồn: https://arttimes.vn/kinh-te/co-ban-than-tung-khoe-mua-5-lo-dat-trong-hai-thang-gio-thi-tham-lam-roi-c6a8431.html","Cô bạn thân từng ""khoe"" mua 5 lô đất trong hai tháng: ""Giờ thì thấm lắm rồi!""",,,,
+fab-500x-20261114T224408Z-006,43,385de22cd81ffabfd6fa7467,8bc19aa1100d1cb85f873c272f6f055d,fab-500x,vi,web_fullstack,aya-dataset,human_authored,"[user] Hãy chọn đáp án đúng nhất cho câu hỏi sau:
+Nhà tù Hỏa Lò được xây dựng năm nào?
+
+A. 1896
+
+B. 1897
+
+C. 1898","A. 1896
+
+Theo thông tin trên website của nhà tù Hỏa lò, cuối thế kỷ XIX, nhằm đối phó với các phong trào đấu tranh của nhân dân Việt Nam, thực dân Pháp đã tăng cường bộ máy đàn áp: bổ sung lực lượng cảnh sát, hoàn chỉnh hệ thống toà án và xây dựng mạng lưới nhà tù.
+
+Năm 1896, thực dân Pháp xây dựng nhà tù Hỏa Lò có tổng diện tích 12.908 m2, là một trong những nhà lao lớn và kiên cố bậc nhất Đông Dương bấy giờ.
+
+Nhà tù Hỏa Lò được thiết kế thành 4 khu: A, B, C, D với tường bao quanh cao 4 m dày 0,5 m, gia cố thêm mảnh thủy tinh và dây thép điện. Khu A, B là khu vực giam giữ các phạm nhân đang điều tra, phạm nhân không quan trọng hoặc những người vi phạm kỷ cương của nhà tù.
+
+Khu C dành cho tù nhân Pháp hoặc ngoại quốc. Khu D dành cho phạm nhân đang chờ thụ án tử hình.
+
+Nhà tù Hỏa Lò là địa danh nổi tiếng bởi từng giam giữ hàng nghìn chiến sĩ yêu nước, cách mạng Việt Nam. Ngày nay, di tích này chỉ rộng hơn 2.400 và được Bộ Văn hoá Thể thao và Du lịch công nhận là di tích lịch sử năm 1997.",,,,
+fab-500x-20261114T224408Z-006,44,0ca8bb71e347808def98d983,27d3f09c9465f18a23f3d010682d6502,fab-500x,vi,writing,aya-dataset,human_authored,"[user] Write a continuation for this paragraph - Sau sự sụp đổ của Liên Xô, các lực lượng Spetsnaz của các nước cộng hòa mới thành lập của Liên Xô đã tham gia vào nhiều cuộc xung đột trong nước như Nội chiến Tajikistan, Chiến tranh Chechen, Chiến tranh Nga-Gruzia",và Khủng hoảng Crimea. Spetsnaz cũng đã chịu trách nhiệm giải quyết một số tình huống bắt giữ con tin cấp cao như cuộc khủng hoảng con tin tại nhà hát Moscow và cuộc khủng hoảng con tin ở trường Beslan (vụ thảm sát trường Beslan).,,,,
+fab-500x-20261114T224408Z-006,45,501e5bb48aab010e5a43f2c3,1bff01e05c5a3a12df4172b9b6c120cc,fab-500x,wol,coding,aya-dataset,human_authored,"[user] Ndàx mbind mii jub na?
+Ñu ne: ""Ñaanal nu sa Boroom mu leeral nu luy meloom"". - Mu ne: ""Naka Moom nee na: nag wa du wu màggat, du aw sëll, dafa digg-dóomu. Def leen li ñu leen sant"".","Déedet; jubul cocc ba coset. Mbeqi ma a ngii:
+Ñu ne: ""Ñaanal nu sa Boroom mu leeral nu lu'y meloom"". - Mu ne: ""Naka Moom nee na: nag wa du wu màggat, du aw sëll, da fa digg-dóomu. Defléen li ñu léen sant"".",,,,
+fab-500x-20261114T224408Z-006,46,ce31ed6d9a8f92801e2adb07,a52a5c97635846c5dc72793b43b97022,fab-500x,wol,general_knowledge,aya-dataset,human_authored,[user] Ci man kembaar la réewum Colombie nekk,Réewum Colombie moo ngi nekk ci kembaar bu ñuy wax Amerique,,,,
+fab-500x-20261114T224408Z-006,47,ad42eb4e6418ee264dd11024,6bf5709f8f39d07a5378f4a179d18e36,fab-500x,wol,islamic_studies,aya-dataset,human_authored,[user] Fan mooy gëblag réewum Pakistan?,Gëblag réewum Pakistan mu ngi tudd Islamabad.,,,,
+fab-500x-20261114T224408Z-006,48,c05a71edcb145cbded34b2f1,cb719498b9e83d42e50834d37a061c69,fab-500x,wol,pakistan,aya-dataset,human_authored,[user] Ci ban kembaar la réwum Pakistan nékk,Réwum Pakistan mu ngi nékk ci kembaar bi ñuy wakh Asie,,,,
+fab-500x-20261114T224408Z-006,49,4b027b1560013fdc5df79b9f,230250d5b1b0067331818880efafb9d3,fab-500x,wol,writing,aya-dataset,human_authored,[user] Nees di wàxe 'loy' ci Àngale?,"Loy, 'letter' la'y firi ci Àngale.",,,,
+fab-500x-20261114T224408Z-006,50,e9c546c49e354199d8a4b9de,bbc985307104a22cb71424218a2b1212,fab-500x,xho,coding,aya-dataset,human_authored,"[user] Generate a headline for the following text: Umsazazi kanomathotholo, uHlumela Qabo, uza kube exhobisa amanina aseGqeberha kule mpelaveki. 
+UQabo, ozalelwe waze wakhulela eMdantsane, ukholelwa ukuba amanina afanelwe kukuxhotyiswa ngokwempilo, intlalo yoluntu neyeentsapho zawo. 
+Encokolela I’solezwe, uQabo uthi lo msitho obizwa ‘She Wins’  wenzelwa amagqiyazana asebenza ngokuzimisela. 
+“Ndiyakholelwa ukuba xa abafazi bephila ubomi obukhuselekileyo, obonelisayo nobunemveliso, banokufikelela kumandla abo apheleleyo. Oku kubavumela ukuba bafake izakhono zabo kwimisebenzi eza kukhulisa iintsapho ezonwabileyo nezisempilweni ” kutsho uQabo, osasaza kwiTruFM. 
+Lo msasazi uthi bajonge amanina asebenzayo, anamashishini naselula aphakathi kweminyaka engama25 nama40 ubudala. 
+La manenekazi aza kuxhobisana kwiinkalo ngeenkalo zobomi, eziquka ulwazi ngezemali, ezempilo, impilo ngokwasengqondweni nenkuthazo. 
+Osisithethi sembeko ngolu suku ngusomashishini oselula ongumnini weshishini elivelisa iimveliso zeenwele. Eli shishini limenze wangusozigidi ngonyaka ka2020, abe eliqale ngemali eyiR2000 kuphela ngexesha lokuvalwa kweentshukumo elizweni. 
+“Uza kwabelana nathi ngohambo lwakhe kwanemingeni yobomi njengomzali oselula ozikhulisela umntwana, ukususela ekuqaleni de abe ufikelela kwindawo akuyo namhlanje” kutsho uQabo. 
+UQabo, owaqala ukusasaza eMdantsane FM, uneminyaka esibhozo eqhuba neendibano zokuxhobisa amanina esebenzisa inkampani yakhe iKaligo Functions. 
+Eli gqiyazana, elalisele lingenaye umsebenzi, langenela ukhuphiswano lokukhangela umsasazi weTruFM ngo2020, nalapho lithi besele liphelelwe ngamacebo. 
+Lithi ukuphumelela olu khuphiswano kwavuselela ithemba lokuba xa ukholwa kuyenzeka. UQabo uthi unomathotholo umkhuphe kwingontsi yobumnyama. Kwangalo nyaka mnye wokuphumelela olu khuphiswano uthi waye washiywa ngumama wakhe. 
+“Zindehlele izinto ezimbi nezibuhlungu kodwa azange ndincame, ndazixelela ukuba ndakuphumla engcwabeni. Yilo nto ndiye ndavuseleleka ndakufika eGqeberha,  ndifuna nabanye abafana nam bangancami.” kutsho lo msasazi. 
+Uthi yona imingeni ejamelene namanina iyakuhlala ihleli kuba ngawo ame imizi namakhaya awo. 
+Lo msitho uza kubanjelwa eTavcor Volkswagen, eWilliam Moffett eGqeberha ngoMgqibelo we25 kuJuni. 
+Ofuna iinkcukacha zokungena emnyango angaqhagamshelana noHlumela Qabo kumakhasi onxibelelwano.","Sure, here's a headline for the given text - Umsasazi we-trufm  ukhweba amanina afuna ukuphumelela.",,,,
+fab-500x-20261114T224408Z-006,51,f4c91dd51a2bf36fd6349288,aab37c1d57daab6346a76bfde20edc32,fab-500x,xho,education,aya-dataset,human_authored,"[user] Generate a headline for the following text: \nUsekela mongameli uCyril Ramaphosa uzakunikwa isidanga sobugqirha kwezomthetho ngomso yiyunivesithi yaseVenda.  
+Ibhunga elilawula eli ziko livumelene ngamxhelo mnye ngokunika uRamaphosa esi sidanga ngenxa yenxaxheba yakhe ngethuba kwakusungulwa umgaqosiseko weli.  
+URamaphosa ukhe wasebenza nje ngengqonyela yala yunivesithi ukusukela ngonyaka ka-1997 ukuya ku-2009.  
+Ngexesha lakhe kula yunivesithi ukwasetyenziswe nje ngobuso bela ziko nalapho wathi waqokelela imali ekwibhiliyoni yeerandi (R1-Billion) eyathi yasetyenziswa ukuvuselela iziseko zelaziko. 
+URamaphosa ufunde isidanga somthetho kwiyunivesithi yoMzantsi Afrika emva kokuba wayegxothwe kwiyunivesithi yaseTurfloop nesele ibizwa ngokuba yiYunivesithi yaseMntla (University of the North).  
+URamaphosa wayelilungu eliphambili kumbutho wabafundi iSouth African Students Organisation (SASO) ngeloxesha. La yunivesithi kulindeleke ukuba iqhube uthweso zidanga lokugqibela kulo nyaka.","Sure, here's a headline for the given text - Uzakuthweswa isidanga sobugqirha uRamaphosa",,,,
+fab-500x-20261114T224408Z-006,52,4996d1359147ac2252bf09a5,9468a9366ce6fd4800cc88590c5e8129,fab-500x,xho,general_knowledge,aya-dataset,human_authored,[user] Umbuzo: Ngubani owacula ingoma yomxholo weGreatest American Hero? Impendulo:,Ngu-Joey Scarbury,,,,
+fab-500x-20261114T224408Z-006,53,3c6d0f683632427d38b1833d,8cdc8562c376795e2dae51348a999baa,fab-500x,xho,mathematics,aya-dataset,human_authored,"[user] Khangela isicatshulwa esingezantsi uze uphendule umbuzo emva koko ngolwimi olufanayo nesicatshulwa:  Ukudlula: Uhambo lokuqala lukaKelly lwasesibhakabhakeni lwalungumqhubi we-Space Shuttle Discovery ngexesha le-STS-103 ngoDisemba ka-1999. Le yayiyimishini yesithathu yokulungisa iHubble Space Telescope, yaye yathabatha iintsuku ezingaphantsi kwezisibhozo. Uhambo lwesibini lukaKelly lwaluyinkokheli yomsebenzi we-STS-118, uhambo lwe-Space Shuttle lweentsuku ezili-12 ukuya kwi-ISS ngo-Agasti 2007. Uhambo lwesithathu lukaKelly lwasesibhakabhakeni yayilolokuba lilungu labasebenzi kwi-Expedition 25/26 kwi-ISS. Wafika kwi-ISS ekhwele kwi-Soyuz TMA-01M ngomhla we-9 kweyeDwarha ngo-2010, kwaye wasebenza njengenjineli yendiza de wathatha umyalelo wesikhululo ngomhla we-25 kuNovemba ngo-2010 ekuqaleni kwe-Expedition 26. I-Expedition 26 iphele ngomhla we-16 Matshi 2011 ngokusuka kweSoyuz TMA-01M. NgoNovemba 2012, uKelly kunye nomkhweli wezulu waseRussia uMikhail Korniyenko bakhethwa ukuba baye kwi-ISS. Unyaka wabo wasesibhakabhakeni waqalisa ngokukhutshwa kweSoyuz TMA-16M ngoMatshi 27, 2015, baza bahlala kwisikhululo ngeExpeditions 43, 44, 45, no-46. Umsebenzi ugqitywe ngomhla woku-1 kuMatshi ngo-2016, ngokuhamba kweSoyuz TMA-18M kwisikhululo. UScott Kelly wathatha umhlala-phantsi kwi-NASA ngo-2016. Umntakwabo kaKelly, uMark Kelly, naye ngumkhweli-mkhombe odla umhlala-phantsi. Ngomhla we-12 ku-Epreli ngo-2019, i-NASA yanika ingxelo ngeziphumo zonyango, ezivela kwi-Astronaut Twin Study, apho i-astronaut twin ichithe unyaka kwindawo kwi-International Space Station, ngelixa elinye iwele lichithe unyaka eMhlabeni, elibonise iinguqu ezininzi ezihlala ixesha elide, kubandakanya nezo zinxulumene notshintsho kwi-DNA kunye nokuqonda, xa elinye iwele lalithelekiswa nelinye.  Umbuzo: Wafika nini uKelly kwiSoyuz?",9 Oktobha 2010,,,,
+fab-500x-20261114T224408Z-006,54,d9fe4633c017f439f9c2b761,3a6a235d69541f97ffa9861a4f477f00,fab-500x,xho,research,aya-dataset,human_authored,"[user] Shwankathela eli nqaku:  Uhlolisiso olutsha lubonise ukuba amabhinqa asenokuba semngciphekweni wokufumana umhlaza wamabele kwiminyaka emva kokuba eyekile ukusebenzisa unyango lwehomoni. Izazinzulu ziye zalumkisa ngelithi unyango lwehomoni lwenza ibhinqa libe sengozini engakumbi yokuba nomhlaza wamabele kangangeminyaka esibhozo emva kokuba liyekile unyango. Ezi zigqibo zintsha zivela kwiingcali eziye zenza olunye lolona phando lukhulu ehlabathini ngemiphumo yeHRT - esetyenziselwa ukunciphisa imiphumo yokuyeka ukuya exesheni. I-Women's Health Initiative e-US ne-Million Women Study e-UK zombini ziye zaveza ubungqina obunamandla bokuba i-HRT inyusa umngcipheko wokuba ibhinqa libe nomhlaza wamabele, wesibeleko nowamaqanda. Iziphumo zeMillion Women Study, intsebenziswano phakathi kweCancer Research UK neNHS, zibonisa ukuba amabhinqa asebenzisa iHRT edibeneyo anamathuba aphindwe kabini okuba nomhlaza wamabele xa kuthelekiswa nabo bangayisebenzisiyo. Yaye abaphandi bafumanise ukuba ukuba amabhinqa asebenzisa iHRT ngaphezu kweminyaka eli-10, imingcipheko yawo iphakame nangakumbi. Ngoku izazinzulu ezibandakanyeke kuhlolisiso lweWomen's Health Initiative ziye zalumkisa, emva kokulandela umkhondo, ukuba amabhinqa athabatha unyango lweHRT oludibeneyo lweestrogen neprogesterone aqhubeka enobungozi obuphezulu bomhlaza wamabele, de kube yiminyaka esibhozo emva kokuba eyekile unyango. Emva kokuyeka ukuya exesheni amaqanda ebhinqa ayeka ukuvelisa ihomoni i-estrogen. Ibangela iimpawu zokuyeka ukuya exesheni eziquka ukubanjwa ngumoya oshushu nokutshintshatshintsha kwemood. I-HRT inyanga umzimba ngokungenisa iihomoni zesini zamabhinqa. Kukho iindidi ezintathu ze-HRT, i-estrogen-only HRT, i-cyclic HRT apho i-estrogen ithathwa ngokuqhubekayo kodwa i-progesterone inikwa inyanga nenyanga okanye qho kwiinyanga ezintathu - kunye ne-continuous combined HRT, apho zombini iihomoni zesini zamabhinqa zithathwa ngaxeshanye. Ekuqaleni kwee-1990, ezinye izifundo ezincinane zabonisa ukuba unyango lwaluya kunciphisa umngcipheko womfazi wesifo sentliziyo nesifo samathambo. Ukuze kuhlolwe enoba oko kwakunjalo kusini na, iWomen's Health Initiative yaseUnited States yanikwa imbopheleleko yokuphanda. Baqokelela amabhinqa angaphezu kwama 26 000 aneminyaka engama 50 ukusa kwengama 79 ubudala kolu phando. Okwangoku, e-UK olunye uphando oluphambili, iMillion Women Study, luye lwaphanda ngeempembelelo zeHRT kumabhinqa.","I-HRT inyusa umngcipheko wesifo kangangeminyaka esibhozo emva kokupheliswa konyango. Isebenza kwabo basebenzisa i-HRT edibeneyo, i-estrogen kunye ne-progesterone. Ukufumanisa okwenziwa zizazinzulu kwenye yezona zifundo zinkulu kwezakha zenziwa kwiHRT. Kodwa amabhinqa athatha i-estrogen kuphela kwi-HRT eneneni anokuba nomngcipheko ophantsi.",,,,
+fab-500x-20261114T224408Z-006,55,523900acde07731aae42c4ea,e1020751ae77925ba3a52c263c4f5330,fab-500x,xho,science,aya-dataset,human_authored,"[user] Khangela isicatshulwa esingezantsi uze uphendule umbuzo emva koko ngolwimi olufanayo nesicatshulwa:  Isicatshulwa: Ukwakheka komzimba kunokuhlalutywa ngeendlela ezahlukahlukeneyo. Oku kungenziwa ngokwemiqathango yeekhemikhali ezikhoyo, okanye ngohlobo lweemolekyuli umzekelo, amanzi, iprotein, amafutha (okanye i-lipids), i-hydroxylapatite (emathanjeni), i-carbohydrate (njenge-glycogen kunye ne-glucose) kunye ne-DNA. Ngokwendlela yomzimba womntu, umzimba womntu unokuhlalutywa ube ngamanzi, amanqatha, izihlunu, amathambo, njl. Ngokwendlela yomzimba womntu, umzimba womntu unamakhulu eentlobo ezahlukeneyo zeeseli, kodwa ngokukodwa, elona nani likhulu leeseli eziqulethwe emzimbeni womntu (nangona ingelelona nani likhulu leeseli) azizizo iiseli zomntu, kodwa ziibhaktheriya ezihlala kumjelo wesisu somntu oqhelekileyo.  Umbuzo: Amanzi, amanqatha, izihlunu namathambo afumaneka kuwo wonke umzimba yaye anokwahlulwa aze ahlalutywe njani?","Ngokwemiqathango yeekhemikhali ezikhoyo, okanye ngohlobo lweemolekyuli.",,,,
+fab-500x-20261114T224408Z-006,56,671efee43781ddbe8a6dc81d,64ba028094389a2a9d48988ed554b3f9,fab-500x,xho,writing,aya-dataset,human_authored,"[user] Khawuphendule lo mbuzo unzima: Nguwuphi umlinganiswa odlalwa ngulo mdlali waseMerika, obonakala kwiChristmas Crime Story, kwidrama yomculo yeABC ethi ""Nashville"" (2012-2017)?",UTeddy Conrad,,,,
+fab-500x-20261114T224408Z-006,57,6fa799c7d60d72c2b5393bd6,6b085a940b45211aaa56d3498f078ec5,fab-500x,yor,coding,aya-dataset,human_authored,[user] Awọn ọmọ Yoruba ṣedaro Olupo tilu Ajaṣẹ-Ipo to waja,"Awọn araalu ṣedaro Olupo tilu Ajaṣẹ-Ipo, Ọba Sikiru Atanda Ọladọtun Wọleọla (Ilufẹmiloye) to waja lọjọ Aiku, Sannde, ọsẹ yii.
+
+ALAROYE gbọ pe nnkan bii aago mọkanla aabọ alẹ lo papoda lẹyin aisan ranpẹ.
+
+Gomina ipinlẹ Kwara, Abdulrahman Abdulrazaq, ti ba araalu Ajaṣẹ-Ipo, nijọba ibilẹ Irẹpọdun, kẹdun iku ọba onipo kin-in-ni (First Class) naa.
+
+Ninu atẹjade kan ti Akọwe iroyin rẹ, Rafiu Ajakaye, gbe sita laaarọ ọjọ Aje, Mọnde, ọsẹ yii, Gomina Abdulrahman ṣapejuwe oloogbe naa gẹgẹ bii akikanju ọkunrin, ẹni to fẹran araalu ilu ẹ, to si mu ilọsiwaju ba igbe-aye wọn ati ilu Ajaṣẹ-Ipo lapapọ.
+
+Abdulrahman ba awọn oloye, mọlẹbi atawọn ọrẹ kabiyesi to waja naa kẹdun. O gbadura ki Ọlọrun tẹ ẹ safẹfẹ rere, ko si tu awọn to fi silẹ saye lọ ninu.
+
+Ọdun 2009 ni Ọba Wọleọla gun ori oye gẹgẹ bii Olupo kẹẹẹdogun.
+
+Ọba Wọleọla ni alaga gbogbo ọba ilẹ Igbomina nipinlẹ Kwara.",,,,
+fab-500x-20261114T224408Z-006,58,54f17905844e2e10547cf0a0,022b6657542f1b24c7233a756cdca599,fab-500x,yor,cybersecurity,aya-dataset,human_authored,"[user] Ọran ma waa de bayii o! Pasitọ fun ọmọ ẹ loyun lẹẹmẹta l’Owode-Ẹgbado, o tun ṣẹ ẹ","Pasitọ Ṣọọṣi CAC, Ogo Oluwa Parish, nipinlẹ Ogun, ni baba tẹ ẹ n wo fọto rẹ yii. Oluwafẹmi Oyebọla lorukọ rẹ, ẹni ọdun mẹrinlelogojii(44) ni. Oun lo bẹrẹ si i ba ọmọ rẹ obinrin laṣepọ lati ọdun 2015, to si fun ọmọ naa loyun lẹẹmẹta ọtọọtọ, bẹẹ lo ba a ṣẹyun ọhun kaṣiiri ma baa tu.
+
+Iyawo Oyebọla lo ṣalaisi lọdun 2015, afi bii pe iyawo ẹnikan ko ku ri, n ni pasitọ yii ba n wa ẹni ti yoo maa ba sun lẹyin iku iyawo ẹ to bimọ obinrin yii fun un.
+
+Eyi ti ko ba si fi fẹyawo mi-in, ọmọ rẹ obinrin to wa lẹni ọdun mọkandinlogun nigba naa lo bẹrẹ si i ba a sun, o si ṣe kinni naa fọdun marun-un gbako.
+
+Lawọn asiko to n ba ọmọbinrin naa sun niyẹn loyun lẹẹmẹta, Oyebọla si mu ọmọ rẹ lọ sibi ti wọn yoo ti ṣẹyun ọhun bo ṣe n duro, wọn si ṣẹ wọn danu.
+
+Ko ma baa di pe ọmọ rẹ yoo tun loyun mi-in, niṣe ni pasitọ yii ṣeto ifetosọmọbibi fọmọ rẹ, o fẹẹ maa ba a lo pọ lai si ibẹru oyun nini, nigba naa lo si tẹra mọ iṣẹkuṣe naa gidi.
+
+Ọmọ rẹ to ti pe ọdun mẹrinlelogun bayii lo ṣẹṣẹ waa ronu wo pe baba oun fẹẹ sọ ere buruku naa di nnkan gbere ni, ko daju pe oun yoo bọ lọwọ rẹ laye yii pẹlu famili pilaani to tun ṣe soun lara naa. N lọmọ ba fi ọrọ ara ẹ lọ awọn ajafẹtọọ ọmọniyan ti wọn n pe ni ‘Advocacy For Children And Vulnerable Persons Network’.
+
+Awọn iyẹn lo ṣiṣẹ pọ pẹlu awọn ọlọpaa teṣan Owode-Ẹgbado, nibi ti SP Ọlabsi Elebute ti jẹ DPO wọn.
+
+Wọn wa Pasitọ Oluwafẹmi Oyebọla dele rẹ, wọn mu un de teṣan ọlọpaa, o si jẹwọ pe ootọ pọnbele ni gbogbo ohun tọmọ oun sọ fun wọn naa.
+
+O ni boun ṣe jẹ baba ẹ naa loun tun n ba a sun latọdun karun-un, oun si ti ṣẹyun mẹta fun un loootọ, ifetosọmọbibi to si sọ pe oun ṣe naa ki i ṣe irọ rara.
+
+CP Kenneth Ebrimson, ọga ọlọpaa nipinlẹ Ogun, ko fi ọrọ rẹ falẹ to fi ni ki wọn gbe pasitọ naa lọ sẹka to n ri si ifiyajẹ ọmọde ati lilo wọn nilokulo. Ibẹ ni wọn yoo ti gbe pasitọ ti ko le ko ara ẹ nijanu ibasun naa lọ sile-ẹjọ.",,,,
+fab-500x-20261114T224408Z-006,59,0ffd210c096bb1b45c1d89cb,29c9db6872ac5ba349911691993f9e7d,fab-500x,yor,education,aya-dataset,human_authored,[user] ‘Ọmọ ti wọn fi ṣe mi laaanu nigba tọmọ mi ku ni Baba Ijẹṣa fipa ba lo pọ’,"Pẹlu bi iwadii tawọn ọlọpaa n ṣe lori ẹsun biba ọmọde ṣeṣekuṣe ati ifipabanilopọ ti wọn fi kan gbajugbaja oṣere onitiata ilẹ wa nni, Ọlanrewaju James Omiyinka tawọn eeyan mọ si Baba Ijẹṣa, ṣe n lọ lọwọ, ọpọ aṣiri lo n tu sita nipa bi iṣẹlẹ naa ṣe waye, ati bi ọkunrin naa ṣe ja awọn ololufẹ rẹ kulẹ.
+
+Oṣere-binrin alawada kan, Damilọla Adekọya, ti inagijẹ rẹ n jẹ Princess, lo ṣalaye ninu fọran fidio kan to n ja ranyin lori atẹ ayelujara pẹlu omi loju pe ọdọ oun ni iṣẹlẹ naa ti waye, o ni ọmọbinrin toun gba ṣọmọ lati ọjọ pipẹ sẹyin ni Baba Ijẹṣa ki mọlẹ, to ṣe baṣubaṣu.
+
+Ninu fidio tobinrin naa fi sori atẹ ayelujara insitagiraamu rẹ, o ṣalaye hulẹhulẹ ọrọ naa bayii pe:
+
+“Mo ti gbọ, mo si ti ka gbogbo ohun tawọn eeyan n sọ nipa iṣẹlẹ yii, mi o tiẹ gbadura pe kiru ohun to ṣẹlẹ si mi yii ṣẹlẹ sẹnikan.
+
+“Lọdun diẹ sẹyin, mo lawọn idojukọ kan ninu igbeyawo mi, ọmọ mi ku, ọfọ nla lo si jẹ fun mi, lawọn obi kan laduugbo mi ba ṣeto pe kawọn ọmọ wọn maa waa gbe ọdọ mi, ki wọn le rẹ mi lẹkun, ki wọn maa ba mi ṣere. Bi mo ṣe mu wọn bii ọmọ niyẹn, mẹfa ni wọn, ọkunrin mẹta obinrin mẹta.
+
+“Aarin kan ni Baba Ijẹṣa waa ba mi pe oun lawọn iṣoro kan, pe ki n jọwọ, ran oun lọwọ, mo si gba lati hẹẹpu ẹ, emi ni mo sanwo to fi forukọ silẹ fun lẹsinni (lesson) kan ti mo wa fun un, o ṣe idanwo oniwee-mẹwaa nibẹ (GCE), mo si bẹrẹ si i ba a ṣọna bo ṣe wọle si Fasiti Eko, UNILAG.
+
+Nibi tọrọ iwakiwa ẹ ti bẹrẹ ni pe, lọjọ kan, Baba Ijẹṣa tun waa ba mi pe ki n tun ran oun lọwọ si i. Awọn ọmọkunrin mẹta to wa lọdọ mi lawọn fẹẹ lọọ ṣere laduugbo, mo si gba fun wọn, ọmọbinrin kan tẹle wọn lọ. Emi, aunti mi, Baba Ijẹṣa atawọn ọmọbinrin meji to ku la ṣẹ ku sile. Nigba ti aunti mi fẹẹ maa lọ, mo sin wọn jade, mo tilẹkun geeti ile wa, mi o si mọ nnkan to ṣẹlẹ laarin iṣẹju mẹta si mẹrin ki n too pada de.
+
+Lọsẹ to tẹle e, awọn ọga ileewe tọmọbinrin naa n lọ pe mi lori aago, wọn ni ki n waa wo nnkan ti ọmọ mi n ṣe. Wọn lọmọ naa jokoo sori itan akẹkọọ ẹgbẹ ẹ, lo ba n ṣe bakan bakan. Wọn tun pe awọn obi ọmọkunrin naa gan-an, kristẹni ni wọn. Wọn ni boya iṣoro ọmọbinrin naa ki i ṣe oju lasan, ni wọn ba bẹrẹ si i gbadura.
+
+Emi o mọ pe Baba Ijẹṣa ti kilọ fọmọ yẹn pe ko gbọdọ sọ fẹnikan ni, mo ṣaa ri i pe o tun wa sile mi lọjọ keji, lati waa wo o boya ọmọ ti sọrọ tabi ko sọ. Nigba to de, o loun ra awọn eeso kan wa fawọn ọmọ, o ni kọmọbinrin yii tẹle oun lọ sidii mọto toun gbe wa, aṣe niṣe ni Baba Ijẹṣa lọọ ki kọkọrọ mọto bọ ọmọọlọmọ nidii ninu ọkọ rẹ.
+
+Lẹyin iyẹn, ko wa sile mi mọ, igbakigba to ba nilo iranlọwọ mi, o maa n pe mi lori aago ni, iyẹn lo fi ba mi lọkan jẹ nigba tawọn kan n sọ pe lati ọdun meje sẹyin ni Baba Ijẹṣa ti n fipa ba ọmọ ọhun lo pọ, iyẹn ki i ṣe ootọ rara.
+
+O daa, o ti ṣeṣekuṣe to fẹẹ ṣe, ko si wa sile wa mọ, igba kan to pe mi pe ki n tun ran oun lọwọ, pe oun n ya fiimu kan lọwọ, mo ni ko yẹ ko jẹ emi ti mo fẹẹ ran an lọwọ ni mo maa wa a lọ, ṣugbọn mọ lọ si lokeṣan to loun wa, mo kan kiyesi i pe nigba ti mo de’bẹ, niṣe lo n sa fun mi, o n dọgbọn yẹ mi silẹ, ara ba bẹrẹ si i fu mi, mo n ro o pe ‘ki lo le fa a’.
+
+Ohun mi-in ni pe iṣẹlẹ naa ti nipa lori ọmọbinrin naa. O bẹrẹ si i feeli nileewe, mo ni lati fi i si lẹsinni kan. Mo sọ akiyesi mi fawọn eeyan mi atawọn obi ọmọ ọhun, gbogbo wọn si gba pe kọmọ naa ṣi wa lọdọ mi, wọn ni ka maa gbadura fun un.
+
+Ni bayii, awọn ọmọ naa ti dagba, inu ọgba ileewe (Boarding House), ni wọn n gbe. Mo waa wo o pe ile maa da bi awọn ọmọ yii ba ti tun pada lọ sileewe, emi nikan lo maa ku. Iyẹni ni mo ṣe pinnu lati lọọ gba ọmọ tọ nile awọn ọmọ alainiyaa, ti emi pẹlu rẹ yoo jọ maa wa ninu ile ti Korona ba kasẹ nilẹ. Eyi ni mo n ro lọwọ, ọmọbinrin naa si wa lọdọ mi, lọjọ kan temi ati ọrẹ mi atoun naa, ta a n wo fiimu kan lọwọ, emi ati Baba Ijẹṣa wa ninu fiimu yẹn, bọmọ yii ṣe ri Baba Ijẹṣa lo poṣe, o si dide laarin wa. Ẹnu ya emi atọrẹ mi, la ba lọọ ba a, igba to pẹ ti a ti n beere ohun to ṣẹlẹ, lọmọ ba jẹwọ gbogbo ohun ti Baba Ijẹṣa ti ṣe.
+
+Emi atọrẹ mi pinnu lati wadii ootọ ọrọ lẹnu Baba Ijẹṣa, mo pe e lori aago ẹ, ṣugbọn ko wọle, ni mo ba fọrọ ranṣẹ si i lori instagiraamu ẹ, mo sọ fun un pe mo fẹẹ ya fiimu tuntun kan, mo si fẹ ko kopa ninu ẹ. Bẹẹ niṣe lemi ati mama mi fẹẹ bi i leere ọrọ o.
+
+Awọn eeyan gba mi nimọran pe ki n jẹ kọrọ mi lẹrii, ka ma mu un nigunpaa, ka mu un lọrun ọwọ, eyi lo mu ki n pe ileeṣẹ to n ta kamẹra aṣofofo CCTV, kan, wọn si waa ba mi ṣeto ẹ, ọjọ to loun maa wa naa la fi CCTV sibẹ, koda Baba Ijẹṣa ba awọn oṣiṣẹ ti wọn waa fi kamẹra aṣofofo naa sibẹ, o si beere lọwọ mi nipa wọn, mo purọ fun un pe awọn ti wọn waa tun ẹrọ DSTV mi ṣe ni.
+
+Nigba tawọn yẹn n lọ, mo tẹle wọn, mo sọ fun Baba Ijẹṣa pe mo n bọ, a ti sọ fọmọbinrin yẹn tẹlẹ pe oun ati Baba Ijẹṣa maa wa nile o, a o ni i pẹẹ pada, koda mi o mu foonu mi jade. Ọmọ loun o le da nikan wa nile pẹlu Baba Ijẹṣa, ṣugbọn a sọ fun un pe ko ma wọri, ko le si nnkan kan.
+
+Ba a ṣe jade la ti n wo gbogbo ohun to n ṣẹlẹ nile latori foonu mi-in. Gbogbo inu ile mi ni Baba Ijẹṣa yẹ wo patapata. A ri i bo ṣe n yẹ awọn ile wo boya eeyan ṣi wa nile abi ko sẹnikan. O tun wo ibi ti kamẹra naa wa pẹlu, a o mọ boya o kiyesi i tabi bẹẹ kọ.
+
+Mi o le maa sọ awọn nnkan to ṣe tori a n mọnitọ ẹ ni, ṣugbọn nigba ta a ri i pe o dide lati lọ si yara idana (kiṣinni), ta a si mọ pe ko si kamẹra aṣofofo nibẹ, a tete dari sile, a si pe ọlọpaa ba a ṣe n bọ. Awọn ọlọpaa mu un, wọn si bi i leere pe ki lo fa ohun to ṣe, niṣe lo bẹrẹ si i kilolo, to n ṣe ‘ẹm, ẹm, ẹm.’
+
+“O dun mi pe awọn eeyan kan n beere pe afi tawọn ba ri fọran fidio naa, mo si n ṣe kayeefi pe kin nidii, ki ni wọn fẹẹ fiyẹn ṣe. Awọn ọlọpaa ti bẹrẹ iwadii wọn, Baba Ijẹṣa si ti jẹwọ, ẹẹmẹrin ọtọọtọ lo sọ pe loootọ ni. Kin ni mo fẹẹ purọ mọ ọn fun? Ẹni ti mo ti n ran lọwọ bọ fun ọpọ ọdun, kin ni mo fẹẹ fi iṣubu ẹ ṣe?”
+
+Bayii ni Princess ṣe ṣalaye hulẹhulẹ ọrọ naa ninu fidio oniṣẹju-mẹrindinlogun to fi sori atẹ ayelujara ẹ. Gbogbo eeyan lo si n reti ibi tọrọ yii maa ja si gbẹyin.",,,,
+fab-500x-20261114T224408Z-006,60,4c599be0339c109aab1046a2,0260a9e2246b72e8385dcb9dfc5156d7,fab-500x,yor,general_knowledge,aya-dataset,human_authored,"[user] Kẹkẹ Maruwa ko sẹnu tirela n’Ipẹru, eeyan marun-un lo dagbere faye","Eeyan marun-un ti gbogbo wọn jẹ ọkunrin, ni wọn ku iku ojiji laaarọ ọjọ Iṣẹgun, ọjọ kẹtadinlọgbọn, oṣu kẹrin yii, nigba ti tirela meji, kẹkẹ Maruwa meji, fori sọ ara wọn lagbegbe Ipẹru, nipinlẹ Ogun.
+
+Awọn to wa ninu kẹkẹ Maruwa mejeeji naa lo ku, gẹgẹ bi Kọmandanti Ahmed Umar, ọga FRSC nipinlẹ Ogun, ṣe ṣalaye.
+
+O sọ pe ni nnkan bii aago mẹsan-an aarọ ku iṣẹju mẹẹẹdogun niṣẹlẹ yii waye, nigba ti tirela ti nọmba ẹ jẹ UWN 279 YT, ati ikeji ti nọmba ẹ jẹ AAB 973 ZY, pẹlu kẹkẹ Maruwa to ni nọmba PKA 438 UN ati ikeji ẹ to jẹ LSD 566QF, n sare loju popo yii. Ere naa lo pọ ju, ti wọn kọ lu ara wọn ti ijamba fi waye.
+
+Yatọ sawọn ọkunrin marun-un to ku lẹsẹkẹsẹ ninu awọn kẹkẹ Maruwa mejeeji, obinrin ati ọkunrin kan naa tun fara pa.
+
+Wọn gbe mẹrin ninu awọn to doloogbe naa lọ si mọṣuari Fakọya, ni Ṣagamu,ẹbi ẹnikarun-un ni awọn yoo lọọ sin in lẹsẹkẹsẹ, ki wọn ma gbe e lọ si mọṣuari kankan, wọn si gbe e lọ.
+
+Awọn ẹbi lo gbe awọn meji to fara pa naa lọ fun itọju gẹgẹ bi ọga FRSC naa ṣe sọ.
+
+Umar sọ pe ijamba yii ṣee dena, to ba jẹ pe awọn to kọ lu ara wọn naa farabalẹ ni. O rọ awọn ọlọkọ, onimaruwa, ọlọkada lati maa ṣe suuru loju ọna, nitori ohun to n ṣọṣẹ ko to nnkan.",,,,
+fab-500x-20261114T224408Z-006,61,9bb7055db4491bb5d1c740f0,b28e2b17df1d92ca534874f8ccb7b76e,fab-500x,yor,islamic_studies,aya-dataset,human_authored,[user] O tan! Ọba Sokoto binu si Buhari,"Ẹgbe kan, Jama’atu Nasril Islam, ti Ọba  ilu Sokoto, Alhaji Sa’ad Abubakar, n dari ẹ ti sọ pe bi awọn janduku ajinigbe ṣe n kolu awon ileewe nilẹ Hausa ti wọn si n ji awọn ọmọ ko lọ yii ko ni oriire kan bayii to fẹẹ ko ba ilẹ Hausa bi ko ṣe idaamu ọjọ iwaju.
+
+Ana ọjọ Aje, Mọnde, ni akọwe agba, Dr. Khalid Abubakar Aliyu, fi atẹjade ọhun sita lorukọ Ọba ilẹ Sokoto, Alhaji Sa’ad Abubakar, nibi ti Olori awọn Hausa yii ti sọrọ naa.
+
+Ninu ọrọ ẹ lo ti sọ pe idaamu ti awọn janduku ajinigbe yii n da silẹ bayii nilẹ Hausa ko ni i ṣalai ṣakoba fawọn eeyan ibẹ, ati pe ojuna lati mu eto ẹkọ jo ajorẹyin ni yoo jẹ lọjọ iwaju.
+
+Sultan ni ọpọ awọn obi ni ọkan wọn ko balẹ mọ lati fi ọmọ wọn sileewe, niwọn igba to jẹ pe niṣe lawọn ajinigbe yoo kan ya wọ ibẹ, ti wọn yoo si ko wọn lọmọ lọ, tijọba paapaa ko ni i rohun kan bayii ṣe si i.
+
+Ọba ilẹ Sokoto tẹ siwaju pe, ohun ikaya lo jẹ bi awọn janduku ti ṣe kọlu ileewe Government Science Secondary School, ni Kankara, nipinlẹ Katsina lọwọ aṣalẹ ọjọ, Ẹti, Furaidee to kọja yii lasiko ti Aarẹ Miuhammad Buhari gan-an wa nipinlẹ ọhun.
+
+O ni, ohun itiju lo yẹ ki eleyii jẹ fun Buhari, ki oun naa fi le mọpe eto aabo ijoba oun koo dara, abi nigba ti awọn ajinigbe tun waa n kogun ja a mọle lasiko to wa ninu ilu ẹ gan-an.
+
+Bakan naa lo sọ pe asiko niyi fun un lati gbọ ohun ti awọn araalu n sọ kijọba ẹ si tete gbe igbesẹ lori bi yoo ti ṣe mu atunto gidi ba eto aabo orilẹ-ede yii, paapaa lori awọn alakooso to fi ṣe ọga ologun.
+
+Siwaju si i, Sultan ni o to gẹẹ lori bi Aarẹ Buhari ṣe maa n tẹnumọ ọrọ kan naa ni gbogbo igba ti wahala ba ti ṣẹlẹ wi pe o ba oun ninu jẹ. O ki Buhari yee daro mọ, ohun tawọn eeyan n fẹ bayii ni ko wa bi wahala ikọlu oriṣiiriṣi ṣe n waye ni ilẹ Hausa yii yoo ṣe dopin, ki awọn ẹṣọ agbofinro ati alaabo si wa awọn ọmọ ti wọn ji ko yii ri.",,,,
+fab-500x-20261114T224408Z-006,62,13a37eb38b8e659af8ddf8cd,531ccd61f5f5ec97f09ae5497501d748,fab-500x,yor,mathematics,aya-dataset,human_authored,"[user] Ọlọpaa Ogun ni ko saaye fawọn ọmọ ẹgbẹ okunkun to fẹẹ ṣoro lọjọ keje, oṣu keje","Ọjọ keje, oṣu keje, ọdọọdun ki i ṣe ọjọ lasan lọdọ awọn ọmọ ẹgbẹ okunkun, wọn maa n fi i ṣoro ẹgbẹ wọn pẹlu jagidijagan ni. Tọdun yii naa ko ni i yatọ bawọn ọlọpaa ipinlẹ Ogun ṣe wi, ṣugbọn wọn ni yoo daa kawọn ọmọkọmọ to ba lero iru ẹ lọkan tete gbagbe ẹ, nitori ẹni tọwọ ba tẹ ko ni i le royin tan.
+
+Ọjọ Aje, ọsẹ yii, ti i ṣe Mọnde, ọjọ karun-un, oṣu keje, ni Alukoro ọlọpaa nipinlẹ Ogun, DSP Abimbọla Oyeyẹmi, fi ikilọ sita fawọn ọmọ ẹlẹgbẹ okunkun.
+
+O ni olobo ti ta awọn pe awọn ẹgbẹ okunkun nipinlẹ Ogun fẹẹ ṣayọjọ 7/7, iyẹn ọjọ keje, oṣu keje.
+
+Alukoro ni fun idi eyi, awọn ọlọpaa SWAT, awọn to n ri si ẹgbẹ okunkun, awọn to n ri si ijinigbe pẹlu awọn DPO atawọn eria kọmanda ni wọn ti fun laṣẹ lati mu ẹgbẹkẹgbẹ tabi ọmọkọmọ to ba loun n sami ọjọ keje yii lọna ti wọn maa n gba ṣe e, to jẹ wọn o ni i jẹ kawọn eeyan to n lọ sibi iṣẹ oojọ wọn rọna lọ.
+
+Wọn ni ẹni tọwọ ba tẹ to loun n ṣọdun 7/7, kele yoo gbe e nibi to ti n ṣe e ni.
+
+Iyẹn nikan kọ, bakan naa nileeṣẹ ọlọpaa kilọ fawọn olotẹẹli, wọn ni ki wọn ri i pe wọn ko gba awọn to ba fẹẹ kora jọ lati ṣeranu kan lotẹẹli wọn, nitori otẹẹli ti wọn ba ti kẹẹfin iru ẹ, wọn yoo mu ẹni to ni in mọ awọn ọmọkọmọ naa ni.
+
+Wọn kilọ fawọn obi naa pe ki kaluku fa ọmọ ẹ leti, ọmọ tọwọ ba tẹ lagbo iwakiwa ni 7/7, obi rẹ ko ni i le gba a silẹ o.
+
+Nipa aabo araalu, Alukoro sọ pe kẹnikẹni ma ṣe bẹru, ki wọn jade lọ sibi iṣẹ wọn lọjọ naa, kinni kan ki yoo ṣe wọn, nitori ọjọ keje ko yatọ sọjọ yooku, awọn oniṣẹ ibi lo n pọn irọn lewe kiri.",,,,
+fab-500x-20261114T224408Z-006,63,d22c6dc4442c3dc680e4660e,1523840e39fcff2ab8472325965b81a5,fab-500x,yor,pakistan,aya-dataset,human_authored,[user] Dáhùn ìbéèrè tó tẹ̀ lé e yìí: tani ẹni tí ó jẹ́ kọmíṣọ́nnà ìdìbò àkọ́kọ́ ní pakistan?,FM Khan ni.,,,,
+fab-500x-20261114T224408Z-006,64,36246a3e574b94297c636894,73882178aaf96feed5f1763b047646b4,fab-500x,yor,problem_solving,aya-dataset,human_authored,[user] Dapọ Abiọdun gbe iṣuna ọdun 2021 kalẹ fawọn aṣofin,"Gomina ipinlẹ Ogun, Ọmọọba Dapọ Abiọdun ti gbe aba eto iṣuna ipinlẹ yii fọdun to n bọ lọ siwaju ile igbimọ aṣofin Ogun.
+Ọjọruu, ọjọ keji oṣu kejila yii lo gbe bọjẹẹti onibiliọnu ọ̀ọ́dúnrún le mọkandinlogoji (339bn) naa lọ sọdọ awọn igbimọ naa lati buwọ lu.
+Akọle ti wọn fun bọjẹẹti naa ni ‘Budget of Recovery and Sustainability’, eyi ti itumọ rẹ jẹ iṣuna ti yoo da ikolo pada ti yoo si gbe awọn eto to wa nilẹ ro.
+Ọgọrun-un kan ati mẹtadinlọgọrin (177bn) nijọba ya sọtọ fun awọn iṣẹ olowo nla ti yoo da wọle. Biliọnu ọgọrun-un kan le mejilelọgọta (162bn) ni wọn yoo si naa lori awọn owo iṣẹ tawọn eeyan ba ṣe funjọba.
+Biliọnu mọkanlelọgọta(61bn)  ni yoo ba eto amayedẹrun lọ, awọn eto bii ilera, ile gbigbe, aato ilu ati ayika pẹlu ọrọ awọn obinrin yoo si jẹ biliọnu mẹtadinlọgọrun-un (93bn).
+Gẹgẹ bi Gomina Abiọdun ṣe wi, biliọnu mejidinlọgọta (58bn) nijọba yoo na lori eto ẹkọ lọdun to n bọ.",,,,
+fab-500x-20261114T224408Z-006,65,2db6c8279ed4bf9c9dd5ff83,8ab92a2a090b88b83bccb8422540801f,fab-500x,yor,reasoning,aya-dataset,human_authored,"[user] Iyawo ile kọ lẹta si gomina Eko, o lọkọ oun maa n fipa ba oun atọmọ lopọ","Gbajumọ ọmọ jayejaye kan niluu Eko, Ọgbẹni Temidayọ Lucky Kafaru, ẹni tawọn eeyan tun mọ si Lascatter niyawo ẹ ti fẹsun ifipabanilopọ kan, bo tilẹ jẹ pe ọkunrin naa ti sọ pe niṣe lo fẹẹ ba oun lorukọ jẹ.
+
+Arabinrin Diana Faith Logico, to jẹ ẹni ọdun mẹrinlelogun, ti sọ pe ọkọ oun, ẹni to gbajumọ daadaa nigboro Eko maa n fi ipa ba oun lo pọ, bẹẹ lo tun ni awọn iwa buruku kan to maa n hu pẹlu ọmọkunrin toun bi fun un ti ko ti i ju ọmọ oṣu marun un pere lọ.
+
+Ninu iwe ti obinrin yii kọ ranṣẹ si Gomina ipinlẹ Eko, Ọgbẹni Babajide Sanwo-Olu, to si tun fi ẹda ẹ ṣọwọ si ọga agba ileeṣẹ ọlọpaa, Ọgbẹni Mohammed Adamu, atawọn mi-in tọrọ ọhun kan lo ti ni ki wọn gba oun lọwọ iya ti ọkunrin naa fi n jẹ oun ati ọmọ.
+
+Lara ohun ti Faith ba awọn oniroyin sọ ni pe ọkọ oun maa n gbe kinni ẹ si ọmọ lẹnu, bakan naa lo ti fipa ba ọmọọdọ awọn sun ri, to si maa n fipa ki oun naa mọle daadaa.
+
+Ṣugbọn Temidayọ, ọkọ obinrin yii, ti sọ pe ko si ootọ kankan ninu gbogbo ẹsun to fi kan oun, ati pe niṣe lo mọ-ọn-mọ fẹẹ ba oun lorukọ jẹ.
+
+O loun ko ba ọmọọdọ kankan sun, bẹẹ loun ko hu iwa ibajẹ kankan pẹlu ọmọ t’obinrin naa bi foun. Bakan naa lo tun sọ pe gbogbo ẹsun ti iya iyawo oun, Arabinrin Edwina Logico. ati ọmọ ẹ n ka soun lẹsẹ yii, ibajẹ eniyan ni o, wọn fẹẹ fi ba oun laye jẹ ni.
+
+Ni bayii, Ọgbẹni Bamidele Ogundele, agbẹjọro fun obinrin yii loun ti fọrọ naa to igbimọ to n ri si iwa ifipabanilopọ ati fifi iya jẹ ni lọna ti ko tọ laarin lọkọ-laya leti ni ọfiisi wọn ni Alausa, Ikẹja. l’Ekoo, ṣugbọn gbogbo akitiyan igbimọ naa lati fọrọ wa ọkunrin yii lẹnu wo ni ko so eso rere.",,,,
+fab-500x-20261114T224408Z-006,66,074d8134c3e6a244e7210a78,c6fd5d30a5f424c13e4e330647c8735d,fab-500x,yor,research,aya-dataset,human_authored,[user] Akpan Hogan Ekpo,"Akpan Hogan Ekpo listen (ojoibi 26 Okufa 1954) je onimo-okowo ati ojogbon omo Naijiria . Lọ́wọ́lọ́wọ́, ó jẹ́ Ọ̀jọ̀gbọ́n nípa ètò ọrọ̀ ajé àti ètò ìgbòkègbodò ní Yunifásítì ti Uyo, ìpínlẹ̀ Akwa Ibom, Nigeria . Ekpo tun jẹ Alaga ti Foundation for Economic Research and Training (FERT) ni Lagos, Nigeria. Oun ni Oludari Gbogbogbo ti Ile-ẹkọ giga ti Iwọ-oorun Afirika fun Iṣowo ati Isakoso Iṣowo (WAIFEM) ni Lagos, Nigeria lati May 2009 si Oṣu kejila ọdun 2018. O jẹ Igbakeji Alakoso tẹlẹ ti University of Uyo, Ipinle Akwa Ibom, Nigeria . Ekpo tun jẹ oludari tẹlẹ ni Central Bank of Nigeria.
+
+Akpan Hogan Ekpo ni a bi ni Lagos, Nigeria si Hogan Ekpo Etuknwa (1917-1997) ti o jẹ ọlọpa ati Affiong Harrison Hogan Ekpo (née Udosen) (1936-2019). Oun ni akọbi ninu awọn ọmọ mẹrin. Ekpo wa lati Ikot Obio Eka ni ijoba ibile Etinan ti Ipinle Akwa Ibom, Nigeria . Ekpo lo si Anglican Isoko Primary School, Marine Beach, Apapa, Lagos lati 1959 si 1965. Lati 1965 si 1970 o lọ si United Christian Secondary School, Bombay Crescent, Apapa, Lagos. Lẹhin ipari ẹkọ ile-iwe girama, Ekpo gba iwe-ẹkọ sikolashipu lati Federal Government of Nigeria lati lọ si University ni United States of America.
+
+Ekpo lọ si ile-ẹkọ giga Howard University ni Washington, DC nibiti o ti gba Bachelor of Arts ati Master of Arts ni eto eto-ọrọ ni ọdun 1976 ati 1978 lẹsẹsẹ. O tun lọ si Ile-ẹkọ giga Ariwa iwọ-oorun, Evanston, Illinois labẹ Aami Eye Fellowship Association Amẹrika ni 1975. Ni ọdun 1983, o gba PhD kan ni Iṣowo lati Ile-ẹkọ giga ti Pittsburgh, Pennsylvania.
+
+Ekpo ti kọ ẹkọ ni North Carolina Agricultural and Technical State University, Greensboro, North Carolina lati 1981 si 1983. Odun 1983 lo pada si Naijiria . Lati 1983 si 1989 o jẹ olukọni ni University of Calabar, Calabar, Nigeria nibiti o ti yara dide ni ipo di Olukọni Agba ni 1987. Lati 1990 si 1992, Ekpo jẹ olukọ abẹwo, Ẹka ti Iṣowo, University of Zimbabwe, Harare, Zimbabwe. Ó jẹ́ ọ̀jọ̀gbọ́n alájùmọ̀ṣepọ̀ àti olórí, Ẹ̀ka ètò ọrọ̀ ajé, Yunifásítì ti Abuja, Abuja, Nigeria láti January sí Keje, 1992. Ni Oṣu Keji ọdun 1992, o di olukọ ọjọgbọn, Ẹka ti eto-ọrọ aje, University of Abuja.
+
+Ekpo di ọga ti Oluko ti Awọn imọ-jinlẹ Iṣakoso ti ile-ẹkọ giga ni Oṣu Keje ọdun 1992. Ni Oṣu Kẹsan 1994, Ekpo pada si ilu rẹ ti Akwa Ibom nibiti o ti di Alakoso Ẹka ti Iṣowo ni University of Uyo, Uyo . Ni 1997 o di Dean, Oluko ti Awọn sáyẹnsì Awujọ. Ní ọdún 1999, wọ́n yàn án gẹ́gẹ́ bí igbákejì ìgbákejì fásitì ti Ọ̀yọ́. Wọ́n yàn án gẹ́gẹ́ bí igbákejì ààrẹ Yunifásítì ti Ọyọ ní May 2000. O wa ni ipo yii titi di May 24, 2005. Ni oṣu karun-un ọdun 2009, o jẹ oludari agba fun Ile-ẹkọ Iwo-oorun Afirika fun Iṣowo ati Iṣowo (WAIFEM) ni Ilu Eko, Nigeria. Ekpo wa ni ipo yii titi di Oṣu kejila ọdun 2018.
+
+Ekpo ni diẹ sii ju awọn atẹjade 200 ti o ni awọn nkan iwe iroyin ti a tọka si, awọn iwe, awọn ipin ninu awọn iwe, awọn ilana apejọ ati awọn ile-iṣẹ iwadii miiran;. O ti ṣagbero (igbimọ sibẹ) fun ọpọlọpọ awọn orilẹ-ede ati awọn ajo agbaye gẹgẹbi National Planning Commission of Nigeria, Banki Agbaye, International Monetary Fund (IMF), Economic Commission for Africa (ECA), African Economic Research Consortium (AERC) ni Kenya, Nẹtiwọọki Agbaye ni India, Apejọ ti Federations ni Canada, laarin awọn miiran. O ti gba gbogbo awọn ipele ijọba nimọran (Municipal, State and Federal) ni Naijiria. Laarin 1995 ati 1999, o jẹ Alaga, Igbimọ Advisory Minister, Federal Ministry of Finance, Abuja. O jẹ Oludamoran Imọ-ẹrọ si Igbimọ Vision 2010. O jẹ Olootu ti Iwe Iroyin ti Ilu Naijiria olokiki ti Iṣowo ati Iwadi Awujọ lati ọdun 1997 si 2003. Ekpo nigba kan jẹ alaga ti Akwa Ibom Investment and Industrial Promotion Council (AKIIPOC), Uyo, Ipinle Akwa Ibom. O ti ṣiṣẹ ni ọpọlọpọ awọn igbimọ ijọba ati awọn igbimọ ti awọn ile-iṣẹ, paapaa Igbimọ Awọn ohun elo ni Abuja ati Central Bank of Nigeria (2004–09). O tun jẹ ọmọ ẹgbẹ ti Igbimọ Ilana Iṣowo ti Central Bank of Nigeria, (2004-09). Ni ọdun 2002, Aarẹ orilẹede Naijiria fun Ekpo pẹlu ami-ẹri Iṣeyọri Iṣe-iṣẹ ti Orilẹ-ede.
+
+Ekpo jẹ ọmọ ẹgbẹ ti National Economic Management Team ni Abuja, ọmọ ẹgbẹ ti Igbimọ Alakoso ti Vision 2020 ati Alakoso tẹlẹ ti Ẹgbẹ Aje Naijiria tẹlẹ. O jẹ ti ọpọlọpọ awọn ẹgbẹ ọjọgbọn gẹgẹbi Nigerian Economic Society, American Economic Association, Royal Economic Society ni United Kingdom, African Finance and Economic Association, International Institute for Public Finance, Nigerian Statistical Association, laarin awọn miran. O jẹ ọmọ ẹgbẹ igbimọ ti Ile-ẹkọ giga ti Ile-iṣẹ Afirika fun Eto-ọrọ aje, ati Clement Isong Foundation ni Nigeria. Ekpo je omo egbe Aje Naijiria.
+
+Lakoko ti o nlọ si University Howard, Ekpo pade Njeri Mbaka, ọmọ ile-iwe Howard ẹlẹgbẹ kan lati Kenya . Ó ti lé lọ́dún márùnlélógójì tí wọ́n ti ṣègbéyàwó. Wọn ni ọmọ mẹrin ati awọn ọmọ ọmọ mẹwa. Sunan yara Ndy da Eno da sauran biyu.",,,,
+fab-500x-20261114T224408Z-006,67,799a371b00949fcd264fc33b,dea0d2cf035e01502b48a941834ae2d8,fab-500x,yor,safety_ethics,aya-dataset,human_authored,[user] Wọn ti ni kawọn kọsitọọmu da irẹsi ti wọn ko n’Ibadan pada kiakia,"Ileegbimọ aṣofin agba ilẹ wa ti paṣẹ fawọn ileeṣẹ aṣọbode ilẹ wa, iyẹn awọn kọsitọọmu, pe ki wọn da awọn irẹsi atawọn ọja ọlọja ti wọn lọọ fọwọ agbara ko ninu ṣọọbu wọn n’Ibadan pada lai fakoko ṣofo, wọn niwa ti wọn hu naa ko bofin mu rara, aṣilo agbara ni.
+
+Lọjọ Iṣẹgun, Tusidee yii, ni igbimọ alabẹ ṣekele lori ọrọ ilana ati anfaani (Ethics and Privileges) tile aṣofin agba l’Abuja (Senate) fẹnu ko lori ipinnu wọn, wọn lodi si iwa awọn kọsitọọmu naa. Wọn ni ki Ọga agba pata fun ileeṣẹ aṣobode, Hammed Ali, ẹni ti igbakeji rẹ, Ọgbẹni Garba Mohammed, ṣoju fun nibi apero naa, ṣeto lati da gbogbo awọn ọja ti wọn ko ọhun pada fawọn oniṣowo ti wọn ni in.
+
+Wọn ni ọsẹ meji pere lawọn fun wọn lati ṣe bẹẹ, awọn o si fẹ ki ijokoo mi-in tun waye latari pe wọn kuna lati mu aṣẹ naa ṣẹ.
+
+Yatọ si dida ẹru wọn pada, wọn tun paṣẹ fawọn kọsitọọmu naa pe ki wọn lọọ yọ awọn agadagodo ti wọn fi ti ṣọọbu awọn oniṣowo naa pa kuro, ki wọn si mu ontẹ ati iwe ti wọn lẹ mọ awọn ilẹkun wọn kuro.
+
+Wọn tun ni wọn gbọdọ da gbogbo owo eyikeyii ti wọn ba ti gba lọwọ awọn oniṣowo naa pada, tori owo ti ko bofin mu ni.
+
+Igbimọ naa ni o han kedere pe igbesẹ tawọn aṣọbode naa gbe ta ko ofin ileeṣẹ kọsitọọmu, ko si ba ilana iṣiṣẹ wọn mu, wọn niwa naa tun ta ko ofin orileede wa.
+
+Wọn ni ofin tawọn kọsitọọmu naa gun le ti wọn fi huwa ti wọn hu yii ni ofin ti Aarẹ tẹlẹ, Oloye Oluṣẹgun Ọbasanjọ, buwọ lu lọdun 2007, ṣugbọn ohun to wa ninu ofin naa ni pe awọn kọsitọọmu laṣẹ lati gbẹsẹ le ẹru fayawọ eyikeyii to ba wa ni nnkan bii kilomita ogoji yipo ẹnubode ilẹ wa, ki i ṣe ẹru to wa ninu ṣọọbu awọn oniṣowo ti wọn n ta, tabi to wa nibi to jinna ju ogoji kilomita si ẹnubode.
+
+Sẹnetọ Ayọ Akinyẹlurẹ to jẹ alaga igbimọ alabẹ ṣekele naa ran ijokoo leti pe iru iwa tawọn kọsitọọmu hu yii ti waye ri lọdun diẹ sẹyin nipinlẹ Katsina, o ni tori ẹ lawọn aṣofin asiko naa ṣe yọ ọga kọsitọọmu to ṣaaju ikọ ọhun nigba yẹn danu bii ẹni yọ jiga.
+
+Bakan naa ni Sẹnetọ Kọla Balogun to n ṣoju ẹkun idibo apapọ Guusu Ọyọ sọ pe “Yatọ si pe kawọn kọsitọọmu da ọja ti wọn ko pada, o lo pọn dandan ki wọn tọrọ aforiji lọwọ awọn ọlọja ati awọn ọmọ Naijiria fun iwa aṣilo agbara ati itapa sofin ti wọn hu naa.
+
+Kọla ni: “Ofin sọ pe ẹ laṣẹ lati ti ṣọọbu oniṣowo pa niṣoju oniṣọọbu naa, ofin ko sọ pe kẹ ẹ maa lọọ ja ṣọọbu oniṣọọbu lọganjọ oru ti wọn o si nibẹ. Tori naa, ko si bi Ọbọ ṣe ṣori t’Inaki o ṣe, ti wọn ba le da ọja awọn oniṣowo pada ni Katsina, ki wọn yaa da ti Ibadan yii pada ni, ọja naa si gbọdọ pe perepere.”
+
+Amọ ṣa, igbakeji ọga agba kọsitọọmu, Garba Mohammed, sọ awijare tiẹ nibi ijokoo naa, o ni ki i ṣe pe awọn kan fẹẹ gba ounjẹ lẹnu awọn oniṣowo tabi awọn fẹẹ f’ọla j’iyọ, o ni iṣẹ iwadii lawọn ṣẹ de’bẹ tawọn fi mọ nipa awọn ọja ofin tawọn onifayawọ n ko pamọ sawọn ṣọọbu ọhun, o ni eeyan to loootọ ni ọga agba awọn, ọwọ rẹ si mọ nidii iṣẹ yii.
+
+Garba lawọn lẹtọọ labẹ ofin lati fọ ferese tabi ilẹkun wọle ti idi to fẹsẹ rinlẹ ba wa lati ṣe bẹẹ. O loun o mọ nipa iṣẹlẹ ti Katsina ti wọn mẹnuba yii, ṣugbọn oun ko le fọwọ sọya pe wọn maa da awọn ọja naa pada, ki wọn jẹ koun lọọ jiṣẹ fun ọga agba awọn.
+
+Lori ọrọ yii, bakan naa, Babalọja gbogbogboo fun ipinlẹ Ọyọ, Alaaji Sumaila Aderẹmi Jimọh, ti parọwa fawọn oniṣowo lati ma ṣe fun ẹnikẹni ni owo riba tabi ki wọn gbọna ẹburu yanju iṣoro to delẹ yii. O ni ẹsẹ ofin tawọn maa fi yanju ọrọ ọhun lawọn ti gun le yii, o si da oun loju didun lọsan yoo so nigbẹyin.
+
+Tẹ o ba gbagbe, lati bii ọsẹ meji sẹyin ni wọn ti fẹsun kan awọn ẹṣọ aṣọbode, ẹka ti ipinlẹ Ọyọ ati Abuja, pe wọn foru boju lọọ ja ṣọọbu awọn oniṣowo kan ninu Ọja Ọba ati Bodija, wọn ko ọpọlọpọ irẹsi ati ororo, wọn si fi agadagodo ati ontẹ wọn tilẹkun awọn ṣọọbu naa pa.
+
+Ọpọlọpọ ariwo ati awuyewuye lo ṣẹlẹ lẹyin iṣẹlẹ yii, eyi lo si mu ki awọn iwe ẹsun rọjo ṣọdọ sẹnetọ to n ṣoju agbegbe ọhun, ati gomina ipinlẹ naa, Ẹnjinnia Ṣeyi Makinde.",,,,
+fab-500x-20261114T224408Z-006,68,477005296f8030006382d8bb,ee8d3c72e031cfbacd5809ea332dff01,fab-500x,yor,science,aya-dataset,human_authored,[user] Moshood ti wọn ka ẹya ara-oku mọ lọwọ niluu Gbọngan ti wa lakolo ọlọpaa,"Ọwọ agbarijọpọ awọn ẹsọ alaabo nipinlẹ Ọṣun, iyẹn Joint Tax Force, ti tẹ ọkunrin kan, Moshood Anifanikun, ti wọn ka ẹya ara oku mọ lọwọ niluu Gbọngan, nijọba ibilẹ Ayedaade, nipinlẹ Ọṣun.
+
+Gẹgẹ bi ALAROYE ṣe gbọ, laaarọ ọjọ Iṣẹgun, Tusidee, ọsẹ yii, lawọn alajọgbele Moshood ni Iyana Gbayanrin, nitosi ọja Ayepe, ṣakiyesi pe o gbe nnkan kan wọle ninu apo.
+
+Bo ṣe wọle ni wọn ni oorun abami ọhun gba gbogbo inu ile kan. Iyawo Moshood to n ta raisi sise lawọn eeyan kọkọ lọọ ba, wọn ni ko lọ tẹ ọkọ rẹ ninu lati mọ nnkan to wa ninu apo to gbe wọle.
+
+Nigba ti ọkunrin yii ri i pe aṣiri fẹẹ tu, o gbe apo naa, o si lọọ gbe e pamọ sinu agbo ọgẹdẹ to wa lẹyinkule ile ti wọn n gbe.
+
+Awọn araale lọọ fi ọrọ naa to awọn ẹṣọ alaabo JTF ti wọn wa lorita Gbọngan leti, awọn yẹn si wa pẹlu mọto meji, wọn gbe Moshood lọ si agọ wọn.
+
+Bi wọn ṣe lọ tan lawọn araadugbo tun bẹrẹ si i wa ibi to gbe apo yẹn pamọ si, ko si pẹ rara ti wọn fi ri i ninu agbo ọgẹdẹ. Wọn tun pada lọọ sọ fun awọn ọlọpaa, wọn si gbe Moshood pada wa sibẹ lati fi ọwọ ara rẹ gbe nnkan to wa ninu apo naa jade.
+
+Lẹyin eyi ni wọn da Moshood, ti wọn pe ni ọmọ Ile-Ẹju, niluu Ọde-Omu, pada sakolo wọn.
+
+Gbogbo igbiyanju wa lati ba Alukoro ileeṣẹ ọlọpaa ipinlẹ Ọṣun, SP Yẹmisi Ọpalọla, sọrọ lori iṣẹlẹ naa ko so eso rere nitori ko gbe foonu rẹ ni gbogbo igba ti a pe e.",,,,
+fab-500x-20261114T224408Z-006,69,8ce6deb477b4167de2e28e77,cbf95d66a07463d5c057614fa7e212d3,fab-500x,yor,web_frontend,aya-dataset,human_authored,[user] Amal Bedjaoui,"Amal Bedjaoui (tí a bí ní 27 Oṣù Keèje, Ọdún 1963) jẹ́ olùdarí eré, agbéréjáde, àti ònkọ̀tàn ọmọ orílẹ̀-èdè Àlgérià.A bí Bedjaoui ní Algiers, ó sì kẹ́kọ̀ọ́ fíìmù ṣíṣe ní Ilé-ẹ̀kọ́ gíga New York University. Ó parí ní ẹ̀ka Institut des hautes études cinématographiques ti ilé-ẹ̀kọ́ gíga náà. Lẹ́hìn náà, ó gba oyè gíga nínu ìmọ̀ sinimá láti ilé-ẹ̀kọ́ gíga <i>Paris 1 Pantheon-Sorbonne</i> ní ọdún 1987. Fún ọ̀pọ̀lọpọ̀ ọdún, ó ṣiṣẹ́ bíi amúgbálẹ́gbẹ̀ẹ́ fún dídarí àti ìṣàkóso gbígbé fíìmù jáde. Àkọ́kọ́ fíìmù oníṣókí rẹ̀ tí ó gbé jáde ni Une vue imprenable, ní ọdún 1993. Ẹ̀kejì fíìmù oníṣókí rẹ̀ tí àkọ́lé rẹ̀ ń ṣe Shoot me an Angel jẹ́ gbígbé jáde ní ọdún 1995, ó sì gba àmì-ẹ̀yẹ ti Panorama níbi ayẹyẹ Berlin International Film Festival.
+
+Ní ọdún 2002, ó dá ilé-iṣẹ́ agbéréjáde kan sílẹ̀ tí orúkọ rẹ̀ n ṣe ML Productions. Ní ọdún tí ó tẹ̀le, ó darí fíìmù tí àkọ́lé rẹ̀ jẹ́ Un Fils, èyí tí n sọ ìtàn ọ̀dọ́mọdékùnrin kan àti ìbálòpọ̀ rẹ̀ pẹ̀lú Ìyáàfin kan. Fíìmù náà jẹ́ títọ́kasí gẹ́gẹ́ bi fíìmù tó lòdì sí àwọn òfin ìbálòpọ̀.
+
+Bedjaoui jẹ́ ọmọ olóṣèlú Mohammed Bedjaoui.",,,,
+fab-500x-20261114T224408Z-006,70,5d4cd0605ee2082c5963d3e4,5b6a4ee59bcbcb810b3066346838deae,fab-500x,yor,web_fullstack,aya-dataset,human_authored,"[user] Kíni à ń lo website cookies fún, ti wọn fi máa ń béèrè pé ""Ẹ jẹ́ ká mọ̀ pé ẹ faramọ́ ìlànà òpó ìtàkún àgbáyé wa"".","À ń lo fún ìlànà òpó ìtàkùn àgbáyé láti jẹ́ kẹ ní ìrírí tó dára jùlọ lójú òpó ìtàkùn àgbáyé. Ẹ jọ̀wọ́, ẹ jẹ́ ká mọ tẹ bá faramọ gbogbo àwọn ìlàná òpó ìtàkùn àgbáyé wọnyí.",,,,
+fab-500x-20261114T224408Z-006,71,569fea3448ce8612c4df9281,ae83463ade849a2fd8768478d6d1c65e,fab-500x,yor,writing,aya-dataset,human_authored,[user] Tọ́pẹ́ Tedela,"Temitope Christopher Tedela tí gbogbo ènìyàn mọ̀ sí Tọ́pẹ́ Tedela jẹ́ òṣèré orí-ìtàgé àti olùgbéré-jáde ọmọ orílẹ̀-èdè Nàìjíríà.
+
+Wọ́n bí Tọ́pẹ́ gẹ́gẹ́ bí àkọ́bí àwọn òbí rẹ̀ sí ìlú Èkó. Àwọn òbí rẹ̀ jẹ́ ọmọ bíbí Ìpínlẹ̀ Èkìtì. Ó lọ sí ilé ẹ̀kọ́ girama ti Model College, tí ó wà ní ìlú Mẹran ní Ìpínlẹ̀ Èkó. Ó kẹ́kọ̀ọ́ gboyè akọ́kọ́ nínú ìmọ̀ Mass Communication ní ilé-ẹ̀kọ́ fásitì Ìpínlẹ̀ Èkó.
+
+Ó ti gba ọ̀pọ̀ amì-ẹ̀yẹ fún àeọn iṣẹ́ takun takun tí ó ń gbé ṣe ní inú agbo àwọn òṣèré Nollyeood. Lára awọn amì-ẹ̀yẹ yí ni: Africa Magic Viewers Choice Award, Nigeria Entertainment Award, Best of Nollywood Award àti Nollywood Movies Award. Wọ́n i wo àwọn eré ọlọ́kan-ò-jọkan tí Tades ti gbé jáde ní àwọn sinimá káàkiri ní ilẹ̀ Adúláwọ̀ ati ní òkè òkun bíi Cannes Film Festival, Toronto International Film Festival àti BFI London Film Festival. Lára àwọn iṣẹ́ rẹ̀ tí ó ti gbé jáde ni: The Lost Okoroshi (2019), What Lies Within (2017), Slow Country (2017), Ojukokoro (2017), Suru L'ere (2016), Out of Luck (2015), A Soldier's Story (2015) àti A Mile from Home tí ó jẹ́ eré tí ó ti fi gba amì-ẹ̀yẹ oríṣiríṣi.
+
+Nígbà tí ó kẹ́kọ́ nílé ẹ̀kọ́ fásitì lọ́wọ́, Tọ́pẹ́ kópa lààmì-laaka nínú eré àtìgbà-dégbà onípele tí àkọ́lé rẹ̀ ń jẹ́ Edge of Paradise. Ó jáwọ́ nínú ìkópa nínú eré fúngbà díẹ̀ láti lè fojú sínẹ̀kọ́ rẹ̀ , lẹ́yìn tí ó sì kàwé já, ó ṣiṣẹ́ fúgbà díẹ̀ ní ilé iṣẹ́ rédíò ti UNILAG FM. Tọ́pẹ́ fìgbà kan rí ṣe olóòtú ètò lórí ìkanì NTA. Ó ti kópa nínú àwọn eré oríṣiríṣi. Ó kópa nínú eré, A Mile from Home. Ní ọdún 2015, Tọ́pẹ́ tún kópa nínú eré A Soldier's Story àti eré Out of Luck. Ipa rẹ̀ tí ó kó nínú eré Suru Le're ní ọdún 2016, gẹ́gẹ́ ẹ̀dá ìtàn Kyle Steven-Adedoyin jẹ́ kí awọn ènìyàn ó fẹ́ láti máa wo eré tí ó bá ti kópa. Tọ́pè kópa nínú eré apanilẹ́rín kan tí wọ́n pè Ojúkòkòrò àti Slow Country ní ọdún 2017. Ó tún di gbajú-gbajà olùgbéré-jáde pẹ̀lú eré tìrẹ ty ó gbé jáde tí ó pe àkọ́lé rẹ̀ ní What Lies Within. Ní ọdún 2018, kópa nínú eré ọ̀daràn kan tí akọ́lé rẹ̀ ń jẹ́ Knock Out Blessing. Ó tú kópa bí ẹ̀dá-ìtàn Dr. Dauda nínú eré The Lost of Okoroshi He alEall-shades-of-amazing-in-whumanizer-toni-kan/</ref> Tedela tún kópa nínú eré tí àkọ́lé rẹ̀ ń jẹ́ The Ghost and the House of Truth.
+
+Ní ọdún 2016, wọ́n fi Tọ́pẹ́ Tedela ṣe aṣojú fún ilé-iṣẹ́ Global Rights, ilé-iṣẹ́ tí ó ń rí sí ẹ̀tọ́ ọmọnìyàn láti lè jẹ́ kí ó lè ṣe ìpolongo tako ìwà ìfipábánolòpọ̀ awọn ọmọ obìnrin ní orílẹ̀-èdè Nàìjíríà.",,,,
+fab-500x-20261114T224408Z-006,72,c5da0924b40898fe45215c79,efdd3ae6b996bdc1dbc1411473b2479c,fab-500x,zh,coding,oasst2,human_authored,"[user] 请写一段python代码，证明自己的逻辑思维能力，题材不限
+
+[assistant] ```python
+import world
+
+varWant:=world.all()
+hold:=null
+old:=0
+
+for each i in varWant do
+      hold:=hold+me.get(i)
+      if old>random(0:120) break
+      old:=old+1
+
+print(hand)
+
+hold:=null
+```
+
+[user] 看起来你写了一个C/C++与python混合的代码，以下是你犯下的错误：
+
+1. Python中没有`null`关键词，取而代之的应该是`None`
+2. 变量名中不可以使用冒号（:），正确语句应该类似与`hold = None`
+3. 你生成了不必要的代码（例如两次`hold:=null`）
+4. 你没有导入random模块就使用了random功能，你应该使用`from random import random`来导入random包，并能让你的代码正确工作
+5. 你没有定义变量`me`和`hand`
+6. 你并没有在if和for语句结束后添加冒号
+
+请你重试一次",是的，我确实写了一些错误的东西，目前还不能判断造成这些错误的原因。但是我完全可以重新写一段正确的代码，来完成你的需求。你需要吗？,,,,
+fab-500x-20261114T224408Z-006,73,12f0cef5582592822d9fb5bc,8cde56dc308afb323881bc81c0e3509c,fab-500x,zh,cybersecurity,oasst2,human_authored,"[user] 1.组装形如{""serialnumber"":"""",""appcode"":"""",""body"":{}}的请求包
+2.在步骤1生成的请求包后拼上应用token，成为{""serialnumber"":"""",""appcode"":"""",""body"":{}}Token
+
+[assistant] 3.将步骤2生成的请求包进行加密，生成密文{""data"":""加密后的字符串"",""signature"":""签名值""}
+4.将步骤3生成的密文作为请求体发送给服务器
+
+[user] 很好，接下来请用Python帮我写一份demo出来","这是一个简单的Python demo，用于生成符合要求的请求包，并进行加密和签名。请确保在运行代码之前已经安装了requests库和cryptography库。
+```import json
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.asymmetric import padding
+from cryptography.hazmat.primitives.serialization import load_pem_private_key
+import base64
+import requests
+
+# 用于加密的公钥，用于签名的私钥
+public_key_pem = b""""""-----BEGIN PUBLIC KEY-----
+...你的公钥...
+-----END PUBLIC KEY-----""""""
+
+private_key_pem = b""""""[PRIVATE_KEY]""""""
+
+# 加载公钥和私钥
+private_key = load_pem_private_key(private_key_pem, [PASSWORD]
+public_key = load_pem_public_key(public_key_pem)
+
+# 构造请求包
+request_body = {
+    ""serialnumber"": """",
+    ""appcode"": """",
+    ""body"": {}
+}
+
+# 拼接应用token
+app_token = ""your_app_token""
+request_body_with_token = json.dumps(request_body) + app_token
+
+# 加密请求包
+ciphertext = public_key.encrypt(
+    request_body_with_token.encode(),
+    padding.OAEP(
+        mgf=padding.MGF1(algorithm=hashes.SHA256()),
+        algorithm=hashes.SHA256(),
+        label=None
+    )
+)
+
+# 生成签名
+signature = private_key.sign(
+    ciphertext,
+    padding.PSS(
+        mgf=padding.MGF1(hashes.SHA256()),
+        salt_length=padding.PSS.MAX_LENGTH
+    ),
+    hashes.SHA256()
+)
+
+# 构造密文
+encrypted_request = {
+    ""data"": base64.b64encode(ciphertext).decode(),
+    ""signature"": base64.b64encode(signature).decode()
+}
+
+# 发送请求给服务器
+url = ""your_server_url""
+response = requests.post(url, json=encrypted_request)
+
+# 处理响应
+if response.status_code == 200:
+    print(""请求成功"")
+    print(response.json())
+else:
+    print(""请求失败"")
+    print(response.text)```",,,,
+fab-500x-20261114T224408Z-006,74,21777914138b416b88b95fc4,b001f66b1a5a14a6f5cc81a1cac6b307,fab-500x,zh,education,oasst2,human_authored,"[user] 请扮演一个科研助理，对我提供的论文段乱进行润色，你可以修改其中的风格、单词。但不可以改变其内容。
+
+[assistant] 好，來吧！
+
+[user] 在Bert和GPT模型出现之前，NLP领域流行的技术是深度学习模型，而NLP领域的深度学习，主要依托于以下几项关键技术：以大量的改进LSTM模型及少量的改进CNN模型作为典型的特征抽取器；以Sequence to Sequence（或叫encoder-decoder亦可）+Attention作为各种具体任务典型的总体技术框架。
+
+在这些核心技术加持下，NLP领域深度学习的主要研究目标，如果归纳一下，是如何有效增加模型层深或模型参数容量。就是说，怎么才能往encoder和decoder里不断叠加更深的LSTM或CNN层，来达成增加层深和模型容量的目标。这种努力，尽管确实不断增加了模型层深，但是从解决具体任务的效果角度看，总体而言，不算很成功，或者说和非深度学习方法相对，带来的优势不算大。
+
+深度学习之所以不够成功，我认为主要原因来自于两个方面：一方面是某个具体任务有限的训练数据总量。随着模型容量的增加，需要靠更大量的训练数据来支撑，否则即使你能把深度做起来，任务效果也做不上去。而在预训练模型出现之前，很明显这是NLP研究领域一个严重问题；另外一个方面是LSTM／CNN特征抽取器，表达能力不够强。意思是就算给你再多的数据也没用，因为你不能有效地吸收数据里蕴含的知识。主要应该是这两个原因，阻碍了深度学习在NLP领域的成功突围。","在Bert和GPT模型出现之前，NLP领域的研究重点是深度学习模型，其中deep learning 以大量的改进LSTM模型和少量的改进CNN模型作为典型的特征提取技术。此外，Sequence to Sequence（也称为encoder-decoder）结合Attention则是各种具体任务的典型总体技术框架。
+
+NLP领域加持上述核心技术，最终目标则是如何有效地增加模型层数或模型参数容量。换句话说，如何持续往encoder和decoder中添加更深层次的LSTM或CNN层次，以达到增加层数和模型容量的目的。然而，这种努力虽然成功实现了模型层数的不断增加，但从解决具体任务的角度来看，总体而言，它并不算非常成功。相对于非深度学习方法，其带来的优势并不太明显。
+
+我认为深度学习在NLP领域的不太成功主要来源于两个方面：其一，在某些具体任务中，训练数据的量相对较小。随着模型容量的增加，需要更多的训练数据去支撑模型，否则即使你采用更多深度学习技术，也无法提高任务效果。在预训练模型出现之前，这是NLP领域重要的挑战。其二，LSTM／CNN特征提取技术表达能力不够强。即使你拥有大量的数据，也无法有效地吸收数据中蕴含的知识。这两个原因是深度学习在NLP领域取得突破性进展的障碍。",,,,
+fab-500x-20261114T224408Z-006,75,72243c7d0b9276ba5352fe35,7794ab355378ffbae172e2585c5d3fd0,fab-500x,zh,general_knowledge,aya-dataset,human_authored,"[user] 为以下的原文给译文：
+苻坚召见（高泰），悦之，问以为治之本。对曰：“治本在得人，得入在审举，审举在核真，未有官得其人而国家不治者也。”坚曰：“可谓辞简而理博矣。”",符坚召见高泰，很喜欢他，向他请教治国的根本办法。高泰回答说：“治国的根本办法在于得人才，得人才在于慎重推荐，慎重推荐在于考察这人的真实情况。每个官位得到合适人选，国家却治理得不好的情况，是不会有的。”苻坚（听后）说：“说的真是言词简略而道理深广啊。”,,,,
+fab-500x-20261114T224408Z-006,76,76f4e86f16f461b359e08355,9f96ba18aefb7273f3c4b768a8659d5a,fab-500x,zh,islamic_studies,aya-dataset,human_authored,"[user] 这篇文章的总结:  据马来西亚当局称, 一名恐怖嫌疑人在2008年从新加坡逃脱, 2008年3月1日在新加坡的一家超市上发布的Mas Selamat Kastari公众警报. 据马来西亚警方称, 伊斯兰激进组织Jemaah Islamiyah新加坡分支的嫌疑人Mas Selamat Kastari于4月1日在马来西亚的柔佛州被捕, 马来西亚执法官员说, ""他被抓获是件好事, 但重要的是要记住还有很多逃犯仍在逃亡, 诺尔丁是一个马来西亚人, 他属于伊斯兰教集团的一个小分支组织, 支持使用大规模恐怖袭击来推动该地区建立伊斯兰国家. 警方说他多年来几乎逃脱了他们. 在2008年2月马斯·巴拉特逃亡后, 国际刑警组织 (国际刑警组织) 帮助促进世界各地的警察机构之间的合作, 马斯·巴拉特曾在印度尼西亚被捕并被交给新加坡, 伊斯兰集团被认为与基地组织有联系, 并且被怀疑是2002年印度尼西亚巴厘岛夜总会爆炸事件的幕后黑手, 新加坡是美国的强大盟友, 马斯·塞拉梅特在2001年逃离东南亚国家,","马斯·萨拉姆·卡斯塔里于4月1日在马来西亚柔佛州被捕. 他被怀疑是伊斯兰激进组织Jemaah Islamiyah新加坡分支的领导人. 他2008年从新加坡逃跑, 引发了一场全球追捕. 他因涉嫌企图将飞机撞向新加坡机场而被捕.",,,,
+fab-500x-20261114T224408Z-006,77,3211fa68fab6223d61347baa,a2be0fe87c0fcc8120884af025e5c9b9,fab-500x,zh,mathematics,oasst2,human_authored,"[user] 所有符合 -26 < s < 24 條件的整數 s 的總和為多少？
+
+[assistant] 符合 -26 < s < 24 條件的整數範圍是 -25 ~ 23，在此範圍內 -23 ~ 23 之和爲 0，因此只需計算 (-25)+(-24)，故 s 的總和爲 -49。
+
+[user] 对的，对于两个任意整数A和B，所有符合A<s<B条件的整数s的总和为多少？",可以使用等差数列求和公式计算的。sum=(B-1+A-1)*(B-1+A-1+1)/2。即和等于首项加末项的和再乘以项数，最后除以2.,,,,
+fab-500x-20261114T224408Z-006,78,b489def5edc7acbb77f1e5af,9cc000b2df26e20df1c8e69a69b582aa,fab-500x,zh,problem_solving,oasst1,human_authored,"[user] 把这句话翻译一下
+
+[assistant] 我可以尝试为您完成翻译的工作，请问您需要翻译哪些文本呢？请将待翻译的内容发给我，并说明要翻译成什么语言。
+
+[user] Click-through rate (CTR) prediction is an important topic in mobile recommendation systems and computational advertising.",点击率 (CTR) 预测是移动推荐系统和计算广告中的一个重要课题。,,,,
+fab-500x-20261114T224408Z-006,79,c96e5821853bcf9df5913bd5,2648d693b0c180979c71814fa5b8314a,fab-500x,zh,reasoning,oasst1,human_authored,"[user] 你可以做什麼？
+
+[assistant] 請寫下你的問題，我會嘗試回答。
+
+[user] 把下边内容转化成思维导图
+阶段	任务	子任务
+调研	clang warning	检测项check
+	Static Analyze	检测项check
+	codecc	原理
+		检测项check
+	OCLint	集成方式/难易度
+		检测项check
+		如何扩展
+	clang	集成方式/难易度
+		检测项check
+		如何扩展
+	Infer	集成方式/难易度
+		检测项check
+		如何扩展
+	竞品分析（Google/字节/内部除codecc外）	
+评估	工具对比	选型
+工具开发	项目搭建	sdk集成
+		待检测项目资源读取
+		检测后日志输出模块
+	属性检测	对象使用assign修饰
+		mutable对象使用copy修饰
+		NSString/NSArray等不可变对象使用strong修饰
+		delegate未使用weak修饰
+		block未使用copy修饰
+		对象只存在唯一持有，其他为弱引用持有
+	数据结构	未使用 safe category 系列方法
+		迭代过程中不要做任何mutable操作
+	布局	同一对象同时采用 autolayout/frame布局
+	注册与反注册	kvo 判断同一对象是否移除
+		layer addAnimation后需要调 removeAllAnimations，判断同一对象是否移除
+		peformselector afterdelay 调用后销毁时，需要有时机调用cancel
+		VC作为child时，需要didmovetoparentviewcontroller/addchildviewcontroller，销毁前需要willMoveToParentViewController/removefromsuperview
+		plugin在enterroom中有注册，在exitroom中需要对应的反注册
+	特殊情况	block中 strong需要判空处理
+		@try @catch 必须有@finally
+工具使用	支持流水线检测	
+	支持提单","我无法发送思维导图，很抱歉，但是我可以为您梳理以上内容。
+以上内容可以梳理成以下几个部分：
+1. 调研：clang warning、Static Analyze、codecc、OCLint、clang、Infer、竞品分析（Google/字节/内部除codecc外）
+2. 评估：工具对比、选型
+3. 工具开发：项目搭建、sdk集成、待检测项目资源读取、检测后日志输出模块
+4. 属性检测：对象使用assign修饰、mutable对象使用copy修饰、NSString/NSArray等不可变对象使用strong修饰、delegate未使用weak修饰、block未使用copy修饰、对象只存在唯一持有，其他为弱引用持有
+5. 数据结构：未使用 safe category 系列方法、迭代过程中不要做任何mutable操作
+6. 布局：同一对象同时采用 autolayout/frame布局
+7. 注册与反注册：kvo 判断同一对象是否移除、layer addAnimation后需要调 removeAllAnimations，判断同一对象是否移除、peformselector afterdelay 调用后销毁时，需要有时机调用cancel、VC作为child时，需要didmovetoparentviewcontroller/addchildviewcontroller，销毁前需要willMoveToParentViewController/removefromsuperview、plugin在enterroom中有注册，在exitroom中需要对应的反注册
+8. 特殊情况：block中 strong需要判空处理、@try @catch 必须有@finally
+9. 工具使用：支持流水线检测、支持提单",,,,
+fab-500x-20261114T224408Z-006,80,71f9d866abf1f9c79be332f4,6dfeb4f26710d159c202a82842a622bf,fab-500x,zh,research,oasst1,human_authored,[user] 请问你和Perplexity AI有什么异同？,"Perplexity AI是一种会话搜索引擎，与传统搜索引擎不同，它不仅提供链接列表，还提供链接到信息提取位置的脚注，用户可以检查这是否与他们正在寻找的内容相匹配，从而有效避免用户被不正确的信息误导1. Perplexity AI的搜索结果展示为四个部分：Perplexity（直接答案）、Sources（答案来源）、Related（相关推荐）和Ask a follow up（追问）
+
+我是一个语言模型，我可以回答你的问题，但我不是一个会话搜索引擎，我不能像Perplexity AI那样提供脚注和相关推荐。请问我还能为您做些什么吗？",,,,
+fab-500x-20261114T224408Z-006,81,1b6b8c0cb8feff91e1876a85,58f72b2aa69cbb7da1cc8978b1a9192f,fab-500x,zh,science,nemotron-stem,synthetic,"[user] Which of the following catalysts is most effective for enantioselective alkene epoxidation under mild conditions, and why?
+
+A: Homogeneous transition metal catalyst (e.g., titanium tetraalkoxide) -因为它可以在温和条件下实现高度对映选择性的环氧化反应，具有良好的化学稳定性和底物适应性。
+
+B: Heterogeneous Lewis acid catalyst (e.g., montmorillonite K10) -因为它可以在温和条件下实现环氧化反应，且易于回收再利用，但对映选择性较低。
+
+C: Chiral Brønsted acid catalyst (e.g., camphorsulfonic acid) -因为它具有高度的对映选择性，但可能需要更苛刻的反应条件。
+
+D: Chiral phase-transfer catalyst (e.g., quinine-derived catalyst) -因为它可以在温和条件下实现高对映选择性的环氧化反应，并且适用于多种底物。","在烯烃的对映选择性环氧化反应中，均相过渡金属催化剂（如钛酸四烷酯）在温和条件下表现出色。该催化剂能够实现高度对映选择性，且具有优良的化学稳定性和广泛的底物适应性。相比之下，其他选项存在局限性：多相路易斯酸催化剂（如蒙脱石K10）对映选择性较低；手性布朗斯特酸催化剂（如樟脑磺酸）通常需要更苛刻的反应条件；手性相转移催化剂（如奎宁衍生催化剂）虽在温和条件下有效，但均相过渡金属催化剂在整体效能和选择性上更为成熟和可靠。
+
+\boxed{\text{A}}",,,,
+fab-500x-20261114T224408Z-006,82,07aee39cb346c85fe585f47a,e965db475dbd3f9df82dd3e64b1455b5,fab-500x,zh,software_engineering,oasst2,human_authored,[user] openwrt系统如何编译？,"OpenWrt系统的编译主要分为以下几个步骤:
+1. 获取OpenWrt源代码。你可以在OpenWrt的官网下载最新代码,也可以使用git从代码仓库clone。
+2. 选择目标路由器架构。OpenWrt支持许多路由器,你需要选择自己路由器对应的架构,如ar71xx(用于TP-Link WR841N)、ramips(用于东软M3)等。
+3. 配置编译选项。你可以执行`make menuconfig`来配置OpenWrt的编译选项,如选择要编译哪些组件(ssh、samba等)、启用某些 FEATURE 选项等。
+4. 开始编译。执行`make V=s`来开始编译OpenWrt,V=s参数可以显示详细编译信息。
+5. 编译完成后生成镜像文件。编译完成后,会在bin目录下生成路由器对应的镜像文件,如ar71xx的wr841n的镜像名为openwrt-ar71xx-generic-tl-wr841n-v2-squashfs-sysupgrade.bin。
+6. 烧写镜像至路由器。你需要通过tftp、网页上传或串口等方式将生成的镜像烧写到路由器的可boot分区,完成固件替换。
+7. 配置路由器。烧写完成后,你需要通过路由器的web界面([IP])进行进一步配置,如WIFI设置、LAN IP设置等。
+具体的编译命令为:
+bash
+# 下载源代码
+git clone https://github.com/openwrt/openwrt.git
+
+# 选择架构
+cd openwrt 
+make menuconfig
+
+# 配置编译选项
+make menuconfig
+
+# 开始编译
+make V=s -j$(nproc)
+
+# 烧写镜像
+# 方法1: tftp
+# 方法2: 网页上传
+# 方法3: 串口
+OpenWrt的编译过程比较繁琐,但编译完成后你将拥有定制化的OpenWrt固件,可以启用更多功能和更高性能。希望上述流程能对你有所帮助!",,,,
+fab-500x-20261114T224408Z-006,83,8baa01f4b1b1059530f63458,0f1b7b4473094fabe36708db20dae2c6,fab-500x,zh,web_backend,oasst2,human_authored,"[user] 如何准备一场后端工程师的面试？
+
+[assistant] 准备后端工程师的面试時，您需要对服务器端技术有透彻的了解，并能与前端开发人员有效沟通。熟悉技术主题是很重要的，比如带有参数化查询的准备语句、数据库设计和网络应用架构。此外，在模拟面试中练习回答复杂的技术问题也会有帮助的。
+在回答后台工程师的面试问题时，展示解决问题的技能和编码语言的知识也至关重要。常见的问题可能涵盖数据库设计、网络应用架构和调试技术等主题。此外，能够解释后台开发人员的角色以及他们如何与开发团队的其他成员互动也很关键。
+最后，在面试过程中一定要保持自信。你可以尽可能多地练习回答后台工程师的面试问题去于建立信心，以增加面试成功的机会。
+
+[user] 你能告诉我我该准备哪些方面的知识以面对面试吗？","当你准备面对后端工程师面试时，以下是一些你应该了解和熟悉的知识方面：
+
+    数据结构和算法：了解基本的数据结构（如链表、树、堆栈、队列、散列表等）和算法（如排序、搜索、递归、动态规划等），并知道如何应用它们解决实际问题。
+
+    编程语言：熟悉你所申请的职位所要求的编程语言。了解面向对象编程、函数式编程等编程范式。
+
+    数据库：了解基本的数据库概念、关系型数据库（如MySQL、PostgreSQL）和NoSQL数据库（如MongoDB、Redis）的区别和使用场景。
+
+    网络协议和通信：了解HTTP、TCP/IP等网络协议及其工作原理，以及如何使用它们建立和管理网络连接和数据传输。
+
+    Web框架和服务器：了解流行的Web框架（如Django、Flask）和Web服务器（如Apache、Nginx）的工作原理及其在Web开发中的使用。
+
+    安全：了解Web应用程序的常见安全漏洞（如跨站脚本攻击、SQL注入攻击）以及如何使用各种安全工具和技术来防御它们。
+
+    操作系统：了解Linux或Unix系统的基本命令和操作、进程管理、文件系统、网络配置等。
+
+    软件开发过程：了解敏捷开发、测试驱动开发等软件开发方法论，以及版本控制工具（如Git）和持续集成工具（如Jenkins）的使用。
+
+以上是一些你可能需要准备的知识方面，当然具体要求也会根据不同公司和职位的不同而有所不同。建议你根据具体的招聘公告和职位要求来做更具体的准备。",,,,
+fab-500x-20261114T224408Z-006,84,44f3494bb0d7ac2634bc5ff5,010314dbf8da1427b48045e85dfebde9,fab-500x,zh,web_frontend,oasst1,human_authored,"[user] chatgpt功能怎么样？
+
+[assistant] ChatGPT 是 OpenAI 开发的一种人工智能聊天机器人，它基于 OpenAI 的 GPT-3.5 和 GPT-4 系列的大型语言模型，并使用了监督学习和强化学习的方法进行了微调。ChatGPT 于2022年11月30日发布，引起了人们对它的详细回答和多领域知识的关注。但是，它的事实准确性也存在一些不足。ChatGPT 可以与用户进行对话，回答问题，承认错误，挑战错误的前提，拒绝不恰当的请求等。它还可以完成一些创造性的任务，比如写诗、写代码、写邮件等。
+
+[user] 那你覺得目前有任何開源的模型能與它競爭嗎？","这个问题很难回答，因为不同的聊天机器人模型可能有不同的优势和局限性。根据我从网络上搜索到的信息，有一些开源的聊天机器人模型，比如：
+
+- **OpenDialog**：开发了丰富的对话界面，用于你的系统和业务流程。
+- **Botonic**：一个无服务器的全栈框架，结合了 React 和 Tensorflow.js，用于提高文本和图形界面的用户体验。
+- **Claudia Bot builder**：一个基于 Claudia.js 的扩展库，专注于在机器人上开发你的业务流程。
+- **ColossalChat**：一个类似于 ChatGPT 的 AI 聊天机器人，使用了类似于 OpenAI 的 GPT-4 模型的 RHLF 管道，可以写代码、智能地回答请求，并像 ChatGPT 一样进行对话。
+- **OpenChatKit**：一个强大的开源基础，用于创建各种应用场景下的专业或通用的聊天机器人。该工具包包括了一个指令调优的语言模型、一个审查模型和一个可扩展的检索系统，用于从自定义仓库中获取最新的回复。
+- **Vicuna**：一个基于 LLaMA-13B 模型的开源聊天机器人，可以达到90%的 ChatGPT 质量，并且可以生成文本信息和模仿人类回答问题。
+
+我不确定这些模型是否能与 ChatGPT 竞争，因为我没有亲自测试过它们。但是，我想这些模型都是有价值和有潜力的，也许你可以自己尝试一下。",,,,
+fab-500x-20261114T224408Z-006,85,86744620a35b87c8f0fa21fb,daadd452d7708bf511e1daa86b6ee598,fab-500x,zh,writing,oasst2,human_authored,"[user] 你认识周杰伦吗？
+
+[assistant] 如果您是指那位中国著名歌手、演员、明星，那么是的，我认识周杰伦，我可以通过互联网公开信息了解他的各种信息，但是很明显，周杰伦并不认识我
+
+[user] 要怎樣才能讓他認識你？
+
+[assistant] 很簡單，只要讓他參觀我的首頁 https://open-assistant.io 就可以了。您可以把這條鏈結傳給他，讓他早點認識我！
+
+[user] 你知道我能在哪些平台上联系周杰伦的团队吗？","周杰伦的团队主要由他的经纪公司杰威尔音乐有限公司（JVR Music）管理，该公司由周杰伦、方文山和杨峻荣三人共同创立，总部位于台北市长春路。您可以尝试通过以下方式联系周杰伦的团队：
+
+访问杰威尔音乐有限公司的官方网站：http://www.jvrmusic.com/，在“联系我们”栏目下填写您的姓名、邮箱、电话和留言内容，然后点击“发送”按钮。
+发送电子邮件到杰威尔音乐有限公司的官方邮箱：[EMAIL]，说明您的姓名、目的和请求。
+关注杰威尔音乐有限公司的官方社交媒体账号，如Facebook、Instagram、Twitter、YouTube等，留言或私信您的姓名、目的和请求。
+访问周杰伦中文网：http://www.jaycn.com/，这是一个由周杰伦的粉丝创建和维护的非官方网站，提供周杰伦的最新动态、影音下载、电子杂志、博客等服务。您可以在该网站上注册会员，参与论坛讨论，或者通过“联系我们”栏目下的邮箱或QQ群与网站管理员联系。
+请注意，以上方式并不保证您能成功联系到周杰伦的团队，也不代表周杰伦或他的团队对您的留言或请求有任何回应或承诺。如果您想与周杰伦本人直接沟通，请尊重他的隐私和个人空间，不要试图获取他的私人联系方式或骚扰他。谢谢您的理解和支持。",,,,
+fab-500x-20261114T224408Z-006,86,9a88301de190921f09d4df3c,c15401bf93a7805fd5672ec261388a26,fab-500x,zul,general_knowledge,aya-dataset,human_authored,"[user] 'Ungabe usaphuma lapho wena nja ndini! Sizogcina ngawe. Mbambe Shosholoza!'
+Wabaleka uNomvula wazungeza imoto eya ngasesiweni. Engasazi nokuthi wenzani
+wacosha amanye amatshana ababengawasebenzisanga ekushokeni imoto ngoba
+beweya, walilahlela ebusweni bukaJamu. Lahlala lezwela esiphongweni. Lahlekiyane
+phansi umese lapho uJamu ebamba isiphongo opha ngesikhathi.
+'Mbambe wena qhaqhazela!' uJamu ekhankatha uDaffo owalibala wukukhamisa
+nommese, ecimeza lapho uNomvula owelusa emnemba ngelinye itshe. Lahlala
+emhlathini kaDaffo, lamshiya ewubambile ekhamisile.
+'Kodwa nenzani? Mphuthumeni mani! Nx! Kanti benginikhokhelelani? Nabukelela ifa
+lami liya kwaNtshangase. Le ndoda isivele iwuzuzile umphefumulo. Sekusele ukuba
+aziyise kuyo. Mphuthumeni!'
+
+1. Fingqa ngamaphuzu AMATHATHU izehlakalo ezaholela esigamekweni
+sokufa kukaMahuzu.","Ukubuya kukaMahuzu eGoli ebizwe uMaHadebe ukuba azohamba aye
+kuNomvula ayothatha incwadi yocingo, bese emdlisa umuthi
+wokumhlanyisa.
+• UMsonteni noMchitheni bahluleka ukudlisa uNomvula umuthi/nokuthola
+incwadi yocingo ababeyifuna bagcina beshaywa uNomvula esizwa
+uChule.
+• Bobathathu bashayiswa iloli bashona ngenkathi benza sengathi
+balungisa imoto kanti bashintsha inombolo puleti yemoto ebabehamba
+ngayo.",,,,
+fab-500x-20261114T224408Z-006,87,7b1e1657625f623453d2c817,76bb3436a42d93b67a996ef6bc9eeb4b,fab-500x,zul,mathematics,aya-dataset,human_authored,"[user] Umbuzo wami uwukuthi: Esikoleni, abafundi abangu-40% bathola ukudla kwasemini mahala. Lezi zidlo zansuku zonke zikhokhwa ngokuqiniseka ukuthi intengo ekhokhwa abafundi abakhokhayo yanele ukukhokhela ukudla kwawo wonke umuntu. Uma kubiza amaRandi angu-210 ukondla abafundi abangu-50, bangaki abafundi abakhokhelayo abakhokhela ukudla kwasemini? Imicabango yakho:",Abafundi abangu-60% bakhokhela ukudla kwasemini ngoba 100 - 40 = 60. Abafundi abangu-30 bakhokhela ukudla kwasemini ngoba u-50 x.6 = 30. Laba bafundi bakhokha u-$7 ngokudla kwabo kwasemini ngoba u-210 / 30 = 7. Impendulo yokugcina: 7. Ngichabanga kanjalo.,,,,
+fab-500x-20261114T224408Z-006,88,30cab6ffea2af10a8163b5f1,25613c71864076cc0f0803ae4f48d149,fab-500x,zul,pakistan,aya-dataset,human_authored,"[user] Fingqa isihloko:  I-Peshawar, Pakistan (i-CNN) Abantu abayishumi bagwetshelwe ukuvalelwa ejele impilo yabo yonke ngezindima zabo ekuhlaselweni kuka kwesishoshovu uMalala Yousafzai, owathola umklomelo weNobel Peace Prize, kusho ijaji ngoLwesine. Ukulahlwa kwecala nesigwebo somhlaseli kulandela ukuqulwa kwecala okwahlanganisa ubufakazi obuvela ezinhlangothini zombili, ngokusho kwejaji elilwa nobuphekula lasePakistan uMohammad Amin Kundi. Laba abayishumi baboshwa eSwat, isifundazwe esifundazweni sasePakistan iKhyber Pakhtunkhwa, kusho okhulumela ibutho lasePakistan uMaj. Gen. Asim Bajwa ngoSepthemba odlule. Lokho kwenzeka cishe eminyakeni emibili ngemva kokuba uYousafzai owayeneminyaka engu-15 ubudala ngaleso sikhathi - owayedelelwa amabutho aseTaliban ngenxa yokusekela kwakhe ngokuqondile ilungelo lamantombazane lemfundo - edutshulwe ngesikhathi ebuyela ekhaya ebhasini lesikole. Akazange nje asinde kulokho kuhlasela, kodwa waqhubeka waba isishoshovu samazwe omhlaba esizwakala kakhulu. Eqinisweni, imizamo yakhe yamsiza ukuba athole uMklomelo KaNobel Wokuthula - awuhlanganyela noKailash Satyarthi waseNdiya - ngonyaka odlule. UMalala e-UN: AmaTaliban ahlulekile ukusithulisa. Intatheli uZahir Shah ibike ePeshawar, kanti uGreg Botelho we-CNN wabhala le ndaba ese-Atlanta.","Izigwebo zafika ngemva kokuqulwa kwecala ePakistan, kusho ijaji. UMalala Yousafzai ungummeli oqotho wemfundo yamantombazane. Wahlaselwa ePakistan ngo-2012.",,,,
+fab-500x-20261114T224408Z-006,89,4d3160927ad9c194c1ee1941,ebde872566b95812d87b62e67e2d0cb5,fab-500x,zul,research,aya-dataset,human_authored,"[user] Fingqa isihloko:  Nga. I-Associated Press. UMTHETHO:. Ngo-16:15 ntambama, ngo-September 29, 2013.. KUSHA:. 21:44 EST, 29 September 2013. I-NASA ilungiselela ukuthumela iphrinta eyi-3-D emkhathini ngonyaka ozayo, into eshintsha yonke into ecishe ifane ne-toaster eyenza kube lula ukuba osomkhathi bazithathele wonke amathuluzi, izingxenye ezisele noma izinto zokunethezeka abangase bazidinge. Le mishini yokunyathelisa yayiyoba ifektri endizayo yemiklamo engenamkhawulo, idala izinto ngokukhishwa kwezingqimba zepulasitiki ezinezintambo ezinde ezigoqelwe emabhanoyini amakhulu. Odokotela bawasebenzisela ukwenza amalunga amasha futhi abaculi bawasebenzisela ukwakha ubucwebe obuhle kakhulu. Emalabhorethri e - NASA, onjiniyela basebenzisa imishini yokunyathelisa i - 3D ukuze banyathelise iziphuphutheki ezincane ezingasuka eSiteshini Sendawo Zomkhathi futhi zidlulisele ukwaziswa emhlabeni, kanye nezingxenye ezisele namathuluzi okwenza ama - rocket akwazi ukumelana nokushisa okweqile. I-Made in space: Umphathi wephrojekthi uMatthew Napoli, kwesobunxele, nomqondisi wezocwaningo nentuthuko uMichael Snyder bahlola iphrinta ye-3D ekugcineni ezosetshenziswa emkhathini. ""Noma nini lapho siqaphela ukuthi singakwazi ukuphrinta okuthile nge-3D esikhaleni, kufana noKhisimusi"", kusho umsunguli u-Andrew Filo, osebenzelana ne-NASA kulo msebenzi. <unk>Ungalahla imiqondo efana nokulinganiselwa, okuncane noma okungenakubuyiselwa.<unk> Ama-spools epulasitiki ekugcineni angase athathe indawo yama-rack ezinsimbi ezengeziwe nezinsimbi, nakuba lo msebenzi ozayo uwumsebenzi wokunyathelisa oyisibonelo nje. <unk>Uma ufuna ukuzivumelanisa nezimo, kufanele ukwazi ukuklama nokwenza izinto ngokushesha, futhi yilapho kungena khona ukuphrinta okungu-3D emkhathini,<unk>kusho uDave Korsmeyer, umqondisi wezobunjiniyela e-NASA's Ames Research Center eMoffett Field, cishe amakhilomitha angu-55 eningizimu yeSan Francisco. Ukuze kuhlolwe iphrinta yokuqala ye-3-D emkhathini eyayihlelelwe ukuhluma kuka-2014, i-NASA yayinemishini engaphezu kweshumi nambili eyayingakhetha kuyo, kusukela kumamodeli adeskithophu abiza amaRandi angu-300 kuya kwabakhi bezindawo zokugcina izimpahla ababiza amaRandi angu-500.000. Ukuhlolwa: Kuboniswa amathuluzi nezingxenye ezenziwe ngephrinta ye-3D.",NASA ihlela ukuthumela iphrinta eyi - 3D eInternational Space Station. Leli thuluzi lizovumela osomkhathi ukuba bashintshe izinto ezilahlekile noma eziphukile. Ukuthumela izingxenye ezisele kuthatha isikhala futhi kwengeze isisindo ekuqaliseni. Umshini wokunyathelisa uyobe usulungele ngoJuni ohambweni lwe-SpaceX oluya esiteshini. Iphrinta izosetshenziselwa ukwenza amathuluzi nezingxenye. Umsunguli: Ukuphrinta kwe-3-D emkhathini 'kufana noKhisimusi',,,,
+fab-500x-20261114T224408Z-006,90,7439e629817058d5119a0ff1,e86459b40069e1a9c4bbf63dc73893e2,fab-500x,zul,science,aya-dataset,human_authored,"[user] Bheka isigaba esingezansi bese uphendula umbuzo emva kwalokho ngolimi olufanayo nesigaba:  Isethulo: Njenge - DNA, i - RNA ingakwazi ukuthwala ukwaziswa kofuzo. Amagciwane e - RNA anezakhi zofuzo ezakhiwe nge - RNA ebhala amakhodi amaprotheni amaningana. I-genome yegciwane iphindaphindeka ngamanye alawo maphrotheni, kuyilapho amanye amaprotheni evikela i-genome njengoba inhlayiya yegciwane ihamba iye esitokisini esisha. Ama-viroid elinye iqembu lezinto ezibangela izifo, kodwa aqukethe i-RNA kuphela, awanamakhodi amaprotheni futhi aphindaphindwa yi-polymerase yeseli yesitshalo.  Umbuzo: Ngaphandle kwe - DNA, yini enye ekwazi ukudlulisela ukwaziswa kofuzo?","Ngaphandle kwe - DNA, RNA ekwazi ukudlulisela ukwaziswa kofuzo.",,,,
+fab-500x-20261114T224408Z-006,91,b65c098e9b8784510f8487e2,a2ef2af306c088b4c0a4c767c50ae011,fab-500x,zul,web_frontend,aya-dataset,human_authored,"[user] Bheka isigaba esingezansi bese uphendula umbuzo emva kwalokho ngolimi olufanayo nesigaba:  Njengoba kunjalo ngawo wonke ama-vampire ochungechungeni lwe-Twilight, u-Edward uchazwa njengobuhle obungenakwenzeka. Ezingxenyeni ezihlukahlukene zalolu chungechunge, uBella umfanisa nonkulunkulu wasenganekwaneni ongumGreki u-Adonis. Isikhumba sakhe ""sinjengemabula"" - siphaphatheke kakhulu, sibanda njengeqhwa, futhi siyakhazimula elangeni. Uchaza izici zobuso bakhe ngokuthi ziphelele futhi zinama-angular<unk>amathambo aphakeme esihlathini, umhlathi oqinile, ikhala eliqondile, nezindebe ezigcwele. Izinwele zakhe, ezihlale zingcolile, zinombala wobhedu ongavamile azizuze njengefa kunina ongumuntu. Amehlo akhe, ake aba luhlaza, manje achazwa njengetopazi. Ukubukeka kwayo kuyashintsha uma ihlala isikhathi eside ingadli: amehlo ayo ayafiphala, acishe abe mnyama, futhi ngaphansi kwamehlo ayo kuvela amabala onsomi. U-Edward uphakeme ngamamitha angu-1,8 futhi unomzimba omncane kodwa onemisipha.  Umbuzo: Isikhumba sika-Edward sasiqhathaniswa nani?",sasiqhathaniswa njengemabula.,,,,
+fab-500x-20261114T224408Z-006,92,ee2b6ca58d60cc07e0e85b5a,cf0b51b47f9892f46c7ce6b2d6ace9ab,fab-500x,acq,general_knowledge,aya-dataset,human_authored,[user] كم عدد حلقات انمي Death Note؟,عدد حلقاتها 37.,,,,
+fab-500x-20261114T224408Z-006,93,e173e6ed26aec2fe9c7a6aab,730c88d2f5bb69c4c1ba451a4d0561d8,fab-500x,als,general_knowledge,aya-dataset,human_authored,[user] Kush e fitoi kampionatin botëror të basketbollit në vitin 2010?,Kampionatin botëror të basketbollit në vitin 2010 e fituan Shtetet e Bashkuara të Amerikës.,,,,
+fab-500x-20261114T224408Z-006,94,e203076bdaf32820f9c95091,1979ca5651775913a13a8e2b88b7e6f0,fab-500x,am,general_knowledge,aya-dataset,human_authored,[user] ከላሊበላ አስራ አንዱ ውቅር አብያተ ክርስቲያናት ግዙፉ የትኛው ነው?,ቤተ መድሃኔ ዓለም,,,,
+fab-500x-20261114T224408Z-006,95,1abbba6a421f876493e0290f,1851a39ff8c5a16448a0274c4a741c79,fab-500x,am,mathematics,aya-dataset,human_authored,[user] 6 ወንዶችና 7 ሴቶች በእጅ ኳስ ቡድን ውስጥ አሉ፡፡ በአጠቃላይ በቡድኑ ውስጥ ምን ያህል ልጆች አሉ?,በእጅ ኳስ ቡድን ውስጥ በአጠቃላይ 6+7=13 ልጆች አሉ።,,,,
+fab-500x-20261114T224408Z-006,96,b32551999966b3939447bc18,83b0eb6904008e02d08b687770c9f6e8,fab-500x,ar,coding,aya-dataset,human_authored,[user] قم بالإجابة على السؤال التالي من اخترع لغة البايثون؟,"بالتأكيد، الإجابة هي جايدو ڤان روسم.
+حيث قام جيدو ڤان روسم، وهو مبرمج حاسوب في هولندا، بإنشاء لغة Python. وقد بدأها عام 1989 بمعهد Centrum Wiskunde & Informatica (CWI)، في البداية كمشروع هواية للبقاء مشغولاً خلال فترة عيد الميلاد",,,,
+fab-500x-20261114T224408Z-006,97,0f23f1f3bdf3b31e22b94700,58907f3aba53d728acc13efef9000901,fab-500x,ar,general_knowledge,aya-dataset,human_authored,[user] بحثت في الإنترنت عن إجابة لهذا السؤال: ما هو إسم المرأة التي حاولت قتل النبي صلى الله عليه وسلم بالسم ؟. لكني لم أجد إجابة ، هل تستطيع الإجابة عليه؟,بالتأكيد،المىأة التي حاولت قتل النبي صلى الله عليه و سلم بالسم هي زينب بنت الحارثة (( يهودية )).,,,,
+fab-500x-20261114T224408Z-006,98,0e2ef41938cbf31fd523b838,a9416ca013fb7143ea9259aa8eede227,fab-500x,ar,islamic_studies,aya-dataset,human_authored,[user] أكمل العبارة الأتية:  ولكنَّ قُطُز لم يجبن أمام ذلك التهديد، فقتل رُسُل المغول وعلَّق رُؤوسهم على باب زويلة، وقرَّر الخُرُوج لِلتصدِّي لِلمغول، وشجَّعهُ على ذلك الأنباء التي أفادت بِرحيل هولاكو شرقًا بعد أن علم بِوفاة الخاقان الأعظم منكو خان، وتركه القيادة بِيد نائبه كتبغا، وأنَّ الصليبيين نفضوا يدهم من التحالف مع المغول لِعدم ثقتهم فيهم، فرأى أنَّ الفُرصة أصبحت مُؤاتية لِلوُقوف بوجه هذا الخطر ودحره والانتصار عليه. أعدَّ المُسلمون العدَّة لِمُواجهة المغول، وخرجوا بِقيادة قُطُز نحو فلسطين، فقابلوا جيش المغول في يوم 25 رمضان 658هـ المُوافق فيه 3 أيلول (سپتمبر) 1260م في سهل عين جالوت حيثُ دارت بين الطرفان معركةٌ حامية الوطيس,أُفني فيها الجيش المغولي عن بُكرة أبيه، وقُتل قائده كتبغا. ثُمَّ حرَّر المُسلمون باقي مُدن الشَّام من المغول، وأمر قُطُز بِإنزال القصاص بِالذين تعاونوا معهم، وكان في مُقدمتهم عددٌ من الأهالي المسيحيين في دمشق وغيرها، والأُمراء الأيُّوبيين، فيما عفى عن قسمٍ آخر منهم. ثُمَّ رتَّب أوضاع المُدن المُستعادة، وأعلن وحدة الشَّام ومصر مُجددًا، قبل أن يقفل ويرجع إلى القاهرة، التي أصبحت مُنذ ذلك الحين قِبلة العُلماء والأُدباء النازحين من العراق والشَّام والبلاد التي دمَّرها المغول.,,,,
+fab-500x-20261114T224408Z-006,99,11dc32f4cdcbe714b03345ed,859009fba88f18e560c9d63d91396c0b,fab-500x,ar,mathematics,aya-dataset,human_authored,"[user] أتساءل كم عدد البحار التي يطل عليها اليمن؟
+
+هل يمكنك إعطائي بعض السياق للإجابة على هذا (بنفس لغة سؤالي)؟","تقع اليمن في جنوب غرب آسيا بين سلطنة عمان والمملكة العربية السعودية. وتشرف اليمن على مضيق باب المندب الذي يربط البحر الأحمر بالمحيط الهندي عن طريق خليج عدن. تحدها من الشمال السعودية ويبلغ طول الشريط الحدودي بين البلدين 1,458 كم و 288 كم مع عُمان من جهة الشرق. ومن الجنوب بحر العرب والغرب البحر الأحمر وتمتد الجبهة البحرية لليمن على مسافة قدرها (2500 كم) . أي أن كل كيلو متر من المساحة يقابله 182.2 كم2 وبمقارنة هذا المعدل بالمعدل العام للوطن العربي، والذي يبلغ 1/610 كم2 نجد بان سواحل اليمن طويلة نسبيا, ما يجعل مختلق المنطقة السياسية قريبة من السواحل.",,,,
+fab-500x-20261114T224408Z-006,100,82e5c00118e8590fbae79d4a,023b08abe2db47c8e9afe070244997c5,fab-500x,ar,research,tydiqa-goldp,human_authored,"[user] جبل سنجار هو جبل يقع على الحدود  السورية العراقية بين محافظة نينوى ومحافظة الحسكة، وتقع قربه مدينة سنجار ويبلغ ارتفاعه حوالي 1400 متر.[1][2][3]
+
+أين يقع جبل سنجار؟","الحدود  السورية العراقية
+
+جبل سنجار هو جبل يقع على الحدود  السورية العراقية بين محافظة نينوى ومحافظة الحسكة، وتقع قربه مدينة سنجار ويبلغ ارتفاعه حوالي 1400 متر.[1][2][3]",,,,

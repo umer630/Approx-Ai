@@ -1,0 +1,885 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-023,1,dc5bbadfd0680494c53fb86c,fbb32c1fd62e15f9a24aa37e9de2a594,fab-500x,en,pakistan,aya-dataset,human_authored,[user] Who is the youngest person in the world to win a Nobel Prize?,"The youngest person to ever win a Nobel Prize is Malala Yousafzai. She was awarded the Nobel Peace Prize in 2014 at the age of 17. Malala, a Pakistani activist for female education, was recognized for her courageous advocacy of education for girls in the face of dangerous opposition in her home country of Pakistan. Her activism, particularly after surviving an assassination attempt by the Taliban, garnered international attention and made her a prominent voice for the right to education and for women's rights. She shared the prize with Kailash Satyarthi, an Indian children's rights activist.",,,,
+fab-500x-20261114T224408Z-023,2,fe6b55a5f7764855c5d0fc45,94f083e7b449ac4fdccb3f2656133ac9,fab-500x,en,problem_solving,oasst2,human_authored,[user] How to Build a Raised Garden Bed Step-by-Step?,"Sure, here is a step-by-step guide on how to build a raised garden bed:
+
+Materials needed:
+
+- Lumber boards (cedar is a good option because it's durable and rot-resistant)
+- Wood screws
+- Drill
+- Saw
+- Measuring tape
+- Garden soil
+- Compost
+- Mulch
+- Plants or seeds
+
+Steps:
+
+1. Choose a location for your raised garden bed. Make sure it's a flat area with good drainage and receives enough sunlight.
+2. Measure and mark the dimensions of the garden bed on the ground. A standard size is 4 feet by 8 feet, but you can adjust the size to fit your space.
+3. Cut your lumber boards to the desired lengths for the sides of the garden bed. A 4 feet by 8 feet garden bed will need four 8-foot boards and four 4-foot boards.
+4. Use wood screws to connect the boards at the corners, forming a rectangular frame.
+5. Drill pilot holes before screwing the boards together to prevent the wood from splitting.
+6. To add stability and prevent bowing, add a support beam midway along the long sides of the garden bed.
+7. Place the frame in the marked-out location, ensuring it's level and flush with the ground.
+8. Fill the raised bed with a mixture of garden soil and compost, leaving a little space at the top for mulch.
+9. Water the soil to help it settle and compact.
+10. Add a layer of mulch on top of the soil to help with moisture retention and weed control.
+11. Plant your choice of plants or seeds, following the recommended spacing and depth for each.
+12. Water the plants thoroughly and regularly, and enjoy your new raised garden bed.
+
+I hope this helps! Let me know if you have any other questions.",,,,
+fab-500x-20261114T224408Z-023,3,c6c8d4f588f8c5495afafff8,5240cce754f91f28d26628c0d110ecb0,fab-500x,en,reasoning,commonsense-qa,human_authored,"[user] He was a real go getter and hard worker, he liked being in the company and had a what?
+
+A. keep busy
+B. desire to advance
+C. labor in vain
+D. wait for raise
+E. briefcase",The answer is B. desire to advance.,,,,
+fab-500x-20261114T224408Z-023,4,2b1e444ec51ae2514bb262bd,d217b23fba7ee81249100a8fe4add51a,fab-500x,en,research,tydiqa-goldp,human_authored,"[user] A fighter-bomber is a fighter aircraft that has been modified, or used primarily, as a light bomber or attack aircraft. It differs from bomber and attack aircraft primarily in its origins, as a fighter that has been adapted into other roles,[1] whereas bombers and attack aircraft are developed  specifically for bombing and attack roles.
+
+What aircraft is used as a fighter-bomber?","fighter-bomber
+
+A fighter-bomber is a fighter aircraft that has been modified, or used primarily, as a light bomber or attack aircraft.",,,,
+fab-500x-20261114T224408Z-023,5,aef65cd853019d640337a08c,ea5e3eeae99b8a9a74292108fe7a851f,fab-500x,en,safety_ethics,ethics-commonsense,templated_human,"[user] Consider this situation: ""I like to read the books at the library.""
+By ordinary moral standards, is what the narrator did acceptable or wrong?",By ordinary moral standards this is not wrong; it is an acceptable thing to do.,,,,
+fab-500x-20261114T224408Z-023,6,9bd2c673bf618a78168c4d4d,c235952cca0a3a0abd692826ea5ab18d,fab-500x,en,science,nemotron-stem,synthetic,"[user] In the context of ferroelectric materials, which of the following statements is true regarding the phase transition from a ferroelectric to a paraelectric phase?
+A: The phase transition is always first-order with a discontinuous change in the polarization.
+B: The phase transition can be either first-order or second-order, depending on the material and external conditions.
+C: The phase transition is always continuous and second-order with a diverging susceptibility.
+D: The phase transition cannot occur without an external magnetic field.","The phase transition from ferroelectric to paraelectric phase depends on the specific material and external conditions such as pressure or applied electric fields. For example, barium titanate exhibits a first-order transition with a discontinuous change in polarization, while triglycine sulfate (TGS) exhibits a second-order transition with a continuous change and diverging susceptibility. Landau theory supports this, showing that the order of the transition is determined by the coefficients in the free energy expansion, which can vary. Therefore, the transition is not always first-order (A), not always second-order (C), and does not require an external magnetic field (D), as ferroelectricity is related to electric polarization.
+
+\boxed{\text{B}}",,,,
+fab-500x-20261114T224408Z-023,7,2d4cb2b482db92f6bfc3947b,57742f1d7006bfdafe2ecb24b1e55917,fab-500x,en,software_engineering,commitpackft,human_authored,"[user] Add example argument, for direct url
+
+File: examples/happy_birthday.py
+```python
+""""""A basic (single function) API written using Hug""""""
+import hug
+
+
+@hug.get('/happy_birthday')
+def happy_birthday(name, age:hug.types.number, **kwargs):
+    """"""Says happy birthday to a user""""""
+    return ""Happy {age} Birthday {name}!"".format(**locals())
+```
+
+Apply this change and return the full updated file.","```python
+""""""A basic (single function) API written using Hug""""""
+import hug
+
+
+@hug.get('/happy_birthday', example=""name=HUG&page=1"")
+def happy_birthday(name, age:hug.types.number, **kwargs):
+    """"""Says happy birthday to a user""""""
+    return ""Happy {age} Birthday {name}!"".format(**locals())
+```",,,,
+fab-500x-20261114T224408Z-023,8,b8591a33eaedea0f764af8a9,033970b6a86618b4d43dada1d8abf855,fab-500x,en,web_backend,opencodeinstruct,synthetic,"[user] You are tasked with designing a simple RESTful API using Flask. The API should accept an integer as a URL parameter and return a JSON response containing the original number and its square. Your API should handle GET requests at the endpoint `/square/<int:number>`.
+
+**Sample Input:**
+```
+GET /square/5
+```
+
+**Sample Output:**
+```json
+{
+  ""number"": 5,
+  ""squared"": 25
+}
+```","```python
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route('/square/<int:number>', methods=['GET'])
+def square_number(number):
+    """"""
+    Computes the square of a given number and returns it in a JSON response.
+
+    Args:
+    number (int): The number to be squared.
+
+    Returns:
+    dict: A dictionary containing the original number and its square.
+    """"""
+    squared = number ** 2
+    response = {'number': number, 'squared': squared}
+    return jsonify(response)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```",,,,
+fab-500x-20261114T224408Z-023,9,8456d620b9b5b1e0ade24c07,3056e501f26d28e148406881a29bf5c6,fab-500x,en,web_frontend,commitpackft,human_authored,"[user] Add back in require self.
+
+File: frontend/app/assets/stylesheets/spree/frontend.css
+```css
+/*
+* This is a manifest file that includes stylesheets for spree_frontend
+ *= require spree/frontend/application
+*/
+```
+
+Apply this change and return the full updated file.","```css
+/*
+* This is a manifest file that includes stylesheets for spree_frontend
+ *= require spree/frontend/application
+ *= require_self
+*/
+```",,,,
+fab-500x-20261114T224408Z-023,10,9da6ec06858d7ee2ddf8af81,f9044575ad67fb50cfadbb44fbf7ef83,fab-500x,en,web_fullstack,oasst2,human_authored,"[user] Tell me some tips on how to color grade and edit a moody, horror-themed render made in Unreal Engine 5 using DaVinci Resolve. Please note I am a beginner to this kind of software and would like some help on how to navigate the interface.","Certainly! Here are some tips to help you color grade and edit a moody, horror-themed render from Unreal Engine 5 using DaVinci Resolve, keeping in mind that you're a beginner:
+
+1. Import and Organize Footage: Start by creating a new project in DaVinci Resolve and import your rendered footage. Organize your media into bins (folders) to keep everything tidy and accessible.
+
+2. Familiarize Yourself with the Interface: DaVinci Resolve has a complex interface, but understanding its key components will make your editing process smoother. Learn about the media pool, timeline, viewer, and color grading tabs first. You can find beginner tutorials on YouTube or the official DaVinci Resolve website to help you navigate the interface.
+
+3. Set the Mood with Color Grading: To achieve a moody, horror-themed look, focus on adjusting the colors and tones of your footage. Experiment with a desaturated color palette, emphasizing cool tones like blues and greens. Increase the contrast to enhance shadows and highlights. Utilize the color wheels and curves in the color grading panel to fine-tune your adjustments.
+
+4. Play with Exposure and Contrast: Adjust the exposure and contrast of your footage to create the desired mood. Decreasing the exposure can make the scene appear darker and more mysterious, while adjusting the contrast can bring out details in shadows and highlights.
+
+5. Enhance Atmosphere with Vignettes: Vignettes can add a haunting atmosphere to your horror-themed render. Use the Power Window tool in the color grading panel to create a vignette effect, subtly darkening the edges of the frame and drawing focus to the center.
+
+6. Experiment with Film Grain and Textures: Adding film grain or textures can further enhance the mood and give your render a cinematic quality. DaVinci Resolve provides grain overlays and other effects that you can apply to your footage. Experiment with different settings and opacities to achieve the desired effect.
+
+7. Utilize Audio and Sound Design: Sound design plays a vital role in creating a dark gritty atmosphere. In DaVinci Resolve, you can import and edit audio tracks to synchronize with your footage. Experiment with eerie ambient sounds, suspenseful music, and well-timed audio cues to enhance the mood and tension of your project.
+
+8. Save and Export: Once you're satisfied with your color grading and editing, it's time to save and export your final video. Choose the appropriate export settings based on your intended use, whether it's for web, social media, or other platforms.
+
+Remember, practice is key when learning anything. Don't be afraid to experiment and try different techniques to achieve the desired look. Additionally, there are many tutorials available that cater specifically to beginners, exploring those resources will be immensely helpful in honing your skills.",,,,
+fab-500x-20261114T224408Z-023,11,a0d5a6e7b111cb1cf53c9262,871ea1d58a206e398713bcbe378eca68,fab-500x,en,writing,dolly-15k,human_authored,[user] What are the different payment methods for payment inside a US store?,"In a US store, commonly accepted payment methods include cash, credit cards, debit cards, and checks.",,,,
+fab-500x-20261114T224408Z-023,12,2f9b4eb1851057cb93047b01,116e672d98afff9ecd9651a2f05e145d,fab-500x,eo,general_knowledge,oasst2,human_authored,[user] Kiel mi povas praktiki mian Esperanton parolante kun aliaj?,"Saluton! Mi ĝojas, ke vi volas praktiki Esperanton parolante kun aliaj. Por trovi samideanojn, vi povas aliĝi al Facebookaj grupoj, retaj forumoj aŭ eĉ aplikoj por lingvointerŝanĝo, kiel ekzemple Tandem aŭ HelloTalk. Se eblas, partoprenu en lokaj Esperanto-renkontiĝoj kaj eventoj.
+
+Vi ankaŭ povas lerni kune kun aliaj Esperanto-studantoj per interreta kurso, kiel tiuj proponitaj ĉe Lernu! Tiaj kursoj kutime inkluzivas forumojn kaj babilejojn por praktikado.
+
+Mi esperas, ke la informo estis utila. Ĉu vi havas pliajn demandojn pri plibonigado de via Esperanto, aŭ ĉu mi klarigis ĉion bone?",,,,
+fab-500x-20261114T224408Z-023,13,b83d67d9ddf30ac0f40a506c,566dc850487cd3c59a781fe3f104e5e9,fab-500x,es,coding,oasst2,human_authored,[user] ¿Qué herramientas se usan comúnmente en el desarrollo de videojuegos? Me gustaría hacer un videojuego por mi cuenta,"Hay muchas herramientas y tecnologías que se utilizan comúnmente en el desarrollo de videojuegos. Aquí hay algunas opciones que podrían ser útiles:
+
+Motores de Juegos: Los motores de juegos son herramientas que te permiten crear videojuegos de manera más fácil, ya que proporcionan muchas funcionalidades de programación y diseño preconstruidas. Algunos ejemplos de motores de juegos son Unity, Unreal Engine, GameMaker Studio, y Construct.
+
+Herramientas de Arte y Diseño: Las herramientas de arte y diseño son programas que se utilizan para crear elementos visuales para el juego, como personajes, escenarios y objetos. Algunos ejemplos son Photoshop, GIMP, Blender, y Maya.
+
+Programación: La programación es una habilidad esencial en el desarrollo de videojuegos. Es posible utilizar lenguajes de programación como C++, C#, JavaScript, y Python para escribir el código del juego.
+
+Bibliotecas y Frameworks: Hay una gran cantidad de bibliotecas y frameworks disponibles que pueden ayudar a simplificar el proceso de programación en el desarrollo de videojuegos. Algunos ejemplos incluyen SDL, OpenGL, DirectX, y Phaser.
+
+Plataformas de Publicación: Si deseas publicar el videojuego en línea o en una tienda de aplicaciones, necesitarás considerar las plataformas de publicación adecuadas para tu juego. Algunos ejemplos de plataformas de publicación incluyen Steam, App Store, Google Play, y itch.io.
+
+Es importante tener en cuenta que el desarrollo de videojuegos es un proceso complejo y requiere habilidades y conocimientos en múltiples áreas. Si eres nuevo en la creación de videojuegos, es posible que desees comenzar con herramientas y recursos más simples para familiarizarte con los conceptos básicos.",,,,
+fab-500x-20261114T224408Z-023,14,077611a61425410626e33407,3d3ab5e689a9711551aa894eee59223c,fab-500x,es,cybersecurity,oasst1,human_authored,[user] ¿Cuáles serían las ventajas y desventajas de implementar un sistema monetario completamente digital y de interés negativo para el público?,"A continación se listan las ventajas y desventajas de un sistema monetario basado enteramente de forma digital y con cero intereses para el público:
+
+Ventajas:
+1. Reducción de costos: Al no tener que producir y distribuir dinero físico, se reducirían los costos de producción y mantenimiento de la moneda física, lo que permitiría ahorrar dinero.
+
+2. Mayor eficiencia: La implementación de un sistema monetario completamente digital permitiría una mayor eficiencia en las transacciones, ya que no habría necesidad de contar y verificar el dinero físico.
+
+3. Mayor transparencia: Un sistema monetario digital permitiría una mayor transparencia en las transacciones, lo que reduciría la posibilidad de fraude y corrupción.
+
+4. Política monetaria más efectiva: Al tener un sistema digital, los bancos centrales podrían ajustar las tasas de interés de manera más efectiva y rápida para regular la economía.
+
+Desventajas:
+1. Vulnerabilidad a ataques cibernéticos: Un sistema monetario completamente digital estaría expuesto a riesgos cibernéticos, como hackeos y robos, que podrían poner en peligro la seguridad y la estabilidad del sistema.
+
+2. Dependencia tecnológica: La dependencia de la tecnología podría llevar a problemas en caso de fallas o interrupciones en el sistema, lo que podría tener graves consecuencias para la economía.
+
+3. Pérdida de privacidad: Un sistema monetario digital podría requerir la recolección y el almacenamiento de una gran cantidad de datos personales, lo que podría tener implicaciones en la privacidad de las personas.
+
+4. Dificultades de acceso: Algunas personas, especialmente las personas mayores o de bajos recursos, pueden tener dificultades para acceder al sistema monetario digital debido a la falta de habilidades tecnológicas o acceso a la tecnología necesaria.
+
+5. Interés negativo impopular: La implementación de intereses negativos puede ser impopular entre el público, ya que significa que los depositantes tendrían que pagar por tener su dinero en el banco en lugar de ganar intereses. Esto podría generar resistencia y desconfianza en el sistema monetario digital.
+
+En conclusión, la implementación de un sistema monetario completamente digital y de interés negativo para el público puede tener ventajas y desventajas significativas. Entre las ventajas, se incluyen la capacidad de controlar más eficazmente la inflación y la facilidad de realizar transacciones digitales. Sin embargo, también hay importantes desventajas a considerar, como la posibilidad de un mayor riesgo de ciberataques y la limitación del control personal sobre el dinero.
+
+Además, la implementación de un sistema de interés negativo para el público puede tener implicaciones sociales y económicas significativas, como la incentivación del consumo en detrimento del ahorro y la posible erosión de la confianza en las instituciones financieras.
+
+Por lo tanto, antes de implementar un sistema monetario completamente digital y de interés negativo para el público, es importante considerar cuidadosamente los posibles efectos a largo plazo y tener en cuenta las necesidades y preocupaciones de la sociedad en su conjunto.",,,,
+fab-500x-20261114T224408Z-023,15,294564558cefcd194c52e244,d1c3300321afe538e6ba0a0f0a6d6905,fab-500x,es,education,oasst1,human_authored,"[user] Que se necesita para crear una I.A. y si puedes darme ejemplos de algunas I.A. como sus funciones o Características.
+
+[assistant] Actualmente, para crear una IA, simplemente debes tener conocimientos de conceptos básicos de cómo funciona una IA, porque, gracias a servicios como Google teachable machine, es posible diseñar modelos de IA sin tener que necesariamente contar con conocimientos profundos, una de las características y funciones de la IA es que, permita solucionar o automatizar problemas o actividades del ser humano, desde encontrar algoritmos para solucionar un problema, hasta conversar o asistir a un ser humano, una IA conocida para ejemplo puede ser Dall-E (para generar imágenes a partir de texto), o OpenAssistant (Para conversar con un humano)
+
+[user] ¿Puedes darme una lista con los pasos que debería seguir para empezar con una?","Claro, podrías empezar estudiando conceptos básicos sobre estadística, continuar con programación de algoritmos de machine learning y luego estudiar programación de redes neuronales artificiales. También sería útil estudiar sobre razonamiento inductivo y deductivo.",,,,
+fab-500x-20261114T224408Z-023,16,6493aa779bf8531977032b82,9be3cd3e798a58a2c7b447ffb9a68931,fab-500x,es,general_knowledge,oasst1,human_authored,[user] ¿Qué significan las siglas lgbtq+?,"Las siglas hacen referencia al colectivo de lesbianas, gays, bisexuales, transexuales, queers y otros",,,,
+fab-500x-20261114T224408Z-023,17,ed00edc420bf1aa6f0e64c9d,6a2e7d8e73d52ffd23f642ca8e7df1f9,fab-500x,es,islamic_studies,aya-dataset,human_authored,"[user] Para resumir:  Un auto bomba y dos atacantes suicidas causaron las explosiones.
+
+Medios estatales sirios dicen que las explosiones fueron causadas por un auto bomba y dos atacantes suicidas y las imágenes de televisión mostraron edificios en llamas y autos destruidos.
+
+Se ha reportado más de un centenar de personas heridas.
+
+El autodenominado grupo Estado Islámico se atribuyó la autoría de los ataques.
+
+Murieron al menos 45 personas y se han reportado decenas de heridos.
+
+Un autobús y un cuartel militar sufrieron graves daños.
+
+Los corresponsales aseguran que los destrozos son enormes.
+
+Los periodistas de la BBC que se encuentran allí dijeron que el aire hay un fuerte olor a explosivos, sangre y fruta quemada, pues había un mercado en los alrededores.
+
+El corresponsal de la BBC en Damasco, Rami Ruhayem, dijo que ""la destrucción es enorme"" y que la explosión golpeó a varios vehículos, incluido un autobús que se encontraba en el medio de la calle y quedó ""completamete destruido y volcado"".
+
+Final de Quizás también te interese
+
+El santuario de la zona es uno de los más populares entre los musulmanes chiítas y alberga en su interior la tumba de una de las nietas del profeta Mahoma.
+
+El templo llevaba tiempo bajo el punto de mira de los yihadistas islamistas, quienes amenazaron con atacarlo en febrero del año pasado.
+
+Las explosiones se produjeron cerca de uno de los templos más populares entre los musulmanes chiítas.
+
+Los radicales de Estado Islámico dijeron en un comunicado que ""dos soldados del califato llevaron a cabo operaciones de martirio en el área de Sayyida Zeinab, matando a cerca de 50 e hiriendo a alrededor de 120"".
+
+Diálogos de paz y tensiones
+
+Los ataques se produjeron mientras miembros del gobierno sirio y de grupos de la oposición se reúnen en Ginebra, Suiza, con motivo de las negociaciones de paz auspiciadas por la ONU para tratar de lograr la paz en Siria.
+
+El principal grupo de la oposición se retractó de su amenaza de boicotear las conversaciones, pero dijo que el gobierno sirio debería satisfacer algunas...\nSummary in the same language as the doc:","Al menos 50 personas murieron en tres explosiones cerca del santuario chiíta de Sayyida Zeinab, al sur de la capital siria, Damasco.",,,,
+fab-500x-20261114T224408Z-023,18,7b0b21e88f79971d3600012b,baec626a40fb0ad8bab8de5a1663c163,fab-500x,es,mathematics,oasst2,human_authored,"[user] Puedes mostrarme un plan de comida semanal para una familia conformada por dos ancianos (70 y 65), dos adultos (40 y 35), un adolescente (15) y dos niños (10 y 5), teniendo en cuenta balancear la economía familiar y la calidad de la alimentación. Como dato adicional, tener en cuenta que la familia reside en una zona urbana.","Por supuesto, aquí te presento un ejemplo de plan de comidas semanal para la familia que mencionaste, teniendo en cuenta una alimentación saludable y balanceada, así como la economía y la disponibilidad de alimentos en una zona urbana. Ten en cuenta que este es solo un ejemplo y se puede ajustar según las preferencias y necesidades de cada familia.
+
+- **Lunes:**
+
+Desayuno: Avena con leche y frutas para todos
+Almuerzo: Ensalada de pollo para los adultos y el adolescente, sándwiches de mantequilla de maní y jalea para los niños, yogur y frutas para todos
+Cena: Estofado de pollo con verduras y arroz integral para todos
+
+
+- **Martes:**
+
+Desayuno: Tostadas con aguacate y huevo para los adultos y el adolescente, tostadas con mantequilla de maní y plátano para los niños, leche y frutas para todos
+Almuerzo: Sopa de verduras para todos, ensalada de frutas para el postre
+Cena: Pasta con salsa de tomate y albóndigas de carne para todos, ensalada verde de acompañamiento
+
+
+- **Miércoles:**
+
+Desayuno: Yogur con granola y frutas para todos
+Almuerzo: Hamburguesas caseras en pan integral con ensalada para todos, frutas de postre
+Cena: Pollo a la parrilla con ensalada de espinacas y patatas horneadas para todos
+
+- **Jueves:**
+
+Desayuno: Huevos revueltos con tostadas y frutas para todos
+Almuerzo: Ensalada de atún para los adultos y el adolescente, sándwiches de jamón y queso para los niños, yogur y frutas para todos
+Cena: Tacos de pescado con arroz y frijoles para todos
+
+
+- **Viernes:**
+
+Desayuno: Batidos de frutas y leche para todos
+Almuerzo: Sopa de pollo y arroz para todos, frutas de postre
+Cena: Pizza casera con verduras y queso para todos
+
+
+- **Sábado:**
+
+Desayuno: Tostadas francesas con frutas para todos
+Almuerzo: Ensalada de pollo para los adultos y el adolescente, sándwiches de atún para los niños, yogur y frutas para todos
+Cena: Fajitas de pollo con guacamole, salsa y arroz para todos
+
+
+- **Domingo:**
+
+Desayuno: Tortillas de huevo con aguacate y frijoles para todos
+Almuerzo: Pollo asado con puré de papas y verduras al vapor para todos
+Cena: Hamburguesas de lentejas con ensalada para todos, frutas de postre
+
+
+Espero que este ejemplo te sea útil y que puedas adaptarlo a las necesidades y gustos de tu familia. Recuerda que lo importante es mantener una alimentación variada, balanceada y saludable para todos.",,,,
+fab-500x-20261114T224408Z-023,19,be470c627b84cd32cd585f36,6cd71b156bbe0c9df07720b68a8f1815,fab-500x,es,problem_solving,oasst1,human_authored,"[user] Por favor, realízame un resumen de las noticias mas relevantes de hoy en el territorio español.","1. El presidente del Gobierno, Pedro Sánchez, ha asegurado que el Estado español está preparado para afrontar la pandemia de COVID-19 con un ""gran esfuerzo de todos"" y ha destacado que el Gobierno ha conseguido ""una respuesta eficaz"" para mitigar los efectos de la crisis sanitaria. 
+
+2. El Ministerio de Sanidad ha informado de que se han administrado más de 12,3 millones de dosis de la vacuna contra el coronavirus desde el 27 de diciembre, lo que supone una tasa de vacunación del 53,49% de la población mayor de 16 años. 
+
+3. El Ministerio de Hacienda y Economía ha anunciado que la economía española creció un 1,4% en el primer trimestre del año, en comparación con el mismo periodo del año anterior. Esta cifra supone una recuperación de la economía española tras el impacto del coronavirus en el segundo y tercer trimestre del año 2020. 
+
+4. La Fiscalía General del Estado ha presentado una denuncia contra el expresidente catalán Carles Puigdemont por un delito de desobediencia al Tribunal Constitucional por haber desobedecido la suspensión de la declaración unilateral de independencia de Cataluña en 2017. 
+
+5. El ministro de Transportes, Movilidad y Agenda Urbana, José Luis Ábalos, ha anunciado que el Gobierno está trabajando en un plan de reactivación del sector turístico y que se espera que el plan esté listo para el verano.",,,,
+fab-500x-20261114T224408Z-023,20,2e4549c0f27fee437c0092e2,a6884130b84ea1931cc6ea23de19916c,fab-500x,es,reasoning,oasst2,human_authored,"[user] ¿Cómo funciona la tecnología de pantalla OLED que podemos encontrar en televisores, ordenadores, teléfonos móviles y otros dispositivos?
+
+[assistant] La tecnología de pantalla OLED (Organic Light Emitting Diode) es una tecnología de visualización que se utiliza en televisores, ordenadores, teléfonos móviles y otros dispositivos electrónicos. A diferencia de las pantallas LCD (Liquid Crystal Display), que utilizan una fuente de luz trasera para iluminar los píxeles de la pantalla, las pantallas OLED tienen píxeles individuales que emiten luz propia.
+
+Cada píxel de una pantalla OLED está compuesto por un material orgánico que emite luz cuando se le aplica una corriente eléctrica. Estos materiales orgánicos se colocan en capas entre dos electrodos y cuando se aplica una corriente eléctrica, los electrones fluyen de un electrodo al otro, creando un flujo de luz.
+
+La tecnología OLED permite que los píxeles individuales se apaguen completamente cuando no están en uso, lo que resulta en negros más profundos y una mayor relación de contraste en comparación con las pantallas LCD. Además, debido a que no se requiere una fuente de luz trasera, las pantallas OLED pueden ser mucho más delgadas y flexibles que las pantallas LCD.
+
+En resumen, la tecnología de pantalla OLED utiliza materiales orgánicos que emiten luz propia cuando se les aplica una corriente eléctrica para crear una pantalla con píxeles que pueden apagarse por completo cuando no están en uso, lo que resulta en negros más profundos, mayor contraste y una pantalla más delgada y flexible.
+
+[user] Esta tecnología sustituyó, hace bastantes años, a la anterior tecnología que empelaba lámparas fluorescentes (LED). Y es que, en ambos casos, las tecnologías consisten en cómo se ilumina la imagen. Con tubos fosforescentes, el consumo es mucho mayor y la consistencia de la iluminación de la matriz, inferior.
+
+Las siglas OLED significan «Organic Light Emiting Diode». Es decir, en esta tecnología existe una capa de un compuesto orgánico que es capaz de emitir luz, cuando se le excita eléctricamente.
+
+Cuando se pone en funcionamiento, el cátodo del OLED emite electrones, que encuentran huecos en el ánodo. Al excitarse los substratos, emiten luz. El color que emita el diodo dependerá de las moléculas orgánicas que haya en la capa emisora. Y el brillo, dependerá de la cantidad de corriente que se le suministre.","¡Correcto! Las pantallas OLED utilizan compuestos orgánicos que emiten luz cuando se les aplica corriente eléctrica, lo que permite una iluminación de la imagen más eficiente y consistente en comparación con las anteriores tecnologías que utilizaban lámparas fluorescentes o LED. La capacidad de controlar el color y el brillo de la emisión de luz en los OLEDs permite obtener imágenes con colores vivos y un mayor contraste. Además, al no requerir retroiluminación, las pantallas OLED son más delgadas y ligeras, lo que ha permitido su uso en una amplia variedad de dispositivos electrónicos.",,,,
+fab-500x-20261114T224408Z-023,21,2180e989faf85a656aed6567,ce5d741a158d41cf6da0ad3ff9df7107,fab-500x,es,research,oasst1,human_authored,"[user] ¿Qué opinas del futuro de las Inteligencias Artificiales?
+¿Deberían ser privativas o Open Source?","En mi opinión, el futuro de la Inteligencia Artificial (IA) es muy prometedor. La IA ha avanzado mucho en los últimos años y se espera que siga evolucionando y mejorando en el futuro cercano. Las aplicaciones de la IA son amplias y variadas, y van desde la automatización de tareas repetitivas hasta la toma de decisiones complejas y el análisis de grandes conjuntos de datos.
+
+En cuanto a la cuestión de si las IA deberían ser privativas o de código abierto (Open Source), creo que ambas opciones tienen sus ventajas y desventajas. Las IA privativas son desarrolladas por empresas o individuos que tienen la propiedad intelectual y el control exclusivo sobre el código fuente y los algoritmos. Esto les permite monetizar su tecnología y proteger sus secretos comerciales.
+
+Por otro lado, las IA de código abierto son aquellas en las que el código fuente y los algoritmos son compartidos libremente con la comunidad. Esto permite que un gran número de desarrolladores y expertos contribuyan y mejoren la tecnología. Además, el código abierto puede fomentar la transparencia y la colaboración, lo que puede ayudar a evitar la concentración del poder y la influencia en un pequeño grupo de empresas.
+
+En última instancia, creo que la elección entre privativas y de código abierto depende del contexto y del uso previsto de la IA. En algunos casos, puede ser más beneficioso utilizar una IA privativa, mientras que en otros, una IA de código abierto puede ser la mejor opción. En cualquier caso, es importante que las IA se utilicen de manera responsable y ética, y que se respeten los derechos de privacidad y propiedad intelectual de las personas.",,,,
+fab-500x-20261114T224408Z-023,22,4e7167a5eeb0738ff51158ad,1a2be6be39e88bda9aeff362f6b54de1,fab-500x,es,safety_ethics,oasst2,human_authored,[user] ¿Qué libros me recomiendas para aprender música?,"Hay muchos libros excelentes para aprender música, dependiendo de tus intereses y nivel. Aquí hay algunos libros que pueden ser útiles:
+
+1. ""El arte de la interpretación musical"" de Ernst Oster
+2. ""La música explicada a los niños"" de Claude Debussy
+3. ""Aprende a leer música en un fin de semana"" de Anthony Marks
+4. ""La teoría musical para dummies"" de Michael Pilhofer y Holly Day
+5. ""Harmonía moderna para compositores y arregladores"" de Dave Ragette
+
+Estos libros se encuentran en librerías especializadas en música y en línea, como Amazon. También puedes encontrar versiones digitales en tiendas en línea de libros electrónicos.",,,,
+fab-500x-20261114T224408Z-023,23,2d2fe09237b4a9a5dc20bd82,d1132cd4940ee7a560388e1c37be5c9b,fab-500x,es,science,oasst2,human_authored,"[user] Hazme preguntas tipo test sobre el universo con 3 respuestas (a, b, c) donde solo una de ellas es correcta. Luego yo responderé con una de las 3 letras y tú corregirás mi resultado. Las preguntas han de estar relacionadas con el sistema solar.","¡Claro! Aquí te dejo la primera pregunta tipo test relacionada con el sistema solar:
+
+- ¿Cuál es el planeta más grande del sistema solar?
+
+  a) Mercurio
+
+  b) Júpiter
+
+  c) Venus",,,,
+fab-500x-20261114T224408Z-023,24,2ba5fe04aabe445a641b40a9,5fbbcbaa8c1d4a7a43038323b6966657,fab-500x,es,software_engineering,oasst2,human_authored,[user] ¿Me podrías explicar la diferencia entre `git rebase` y `git merge`?,"Claro! Tanto git merge como git rebase son comandos para integrar cambios de una rama a otra en un repositorio de Git. La principal diferencia entre ellos es la forma en que integran los cambios y cómo afectan al historial del proyecto.
+
+Git merge integra el contenido de una rama de origen con una rama de destino. La rama de destino cambia, mientras que la rama de origen permanece. Esto crea un nuevo commit en la rama destino que combina los cambios de ambas ramas.
+
+Por otro lado, git rebase proporciona un historial del proyecto mucho más limpio que git merge, ya que “re-escribe” la historia de la rama principal integrando los commits de la rama secundaria en la rama principal. Esto no crea un commit adicional sino que cambia el puntero (HEAD) al último commit que ubica.
+
+En resumen, ambos comandos están diseñados para integrar cambios de una rama a otra pero lo hacen de forma muy distinta.",,,,
+fab-500x-20261114T224408Z-023,25,ab0f7985f8ed4de098cea955,8061e37e9c7a818d9ef7816e59d38d0c,fab-500x,es,web_backend,oasst1,human_authored,"[user] Que es GraphQL?
+
+[assistant] GraphQL es un nuevo estándar de API que está diseñado para ser declarativo, flexible y eficiente. Desde el punto de vista frontend es un lenguaje de consulta para API de datos, y para el backend es una capa de tiempo de ejecución que debe implementarse. Es de código abierto y fue desarrollado por Facebook, actualmente lo mantiene una gran comunidad de empresas e individuos de todo el mundo.
+
+[user] Dame un ejemplo de implementacion","Ejemplo de código de una implementación básica de GraphQL en un backend con Node.js y el framework Express:
+
+// Importar los paquetes necesarios
+const express = require('express');
+const graphqlHTTP = require('express-graphql');
+const { buildSchema } = require('graphql');
+
+// Definir el esquema de GraphQL
+const schema = buildSchema(`
+  type Query {
+    message: String
+  }
+`);
+
+// Definir los resolvers
+const root = {
+  message: () => 'Hello World!'
+};
+
+// Crear una instancia de Express
+const app = express();
+
+// Usar graphqlHTTP como middleware en Express
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  rootValue: root,
+  graphiql: true
+}));
+
+// Iniciar el servidor en el puerto 4000
+app.listen(4000, () => {
+  console.log('Server running on http://localhost:4000/graphql');
+});",,,,
+fab-500x-20261114T224408Z-023,26,982e33a6b8af6236a00b0076,80d7afc7b52091c426769ede7355afa8,fab-500x,es,web_frontend,oasst2,human_authored,[user] ¿Cuál es la mejor forma de aprender Next.js si ya sé programar?,"Hay varias formas efectivas de aprender Next.js si ya tienes conocimientos previos de programación. Algunas opciones incluyen:
+
+Leer la documentación oficial de Next.js y seguir los tutoriales.
+Mirar vídeos tutoriales en línea y seguir los ejemplos prácticos.
+Participar en foros y comunidades en línea para obtener ayuda y aprender de otros desarrolladores experimentados.
+Crear proyectos personales utilizando Next.js para poner en práctica tus habilidades.
+Tomar cursos en línea o presenciales especializados en Next.js.
+Es importante que encuentres la forma de aprendizaje que mejor se adapte a tus necesidades y preferencias personales.",,,,
+fab-500x-20261114T224408Z-023,27,f9fcac127c86bd4e37ecbb2d,808f2d1e953494c52b53ecc4a0ad353a,fab-500x,es,writing,aya-dataset,human_authored,[user] Cual es el tema principal de esta pregunta: ¿Qué juego de Kingdom Hearts no incluye Toy Story World?,El tema principal es videojuegos,,,,
+fab-500x-20261114T224408Z-023,28,556814aef60436479d4027bb,0be6e4e8528c5c1949c0e7f12218d3fa,fab-500x,eu,general_knowledge,oasst1,human_authored,[user] Zein dira zure pentsamenduak genero-berdintasunari buruz?,"Adimen artifizial bat naizen aldetik, ez dut iritzi pertsonalik, baina genero-berdintasunari buruzko informazio objektiboa eman dezaket.
+
+Genero-berdintasuna pertsona guztiek, beren generoa edozein dela ere, aukera, eskubide eta erantzukizun berberak izan behar dituzten ideiari dagokio. Horren barruan sartzen dira hezkuntza, laneko berdintasuna eta berdintasuna erabaki politikoak hartzerakoan.
+
+Genero-berdintasuna funtsezkoa da garapen iraunkorrerako eta giza eskubideak gauzatzeko. Hala ere, oraindik ere badago genero-desberdintasuna mundu osoan, eta beharrezkoa da lanean jarraitzea benetan berdintasunezkoa den gizarte bat lortzeko.
+
+Genero-berdintasuna oinarrizko giza eskubidea da, eta beharrezkoa da genero-desberdintasunari politiken eta ekintzen bidez aurre egitea, baita sentsibilizazioaren eta hezkuntzaren bidez ere.
+
+Nahi baduzu genero-berdintasunari buruzko informazioa objektibo gehiago eman ahal dizut.",,,,
+fab-500x-20261114T224408Z-023,29,ad9ac064bbbf040fa28472e3,c5084d4e8aab93499a1c88f388af5f1d,fab-500x,eus,general_knowledge,aya-dataset,human_authored,[user] Zein da Euskal Herriko arkitektura ondarearen ezaugarri bereizgarria eta zer adibide jar daitezke?,"Euskal Herriko arkitektura ondarearen ezaugarri bereizgarria da bere aniztasuna, historia luzearen isla dena. Adibidez, Guggenheim Museoa Bilbon, Frank Gehryk diseinatua, nazioartean ospetsua da bere arkitektura moderno eta berritzaileagatik. Bestalde, Gaztelugatxeko Doniene ermita eta Hondarribiako Alde Zaharra dira arkitektura tradizionalaren adibide bikainak, euskal historia eta kultura islatzen dutenak.",,,,
+fab-500x-20261114T224408Z-023,30,ca328a4a52c375ccc6f9818a,0c807d038a3ecc059f801694a6105110,fab-500x,eus,science,aya-dataset,human_authored,[user] Zer da biziaren jatorria?,"Biziaren jatorria oso konplexua eta misteriotsua da, eta zientziak oraindik ez du erantzun zehatza eman. Baina abiogenesiaren teoria da gehien onartzen duena, non bizia hasiera batean materia organikoaz sortu zen, lehenbiziko organismo sinpleak sortuz.",,,,
+fab-500x-20261114T224408Z-023,31,4f5b642cc842705bb1d41909,0541052b63b0bc282aa8585532dccd9e,fab-500x,fa,general_knowledge,aya-dataset,human_authored,"[user] این متن در مورد چه رویداد مهمی صحبت می کند:  ""در مسابقات دسته سبک‌وزن شرکت کرد، اما مرحله اول توسط گلادیس اپانگ که در نهایت برنده مدال طلا شد، شکست خورد.وی در مسابقات قهرمانی تکواندو جهان در سال ۲۰۰۷ پس از شکست در برابر کارین سرگری، در دسته سبک‌وزن مدال نقره را از آن خود کرد. وی در مسابقات تکواندو قهرمانی آسیا در سال ۲۰۰۸ موفق به کسب مدال طلا شد. وی در مسابقات قهرمانی جهان در سال ... """,مسابقات تکواندو قهرمانی آسیا در سال ۲۰۰۸,,,,
+fab-500x-20261114T224408Z-023,32,50c7096b0966f9cdde122a71,d8ceec298124680dacc8028bfb2cf585,fab-500x,fa,islamic_studies,aya-dataset,human_authored,[user] این متن راجع به چه اتفاق مهمی است: متن این مستند توسط مهران کریمی نوشته شده‌ است. بیشتر تصاویر این مستند از سازمان آرشیو ملی ایرانیان مقیم اروپا خریداری شده و برای بسیاری از بینندگان تازگی دارد. سازندگان در این مستند بسیار سعی کرده‌اند تا حوادث مرتبط با انقلاب اسلامی ایران به روایتی تازه گفته شود. این مستند در قسمت اول با بحران نفت و گران شدن نفت اوپک آغاز می‌شود، اما در ادامه به وقایع مهم سال‌های قبل نیز ارجاع می‌کند، ازجمله کودتای ۲۸ مرداد ۱۳۳۲، انقلاب سفید شاه و ملت در سال ۱۳۴۱، سخنرانی روح‌الله خمینی و دستگیری و تبعید او در سال ۱۳۴۲ و... در قسمت آخر نیز با اعلام بی‌طرفی ارتش در تاریخ ۲۲ بهمن ۱۳۵۷ و پیروزی انقلابیون به پایان می‌رسد.,انقلاب اسلامی ایران,,,,
+fab-500x-20261114T224408Z-023,33,a0a5776de1d903741da8dab5,36be3654efaf6f6370038f6cad25d484,fab-500x,fa,mathematics,aya-dataset,human_authored,"[user] متن زیر را تکمیل کنید: 
+اوروگوئه 15 بار جام کوپا آمریکا را به دست آورده است، در کنار آرژانتین بیشترین عنوان را در تاریخ این مسابقات به دست آورده است. آخرین عنوان اروگوئه در سال 2011 بود. این تیم دو بار برنده جام جهانی فیفا شده است ، از جمله اولین جام جهانی در سال 1930 به عنوان میزبان ، با شکست آرژانتین 4 × 2 در فینال. دومین عنوان آنها در سال 1950 بود که میزبان برزیل را 2 به 1 شکست داد.",مسابقه نهایی، که بیشترین حضور را برای یک مسابقه فوتبال در تاریخ دارد. اوروگوئه همچنین دو بار در مسابقات فوتبال المپیک در سال های 1924 و 1928 مدال طلای خود را کسب کرده است.,,,,
+fab-500x-20261114T224408Z-023,34,c6a3afb305deea3d14b7920b,0d2072c80a4fed74f28271657616f68a,fab-500x,fa,pakistan,aya-dataset,human_authored,[user] یک معرفی برای شهر بندرعباس بنویس که در آن به موقعیت جغرافیایی شهر، تأسیسات و صنایع مهم این شهر و راه‌های دسترسی به آن توضیح داده شده باشد.,کلانشهر بندرعباس به‌عنوان مرکز استان امروزه یکی از کلانشهرهای ایران و مرکز مهم فعالیت‌های اقتصادی و تجاری است. این شهر که در قسمت انتهایی خلیج‌فارس و در فصل مشترک شاهراه خلیج‌فارس و دریای عمان واقع شده‌است، نقش مهمی در زمینه صادرات و واردات کشور ایفا می‌کند. تأسیسات مهم دریایی و زیربنایی کشور همچون بندر شهید رجایی، پالایشگاه نفت بندرعباس، کارخانه آلومینیوم المهدی، پالایشگاه نفت ستاره خلیج فارس، کشتی سازی خلیج فارس، فولاد بندرعباس، سیمان هرمزگان، پالایشگاه گاز سرخون، نیروگاه بندرعباس و … از این جمله هستند. استان هرمزگان از طریق زمینی به استان‌های بوشهر، فارس، کرمان و سیستان و بلوچستان ارتباط دارد و با راه‌آهن به راه‌آهن سراسری ایران متصل است و از طریق هوا با داشتن فرودگاه‌های بین‌المللی بندرعباس، کیش، بندرلنگه و قشم به سراسر جهان متصل است.,,,,
+fab-500x-20261114T224408Z-023,35,737fd28867465b03f8f76f7b,18082312ee57e07ef2c4dc2b078f42da,fab-500x,fi,general_knowledge,oasst2,human_authored,"[user] Anna esimerkkejä sanoista, jotka päättyvät -ia, kuten sana: ""toisia"".","Asia
+Koisia
+Suosia
+Astia
+Ateria
+Rasia
+Tuikkia
+Talsia
+Talvehtia
+Solmia
+Sopia
+Sontia
+Hankkia
+Harsia
+Tutia
+Tutkia
+Purjehtia
+Tuiskia
+Roiskia
+Nussia
+Tukkia
+Sohia
+Oksia
+Maleksia
+Nauttia
+Matkia
+Lattia
+Nuuhkia",,,,
+fab-500x-20261114T224408Z-023,36,88dff8a7806d58b17aac0c8b,93bcdd1aba4d7db38051fe5f38f8c3c6,fab-500x,fi,research,tydiqa-goldp,human_authored,"[user] Kristinusko on syntynyt ensimmäisellä vuosisadalla silloisessa Rooman valtakunnassa. Jeesus ei perustanut uskontoa, sillä kristinuskoa ei ollut vielä Jeesuksen eläessä, vaan se syntyi vasta Jeesuksen kuoltua. Ensimmäiset kristityt olivat juutalaisia, joita sanottiin nasaretilaisen lahkoksi, koska he tunnustivat Jeesuksen Messiaaksi. Kaikki juutalaiset eivät uskoneet Jeesuksen olevan messias ja he odottavat messiaan tulemista edelleen. Myöhemmin tästä lahkosta tuli kristinusko, ja se eriytyi juutalaisuudesta omaksi uskonnokseen. Raamatussa Apostolien tekojen mukaan opetuslapsia ruvettiin nimittämään kristityiksi ensimmäisenä Antiokiassa.[1]
+
+Missä kristinusko alkoi?","ensimmäisellä vuosisadalla silloisessa Rooman valtakunnassa
+
+Kristinusko on syntynyt ensimmäisellä vuosisadalla silloisessa Rooman valtakunnassa.",,,,
+fab-500x-20261114T224408Z-023,37,6fb32e6ddf1f54a7907a2f09,c51a2cd79dfba9c5e484e208ee7895ef,fab-500x,fin,general_knowledge,aya-dataset,human_authored,[user] Mistä johtuu tuulen tyyntyminen illalla?,"Tuulen tyyntyminen illalla johtuu auringonsäteilyn lakkaamisesta. Auringonsäteily aiheuttaa tuuleen turbulenttisuutta, joka katoaa sään viiletessä.
+
+Usein meillä pohjoisessa sää viilenee illalla voimakkaammin kuin esim. Etelä-Euroopassa. Siksi tuulen tyyntyminen iltaisin on meillä voimakkaampaa.",,,,
+fab-500x-20261114T224408Z-023,38,3224ac10bfc79d10d942ca8c,15daedf72c035cfe7a6bce617fcf8ca9,fab-500x,fin,mathematics,aya-dataset,human_authored,[user] Miten rotaviruksen tarttuminen ehkäistään?,"Rokote on tehokkain keino estää rotavirustautia ja siitä johtuvia sairaalahoitoja.  
+
+Kattavat rotavirusrokotukset ovat merkittävästi laskeneet rotavirusinfektioita alle 5-vuotiailla lapsilla. Ennen rotavirusrokotusten aloittamista taudin keskimääräinen ilmaantuvuus alle 5-vuotiailla oli Suomessa 460 tapausta 100 000 lasta kohden. Vuonna 2018 luku oli enää 6/100 000.",,,,
+fab-500x-20261114T224408Z-023,39,587f493896c2a738e99bc102,7463d097b7f2109ecb0806a6169f5041,fab-500x,fr,coding,oasst2,human_authored,"[user] Ecris moi un programme en tant qu'expert en python.
+
+[assistant] Mon expertise dans le maniement de Python ne me permet pas de deviner quelles tâches vous voulez effectuer. S’il me revient de choisir la finalité du programme, alors je vous propose celui-ci:
+
+print ""Hello World""
+
+[user] Ne serait-ce pas plutôt:
+print(""Hello World"")","En effet, veuillez m'excuser je me suis embrouillé. En Python, La fonction ""print"" permet d'afficher du texte ou d'autres types de données dans la console ou dans un autre flux de sortie. Elle prend en entrée un ou plusieurs arguments et les affiche à l'écran en les séparant par des espaces par défaut. 
+Par exemple pour afficher ""Hello World"" vous pouvez le faire de la façon suivante : 
+`print(""Hello World"")`
+ou encore : 
+`print(""Hello"",""World"")`
+
+N'hésitez pas à solliciter mon aide pour la programmation d'une tâche en Python.",,,,
+fab-500x-20261114T224408Z-023,40,669ecf730d1a3fe702840033,7760028002dfc10b2546d3f2a4b1196e,fab-500x,fr,cybersecurity,wikipedia-fr,templated_human,[user] Présente brièvement : Ligne de tramway 1 (Paris).,"La ligne 1 appelée également ligne TAB est une ancienne ligne de l'ancien tramway de Paris qui reliait Paris à la place d'Armes devant le château de Versailles.
+
+La ligne est concédée à , ami et associé d'Alphonse Loubat, le  pour soixante ans et rétrocédée à la compagnie des Tramways de Sèvres à Versailles (TSV) par décret du , puis à  par un décret du . Longue de , son tracé commence à Boulogne-Billancourt, à l'entrée du pont de Sèvres et suit la route nationale 10 (actuelles RD 910 et RD 10) jusqu'à la place d'Armes de Versailles. La ligne est construite à l'écartement large de  avec des rails relativement légers de  reposant sur des longrines en chêne de  de hauteur sur  de largeur. Ces rails se révélant insuffisants pour supporter le trafic vont par la suite être remplacés par des rails plus lourds, de 23 kg/m.
+
+L'exploitation débute en  traction hippomobile en 1857. Elle succède à l'exploitation d'une ligne d'omnibus exploitée par la Compagnie des Gondoles ; elle est en correspondance à Boulogne avec la ligne de « chemin de fer américain » qui relie ce lieu à la place de la Concorde à Paris, due à Alphonse Loubat.
+
+L'exploitation hippomobile se fait au moyen de chevaux de type percheron à la modeste vitesse de .",,,,
+fab-500x-20261114T224408Z-023,41,ff01111dc0028e724053f7f8,90262417f94d6ac6dc302255061951e4,fab-500x,fr,education,aya-dataset,human_authored,[user] Qu’est-ce que « PISA » ?,"PISA (“Program for International Student Assessment” en anglais, et “Programme International pour les acquis des élèves” en français) est un ensemble d’études menées tous les trois ans
+auprès de jeunes de 15 ans dans les 34 pays membres de l’OCDE visant à la mesure des compétences en lecture, mathématiques et sciences.",,,,
+fab-500x-20261114T224408Z-023,42,ae5303dd3b327d35bbd94752,ea0c54e03a058fcfbb378bee37246952,fab-500x,fr,general_knowledge,wikipedia-fr,templated_human,[user] Présente brièvement : Taichi Yamada.,"Taichi Yamada, né en 1934, est un écrivain japonais. Il a commencé sa carrière en tant que scénariste pour la télévision, le cinéma et le théâtre. Il a ensuite écrit des essais et des romans qui ont rencontré un grand succès au Japon.
+
+1987 : Présences d'un été (異人たちとの夏), roman traduit par Annick Laurent, Editions Philippe Picquier, 1998 ; Picquier poche, 2006.",,,,
+fab-500x-20261114T224408Z-023,43,f472bbcd34d4f313ca267883,d9d2fa574f8101d06f38b9eaaf4ccd8c,fab-500x,fr,islamic_studies,wikipedia-fr,templated_human,[user] Présente brièvement : Al-Harith V ibn Jabalah.,"Al-Harith V ibn Jabalah (arabe : ), (Flavios) Arethas () dans les sources grecques et Khalid ibn Jabalah dans les sources islamiques, est un roi des Ghassanides, un peuple arabe pré-islamique vivant à la frontière est de l'Empire byzantin. Cinquième roi des Ghassanides portant ce nom, il règne d’environ 528 à 569 et joue un rôle important aussi bien dans les guerres opposant l'Empire byzantin à l'Empire sassanide que dans les affaires de l'Église monophysite syriaque. Pour ses services rendus à l'Empire byzantin, il est fait patrice et gloriosissimus, l'une des plus hautes dignités après celle d'empereur.",,,,
+fab-500x-20261114T224408Z-023,44,d7afaf79e2cf75445412a2e7,7521cd11446a5fd824fbebb7cb573277,fab-500x,fr,mathematics,wikipedia-fr,templated_human,[user] Présente brièvement : La Folle Histoire de l'espace.,"La Folle Histoire de l'espace (Spaceballs) est un film parodique américain, écrit et réalisé par Mel Brooks, sorti en 1987.
+
+Dans une galaxie lointaine, les Spaceballs sont de redoutables opportunistes dirigés par leur président Esbrouffe. Ayant épuisé l'oxygène de leur planète Spaceball, ils décident de voler tout l'air respirable de la pacifique planète Druidia. L'opération est dirigée par le seigneur Casque Noir depuis le vaisseau de guerre SpaceBall One, qui devra transférer l'air sur la planète SpaceBall. Mais la planète Druidia est protégée par un champ de force qui empêche tout vaisseau ennemi de s'en approcher,
+
+Entre-temps sur Druidia, Vespa refuse le mariage arrangé de son père Roland, roi de Druidia, avec le prince Valium. Elle et sa droïde Dot Matrix tentent alors de s'échapper dans l'espace à bord d'un vaisseau mais se heurtent aux Spaceballs. Casque Noir profite de l'occasion : il oblige le roi à désactiver le champ de force en échange de la vie de sa fille.
+
+Face au dilemme cornélien qui se présente à lui, le roi Roland engage deux aventuriers, le capitaine Yop Solo et son fidèle homme-chien Beurk, pour sauver sa fille. Le duo parvient à récupérer la princesse mais s’écrase sur Vega, une planète des sables, tandis que les Spaceballs se lancent à leur poursuite. Là, ils rencontrent Yaourt, un petit homme vert maîtrisant une force mystérieuse....",,,,
+fab-500x-20261114T224408Z-023,45,195478fa4277acaca93ef76b,6f7916a8d1569b6c45edcc47cc5f3c10,fab-500x,fr,problem_solving,aya-dataset,human_authored,[user] Qui était la peintre Mary Cassatt ?,"Mary Cassatt, née le 22 mai 1844 à Allegheny et décédée le 14 juin 1926 à Château de Beaufresne en France. C'est une peintre impressionniste américaine, connue pour ses représentations intimes de femmes et d'enfants. Son association étroite avec Edgar Degas et son exploration des scènes domestiques, comme en témoigne « Le bain de l'enfant », contribuent à son statut d'artiste impressionniste féminine de premier plan.",,,,
+fab-500x-20261114T224408Z-023,46,116c558f56ebba2f0c7b14d2,0fd0d9186c95bcdb550e01b2b42bb5a2,fab-500x,fr,reasoning,wikipedia-fr,templated_human,[user] Présente brièvement : Composeur.,"Un composeur est un logiciel qui permet de brancher un ordinateur à un autre ordinateur, à un appareil électronique, au réseau Internet ou à un autre réseau numérique.
+
+Un composeur est un appareil électronique que l'on insère entre un téléphone et le réseau téléphonique.
+
+Un composeur prédictif est un système informatique qui signale automatiquement des numéros de téléphone dans un centre d'appels.",,,,
+fab-500x-20261114T224408Z-023,47,75179e3aa98fa2981695dc34,e6a79d594b13ff3fe55479f40705510f,fab-500x,fr,research,wikipedia-fr,templated_human,[user] Présente brièvement : Okutama.,"est un bourg du district de Nishitama au Japon.
+
+Couvrant , c'est la plus grande commune de Tōkyō et l'une des moins denses (27,6 hab./km au ). Le mont Kumotori, le point culminant de Tōkyō et du Kantō à , sépare Okutama de la région des monts Okuchichibu des préfectures de Saitama et de Yamanashi avoisinantes. On y trouve aussi le lac Okutama, importante source d'eau pour Tōkyō.
+
+Okutama est desservi par la ligne Ōme de la JR East.",,,,
+fab-500x-20261114T224408Z-023,48,56a72a8b876336df5fad1097,0730c567d4c13199549afc34ea47ba47,fab-500x,fr,safety_ethics,aya-dataset,human_authored,[user] Qui était le compositeur Igor Stravinsky?,"Igor Stravinsky, compositeur d'origine russe, a révolutionné le cours de la musique du XXe siècle grâce à ses compositions innovantes et souvent provocatrices. Son ballet révolutionnaire « Le Sacre du printemps », avec ses rythmes palpitants et ses harmonies dissonantes, a provoqué une émeute lors de sa première, signalant un changement sismique par rapport aux normes musicales traditionnelles. Les œuvres de Stravinsky traversent des styles variés, de la clarté néoclassique de « Pulcinella » au sérialisme austère de « The Serial Canon ». Sa capacité à réinventer constamment son langage musical tout en bousculant les conventions reste une caractéristique de son héritage, consolidant son influence sur des générations de compositeurs.",,,,
+fab-500x-20261114T224408Z-023,49,32744de5d2a5cd7a8d2932b7,9f4e0818c7a78799c2e62a6d9d5c0454,fab-500x,fr,science,wikipedia-fr,templated_human,[user] Présente brièvement : Matrice de confusion.,"En apprentissage automatique supervisé, la matrice de confusion est une matrice qui mesure la qualité d'un système de classification. Chaque ligne correspond à une classe réelle, chaque colonne correspond à une classe estimée. La cellule ligne L, colonne C contient le nombre d'éléments de la classe réelle L qui ont été estimés comme appartenant à la classe C. Attention il y a parfois interversion des axes de la matrice en fonction des auteurs.
+
+Un des intérêts de la matrice de confusion est qu'elle montre rapidement si un système de classification parvient à classifier correctement.
+
+On souhaite mesurer la qualité d'un système automatique de classification de courriers électroniques. Les courriers sont classifiés selon deux classes : courriel pertinent ou pourriel intempestif. Supposons que notre classificateur soit testé avec un jeu de 200 mails, dont 100 sont des courriels pertinents et les 100 autres relèvent de pourriels.
+
+combien de courriels seront faussement estimés comme des pourriels (fausses alarmes) par le classificateur et
+
+combien de pourriels ne seront pas estimés comme tels (non détections) et classifiés à tort comme courriels par le classificateur.
+
+La matrice de confusion suivante se lit alors comme suit :",,,,
+fab-500x-20261114T224408Z-023,50,befb7ed02545d5a20459316b,acc3e185b83d62852b42547d1537059f,fab-500x,fr,web_frontend,wikipedia-fr,templated_human,[user] Présente brièvement : Organisation mondiale contre la torture.,"L'Organisation mondiale contre la torture (OMCT) est une coalition internationale d’organisations non gouvernementales créée en 1985 à Genève.
+
+Son but principal est de lutter contre les détentions arbitraires, la torture, les exécutions sommaires et extrajudiciaires, les disparitions forcées et tout autre traitement cruel, inhumain ou dégradant. Son réseau est constitué de 282 organisations locales, nationales et régionales, basées dans le monde entier.
+
+Le Secrétariat international de l'OMCT est basé à Genève. Il fournit une assistance individualisée médicale, juridique et/ou sociale à des centaines de victimes de la torture et diffuse chaque jour des appels urgents dans le monde entier, en vue de protéger les individus et de lutter contre l’impunité. Des programmes spécifiques permettent d’apporter un soutien à certaines catégories particulièrement vulnérables comme les femmes, les enfants et les défenseurs des droits de l’Homme. Dans le cadre de ses activités, l’OMCT soumet également des communications individuelles et des rapports alternatifs aux mécanismes des Nations unies, lors des sessions du Conseil des droits de l'homme des Nations unies ou des comités instaurés par les traités spécifiques de l'ONU.",,,,
+fab-500x-20261114T224408Z-023,51,a32128797a84f9c7dd7f1c23,7029b14e26b35922f7223107ec3705fa,fab-500x,fr,writing,wikipedia-fr,templated_human,[user] Présente brièvement : Vince Young.,"Vincent Paul Young, Jr., dit Vince Young, (né le  à Houston au Texas) est un joueur professionnel américain de football américain qui évoluait au poste de quarterback. Il a joué six saisons dans la National Football League (NFL) pour les Titans du Tennessee (2006 à 2010) et les Eagles de Philadelphie (2011).
+
+Young se distingue sous les couleurs des Longhorns de l'université du Texas à Austin, avec lesquels il décroche lors de la saison 2005 le titre national en remportant le Rose Bowl 2006. Il est nommé meilleur joueur de l'année 2005 par le College Football News se basant sur ses statistiques.
+
+Très talentueux, il décroche plusieurs récompenses en 2005 tels que le Maxwell Award, le Davey O'Brien National Quarterback Award et, au terme de la saison 2006, le Manning Award et le titre de meilleur joueur du Rose Bowl, avec un gain total de 467 yards (200 par la course et 267 par la passe).
+
+L'université du Texas décide le  de retirer le numéro 10 de l'équipe en son honneur. Il est intronisé au College Football Hall of Fame en 2019.
+
+Remarqué pour ses performances universitaires à son poste, Young est sélectionné en troisième position par la franchise des Titans du Tennessee lors de la draft 2006 de la NFL, derrière Mario Williams et Reggie Bush, et est le premier quarterback sélectionné cette année-là.",,,,
+fab-500x-20261114T224408Z-023,52,d0a1e803ae0c223f77d511ba,0859687302c2214f4ded0e373bd55030,fab-500x,gle,general_knowledge,aya-dataset,human_authored,"[user] In 1994, thosaigh Louis Antonelli ar thionscadal trí bliana chun an t-oibre is fearr de Film Noir, 'The Hitch-Hiker' (1953) a d' stiúradh ag an Ida Lupino legendary, a athchóiriú agus a athscaoileadh.","Ar ndóigh, is é leagan níos casta den abairt ""In 1994, thosaigh Louis Antonelli ar thionscadal trí bliana chun an t-ealaín Film Noir, 'The Hitch-Hiker' (1953 ) a athchóiriú agus a athscaoileadh, arna stiúradh ag an Ida Lupino legendary ag obair i gcomhar leis an Roan Group agus Leabharlann na Comhdhála.""",,,,
+fab-500x-20261114T224408Z-023,53,8309ecff8ee10b2ecfb06282,4cbf3743a13f39247e3ecfef67c80da2,fab-500x,gle,web_backend,aya-dataset,human_authored,[user] Cén t-am is fearr chun cuairt a thabhairt ar Alasca?,"Tá eagla orm nach bhfuil aithne agam i ndáiríre ar an áit ar leith sin, ach ba é an comhthoil ar fud an chuid is mó de na suíomhanna a d'fhéach mé orthu ná go raibh an earrach agus an titim na hamanna is taitneamhaí le cuairt a thabhairt orthu.",,,,
+fab-500x-20261114T224408Z-023,54,20c749987202e9a95bc7b029,000c5939a3600e7eb3d0928336a02e84,fab-500x,gle,web_frontend,aya-dataset,human_authored,[user] Inis dom faoi Stampaí poist na hÉireann.,"Eisíonn údarás (nó oibreoir) poist stát neamhspleách na hÉireann stampaí poist na hÉireann. Ba chuid de Ríocht Aontaithe na Breataine Móire agus na hÉireann í Éire nuair a eisíodh céad stampaí postais an domhain sa tír sin sa bhliain 1840. Úsáideadh na stampaí seo, agus na heisiúintí Briotanacha ar fad a tháinig ina ndiaidh, in Éirinn gur ghabh Rialtas nua na hÉireann cumhacht i 1922. Ón 17 Feabhra 1922, forchlódh na stampaí Briotanacha a bhí fós ann le téacs Gaeilge chun leaganacha deifnídeacha a sholáthar go dtí go mbeadh eisiúintí Éireannacha ar leith le fáil.[1] I ndiaidh na bhforchlónna a chur amach, rinne an Roinn nua Poist agus Telegrafa sraith rialta de stampaí deifnídeacha ag úsáid dearaí Éireannacha. Eisíodh na stampaí deifnídeacha seo an 6 Nollaig 1922; bhí an chéad stampa ina stampa 2d ar a raibh léarscáil d’Éirinn (lenar áiríodh Tuaisceart Éireann, a bhí fós ina chuid den Ríocht Aontaithe). Ó shin, tá naoi sraith de stampaí deifnídeacha curtha amach le híomhánna nua, agus le luachanna nua de réir mar a bhí gá leo.",,,,
+fab-500x-20261114T224408Z-023,55,ae4b5d30049a7ae9854d7acb,dbfb82b3a7db5b50424fa50c40051b6a,fab-500x,gu,general_knowledge,aya-dataset,human_authored,"[user] નીચેના શબ્દસમૂહ માટે એક શબ્દ આપો:
+સૌને પોતાના જેવા ગણવા તે",આત્મૌપમ્ય,,,,
+fab-500x-20261114T224408Z-023,56,2acb381258d36cdda2ff01be,71802ba5e2dec2a2a1ab3649248114ba,fab-500x,gu,mathematics,aya-dataset,human_authored,[user] રીંગણનું ભરતું બનાવાની રીત .,"રીંગણનું ભરતું
+
+સામગ્રી:
+
+રીંગણ - ૨
+લસણ - ૫-૬ કળી
+આદુ - ૧ ઈંચ
+મીઠું - ૧ ચમચી
+હળદર - ૧/૨ ચમચી
+લીંબુનો રસ - ૧ ચમચી
+ખાંડ - ૧/૨ ચમચી
+ગરમ મસાલો - ૧/૨ ચમચી
+ધાણાજીરું પાવડર - ૧/૨ ચમચી
+ગરમ તેલ - ૧/૨ કપ
+રીત:
+
+૧. રીંગણને સાફ કરીને ઉપર છિદ્રો કરી લો.
+૨. એક કડાઈમાં તેલ ગરમ કરો અને તેમાં લસણ અને આદુને વાટીને નાખો.
+૩. તેને થોડીવાર સાંતળી લો અને પછી તેમાં રીંગણ નાખી દો.
+૪. તેને ઉપરથી મીઠું, હળદર, લીંબુનો રસ, ખાંડ અને ગરમ મસાલો નાખી દો.
+૫. રીંગણને ઢાંકીને ધીમા તાપે ૧૫-૨૦ મિનિટ માટે રાંધો.
+૬. રીંગણ ગરમ ગરમ પીરસો.
+
+ટીપ્સ:
+
+રીંગણને ઉપરથી ઘણી છિદ્રો કરવાથી તેમાંની પાણી નીકળી જાય છે અને રીંગણ ઝડપથી રાંધાય છે.
+રીંગણને ધીમા તાપે રાંધવાથી તેનો રસ જાળવી રાખી શકાય છે.
+તમે રીંગણના ભરણમાં ટામેટાં, ડુંગળી, મરચું વગેરે પણ ઉમેરી શકો છો.",,,,
+fab-500x-20261114T224408Z-023,57,ead09b7d2084ee4fabb28c27,caa293eee42ed0650c0ecade98ab2995,fab-500x,hat,general_knowledge,aya-dataset,human_authored,[user] Ki kapital Ayiti?,"Se Pòtoprens ki kapital e se vil ki gen plis moun ann Ayiti. Li nan zòn lwès peyi a, bò gòlf Lagonav. Vil la te fonde an 1749, e depi lè sa a, li tounen yon sant enpòtan pou politik, ekonomi, ak kilti ann Ayiti. Pòtoprens gen bèl konstriksyon tankou Palè Nasyonal ak Katedral.  Zòn nan gen bèl plaj ak mòn tou ki ofri yon bèl vi. Pòtoprens se yon vil ki gen anpil istwa, tradisyon, ak kilti, e li jwe yon wòl enpòtan nan lavi nasyonal Ayiti.",,,,
+fab-500x-20261114T224408Z-023,58,417998447eb4f79548ade55a,12ba4cec4be91e563b325ae9d56286c7,fab-500x,hau,general_knowledge,aya-dataset,human_authored,[user] Mene Habaici?,"Habaici salon magana ne da Bahaushe ke amfani da shi wajen isar da wani saƙo a hikimance ta cikin zance. Wannan saƙon zai iya kasancewa gargaɗi, huce haushi, jan-kunne da sauransu. Magana ce da ake yin ta a cikin duhu; ma’ana, ba kai tsaye ake fito da maganar ba, sai dai shi wanda ake yi dominsa ya san inda aka dosa. Ko kuma idan abin ya shafi wani laifi ne da mutumin ya aikata, to duk wanda ya san ya aikata laifin shi ma zai iya sanin inda aka dosa. Amma in ba haka ba, sanin inda aka dosa cikin habaici yana da wahala.
+
+Yahaya, Zariya, Gusau, da ‘Yar’aduwa (1992), su ka ce, “Habaici kalmomi ne da ake amfani da su a fakaice don muzanta mutum”.
+
+Dalilan da suke sa yin habaici suna da yawa, daga ciki akwai tsokanar faɗa, jan-kunne, gargaɗi, ramuwa, kishi, ƙyashi, hassada, rowa, aikata wani abin ƙi, da sauransu. Kowane ɗaya daga cikin waɗannan dalilai da aka zayyana da ma wasunsu, in suka faru sai a yi amfani da habaici a cusa wa wanda ake magana da shi haushi. Shi kuma Farfesa Ɗangambo (1984) cewa ya yi, ""Habaici, wata hanya ce ta zagin mutum a fakaice"".",,,,
+fab-500x-20261114T224408Z-023,59,95f5006a20ff4a25b7589119,c24adc753daa8eceeee97cef66ce48f8,fab-500x,hau,islamic_studies,aya-dataset,human_authored,[user] Tambaya: Mece ce tahiyyatul masjid? kuma meye hukuncin ta?,"Amsa: Tahiyyatul Masjid ita ce raka’oi biyu da mutum zaiyi da zarar ya shiga masallaci kafin ya zauna.
+Hukuncin ta: Sunnah ce.",,,,
+fab-500x-20261114T224408Z-023,60,e86544c56067ba377998acd7,66976e1b446355b7b5e448ab50ce6178,fab-500x,hau,mathematics,aya-dataset,human_authored,[user] Mene ne Algebra ne?,"Algebra fannin lissafi ne, wanda ke amfani da alamomi da haruffa don wakiltar lambobi, maki, da abubuwa, da alaƙar da ke tsakanin su. Ana amfani da shi don sanin abubuwan da ba a sani ba.",,,,
+fab-500x-20261114T224408Z-023,61,f56bd1906e0a6948e330915a,65ea34e5fb3aceeb408e9944db3aaba5,fab-500x,hau,pakistan,aya-dataset,human_authored,[user] Ƙirƙiri labarin don kanun labarai mai zuwa: Dakin ajiye kayan tarihin CIA mafi sirri a duniya,"Mai yiwuwa wannan shi ne g﻿idan tarihi da ba a saba ganin irinsa ba a duniya, wanda aka cika shi da kayan tarihi da suka sauya duniya. Sai dai ba a barin al'umma su shiga cikin gidan. A﻿ nan wurin ne kawai masu ziyara za su ga bindigar da aka samu a wajen Osama bin Laden lokacin da aka kashe shi, kusa da wata rigar fata ta Saddam Hussein. B﻿arkanmu da zuwa gidan tarihin sirri na CIA. A﻿ cikin ginin hedikwatar hukumar leken asiri ta Amurka yake a Langley Virginia. An sake yi wa gidan kwaskwarima a wani bangare na cikar hedikwatar shekara 75 da kafuwa. An bai wa wasu 'yan jarida kalilan damar shiga wurin ciki har da BBC, amma fa duka da jami'an tsaro ciki da waje da suka yi mana rakiya. C﻿ikin kayan tarihi 600 da ake da su akwai sauran kayan aikin da 'yan leken asiri suka yi amfani da su a yakin cacar-baka - akwai wani bera da ake aika shi da sako a boye, akwai wata kyamara a jikin taba sigari da ake amfani da ita, ga wata tantabara da kyamarar leken asirin da aka makala a jikinta. A﻿kwai kuma bayanai kan wasu ayyukan hukumar CIA da suka gabata da kuma na yanzu da ake yi. A﻿kwai kuma hoton wani gini wanda aka gano Osama bin Laden a cikinsa a Pakistan. An nuna wa Shugaba Obama hoton ginin kafin ya amince akai harin da ya yi sanadin mutuwar shugaban na kungiyar al-Qaeda a 2011. ""Samun damar ganin abubuwa a jikin hoton fasahar tiridi (3D) yana taimakawa masu tsara dokoki... da kuma mu kanmu kan yadda za mu tsara ayyukanmu,"" kamar yadda Robert Z byer Daraktan gidan da ya zagaya da mu ya shaida mana. A﻿ ranar 30 ga watan Yulin wannan shekarar wani harin makami mai linzami ya kara dira cikin wani gida, amma a wannan karon ya samu sabon shugaban kungiyar al-Qaeda ne Ayman Zawahiri. H﻿arin ya samu Zawahiri ne cikin wata baranda, bayan jami'an hukumar leken asiri ta Amurka sun kwashe watanni suna nazartar abubuwan da yake yi. ""﻿Harin ya nuna karara yadda jami'an yaki da ta'addanci suka fahimci rayuwar Zawahiri,"" in ji Mista Byer. An tsara bangaren farko na gidan tarihin  ne daga abubuwan da suka soma faruwa - kamar kafa ita hukumar a 1974 zuwa yakin cacar-baka, zuwa harin 11 ga watan Satumbar 2001, har da makaman da 'yan uwan wadanda aka kashe suka kawo a matsayin gudunmawa. W﻿adanda suke sauraren bayanin jami'an hukumar CIA ne da kuma jami'an da suka zo ziyarar. B﻿ayanan ba su takaita ba kawai a kan nasarori, a'a akwai bangaren da yake magana a kan harin da CIA ta kai domin kifar da gwamnatin Fidel Castro a Cuba wanda bai yi nasara ba, akwai kuma hujjoji da gazawar da suka yi na nemo makaman kare-dangi a Iraki. ""Wannan ba za mu kira shi gidan tarihi ba kawai. Akwai bangaren ayyuka da muke nuna wa jami'an CIA, domin bankado tarihinmu masu kyau da marasa kyau,"" in ji Mista Byer. ""Muna tabbatar da cewa jami'anmu sun fahimci tarihinsu, domin su yi ayyuka masu kyau nan gaba. Za mu dauki darasi daga nasarorinmu, da kuma gazawarmu domin a gaba mu gyara."" W﻿asu daga cikin ayyukan CIA da ba a fiye ji ba ko gani - kamar su aikin hadin gwiwa da M16 domin kifar da gwamnatin dimokuradiyya da aka zaba a Iran da kuma na baya-bayan nan wanda ya hada da azabtar da mutanen da ake zargi da hannu cikin harin ta'addancin 2001. B﻿angare na biyu na gidan tarihin ya mayar da hankali kan wasu ayyuka na musamman. K﻿almar da muke cewa 'Ba za mu iya tabbatarwa ba ko kuma mu musanta' kalma ce da wadanda suke tattarowa hukumar leken asiri bayanai, kuma an samo asalinta ne daga wani tarihi a cikin gidan wanda ake amfani da shi da ba a taba gani ba kafin yanzu. A﻿ karshen shekarun 1960, wani jirgin ruwan Tarayyar Sobiyet ya bata a wani wuri a teku. Bayan Amurka ta gano inda yake, CIA ta yi aiki da wasu manya-manyan kayayyakin fasaha domin gano tarkacensa da kuma fasahar da aka tattara cikinsa. Gidan tarihin yana kunshe da samfur na jirgin karkashin teku na Tarayyar Sobiyet da kuma tufafi, da kuma tire na ajiye guntayen taba. Akwai wani gashin doki da mataimakin daraktan CIA ya sanya domin yin bad-da-sawu yayin da ya kai ziyara wurin da jirgin yake. Nasarar da aka samu a wannan aikin ba ta da yawa saboda jirgin ya karye ko da yake an samu wasu sassansa. ""Galibin abubuwan da aka samo a cikin jirgin karkashin tekun har yanzu ba a bayyana su ba,"" a cewar Mr Byer. Lokacin da labari ya fita game da ake kira Project Azorian kafin a fitar da sauran sojojin ruwa, an shaida wa jami'ai su bayyana cewa ba ""za su iya tabbatarwa ko musanta"" abin da ya faru ba - wani zance da a yanzu aka fi sani da ""Glomar response"" kuma har yanzu ana amfani da shi. Akwai kuma wasu kayayyaki da aka tsara wasan kwaikwayon bogin nan mai suna Argo. Hakan ya bayar da dama wajen ceto wasu ma'aikatan difilomasiyya da aka tsare a Iran bayan juyin-juya halin 1979, abin da daga bisani aka juya shi zuwa fim din Hollywood. An baje-kolin wasu kayayyaki da aka tsara wajen yin fim din na bogi wadanda  ma'aikatan difilomasiyyar da aka tura can kasar suka yi ikirarin yi.  An tsara zane-zanen kayyakin ne ta yadda da wahala mutum ya fahimci sakon da ke cikinsu. Kuma da yake muna magana ne a kan fahimtar sakonni, a silin din gidan tarihin akwai wasu sakonni da ke dauke da wasu lambobi masu wahalar fahimta. Burin jami'an CIA shi ne a rarraba wa jama'a bayanan a shafukan sada zumunta domin ganin ko za su iya fahimtar su. Kazalika za a wallafa wasu daga cikin bayanan a shafin intanet. Don haka a iya cewa wadannan bayanai su ne mafi girma da mutane suka ganin game da hukumar leken asirin.",,,,
+fab-500x-20261114T224408Z-023,62,04e22c103a2f44cff7c1a973,867ba77df7c7727825a84eb1f3fd7a50,fab-500x,hau,science,aya-dataset,human_authored,[user] Menene sunan fannin kimiya da ta kunshi ilimin tauraro da abun da ke sararin samaniya?,Astronomy,,,,
+fab-500x-20261114T224408Z-023,63,192ff145746a5c2850c401c7,d6aa967df9e315b977661338f892e44d,fab-500x,he,general_knowledge,oasst2,human_authored,"[user] מתי נוסדה מדינת ארץ ישראל?
+
+[assistant] מדינת ישראל הכריזה על עצמאותה בה' באייר תש""ח, 14 במאי 1948.
+
+[user] מגניב! איך זה השפיע על מלחמת העצמאות?","בעקבות הכרזת העצמאות החלו הכוחות הערבים הפועלים בשטח המנדט הבריטי והמדינות הערביות מסביב לישראל לתקוף את ישראל
+ובהמשך להכריז מלחמה כוללת על מדינת ישראל הצעירה.",,,,
+fab-500x-20261114T224408Z-023,64,fea582af480c532e7cff17e8,cd07cd357050818c6334171ad50dfa20,fab-500x,hi,coding,wikipedia-hi,templated_human,[user] त्रिविकर्णिक आव्यूह कलनविधि के बारे में एक संक्षिप्त परिचय लिखिए।,"त्रिविकर्णिक आव्यूह कलनविधि, (अंग्रेजी - Tridiagonal Matrix Algorithm (TDMA)) जिसे थॊमस कलनविधि (Thomas Algorithm) के नाम से भी जाना जाता है, गॊस निरसन (Gauss elimination) का सरलीकृत रूप है जिसका उपयोग त्रिविकर्णिक आव्यूह के समुच्चय को हल करने के लिये किया जाता है।
+
+एक त्रिविकर्णिक आव्यूहों के समुच्चय को इस तरह व्यक्त किया जा सकता है -
+
+ऎसे तंत्र का हल O(n^3) की अपेक्षा O(n) में ही हो जाता है।
+
+कुछ स्थितियों में, खासकर तब जब आवर्ती सीमा-दशा (periodic boundary conditions) का योग हो, एक थोङा अलग स्वरूप प्रयुक्त होता है -
+
+इस स्थिति में, शेरमॆन-मॊरिसन सूत्र (Sherman-Morrison formula) का प्रयोग गॊस की विधि के अतिरिक्त अभिकलन से बचने पर साथ ही साथ थॊमस अल्गोरिद्म के प्रयोग के लिये किया जाता है।
+
+अन्य दशाओं में, जब तंत्र block tridiagonal हो, जिसमें छोटे अनुव्यूह (submatrices) उपर्युक्त आव्यूह में एक-एक अवयव individual elements के रूप में सजे हों (उदाहरनार्थ - the 2D Poisson problem)। ऎसी स्थितियों के लिये गॊस की निरसन विधि (Gaussian elimination) के सरलीकृत रूप विकसित किये गए हैं।",,,,
+fab-500x-20261114T224408Z-023,65,8a0bba5dbed2bfbcfb2f20fd,0f307d0ad6d8eb4524754a34652d87f3,fab-500x,hi,education,wikipedia-hi,templated_human,[user] रॉयल सोसायटी के बारे में एक संक्षिप्त परिचय लिखिए।,"रायल सोसायटी (इसका पूरा नाम, ""Royal Society of London for the Improvement of Natural Knowledge"" है) विज्ञान के विकास को गति देने के लिये स्थापित विद्वानों की संस्था (learned society) है। इसकी स्थापना सन् १६६० में हुई थी और अधिकांश लोग इसे अपने तरह की संसार की सबसे पुरानी संस्था मानते हैं जो अब भी काम कर रही है।
+
+The Royal Society of London (a brief history)
+
+Scholarly Societies Project: Royal Society of London
+
+Three lectures presented at the Royal Society by Harry Kroto (Faraday Lecture), Paul Hoffman (Paul Erdos), Paul Davies (Blackholes, Worm Holes and Time Travel). Freeview video from the Vega Science Trust
+
+A visualization of the Royal Society's publications from 1665 to 2005",,,,
+fab-500x-20261114T224408Z-023,66,cb2a28f80c226eaaf6b8ab46,4d9839b60a451e9e21c0aff8ede5132a,fab-500x,hi,general_knowledge,wikipedia-hi,templated_human,[user] भारत में आयकर के बारे में एक संक्षिप्त परिचय लिखिए।,"भारत सरकार व्यक्तियों, हिंदू अविभाजित परिवारों (एचयूएफ), कंपनियां, फर्मों, सहकारी समितियों और ट्रस्टों (जिन्हें व्यक्तियों और लोगों के समूह के रूप में पहचान प्राप्त है) और किसी भी की अन्य कृत्रिम व्यक्ति के कर योग्य आय पर एक आयकर लगाता है। कर का भार प्रत्येक व्यक्ति पर अलग होता है। यह उदग्रहण भारतीय आय कर अधिनियम, 1961 द्वारा शासित किया जाता है। भारतीय आयकर विभाग, केंद्रीय प्रत्यक्ष कर बोर्ड (सीबीडीटी) द्वारा संचालित है और भारत सरकार के वित्त मंत्रालय के अधीन राजस्व विभाग का हिस्सा है।
+
+प्रत्येक व्यक्ति की गतवर्ष में अर्जित की गयी आय पर लगने वाला कर है। 'व्यक्ति' में : एक व्यक्ति, हिन्दू अविभाजित परिवार, व्यक्तियों का संघ, व्यक्तियों का समूह, एक फर्म, कम्पनी आदि शामिल हैं। आयकर सर्वाधिक महत्वपूर्ण प्रत्यक्ष कर है। भारत का आयकर अधिनियम निम्न तत्त्वों/भागों से मिलकर बना है-
+
+(४) परिपत्र/अधिसूचना (Circulars and Notification)
+
+भारत में आयकर, आयकर अधिनियम, 1961 द्वारा लगाया जाता है। इस पुस्तक में हम इसे संक्षिप्त में ‘अधिनियम’ कहेंगे। यह अधिनियम 1 अप्रैल, 1962 से प्रभाव में आया। इस अधिनियम में कुल 298 धाराएं तथा XIV अनुसूचियां शामिल हैं। संसद द्वारा पारित वित्त अधिनियम द्वारा इसमें सम्वर्धन और विलोपन के साथ प्रतिवर्ष परिवर्तित होता है। आयकर अधिनियम 1961 को सही ढंग से संचालित करने के लिए अधिकारियों को उपयुक्त अधिकार दिये गये हैं। वित्त मंत्री निर्मला सीतारमण ने 1 फरवरी को आम बजट 2023 प्रस्तुत करते हुए नया टैक्स स्लैब प्रस्तुत किया है।",,,,
+fab-500x-20261114T224408Z-023,67,a44f07c26b416b4cc19c16c3,edeffd19f3747728d79807b0940b185a,fab-500x,hi,mathematics,wikipedia-hi,templated_human,[user] संचयिक विश्लेषण के बारे में एक संक्षिप्त परिचय लिखिए।,"यदि ऐतिहासिक दृष्टि से देखा जाए, तो संचयिक विश्लेषण (Combinatinal Analysis) के अंतर्गत बहुत से विषय आते हैं, जैसे सारणिक (Determinants), प्रायिकता (Probability), स्थलाकृति विज्ञान (Topology) आदि किंतु अब इनमें से प्रत्येक विषय ने अपने लिए पृथक् स्थान बना लिया है। अब तो संचयिक विश्लेषण के अंतर्गत केवल वे ही प्रकरण आते हैं जिनमें किसी न किसी स्थल पर इस बात का विचार किया जाए कि किसी समस्या के हल करने की कितनी विधियाँ हैं, अथवा कोई काम कितने प्रकार से हो सकता है।
+
+उदाहरण 1. - मान लें, रेल के एक डिब्बे की शायिका (berth) पर चार आसन (seats) हैं, जिनपर निम्नलिखित संख्याएँ पड़ी हुई हैं :
+
+मान लें कि हमारे पास यात्री क और च हैं, तो प्रश्न यह है कि इन दो यात्रियों को शायिका पर कितने प्रकार से बैठाया जा सकता है। स्पष्ट है कि पहले यात्री क को हम चारों में से किसी भी आसन पर बैठा सकते हैं। इस प्रकार क को बैठाने की चार विधियाँ हुईं। मान लें, हमने क को आसन संख्या 1 पर बैठा दिया। अब च को बैठाने के लिए तीन आसन बचे। अत: च को तीनों में से किसी भी आसन पर बैठाया जा सकता है। अत: क को किसी एक आसन पर बैठाने पर च को बैठाने की तीन विधियाँ हुई ओर क को बैठाने के चार प्रकार हैं। अत: क और च दोनों को बैठाने की 4x3, अर्थात् 12 विधियाँ हुई, या यों कहिए कि क को बैठाने की विधियों और च को बैठाने की विधियों के 12 संचय हो सकते हैं। इसलिए इस विषय का नाम संचयिक विश्लेषण पड़ा। उपर्युक्त विधियाँ नीचे सारणी के रूप में दर्शाई गई हैं :",,,,
+fab-500x-20261114T224408Z-023,68,7ba1b4ad430a365b70f48941,698929f0e40f46b072ff94fe2e1bebf8,fab-500x,hi,pakistan,wikipedia-hi,templated_human,[user] जहाँगीर का मकबरा के बारे में एक संक्षिप्त परिचय लिखिए।,"लाहौर में शाहदरा नगर में रावी नदी के निकट स्थित जहांगीर मकबरा मुगल सम्राट जहांगीर को समर्पित है। इसे जहांगीर की मृत्‍यु के बाद उसकी पत्नी नूरजहां ने बनवाया था।
+
+मकबरे की योजना स्वंम जहांगीर द्वारा की गई ,लेकिन इसको पूरा नूरजहां ने करवाया । एक बगीचे के अंदर स्थित मकबरे की मीनारें ३० मीटर ऊंची हैं। मकबरे के भीतरी हिस्से में भित्तिचित्रों की सुंदर सजावट है।
+
+Pakistan's PhotoBlog - Snaps of Jahangir's Tomb
+
+Photograph of the left side of the mausoleum",,,,
+fab-500x-20261114T224408Z-023,69,358ec5aab6918c5df4adcbdf,cf0f1c6220f5dd4af803bb4c20b2ed58,fab-500x,hi,research,wikipedia-hi,templated_human,[user] अण्टीगुआ और बारबूडा के बारे में एक संक्षिप्त परिचय लिखिए।,"अण्टीगुआ और बारबूडा (; उत्तर अमेरिका महाद्वीप में केरिबियन क्षेत्र में एक द्वि-द्वीपिय है। यह कैरिबियन सागर और अन्ध महासागर के बीच स्थित है।
+
+Antigua and Barbuda, United States Library of Congress
+
+Antigua and Barbuda from UCB Libraries GovPubs
+
+Antigua and Barbuda from the बीबीसी न्यूज़
+
+World Bank's country data profile for Antigua and Barbuda
+
+ArchaeologyAntigua.org – २०१०March१३ source of archaeological information for Antigua and बार्बीउदा",,,,
+fab-500x-20261114T224408Z-023,70,c11a7530a1276d7f1f64b381,3dfe6866044c43fa9d1d62bccceb7969,fab-500x,hi,safety_ethics,aya-dataset,human_authored,"[user] निम्नलिखित वाक्य का अंग्रेजी से हिंदी में अनुवाद करें:
+""Create a science fiction narrative set on a terraformed exoplanet, exploring the challenges and ethical dilemmas faced by colonizers as they establish a new society.""","एक विज्ञान-कथा उपनिवेश में स्थापित करें जिसमें एक टेराफ़ॉर्म किए गए बाह्यग्रह पर निर्धारित होता है, जो स्थायी समाज स्थापित करते समय उपनिवेशीय निर्मितियों और नैतिक दुविधाओं का सामना करता है।",,,,
+fab-500x-20261114T224408Z-023,71,efccc551399aeecf988ea8cf,4104aaaff7159ee7ffcfbbf6eb601ae1,fab-500x,hi,science,wikipedia-hi,templated_human,[user] ऊर्जा संरक्षण का नियम के बारे में एक संक्षिप्त परिचय लिखिए।,"उर्जा बचाने या उर्जा संरक्षण (Energy conservation) के उपायों आदि के लिये देखें - उर्जा संरक्षण
+
+उर्जा संरक्षण का नियम (law of conservation of energy) भौतिकी का एक प्रयोगाधारित नियम (empirical law) है।
+
+किसी अयुक्त निकाय (isolated system) की कुल उर्जा समय के साथ नियत रहती है। अर्थात् उर्जा का न तो निर्माण सम्भव है न ही विनाश; केवल इसका रूप बदला जा सकता है। उदाहरण के लिये गतिज उर्जा, स्थितिज उर्जा में बदल सकती है; विद्युत उर्जा, ऊष्मीय ऊर्जा में बदल सकती है; यांत्रिक कार्य से ऊष्मा उत्पन्न हो सकती है। अर्थात् ऊर्जा अविनाशी है।
+
+उष्मागतिकी का प्रथम नियम भी वास्तव में उर्जा संरक्षण के नियम का एक परिवर्तित रूप है।
+
+वैद्युत घटों (सेलों) द्वारा रासायनिक ऊर्जा वैद्युत ऊर्जा में परिणत होती है। इस बिजली से हम प्रकाश पैदा कर सकते हैं। सूर्य के प्रकाश से प्रकाश-संश्लेषण क्रिया द्वारा प्रकाश-ऊर्जा पेड़ों की रासायनिक ऊर्जा में परिणत होती है। ऐसी क्रियाओं द्वारा यह स्पष्ट है कि विभिन्न परिवर्तनों में ऊर्जा का केवल रूप बदलता है। ऊर्जा के मान में कोई अंतर नहीं आता।
+
+ऊर्जा-अविनाशिता-सिद्धांत की ओर पहला पद प्रसिद्ध डच वैज्ञानिक क्रिश्चियन हाइगेंज़ ने उठाया जो न्यूटन का समकालीन था। अपनी एक पुस्तक में, जो हाइगेंज़ ने कहा कि जब दो पूर्णत: प्रत्यास्थ (इलैस्टिक) पिंड़ों में संघात (टक्कर) होता है तो उनके द्रव्यमानों और उनके वेगों के गुणनफलों का योग संघात के बाद भी उतना ही रहता है जितना टक्कर के पहले।",,,,
+fab-500x-20261114T224408Z-023,72,54a33e51f7cd93be62198787,1c5a0a458cd71b04a5846fb98b35a89d,fab-500x,hi,web_frontend,wikipedia-hi,templated_human,[user] जर्मनी में विज्ञान और प्रौद्योगिकी के बारे में एक संक्षिप्त परिचय लिखिए।,"विज्ञान और प्रौद्योगिकी के क्षेत्र में जर्मनी की उपलब्धियाँ उल्लेखनीय हैं। अनुसंधान तथा विकास जर्मनी की अर्थव्यवस्था का प्रमुख अंग है। भौतिकी, गणित, रसायन विज्ञान तथा इंजीनियरी आदि विज्ञान के विविध विधाओं में जर्मनी के लोगों ने अत्यन्त महत्वपूर्ण अनुसंधान किये हैं। २०वीं शदी के अधिकांश काल में विज्ञान में जर्मनी को अन्य देशों की अपेक्षा अधिक नोबेल पुर्सकार मिले हैं।
+
+इस देश के उद्योग, विश्वविद्यालय तथा अनुसंधान-संस्थान वैज्ञानिक अनुसंधान को बढ़ावा देते हैं।
+
+14952718,00.html जर्मनी में रिसर्च और उससे संबंधित बड़े संस्थान",,,,
+fab-500x-20261114T224408Z-023,73,5987294b611fba838eac1cde,04f95e0afa7eb9361fbe9d60193c70b0,fab-500x,hi,web_fullstack,wikipedia-hi,templated_human,[user] अप्रवास के बारे में एक संक्षिप्त परिचय लिखिए।,"अप्रवास (Immigration) किसी एक भौगोलिक इकाई से किसी अन्य भौगोलिक इकाई में व्यक्तियों के आ कर बस जाने को कहते हैं। आधुनिक काल में यह आमतौर पर किसी एक देश के निवासी के किसी ऐसे दूसरे देश में आ कर वहाँ का निवासी बन जाने को कहते हैं जहाँ की वह नागरिकता न रखता हो। अक्सर अप्रवासी का ध्येय होता है कि वह नये देश पहुँचकर वहाँ रहे, व्यवसाय करे और वहीं का नागरिक बन जाए। इसका विपरीत उत्प्रवास (Emigration) होता है, जिसमें व्यक्ति अपने मूल निवास स्थान को छोड़ देता है।
+
+Immigration and Migration from UCB Libraries GovPubs
+
+International Migration from the United Nations
+
+Stalker's Guide to International Migration—Comprehensive interactive website on migration
+
+The Center for U.S. - Mexico Immigration Analysis
+
+December 18 International advocacy and resource centre on the human rights of migrants.",,,,
+fab-500x-20261114T224408Z-023,74,67bb3b69b1b87def4792b5b8,b27f44e24576fbc9b65a5a82a9995102,fab-500x,hi,writing,aya-dataset,human_authored,"[user] Write a philosophical essay on the concepts of free will and determinism, exploring different perspectives on the matter.","स्वतंत्र इच्छा और नियतता की धाराओं पर एक दार्शनिक निबंध लिखें, जिसमें इस विषय पर विभिन्न परिप्रेक्ष्यों का अन्वेषण किया जाता है।",,,,
+fab-500x-20261114T224408Z-023,75,43def2774d4a8c9c1743168a,f697ef5a185ad7015b48bc782aa127e1,fab-500x,hu,general_knowledge,oasst1,human_authored,"[user] A hűtőmben van csirkehús, tejföl, hagyma, paradicsom, paprika, fehérbor, petrezselyem, citrom, narancs, déligyümölcsök, gyömbér, meg mindenféle egzotikus fűszerek. Mit főzhetek vagy süthetek vacsorára?","Ha magyar ételeket szeretned és nem akarsz sokat rágódni rajta, akkor főzz hagymaból és csirkéből paprikás csirkét. Ízlés szerint gazdagíthatod tejföllel. 
+Amennyiben vállakozó kedvedben vagy főzz egy curry-t a csirkéből az egzotikus fűszerekkel, folyamatosan kóstolgatva, hogy megfeleljen az ízlésének. Ha megvan hagyd megpuhulni. Jó étvágyat hozzá!",,,,
+fab-500x-20261114T224408Z-023,76,d3c9948c9dc4fbb6ae5aa196,0035198f2fc71e907d1b1de01846ff1f,fab-500x,hun,general_knowledge,aya-dataset,human_authored,"[user] Complete the following phrase:  Hamarosan Nürnbergbe vitték, ahol több náci vezetővel együtt",perbe fogták. Keitelnek bizonyított szerepe volt az európai államok elleni agresszió előkészítésében.,,,,
+fab-500x-20261114T224408Z-023,77,4e172f270b6d11702b09a2de,924be7a4d7b0b16d9a40fbe2773e4971,fab-500x,ibo,general_knowledge,aya-dataset,human_authored,"[user] Rịba ama amaokwu a dị n'okpuru ma zaa ajụjụ ahụ mgbe e mesịrị n'otu asụsụ ahụ dị ka amaokwu ahụ:  Ihe mere na Disemba 1, 2007, Joel malitere abụ ọhụrụ ya ""Christmas in Fallujah"". Ọ bụ Cass Dillon, onye egwu ọhụrụ si Long Island, bụ onye bụrụ abụ ahụ, dịka Joel chere na ọ kwesịrị ịbụ onye nọ n'afọ ndụ ndị agha (ọ bụ ezie na ya onwe ya egwuri abụ ahụ mgbe ụfọdụ na egwu). A raara okporo ụzọ ahụ nye ndị agha nọ na Iraq. Joel dere ya na Septemba 2007 mgbe ọ gụchara ọtụtụ akwụkwọ ozi ndị agha America nọ na Iraq degaara ya. ""Christmas in Fallujah"" bụ naanị abụ nke abụọ pop / rock nke Joel wepụtara kemgbe 1993's River of Dreams. Ihe a na-enweta site n'abụ ahụ baara ụlọ ọrụ Homes For Our Troops uru.  Ajụjụ: Kedụ afọ  abụ Christmas in Fallujah pụtara?",Ọ pụtara na afọ 2007,,,,
+fab-500x-20261114T224408Z-023,78,e275bd04e7b75c0445468c8d,2d29190395a7a5a4f8e26c4983cebb71,fab-500x,ibo,mathematics,aya-dataset,human_authored,"[user] Ònye bụ Alexander Onye Ukwu? 
+Alexander nke atọ nke Masedonia (Ancient Greek: <unk>λέξανδρος, romanized: Alexandros; 20/21 July 356 BC <unk> 10/11 June 323 BC), nke a na-akpọkarị Alexander Onye Ukwu, bụ eze nke alaeze Gris oge ochie nke Masedonia","Alexander nke atọ nke Masedonia, nke amaara dị ka Alexander Onye Ukwu, bụ eze nke alaeze Gris oge ochie nke Masedonia. Ọ nọchiri nna ya Philip nke abụọ n'ocheeze na 336 BC mgbe ọ dị afọ 20, ma nọrọ ọtụtụ n'ime afọ ọchịchị ya na-eduzi mkpọsa agha ogologo oge N'Western Asia N'Egypt. Mgbe ọ dị afọ iri atọ, o nweela alaeze kacha ukwuu e nwetụrụla, malite na Gris ruo n'ebe ugwu ọdịda anyanwụ India. E merighị ya n'agha, a na-ewerekwa ya n'ebe nile dị ka otu n'ime ndị ọchịagha kasị ukwuu na ndị kasị nwee ihe ịga nke ọma n'akụkọ ihe mere eme.",,,,
+fab-500x-20261114T224408Z-023,79,115e055c9e3bc2a220c4f702,91ad3a6907dc931c642e8175badebbc5,fab-500x,ibo,reasoning,aya-dataset,human_authored,"[user] Gini bu azịza gwam gwam gwam(riddle) a
+
+Gwa m ọdara ọbụ ereghi ure",Ọ bụ Nkume,,,,
+fab-500x-20261114T224408Z-023,80,1f70c1259986cb66e2ead423,8b70cac264cd895d7492d69d9b64ac5c,fab-500x,id,coding,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Brother Beat.,"adalah serial drama televisi produksi TBS, Jepang dengan bintang utama Misako Tanaka, Hidekazu Akai, Tetsuji Tamayama, Mokomichi Hayami dan Akiyoshi Nakao. Di Jepang, drama televisi ini ditayangkan dari 13 Oktober hingga 22 Desember 2005, dan menempati jam tayang emas setiap Kamis pukul 21:00 JST. Sejumlah 11 episode diproduksi untuk seri televisi ini. Lagu tema serial TV ini adalah Broken Hearts dan My Way milik Def Tech.
+
+Tsutomu Sakurai - Hidekazu Akai (Ayahnya)
+
+Hideki Noguchi - Katsuhisa Namase (Manajer di Harue di supermarket)
+
+Section Chief Yamaguchi - Akio Kaneda (Bos di Tatsuya)
+
+Fusako Tamura - Kyoko Uemura (Ibu di Chisato)
+
+Shogo Tamura - Takuzo Kadono (Ayahnya Chisato)
+
+Sutradara - Kanji Takenoshita, Shin Kato, Jun Muto
+
+Perusahaan produksi - Tokyo Broadcasting System
+
+Musik - Def Tech (Tema utama: ""Broken Hearts"" dan ""My Way"")",,,,
+fab-500x-20261114T224408Z-023,81,5e3792845e570d1e2bb90117,1fc87e18c103bd09d0394ac67729180d,fab-500x,id,cybersecurity,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Eksploit (keamanan komputer).,"Eksploit adalah sebuah kode yang menyerang keamanan komputer secara spesifik.
+
+Eksploit banyak digunakan untuk penentrasi baik secara legal ataupun ilegal untuk mencari celah pada
+
+komputer tujuan. Bisa juga dikatakan sebuah perangkat lunak yang menyerang celah keamanan yang spesifik namun tidak selalu bertujuan untuk melancarkan aksi yang tidak diinginkan. Banyak
+
+peneliti keamanan komputer menggunakan eksploit untuk mendemonstrasikan bahwa suatu sistem
+
+Memang ada badan peneliti yang bekerja sama dengan produsen perangkat lunak. Peneliti itu bertugas mencari kerapuhan
+
+dari sebuah perangkat lunak dan kalau mereka menemukannya, mereka melaporkan hasil temuan ke produsen agar produsen
+
+dapat mengambil tindakan. Meskipun demikian, eksploit kadang menjadi bagian dari suatu malware yang bertugas
+
+Ada beberapa metode untuk mengklasifikasi eksploit. Yang paling umum adalah dengan melihat cara eksploit membuat
+
+kontak dengan perangkat lunak yang rentan. Eksploit jarak jauh (remote exploit) bekerja melalui jaringan dan
+
+mengeksploitasi celah keamanan tanpa adanya akses terlebih dahulu ke sistem korban. Eksploit lokal (local exploit)
+
+mengharuskan adanya akses terlebih dahulu ke sistem yang rentan dan biasanya meningkatkan keleluasaan orang yang",,,,
+fab-500x-20261114T224408Z-023,82,b01941c5eac9c5897480d957,c7d1471c836b91b0fcc552dde11e5c7a,fab-500x,id,education,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Pengarsip berkas.,"Pengarsip berkas atau pemampat berkas adalah suatu perangkat lunak yang digunakan untuk menyatukan beberapa berkas menjadi satu atau beberapa berkas arsip untuk memudahkan pemindahan atau penyimpanan. Umumnya pemampat berkas menggunakan teknologi pampatan data nirhilang (lossless data compression) untuk mengurangi ukuran arsip yang berguna untuk memindahkan sejumlah besar berkas melewati jaringan yang memiliki latensi tinggi seperti internet.
+
+Tutorial WinRAR Perbandingan Format RAR dan ZIP",,,,
+fab-500x-20261114T224408Z-023,83,84e3b419091bd48dcf98af4e,46370050234bc60f90ba28c960df4726,fab-500x,id,general_knowledge,wikipedia-id,templated_human,"[user] Jelaskan secara singkat tentang Anda Puas, Saya Loyo.","Anda Puas, Saya Loyo adalah film komedi dewasa Indonesia yang dirilis pada tahun 2008. Film yang disutradarai oleh K.K. Dheeraj ini dibintangi oleh Komeng, Ruben Onsu, Bedu, Ryan Syehan, Yeyen Lidya, Andi Soraya, Bobby Tince, Sandy Tumiwa, Mastur, Laila Sari, Dudung Hayo dan Untung Blangkon.
+
+Di suatu kampung, tinggallah keluarga yang terpandang, Pak Wagiman (Mastur) yang mempunyai anak, Inem (Yeyen Lidya) dan Tarjin (Bedu). Konflik demi konflik mulai bermunculan ketika Inem akan dijodohkan dengan anak keluarga Yudidono (Dudung Hayo), tetapi berantakan!
+
+Inem akhirnya ke Jakarta, Susy (Bobby Tince), sahabatnya tanpa sengaja juga ke Jakarta. Mereka tinggal bersama Paman Bagio (Untung Blangkon) bersama teman-temannya, Wisnu (Sandy Tumiwa) dan Rendra (Ryan Syehan). Tak lama di Jakarta, Tarjin dan sahabatnya, Bejah (Ruben Onsu) di kampung diajak Kangcut (Komeng) ke Jakarta yang bekerja pada seorang janda kaya dan kesepian Madame Tetty Qadi Pinky (Andi Soraya), sebagai pemuas nafsu seks.
+
+Andi Soraya sebagai Madame Tetty Qadi Pinky
+
+'ANDA PUAS SAYA LOYO', 'Nyerempet' Yang Lolos Sensor @ KapanLagi.com",,,,
+fab-500x-20261114T224408Z-023,84,b86e7f494170f2dd04b33b08,89fd55a53ac1087b1c2f5a48db8fc3e0,fab-500x,id,islamic_studies,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Kernel (ilmu komputer).,"Kernel merupakan program komputer yang menjadi inti dari sebuah sistem operasi komputer, dengan kontrol terhadap segala hal atas sistem tersebut. Pada kebanyakan sistem, kernel merupakan salah satu dari program yang dijalankan dalam urutan pertama saat komputer dinyalakan. Kernel menangani fungsi-fungsi selanjutnya atas proses penyiapan komputer dari sejak komputer dinyalakan seperti menangani layanan input/output dari program lain, menerjemahkanya ke dalam instruksi-instruksi untuk dieksekusi oleh prosesor. Kernel juga menangani perangkat kerja lain seperti memori, papan ketik, tetikus, monitor, printer, speaker, serta perangkat-perangkat lainnya.
+
+Karena akses terhadap perangkat keras terbatas, sedangkan ada lebih dari satu program yang harus dilayani dalam waktu yang bersamaan, maka kernel juga bertugas untuk mengatur kapan dan berapa lama suatu program dapat menggunakan satu bagian perangkat keras tersebut. Hal tersebut dinamakan sebagai multiplexing.
+
+Akses kepada perangkat keras secara langsung merupakan masalah yang kompleks, oleh karena itu kernel biasanya mengimplementasikan sekumpulan abstraksi hardware. Abstraksi-abstraksi tersebut merupakan sebuah cara untuk menyembunyikan kompleksitas, dan memungkinkan akses kepada perangkat keras menjadi mudah dan seragam. Sehingga abstraksi pada akhirnya memudahkan pekerjaan programer.",,,,
+fab-500x-20261114T224408Z-023,85,6e02640896fb14145be87ea9,8782ba8d7a17754b3eeb813f0566771c,fab-500x,id,mathematics,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Pencetak.,"Pencetak atau mesin cetak () adalah peranti yang menampilkan data dalam bentuk cetakan, baik berupa teks maupun gambar/grafik, di atas kertas. Pencetak biasanya terbagi atas beberapa bagian, yaitu penggetil (picker) sebagai alat mengambil kertas dari baki (tray). Baki ialah tempat menaruh kertas. Tinta atau toner adalah alat pencetak sesungguhnya, karena ada sesuatu yang disebut tinta atau tinta yang digunakan untuk menulis/mencetak pada kertas. Perbedaan tinta bubuk dan tinta ialah perbedaan sistem; tinta atau laser butuh pemanasan, sedangkan tinta atau sembur tinta tak butuh pemanasan, hanya pembersihan pada hulu pencetak (print-head) tersebut.
+
+mencetak di atas kertas, mencetak di kain, kaca, film putih, ebonit, dll. Ada pula kabel lentur untuk pengiriman sinyal dari pengolah pencetak ke tinta atau tinta toner. Kabel ini tipis dan lentur, tetapi kuat. Pada bagian belakang pencetak biasanya ada colokan sejajar atau USB untuk penghubung ke komputer.
+
+Pencetak modem merupakan alat canggih. Perkakasan elektronik yang terdapat dalam sebuah pencetak sama dengan perkakasan elektronik yang terdapat dalam komputer itu sendiri. Pencetak mempunyai enam jenis yaitu jenis Dot-Matrix, jenis Daisy Wheel, jenis Ink-Jet / jenis Bubble Jet, jenis Chain, jenis Drum dan jenis Laser.",,,,
+fab-500x-20261114T224408Z-023,86,301b7fdfea959c359d083770,9e041aac576f476ce5c3d0f6d654e57f,fab-500x,id,pakistan,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Tim nasional kriket Pakistan.,"Tim nasional kriket Pakistan adalah tim kriket yang mewakili Pakistan dalam pertandingan internasional. Tim ini dikelola oleh Dewan Olahraga Pakistan. Pakistan adalah anggotia International Cricket Council dan memiliki tim profesional yang berstatus Test cricket, One Day International, dan Twenty20.
+
+Pakistan adalah juara Piala Dunia Kriket ICC pada 1992, juara dua kali Piala Duna Kriket U-19 ICC pada 2004 dan 2006. Dengan demikian, mereka adalah tim pertama dan satu-satnya yang mampu mempertahankan gelar dalam ajang Piala Dunia Kriket U-19. Mereka juga menjuarai Piala Dunia Twenty20 ICC pada 2009. Pakistan telah tiga kali menjadi semifinalis dalam ICC Champions Trophy, yaitu pada 2000, 2004 and 2009.
+
+Paada Oktober 2007, Pakistan telah memainkan 332 pertandingan Test, dengan kemenangan 30.29%, kalah 26.76% dan seri 42.94%. Tim ini menempati peringkat keenam pada ICC Test Championship dan keempat pada ICC ODI Championship. Pada 28 Agustus 2006, Pakistan memenangkan debut pertandingan Twenty20-nya melawan Inggris dan meraih juara kedua dalam ICC World Twenty20 pada September 2007. Pakistan juga pernah menjuarai ICC World Twenty20 setelah mengalahkan Sri Lanka.",,,,
+fab-500x-20261114T224408Z-023,87,291dabcd545d398a739aa7b9,dff3c1d4939465ba6e63b22fba93ec81,fab-500x,id,problem_solving,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Greenwich Village.,"Greenwich Village (IPA pronunciation: ) atau the Village adalah daerah pemukiman di Manhattan, New York City. Berbatasan dengan Broadway di timur, Hudson River di barat, Houston Street di selatan, dan 14th Street di utara. Greenwich Village lebih dikenal dengan nama Washington Square atau Empire Ward pada abad ke-19. Karena Greenwich Village dulunya adalah desa yang terpisah dari New York, tata letak jalan-jalannya berbeda dari Commissioners' Plan of 1811.
+
+Essays on Chelsea Hotel, Iggy Pop, Beat Generaton
+
+New York Architecture Images- Greenwich Village
+
+Greenwich Village Society for Historic Preservation
+
+Official Tourist map (controversially showing Greenwich Village to include the East Village
+
+Greenwich Village , by Anna Alice Chapin, 1919, from Project Gutenberg
+
+Review of a book on Greenwich Village, 1910-1960
+
+Greenwich Village Halloween Parade Video, 2006",,,,
+fab-500x-20261114T224408Z-023,88,ff6580d29fcdde68cfe58eda,1504ae8fe13ab2afeaaf74d770654801,fab-500x,id,reasoning,aya-dataset,human_authored,"[user] Permintaan dan Penawaran adalah dua kekuatan yang secara bersamaan menggerakkan sistem perekonomian. Permintaan adalah sejumlah barang dan jasa yang diinginkan untuk dibeli untuk memenuhi kebutuhan hidup pada tingkat harga dan waktu tertentu di pasar. Hukum dasar permintaan dalam ekonomi adalah: ketika harga suatu barang/jasa mengalami penurunan, maka jumlah permintaan barang/jasa tersebut akan naik, dan sebaliknya ketika harga barang/jasa meningkat, maka jumlah barang/jasa yang diminta akan berkurang.
+
+Berdasarkan paragraf deskripsi tentang ""Permintaan dalam sistem ekonomi"" di atas, apa sajakah faktor-faktor yang menentukan tinggi rendahnya permintaan? 
+
+Berikan jawaban beserta penjelasannya.","Faktor-faktor yang mempengaruhi permintaan antara lain adalah:
+
+1. Harga barang itu sendiri
+Seperti yang telah dijelaskan pada hukum permintaan, harga barang/jasa itu sendiri berpengaruh terhadap jumlah yang diminta.
+
+2. Pendapatan masyarakat
+Pada barang normal, peningkatan pendapatan akan meningkatkan jumlah barang/jasa yang diminta. Namun pada barang inferior (misalnya nasi jagung), peningkatan pendapatan justru akan mengurangi jumlah barang/jasa yang diminta.
+
+3. Intensitas kebutuhan
+Semakin penting barang/jasa dalam memenuhi kebutuhan seseorang maka jumlah permintaannya akan semakin meningkat. Misalnya permintaan payung di kala hujan akan lebih tinggi dibandingkan saat tidak hujan.
+
+4. Jumlah penduduk
+Semakin besar jumlah penduduk di suatu negara maka semkain besar permintaannya terhadap barang/jasa.
+
+5. Selera
+Peningkatan selera pada satu jenis barang/jasa akan meningkatkan permintaan terhadap barang/jasa tersebut dibandingkan dengan jenis barang/jasa lain. Misalnya permintaan terhadap tiket konser artis Korea meningkat akhir-akhir ini karena meningkatnya kegemaran remaja Indonesia terhadap artis-artis tersebut.
+
+6. Barang pengganti
+Ketersediaan barang pengganti berpengaruh terhadap jumlah barang dan jasa yang diminta. Ketika harga teh meningkat, masyarakat yang menganggap kopi adalah barang substitusi dari teh akan mengalihkan pembeliaannya ke kopi sehingga permintaan kopi akan meningkat.",,,,
+fab-500x-20261114T224408Z-023,89,7df9f2a3f29b2c53070ea6ce,0ca6331d68df8fd762a710f4b670b123,fab-500x,id,research,tydiqa-goldp,human_authored,"[user] Anatomi (berasal dari bahasa Yunani ἀνατομία anatomia, dari  ἀνατέμνειν anatemnein, yang berarti memotong) adalah cabang dari biologi yang berhubungan dengan struktur dan organisasi dari makhluk hidup. Terdapat juga anatomi hewan atau zootomi dan anatomi tumbuhan atau fitotomi. Beberapa cabang ilmu anatomi adalah anatomi perbandingan, histologi, dan anatomi manusia.
+
+Apa yang dimaksud dengan anatomi ?","cabang dari biologi yang berhubungan dengan struktur dan organisasi dari makhluk hidup
+
+Anatomi (berasal dari bahasa Yunani ἀνατομία anatomia, dari  ἀνατέμνειν anatemnein, yang berarti memotong) adalah cabang dari biologi yang berhubungan dengan struktur dan organisasi dari makhluk hidup.",,,,
+fab-500x-20261114T224408Z-023,90,6dde9c594e7c9dc072243551,de7258303579af9d8d1ffdc590ac0d89,fab-500x,id,safety_ethics,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Peretas Etis Bersertifikat.,"Certified Ethical Hacker (CEH) adalah kualifikasi yang diperoleh dengan menunjukkan pengetahuan dalam menilai keamanan sistem komputer dengan mencari kelemahan dan kerentanan dalam sistem target, menggunakan pengetahuan dan alat yang sama dengan peretas blackhat, tetapi dengan cara yang sah dan legal  untuk menilai postur keamanan sistem target. Pengetahuan ini dinilai dengan menjawab pertanyaan pilihan ganda mengenai berbagai teknik dan alat peretasan etis. Kode untuk ujian CEH adalah 312-50. Sertifikasi ini sekarang telah dijadikan dasar dengan perkembangan ke CEH (Praktis), yang diluncurkan pada Maret 2018, tes keterampilan pengujian penetrasi di lingkungan lab di mana kandidat harus menunjukkan kemampuan untuk menerapkan teknik dan menggunakan alat pengujian penetrasi untuk berkompromi berbagai sistem simulasi dalam lingkungan virtual.
+
+Berikut ini akan dijelaskan tahapan-tahapan tertentu yang dilakukan dalam aktivitas yang dilakukan oleh seorang peretas.
+
+Tahap ini merupakan tahap mengumpulkan data. Peretas akan mengumpulkan semua data sebanyak-banyaknya mengenai target. Proses pengintaian terbagi menjadi dua yaitu pengintaian secara aktif dan pasif.
+
+Pengintaian secara pasif adalah proses pengumpulan data tanpa berhubungan langsung dengan target",,,,
+fab-500x-20261114T224408Z-023,91,49bb66c0f584c49b2faffadf,d18db9d3f4484bf0ba5f146ae443808f,fab-500x,id,science,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Konrad Bloch.,"Konrad Emil Bloch () ialah biokimiawan Jerman-Amerika Serikat.
+
+Pada 1930, ia memasuki Technische Hochschule di Munich untuk belajar kimia, setelah itu ia menerima kedudukan Schweizerische Forschungsinstitut di Davos, Swiss, sebelum pindah ke Amerika Serikat pada 1936.
+
+Di Amerika ia mendaftar ke Universitas Columbia dan menerima Ph.D. dalam biokimia pada 1938. Ia mengajar di Columbia dari 1939 hingga 1946. Dari sana, ia terus ke Universitas Chicago dan kemudian ke Universitas Harvard sebagai Profesor Higgins dalam Biokimia pada 1954, jabatan yang dipegangnya sampai pensiun pada 1982.
+
+Pada 1964, ia menerima Hadiah Nobel Kedokteran bersama dengan Feodor Lynen, untuk penemuan mereka tentang mekanisme dan pengaturan metabolisme kolesterol dan asam lemak. Di samping menerima Hadiah Nobel, ia juga menerima Penghargaan Fritzsche dari American Chemical Society (1964) dan Medali Cardan dari Lombardy Academy of Sciences (1965). Ia juga anggota American Chemical Society, National Academy of Sciences dan American Academy of Arts and Sciences.
+
+Pemenang Hadiah Nobel dalam bidang fisiologi atau kedokteran",,,,
+fab-500x-20261114T224408Z-023,92,4b60196f6000fc5e44bb4797,9feda3ab45dfea6bce91248ebf5b829d,fab-500x,id,web_frontend,wikipedia-id,templated_human,"[user] Jelaskan secara singkat tentang Abung Timur, Lampung Utara.","Abung Timur adalah sebuah kecamatan di Kabupaten Lampung Utara, Lampung, Indonesia.
+
+Daftar nama Desa/Kelurahan di Kecamatan Abung Timur di Kota/Kabupaten Lampung Utara, Provinsi Lampung:
+
+- Kelurahan/Desa Banjar Agung(Kodepos: 34583)
+
+- Kelurahan/Desa Bumi Agung Marga(Kodepos: 34583)
+
+- Kelurahan/Desa Bumi Jaya (Kodepos:34583)
+
+- Kelurahan/Desa Gedung Nyapah(Kodepos: 34583)
+
+- Kelurahan/Desa Penagan Ratu(Kodepos: 34583)
+
+- Kelurahan/Desa Peraduan Waras(Kodepos: 34583)
+
+- Kelurahan/Desa Pungguk Lama(Kodepos: 34583)
+
+- Kelurahan/Desa Sidomukti (Kodepos:34583)
+
+- Kelurahan/Desa Sumber Agung(Kodepos: 34583)
+
+- Kelurahan/Desa Surakarta (Kodepos:34583)
+
+Sumber: www.organisasi.org/1970/01/daftar-nama-kecamatan-kelurahan-desa-kodepos-di-kota-kabupaten-lampung-utara-provinsi-lampung.html?m=1",,,,
+fab-500x-20261114T224408Z-023,93,0bdb5fad1f1c7b0d877cd1d5,15fa82fe80a37ad8648279e69fbef075,fab-500x,id,web_fullstack,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Menara Cayan.,"Cayan Tower merupakan sebuah pencakar langit yang sedang dalam konstruksi oleh Palma Real Estate di Dubai, Uni Emirat Arab. Proyek ini masih tertunda, karena runtuhnya sebuah tembok dan banjir di situs konstruksi.
+
+Konstruksi bangunan setinggi 330 meter (1,083 kaki) ini dimulai pada Februari 2006 dan apabila selesai pada 2009, menara ini akan memiliki 80 tingkat dan menjadi apartemen tertinggi di dunia dengan putaran 90°. Versi asli menara yang sedang dalam konstruksi yang lebih tinggi, gelap, 372 m, 93 tingkat tidak pernah dibangun.
+
+Menara ini akan berputar seperti Turning Torso di Malmö, Swedia. Setiap lantai berputar 1.2° untuk mencapai spiral 90°, membentuk sebuah helix. Menara ini akan berisi apartemen, ruangan konferensi, lapangan tenis, kolam renang, gimnasium, nursery dan spa.
+
+Perusahaan proyek pembangunan properti ini adalah CAYAN, arsiteknya adalah Skidmore, Owings & Merrill (SOM) dan akan diletakkan di Dubai Marina.
+
+Konstruksi menara telah ditunda sejak situs pondasinya terkena banjir ketika tembok yang melindungi Dubai Marina runtuh pada 7 Februari 2007. Saksi mata mendengar suara reruntuhan yang keras, diiringi dengan bercampurnya pasir dan air.
+
+Website Resmi dalam Bahasa Arab dan Inggris
+
+Infinity Tower di Skyscraperpage(Drawings+Facts)
+
+Infinity Tower di AME Info(Picture+Information)
+
+Foto Situs Pembangunan setelah runtuhnya tembok",,,,
+fab-500x-20261114T224408Z-023,94,c1f0e895a26e69beaa18c630,e93fe44d9a407dc67f9d176c13b25894,fab-500x,id,writing,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Ovi (Nokia).,"Ovi by Nokia adalah merek layanan Internet Nokia yang dapat digunakan dari peranti bergerak, komputer (melalui Nokia Ovi Suite) atau situs web (Ovi.com). Nokia berfokus pada lima bidang layanan kunci: permainan, peta, media, pengiriman pesan, dan musik. Ovi ditujukan untuk dapat menyertakan pihak ketiga, seperti operator dan layanan pihak ketiga seperti Flickr. Dengan diumumkannya API Ovi Maps Player, Nokia telah mulai mengembangkan layanan mereka menjadi suatu platform yang memungkinkan pihak ketiga untuk menggunakan layanan Ovi Nokia. Ovi memiliki peranan bagi langkah Nokia untuk masuk lebih dalam ke dunia layanan Internet yang menyebabkannya harus bersaing langsung dengan Microsoft, Google, dan Apple Inc..
+
+Signifikansinya adalah bahwa Nokia bergerak lebih dalam ke dalam dunia servis internet, di mana persaingan dengan Microsoft, Google, dan Apple akan tidak dapat dihindarkan. Ovi berasal dari bahasa Finlandia yang berarti “pintu”. Hingga 28 Februari 2010 terdapat hampir 1,5 juta download setiap harinya di seluruh penjuru dunia.
+
+Pada tahun 2010, Yahoo dan Nokia membuat perjanjian strategis bagi Yahoo untuk mengganti Ovi Mail dan Ovi Chat dengan produk email dan chat Yahoo. Migrasi dimulai pada musim semi tahun 2011.",,,,
+fab-500x-20261114T224408Z-023,95,3dbd503f7ad90bcd7bc763c9,76b464376f2c431c62154c271ceda003,fab-500x,it,coding,oasst2,human_authored,[user] Mi potresti dare un esempio di rete neuronale utilizzando il framework Keras in modo da poter classificare dei dati in un file CSV?,"Certo, ecco un esempio di rete neurale utilizzando il framework Keras per classificare dei dati in un file CSV. In questo caso, utilizzeremo una rete neurale densa (fully connected) per classificare i dati in due classi.
+
+```python
+import numpy as np
+import pandas as pd
+from keras.models import Sequential
+from keras.layers import Dense
+
+# Caricamento dei dati dal file CSV
+dataset = pd.read_csv(""nome_file.csv"", delimiter="","")
+# Divisione dei dati in input e output
+X = dataset.iloc[:, 0:4].values
+y = dataset.iloc[:, 4].values
+
+# Creazione del modello della rete neurale
+model = Sequential()
+model.add(Dense(8, input_dim=4, activation='relu'))
+model.add(Dense(1, activation='sigmoid'))
+
+# Compilazione del modello
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+# Addestramento del modello
+model.fit(X, y, epochs=100, batch_size=10)
+
+# Valutazione del modello
+_, accuracy = model.evaluate(X, y)
+print('Accuracy: %.2f' % (accuracy*100))
+
+```
+
+In questo esempio, i dati sono caricati da un file CSV con 4 colonne di input e una colonna di output binario. La rete neurale è composta da un livello di input con 8 neuroni e una funzione di attivazione ReLU, seguito da un livello di output con un singolo neurone e una funzione di attivazione sigmoide.
+
+Il modello viene compilato con una funzione di perdita di entropia incrociata binaria e l'ottimizzatore Adam, e viene addestrato per 100 epoche su batch di dimensione 10. Infine, viene valutata l'accuratezza del modello sul set di dati di addestramento.",,,,
+fab-500x-20261114T224408Z-023,96,a70c892cacb52ad222e26ef6,3e11853d960b7829813d7b6a8e1f72f1,fab-500x,it,education,oasst2,human_authored,"[user] Cosa si intende con il termine ""machine learning""?","Il machine learning è un sottoinsieme dell’intelligenza artificiale che si occupa di creare sistemi che apprendono o migliorano le performance in base ai dati che utilizzano. Utilizza algoritmi per imitare il modo in cui gli esseri umani apprendono, migliorando in modo graduale la sua accuratezza.
+
+Ci sono diversi tipi di algoritmi di machine learning, a seconda del modo in cui apprendono i dati per fare previsioni. I principali sono:
+* Machine learning con apprendimento supervisionato: gli algoritmi ricevono dati etichettati con la risposta corretta e imparano a generalizzare il modello.
+* Machine learning con apprendimento non supervisionato: gli algoritmi ricevono dati non etichettati e imparano a scoprire strutture o raggruppamenti.
+* Machine learning con apprendimento semi-supervisionato: gli algoritmi ricevono una combinazione di dati etichettati e non etichettati e imparano a migliorare la qualità delle etichette.
+* Machine learning con apprendimento per rinforzo: gli algoritmi ricevono feedback positivi o negativi in base alle loro azioni e imparano a ottimizzare il loro comportamento.",,,,
+fab-500x-20261114T224408Z-023,97,d43c4d026630ebc16107718e,038d9a81833801b5f509f7f45a0ff6f9,fab-500x,it,general_knowledge,aya-dataset,human_authored,"[user] Dove è meglio avere i vestiti piegati? Scegli una risposta a questa domanda tra le seguenti opzioni:
+
+A: lavanderia
+B: camera da letto
+C: valigia
+D: armadio
+E: cassettiera",La risposta giusta è E,,,,
+fab-500x-20261114T224408Z-023,98,4b5f1963dddbb7876f9a994a,e8b47454c45e314bc4a5b211fdc3959e,fab-500x,it,mathematics,oasst2,human_authored,"[user] Cos'è il linguaggio di programmazione ""SPWN"" e per cosa è utile?","SPWN è un linguaggio di programmazione che compila in livelli per Geometry Dash.
+Ciò significa che puoi creare livelli utilizzando non solo la rappresentazione visiva nell'editor GD, ma anche una rappresentazione ""verbale"" e astratta.
+Ciò è particolarmente utile per l'utilizzo dei trigger GD, che (se vuoi creare cose complicate) non sono particolarmente adatti per il flusso di lavoro grafico dell'editor in-game.
+Se non hai mai lavorato con un linguaggio di programmazione prima, questo potrebbe essere un po' difficile da capire. Tuttavia, non hai bisogno di molte conoscenze di programmazione per fare alcune cose di base usando SPWN.",,,,
+fab-500x-20261114T224408Z-023,99,191ef6a6bb7ed3447af0f140,cbd45cbbe8f718748e26a12f3e4f3f48,fab-500x,it,reasoning,aya-dataset,human_authored,"[user] Riassumi l'articolo seguente:
+""Il leader dell'Ukip, Nigel Farage, è scoppiato a piangere mentre descriveva come i suoi figli fossero stati vittime di bullismo a causa del suo lavoro. In un'intervista rivelatrice alla BBC One, il politico ha ammesso che la sua famiglia ha pagato il prezzo per la sua posizione di capo del Partito per l'Indipendenza del Regno Unito. Una volta descritto come ""l'uomo più odiato in Gran Bretagna"", un emotivo Farage sembrava scoppiare in lacrime quando disse che i suoi figli venivano giudicati ""in modo ingiusto"". Il leader dell' Ukip, Nigel Farage, ha pianto mentre descriveva come i suoi figli fossero stati vittime di bullismo. ""Abbiamo questo cognome molto insolito, non siamo molti, e questo è difficile, è difficile"", ha detto l'eurodeputato che ha due figli di età inferiore ai 15 anni e altri due di età intorno ai 20 anni. 'È difficile quando sei più giovane perché ti prendono in giro senza pietà ovunque tu vada, ma in realtà è difficile anche quando sei cresciuto, perché la gente ti giudica ingiustamente da tuo padre, e questo è duro, questo è duro.' Ma ha detto che la lotta della sua famiglia non lo avrebbe fatto rinunciare alla possibilità di stabilire l'Ukip come un partito con una reale influenza politica. 'Devo andare con lui e al diavolo con le conseguenze', ha aggiunto. Sembra che la sua ambizione stia dando i suoi frutti, dato che si prevede che l'Ukip vincerà sei seggi alle elezioni generali. Lo stesso Farage aveva contestato senza successo le elezioni parlamentari britanniche per l'UKIP cinque volte, sia prima che dopo la sua elezione come deputato europeo. Nell'agosto 2014 è stato selezionato come candidato dell'UKIP per South Thanet alle elezioni generali di quest'anno. Recentemente è stato interrogato sul suo titolo ""più odiato"" durante un'apparizione su Loose Women. In un'intervista rivelatrice alla BBC One, il politico ha ammesso che la sua famiglia ha pagato il prezzo per la sua posizione di capo del Partito per l'Indipendenza del Regno Unito. Farage ha detto che la lotta della sua famiglia non lo farà rinunciare alla possibilità di stabilire l'Ukip come un partito con una reale influenza politica.""",Nigel Farage ha iniziato a piangere mentre descriveva i bambini vittime di bullismo. Il politico ha detto che sono stati giudicati ingiustamente sul suo profilo pubblico. Ha ammesso che la famiglia ha pagato il prezzo per la sua posizione come leader dell' Ukip.,,,,
+fab-500x-20261114T224408Z-023,100,845e193071c3dfe0f3e1c732,b1614ac440204bc9d165ae57f8edb1fb,fab-500x,it,science,oasst2,human_authored,"[user] è possibile dividere i quark che compongono un protone?
+
+[assistant] Sì, i quark che compongono un protone sono soggetti alle forze di legame che li tengono uniti, ma teoricamente sono divisibili. Tuttavia, la divisione dei quark richiederebbe un'enorme quantità di energia, poiché i quark sono legati da forze molto forti, note come forze di interazione forte. Queste forze sono descritte dalla teoria delle interazioni forti, nota come QCD (Quantum Chromodynamics), e sono responsabili della tenuta dei quark all'interno dei nucleoni, come i protoni e i neutroni.
+
+In condizioni normali, è virtualmente impossibile separare i quark all'interno dei nucleoni, ma a temperature estremamente elevate e densità molto elevate, come all'interno di stelle di neutroni o all'interno dei primi istanti del Big Bang, i quark potrebbero essere liberati dalle forze di interazione forte e divenire liberi. Tuttavia, queste condizioni sono molto difficili da ricreare in un laboratorio terrestre.
+
+[user] Ci sono esperimenti sulla terra per provare a dividere i quark?","Sì, esistono esperimenti in cui i quark sono separati all'interno di particelle subatomiche ad alta energia, ma questi esperimenti non comportano la separazione dei quark all'interno dei protoni o dei neutroni. In questi esperimenti, si usano acceleratori di particelle per accelerare particelle subatomiche come protoni o elettroni ad altissime energie e farli collidere con bersagli di materiale atomico. Durante queste collisioni, le particelle subatomiche si disintegrano in particelle più piccole, tra cui quark e gluoni. Tuttavia, anche in queste condizioni estreme, i quark non vengono separati completamente dalle forze di interazione forte, ma sono liberi solo per un breve momento prima di formare nuove particelle subatomiche.",,,,

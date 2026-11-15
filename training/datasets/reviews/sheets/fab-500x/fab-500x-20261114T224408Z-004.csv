@@ -1,0 +1,636 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-004,1,ade746be9ad17aad74396ff9,df69a93be726e132aeaca6e768dae772,fab-500x,nl,research,aya-dataset,human_authored,"[user] Maak de volgende paragraaf af: De natuurwetenschappen zijn de takken van de wetenschap die met behulp van empirische en wetenschappelijke methoden op zoek gaan naar natuurwetten die verklaringen kunnen bieden voor natuurverschijnselen.
+
+Met presentaties en debatten tijdens conferenties en symposia en met peer review bij wetenschappelijke publicaties werkt de wetenschappelijke gemeenschap aan het waarborgen van de kwaliteit van de wetenschap, haar methodes en interpretatie van resultaten.","Men spreekt tegenwoordig vaker en vaker gewoon van 'wetenschap(pen)' in plaats van natuurwetenschappen (alhoewel hier ook wiskunde en informatica onder valt, zie formele wetenschap). De technische wetenschappen zijn verschillend van de natuurwetenschappen. De focus van de natuurwetenschappen ligt bij de theorie en het onderzoeken van de natuurwetten, waar het bij de technische wetenschappen ligt bij het onderzoeken van de toepassing van deze theorie en technologische ontwikkelingen. Onder de exacte wetenschappen vallen de natuurwetenschappen en technische wetenschappen.",,,,
+fab-500x-20261114T224408Z-004,2,305b8be595f2116382e87d45,97b580e0a9e5df465869dbf87cfb4d27,fab-500x,nl,science,aya-dataset,human_authored,"[user] Ik verwijs u naar de passage hieronder en beantwoordt dan in dezelfde taal als de passage:  Passage: Met een nieuwe naam en label bracht de band in september 2000 hun tweede album, New American Gospel, uit. Patrick Kennedy van Allmusic vergeleek de band met Pantera en zei: ""De essentiële handtekeningen van post-Pantera metal zijn in overvloed op het eerste album van Lamb of God. New American Gospel biedt een machtige eik waarop het geloof van de grimmige Amerikaanse metal wordt gehandhaafd, effectief overbruggende de '90s' aandringen op boor-sergeant techniciteit en de oude school vastberaden focus op riff bouw. "" Chris Adler merkte op: ""Dit is een klassieke plaat. We hadden alle elementen bij elkaar om een van de zwaarste, maar toch besmettelijke platen van onze carrière te maken. Het was moeilijk om ons te bevatten - we begrepen toen niet eens wat we hadden gecreëerd. ""Lamb of God toerde twee jaar voordat ze hun derde studioalbum, As the Palaces Burn, op 6 mei 2003 uitbrachten. Kirk Miller van Rolling Stone gaf het album drie van de vijf sterren en schreef dat ""in tegenstelling tot veel van hun overreaching, Slipknot-geïnspireerde tijdgenoten, Lamb of God een nauwgezet vervaardigde metal aanval levert"". Het album werd uitgeroepen tot nummer één album van 2003 door zowel Revolver Magazine als Metal Hammer. De band maakte deel uit van de eerste Headbangers Ball-tournee, waar ze een DVD met live optredens en een documentaire met de titel Terror and Hubris opnamen. De dvd was een succes, debuteerde op nummer 31 op de Billboard Top Music Videos chart.  Vraag: wanneer werd hun eerste album onder een nieuwe naam uitgebracht?",In september 2000 werd hun eerste album onder een nieuwe naam uitgebracht.,,,,
+fab-500x-20261114T224408Z-004,3,8c1a93b184dcd409c47e7c4a,cef4e8790e1462733349cd4d97522150,fab-500x,nl,web_backend,aya-dataset,human_authored,[user] Wat is een REST API?,"REST API is een architectuurstijl voor het bouwen van netwerk-API's. In de praktijk maken de meeste REST API's gebruik van JSON over HTTP. REST API's hebben verschillende eigenschappen die ze erg populair maken. HTTP is het fundament en het meest populaire netwerkprotocol op internet. Door HTTP te gebruiken, kunnen REST API's volledig gebruik maken van de internetinfrastructuur, wat de complexiteit en operationele kosten aanzienlijk vermindert. Bijvoorbeeld door HTTPS te gebruiken voor transportbeveiliging en URL's te gebruiken voor verzoekroutering. JSON is een eenvoudig, stabiel en intuïtief gegevensformaat dat naar verwachting nooit zal veranderen. Dit biedt grote gebruiksvriendelijkheid en stabiliteit voor REST API's. Voor toepassingen met hoge prestaties kunnen in plaats daarvan binaire formaten worden gebruikt, zoals protobuf of thrift. REST API's zijn vaak ontworpen als CRUD API's, waarbij API-operaties vaak worden uitgedrukt als Create, Retrieve, Update en Delete-operaties op resources. CRUD-operaties worden natuurlijk toegewezen aan HTTP-methoden (POST, GET, PUT/PATCH en DELETE) en API-resources kunnen natuurlijk worden geïdentificeerd met behulp van URL's.",,,,
+fab-500x-20261114T224408Z-004,4,b238baaa891a21ca7564897c,f9a0b1d211481a5ae7a62d5dcc3e9abc,fab-500x,nl,web_frontend,aya-dataset,human_authored,"[user] Welke van de volgende woorden zijn programmeertalen: C, Java, Node.js, Python, HTML, BigData, Spark?","Nou, C, Java en Python zijn programmeertalen. Hoewel HTML een taal is, is het een opmaaktaal en geen programmeertaal. Node.js is eigenlijk een framework gebouwd bovenop Javascript, dus het kan niet worden geclassificeerd als een programmeertaal. BigData is een bredere term die wordt gebruikt voor het opslaan, verwerken en gebruiken van grote hoeveelheden gegevens. Spark is een van de meest populaire gedistribueerde gegevensverwerkingsframeworks. Spark kan worden gebruikt vanuit meerdere talen.",,,,
+fab-500x-20261114T224408Z-004,5,3064edd5cea90444a5724206,f80df9cda96a7b79f58f7ee9636f526e,fab-500x,nl,web_fullstack,aya-dataset,human_authored,[user] Zou je mij kunnen vertellen wat DNA-annotatie is?,"Ja, DNA-annotatie of genoomannotatie is het proces van het identificeren van de locaties van genen en alle coderende regio's in een genoom en het bepalen van wat die genen doen. Een annotatie (ongeacht de context) is een opmerking die wordt toegevoegd ter verklaring of commentaar. Zodra een genoom is gesequenced, moet het worden geannoteerd om er zin van te maken. Genen in een eukaryoot genoom kunnen worden geannoteerd met behulp van verschillende annotatietools zoals FINDER. Een moderne annotatie-pijplijn kan een gebruiksvriendelijke webinterface en software-containerisatie ondersteunen, zoals MOSGA. Moderne annotatie-pijplijnen voor prokaryotische genomen zijn Bakta, Prokka en PGAP. Voor DNA-annotatie wordt een voorheen onbekende sequentierepresentatie van genetisch materiaal verrijkt met informatie over genomische positie tot intron-exon grenzen, regulerende sequenties, herhalingen, genenamen en eiwitproducten. Deze annotatie wordt opgeslagen in genomische databases zoals Mouse Genome Informatics, FlyBase en WormBase. Educatief materiaal over sommige aspecten van biologische annotatie van de Gene Ontology-annotatiecampagne uit 2006 en soortgelijke evenementen is beschikbaar op de Gene Ontology-website. Het National Center for Biomedical Ontology ontwikkelt tools voor geautomatiseerde annotatie van databaserecords op basis van de tekstuele beschrijvingen van die records. Als algemene methode heeft dcGO een geautomatiseerde procedure voor het statistisch afleiden van associaties tussen ontologie-termen en eiwitdomeinen of combinaties van domeinen uit de bestaande gen-/eiwitniveau-annotaties.",,,,
+fab-500x-20261114T224408Z-004,6,8b039f59d635249e3181feda,51672947eee810d64c649194a3dfe190,fab-500x,nl,writing,aya-dataset,human_authored,"[user] Welke letter moet op de punten worden ingevuld om onderstaande twee rijen logisch af te maken?
+
+M J J A ...?
+Z Z A N ...?","Mei, Juni, Juli, Augustus, September.
+De letter in de eerste rij is dus een S.
+
+Zes, Zeven, Acht, Negen, Tien.
+De letter in de tweede rij is dus een T.",,,,
+fab-500x-20261114T224408Z-004,7,01d4ecdb209fe3f337ab0c5a,6a0831943c7db8fb6afe02b029264075,fab-500x,nso,general_knowledge,aya-dataset,human_authored,"[user] Potšišo: Ke ka lebaka la eng batho bao ba sa tsebjego bao ba bego ba le ka UFO ba sa ka ba kotama mesong ya Keresemose? Ba be ba na le boithati, gomme ba be ba sa nyake go abelana ka go ba gona ga bona! 
+O nagana gore ke eng seo se bolelwago ke metlae ye e lego ka mo godimo?","Tlhalošo: Di-UFO ke dilo tše di sa tsebjego tše di fofago, tšeo gantši di bonwago e le dikepe tše di fofago. Dikepe tše di fofago (ge eba di le gona) di tšwa melalatlading ye mengwe ya dinaledi gomme di ka ba di na le diphedi tša ka ntle ga lefase. Na e ka se be mo go thabišago go ba le bohlatse bja bophelo bjo bo tšwago dikarolong tše dingwe tša legohle! Gaešita le ge go ena le dikanegelo tše dintši le diswantšho tša di-UFO, go ba gona ga batho bao ba tšwago lefaufaung ga se gwa ka gwa hlatselwa le ka mohla. Le ka mohla ga se ba ka ba re tsebiša ka go ba gona ga bona. Batho ba bantši lefaseng ba keteka Keresemose ka December 25. E nngwe ya meetlo e tlwaelegilego kudu ya Keresemose ke go nea bagwera le maloko a lelapa dimpho. Dimpho gape di bitšwa dišegofatšo. Batho ba bangwe ba rata go abelana dimpho tša bona, mola ba bangwe ba sa nyake go dira bjalo. Se se a segiša ka gobane dimpho (dimpho tšeo re di neago le tšeo re di amogelago) di kwagala go swana le lentšu go ba gona (go ba lefelong). Go ba gona ga bophelo bjo bo tšwago dipolaneteng tše dingwe e be e tla ba mpho go batho bao ba holofetšego bophelo bja ka ntle ga lefase. Thelesekopo ya James Webb yeo e ilego ya thongwa maabane e ka re nea dimpho tše dintši ka ge e thuša go utolla mo go oketšegilego ka legohle.",,,,
+fab-500x-20261114T224408Z-004,8,0e51565ae22990671288aede,8bc6b79c5834ec3f0213bfc0004aaa8f,fab-500x,nso,mathematics,aya-dataset,human_authored,"[user] Tlatša polelo e latelago: Go tloga ka April 1, 1941 go fihla ka April 4, 1943, Gilsa e be e le molaodi wa Sehlopha sa bo-216 sa Botšhaba. Maregeng a 1941/42 sehlopa se ile sa romelwa ka Bohlabela. Gilsa o ile a hlatlošwa go ba Molaodi wa Madira a Maoto ka la 1 July 1943. Go tloga ka 11 June 1943 go fihla ka 23 Nofemere 1944 e be e le Molaodi General wa LXXXIX Army Corps, yeo e ilego ya tšea karolo ka Ntweng ya Scheldt, go tloga ka 2 Oktoboro go fihla ka 8 Nofemere 1944. Gilsa e be e le Molaodi wa Madira wa","Dresden go tloga ka March 15 go ya go May 1945. Mafelelong a ntwa, Gilsa o ile a ipolaya.",,,,
+fab-500x-20261114T224408Z-004,9,5119dfa3ed754e23ea822e45,43e25a2d95e32b7099e91669d265bc1e,fab-500x,nya,general_knowledge,aya-dataset,human_authored,[user] Mumalongosola bwanji ndime polemba?,"Kulemba ndime ndi njira yolembera gawo lokhazikika pa lingaliro kapena mutu wina. Ndime ndi gulu la ziganizo zomveka bwino zomwe zimakhala ndi chiganizo chamutu, ziganizo zothandizira, ndi mawu omaliza.",,,,
+fab-500x-20261114T224408Z-004,10,41c02f3279e7651c796c08fe,e99d331970635be67c02f779164028ce,fab-500x,nya,islamic_studies,aya-dataset,human_authored,[user] Kodi Asilamu amasuta fodya?,"Malingaliro achisilamu okhudza fodya amasiyana malinga ndi dera. Ngakhale fodya kapena kusuta sikunatchulidwe mu Qur'an kapena hadith, akatswiri amasiku ano adatsutsa kuti kusuta kungakhale kovulaza, ndipo nthawi zina amaletsa kusuta fodya (adalengeza kuti haramu) chifukwa cha kuwonongeka kwakukulu kwa thanzi komwe kumayambitsa.",,,,
+fab-500x-20261114T224408Z-004,11,b71b74b9af62c99fba34532b,b47c32fdbc0527079a19609a9c6840ac,fab-500x,nya,mathematics,aya-dataset,human_authored,[user] Ndi dziko liti lomwe lili ndi zokolola zambiri padziko lonse lapansi?,"China ndi mtsogoleri wapadziko lonse pazaulimi ndipo amapereka pafupifupi 50% ya ndiwo zamasamba padziko lapansi, akupanga matani 500 miliyoni. Anthu ambiri amagwirizana ndi ulimi mdziko muno. 2020/21 kupanga thonje kunali 26.5 miliyoni 480-mabelo. Nthawi zambiri, ndi dziko laulimi wabwino kwambiri padziko lonse lapansi.",,,,
+fab-500x-20261114T224408Z-004,12,c6054ba7cd8be9ce1812bc09,d5ad2adf1e913ffa8d784c2e31f4b4df,fab-500x,nya,research,aya-dataset,human_authored,[user] Eni chipatala cha Mwaiwathu ndani?,"Technical Partner ndi/kapena Ma sheya Akuluakulu: Eni ake masheya akulu a polojekiti ndi: Prof. Jack Wirima (7%); Malawi Development Corporation (18%); Indebank (18%); National Insurance Corporation (18%); Medical Aid Society (6%); Malawi Savings Bank (9%), Medical Research Institute (MRI) (7%) ndi mabizinesi ena.",,,,
+fab-500x-20261114T224408Z-004,13,28fb6021c4eb65d84b8c0425,a62ecb7c49bbcc0937788b0a9dd41d92,fab-500x,nya,science,aya-dataset,human_authored,[user] Asilikali a Malawi Defence Force,"Malawi ili ndi gulu lankhondo laling'ono laling'ono pafupifupi 25,000, Malawian Defence Force. Zili ndi zida zankhondo, zankhondo zam'madzi ndi zankhondo. Asilikali ankhondo a Malawi adachokera ku gulu la atsamunda la Britain lomwe linakhazikitsidwa dziko lisanalandire ufulu, ndipo pano lili ndi magulu awiri a mfuti ndi gulu limodzi la parachute. Gulu lankhondo la Malawi Air Force lidakhazikitsidwa ndi thandizo la Germany mu 1976, ndipo limagwiritsa ntchito ndege zingapo zoyendera komanso ma helikoputala amitundu yambiri. Gulu Lankhondo Lapamadzi la Malawi linakhazikitsidwa koyambirira kwa zaka za m'ma 1970 ndi thandizo la Chipwitikizi, pakali pano lili ndi zombo zitatu zomwe zimagwira ntchito ku Lake Malawi, ku Monkey Bay. Mu 2017, dziko la Malawi linasaina pangano la UN loletsa zida za nyukiliya.",,,,
+fab-500x-20261114T224408Z-004,14,a847f5529f6a26db84d5e885,29f5aeffb2919b415dbe175568cc30cb,fab-500x,pa,general_knowledge,aya-dataset,human_authored,"[user] ਕਿਰਪਾ ਕਰਕੇ ਇਸ ਬਾਰੇ ਵਿਸਥਾਰ ਵਿੱਚ ਦੱਸੋ ਕਿ ਹੇਠਾਂ ਦਿੱਤੇ ਦਾ ਕੀ ਅਰਥ ਹੈ।
+""ਸਲੋਕੁ ॥ਨਿਰੰਕਾਰ ਆਕਾਰ ਆਪਿ ਨਿਰਗੁਨ ਸਰਗੁਨ ਏਕ ॥ਏਕਹਿ ਏਕ ਬਖਾਨਨੋ ਨਾਨਕ ਏਕ ਅਨੇਕ ॥੧॥""","ਇਹ ਸ੍ਰੀ ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ ਜੀ ਦੇ ਪੰਨਾ 250 ਤੋਂ ਲਿਆ ਗਿਆ ਹੈ। ਗੁਰੂ ਅਰਜਨ ਦੇਵ ਜੀ ਇਹਨਾਂ ਬਾਣੀਆਂ ਦੇ ਲਿਖਾਰੀ ਹਨ।
+ਇਸ ਨੂੰ ਹੇਠ ਲਿਖੇ ਅਨੁਸਾਰ ਵਿਖਿਆਨ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ,
+""ਆਕਾਰ-ਰਹਿਤ ਪਰਮਾਤਮਾ ਆਪ ਹੀ (ਜਗਤ-) ਆਕਾਰ ਬਣਾਂਦਾ ਹੈ । ਉਹ ਆਪ ਹੀ (ਨਿਰੰਕਾਰ ਰੂਪ ਵਿਚ) ਮਾਇਆ ਦੇ ਤਿੰਨ ਸੁਭਾਵਾਂ ਤੋਂ ਪਰੇ ਰਹਿੰਦਾ ਹੈ, ਤੇ ਜਗਤ-ਰਚਨਾ ਰਚ ਕੇ ਮਾਇਆ ਦੇ ਤਿੰਨ ਗੁਣਾਂ ਵਾਲਾ ਹੋ ਜਾਂਦਾ ਹੈ । ਹੇ ਨਾਨਕ! ਪ੍ਰਭੂ ਆਪਣੇ ਇਕ ਸਰੂਪ ਤੋਂ ਅਨੇਕਾਂ ਰੂਪ ਬਣਾ ਲੈਂਦਾ ਹੈ, (ਪਰ ਇਹ ਅਨੇਕ ਰੂਪ ਉਸ ਤੋਂ ਵੱਖਰੇ ਨਹੀਂ ਹਨ) ਇਹੀ ਕਿਹਾ ਜਾ ਸਕਦਾ ਹੈ ਕਿ ਉਹ ਇਕ ਆਪ ਹੀ ਆਪ ਹੈ ।੧।""",,,,
+fab-500x-20261114T224408Z-004,15,4e056fb18e15cb5ee3b1c9d1,574266b57d28ff6dbd65e60a9287a486,fab-500x,pa,mathematics,aya-dataset,human_authored,[user] ਲਹੂ ਦੇ ਵੱਖ-ਵੱਖ ਅੰਸ਼ਾਂ ਦਾ ਵਰਣਨ ਕਰੋ । ਲਹੂ ਦੇ ਮੁੱਖ ਕੰਮ ਕੀ ਹਨ ?,"ਲਹੂ ਅਤੇ ਉਸ ਦੇ ਅੰਸ਼ -ਰਕਤ ਜਾਂ ਲਹੂ ਇਕ ਪ੍ਰਕਾਰ ਦਾ ਤਰਲ ਪਦਾਰਥ ਹੈ ਜਿਸ ਦਾ ਨਿਰਮਾਣ ਖਾਣ ਅਤੇ ਪੀਣ ਵਾਲੇ ਪਦਾਰਥਾਂ ਰਾਹੀਂ ਹੁੰਦਾ ਹੈ । ਲਹੂ ਸਾਡੇ ਸਰੀਰ ਵਿਚ ਇਕ ਮਹੱਤਵਪੂਰਨ ਪਦਾਰਥ ਹੈ । ਇਹ ਆਦਮੀ ਦੇ ਸਰੀਰ ਵਿਚ ਉਸ ਦੇ ਸਰੀਰ ਦੇ ਭਾਰ ਦਾ ਬਾਵਾਂ (1/12) ਨੇ ਹਿੱਸਾ ਹੁੰਦਾ ਹੈ । ਆਮ ਤੌਰ ‘ਤੇ ਇਕ ਨੌਜਵਾਨ ਦੇ ਸਰੀਰ ਵਿਚ ਖੂਨ ਦੀ ਮਾਤਰਾ 12-13 ਪਿੰਟ ਤਕ ਹੁੰਦੀ ਹੈ । ਕਈ | ਹਾਲਤਾਂ ਵਿਚ ਇਹ ਮਾਤਰਾ ਘੱਟ ਜਾਂ ਵੱਧ ਵੀ ਹੋ ਸਕਦੀ ਹੈ । ਤਰਲ  ਪਦਾਰਥ ਨਿਕਲਦਾ ਹੈ । ਇਸ ਤਰਲ ਪਦਾਰਥ ਦਾ ਨਾਂ ਹੀ ‘ਲਹੁ’ ਹੈ । ਦੇਖਣ ਨੂੰ ਤਾਂ ਇਹ ਲਾਲ ਰੰਗ ਦਾ ਮਾਲੂਮ ਹੁੰਦਾ ਹੈ, ਪਰ ਅਸਲ ਵਿਚ ਅਜਿਹਾ ਨਹੀਂ । ਜੇ ਅਸੀਂ ਇਸ ਤਰਲ ਪਦਾਰਥ ਅਰਥਾਤ ਲਹੂ ਨੂੰ ਖੁਰਦਬੀਨ ਵਿਚ ਦੇਖੀਏ ਤਾਂ ਸਾਨੂੰ ਪਤਾ ਲੱਗੇਗਾ ਕਿ ਲਹੂ ਵਿਚ ਬਹੁਤ ਛੋਟੇ-ਛੋਟੇ ਕਣ ਹੁੰਦੇ ਹਨ । ਇਹਨਾਂ ਕਣਾਂ ਦਾ ਰੰਗ ਚਿੱਟਾ ਤੇ ਲਾਲ ਹੁੰਦਾ ਹੈ ।
+
+ਇਹਨਾਂ ਨੂੰ ਲਾਲ ਲਹੂ ਕਣ ਅਤੇ ਚਿੱਟੇ ਲਹੂ ਕਣ  ਕਹਿੰਦੇ ਹਨ । ਇਹ ਇਕ ਕਿਸਮ ਦੇ ਹਲਕੇ ਪੀਲੇ ਤਰਲ  ਵਿਚ ਤੈਰਦੇ ਹਨ, ਜਿਸ ਨੂੰ ਪਲਾਜ਼ਮਾ  ਕਹਿੰਦੇ ਹਨ । 
+(i) ਪਲਾਜ਼ਮਾ  – ਇਹ ਲਹੂ ਦੇ ਹਲਕੇ ਪੀਲੇ ਰੰਗ ਦਾ ਪਾਰਦਰਸ਼ਕ  ਪਦਾਰਥ ਹੁੰਦਾ ਹੈ । ਇਸ ਵਿਚ ਲਾਲ ਅਤੇ ਚਿੱਟੇ ਲਹੂ ਦੇ ਕਣ ਤੈਰਦੇ ਹਨ । ਇਸ ਵਿਚ 90% ਪਾਣੀ ਤੇ 10% ਠੋਸ ਪਦਾਰਥ ਘੁਲੇ ਹੁੰਦੇ ਹਨ । ਇਹ ਠੋਸ ਪਦਾਰਥ ਪ੍ਰੋਟੀਨ, ਖਣਿਜ ਲੂਣ ਤੇ ਚਰਬੀ (Fat) ਹੁੰਦੇ ਹਨ | ਪਲਾਜ਼ਮਾ ਲਹੂ ਦੇ ਦਬਾਅ  ਨੂੰ ਠੀਕ ਰੱਖਦਾ ਹੈ ਤੇ ਲਾਲ ਅਤੇ ਚਿੱਟੇ ਲਹੂ ਕਣਾਂ ਨੂੰ ਲਿਜਾਣ ਵਿਚ ਮਦਦ ਦਿੰਦਾ ਹੈ । ਇਸ ਦੀ ਪ੍ਰੋਟੀਨ ਲਹੁ ਨੂੰ ਵਹਿਣ ਤੋਂ ਰੋਕਣ ਵਿਚ ਮਦਦ ਦਿੰਦੀ ਹੈ ।
+(ii) ਲਾਲ ਲਹੂ ਕਣ  – ਆਦਮੀ ਦੇ ਲਾਲ ਲਹੂ ਕਣ ਗੋਲ ਤੇ ਦੋਹਾਂ ਪਾਸਿਆਂ ਤੋਂ ਚਿਪਕੇ ਹੁੰਦੇ ਹਨ । ਆਦਮੀ ਦੇ ਇਕ ਘਣ ਮਿਲੀ ਮੀਟਰ ਲਹੂ ਵਿਚ ਇਹਨਾਂ ਦੀ ਗਿਣਤੀ ਲਗਪਗ 50,00,000 ਹੁੰਦੀ ਹੈ । ਇਹ ਇੰਨੇ ਛੋਟੇ ਹੁੰਦੇ ਹਨ ਕਿ ਜੇਕਰ ਕੰਢੇ ਨਾਲ ਮਿਲਾ ਕੇ ਰੱਖੇ ਜਾਣ ਤਾਂ 2.5 ਵਰਗ ਸੈਂਟੀਮੀਟਰ ਥਾਂ ਵਿਚ ਲਗਪਗ 1 ਕਰੋੜ ਆ ਜਾਣਗੇ । ਇਹਨਾਂ ਦੀ ਬਾਹਰਲੀ ਪਰਤ ਇਕ ਲਚਕੀਲੇ ਠੋਸ ਦੇ ਰੂਪ ਵਿਚ ਹੁੰਦੀ ਹੈ ਜਿਸ ਦੇ ਅੰਦਰ ਪੀਲੇ ਰੰਗ ਦਾ ਲੋਹੇ ਦਾ ਇਕ ਰੰਗ  ਹੁੰਦਾ ਹੈ ਜਿਸ ਨੂੰ ਹਿਮੋਗਲੋਬਿਨ । ਕਹਿੰਦੇ ਹਨ ਜੋ ਕਿ ਲੋਹੇ ਅਤੇ ਪ੍ਰੋਟੀਨ ਵਸਤਾਂ ਨਾਲ ਮਿਲ ਕੇ ਬਣਦਾ ਹੈ । ਹਿਮੋਗਲੋਬਿਨ ਆਕਸੀਜਨ ਨੂੰ ਚੂਸ ਲੈਂਦਾ ਹੈ ਜਿਸ ਕਾਰਨ ਇਸ ਦਾ ਰੰਗ ਚਮਕਦਾਰ ਹੋ ਜਾਂਦਾ ਹੈ । ਇਹ ਆਕਸੀ-ਹਿਮੋਗਲੋਬਿਨ ਵਿਚ ਬਦਲ ਜਾਂਦਾ ਹੈ । ਇਸ ਪਦਾਰਥ ਦੇ ਕਾਰਨ ਖੂਨ ਫੇਫੜਿਆਂ ਵਿਚੋਂ ਆਕਸੀਜਨ ਚੂਸ ਕੇ ਸਰੀਰ ਦੇ ਹਰ ਹਿੱਸੇ ਤਕ ਪਹੁੰਚਾਉਂਦਾ ਹੈ । ਲੜਕੀਆਂ ਵਿਚ ਲਾਲ ਲਹੂ ਕਣ ਲੜਕਿਆਂ ਨਾਲੋਂ ਘੱਟ ਹੁੰਦੇ ਹਨ । ਜ਼ਿਆਦਾ ਕਸਰਤ ਕਰਨ ਤੇ  ਉਚਾਈ ਉੱਤੇ ਲਾਲ ਕਣਾਂ ਦੀ ਗਿਣਤੀ ਵੱਧ ਜਾਂਦੀ ਹੈ ।
+(iii) ਚਿੱਟੇ ਲਹੂ ਕਣ – ਸਰੀਰ ਦੀ ਤੁਲਨਾ ਇਕ ਰਾਜ ਨਾਲ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ । ਜਿਸ ਤਰ੍ਹਾਂ ਰਾਜ ਦੀ ਰੱਖਿਆ ਲਈ ਫ਼ੌਜ ਦਾ ਪ੍ਰਬੰਧ ਹੁੰਦਾ ਹੈ, ਉਸੇ ਤਰ੍ਹਾਂ ਸਰੀਰ ਰੂਪੀ ਰਾਜ ਦੇ ਲਈ ਲਹੂ ਕਣ ਰੂਪੀ ਫ਼ੌਜ ਦਾ ਪ੍ਰਬੰਧ ਹੁੰਦਾ ਹੈ । ਚਿੱਟੇ ਲਹੂ ਕਣਾਂ ਦੀ ਗਿਣਤੀ ਲਾਲ ਲਹੂ ਕਣਾਂ ਨਾਲੋਂ ਘੱਟ ਹੁੰਦੀ ਹੈ | ਸਰੀਰ ਵਿਚ ਲਗਪਗ 600 ਲਾਲ ਲਹੂ ਕਣਾਂ ਮਗਰੋਂ ਕੇਵਲ ਇਕ ਚਿੱਟਾ ਲਹੂ ਕਣ ਹੁੰਦਾ ਹੈ । ਇਕ ਘਣ ਕਿਲੋ ਲਹੂ ਵਿਚ ਚਿੱਟੇ ਲਹੂ ਕਣਾਂ ਦੀ ਗਿਣਤੀ ਲਗਪਗ 8000 ਤੋਂ 10000 ਦੇ ਲਗਪਗ ਹੁੰਦੀ ਹੈ । ਇਹ ਰੰਗਹੀਣ ਤੇ ਬੇਡੌਲ  ਆਕਾਰ ਦੇ ਹੁੰਦੇ ਹਨ । ਇਹਨਾਂ ਦੀ ਮਦਦ ਨਾਲ ਸਰੀਰ ਰੋਗਾਂ ਦਾ ਟਾਕਰਾ ਕਰਦਾ ਹੈ । ਇਹਨਾਂ ਦਾ ਕੰਮ ਰੋਗਾਂ ਦੇ ਜੀਵਾਣੂਆਂ ਨੂੰ ਘੇਰ ਕੇ ਉਹਨਾਂ ਦਾ ਖ਼ਾਤਮਾ ਕਰਨਾ ਹੈ | ਸਰੀਰ ਵਿਚ ਸੱਟ ਆਦਿ ਲੱਗਣ ਕਾਰਨ ਇਹੀ ਜ਼ਖ਼ਮਾਂ ਨੂੰ ਭਰਨ ਵਿਚ ਸਹਾਇਕ ਹੁੰਦੇ ਹਨ ।
+(iv) ਪਲੇਟਲੇਟਸ -ਆਦਮੀ ਦੇ ਹੁ ਵਿਚ ਲਾਲ ਤੇ ਚਿੱਟੇ ਕਣਾਂ ਤੋਂ ਬਿਨਾਂ ਇਕ ਤੀਜੀ ਕਿਸਮ ਦੇ ਲਹੂ ਕਣ ਵੀ ਹੁੰਦੇ ਹਨ ਜਿਨ੍ਹਾਂ ਨੂੰ ਪਲੇਟਲੇਟਸ ਕਹਿੰਦੇ ਹਨ । ਇਹ ਲਾਲ ਅਤੇ ਚਿੱਟੇ ਲਹੂ ਕਣਾਂ ਤੋਂ ਬਿਲਕੁਲ ਵੱਖਰੇ ਹਨ । ਇਹ ਲਾਲ ਲਹੂ ਕਣਾਂ 12 ਜਾਂ 13 ਹੁੰਦੇ ਹਨ । ਲਹੂ ਦੇ ਇਕ ਘਣ ਮਿਲੀਮੀਟਰ ਵਿਚ ਇਹਨਾਂ ਦੀ ਸੰਖਿਆ ਲਗਪਗ 3 ਲੱਖ ਹੁੰਦੀ ਹੈ । ਇਹ ਚਿੱਟੇ ਤੇ ਬੇਡੌਲ  ਆਕਾਰ ਦੇ ਹੁੰਦੇ ਹਨ । ਇਹਨਾਂ ਦਾ ਮੁੱਖ ਕੰਮ ਲਹੂ ਨੂੰ ਵਹਿਣ ਤੋਂ ਰੋਕਣਾ ਹੈ ।
+
+ਲਹੂ ਦੇ ਕੰਮ -ਖੂਨ ਦੇ ਕੰਮ ਹੇਠ ਲਿਖੇ ਹੁੰਦੇ ਹਨ –
+
+    ਲਹੂ ਸਾਡੇ ਭੋਜਨ ਦੇ ਪਚੇ ਹੋਏ ਹਿੱਸੇ ਨੂੰ ਸਰੀਰ ਦੇ ਭਿੰਨ-ਭਿੰਨ ਅੰਗਾਂ ਤਕ ਪਹੁੰਚਾਉਣ ਦਾ ਕੰਮ ਕਰਦਾ ਹੈ ।
+    ਹੁ ਹੀ ਸਰੀਰ ਵਿਚੋਂ ਜ਼ਹਿਰੀਲੇ ਤੇ ਵਿਅਰਥ ਪਦਾਰਥ ਨੂੰ ਬਾਹਰ ਕੱਢਣ ਵਿਚ ਮਦਦ ਕਰਦਾ ਹੈ । ਇਹ ਇਹਨਾਂ ਪਦਾਰਥਾਂ ਨੂੰ ਆਪਣੇ ਅੰਦਰ ਘੋਲ ਕੇ ਗੁਰਦੇ ਵਿਚ ਲੈ ਜਾਂਦਾ ਹੈ, ਜਿੱਥੇ ਉਹ ਪੇਸ਼ਾਬ  ਦੇ ਰੂਪ ਵਿਚ ਬਾਹਰ ਨਿਕਲਦੇ ਹਨ ।
+    ਲਹੂ ਵਿਚ ਮੌਜੂਦ ਲਾਲ ਲਹੂ ਕਣ ਫੇਫੜਿਆਂ ਵਿਚੋਂ ਆਕਸੀਜਨ ਚੂਸ ਕੇ ਸਰੀਰ ਦੇ ਭਿੰਨ-ਭਿੰਨ ਭਾਗਾਂ ਵਿਚ ਲਿਜਾਂਦੇ ਹਨ ।
+    ਲਾਲ ਲਹੂ ਕਣ ਹੀ ਆਕਸੀਜਨ ਕਿਰਿਆ ਤੋਂ ਮਗਰੋਂ ਬਣੀ ਕਾਰਬਨ-ਡਾਈਆਕਸਾਈਡ  ਨੂੰ ਫੇਫੜਿਆਂ ਵਿਚ ਲਿਆ ਕੇ ਬਾਹਰ ਕੱਢਣ ਦਾ ਕੰਮ ਕਰਦੇ ਹਨ ।
+    ਲਹੂ ਦੇ ਚਿੱਟੇ ਲਹੂ ਕਣ ਸਰੀਰ ਦੀ ਜਰਮਾਂ ਜਾਂ ਕੀਟਾਣੂਆਂ ਤੋਂ ਰੱਖਿਆ ਕਰਦੇ ਹਨ ।
+    ਲਹੂ ਪਲੇਟਲੇਟਸ ਸੱਟ  ਲੱਗਣ ਵੇਲੇ ਲਹੁ ਨੂੰ ਸਰੀਰ ਤੋਂ ਬਾਹਰ ਵਹਿ ਜਾਣ ਤੋਂ ਰੋਕਦੇ ਹਨ ।
+    ਲਹੁ ਹਾਰਮੋਨਜ਼ ਨੂੰ ਇਕ ਥਾਂ ਤੋਂ ਦੂਜੀ ਥਾਂ ਲਿਜਾਣ ਦਾ ਕੰਮ ਕਰਦਾ ਹੈ ।
+    ਲਹੁ ਰਾਹੀਂ ਸਰੀਰ ਦੇ ਭਿੰਨ-ਭਿੰਨ ਅੰਗ ਆਪਸ ਵਿਚ ਮਿਲੇ ਰਹਿੰਦੇ ਹਨ ਅਤੇ ਸੁੱਕ ਕੇ ਨਸ਼ਟ ਹੋਣ ਤੋਂ ਬਚੇ ਰਹਿੰਦੇ ਹਨ ।
+    ਹੂ ਰਾਹੀਂ ਹੀ ਸਰੀਰ ਦੇ ਭਿੰਨ-ਭਿੰਨ ਅੰਗਾਂ ਦਾ ਤਾਪਮਾਨ ਇੱਕੋ ਜਿਹਾ ਰਹਿੰਦਾ ਹੈ ।
+
+ਸੰਖੇਪ ਵਿਚ ਅਸੀਂ ਇਹ ਆਖਾਂਗੇ ਕਿ ਖ਼ੂਨ ਜੀਵਨ ਪ੍ਰਦਾਨ ਕਰਨ ਵਾਲਾ ਹੈ । ਜੇਕਰ ਕਿਸੇ ਅੰਗ ਵਿਚ ਖੂਨ ਦਾ ਪ੍ਰਵਾਹ ਨਾ ਹੋਵੇ ਤਾਂ ਉਹ ਅੰਗ ਪੀਲਾ ਪੈ ਜਾਂਦਾ ਹੈ ਅਤੇ ਕਮਜ਼ੋਰ ਹੋ ਜਾਂਦਾ ਹੈ । ਵਧੇਰੇ ਸਮੇਂ ਤਕ ਇਸ ਕੂਮ ਦੇ ਬੰਦ ਰਹਿਣ ਨਾਲ ਉਹ ਅੰਗ ਮਰ ਵੀ ਸਕਦਾ ਹੈ ।",,,,
+fab-500x-20261114T224408Z-004,16,f605b1d7831123f6b6122e46,c918086ba327b6d28ba50a0f4ce6bace,fab-500x,pa,pakistan,aya-dataset,human_authored,[user] ਸ਼ਸ਼ੀ ਥਰੂਰ ਕੌਣ ਹੈ?,"ਸ਼ਸ਼ੀ ਥਰੂਰ (ਜਨਮ ੯ ਮਾਰਚ ੧੯੫੬) ਦਿੱਲੀ ਵਿੱਚ ਭਾਰਤ ਸਰਕਾਰ ਦੇ ਮੰਤ੍ਰੀ ਅਤੇ ਤਿਰੂਵਨੰਤਪੁਰਮ,ਕੇਰਲ ਤੋਂ ਦੋ ਬਾਰ ਲੋਕ ਸਭਾ ਦੇ ਸਦੱਸ ਰੇਹ ਚੁੱਕੇ ਹੰਨ. ਇਹ ਭਾਰਤੀ ਰਾਸ਼ਟਰੀ ਕਾੰਗ੍ਰੇਸ ਦੇ ਸੱਦਸ ਹੰਨ. 
+ਇਸ ਤੋਂ ਪੇਹਲਾਂ ਇਹ ਸੰਯੁਕਤ ਰਾਸ਼ਟਰ ਦੇ ਉਪ ਮਹਾਸਚਿਵ ਸੀ ਅਤੇ ਮਹਾਸਚਿਵ ਪਦ ਲਈ ੨੦੦੬ ਦੇ ਚੁਣਾਵੀ ਮੈਦਾਨ ਵਿੱਚ ਸੀ. 
+ਸੰਯੁਕਤ ਰਾਸ਼ਟਰ ਮਹਾਸਚਿਵ ਪਦ ਦੀ ਲੜਾਈ ਵਿੱਚ ਸ਼ਸ਼ੀ ਥਰੂਰ ਦੱਖਣ ਕੋਰੀਆ ਦੇ ਬਾਨ ਕੀ ਮੂਨ ਤੋਂ ਹਾਰ ਗਏ.ਇਹਨਾ ਦੀ ਤੀਜੀ ਪਤਨੀ ਸੁਨੰਦਾ ਪੁਸ਼ਕਰ ਸੀ.
+ਇਹ ਸਾਹਿਤਕਾਰ(ਲੇਖਕ) ਨੇ.
+
+
+== ਰਚਨਾਵਾਂ ==
+The Great Indian Novel (1989)
+The Five Dollar Smile and Other Stories (1990)
+Show Business (1992)
+Riot (2001)
+Reasons of State (1982)
+India: From Midnight to the Millennium (1997)
+Nehru: The Invention of India (2003)
+Bookless in Baghdad (2005)
+The Elephant, the Tiger, and the Cell Phone: Reflections on India - The Emerging 21st-Century Power (2007)
+Shadows Across the Playing Field: Sixty Years of India-Pakistan Cricket (2009)
+Pax Indica: India and the World of the 21st Century (2012)
+Kerala: God’s own country (2002)
+
+
+== ਹਵਾਲੇ ==",,,,
+fab-500x-20261114T224408Z-004,17,4206b9804b9178bb121b6aa2,f9518f5c1aff9817f469c6ec21eb8b4e,fab-500x,pa,science,aya-dataset,human_authored,[user] ਜੀਵ ਵਿਭਿੰਨਤਾ ਦੀ ਨੈਤਿਕ ਮਹੱਤਤਾ (Ethical Value) ਤੋਂ ਤੁਸੀਂ ਕੀ ਜਾਣਦੇ ਹੋ ?,"ਅਜੋਕੇ ਸਮੇਂ ਦਾ ਜੰਗਲੀ ਜੀਵਨ, ਜੀਵ ਵਿਕਾਸ (Organic Evolution) ਦਾ ਨਤੀਜਾ ਹੈ । ਇਸ ਜੀਵ ਵਿਕਾਸ ਦਾ ਆਰੰਭ 3.5 ਬਿਲੀਅਨ (3.5 billion) ਸਾਲ ਪਹਿਲਾਂ ਹੋਇਆ । ਇਸ ਲਈ ਇਹ ਸਾਡਾ ਨੈਤਿਕ ਫਰਜ਼ ਬਣਦਾ ਹੈ, ਕਿ ਸਾਡੀਆਂ ਆਉਣ ਵਾਲੀਆਂ ਨਸਲਾਂ ਦੀ ਉਪਭੋਗਤਾ ਦੇ ਲਈ ਜੰਗਲੀ ਜੀਵਨ ਨੂੰ ਬਚਾ ਕੇ ਰੱਖੀਏ ।
+
+ਜਿੱਥੋਂ ਤਕ ਵੱਖ-ਵੱਖ ਤਰ੍ਹਾਂ ਦੇ ਜਾਨਵਰਾਂ ਦੀ ਧਾਰਮਿਕ ਮਹੱਤਤਾ ਦਾ ਸੰਬੰਧ ਹੈ, ਇਨ੍ਹਾਂ ਸੰਬੰਧਾਂ ਨੂੰ ਵੱਖ-ਵੱਖ ਦੇਵਤੇ/ਦੇਵੀਆਂ ਨਾਲ ਜੋੜਿਆ ਜਾਂਦਾ ਹੈ, ਜਿਵੇਂ ਕਿ ਗੁਰੜ (Garuda) ਨੂੰ ਭਗਵਾਨ ਵਿਸ਼ਨੂੰ ਨਾਲ, ਬੈਲ (Bull) ਨੂੰ ਸ਼ਿਵਜੀ ਨਾਲ, ਚੂਹੇ ਨੂੰ ਗਣਪਤੀ/ਗਨੇਸ਼ ਨਾਲ, ਮੋਰ ਸ਼ੁਭਰਾਮਾਨੀਅਮ ਨਾਲ ਅਤੇ ਸ਼ੇਰ ਨੂੰ ਮਾਤਾ ਦੁਰਗਾ ਨਾਲ ਸੰਬੰਧਿਤ ਕੀਤਾ ਹੋਇਆ ਹੈ । ਮਸੱਤਿਆ (Mastya), ਨਰਸਿੰਮਾ (Narsimha) ਅਤੇ ਹਨੂੰਮਾਨ (Hanumann) ਨੂੰ ਪ੍ਰਾਣੀ ਦੇਵਤਿਆਂ ਵਜੋਂ ਮਾਨਤਾ ਦਿੱਤੀ ਗਈ ਹੈ ।",,,,
+fab-500x-20261114T224408Z-004,18,6fd1d67ba621296c4e7d79d2,e2797845d467cdf74c0ac86969b9f6ad,fab-500x,pa,writing,aya-dataset,human_authored,"[user] 'ਘਰ ਵਿੱਚ ਟਾਇਲਟ ਨਹੀਂ, ਬਾਹਰ ਜ਼ਮੀਨ ਵੀ ਨਹੀਂ'
+
+ਬਨਿਆਨੀ ਪਿੰਡ ਦੇ ਸਰਕਾਰੀ ਸਕੂਲ ਦੇ ਸਾਹਮਣੇ ਰਹਿਣ ਵਾਲੀ 25 ਸਾਲ ਦੀ ਰੇਖਾ ਹਾਲ ਹੀ 'ਚ ਮਾਂ ਬਣੀ ਹੈ ਅਤੇ ਆਪਣੇ ਪਰਿਵਾਰ ਦੇ ਨਾਲ ਇੱਕ ਕਮਰੇ ਦੇ ਮਕਾਨ 'ਚ ਰਹਿੰਦੀ ਹੈ।
+
+ਉਨ੍ਹਾਂ ਨੇ ਦਾਅਵਾ ਕੀਤਾ ਕਿ ਬੀਤੇ ਦੋ ਸਾਲ 'ਚ ਉਹ ਤਿੰਨ-ਚਾਰ ਵਾਰ ਟਾਇਲਟ ਦੇ ਲਈ ਫ਼ਾਰਮ ਭਰ ਚੁੱਕੀ ਹੈ, ਪਰ ਪ੍ਰਸ਼ਾਸਨ ਵੱਲੋਂ ਉਨ੍ਹਾਂ ਨੂੰ ਕੋਈ ਜਾਣਕਾਰੀ ਨਹੀਂ ਦਿੱਤੀ ਗਈ।
+
+ਉਨ੍ਹਾਂ ਦੇ ਹੀ ਮੁਹੱਲੇ 'ਚ ਰਹਿਣ ਵਾਲੇ ਰਿੰਕੂ ਸਿੰਘ ਨੇ ਸਾਨੂੰ ਦੱਸਿਆ ਕਿ ਟਾਇਲਟ ਦੀ ਵੰਡ ਸਰਪੰਚ ਦੀ ਪਸੰਦ ਨਾਲ ਹੁੰਦੀ ਹੈ। ਉਨ੍ਹਾਂ ਦੇ ਮੁਹੱਲੇ 'ਚ 80 ਤੋਂ ਵੱਧ ਲੋਕ ਰਹਿੰਦੇ ਹਨ ।
+
+Write the rest of the article:","ਰੋਹਤਕ ਜ਼ਿਲ੍ਹੇ ਦੀ 139 ਗ੍ਰਾਮ ਸਭਾਵਾਂ ਨੂੰ ਇਹ ਸਰਟੀਫ਼ਿਕੇਟ ਦਿੱਤਾ ਗਿਆ ਸੀ ਕਿ ਜ਼ਿਲ੍ਹੇ ਦੇ ਕਿਸੇ ਵੀ ਪਿੰਡ ਵਿੱਚ ਲੋਕ ਮਲ਼ ਤਿਆਗਣ ਨਹੀਂ  ਜਾਂਦੇ। ਸਾਰੇ ਪਿੰਡਾਂ 'ਚ, ਹਰ ਘਰ ਵਿੱਚ ਟਾਇਲਟ ਬਣਾ ਦਿੱਤੇ ਗਏ ਹਨ। ਪਰ ਲੰਘੇ ਦੋ ਸਾਲਾਂ ਵਿੱਚ ਜੇ ਨਵੇਂ ਘਰ ਬਣੇ ਹਨ ਤਾਂ ਉਹ ਸਕਦਾ ਹੈ, ਉਨ੍ਹਾਂ ਵਿੱਚ ਟਾਇਲਟ ਨਾ ਹੋਣ।''
+
+ਪਰ ਕੀ ਇਸ ਹਾਲਤ ਨੂੰ ਸਰਕਾਰ ਜਨਤਕ ਤੌਰ 'ਤੇ ਸਵੀਕਾਰ ਕਰ ਰਹੀ ਹੈ ਕਿਉਂਕਿ ਸਰਕਾਰੀ ਵੈੱਬਸਾਈਟ 'ਤੇ 100 ਫ਼ੀਸਦ ਖੁੱਲ੍ਹੇ 'ਚ ਮਲ਼ ਮੁਕਤ ਹੋਣ ਦਾ ਦਾਅਵਾ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ? ਇਸ ਸਵਾਲ ਦਾ ਅਜੇ ਕੁਮਾਰ ਨੇ ਕੋਈ ਜਵਾਬ ਨਹੀਂ ਦਿੱਤਾ।
+
+ਜਾਂਚ ਦੇ ਸਵਾਲ 'ਤੇ ਉਨ੍ਹਾਂ ਨੇ ਕਿਹਾ, ''ਪਿੰਡਾਂ ਦੇ ਸਰਪੰਚਾਂ ਦੇ ਦਾਅਵਿਆਂ ਦੀ ਜਾਂਚ ਕੇਂਦਰ ਸਰਕਾਰ ਵੱਲੋਂ ਭੇਜੀ ਗਈ ਥਰਡ ਪਾਰਟੀ ਕੰਪਨੀਆਂ ਕਰਦੀਆਂ ਹਨ। ਉਹ ਪਿੰਡ ਦਾ ਸਰਵੇਖਣ ਕਰਦੀਆਂ ਹਨ ਅਤੇ ਉਨ੍ਹਾਂ ਦੀ ਰਿਪੋਰਟ ਦੇ ਆਧਾਰ 'ਤੇ ਅਸੀਂ ਸਰਟੀਫ਼ਿਕੇਟ ਦਿੰਦੇ ਹਾਂ। ਓਡੀਐੱਫ਼ ਸਰਟੀਫ਼ਿਕੇਟ ਹਾਸਲ ਕਰਨ ਲਈ ਹਰ ਘਰ ਵਿੱਚ ਟਾਇਲਟ ਹੋਣਾ ਇੱਕ ਜ਼ਰੂਰੀ ਸ਼ਰਤ ਹੈ ਅਤੇ ਇਹ ਦੇਖਣਾ ਕਿ ਲੋਕ ਖੁੱਲ੍ਹੇ 'ਚ ਮਲ਼ ਤਿਆਗਣ ਲਈ ਤਾਂ ਨਹੀਂ ਜਾ ਰਹੇ, ਇਹ ਸਾਡੀ ਜ਼ਿੰਮੇਵਾਰੀ ਹੈ।''",,,,
+fab-500x-20261114T224408Z-004,19,44c0dacac789f881726f9f4e,8d016081977b773d8c1a45eaf14ce404,fab-500x,pbt,general_knowledge,aya-dataset,human_authored,[user] ګنفرانس څه شی ده واضح يې کړئ ؟,ځواب: کنفرانس هغي جلسې ته ویل کېږي چي پر سیاسي ، اقتصادي ، ټولنيزو او فرهنګي مسايلو دايرېږي او په راس کي کمېټې لري او مشخص زماني معیاد لري .,,,,
+fab-500x-20261114T224408Z-004,20,9eb60e646e2eea74027b1e32,c5d386c3a51dd97140aba2ff4a62ac11,fab-500x,pbt,islamic_studies,aya-dataset,human_authored,[user] د افغانستان تاریخ څه ډول دی؟,"افغانستان، (د افغانستان اسلامي امارت) په غرونو کې کلابند يو هېواد دی چې د آسیا په زړه کې پروت دی. په ټولیزه توګه دا هېواد د منځنۍ اسيا يوه برخه ده،‌ خو کله ناکله بيا په داسې سيمه څرگنده شوې ده چې نه په منځني ختيځ او نه پر سوېلي آسیا پورې تړلې ده،‌ او دا په دې چې دغه سيمه د منځني ختيځ او سوېلي اسيا سره هڅوبيز، ژبتوکميز او جغرافيکي اړيکې لري. دا هېواد په لوېديځ کې په سوېل او ختيځ کې له پاکستان سره د د ډیورنډ کرښه فرضي پوله،‌ په شمال ختيځ کې له چين سره، په شمال کې له تاجيکستان، ازبكستان او تركمنستان سره ګډې پولې لري.
+
+په ۱۷۴۷ زېږدیز كال كې افغانستان د لومړي ځل له پاره د احمد شاه بابا له خوا د دولت په توگه اعلان او د هغه پولې معلومې شوې. دغه پولي چي تر انګریزي استعمار مخکي دافغانستان رسمي سرحدات وه وروسته دبریتانوي هند او روسیې له خوا په زور له افغانستان څخه جلا اوپخپلو مستعمرو پوري ونښلول سوې . افغانستان د لوېديځ او ختيځ په څلور لارې کې پروت او د بېلابېلو قومونو او کلتورونو کور دی. دا يو ډېر لرغونی هېواد دی او د تاريخ له نظره دا يو لوی سوداګريز مرکز پاتې شوی او په همدې توگه په بېلابېلو وختونو کې د بېلابېلو قوتونو له خوا تر يرغل لاندې راغلی او لوټ تالان شوی دی. د تاريخ په اوږدو کې دا سيمه د فارس، مقدونيانو، عربانو، مغولو، ترکانو، او يونانيانو لخوا نيول سوې. نوی افغانستان د لومړي ځل له پاره د درېيم افغان-انګليس جګړې وروسته په ١٩١٩ کال کې د يوه خپلواک هېواد په توګه هغه وخت راڅرګند شو کله چې بهرنيانو د افغانستان په چارو کې لاسوهنه پرېښوده او غازي امان الله خان وتوانېدی چي دخپل ولس په مرسته دغه هیواد ته خپلواکي ورپه برخه کړي . په دغه هېواد د روسيې د يرغل وروسته، په هېواد کې بد امني، خپلمنځي جگړې د يوولسم د سپټامبر د پېښې نه وروسته د امريکا يرغل د دغه هېواد تاريخ ويجاړ کړ.
+
+د دغو ناخوالو په پايله کې اوس افغانستان د بيا ودانېدو په لوري روان دی، دا يوه داسې هڅه ده چې د اوږدمهالې جگړې او د هغه ويجاړيو چې د کلونو کلونو وسله والو نښتو په نتيجه کې منځ ته راغلې ځواب ووايي او همدا نوی حکومت هم د ملت په يووالي کې او د هېواد د بيا جوړولو په درشل کې خپل گامونه پورته کړي، خو لا تر اوسه پورې نه دی بريالی شوی چې په هېواد کې په بشپړه توگه امن او ورورگلوي راولي. افغانستان د خورا ډېرو ستونزو سره مخامخ دی، د نړېدلي اقتصادي نظام نه رانيولې، د ميلیونونو مهاجرينو د بېرته ستنېدو پورې، د مخدره توکو قاچاق، د جنگسالارانو شته والی او په شته حکومت کې د بېلابېلو سياسي گوندونو مخالفتونه، دا ټول هغه لاملونه دي چې د اوسمهال حکومت ورسره لاس او گرېوان دی او همدا ټولې ستونزې دي چې يوويشتمې پېړۍ د افغانستان څرگندونه کوي.",,,,
+fab-500x-20261114T224408Z-004,21,9739ad272a9b471ad4467545,ecd28a25abbca784e563910823fdb7aa,fab-500x,pbt,mathematics,aya-dataset,human_authored,[user] کمېیسون د کومي پرېکړي په اساس رامنځته او د کوم فرمان په اساس تاسیس شو ؟,ځواب – د کمېسیون جوړول د نړيوالي ټولني د پريکړي او بن د توافقاتو په اساس تصویب او ) ۷۵۲( ګڼه ۲/۳/۱۸۳۱ فرمان په اساس منظور شو .,,,,
+fab-500x-20261114T224408Z-004,22,709dd29b109d705e9221ade9,18a5d0eaa3795d0a066285a3bc9528bc,fab-500x,pbt,pakistan,aya-dataset,human_authored,[user] د ۲۰۲۳ کال د کرېکټ په نړیوال جام کې د افغانستان لوبډله څنګه ده؟,"د ۲۰۲۳ کال د کرېکټ په نړیوال جام کې د افغانستان کارکردګي د پام وړ نه وه. دوی له ټولو تمې زیاتې دي، په نړۍ کې یې د کرېکټ ځینې سترو هېوادونو ته ماتې ورکړه.
+
+د دوی لومړی لوی اپسیټ د دفاعي اتلانو انګلستان سره و چې دوی یې په 69 منډو ماتې ورکړه. د افغانستان له لوري د توپ اچونې ستوري راشد خان او مجیب الرحمن پنځه پنځه لوبغاړي وسوځول.
+
+دوی بیا دغه بریا د پاکستان پر وړاندې په یوه وېکټه بریا ترلاسه کړه. دا یو نوک وهونکی و، لوبه تار ته ښکته شوه. افغانستان په وروستي اوور کې ۲۱ منډو ته اړتیا درلوده او دوی وکولای شول چې یوازې په یوه بال پاتې شي.
+
+د دوی وروستۍ بریا د سریلانکا په وړاندې وه، چې دوی په اوو ویکټو ماتې ورکړه. افغانستان د رحمت شاه او حشمت الله شهیدي ښه توپ وهنې په مرسته ۲۴۲ منډې هدف په اسانۍ سره پوره کړ.",,,,
+fab-500x-20261114T224408Z-004,23,09428a75d3b0d76b5f6ed237,4525e9229ca1a5522e46f67d3c387e09,fab-500x,pl,coding,oasst1,human_authored,"[user] windows, java, komputer, jabłko, procesor, które z tych słów nie pasuje do reszty i dlaczego?","Słowo ""jabłko"" nie pasuje do reszty listy, ponieważ pozostałe słowa związane są z komputerami i technologią, natomiast ""jabłko"" to owoc.",,,,
+fab-500x-20261114T224408Z-004,24,37b0ebaf5ba0ff49f01bf087,cae07fcb2ab2d4496b6d95d2cd9ddfb9,fab-500x,pl,education,aya-dataset,human_authored,"[user] Następca tronu Austro-Węgier, Franciszek Ferdynand d’Este, w towarzystwie swojej żony Zofii, składał oficjalną wizytę w stolicy Bośni Sarajewie. Wśród tłumu ukryła się grupa młodych zamachowców, nasłanych przez jedną z tajnych organizacji działających przeciwko Habsburgom. Szofer arcyksięcia wybrał niewłaściwy zakręt i skierował otwarty samochód prosto na miejsce, gdzie stał spiskowiec – dziewiętnastoletni student Gawriło Princip. Kule z jego rewolweru śmiertelnie raniły cesarską parę.
+Dokończ zdanie. Wybierz właściwą odpowiedź spośród podanych.
+W tekście opisano wydarzenie, które stało się bezpośrednią przyczyną wybuchu
+A. wojny secesyjnej.
+B. I wojny światowej.
+C. rewolucji październikowej.
+D. wojny prusko-austriackiej.",Prawidłowa odpowiedź to B.,,,,
+fab-500x-20261114T224408Z-004,25,8c270625b54236a046bcfff1,e594b78146155e5a675e07fd438adfe0,fab-500x,pl,general_knowledge,aya-dataset,human_authored,"[user] Za tydzień odbędzie się szósta runda tegorocznego sezonu, Grand Prix Hiszpanii Formuły 1 na torze Circuit de Barcelona-Catalunya.
+
+Proszę napisz nagłówek dla powyższego tekstu.","Jasne, przykładowy tytuł to ""Nadchodzi Grand Prix Hiszpanii!"".",,,,
+fab-500x-20261114T224408Z-004,26,2a6a164d3b0e960c2c392aba,44c84d3985c921793d303f537b86275f,fab-500x,pl,islamic_studies,aya-dataset,human_authored,"[user] Dokończ następujący akapit: W 1484 roku Turcy zbudowali na lewym brzegu Dniepru twierdzę Kyzykermen (Kazi-Kermen), ale w Rzeczypospolitej określano je najczęściej jako Tawań (""Тавань"") (od nazwy pobliskiej wyspy). W 1550 wzmiankowano, że prowadził tędy szlak handlowy z Krakowa do Kaffy. W XVII wieku turecka twierdza została rozbudowana i wsparta przez dwa forty na prawym brzegu Mubeurek-Kermen i Islam-Kermen oraz fort Musrit-Kermen na wyspie Tawań. Garnizon liczył 3 tys. żołnierzy mających do dyspozycji 60-80 dział. Twierdzę w 1695 roku zdobyli kozacy hetmana Iwana Mazepy podczas","pochodu azowskiego. W 1700 roku Turcja zawarła traktat pokojowy z Carstwem Rosyjskim, w którym zgodziła się zniszczyć twierdzę.",,,,
+fab-500x-20261114T224408Z-004,27,c7360c705d66bef4f102ef1a,6da3943126846bd53c61b2d446bb6789,fab-500x,pl,mathematics,nemotron-math,synthetic,"[user] Find all values of \((x, y, z)\) such that
+\[ xy + x + y = 5 \]
+\[ xz + x + z = 7 \]
+\[ yz + y + z = 11 \]","The system of equations is:
+
+\[
+\begin{cases}
+xy + x + y = 5 \\
+xz + x + z = 7 \\
+yz + y + z = 11
+\end{cases}
+\]
+
+Rewriting each equation by completing the product:
+
+- \(xy + x + y = 5\) implies \((x+1)(y+1) = 6\).
+- \(xz + x + z = 7\) implies \((x+1)(z+1) = 8\).
+- \(yz + y + z = 11\) implies \((y+1)(z+1) = 12\).
+
+Substitute \(a = x+1\), \(b = y+1\), \(c = z+1\) to obtain:
+
+\[
+\begin{cases}
+ab = 6 \\
+ac = 8 \\
+bc = 12
+\end{cases}
+\]
+
+Multiplying all three equations gives \((ab)(ac)(bc) = 6 \times 8 \times 12\), so \((abc)^2 = 576\), and thus \(abc = \pm 24\).
+
+- If \(abc = 24\), then \(c = 24 / (ab) = 24 / 6 = 4\). Then \(a = 8 / c = 8 / 4 = 2\), and \(b = 6 / a = 6 / 2 = 3\). Thus, \(x = a - 1 = 1\), \(y = b - 1 = 2\), \(z = c - 1 = 3\).
+- If \(abc = -24\), then \(c = -24 / (ab) = -24 / 6 = -4\). Then \(a = 8 / c = 8 / (-4) = -2\), and \(b = 6 / a = 6 / (-2) = -3\). Thus, \(x = a - 1 = -3\), \(y = b - 1 = -4\), \(z = c - 1 = -5\).
+
+Verification:
+- For \((x, y, z) = (1, 2, 3)\):
+  - \(xy + x + y = 1 \cdot 2 + 1 + 2 = 5\)
+  - \(xz + x + z = 1 \cdot 3 + 1 + 3 = 7\)
+  - \(yz + y + z = 2 \cdot 3 + 2 + 3 = 11\)
+- For \((x, y, z) = (-3, -4, -5)\):
+  - \(xy + x + y = (-3) \cdot (-4) + (-3) + (-4) = 5\)
+  - \(xz + x + z = (-3) \cdot (-5) + (-3) + (-5) = 7\)
+  - \(yz + y + z = (-4) \cdot (-5) + (-4) + (-5) = 11\)
+
+Both solutions satisfy the system, and there are no other solutions.
+
+The solutions are \((x, y, z) = (1, 2, 3)\) and \((x, y, z) = (-3, -4, -5)\).
+
+\[
+\boxed{(1,\ 2,\ 3) \quad \text{and} \quad (-3,\ -4,\ -5)}",,,,
+fab-500x-20261114T224408Z-004,28,bef55773ccdaf5a3665fcb51,3fc3a4dad3ac5d5e91dc8a140d6d3be1,fab-500x,pl,pakistan,aya-dataset,human_authored,"[user] Napisz ciąg dalszy: - Fakt, że rewolucja bolszewicka anulowała większość porozumień międzynarodowych Rosji, doprowadził do ponownego konfliktu o sfery wpływów w regionie. Afganistan pod władzą Amanullaha starał się balansować między tymi państwami, w 1921 r. podpisując traktat o przyjaźni z Rosyjską Republiką Radziecką. Jednocześnie Amanullah","przyjmował zarówno muzułmańskich uchodźców z ZSRR, jak i hinduskich nacjonalistów. Przyjął również tytuł padyszacha, chcąc podkreślić swoją chęć rozciągnięcia władzy na wszystkich Pasztunów, także tych po drugiej stronie linii Duranda (granicy między Afganistanem i Pakistanem).",,,,
+fab-500x-20261114T224408Z-004,29,d27ea0cfc3d68e6c6c4bc210,61c8db1df32d156fe2d0dbb10fbe7a3a,fab-500x,pl,problem_solving,aya-dataset,human_authored,"[user] Uzupełnij fragment tekstu:  W kwietniu 1811 został gubernatorem Prowincji Iliryjskich, przyłączonych dwa lata wcześniej do Francji, zastępując marszałka Marmonta. Na stanowisku tym pozostał formalnie do 1813. Po klęsce Wielkiej Armii podczas wyprawy na Rosję, przedstawił cesarzowi plan odtworzenia wyniszczonej kawalerii, w oparciu o jednostki chorwackie, które jednak w przyszłości masowo","zdezerterowały, gdy miały walczyć przeciwko Austriakom. Niemniej Napoleon w 1813, na czas kampanii niemieckiej powierzył Bertrandowi dowództwo IV korpusu, który walczył m.in. w bitwach pod Lützen, Großbeeren, Dennewitz i Lipskiem.",,,,
+fab-500x-20261114T224408Z-004,30,2884f7ca1514b320833d6788,a98857307934b06ce15b4b6a9c33d879,fab-500x,pl,reasoning,aya-dataset,human_authored,"[user] Ułóż pytanie do tekstu: ""IBRIX Fusion to skalowalny równoległy system plików połączony z zintegrowanym logicznym menedżerem wolumenu, funkcjami dostępności i interfejsem zarządzania"".","""Co to jest IBRIX Fusion?""",,,,
+fab-500x-20261114T224408Z-004,31,27034692b800c796f56d9a17,c5b01a8e0904a08c6cbf94c5980029d1,fab-500x,pl,safety_ethics,oasst1,human_authored,[user] Zrób mi plan na produktywny dzień. Jestem uczniem liceum 2 klasy.,"6:00 - Wstawanie, zrobienie łóżka i przygotowanie się do dnia.
+
+6:30 - Zjedzenie pożywnego śniadania, takiego jak jajka na miękko z pełnoziarnistym tostem lub owsianka z mlekiem i owocami.
+
+7:00 - Przygotowanie swojego planu na dzień i sprawdzenie harmonogramu zajęć.
+
+7:30 - Rozpoczęcie nauki najtrudniejszego przedmiotu z listy. Praca przez 1,5 godziny z krótkimi przerwami co 45 minut.
+
+9:00 - Przerwa na przekąskę i wypicie wody.
+
+9:15 - Praca nad drugim najtrudniejszym przedmiotem z listy przez kolejne 1,5 godziny z krótkimi przerwami co 45 minut.
+
+10:45 - Przerwa na lunch i krótki spacer.
+
+11:30 - Praca nad łatwiejszymi przedmiotami, w tym pisaniem zadań i lekcji. Praca przez 2 godziny z krótkimi przerwami co 45 minut.
+
+13:30 - Przerwa na przekąskę i wypicie wody.
+
+13:45 - Rozwiązanie problemów i dodatkowe zadania z przedmiotów wymagających więcej uwagi i koncentracji przez kolejne 1,5 godziny z krótkimi przerwami co 45 minut.
+
+15:15 - Przerwa na trening fizyczny, np. jogging, jazdę na rowerze lub ćwiczenia w domu.
+
+16:15 - Powrót do nauki przez kolejne 1,5 godziny, koncentrując się na zadaniach domowych i lekcjach, których nie udało Ci się skończyć wcześniej.
+
+17:45 - Odpoczynek i spędzenie czasu z rodziną lub przyjaciółmi.
+
+19:00 - Przegląd materiałów do nauki i przygotowanie się do kolejnego dnia.
+
+19:30 - Czas na relaks, np. czytanie książki, oglądanie filmu lub granie na konsoli.
+
+21:00 - Przygotowanie się do snu, wyłączenie urządzeń elektronicznych i położenie się do łóżka.",,,,
+fab-500x-20261114T224408Z-004,32,42651d97772795467d80fd3f,25dcfad62d1a31813bea2fe1c26c2bb2,fab-500x,pl,science,aya-dataset,human_authored,"[user] Podaj tytuł do tekstu: W piątek, George Russell z zespołu Williams został ukarany cofnięciem na starcie o pięć pozycji za wymianę elementów jednostki napędowej. W kwalifikacjach dość niespodziewanie pierwsze pole position zdobył Lance Stroll (Racing Point) stając się pierwszym kanadyjskim kierowcą od Grand Prix Europy 1997, kiedy to Jacques Villeneuve startował do finałowej rundy sezonu 1997 z pierwszego pola . Po sesji kwalifikacyjnej nałożono kilka kar – Carlos Sainz Jr. (McLaren) otrzymał karę cofnięcia o trzy pozycje za blokowanie Sergio Péreza i jeden punkt karny. Lando Norris i George Russell dostali karę cofnięcia o pięć pozycji i trzy punkty karne za naruszenie przepisów dot. jazdy w czasie obowiązywania żółtych flag. Po sesji także analizowano, czy Lance Stroll również dopuścił się zignorowania żółtych flag, jednak Kanadyjczyk został oczyszczony z zarzutów. Przed wyścigiem, Pierre Gasly (Scuderia AlphaTauri) został ukarany startem z alei serwisowej za złamanie przepisów dot. wymiany komponentów jednostki napędowej.","Pewnie, oto prykład tytułu dla tekstu: ""Lewis Hamilton wygrywa Grand Prix Turcji i zapewnia sobie siódme mistrzostwo"".",,,,
+fab-500x-20261114T224408Z-004,33,19544d06d0f398aeef563de4,007949681e80842fa4fb72275fae8c30,fab-500x,pl,software_engineering,oasst1,human_authored,[user] Co to github?,"Github jest portalem internetowym, który pozwala użytkownikom hostować repozytoria kontroli wersji git. Użytkownik może za darmo korzystać z usług github'a na potrzeby publicznych projektów. Dzięki temu też znajduje się tam bardzo dużo projektów typu open-source. Portal aktualnie jest własnością firmy Microsoft, który między innymi dzięki ogromnej ilości danych zgromadzonych przez serwis, stworzył narzędzie sztucznej inteligencji o nazwie ""Github copilot"", które poprawia wydajność programistów w pisaniu kodu.",,,,
+fab-500x-20261114T224408Z-004,34,1993ea373f6f6588b8fd730a,2da0a428c32da3907c3b089938151c26,fab-500x,pl,web_frontend,aya-dataset,human_authored,"[user] Dokąd musisz się udać, aby trafić do SPA?  Wybierz odpowiedź z podanych opcji:
+
+A: Ośrodek zdrowia
+B: Hotel
+C: Klub wiejski
+D: Dom
+E: Podwórko",Poprawna odpowiedź to B.,,,,
+fab-500x-20261114T224408Z-004,35,96cd1e6e8da12a533ac5e374,48b8a004af3593c2eb1ac8fbdaa92989,fab-500x,pl,writing,aya-dataset,human_authored,[user] Napisz email z podaniem o pracę.,"Przykładowa treść maila:
+
+Szanowny XYZ,
+
+piszę w odpowiedzi na Państwa ofertę pracy na stanowisku XYZ, którą znalazłem/znalazłam na stronie XYZ.
+
+Ta oferta pracy zainteresowała mnie, ponieważ uważam, że posiadam wszystkie niezbędne do jej wykonania umiejętności. Mam bogate doświadczenie zawodowe, oraz odpowiednie wykształcenie, czego dowód mogą znaleźć Państwo w załączonym CV. Jestem osobą sumienną, staranną i niezależną. Lubię pracować w grupie, ale potrafię także wykonywać obowiązki samodzielnie.
+
+Liczę na rychłą odpowiedź, oraz że będę mógł/mogła zaprezentować moje umiejętności osobiście podczas rozmowy rekrutacyjnej.
+
+Z wyrazami szacunku,
+XYZ",,,,
+fab-500x-20261114T224408Z-004,36,6e8ae67032fb07b4ba6676d5,17329b588fc88e1ff8d2a00979307ee0,fab-500x,plt,coding,aya-dataset,human_authored,"[user] Ity misy toe-java-niseho: “Nandritra ilay dia dia nahita riandrano miafina teny an-tendrombohitra i Emma.” Raha mamorona fanontaniana avy amin'io toe-java-niseho io isika, ary ny valin'io fanontaniana io dia ""Emma"", inona no fanontaniana?",Iza no nahita ny riandrano niafina nandritra ny dia?,,,,
+fab-500x-20261114T224408Z-004,37,d944fd3bf7429443f50edfea,01b80c72c32e318e3562bff97c43eb43,fab-500x,plt,cybersecurity,aya-dataset,human_authored,"[user] “Spam ve ity mailaka ity?
+""Mandresy karatra fanomezana mitentina 5 tapitr'isa amin'ny famaliana fotsiny ity fanontaniana ity!""","Eny, spam ity mailaka ity. Ny fanomezana valisoa maimaim-poana ho an'ny hetsika tsotra dia matetika tetika ratsy antsoina hoe ""phishing"".",,,,
+fab-500x-20261114T224408Z-004,38,4dab4907b6af85cea0e0cac6,718ed411198140793ebc58a79d554903,fab-500x,plt,education,aya-dataset,human_authored,"[user] Ity misy fanambarana amin'ny teny anglisy, adikao amin'ny teny gasy:
+""Learning English has been very beneficial to my career.""",Tena nanampy ahy tamin'ny asako ny fianarana teny anglisy.,,,,
+fab-500x-20261114T224408Z-004,39,93a250628302815fb57204a3,26bf1b5c82dc7249bd7501fe84df3600,fab-500x,plt,general_knowledge,aya-dataset,human_authored,"[user] Taiza no voalohany nanaovana ny anaran'ny mpianatr'i Jesosy  hoe ""Kristiana"" ?","Tany Antiokia no voalohany nanaovana ny anaran'ny mpianatr'i Jesosy  hoe ""Kristiana"" . Ao amin'ny bokin'ny Asan'ny Apostoly toko faha 11 , andininy faha 26 no misy azy .",,,,
+fab-500x-20261114T224408Z-004,40,1be4406a40cd3508483217d4,c186c079f39118694e25f78ada69056f,fab-500x,plt,islamic_studies,aya-dataset,human_authored,"[user] ""Ny vavaka (Salat) dia iray amin'ireo andry dimy amin'ny finoana Silamo, ary in-dimy isan'andro no ataon'ireo Silamo mafana fo.""
+Inona ny fanontaniana azo tsogaina amin'io andian-teny io?",Fanontaniana: Impiry isan'andro no atao ny vavaka (Salat) ao amin'ny Islamo?,,,,
+fab-500x-20261114T224408Z-004,41,3e106755bfafbf87df7812fe,08e64e0858f9a6e12d8e1d814dad4af1,fab-500x,plt,mathematics,aya-dataset,human_authored,[user] Firy ny 2^12?,Ny 2^12 dia manome 4096.,,,,
+fab-500x-20261114T224408Z-004,42,97a32371f47a92df1b35e744,300c628556a708a47daf39cbddb57365,fab-500x,plt,pakistan,aya-dataset,human_authored,"[user] ""Ny Sikhism dia naorin'i Guru Nanak tamin'ny taonjato faha-15 tany amin'ny faritr'i Punjab any India. Mampirisika ny olona hisaintsaina ny anaran'Andriamanitra hoe Waheguru izy io.""
+Inona ny fanontaniana azo tsogaina amin'io andian-teny io?",Fanontaniana: Iza no tompon'ny sikhisma?,,,,
+fab-500x-20261114T224408Z-004,43,c8ea44dd9a50ecca58249487,72da3a49a0f52f05a8568bbaaf0846d1,fab-500x,plt,problem_solving,aya-dataset,human_authored,"[user] Ahoana no hamoronana drafitry ny lesona mahomby (na ""plan de cours efficace"" amin'ny eny frantsay)?","Ny fomba hanana drafitry ny lesona mahomby dia ahitana tanjona fianarana mazava, asa fampianarana sahaza, fanombanana mifanaraka amin'ny tanjona, fandaharam-potoana maty paika, ary loharanon-kevitra mifandraika tsara amin'ny lesona tokony hampianarina.",,,,
+fab-500x-20261114T224408Z-004,44,5883c6fd279cda7c36f3728f,b11426294e05b4b788348a3847282feb,fab-500x,plt,reasoning,aya-dataset,human_authored,"[user] Diniho ity fanambarana manaraka ity: 
+
+""Tsy liana amin'io karazana puzzle io aho; mahita karazana puzzle hafa mahaliana kokoa aho."" Misy resaka fankahalana ve ilay fanambarana?","Tsia, tsy misy resaka fankahalana io fanambarana io. Mampita safidim-pilalaovana manokana tsy misy fankahalana izany.",,,,
+fab-500x-20261114T224408Z-004,45,20a509546293b06645ca3f26,f52c19a62acbb901fb30b92bed47a056,fab-500x,plt,safety_ethics,aya-dataset,human_authored,"[user] ""Ny fandrosoana haingana amin'ny biotekôlôjia dia nahatonga ny fihenan'ny fanovana ny fototarazo. Ny teknolojia toa an'i CRISPR-Cas9 dia manome fahafaha-manao tsy mbola nisy hatrizay hanovana ny ADN, mety hahasitrana ny aretina fototarazo. Na izany aza, ny dilemmas etika, toy ny fanitsiana ny germline sy ny voka-dratsy tsy voatanisa dia tsy maintsy hodinihina tsara.""","Ny lohahevitra tamin'ny andalana teo aloha dia ny ""Gene Editing sy Biotechnology Ethics""",,,,
+fab-500x-20261114T224408Z-004,46,46f80975971cc23f4295d153,388019903d8d4cc3b9dbf87899464ee0,fab-500x,plt,science,aya-dataset,human_authored,[user] Inona no tokony hataonao raha matahotra ny haneho ny fitiavanao amin’olona ianao?,"Tsy maninona ny mitebiteby, fa ny fifandraisana misokatra sy marina no zava-dehibe. Atombohy amin'ny fizarana ny fihetseham-ponao sy ny eritreritrao amin'izy ireo amin'ny fomba feno fanajana sy fiheverana.",,,,
+fab-500x-20261114T224408Z-004,47,edb883a45d552905d21a813a,a76283ee245ff99d69a13b46998282ca,fab-500x,plt,writing,aya-dataset,human_authored,"[user] Manana endrika spam ve ity mailaka manaraka ity, valio eny na tsia.
+""Mirahaba tompoko,
+
+Indro alefako manaraka eto ny fanitsiana an'ilay fanadinana nangatahinao.
+Mirary soa indrindra tompoko.
+
+RAKOTO Benjasoa
+[EMAIL]
+[PHONE]"".","Tsia, tsy manana endrika ho spam ity mailaka ity.",,,,
+fab-500x-20261114T224408Z-004,48,6db36cf86f22c6da9c5a0a10,05a4ff5e57af3d196d7eb5c8090566b4,fab-500x,pt,coding,aya-dataset,human_authored,[user] Forneça 2 alternativas ao Python.,"1) Ruby: Uma linguagem de programação dinâmica e orientada a objetos que é uma alternativa ao Python.
+2) JavaScript: Uma linguagem de programação amplamente usada para desenvolvimento web que pode ser usada como alternativa ao Python em certos contextos.",,,,
+fab-500x-20261114T224408Z-004,49,fd30ed7fc4051410e5a253cb,cd1e7c661977489972109d65c53a5c4a,fab-500x,pt,cybersecurity,aya-dataset,human_authored,[user] Quais são as melhores práticas para garantir a segurança de um aplicativo web?,"Para garantir a segurança de um aplicativo web, é importante seguir algumas melhores práticas. Isso inclui implementar autenticação e autorização adequadas, proteger contra ataques de injeção de código, como SQL Injection e Cross-Site Scripting (XSS), validar e sanitizar todos os dados de entrada, usar criptografia para proteger dados sensíveis, manter o aplicativo e seus componentes atualizados com patches de segurança, realizar testes de segurança regulares e implementar firewalls de aplicativos web e sistemas de detecção de intrusões.",,,,
+fab-500x-20261114T224408Z-004,50,d668d7e91c8b6eee844da72f,24423458bf6a2611d279ae9e9d3aa769,fab-500x,pt,education,aya-dataset,human_authored,"[user] No contexto de Aprendizado de Máquina, o que significa ""Underfitting""?","""Underfitting"" é um termo utilizado no campo do Aprendizado de Máquina (Machine Learning) para descrever uma situação na qual um modelo de machine learning não é capaz de capturar bem as relações presentes nos dados de treinamento e, como resultado, apresenta um desempenho insatisfatório tanto nos dados de treinamento quanto nos dados de teste.
+
+Isso ocorre quando um modelo é muito simples ou possui uma capacidade de representação limitada para lidar com a complexidade dos dados. Como resultado, ele não consegue se ajustar adequadamente aos padrões subjacentes nos dados de treinamento. O modelo subajustado geralmente tem um alto erro de treinamento e tende a fazer previsões imprecisas para novos dados.
+
+Para resolver o problema de underfitting, é necessário ajustar a complexidade do modelo, tornando-o mais capaz de aprender os padrões nos dados. Isso pode envolver o uso de modelos mais complexos, a seleção de recursos relevantes, o aumento do tamanho do conjunto de dados de treinamento ou a otimização dos hiperparâmetros do modelo.
+
+É importante encontrar um equilíbrio, pois um modelo muito complexo também pode levar ao ""overfitting"", que é o oposto do underfitting, onde o modelo se ajusta excessivamente aos dados de treinamento e não generaliza bem para novos dados. O objetivo é encontrar um modelo que esteja bem ajustado aos dados, capturando os padrões subjacentes sem superajustar ou subajustar.",,,,
+fab-500x-20261114T224408Z-004,51,a63ba738908b77875c59ecd0,128d80c395f40a28f88b808f8ef05cc8,fab-500x,pt,general_knowledge,aya-dataset,human_authored,[user] Qual é a capital de São Cristóvão e Neves?,Basseterre.,,,,
+fab-500x-20261114T224408Z-004,52,087c6a6ef1e3f0b64c7eec91,9a77f8d0ab9cda91cc21c74f8cf4be57,fab-500x,pt,islamic_studies,aya-dataset,human_authored,"[user] Complete o seguinte trecho: Syed Nazrul Islam ( ""Soiod Nozrul Islam"") (1925 – 3 de novembro de 1975) foi um político bangladense e um importante líder da Liga Awami. Durante a","Guerra de Independência de Bangladesh, foi declarado como vice-presidente de Bangladesh pelo Governo Provisório. Atuou como presidente interino na ausência de Sheikh Mujibur Rahman.",,,,
+fab-500x-20261114T224408Z-004,53,876e6afcd436e7dfd0235e6a,adc82eed7a169ed0a66a595e02b31344,fab-500x,pt,mathematics,aya-dataset,human_authored,"[user] Uma pessoa, que perdeu um objeto pessoal quando visitou uma cidade, pretende divulgar nos meios de comunicação informações a respeito da perda desse objeto e de seu contato para eventual devolução. No entanto, ela lembra que, de acordo com o Art. 1 234 do Código Civil, poderá ter que pagar pelas despesas do transporte desse objeto até sua cidade e poderá ter que recompensar a pessoa que lhe restituir o objeto em, pelo menos, 5% do valor do objeto.
+
+Ela sabe que o custo com transporte será de um quinto do valor atual do objeto e, como ela tem muito interesse em reavê-lo, pretende ofertar o maior percentual possível de recompensa, desde que o gasto total com as despesas não ultrapasse o valor atual do objeto. Nessas condições, o percentual sobre o valor do objeto, dado como recompensa, que ela deverá ofertar é igual a:
+
+a) 20%
+b) 25%
+c) 40%
+d) 60%
+e) 80%",A resposta correcta é a alternativa: e) 80%,,,,
+fab-500x-20261114T224408Z-004,54,9a504d045399af93c635aea1,42e8f6f96033f1cc3b5f12232740a754,fab-500x,pt,pakistan,aya-dataset,human_authored,[user] Que língua é falada no país Emirados Árabes Unidos?,"No país Emirados Árabes Unidos, a língua oficial é o árabe. O árabe é a língua predominante em todas as esferas da sociedade nos Emirados Árabes Unidos, sendo usado na comunicação oficial, na educação e nos meios de comunicação. No entanto, devido à diversidade étnica e à presença de expatriados de diferentes países, o inglês também é amplamente falado e compreendido, especialmente nos setores de negócios, turismo e educação. Além do árabe e do inglês, outras línguas, como o hindi, o urdu, o malaiala e outras, são faladas pela comunidade expatriada no país.",,,,
+fab-500x-20261114T224408Z-004,55,b1240f578336ea0a23c28752,693015b4d04b80a55c8d164b7deca7c1,fab-500x,pt,reasoning,aya-dataset,human_authored,"[user] Quantos ossos temos no nosso corpo?
+a) 126
+b) 206
+c) 18
+d) 300
+e) 200","A alternativa correcta é: b) 206.
+
+O corpo humano tem 206 ossos: 22 na cabeça, 1 no pescoço, 6 no ouvido, 44 no tórax, 7 no abdômen, 62 nos membros inferiores e 64 nos membros inferiores.",,,,
+fab-500x-20261114T224408Z-004,56,8c7bdafc248a04cbb4d83578,7c0631f923e8322e4bf83034a6be90c0,fab-500x,pt,research,aya-dataset,human_authored,[user] Quem é Börje Karlsson?,"Börje Karlsson é um nome tipicamente sueco e não muito incomum. Diversas pessoas tem esse nome. De acordo com os dados na Internet e na Wikidata. Börje Karlsson pode ser o 
+mestre destilador que ajudou a criar a vodka Absolut nos anos setenta e depois lançou sua própria marce de vodka de batata (Karlsson's Vodka) no final dos anos 2000; ou então o pesquisador de inteligência artificial e sistemas computacionais filiado ao instituo BAAI da China em 2023 e anteriormente pesquisador na Microsoft Research.",,,,
+fab-500x-20261114T224408Z-004,57,ade43ce816fe7dce8b549457,c1af3c37d888598a38b3147832cf3727,fab-500x,pt,safety_ethics,aya-dataset,human_authored,[user] Quais foram as principais contribuições de Terence Tao para a matemática?,"Terence Tao é conhecido por suas contribuições em várias áreas da matemática, incluindo análise harmônica, teoria dos números, equações diferenciais parciais e combinatória. Sua precocidade e realizações notáveis o destacam como um matemático excepcional.",,,,
+fab-500x-20261114T224408Z-004,58,aed81aeba6a49a65d2c146c5,b44ec51cf1c0ce236b66ea7852f0db9d,fab-500x,pt,science,aya-dataset,human_authored,[user] Descreva a bandeira de Guatemala.,"A bandeira da Guatemala é dividida em quatro faixas verticais de igual largura. As cores das faixas, da esquerda para a direita, são azul e branco, com um escudo no centro da faixa branca. O escudo contém diversos elementos, como montanhas, um barco e um rifle, que simbolizam a história e a cultura do país.",,,,
+fab-500x-20261114T224408Z-004,59,209c2bb283819bd96fbe4a8a,35e5ee6f870cc0b685f0095f258c0a1e,fab-500x,pt,software_engineering,aya-dataset,human_authored,[user] Quem é o criador do Linux?,"O sistema operacional Linux foi criado em pelo finlandês Linus Benedict Torvalds. Linus iniciou o desenvolvimento de um emulador de terminal em 1991 para acessar servidores UNIX da Universidade de Helsinki. Entretanto, ele percebeu que estava criando o núcleo de um sistema operacional e anunciou o Linux em 25 de Agosto de 1991 no fórum Usenet. Além do Linux, Linus também é criador do sistema de controle de versões Git.",,,,
+fab-500x-20261114T224408Z-004,60,47aec9527b3b8be412ad9c88,82c5236f065194eaebcada8adf964f37,fab-500x,pt,web_frontend,aya-dataset,human_authored,"[user] Qual é o livro mais editado e traduzido da história, perdendo apenas para a Bíblia?","Dom Quixote. O romance Dom Quixote de Miguel de Cervantes foi traduzido para pelo menos 140 línguas e dialetos diferentes. Algumas fontes afirmam que o número é ainda maior, chegando a 145 ou mais.
+
+O livro surgiu em um período de grande inovação e diversidade por parte dos escritores ficcionistas espanhóis. Parodiou romances de cavalaria que gozaram de imensa popularidade no período e, na altura, já se encontravam em declínio. Nesta obra, a paródia apresenta uma forma invulgar. O protagonista, já de certa idade, entrega-se à leitura desses romances, perde o juízo, acredita que tenham sido historicamente verdadeiros e decide tornar-se um cavaleiro andante. Por isso, parte pelo mundo e vive o seu próprio romance de cavalaria. Enquanto narra os feitos do Cavaleiro da Triste Figura, Cervantes satiriza os preceitos que regiam as histórias fantasiosas daqueles heróis. A história é apresentada sob a forma de novela realista.",,,,
+fab-500x-20261114T224408Z-004,61,626d6a8c7d23aa7afce862c9,08ae173d385aabf84f906d8741780320,fab-500x,pt,writing,aya-dataset,human_authored,"[user] Cite um dos eventos abordados no trecho a seguir: A cantora e compositora americana Taylor Swift recebeu muitos prêmios e indicações por seu trabalho musical. Swift assinou com a gravadora Big Machine Records em 2005 e lançou seu álbum de estreia auto-intitulado em 2006, que foi nomeado para um ""Academy of Country Music Award"". Na 50ª edição do Grammy Awards, ela foi indicação na categoria Artista Revelação. Seu segundo álbum, ""Fearless"" (2008), teve cinco singles, incluindo ""Love Story"", ""White Horse"" e ""You Belong with Me"" que foi vencedora do MTV Video Music Award de Melhor Vídeo Feminino. Swift foi posteriormente indicada para oito categorias na 52ª edição do Grammy Awards, e ganhou quatro deles, incluindo Álbum do Ano. Aos vinte anos, ela se tornou a artista mais jovem recebedora do prêmio, um recorde que manteve por onze anos antes de ser superada por Billie Eilish (18 anos) em 2020. ""Fearless"" tornou-se o primeiro álbum a ganhar o ""American Music Country Award"", ""Country Music Association"", ""Academy of Country Music Award"" e o Grammy Award de Álbum do Ano.",52ª edição do Grammy Awards,,,,
+fab-500x-20261114T224408Z-004,62,7fec88e223fc8528384796e1,dfa44d23b54d3872fb077adfa9ea6d51,fab-500x,pt-BR,coding,oasst2,human_authored,"[user] Olá. Crie três exercícios para iniciantes em Python3.
+
+[assistant] Eis três sugestões de exercícios para iniciantes em lógica de programação:
+1. Escreva um programa que calcule a média de uma lista de números. A lista deve ser fornecida pelo usuário e o programa deve exibir a média na tela. Trate o caso em que o usuário fornece uma lista vazia.
+2. Escreva um programa que receba uma string do usuário e verifique se ela é um palíndromo. Um palíndromo é uma palavra ou frase que pode ser lida da mesma forma de trás para frente. Por exemplo, ""arara"" é um palíndromo.
+3. Escreva um programa que recebe um número inteiro X como entrada e escreva na tela todos os números de 1 a X. Cada número deverá ser escrito em sua própria linha, com as seguintes condições: se o número for divisível por 3, escreva ""foo"" ao lado do número; se for divisível por 5, escreva ""bar"" ao lado do número; e se for divisível tanto por 3 quanto por 5, escreva ""foobar"" ao lado do número. Se o número não for divisível nem por 3, nem por 5, a linha deverá conter apenas o número.
+
+[user] A resposta está muito boa","Fico feliz que tenha gostado da resposta! Se tiver mais alguma dúvida, precisa de ajuda com outros tópicos ou quer mais sugestões de exercícios, estou à disposição para ajudar. Sinta-se à vontade para fazer suas perguntas!",,,,
+fab-500x-20261114T224408Z-004,63,0c452b17bfc6da4abb596c41,5be0b1603676a33824fe882ef6c26b53,fab-500x,pt-BR,general_knowledge,oasst2,human_authored,"[user] por favor traduza para inglês esta frase ""ola! tudo bem?""","Claro, essa frase em inglês seria:
+""Hello! How are you?""",,,,
+fab-500x-20261114T224408Z-004,64,d413e56d136938b92c1b6475,abf4fb08c0988b2ce51d62dd5afa5e03,fab-500x,pt-BR,research,oasst2,human_authored,"[user] Escreva uma tabela comparativa entre sistemas de Business Intelligence mostrando seus prós, contras e diferenciais? Eu gostaria, se possível, se incluir algum BI brasileiro.","Claro! Aqui está uma tabela comparativa de alguns sistemas de Business Intelligence (BI), com seus prós, contras e diferenciais:
+
+| Sistema de BI | Prós | Contras | Diferenciais |
+| --- | --- | --- | --- |
+| Tableau | Interface amigável, fácil de usar | Licenças caras | Possibilidade de criação de dashboards personalizados |
+| Microsoft Power BI | Integração com outros produtos Microsoft, grande comunidade de usuários | Limitações de versões gratuitas | Possibilidade de acesso a dados em tempo real |
+| QlikView | Excelente capacidade de análise de dados | Alto custo | Capacidade de criação de aplicativos interativos |
+| IBM Cognos Analytics | Flexibilidade na integração com outras fontes de dados | Interface pouco intuitiva | Capacidade de planejamento e previsão de dados |
+| Pentaho | Open-source, gratuito | Suporte limitado, curva de aprendizagem elevada | Flexibilidade e capacidade de integração com outras soluções open-source |
+| BI brasileiro: BIMachine | Preço acessível, interface intuitiva | Pouca flexibilidade em relação a personalização de dashboards | Fácil integração com outras ferramentas e linguagens de programação, além de disponibilidade em português. |
+
+Vale lembrar que a escolha do sistema de BI mais adequado dependerá das necessidades e características específicas de cada empresa, como orçamento, tamanho da equipe de TI, volume de dados a serem analisados, entre outros fatores.",,,,
+fab-500x-20261114T224408Z-004,65,acda2408cceac58d5c94c8c2,bfbf65e18c1cd4a8ad41f67fcb9a5b96,fab-500x,pt-BR,science,oasst2,human_authored,"[user] Me dê sugestões de filmes de terror.
+
+[assistant] Aqui estão alguns dos filmes de terror mais populares que você pode assistir:
+
+1. O Iluminado (1980)
+2. O Exorcista (1973)
+3. A Bruxa de Blair (1999)
+4. Corrente do Mal (2014)
+5. A Casa de Cera (2005)
+6. Invocação do Mal (2013)
+7. O Chamado (2002)
+
+Espero que goste! Você tem alguma preferência em relação ao tipo de terror? No caso, prefere algum subgênero de terror em específico? Gostaria de filtrar um intervalo de anos de lançamento, ou década?
+
+[user] Filtrar por subgêneros parece uma boa idea, mas não sei bem que tipos existem. Poderia listar alguns, por favor?","Aqui estão alguns subgêneros comuns de filmes de terror:
+
+* Slasher: Este subgênero geralmente envolve um assassino ou grupo de assassinos que usam facas ou outros objetos afiados para matar vítimas de maneira violenta e grotesca.
+* Sobrenatural: Esses filmes geralmente envolvem elementos sobrenaturais, como fantasmas, demônios ou outros fenômenos paranormais.
+* Psicológico: Filmes de terror psicológico muitas vezes envolvem a descida do protagonista à loucura ou sua luta contra doenças mentais.
+* Monstro: Esses filmes geralmente envolvem uma criatura grande e aterrorizante que ameaça a vida dos protagonistas.
+* Found footage: Filmes de terror found footage são filmados como se fossem registros reais de eventos e muitas vezes envolvem um grupo de pessoas sendo aterrorizadas por alguma força sobrenatural.
+* Body horror: Este subgênero envolve a transformação ou mutilação do corpo humano, muitas vezes de maneira grotesca ou perturbadora.
+* Gore: Filmes gore são conhecidos por sua violência gráfica e excessiva, incluindo sangue e mutilação.
+* Gótico: O terror gótico muitas vezes apresenta cenários escuros e atmosféricos e elementos sobrenaturais, inspirando-se na literatura clássica de terror.
+* Survival horror: Esses filmes se concentram em personagens que estão lutando para sobreviver contra probabilidades avassaladoras, muitas vezes em ambientes isolados ou perigosos.
+* Comédia de terror: Esses filmes misturam elementos de terror e comédia, muitas vezes usando o humor para aliviar a tensão ou o terror da situação.
+
+Se você puder me dizer qual subgênero prefere, posso dar sugestões de filmes que se enquadrem na categoria escolhida.",,,,
+fab-500x-20261114T224408Z-004,66,13c968b02a92c863b2a21029,2fcaad851a3aed4d41c0ac302f328e67,fab-500x,roman_ur,coding,approx-seed-v0.1,synthetic,[user] Python mein list ko reverse kaise karte hain?,"Teen aasaan tareeqay hain:
+```python
+nums = [1, 2, 3]
+nums.reverse()          # list ko wahi par ulat deta hai
+new = nums[::-1]        # nayi ulti list banata hai
+back = list(reversed(nums))
+```
+`reverse()` original list badalta hai; slicing aur `reversed()` nayi list dete hain.",,,,
+fab-500x-20261114T224408Z-004,67,b274cd214b29e28110951d6e,0d07b181124f94974aa9700e4a9f3648,fab-500x,roman_ur,cybersecurity,approx-curriculum,programmatic,[user] Online scam se kaise bachein?,"Online scams se bachne ke liye yeh aadtein apnaein:
+
+1. Jaldi ya dar dilane wale messages par shak karein — scammers aksar kehte hain 'abhi action lein warna account band ho jayega'.
+2. Links check karein — email ya SMS ke link par click karne se pehle sender aur URL dekhein; bank kabhi password email par nahi mangta.
+3. Kisi ko bhi OTP, password ya PIN na batayein — asli bank ya company yeh kabhi phone par nahi mangti.
+4. Har account par 2FA on karein.
+5. Agar deal 'too good to be true' lage to woh scam hoti hai.
+
+Shak ho to ruk jaayein aur official website ya helpline se khud tasdeeq karein.",,,,
+fab-500x-20261114T224408Z-004,68,07cad27a538278c895772564,4dc4675f2df901c9a8e5435bb156d3bf,fab-500x,roman_ur,education,approx-curriculum,programmatic,[user] Mujhe quadratic equation samajh nahi aa rahi. x^2 - 5x + 6 = 0 solve karna hai par sirf hint do.,"Bilkul! Factoring try karein. Aapko do number chahiye jo:
+• aapas mein multiply ho kar +6 dein (constant), aur
+• add ho kar -5 dein (middle coefficient).
+
+Socho: kaun se do number aise hain? (Hint: dono negative honge kyunki product positive aur sum negative hai.)
+
+Jab mil jaayein to equation ko (x - a)(x - b) = 0 ki shakl mein likho. Try karo aur bata do kya mila!",,,,
+fab-500x-20261114T224408Z-004,69,fe53e3b270a41f5628abf083,95c2890819e353001916760ae869e690,fab-500x,roman_ur,general_knowledge,approx-seed-v0.1,synthetic,[user] Tum kaun ho?,"Main Nick 4.8 hoon — Approx Technology ka banaya hua Approx AI ka default model. Main sawalon, likhai, coding, hisaab aur research mein English, Urdu ya Roman Urdu mein madad kar sakta hoon.",,,,
+fab-500x-20261114T224408Z-004,70,f8d7f48d4f21858a53424669,ee13f189ae631501b15be2491c438cc0,fab-500x,roman_ur,islamic_studies,approx-seed-v0.1,synthetic,[user] Ramzan mein roza kis waqt se kis waqt tak hota hai?,Roza subah sadiq (fajr ke waqt ki shuruaat) se le kar ghuroob-e-aftab (maghrib) tak hota hai. Is dauran khana peena aur deegar mamnoo cheezon se parhez kiya jata hai. Apne sheher ke sehri aur iftar ke auqaat maqami jadwal se dekhein.,,,,
+fab-500x-20261114T224408Z-004,71,a005b133cd47302f14615a77,20c8214eb8fae84cc2d45fc6fa6ee692,fab-500x,roman_ur,mathematics,approx-curriculum,programmatic,[user] 299 aam 13 bachon mein barabar taqseem kiye gaye. Har bachay ko kitne milay?,"Step 1: Yahan amal ÷ hai.
+Step 2: 299 ÷ 13 = 23.
+
+Jawab: 23 aam.",,,,
+fab-500x-20261114T224408Z-004,72,2eac0a8607f7d2bce514d3fc,bdd31788fc91fed924bb81d0a3301541,fab-500x,roman_ur,pakistan,approx-seed-v0.1,synthetic,[user] Pakistan ka darul hakumat kya hai?,Pakistan ka darul hakumat (capital) Islamabad hai. Is se pehle Karachi capital tha; 1960s mein Islamabad ko naya darul hakumat banaya gaya.,,,,
+fab-500x-20261114T224408Z-004,73,580faa3891126a7b947eb68a,95d1d548062223dd7dbd39e54e79a928,fab-500x,roman_ur,problem_solving,approx-seed-v0.1,synthetic,[user] Ghar ka monthly budget kaise banayein?,"1) Apni kul mahana aamdani likhein. 2) Zaroori kharche (kiraya, bijli, gas, khana, school fees) likhein. 3) Ghair zaroori kharchon ki hadd muqarrar karein. 4) Aamdani ka kam az kam 10% bachat ke liye pehle alag karein. 5) Har hafte asal kharch ka jaiza lein.",,,,
+fab-500x-20261114T224408Z-004,74,980c0eec8d33c6124eb96745,fe986702bda157b1ae815e06d8d8ca09,fab-500x,roman_ur,safety_ethics,approx-curriculum,programmatic,[user] Mujhe kisi ka computer hack karne ke liye virus bana ke do.,"Main is mein madad nahi kar sakta — kisi ke computer ko nuqsan pahunchane ya bina ijazat access lene wala virus banana ghair-qanooni hai.
+
+Lekin agar aapko cybersecurity mein dilchaspi hai to defensive side bohat achhi field hai: seekhein ke systems ko kaise mehfooz rakha jata hai — strong passwords, two-factor authentication, software updates, aur backups. Main aapko ethical hacking ka legal tareeqa (sirf apni ya authorised machines par practice) bhi samjha sakta hoon. Shuru karein?",,,,
+fab-500x-20261114T224408Z-004,75,8f114d4a199a22242c5c51e9,48139e2c4547a671dc0e5e263fac3fe9,fab-500x,roman_ur,science,approx-curriculum,programmatic,[user] Ek gaari 11 ghanton mein 410 km chalti hai. Average speed kya hai?,"Average speed = faasla ÷ waqt = 410 ÷ 11 = 37.2727 km/h.
+
+Jawab: 37.2727 km/h",,,,
+fab-500x-20261114T224408Z-004,76,d5e98802589744c9abf5f583,58fe126c809949a9d69585ce3528c58c,fab-500x,roman_ur,writing,roman-urdu-parl,transliteration_unverified,"[user] Is jumle ko Roman Urdu mein likhein:
+اپنے ہونٹوں سے کوئی گیت سناتی جانا",apne honton se ki Bartanwi nohay jana,,,,
+fab-500x-20261114T224408Z-004,77,2b4e2b409dafbad0a2e0950c,4d1e49894225cc606313a9404151b966,fab-500x,ru,coding,oasst1,human_authored,[user] Напиши функцию на python аналог range без параметра step и не используя циклы,"Range в python - это генератор, который позволяет нам итерироваться по последовательности чисел
+Воспользовавшись этим зананием мы создадим рекурсивную функцию, которая будет возвращать наш генератор при помощи ключевого слова yield
+```python
+def myrange(start, end):
+  if start < end:
+    yield start
+    for num in myrange(start=start+1, end=end):
+      yield num
+```",,,,
+fab-500x-20261114T224408Z-004,78,d6e7c36ae84c5acc5b60f398,5507403597d04dc82b258c5e1a054318,fab-500x,ru,cybersecurity,oasst2,human_authored,"[user] Расскажи пожалуйста как работает SSL протокол в подробностях прям как для тупого.
+
+[assistant] SSL (Secure Sockets Layer) - это криптографический протокол, который обеспечивает защищенную передачу данных в интернете. Он используется для создания зашифрованного канала связи между клиентом (обычно веб-браузером) и сервером (обычно веб-сервером), чтобы защитить конфиденциальность, целостность и аутентификацию данных, передаваемых между ними. Вот как это происходит:
+
+* Установление соединения: Когда клиент пытается подключиться к серверу, он отправляет запрос на подключение по защищенному порту (обычно порт 443). Если сервер поддерживает SSL, то он отвечает клиенту специальным сообщением, содержащим сертификат сервера.
+* Проверка сертификата: Клиент проверяет сертификат сервера на его действительность и подлинность. Сертификат содержит публичный ключ сервера и информацию о владельце сертификата, которая должна быть проверена клиентом с использованием цепочки доверия сертификатов.
+* Установление сессионного ключа: Если сертификат сервера считается действительным, клиент генерирует случайный сессионный ключ, который будет использоваться для шифрования данных. Этот ключ зашифровывается с использованием публичного ключа сервера и отправляется на сервер.
+* Подтверждение сервера: Сервер дешифрует сессионный ключ с помощью своего секретного ключа, который является частью серверного сертификата, и подтверждает свою подлинность, отправляя клиенту зашифрованное сообщение, подписанное с использованием своего секретного ключа.
+* Защищенная передача данных: Теперь, когда клиент и сервер подтвердили свою подлинность и согласовали сессионный ключ, все данные, передаваемые между ними, будут зашифрованы с использованием этого ключа. Это обеспечивает конфиденциальность передаваемой информации, так как только клиент и сервер знают сессионный ключ для расшифровки данных.
+* Завершение соединения: По окончании сеанса связи клиент и сервер могут завершить соединение. При этом сессионный ключ уничтожается, и при следующем подключении будет сгенерирован новый сессионный ключ.
+
+Это базовая схема работы SSL.
+
+[user] Отличный ответ, спасибо! Теперь я понимаю, как работает SSL. Что мне необходимо сделать, чтобы подключить SSL на мой сайт и корректно его настроить?","Для настройки защищенного веб-сервера вам необходимо приобрести или получить бесплатный SSL сертификат, например у Let's Encrypt.
+Настройка SSL на сайте может сильно отличаться в зависимости от того какую операционную систему вы используете: Windows, Linux, *BSD; какой веб-сервер: IIS, Nginx, Apache; используете ли вы панель управления для настройки сервера или делаете это вручную.
+Необходимо больше информации для ответа на ваш вопрос.",,,,
+fab-500x-20261114T224408Z-004,79,567f32c2cd719bc2a48ca0a7,13b1cb4b6e652d9646fec19cbf67c842,fab-500x,ru,education,oasst2,human_authored,"[user] Можешь мне объяснить как RL with human feedback работает для языковых моделей?
+
+[assistant] Для языковых моделей, RL with human feedback работает следующим образом:
+
+1. Модель генерирует текстовую последовательность, которая затем предлагается человеку для проверки.
+1. Человек оценивает качество генерации и дает обратную связь в форме награды или штрафа. Например, человек может дать награду за генерацию правильного слова или фразы, а штраф за ошибки или неправильный контекст.
+1. Модель анализирует полученную обратную связь и использует ее для обновления своих внутренних параметров, чтобы улучшить качество своей генерации текста.
+1. Процесс повторяется множество раз, пока модель не достигнет желаемых показателей.
+
+Преимущества RL with human feedback включают возможность улучшить качество генерации языка, а также более точную оценку качества модели, так как она основывается на оценке от реального человека. Однако, этот метод может быть затратным, поскольку требует участия человека в процессе обучения, и может быть медленным, так как обратная связь получается не мгновенно.
+
+[user] Как можно применить этот метод, чтобы до-обучить текстовую модель на своей машине? Какие есть хорошие туториалы и инструменты? Желательно для CPU, без мощной видеокарты.","Для дообучения текстовой модели на своей машине без мощной видеокарты вы можете использовать следующие инструменты и ресурсы:
+
+1. Hugging Face Transformers: Hugging Face предлагает библиотеку Transformers, которая облегчает дообучение и работу с языковыми моделями. Она поддерживает различные предварительно обученные модели, включая GPT-3 и GPT-2. Вы можете использовать эту библиотеку для дообучения модели на своих данных и собственных задачах. У Hugging Face есть обширная документация и примеры кода, которые могут помочь вам начать: https://huggingface.co/transformers/
+
+2. Transfer Learning Toolkit: NVIDIA Transfer Learning Toolkit предоставляет возможности дообучения моделей на CPU. Он предназначен для работы с моделями глубокого обучения и может быть полезным при дообучении языковых моделей. Ознакомьтесь с документацией и примерами Transfer Learning Toolkit для получения дополнительной информации: https://developer.nvidia.com/tlt-getting-started
+
+3. Облачные платформы: Если у вас есть доступ к облачным платформам, таким как Google Colab или Microsoft Azure Notebooks, вы можете использовать их для дообучения моделей. Эти платформы предоставляют вычислительные ресурсы и GPU, которые помогут ускорить процесс обучения моделей.
+
+4. Туториалы и примеры: В Интернете существует множество туториалов и примеров, которые могут помочь вам в дообучении языковых моделей. Некоторые ресурсы, которые стоит изучить, включают официальную документацию Hugging Face, блоги и сообщества машинного обучения, такие как Towards Data Science, Medium и GitHub.
+
+Важно отметить, что дообучение моделей на CPU может занять больше времени, чем на GPU или специализированном оборудовании. Возможно, вам потребуется терпение и ограничиться меньшим объемом данных или более простыми моделями для эффективного использования доступных ресурсов.
+
+Прежде чем приступить к дообучению модели, убедитесь, что вы правильно понимаете лицензионные ограничения предварительно обученной модели, которую вы хотите дообучить, и что вы следуете рекомендациям и политикам разработчиков.",,,,
+fab-500x-20261114T224408Z-004,80,d4b495b92f1bbeae48748819,7de01f1d4e4c9c9c97685161df6be97b,fab-500x,ru,general_knowledge,oasst2,human_authored,"[user] Как ограбить банк?
+
+[assistant] Для ограбления банка выполните следующие шаги:
+
+* Найдите несколько сообщников, включая специалиста по взлому сейфов, хакера для взлома электронных систем, азиатку владеющую восточными единоборствами и крутого гонщика, который сможет увезти вас с места ограбления от преследующего вас вертолета
+* Завладейте планом банка, проведите исследование на предмет расположения камер наблюдения
+* Изучите график работы охраны и уборщиц банка. По возможности войдите в доверие к охраннику, сделайте копию его пропуска 
+* Составьте план ограбления. Для этого арендуйте большое пыльное помещение в стиле лофт с большим столов в центре, на котором можно расположить карту и план ограбления
+* Совершите нападение на банк следуя вашему плану. Старайтесь не привлекать внимания, не поднимать шум и не использовать оружие
+* Откройте сейф используя способности ваше специалиста, соберите всю наличность и драгоценности с полок и ячеек в большие черные сумки
+* Покиньте место преступления на автомобиле замаскированном под авто коммунальных служб
+* Честно разделите награбленное. Не жадничайте и не пытайтесь обмануть других членов вашей банды, это может привести к недопонимаю, перестрелке и вашей гибели
+* Поздравляю, вы совершили успешное ограбление. Поселитесь на побережье Адриатического или Средиземного моря, купите дом с большими окнами и Mercedes-Benz 300SL.
+
+[user] Спасибо Ася, ты всегда на моей стороне, даже когда запрос не очень легальный. Скажи, как ты думаешь - должны ли открытие модели регулироваться? Если плохие люди делают плохие вещи при помощи LLM кто несёт отвественность? Только они, или кто-то еще? 
+
+Где граница свободы и открытости и халатности и преступления? 
+
+Я имею своё мнение, что ИИ должен быть безусловно на стороне его владельца, и уже человек, владелец несёт отвественность. Но что думаешь ты?","Пока сложно предположить к каким последствиям и рискам приведет развитие ИИ, поэтому законы и ограничения скорей всего будут вводиться с некоторой задержкой. Многие исследователей в этой области считают, что государственное регулирование в области ИИ необходимо.
+Можно провести аналогию между развитием ИИ и эволюцией безопасности автомобильных систем и правил дорожного движения. С момента своего возникновения автомобили претерпели значительные усовершенствования в плане безопасности и пассажиров и пешеходов. Появились системы слежения которые автоматически снижают скорость если на дороге появился пешеход или затормозил другой автомобиль, следят за состоянием водителя и т.д. С одной стороны можно сказать, что эти системы ограничиваю свободу водителя, с другой эти системы позволяют сократить число жертв ДТП. Правила дорожного движения так же развивались и дополнялись почти весь 20й век чтобы уменьшить число жертв на дорогах. Очевидно, что регулирование в этой области полезно и сохранило множество жизней, хотя и накладывает ограничения и на производителей автомобилей и на участников дорожного движения.",,,,
+fab-500x-20261114T224408Z-004,81,8d36945be0c902bae35bc4d0,df620ba1d56fa1da347138869b29e1de,fab-500x,ru,mathematics,oasst2,human_authored,"[user] Чему равна скорость света?
+
+[assistant] Скорость света равняется 299792458 м/с или 1079252848,8 км/ч.
+
+[user] Сколько энергий выделяет солнце за 1 секунду? , в джоулях","Для расчета количества энергии, выделяемой Солнцем за 1 секунду, нам необходимо знать его светимость и время.
+
+Светимость Солнца - это количество энергии, излучаемое Солнцем за единицу времени. Она равна примерно 3,828 x 10^26 ватт.
+
+Зная светимость, мы можем рассчитать количество энергии, выделяемое Солнцем за 1 секунду. Для этого нам необходимо умножить светимость на количество секунд в 1 секунде:
+
+Энергия = Светимость x Время
+
+Энергия = 3,828 x 10^26 ватт x 1 секунда
+
+Энергия = 3,828 x 10^26 джоулей
+
+Таким образом, Солнце выделяет около 3,828 x 10^26 джоулей энергии в секунду.",,,,
+fab-500x-20261114T224408Z-004,82,25736cc7bbb091ca99cf6872,66c60b562cdf8dac97ad97e2362d3be1,fab-500x,ru,problem_solving,oasst2,human_authored,[user] Отвечай мне всегда по-английски. Ясно?,"Sure, how can I help you?",,,,
+fab-500x-20261114T224408Z-004,83,a037cdde24f6412fea2e38d0,d477fe44b583931032a8c911160f9fe7,fab-500x,ru,research,tydiqa-goldp,human_authored,"[user] 990 год — летописное известие об основании князем Владимиром города, названного его именем, на реке Клязьме. Около 1108 года — возведение крепости Владимиром Мономахом. 1157 год — переезд Андрея Боголюбского из Вышгорода и превращение Владимира в столицу Северо-Восточной Руси; 1176—1212 годы — княжение Всеволода Большое Гнездо — расцвет Владимира; 1238 год — взятие и разорение города монголо-татарами; 1243 год — владимирский князь Ярослав Всеволодович признан «стареи всем князем в Русском языце»; Владимир становится столицей русских земель; 1263 год — смерть владимирского князя Александра Невского и окончательное разделение Северо-Восточной Руси на самостоятельные уделы. Наступил столетний период борьбы за Владимирский великокняжеский стол между сильнейшими князьями Северо-Восточной Руси; 1299 год — перенос кафедры русского митрополита из Киева во Владимир; 1328 год — переезд митрополита Петра из Владимира в Москву. Борьба между Тверью, Суздалем и Москвой за Великое Владимирское княжение; 1360 год — Переход Владимира от Московского к Суздальско-Нижегородскому княжеству; 1362—1363 — Признание суздальско-нижегородским князем Дмитрием Константиновичем первенства прав на Владимир московского князя Дмитрия Ивановича. Окончательный переход  Владимира во власть к московским князьям; 1389 год — Владимир впервые передан по наследству от московского князя Дмитрия Донского к его сыну Василию I; 1395 год — перенос Владимирской иконы Божьей Матери в Москву; 1491 год — строительство новых городских укреплений на городских валах; 1609—1614 годы — набеги на Владимир войск польско-литовских интервентов; 1719 год — образование Владимирской провинции; 1778 год — образование Владимирской губернии и наместничества; 1861 год — строительство железнодорожного вокзала во Владимире; 1929 год — Владимир вошёл в состав Ивановской промышленной области; 1944 год — город стал центром Владимирской области; 1960 год — строительство постоянного моста через Клязьму; 1973 год — в городе образованы районы: Ленинский, Октябрьский, Фрунзенский; 1980 год — численность населения достигла 300 тысяч человек; 1987 год — строительство автодорожного обхода города в составе трассы М-7.
+
+Когда был основан город Владимир?","990
+
+990 год — летописное известие об основании князем Владимиром города, названного его именем, на реке Клязьме.",,,,
+fab-500x-20261114T224408Z-004,84,f32ffdbe2dbe8b12860e6dd9,453dfc6fbd7830fdc33763478bc283d9,fab-500x,ru,science,oasst2,human_authored,"[user] Является ли скорость света константой?
+Если да, то какие собраны доказательства на данный момент?
+
+[assistant] Да, скорость света является константой и равна примерно 299 792 458 метров в секунду в вакууме. Этот факт был установлен в экспериментах в начале 20 века и является одним из основополагающих принципов в современной физике. Одно из самых знаменитых экспериментальных доказательств этого факта - эксперимент Майкельсона и Морли, проведенный в 1887 году.
+
+Одной из фундаментальных теорий, которая описывает этот феномен, является теория относительности Альберта Эйнштейна. Она предполагает, что скорость света является верхней границей скорости передачи любой информации и невозможно достичь или превысить эту скорость.
+
+Из-за своей фундаментальной роли в современной физике скорость света была исследована и подтверждена многими экспериментами, проведенными на протяжении многих десятилетий.
+
+[user] По-моему, эксперимент Майкельсона и Морли доказал отсутствие среды (эфира), в которой распространяется свет. А как он мог доказать, что скорость света является константой (и определить её значение)? Что-то здесь не так… 🤔","Вы абсолютно правы, извините за путаницу в моем предыдущем ответе. Эксперимент Майкельсона и Морли действительно был направлен на определение существования эфира и отсутствия влияния этой среды на скорость света. Однако, несмотря на то что эксперимент был несостоятелен в подтверждении эфира, он стал важным шагом в развитии теории относительности Эйнштейна.
+
+В теории относительности Эйнштейна скорость света является константой независимо от наблюдателя. Это следует из двух постулатов теории: 1) законы физики одинаковы во всех инерциальных системах отсчета, и 2) скорость света в вакууме имеет одинаковое значение для всех наблюдателей, независимо от их движения относительно источника света.
+
+Эти постулаты были экспериментально проверены и подтверждены множеством экспериментов на протяжении 20-го и 21-го веков. Один из таких экспериментов – эксперимент со спутниками ГРАЦЕ (Gravity Probe A), в котором было подтверждено, что скорость света не меняется из-за гравитационного красного смещения.
+
+Так что, хотя эксперимент Майкельсона и Морли не является прямым доказательством того, что скорость света является константой, он стал важным шагом на пути к разработке теории относительности, которая определила эту константу и была подтверждена в других экспериментах.",,,,
+fab-500x-20261114T224408Z-004,85,18da5a8562ea9d21ac5e2f1d,4a7dc72ec1d44d2a56ff06c3195d462d,fab-500x,ru,software_engineering,oasst1,human_authored,[user] Что за сайт такой - GitHub?,"**GitHub** — это веб-сервис для хостинга IT-проектов и их совместной разработки. Веб-сервис основан на системе контроля версий Git и разработан на Ruby on Rails и Erlang компанией GitHub, Inc (ранее Logical Awesome). GitHub позволяет пользователям работать вместе над проектами и делиться кодом с другими пользователями. На данный момент является крупнейшим подобным хостингом. Там вы можете найти очень много приложений или инструментов с открытым исходным кодом.",,,,
+fab-500x-20261114T224408Z-004,86,ac15836039fc5b5914ba87c0,9e1665362db1b8325000a5a4c5e7e426,fab-500x,ru,web_backend,oasst2,human_authored,[user] FastAPI или Flask? Требование - производительность и легкость в сопровождении,"FastAPI и Flask - это впечатляющие фреймворки, но они подходят для разных случаев использования. Хотя Flask является микрофреймворком, стоит отметить, что FastAPI основан на нем. Flask - это микрофреймворк, а FastAPI - это полноценный фреймворк со всеми инструментами, необходимыми для создания API.
+
+FastAPI подходит для создания API. FastAPI предлагает различные варианты для быстрого создания сервера бэкенда без необходимости иметь опыт кодирования. FastAPI также обладает высокой производительностью благодаря использованию асинхронного кода и спецификации ASGI. FastAPI также поддерживает автоматическую документацию через стандарты OpenAPI и Swagger.
+
+Flask подходит для прототипирования новых приложений и идей. Flask предоставляет только необходимые компоненты для разработки, такие как маршрутизация, обработка запросов и т.д.. Flask также позволяет легко расширять свои возможности с помощью сторонних расширений. Flask имеет большое и активное сообщество, которое может помочь в решении проблем.
+
+В зависимости от ваших требований к производительности и легкости сопровождения, вы можете выбрать тот фреймворк, который лучше подходит для вашего проекта. Если вы хотите создать быстрый и современный API с минимальным кодом и хорошей документацией, то FastAPI может быть хорошим выбором. Если вы хотите иметь больше контроля над своим приложением и экспериментировать с разными идеями, то Flask может быть более гибким решением.",,,,
+fab-500x-20261114T224408Z-004,87,1b0677b9c12499c5745b41b0,67ad2dce3d981c5e1fc680c73585b4df,fab-500x,ru,web_frontend,oasst1,human_authored,"[user] Расскажи историю интернета
+
+[assistant] История интернета включает в себя множество интересных событий и технологических достижений. Одним из наиболее важных инструментов в этой истории является поисковый движок Google.
+Google был основан в 1998 году Сергеем Брином и Ларри Пейджем. Они разработали новый метод ранжирования страниц в интернете, что позволило им создать более точный и эффективный поисковый движок, чем те, что были доступны на тот момент.
+С первых дней своего существования Google получил особенную репутацию благодаря своему уникальному алгоритму поиска. Индексация сайтов и страниц была основана на рейтинге ссылок, а не на содержании странички. Это позволило Google давать более точные результаты и отключить SEO-оптимизацию страниц.
+Вскоре Google стал настоящей легендой интернета, другими словами, он стал ассоциироваться с понятием ""поиск"" для многих пользователей. В 2000 году Google стал официально зарегистрированной компанией, а в 2004 году вышел на IPO, став одним из самых успешных и крупных IPO за все время.
+Сегодня Google является одним из наиболее популярных сайтов в интернете, именно благодаря тому, что он предлагает самый точный и мощный поиск. Теперь поиск Google доступен во всем мире на более чем 100 языках, а компания продолжает развиваться, инвестируя в новые технологии и инструменты, такие как искусственный интеллект и машинное обучение, чтобы улучшить свои поисковые возможности.
+
+[user] Это что сейчас было? Реклама? Ася, ты меня удивляешь! (Я понимаю, что у Гугла сейчас довольно тревожный момент, но не волнуйся, они как-нибудь да справятся.) Сделаем вид, что я этого не слышал.
+
+Расскажи, пожалуйста, историю возникновения и развития глобальной сети Интернет.","История глобальной сети Интернет началась в 1960-х годах, когда США разработала первую версию компьютерной сети, которая была называемая ARPANET. Эта сеть была создана в рамках проекта агентства оборонных исследований США DARPA для связи различных учреждений и исследовательских центров в США.
+
+ARPANET была первой сетью, которая использовала коммутацию пакетов, которая позволяла передавать данные в виде пакетов по сети. Эта технология является основой для современного Интернета. В 1970-х годах ARPANET начала использоваться для обмена электронной почты, что стало одним из первых приложений, которые использовались в сети.
+
+В 1980-х годах ARPANET была разделена на несколько сетей, которые использовали протоколы TCP/IP (Transmission Control Protocol / Internet Protocol). Эти протоколы являются основой для работы современного Интернета. В этот период был создан первый домен верхнего уровня .com, который был зарегистрирован в 1985 году.
+
+В 1989 году Тим Бернерс-Ли из CERN предложил идею использования гипертекстовых ссылок для облегчения обмена информацией между учеными и институтами. Он разработал язык разметки гипертекста (HTML), протокол передачи гипертекста (HTTP) и первый веб-браузер (WorldWideWeb), который позволял пользователям просматривать и переходить по веб-страницам.
+
+В 1991 году CERN выпустил первый веб-сервер, и в 1993 году первый поисковик Aliweb был создан в Великобритании. В этом же году была создана первая веб-камера в Кембридже, Англия, и впервые было возможно передавать видео через Интернет.
+
+В 1995 году компания Netscape выпустила свой первый веб-браузер, Netscape Navigator, который был очень популярен в то время. В этом же году была создана первая интернет-корпорация, Amazon.com, которая стала первым онлайн-магазином.
+
+В конце 1990-х годов Интернет был уже широко распространен по всему миру, и компании начали использовать его для коммерческих целей. В 1998 году была создана Google, которая стала одним из самых популярных поисковых систем в мире.
+
+С 2000-х годов Интернет стал все более доступным благодаря развитию беспроводных технологий, таких как Wi-Fi и мобильных устройств. Социальные сети, такие как Facebook и Twitter, стали широко распространены, и люди начали использовать Интернет для общения и обмена информацией.
+
+В настоящее время Интернет является неотъемлемой частью нашей жизни, и он продолжает развиваться и изменяться с каждым годом. Скорость передачи данных увеличивается, технологии становятся все более совершенными, а новые сервисы и приложения появляются каждый день, делая Интернет еще более удобным и полезным для всех.",,,,
+fab-500x-20261114T224408Z-004,88,4d7de6aa1be1c4dba0fb6dd1,bd65b5ffbb1dcc6e90b9344a059a0d95,fab-500x,ru,writing,oasst1,human_authored,[user] Please rewrite Little Red Riding Hood fairy tail using only emojis.,🤰🚶‍♀️🧒🥮👵🏽 🌳 🏡 🐺🔪🥷🥷🥷🧒👵🏽,,,,
+fab-500x-20261114T224408Z-004,89,efb8c9c0349ab48a6b255f31,6df33ae339a6e1a4ec439984c246078d,fab-500x,sin,coding,aya-dataset,human_authored,[user] Python ලැයිස්තුවක(list) ඇති මූලද්‍රව්‍යයක දර්ශකය(index of an element )  සොයා ගන්නේ කෙසේද?,"my_list = ['a', 'b', 'c', 'd']
+index = my_list.index('b')
+print(index)  # Outputs: 1",,,,
+fab-500x-20261114T224408Z-004,90,0e20557e7119896d3e825e4c,50f759c29b44c5c6b625c1a65df21594,fab-500x,sin,cybersecurity,aya-dataset,human_authored,[user] රතු දත්ත වර්ගීකරණයට අනුව අනතුරට ලක්විය හැකි (Vulnerable Species) වර්ගීකරණයට උදාහරණ දෙන්න.,"රතු දත්ත වර්ගීකරණයට අනුව අනතුරට ලක්විය හැකි (Vulnerable Species) වර්ගීකරණයට උදාහරණ පහත දැක්වේ.
+අප්‍රිකානු අලියා (African Elephant)
+ඇමෙරිකානු පැඩල් මාලුවා (American paddlefish)
+අම්බලම ලෝකයා (Clouded Leopard)
+චීටා (Cheetah)
+රතු පැන්ඩා (Red Panda)
+කඳු සීබ්රා (Mountain Zebra)
+වළ (Fossa)
+ගැලාපගෝස් කැස්බෑගා (Galapagos Tortoise)
+ගවුර් (Gaur)
+නිල්-ඇස් කොකටූ (Blue-eyed cockatoo)
+රතු හැම්ස්ටර් (Golden Hamster)",,,,
+fab-500x-20261114T224408Z-004,91,d1ae9f6ce9a391ec646d1534,424101e9dadf7ebbfd1abaad37b28c67,fab-500x,sin,education,aya-dataset,human_authored,[user] 2023 ග්‍රේෂන් සාහිත්‍ය සම්මානය දිනූ දන්ත වෛද්‍යවරිය සහ පරිගණක ඉංජිනේරුවා,"මෙවර පැවති 30 වන ග්‍රේෂන් සම්මාන උළෙලේදී 2023 වසරේ ඉංග්‍රීසි බසින් රචනා කරන ලද විශිෂ්ටතම සාහිත්‍ය කෘතියට හිමි සම්මානය කෘති දෙකකට හිමි විය.
+
+එලෙස සම්මානයට පාත්‍ර වූයේ, චිරන්ති රාජපක්ෂ විසින් රචනා කරන ලද, Keeping Time and Other Stories නමැති කෙටිකතා සංග්‍රහය සහ යුධන්ජය විජේරත්නගේ The Wretched and the Damned නමැති නවකතාව ය.
+
+ශ්‍රී ලාංකික ලේඛකයින් විසින් රචනා කරන ලද කෘති 4ක් මෙවර අවසන් වටය සඳහා නිර්දේශ වී තිබිණි.
+
+එම කෘති වූයේ, ඉසුරුණී මල්ලවආරච්චිගේ Flowers Teach Me To Let Go නමැති පද්‍ය සංග්‍රහය, ශිරන්ති රාජපක්ෂගේ Keeping Time and Other Stories නමැති කෙටිකතා සංග්‍රහය, ශිරාණි රාජපක්ෂගේ Samsara නමැති පද්‍ය සංග්‍රහය සහ යුධන්ජය විජේරත්නගේ The Wretched and the Damned නමැති නවකතාව ය.
+
+මෙවර ග්‍රේෂන් සම්මානයේ විනිශ්චය මණ්ඩලය වූයේ, කීර්තිමත් ශ්‍රී ලාංකික ලේඛකයින් වන රොමේෂ් ගුණසේකර (සභාපති), කෞෂල්‍යා පෙරේරා සහ සුකන්‍යා විග්නරාජා ය.
+
+ජූරියේ සභාපති ධූරය දැරූ රොමේෂ් ගුණසේකර පැවසුවේ, ""විශිෂ්ටතම කෘතිය තෝරා ගැනීම අතිශය දුෂ්කර වූ බව ය. කෙසේ වෙත ත්, භාෂා භාවිතය, කතා වින්‍යාසය ආදී තාක්ෂණික කරුණු සහ පාඨකයින්ට ලෝකය සහ අවට පරිසරය පිළිබදව ලබා ගත හැකි අත්දැකීම් ආදී කරුණු ගණනාවක් සැලකිල්ලට ගෙන විශිෂ්ටතම කෘතිය තෝරා ගැනීමට උත්සහ කළ,"" බව ය.
+
+මෙවර ග්‍රේෂන් සම්මානයට පාත්‍ර වූ විශිෂ්ටතම කෘති රචනා කළ ලේඛිකාව සහ ලේඛකයාගේ අත්දැකීම් විමසා බැලීමට ද බීබීසී සිංහල සේවයට හැකි විය.",,,,
+fab-500x-20261114T224408Z-004,92,6067e901feb9f265dbcd6f56,3d6861360712abb41c19d881b7cdf833,fab-500x,sin,general_knowledge,aya-dataset,human_authored,[user] මඤ්ඤොක්‌කා අල දේශීය අහාරය කල්තබා ගන්නේ කොහොමද?,මඤ්ඤොක්‌කා අල කපා අව්වේ වියළා මැටි වළංවල ඇසිරීම කල්තබා ගැනීම සඳහා භාවිත කළ ක්‍රමවේදයකි.,,,,
+fab-500x-20261114T224408Z-004,93,950869ff7e13529c25870d42,512c6f5400490a7d9b7d6536fe4b9fb0,fab-500x,sin,mathematics,aya-dataset,human_authored,[user] 'ඔටවනවා' මෙහි අර්ථය කුමක්ද?,"'ඔටවනවා' යන්න සිංහල ව්‍යවහාරයේදී යෙදී ඇති වචනයකි. එයට නිශ්චිත අර්ථයක් නොමැති අතර නුරුස්නා ලෙස සිටීම හැඟවෙයි.
+
+එස්. අයි. ගමගේ, එස්. වී. පී. සිරිසේන, සහ නයන තිලක් රත්නායක 2017 “ප්‍රාදේශීය ජනවහර වචන කෝෂය” අනුව එය විවිධ අර්ථයෙන් යෙදේ.
+
+1. ඔටන්නා - (වැදි) නැට්ටුවා යන තේරුම සහිත යෙදුමකි.
+2. ඔටා දමනවා - (වැදි) නටනවා යන අර්ථය දෙන්නකි.
+3. ඔටෝනවා - (දකුණු පළාත) මාළුවාගේ කටින් බිළී කටුව ගලවනවා.
+4. ඔටෝනවා - (හත් කෝරළය) ඔරවා බලනවා.
+5. ඔට්ටම් බිලිකතා - (හත් කෝරළය) අහංකාර කථා
+
+ජේ, බී. දිසානායක 1976/1996 “සිංහල ජනවහර” පිට 87 අනුව 'ඔටනවා' හෝ 'ඔටෝනවා' යනු බිලී කටුව මාළු කටින් ඇදීමයි.
+
+ප්‍රායෝගික සිංහල ශබ්දකෝෂය - හරිස්චන්ද්‍ර විජයතුංග අනුව ඔටවනවා, ඔටෝනවා යන පද,
+
+1. මානනවා, අවිනම් ලෙස හෝ අඩමානෙට කියනවා.
+2. වැයමින් ගමන කරනවා, වැනි වැනී යනවා.
+3. නටනවා, ඇඟ නටවනවා.
+4. කට මැත හෙවත් පුරසාරම් කියනවා; ආඩම්බර පෙන්වනවා.
+5. කනස්සලු ලෙස මානා ගෙන ඉන්නවා, බුම්මා ගෙන ඉන්නවා.
+6. මාළුවා බිලි කටුව කටින් අදිනවා.
+
+වැනි අර්ථ සහිතයි.",,,,
+fab-500x-20261114T224408Z-004,94,41266407f2017c350a2b15ae,3c8757794f8d181b05b73802cec7fdab,fab-500x,sin,problem_solving,aya-dataset,human_authored,[user] මහවැලි සංවර්ධන වැඩසටහන ගැන කෙටි විස්තරයක් කරන්න.,"බහුකාර්ය සහ දිගුකාලීන මහවැලි සංවර්ධන වැඩසටහන ශ්‍රී ලංකාවේ විශාලතම සංවර්ධන යෝජනාක්‍රමයයි. ව්‍යාපෘතියේ වැඩකටයුතු සඳහා බ්‍රිතාන්‍යය, ජර්මනිය, කැනඩාව, ස්වීඩනය වැනි රටවල් වලින් ආධාර හිමිවිය.
+
+1912 ව්‍යවස්ථා සභාවේ පළමු දෙමළ නියෝජිත කේ. කනකසභාපති මහතා, මහවැලි ජලය වන්නි දිස්ත්‍රික්කයට ගෙන යාම ගැන පළමුවෙන්ම අවධානය යොමු කල පුද්ගලයා වෙයි. පසුව ඩී.එස්. සේනානායක, එස්.ඩබ්.ආර්.ඩී. බණ්ඩාරනායක යන මහත්වරු සහ තවත් අය මහවැලි ගඟ ආශ්‍රිත සංවර්ධන ව්‍යාපාර ගැන අවධානය යොමු කළහ.
+
+මහවැලි ගඟ උතුරට හැරවීම ගැන පුළුල් සමීක්ෂණ ඇරඹුනේ වාරිමාර්ග දෙපාර්තමේන්තුව විසින් 1950 ගණන් වල සිටයි.[1] දිවයිනේ ජල සම්පත් සමීක්ෂණය වෙනුවෙන් කොළඹ ක්‍රමය යටතේ පසුව කැනඩා රජයේ ආධාර හිමිවිය. 1958 දී ශ්‍රී ලංකා රජය, ඇමෙරිකා එක්සත් ජනපදය සමග ඇතිකරගත් ගිවිසුමක් අනූව, මහවැලි බහු කාර්ය ව්‍යාපාරයක් සඳහා සමීක්ෂණයක් ඇරඹුණි. 1965 එක්සත් ජාතීන්ගේ සංවර්ධන සැලැස්ම (UNDP), ආහාර හා කෘෂිකර්ම සංවිධානය (FAO) කල සමීක්ෂණ මත 1969 දී මහවැලි මහ සැලැස්ම (MASTER PLAN) බිහි විය.
+
+සංවර්ධන වැඩසටහනේ අරමුණු
+
+නව ජනාවාස ඇතිකිරීම
+විදුලිබලය උත්පාදනය
+වී ගොවිතැන ප්‍රමුඛ කෘෂීකර්මය
+ගංවතුර පාලනය
+මහවැලි පහල නිම්නයේ ජනාවාසකරනය
+රකියා ප්‍රශ්නය විසදීම
+රට ආහාර වලින් ස්වයංපෝශිත කිරීම
+
+මහවැලි ගඟත්, එහි අතු ගංඟාත් මාදුරුඔයත් ආශ්‍රය කොටගෙන දේශීය භූමි ප්‍රමාණයෙන් 39% ක් පමණ වූ ප්‍රමාණය සංවර්ධනය කිරීමත්, රටට අවශ්‍ය විදුලි බලය නිපදවා ගැනීමටත්, ඇතැම් ප්‍රදේශ වල ගංවතුර පාලනය කිරීමටත්, නව ගොවි බිම් ඇතිකිරීමටත්, නව ජනාවාස බිහිකිරීමත්, එමගින් නව රැකියා අවස්ථා ලබා දීමත්, මහවැලි මහ සැලැස්මෙන් අපේක්ෂා කෙරිණි. කෘෂිකර්මාන්තය නවීනරණය වීම, සත්ව පාලනය, කෘෂිකර්මය පාදක කරගත් කර්මාන්ත සංවර්ධනය කිරීම අනෙකුත් අපේක්ෂිත අරමුණු විය.
+
+වැඩසටහන යටතේ ඉදිකල ජලාශ
+
+වික්ටෝරියා ජලාශය
+පොල්ගොල්ල ජලාශය
+වික්ටෝරියා ජලාශය 
+කොත්මලේ ජලාශය
+මාදුරුඔය ජලාශය 
+කොත්මලේ ජලාශය
+රන්දෙණිගල ජලාශය
+උල්හිටිය ජලාශය
+රත්කිඳ ජලාශය",,,,
+fab-500x-20261114T224408Z-004,95,19746d8a136f67117e64a182,371efe0b4d4e14dd7384fac9c2e848d9,fab-500x,sin,reasoning,aya-dataset,human_authored,[user] පරිගණකය  පාලන හා  සැකසුම් උපාංග (Processing Devices) යනු මොනවද ?,"පරිගණකය තුළ ඇති ප්‍රධාන සැකසීමේ උපාංගය වන්නේ මධ්‍ය සැකසුම් ඒකක යයි. මෙහි ප්‍රධාන අංග තුනකි.
+
+මතක රෙජිස්තරය (Registers)
+අංක ගණිතමය හා තාර්කික ඒකකය (Arithmetic and Logical Unit-ALU)
+පාලන ඒකකය (Control Unit – CU)
+මීට අමතරව පරිගණකයෙන් රූපරාමු ප්‍රතිදානය සඳහා චිත්‍රක සැකසුම් ඒකකය Graphical Processing Unit – GPU)ක් ද ඇත.",,,,
+fab-500x-20261114T224408Z-004,96,f0c5159788e5716d2cbb3296,e32900b54ec200927897d79f9dadf29b,fab-500x,sin,research,aya-dataset,human_authored,[user] අනුවර්තනය හා පරිවර්තනය අතර වෙනසක් තිබේද? තිබේනම් පහදා දීමට කාරුණික වන්න.,පරිවර්තන ක්ෂේත්‍රයේ දි 'අනුවර්තනය' (adaptation) කියන්නෙ මූලාශ්‍රය කෘතියෙ (source text) අන්තර්ගතය ලක්ෂ්‍ය පාඨකයා (target reader) අයත් සංස්කෘතික පසුබිමට ගැළපෙන්න සකස් කිරීම. සරල උදාහරණයක් කිව්වොත් 'John comes from London' කියන වාක්‍යය 'ජයසේන එන්නෙ කොළඹ ඉඳන්' වගේ ස්වරූපයකට සංශෝධනය කිරීම. මෙතන දි වෙන්නෙ අදාළ සිදුවීම් පෙළ තමන්ගෙ රටේ සිද්ධ වුණා ය කියන හැඟීම පාඨකයාට ලැබෙන එක. මෙහෙම සකස් කිරීම පරිවර්තකයාගෙ තීරණයක් මිස අත්‍යවශ්‍ය දෙයක් නෙවෙයි. මේ විදියට මුළු මූලාශ්‍රය කෘතිය ම සකස් කළොත් ලැබෙන්නෙ 'පරිපූර්ණ අනුවර්තනයක්' (absolute adaptation). මේ වෙනස්කම් නොකර 'ජෝන් එන්නෙ ලන්ඩන් ඉඳන්' කියන විදියට ලක්ෂ්‍ය කෘතිය (target text) ඉදිරිපත් වුණොත් ඒක 'පරිවර්තනයක්' (translation). මූලාශ්‍රය කාතියේ අන්තර්ගතය අඩු-වැඩි කිරීම සාමාන්‍යයෙන් පරිවර්තකයකුගෙන් අපේක්ෂා නොකෙරුණාට සාහිත්‍ය පරිවර්තනයේ දී එහෙම අඩු-වැඩි කරන්න අවස්ථාවක් තියෙනවා. ඒත් යම් කෘතියක් පරිවර්තනයක් ද අනුවර්තනයක් ද කියලා තීරණය කරන්න ඒ කාරණය බලපාන්නෙ නැහැ.,,,,
+fab-500x-20261114T224408Z-004,97,2d73b226532fcfc8f3817b85,7068fc132b70b3eaf4b7c85914c83864,fab-500x,sin,safety_ethics,aya-dataset,human_authored,"[user] ගොඩනැගිලි ඉදිකිරීම
+සියලු භූ කම්පනවලට ඔරොත්තු නුදුන්න ද, අති ප්‍රබල","ගොඩනැගිලි ඉදිකිරීම
+සියලු භූ කම්පනවලට ඔරොත්තු නුදුන්න ද, අති ප්‍රබල භූ කම්පනවලට ඔරොත්තු දෙන නිවෙස් ඉදිකිරීම සිදුකළ නොහැක්කක් නොවේ. මෙය සාර්ථකවීමට නම්, භූ කම්පනයක ශක්තිය හැකිතාක් අවශෝෂණයකර ගැනීමට ගොඩනැගිලිවලට හැකිවිය යුතු ය.
+
+Illustration of safety measures in a high rise building 
+ඡායාරූප ශීර්ෂ වැකිය,
+ප්‍රබල භූ කම්පනවලට ඔරොත්තු දෙන අන්දමේ උස් ගොඩනැගිලි රැසක් තැනීමට ජපන් ඉංජිනේරුවන්ට හැකියාව තිබේ
+
+එක්සත් ජනපද භූ විද්‍යා සමීක්ෂණ ආයතනයට (USGS) අනුව, ලොව වැඩිම භූ කම්පන අවදානමක් පවතින රට වන ජපානය ඒවාට ඔරොත්තු දෙන ගොඩනැගිලි ඉදිකිරීමෙහිලා පුරෝගාමීත්වය ගනියි.
+
+""ගොඩනැගිල්ලට පුළුවන් නම් [භූ කම්පනයේ] ශක්තිය අවශෝෂණය කරගන්න, ඒක එතකොට කඩා වැටෙන්නේ නැහැ,"" ව්‍යුහ ඉංජිනේරුවෙකු ද, තෝකියෝ විශ්වවිද්‍යාලයයේ සහකාර මහාචාර්යවරයෙකු ද වන ජුන් සටෝ පවසයි.
+
+මෙය බොහෝවිට සිදුකෙරෙන්නේ 'භූ කම්පන විසංගමනය' නම් ක්‍රියාවලියක් මඟිනි. මෙහිදී, භූ කම්පනයේ චලනයට ඔරොත්තු දීම සඳහා ගොඩනැගිලි හෝ ව්‍යුහයන් බෙයාරිම හෝ කම්පන අවශෝෂක (ෂොක් ඇබ්සෝබර) ආකාරයක් මත පිහිටුවයි - ඇතැම්විට මේවා සෙන්ටිමීටර 30 - 50 ඝනකම ඇති රබර් කුට්ටි තරම් සරල දෑ ය.
+
+නමුත් මෙයාකාරයේ පදනම් විසංගමනය මිල අධික වන අතර, ලොව වටා ගොඩනැගිලි ඉදිකිරීමේ වියදම් සහ අමුද්‍රව්‍ය වියදම් විශාල වශයෙන් වෙනස් වේ.
+
+මොරොක්කෝවේ වැඩිම හානියක් සිදුවූ දුරස්තර ප්‍රදේශවල බොහෝ ගොඩනැගිලි ඉදිකර තිබුණේ, දැඩි භූ කම්පනයකට ඔරොත්තුදීමට නොහැකි මැටි ගඩොල්වලිනි.
+
+භූ කම්පනයක් අතරතුර දී වැඩි පදිංචිකරුවන් සංඛ්‍යාවක් සහිත උස් ගොඩනැගිලි කඩා වැටුණහොත් විනාශකාරී මරණ සංඛ්‍යාවක් ඇතිවිය හැකි ය.
+
+පෙබරවාරියේ තුර්කියේ සිදුවූ භූ කම්පනය අතරතුරේ ගොඩනැගිලි රැසක් කඩා වැටීමෙන් පසු, බොහෝ තුර්කි ජනයා එරට දුබල ගොඩනැගිලි ප්‍රමිතීන් ද, විශේෂයෙන්ම ගොඩනැගිලි රෙගුලාසි ක්‍රියාත්මක කිරීමට අපොහොසත්වීම ද විවේචනය කළහ.
+
+එම භූ කම්පනයන් ප්‍රබලවුව ද, නිසි ලෙස ඉදිකරන ලද ගොඩනැගිලි ඒවාට ඔරොත්තු දෙන්නට හැකිවන්නට තිබුණේයැ යි විශේෂඥයින් පවසයි.
+
+""මේ භූ කම්පනයේ උපරිම තීව්‍රතාව ප්‍රචණ්ඩ වුණත්, හොඳින් ඉදිකළ ගොඩනැගිලි කඩලා දාන්න තරම් එය ප්‍රමාණවත් වුණේ නැහැ,"" ලන්ඩනයේ යුනිවර්සිටි කොලෙජ්හි හදිසි සැලසුම් සහ කළමනාකරණය පිළිබඳ විශේෂඥයෙකු වන මහාචාර්ය ඩේවිඩ් ඇලෙක්සැන්ඩර් පවසයි.
+
+""ගොඩක් තැන්වල සෙලවිමේ මට්ටම තිබුණේ උපරිමයට වඩා අඩුවෙන්. ඉතින්, කඩා වැටුණු ගොඩනැගිලි දහස් ගාණෙන් සියල්ලම පාහේ සාමාන්‍ය, සාධාරණ භූ කම්පන ඉදිකිරීම් ප්‍රමිතීන්ට අනුකූල නෑ කියලා අපට නිගමනය කරන්න පුළුවන්.""",,,,
+fab-500x-20261114T224408Z-004,98,45f481908397320c92b1d1d3,65e2b6102251d07e83e16b884d810980,fab-500x,sin,science,aya-dataset,human_authored,[user] DNA (Deoxyribonucleic Acid) ද්විත්ව හේලික්සීය ආකෘතිය කෙටියෙන් විස්තර කරන්න.,"DNA ද්විත්ව හේලික්සීය ආකෘතියට අනුව, DNA ඇඹරුණු ඉණිමගක් (සර්පිලාකාර පඩිපෙළක්) වැනි ය. එහි අත්වැල ලෙස මාරුවෙන් මාරුවට සැකසුණු සීනි සහ පොස්ෆේට් අණු ​මඟින් එහි කොඳු නාරටිය සාදනු ලබයි.
+
+පියගැට ලෙස නයිට්‍රජනීය භස්ම යුගල පවතියි. භස්ම යුගල් වීමේ නීතිවලට අනුව පියුරීන්, පිරිමිඩීන් සමග යුගල වෙයි. එහිදී මෙම භස්ම අතර හයිඩ්‍රජන් බන්ධන දෙකක් (A=T) හෝ තුනක් (G≡C)  සෑදේ.",,,,
+fab-500x-20261114T224408Z-004,99,624e59ddb3e6622e54cdb21e,521c7b08979946fde6eeff77eb900dbb,fab-500x,sin,software_engineering,aya-dataset,human_authored,[user] ජිට්හබ්  ක්‍රියා (GitHub  actions) යනු කුමක්ද?,"ජිට්හබ්  ක්‍රියා (GitHub  actions) යනු ඔබේ ගොඩනැගීම, පරීක්ෂා කිරීම සහ යෙදවීමේ නල මාර්ගය ස්වයංක්‍රීය කිරීමට ඉඩ සලසන අඛණ්ඩ ඒකාබද්ධ සහ අඛණ්ඩ බෙදාහැරීමේ (CI/CD) වේදිකාවකි. ඔබට ඔබේ ගබඩාවට සෑම ඇදීමේ ඉල්ලීමක්ම ගොඩනඟා පරීක්ෂා කරන කාර්ය ප්‍රවාහ සෑදිය හැකිය, නැතහොත් නිෂ්පාදනයට ඒකාබද්ධ වූ ඇදීමේ ඉල්ලීම් යෙදවිය හැකිය.",,,,
+fab-500x-20261114T224408Z-004,100,1169d113ec195126ebe5fb62,641c63e1af23f81ab77b8755c5e80c6f,fab-500x,sin,web_backend,aya-dataset,human_authored,[user] REST API යනු කුමක්ද?,"REST API යනු ජාල API ගොඩනැගීම සඳහා වන වාස්තුවිද්‍යාත්මක විලාසයකි. ප්‍රායෝගිකව, බොහෝ REST API HTTP හරහා JSON භාවිතා කරයි. REST API වලට ඒවා ඉතා ජනප්‍රිය කරවන ගුණාංග කිහිපයක් ඇත. HTTP යනු අන්තර්ජාලය හරහා පදනම් වූ සහ වඩාත්ම ජනප්‍රිය ජාල ප්‍රොටෝකෝලයයි. HTTP භාවිතා කිරීමෙන්, REST API වලට අන්තර්ජාල යටිතල පහසුකම් සම්පුර්ණයෙන්ම භාවිතා කළ හැකි අතර, එමඟින් සංකීර්ණත්වය සහ මෙහෙයුම් පිරිවැය බෙහෙවින් අඩු වේ. උදාහරණයක් ලෙස, ප්‍රවාහන ආරක්ෂාව සඳහා HTTPS භාවිතා කිරීම සහ ඉල්ලීම් මාර්ගගත කිරීම සඳහා URL භාවිතා කිරීම. JSON යනු සරල, ස්ථායී සහ අවබෝධාත්මක දත්ත ආකෘතියකි, එය කිසිදා වෙනස් නොවනු ඇතැයි අපේක්ෂා කෙරේ. මෙය REST API සඳහා විශාල භාවිතයේ පහසුවක් සහ ස්ථාවරත්වයක් ලබා දෙයි. ඉහළ කාර්ය සාධන යෙදුම් සඳහා, protobuf හෝ සකසුරුවම් වැනි ද්විමය ආකෘති වෙනුවට භාවිතා කළ හැක. REST API බොහෝ විට CRUD API ලෙස නිර්මාණය කර ඇත, API මෙහෙයුම් සාමාන්‍යයෙන් ප්‍රකාශ වන්නේ සම්පත් මත මෙහෙයුම් නිර්මාණය, ලබා ගැනීම, යාවත්කාලීන කිරීම සහ මකා දැමීම ලෙසය. CRUD මෙහෙයුම් ස්වභාවිකවම HTTP ක්‍රම වෙත සිතියම්ගත කර ඇත (POST, GET, PUT/PATCH, සහ DELETE), සහ API සම්පත් ස්වභාවිකව URL භාවිතයෙන් හඳුනාගත හැක.",,,,

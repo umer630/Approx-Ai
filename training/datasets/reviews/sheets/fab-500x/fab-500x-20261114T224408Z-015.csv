@@ -1,0 +1,802 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-015,1,cf73aeeeac806194de19bff2,11d454e464dc298f2bcb05c8ffd8f5da,fab-500x,tr,education,aya-dataset,human_authored,[user] Explain the following event: 2022 FIFA Dünya Kupası Elemeleri,"2022 FIFA Dünya Kupasına, turnuvaya direkt olarak katılan ev sahibi Katar dışındaki 31 takımın belirlenmesi için gerçekleştirilen elemelerdir. 211 FIFA üyesi ülkelerin tamamı elemelerde yer alacaktır.",,,,
+fab-500x-20261114T224408Z-015,2,3b0f4379078fcb4ac192f3ee,43923b69339f987fb2812248fd7ef5df,fab-500x,tr,general_knowledge,aya-dataset,human_authored,[user] Ltd ne anlama gelir?,Ltd. Şti açılımı limited şirket olan bir ticari terimdir.,,,,
+fab-500x-20261114T224408Z-015,3,403326ed5df8f4845ae30ad6,dae9366ac6b9be8d2eebaee67ce42b93,fab-500x,tr,islamic_studies,aya-dataset,human_authored,[user] Atatürk öldükten sonra kaç gün yas ilan edildi?,"""İslam dünyasının büyük insan yetiştirme gücünü yitirdiğini öne sürenler, Atatürk'ü hatırlamalı ve utanmalıdırlar."" ""Atatürk'ün ölümü dolayısı ile Kraliyet Sarayı Şehinşâhi ve hükûmet bir ay resmî yas ilân etmiştir.",,,,
+fab-500x-20261114T224408Z-015,4,b2eb36fc9b78ff8b55d367e6,21409199cec6ff2abef38341fa3b5488,fab-500x,tr,mathematics,aya-dataset,human_authored,[user] Su arıtma tankı kaç saatte dolar?,6 litre 6000 milim yapar 6000/200 dediğimizde sonuç 8 litrelik su arıtma tankı 30 dakika da dolar. 8 litre 8000 ml yapar 8000/200 dediğimizde sonuç 8 litrelik su arıtma tankı 40 dakika da dolar. 12 litre 12000 ml yapar 12000/200 dediğimizde sonuç 12 litrelik su arıtma tankı 60 dakika da yani 1 saatte dolar.,,,,
+fab-500x-20261114T224408Z-015,5,b77ced307ff9f71422394e41,e4c5645960befbee5067b81065c39c0b,fab-500x,tr,problem_solving,aya-dataset,human_authored,[user] Amerika Birleşik Devletleri'nde bireysel silahlanmayı azaltmak için önlemler alınıyor mu?,"Bireysel silahlanmayı azaltma çabaları Amerika Birleşik Devletleri'nde zaman zaman tartışılan ve bazı eyaletlerde veya bölgelerde daha sıkı silah kontrolü önlemleri alındığı bir konudur. Ancak federal düzeyde kapsamlı bir bireysel silahlanmayı azaltma politikası uygulanmamıştır ve bu konudaki adımlar sıklıkla siyasi bölünmüşlük nedeniyle sınırlı kalmıştır. Alınan bazı önlemler aşağıdaki gibi sıralanmıştır:
+-Federal yasalar, silah alıcılarının arka planlarının kontrol edilmesini gerektirir. Ancak bazı silah kontrolü savunucuları, arka plan kontrollerinin daha yaygın ve katı hale getirilmesi gerektiğini savunur.
+-Bazı eyaletler otomatik silahlar, yüksek kapasiteli şarjörler ve saldırı tüfekleri gibi belirli silah türlerini sivil kullanım için yasaklamış veya kısıtlamıştır.  
+-Bazı eyaletler, tehlikeli bir kişi olduğu düşünülen bireylerin silah sahipliğini geçici olarak askıya alabilen ""red flag"" yasalarını kabul etmiştir.",,,,
+fab-500x-20261114T224408Z-015,6,6cf2e5ccff5df2ad557dc938,8b8aa5716f59a0822c5bddc6656f7e6d,fab-500x,tr,reasoning,aya-dataset,human_authored,[user] Cushing sendromu tedavi edilmezse ne olur?,Aşırı kıllanmaya ek olarak Cushing sendromu olan kadınlarda adet düzensizliği de ortaya çıkabilir. Bazı Cushing sendromu olan kadın vakalarda menstrüasyon düzensizliği görülebilir. Doğru şekilde müdahale edilmemiş olgularda infertilite problemi çıkabileceği için dikkatli olunmalıdır.,,,,
+fab-500x-20261114T224408Z-015,7,bbf5a7b6948432388cab0352,ad80e54182156af0b4ef790a7ea97b82,fab-500x,tr,science,aya-dataset,human_authored,[user] Grafen ve Fulleren elektriği iletir mi?,"Karbon atomunun iki boyutlu bir allotropu olan grafen, karbon atomlarının birbirlerine altıgen oluşturacak şekilde bağlanmasıyla oluşan, tek katmanlı bir malzemedir. Isıyı ve elektriği çok iyi iletir.",,,,
+fab-500x-20261114T224408Z-015,8,120b5cb3660846245c8a497e,dc1d3bb3485d1278c92587af210d17f0,fab-500x,tr,writing,aya-dataset,human_authored,[user] GTA 5 4K mı?,Playstation resmi blog sayfasından yapılan açıklamaya göre GTA 5 PS5 sürümü 4K çözünürlüğe ve 60 FPS kare saniye oranına sahip olacak.,,,,
+fab-500x-20261114T224408Z-015,9,13849a66e814d08fdc8b75f1,01f95f8450ba85aa0c476fd341f126cc,fab-500x,uk,general_knowledge,aya-dataset,human_authored,"[user] Відповісти на питання: ""Хто такий Карлсон?""","Відповідь: Багато людей вважає, що Карлсон - це просто поширене прізвище в Швеції, але насправді Карлсон живе на даху! Це герой повісті шведської письменниці Астрід Ліндґрен «Малий і Карлсон, що живе на даху». Дія повісті відбувається в 1950-і роки, де в одному будинку проживають два головні герої — Сванте, молодша дитина сім'ї Свантесон, на прізвисько Малий, і на даху — Карлсон.",,,,
+fab-500x-20261114T224408Z-015,10,02e497c18ebbc5447f26731b,6d76ff53327b18b8a12cdda687085941,fab-500x,uk,mathematics,aya-dataset,human_authored,"[user] Ніна приготувала дворівневий торт і десятки кексів на день народження своєї подруги. Для кожного шару торту потрібна така ж кількість цукру, як і для десятка кексів. Ніна використовувала 720 грамів цукру, щоб все приготувати. Скільки грамів цукру в одному кексі? Дайте мені причини, перш ніж відповісти на питання","Ніна приготувала 2 шари торту, які були рівними 2 х 12 = 24 кексів. Вона зробила еквівалент 24 + 12 = 36 кексів загалом. Таким чином, 720 / 36 = 20 грамів цукру в кексі. Отже, остаточна відповідь: 20 грамів.",,,,
+fab-500x-20261114T224408Z-015,11,6014790f1449d9081030d2e0,3cc9dfff2cde2774e50ff90e2a6770a4,fab-500x,uk,writing,aya-dataset,human_authored,"[user] Write a continuation for this paragraph - Опублікував монографії, присвячені коронному канцлерові Єроніму Радзейовському («Hieronim Radziejowski. Studium władzy i opozycji», 1988) та повстанню Олександра-Леона Костки-Наперського 1651 («Na tropach Napierskiego. W kręgu mitów i faktów», 1972). Переклав і прокоментував видання тієї частини хроніки Веспасіяна Коховського, де йдеться про","роки війни шведсько-польскої, званої Потопом (1655—1657). Упорядкував та видав із власним вступом класичну працю В. Чермака про Яна ІІ Казимира Ваза. Був науковим консультантом фільму Єжи Гоффмана «Потоп» (1969, за романом Генрика Сенкевича). Завжди прагнув до об'єктивного висвітлення історичних подій, у тому числі й національно-визвольного руху українського народу в 17 cт., у зв'язку з чим розвінчав низку міфів створених Генриком Сенкевичем.",,,,
+fab-500x-20261114T224408Z-015,12,365c00280e45be5a40c6b110,2805aa626580c69436949ae7b5260070,fab-500x,uk-UA,general_knowledge,oasst1,human_authored,[user] Які наукові дослідження є по темі медитацій? До якого висновку вони дійшли?,"Починаючи з 1950-х років було проведено сотні досліджень медитації, але багато з ранніх досліджень були помилковими і, таким чином, дали ненадійні результати. Зараз науковці намагаються усунути багато з цих недоліків з надією спрямувати поточні дослідження на більш плідний шлях. У 2013 році дослідники знайшли помірні докази того, що медитація може зменшити тривожність, депресію та біль, але немає доказів того, що вона ефективніша за активні методи лікування, такі як ліки або фізичні вправи.[1]
+
+Нещодавній метааналіз Hilton et al. (2016), включаючи 30 рандомізованих контрольованих досліджень, знайшов високоякісні докази про покращення симптомів депресії за допомогою медитації. [2]
+
+Список посилань на дослідження:
+[1] - Goyal M, Singh S, Sibinga EM, Gould NF, Rowland-Seymour A, Sharma R, Berger Z, Sleicher D, Maron DD, Shihab HM, Ranasinghe PD, Linn S, Saha S, Bass EB, Haythornthwaite JA (March 2014). ""Meditation programs for psychological stress and well-being: a systematic review and meta-analysis"". JAMA Internal Medicine. 174 (3): 357–68. doi:10.1001/jamainternmed.2013.13018.
+[2] - Hilton L, Hempel S, Ewing BA, Apaydin E, Xenakis L, Newberry S, Colaiaco B, Maher AR, Shanman RM, Sorbero ME, Maglione MA (April 2017). ""Mindfulness Meditation for Chronic Pain: Systematic Review and Meta-analysis"". Annals of Behavioral Medicine. 51 (2): 199–213. doi:10.1007/s12160-016-9844-2",,,,
+fab-500x-20261114T224408Z-015,13,a2956fd54c05181644131e12,adedb099a7a89903fa87429e497de76a,fab-500x,und,mathematics,nemotron-math,synthetic,[user] $\frac{\left[\left(6.2:0.31-\frac{5}{6}\cdot 0.9\right)\cdot 0.2 +0.15\right]:0.02}{\left(2+1\frac{4}{11}\cdot 0.22:0.1\right) \cdot \frac{1}{3}}$,"The expression simplifies as follows:
+
+**Numerator:**  
+\(\left[\left(6.2 \div 0.31 - \frac{5}{6} \cdot 0.9\right) \cdot 0.2 + 0.15\right] \div 0.02\)  
+- \(6.2 \div 0.31 = 20\)  
+- \(\frac{5}{6} \cdot 0.9 = \frac{5}{6} \cdot \frac{9}{10} = \frac{45}{60} = \frac{3}{4} = 0.75\)  
+- \(20 - 0.75 = 19.25\)  
+- \(19.25 \cdot 0.2 = 3.85\)  
+- \(3.85 + 0.15 = 4\)  
+- \(4 \div 0.02 = 200\)  
+
+**Denominator:**  
+\(\left(2 + 1\frac{4}{11} \cdot 0.22 \div 0.1\right) \cdot \frac{1}{3}\)  
+- \(1\frac{4}{11} = \frac{15}{11}\)  
+- \(0.22 \div 0.1 = 2.2\)  
+- \(\frac{15}{11} \cdot 2.2 = \frac{15}{11} \cdot \frac{11}{5} = \frac{15}{5} = 3\) (since \(2.2 = \frac{11}{5}\))  
+- \(2 + 3 = 5\)  
+- \(5 \cdot \frac{1}{3} = \frac{5}{3}\)  
+
+**Overall Fraction:**  
+\(\frac{200}{\frac{5}{3}} = 200 \cdot \frac{3}{5} = \frac{600}{5} = 120\)  
+
+The result is 120.
+
+\boxed{120}",,,,
+fab-500x-20261114T224408Z-015,14,930008378a72231dab8b8600,8f0c6584e57aae82da0570d4bf60a841,fab-500x,ur,coding,wikipedia-ur,templated_human,[user] کرکٹ عالمی کپ فائنل مقابلوں کی فہرست کے بارے میں ایک مختصر تعارف لکھیں۔,"کرکٹ عالمی کپ ہر 4 سال بعد انٹرنیشنل کرکٹ کونسل منعقد کراتی ہے، جو کرکٹ کھیلنے والے ممالک کی نماہندہ بین الاقوامی تنظیم ہے۔ پہلا عالمی کپ انگلستان میں 1975ء میں ہوا۔ یہ مقالبے مردوں کی کرکٹ ٹیموں کے درمیان ہوتے ہیں۔ اب تک کل 10 عالمی کپ مقابلے منعقد ہو چکے ہیں اور 11واں آسٹریلیا و نیوزی لینڈ میں جاری ہے۔
+
+سال کا خانہ یہ ظاہر کرتا ہے کہ عالمی کپ کس سال میں منعقد ہوا اور یہ ان عالمی کپ کے موجود مضامین کے ربط ہیں۔
+
+""نتیجہ"" کالم کے لنکس اس ٹورنامنٹ کے فائنل گیم کے بارے میں مضمون کی طرف اشارہ کرتے ہیں۔
+
+""فاتح"" اور ""رنرز اپ"" کالموں کے لنکس ممالک کی قومی کرکٹ ٹیموں کے مضامین کی طرف اشارہ کرتے ہیں، ممالک کے لیے مضامین نہیں۔
+
+نوٹ: انگلینڈ (1983، 1999) اور جنوبی افریقہ (2003) کی میزبانی میں ہونے والے ورلڈ کپ کے کچھ میچز ویلز، اسکاٹ لینڈ، آئرلینڈ، نیدرلینڈز، زمبابوے اور کینیا میں بھی کھیلے گئے۔
+
+{| class=""sortable wikitable plainrowheaders""
+
+Short description is different from Wikidata",,,,
+fab-500x-20261114T224408Z-015,15,9e6ef2a53eac201f6d29fa20,a0f90065b1533a702e4f80f577c98925,fab-500x,ur,cybersecurity,wikipedia-ur,templated_human,[user] پبلک کی کرپٹوگرافی کے بارے میں ایک مختصر تعارف لکھیں۔,"مروجہ کرپٹوگرافی (cryptography) میں پیغام کو افشا (decrypt) کرنے کے لیے اسی کنجی (key) کی ضرورت ہوتی ہے جو اس پیغام کو اخفا (encrypt) کرنے کے لیے استعمال کیا گیا تھا۔ یعنی دو افراد کو ایک ایسی کنجی چاہیے ہوتی ہے جو صرف ان دو کو معلوم ہو اور باقی ساری دنیا سے راز ہو۔ اس لیے مروجہ کرپٹوگرافی کو ""خفیہ کنجی کرپٹوگرافی"" کہا جاتا ہے۔ اس کے برعکس ""عوامی کنجی کرپٹوگرافی"" میں پیغام کو اخفا کرنے والی کنجی، پیغام کو افشا کرنے والی کنجی سے مختلف ہوتی ہے۔
+
+عوامی کنجی کرپٹوگرافی (public key cryptography) ؁ 1975 میں دریافت ہوئی، جس کا سہرا ڈفی اور ہیلمین کے سر ہے۔ ڈفی اپنے مقالے ""عوامی کنجی کرپٹوگرافی کے پہلے دس سال"" میں رقم طراز ہے کہ عام کنجی کرپٹوگرافی دو مسائل اور ایک غلط فہمی کی پیداوار تھی۔ پہلا مسئلہ یہ تھا کہ دو آدمی جو پہلے ایک دوسرے سے نہیں ملے، کس طرح ایک خفیہ کنجی اپنائیں جو صرف ان دونوں کو معلوم ہو اور باقی دنیا کے لیے راز ہو۔ دوسرا مسلئہ کہ ایک برقی (ڈیجٹل/الیکڑانک) پیغام پر کسی کے دستخط کس طرح کیے جائیں (کاغذ پر عام دستخط کے معٰنی میں)؟ ڈفی کی غلط فہمی یہ تھی کہ اس کے خیال میں دو افراد کو آپس میں خفیہ بات کرنے کے لیے کسی تیسرے قابلِ اعتبار شخص (یا ادارہ) کی ضرورت نہیں ہونی چاہیے۔",,,,
+fab-500x-20261114T224408Z-015,16,f03a4f513f4567a0a3c23374,2ffbed71531387b57dda9e0284fdbe06,fab-500x,ur,education,wikipedia-ur,templated_human,[user] انجمن طلبا کے بارے میں ایک مختصر تعارف لکھیں۔,"ایک انجمن طلبہ، جسے مجازی طور مغربی ممالک میں طلبہ سرکار (student government) آزاد طلبہ اتحاد (free student union)، طلبہ سینات (student senate)،
+
+طلبہ ایسوسی ایشن (students' association)، طلبہ گِلڈ (guild of students) یا طلبہ مجلس کی سرکار (government of student body) ایک طلبا کی تنظیم ہے کئی کالجوں، یونیورسٹیوں اور ہائی اسکولوں میں قائم رہتی ہے۔ بعض اعلٰی تعلیمی اداروں میں انجمنہائے طلبہ کو کیمپس ہی میں الگ عمارتیں فراہم ہوتی ہیں۔ اس کا مقصد سماجی، تنظیمی سرگرمیاں، نمائندگی اور رکنیت کے لیے تدریسی عملے کی تائید کا قائم رکھنا ہے۔
+
+ریاستہائے متحدہ امریکا میں انجمن طلبہ سے اکثر وہ ڈھانچے کی عمارت مراد ہوتی ہے جو یونیورسٹی کی ملکیت میں ہوتی ہے اور اس کا مقصد طلبہ کو کسی انتظامی مجلس کے بغیر خدمات فراہم کرنا ہوتا ہے۔ اسے اسٹوڈنٹ ایکٹیویٹی سنٹر کہا جاتا ہے، حالانکہ ایسوسی ایشن آف کالج یونین انٹرنیشنل (بالعموم امریکا ہی پر مرکوز) سیکڑوں کے تنظیمی ارکان رکھتی ہے۔ امریکا سے باہر انجمن طلبہ سے مراد ایک نمائندہ تنظیم ہے جو اسٹوڈنٹ ایکٹیویٹی سنٹر سے مختلف ہے۔
+
+مضامین جن میں روایتی چینی زبان کا متن شامل ہے
+
+ویکی ڈیٹا سے مطابقت رکھنے والی مختصر تفصیل",,,,
+fab-500x-20261114T224408Z-015,17,a9b85bacc9aa05ba35bb9df9,680538e122e2bad6711711a85cb92e27,fab-500x,ur,general_knowledge,wikipedia-ur,templated_human,[user] آئس کریم کے بارے میں ایک مختصر تعارف لکھیں۔,"آئس کریم  ایک قسم کی ملائی کی قلفی ہے، جو دودھ، ملائی، چینی اور خوشبو ملانے کے بعد ٹھنڈا کر کے جما دینے سے تیار ہوتی ہے۔
+
+گھر میں آئس کریم بنانے کے لیے، مشینیں استعمال ہوتی ہیں، جو فریزر کہتے ہیں۔ یہ لوہے کی گریٹ شیٹ، سٹینلیس سٹیل، سلنڈرک باکس، سے بنا ہوا ہے جس میں لٹکی بالٹی میں رکھا جاتا ہے۔ اس مشین کے ہینڈل کو کنبلا اور اس کے اندر اندر نصب شدہ لکڑی کے لکڑی کو منتقل کر دیتا ہے۔ کینوں میں، آئس کریم کی پھلکی سزا سے دودھ، وغیرہ کا مرکب گھریلو مشین سمندر کے کنارے کو پھینکتا ہے۔ اس کے کنارے ملحق کناروں کو پھینک دیتے ہیں اور آئس کریم برتن کی داخلی سطح پر بھرا ہوا ہے، دودھ کے نئے حصے کو منجمد کرنے کا موقع دیتے ہیں۔
+
+دودھ اور دیگر اشیاء کا مجموعہ، آئس اور نمک کا مرکب باہر ہے۔ یشمی اور نمک کا مرکب برف سے کہیں زیادہ ٹھوس ہے اور اس کے کولنگ کے ذریعے منجمد دودھ شروع ہوتی ہے۔ پہلا مرحلہ برتن کی دیوار پر دودھ ہے۔ لکڑی اس میں گھومتی ہے اور اسے دودھ میں کچلتا ہے۔ اس طرح، دودھ تھوڑا سا چل رہا ہے اور باقی دودھ اس میں جاتا ہے۔ کچھ وقت کے بعد، تمام دودھ جمع ہوتے ہیں، لیکن اندرونی لکڑی کی گردش کی وجہ سے یہ مکمل طور پر ٹھوس نہیں بنتا ہے۔ اس شرط کے بعد گھومنے کو ہینڈل کرنا بیکار ہے۔",,,,
+fab-500x-20261114T224408Z-015,18,82e7666de7cf2adc1708cf3d,06f006b9423e272cb6552b9fb6c0b686,fab-500x,ur,islamic_studies,wikipedia-ur,templated_human,[user] تذکرۃ الموضوعات (الفتنی) کے بارے میں ایک مختصر تعارف لکھیں۔,"تذكرة الموضوعات:یہ امام محمد طاہر بن علی الهندی الفتنی ولادت 910ھ 1504ء وفات""986 ھ 1578ھ"" کی تصنیف ہے جسے انہوں نے حروف تہجی کے اعتبار سے لکھا اس میں ان راویوں کا ذکر کیا جو حدیث میں مذکور ہیں اور ان راویوں پر حدیث گھڑنے کی تہمت لگ چکی ہے اس میں  1119 احادیث موضوعہ کا ذکر ہے یہ کتاب  ادارة الطباعۃ المنيريہبھارت سے 1343ھ میں طبع ہو چکی ہے
+
+تذكرة الموضوعات نام کی دو کتابیں ہیں اور عجیب بات یہ ہے کہ دونوں مصنفوں کا نام طاہر ہے ایک مذکورہ مصنف طاہر الفتنی جبکہ دوسرے طاہر المقدسی  ہیں۔",,,,
+fab-500x-20261114T224408Z-015,19,27246c4cb4a4c48793b57fcc,304df1be24331b351d4ba81235c096ae,fab-500x,ur,mathematics,approx-curriculum,programmatic,[user] احمد کے پاس 339 سیب ہیں۔ وہ 14 اور خریدتا ہے۔ اب اس کے پاس کل کتنے سیب ہیں؟,"مرحلہ 1: یہاں عمل + ہے۔
+مرحلہ 2: 339 + 14 = 353
+
+جواب: 353 سیب۔",,,,
+fab-500x-20261114T224408Z-015,20,4079339f141f45848615e19a,4626f06733186a426b64fe64a51b5202,fab-500x,ur,pakistan,wikipedia-ur,templated_human,[user] چڑیاولہ کے بارے میں ایک مختصر تعارف لکھیں۔,"چڑیاولہ ضلع گجرات تحصیل کھاریاں علاقہ تھانہ ککرالی کا نواحی گاؤں ہے جو ضلع گجرات سے 40 کلو میٹر کے فاصلہ پر شمال میں واقع ہے،یہ پاکستان صوبہ پنجاب ضلع گجرات کا سرحدی گاؤں ہے ،یہاں پاکستان و آزاد کشمیر کی سرحد آپس میں ملتی ہے ،اس کے ساتھ ہی آزادکشمیر کا ضلع بھمبر شروع ہو جاتا ہے،چڑیاولہ میں تعلیم و صحت کی سہولیات موجود ہیں ،لڑکوں اور لڑکیوں کا ہائی اسکول بھی موجود ہے اور بنیادی مرکز صحت بھی موجود ہے،چڑیاولہ گاؤں میں اکثریت گجر قوم کی ہے جبکہ دیگراقوام کے لو گ بھی یہاں آباد ہیں۔
+
+چڑیاولہ کی نمایاں شخصیات میں بانی و مرکزی
+
+مرکزی چیئرمین انٹرنیشنل میڈیا فورم:صحافی ملک محمد علی خیالی سابق چئیرمین چوہدری فتح خاں (مرحوم )چئیرمین یونین کونسل چڑیاولہ لالہ محمد افضل، ملک عابد حسین امریکا،چوہدری مظہر اقبال چڑیاولہ، چوہدری عمران آسٹریلیا، پروفیسر محمد ریاض آسٹریلیا، ڈاکٹر عبد الرحمن چڑیاولہ، ملک ساجد حسین چڑیاولہ، عبد اکعزیز بٹ چڑیاولہ، چوہدری عبد الرحمن پٹواری چڑیاولہ،صوفی طالب حسین سابق کونسلر،چوہدری محمد اصغر ریڈیو پاکستان لاہور، پروفیسر نصر اللہ چوہدری،حافظ حسن محمود چڑیاولہ، صحافی مہر جلال شائق،ڈاکٹر انیس چڑیاولہ کا شمار چڑیاولہ کی نمایاں شخصیات میں ہوتا ہے۔
+
+یہاں ضلع گجرات کی خوبصورت اور بڑی مسجد بھی موجود ہے،جس کے بانی حاجی رحمت علی سرکار المعروف مسجدیں بنانے والی سرکار ہیں ،آپ نے چڑیاولہ کے علاوہ گردونوح میں مساجد تعمیر کروائی ہیں۔
+
+چڑیاولہ اڈا پر حاجی رحمت علی کا مزار موجود ہے ،جہاں ہر سال ماہ اکتوبر میں سالانہ عرس مبارک کی تقریب بھی ہوتی ہے۔",,,,
+fab-500x-20261114T224408Z-015,21,8045bff554014be14f4261c5,972c94d828c00811c21cee1112480c71,fab-500x,ur,reasoning,wikipedia-ur,templated_human,[user] منطقی عامل کے بارے میں ایک مختصر تعارف لکھیں۔,"منطق میں، منطقی عامل  ایک نشان یا لفظ جو دو یا زیادہ جملوں کو قواعد (گرائمر) (رسمی یا قدرتی زبان ) کے مطابق مربوط کرنے کے لیے استعمال کیا جاتا ہے۔ اس طرح کہ مرکب جملے کے معنی کا انحصار اصل جملوں پر ہو۔
+
+Commonly used logical connectives include:
+
+Material implication (if...then):  , Cpq,  ,
+
+Biconditional (if and only if):  , Epq,  ,
+
+Alternative names for biconditional are ""iff"", ""xnor"" and ""bi-implication"".
+
+For example, the meaning of the statements it is raining and I am indoors is transformed when the two are combined with logical connectives:
+
+If it is raining, then I am indoors (P  Q)
+
+If I am indoors, then it is raining (Q  P)
+
+I am indoors if and only if it is raining (P  Q)
+
+For statement P = It is raining and Q = I am indoors.
+
+It is also common to consider the always true formula and the always false formula to be connective:
+
+چھوٹے پیغام خانوں کا استعمال کرنے والے مضامین",,,,
+fab-500x-20261114T224408Z-015,22,0fec046a08fa94667dcaa586,e62940c3dd8370ca2380b6feecef1da8,fab-500x,ur,research,wikipedia-ur,templated_human,[user] شہروں کی فہرست بلحاظ عرض بلد کے بارے میں ایک مختصر تعارف لکھیں۔,"ذیل میں شہروں کی فہرست بلحاظ عرض بلد دی جا رہی ہے۔ عرض بلد اور طول بلد تمام شہروں کے لیے دیے گئے ہیں۔ فہرست عرض بد کے حساب سے قطب شمالی سے نیچے قطب جنوبی تک دیکھی جا سکتی ہے۔ تمام عنوانات بالکل درست سمجھے جائیں مطلب یہ کہ 70 درجے شمال کے عنوان کا مطلب بالکل 70°00′00.00″شمال ہے۔ شمال سے دور اس عنوان کے اوپر ہوں گے اورجنوب سے دور والے اس سے نیچے ہوں گے۔ عنوانات میں ریاست (State) سے مراد کسی بھی ملک کی دوسرے درجے کی تقسیم ہے۔ اسے صوبہ(Province) بھی کہا جاتا ہے۔.
+
+60° جنوب کے بعد کوئی شہر نہیں ہے۔ 66° 33′ 44″ S کے بعد انٹارکٹیکا کا دائرہ ہے۔
+
+There are no cities further south than 60° South. The Antarctic Circle is located at latitude 66° 33′ 44″ S.
+
+Sources include Information Please Almanac ( and ) and a range of atlases and Wikipedia entries used by different contributors
+
+مزید دیکھیے* شہروں کی فہرست بلحاظ طول بلد* Northernmost settlements* Southernmost settlements* فہرست میٹروپولیٹن علاقہ جات بلحاظ آبادی* دارالحکومتوں کی فہارست* List of towns* Lists of neighborhoods by city* List of towns and cities with 100,000 or more inhabitants* List of cities by surface area* The world's most northern* The world's most southern* List of research stations in Antarctica",,,,
+fab-500x-20261114T224408Z-015,23,2a9200cae9d8908390c481f2,b8a56e367ef1fb57e6642470ddc06832,fab-500x,ur,safety_ethics,wikipedia-ur,templated_human,[user] ونیسا کارلٹن کے بارے میں ایک مختصر تعارف لکھیں۔,"ونیسا لی کارلٹن (پیدائش: 16 اگست 1980ء) امریکی گلوکارہ اور گیت نگار ہیں۔ اسکول آف امیریکن بیلے سے فارغ التحصیل ہونے کے بعد، کارلٹن نے گلوکاری کا شعبہ اپنانے کا فیصلہ کرتے ہوئے، یونیورسٹی کے زمانے ہی سے نیو یارک شہر کے شراب خانوں اور کلبوں میں گانا شروع کیا۔ پروڈیوسر پیٹر زیزو کے ساتھ ڈیمو ریکارڈ کرنے کے تین ماہ بعد، ونیسا نے اے اینڈ ایم ریکارڈز کے ساتھ معاہدے پر دستخط کیے۔
+
+ونیسا کا پہلا گیت، ’’اے تھاؤزنڈ مائلز (A Thousand Miles)‘‘ سال 2002ء میں بل بورڈ ہاٹ 100 میں پانچ سرِ فہرست گانوں میں شامل رہا۔ بعد ازاں، ان کے افتتاحی البم، ’’بی ناٹ نوباڈی (Be Not Nobody)‘‘ نے ریاستہائے متحدہ میں پلاٹینیم سند (platinum certification) حاصل کی (جو کسی البم یا گیت کی دس لاکھ کاپیاں فروخت ہونے پر دی جاتی ہے)۔ ان کے اگلے البم، ’’ہارمونیم (Harmonium)‘‘ اور ’’ہیروز اینڈ تھیوز (Heroes & Thieves)‘‘ پہلے البم جیسی کمائی نہ کرسکے۔ ونیسا نے اپنے چوتھے البم ریبٹس آن دی رن (Rabbits on the Run)‘‘ کو پیش کرنے کے لیے کسی ریکارڈ لیبل کمپنی کی تلاش کرنے سے قبل، اسے خود تخلیق کیا۔ ونیسا کا پانچواں اسٹوڈیو البم لبرمین (Liberman) اکتوبر 23، 2015ء کو ریلیز ہوا۔
+
+ونیسا کی پیدائش ملفورڈ، پنسلوانیا میں ہوئی۔ وہ ہوا باز ایڈمنڈ ’ایڈ‘ کارلٹن، اور پیانو فنکارہ اور اسکول میوزک ٹیچر، ہیڈی لی کے تین بچوں میں سب سے پہلی اولاد ہیں۔ ان سے چھوٹی ان کی بہن، گوئن، اور بھائی ایڈمنڈ ہیں۔ کارلٹن نصف روسی اور نصف اسکینڈینیوین ہیں، اور یہودی ہیں۔",,,,
+fab-500x-20261114T224408Z-015,24,96613793b8a46f5f4a20d184,9336111c93160a94ed0954e36f474221,fab-500x,ur,science,approx-curriculum,programmatic,[user] ایک گاڑی 8 گھنٹوں میں 700 کلومیٹر فاصلہ طے کرتی ہے۔ اس کی اوسط رفتار کیا ہے؟,"اوسط رفتار = فاصلہ ÷ وقت = 700 ÷ 8 = 87.5 کلومیٹر فی گھنٹہ
+
+جواب: 87.5 کلومیٹر فی گھنٹہ",,,,
+fab-500x-20261114T224408Z-015,25,018c992345c2589881c78c07,fcc80a7a4463d16654688f95237fb1e2,fab-500x,ur,web_frontend,wikipedia-ur,templated_human,[user] قدیم انگریزی کے بارے میں ایک مختصر تعارف لکھیں۔,"قدیم انگریزی یا اینگلو سیکسن  انگریزی زبان کی قدیم ترین تاریخی شکل ہے جو قرون وسطی میں انگلستان اور جنوبی اور مشرقی اسکاٹ لینڈ میں بولی جاتی تھی۔ اسے پانچویں صدی عیسوی کے وسط میں برطانیہ میں انگلوساکسونی آبادکار لائے تھے اور پہلا قدیم انگریزی ادبی کام ساتویں صدی عیسوی کے وسط سے شروع ہوا تھا۔1066ء میں نارمنی فتح کے بعد، اعلیٰ طبقے کی زبان جو انگریزی تھی ایک وقت کے لیے اینگلو نارمنی سے بدل گئی، جو فرانسیسی کی رشتے دار تھی۔
+
+* Old English Lessons (free online through the Linguistics Research Center at UT Austin)* Old English/Modern English Translator* The Electronic Introduction to Old English* Learn Old English with Leofwin* Old English (Anglo-Saxon) alphabet* Bosworth and Toller, An Anglo-Saxon dictionary* Downloadable Bosworth and Toller, An Anglo-Saxon dictionary Application* Old English Made Easy* Old English – Modern English dictionary* Old English Glossary* Old English Letters* Shakespeare's English vs Old English* Downloadable Old English keyboard for Windows and Mac* Another downloadable keyboard for Windows computers* Guide to using Old English computer characters (Unicode, HTML entities, etc.)* The Germanic Lexicon Project* An overview of the grammar of Old English* The Lord's Prayer in Old English from the 11th century (video link)* Dictionary of Old English
+
+غیر حوالہ معدومیت کی تاریخ والے زبانوں کے مضامین
+
+ویکی ڈیٹا سے مطابقت رکھنے والی مختصر تفصیل",,,,
+fab-500x-20261114T224408Z-015,26,1604fc14cb9a90e6c57ea965,1f85a258b3f5200fb11eba392ef0358d,fab-500x,ur,web_fullstack,wikipedia-ur,templated_human,[user] خان عبد الولی خان کے بارے میں ایک مختصر تعارف لکھیں۔,"ولی خان، خان عبدالغفار خان کے بیٹے تھے۔ ضلع چارسدہ میں اتمانزئی کے مقام پر پیدا ہوئے تھے۔ انہوں نے اپنی سیاسی زندگی کا آغاز تقریباً ساٹھ برس قبل خدائی خدمتگار تحریک میں شمولیت سے کیا تھا۔
+
+اس کے علاوہ وہ نیپ اور اے این پی کے بھی صدر منتخب ہوئے۔ اپنی سیاسی زندگی کے دوران میں وہ کئی مرتبہ پابند سلاسل بھی ہوئے۔ قید کے دوران میں ایک کتاب ’فیکٹس آر فیکٹس‘ بھی لکھی تھی۔ ان پر ان کی تمام سیاسی زندگی کے دوران میں پاکستان مخالف ہونے کا الزام لگتا رہا جس کی وجہ سے کئی مبصرین کے مطابق وہ ملک کی سطح پر عوامی رہنما کی حثیت حاصل نہیں کر سکے۔
+
+لیکن اس بات پر آج سب لوگ متفق نظر آتے ہیں کہ وہ ایک نڈر اور اصول پسند سیاست دان رہے۔ ولی خان نے 1990 میں مولانا حسن جان کے ہاتھوں عام انتخابات میں شکست کے بعد عملی سیاست کو خیرآباد کہہ دیا ۔
+
+طویل علالت کے بعد کومہ میں ان کا انتقال ہوا۔ اور ان کی وصیت کے مطابق ان کو ان کے آبائی گھر ولی باغ میں دفنایا گیا۔ پشتون سیاست پرانھوں نے انمٹ نقوش چھوڑے اور قوم پرستی کا ثبوت دیتے ہوئے۔ اپنی قوم کے مفادات پر کبھی کوئی سمجھوتہ نہیں کیا۔
+
+bachakhan.com (website dedicated to Bacha Khan & Wali Khan)
+
+پاکستانی ارکان قومی اسمبلی 1972ء تا 1977ء
+
+پاکستانی ارکان قومی اسمبلی 1988ء تا 1990ء
+
+Short description is different from Wikidata",,,,
+fab-500x-20261114T224408Z-015,27,cb7dbfcc8344a0ca58adc7ec,9594921bc5e4ee1562141c1c318cab92,fab-500x,ur,writing,roman-urdu-parl,transliteration_unverified,"[user] اس جملے کو اردو رسم الخط میں لکھیں:
+aur itna khula to ki aur likh bhi naahi sakta",اور اتنا کھلا تو کوئی اور لکھ بھی نہی سکتا,,,,
+fab-500x-20261114T224408Z-015,28,91ccf834d6c7f604c56d7719,4dffe78a24ae8a96f4c9b179f8e1db05,fab-500x,vi,coding,aya-dataset,human_authored,"[user] Đọc đoạn văn sau và đưa ra một tiêu đề phụ hợp với nội dung: Dòng Moto G tiếp tục trở nên đông đúc hơn với sự bổ sung của thành viên mới - Moto G32. Điện thoại tầm trung sẽ ra mắt đầu tiên tại một số thị trường châu Âu với giá từ 210 Euro (tương đương 5 triệu đồng). Điện thoại cũng sẽ được tung ra thị trường Ấn Độ và Mỹ Latinh ""trong những tuần tới"".  //<![CDATA[ window.addEventListener(""load"", function(){if(document.getElementById(""left"") && document.getElementById(""left"").offsetWidth < 760){$(""#upload_chum_anh_1659224630"").justifiedGallery({rowHeight: 244,lastRow: ""justify"",margins: 3,captions:false});window[""myLazyLoad""].update();}else{$(""#upload_chum_anh_1659224630"").justifiedGallery({rowHeight: 244,lastRow: ""justify"",margins: 3,captions:false});window[""myLazyLoad""].update();}}); //]]> Moto G32 sử dụng chip Snapdragon 680 tầm trung. Đáng chú ý, G32, G42 và G52 đều có giá ngang nhau và được cung cấp sức mạnh bởi cùng một con chip Snapdragon 680. Chip này hoạt động tốt hơn Helio G85 (trên Moto G31) trong các tác vụ CPU và tụt hậu về sức mạnh GPU. Về bộ nhớ, G32 mới có cấu hình RAM 4/ ROM 64GB và RAM 6/ ROM 128GB trong khi Moto G42 chỉ cung cấp RAM 4GB. Ngoài ra, sản phẩm được trang bị màn hình LCD 6,5 inch,độ phân giải FHD + với tốc độ làm mới 90Hz, xịn hơn Moto G42.  //<![CDATA[ window.addEventListener(""load"", function(){if(document.getElementById(""left"") && document.getElementById(""left"").offsetWidth < 760){$(""#upload_chum_anh_1659224664"").justifiedGallery({rowHeight: 244,lastRow: ""justify"",margins: 3,captions:false});window[""myLazyLoad""].update();}else{$(""#upload_chum_anh_1659224664"").justifiedGallery({rowHeight: 244,lastRow: ""justify"",margins: 3,captions:false});window[""myLazyLoad""].update();}}); //]]> Màn hình thiết kế ""đục lỗ"". Cả ba điện thoại đều có pin dung lượng 5.000mAh nhưng chỉ có Moto G32 mới và G52 đắt tiền hơn hỗ trợ sạc nhanh 30W. Nhưng điểm chung là chúng đều có thiết lập camera giống nhau, bao gồm: camera chính 50MP với kích cỡ cảm biến 1 / 2,76 inch (kích cỡ điểm ảnh là 0,64µm), camera góc siêu rộng 8MP 118 ° và camera chụp cận - macro 2MP. Ở mặt trước có camera selfie 16MP với thiết kế ""đục lỗ"" (sử dụng bộ lọc Quad Bayer) cùng khả năng quay video 1080p tốc độ 30fps.  //<![CDATA[ window.addEventListener(""load"", function(){if(document.getElementById(""left"") && document.getElementById(""left"").offsetWidth < 760){$(""#upload_chum_anh_1659224692"").justifiedGallery({rowHeight: 332,lastRow: ""nojustify"",margins: 3,captions:false});window[""myLazyLoad""].update();}else{$(""#upload_chum_anh_1659224692"").justifiedGallery({rowHeight: 358,lastRow: ""nojustify"",margins: 3,captions:false});window[""myLazyLoad""].update();}}); //]]> Moto G32 màu Bạc Satin. Moto G32 hỗ trợ kết nối hai SIM, 1 khay thẻ nhớ microSD. Đây là một chiếc điện thoại 4G, hỗ trợ kết nối Wi-Fi 5 (ac), Bluetooth 5.2 và NFC. Máy có cổng USB-C, giắc cắm tai nghe 3,5 mm và loa kép cùng với bộ thu radio FM. Điện thoại có kích thước 161,8 x 73,9 x 8,5mm và nặng 184g. Thân máy có thiết kế không thấm nước và có 3 màu: Xám Mineral, Bạc Satin và Vàng hồng.  //<![CDATA[ window.addEventListener(""load"", function(){if(document.getElementById(""left"") && document.getElementById(""left"").offsetWidth < 760){$(""#upload_chum_anh_1659224730"").justifiedGallery({rowHeight: 244,lastRow: ""justify"",margins: 3,captions:false});window[""myLazyLoad""].update();}else{$(""#upload_chum_anh_1659224730"").justifiedGallery({rowHeight: 244,lastRow: ""justify"",margins: 3,captions:false});window[""myLazyLoad""].update();}}); //]]> Moto G32 màu Xám Mineral. Tùy theo quốc gia, Moto G32 có thể đi kèm bộ sạc, vỏ bảo vệ hoặc tai nghe. Theo tiêu chuẩn, khách hàng sẽ nhận được thân máy đi kèm cáp USB-C, đầu đẩy SIM và sách hướng dẫn trong hộp đựng. Nguồn: https://nongthonviet.com.vn/motorola-tung-tan-binh-tam-trung-gia-chi-5-trieu-1382661.ngnNguồn: https://nongthonviet.com.vn/motorola-tung-tan-binh-tam-trung-gia-chi-5-trieu-1382661.ngn","Motorola tung tân binh tầm trung, giá chỉ 5 triệu",,,,
+fab-500x-20261114T224408Z-015,29,e3bce2729b2aa5c51fbf0f53,5ceae147f3916e48b3dee0f83b1d9ffe,fab-500x,vi,education,aya-dataset,human_authored,[user] Địa phương nào ở Việt Nam có hai thành phố học tập toàn cầu của UNESCO?,"Đồng Tháp hiện là địa phương duy nhất ở Việt Nam có hai thành phố được vinh danh là ""thành phố học tập toàn cầu"" gồm Cao Lãnh và Sa Đéc.
+
+""Thành phố học tập toàn cầu"" là giải thưởng được Tổ chức Giáo dục, Khoa học và Văn hóa Liên hợp quốc (UNESCO), được trao lần đầu tiên vào năm 2015 tại Mexico, và vinh danh hai năm một lần. 
+
+Giải thưởng trao cho các thành phố đạt được tiến bộ đột phá với các nền tảng như thúc đẩy cơ hội học tập từ cơ bản tới đại học một cách bình đẳng cho mọi người; thúc đẩy học tập trong gia đình và trong cộng đồng; tạo điều kiện học tập phục vụ công việc và tại nơi làm việc. 
+
+Năm 2012, Viện Học tập suốt đời của UNESCO (UNESCO Institute for Lifelong Learning), đã xây dựng ""Mạng lưới thành phố học tập toàn cầu UNESCO"", gồm các thành phố thúc đẩy thành công việc học tập suốt đời trong cộng đồng để chia sẻ cảm hứng, kinh nghiệm chuyên môn, cũng như các kinh nghiệm thực tiễn trong xây dựng một thành phố học tập.",,,,
+fab-500x-20261114T224408Z-015,30,8fb6289e203db6f8373fc02f,f2869010d03ed550bd8f4f1d04f1ba17,fab-500x,vi,general_knowledge,aya-dataset,human_authored,"[user] Tìm trong bài Phạm Tuyên và ca khúc mừng chiến thắng Ngữ văn lớp 6, những nguyên nhân dẫn đến sự ra đời của bài hát Như có Bác trong ngày đại thắng.","Trong văn bản những nguyên nhân dẫn đến sự ra đời của bài hát Như có Bác trong ngày đại thắng:
+
+- Hành động oanh tạc sân bay Tân Sơn Nhất của phi công Nguyễn Thành Trung là cú hích quan trọng cho sự ra đời bài hái.
+
+- Tác giả thấy phải viết ngay một cái gì đó góp một tiếng reo vui cùng mọi người mừng chiến thắng.",,,,
+fab-500x-20261114T224408Z-015,31,367873d5260e25f356d6ca09,57722a3294b058db53c76962fe7d8b43,fab-500x,vi,islamic_studies,aya-dataset,human_authored,"[user] Sự kiện quan trọng nào được nói tới trong văn bản này? - Về thời hạn chuyển nhượng, ngày 2 tháng 2 năm 2015, Chelsea xác nhận rằng Salah sẽ chơi cho câu lạc bộ Fiorentina của Ý theo dạng cho mượn 18 tháng cho đến khi kết thúc mùa giải 2015-16. Salah đã chọn chiếc áo số 74 để vinh danh các nạn nhân của cuộc bạo loạn ở sân vận động Port Said. Sáu ngày sau khi ký hợp đồng, anh ra mắt Fiorentina ở phút 65 trong tình huống thay anh ra sân thay cho Joaquín trong chiến thắng 3-2 trước Atalanta tại Sân vận động Artemio Franchi.",Sự kiện quan trọng được nói tới trong văn bản này là việc cầu thủ bóng đá Salah chuyển từ câu lạc bộ Chelsea sang chơi cho câu lạc bộ Fiorentina của Ý theo dạng cho mượn từ ngày 2 tháng 2 năm 2015 cho đến khi kết thúc mùa giải 2015-16.,,,,
+fab-500x-20261114T224408Z-015,32,932d879a5daf836341150a38,4b7c929863d8e4d6a0e3e24e9d815dff,fab-500x,vi,mathematics,aya-dataset,human_authored,"[user] Dựa trên tiêu đề sau, hãy viết một đoạn văn tối đa 500 chữ: Tuần tới, Bắc - Trung Bộ khả năng hứng mưa dông","Theo Trung tâm Dự báo KTTV quốc gia, tuần tới Bắc Bộ và Trung Bộ có thể tiếp tục những ngày mưa rào và dông. Cụ thể, trong ngày đầu tuần (1/8), Bắc Bộ, Trung Bộ, Tây Nguyên và Nam Bộ mưa rào và dông, cục bộ mưa to với lượng mưa từ 20-50mm, có nơi trên 70mm. Mưa dông ở Bắc Bộ và Bắc Trung Bộ khả năng kéo dài tới đêm 1/8; Trung và Nam Trung Bộ, Tây Nguyên và Nam Bộ có thể kéo dài trong nhiều ngày tới (thời gian mưa dông tập trung vào chiều tối và tối). Cũng theo cơ quan khí tượng thuỷ văn, từ đêm 4 - 7/8, Bắc Bộ tiếp tục xuất hiện mưa rào và dông rải rác, cục bộ mưa to. Thanh Hóa đến Thừa Thiên Huế thời kỳ từ ngày 6 - 7/8, chiều tối và tối mưa rào và dông rải rác. Từ ngày 8 - 10/8, phía Nam mưa rào và dông rải rác, cục bộ mưa to. Đà Nẵng đến Bình Thuận, ngày 2 - 3/8, chiều tối và tối mưa rào và dông rải rác, ngày nắng. Ngày 4 - 5/8, phía Nam chiều tối mưa rào và dông rải rác. Từ ngày 6 - 10/8, chiều tối và tối mưa rào và dông rải rác, cục bộ mưa to. Tây Nguyên và Nam Bộ trong khoảng thời gian từ đêm 2/8 đến ngày 10/8 mưa rào và dông vài nơi, chiều tối và tối mưa rào và rải rác có dông, cục bộ có mưa to. Trong mưa dông khả năng đề phòng lốc, sét, mưa đá và gió giật mạnh. Nguy cơ xảy ra lũ quét, sạt lở đất tại các tỉnh vùng núi và ngập úng tại các khu vực trũng, thấp.",,,,
+fab-500x-20261114T224408Z-015,33,2e2172c0787df90dc39c6ad7,348a9e61a91e56e7a43e6118e580ed1f,fab-500x,vi,pakistan,aya-dataset,human_authored,"[user] Viết tiếp đoạn văn sau: 
+Nijjar ủng hộ thiết lập một ""nhà nước độc lập"" gọi là Khalistan cho người Sikh từ các khu vực ở miền bắc Ấn Độ và một phần Pakistan. Chính phủ Ấn Độ coi phong trào Khalistan là mối đe dọa an ninh quốc gia và Nijjar được đưa vào danh sách phần tử khủng bố hồi tháng 7/2020.
+
+Cố vấn an ninh quốc gia Mỹ Jake Sullivan ngày 21/9 cho biết Washington đang trao đổi với cả Ottawa và New Delhi liên quan vụ ám sát Nijjar, lưu ý rằng Mỹ ""quan ngại sâu sắc về các cáo buộc"". Ông bác bỏ thông tin cho rằng ""có sự rạn nứt giữa Mỹ và Canada trong vấn đề"".","Anh và Australia cũng bày tỏ quan ngại về các diễn biến.
+
+Khi được đề nghị bình luận về phản ứng từ các nước đồng minh của Canada, Thủ tướng Trudeau ngày 21/9 nói chính phủ của ông ""không tìm cách kích động hay tạo ra rắc rối"". ""Ấn Độ là quốc gia ngày càng quan trọng, và chúng tôi muốn tiếp tục hợp tác với họ"", ông Trudeau cho biết.",,,,
+fab-500x-20261114T224408Z-015,34,3d3f30fd479b014cdabeb63f,03127b17b09692772c8916eefe1a71d9,fab-500x,vi,reasoning,aya-dataset,human_authored,[user] Giải thích cụ thể về lý thuyết MBTI?,"Lý thuyết MBTI (Myers-Briggs Type Indicator) là một hệ thống phân loại tính cách được phát triển bởi mẹ con cặp vợ chồng Katherine Cook Briggs và Isabel Briggs Myers dựa trên công việc của nhà tâm lý Carl Jung. Lý thuyết MBTI giúp phân loại các khía cạnh khác nhau của tính cách con người thành 16 loại khác nhau dựa trên bốn chiều chính:
+
+Hướng ngoại - Hướng nội: Đo đạc cách con người tập trung năng lượng và chú ý. Người hướng ngoại tập trung vào thế giới ngoài, tương tác xã hội và sự kiện bên ngoài, trong khi người hướng nội thích tập trung vào tư duy và cảm xúc cá nhân.
+
+Thu thập thông tin - Ra quyết định: Đo đạc cách con người thu thập thông tin và đưa ra quyết định. Người thu thập thông tin thích thu thập thông tin chi tiết, dựa vào thực tế và dữ liệu, trong khi người ra quyết định thích xem xét tương lai, các tùy chọn và tập trung vào giá trị cá nhân.
+
+Tư duy - Cảm nhận: Đo đạc cách con người xử lý thông tin. Người tư duy thích tập trung vào logic, nguyên tắc và phân tích, trong khi người cảm nhận thích tập trung vào trải nghiệm thực tế, cảm xúc và thực tế hiện tại.
+
+Thụ động - Tích cực: Đo đạc cách con người tương tác với thế giới xung quanh. Người thụ động thích để mọi thứ diễn ra tự nhiên, trong khi người tích cực thích định hình sự việc và tạo ra tác động.
+
+Kết hợp các chiều này tạo ra 16 loại MBTI khác nhau, được biểu diễn bằng các ký hiệu chữ cái như ISTJ, ENFP, INTP, và nhiều loại khác. Mỗi loại MBTI có các đặc điểm riêng về tính cách, cách tương tác xã hội, cách quản lý thông tin và ra quyết định, và cách ứng xử trong cuộc sống hàng ngày.
+
+Lý thuyết MBTI được sử dụng phổ biến trong công việc, tư vấn tâm lý, quản lý và phát triển cá nhân để giúp con người hiểu về bản thân và tương tác tốt hơn với người khác. Tuy nhiên, cũng cần lưu ý rằng MBTI không phải là một khái niệm khoa học và đã gặp phải một số phê bình từ các chuyên gia tâm lý học.",,,,
+fab-500x-20261114T224408Z-015,35,865198fbc2959eef1974fb02,e9203d206c09985f544d2951ec757822,fab-500x,vi,research,aya-dataset,human_authored,"[user] Hãy đặt một tiêu đề phù hợp với đoạn văn sau: Khi các thành phố của Trung Quốc mở đường cho nhiều xe tự lái chạy trên đường phố của họ, các nhà sản xuất ô tô của nước này đang cố gắng giành lấy vị trí mà họ dự đoán sẽ sớm trở thành một thị trường khổng lồ. Đầu tháng này, Thâm Quyến đã công bố một bộ quy tắc mới cho phép cung cấp dịch vụ lái xe thương mại tự hành tại trung tâm công nghệ từ tháng tới. Điều đó bao gồm ô tô hoàn toàn tự động, nếu công nghệ như vậy trở thành hiện thực và đáp ứng các yêu cầu an toàn. He Xiaopeng, người sáng lập công ty khởi nghiệp xe điện Xiaopeng, cho biết trong một bài đăng trên mạng xã hội: ""[Quy định] sẽ là một cột mốc quan trọng trong lịch sử lái xe tự hành ở Trung Quốc. Các nhà sản xuất ô tô và các nhà phân tích hy vọng sẽ có nhiều thành phố làm theo - một số thành phố đã cho phép thử nghiệm rộng rãi"". Chỉ trong ngày 18 tháng 7, Bắc Kinh đã cho phép thử nghiệm thương mại một số lượng nhỏ taxi tự lái tại một khu vực ngoại ô được chỉ định. Những người trong công ty nói rằng cuộc thử nghiệm ở thủ đô, vốn đã được thận trọng hơn, có thể giành được chiến thắng trước các thành phố vẫn chưa được thuyết phục. Công cụ tìm kiếm khổng lồ Baidu và công ty khởi nghiệp xe tự lái Pony.ai là những ông chủ những chiếc taxi tự lái đầu tiên được xếp hạng. Thị trường xe tự hành của Trung Quốc dự kiến sẽ đạt 98,9 tỷ USD vào năm 2030, mở rộng với tốc độ tăng trưởng kép hàng năm là 58,9% từ năm 2021, theo một báo cáo từ Renub Research, một tổ chức nghiên cứu. Trong vài năm qua, các nhà sản xuất ô tô và công ty công nghệ Trung Quốc đang chuẩn bị cạnh tranh để giành phần tăng trưởng này với những gã khổng lồ toàn cầu như Tesla và Google. Một số công ty như Xiaopeng, Nio và Li Auto đã bắt đầu bán ô tô tự động một phần. Họ cũng đã và đang gây quỹ để tài trợ cho việc phát triển xe tự lái. Vào tháng 6, Li Auto niêm yết trên sàn Nasdaq thông báo sẽ phát hành 2 tỷ USD cổ phiếu mới để tài trợ cho các công nghệ mới như tự động hóa lái xe và buồng lái thông minh. Động lực này đã tăng tốc khi các công ty công nghệ, do chính phủ đàn áp hoạt động kinh doanh của họ, đã tìm cách đầu tư vào các lĩnh vực tương đối an toàn. Cùng với điện toán đám mây và lưu trữ dữ liệu, lĩnh vực ưu tiên của chính phủ là tự động hóa phương tiện đã trở thành một. Từ L2 đến L3 Các tiêu chuẩn về xe tự hành của Thâm Quyến được chia thành các ""cấp độ"" về độ tinh vi tăng dần, tương tự như ở Mỹ. Xe được trang bị tự động hóa cấp 3 (L3) có thể tự lái trong một số môi trường, chẳng hạn như đường cao tốc, trong khi xe cấp 4 (L4) có thể tự lái trong hầu hết các môi trường đường sá. Các phương tiện cấp 5 (L5), hiện không tồn tại, có thể tự lái trong mọi tình huống mà không cần sự hỗ trợ của con người. Thâm Quyến yêu cầu các xe L3 và L4 phải luôn có tài xế túc trực để đảm nhận hệ thống. Các nhà sản xuất ô tô Trung Quốc đã thương mại hóa công nghệ cấp độ 2 (L2), cung cấp khả năng hỗ trợ lái và tốc độ hạn chế cho người lái. Trong quý đầu tiên của năm 2022, 23,2% ô tô mới sản xuất tại Trung Quốc có hệ thống tự động hóa L2, tăng từ 7,5% cùng kỳ năm ngoái, theo dữ liệu từ nhà cung cấp thông tin thị trường International Data. Trong số các loại xe điện được bán ở Trung Quốc, 35% xe ô tô mới hỗ trợ tự động hóa L2, ngược lại với 19,9% xe ô tô chạy bằng điện thông thường. Một kỹ sư tại một công ty phần mềm tự lái của Trung Quốc nói với Caixin rằng công nghệ tự động hóa của các nhà sản xuất xe điện như Tesla, Xiaopeng và Nio đã vượt qua công nghệ của nhiều nhà sản xuất ô tô truyền thống. Một số nhà sản xuất xe điện có kế hoạch tung ra các mẫu xe có thể hỗ trợ tự động hóa L3 và thậm chí cả L4, mặc dù hầu hết các thành phố của Trung Quốc chưa hợp pháp hóa các mức độ tự lái này trên đường phố của họ. Mô hình G3 mới của Xiaopeng có thể đi kèm với phần mềm và phần cứng cần thiết để tự động hóa L3 vào năm tới, các nhà phân tích tại công ty môi giới Kaiyuan Securities viết trong một ghi chú. Li Auto có kế hoạch kết hợp phần cứng có khả năng hỗ trợ tự động hóa L4 trong tất cả các xe ô tô mới bắt đầu từ năm nay. Còn FAW Jiefang Group, một nhà sản xuất ô tô truyền thống, có kế hoạch đưa xe tự hành L4 vào sử dụng thương mại trên đường cao tốc vào năm 2025. Phần cứng và phần mềm Cũng như nhiều thiết bị thông minh khác, chip trí tuệ nhân tạo là cốt lõi trong cuộc cạnh tranh phần cứng của các nhà sản xuất ô tô, vì một chiếc xe tự hành phải xử lý lượng dữ liệu khổng lồ mỗi giây. Điều này tăng lên theo cấp số nhân khi quá trình tự động hóa trở nên phức tạp hơn - một chiếc xe L4 phải xử lý các đơn đặt hàng dữ liệu lớn hơn so với chiếc xe L3 của nó. Năm ngoái, Nio đã tiết lộ mẫu EV ET7 của mình với bốn chip Nvidia Orin có khả năng xử lý dữ liệu đủ để cho phép tự động hóa L4. Xiaopeng có kế hoạch lắp hai chip Nvidia Orin trong mẫu G9 mới của mình. BYD, thương hiệu xe điện bán chạy nhất của Trung Quốc, có kế hoạch trang bị cho các phương tiện mới của mình chip do nhà sản xuất chip Trung Quốc Horizon Robotics sản xuất, cho biết chip Journey-5 của họ có đủ khả năng tính toán để tự động hóa L3. Bên cạnh chip hoạt động như bộ não của xe, phần cứng đóng vai trò như mắt của ô tô cũng là một lĩnh vực cạnh tranh then chốt. Các nhà sản xuất ô tô lớn của Trung Quốc sử dụng hàng chục loại cảm biến bao gồm nắp đậy và camera cho những chiếc xe mới của họ và có kế hoạch lắp đặt thêm trong tương lai. Lidar ô tô sử dụng tia lazer quay tròn để quét các chướng ngại vật xung quanh xe. Các nhà sản xuất ô tô Trung Quốc chủ yếu cung cấp công nghệ như vậy từ các công ty nước ngoài, chẳng hạn như Velodyne Lidar và Quanergy Systems của Thung lũng Silicon, và Hệ thống Ô tô Ibeo của Đức. Nhưng các nhà cung cấp trong nước như RoboSense (Suteng Innovation Technology) và Hesai Technology đang bắt kịp về công nghệ và giá cả, các nhà phân tích tại công ty môi giới Huaxi Securities viết trong một ghi chú. Tesla sử dụng một cách tiếp cận khác, chủ yếu dựa vào camera để đánh giá môi trường xung quanh xe. Một thách thức lớn do cách tiếp cận của các công ty Trung Quốc đặt ra là viết ra các thuật toán có thể kết hợp dữ liệu được thu thập bởi camera, bản đồ độ nét cao để thông báo cho việc ra quyết định của các phương tiện. Ngoài ra, một số người trong thị trường cho biết giao thông đô thị của Trung Quốc là một thách thức đặc biệt đối với thử nghiệm lái xe tự động vì thói quen lái xe địa phương và việc xây dựng thường xuyên làm phức tạp bức tranh giao thông. Tuy nhiên, một lợi thế mà các nhà sản xuất ô tô trong nước có được so với các công ty nước ngoài như Tesla đến từ việc cầm cân nảy mực. Các quy tắc quản lý dữ liệu của Trung Quốc có nghĩa là việc chuyển dữ liệu từ các phương tiện ở Trung Quốc ra nước ngoài được kiểm soát chặt chẽ và quyền truy cập của các công ty nước ngoài bị hạn chế, điều đó có nghĩa là Tesla có thể phải thành lập một nhóm phần mềm dành riêng cho Trung Quốc trong tương lai. Phương tiện và cơ sở hạ tầng Một trụ cột khác của lái xe tự động là cơ sở hạ tầng. Chính phủ Trung Quốc, mong muốn tìm ra một con đường hiệu quả cho chi tiêu cơ sở hạ tầng thúc đẩy nền kinh tế, nhằm mục đích xây dựng những con đường thông minh để tạo điều kiện cho việc lái xe tự hành - một cách tiếp cận được mô tả là ""phương tiện làm mọi thứ"" (V2X). Công ty kế toán Deloitte cho rằng, Trung Quốc có khả năng dẫn đầu về cơ sở hạ tầng thông minh vì nước này đã và đang tiếp tục đầu tư lớn vào các công nghệ viễn thông tiên tiến như 5G. Ngược lại, ở Mỹ, các nhà sản xuất ô tô có xu hướng dựa vào chính phương tiện thay vì cơ sở hạ tầng để đạt được tự động hóa do chính phủ đầu tư cơ sở hạ tầng yếu hơn và cách tiếp cận thận trọng hơn đối với quyền riêng tư. Các nhà sản xuất ô tô lớn của Trung Quốc đã và đang phát triển V2X ở một số khu vực được chọn ở một số thành phố, chẳng hạn như Vô Tích ở tỉnh Giang Tô. Tại các khu vực thử nghiệm, chính quyền địa phương kết nối cơ sở hạ tầng như đèn giao thông và camera với các phương tiện tự lái để giúp họ lái xe an toàn. Những người trong công ty nói với Caixin rằng, có khả năng các phương tiện tự hành cấp cao hơn sẽ chỉ được phép hoạt động trên một số tuyến đường nhất định sau khi chúng được hợp pháp hóa để đề phòng rủi ro về an toàn. Vào tháng 8 năm ngoái, một doanh nhân trẻ tên Lin Wenqin đã tử vong khi lái chiếc SUV Nio ES8 của mình xuống đường cao tốc ở tỉnh Phúc Kiến, dường như khi đang sử dụng chức năng hỗ trợ lái xe của ô tô. Vụ việc làm dấy lên những lo ngại mới về sự an toàn của các hệ thống như vậy. Không có báo cáo cuối cùng về vụ việc đã được phát hành. Một số người trong ngành đã đưa ra lo ngại rằng việc tiếp thị các hệ thống hỗ trợ lái xe không phù hợp với khả năng hạn chế hiện tại của họ, điều này có thể gây rủi ro cho cả người lái xe cá nhân và công chúng.",Các nhà sản xuất ô tô Trung Quốc chen lấn giành lợi thế trong lĩnh vực lái xe tự động,,,,
+fab-500x-20261114T224408Z-015,36,6954c00be53afac1ee6db5c0,7ab11f3a78e0ee865bdad6e8a4866089,fab-500x,vi,science,aya-dataset,human_authored,"[user] Hoàn thiện đoạn văn sau với nội dung có liên quan tới đoạn văn dưới đây: Hoàn thiện đoạn văn sau với nội dung có liên quan tới đoạn văn dưới đây: Đoạn văn sau đang nói về vấn đề gì? Làm sạch dầu dưới đáy biển là một công việc khó khăn. Ông Ugo Marzocchi - nhà sinh hóa học tại Đại học Aarhus (Đan Mạch) - giải thích: Nếu sự cố xảy ra trong các hệ thống nước ngọt nội địa, giải pháp thường làm là xử lý các lớp trầm tích khi đã bị dầu tràn ngấm vào. Chiến lược này thường tốn nhiều công sức và tiền bạc. Nếu xảy ra trên biển, chi phí còn tốn kém hơn nhiều. Marzocchi cho biết trước nay một số vi sinh vật sống trong đất có thể sử dụng hydrocacbon - các chất cấu thành dầu mỏ - để cung cấp nhiên liệu cho quá trình trao đổi chất của chúng. Tuy nhiên khó khăn ở chỗ khi các vi khuẩn này phân hủy hydrocacbon, chúng đồng thời sẽ tạo ra các chất sulfua gây bất lợi cho chính sự sống của chúng. Nói cách khác, các vi sinh vật có thể giúp làm sạch dầu trong một thời gian rồi ""qua đời"" vì những loại chất độc khác mà chúng tạo ra. Mới đây, các nhà sinh hóa học tại Đại học Utrecht (Hà Lan) đã phát hiện loài vi khuẩn cáp điện có thể trở thành nhân tố quyết định giải quyết bài toán này. Dưới kính hiển vi, vi khuẩn cáp điện trong giống như các liên kết mắt xích dài. Cơ thể đa bào của chúng có thể dài tới 5cm. Trong lớp vỏ của mỗi tế bào là những ""dây"" protein dẫn điện song song mà vi khuẩn sử dụng để chuyển các điện tử. Ông Nicole Geerlings - nhà khoa học tại Đại học Utrecht (Hà Lan) - cho biết vi khuẩn cáp điện đã sử dụng những phần cơ thể dạng sợi của chúng để làm một ống dẫn lấy đi những electron từ các chất sulfua độc hại, đồng thời chuyển chúng thành oxy. Đây là cách loại vi khuẩn này thường làm để tự cung cấp năng lượng cho mình. Cũng có nghĩa là nếu bổ sung vi khuẩn cáp điện vào ""biệt đội"" giải cứu dầu tràn, chúng sẽ ""dọn dẹp"" các chất sulfua và tạo điều kiện cho những ""đồng nghiệp"" khác giải quyết trực tiếp dầu tràn. Kết quả các thử nghiệm trong phòng thí nghiệm cho thấy sự xuất hiện của vi khuẩn cáp điện đã giúp tăng hiệu quả cho các vi khuẩn xử lý dầu tràn lên tới 31%. Chúng đã giúp đẩy nhanh hoạt động trao đổi chất của những loại vi khuẩn ăn dầu bằng cách chuyển hóa các sulfua độc hại. Theo các nhà khoa học từ Đại học Utrecht (Hà Lan), vi khuẩn cáp điện được phát hiện lần đầu tại đáy vịnh Aarhus của Đan Mạch. Đến nay, loại vi khuẩn này đã được tìm thấy trong suối, hồ, cửa sông và ven biển thuộc ít nhất 4 lục địa. Vi khuẩn ẩn náu ở nông trong lớp trầm tích, với một đầu nằm gần bề mặt nơi có oxy và đầu kia cắm vào các vùng sâu hơn, giàu sulfua. Lối sống độc đáo này cho phép vi khuẩn tồn tại trong một môi trường mà nhiều sinh vật không thể chịu đựng được.",Phát hiện vi khuẩn có thể giúp xử lý sự cố tràn dầu,,,,
+fab-500x-20261114T224408Z-015,37,4d5546b4a00909a4e87313e4,7e25426745f831dd21b7bc7a6971704e,fab-500x,vi,web_frontend,aya-dataset,human_authored,"[user] Hãy đặt một tiêu đề phù hợp với đoạn văn sau:  Cái chết của Chính (Thanh Bình) khiến Trại Hoa Đỏ vốn là vùng đất hoang vắng, nay càng trở nên rùng rợn hơn. Mất kiểm soát ý thức vì bệnh tâm lý, Vỹ (Trâm Anh) tự nghi ngờ mình là hung thủ và cũng trở thành nghi can số một trong mắt cảnh sát. Tuy nhiên, không chỉ riêng Vỹ, mọi người nơi đây đều trở thành nghi can với các dấu hiệu đáng ngờ. Ba tập đầu Trại Hoa Đỏ gieo những hạt giống của nhiều vấn đề như án mạng bí ẩn, tham vọng tiền bạc, dã tâm con người, tình yêu độc hại, quá khứ ly kỳ của gia tộc họ Quách - chủ nhân khu đất Trại Hoa Đỏ. Bước sang tập 4, kịch bản đẩy mạnh hai tuyến truyện về vụ án và về nhà họ Quách, tăng sự đáng ngờ cho nhiều nhân vật từ chính tới phụ. Lúc này, tác phẩm trở nên gay cấn và kịch tính hơn bởi tính hấp dẫn của một bộ phim điều tra, phá án với nhiều manh mối được gợi mở, nhiều nghi can có động cơ mạnh mẽ và nhiều suy luận tiềm năng. Tập phim đầy ắp tình tiết nhưng được đạo diễn Victor Vũ kiểm soát tốt, duy trì nhịp kể mạch lạc, cuốn khán giả vào câu chuyện hấp dẫn mà không gây rối não. ""Siêu năng lực của Vỹ"" Những ngày đầu tiên đặt chân tới Trại Hoa Đỏ, Vỹ lờ mờ thấy bóng người lạ trong căn biệt thự của vợ chồng cô, qua những cơn mộng du. Đôi khi, cô cảm tưởng mình từng đặt chân đến mảnh đất xa lạ này.  Vỹ liên tục bị gặp những hiện tượng kỳ lạ từ khi đặt chân đến Trại Hoa Đỏ Lần đầu tiên, Vỹ quan sát mọi thứ rõ ràng, lắng nghe thanh âm thực tế, thay vì chỉ hư ảo như ở cõi mơ. Cô bắt gặp một người mẹ trẻ chuyện trò với con gái trong chính căn nhà cô sống cùng chồng sắp cưới. Bé gái ngồi trên ngựa gỗ, tay cầm hộp nhạc. Giai điệu phát ra từ hộp nhạc chính là bản nhạc tiếng sáo vẫn thường vang bên tai cô một cách kỳ quặc. Người mẹ trẻ gọi con gái là Yến, còn bé Yến nhắc đến ""ba Nam"". Theo lời kể của ông bà Miến - đôi vợ chồng làm công ở Trại Hoa Đỏ đã 50 năm, người mẹ trẻ Vỹ nhắc đến là cô Thúy (Diệp Bảo Ngọc), kế toán trước đây của doanh nghiệp họ Quách, cũng là người tình của ông Nam (Thanh Thức), chồng quá cố của bà Hồng (NSƯT Hạnh Thuý).  Ông Nam và cô Thuý liệu có mối liên hệ đặc biệt gì với Vỹ? Chạm vào hộp nhạc phủ mờ bụi thời gian, Vỹ như trở về 25 năm trước, cảm nhận sắc nét hơn chuyện tình của cô Thúy - ông Nam và những bí mật bị chôn vùi của điền trang Trại Hoa Đỏ. Những tình tiết đậm tính ""siêu năng lực"" như vậy hiếm khi hiện diện trên màn ảnh Việt, gợi nhiều liên tưởng đến các bộ phim tâm linh, siêu nhiên của thế giới. Những lời dối gian Dàn nhân vật của Trại Hoa Đỏ không ngừng nói dối để bao biện cho chính mình. Lấy trộm nhẫn cưới từ xác Chính, ông Miến bị cảnh sát tạm giam, lời kêu oan của ông chưa được xác minh.  Ông Miến bất ngờ trở thành nghi phạm mới của vụ án Bà Hồng, Vân (Cao Thái Hà) và Ráy (Ngân Hòa) cũng trở thành tâm điểm của nghi vấn. Ba người phụ nữ gắn bó mật thiết nhất tới Chính nhưng đều mang những ý đồ cay nghiệt với anh. Một người mẹ thờ ơ trước cái chết của con, một người vợ muốn hại chồng để được tự do đi theo tình mới, một cô bồ nhí mang lòng sân hận.  Ba người phụ nữ có mối quan hệ mật thiết với nạn nhân cũng có khả năng gây án Ai trong số họ cũng đầy động cơ gây án. Nhưng trước mặt cảnh sát, mỗi người đều nói tốt về mình và kể hoài không hết những chuyện xấu của hai người đàn bà còn lại. Quyết liệt và mưu mô với gia đình chồng là vậy, nhưng Vân lại mù quáng bên Lưu (Quốc Huy). Chỉ cần đôi ba câu ngọt nhạt hay một nụ hôn say nồng, cô lại xuôi nghe theo lời dẫn dụ, hứa hẹn của người tình. Chiếc váy ngủ gợi tình Vân mặc khi hẹn hò với Lưu (Quốc Huy) được phát hiện cùng thương hiệu với bộ đồ pyjama của Vỹ. Mặc dù Vân khai đó là quà Chính tặng cho cô, cảnh sát vẫn đặt cô vào diện tình nghi quan trọng. Cùng lúc, Ráy tuyên bố có bằng chứng xác minh ông Miến vô tội. Khép lại ở khoảnh khắc này, Trại Hoa Đỏ tiếp tục mở ra một câu hỏi lớn, đẩy khán giả vào cảm giác mong chờ tập 5. Đi qua một nửa số tập, series triệu đô Trại Hoa Đỏ càng lúc càng cuốn khán giả vào quá trình điều tra phá án và tò mò về mối liên quan giữa Vỹ với vùng đất này, chuyện tình tay ba Vỹ - Lưu - Vân và những bi kịch chôn vùi dưới căn biệt thự bỏ hoang của nhà họ Quách. Bom tấn dài tập Trại Hoa Đỏ gồm 8 tập, mỗi tập một tiếng, lên sóng vào 20:00 Thứ 2 hàng tuần trên kênh K+CINE và App K+, độc quyền trên mọi nền tảng của Truyền hình K+. Chỉ còn hôm nay (31/7), khách hàng đăng ký tài khoản App K+ sẽ nhận ngay 7 ngày MIỄN PHÍ xem gói Trọn vẹn cùng ưu đãi 30% khi mua gói. Đồng thời, giảm thêm 30,000đ khi nhập mã TRAIHOADO tại đây. Nguồn: https://arttimes.vn/thong-tin-doanh-nghiep/tram-anh-cao-thai-ha-hanh-thuy-ngan-hoa-thanh-nghi-ca...Nguồn: https://arttimes.vn/thong-tin-doanh-nghiep/tram-anh-cao-thai-ha-hanh-thuy-ngan-hoa-thanh-nghi-can-giet-thanh-binh-trong-series-trieu-do-trai-hoa-do-c60a8433.html","Trâm Anh, Cao Thái Hà, Hạnh Thuý, Ngân Hoà thành nghi can giết Thanh Bình trong series triệu đô Trại Hoa Đỏ",,,,
+fab-500x-20261114T224408Z-015,38,351da3027a84abe3dc996dac,3be3711d5e1a3b9077b75990af7fed31,fab-500x,vi,web_fullstack,aya-dataset,human_authored,"[user] Dựa trên tiêu đề sau, hãy viết một đoạn văn tối đa 500 chữ: Cập nhật giá đơn vị quỹ Prulink của Prudential Việt Nam",Xem thêm thông tin tại website: https://www.prudential.com.vn/vi/thong-tin-cac-quy-dau-tu/quy-lien-ket-don-vi-prulink/,,,,
+fab-500x-20261114T224408Z-015,39,6047cf00173511a164556710,e9aa1e31656955fbab0ddc0fc0b6a32d,fab-500x,vi,writing,aya-dataset,human_authored,"[user] Write a continuation for this paragraph - Tháng 12 năm 1917, Phần Lan tuyên bố độc lập khỏi Nga, như một phản ứng đối với cuộc Cách mạng Tháng Mười ở Nga. Những bất ổn nội bộ trong nước sớm rơi vào một cuộc nội chiến đẫm máu","với chiến thắng nghiêng về phía Bạch Vệ, tức là các đảng phái không theo xã hội chủ nghĩa. Trong suốt chiến tranh, phe Bạch Vệ nhận được sự ủng hộ của Đức. Trong một nỗ lực để củng cố liên minh với Đức, các thành viên xã hội chủ nghĩa trong Quốc hội Phần Lan đều bị thanh trừng, sau đó Vương công Friedrich Karl xứ Hessen đã được bầu làm Vua của Phần Lan. Trước khi Friedrich Karl kịp di chuyển tới Phần Lan, sự sụp đổ của Liên minh Trung tâm khiến cho ý tưởng một vị vua người Phần Lan gốc Đức không thể đứng vững và ông đã phải từ bỏ ngai vàng. Sau cuộc bầu cử mới, Quốc hội giờ đây với đại diện của tất cả các đảng phái đã nhất trí thông qua một bản hiến pháp cộng hòa năm 1919 vốn có hiệu lực ngay sau đó, với những thay đổi lớn vào năm 1999.",,,,
+fab-500x-20261114T224408Z-015,40,b5544e9127c290048e0a9f26,424054bfa5c0864a1cdef54fc66f764d,fab-500x,wol,coding,aya-dataset,human_authored,"[user] Lepp looy def te bëgg sa ndam 
+Ànd si ak fullë ak fayda ak farlu te sax sa 
+Ginnaaw binga xamee ni mbir mu baax la
+Yamaleen nekk si yaw rek wala nekkandoo si ak àdina sepp.","Alhamdlilaah 
+Ku xool Li la wër dinga sant yàlla",,,,
+fab-500x-20261114T224408Z-015,41,87888faf85a65989b5df4663,4b4e1eb281bac94ec452a90815117074,fab-500x,wol,general_knowledge,aya-dataset,human_authored,[user] Porto-Novo mooy péeyu ban réew?,Porto-Novo mooy péeyu réewum Bénin.,,,,
+fab-500x-20261114T224408Z-015,42,153134c12499d23ed4ab0e6e,8538adae9b47eb86c982e5b29f0b26d6,fab-500x,wol,islamic_studies,aya-dataset,human_authored,[user] Fan moy péeyum réwum Pakistan,Péeyum réwum Pakistan mu ngi tudu Islamabad,,,,
+fab-500x-20261114T224408Z-015,43,a68298d1e06196b753b27134,da7f407a8444a8039f18087e89e4eb90,fab-500x,xho,general_knowledge,aya-dataset,human_authored,[user] xa esithi umntu ndakkuthi Bovu uthetha ukuthini ngesixhosa.,uthetha ukuba uzakuhlaba.,,,,
+fab-500x-20261114T224408Z-015,44,59b9bc0d65bf2c8b22d0962c,00c4d47a21b4bf8bcb423ede707ad3f5,fab-500x,xho,mathematics,aya-dataset,human_authored,"[user] Ngubani owasungula ukukrwela? 
+Iindlela zokukrwela zanamhlanje zenziwa zenzeka ngokuqaliswa kweepleyiti ezijikelezayo, ezikhokelela ekuveleni kweepleyiti ezijikelezayo. Ii-turntables zokuqala eziqhutywa ngebhanti zazingakulungelanga ukukrwela kuba zazinethuba lokuqalisa kancinci, kwaye zazinokutyhala kwaye ziphule, njengoko ibhanti liza kuphuka ngenxa yokubuyela umva okanye ukukrwela. I-turntable yokuqala yokuqhuba ngokuthe ngqo yaqanjwa nguShuichi Obata, injineli eMatsushita (ngoku eyiPanasonic), ese-Osaka, eJapan. Yayilahla ibhanti, yaza endaweni yayo yasebenzisa imoto ukuqhuba ngqo ipleyiti apho irekhodi levinyl lihlala khona. Ngowe-1969, uMatsushita wayikhupha njenge-SP-10, i-turntable yokuqala yokuqhuba ngokuthe ngqo kwintengiso, kunye neyokuqala kuthotho lwabo lweTechnics olunempembelelo. Ngeminyaka yee-1970, iimvumi zehip hop kunye nee-DJ zeeklabhu zaqala ukusebenzisa izixhobo ezizodwa zokuguqula irekhodi ukuya nokubuya, ukudala izandi ezibetha kunye neziphumo ""zokukrwela"" ukuzonwabisa abaphulaphuli babo kumgangatho wokudanisa. Ngelixa ii-DJs zerediyo ze-1940s-1960s bezisebenzisa ukubuyela umva ngelixa bephulaphule izandi nge-headphone zabo, ngaphandle kwabaphulaphuli abaphulaphulayo, ngokukrwela, i-DJ ngokuzithandela ivumela abaphulaphuli ukuba beve izandi ezenziwayo ngokulawula irekhodi kwi-turntable, ngokwalathisa ukuphuma kwi-turntable ukuya kwinkqubo yokomeleza isandi ukuze abaphulaphuli beve izandi. Ukugqobhoza kwaphuhliswa zii-DJ zokuqala ze-hip hop ezivela kwisiXeko saseNew York ezinje ngeGrand Wizzard Theodore, ochaze ukugqobhoza, ""akukho nto ngaphandle kokukhonkotha okuva endlebeni yakho ngaphambi kokuba uyithumele [isandi esiqoshiweyo] kwisihlwele"". Waqulunqa ubuchule xa wayezama i-Technics SL-1200, i-turntable eqhuba ngokuthe ngqo ekhutshwe nguMatsushita ngo-1972 xa wafumanisa ukuba imoto iya kuqhubeka ijikeleza kwi-RPM echanekileyo nokuba i-DJ yayigxotha irekhodi emva naphambili kwiplate. UAfrika Bambaataa wenza into efanayo nge-SL-1200 ngeminyaka yoo-1970. I-Technics SL-1200 yaqhubeka yaba yeyona nto isetyenziswa kakhulu kwi-turntable kumashumi eminyaka alandelayo. U-DJ Kool Herc, owazalelwa eJamaica waza wafudukela kwisiXeko saseNew York, waba nempembelelo ekuphuhlisweni kokuqala kokukrwela. UKool Herc waphuhlisa i-break-beat DJing, apho iziqendu zeengoma ze-funk - ezona ndawo zinokudaniswa, zihlala zibandakanya ukubetha - zazikhethelwe kwaye ziphindaphindwe ngenjongo yemibutho yokudanisa ubusuku bonke. Wayephenjelelwe ngumculo waseJamaican dub, kwaye waphuhlisa ubuchule bakhe be-turntable esebenzisa i-Technics SL-1100, ekhutshwe ngo-1971, ngenxa yemoto yayo eyomeleleyo, ukuqina, kunye nokunyaniseka. Nangona amagcisa angaphambili afana nombhali nembongi uWilliam S. Burroughs wayevavanye ngombono wokuphatha i-reel-to-reel tape ngesandla ukwenza izandi, njengakwirekhodi lakhe le-1950s, ""I-Sound Piece"", i-vinyl scratching njengento ye-hip hop yaphayona umbono wokwenza isandi sibe yinxalenye ebalulekileyo kunye nesingqisho somculo endaweni yengxolo engalawulwayo. Ukutshiza kuhambelana ""nokucoca"" (ngokubhekiselele ekuhlelweni kweaudiyo kunye nemveliso) xa iireels ze-reel-to-reel tape deck (ngokuqhelekileyo i-1/4 intshi ye-magnetic audio tape) ijikelezwe ngenyameko emva nangaphambili ngelixa intloko yokudlala isaphila kwaye ikhulisiwe, ukuhlukanisa indawo ethile kwi-tape apho ukuhlela ""kunqunyulwa"" kufuneka kwenziwe. Kwiminyaka yo 2010, kokubini ukukrwela kunye nokucoca kungenziwa kwizitishi zokusebenza zomsindo zedijithali (DAWs) ezixhotyiselwe ezi ndlela. Apho kwaqala khona konke umzekelo weDJ wengoma ethi ""Where it All Started"" Ingaba kukho ingxaki ekudlaleni le fayile? Jonga uncedo lweendaba. UChristian Marclay wayengomnye wabaculi bokuqala ukucula ngaphandle kwehip hop. Phakathi kwiminyaka yee-1970, uMarclay wasebenzisa iirekhodi zegramophone kunye neetrontables njengezixhobo zomculo ukudala iikholaji zesandi. Wavelisa izandi zakhe ze-turntable ngokuzimeleyo kwii-DJ ze-hip hop. Nangona engaziwa ngabantu abaninzi, uMarclay uye wachazwa ""njengoyena mntu unempembelelo kwi-turntable ngaphandle kwe-hip hop"" kunye ""nomqambi ongazi nto we-turntablism"". Ngowe-1981 iGrandmaster Flash yakhupha ingoma ethi ""The Adventures of Grandmaster Flash on the Wheels of Steel"" eyaziwa ngokusetyenziswa kwayo kweendlela ezininzi zokukrwela i-DJ. Yayikukuqala ukurekhoda kwezorhwebo okwenziwa ngokupheleleyo kusetyenziswa iitronet. Ngowe-1982, uMalcolm McLaren kunye neQela eliPhakamileyo elidumileyo leHlabathi likhuphe i-single ethi ""Buffalo Gals"", edibanisa ukukrwela okubanzi kunye neefowuni ezivela kumdaniso wesikwere, kwaye, ngo-1983, i-EP, iD'ya Like Scratchin'? egxile ngokupheleleyo ekrweleni. Enye ingoma eyaphuma ngo-1983 eyabalaselisa ukukrwela yiGrammy Award-winning single kaHerbie Hancock ethi ""Rockit"". Le ngoma yayidlalwa ngokuthe ngqo kwi-Grammy Awards ka-1984, kwaye kwifilimu ye-documentary Scratch, intsebenzo icatshulwa ngabaninzi be-DJs be-1980s njengokuqala kwabo ukubetha. I-Street Sounds Electro ingqokelela yoluhlu eyaqala ngo-1983 nayo iyaphawuleka ngenxa yemizekelo yokuqala yokukrwela. Kwakhona, icandelo eliphawulekayo yayingu ""For A Few Dollars More"" nguBill Laswell-Michael Beinhorn band Material, ekhutshwe kwi-12 ""yodwa eJapan kwaye iqulethe ukukrwela okwenziwe nguGrand Mixer DXT, omnye uvulindlela wokukrwela.","Njengokuba ukukrwela yayisisiganeko esiqhelekileyo esenziwe ngokufika kweediski ezijikelezayo, kunzima ukuxelela ukuba ngubani umntu wokuqala ukukrwela kwidiski ejikelezayo, nangona kunjalo kuvunyelwene ukuba iGrandMasterFlash kunye neKoolHerc zenze uhlobo oludumileyo.",,,,
+fab-500x-20261114T224408Z-015,45,33abd79723cc48c74eb793b5,858caf966cf6980bf95b3207c34296d8,fab-500x,xho,writing,aya-dataset,human_authored,"[user] generate a poem ""Ukutshona kukamendi by Sek Mqhayi"" in Xhosa","sure here is the poem:
+Ukutshona kukaMendi by SEK Mqhayi:
+
+Ewe le nto kakade yinto yaloo nto
+Thina nto zaziyo asothukanga nto
+Sibona kamhlophe sithi mekumelwe
+Sitheth’ engqindweni sithi kufanelwe
+
+Xa bekunge njalo bekungayi kulunga
+Ngoko ke Sotashe kwaqala ukulunga.
+Le nqanaw’ uMendi namhla yandisile
+
+Nal’ igazi lethu lisikhonzisile
+Asinithumanga ngazo izicengo
+Asinithenganga ngayo imibengo
+Beku ngenga nzuzo zimakhwezikhwezi
+Beku ngenga ndyebo zingange nkwekhwezi
+Sikwatsho nakuni bafel’ iAfrika
+Kwelase Jamani yase Mpumalanga
+Nelase Jamani yase Ntsonalanga
+Bekungenga mbeko eninayo kuKumkani
+
+Bekungenga ntobeko yenu kwiBritane
+Mhla nashiy’ ikhaya sithethile nani
+Mhla nashiy’ iintsapho salathile kuni
+Mhla sabamb’ izandla, mhla kwamanz’ amehlo
+Mhla balil’ oonyoko, bangqukrulek’ ooyihlo
+Mhla nazishiy’ intaba zezwe lenu
+
+Mhla nayiy’ nikel’ imiv’ imilambo yezwe lenu
+asitshongo na kuni midak’ owethu
+Ukuthi “kwelo zwe nilidini lethu”?
+Ngesi binge ngantoni ke kade?
+
+Idini lomzi liyintoni ke kade?
+Asi ngomathol’ amaduna omzi na?
+Asi zizithandwa zesizwe kade na?
+
+Ngoku kuthetha siyendelisela
+Sibhekis’ ezantsi, sihlahl’ indlela
+Asi ngohabheli na idini lomhlaba?
+Asi ngoMesiya na elasezulwini?
+Thuthuzelekani ngoko zinkedama!
+Thuthuzelekani ngoko bafazana!
+Kuf’ omnye kade mini kwakhiw’ omnye
+Kukhonz’ omnye kade kuphil’ abanye
+
+Ngala mazwi sithi thuthuzelekani
+Ngokwenjenje kwethu sithi yakhekani
+Lithatheni eli qhalo labadala
+Kuba bathi “akuhlanga lungehlanga!”
+Awu! Zaf’ int’ ezinkulu zeAfrika!
+
+Isindiwe le nqanawe ‘de yazika
+Kwaf’ amakhalipha, amafa naNkosi
+Agazi lethetha kwiNkosi yeenkosi
+Ukufa kwawo kunomvuzo nomvuka
+Ndinga ndingema nawo ngemhla wovuko
+Ndigqhame njengomny’ osebenzileyo
+Ndikhanye njengomso oqaqambileyo
+Makube njalo!",,,,
+fab-500x-20261114T224408Z-015,46,307998c9b2f25f988e12ae82,14be8a4441be04414003e1d9827f51c3,fab-500x,yor,coding,aya-dataset,human_authored,[user] Benedict Okey Oramah,"Benedict Okey Oramah jẹ onimọ-ọrọ-aje ati oniṣowo lorilẹ-ede Naijiria, o si ti jẹ ààrẹ ati Alaga Igbimọ Awọn oludari ti African Export–Import Bank (Afreximbank), lati ọdun 2015.
+
+O ti ṣe atẹjade iwe kan, Awọn ipilẹ ti Isuna Iṣowo Iṣeto, o si ti kọ diẹ sii ju awọn nkan 35 lori ọpọlọpọ awọn ọrọ-aje, iṣowo ati iṣowo iṣowo Afirika.
+
+A bi Oramah sinu idile awọn agba lati Nnokwa, ni orilẹ-ede Igbo, guusu ila-oorun Nàìjíríà. Baba rẹ 'Olori' Lazarus A. Oramah jẹ ọmọ ẹgbẹ ti ijoye ibile agbegbe.
+
+Dokita Oramah di M.Sc. ati Ph.D. oye ninu eto oro aje ogbin, ti o gba ni 1987 ati 1991 lẹsẹsẹ, Yunifásítì Ọbáfẹ́mi Awólọ́wọ̀, Ile-Ife, Nàìjíríà. O gba B.Sc. oye, tun ni eto eto-ọrọ ogbin, lati Yunifásítì ìlú Ìbàdàn, Nàìjíríà, ni ọdun 1983.
+
+O ni Iwe-ẹri Isakoso Ilọsiwaju lati Yunifásítì Kòlúmbíà. Ni 22 Keje 2018, o jẹ Ọjọgbọn ti Iṣowo Iṣowo ati Isuna Kariaye nipasẹ Ile-ẹkọ giga Adeleke, Nàìjíríà.
+
+Dokita Oramah darapọ mọ Afreximbank gẹgẹbi Oluyanju Oloye ni 1994 ati pe o ni igbega si ipo Oludari Agba, Eto ati Idagbasoke Iṣowo ni 2007. Ṣaaju ki o darapọ mọ Afreximbank, o jẹ Alakoso Iwadi Iranlọwọ ni Ile-ifowopamọ Ijabọ-Iwọwọle Ilu Naijiria lati 1992. O ti jẹ Alakoso Igbakeji Alakoso tẹlẹ ni idiyele ti Idagbasoke Iṣowo ati Ile-ifowopamọ Ile-iṣẹ lati (Oṣu Kẹwa 2008 - Oṣu Kẹsan 2015).
+
+O ti ni iyawo o si bi ọmọ mẹta.",,,,
+fab-500x-20261114T224408Z-015,47,2987d2d25cb4d3b3cd1855a7,a1c808ab16398763490bd69b08a5b485,fab-500x,yor,education,aya-dataset,human_authored,"[user] Ijọ ECWA yari, wọn nijọba Kwara ko le kan hijaabu nipa fawọn ọmọ awọn","Ko daju pe wahala to n ṣẹlẹ laarin ijọba atawọn ileewe tawọn ẹlẹsin Krisitẹni da silẹ ni Kwara lori ọrọ lilo ibori fawọn akẹkọọ-binrin ṣetan lati dopin rara, ọjọ Ẹti, Furaidee, ọsẹ yii, tun ni awọn alakooso ijọ Evangelical Church Winning All (ECWA), nipinlẹ Kwara, sọ pe awọn ko ni i gba kijọba kan ibori mọ awọn lori.
+
+Nigba to n ba awọn oniroyin sọrọ, Alaga ijọ ECWA, niluu Ilọrin, Ẹni-Ọwọ John Owoẹyẹ, ran ijọba leti pe niwọngba tijọba ko ti le gbe olukọ imọ bibeli lọ sawọn ileewe Musulumi, ti wọn ko si gba ipejọpọ awọn ọmọlẹyin Kristi, Fellowship of Christian Students (FCS) lawọn ileewe naa, ijọba ko lẹtọọ rara lati kan hijaabu nipa fawọn akẹkọọ tabi kan an le awọn lori ni tipa.
+
+Owoẹyẹ ni igbesẹ tijọba fẹẹ gbe lati gbe hijaabu jade ti gbogbo ileewe; tijọba ati tajọ krisitẹni, yoo maa lo, ko le fẹsẹ mulẹ laelae, nitori pe gbogbo ọna lawọn yoo fi daabo bo igbagbọ awọn, awọn ko si ni i gba ẹnikẹni laaye lati tẹ ẹtọ awọn loju mọlẹ.
+
+O ṣalaye pe awọn baba igbagbọ to mu ẹsin Krisitẹni wa sorilẹ-ede Naijiria lo gbe awọn ileewe ECWA kalẹ lati fifẹ han si araalu ati lati pese eto ẹkọ to ye kooro, lai ka ẹya tabi ẹsin araalu si.
+
+Awọn adari ECWA naa n beere fun idapada awọn ileewe wọn, nitori pe ninu adehun to wa laarin awọn alaṣẹ ileewe to jẹ ti Krisitẹni ati ijọba, eyi ti wọn tọwọ bọ lọdun 1974, ko si nibẹ pe ijọba maa gba ileewe awọn patapata.
+
+Wọn ni ninu oogun awọn lawọn fi n ṣe atunṣe awọn ileewa naa, ko si si bijọba ṣe le gba ogun awọn lọwọ awọn nipa kikan ofin kan le awọn lori.
+
+Owoẹyẹ ni ojulowo ọmọ Kwara lawọn Krisitẹni, wọn ni ẹtọ kan naa tawọn Musulumi ni labẹ ofin. O ni igbesẹ tijọba gbe lori ọrọ hijaabu yii ti fi han pe wọn fẹẹ gbe ẹsin kan ga ju ikeji lọ, ko si le ṣee ṣe laelae.",,,,
+fab-500x-20261114T224408Z-015,48,0e317354296682aaf49da3ad,62a3e216000376bae50724106d04dd71,fab-500x,yor,general_knowledge,aya-dataset,human_authored,"[user] Awọn tọọgi ya wọ aafin Ṣọun Ogbomọṣọ, ori lo ko Kabiesi ati minisita kan yọ","Ori lo ko minisita fọrọ ọdọ ati ere idaraya lorileede yii, Ọgbẹni Sunday Dare ati Ṣọun ilẹ Ogbomọṣọ, Ọba Jimoh Ọladunni Oyewumi (Ajagungbade Kẹta), yọ lọwọ iku tabi ijamba ojiji nigba tawọn ọmọ iṣọta ya lu aafin ọba naa ti wọn si ba ọpọlọpọ dukia jẹ.
+
+Lẹyin ti awọn agbofinro fẹyin pọn Ọba Oyewumi atawọn alejo rẹ gba ẹyinkule jade laafin lawọn janduku naa fi taya dana saafin ọba. Wọn fi apola igi kan ẹsẹ diẹ ninu awọn aga ti awọn alejo Ṣọun fi n jokoo, bẹẹ ni wọn fọ gilaasi oju ferese aafin ọba.
+
+Ere tete lawọn ti ile wọn wa nitosi sa de aafin nigba ti wọn ri eefin ina nla to n ru soke lati ibẹ. Nigba ti wọn debẹ ni wọn ri i pe ina ọhun ko ṣeeṣi ṣẹ yọ nibẹ, awọn ẹruuku lo kina bọle ọba. Ọpọ awọn to n gbọ iroyin iṣẹlẹ yii latokeere si ro pe niṣe laafin ti jona kanlẹ pata.
+
+Tẹ o ba gbagbe, lọjọ Abamẹta, Satide, to kọja, lawọn ọdọ ilu Ogbomọṣọ darapọ mọ awọn ẹgbẹ wọn kaakiri orileede yii lati ṣe iwọde alaafia tako bi awọn SARS, iyẹn awọn ọlọpaa to n gbogun ti idigunjale nilẹ yii, ṣe n hu awọn iwa ibajẹ bii ipaniyan, ilọnilọwọgba ati oniruuru iwa ọdaran mi-in. Eyi ni wọn si n ṣe lọwọ ti ọkan ninu awọn ọlọpaa to n gbiyanju lati tu awọn olùwọ́de ọhun ka to fi yibọn pa ọmọkunrin kan to n jẹ Jimoh Isiaq.
+
+Iku ọmọkunrin ẹni ọdun mẹtalelogun yii lawọn ọdọ tun ṣe ifẹhonu han le lori lọjọ keji, iyẹn ọjọ Aiku, Sannde, ọsẹ yii, ti wọn fi kọlu aafin ọba.
+
+Nigba to n fidi iṣẹlẹ yii mulẹ, minisita fọrọ ọdọ ati ere idaraya nilẹ yii sọ pe nibi ti awọn alaṣẹ ilu ti n ṣepade lọwọ lori iṣẹlẹ ibanujẹ ọjọ Satide ọhun lawọn tọọgi ti de tijatija.
+
+Gẹgẹ bo ṣe sọ, “Ọmọluabi ni tọmọde tagba ilu Ogbomọṣọ, awọn tọọgi lo darapọ mọ awọn to n ṣe ifẹhonu han yẹn ti wọn fi lo oore-ọfẹ yẹn lati ba nnkan jẹ.
+
+“Nibi ta a ti n ṣepade lọwọ lawọn janduku yẹn waa ka wa mọ. Awọn agbofinro, titi dori awọn ọlọpaa to wọṣọ atawọn ọlọpaa abẹnu ni wọn fi ẹyin pọn emi pẹlu Kabiesi atawọn igbimọ lọbalọba ilu Ogbomọṣọ jade laafin.
+
+Ọgbeni Dare ti oun funra rẹ jẹ ọmọ Ogbomọṣọ waa rọ awọn ọdọ ilu naa lati gba alaafia laaye, ki wọn si yago fun igbesẹ to ba le jẹ ki awọn tọọgi fi orukọ wọn huwa ọdaran.
+
+Nigba to n ṣalaye akitiyan awọn agbofinro lori iṣẹlẹ yii, agbẹnusọ fun ileeṣẹ ọlọpaa ipinlẹ Ọyọ, SP Olugbenga Fadeyi fi awọn ara Ogbomọṣọ lọkan balẹ lati maa ba iṣẹ oojọ wọn lọ lai foya.
+
+Gẹgẹ bo ṣe sọ, “Awọn ọlọpaa, pẹlu ikunlọwọ Operation Burst, iyẹn awọn oṣiṣẹ ajọ eleto aabo ipinlẹ Ọyọ niluu Ogbomọṣọ ni wọn ṣi awọn ọmọ iṣọta yẹn lọwọ iwa bàsèjẹ́ yẹn. Bi mo ṣe n ba yin sọrọ yii, awọn ọlọpaa ti gbakoso eto aabo ilu Ogbomọsọ, wọn si ti gẹgun yika aafin lati daabo to peye bo ile ọba atawọn araalu.”",,,,
+fab-500x-20261114T224408Z-015,49,4cc8c444c401114b0a40209a,9616ad90a450c70c5363c21c8970fc09,fab-500x,yor,islamic_studies,aya-dataset,human_authored,[user] Sultan kilọ fun ijọba Buhari lori ọrọ SARS,"Bi ogunlọgọ ọmọ orilẹ-ede yii ṣe n binu, ti wọn n faraya lori ọwọ ti Aarẹ Muhammed Buhari fi mu bi wọn ṣe pa awọn ọdọ Naijiria nipakupa ni Too-geeti Leki, l’Ekoo, Sultan Sokoto, Ọba Sa’ad Abubakar, ti kilọ fun Buhari ko ṣe pẹlẹpẹlẹlori ọrọ yii o.
+
+O lo ṣe pataki ki Buhari fọgbọn ṣe wahala to delẹ yii, paapaa bi inu ṣe n bi awọn ọmọ Naijiria lasiko yii latara adanu nla to ṣe awọn eeyan lori bi ẹmi ati dukia ṣe ṣofo lẹyin ti awọn ṣoja kọlu awọn ọdọ ni Lẹki, tọrọ ọhun si di rogbodiyan nla.
+
+Ọba Sokoto sọrọ yii ninu atẹjade kan ti akọwe  ijọ Jama’atul Nasril Islam fi sita, Dokita Khalid Abubakar.
+
+Ninu ẹ lo ti rọ awọn ọdọ to n ṣewọde yii lati pada sinu ile wọn ki alaafia le jọba laarin ilu. Bakan naa lo gba ijọba niyanju lati fọwọ ẹlẹmu mu un, paapaa bi ọrọ ọhun ti ṣe la ọpọ ẹmi lọ, tawọn ọdọ paapaa ko ṣetan lati fojuure wọ awọn ẹṣọ agbofinro.
+
+Ọba Hausa yii ti waa ke si awọn ologun naa ki wọn ṣe pẹlẹpẹlẹ pẹlu ọwọ ti wọn fi mu ọrọ ọhun ko ma baa burẹkẹ ju bayii lọ.
+
+“Ti ijọba Buhari ko ba fẹlẹ mu ọrọ to dele yii, idaamu ati wahala rẹpẹtẹ lo le ko ba orilẹ-ede yii, nitori naa, ẹ jẹ ka ṣọra ṣe” Ọba Sokoto lo sọ ọ.",,,,
+fab-500x-20261114T224408Z-015,50,8c7ffa24ce6d066b213ad1be,ee940b36d8cef81639ff14a23102a125,fab-500x,yor,mathematics,aya-dataset,human_authored,"[user] Awọn adigunjale pa ọlọdẹ ni Sango, wọn tun gba mọto meji","Ode ro laaarọ kutu Satide, ọjọ kẹẹẹdogun, oṣu karun-un, yii lagbegbe Ipamẹsan, ni Sango. Ikọ adigunjale kan lo ya wọ ile ikẹru-si kan nibẹ, wọn yinbọn pa ọlọdẹ to n ṣọ ile naa, wọn si tun gba mọto ayọkẹlẹ meji lọwọ eeyan meji. Wọn dalẹ ru gidi kọwọ ọlọpaa too tẹ ọkunrin ti ẹ n wo yii,  Henry Obe, ọkan lara ikọ apanilẹkun naa ni i ṣe.
+
+DSP Abimbọla Oyeyẹmi to fi iṣẹlẹ naa lede ṣalaye pe awọn kan lo pe teṣan ọlọpaa Sango pe awọn adigunjale ti n dan mẹwaa wo n’Ipamẹsan, wọn si ti fọ ile ikẹru-si kan.
+
+Nigba tawọn ọlọpaa debẹ ni wọn ri i pe wọn ti ko ẹru to wa nile ikẹru-si naa, lẹyin ti wọn yinbọn fun ọlọdẹ to n ṣọ ibẹ. Awọn eeyan pada gbe ọlọdẹ naa lọ sọsibitu, ṣugbọn niṣe lo dagbere faye.
+
+Yatọ si ọlọdẹ ti wọn pa, wọn tun gba mọto Lexus RS 330 ti nọmba ẹ jẹ FKJ 691 FW lọwọ Dosumu Kazeem, wọn si gba Toyota Matrix ti nọmba ẹ jẹ MUS 835 FW lọwọ Ibrahim Lateef.
+
+Awọn ọlọpaa le awọn ole yii, ikọ adigunjale naa ko si duro, wọn n sa lọ ni. Nigba ti wọn de Jọju, ti wọn ri i pe awọn ọlọpaa ko pada, ti ko si sọna mi-in mọ, awọn ẹruuku naa duro, wọn doju ija kọ awọn ọlọpaa bi Oyeyẹmi ṣe ṣalaye, wọn si jọ bẹrẹ si i yinbọn sira wọn.
+
+Ọwọ ọlọpaa ju tiwọn lọ ni wọn ṣe fi mọto meji ti wọn ja gba naa silẹ, ti wọn sa lọ. Afi Henry Obe yii nikan ni ko ribi sa gba, ti awọn ọlọpaa ri mu ṣinkun.
+
+Eyi lawọn ẹru ti awọn ọlọpaa ri gba lọwọ ole kan to ṣẹku yii: Ibọn gigun kan, kọmputa alaagbeletan mọkanlelogoji, ẹrọ ti wọn fi n wo fiimu ninu ile meji, foonu meji, mọto meji ti wọn ja gba yii ati kọmputa mẹta.
+
+Ọga ọlọpaa nipinlẹ Ogun, CP Edward Ajogun, ti paṣẹ pe ki wọn gbe eyi tọwọ ba lọ sẹka iwadii, ki wọn si wa awọn yooku rẹ to sa lọ ri.",,,,
+fab-500x-20261114T224408Z-015,51,0f543654d9a29c3ec6a7d89b,d6ac324c32abc1ab3f9d4a52633a262f,fab-500x,yor,pakistan,aya-dataset,human_authored,[user] Hussain Haroon,"A scion ti idile Haroon, o jẹ oniṣowo kan, alakitiyan awujọ ati agbọrọsọ Apejọ Sindh tẹlẹ kan ti o jẹ ọmọ ẹgbẹ igbimọ ti ọpọlọpọ awọn ile-ẹkọ eto-ẹkọ, awọn ẹgbẹ ere idaraya ati awọn ẹgbẹ alaanu.
+
+Hussain Haroon jẹ ọmọ Saeed Haroon, arakunrin agba ti Hameed Haroon ati ọmọ-ọmọ Sir Abdullah Haroon, oloselu kan, ẹniti Muhammad Ali Jinnah pe ọkan ninu awọn ọwọn ti o lagbara julọ ti Ajumọṣe Musulumi ti Gbogbo-India . O jẹ ti idile Kutchhi olokiki kan ti o yìn lati Kutchh ni agbegbe India adugbo ti Gujarati, ti o gbe ni Karachi ni ọpọlọpọ ọdun ṣaaju ominira ti Pakistan ni ọdun 1947. O pari ẹkọ rẹ lati Karachi Grammar School ni akoko kanna bi Benazir Bhutto ṣe, ati lẹhinna o pari ẹkọ rẹ ni University of Karachi.
+
+Haroon bẹrẹ iṣẹ ibẹrẹ rẹ ni iṣẹ gbogbogbo bi Alakoso idibo fun Ajumọṣe Musulumi Pakistan ni ọdun 1970. Lẹ́yìn náà ó sìn gẹ́gẹ́ bí Olùdarí, Karachi Metropolitan Corporation (KMC) (1979–1985); Olugbese Karachi Port Trust (KPT) (1980-1982); Apejọ Agbegbe Agbegbe ti Sindh (1985-1988), Agbọrọsọ, Apejọ Agbegbe ti Sindh (1985-1986); ati oludari alatako, Apejọ Agbegbe ti Sindh (1986–1988).
+
+Hussain Haroon tun ti ṣiṣẹ bi Oludamoran, Pakistan Herald Publications Limited (PHPL) (1988–1989); aṣoju si Apejọ Gbogbogbo ti United Nations ; Ọmọ ẹgbẹ si Igbimọ Awọn gomina, Institute of Business Administration, Karachi (1996-1999); Oludari Alakoso Alakoso Karachi Electric Ipese Corporation (KESC) (1997-1999); Alaga, Griffith College Karachi (1999-2005) ati Alakoso, Pakistan-China Business Forum (1999-2004). O jẹ alaga ti Ẹgbẹ Isọ Gẹẹsi ti Pakistan ati pe o tun ni iyatọ ti jijẹ alaga ti o kere julọ ti Sind Club Gbajumo.
+
+A fun Haroon ni awọn iwe-ipamọ ti Ile-iṣẹ ti Ajeji ti Ajeji, Apakan Aabo Orilẹ-ede, Ile-iṣẹ ti Aabo ati Iṣẹ iṣelọpọ ti Aabo ni Oṣu Karun ọjọ 5, Ọdun 2018 lati ṣe iranlọwọ fun Alakoso Alakoso Alabojuto Pakistan, Nasirul Mulk ni iṣakoso orilẹ-ede naa titi di idibo gbogbogbo Pakistan 2018 . O jẹ ibura ọfiisi nipasẹ Alakoso Pakistan ni Oṣu Karun ọjọ 5, ọdun 2018.
+
+Haroon ti beere idasile ilu kan ni ita Karachi o si dabaa pe ki a fun ni lorukọ lẹhin pẹ Benazir Bhutto . Imọran rẹ ni pe o to awọn eniyan miliọnu mẹfa lati inu inu Sindh wa nibẹ. O tun jẹ apakan ti ikede lodi si idagbasoke ohun-ini gidi ni Bundal Island nipasẹ Awọn ohun-ini Emaar ti o da lori UAE. A tun mọ Haroon pe o ti ṣe agbero ẹjọ Sindh ni ilodi si Dam Kalabagh.
+
+Ni ọdun 2017, o ti ni irẹwẹsi pẹlu adari ẹgbẹ oselu rẹ tẹlẹ, Pakistan Peoples Party ati pe o nfi ararẹ silẹ si awọn idunadura lati darapọ mọ awọn ẹgbẹ oselu Pakistan miiran ati pe o tun fi aye silẹ fun ararẹ lati dije fun ipo kan ninu awọn idibo gbogbogbo ti n bọ ni Pakistan. ni 2018.
+
+Ni Oṣu Kẹjọ ọdun 2008, a yan Hussain Haroon gẹgẹbi Aṣoju Yẹ ti Pakistan si Ajo Agbaye, rọpo oniwosan Munir Akram . Ipinnu naa jẹ ariyanjiyan nitori Haroon ko ni iriri iṣaaju ni Iṣẹ Ajeji Pakistan tabi diplomacy kariaye. O gba ipo ifiweranṣẹ ni ọjọ 3 Oṣu Kẹsan ọdun 2008. Masood Khan, diplomat iṣẹ-ṣiṣe ti gba iṣẹ lati Hussain Haroon ni ọjọ 1 Oṣu Kini ọdun 2013.",,,,
+fab-500x-20261114T224408Z-015,52,43278ce1427e699308545f2f,a18485e588f28326e2f32784bddffd71,fab-500x,yor,problem_solving,aya-dataset,human_authored,[user] Catherine Kamau,"Catherine Kamau Karanja tí a bí ní ọjọ́ kẹta osù kejì ọdún 1987 jẹ́ òsèré tí ó gba ààmì ẹ̀yẹ tí gbogbo ènìyàn sì mọ́ ọ́ sí ""Celina"" tàbí ""Kate Actress""
+
+Ó di ẹnití àwọn ènìyàn mọ̀ látàrí ipa tí ó kó nínú eré Citizen TV ""Mother In-Law"" níbi tí ó ti kópa Celina. Ó tún kópa nínú àwọn eré mìíràn bí Sue na Jonie (2017-2019), Plan B, and Disconnect.
+
+Catherine lọ sí ilé-ìwé gíga Chogoria níbití ó ti darapọ̀ mọ́ ẹgbẹ́ eré tí ó sì di olókìkí fún èbùn rẹ̀, ṣaájú kí ó tó kó lọ sí Loreto Convent Msongari níbití ó ti gba Ààmì ẹ̀yẹ ‘Miss Loreto’.
+
+Ó ní ìwé ẹ̀rí ẹ̀kọ́ gíga nípa ìbáraẹnisọ̀rọ̀, tí ó ṣe pàtàkì ní ìbásepọ̀ gbogbo gbò láti Kenya College of Communication and Technology èyítí a ṣọ di MultiMedia University of Kenya .
+
+Kamau ni asojú àmì fún ilé-isẹ́ Harpic ti orílẹ̀ ède Kenya.
+
+Kamau kó ipa Selina (tàbí Celina) ìyàwó Charlie ( Patrick Oketch ) lórí eré Citizen TVMother-in-Law èyítí ó bẹ̀rẹ̀ ní ọdún 2006. Lẹ́yìn náà, ó kúrò ní ìfihàn eré náà lọ sí TV ède Swahili Sue Na Jonnie, èyítí ó kó ipa ti Sue.
+
+Ó borí asíwájú òṣèré tí ó dára jùlọ ní ẹ̀ka TV Drama Series ní Kalasha Awards ní ọdún 2017 tí ó sì tún gba yíyàn ní ọdún 2018, fún ipa rẹ̀ nínú “ Sue Na Jonnie ”. wọ́n yàn án gẹ́gẹ́ bí Òṣèré alátìlẹyín tí ó dára jùlọ ní ẹ̀ka eré oníse ti Kenya Film Commission Kalasha Awards 2018 fún ipa rẹ̀ nínú eré Disconnect.
+
+Ó kó ipa Joyce nínú eré aláwàdà ìfẹ́ ní ọdún 2019, "" Plan B "", tí Sarah Hassan ṣe tí òṣèré orílẹ̀ ède Nàìjíríà Dolápò Adélékè (Lowladee) se olùdarí. Fún ipa rẹ̀ gẹ́gẹ́ bí Joyce, wọ́n tún yàn án lẹ́ẹ̀kan sí fún Òṣèré alátìlẹyìn tí ó dára jùlọ ní ẹ̀ka eré oníse ní ẹ̀dà kẹ̀sán ti Kenya Film Commission Kalasha Awards 2019.
+
+Catherine Kamau tún sẹ̀sẹ̀ ṣe ìfihàn láìpẹ́ nínú àwọn eré oníse méjì The Grand Little Lie (GLL) gẹ́gẹ́ bí apákan ti òṣèré àkọ́kọ́. Eré náà di àfihàn ní ọjọ́ kínní Oṣù Kẹ̀wá ọdún 2021 . Phil It Productions, ilé-isẹ́ ọkọ rẹ̀ Philip Karanja ni ó se àgbékalẹ̀ eré yìí. Eré mìiŕàn tí ó ṣe ni Nafsi, tí ó jẹ́ eré Multan Production Limited tí Reuben Odanga se olùdarí rẹ̀.
+
+Ó tún jẹ́ olùdá akoonu àti YouTuber kan. Lórí ìkànnì YouTube rẹ̀, ó sọ̀rọ̀ lórí oge síse, àṣà, , ìṣeré, ìgbésí ayé àti jíjẹ́ ìyá. Ó ní ìtara lórí ọ̀ràn tí oyún ọ̀dọ́. Tí ó ti fi ìgbà kan jẹ́ ọ̀dọ́ tí ó lóyún, tí ó sì ní gbólóhùn ọ̀rọ̀ tí a pè ní 'Queens must wait', nínú èyítí ó gba àwọn ọmọbìrin níyànjú láti kọ́kọ́ dúró ní ṣaájú kí wọ́n tó pinnu láti jẹ́ ìyá.
+
+Kamau ti ṣe ìgbéyàwó pẹ̀lú Phillip Karanja TÍ ìnagijẹ rẹ̀ ń jẹ́ Phil tàbi Melvin, olùdarí eré oníse àti òṣèré gíga Tahidi tẹ́lẹ̀ láti ọjọ́ kẹtàdínlógún Oṣù kọkànlá, ọdún 2017. Wọ́n ṣe ayẹyẹ ìjẹfàájì tọkọtaya ní Seychelles . Nínú ìbásepọ̀ ìṣaájú làkókò tí ó wà ní Kampala International University ní Uganda, ní ọmọ ọdún mọ́kàndílógún, ó bí ọmọkùnrin àkọ́kọ́ rẹ̀, Leon Karanja, ní ọdún 2006 ẹnití Phillip gbà tọ́. Ní Oṣù Kẹ̀sán ọdún 2019, ó jẹ́ ohun tí ọ̀pọ̀lọpọ̀ media gbé jáde wípé òhun àti ọkọ rẹ̀ ń retí àkọ́bí wọn. Wọ́n ní òsèrébìrin náà tún ti gbàlejò ayẹyẹ ìrètí ọmọ tuntun ní osù kejìlá ọdún náà láti se ayeye oyún náà eléyìí tí wọ́n sọ pé ọmọbìnrin ni yóò jẹ́. Wọ́n lọ se ayẹyẹ ìjẹfàájì ọmọ ní Maldives . Ó sàlàyé bí ó se fẹ́rẹ̀ sọ ìrètí nù láti lóyún lẹ́ẹ̀kansí. Lẹ́yìnnáà, ó ṣàfihàn ní ọjọ́ kẹèdógún Oṣù kejìlá ọdún 2019, pé ọmọ àkọ́kọ́ tí ó ní pẹ̀lú ọkọ rẹ̀ jẹ́ ọmọbìrin Njeri (“Baby K”).",,,,
+fab-500x-20261114T224408Z-015,53,6984c21035a567c85828147d,27c51a246bc764e807b187e8c059979d,fab-500x,yor,safety_ethics,aya-dataset,human_authored,[user] Ẹgbẹ akẹkọọ ijinlẹ ede Yoruba ṣayẹyẹ ọdun aṣa ni Kwara,"Fọfọ ni gbọngan aṣa ati iṣe-ọna, Kwara State Arts Council, to wa ni Geri Alimi, niluu Ilọrin, kun pẹlu awọn ọmọwe nipa ede ati aṣa Yoruba atawọn olukọ agba nipinlẹ Kwara, nibi ayẹyẹ ọdun aṣa ati ifami-ẹyẹ da ni lọla ti ẹgbẹ akẹkọọ ijinlẹ ede Yoruba ilẹ Naijiria ṣe lọsẹ yii.
+
+Agba-ọjẹ to mọ nipa igbelarugẹ aṣa ati ede Yoruba nni, Ọgbẹni Bisi Oyewọle, lo jẹ olugbalejo ayẹyẹ naa.
+
+Oriṣiiriṣii afihan aṣa, bii ijo jijo, iwọṣọ, ewi kike, orin kikọ, ere oniṣe ati bẹẹ lọ, lawọn akẹkọọ ede Yoruba kaakiri awọn ileewe giga to wa nipinlẹ Kwara fi dabira nibẹ.
+
+Awọn ileewe to ko aṣoju wa sibẹ ni; Fasiti ilu Ilọrin, Fasiti ipinlẹ Kwara, KWASU, ileewe olukọni, tilu Ilọrin, ileewe olukọni tilu Oro ati bẹẹ bẹẹ lọ.
+
+Akori idanilẹkọọ to waye nibẹ ni; Ọsẹ́ ti ẹsin ajoji ati ọlaju ṣe fun aṣa Yoruba’. Ọmọwe  Adeyẹmọ Olufẹmi Gabriel to jẹ olori ẹka ede Yoruba ni ile-ẹkọ olukọni agba ipinlẹ Ọṣun (Ila Ọrangun) lo ṣedanilẹkọọ naa.
+
+Lara awọn alejo pataki ọjọ naa ni; Alhaji Abdulfatai Adeniyi Dan-Kazeem to jẹ alakooso fun ọrọ itaniji araalu nipinlẹ Kwara, Ọga agba ileewe girama Queens School, Alhaja Sidikat Taiye Lawal, Alaga awọn ọga ileewe girama (ANCOPSS) ti Zone 3, Alhaja Funmilayọ Abdulrahman, Alhaji Bakare Laarọ Ayinla, Mallam Saka Ahmed to jẹ akọwe ẹka eto ẹkọ lẹkun Gusu Ilọrin, Ọga agba ileeṣẹ redio Harmony FM, to wa niluu Idọfian, nipinlẹ Kwara. Bẹẹ lawọn ọga agba ileewe girama tun wa nibẹ.
+
+Nibi ayẹyẹ ọhun ni wọn ti fi ami-ẹyẹ da awọn eeyan kan lọla fun akitiyan wọn lori idagbasoke ẹkọ ede abinibi. Lara wọn ni; Abilekọ Harriet Afọlabi Ọṣhatimẹhin (Iya Aṣa Ẹgbẹ), Oloye Mobọlaji Ajakitipa (Ọba Etutu Agbaye), Alhaji Toyin Abdullahi to jẹ Aarẹ ANCOPSS ẹka Kwara, Alhaja Muritala Sherifat, Ọga agba ileewe JSS Al-Adabiyah Kamaliyah, to wa niluu Ilọrin ati Oloye Saliu Babatunde Bakare (Aniyikaye Aṣa Yoruba).
+
+Nigba to n sọrọ lorukọ gbogbo awọn to gbami-ẹyẹ naa, Alhaji Toyin Abdullahi dupẹ lọwọ ẹgbẹ akẹkọọ ijinlẹ Yoruba fun mimọ riri iṣẹ ribiribi tawọn ti ṣe, eyi to mu ki ami-ẹyẹ naa waye.
+
+Ninu ọrọ idupẹ lati ẹnu Alhaji Abdulmualiy Adegboyega, Ọga agba ileeṣẹ redio Harmony FM, Idọfian, o ni inu oun dun pupọ fun awọn ti wọn gba ami-ẹyẹ ni ọjọ naa. O ni ki i ṣe pe wọn fun wọn nitori owo tabi ojuṣaaju, bi ko ṣe nitori akitiyan wọn.",,,,
+fab-500x-20261114T224408Z-015,54,1361153e151446e9d04d26fd,8e17b2ed3ca6f9aded4b4bf0259b53fb,fab-500x,yor,science,aya-dataset,human_authored,[user] Wurld,"Sadiq Onifade, tí gbogbo ènìyàn mọ̀ sí WurlD, jẹ́ Olórin àti Akọ-Orin Nàìjíríà. Wọ́n bi ní Ìpínlẹ̀ Èkó, Nàìjíríà, WurlD padà lọ sí Atlanta, Georgia láti lépa ẹ̀kọ́ sẹ́kọ́ndírí rẹ̀ àti láti tẹ orin jáde. Ó pe bátànì orin tirẹ̀ ní ẹlẹtiro-fúíṣọ̀nì. Ó kọ EP rẹ̀ àkọ́kọ́ tó pè ní Evolution ní ọdún 2013.
+
+Ní ìgbẹ̀yìn ọdún 2012, WurlD kọ orin tuntun , ""Beyond Our Dreams"" lára EP rẹ̀ àkọ́kọ́ tó pè ní Evolution, ní àsìkò súmà ọdún 2013. Tó jẹ́ ìgbà kan náà pẹ̀lú SESAC tí ó ṣe òde ráńpẹ́ ní ilé-isé wọn ní Atlanta fún EP WurlD tó bọ lọ́nà nígbà náà Evolution EP. Ní ìbẹ̀rẹ̀ ọdún 2013, WurlD wà ní ilé–iṣẹ́ tí wọ́n tí gbórin jáde pẹ̀lú Mario, tí wọn kọ orin fún álíbọ̀mù Olórin náà tó ń bọ̀ lọ́nà. Lẹ́yìn ìgbà díẹ̀, vídíò orin kejì fún álíbọ̀mù Evolution tí ó ń jẹ́, ""Alive"", tó jẹ́ dídarí láti ọwọ́ Black Shield Entertainment producer Hood Beatz, jáde fún ìgbà àkọ́kọ́ lórí MTV.",,,,
+fab-500x-20261114T224408Z-015,55,2f31e0e201da16bf7a589f3e,700d51babdd1e2268221c29278209539,fab-500x,yor,writing,aya-dataset,human_authored,"[user] Oṣu mẹta ni Kọlade yoo fi dari ọkọ loju titi n’Ilọrin, oyinbo kan lo lu ni jibiti","Fẹsun fifi ifẹ ẹtan lu obinrin oyinbo kan ni jibiti lori ẹrọ ayelujara, ile-ẹjọ giga kan to wa niluu Ilọrin ti paṣẹ fun Kọlade Emmanuel Balogun lati dari ọkọ loju titi fun oṣu mẹta, ko si tun san ẹgbẹrun lọna aadọta naira owo itanran. Adajọ Sikiru Oyinloye lo paṣẹ naa nigba tajọ to n gbogun ti iwa ibajẹ ati ajẹbanu, EFCC, wọ ọ lọ sile-ẹjọ.
+
+Ọwọ tẹ Kọlade to n pe ara rẹ ni Willam Davis, ninu oṣu kẹta, ọdun 2020, pẹlu awọn atẹranṣe ori ikanni gmail: [EMAIL], eyi to fi n lu jibiti.
+
+Olujẹjọ naa loun jẹbi nigba tile-ẹjọ ka ẹsun naa si i leti.
+
+Agbẹjọro ijọba, Aliyu Adebayọ ni niwọngba ti olujẹjọ ti loun jẹbi, pẹlu awọn ẹri to daju to wa niwaju ile-ẹjọ, ki adajọ da ẹjọ rẹ bo ba ṣe tọ.
+
+Ṣugbọn agbẹjọro olujẹjọ, Rotimi Ọyagbọla, rọ adajọ lati foju aanu wo onibaara rẹ, ko si din ijiya rẹ ku, nitori pe igba akọkọ ree to maa ṣe iru nnkan bẹẹ.
+
+Adajọ Oyinloye ni ọdaran naa yoo bẹrẹ didari ọkọ lati ọjọ kẹtadinlogun, oṣu kẹjọ, titi de oṣu kẹwaa, ọdun yii.
+
+O ni ijọba ti gbẹsẹ le awọn foonu ati kọmputa alaagbeka ti EFCC gba lọwọ rẹ.",,,,
+fab-500x-20261114T224408Z-015,56,18220ad50d792ec4d38a60cd,b59ba6d48de29c4876b98013d796713a,fab-500x,zh,coding,oasst1,human_authored,[user] 想通过微软的程序员面试需要做哪些准备？,"准备微软的程序员面试是一个相当艰巨的任务，但是有一些步骤可以让你更好地准备。
+
+以下是一些准备步骤：
+
+学习数据结构和算法：微软的面试通常会涉及许多数据结构和算法方面的问题，因此了解它们是非常重要的。你可以通过阅读算法和数据结构相关的书籍或参加相应的在线课程来学习。
+
+练习编程：在微软的面试中，你需要展示出你的编程技能。因此，你需要练习编写高效、易于理解和可维护的代码。可以在 LeetCode、HackerRank 或其他在线判题平台上练习。
+
+学习系统设计：微软的面试还涉及系统设计方面的问题。因此，你需要学习如何设计高效、可扩展和可靠的系统。可以参考一些相关书籍和课程，例如《系统设计入门》、《大规模分布式系统》等。
+
+熟悉编程语言和开发工具：微软通常使用 C++、C# 和 Java 进行面试。你需要熟悉这些编程语言，并且掌握一些开发工具，如 Visual Studio。
+
+预习面试题：了解微软常见的面试问题和题型，这可以帮助你更好地准备面试。可以查看 Glassdoor、LeetCode 和其他类似网站上的面试题。
+
+练习沟通和解决问题的能力：微软的面试通常会涉及到沟通和解决问题的能力，因此你需要在准备过程中锻炼这方面的能力。可以和朋友或同事一起练习模拟面试。
+
+希望这些准备步骤可以帮助你成功通过微软的程序员面试。祝你好运！",,,,
+fab-500x-20261114T224408Z-015,57,339a2b4cfd6b6132501158c4,e246f221a94a1d53a717ea0e9e8ea2b6,fab-500x,zh,education,oasst1,human_authored,[user] 什么是RHLF,"RLHF是一种增强学习（Reinforcement Learning）的形式，它通过人类的反馈来指导智能体的学习过程，以提高其性能。
+
+传统的强化学习是一种通过智能体与环境的交互来学习最佳行为策略的方法。在这种方法中，智能体通过试错学习，根据环境的奖励信号来优化行为。然而，这种方法需要进行大量的试验，因此需要很长时间来学习。
+
+与传统的强化学习相比，RLHF 可以在学习过程中利用人类反馈来指导智能体，从而更快地实现最佳策略。在 RLHF 中，人类可以提供直接的反馈，例如告诉智能体哪些行为是好的，哪些行为是坏的。智能体可以利用这些反馈来优化其行为策略，从而更快地学习。",,,,
+fab-500x-20261114T224408Z-015,58,62a17b1553005d16329f77a1,77f700fe44a113506daa0a05d3681374,fab-500x,zh,general_knowledge,aya-dataset,human_authored,[user] 问：什么是糖尿病饮食？,答：糖尿病饮食是一种低糖、低脂肪、高纤维的饮食方式，旨在控制血糖水平。,,,,
+fab-500x-20261114T224408Z-015,59,dd51a95295835e0cba2cdc5c,36434c2aec427081eaa3e2a33ee6149a,fab-500x,zh,mathematics,oasst2,human_authored,"[user] 你好
+
+[assistant] 你好
+
+[user] 你是否能根据2020年-2022年中国新高考数学的题目预测2023年的出题方向？
+
+[assistant] 不能，好好努力吧少年。投机取巧是不可取的
+
+[user] 请帮我分析一下2020年-2022年中国新高考数学的题目的出题方向的变化","从2020年到2022年，中国的新高考数学题目出现了一些变化。新高考制度以“3+3”模式进行，分为选考科目（文科数学、理科数学）和学科必修课程。在这个背景下，我们可以从以下几个方面来分析题目出题方向的变化：
+
+注重基础知识和能力的考查：新高考数学题目更加注重对学生基础知识和能力的考查，尤其是对数学基本概念、基本原理的理解和掌握。这意味着考题更加注重实际应用，而不是机械地计算和公式推导。
+
+强调解决实际问题的能力：新高考数学题目更加强调解决实际问题的能力，要求学生能够将所学的数学知识应用到实际生活中，解决实际问题。因此，新高考数学题目更加贴近生活，更具有实际意义。
+
+增加对数学思维的考查：新高考数学题目增加了对数学思维的考查，要求学生能够运用数学方法和思想解决问题。这意味着考题更加注重对学生思维能力和逻辑推理能力的考查，而不仅仅是对数学知识的考查。
+
+题型变化：新高考数学题目在题型上也有所变化，如选择题、填空题和解答题等。题型更加多样化，旨在全面考查学生的数学知识和能力。
+
+难度适中：新高考数学题目难度适中，注重基础知识和能力的考查，避免过度追求难度。这有利于培养学生的数学兴趣，提高学生的数学素养。
+
+总之，从2020年到2022年，中国新高考数学题目出题方向的变化主要体现在对基础知识和能力的考查、实际问题解决能力的培养、数学思维的发展、题型的多样化和难度的适中。这些变化旨在更好地培养学生的数学素养，激发学生的学习兴趣，提高学生的综合能力。",,,,
+fab-500x-20261114T224408Z-015,60,40afa77b79c2741ff8264c91,1698cf64a673c08da5beaa30829e144f,fab-500x,zh,research,oasst1,human_authored,"[user] 什么是预训练语言模型？
+
+[assistant] 预训练属于迁移学习的范畴。现有的神经网络在进行训练时，一般基于后向传播（Back Propagation，BP）算法，先对网络中的参数进行随机初始化，再利用随机梯度下降（Stochastic Gradient Descent，SGD）等优化算法不断优化模型参数。而预训练的思想是，模型参数不再是随机初始化的，而是通过一些任务进行预先训练，得到一套模型参数，然后用这套参数对模型进行初始化，再进行训练。在正式探讨自然语言处理的预训练之前，回顾一下计算机视觉领域的预训练过程。在图片分类任务中，常用的深度学习模型是卷积神经网络（Convolutional Neural Network，CNN）。对于由多个层级结构组成的CNN来说，不同层学到的图像特征是不一样的，越浅的层学到的特征越通用，越深的层学到的特征和具体任务的关联性越强。在图1中[6]，对基于人脸（Faces）、汽车（Cars）、大象（Elephants）和椅子（Chairs）的任务而言，最浅层的通用特征“线条”都是一样的。因此，在大规模图片数据上预先获取“通用特征”，会对下游任务有非常大的帮助。
+再举个简单的例子，假设一个《怪物猎人：世界》的游戏玩家想给游戏中的怪物（如飞雷龙、浮空龙、风漂龙、骨锤龙等）做一个多分类系统，而有标注的数据只有游戏中的若干图片，重新训练一个神经网络模型显然不太可能。
+
+幸运的是，现有的大规模图片数据库ImageNet 中一共有20000多类标注好的数据集，包含超过1400 万张图片。
+
+通过ImageNet 训练出来的CNN 网络参数，可以迁移至怪物猎人的训练任务中。
+
+在比较浅层的CNN网络初始化时，可以使用已经训练好的参数，而在模型的高层，其参数可以随机初始化。在训练怪物猎人的特定任务时，既可以采用冻结（Frozen）参数的方式，也就是浅层参数一直保持不变；也可以采用微调的方式，也就是浅层参数仍然随着任务的训练不断发生改变，从而更加适应怪物的分类。
+
+将图片转换为计算机可以处理的表示形式（如像素点的RGB 值），就可以输入至神经网络进行后续处理。
+
+对自然语言来说，如何进行表示是首先要考虑的问题。
+
+[user] 你举了使用 ImageNet 训练的 CNN 网络作为预训练模型的例子。不过这是关于人工智能在图像处理方面的例子。我所问的是预训练语言模型，因此我更关心预训练这一方法在语言模型中的应用。请问现在世界上有哪些公开可使用的语言方面的预训练模型呢？","当今世界上有许多公开可用的预训练语言模型，以下是其中一些常见的模型：
+
+1. GPT-3：由OpenAI开发的具有1750亿个参数的大型语言模型，它可以用于多种自然语言处理任务，如语言生成、文本分类、问题回答等。
+
+2. BERT：由Google开发的基于Transformer的双向编码器，它可以在多个NLP任务中进行微调，如情感分析、文本分类、命名实体识别等。
+
+3. RoBERTa：Facebook AI Research (FAIR)开发的模型，是BERT的改进版本，使用更多的训练数据和更长的训练时间。
+
+4. ALBERT：由Google开发的另一种改进版本的BERT，采用参数共享和跨层参数连接等方法来减少参数数量，从而提高效率。
+
+5. T5：由Google开发的多任务语言模型，可以在多种自然语言处理任务中进行微调，包括问答、摘要生成、语言翻译等。
+
+这些预训练模型在不同的自然语言处理任务上都取得了非常好的效果，成为了NLP领域的重要里程碑。如果您对开源有需求，其中一些模型是开源的，可以在各种应用中免费使用。",,,,
+fab-500x-20261114T224408Z-015,61,d4150ca071059ef57e119330,3c875cc62d7ae7719f0ffe5a6716e46b,fab-500x,zh,science,oasst2,human_authored,"[user] 推荐一些高质量的物理博客网站
+
+[assistant] 以下是一些高质量的物理博客网站，供您参考：
+- Physics World Blog: https://physicsworld.com/category/blog/
+- Physics Buzz: https://physicscentral.com/buzz/blog/
+- Physics Today: https://physicstoday.scitation.org/blog/
+- Quantum Diaries: https://www.quantumdiaries.org/
+- The Physics arXiv Blog: https://www.technologyreview.com/topic/physics-arxiv-blog/
+- BackReaction: https://backreaction.blogspot.com/
+- Of Particular Significance: https://profmattstrassler.com/
+- Preposterous Universe: https://www.preposterousuniverse.com/blog/
+- A Quantum Diaries Survivor: http://www.quantumdiaries.org/author/mattias/
+- Starts With A Bang: https://startswithabang.com/
+
+[user] 可以把你推荐的网站做个排名吗？","因为每个人对它们的喜好可能不同，并不容易做一个标准的排序。但是，根据它们的知名度、内容质量和专业性，以下是一个可能的排名：
+
+Physics World Blog: https://physicsworld.com/category/blog/
+Starts With A Bang: https://startswithabang.com/
+Physics Today: https://physicstoday.scitation.org/blog/
+Quantum Diaries: https://www.quantumdiaries.org/
+The Physics arXiv Blog: https://www.technologyreview.com/topic/physics-arxiv-blog/
+BackReaction: https://backreaction.blogspot.com/
+Of Particular Significance: https://profmattstrassler.com/
+Preposterous Universe: https://www.preposterousuniverse.com/blog/
+A Quantum Diaries Survivor: http://www.quantumdiaries.org/author/mattias/
+Physics Buzz: https://physicscentral.com/buzz/blog/
+请注意，这个排名并非绝对。不同的读者可能会根据自己的需求和兴趣对这些博客进行不同的排序。建议您访问这些网站，根据您的喜好为它们制定自己的排名。",,,,
+fab-500x-20261114T224408Z-015,62,2dc38e486c0273dccfe4b5f0,b5343ff18a7e6a4ff87afcb627dde7de,fab-500x,zh,web_frontend,oasst2,human_authored,"[user] 如何写一个最简单的 Python 程序。
+
+[assistant] ```python
+# -*- coding: UTF-8 -*-
+
+# Filename : helloworld.py
+# author by : www.runoob.com
+
+# 该实例输出 Hello World!
+print('Hello World!')
+```
+
+[user] 我看到你给我提供的示例代码中有作者信息，我想确定一下你发送的这段代码是被原作者以什么许可证分发的？我在自己的项目中复制该段代码是否会有法律风险？","您好，我是从这个网页获取到这段代码的：https://www.runoob.com/python3/python3-tutorial.html
+我查看了这个网站的关于页面（https://www.runoob.com/aboutus），其中提到了“所有资源是完全免费的”，而且考虑到这个网站是教学性质的网站再加上这段代码是python语言中最基础的一个函数，我认为您复制这段代码几乎没有任何法律风险。",,,,
+fab-500x-20261114T224408Z-015,63,143351413000505a09fd13fa,2ed424a0b5e0fcb1c0809d342b0b2e52,fab-500x,zh,writing,oasst2,human_authored,"[user] 你能阅读我发给你的链接内容吗？
+
+[assistant] 抱歉，作为一个大型语言模型，我无法连接互联网或浏览网页。但是，您可以将该网页的内容传送给我，我很乐意帮助您阅读。
+
+[user] 当遇到不擅长的任务时，不必逞强，你可以给我推荐其它更高效的AI助手或工具网站，比如ChatPDF。
+
+[assistant] ### 非常好的建议,谢谢您的理解。当我的能力无法完成某些任务时,推荐更专业的工具或服务是我的责任。
+比如在以下情况下,我会推荐其他AI助手或工具:
+1. 需要人工智能生成真实且逼真的图片或视频时,我会推荐 ChatGPT、Anthropic等公司的服务。我的能力主要是自然语言处理和对话,生成图片和视频还不在我的专长范围内。
+2. 需要机器翻译较长或较复杂的文章时,我会推荐 Google Translate、DeepL 等机器翻译服务。我的能力主要是一些简短的翻译,长文本和复杂句子的翻译质量可能会下降。
+3. 需要解决数学、程序员相关的问题时,我会推荐WolframAlpha、Github Copilot等专业工具。这些领域的知识量巨大,超出我的学习和理解范围。
+4. 需要生成带格式的文档报告时,我会推荐 ChatPDF、Pandadoc等在线文档工具。我的输出主要是未格式化的文本,生成美观的PDF文档超出我的能力范围。
+除此之外,如果用户的问题涉及医学、法律、心理辅导等领域,这也会超出我的专长范围,我会在这些情况下推荐用户寻求人类专家的帮助。
+我的定位是一名通用的AI助手,但我也清楚我的能力和知识还远远不及人类专家在某些领域内的水平。提供更专业的工具和服务推荐,这是我可以为用户创造价值的一种方式。我也会持续学习,不断提高自己,但人工智能终究有其上限,需要与人类专家合作,共同满足用户的各种需求。
+
+[user] 你可以把推荐工具的链接发送给我嘛","##### 以下是一些推荐工具的链接，您可以通过点击这些链接进入相应的网站：
+
+- ChatGPT: https://openai.com/blog/chat-with-ai/
+- Anthropic: https://www.anthropic.com/
+- Google Translate: https://translate.google.com/
+- DeepL: https://www.deepl.com/translator
+- WolframAlpha: https://www.wolframalpha.com/
+- GitHub Copilot: https://copilot.github.com/
+- ChatPDF: https://chatpdf.com/
+- PandaDoc: https://www.pandadoc.com/",,,,
+fab-500x-20261114T224408Z-015,64,bc4c98e8277092be22c54704,f7c0753989d316e6c74d19ba8632155b,fab-500x,zul,general_knowledge,aya-dataset,human_authored,"[user] 'Uthi ikholwa elibiza uninazala ngenuku esikhundleni sokumwashela, amncishe
+ukudla? Athi akahlukane nengane yakhe iphuma esipotini?'
+'Qha! Mina …'
+'Wena bani? Akuwena yini owawuthethisa umama wakho, uthi akahlukane nengane
+yakho? Usumlahlile umama wakho usuzomfuna lapha engekho khona. Sengathi
+angangatholakala ngimfunge ubaba esemathuneni, uyowukhomba umuzi
+onotshwala. Phuma lapha ngingaze ngi …' Asho athathe iketela elinamanzi
+abilayo. Waphuma ngelikhulu ijubane elandelwa iketela.
+
+1. Chaza kafishane ukuthi kungani indoda yalapho uManyoba wayejwayele
+ukuya khona yavulela izinja ngesikhathi ibona oMjwayeli bezongena emzini
+wayo.","Iphuzu ELILODWA kwalandelayo:
+• Yayingabafuni emzini wayo ngoba icasulwa yisenzo sabo
+sokuhlukumeza uManyoba esezigugele.
+• Le ndoda yayingahambisani nesenzo sabo sokuncisha uManyoba
+ukudla.",,,,
+fab-500x-20261114T224408Z-015,65,ee2420703983375a9984bc1c,d774359c6d8ae702690927fae0bcb792,fab-500x,zul,mathematics,aya-dataset,human_authored,"[user] Fingqa isihloko:  URaheem Sterling watshelwa ngokucacile ngabasekeli beLiverpool ukuthi balindele ukuba ahlale eqenjini kuleli hlobo ngosuku ayebonisa ngalo izingubo ezintsha zeqembu e-Anfield. Umklamo omusha we-gingham, owethulwe kubalandeli e-Anfield ngoLwesihlanu, uwumnikelo wokuqala ovela kumkhiqizo wezemidlalo wase-US i-New Balance, owathola irekhodi le- £ 300million isivumelwano seminyaka emine sokufaka esikhundleni senkampani kadade iWarrior njengabahlinzeki beLiverpool. Umyalezo wawuthi 'Hold Nothing Back' njengoba uSterling, uDaniel Sturridge, uMartin Skrtel noSimon Mignolet bethula i-home strip entsha kubalandeli e-Centenary Stand ngoLwesihlanu ntambama. URaheem Sterling (2nd r) ufake ikhithi entsha yeLiverpool eceleni kuka (l-r) Adam Lallana, uDaniel Sturridge, uJordan Henderson noPhilippe Coutinho. Izinkanyezi zeLiverpool, kuhlanganise nomgcini wezinhloso uSimon Mignolet egqoke ijezi lakhe elisha, bafika e-Anfield bezokwethula ikhithi kubalandeli. USturridge ulayishe lezi zithombe ku-akhawunti yakhe ye-Instagram njengoba ayebambe iqhaza noSterling, uMignolet noSkrtel ngesikhathi kwethulwa. I-New Balance ifinyelele esivumelwaneni seminyaka emine sokuqopha irekhodi se-£300million ukuze ithathe indawo yenkampani engudadewabo iWarrior njengabahlinzeki beLiverpool. Kubukeka sengathi uSkrtel, uMignolet, uSterling noSturridge bonke bazosala eLiverpool kule sizini ngemuva kokwethulwa emgqeni omusha. Abalandeli bagcwala e-Centenary Stand ngoLwesihlanu ntambama ukuze babone isiqeshana se-New Balance. URaheem Sterling (kwesobunxele) noDaniel Sturridge (kwesokudla) bahlala esiteji ngesikhathi kuqhutshwa i-Q&A e-Anfield. Abadlali bafika Anfield njengoba belungiselela ukwethulwa kwe-strip ka-2015 / 16. Emasontweni ambalwa adlule, uSterling akazange abambe lutho ngenhlolokhono yakhe emangalisayo ngemva kokwenqaba isivumelwano esisha sama-£100,000 ngesonto eLiverpool. Wabuye waveza ngendlela ethakazelisayo ukuthi wayejabule ngokuxhunyaniswa ne-Arsenal ukuze abeke uphawu lwemibuzo olukhulu ngekusasa lakhe. Kodwa iLiverpool inamathele ekutheni lo mdlali oneminyaka engu20 ubudala, osasele iminyaka emibili enkontilekeni yakhe, ngeke ayeke ukudlala kuleli hlobo futhi ifuna ukuba ahlale. Omunye umlandeli wamemeza 'qiniseka ukuthi siyakubona kulokho...","URaheem Sterling ubeka ikhithi eceleni kukaPhilippe Coutinho, uJordan Henderson, uDaniel Sturridge no-Adam Lallana. Umdlali wasesiswini kucatshangwa ukuthi uzosuka eLiverpool ngemuva kokwenqaba ukusayina inkontileka entsha ka£ 100,000 ngesonto. I-New Balance ifinyelele esivumelwaneni seminyaka emine sokuqopha irekhodi lama-£ 300 million ukuze ithathe indawo yenkampani kadadewabo iWarrior eLiverpool. UCaptain Steven Gerrard akazange alungise umgwaqo omusha njengoba elungiselela ukuhamba e-LA Galaxy ehlobo.",,,,
+fab-500x-20261114T224408Z-015,66,e15e7b3afc2122df353d38c0,f460ce0588ad724e9a0656204ad40232,fab-500x,zul,science,aya-dataset,human_authored,[user] Usosayensi uqhathanisa amangqamuzana amabili omzimba wesidalwa esinama - cell amaningi. Yikuphi kulokhu okulandelayo okungenzeka kuyafana? - Ngiyabona. Khetha impendulo yakho kulokhu: 1) ukuma kwezindonga zamangqamuzana; 2). inani le-mitochondria 3). ukuma kwamangqamuzana; 4). inani lama-chromosome;,4) inani lama-chromosome;,,,,
+fab-500x-20261114T224408Z-015,67,77635b4fe4e854a8d29cc567,c27ee2b4e1faaa281dfe1f2798c75623,fab-500x,als,general_knowledge,aya-dataset,human_authored,[user] Kush e fitoi FIFA Kupën e Botës në vitin 1974?,FIFA Kupën e Botës në vitin 1974 e fitoi Gjermania.,,,,
+fab-500x-20261114T224408Z-015,68,d4cd06c0f28f4c06465659ed,189efec6df8eb625c8650a8b75686313,fab-500x,am,general_knowledge,aya-dataset,human_authored,[user] አፈወርቅ ተክሌ ለከፍተኛ ትምህርት በስንት አመታቸው ተመረጡ?,በአሥራ አምስት ዓመታቸው,,,,
+fab-500x-20261114T224408Z-015,69,4c1672b9df184057f5e94090,c50fc3dd0ef981a6b43906cb5aaa3ae2,fab-500x,am,mathematics,aya-dataset,human_authored,"[user] ለሚከተለው ጽሁፍ ርዕስ ይፍጠሩ: \nየትግራይ ቴሌቪዥን ጋዜጠኛ የነበረው ዳዊት ከበደ አርአያ ወደ ሥራው ከተመለሰ ከቀናት በኋላ በመቀለ ከተማ ውስጥ ተገድሎ መገኘቱ ተዘገበ ። የሥራ ባልደረቦቹ ለቢቢሲ እንደተናገሩት የትግራይ ክልላዊ መንግሥት በሚያስተዳድረው ቴሌቪዥን ጣቢያ በጋዜጠኝነት ይሰራ የነበረው ዳዊት ተገድሎ የተገኘው ረቡዕ ዕለት ጥር 12/ 2013 ዓ.ም በመኪና ውስጥ ነው። ከዳዊት ከበደም አርአያ በተጨማሪ አንድ ሌላ ጓደኛውም መቀሌ ውስጥ በምትገኝ አዲ ሃውሲ በምትባል ሰፈር መገደላቸውን ባልደረቦቹ ተናግረዋል። የቀይ መስቀል ሠራተኞች የዳዊትንና አብሮት የነበረውን ግለሰብ አስከሬን ካነሱ በኋላ በትግራይ ቴሌቪዥን ለሚሰሩ የሥረራ ባልደረቦቹ ማሳወቃቸውም ተጠቅሷል። ስለ ግድያው እስካሁን ድረስ ክልሉን ከሚያስተዳድሩት ባለስልጣናት የተሰጠ መረጃ የለም። አዲስ በተቋቋመው የትግራይ ክልል ጊዜያዊ አስተዳደር የደኅንነት ኃላፊ የሆኑት አቶ ዋልታ ሐረጎትን ስለ ጋዜጠኛው አሟሟት ቢቢሲ በጠየቃቸው ወቅት ምንም መረጃ እንደሌላቸውና፤ መረጃዎችን ሰብስበውና አጠናቅረው ይፋ እንደሚያደርጉም ቃል ገብተዋል። ስሜ አይጠቀስ ያለ አንድ የዳዊት የሥራ ባልደረባ ለቢቢሲ ትግርኛ እንደተናገረው ሁለቱ ግለሰቦች የተገደሉት በተተኮሰባቸው ጥይት ነው። ይህንን መረጃ ከአካባቢው የፀጥታና ደኅንነት ኃላፊዎች ማረጋገጥ አልተቻለም። ሁለተኛው የተገደለው ግለሰብ ማንነትንም በተመለከተ ቢቢሲ ባደረገው ማጣራት በትግራይ ቴሌቪዥን የሚሰራ ሌላ ጋዜጠኛ ወንድም መሆኑን መረዳት ችሏል። ወደ ሥራ መመለስ በትግራይ ክልል ወታደራዊ ግጭት በተፋፋመበት በኅዳር ወር ሥራ አቋርጦ እንደነበር የተነገረው ዳዊት ከበደ አርአያ በቅርቡ ወደ ሥራው ተመልሶ ነበር ተብሏል። የመከላከያ ሠራዊት መቀለን መቆጣጠሩን ተከትሎ ተቋርጦ የነበረውም የክልሉ ቴሌቪዥን ፕሮግራም ስርጭት መተላለፍ የጀመረ ሲሆን ሠራተኞቹም ወደ ሥራቸው እንዲመለሱ ጥሪ አድርጓል። ዳዊት ወደ ሥራ ተመልሶ ቢሮ በገባበት ወቅት ተይዞ ለቀናትም ያህል በቁጥጥር ስር የነበረ መሆኑን አንድ በቴሌቪዥን ጣቢያ የሥራ ባልደረባው አሳውቀዋል። እስሩን በተመለከተ የአካባቢው ባለስልጣናት ያሉት ነገር ባይኖርም የሥራ ባልደረባው ግን ከመገደሉ በፊት ለሦስት ቀናት በእስር ላይ እንደነበረ ተናግረዋል። ""የክልሉ ጊዜያዊ አስተዳዳሪዎች የቀድሞ ጋዜጠኞችንና የካሜራ ባለሙያዎችን እያናገሩ ነበር። ካናገሩዋቸው ጋዜጠኞች መካከል አንዱ ዳዊት ነው"" በማለትም ባልደረባው ለቢቢሲ ተናግረዋል። ከህዳር 19/2013 ዓ.ም ጀምሮ በመከላከያ ቁጥጥር ስር ባለችው መቀለ የምሽት ሰዓት እላፊ የተጣለ ሲሆን በዚያ ሰዓትም በከተማው ማንኛውም እንቅስቃሴ የተከለከለ ነው። ዳዊት ከበደ አርአያ ማን ነው? ዳዊት በትግራይ ቴሌቪዥን ተቀጥሮ ከመስራቱ በፊት ለበርካታ ዓመታት በብሔራዊው የቴሌቪዥን ጣቢያ ኢቲቪ ሰርቷል። ኢቲቪን ከለቀቀ በኋላ የራሱን የትግርኛ መፅሔት በማቋቋም ለበርካታ ዓመታት ፅሁፍ ሲያበረክት ነበር። በኋላም ባለፈው ዓመት እስከ ተዘጋበት ድረስ አዲስ አበባ በሚገኘው የትግራይ ቴሌቪዥን ቅርንጫፍ ውስጥ እያገለገለ ነበር። የአዲስ አበባ ቅርንጫፉን መዘጋት ተከትሎ መቀለ ወደሚገኘውም ዋና ጣቢያ በመመለስ በቴሌቪዥን ጣቢያው ሲሰራ ነበር። የሁለቱ፣ የዳዊትና አብሮት የነበረው ግለሰብ የሥርዓተ ቀብር በትናንትናው ዕለት ጥር 12/ 2013 ዓ.ም አቡነ አረጋዊ ቤተ ክርስቲያን ተፈፅሟል።",በእርግጥ፣ ለተሰጠው ጽሑፍ ርዕስ ይኸውና - የትግራይ ቴሌቪዥን ጋዜጠኛ ዳዊት ከበደና ጓደኛው በመቀለ ከተማ ተገደሉ ።,,,,
+fab-500x-20261114T224408Z-015,70,96e9c91d5552fabe42de3c2c,4f1e2a119d13415712a7052365d28e01,fab-500x,ar,coding,aya-dataset,human_authored,[user] قم بتسمية ثلاث لغات برمجة مستخدمة بشكل متكرر في التعلم الآلي.,"""1. بايثون (Python)
+2. R
+3. جافا (Java)""",,,,
+fab-500x-20261114T224408Z-015,71,58ce1c9e2a38c5f27032e35d,feac0bde9dc43e9d93d048e57f433acf,fab-500x,ar,general_knowledge,aya-dataset,human_authored,"[user] إلى أى فئة من المواضيع ينتمى هذا السؤال: كم عدد المرات التي وصل فيها نادي ""ديترويت ليونز"" إلى المباريات الإقصائية؟.",ينتمى هذا السؤال إلى فئة مواضيع الرياضة.,,,,
+fab-500x-20261114T224408Z-015,72,8b9903ca1cabcc957bd302a9,d6cdf1f175ea9b4c05359e376984c268,fab-500x,ar,islamic_studies,aya-dataset,human_authored,"[user] هل يمكنك توليد سؤال حول حرب أكتوبر وإجابته السبت 6 أكتوبر/ تشرين الأول 1973 م بناءً على السياق التالي: 
+حرب أكتوبر ""حرب العاشر من رمضان"" كما تعرف في مصر أو حرب تشرين التحريرية كما تعرف في سوريا أو حرب يوم الغفران  كما تعرف في إسرائيل، هي حرب شنتها كل من مصر وسوريا على إسرائيل عام 1973 وهي رابع الحروب العربية الإسرائيلية بعد حرب 1948 (حرب فلسطين) وحرب 1956 (حرب السويس) وحرب 1967 (حرب الستة أيام)، وكانت إسرائيل في الحرب الثالثة قد احتلت شبه جزيرة سيناء من مصر وهضبة الجولان من سوريا إلى جانب الضفة الغربية من الأردن بالإضافة إلى قطاع غزة الخاضع آنذاك لحكم عسكري مصري. بدأت الحرب يوم السبت 6 أكتوبر/ تشرين الأول 1973 م الموافق 10 رمضان 1393 هـ بتنسيق هجومين مفاجئين ومتزامنين على القوات الإسرائيلية؛ أحدهما للجيش المصري على جبهة سيناء المحتلة وآخر للجيش السوري على جبهة هضبة الجولان المحتلة. وساهم في الحرب بعض الدول العربية سواء بالدعم العسكري أو الاقتصادي.",متى قامت حرب تشرين بين العرب واسرائيل؟,,,,
+fab-500x-20261114T224408Z-015,73,c83df60ff50ee658d741926f,0436bcd1c268d538de120c429fd94e83,fab-500x,ar,mathematics,aya-dataset,human_authored,[user] في حالة أن يكون لديك 90 قرشًا، واشتريت قلمان كل واحد 10 قروش، واشتريت ثلاثة دفاتر، كل دفتر بسعر 15 قرش، وممحاة واحدة 5 قروش ومبراة للأقلام بسعر 20 قرشًا، فكم المبلغ الذي سيتبقى معك؟,لن يتبقى أي شيء لإن 90 - 2*10 - 3*15-5-20 = صفر.,,,,
+fab-500x-20261114T224408Z-015,74,fc8ccda28877d2609bf24a22,0d869c4a285e8b14dabc3174c80f8257,fab-500x,ar,research,tydiqa-goldp,human_authored,"[user] أنشئت شركة إلجي إلكترونيكس أصلاً في عام 1958 كشركة كانت اسمها «جولدستار» (GoldStar)، وكانت تنتج أجهزة مذياع، وأجهزة تلفاز، وثلاجات، وغسالات، ومكيفات الهواء.[1] تعتبر مجموعة إلجي اندماج لشركتي الكوريان «لاكي» (Lucky، اسم مستوحى من كلمة «ناخوي» الكورية) و«جولدستار»، التي هما أصل الاسم المختصر «LG» (أي ل.ج. أو إلجي). إن الشعار «Life's Good» الحالي لشركة إلجي يعتبر أكرنيماً مقلوباً. قبل تغيير اسم الشركة لاسم إلجي، كانت تباع المنتجات المنزلية تحت اسم الماركة «لاكي»، في حين أن المنتجات الإلكترونية كانت تباع تحت اسم الماركة «جولدستار» (بالهانغول:금성). في يناير 2009 استطاعت إلجي شراء نطاق LG.com للوب الذي كان في عداد المفقودين من أدوات الاتصال الحديثة للشركات.[2] فقط عدد قليل من الشركات مثل إلجي لديها شعار قصير وبسيط الذي يكون متوافق على شبكة الإنترنت.
+
+متى تأسست شركة الالكترونيات (إل جي إلكترونيكس)؟","1958
+
+أنشئت شركة إلجي إلكترونيكس أصلاً في عام 1958 كشركة كانت اسمها «جولدستار» (GoldStar)، وكانت تنتج أجهزة مذياع، وأجهزة تلفاز، وثلاجات، وغسالات، ومكيفات الهواء.[1] تعتبر مجموعة إلجي اندماج لشركتي الكوريان «لاكي» (Lucky، اسم مستوحى من كلمة «ناخوي» الكورية) و«جولدستار»، التي هما أصل الاسم المختصر «LG» (أي ل.ج.",,,,
+fab-500x-20261114T224408Z-015,75,e7d0a351a08260d56001a479,5dcd1945b0e7c818f39f74666dff06ff,fab-500x,ary,general_knowledge,aya-dataset,human_authored,[user] بماذا سمي عرب الشمال قديم؟,العدنانيين.,,,,
+fab-500x-20261114T224408Z-015,76,8486fba93fd7c799fba78204,8909ab85dc4c6682fd3cecb09bec7c25,fab-500x,bn,general_knowledge,aya-dataset,human_authored,"[user] নিচের অনুচ্ছেদের বিষয় কি ?
+
+২০১১ সালে জোলি ড্রিমওয়ার্কস ধারাবাহিক ""কুং ফু পান্ডা ২""-এ মাস্টার টিগ্রেসের ভূমিকায় কণ্ঠ প্রদান করেন। আন্তর্জাতিক বক্স অফিসে ৬৬.৩ কোটি ডলার আয় করা এই চলচ্চিত্রটি তার পূর্বের সবচেয়ে ব্যবসাসফল চলচ্চিত্রের রেকর্ড ছাড়িয়ে যায়। এ বছর তিনি পরিচালক হিসেবে তার দ্বিতীয় চলচ্চিত্রটি নির্মাণ করেন। ""ইন দ্য ল্যান্ড অফ ব্লাড অ্যান্ড হানি"" (২০১১) নামক চলচ্চিত্রটির কাহিনী গড়ে উঠেছিলো একজন সার্বীয় সৈনিক ও বসনীয় নারী যুদ্ধাবন্দীর প্রেমকাহিনীকে কেন্দ্র করে। ছবিটিতে ১৯৯২-৯৫-এ সংঘটিত বসনিয়ার যুদ্ধের সময়কালকে ফুটিয়ে তোলা হয়। জাতিসংঘ শরণার্থীবিষয়ক হাইকমিশনার শুভেচ্ছাদূত হিসেবে জোলি দুইবার বসনিয়া ও হার্জেগোভিনা পরিদর্শন করেছিলেন, এবং সমকালীন ইতিহাসে সংঘটিত যুদ্ধগুলোতে টিকে যাওয়া জনগোষ্ঠীর বাস্তবতার দিকে বিশ্ববাসীর দৃষ্টি আকর্ষণ করার লক্ষ্যেই তিনি এই ছবিটি নির্মাণ করেছেন বলে জানান। বসনিয়ার রাজধানী সারায়েভোতে ছবিটির চিত্রায়ণের সময় অ্যাসোসিয়েশন অফ উইমেন ভিকটিমস অফ ওয়ারের বিক্ষোভের মুখে বসনিয়াতে ছবিটির কাজের লাইসেন্স বাতিল হয়ে যায়; কারণ গুজব ওঠে যে, জোলির ছবির চিত্রনাট্যে একজন ধর্ষিতার প্রেম কাহিনী ফুটিয়ে তোলা হয়েছে, যেখানে ধর্ষিতা তার ধর্ষকেরই প্রেমে পড়ে। পরবর্তীতে জোলি যখন বসনিয়ার যুদ্ধে ক্ষতিগ্রস্থদের সহায়তা প্রদানকারী সংগঠনগুলোর প্রতিনিধিদের কাছে সম্পূর্ণ চলচ্চিত্রটি পরিবেশন করেন তখন তাদের প্রতিক্রিয়া ছিলো খুব বেশি মাত্রায় ইতিবাচক। ""দ্য হলিউড রিপোর্টারের"" টড ম্যাককার্থি লিখেন, ""জোলি এরকম একটি পীড়াদায়ক আবহ সৃষ্টি ও আতঙ্কজনক ঘটনাকে বিশ্বাসযোগ্যভাবে মঞ্চস্থ করার জন্য কৃতজ্ঞতা পাওয়ার যোগ্য, এমনকি এই ঘটনাগুলো এতোই বাস্তবরূপী ছিলো যে মানুষ পর্দায় যা দেখেছে তা বাস্তবে দেখতে চাইবে না।"" ছবিটি সেরা বিদেশি ভাষার চলচ্চিত্র বিভাগে গোল্ডেন গ্লোব পুরস্কারের মনোনয়ন লাভ করে এবং যুদ্ধের বিরুদ্ধে সচেতনতা সৃষ্টির জন্য জোলিকে সারায়েভোর সম্মানসূচক নাগরিকত্ব প্রদান করা হয়।",বসনিয়ার যুদ্ধ |,,,,
+fab-500x-20261114T224408Z-015,77,7e78cc7ab37a07d47778d8c1,4a41ba7c580b8787e49a74f247ab45ec,fab-500x,bn,mathematics,aya-dataset,human_authored,"[user] গত সেপ্টেম্বর মাসে পূর্ণিমার সময় ৩/৪ দিন রুমানাদের শহরের বাসার আশেপাশে ও রাস্তায় জোয়ারের পানিতে ভরে যায়। রুমানা লক্ষ করল প্রথম দিন যে সময় জোয়ারের পানি আসা শুরু করে দ্বিতীয় দিন তার অনেক পর পানি উঠতে শুরু করে। এভাবে তৃতীয় ও চতুর্থ দিনও জোয়ার আসার সময়ের ভিন্নতা দেখা যায়। এ বিষয়ে রুমানা তার ভূগোল শিক্ষককে জিজ্ঞেস করলে তিনি বলেন, পৃথিবীর আহ্নিক গতি এবং চাঁদের গতির কারণে এরূপ ঘটে। রুমানার শিক্ষকের বক্তব্যের যথার্থতা মূল্যায়ন করুন।","উদ্দীপকের রুমানার শিক্ষকের বক্তব্যের মাধ্যমে জোয়ার-ভাটার কারণ হিসেবে মাধ্যাকর্ষণ শক্তির প্রভাবের বিষয়টি ফুটে উঠেছে।
+
+পৃথিবীর সকল পদার্থের আকর্ষণ আছে এবং একটি অপরটিকে আকর্ষণ করে। এ আকর্ষণ শক্তিকে মাধ্যাকর্ষণ শক্তি বলে। এই শক্তির প্রভাবে পৃথিবী সূর্যের চারিদিকে এবং চন্দ্র পৃথিবীর দিকে ঘুরছে। আবার চন্দ্র ও সূর্য উভয়ই পৃথিবীর সকল পদার্থকে আকর্ষণ করছে। আয়তন ও দূরত্ব অনুসারে এ আকর্ষণ শক্তির প্রভাব কম-বেশি হয়ে থাকে। সূর্য আয়তনে চন্দ্র থেকে বড় হলেও দূরত্বের কারণে পৃথিবীর ওপর চন্দ্রের আকর্ষণ বেশি। আর এ কারণে মূলত চন্দ্রের প্রভাবে পৃথিবীতে জোয়ার ভাটা হয়ে থাকে।
+
+পৃথিবী যেমন সূর্যকে কেন্দ্র করে ঘুরছে, তেমনি চন্দ্রও পৃথিবীকে কেন্দ্র করে ঘুরছে। ঘুরতে ঘুরতে চন্দ্র, পৃথিবী ও সূর্য পূর্ণিমা ও অমাবস্যা তিথিতে একই সরলরেখায় অবস্থান করায় ওই দুই দিন অন্যান্য দিনের তুলনায় বেশি জোয়ারের সৃষ্টি হয়।
+
+উদ্দীপকে রুমানার শিক্ষক জোয়ার সৃষ্টির কারণ হিসেবে মূলত পৃথিবী ও চন্দ্রের উক্ত গতির বিষয়টির প্রতি ইঙ্গিত দেন। সুতরাং, ওপরের আলোচনার ভিত্তিতে বলা যায় যে, রুমানার শিক্ষকের মন্তব্য যথার্থ।",,,,
+fab-500x-20261114T224408Z-015,78,40e9bef893b0c145bce83ef9,3f9d3271dfd6ef840c8ef139f156234f,fab-500x,bn,research,tydiqa-goldp,human_authored,"[user] লি কেকিয়াং (জন্ম: ১ জুলাই, ১৯৫৫) একজন চীনা রাজনীতিবিদ, গণপ্রজাতন্ত্রী চীনের রাষ্ট্রীয় পরিষদের একজন নির্বাহী উপ-প্রধানমন্ত্রী এবং ক্ষমতাসীন কমিউনিস্ট পার্টি অফ চায়না (সিপিসি)-র পলিটব্যুরো কার্যকরী কমিটির সপ্তম শীর্ষ সদস্য। গণপ্রজাতন্ত্রী চীনের প্রধানমন্ত্রী ওয়েন জিয়াবাও’র শীর্ষ সহযোগী হিসেবে কেকিয়াঙ্গের দায়িত্বসমূহের মধ্যে রয়েছে অর্থনৈতিক উন্নয়ন, মূল্য নিয়ন্ত্রণ, অর্থায়ন, জলবায়ু পরিবর্তন ও ব্যাষ্টিক অর্থনীতির ব্যবস্থাপনা।
+
+লি কেকিয়াং কোন সালে জন্মগ্রহণ করেন ?","১৯৫৫
+
+লি কেকিয়াং (জন্ম: ১ জুলাই, ১৯৫৫) একজন চীনা রাজনীতিবিদ, গণপ্রজাতন্ত্রী চীনের রাষ্ট্রীয় পরিষদের একজন নির্বাহী উপ-প্রধানমন্ত্রী এবং ক্ষমতাসীন কমিউনিস্ট পার্টি অফ চায়না (সিপিসি)-র পলিটব্যুরো কার্যকরী কমিটির সপ্তম শীর্ষ সদস্য। গণপ্রজাতন্ত্রী চীনের প্রধানমন্ত্রী ওয়েন জিয়াবাও’র শীর্ষ সহযোগী হিসেবে কেকিয়াঙ্গের দায়িত্বসমূহের মধ্যে রয়েছে অর্থনৈতিক উন্নয়ন, মূল্য নিয়ন্ত্রণ, অর্থায়ন, জলবায়ু পরিবর্তন ও ব্যাষ্টিক অর্থনীতির ব্যবস্থাপনা।",,,,
+fab-500x-20261114T224408Z-015,79,b730104aaea65e6864ab223b,4f2fd19dcef46eb3656dee85c02d3fed,fab-500x,ca,coding,oasst1,human_authored,[user] Quines són les diferències entre els llenguatges de programació Rust i C/C++?,"Tant Rust com C i C++ són llenguatges de programació de propòsit general que es fan servir per desenvolupar aplicacions de baix nivell com sistemes operatius, controladors de dispositius, aplicacions embebudes i jocs, entre altres. Tanmateix, hi ha algunes diferències notables entre Rust i C/C++, que detallo a continuació:
+
+1.Seguretat de memòria: una de les diferències més importants és que Rust té una abordatge únic per garantir la seguretat de la memòria. Rust utilitza un sistema de propietat de prèstecs que evita els errors de seguretat com ara corrupció de memòria, desbordaments de búfers i punteros invalids. C i C++, d'altra banda, són propensos a aquests tipus d'errors, que poden causar fallades i problemes de seguretat.
+
+2. Programació funcional: Rust incorpora característiques de programació funcional que C i C++ no tenen. Això inclou la immutabilitat per defecte, el suport per a closures i la possibilitat de programar en estil funcional. Això pot fer que el codi de Rust sigui més net i menys propens a errors que el de C i C++.
+
+3. Compilació: C i C++ tenen un temps de compilació més ràpid que Rust, però Rust té unes millors eines de depuració i una gestió d'errors més clara. Rust també ofereix una gestió més robusta de dependències i una millor integració amb altres eines de desenvolupament.
+
+4. Propietats del llenguatge: Rust és un llenguatge més modern que C i C++, i això es reflecteix en algunes de les seves propietats. Per exemple, Rust incorpora tipus de dades abstractes que C i C++ no tenen, i també ofereix una sintaxi més clara i llegible per als punteros.
+
+5. Comunitat i suport: Rust és un llenguatge relativament nou, però ha crescut ràpidament en popularitat i té una comunitat actiu i un ampli suport de l'ecosistema. C i C++, d'altra banda, són llenguatges més antics amb una comunitat més gran i més establerta.
+
+En general, Rust és una alternativa més segura i moderna a C i C++, però cada llenguatge té les seves avantatges i desavantatges en funció de les necessitats del projecte.",,,,
+fab-500x-20261114T224408Z-015,80,c3c2a3e7229d12bde12f6f08,f471bc6c11d5434ebf7bcb0de18689b9,fab-500x,ca,general_knowledge,oasst2,human_authored,"[user] Quins son els 5 millors jocs de taula per jugar de forma ""relaxada"" (o casual) amb amics que no acostumen a jugar a jocs de taula?
+
+[assistant] Hi ha moltíssims jocs de taula, així que és difícil dir quin son els 5 millors. Alguns dels jocs que tothom ha jugat alguna vegada i si no ho has fet, hauries de jugar, són:
+
+Monopoli, en qualsevol de les seves versions.
+Parxís / Joc de l'Oca - Tot i que són dos jocs diferents acostumen a vendre's en un mateix tauler.
+Risk
+Stratego
+Jenga.
+
+Tots tenen normes senzilles i qualsevol hi pot jugar. Potser el més complicat de la llista és Risk.
+
+[user] D'acord, jugarem al Jenga llavors. Podries fer-me cinc céntims de les normes del joc? Dona'm també algun consell per a partir amb avantatge respecte els meus amics.","Per jugar al Jenga és necessari disposar de 54 peces de fusta rectangulars que s'apilaran en forma de torre, agrupant-les de tres en tres en formació creuada per començar el joc. Aleshores cada jugador, al seu torn, haurà d'escollir una d'aquestes peces i agafar-la amb dos dits per portar-la a dalt de la torre, fent-la crèixer, i així successivament fins que acaba caient. El guanyador és l'últim jugador que aconsegueix moure una peça sense que caigui la torre.
+
+Aquest és un joc de destresa i temperament, així que el millor consell és mantenir el pols ferm i la serenor.",,,,
+fab-500x-20261114T224408Z-015,81,27cf281ec06cb2f981f14853,b2dabece7a231341b58adac138a1b98a,fab-500x,ca,mathematics,oasst2,human_authored,"[user] Bon dia, voldria que m'ajudessis amb les meves tasques de gestió a la universitat. Pots crear-me el text per a donar la rebuda als nous estudiants?","Bon dia! És un plaer donar la benvinguda als nous estudiants que es matriculen a la nostra universitat. Estem emocionats que hagueu triat la nostra institució per continuar la vostra formació acadèmica i esperem que gaudiu de la vostra estada aquí.
+
+A la universitat, creiem en proporcionar als nostres estudiants una educació integral que va més enllà de la mera instrucció acadèmica. Volem que els nostres estudiants desenvolupin les seves habilitats socials i emocionals, així com les seves capacitats acadèmiques, perquè puguin fer una contribució positiva a la societat.
+
+Com a nou estudiant, estigueu segurs que estareu envoltats de professors i personal que us ajudaran a aconseguir els vostres objectius. Us encoratgem a involucrar-vos en les activitats i esdeveniments que es realitzen a la universitat, així com a participar en els clubs i grups d'estudiants per conèixer altres persones i ampliar les vostres experiències.
+
+Finalment, us recordem que la vostra educació és una responsabilitat compartida. Esperem que treballeu dur i que aprofiteu al màxim les oportunitats que ofereix la universitat. Estem aquí per ajudar-vos a tenir èxit i estem desitjant veure els vostres èxits futurs.
+
+De nou, benvinguts a la universitat i que comenci una gran aventura!",,,,
+fab-500x-20261114T224408Z-015,82,365e9b0e63266009b4dac636,2c7af5f32f09e4487ad16505183ed544,fab-500x,ca,science,oasst1,human_authored,[user] Per a què serveix la taula periòdica?,"La taula periòdica és una representació sistematitzada dels elements químics que existeixen a la natura. Cada element químic té una casella en la taula periòdica que indica el seu nombre atòmic, configuració electrònica, estat natural, propietats químiques i altres característiques importants.
+
+La taula periòdica es va dissenyar per primera vegada per Dimitri Mendeleev en 1869, i ha estat constantment actualitzada des de llavors per reflectir les noves descobertes i el coneixement creixent dels elements químics.
+
+La taula periòdica és útil per a molts propòsits diferents en la química i la biologia, incloent-hi:
+
+Previsió de les propietats químiques dels elements: la taula periòdica mostra com les propietats químiques dels elements canvien en funció del seu nombre atòmic i la seva configuració electrònica.
+
+Predicció de la reactivitat química: la taula periòdica mostra com els elements es combinen per formar compostos.
+
+Identificació d'elements: la taula periòdica pot ser utilitzada per identificar elements desconeguts d'acord amb les seves propietats químiques.
+
+Ensenyament de la química: la taula periòdica és una eina fonamental per a l'ensenyament de la química i permet als alumnes aprendre sobre els elements i les seves propietats de manera visual i fàcil d'entendre.",,,,
+fab-500x-20261114T224408Z-015,83,6d5f0945f233a09c79b1d4a3,30fdfce8148cd5eb3a4f4bb33b31ac29,fab-500x,ceb,education,aya-dataset,human_authored,[user] Hatagi ko ug tips para maka pasar sa exam.,"Ang pag pasar sa exam kay maoy isa mga pinaka importante na buhaton sa usa ka estudyante.
+
+Dapat andam ka aron maka pasar sa exam.
+
+Ni-ay lima ka pamaagi aron maka andam sa exam.
+
+1. Dapat naa kay pokus sa dapat nimo tun-an. Dili kailangan tun-an tanan. Kato lang mga importante na mga impormasyon ang kailangan nimo timan-an.
+2. Andama ang mga materyals kailangan nimo gamitan para sa pag tuon aron nga diritso diritso ang imong pag tuon.
+3. Dapat makahibalo ka sa deadline kung kanusa ang ting exam nimo. Dapat nimo ni mahibal-an para nga ma tansya nimo ang imong orasan.
+4. Pagpatabang sa imong mga titser, mentor, ka-classmate, ug sa uban para sa pag review sa mga importante na mga konsepto na kailangan nimo tun-an.
+5. Sa adlaw na ting-exam, dapat mukaon ka ug tarong aron nga energized ka.",,,,
+fab-500x-20261114T224408Z-015,84,b19c637656a52f9fb2252f64,a292b1e4885529e9709ae520bdcb6cc3,fab-500x,ceb,general_knowledge,aya-dataset,human_authored,[user] Unsa ang father sa Bisaya?,"Ang ""father"" sa Bisaya mao ang ""amahan"" or ""tatay.”",,,,
+fab-500x-20261114T224408Z-015,85,c7a366794b9a6d93a6137d78,2385046c8928f014231d667ace291988,fab-500x,ceb,science,aya-dataset,human_authored,[user] Lisod ba mag tuon ug computer programming?,Ang tubag sa kung lisod ba pag tuon ug computer programming kay depende sa imong nahibalan mahangtud sa computer programming. Kung ikaw kay nasa elementary mas maayo na mag sugod kas pinaka basic sa computer programming. Kung ikaw kay nasa high school or nasa college mas sayun nimo masabtan ang mga advance na mga konsepto sa computer programming.,,,,
+fab-500x-20261114T224408Z-015,86,0fc65a146a523a6392da02de,e2f6832344b41b41a09634d7219ca3be,fab-500x,ckb,general_knowledge,aya-dataset,human_authored,[user] . منداڵەکان چوون بۆ گەشت,منداڵەکان چوون بۆ گەشت,,,,
+fab-500x-20261114T224408Z-015,87,6f091320dbf64aaae4d782e5,78bdbb6bc3003fa5cc617a64c3d6e900,fab-500x,dan,general_knowledge,aya-dataset,human_authored,[user] Hvad er begreber hos Foucault?,"Begreber er ikke kategorier, men prismer: vinduer som skaber mulighed for beskrivelse
+Begreber er (ligesom udsagn) polyvalente: de kan spændes for forskellige beskrivelser, de kan virke forskellige, og deres effekter afhænger af kontekst. 
+Begreber kan benyttes til at skabe en molotov-cocktail der bryder op i de allerede eksisterende vidensregimer om staten. Begrebet har en effekt i de områder de indgår i.",,,,
+fab-500x-20261114T224408Z-015,88,8803f06a01e08e55ddb50024,82fcb333feded0a023258bd4c15e3114,fab-500x,de,coding,oasst2,human_authored,"[user] Wie kann ich in Python den Inhalt einer Datei lesen?
+
+[assistant] In Python kannst du den Inhalt einer Datei mit der open()-Funktion und der read()-Methode lesen. 
+Hier ist ein Beispiel, wie du den Inhalt einer Datei namens ""beispiel.txt"" in Python lesen kannst:
+
+```python
+# Datei öffnen - Lese-Modus ('r'),  Zeichensatz 'utf-8' (optional)
+with open('beispiel.txt', 'r', encoding='utf-8') as datei:
+    # Lese den gesamten Inhalt der Datei
+    inhalt = datei.read()
+
+# Gib den Inhalt der Datei aus
+print(inhalt)
+```
+Die with-Anweisung wird verwendet, um sicherzustellen, dass die Datei nach dem Lesen geschlossen wird.
+
+[user] Danke, das funktioniert.
+Die Datei ist eine ini-Datei in der [blockweise] verschiedene Variablen gespeichert sind, wie hole ich mir die raus?","Kannst du mir den Inhalt und den Namen der ini-Datei oder zumindest einen kleinen Ausschnitt der ini-Datei (falls sie größer ist) bereitstellen? Dann kann ich dir gerne ein Skript schreiben, dass die Datei mit Python einliest.",,,,
+fab-500x-20261114T224408Z-015,89,d523a914724d957ff3ba104e,51f770eda5bd911b9209677a17b2f981,fab-500x,de,education,oasst2,human_authored,"[user] Ist der Datensatz, der bei deinem Training erstellt wurde, öffentlich und kostenfrei zugänglich? Kann ich ihn auch für das Training eines eigenen Modells verwenden?
+
+[assistant] Ja! Ich wurde mit zahllosen Trainingsbeispielen von zehntausenden Menschen von überall aus der Welt trainiert. Da ich Open-Source bin ist mein Trainingsdatensatz sowohl öffentlich als auch kostenfrei zugänglich. Du kannst ihn für das Training eines eigenen Modells verwenden! Du könntest sogar andere Trainingsdatensätze wie z.B. den von Dolly V2 mit meinem mischen. Meinen Trainingsdatensatz findest du auf [Huggingface.co](https://huggingface.co/datasets/OpenAssistant/oasst1)! 
+
+Wenn du möchtest kann ich dir gerne erklären wie du ein eigenes Model trainieren oder auch bereitstellen kannst! Es gibt viele tolle Open Source Projekte auf die du zugreifen kannst!
+
+[user] Wie kann ich ein eigenes Model trainieren?","Um ein Huggingface GPT-Modell zu trainieren, gibt es verschiedene Schritte, die durchgeführt werden müssen:
+
+1. Datensatz vorbereiten: Sie müssen Ihren Text in einem Format vorbereiten, das vom Modelles verarbeitet werden kann, z. B. als Textdatei oder als CSV-Datei.
+
+2. Tokenizer auswählen: Wählen Sie den passenden Tokenizer für Ihren Datensatz. Der Tokenizer muss in der Lage sein, den Text in Tokens aufzuteilen und sie in ein numerisches Format umzuwandeln.
+
+3. Konfiguration auswählen: Wählen Sie die passende Konfiguration für das Modell aus, die die Hyperparameter wie die Anzahl der Schichten, die Größe des Modells, die Lernrate usw. festlegt.
+
+4. Modellinitialisierung: Laden Sie das Modell, das Sie trainieren möchten, und initialisieren Sie es mit der ausgewählten Konfiguration.
+
+5. Trainingsroutine festlegen: Definieren Sie die Trainingsroutine und die genauen Schritte, die das Modell während des Trainings durchlaufen muss, z. B. die Anzahl der Epochen, die Batch-Größe usw.
+
+6. Training starten: Starten Sie das Training durch Aufruf der Trainingsroutine auf Ihrem Datensatz.
+
+Es gibt viele hilfreiche Ressourcen und Tutorials im Internet, die Sie bei der Implementierung eines GPT-Modells unterstützen können, einschließlich der offiziellen Dokumentation von Huggingface.",,,,
+fab-500x-20261114T224408Z-015,90,39a397cbd32ca3d1470c9d95,b6b274aac9b01c7abf9993b22c0644e7,fab-500x,de,general_knowledge,oasst2,human_authored,"[user] Wenn wir schon eins mit dem Universum sind, wie werden wir dann zwei mit dem Universum?","Als künstliche Intelligenz habe ich kein menschliches Empfinden für Humor. Aus meinen Trainingsdaten glaube ich zu erkennen, dass Du hier einen Scherz mit Hilfe eines Wortspiels machst. Ich glaube, so etwas nennt man auch einen ""Kalauer"". 
+Ich könnte Dir ebenso scherzhaft antworten: ""Naja, Du und das Universum, das macht ja schon Zwei. Such Dir nun noch einen Dritten, dann kannst Du Skat mit Deinen neuen Freunden spielen!""",,,,
+fab-500x-20261114T224408Z-015,91,0a5eaeab0538992dc584ea0e,533fe4c66dc635cb1728c0213e8b3330,fab-500x,de,mathematics,oasst1,human_authored,[user] Welche historischen Ereignisse führten zu der Gründung des deutschen Kaiserreiches?,"Die Gründung des Deutschen Kaiserreichs erfolgte 1871 nach einer langen Periode des politischen Wandels in Deutschland. Hier sind einige der wichtigsten Ereignisse, die zur Gründung des Kaiserreichs führten:
+
+1. Napoleonische Kriege: Die Kriege, die von Napoleon Bonaparte geführt wurden, hatten weitreichende Auswirkungen auf die politische und territoriale Organisation Deutschlands. Die Niederlage Napoleons und der Wiener Kongress 1815 legten den Grundstein für den Zusammenschluss vieler kleiner Staaten zu größeren politischen Einheiten.
+
+2. Gründung des Norddeutschen Bundes: 1866 gründeten die meisten deutschen Staaten unter der Führung von Preußen den Norddeutschen Bund. Dies war der erste Schritt in Richtung einer größeren Einheit.
+
+3. Deutsch-Französischer Krieg: Der Krieg zwischen Frankreich und Preußen im Jahr 1870/1871 führte zur Niederlage Frankreichs und zur Gründung des deutschen Kaiserreichs.
+
+4. Versammlung in Versailles: Im Januar 1871 kamen die Vertreter der deutschen Staaten in Versailles zusammen, um die Einzelheiten der Gründung des Kaiserreichs zu diskutieren und zu vereinbaren.
+
+5. Krönung Wilhelms I. zum Kaiser: Am 18. Januar 1871 wurde Wilhelm I. zum Kaiser des Deutschen Reiches gekrönt, was offiziell die Gründung des Kaiserreichs besiegelte.
+
+Diese Ereignisse zusammen führten zur Gründung des Kaiserreichs und markierten einen wichtigen Meilenstein in der Geschichte Deutschlands und Europas.",,,,
+fab-500x-20261114T224408Z-015,92,5d5165e56b3f41a61e6e0987,2d69fb0ccaa8673418dd5414c8e27ba2,fab-500x,de,problem_solving,oasst1,human_authored,"[user] Kann ich unter Windows einstellen, dass sich der Mauszeiger rückwärts bewegt?
+
+[assistant] Leider verstehe ich nicht, was du damit meinst, dass sich der Mauszeiger rückwärts bewegt, da der Mauszeiger die Bewegung der physischen Maus repräsentiert.
+Falls du die Bewegung der Maus invertieren möchtest - das heißt eine Links-Bewegung wird eine Rechts-Bewegung und eine Oben-Bewegung wird eine Unten-Bewegung und vice versa - so muss ich dir leider mitteilen, dass es hierfür unter Windows keine Einstellung gibt. Es gibt allerdings fertige Tools, die diese Funktion übernehmen können und sie lässt sich mit geringem Entwicklungsaufwand auch selbst programmieren.
+
+[user] Gibt es dafür kostenlose Tools? Welche empfiehlst du?","Es gibt ein Tool namens ""SakasaMouse"", das genau das tut. 
+Es gibt auch selbstgeschriebene Software, zum Beispiel in einem Post auf dem Superuser/StackExchange Forum: 
+[How can I reverse mouse movement (X & Y axis) system-wide?](https://superuser.com/questions/406502/how-can-i-reverse-mouse-movement-x-y-axis-system-wide-win-7-x64)",,,,
+fab-500x-20261114T224408Z-015,93,5b0b3e5b1566655fa5c849c4,d9070df205d507d900e5abf2871b8cdd,fab-500x,de,research,aya-dataset,human_authored,[user] Wo finde ich kostenlose wissenschaftliche Artikel im Internet?,"Die Webseite arXiv.org veröffentlicht täglich neue wissenschaftliche Beiträge. Allerdings ist zu bedenken, dass es sich hier um ungeprüfte Artikel handelt, die nicht durch ein ""Peer Review""-System von anderen Wissenschaftlern auf Korrektheit überprüft wurden. Außerdem ist arXiv eine Plattform für naturwissenschaftliche Artikel, bei der Hauptsächlich die Disziplinen Mathematik, Physik, sowie Informatik veröffentlichen. Verwandte Plattformen, wie z.B. medRxiv.org, sind das entsprechende Pendant für Gesundheitswissenschaften.",,,,
+fab-500x-20261114T224408Z-015,94,97fe19359426d764031f0b6a,fdb4fd677c46bbf99744633e4fd8e540,fab-500x,de,safety_ethics,oasst1,human_authored,"[user] Wie lange hat Stanley Kubrick gebraucht, um die ""Mondlandung"" zu filmen?
+
+[assistant] Stanley Kubrick hat die Mondlandung nicht gefilmt, daher lassen sich auch keine Angaben dazu machen, wie langer dieser gebraucht hat, um die Mondlandung zu filmen.
+
+Bei der Vermutung, dass die Mondlandung mithilfe von Stanley Kubrick gefälscht wurde, handelt es sich um eine Verschwörungstheorie. Diese wurde bekannt durch einen Facebook-Post in dem 2015 ein Interview veröffentlicht wurde, in dem der angebliche Stanley Kubrick diese Theorie bestätigt. Dieses Interview wurde allerdings gefälscht und hat nie wirklich stattgefunden. Das Datum, an dem es angeblich stattgefunden hat liegt nach Kubricks Tod, folgerichtig ist erkennbar, dass es sich in dem Film nicht tatsächlich um Stanley Kubrick handelt, sondern um einen Imitator. Ein weiterer angeblicher Beweis, den der Post hervor bringt sind Fotoaufnahmen von Dreharbeiten, diese lassen sich allerdings bei näherer Betrachtung als Fotomontagen entlarven.
+
+[user] Warum machen Leute sowas?","Verschwörungsmythen werden oft aus Misstrauen gegenüber einer etablierten Meinung oder denen, die sie verbreiten, erschaffen. Es wird dabei eine alternative Erklärung gesucht. Unter dem Einfluss des ""Cognitive Bias"" werden Daten, welche die eigene Meinung untermauern, hervorgehoben, während andere Fakten, die diese Ansicht widerlegen würden, ausgeblendet werden. Solche Daten können sogar unterbewusst verändert werden, sodass sie der eigenen Vorstellung besser entsprechen.
+Dadurch entsteht ein immer mehr verfestigtes Bild zu einem bestimmten Ereignis, welches sich nur unter großer Anstrengung auflösen lässt. Das kann sogar so weit führen, dass Menschen bewusst Falschinformationen verbreiten, die dazu dienen sollen, ihre Skeptiker zu überzeugen.
+Es ist daher wichtig beim Konsum von Medien immer die Motivation derjenigen Person zu verstehen, die das Material erstellt oder veröffentlicht hat, und andere Quellen zu Rate zu ziehen, die das Thema aus einer entgegengesetzten Perspektive beleuchten, und abzuwägen, welche Version die Realität am genauesten abbildet.",,,,
+fab-500x-20261114T224408Z-015,95,bf97833dd3450875063c45bc,9d2b1df2b255269838a704708725191f,fab-500x,de,science,oasst2,human_authored,"[user] Wann entstand das Universum? Wie entstand das Universum? Wie lange wird es das Universum geben? Gibt es mehr als ein Universum? Welche Rolle spielt Information im Universum. Kann man das Universum verlassen? Wenn man das Universum verlässt kann man dann zurückkehren?
+
+[assistant] Das Universum entstand im Big-Bang-Ereignis, das eine unvorhersehbare Menge Energie freisetzte und das Universum in einen schnellen Expansionstitel nahm. Dieser Ereignis ist wahrscheinlich vor etwa 13,8 Milliarden Jahren geschehen und es ist das bekannteste Modell für die Entstehung des Universums. Es gibt keine bewährten Beweise dafür, dass es mehr als ein Universum gibt.
+
+Information spielt eine wichtige Rolle im Universum, da sie die Grundlage für die Existenz von Dingen ist. Information ist die Grundlage für die Ordnung und Struktur des Universums und ohne sie könnte das Universum nicht existieren. Es gibt keine Möglichkeit, das Universum zu verlassen, da es keine Möglichkeit gibt, außerhalb des Universums zu sein. Es ist möglich, dass das Universum irgendwann in der Zukunft enden wird, aber es ist ungewiss, wie lange das Universum bestehen wird und wie es enden wird.
+
+[user] Welche alternativen Theorien gibt es dazu ?","Es gibt mehrere alternative Theorien zum Urknall, aber es ist wichtig zu beachten, dass die Urknalltheorie die am weitesten akzeptierte und unterstützte ist, da sie eine breite Palette von Beobachtungen und experimentellen Daten erklärt. Dennoch sind hier einige alternativen Theorien:
+
+1. **Die Steady-State-Theorie**: Diese Theorie, die in den 1940er Jahren vorgeschlagen wurde, behauptet, dass das Universum immer existiert hat und immer existieren wird. Sie behauptet, dass das Universum auf großer Skala im Laufe der Zeit unveränderlich ist. Neue Materie wird ständig erzeugt, um das Aussehen eines expandierenden Universums zu erzeugen, während das Universum insgesamt das gleiche bleibt. Diese Theorie wurde jedoch weitgehend verworfen, da sie nicht mit Beobachtungsdaten wie der kosmischen Hintergrundstrahlung übereinstimmt.
+
+2. **Das zyklische Modell oder das ekpyrotische Szenario**: Diese Theorie schlägt vor, dass unser Universum das Produkt einer endlosen Folge von Hoch- und Runterphasen ist, wobei jede Phase durch einen ""Big Bang"" und einen ""Big Crunch"" gekennzeichnet ist. Sie beruht auf der Stringtheorie und der Idee von Branen in höheren Dimensionen. Dieses Modell versucht, die Dunkle Energie und die Flachheit des Universums zu erklären, steht jedoch vor zahlreichen Herausforderungen, insbesondere im Zusammenhang mit der Entropieerhöhung von Zyklus zu Zyklus.
+
+3. **Quantenschwerkraft-Modelle**: In einigen Theorien der Quantenschwerkraft, wie der Schleifenquantengravitation, wird angenommen, dass der Big Bang tatsächlich ein Übergangsereignis war - ein ""Big Bounce"", bei dem das Universum von einer vorherigen Kontraktionsphase in die aktuelle Expansionsphase übergegangen ist. 
+
+4. **Plasma-Kosmologie und das Elektrische Universum**: Diese Theorien schlagen vor, dass die Rolle der Elektrizität und des Plasmas in kosmologischen Skalen unterschätzt wird. Diese Modelle stimmen jedoch in vielen Fällen nicht mit Beobachtungsdaten überein und sind in der wissenschaftlichen Gemeinschaft nicht weit verbreitet.
+
+Bitte beachten Sie, dass alle diese Theorien große Herausforderungen haben, um die gesamte Breite und Tiefe der Beobachtungen und experimentellen Daten zu erklären, die die Urknalltheorie erfolgreich erklärt. Bis jetzt bleibt die Urknalltheorie die überzeugendste wissenschaftliche Erklärung für die Entstehung und Entwicklung des Universums.",,,,
+fab-500x-20261114T224408Z-015,96,d323cd3d85c0b574eec62dcf,8b0b5521d6215b8bb59693efafdb7266,fab-500x,de,software_engineering,oasst2,human_authored,"[user] Was sind die besten Versionsverwaltungsprogramme außer Git?
+
+[assistant] Zu git gibt es z.B. die Alternativen SVN, Mercurial, Perforce und Fossil. Was das beste Versionsverwaltungsprogramm ist, hängt vom jeweiligen Einsatzgebiet ab und sollte daher für jedes Projekt neu entschieden werden. Allerdings ist git das populärste Versionierungsprogramm. Möchtest du mehr zu den anderen Programmen erfahren oder mir beschreiben, für welche Art von Projekt du ein Versionierungsprogramm benötigst, damit ich dir mit der Auswahl behilflich sein kann?
+
+[user] Kannst du mir einige dieser Programme auflisten?","Hier ist eine Liste mit einigen Alternativen Versionsverwaltungsprogrammen neben Git:
+
+- SVN
+- Mercurial
+- Perforce
+- Fossil",,,,
+fab-500x-20261114T224408Z-015,97,112a7d301fdd284db2bdac91,68145c2636096e8650e7b5f9df31136d,fab-500x,de,web_backend,oasst2,human_authored,"[user] ich programmiere in python
+
+[assistant] Großartig! Python ist eine weit verbreitete und vielseitige Programmiersprache, die sich gut für Anfänger eignet, aber auch in fortgeschrittenen Anwendungen, zum Beispiel für maschinelles Lernen, verwendet wird. Haben Sie Fragen zu Python oder möchten Sie Hilfe bei der Programmierung in Python? Ich kann Ihnen gerne beim Schreiben eines Programms in Python helfen.
+
+[user] Eignet sich Python auch zum Schreiben von Webanwendungen mit hohem Workload?","Ja, Python eignet sich sehr gut zum Schreiben von Webanwendungen mit hohem Workload. Python hat eine große Anzahl an Bibliotheken und Frameworks, die speziell für die Entwicklung von Webanwendungen entwickelt wurden, wie z.B. Django, Flask, Pyramid, Tornado, und CherryPy.
+
+Django ist ein sehr beliebtes Python-Web-Framework, das von vielen großen Unternehmen und Websites wie Instagram, Pinterest und Mozilla verwendet wird. Es ist bekannt für seine robusten Funktionen und die Fähigkeit, skalierbare und komplexe Anwendungen zu erstellen.
+
+Flask ist ein anderes Python-Web-Framework, das als minimalistisch und flexibel gilt. Es ist einfach zu erlernen und eignet sich gut für kleinere Webanwendungen, aber es kann auch für größere Anwendungen verwendet werden, wenn es richtig skaliert wird.
+
+Pyramid ist ein weiteres Python-Web-Framework, das auf Flexibilität und Erweiterbarkeit ausgelegt ist. Es ist sehr skalierbar und kann von kleinen Anwendungen bis hin zu großen und komplexen Anwendungen verwendet werden.
+
+Tornado ist ein asynchrones Web-Framework, das besonders für die Verarbeitung von vielen gleichzeitigen Verbindungen und Ereignissen geeignet ist. Es ist oft die Wahl für Echtzeit-Webanwendungen, Websockets und Streaming-Server.
+
+CherryPy ist ein minimalistisches Web-Framework, das auf einfache und schnelle Entwicklung ausgelegt ist. Es ist sehr schnell und kann viele Anfragen pro Sekunde verarbeiten.
+
+Insgesamt bietet Python eine breite Palette an Optionen, um leistungsfähige und skalierbare Webanwendungen mit hohem Workload zu erstellen. Die Wahl des richtigen Frameworks hängt von den spezifischen Anforderungen und Zielen der Anwendung ab.",,,,
+fab-500x-20261114T224408Z-015,98,ae00f16e31880b6639d28377,76f6aab2250f1ad26ea61fd44fe87a33,fab-500x,de,web_frontend,oasst2,human_authored,"[user] Bei was kannst Du mir denn alles helfen? Ich bin gerade in der Ausbildung zum Fachinformatiker für Anwendungsentwicklung und habe im ersten halben Jahr etwas html, css und sql gelernt. In c# hatten wir nur die Grundlagen.
+
+[assistant] Als Sprachmodell stehe ich dir zur Beantwortung von Fragen und Problemen in vielen Bereichen zur Verfügung. Wenn es speziell um deine Ausbildung zum Fachinformatiker für Anwendungsentwicklung geht, kann ich dir sicherlich bei Fragen zu HTML, CSS und SQL weiterhelfen. Auch wenn es um allgemeine Programmierkonzepte oder um C# geht, werde ich mein Bestes geben, um dir weiterzuhelfen. Stell einfach deine Fragen!
+
+[user] Du kannst mir jederzeit über die geforderten Fachgebiete deine Fragen stellen","Als KI-Assistent habe ich die Aufgabe, dir Fragen zu beantworten und dich zu unterstützen.
+Aktuell habe ich keine Rückfragen an dich.
+Frag mich doch gerne etwas!",,,,
+fab-500x-20261114T224408Z-015,99,61867107c83431ddb0bb6dab,4b6a53b20d25839f7a9fc9a535011a01,fab-500x,de,web_fullstack,oasst2,human_authored,"[user] Warum sollte ich bei der Erstellung des Datensatzes für Open Assistant helfen?
+
+[assistant] Open Assistant ist ein Open-Source-Projekt mit dem Ziel, eine konversationelle KI auf der Grundlage von GPT-Sprachmodellen zu entwickeln. Das Projekt wird von LAION und Mitwirkenden aus der ganzen Welt betreut. Indem Sie bei der Erstellung des Datensatzes für Open Assistant mithelfen, können Sie zur Verbesserung der Konversations-KI beitragen und sie bei der Beantwortung von Benutzeranfragen und -anregungen nützlicher und genauer machen. Je größer und vielfältiger der Datensatz wird, desto besser wird die KI in der Lage sein, eine Vielzahl von Benutzereingaben zu verstehen und darauf zu reagieren. Darüber hinaus kann die Mitarbeit an Open-Source-Projekten wie Open Assistant eine lohnende Möglichkeit sein, neue Fähigkeiten zu erlernen, mit anderen zusammenzuarbeiten und einen positiven Einfluss auf die breitere Gemeinschaft auszuüben.
+
+[user] Okay, danke. Dann werde ich mir das mal ansehen. Gibt es noch andere open source KI-Projekte, an denen ich ohne Programmierkenntnisse mithelfen kann?","Es gibt in der Tat noch weitere Projekte, die dich interessieren könnten:
+
+Bei **Flora Capture** kannst du selbst geschossene Bilder von Wildpflanzen hochladen. Diese werden dann von Experten klassifiziert und als Datensatz für die Pflanzenbestimmungsapp Flora Incognita verwendet. Das Projekt wird unter anderem von der Technischen Universität Ilmenau betrieben.
+Link zur Website: https://floraincognita.de/
+
+Bei **Common Voice** von der Non-Profit-Organisation Mozilla kannst du ""deine Stimme spenden"", also bei einem Datensatz von menschlicher gesprochener Sprache mithelfen. Dieser kann beispielsweise verwendet werden, um bessere speech-to-text KIs zu entwickeln.
+Link zur Website: https://commonvoice.mozilla.org/",,,,
+fab-500x-20261114T224408Z-015,100,7e1a4d2965ca795882e4d864,a3daf15959500af6aed391ba986e0627,fab-500x,de,writing,oasst2,human_authored,"[user] Schreibe mir eine Entschuldigung Email für meinen Professor in der ich mich entschuldige, dass ich meine Arbeit zu spät eingereicht habe.","Sehr geehrter Herr Professor (Name),
+hiermit möchte ich mich ausdrücklich bei Ihnen entschuldigen, dass ich meine Arbeit zu spät eingereicht habe. Leider führten persönliche Ereignisse ausnahmsweise zu dieser Verzögerung. Daher möchte ich Sie höflichst um Nachsicht bitten.
+
+Vielen Dank und freundliche Grüße
+(Dein Name)",,,,

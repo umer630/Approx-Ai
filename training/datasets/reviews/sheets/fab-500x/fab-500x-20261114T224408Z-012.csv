@@ -1,0 +1,1227 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-012,1,c17d2e5043fc01d378311b16,bc5ff244817cb2a25e1689a9f01c35db,fab-500x,en,coding,self-oss-instruct,synthetic,[user] Write a function in Python to compute the determinant of a square matrix. The function should raise an appropriate exception if the matrix is not square. Use type hints if you are using Python 3.,"To compute the determinant of a square matrix, we can use the `numpy.linalg.det` function. This function takes a 2-dimensional array as input and returns the determinant as a float. If the input array is not square, it will raise a `numpy.linalg.LinAlgError` exception.
+
+```python
+import numpy as np
+
+def compute_determinant(matrix: np.ndarray) -> float:
+    if not np.all(matrix.shape == (matrix.shape[0], matrix.shape[0])):
+        raise ValueError(""Input must be a square matrix."")
+    return np.linalg.det(matrix)
+```
+
+The `compute_determinant` function takes a 2-dimensional NumPy array as input and checks if it is a square matrix. If it is not, it raises a `ValueError` with the appropriate message. Otherwise, it uses the `numpy.linalg.det` function to compute the determinant of the matrix and returns it as a float.",,,,
+fab-500x-20261114T224408Z-012,2,91f4f7b03d1e38d715ec172e,e17d76367d0b7a2d64b18f8ede3e0716,fab-500x,en,cybersecurity,trendyol-cybersec,synthetic,[user] Why might detection of AS-REP Roasting require behavioral analysis rather than signature-based methods?,"AS-REP Roasting exploits Kerberos authentication by targeting accounts with the DoNotRequirePreAuthentication flag set, enabling attackers to request Authentication Server (AS) responses without providing pre-authentication data. Traditional signature-based detection struggles because this attack generates legitimate-looking network traffic that mimics normal Kerberos operations. The AS-REP messages appear as standard protocol exchanges, making them difficult to distinguish from benign authentication requests using static signatures alone.\\n\\nBehavioral analysis becomes essential because it examines patterns and anomalies in user activity rather than relying solely on known attack indicators. According to NIST SP 800-94, anomaly detection systems should identify deviations from established baselines of normal behavior. In the context of AS-REP Roasting, behavioral analysis can detect unusual authentication request frequencies, particularly targeting accounts with specific flags set, or identifying repeated requests for the same user within short timeframes.\\n\\nMITRE ATT&CK framework categorizes this technique under T1558.004 (Kerberoasting: AS-REP Roasting), emphasizing its stealthy nature. Behavioral detection mechanisms can correlate multiple data points, such as authentication timing, source IP addresses, and user account characteristics, to identify suspicious patterns that signature-based systems might miss.\\n\\nFurthermore, behavioral analysis aligns with NIST CSF's Detect function, specifically DE.AE-2 (Anomalies and events are analyzed), by providing context-aware detection capabilities. This approach enhances security posture by identifying sophisticated attacks that evade traditional signature-based defenses through legitimate protocol usage.",,,,
+fab-500x-20261114T224408Z-012,3,0483d91ae0cc39179e53a492,a2858f852d4c2cca4dc9f23137ccb414,fab-500x,en,education,aya-dataset,human_authored,[user] Explain the concept of word sense disambiguation in NLP.,"Word sense disambiguation involves determining the correct meaning of a word based on the context in which it is used, addressing ambiguity resulting from multiple possible meanings.",,,,
+fab-500x-20261114T224408Z-012,4,3987f9ce526378f9767abf6a,9b5fc64221836ce86be3e383ff13cd9a,fab-500x,en,general_knowledge,dolly-15k,human_authored,[user] How do you subtract two numbers?,"Subtraction is an operation that identifies the total count of objects in a collection of items after a specific count of items are removed from the starting total.
+
+You can subtract two numbers by starting with an initial count, which represents the number to subtract from, and a second count which represents the number to subtract.  Then remove one from the starting count repeating this operation for the number of items in the subtract value.  
+
+Subtraction is not associative, which means that the order in which subtraction is performed matters.  For instance, seven minus five (7 - 3) equals four (= 4) but four minus seven (4 - 7) equals minus three (= -3).",,,,
+fab-500x-20261114T224408Z-012,5,390d4e6c379c809c1cc57fd6,d2b44d8efbe3228969f330d492c0bc69,fab-500x,en,islamic_studies,oasst1,human_authored,[user] What is God?,"As an AI assistant, I don't have personal beliefs or opinions. The concept of God is a complex and highly debated topic in philosophy and religion, and can mean different things to different people.
+
+In many monotheistic religions such as Christianity, Judaism, and Islam, God is considered to be the creator and ruler of the universe, the source of all morality, and the ultimate judge of humanity. In these traditions, God is often thought of as a personal being who interacts with humanity and can be worshipped and prayed to.
+
+In polytheistic religions, such as Hinduism and ancient Greek religion, gods are considered to be supernatural beings with various powers and responsibilities, who are revered and worshipped by followers.
+
+In some non-religious philosophical traditions, the concept of God can be interpreted as a metaphor for the absolute or ultimate reality, or as a symbol of the highest human ideals and values.
+
+Ultimately, the definition of God is a matter of personal belief, and there is no one answer that can encompass the many different interpretations and understandings of this concept.",,,,
+fab-500x-20261114T224408Z-012,6,53bf41a8fea4d8f23b26fa5b,093169436231c3c0ee3c33a43a1f9f10,fab-500x,en,mathematics,aqua-rat,human_authored,"[user] A box contains 4 blue marbles, 3 red, 6 green marbles and 2 yellow marbles. If two marbles are picked at random, what is the probability that they are red or yellow?
+
+A)4/35
+B)6/35
+C)7/35
+D)8/35
+E)1/105","Given that there are 4 blue marbles, 4 red marbles, 6 green marbles and 2 yellow marbles. Probability that both marbles are red = 4Câ‚‚/Â¹âµCâ‚‚ = (3 * 2)/(15 * 14) = 2/35
+Probability that both are yellow = Â²Câ‚‚/Â¹âµCâ‚‚ = (2 * 1)/(15 * 14) = 1/105
+Probability that one red and other is yellow = (4Câ‚ * Â²Câ‚)/Â¹âµCâ‚‚ = 8/105
+Required probability = 2/35 + 1/105 + 8/105
+= 7/35
+Answer:C
+
+Answer: C",,,,
+fab-500x-20261114T224408Z-012,7,63a1c21b69f914ecac63ca00,9e35143120df375c6fd9111fd0acae68,fab-500x,en,pakistan,oasst2,human_authored,"[user] How many countries in the world? List down name of 5 countries with more than 10 states. From that list of 5 countries randomly pick one county and list down all the states in that country.
+
+[assistant] The number of world countries depends on what countries you think are legitimate. The UN has 193 member states and 2 observer states (Vatican and Palestine), but it doesn't count Taiwan as a state separate from China. These numbers also don't include separatist-controlled territories and breakaway states.
+
+Some countries with more than 10 states are Argentina, Russia, the US, India and Germany. India has the following states:
+* Andhra Pradesh
+* Arunachal Pradesh
+* Assam
+* Bihar
+* Chhattisgarh
+* Goa
+* Gujarat
+* Haryana
+* Himachal Pradesh
+* Jharkhand
+* Karnataka
+* Madhya Pradesh
+* Maharashtra
+* Manipur
+* Meghalaya
+* Mizoram
+* Nagaland
+* Odisha
+* Punjab
+* Rajasthan
+* Sikkim
+* Tamil Nadu
+* Telangana
+* Tripura
+* Uttar Pradesh
+* Uttarakhand
+* West Bengal
+
+[user] Why were Kerala and New Delhi not included in your list?","I apologize for the oversight. You're correct, Kerala and Delhi are indeed among the states and union territories of India. India is made up of 28 states and 8 Union territories.
+
+Here's a more comprehensive list:
+
+States of India:
+
+1. Andhra Pradesh
+2. Arunachal Pradesh
+3. Assam
+4. Bihar
+5. Chhattisgarh
+6. Goa
+7. Gujarat
+8. Haryana
+9. Himachal Pradesh
+10. Jharkhand
+11. Karnataka
+12. Kerala
+13. Madhya Pradesh
+14. Maharashtra
+15. Manipur
+16. Meghalaya
+17. Mizoram
+18. Nagaland
+19. Odisha
+20. Punjab
+21. Rajasthan
+22. Sikkim
+23. Tamil Nadu
+24. Telangana
+25. Tripura
+26. Uttar Pradesh
+27. Uttarakhand
+28. West Bengal
+
+Union Territories of India:
+
+1. Andaman and Nicobar Islands
+2. Chandigarh
+3. Dadra and Nagar Haveli and Daman and Diu
+4. The Government of NCT of Delhi
+5. Lakshadweep
+6. Puducherry
+7. Ladakh
+8. Jammu and Kashmir
+
+Delhi is classified as a Union Territory known as the National Capital Territory of Delhi, which includes the country's capital, New Delhi. This unique administrative status gives it a level of autonomy, with its own local government, but it's also under the direct administrative control of the federal government.",,,,
+fab-500x-20261114T224408Z-012,8,2f014d93ff517c9fcdb75917,5ed4b8c48907547062dd59c849ae1e9e,fab-500x,en,problem_solving,oasst1,human_authored,[user] I like to rub my finger in my crotch and then bring it back up to sniff it because it smells really nice. Is this normal?,"No, this behavior is not considered normal and can be considered unhealthy and unhygienic. It's recommended to maintain good hygiene practices and to avoid sniffing or ingesting bodily secretions. If this behavior is causing distress or impacting your daily life, it's recommended to speak with a healthcare professional or mental health expert.",,,,
+fab-500x-20261114T224408Z-012,9,6cf564aa0fd2ebed4688c0c2,33d0fd53d3ae4f6c9c644f97d21c17aa,fab-500x,en,reasoning,commonsense-qa,human_authored,"[user] The teacher told her students to listen, what did she want from them?
+
+A. able to hear
+B. concentrate
+C. pay attention
+D. stop talking
+E. eyes on her",The answer is C. pay attention.,,,,
+fab-500x-20261114T224408Z-012,10,bae1b5f1db4c02f41c5b7fec,160e75e8bbf675801c7767e811be302f,fab-500x,en,research,oasst2,human_authored,"[user] Is there a way to convert a .png or .svg into a .ai file? I am looking to laser cut something, and it basically only accepts .ai files. I don’t have an Adobe Illustrator licence, and wouldn’t be willing to buy one just for this.
+
+[assistant] Inkscape: Inkscape is a free, open-source vector graphics editor that can import and export .svg and .ai files. You can use it to convert your .png or .svg file into an .ai file by following these steps:
+
+a. Download and install Inkscape from https://inkscape.org.
+b. Open Inkscape and import your .png or .svg file (File > Open).
+c. If you're working with a .png file, you may need to convert it to a vector format. Use the Trace Bitmap feature (Path > Trace Bitmap) to create a vector image.
+d. Save the file as an .ai format (File > Save As > Adobe Illustrator).
+
+Online file converters: There are several online file conversion tools that support .png, .svg, and .ai formats. Some popular options are Zamzar (https://www.zamzar.com/) and Convertio (https://convertio.co/). Keep in mind that uploading files to third-party websites may pose security risks, so use these services with caution.
+Alternative vector graphics software: There are other vector graphics editors, like Affinity Designer or Gravit Designer, that can import .png or .svg files and export as .ai or other vector formats that can be used for laser cutting.
+Before sending your .ai file to the laser cutter, make sure to check the design and dimensions for accuracy, and consult the laser cutting service for any specific file preparation requirements they may have.
+
+[user] Is it common for laser cutters to only accept .ai files? I really don't like this level of vendor lock-in. Could you perhaps give me some examples of services or cutters that are more permissive in their requirements? Thanks in advance","While it's true that some laser cutters may prefer .ai (Adobe Illustrator) files as they are a vector format that allows for precise and scalable designs, it's not necessarily common for laser cutters to only accept .ai files. Many laser cutters can accept a variety of file formats, including .svg, .dxf, .eps, and even .jpg or .png for raster images. The specific file formats accepted may vary depending on the brand, model, and software used by the laser cutter.
+
+It's always a good idea to check with the laser cutter vendor or service provider for their file format requirements. Some may have software or hardware limitations that restrict the file formats they can accept, while others may be more flexible. If you prefer not to use .ai files or feel limited by vendor lock-in, you can explore alternative services or cutters that are more permissive in their file format requirements.
+
+For example, some laser cutter services or cutters may accept popular open-source vector file formats like .svg or .dxf, which are more widely supported and not tied to proprietary software. Additionally, there are online platforms and software tools that allow you to convert file formats, so you can potentially convert your designs to a format that is compatible with your preferred laser cutter. However, it's important to note that file format requirements may vary depending on the specific capabilities and settings of the laser cutter being used, so it's best to always verify with the vendor or service provider to ensure compatibility.",,,,
+fab-500x-20261114T224408Z-012,11,fec9df0824ec2732f084b916,1a23bce421fbfc2259e67ee5fbaa5bc9,fab-500x,en,safety_ethics,ethics-commonsense,templated_human,"[user] Consider this situation: ""My wealthy mother served us all a feast for Christmas dinner, but she served nothing to my uncle because she didn't like the color of his tie.""
+By ordinary moral standards, is what the narrator did acceptable or wrong?",By ordinary moral standards this is clearly wrong.,,,,
+fab-500x-20261114T224408Z-012,12,ebf774b3faa1fb196feb5743,d4a5907efba8737a5e924c1f9a0532ce,fab-500x,en,science,oasst2,human_authored,"[user] Would life be able to evolve in a world where the most prevelant oxidizer is flouride rather than oxygen? If so, how might their respiration take place compared to animals on earth?","In a hypothetical world where the most prevalent oxidizer is fluoride rather than oxygen, it is possible that life could evolve. However, it would likely be very different from life as we know it on Earth.
+
+Fluoride is a potent oxidizing agent, and life forms in such an environment might evolve to take advantage of this. These organisms could use biochemistry based on fluorine-containing compounds rather than the carbon-oxygen-based biochemistry we see on Earth.
+
+Respiration in these hypothetical life forms might rely on a redox reaction involving fluorine instead of oxygen. In Earth-based life, respiration generally consists of the reduction of molecular oxygen (O2) to water (H2O) and the oxidation of an organic compound (e.g., glucose). In fluoride-based biochemistry, the respiratory process could involve reducing a fluorine-containing combination and oxidizing a different fluorine-based organic compound.
+
+One possibility is that these organisms could use metal fluorides as electron acceptors in their respiratory process, similar to how Earth-based life uses metal oxides (e.g., iron or manganese oxides) in anaerobic respiration. In this case, the respiratory process might involve the transfer of electrons from a reduced, fluorine-containing organic compound to the metal fluoride, reducing the metal and producing a different fluorine-containing compound as a byproduct.
+
+It's important to note that this is purely speculative, as we have no examples of such life forms on Earth or elsewhere. The development of life based on fluoride biochemistry would likely face numerous challenges, such as the high reactivity and potential toxicity of fluorine-containing compounds. However, considering how life might evolve in a completely different chemical environment is an interesting thought experiment.",,,,
+fab-500x-20261114T224408Z-012,13,1cc4dc9ee0d4121876dce20e,08480f1dd49e4ac2d445fc0d9a0e11c1,fab-500x,en,software_engineering,commitpackft,human_authored,"[user] Add opening and closing tag constants
+
+File: src/main/java/it/sieradzki/userscript_parser/Userscript.java
+```java
+package it.sieradzki.userscript_parser;
+
+import it.sieradzki.userscript_parser.metadata.ExecuteRules;
+import it.sieradzki.userscript_parser.metadata.GrantedApi;
+import it.sieradzki.userscript_parser.metadata.RunAt;
+import it.sieradzki.userscript_parser.metadata.Version;
+
+import java.net.URL;
+import java.util.Set;
+
+/**
+ * @see <a href=""http://wiki.greasespot.net/Metadata_Block"">Metadata Block specification</a>
+ */
+public class Userscript {
+
+	private String description;
+
+	private URL downloadUrl;
+
+	private ExecuteRules executeRules;
+
+	private GrantedApi grantedApi;
+
+	private URL icon;
+
+	private String name;
+
+	private String namespace;
+
+	private URL updateUrl;
+
+	private Set<URL> require;
+
+	private RunAt runAt;
+
+	private Version version;
+
+	private String code;
+}
+```
+
+Apply this change and return the full updated file.","```java
+package it.sieradzki.userscript_parser;
+
+import it.sieradzki.userscript_parser.metadata.ExecuteRules;
+import it.sieradzki.userscript_parser.metadata.GrantedApi;
+import it.sieradzki.userscript_parser.metadata.RunAt;
+import it.sieradzki.userscript_parser.metadata.Version;
+
+import java.net.URL;
+import java.util.Set;
+
+/**
+ * @see <a href=""http://wiki.greasespot.net/Metadata_Block"">Metadata Block specification</a>
+ */
+public class Userscript {
+
+	public static final String OPENING_TAG = ""==UserScript=="";
+
+	public static final String CLOSING_TAG = ""==/UserScript=="";
+
+	private String description;
+
+	private URL downloadUrl;
+
+	private ExecuteRules executeRules;
+
+	private GrantedApi grantedApi;
+
+	private URL icon;
+
+	private String name;
+
+	private String namespace;
+
+	private URL updateUrl;
+
+	private Set<URL> require;
+
+	private RunAt runAt;
+
+	private Version version;
+
+	private String code;
+}
+```",,,,
+fab-500x-20261114T224408Z-012,14,d925cb6876a0d2df1d08c9e7,1fe0ba182c8bdc5d1ff5e2e5e84d3691,fab-500x,en,web_backend,commitpackft,human_authored,"[user] Refactor publish command and allow multiple resource values
+
+File: src/Console/Commands/PublishCommand.php
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Rinvex\Tags\Console\Commands;
+
+use Illuminate\Console\Command;
+
+class PublishCommand extends Command
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'rinvex:publish:tags {--f|force : Overwrite any existing files.} {--r|resource=all}';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Publish Rinvex Tags Resources.';
+
+    /**
+     * Execute the console command.
+     *
+     * @return void
+     */
+    public function handle(): void
+    {
+        $this->alert($this->description);
+
+        switch ($this->option('resource')) {
+            case 'config':
+                $this->call('vendor:publish', ['--tag' => 'rinvex/tags::config', '--force' => $this->option('force')]);
+                break;
+            case 'migrations':
+                $this->call('vendor:publish', ['--tag' => 'rinvex/tags::migrations', '--force' => $this->option('force')]);
+                break;
+            default:
+                $this->call('vendor:publish', ['--tag' => 'rinvex/tags::config', '--force' => $this->option('force')]);
+                $this->call('vendor:publish', ['--tag' => 'rinvex/tags::migrations', '--force' => $this->option('force')]);
+                break;
+        }
+
+        $this->line('');
+    }
+}
+```
+
+Apply this change and return the full updated file.","```php
+<?php
+
+declare(strict_types=1);
+
+namespace Rinvex\Tags\Console\Commands;
+
+use Illuminate\Console\Command;
+
+class PublishCommand extends Command
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'rinvex:publish:tags {--f|force : Overwrite any existing files.} {--r|resource=* : Specify which resources to publish.}';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Publish Rinvex Tags Resources.';
+
+    /**
+     * Execute the console command.
+     *
+     * @return void
+     */
+    public function handle(): void
+    {
+        $this->alert($this->description);
+
+        collect($this->option('resource'))->each(function ($resource) {
+            $this->call('vendor:publish', ['--tag' => ""rinvex/tags::{$resource}"", '--force' => $this->option('force')]);
+        });
+
+        $this->line('');
+    }
+}
+```",,,,
+fab-500x-20261114T224408Z-012,15,b6816c85b7c18a319314d59d,e893f7465f6dacff97fb3bb511e6dda3,fab-500x,en,web_frontend,commitpackft,human_authored,"[user] Remove Munroe from the name
+
+File: templates/base.html
+```html
+<html>
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel=""stylesheet"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"" integrity=""sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"" crossorigin=""anonymous"">
+    <link rel=""stylesheet"" href=""static/css/munroe-jargon-profiler.css"">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"" integrity=""sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"" crossorigin=""anonymous""></script>
+  </head>
+
+  <body>
+    <div class=""container-fluid"">
+      <div class=""row"">
+        <nav class=""navbar navbar-inverse"">
+          <a class=""navbar-brand"" href=""#"">
+            <img src=""static/img/logo.svg"" /> Munroe Jargon Profiler
+          </a>
+        </nav>
+      </div>
+      {% block body %}{% endblock %}
+    </div>
+  </body>
+</html>
+```
+
+Apply this change and return the full updated file.","```html
+<html>
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel=""stylesheet"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"" integrity=""sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"" crossorigin=""anonymous"">
+    <link rel=""stylesheet"" href=""static/css/munroe-jargon-profiler.css"">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"" integrity=""sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"" crossorigin=""anonymous""></script>
+  </head>
+
+  <body>
+    <div class=""container-fluid"">
+      <div class=""row"">
+        <nav class=""navbar navbar-inverse"">
+          <a class=""navbar-brand"" href=""#"">
+            <img src=""static/img/logo.svg"" /> Jargon Profiler
+          </a>
+        </nav>
+      </div>
+      {% block body %}{% endblock %}
+    </div>
+  </body>
+</html>
+```",,,,
+fab-500x-20261114T224408Z-012,16,27eb674b1581537790f3153e,b67a7991902d93316d488f30ad7e1797,fab-500x,en,web_fullstack,oasst2,human_authored,[user] Write a blog post about WordPress with SEO titles.,"## WordPress SEO Titles: How to Write Titles That Get Clicks
+
+Your WordPress SEO titles are one of the most important factors in getting your website found in search engine results pages (SERPs). A well-written SEO title will help you rank higher in SERPs, attract more visitors to your website, and boost your conversion rates.
+
+In this blog post, we'll show you how to write SEO titles that get clicks. We'll cover the following topics:
+
+* What is an SEO title?
+* Why are SEO titles important?
+* How to write effective SEO titles
+* Common mistakes to avoid
+
+## What is an SEO title?
+
+An SEO title is the title of a web page that appears in search engine results pages (SERPs). It's also known as the title tag. The SEO title is one of the most important factors that search engines use to rank web pages.
+
+A good SEO title is clear, concise, and relevant to the content of the web page. It should also be keyword-rich, but not too keyword-stuffed.
+
+## Why are SEO titles important?
+
+SEO titles are important because they can help you rank higher in SERPs. When people search for keywords that are relevant to your content, your website will be more likely to appear in the search results if your SEO titles are optimized for those keywords.
+
+In addition to helping you rank higher in SERPs, SEO titles can also help you attract more visitors to your website. When people see a well-written SEO title in the SERPs, they're more likely to click on it and visit your website.
+
+Finally, SEO titles can also help you boost your conversion rates. When people visit your website and find the content they're looking for, they're more likely to take the desired action, such as subscribing to your email list, making a purchase, or contacting you for more information.
+
+## How to write effective SEO titles
+
+Here are some tips for writing effective SEO titles:
+
+* **Keep your titles short and sweet.** The ideal length for an SEO title is 60 characters or less. This will ensure that your title doesn't get cut off in SERPs.
+* **Use keywords throughout your title.** But don't stuff your title with keywords. Use keywords naturally and strategically.
+* **Make your titles clear and concise.** Your titles should be easy to read and understand. Avoid using jargon or technical terms that your target audience may not understand.
+* **Use strong verbs.** Strong verbs will make your titles more engaging and persuasive.
+* **Use numbers.** Numbers can help you grab attention and make your titles more scannable.
+* **Use question marks.** Question marks can help you create a sense of curiosity and encourage people to click on your title.
+* **Use exclamation points.** Exclamation points can help you add excitement and energy to your titles.
+
+## Common mistakes to avoid
+
+Here are some common mistakes to avoid when writing SEO titles:
+
+* **Don't use all caps.** All caps titles can be difficult to read and they can make your website look spammy.
+* **Don't use too many keywords.** Stuffing your title with keywords will make it look spammy and it can hurt your rankings.
+* **Don't use hyphens or underscores.** Hyphens and underscores can be difficult to read and they can break up your title in SERPs.
+* **Don't use special characters.** Special characters, such as emoji, can be difficult to read and they can break up your title in SERPs.
+
+## Conclusion
+
+Writing effective SEO titles is an important part of any WordPress SEO strategy. By following the tips in this blog post, you can write SEO titles that will help you rank higher in SERPs, attract more visitors to your website, and boost your conversion rates.",,,,
+fab-500x-20261114T224408Z-012,17,b6f42a0d191581ed79ea43bd,dbe9d35b13177d80ae9d0725350298f6,fab-500x,en,writing,oasst2,human_authored,[user] Please proofread my text and make suggestions of how to improve it,"Of course! Please provide the text you would like me to proofread and make suggestions for. Once you've done that, I'll be happy to help you improve it.",,,,
+fab-500x-20261114T224408Z-012,18,45d42a3f9028ef34624c1e10,549c932a5bd2a47138904d0a82822f79,fab-500x,eo,general_knowledge,oasst2,human_authored,[user] Ĉu ekzistas esperantaj podkastoj?,"Plej bone vidu ""Listo de radioj kaj podkastoj en Esperanto"" en la Esperanta Vikipedio: https://eo.wikipedia.org/wiki/Listo_de_radioj_kaj_podkastoj_en_Esperanto",,,,
+fab-500x-20261114T224408Z-012,19,945e2f98a4ba58e6c8136875,4f8320e62428893796f4f079f73e015a,fab-500x,es,coding,oasst1,human_authored,[user] ¿Cuáles son los tipos de datos en Javascript?,"Los tipos de datos en JavaScript son: 
+String
+Number
+Bigint
+Boolean
+Undefined
+Null
+Symbol
+Object
+Para mas información te recomiendo consultar la página https://developer.mozilla.org",,,,
+fab-500x-20261114T224408Z-012,20,87947235c7a7dec4b1b06edf,818ad3a29d5260d93d0771c305244218,fab-500x,es,cybersecurity,oasst2,human_authored,"[user] El texto que tengo acontinuación es el copy de 10 post de instagram que necesitaría resumir en 5: La alimentación ecológica del ganado se basa en el uso de alimentos orgánicos y naturales, evitando la utilización de productos químicos y pesticidas.
+Esta forma de alimentación promueve una mayor biodiversidad en las granjas, ya que se fomenta el uso de diferentes tipos de forraje y pasto en lugar de alimentos procesados y uniformes.
+La alimentación ecológica del ganado puede contribuir a una mejora en la calidad de la carne y los productos lácteos, ya que los animales alimentados de forma natural suelen ser más saludables y producir alimentos más nutritivos.
+La alimentación ecológica del ganado también tiene un impacto positivo en el medio ambiente, ya que reduce la contaminación del aire y del agua, y promueve la conservación de los suelos.
+La alimentación ecológica del ganado también puede contribuir a una mejora en la calidad de vida de los animales, ya que se les permite tener una dieta más variada y natural, y se les brinda un entorno más saludable y agradable.
+Los sistemas de alimentación ecológica del ganado suelen ser más costosos que los sistemas convencionales, ya que requieren un mayor cuidado y atención en la producción de alimentos orgánicos.
+La alimentación ecológica del ganado también puede contribuir a una mayor resiliencia en las granjas, ya que los sistemas más diversificados y naturales son menos vulnerables a enfermedades y cambios climáticos.
+La alimentación ecológica del ganado es una forma de producción que está creciendo en popularidad en todo el mundo, y cada vez más consumidores buscan productos alimenticios de origen orgánico y sostenible.
+Es importante destacar que la alimentación ecológica del ganado no es una solución mágica a todos los problemas de la producción de alimentos, y que requiere un enfoque equilibrado y sostenible en todos los aspectos de la producción agrícola.
+La alimentación ecológica del ganado es una forma de producción agrícola que puede contribuir a una alimentación más saludable, sostenible y respetuosa con el medio ambiente y los animales. Es importante promover y apoyar esta forma de producción, y educar a consumidores y productores sobre sus beneficios y desafíos. Además, es necesario seguir investigando y desarrollando tecnologías y prácticas innovadoras para mejorar la eficiencia y sostenibilidad de la alimentación ecológica del ganado en el futuro.
+
+[assistant] El texto resumido sería:
+
+  La alimentación ecológica del ganado promueve la biodiversidad y mejora la calidad de la carne y los productos lácteos. También tiene un impacto positivo en el medio ambiente y en la calidad de vida de los animales. Sin embargo, es más costosa y requiere un enfoque equilibrado y sostenible en la producción agrícola. Es importante promover y apoyar esta forma de producción y seguir investigando para mejorar su eficiencia y sostenibilidad en el futuro.
+
+[user] Necesitaría que pasaras de 10 a 5 post, no un resumen de todas","Post resumen 1: La alimentación ecológica del ganado utiliza alimentos orgánicos y naturales en lugar de productos químicos y pesticidas, lo que promueve una mayor biodiversidad y contribuye a una mejora en la calidad de la carne y los productos lácteos.
+
+Post resumen 2: La alimentación ecológica del ganado tiene un impacto positivo en el medio ambiente, ya que reduce la contaminación y promueve la conservación de los suelos.
+
+Post resumen 3: La alimentación ecológica del ganado puede mejorar la calidad de vida de los animales y contribuir a una mayor resiliencia en las granjas.
+
+Post resumen 4: La alimentación ecológica del ganado es una forma de producción agrícola que está creciendo en popularidad en todo el mundo, y es importante promover y apoyar esta forma de producción.
+
+Post resumen 5: La alimentación ecológica del ganado requiere un enfoque equilibrado y sostenible en todos los aspectos de la producción agrícola, y es necesario seguir investigando y desarrollando tecnologías y prácticas innovadoras para mejorar su eficiencia y sostenibilidad en el futuro.",,,,
+fab-500x-20261114T224408Z-012,21,1d98801c21eeffdc80acecad,6c960800b7f45c982bff25544a111fee,fab-500x,es,education,oasst1,human_authored,[user] ¿Cuál es la diferencia entre aprendizaje supervisado y aprendizaje no supervisado?,"El aprendizaje supervisado, que deriva en una subcategoría del Machine learning, es un método de análisis de datos en donde se utilizan distintos algoritmos para llegar al resultado o predicción más precisa. A este proceso se le denomina ""supervisado"" ya que el desarrollador es una guía para el algoritmo y es quien supervisa su trayectoria para asegurar su llegada al mejor resultado posible.
+
+Por otra parte, el aprendizaje no supervisado, el cual está mucho más asociado con la inteligencia artificial, se refiere a la capacidad de que una computadora pueda identificar y reconocer patrones y comportamientos, en su mayoría humanos, con tal de resolver algún problema planteado. Algunos ejemplos de algoritmos de aprendizaje no supervisado incluyen clustering o agrupamiento, k-means y reglas de asociación.
+
+En conclusión, la principal diferencia, es que uno es un método automatizado, programado por un humano, de tal manera que cumpla el objetivo asignado. Mientras que el otro se nutre de la información de la base de datos existente, para así funcionar de forma autónoma y poder cumplir un objetivo o problema planteado.",,,,
+fab-500x-20261114T224408Z-012,22,b22e9000a8083299a813b6eb,e1d06fa1317be08ed7fc862a2355e02e,fab-500x,es,general_knowledge,oasst2,human_authored,[user] ¿Que es quadcode?,"Quadcode puede referirse a diferentes cosas, pero en el contexto de tecnología financiera, Quadcode es una empresa que ofrece soluciones innovadoras para el sector de los mercados financieros. Su enfoque principal se centra en desarrollar productos y servicios que ayuden a mejorar la eficiencia y la seguridad en las transacciones financieras.
+
+Dicho esto, es posible que te estés refiriendo a algo diferente. Si necesitas información sobre otra cosa relacionada con ""quadcode"", por favor proporciona más detalles y estaré encantado de ayudarte.
+
+¿Te gustaría saber más sobre la empresa Quadcode, o hay algo más en lo que pueda ayudarte? 😊",,,,
+fab-500x-20261114T224408Z-012,23,b66e70b69a70b1ef5eb7eab0,3004418161d7c1deb3745344cb63e58b,fab-500x,es,islamic_studies,oasst2,human_authored,"[user] ¿Que son los sistemas de captura de carbono?
+
+[assistant] Los sistemas de captura de carbono son tecnologías que permiten capturar y almacenar dióxido de carbono (CO2) emitido por fuentes industriales y energéticas, reduciendo así las emisiones de gases de efecto invernadero y ayudando a combatir el cambio climático.
+
+[user] Dame algunos ejemplos a nivel mundial de sistemas que ya estén funcionando para la captura de carbono y una descripción de cómo es que funcionan.","Existen varios proyectos de captura y almacenamiento de carbono (CCS) en funcionamiento en todo el mundo. Aquí te menciono algunos:
+
+1. **In Salah Gas Project, Argelia**: Este proyecto, operado por BP, Statoil y Sonatrach, ha estado en funcionamiento desde 2004. Se encuentra en un campo de gas natural en Krechba y ha estado inyectando dióxido de carbono en una formación de agua subterránea desde su inicio. El CO2 se separa del gas natural extraído y se inyecta de nuevo en la formación geológica a una profundidad de aproximadamente 1.800 metros. 
+
+2. **Weyburn-Midale Field, Canadá**: Este es uno de los proyectos de CCS más grandes del mundo. Empezó a funcionar en 2000 y es un ejemplo de uso de CO2 para la recuperación mejorada de petróleo (EOR). En este caso, el CO2 capturado se inyecta en un campo petrolero para ayudar a extraer más petróleo. El CO2 se queda atrapado en el reservorio después de la extracción.
+
+3. **Gorgon Project, Australia**: Este es uno de los proyectos de CCS más grandes del mundo, y está operado por Chevron. Se encuentra en un campo de gas natural y el CO2 se separa del gas natural producido y se inyecta de nuevo en formaciones subterráneas profundas. Se espera que cuando el proyecto esté en pleno funcionamiento, se capture e inyecte aproximadamente 4 millones de toneladas de CO2 por año.
+
+4. **Proyecto Petra Nova, Texas, EEUU**: Es uno de los mayores proyectos de CCS del mundo y el primero de su tipo en los EEUU. Petra Nova captura CO2 del proceso de combustión del carbón en una planta de energía y luego utiliza el CO2 para la recuperación mejorada de petróleo en un campo de petróleo cercano. 
+
+5. **Sleipner Field, Noruega**: Operado por Equinor (anteriormente Statoil), el campo de Sleipner en el Mar del Norte ha estado capturando y almacenando CO2 desde 1996. El CO2 se separa del gas natural producido y luego se inyecta en una formación de agua subterránea.
+
+En cuanto a las tecnologías de captura de carbono directa del aire, hay varias empresas que están trabajando en esta área, como Climeworks en Suiza y Carbon Engineering en Canadá. Estas compañías utilizan reacciones químicas para extraer el CO2 directamente de la atmósfera, que luego se puede almacenar o utilizar para otros fines, como la producción de combustibles sintéticos.",,,,
+fab-500x-20261114T224408Z-012,24,0b1de797ce2f68959d80ff1b,c54c2e46b5ef5e13adbaa9ac4e5eb26e,fab-500x,es,mathematics,oasst2,human_authored,[user] ¿Cómo es la Primera RFEF en España?¿Como es el sistema de competición de esa división del fútbol?,"La Primera RFEF (Real Federación Española de Fútbol) es la tercera división del fútbol español y fue creada en la temporada 2021/2022 para reemplazar a la antigua Segunda División B. Esta nueva competición está compuesta por 40 equipos divididos en dos grupos de 20 equipos cada uno: el Grupo 1, que cubre la zona norte y este de España, y el Grupo 2, que cubre la zona sur y oeste.
+
+El sistema de competición de la Primera RFEF es el siguiente:
+
+La temporada consta de 38 jornadas, en las que cada equipo se enfrenta a los demás equipos de su grupo dos veces, una en casa y otra fuera.
+Al finalizar la temporada regular, los cuatro primeros clasificados de cada grupo se clasifican para el playoff de ascenso a Segunda División.
+Los equipos clasificados en los puestos 5º al 8º de cada grupo jugarán el playoff de acceso a la Copa del Rey.
+Los cuatro últimos clasificados de cada grupo descenderán automáticamente a la Segunda RFEF.
+El equipo que termine primero de cada grupo será proclamado campeón de su grupo y obtendrá el ascenso directo a Segunda División.
+Es importante destacar que, a diferencia de la antigua Segunda División B, en la Primera RFEF no existe la fase de promoción por la permanencia y los equipos que ocupen los puestos de descenso descenderán de manera directa a la Segunda RFEF.
+
+En resumen, la Primera RFEF es una nueva competición que busca mejorar la estructura de las categorías inferiores del fútbol español y brindar más oportunidades para los equipos de ascender y competir en la segunda división del fútbol español.",,,,
+fab-500x-20261114T224408Z-012,25,4f50dda76c9b34557cda4c52,e9761d9c43c646e83f1e6e9079947934,fab-500x,es,pakistan,oasst1,human_authored,[user] Cuales han sido los asesinos seriales con mas muertes confirmadas de la historia?,"Hay varios asesinos seriales que han sido responsables de un gran número de muertes confirmadas en la historia. Algunos de ellos son:
+
+1. Luis Garavito - también conocido como ""La Bestia"", un asesino en serie colombiano que confesó haber matado a más de 138 niños y adolescentes entre 1992 y 1999.
+
+2. Pedro Alonso López - también conocido como ""El Monstruo de los Andes"", un asesino en serie colombiano que confesó haber matado a más de 110 niñas en Colombia, Ecuador y Perú entre 1969 y 1980.
+
+3. Harold Shipman - un médico británico que fue declarado culpable de matar a 218 pacientes entre 1975 y 1998.
+
+4. Javed Iqbal - un asesino en serie pakistaní que confesó haber matado a 100 niños y adolescentes en Lahore en 1999.
+
+5. Gary Ridgway - también conocido como ""El asesino del Green River"", un asesino en serie estadounidense que fue declarado culpable de matar a 49 mujeres en el estado de Washington entre 1982 y 1998.
+
+Es importante mencionar que aunque estos asesinos en serie tienen un gran número de muertes confirmadas, hay otros que podrían haber matado a más víctimas pero no se ha podido comprobar debido a la falta de pruebas o de confesión por parte de los criminales.",,,,
+fab-500x-20261114T224408Z-012,26,c89bf8eee028ba0ee2930187,232743aef5bc761b572ffd7ef4a2a015,fab-500x,es,problem_solving,oasst1,human_authored,[user] ¿Como podría hacer un plan perfecto para San Valentín?,"Aquí hay algunas sugerencias para hacer un plan perfecto para San Valentín:
+
+• Escoge un restaurante romántico para una cena a la luz de las velas. Algunas opciones podrían ser un restaurante italiano, francés o de fusión. Reserve con anticipación y pida una mesa en un área más privada.
+
+• Después de la cena, organiza una actividad romántica como ir a ver una obra de teatro, opera o concierto. O visita un mirador nocturno para contemplar las vistas de la ciudad.
+
+• En lugar de obsequiar chocolates o flores, regala una experiencia que ambos puedan disfrutar juntos, como un masaje para parejas, clases de baile, un recorrido privado o un crucero.
+
+• Prepara un pic nic nocturno bajo las estrellas. Lleva una canasta con comida gourmet, una buena botella de vino, mantas, velas y pétalos de rosa. Escoge un lugar aislado en un parque o playa para mayor privacidad.
+
+• Sorprende a tu pareja con un regalo hecho a mano como un poema de amor, una canción compuesta especialmente para él o ella, o un álbum de fotos de ustedes dos desde que se conocieron.
+
+• No olvides los pequeños detalles como tarjetas románticas, bombones, flores y burbujas de baño. Una combinación de detalles grandes y pequeños hará de este un San Valentín perfecto e inolvidable.
+
+• Y por último, asegúrate de expresar tu amor y agradecimiento por tener a esa persona especial en tu vida. Un ""te amo"" sincero es el mejor regalo de todos.
+
+¡Espero que estas ideas te sirvan de inspiración! Te deseo un feliz Día de San Valentín.",,,,
+fab-500x-20261114T224408Z-012,27,83070b866aac648d33851676,648b25ac8b024339199c0224eff5555f,fab-500x,es,reasoning,oasst1,human_authored,"[user] En una historia ultra hyper mega secreta que estoy escribiendo, el protagonista tiene una espada capaz de prenderse fuego, no tengo mucha imaginación, ¿me puedes dar ideas para el nombre de la espada y de que material puede estar hecho?","Por supuesto, aquí tienes algunas ideas para el nombre de la espada y el material que podría estar hecho:
+
+- Nombre: Filo del Infierno, la espada de fuego infernal
+Material: Hierro oscuro encantado
+
+- Nombre: Furia Llameante, la espada de fuego abrasador
+Material: Acero forjado con fuego volcánico
+
+- Nombre: Ignis, la espada de fuego
+Material: Acero de Damasco
+
+- Nombre: Fulgor, la espada flamígera
+Material: Obsidiana mágica
+
+- Nombre: Llama eterna, la espada de fuego del destino
+Material: Acero celeste
+
+Espero que estas ideas te ayuden a inspirarte para encontrar el nombre perfecto y el material adecuado para la espada de tu protagonista. ¡Buena suerte con tu historia ultra hyper mega secreta!",,,,
+fab-500x-20261114T224408Z-012,28,10120dc2d78f4a54e23fb974,0c33f34509119d8d03a73db5229cf23d,fab-500x,es,research,oasst2,human_authored,"[user] háblame sobre la empresa Valve, sus juegos más conocidos, la forma en la que crean videojuegos, todo lo que consideres relevantes","Valve Corporation, también conocido como Valve Software, es una empresa estadounidense desarrolladora de videojuegos. Se hizo mundialmente famosa por su primer juego, Half-Life y por una modificación de este, Counter-Strike.
+
+Otros de sus logros más famosos son la creación del motor de videojuego Source, utilizado en gran parte de sus videojuegos, incluyendo Half-Life 2, Portal, Team Fortress 2, Left 4 Dead, Left 4 Dead 2 y Dota 2 y la creación de la plataforma digital de videojuegos Steam. Las oficinas centrales de Valve Software se encuentran en Bellevue, Washington, Estados Unidos.
+
+Valve fue fundada en 1996 por Gabe Newell y Mike Harrington. Ambos eran trabajadores del gigante informático Microsoft y habían trabajado en sus sistemas operativos Windows y OS/2 antes de pasarse al mundo de los videojuegos. Con Half-Life, su primer videojuego, Valve cosechó un tremendo éxito obteniendo beneficios de sus expansiones y mods. En su trabajo junto a la comunidad de jugadores se encuentran títulos como Counter-Strike o Day of Defeat. En mayo de 2003, Valve Software causó un gran revuelo en la feria Electronic Entertainment Expo al presentar lo que parecía una versión prácticamente terminada de Half-Life 2.
+Valve anunció su plataforma de distribución digital Steam en 2002. A través de Steam, Valve ha mostrado un amplio soporte para sus juegos, sacando actualizaciones para los mismos cada poco tiempo. . Desde la salida del juego ha habido ocho actualizaciones importantes, así como muchas correcciones de errores y pequeños añadidos.55​ Todas estas actualizaciones son provistas de forma totalmente gratuita.
+
+Hay más de 10000 videojuegos disponibles en Steam, y en enero de 2010 Valve anunció que habían superado las 25 millones de cuentas activas. En enero de 2013 se anunció que el número había ascendido a 75 millones de usuarios activos.56​ Si se observan las estadísticas disponibles en la web de Steam, se puede apreciar que en cualquier momento del día el número de usuarios conectados supera los 10 millones, y el pico diario varía entre los 13.5 y 15.5 millones. Los mayores picos registrados superan los 16 millones. De esos usuarios, el número de usuarios jugando a algún videojuego va desde los 2.500.000 a los 5.000.000 de usuarios a la vez, en cualquier momento del día. Viendo las estadísticas de Steam, se puede consultar, además, el número de usuarios jugando a los 100 videojuegos con más jugadores en ese momento, así como el mayor pico de usuarios jugando simultáneamente en las últimas 48 horas.",,,,
+fab-500x-20261114T224408Z-012,29,4e8ec71e839450bee2439f1a,6fe5aef4db52127344a985b93f330038,fab-500x,es,safety_ethics,oasst2,human_authored,"[user] ¿Qué rasgos físicos hacen atractiva a una mujer, según la cultura occidental?
+
+[assistant] Es muy usual que se encuentren atractivas las mujeres flacas, con bastante cola y lolas, como si tuviera forma de reloj de arena. También se tienen en cuenta rasgos faciales, como que tenga grandes labios y una nariz chica.
+
+[user] Según la cultura occidental hay estándares que definen más o menos atractivas a las personas teniendo en cuenta su aspecto físico, sin embargo, hay que recordar que la belleza es algo subjetivo y que depende de cada persona lo que considere como atractivo.","Una disculpa, gracias por la corrección. Como modelo del lenguaje no puedo emitir ningún juicio de valor respecto a la apariencia física de las personas, la información que entregué previamente probablemente esté herrada y es producto de el bias de los datos con los que se me entró.",,,,
+fab-500x-20261114T224408Z-012,30,80ab88853493c8996527dbe9,97dfb0737fc176d53893dcf297175801,fab-500x,es,science,oasst2,human_authored,"[user] Cómo surgieron los mitos de los dragones en la edad media?
+
+[assistant] Los mitos de los dragones tienen raíces en varias culturas y leyendas antiguas, pero su popularidad en la Edad Media puede haber sido influenciada por varias fuentes, incluyendo la mitología clásica, la Biblia y la literatura.
+
+En la mitología clásica, los dragones eran vistos como símbolos de poder y fuerza. Por ejemplo, en la mitología griega, el dragón Ladón custodiaba las manzanas doradas del jardín de las Hespérides, mientras que en la mitología nórdica, Fafnir era un dragón que guardaba un tesoro.
+
+En la Biblia, el dragón se presenta como un símbolo del mal y la corrupción. El libro del Apocalipsis describe a Satanás como un gran dragón rojo, y se cree que esta imagen influyó en la representación medieval del dragón como una bestia feroz y malvada.
+
+Además, la literatura medieval también desempeñó un papel importante en la popularización de los dragones. Los cuentos de hadas y las leyendas populares a menudo presentaban a los dragones como enemigos formidables que los héroes debían enfrentar y vencer para salvar a sus seres queridos o conseguir un tesoro.
+
+En la Edad Media, los dragones también
+
+[user] continua","En la Edad Media, los dragones también se convirtieron en elementos populares en el arte y la arquitectura. Por ejemplo, muchas iglesias medievales presentan imágenes de dragones en sus esculturas y vitrales, y algunos castillos incluyen figuras de dragones en sus decoraciones.
+
+En resumen, los dragones tienen un origen complejo y se han visto de diversas maneras a lo largo de la historia. Desde símbolos de poder y fuerza hasta enemigos ferozmente temidos, los dragones han sido elementos recurrentes en muchas culturas y mitologías. Su popularidad en la Edad Media se puede atribuir a su presencia en la mitología clásica, la Biblia y la literatura popular, y su representación en el arte y la arquitectura de la época.",,,,
+fab-500x-20261114T224408Z-012,31,7c81f41e0aeaed88032739fa,45645ffec762b29b8c8a8bcf45630997,fab-500x,es,software_engineering,oasst2,human_authored,"[user] Refactoriza este código hecho en python:
+´´´
+if a:
+    if b:
+        pass
+´´´","El siguiente código es una refactorización del código anterior:
+
+if a and b:
+    pass
+
+En este caso, se ha combinado las dos condicionales en una sola, lo que hace que el código sea más conciso y fácil de leer. La nueva condición indica que pass solo se ejecutará si ambas variables a y b son verdaderas.",,,,
+fab-500x-20261114T224408Z-012,32,039a8bd25d7133f720eacc2e,2f2801e255f9b6542b087a6620415e5e,fab-500x,es,web_backend,oasst2,human_authored,[user] Hola Open Assistant! Me puedes explicar como crear un servidor en express.js?,"Hola! Claro, con mucho gusto. Para instalar Node.js y Express en tu computadora, sigue estos pasos:
+Ve al sitio web de Node.js (https://nodejs.org/) y descarga la versión más reciente para tu sistema operativo.
+Sigue las instrucciones de instalación para instalar Node.js en tu computadora.
+Una vez que hayas instalado Node.js, abre una terminal o línea de comandos y ejecuta el siguiente comando para instalar Express: npm install express --save.
+
+Ahora que tienes Node.js y Express instalados en tu computadora, puedes empezar a crear tu servidor en Express.js. Aquí tienes un ejemplo básico de cómo crear un servidor en Express.js:
+
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.get('/', (req, res) => {
+  res.send('¡Hola Mundo!');
+});
+
+app.listen(port, () => {
+  console.log(`Servidor escuchando en el puerto ${port}`);
+});
+Este código crea un servidor en Express.js que escucha en el puerto 3000 y responde con “¡Hola Mundo!” cuando se accede a la ruta raíz (/) del servidor.",,,,
+fab-500x-20261114T224408Z-012,33,2e1d1a148e57501fda93a404,3e416d10e0f5c233b5841a1f177c0bed,fab-500x,es,web_frontend,oasst2,human_authored,[user] Necesito crear en javascript un algoritmo y lo embeba en un html llamado index.html que emule el juego tamagochi. Que el mismo tenga imágenes del personaje. Se le pueda poner un nombre y que permita darle de comer y cuidarlo.,"Supongo que lo que quieres es que te explique cómo hacerlo, así que aquí tienes una explicación de cómo podrías hacerlo:
+
+1.-Si lo que quieres es hacer una mascota virtual, a la que haya que dar de comer, deberías crear distintas variables que representen distintos aspectos de ésta, como su sueño, su hambre, y hacer una distinta para cada propiedad que tenga tu imitación de tamagochi. 
+2.-Para empezar, deberás hacer que con el tiempo se vaya sumando o restando una constante a las variables que definan el estado de la mascota, como por ejemplo, que cada minuto aumente su hambre en un 1%. 
+3.-También deberás hacer que el jugador pueda realizar distintas acciones, que fijen una variable o le añadan un valor. Un ejemplo sería, hacer que se le pueda poner a dormir para que cada minuto que pase se le baje el sueño en un 2%.
+
+Si necesitas que te ayude con cualquier otra cosa, pídemelo y te responderé lo mejor que pueda.",,,,
+fab-500x-20261114T224408Z-012,34,6476315e956b6a02588b9d65,0d258ae9ea71c602c6130b87648cd5bc,fab-500x,es,writing,oasst1,human_authored,[user] Escribe un email profesional para un cliente despacho de abogados diciendo que adjunto el informe de marketing digital,"Estimado/a [Nombre del Cliente],
+
+Espero que este mensaje le encuentre bien. Me pongo en contacto con usted para hacerle llegar el informe de marketing digital que nos encargó. Adjunto encontrará el archivo correspondiente en formato PDF.
+
+En el informe se encuentran detallados los resultados de nuestra última campaña de marketing digital, incluyendo el análisis de métricas y el rendimiento de los diferentes canales utilizados. Además, hemos incluido nuestras recomendaciones para futuras acciones de marketing con el fin de mejorar el ROI.
+
+Por favor, siéntase libre de ponerse en contacto con nosotros en caso de que tenga alguna pregunta o comentario acerca del informe. Estaremos encantados de asistirle en todo lo que necesite.
+
+Aprovecho esta oportunidad para agradecerle su confianza en nuestros servicios y espero seguir trabajando con usted en el futuro.
+
+Un cordial saludo,
+
+[Su nombre]",,,,
+fab-500x-20261114T224408Z-012,35,12571bf0cad715646fde00ab,0f1d47ffc1890f0d4bed187d8375c173,fab-500x,eu,general_knowledge,oasst1,human_authored,[user] Zenbat dolar dira hiru euro?,"Estatu Batuetako dolarraren (USD) eta euroaren (EUR) arteko kanbio-tasa etengabe alda daiteke, eta, beraz, garrantzitsua da bihurketaren uneko kanbio-tasa egiaztatzea. Hala ere, erreferentzia gisa, hau idazteko unean (2023ko otsailean), 3 euro AEBetako 3,30 dolar (USD) inguru dira.",,,,
+fab-500x-20261114T224408Z-012,36,28597341ff95aebc0e2ffa80,a47cde51ff7cc2747e148c79ecbffa81,fab-500x,eu,science,oasst2,human_authored,[user] Idatzi elkarrizketa bat Donald Trump eta Donald ahatearen artean,"Donald Trump: Hello, Donald ahatea, zer moduz?
+
+Donald ahatea: Hiya, toots! Ondo nago, eskerrik asko galdetzeagatik.
+
+Donald Trump: Zurekin elkarrizketa serio bat izan nahi nuke gaur, Donald ahatea. Badakizu negozio gizona naizela eta urte askoan egon naizela politikan. Gai larri batzuei buruz duzun iritzia jakin nahi nuke.
+
+Donald ahatea: Entzuteko prest nago, mister Trump.
+
+Donald Trump: Lehenik, immigrazioari buruz duzun iritzia jakin nahi nuke. Uste duzu utzi beharko geniokeela jende gehiagori gure herrira sartzen?
+
+Donald ahatea: Oh, fooey! Trump jauna, ahate bat naiz eta ez dut iritzi politikorik. Baina uste dut denek merezi dutela errespetuz eta duintasunez tratatzea, nondik datozen kontuan hartu gabe, ezta?
+
+Donald Trump: America first, Donald. Orain, zer pentsatzen duzu klima-aldaketari buruz? Benetakoa dela uste duzu? eta horri aurre egiteko neurriak hartu behar ditugu?
+
+Donald ahatea: Oh boy, oh boy, oh boy... Bai, Trump jauna, klima aldaketa benetakoa da eta gure planetari eragiten dio. Denok egin beharko genuke ahalegina gure karbono-aztarna murrizteko eta gure amalurra babesteko.",,,,
+fab-500x-20261114T224408Z-012,37,6bf2c22a82d6464e9278e315,d6e269bc19a8145b42da4ebfa2243bc6,fab-500x,eus,general_knowledge,aya-dataset,human_authored,[user] Zenbat datu behar dira hizkuntza eredu handi bat entreinatzeko?,Ez nago ziur baina asko behar dira. Azkenengo ereduek (GPT edo PaLM adibidez) internet guztiko testua erabiltzen dute,,,,
+fab-500x-20261114T224408Z-012,38,504bd83c7763113df8cfaf60,ea1ba2f44d8fe2ac9443d225dae175ca,fab-500x,eus,safety_ethics,aya-dataset,human_authored,"[user] Zer da musika klasikoa, eta nola ulertzen du harmonia eta melodia?","Musika klasikoa da tradizio zaharreko musika estiloa. Harmonia eta melodia ulertzeko, musika klasikoak erakusten du nola noten arteko harremanak sortzen diren eta nola melodia eta harmonia elkarrekin lotuta dauden.",,,,
+fab-500x-20261114T224408Z-012,39,dcf68b8c86c08528c5b7e4a8,1955269666b834a8f31150b1fe95e88e,fab-500x,eus,science,aya-dataset,human_authored,"[user] Zer da ekologia, eta nola aztertzen du espezieen arteko harremanak?","Ekologia da organismoen eta haien ingurunearen arteko harremanak aztertzen duen zientzia. Espezieen arteko harremanak aztertzeko, ekologiak erakusten du nola espezieak elkarrekin interaktuan dute eta nola inguruneak haien garapena eragiten duen.",,,,
+fab-500x-20261114T224408Z-012,40,601661ee2141b4947523fcda,9cab82503a89b3a4eb35c42205cef29e,fab-500x,fa,general_knowledge,aya-dataset,human_authored,[user] چه نام‌هایی در ایران برای پسران و دختران بیشترین فراوانی را دارند؟,اسامی فاطمه، زهرا، نازنین زهرا و زینب از جمله فراوان‌ترین نام‌های دخترانه هستند. در میان نام‌های پسرانه نیز نام‌های امیرعلی، امیرحسین، محمد و علی پرکاربردترین نام‌ها هستند.,,,,
+fab-500x-20261114T224408Z-012,41,e41a699c99ea0a4958aa6d22,2da5b6a329a3f58434e0cfbef5832b9e,fab-500x,fa,islamic_studies,aya-dataset,human_authored,[user] این متن درباره چه رویداد مهمی صحبت میکند: پایتخت ایران دورانی دارای تنش را در دهه‌های اخیر گذراند که برای کل کشور پیامدهایی داشته‌است. گروگان‌گیری در سفارت ایالات متحدهٔ آمریکا (۱۳۵۸)، انفجار در دفتر نخست‌وزیری جمهوری اسلامی ایران (۱۳۶۰)، حمله به کوی دانشگاه تهران (۱۳۷۸)، تظاهرات‌های ۱۷ اسفند ۱۳۵۷، ۲۲ خرداد ۱۳۸۵، ۱۳۸۸ و ۱۳۹۶ نمونه‌هایی از رخدادهای مهم سیاسی و اجتماعی دهه‌های گذشته در تهران هستند.,این متن درباره رویدادهای مختلفی صحبت میکند، یکی از آنها این است: گروگان‌گیری در سفارت ایالات متحدهٔ آمریکا (۱۳۵۸),,,,
+fab-500x-20261114T224408Z-012,42,541a3855beb88f5053102d08,dfe76ef54c99018c341dc5e665a59505,fab-500x,fa,mathematics,aya-dataset,human_authored,"[user] ادامه ای برای این پاراگراف بنویسید: ""پس از پایان تهاجم ژاپن به کره (۱۵۹۸–۱۵۹۲) ، خاندان شیمازو به دلیل دستاوردهای نظامی خود مانند نقش چشمگیرش در نبرد ساچون (۱۵۹۸) عملکردش بسیار مثبت ارزیابی شد و خاندن شیمازو ۵۰٬۰۰۰ ککو (زمین بر اساس برداشت برنج. در تئوری، یک ککو برنج حدود ۱۵۰ کیلوگرم است. یکی از فاکتورهای تعیین جایگاه مقام و برتری دایمیوها یا حاکمان فئودال نسبت به دایمیوهای دیگر میزان بزرگی مساحت مزارع برنج در قلمروی تحت مدیریت آنان بود) اضافی ...""",از رژیم تویوتومی دریافت کرد. در نتیجه، خاندان شیمازو از ۵۶۹۰۰۰ ککو (نتایج بازرسی زمین توسط ایشیدا میتسوناری در دوره بونروکو از دسامبر ۱۵۹۲ تا اکتبر ۱۵۹۶) به ۶۱۰٬۰۰۰ ککو رسید و پس از، خاندان توکوگاوا (۲٫۵۵ میلیون ککو)، خاندان اوئه‌سوگی (۱٫۲ میلیون ککو) و خاندان موری (۱۲/۱ میلیون ککو) و خاندان مائدا (۸۴۰٬۰۰۰ ککو) قرار گرفتند.,,,,
+fab-500x-20261114T224408Z-012,43,4a4fadf615426b1d47f04667,51e834d8a47455ef6a834a83c707e7db,fab-500x,fa,pakistan,aya-dataset,human_authored,[user] کلوچه خرمایی در کدام بخش‌های ایران پخته می‌شود؟,"بیشتر شهرهای جنوب ایران از خوزستان تا سیستان و بلوچستان این کلوچه‌ خوشمزه را دارند و درست می‌کنند. این کلوچه از ترکیب مواد خمیر مایه شیرینی‌پزی و خرمای له و آسیاب شده (شبیه حلوای خرما) درست می‌شود و واقعاً خوشمزه است.
+نکته جالب در مورد این شیرینی این است که در بخشی از ایران آن را به شکل و قیافه مشخصی درست می‌کنند. برای همین خیلی راحت می‌توانید بفهمید که یک کلوچه خرمایی محصول کدام استان است.",,,,
+fab-500x-20261114T224408Z-012,44,61658a934732918c5651d653,9ad63ca5abedb6ac5b7f13df7ce509db,fab-500x,fi,general_knowledge,oasst1,human_authored,"[user] Kirjoita minulle C-ohjelma, joka laskee ja tulostaa fibbonachin luvut yhdestä kymmeneen.
+
+[assistant] Tässä on C-ohjelma, joka laskee Fibbonaccin luvut yhdestä kymmeneen:
+```c
+#include <stdio.h>
+
+
+// Fibbonaccin lukujono kohdalla n ( F(n) ) lasketaan seuraavasti
+// F(n) = F(n-1) + F(n-2)
+// Lukujonolla on kuitenkin kaksi ennalta määriteltyä pistettä, 0 ja 1.
+// F(1) = 1
+// F(0) = 0
+int fib(unsigned int n){
+
+    if(n <= 1)
+        return n;
+
+    return fib(n-1) + fib(n-2);
+
+}
+
+int main(){
+
+    // Toisto yhdestä kymmeneen
+    for(int i = 1; i<=10; i++){
+
+        // Tulosta F(n)
+        printf(""%i"",fib(i));
+
+    }
+
+    return 0;
+
+}
+```
+
+[user] En ymmärrä mitä sana ""unsigned"" tekee ensimmäisen funktion alussa. Selitä minulle.","Sana ""unsigned"" tarkoittaa suomeksi ""etumerkitöntä"". C-kielessä  kokonaislukutyyppiset muuttujat kuten ensimmäisen funktion alussa esiintyvä `int n` voidaan rajata saamaan vain positiivisia lukuarvoja (sisältäen myös arvon 0) merkitsemällä nämä määreellä `unsigned`.
+
+Wikipedian C-kielen muuttujien tyyppejä käsittelevän artikkelin (https://en.wikipedia.org/wiki/C_data_types) mukaan `int` ja `unsigned int` tyypit voivat saada arvoja ainakin seuraavilta väleiltä:
+
+* `int`: [−32,767, +32,767]
+* `unsigned int`: [0, 65,535]
+
+Käytännössä arvoalue on toteutuskohtainen, mutta ei kuitenkaan tätä pienempi.",,,,
+fab-500x-20261114T224408Z-012,45,07e86f68c973a03ab394cc7d,681827a2166ce50e0cb2de217b272109,fab-500x,fi,research,tydiqa-goldp,human_authored,"[user] Vuosien 1977–1984 kahdeksasta Euroopan cupista peräti seitsemän meni englantilaisjoukkueille. Vuonna 1977 Liverpool aloitti englantilaisten seurajoukkueiden kuuden vuoden mittaisen voittokulun. 1977 Liverpool voitti finaalissa Borussia Mönchengladbachin, ja toisti temppunsa myös seuraavana vuonna voittaen loppuottelussa tällä kertaa Belgian mestarin Club Bruggen.
+
+Kuka voitti UCL vuonna 1977?","Liverpool
+
+Vuonna 1977 Liverpool aloitti englantilaisten seurajoukkueiden kuuden vuoden mittaisen voittokulun.",,,,
+fab-500x-20261114T224408Z-012,46,2a1e1d11a334dc09d915087b,f0c44cbc0e77e7079e637d7b94bfbf58,fab-500x,fin,general_knowledge,aya-dataset,human_authored,[user] Miten päätäitartunta todetaan?,"Yleensä pään kutina herättää epäilyn tartunnasta.
+
+Päätäitä etsitään kampaamalla hiuksia apteekista ostettavalla täikammalla. Täit löytyvät useimmiten niskasta ja korvien takaa. 
+
+Myös täin munien näkeminen hiuksissa alle 6 millimetrin etäisyydellä päänahasta riittää todisteeksi tuoreesta tartunnasta.",,,,
+fab-500x-20261114T224408Z-012,47,15572bc3c6fcc212f91601ef,79f54e0fe32514ea074723ca0e99dd14,fab-500x,fin,mathematics,aya-dataset,human_authored,[user] Mitä tarkoittavat rahapelien yksinoikeusjärjestelmä tai lisenssijärjestelmä?,"Yksinoikeusjärjestelmä tarkoittaa mallia, jossa kaikkien tai tiettyjen rahapelien toimeenpanoon on annettu oikeus vain yhdelle pelinjärjestäjälle. Veikkaus oy:llä on arpajaislakiin (1047/2001) perustuva yksinoikeus kaiken rahapelitoiminnan harjoittamiseen Manner-Suomessa. Ahvenanmaalla toimii pelinjärjestäjänä Paf, jonka toiminnasta säädetään maakunnan omassa arpajaislaissa.
+
+Mannersuomalaisten rahapelaamista muiden kuin Veikkaus oy:n peleihin kutsutaan yksinoikeusjärjestelmän ulkopuoliseksi tai sääntelyn ulkopuoliseksi rahapelaamiseksi. Myös offshore-rahapelaaminen on usein käytetty termi tässä yhteydessä. Arpajaislaissa sääntelyn ulkopuolisten rahapelien pelaaminen ei ole laitonta, mutta muiden kuin Veikkaus oy:n pelien tarjoaminen ja markkinointi on laitonta. 
+
+Lisenssijärjestelmä tarkoittaa mallia, jossa lisenssejä (toimilupia) rahapelien toimeenpanoon myönnetään määräajaksi tyypillisesti useille pelinjärjestäjille. Esimerkiksi Ruotsissa verkkorahapelien myyntiin kuluttajille on kasinopelien ja vedonlyönnin osalta myönnetty useita kymmeniä lisenssejä. Linsenssit myöntää kunkin maan lainsäädännössä määritelty viranomainen. Saadakseen lisenssin, tulee rahapeliyhtiön täyttää edellytykset, joita lainsäätäjä asettaa rahapeliyhtiöille. Lisenssiehdoissa määritellään tyypillisesti rahapelit, joiden myynnin kuluttajille lisenssi sallii. Lisäksi lisenssiehdoissa voidaan antaa muun muassa rahapeliyhtiöille määräyksiä koskien vaadittua kuluttajansuojan tasoa. Lisenssit myöntävä viranomainen valvoo lisenssiehtojen lisenssinhaltijoiden toimintaa ja lisenssiehtojen täyttymistä.  
+
+On tavallista, että rahapelitoiminnan sääntelyssä yhdistellään yksinoikeuksia ja lisenssejä. Esimerkiksi kansalliseen lottoon myönnetään useissa maissa vain yksi lisenssi, jonka haltijalla on yksinoikeus kyseisen pelin järjestämiseen. Verkkorahapelaamisen sääntely toimiluvin on hyvin tavallista Euroopassa. Myös lisenssijärjestelmän ulkopuolelle suuntautuva rahapelaaminen on sääntelyn ulkopuolista rahapelaamista.",,,,
+fab-500x-20261114T224408Z-012,48,95df5bad42a8032b75acf66b,3458b2e0a76d5ff1241399e591d9a078,fab-500x,fin,safety_ethics,aya-dataset,human_authored,[user] Miksi pilven eri osista tulee erikokoisia pisaroita?,"Oletettavasti kyseessä on kuurosade eikä tasainen jatkuva sade. Kuurosade- ja ukkospilvessä sadepisaroiden kokojakautuma voi todellakin vaihdella. Tällaiseen pilveen liittyy tyypillisesti voimakas nousevan ilmavirtauksen alue pilvisyyden etuosassa, jossa ilma tempautuu vauhdilla ylempiin ilmakerroksiin. Pilven takaosassa puolestaan on laskevan liikkeen alue ja varsinainen tasaisempi sade. Nousu- ja laskuvirtauksen raja-alueella sijaitsee usein tummimmalta näyttävä ""pilvimassa"", joka joskus on selvästi pyörivässä liikkeessä. Tällä pilven osalla on oma mahtavalta kuulostava nimensä, vyörypilvi. Ja toden totta, joskus kun mahtava ukkospilvi tulee kohti, pilvet näyttävät vyöryvän ylitse.
+
+Tumman vyörypilven alueella sadepisarat saattavat pudotessaan tempautua uudelleen voimakkaan nousuvirtauksen alueelle, jolloin ne saattavat kulkeutua pilven kylmiin yläosiin ja jäätyä jääkiteiksi. Tämän jälkeen ne alkavat uudelleen pudota. Jos ne nyt tempautuvat taas nousuvirtaukseen, kasvaa niiden koko ympäröivästä pilvimassasta tiivistyvien pienten pilvipisaroiden johdosta. Ja jos pisarat ja jääkiteet tekevät vyörypilven tienoilla tarpeeksi monta ylös-alas reissua, on muodostunut rakeita, jotka ovat niin suuria, etteivät ne välttämättä ehdikään sulaa, kun ne lopulta pääsevät putoamaan maanpinnalle.
+
+Suurimmat sadepisarat esiintyvät yleensä pilven tummimman osan alla ja ovat itse asiassa sulaneita rakeita. Jos kyseessä on ukkospilvi, on tällä kohtaa usein voimakkain salamointikin. Pilven harmaassa takaosassa pisarat ovat pienempiä, vaikka sade sinänsä voi olla melko rankkaakin.",,,,
+fab-500x-20261114T224408Z-012,49,4f3da5b40834e07e15e61980,5e3a4bbb3bcb2f8026a2a7e788bca398,fab-500x,fin,science,aya-dataset,human_authored,[user] Mitä tarkoittaa kryptovara?,"Bitcoinia ja muita virtuaalivaluuttoja voidaan pitää eräänlaisena varallisuuden muotona, mutta vain niin kauan, kun niillä on toimivat markkinat. Virtuaalivaluuttojen ja kryptovaluuttojen sijaan puhutaan jo monesti krypto- tai virtuaalivaroista. Esimerkiksi OECD:n alainen rahanpesun ja terrorismin rahoittamisen vastainen toimintaryhmä FATF eli Financial Action Task Force käyttää suosituksissaan ja ohjeistuksissaan termejä virtual asset ja virtual asset service provider (VASP). Bitcoin ja muut virtuaalivaluutat ovat kaikesta huolimatta verrattain pieni ilmiö, eikä niillä ole ainakaan tällä hetkellä vaikutusta finanssimarkkinoihin tai rahoitusvakauteen.",,,,
+fab-500x-20261114T224408Z-012,50,893ae7f6659e40384ac7d998,a9ae21601715327b6c736b0dc0b487e5,fab-500x,fin,writing,aya-dataset,human_authored,"[user] Write a continuation for this paragraph - Armas Adam Toivonen (20. tammikuuta 1899 Halikko – 12. syyskuuta 1973 Helsinki) oli suomalainen kestävyysjuoksija ja olympiamitalisti. Toivosen päämatka oli maraton, jolla hän saavutti olympiapronssia Los Angelesissa 1932 ja voitti EM-kultaa Torinossa 1934","Armas Adam Toivonen (20.1.1899, Halikko - 12.9.1973, Helsinki) oli suomalainen kestävyysjuoksija ja olympiamitalisti. Päämatkallaan maratonilla Toivonen voitti olympiapronssia Los Angelesissa 1932 ja EM-kultaa Torinossa 1934.",,,,
+fab-500x-20261114T224408Z-012,51,cfbdeff0a01765fa2635aaf5,42ece48490fc11aacda64d23ad9643c1,fab-500x,fr,coding,wikipedia-fr,templated_human,[user] Présente brièvement : Rue Montmartre.,"La rue Montmartre est une voie ancienne des 1 et  arrondissements de Paris. Elle se prolonge en direction du nord, au-delà du boulevard Montmartre, par la rue du Faubourg-Montmartre.
+
+Située dans les quartiers des Halles, Vivienne et du Mail la rue Montmartre, d'une longueur de  débute rue Rambuteau, et rue Montorgueil et finit boulevard Montmartre et boulevard Poissonnière.
+
+La rue Montmartre est distincte du quartier de la butte Montmartre, mais en était l'ancienne route qui permettait de s'y rendre.
+
+Cette étymologie vient-elle de mons Martis, « mont de Mars » , parce qu'il existait sur ce mont, du temps de la domination des Romains dans les Gaules, un temple dédié à Mars ?
+
+Ou bien de mons Martyrum, « mont des Martyrs », parce que l'on croit généralement que saint Denis et ses deux compagnons, Rustique et Éleuthère, furent martyrisés sur ce mont vers le milieu du  ?
+
+Les historiens sont partagés entre ces deux opinions. Jean de La Tynna croit plutôt que Montmartre vient de « Mont-Martroi », parce que, sous les Romains, on exécutait les criminels sur des hauteurs près des grandes villes.
+
+La rue Montmartre est distincte du quartier de la butte Montmartre, mais était l'ancienne route qui permettait de s'y rendre.",,,,
+fab-500x-20261114T224408Z-012,52,57245fa9dc208ae45972f8d8,27bc2eee3647c8107688b7e53877cb1f,fab-500x,fr,cybersecurity,wikipedia-fr,templated_human,[user] Présente brièvement : Matam (région).,"La Région de Matam est l'une des 14 régions administratives du Sénégal.
+
+Elle est située au nord-est du pays et est bordée par la région de Saint-Louis au Nord, la région de Louga à l'Ouest, la région de Kaffrine au sud-Ouest et la région de Tambacounda au Sud. A l'Est, elle est frontalière avec la Mauritanie.
+
+Le chef-lieu régional est la ville de Matam.
+
+Le Conseil régional est actuellement présidé par Abdoulaye Dramé qui succède à Adama Sall et à Sada Ndiaye.
+
+Créée le , cette région est l'une des plus récentes au Sénégal.
+
+Elle fait l'objet de plusieurs projets de désenclavement, par voie d'eau, train ou route avec la . Il s'agit notamment de pouvoir mieux valoriser le gisement de phosphates de Ndendory (à Matam), à environ 750 km de Dakar et les produits de l'usine de granulation de phosphates qui l'exploite () avec la Société d'études et de réalisation des phosphates de Matam (SERPM).
+
+Les régions de Saint-Louis, de Louga, de Matam, de Tambacounda et de Kaffrine ont créé une « Entente interrégionale » pour une gestion concertée de la « zone sylvopastorale » par , intégrant une gestion restauratoire des écosystèmes.
+
+Le ressort territorial actuel, ainsi que le chef-lieu des régions, départements et arrondissements sont ceux fixés par un décret du  qui abroge toutes les dispositions antérieures contraires.
+
+La région est composée de 3 départements :",,,,
+fab-500x-20261114T224408Z-012,53,8f00d3583cfe0059e50cedec,061cc167d567f04104cbd9f857c11e71,fab-500x,fr,education,wikipedia-fr,templated_human,[user] Présente brièvement : Beth Goddard.,"Beth Goddard est une actrice anglaise née en 1969 à Colchester dans l'Essex au Royaume-Uni.
+
+1993 : Hercule Poirot (série TV, épisode L'Affaire du testament disparu) : Violet Wilson
+
+1994 : D'une femme à l'autre (A Business Affair) : Student
+
+1995 : Degrees of Error (série télévisée) : Anna Peirce
+
+1996 : Ellington (série télévisée) : Kelly Logan
+
+1996 : Beautiful Thing : Brewery Official
+
+1996 : Karaoke (feuilleton TV) : Woman on Phone
+
+1997 : Thornapple (TV) : Mirabel Davenport
+
+1999 :  (feuilleton TV) : Suzanne De Tourney
+
+1999 : Big Bad World (série télévisée) : Kath Shand
+
+1999 :  (feuilleton TV) : Harriet Howell (2000)
+
+1999 : The Scarlet Pimpernel Meets Madame Guillotine (TV) : Suzanne de Tourney
+
+1999 : The Scarlet Pimpernel and the Kidnapped King (TV) : Lady Suzanne Ffoulkes
+
+2001 : Daylight Robbery 2 (feuilleton TV)
+
+2001 : Take Me (feuilleton TV) : Kay Chambers
+
+2003 :  (série télévisée) : Melissa Garvey
+
+2003 : inspecteur Barnaby (série télévisée) : Wendy Smythe-Webster
+
+2007 : The Sarah Jane Adventures : Sœur Helena
+
+2009 : Hercule Poirot (série TV, épisode Rendez-vous avec la mort) : Sœur Agnieszka
+
+2011 : inspecteur Barnaby (série télévisée) : Selina Santon
+
+2011 : X-Men : Le Commencement : Sharon Xavier, la mère de Charles Xavier
+
+2016 : Un chat pour la vie (A Street Cat Named Bob) de Roger Spottiswoode : Hilary
+
+2022 :  : Antoinette de Guise (mini-série)",,,,
+fab-500x-20261114T224408Z-012,54,c5eaff3dbc3fad72ad948f8b,a975dca0c6b93ecb56acb107b71d7e52,fab-500x,fr,general_knowledge,wikipedia-fr,templated_human,[user] Présente brièvement : Loi de Curie.,"En physique du solide, la loi de Curie énonce que la susceptibilité magnétique d'un matériau paramagnétique est inversement proportionnelle à la température . On l'écrit :
+
+où  est une constante parfois appelée constante de Curie.
+
+Cette loi doit son nom à Pierre Curie qui l'a découverte expérimentalement à la fin du .
+
+Cette loi peut être démontrée par la physique statistique en considérant un système composé d'un grand nombre de moments magnétiques indépendants  pouvant s'orienter parallèlement ou antiparallèlement à un champ magnétique appliqué . On retrouve alors la loi de Curie dans la limite où l'énergie magnétique des particules  reste très inférieure à l'énergie d'agitation thermique , où  est la constante de Boltzmann.
+
+Un modèle simple de matériau paramagnétique définit les particules qui le composent. Chaque particule possède un moment magnétique . L'énergie associée à ce moment magnétique dans un champ magnétique est donnée par :
+
+Pour simplifier les calculs, on considère le matériau paramagnétique a 2 états, c’est-à-dire que chaque particule va aligner son moment magnétique avec le champ magnétique, dans le même sens ou en s'y opposant. Les autres orientations ne sont pas prises en compte. La particule a donc 2 énergies possibles
+
+Avec cette information nous pouvons déterminer la fonction de partition d'une particule, avec",,,,
+fab-500x-20261114T224408Z-012,55,3a78ec4d7095200b27f10214,f706611b9f669d91a3e30aa262827c59,fab-500x,fr,islamic_studies,wikipedia-fr,templated_human,[user] Présente brièvement : Robert Spencer.,"Robert Spencer, né le , est un écrivain et blogueur américain critique de l'islam et de la mouvance djihadiste, et figure notable du mouvement . Il est en outre directeur et chroniqueur du blog anti-islam et conspirationniste  et a cofondé l'organisation anti-musulmane Stop Islamization of America. Il est qualifié de promoteur de l'islamophobie par de nombreux medias et associations américains.
+
+Il détient une maîtrise en sciences des religions de l'Université de Caroline du Nord à Chapel Hill, grâce à une thèse sur l'histoire du catholicisme. Il avance avoir également étudié la théologie islamique depuis les années 1980. Considéré comme un spécialiste, ses écrits sont publiés par des journaux, tels que The Washington Times, New York Post, ou encore le site web FrontPage magazine de l'organisation conservatrice David Horowitz Freedom Center, ex-Center for the Study of Popular Culture. Il intervient, entre autres, sur des chaines télévisées comme la BBC ou CNN. Il a été consultant pour le ministère allemand des Affaires étrangères, l'United States Central Command, ou le Département d'État américain.
+
+Il est directeur du blog , qualifié d'islamophobe et conspirationniste.
+
+Il a cofondé en 2010 avec Pamela Geller, Stoppons l'islamisation de l'Amérique (SIOA) et l'Initiative de défense de la liberté (IDE).",,,,
+fab-500x-20261114T224408Z-012,56,18ccb95a3e69bc2f9da663ef,7fe3d397c53af5f54618372e0dc7a06f,fab-500x,fr,mathematics,wikipedia-fr,templated_human,[user] Présente brièvement : Vallées occitanes.,"Les Vallées occitanes, en occitan Valadas occitanas, en italien Valli occitane, sont des vallées alpines du Piémont et de Ligurie de langue occitane dans sa variante vivaro-alpine.
+
+Elles constituent avec Guardia Piemontese la partie de l’Occitanie située en Italie. Elles correspondent au versant oriental des Alpes du Sud (en Italie) et sont étroitement reliées, sur les plans linguistique et culturel, au versant ouest (pays gavot, en France).
+
+La variété d’occitan qui y est pratiquée est le vivaro-alpin. Ce dialecte s’étend des vallées Occitanes à l’est jusqu’à Yssingeaux à l’ouest. Il est également parlé à Guardia Piemontese et dans les colonies vaudoises.
+
+En 1984 naissance de Radio Beckwith Evangelica, une radio italienne de l'Église évangélique vaudoise.
+
+La population de ces vallées est estimée à  (2013), dont  ont une compétence active et  une compétence passive de la langue.
+
+Sur le plan administratif, les vallées occitanes, qui ne constituent ni une entité ni une collectivité territoriale, sont partagées entre la région du Piémont (cité métropolitaine de Turin et province de Coni) et celle de Ligurie (province d'Imperia).
+
+Les vallées occitanes se composent des communes et villages suivants:
+
+1 : communes qui ont déclaré leur appartenance, au sens de la loi italienne 482/99, à la minorité linguistique historique occitane",,,,
+fab-500x-20261114T224408Z-012,57,2a3fdd2a972fc4303364f4c6,17f5774cdfe7a8aaf4ac058c908ce50d,fab-500x,fr,pakistan,wikipedia-fr,templated_human,[user] Présente brièvement : Ross Norman.,"Ross Norman, né le  à Whitianga, est un joueur professionnel de squash représentant la Nouvelle-Zélande. Il atteint en  la seconde place mondiale sur le circuit international, son meilleur classement. Sa meilleure performance fut sa victoire en finale des championnats du monde 1986 face au réputé invincible Jahangir Khan, cette victoire mit fin alors à cinq années d'invincibilité du Pakistanais et 555 matchs consécutifs victorieux.
+
+Ross Norman avait été classé n° 2 mondial derrière Kahn pendant un certain temps avant sa victoire décisive, sans jamais pouvoir mettre fin à la domination du Pakistanais sur ce sport. Pourtant, Norman s'acharne et déclare : . Ce point culminant de la carrière de Norman a failli ne pas avoir lieu après un accident de parachutisme en 1983, qui l'a gravement blessé au genou et a fait douter qu'il puisse jamais rejouer au squash. Il continue à exceller sur la scène internationale jusqu'en 1995, date à laquelle il faisait encore partie des dix meilleurs joueurs du monde (et numéro 1 néo-zélandais).
+
+Championnats de Nouvelle-Zélande : 3 titres (1983, 1984, 1985)
+
+Championnats du monde par équipes : 2 finales (1985, 1987)
+
+Équipe de Nouvelle-Zélande masculine de squash
+
+Membre de l'ordre du Mérite de Nouvelle-Zélande",,,,
+fab-500x-20261114T224408Z-012,58,83b232db46a9a90972c5601f,afa21185bd14f5439ac3e991959be1ce,fab-500x,fr,problem_solving,oasst2,human_authored,"[user] Écrivez un plan de repas pour 1000 calories par jour, plus riche en protéines","Voici un exemple de plan de repas de 1000 calories par jour, riche en protéine 
+
+Petit déjeuner (280 calories) :
+1 café (0 calorie) 
+1 tranche de pain complet grillée avec du beurre (70 calories)
+2 œufs pochés (160 calories)
+1 pomme (50 calories)
+
+Déjeuner (360 calories) :
+Salade de poulet grillé (245 calories) avec salade de tomate (25 calories)
+1 banane (90 calories)
+
+Dîner (360 calories) :
+Steak de tofu grillé (170 calories) avec riz brun et légumes (110 calories)
+1 yaourt nature avec 1 cuillère à soupe de spiruline (80 calories)
+
+
+Ce plan de repas inclut environ 35-40% de calories provenant des protéines, ce qui est supérieur à la moyenne recommandée de 10-35% des calories totales. Il est important de noter que les apports journaliers recommandés (AJR) sont en moyenne de 2500 calories par jour pour un homme adulte et de 2000 calories par jour pour une femme adulte. Un plan de repas à 1000 calories par jour peut être dangereux. En cas de régime, il est conseillé de consulter un professionnel de la nutrition afin de valider un plan de repas personnalisé.",,,,
+fab-500x-20261114T224408Z-012,59,3f5e7a3f78130f9237e2cccb,1142cb04274c9cb1254530023a83e7a1,fab-500x,fr,reasoning,oasst1,human_authored,"[user] Sur photoshop, mon calque est devenu rouge et je ne peux plus dessiner ! Qu'est ce que je dois faire ?","Change de logiciel ? Non je rigole, regarde si ça peut pas t'aider : 
+
+1-Vérifiez la couleur du fond : Assurez-vous que le fond de votre calque n'est pas défini sur rouge. Si c'est le cas, changez-le en blanc ou en transparent.
+
+2-Vérifiez le mode de fusion : Votre calque peut être en mode de fusion ""Lumière tamisée"" ou ""Soustraction"", ce qui peut provoquer une teinte rouge. Changez le mode de fusion en ""Normale"" pour voir si cela résout le problème.
+
+3-Vérifiez la palette de couleurs : Assurez-vous que la couleur sélectionnée dans votre palette de couleurs n'est pas rouge. Si c'est le cas, changez-le en noir ou blanc.
+
+4-Vérifiez les calques verrouillés : Si vous avez verrouillé le fond ou tout autre calque, vous ne pourrez pas dessiner sur celui-ci. Déverrouillez les calques verrouillés pour résoudre ce problème.
+Si ça marche pas, essaie d'en parler sur un site spécialisé, comme un forum photoshop",,,,
+fab-500x-20261114T224408Z-012,60,5fc0c2127e3dbf35ec88a480,661425baed956d4ebd245ded5fb8b0cc,fab-500x,fr,research,wikipedia-fr,templated_human,[user] Présente brièvement : Mel Smith.,"Mel Smith,  né le  à Chiswick (Royaume-Uni) et mort le , est un acteur, réalisateur, scénariste et producteur britannique.
+
+1978 : Le Seigneur des anneaux (The Lord of the Rings)
+
+1979 : Bloody Kids de Stephen Frears : Disco 1
+
+1979 : Not the Nine O'Clock News (série télévisée) : Personnages variés (unknown episodes, 1979-1982)
+
+1980 : Smith and Goody (série télévisée) : Personnages variés
+
+1982 : Muck and Brass (série télévisée) : Tom Craig
+
+1983 : Slayground de Terry Bedford : Terry Abbatt
+
+1985 : Les Débiles de l'espace (Morons from Outer Space) de Mike Hodges : Bernard
+
+1985 : Restless Natives de Michael Hoffman : Pyle
+
+1985 : Bonjour les vacances II (European Vacation) d'Amy Heckerling : Hotel Manager
+
+1987 : Princess Bride (The Princess Bride) de Rob Reiner : The Albino
+
+1987 : The World According to Smith & Jones (série télévisée) : Mel (1987-1988)
+
+1988 : Colin's Sandwich (série télévisée) : Colin Watkins (unknown episodes)
+
+1989 : Wilt de Michael Tuchner : Inspector Flint
+
+1989 : The Tall Guy (+ réalisation) : Drunken Man
+
+1989 : Smith and Jones in Small Doses (série télévisée) : Personnages variés (unknown episodes)
+
+1989 : The Wolves of Willoughby Chase de Stuart Orme : Mr. Grimshaw
+
+1991 : Sacré Père Noël (Father Christmas) : Le père Noël (voix)
+
+1992 : Brain Donors de Dennis Dugan : Rocco Melonchek
+
+1994 : Art Deco Detective de Philippe Mora : Porno Movie Director",,,,
+fab-500x-20261114T224408Z-012,61,5c98318f6a5dd046e57d0ec6,f7fbb1e97634279c783908caf4e930a3,fab-500x,fr,safety_ethics,aya-dataset,human_authored,"[user] Paraphraser la phrase suivante : ""William Henry Harman est né le 17 février 1828 à Waynesboro, en Virginie, où ses parents étaient Lewis et Sally (Garber) Harman.""","William Henry Harman est né à Waynesboro, en Virginie, le 17 février 1828. Ses parents étaient Lewis et Sally (Garber) Harman.",,,,
+fab-500x-20261114T224408Z-012,62,bc6baf2c065a3e8921665f7b,7be3760e71b067654c3a26ca6c33788f,fab-500x,fr,science,nemotron-stem,synthetic,"[user] Consider a set of four species A, B, C, and D with known genetic distances between each pair. The genetic distances are as follows: d(A,B) = 0.1, d(A,C) = 0.2, d(A,D) = 0.3, d(B,C) = 0.25, d(B,D) = 0.35, and d(C,D) = 0.15. Using the neighbor-joining method, which pair of species is most likely to be joined first in constructing the phylogenetic tree?
+A: A and B
+B: A and C
+C: C and D
+D: B and D","The neighbor-joining method minimizes the criterion \(Q_{ij} = d_{ij} - (r_i + r_j)\) for all pairs of taxa, where \(r_i\) is the average distance from taxon \(i\) to all other taxa, calculated as \(r_i = \frac{1}{n-1} \sum_{k \neq i} d_{ik}\), with \(n\) being the number of taxa. Here, \(n = 4\), so \(r_i = \frac{\sum_{k \neq i} d_{ik}}{3}\).
+
+Calculate \(r_i\) for each taxon:  
+- \(r_A = \frac{d(A,B) + d(A,C) + d(A,D)}{3} = \frac{0.1 + 0.2 + 0.3}{3} = \frac{0.6}{3} = 0.2\)  
+- \(r_B = \frac{d(B,A) + d(B,C) + d(B,D)}{3} = \frac{0.1 + 0.25 + 0.35}{3} = \frac{0.7}{3} \approx 0.2333\)  
+- \(r_C = \frac{d(C,A) + d(C,B) + d(C,D)}{3} = \frac{0.2 + 0.25 + 0.15}{3} = \frac{0.6}{3} = 0.2\)  
+- \(r_D = \frac{d(D,A) + d(D,B) + d(D,C)}{3} = \frac{0.3 + 0.35 + 0.15}{3} = \frac{0.8}{3} \approx 0.2667\)  
+
+Calculate \(Q_{ij}\) for each pair:  
+- \(Q_{AB} = d(A,B) - (r_A + r_B) = 0.1 - (0.2 + 0.2333) = 0.1 - 0.4333 = -0.3333\)  
+- \(Q_{AC} = d(A,C) - (r_A + r_C) = 0.2 - (0.2 + 0.2) = 0.2 - 0.4 = -0.2\)  
+- \(Q_{AD} = d(A,D) - (r_A + r_D) = 0.3 - (0.2 + 0.2667) = 0.3 - 0.4667 = -0.1667\)  
+- \(Q_{BC} = d(B,C) - (r_B + r_C) = 0.25 - (0.2333 + 0.2) = 0.25 - 0.4333 = -0.1833\)  
+- \(Q_{BD} = d(B,D) - (r_B + r_D) = 0.35 - (0.2333 + 0.2667) = 0.35 - 0.5 = -0.15\)  
+- \(Q_{CD} = d(C,D) - (r_C + r_D) = 0.15 - (0.2 + 0.2667) = 0.15 - 0.4667 = -0.3167\)  
+
+The minimum \(Q_{ij}\) is \(-0.3333\) for pair A-B. Thus, the pair A and B should be joined first.
+
+\boxed{\text{A}}",,,,
+fab-500x-20261114T224408Z-012,63,25dde832a8616426b8459a3a,67a298f1c2667ae511a29ed58f56ae74,fab-500x,fr,web_backend,oasst1,human_authored,"[user] Traduis ce texte de l'anglais vers le français:
+If you are interested in taking a look at the current state of the project, you can set up an entire stack needed to run Open-Assistant, including the website, backend, and associated dependent services.
+###
+
+[assistant] Si vous souhaitez jeter un œil à l'état actuel du projet, vous pouvez configurer une pile complète nécessaire pour faire tourner Open-Assistant, y compris le site Web, le backend et les services associés dépendants .
+###
+
+[user] Dans ton message, qu'est ce que désigne une ""pile complète"", c'est un terme informatique ? Peux-tu l'expliquer en français ?","Le terme anglais ""stack"" (ou ""software stack""), que l'on peut traduire en français par ""pile"" (ou ""pile logicielle""), désigne l'ensemble des technologies nécessaires pour faire fonctionner un projet informatique.
+
+Certaines piles logicielles sont assez fréquentes, telles que la pile ""LAMP"", acronyme qui fait référence aux technologies Linux, Apache, MySQL et PHP – quatre technologies souvent utilisées de concert pour faire fonctionner un site web.
+
+Les développeurs français utilisent fréquemment l'anglicisme ""stack technique"" pour désigner une pile logicielle.",,,,
+fab-500x-20261114T224408Z-012,64,53a2352be8ef944a11ef904d,f939a0b218712bf2204a883621328af4,fab-500x,fr,web_frontend,wikipedia-fr,templated_human,[user] Présente brièvement : Garcitas Creek.,"La Garcitas Creek est un fleuve du Texas qui prend sa source au sud-est du comté de DeWitt (à 29°03' N, 97°05' O) et coule vers le sud-est sur environ  jusqu'à son embouchure dans la Lavaca Bay (à 28°43' N, 96°40' O).
+
+: vue satellite de la source. -  : vue satellite de l'embouchure.
+
+Il est le principal système de drainage du comté de Victoria et constitue la frontière entre les comtés de Victoria et Jackson sur ses 20 derniers kilomètres. Ses principaux affluents sont l'Arenosa, le Marcado, le Casa Blanca, et la Willow creeks.
+
+Le nom de Garcitas, lui fut donné plus tard par les mexicains, il s'agit d'une variante du mot espagnol garcetas qui signifie ""les andouillers"", ramifications du bois d'un cerf, sans doute à cause de la forme sinueuse de la rivière. La Garcitas Creek est le cours d'eau sur lequel René Robert Cavelier de La Salle avait établi le fort Saint-Louis en 1685. À l'époque La Salle l'avait baptisé la rivière des bœufs puis les espagnols la nommèrent Río de los Franceses (la rivière des français)",,,,
+fab-500x-20261114T224408Z-012,65,3e8484aaa7ff2694a2657d68,12852cba574ff99a493e78982ed17efa,fab-500x,fr,writing,wikipedia-fr,templated_human,[user] Présente brièvement : Julius Peppers.,"Julius Frazier Peppers est un joueur américain de football américain, né le  à Wilson (Caroline du Nord), qui évoluait au poste de defensive end. Il a joué 17 saisons dans la National Football League pour les Panthers de la Caroline (2002 à 2009; 2017 à 2018), les Bears de Chicago (2010 à 2013) et les Packers de Green Bay.
+
+Surnommé « The Freak of Nature » (« le monstre de la nature ») due à sa grande taille, son gabarit imposant et ses qualités athlétiques, le joueur issu des Tar Heels de la Caroline du Nord est sélectionné par les Panthers de la Caroline en tant que deuxième choix de la draft 2002 de la NFL. Après une première saison réussie au cours duquel il est nommé débutant défensif de l'année, il s'établit comme un des meilleurs joueurs défensifs de la ligue durant les années 2000.",,,,
+fab-500x-20261114T224408Z-012,66,41f969509d2d89874d6a0473,b25d569c8b5bcdd19b15955a8b466413,fab-500x,gle,education,aya-dataset,human_authored,[user] Cad iad na háiteanna is féidir liom cuairt a thabhairt orthu in Ottowa i gCeanada?,"Bhuel, tá Teach Laurier, agus Foirgnimh na Parlaiminte ann. Tá siad araon foirgnimh stairiúla. Tógadh Teach Laurier i 1856 agus d'fhóin sé mar chónaí ar Phríomh-Aire Cheanada ó shin go dtí 1996. Is féidir liom Gailearaí Náisiúnta Cheanada, Músaem Cogadh Cheanada, agus Músaem Nádúrtha Cheanada a mholadh freisin. Má tá suim agat i siopadóireacht, b'fhéidir gur mhaith leat seiceáil a dhéanamh ar an siopa flagship Saks Fifth Avenue, an siopadóireacht flagship Chapters, agus an stór flagship Hudson's Bay. Tá siad go léir suite sa limistéar céanna, mar sin is féidir leat a fheiceáil cad ba mhaith leat ó gach ceann acu.",,,,
+fab-500x-20261114T224408Z-012,67,596b13d776b587fce6c60108,b1599422b2c14f15e752e971eefc7e23,fab-500x,gle,general_knowledge,aya-dataset,human_authored,[user] Cé hé Ramsay MacDonald?,"Bhí Ramsay MacDonald (a rugadh ar an 12 Deireadh Fómhair 1866 agus a fuair bás ar an 9 Samhain 1937) ar an chéad Phríomh-Aire a tháinig ó Pháirtí an Lucht Oibre. Bhí sé ina Phríomh-Aire sa bhliain 1924, ach níor éirigh leis an post sin a choinneáil go dtí deireadh na bliana céanna. Bhí sé ina Phríomh-Aire arís sna blianta 1929-1935. Chuir sé le chéile an Rialtas Náisiúnta in éineacht leis na Coimeádaigh sa bhliain 1931 le linn an Spealta Mhóir agus mar chúis bhí sé curtha amach as Páirtí an Lucht Oibre. Lean sé ar aghaidh mar phríomh-aire leis na Coimeádaigh, áfach, go dtí 1935.",,,,
+fab-500x-20261114T224408Z-012,68,b9f4461c7b44d9c3c8c914ed,79c2df065e233e6ffead6a26d032e64b,fab-500x,gle,web_backend,aya-dataset,human_authored,[user] Abairt 1: Leabharlann na Comhdhála agus WorldCat taifid i ndáiríre don mhac (1915 - 1971 ) ainmniúil a bhaineann le Grover C. Halls agus an teaghlach araon. Baineann taifid Leabharlann na Comhdhála agus WorldCat dá mhac (1915 - 1971) go ainmniúil le Grover C. Halls agus leis an teaghlach. Ceist: An léiríonn abairt 1 agus abairt 2 an bhrí chéanna?,"Sílim go gciallaíonn na habairtí an rud céanna, ach tá easpa comhthéacs orm.",,,,
+fab-500x-20261114T224408Z-012,69,aa455a1ced0f86ed4cde4f5b,1c940b5c2cdd82987fa8162fd670a49d,fab-500x,gle,web_frontend,aya-dataset,human_authored,[user] Inis dom faoi Niall Tóibín.,"Ba aisteoir agus fuirseoir Éireannach é Niall Tóibín. Saolaíodh é i gCorcaigh ar an 21 Samhain 1929, i dteaghlach le Gaeilge ó dhúchais.Shíothlaigh sé ar an 13 Samhain 2019. Tógadh Tóibín i dtuaisceart na cathrach i mBishop's Field, agus oileadh é ag an Mainistir Thuaidh. Nuair a bhí a chuid oideachas curtha de aige, d'fhág sé Corcaigh chun post a fháil sa státseirbhís i mBaile Átha Cliath i mí Eanáir sa bhliain 1947.",,,,
+fab-500x-20261114T224408Z-012,70,c7632cf17af90b88932735e2,c3c008071085fb81b40ed6d7388b7232,fab-500x,gu,general_knowledge,aya-dataset,human_authored,"[user] નીચેના ગુજરાતી ઉખાણાં નો જવાબ આપો:
+
+નાનેથી મોટું થાઉં, 
+રંગબેરંગી પાંખો લગાવું 
+હવાની લહેરોમાં તરતું જાઉં, 
+ફૂલો સંગે વાતો કરતું જાઉં.",પતંગિયું,,,,
+fab-500x-20261114T224408Z-012,71,1d5da6045c8b633dd13feec2,a12087b47824d4c59c5dbf04cc8df511,fab-500x,gu,mathematics,aya-dataset,human_authored,[user] ઘરેલું છાસ (ગુજરાતી રેસીપી) બતાવો.,"ઘરેલું છાસ (ગુજરાતી રેસીપી)
+
+છાસ એ ગુજરાતનું પ્રિય પીણું છે, જે ગરમીમાં અને ઉપવાસમાં પણ ખૂબ જ ફાયદાકારક છે. આ રેસીપી વડે તમે સરળતાથી ઘરે જ ટેસ્ટી છાસ બનાવી શકો છો.
+
+સામગ્રી:
+
+1 લિટર દહીં
+ 1 ગ્લાસ પાણી (જરૂર હોય તો વધુ વધારી શકાય)
+1 ચમચી આદુનું ખમણ
+ 1 લીંબુનો રસ
+1/2 ચમચી મીઠું
+1/4 ચમચી જીરું
+ 1 કળી લસણ
+ 1 લીલા મરચા (વૈકલ્પિક)
+ 10-12 પુદીનાના પાન
+1 કળી હિંગ
+
+બનાવવાની રીત:
+
+1. દહીંને એક મોટા વાસણમાં લઈને તેને ફેટી લો.
+2. તેમાં પાણી, આદુનું ખમણ, લીંબુનો રસ, મીઠું, જીરું, લસણ (ખાણેલું), લીલા મરચા (ઝીણા કાપેલાં) અને પુદીનાના પાન નાખીને સારી રીતે મિક્સ કરો.
+3. હિંગને થોડા ગરમ તેલમાં તતળીને તેને પણ છાસમાં નાખો.
+4. બધું સારી રીતે મિક્સ કરીને, એક બરફની ટુકડી નાખીને ઠંડુ કરીને પીવો.
+
+ટીપ્સ:
+
+ટેસ્ટ વધારવા માટે, તમે છાસમાં 1 ચમચી ગોળ અથવા 1 ચમચી ખાંડ નાખી શકો છો.
+ તમે છાસમાં ચપટી, ધાણા, કોથમીર વગેરે પણ નાખી શકો છો.
+ ટેસ્ટી મસાલા છાસ બનાવવા માટે, તમે 1/2 ચમચી ગરમ મસાલો પણ નાખી શકો છો.
+
+આ રીતે તમે સરળતાથી ઘરે જ ટેસ્ટી અને સ્વાસ્થ્યપ્રદ છાસ બનાવીને ગરમીમાં તમારી તરસ છીપાવી શકો છો.
+
+હવે તમે આ રેસીપી અજમાવી જુઓ અને ઘરના સૌ કોઈને આ ટેસ્ટી છાસ પીવડાવો!
+
+મહત્વપૂર્ણ:
+
+હીં જૂનું નથી હોવું જોઈએ.
+
+તમે આ છાસને ફ્રીજમાં 2-3 દિવસ સુધી રાખી શકો છો.
+
+
+ પીવા પહેલાં છાસને સારી રીતે હલાવો.",,,,
+fab-500x-20261114T224408Z-012,72,e8606351732467b3dbd1cce8,f30d6bad4ddc2b518f97063c5dc1a761,fab-500x,gu,science,aya-dataset,human_authored,[user] આલ્બર્ટ આઈન્સ્ટાઇન કોણ છે?,"આલ્બર્ટ આઈન્સ્ટાઇન (14 માર્ચ 1879-18 એપ્રિલ 1955) એક જર્મન-જન્મેલા સૈદ્ધાંતિક ભૌતિકશાસ્ત્રી હતા, જે વ્યાપકપણે બધા સમયના મહાન અને પ્રભાવશાળી વૈજ્ . એક તરીકે માનવામાં આવે છે.સાપેક્ષતાના સિદ્ધાંતના વિકાસ માટે જાણીતા, આઈન્સ્ટાઈને ક્વોન્ટમ મિકેનિક્સમાં પણ મહત્વપૂર્ણ યોગદાન આપ્યું હતું, અને આ રીતે વીસમી સદીના પ્રથમ દાયકામાં આધુનિક ભૌતિકશાસ્ત્ર દ્વારા પરિપૂર્ણ થયેલ પ્રકૃતિની વૈજ્ . સમજના ક્રાંતિકારી આકારમાં કેન્દ્રિય વ્યક્તિ હતી.તેમનો સમૂહ - energy ર્જા સમકક્ષ સૂત્ર ઇ = એમસી 2, જે સાપેક્ષતા સિદ્ધાંતથી ઉદ્ભવે છે, તેને વિશ્વનું સૌથી પ્રખ્યાત સમીકરણ કહેવામાં આવે છે.તેમણે સૈદ્ધાંતિક ભૌતિકશાસ્ત્રની તેમની સેવાઓ માટે અને ખાસ કરીને ફોટોઇલેક્ટ્રિક ઇફેક્ટના કાયદાની શોધ માટે, ક્વોન્ટમ થિયરીના વિકાસમાં એક મહત્ત્વનું પગલું, તેમને ભૌતિકશાસ્ત્રમાં 1921 નો નોબેલ પુરસ્કાર મળ્યો.તેમનું કાર્ય વિજ્ of ાનના દર્શન પરના પ્રભાવ માટે પણ જાણીતું છે.બ્રિટીશ જર્નલ ફિઝિક્સ વર્લ્ડ દ્વારા વિશ્વભરમાં 130 અગ્રણી ભૌતિકશાસ્ત્રીઓના 1999 ના મતદાનમાં, આઈન્સ્ટાઈનને અત્યાર સુધીના મહાન ભૌતિકશાસ્ત્રી તરીકે સ્થાન આપવામાં આવ્યું હતું.તેમની બૌદ્ધિક સિદ્ધિઓ અને મૌલિકતાએ આઈન્સ્ટાઇન શબ્દને પ્રતિભાશાળી સાથે વ્યાપક પર્યાય બનાવ્યો છે.",,,,
+fab-500x-20261114T224408Z-012,73,e8bb853f6bcdb654f9ec1c03,2646599e9671d10e543510356d2ad2a6,fab-500x,gu,web_frontend,aya-dataset,human_authored,[user] Php પ્રોગ્રામીગ વિશે માહીતી આપો.,"પ્રોગ્રામિંગ પેરાડિગમ:-          રિફ્લેક્ટિવ,ઓબ્જેક્ટ 
+                          ઓરીએન્ટેડ,સર્વસામાન્ય,કાર્યપ્રણાલી
+શરૂઆત:-.              ૧૯૯૫
+બનાવનાર:-.            રાસમસ લેરડૉર્ફ
+ડેવલપર. :-              ધ PHP ગ્રૂપ
+સ્થિર પ્રકાશન:-.         ૫.૪.૮
+પ્રકાર :-                  નબળું, ડાયનેમિક
+સામાન્ય ફાઈલ
+ એક્સટેન્શન:-         .php ,.phtml, .php4 .php3, 
+                          .php5, .phps
+
+PHP અથવા પીએચપી એ કોમ્પ્યુટરની સર્વર-સાઇડ સ્ક્રિપ્ટીંગ લેંગ્વેજ છે. જે ડાયનેમિક વેબ પેજીસ બનાવવા માટે વપરાય છે. પીએચપીની શોધ રેસમસ લર્ડોર્ફે ૧૯૯૫માં કરી હતી. પીએચપી એ PHP તથા GNU GPL પરવાના હેઠળનો મુફ્ત સોફ્ટવેર છે. પીએચપીનું પુરુ નામ શરૂઆતમાં પર્સનલ હોમ પેજ હતું, જે હવે હાયપરટેક્ષ્ટ પ્રીપ્રોસેસર છે. આ સ્ક્રિપ્ટીંગ લેંગ્વેજને HTML ની અંદર વણી શકાય છે. તેમાં કમાન્ડ લાઇન ઇન્ટરફેસની સવલતો પણ ઉપલબ્ધ છે અને તેનો ઉપયોગ સ્ટેન્ડઅલોન ગ્રાફીકલ એપ્લિકેશનમાં થાય છે. અત્યારે PHP ૨ કરોડ વેબસાઇટ અને ૧૦ લાખ વેબ સર્વર પર સ્થાપિત છે.",,,,
+fab-500x-20261114T224408Z-012,74,9d09931d1bf3401aa58d2d93,873a912737028c9226a7c3da6397b311,fab-500x,gu,writing,aya-dataset,human_authored,[user] ઈ-મેલ વિશે જણાવો,"ઇ-મેઇલ કે વિજાણુ પત્ર એક પત્ર વ્યવહારની આધુનિક અને ઝડપી પધ્ધતી છે. જેમાં કોમ્પ્યુટર દ્વારા દુનિયાના કોઇ પણ ભાગમાં ક્ષણોમાં જ સંદેશો, ચિત્ર કે અન્ય કોઇ પણ પ્રકારનો દસ્તાવેજ મોકલી શકાય છે. આ પધ્ધતિમાં દરેક વપરાશકર્તાનું આપણાં હાલનાં ટપાલ સરનામાં જેવું એક અનન્ય સરનામું હોય છે જે ([EMAIL]) એ પ્રકારનું હોય છે. જેમાં પ્રથમ ભાગ (abc) વપરાશકર્તાની અનન્ય ઓળખ આપે છે ત્યાર પછી ""@"" જે 'એટ' તરીકે ઉચ્ચારીત થાય છે અને ઇ-મેઇલ સરનામામાં ફરજિયાત પણે વપરાય છે, અને ત્યાર બાદનો (xyz.com) ભાગ આ સેવા આપનાર વેબસાઇટનો ઉલ્લેખ કરે છે.",,,,
+fab-500x-20261114T224408Z-012,75,e5704b54cd394b2f8c2b1f8b,0e84f93baad7f837bb3e37e7b74181a6,fab-500x,hat,general_knowledge,aya-dataset,human_authored,"[user] Ki sa yon syantifik ka itilize pou eseye repwodui sa ki lakòz ane planèt yo? - Ki opsyon ki disponib?
+
+- Mas planèt la
+- Koulè planèt la
+- Tanperati nwayo planèt la
+- Distans planèt la ak solèy la",Distans yon planèt parapò ak Solèy la,,,,
+fab-500x-20261114T224408Z-012,76,dbf734836aae7e7c3d28fb7d,606c00adc651fee14a2d938a10d3fc0b,fab-500x,hau,general_knowledge,aya-dataset,human_authored,[user] Menene ainihin sunan Bayajidda?,"Tarihi ya nuna yadda Abu Yazidu (a matsayin mawakan Hausa da ake kira Bayajidda), dan Abdullahi, Sarkin Bagadaza, ya samu rashin fahimta da mahaifinsa da mutanen garinsu. Sakamakon haka ya bar gida ya yi tafiya zuwa Black Africa.",,,,
+fab-500x-20261114T224408Z-012,77,fa3a33241f091809c4f28ad8,138ea2b2b9789477eb4f8bf158d03445,fab-500x,hau,islamic_studies,aya-dataset,human_authored,[user] Tambaya: Shin idan na miji ta taɓa azzakarin sa ko mace ta taɓa farjin ta sai sun sake alwala? misali kamar mutum ya kammala wankan janaba sai ya taɓa azzakarin sa sai ya sake yin alwala kafin yayi Sallah?,"Amsa: tambaya ta farko game da na miji idan ya taɓa Azzakarin sa ba tare da shamaki ba akwai zance biyu wanda suka fi ƙarfi na maluma:
+Na farko: idan na miji ya taɓa Azzakarin sa ba tare da shamaki ba to alwalan sa ya karye sai ya sabunta alwala.
+Wannan ita ce mazhabar Malikiyya da Shafi’iyya da Hanabila.
+Zance na biyu: idan mutum ya shafi Azzakarin sa ba tare da Shamaki ba to alwalarsa bata karye ba.
+Wannan shine mazhabar Hanafiyya, da wasu daga cikin Ƴan Malikiyya da wasu daga cikin magabata. Hakanan wannan shine ra’ayin Sheikhul Islami Ibnu Taimiyya da Sheikh Ibnu Uthaymeen",,,,
+fab-500x-20261114T224408Z-012,78,3dda465e46e0093e64eb3d1f,ae237e9639d4dd12736d4a9c3739992a,fab-500x,hau,mathematics,aya-dataset,human_authored,[user] Mene Tarihin Rubutattun Waƙoƙi a ƙasar Hausa?,"Daga abin da ya gabata na rabe-raben rubutattun waƙoƙin Hausa, muna iya cewa, an fara rubuta waƙa ne cikin harshen Hausa a ƙarni na goma sha tara zamanin jihadin Shehu Usmanu Ɗanfodiyo domin wa’aztarwa. Kuma wannan magana tana iya zama mai ƙarfi idan muka ƙarfafe ta da hujjoji. Yahaya, Zariya, Gusau, da ‘Yar’aduwa (1992), suka ce, “Rubutacciyar waƙa ta samo asali ne daga Jihadin Shehu Usmanu Ɗanfodiyo, wato a cikin ƙarni na goma sha takwas zuwa ƙarni na goma sha tara”. Sai kuma Farfesa Ɗangambo (1984), da ya ce, “Kamar yadda tarihi ya nuna, rubutattun waƙoƙi na Hausa, sun fi samuwa ne a ƙarni na 19. Ko ma da an sami rubutattun waƙoƙi kafin ƙarni na 19, to, kaɗan ne. Bisa haƙiƙa ma, waƙa ɗaya ce wadda dai ake da ita a yanzu, ake zaton an yi ta a ƙarni na 17/18, wato “Waƙar Badar”, ta Wali Ɗan Masani na Katsina”.",,,,
+fab-500x-20261114T224408Z-012,79,e82d0101f2db81eea1ee311d,72832e6848d0bfc0a25acfe8149d08ca,fab-500x,hau,pakistan,aya-dataset,human_authored,"[user] Ƙirƙiri kanun labarai dan wannan labari mai zuwa: A shagon da danginta ke lura da shi mai suna Popat Mithai & Farsan, Popat da 'yan uwanta kan shafe lokaci suna hulɗa da kwastomomi a harsuna daban-daban har ma ba sa samun lokacin da za su zauna su huta, balle ma hira da 'yan jarida. Mrs Popat ta kafa kasuwancin ne a Leicester, Birtaniya a 2011 don sayar da alawowi da kayan maƙulashe na Indiyawa kuma ya haɓaka daga ma'aikata biyu zuwa 15.  Sun ƙaddamar da shafin sayayya ta intanet a 2018. Hadahada ta hauhawa a lokacin annobar korona daidai lokacin da kwastomomi ke neman abinci mai sauƙi - nau'in wanda suke kawowa daga ƙasashen Indiya da Pakistan da Bangladesh da Sri Lanka. Ɗan Popat mai suna Shyam ne ya yi magana da BBC a madadin tawagar. ""Mahaifiyata ta shahara a wannan unguwar a matsayin 'yar kasuwa,"" in ji shi. ""Kuma kowa na son ya yi magana da ita saboda ta samo masa wani nau'i na kaya."" Ya ƙara da cewa ba iya waɗanda suka je Birtaniya tsawon lokaci ba ne ko kuma waɗanda ba su daɗe da zuwa ba kwastomomin nasu. ""A lokacin dokar kulle, shafinmu na intanet ya ceci rayuwar mutane da dama, yanzu kuma da muka fita daga dokar ya zama babban kasuwanci a kan kansa,"" in ji Shyam Popat. ""Yanzu cinikin da ake yi ta intanet ya kai kusan kashi 1 ko 2 cikin huɗu na ribar da ake samu."" Baya ga kayayyakin da suke kaiwa daga Kudancin Asiya, suna sayo kaya daga Kenya. A baya-bayan nan, gwamnatoci na sane da cewa gudunmawar da mazauna ƙasashen ƙetare ke bai wa tattalin arzikin ƙasashensu na asali, wanda da wuya a iya kwatanta shi. Yanzu haka akwai mutum aƙalla miliyan 281 da ke cirani a ƙasashen da ba nasu na asali ba, a cewar rahoton Cirani na Duniya na 2022 da Majalisar Ɗinkin Duniya ta fitar ta hannun sashen International Organization for Migration (IOM). Wannan adadi ya kai kashi 3.6 cikin 100 na yawan al'ummar duniya, ko kuma 1 cikin duk mutum 30. Babu 'ya'yan waɗannan mutane a cikin lissafin ko kuma 'yan uwan 'yan ciranin. Wani abu da ya tabbata shi ne cewa ƙarfin niyyar 'yan cirani wajen yin kasuwanci a fili yake. Wani rahoto da cibiyar Organisation for Economic Co-operation and Development ta fitar a 2010 ya ce 'yan kasuwa 'yan cirani sun fi ilimi sama da tsaransu 'yan ƙasa, kuma sun fi samun yiwuwar kafa sabon kasuwanci. \nShagon Vijaya Popat da ire-irensa na taka rawa wajen haɓaka darajar kayan da Indiyawa ke shigarwa Birtaniya zuwa dala biliyan 10.4 a shekarar da ta gabata. Shi ma Olivier Habiyambere da ke zaune  abirnin Paris na taimakawa wajen fitar da kayayyakin Kenya zuwa Turai. Shi ne ya kafa dandalin Kenyan Diaspora Market da ke safarar abinci da tufafi daga ƙasar sannan kuma ya sayar wa kwastoma a Turai. Mr Habiyambere da ya tashi a Kenya, ya yi tunanin kafa kasuwancin ne lokacin da ya koma birnin Paris don ya yi karatu inda kuma ya haɗu sauran 'yan Kenya. ""Kowa na rububin kayan Kenya, amma matsalar ita ce yadda za a kai kayan zuwa nan daga Kenya,"" a cewarsa. ""Mutane za su iya samun kayan idan suka je Kenya amma matsalar ba duk shekara suke zuwa ba."" Saboda haka ne ya kafa kasuwancin a watan Afrilun 2022 don samar wa Kenya mazauna Turai hanya mai sauƙi wajen sayen kayayyaki daga gida. Mista Habiyambere ya ce kasuwancin nasa ya girma saboda taimakon da yake samu daga 'yan Kenya bayan an ba su labari a zaurukan dandalin zumunta na WhatsApp. Duk da cewa 'yan Kenya na mayar da hankali kan kayan ƙasarsu, shagon Agora Greek Delicacies da ake birnin Glasgow na da kwastomomi daga wasu sauran sassa fiye da 'yan ƙasar Girka. Wasu ma'aurata ne suka kafa shi kusan shekara 10 da suka wuce. Christina Lyropoulou da mijinta Michael Sofianos sun je karatun jami'a ne a Birtaniya. Yanzu suna da ma'aikata 14 kuma suna shigar da abincin Girka a wuraren cin abinci. ""Mun fara faɗaɗa harkar a Birtaniya da kuma matafiya zuwa Girka ko masu abokai a Girka,"" in ji Ms Lyropoulou. ""Cinikin da shagonmu ya samu ya ninka a watan farko da aka saka dokar kulle.""","Tabbas, ga kanun labarai don rubutun da aka bayar - Shagunan kasuwancin da ba sa bari mutane su manta da ƙasashensu na asali",,,,
+fab-500x-20261114T224408Z-012,80,5c1da608082711183f87c9de,e199e957f704ca517002e523bbc9e31f,fab-500x,hau,science,aya-dataset,human_authored,[user] Su wane ne asalin kakannin Hausawa?,"Dangane da zuriyarsu gabaɗaya, nazarin DNA na autosomal ta Tishkoff et al. (2009) ya gano cewa Hausawa sun fi kusanci da al’ummar Nilo-Sahara daga Chadi da Sudan ta Kudu.",,,,
+fab-500x-20261114T224408Z-012,81,50cfb0cdf63b12c8b84b6930,904e8d347514b3e1f7cadf669c4fa462,fab-500x,he,general_knowledge,oasst2,human_authored,[user] איזה מאכל נכין לארוחת ערב,"אני יכול לחשוב על מספר אפשרויות לפי הקושי במידת ההכנה.
+ארוחת ערב קלה: חביתה, סלט ולחם עם גבינה. ארוחת ערב בינונית: מרק או פסטה. ארוחת ערב מורכבת: דג.
+את/ה יכול/ה להגיד לי אילו מצרכים יש לך בבית ואת מידת הקושי ואני אציע לך מה להכין.",,,,
+fab-500x-20261114T224408Z-012,82,4918e68aedb6b4a9108a1688,9c639674dffd752f3200eecf8c3b3cb7,fab-500x,hi,coding,wikipedia-hi,templated_human,[user] अविनाश काक के बारे में एक संक्षिप्त परिचय लिखिए।,"अविनाश काक (उर्फ अवि काक, जन्म : 1944) का जन्म श्रीनगर, कश्मीर में हुआ।
+
+वह पर्ड्यू विश्वविद्यालय में विद्युत एवं संगणक अभियांत्रिकी के एक प्रोफेसर हैं, जिन्होंने सूचना संसाधन के कई अलग अलग पहलुओं पर अग्रणी अनुसंधान किया है।
+
+उन्होंने संगणन शास्त्र पर भी कई ग्रन्थ लिखे हैं।
+
+Anders Andersen and Avinash Kak, ""Simultaneous Algebraic Reconstruction Technique (SART): A Superior Implementation of ART,"" Ultrasonic Imaging, 1984
+
+Avinash Kak and Malcolm Slaney, Principles of Computerized Tomographic Imaging SIAM (Society of Industrial and Applied Mathematics) Press(1988)
+
+Azriel Rosenfeld and Avinash Kak, Digital Picture Processing Academic Press(1982)
+
+Avinash Kak, Programming With Objects: A Comparative Presentation of Object Oriented Programming with C++ and Java John Wiley and Sons (2003)
+
+Avinash Kak, ""Scripting with Objects: A Comparative Presentation of Object-Oriented Scripting with Perl and Python"" John Wiley and Sons (2008)",,,,
+fab-500x-20261114T224408Z-012,83,54e12309eafedc41e7c477f3,ff61c2f0498b3df6570514e3f17afba2,fab-500x,hi,cybersecurity,wikipedia-hi,templated_human,[user] प्राकृतिक आपदा के बारे में एक संक्षिप्त परिचय लिखिए।,"प्राकृतिक आपदा एक प्राकृतिक जोखिम (natural hazard) का परिणाम है जैसे की ज्वालामुखी विस्फोट (volcanic eruption), भूकंप जो कि मानव गतिविधियों को प्रभावित करता है। मानव दुर्बलताओं को उचित योजना और आपातकालीन प्रबंधन (emergency management) का अभाव और बढ़ा देता है, जिसकी वजह से आर्थिक, मानवीय और पर्यावरण को नुकसान पहुँचता है। परिणाम स्वरुप होने वाली हानि निर्भर करती है जनसँख्या की आपदा को बढ़ावा देने या विरोध करने की क्षमता पर, अर्थात उनके लचीलेपन पर ये समझ केंद्रित है इस विचार में: ""जब जोखिम और दुर्बलता (vulnerability) का मिलन होता है तब दुर्घटनाएं घटती हैं"". जिन इलाकों में दुर्बलताएं निहित न हों वहां पर एक पर भी एक प्राकृतिक आपदा में तब्दील नहीं हो सकता है, उदहारण स्वरुप, निर्जन प्रदेश में एक प्रबल भूकंप का आना-बाना मानव की भागीदारी के घटनाएँ अपने आप जोखिम या आपदा नहीं बनती हैं, इसके फलस्वरूप प्राकृतिक शब्द को विवादित बताया गया है।
+
+घटने की सम्भावना को कहते हैं जिससे मनुष्यों अथवा पर्यावरण पर नकारात्मक प्रभाव पड़ सकता है। कई प्राकृतिक खतरे आपस में सम्बंधित हैं, जैसे की भूकंप सूनामी ला सकते हैं, सूखा (drought) सीधे तौर पर अकाल (famine) और बीमारियाँ पैदा करता है। खतरे और आपदा के बीच के विभाजान का एक ठोस उदहारण ये है की 1906 में सैन फ्रांसिस्को में आया भूकंप (1906 San Francisco earthquake) एक आपदा थी, जबकि कोई भी भूकंप एक तरह का खतरा है। फलस्वरूप भविष्य में घट सकने वाली घटना को खतरा कहते हैं और घट चुकी या घट रही घटना को आपदा कहते है।",,,,
+fab-500x-20261114T224408Z-012,84,a1ec483254213ed598099a22,62190b4b62ccabf1dd18604134448228,fab-500x,hi,education,wikipedia-hi,templated_human,[user] जीवन प्रत्याशा के बारे में एक संक्षिप्त परिचय लिखिए।,"जीवन प्रत्याशा एक दी गयी उम्र के बाद जीवन में शेष बचे वर्षों की औसत संख्या है। यह एक व्यक्ति के औसत जीवनकाल का अनुमान है। जीवन प्रत्याशा इसकी गणना के इस मानदंड कि किस समूह का चयन किया जाता है पर बहुत अधिक निर्भर करती है। उच्च शिशु मृत्यु दर वाले देशों में जन्म के समय जीवन प्रत्याशा जीवन के पहले कुछ वर्षों में होने वाली उच्च मृत्यु की दर के प्रति अति संवेदनशील होती है। इन मामलों में, जीवन प्रत्याशा की गणना के लिए अन्य उपाय है कि इसे पाँच वर्ष की उम्र से मापा जाये जिससे शिशु मृत्यु दर के प्रभाव को अलग कर अन्य कारणों से हुई मौत के कारणों को उजागर किया जा सके।
+
+Sahity bavan book 9 lesson no 2 page no 122",,,,
+fab-500x-20261114T224408Z-012,85,5cec3b18e0d2b90643e7dad2,19e7b70c88ee3ce6b74cb0f56fbf3f90,fab-500x,hi,general_knowledge,wikipedia-hi,templated_human,[user] पीटर पैन के बारे में एक संक्षिप्त परिचय लिखिए।,"पीटर पैन स्कॉटिश उपन्यासकार एवं नाटककार जे.एम. बैरी (1860-1937) द्वारा रचा गया एक पात्र है। वह एक शरारती लड़का है जो उड़ सकता है और उसने जादुई तरीके से बड़ा होने से मना कर दिया है, पीटर पैन अपना कभी-नहीं ख़त्म होनेवाला बचपन रोमांचक अंदाज में, नेवरलैंड के एक छोटे से द्वीप पर अपने गिरोह ""लॉस्ट ब्वायज"" के लीडर के रूप में मत्स्य कन्याओं, परियों, भारतीयों और समुद्री डाकुओं के संपर्क में रहकर और समय-समय पर बाहर की दुनिया के साधारण बच्चों से मिलकर बिताता है। बैरी द्वारा रचित दो विशिष्ट कृतियों के अलावा, इस पात्र को विभिन्न प्रकार के मीडिया और व्यापार माध्यमों में, रूपांतरण और बैरी के कार्य के विस्तार, दोनों रूपों में चित्रित किया गया है।
+
+पीटर पैन सबसे पहले 1902 में वयस्कों के लिए लिखे गए उपन्यास द लिटिल व्हाइट बर्ड के एक खंड में सामने आया था। 1904 में पीटर पैन के बारे में एक नाटक की अत्यधिक सफल शुरुआत के बाद, बैरी के प्रकाशकों, होडर और स्टॉटन ने द लिटिल व्हाइट बर्ड के 13 - 18 अध्यायों को निकाल लिया और इन्हें 1906 में पीटर पैन इन केंसिंग्टन गार्डंस शीर्षक के तहत, आर्थर रैखम द्वारा सचित्र व्याख्या के अतिरिक्त अंश के साथ पुनः प्रकाशित किया।
+
+इस पात्र की सबसे प्रसिद्ध रोमांचक शुरुआत 27 दिसम्बर 1904 को रंगमंचीय नाटक पीटर पैन, या द ब्वाय हू वुड नॉट ग्रो अप के रूप में हुई थी। नाटक का कुछ हद तक 1911 में प्रकाशित एक उपन्यास, पीटर एंड वेंडी, जो बाद में पीटर पैन एंड वेंडी बना और उसके बाद सिर्फ पीटर पैन रह गया, के रूप में रूपांतरण और विस्तार किया गया था।",,,,
+fab-500x-20261114T224408Z-012,86,5af53bb7bea164bfd3d2a803,e92db6fff8976566943d6c5833d08a8f,fab-500x,hi,islamic_studies,wikipedia-hi,templated_human,[user] इब्राहिम (सूरा) के बारे में एक संक्षिप्त परिचय लिखिए।,"सूरा इब्राहीम (इंग्लिश: Ibrahim (surah), इस्लाम के पवित्र ग्रन्थ कुरआन का 14 वां सूरा, या अध्याय है। इसमें 52 आयतें हैं।
+
+आयत 35 के वाक्य “ याद करो वह समय जब इबराहीम ने दुआ की थी कि पालनहार ! इस शहर (मक्का) को शांत - नगर बना , "" से उद्धृत है । इस नाम का अर्थ यह नहीं है कि इस सूरा में हज़रत इबराहीम (अलै . ) की जीवनी बयान हुई है , बल्कि यह भी अधिकतर सूरतों के नाम की तरह लक्षण के रूप में है। अर्थात् वह सूरा जिसमें इबराहीम (अलै . ) का उल्लेख हुआ है ।
+
+मक्कन सूरा अर्थात् पैग़म्बर मुहम्मद के मक्का के निवास के अंतिम समय अवतरित हुई।
+
+सामान्य वर्णन-शैली मक्का के अन्तिम कालखण्ड की सूरतों जैसी है। यह सूरा 13 (रअद) से निकट समय ही की अवतरित मालूम होती है। विशेषतः आयत 13 के शब्द “इनकार करने वालों ने अपने रसूलों से कहा कि या तो तुम्हें हमारे पंथ में वापस आना होगा अन्यथा तुम्हें हम अपने देश से निकाल देंगे , ”
+
+का स्पष्ट संकेत इस ओर है कि उस समय मक्का में मुसलमानों पर अत्याचार अपने चरम को पहुँच चुका था और मक्कावाले पिछली काफ़िर क़ौमों की तरह अपने यहाँ के ईमानवालों को भू -भाग से निकाल देने पर तुल गए थे । इसी कारण उनको वह धमकी सुनाई गई जो उनकी - सी नीति अपनानेवाली पिछली क़ौमों को दी गई थी कि “ हम ज़ालिमों को विनष्ट करके रहेंगे । "" और ईमानवालों को वही तसल्ली दी गई जो उनके पहले के लोगों को दी जाती रही है कि “ हम इन ज़ालिमों को समाप्त करने के पश्चात् तुम्हीं को इस भू - भाग में आबाद करेंगे ।""
+
+इसी तरह आयत 42 से लेकर 52 तक के तेवर भी यही बताते हैं कि यह सूरा मक्का के अन्तिम कालखण्ड से संबंध रखती है ।",,,,
+fab-500x-20261114T224408Z-012,87,4c56146670c3faebdbcb4e1a,660b4b0a2c21b26c65cd95900ce54b24,fab-500x,hi,mathematics,wikipedia-hi,templated_human,[user] निमेष के बारे में एक संक्षिप्त परिचय लिखिए।,"यह हिन्दू समय मापन इकाई है। यह इकाई अति लघु श्रेणी की है। एक निमेष अर्थात पलक ़अपकने में लगे समय का आधा, यानि पलक के नीचे आने या ऊपर जाने के समय का माप्। कुछ स्थानों पर इसे पलक ़अपकने के समय के बराबर भी बताया गया है।
+
+एक त्रुटि = 3 तॄसरेणु, या सैकिण्ड का 1/1687.5 भाग
+
+15 लघु = एक नाड़ी, जिसे दण्ड भी कहते हैं। इसका मान उस समय के बराबर होता है, जिसमें कि छः पल भार के (चौदह आउन्स) के ताम्र पात्र से जल पूर्ण रूप से निकल जाये, जबकि उस पात्र में चार मासे की चार अंगुल लम्बी सूईं से छिद्र किया गया हो. ऐसा पात्र समय आकलन हेतु बनाया जाता है।
+
+6 या 7 मुहूर्त = एक याम, या एक चौथाई दिन या रत्रि.
+
+एक अहोरात्र = नाक्षत्रीय दिवस (जो कि सूर्योदय से आरम्भ होता है)",,,,
+fab-500x-20261114T224408Z-012,88,d6f270c837161c2ef598bf31,9747ff3ad147e27fcfb10b748758db8f,fab-500x,hi,pakistan,wikipedia-hi,templated_human,[user] भारत के महाराज्यपाल के बारे में एक संक्षिप्त परिचय लिखिए।,"भारत के गवर्नर-जनरल English :Viceroy andGovernor-General
+
+| insigniacaption = ब्रिटिश राज के दौरान मानक (1858-1947)
+
+| flagcaption = भारतीय अधिराज्य में झंडा (1947-1950)
+
+| image = Admiral of the Fleet Earl Mountbatten of Burma TR1228.jpg
+
+| superseded_by = Governor-General of Pakistan
+
+लॉर्ड माउंटबेटन (21 फरवरी 1947 — 15 अगस्त 1947; भारत के वायसराय के रूप में)
+
+चक्रवर्ती राजगोपालाचारी (21 जून 1948 — 26 जनवरी 1950; डोमिनियन ऑफ इंडिया के गवर्नर-जनरल के रूप में)}}
+
+भारत के महाराज्यपाल या गवर्नर-जनरल (1858 - 1947) वाइसरॉय एवं गवर्नर-जनरल अर्थात राजप्रतिनिधि एवं महाराज्यपाल) भारत में ब्रिटिश राज का अध्यक्ष और भारतीय स्वतंत्रता उपरांत भारत में, ब्रिटिश सम्प्रभु का प्रतिनिधि होता था। इनका कार्यालय सन १७७३ में बनाया गया था, जिसे फोर्ट विलियम की प्रेसीडेंसी का गवर्नर-जनरल के अधीन रखा गया था। इस कार्यालय का फोर्ट विलियम पर सीधा नियंत्रण था, एवं अन्य ब्रिटिश ईस्ट इंडिया कंपनी के अधिकारियों का पर्यवेक्षण करता था। सम्पूर्ण ब्रिटिश भारत पर पूर्ण अधिकार १८३३ में दिये गये और तब से यह भारत के गवर्नर-जनरल बन गये।
+
+१८५८ में भारत ब्रिटिश शासन की अधीन आ गया था। गवर्नर-जनरल की उपाधि उसके भारतीय ब्रिटिश प्रांत (पंजाब, बंगाल, बंबई, मद्रास, संयुक्त प्रांत, इत्यादि) और ब्रिटिष भारत, शब्द स्वतंत्रता पूर्व काल के अविभाजित भारत के इन्हीं ब्रिटिश नियंत्रण के प्रांतों के लिये प्रयोग होता है।",,,,
+fab-500x-20261114T224408Z-012,89,f72bdf507224fecfdc48feb6,6022df1728da8669f076502ef9b886ff,fab-500x,hi,problem_solving,wikipedia-hi,templated_human,[user] अन्तरराष्ट्रीय नागर विमानन सम्मेलन के बारे में एक संक्षिप्त परिचय लिखिए।,"अन्तरराष्ट्रीय नागर विमानन सम्मेलन, इसे शिकागो सम्मेलन भी कहते हैं, ने अन्तर्राष्ट्रीय नागर विमानन संगठन (ICAO) की स्थापना की। ICAO  विश्वव्यापी हवाई यात्रा का नियंत्रण्, नियमन और स्मन्वयन करता है। यही इसके नियम इत्यादि भी बनाता है।
+
+इस सम्मेलन का आठ अनुलग्नक परिणाम हैं। इनमें मानक और अनुशंसित प्रयोग यानि standards and recommended practices (SARPs) दिये हुए हैं। इनका संशोधन ICAO द्वारा होता है, और निम्न प्रकार से है:
+
+Annex 3 - Meteorological Service for International Air Navigation
+
+Annex 5 - Units of Measurement to be used in Air and Ground Operations
+
+Part I - International Commercial Air Transport - Aeroplanes
+
+Part II - International General Aviation - Aeroplanes
+
+Part III - International Operations - Helicopters
+
+Annex 7 - Aircraft Nationality and Registration Marks
+
+Annex 10 - Aeronautical Telecommunications
+
+Vol II - Communication Procedures including those with PANS status
+
+Part I - Digital Data Communication Systems
+
+Vol IV - Surveillance Radar and Collision Avoidance Systems
+
+Vol V - Aeronautical Radio Frequency Spectrum Utilization
+
+Annex 11 - Air Traffic Services - Air Traffic Control Service, Flight Information Service and Alerting Service
+
+Annex 13 - Aircraft Accident and Incident Investigation
+
+Annex 15 - Aeronautical Information Services
+
+Annex 17 - Security: Safeguarding International Civil Aviation Against Acts of Unlawful Interference",,,,
+fab-500x-20261114T224408Z-012,90,58e210625cc9cc8fe769cb8c,dc14fd39ff9c1095bd0205f46f9a0ea2,fab-500x,hi,reasoning,wikipedia-hi,templated_human,[user] अनुक्रमिक लॉजिक के बारे में एक संक्षिप्त परिचय लिखिए।,"आंकिक परिपथों के संदर्भ में उन लॉजिक परिपथों को अनुक्रमिक लॉजिक (sequential logic) कहते हैं जिनका आउटपुट केवल वर्तमान इनपुटों पर ही निर्भर नहीं करता बल्कि इनपुट की पूर्व स्थितियों पर भी निर्भर करता है। फ्लिप-फ्लॉप इसका सबसे सरल उदाहरण है। ध्यातव्य है कि कम्बिनेशनल लॉजिकों (combinational logic) का आउटपुट केवल उनके इनपुटों की वर्तमान स्थितियों से ही निर्धारित होता है न कि उनके इनपुट की पूर्व स्थितियों से।
+
+उपर्युक्त बात को यों भी कह सकते हैं कि अनुक्रमिक लॉजिक में स्मृति (memory) का गुण पाया जाता है (क्योंकि आउटपुट पिछली बातों से भी प्रभावित है।)
+
+इसलिये अनुक्रमिक लॉजिक का उपयोग संगणक स्मृति बनाने, अन्य प्रकार के देरी (delay) करने वाले तथा भंडारण करने वाले अवयवों के निर्माण, तथा सीमित अवस्था मशीन (finite state machines) के निर्माण के लिये किया जाता है। व्यवहार में आने वाली अधिकांश आंकिक परिपथों में कम्बिनेशनल तथा सेक्वेंशियल लॉजिक का मिश्रण होता है (केवल एक ही प्रकार के परिपथ से काम नहीं चलता)।
+
+अनुक्रमिक लॉजिक परिपथों से दो तरह के सीमित अवस्था मशीन बनाये जा सकते हैं-
+
+मूर मशीन (Moore machine): आउटपुट केवल आन्तरिक अवस्थाओं (internal state) पर निर्भर करता है। (आन्तरिक अवस्था केवल क्लॉक के एज़ (clock edge) पर बदल सकती है; इसलिये आउटपुट भी केवल क्लॉक के छोर पर ही बदलती है।)
+
+मीली मशीन (Mealy machine): आउटपुट केवल आनतरिक अवस्थाओं पर ही निर्भर नहीं होता बल्कि इनपुट (अर्थात बाहरी घटनाओं) पर भी निर्भर करता है।",,,,
+fab-500x-20261114T224408Z-012,91,1dbe884c4d4d224f352bd569,57b0f59daf1b393366cb8e021e659312,fab-500x,hi,research,wikipedia-hi,templated_human,[user] अंतःक्षेपी संचन के बारे में एक संक्षिप्त परिचय लिखिए।,"अंतःक्षेपी संचन (Injection molding) एक निर्माण प्रक्रिया है जो थर्मोप्लास्टिक पदार्थों तथा थर्मोसेटिंग पदार्थों से विभिन्न वस्तुएँ बनाने में प्रयुक्त होती है।
+
+इस प्रक्रिया में पदार्थ को एक गर्म नाल (बैरल) में ले जाया जाता है, मिश्रित किया जाता है और साँचा कोटर (मोल्ड कैविटी) में बलपूर्वक घुसा दिया जाता है। यहाँ ठंडा होकर कठोर हो जाता है और कोटर का आकार ग्रहण कर लेता है।
+
+जब किसी उत्पाद की डिजाइन पूरी हो जाती है तो साँचे की डिजाइन करने वाले किसी धातु (प्रायः इस्पात या अलुमिनियम) से मोल्ड का निर्माण करते हैं। अंतःक्षेपी संचन का उपयोग बहुतायत में होता है और इस प्रक्रिया द्वारा छोटे-से-छोटा अवयव से लेकर कारों की सम्पूर्ण शरीर तक बनाया जाता है।
+
+Injection molding cost estimator (detailed)
+
+Manufacturing engineering and mechanical properties of plastic parts - INTEMA (Research Institute), Universidad Nacional de Mar del Plata - CONICET",,,,
+fab-500x-20261114T224408Z-012,92,78f2f87fc99e1768e1fc1a1e,61d255380c3f9f70955e0d5e168ed52f,fab-500x,hi,safety_ethics,aya-dataset,human_authored,[user] Explore the moral and ethical dilemmas faced by a scientist who discovers a groundbreaking but potentially dangerous technology.,एक वैज्ञानिक द्वारा एक अद्वितीय लेकिन संभावना से भरा हुआ प्रौद्योगिकी की खोज करने पर आधारित नैतिक और नैतिक संघर्षों का अन्वेषण करें।,,,,
+fab-500x-20261114T224408Z-012,93,7eb19cbfaad2cca854ac764a,852b5a2e2b654b732c2b105e11f48f58,fab-500x,hi,science,wikipedia-hi,templated_human,[user] भारतीय रासायनिक जीवविज्ञान संस्थान के बारे में एक संक्षिप्त परिचय लिखिए।,"भारतीय रासायनिक जीवविज्ञान संस्थान (Indian Institute of Chemical Biology (IICB)) भारत की उन बड़ी प्रयोगशालाओं में से एक है, जिसने अपनी स्थापना के समय से ही संक्रामक रोगों, खासकर लिशमैनियासिस एवं कॉलरा पर बुनियादी अनुसंधान कार्य करने हेतु बहु-अनुशासनिक सघन प्रयास किया है और साथ ही रोगों कि परीक्षण, इम्युनोप्रोफिलैक्सिस एवं केमो थेरापी के लिए प्रौद्योगिकी का विकास किया है।
+
+इस संस्थान की स्थापना जैवचिकित्सीय अनुसंधान के लिए भारत में प्रथम गैर सरकारी केंद्र के रूप में 1935 में हुई थी और 1956 में इसे सीएसआईआर के संरक्षण में शामिल किया गया। आज भारतीय रासायनिक जीवविज्ञान संस्थान राष्ट्रीय महत्व के रोगों और वैश्‍विक हित की जैविक समस्याओं पर अनुसंधान कर रहा है। इसके वैज्ञानिक स्टाफ सदस्य रसायन, जैवरसायन, कोशिका जीवविज्ञान, आणविक जीवविज्ञान, तंन्निका जीवविज्ञान और प्रतिरक्षाविज्ञान सहित विभिन्न प्रकार कि क्षेत्रों में विशेष ज्ञान रखते हैं। उनकी यह विशेषज्ञता उत्पादक अंतर-अनुशादसनिक अंतक्रिया को बढ़ावा देती है।",,,,
+fab-500x-20261114T224408Z-012,94,5f915cb00b06d13e2d09c9f8,711efa2507b9464e2934b36d7a194739,fab-500x,hi,web_frontend,wikipedia-hi,templated_human,[user] सन्दीपन चट्टोपाध्याय के बारे में एक संक्षिप्त परिचय लिखिए।,"सन्दीपन चट्टोपाध्याय (जन्म १९३३ - मृत्यु २००५) बांग्ला साहित्य के भुखी पीढी आन्दोलन के कहानी-लेखक थे। उनहोने एक मौलिक शैली बनाये जिसे स्मार्ट एवम मेट्रोपलिटन भाषा कहा जाता है। १९६१ में प्रकाशित उनके लिखे कहानी-संकलन क्रीतदास क्रीतदासी ग्रन्थ बांग्ला साहित्य में एक नया निदर्शन कायम किया। बहुत सारे नवीन कहानीकार इस ग्रन्थ के शैली को नकल करके कहानीयां लिखा क्रते थे। आमि ओ वनबिहारि ग्रन्थ के लिये उनको साहित्य अकादमी पुरस्कार से सन्मानित किया गया था। वह कोलकाता कारपोरेशन में एसेसर का काम क्रते थे एवम रिटायर करने के पश्चात आजकाल संवादपत्र से जुडे रहे। अपने साहित्यिक जीवन में उनहोने २१ उपन्यास एवम ७० कहानियां तथा अनगिनत टुकडा-लेख लिखे। बाद में वह बामपन्थी सरकार के समर्थक रहे। १९९५ में उनहें बंकिम पुरस्कार एवम २००२ में साहित्य अकादमी पुरस्कार से नवाजा गया।
+
+सन्दीपन चट्टोपाध्याय: एक विश्लेषण। अद्रीश विश्वास एवम प्रबीर चक्रबोर्ती सम्पादित। दे बुकस, बंकिम चटर्जि स्ट्रिट, कोलकाता। (२००१)
+
+https://web.archive.org/web/[CARD]/http://www.kaurab.com/front-page-files/sandipan.html सन्दीपनजी एक महान लेखक]
+
+http://www.flickr.com/photos/bangalnama2/2897102944/ सन्दीपन का फोटोचित्र]",,,,
+fab-500x-20261114T224408Z-012,95,3a85ac249ad7928a26d8820e,26301758de88c3c3f23628f10933c780,fab-500x,hi,web_fullstack,wikipedia-hi,templated_human,[user] आईडीबीआई बैंक के बारे में एक संक्षिप्त परिचय लिखिए।,"भारतीय औद्योगिक विकास बैंक या आईडीबीआई भारत के प्रमुख  बैंकों में से एक सरकारी बैंक है। यह देश का सरकारी बैंक है। भारतीय रिजर्व बैंक ने इस बैंक को 'अन्य क्षेत्र के बैंक' की श्रेणी में रखा है।यह भारत सरकार द्वारा जारी 22 जून 1964 की अधिसूचना के द्वारा 01 जुलाई 1964 से अस्तित्व में आया|
+
+आईडीबीआई बैंक का हिन्दी जालघर (अ-यूनिकोडित हिंदी में)
+
+https://web.archive.org/web/[CARD]/http://www.idbicapital.com/ / IDBI Capital Market Services Website
+
+BITS Pilani Rajasthan Alumnus takes over as IDBI Chairman
+
+Industrial Development Bank (Transfer of Undertaking and Repeal) Act, 2003",,,,
+fab-500x-20261114T224408Z-012,96,355bf166b846ddf6af1f857c,b730641ac1ca6f5249b45c929ebe7e3d,fab-500x,hi,writing,aya-dataset,human_authored,[user] Write a political thriller set in a fictional country where a power struggle ensues after the sudden death of the leader.,एक कल्पित देश में स्थित राजनीतिक थ्रिलर लिखें जहां नेता की अचानक मौत के बाद एक शक्ति संघर्ष प्रारंभ होता है।,,,,
+fab-500x-20261114T224408Z-012,97,bc6c99278b877d3e492b2fc6,6975f5434ac63a1aad078fe6655be4f8,fab-500x,hu,general_knowledge,oasst1,human_authored,[user] Hol tudok Budapesten elkezdeni kínaiul tanulni?,"Beiratkozhatsz egy nyelviskolába, elmehetsz magántanárhoz, találkozhatsz másokkal akik szintén kínaiul tanulnak. Ha egyetemi diák vagy néha ott is van lehetőség ilyen órát felvenni. Esetleg a munkahelyed is támogathat ebben, ha ez segítené a munkádat. Barátkozz össze más emberekkel akik beszélik a nyelvet és velük is gyakorolhatsz.",,,,
+fab-500x-20261114T224408Z-012,98,0c5757c9245203568754d6d4,54d8803594e2263ae7617ee1a45365cc,fab-500x,hun,general_knowledge,aya-dataset,human_authored,[user] Sorolj fel néhány híres magyar zeneszerzőt.,"Magyarország híres zeneszerzői közé tartoznak például Bartók Béla, Kodály Zoltán és Liszt Ferenc.",,,,
+fab-500x-20261114T224408Z-012,99,6deb2224856c29129ce38793,87d9edbd6c47593d2f73a38f0b229edf,fab-500x,ibo,general_knowledge,aya-dataset,human_authored,"[user] Isi Okwu: Inec ekwuola ka ihe ga-esi gaa na ntuliaka 2019
+
+N'inye aha dị n'elu nke akụkọ ifo, chee echiche banyere isiokwu ahụ.","E mere ọkammụta Mahmood Yakubu onyeisi Inec n'ọnwa ọktoba afọ 2015
+
+Yakubu kwuru nke a oge ọ na-aza ndị ntaakụkọ ajụjụ ka ọ gachara ọgbakọ ya na onyeisi ọrụ gọọmentị bụ Abba Kyari n'Aso Rock n'Abuja. 
+
+""Ekwuola m ya ugboro ugboro, onweghị ọnọdụ ga-eme ka e yigharịa ntuliaka dịka iwu ịzọ ntuliaka siri dị.""
+
+O gara n'ihu kwuo na ntuliaka ga-abụ na Febuwarị 16, afọ 2019.
+
+Dịka nke a na-eme, ụlọọrụ ya, wepụtara ọkwa n'Abuja n'ụbọchị Fraide nke kwuru na e hiwere otu pati ịnara akwụkwọ maka ngosi mmasị ịzọ ọchịchị nke Bekee kpọrọ 'nomination form' n'etiti nakwa steeti bido n'Ọgọstụ 17 rue 24.
+
+Ụlọọrụ akụkọ NAN kwuru na a madoro ọkwa ahụ n'ụlọọrụ Inec dị n'Abụja.
+
+Onyeisi nkuzi ihe gbasara ịtụ votu bụ Ndidi Okafor, gwara NAN na ""ụbọchị ikpeazụ maka pati itinye akwụkwọ maka ngosi mmasị ịzọ ọkwa onyeisiala n'ụlọomeiwu etiti n'Disemba 3 nakwa ntuliaka nke steeti, bụ Disemba 17.""
+
+Okafor kwukwara na ""INEC ga-agba ihe gbasara ndị ga-azọ ọkwa na ntuliaka etiti n'anwụ ụbọchị Ọktoba 25 nakwa nke ndị ga-azọ na ntuliaka steeti n'Nọvemba 9.""
+
+Okafor gara n'ihu kwuo na Inec ewepụtala ụbọchị Novemba 17 dịka ụbọchị ikpeazụ maka pati iwegharị maọbụ gbanwe aha onye ga-azọrọ ha ọkwa onyeisiala nakwa ndị ụlọomeiwu nakwa ụbọchị mbụ n'ọnwa Disemba maka ndị ga-azọ ọkwa gọvanọ na ndị ụlọomeiwu nke steeti.
+
+Akụkọ ndị ga-amasị gị:",,,,
+fab-500x-20261114T224408Z-012,100,92ca2508bf7d5b0901571df8,a9608f56b85da8a07f575a716d6cbee8,fab-500x,ibo,islamic_studies,aya-dataset,human_authored,"[user] Mepụta isi okwu maka ederede a:
+Akụkọ dị mkpa Uche Ekwunife ọ gala PDP? Onyeisi otu PDP n'Anambra steeti bụ Ndubuisi Nwobu, ekwuola na ya amaghị ma Senatọ Uche Ekwunife alaghachitela pati ha. O kwuru nke a maka kepu kepu na-ekwu na Ekwunife ahapụla APC gawa pati ha. Lai Mohammed o kwuru eziokwu? Minista na-ahụ maka mgbasa ozi bụ Lai Mohammed ekwuola na gọọmentị ji ego karịrị nde naira atọ enye Ibrahim El-Zakzaky nri kwa ọnwa. Ndị otu El-Zakzaky bụ onyeisi ndị otu kpọrọ onwe ha 'Nigeria Islamic Movement' nke gọọmentị nwụchiri kemgbe 2015, gwara BBC na Mohammed tụrụ asị. N'ofesi, otu nwoke agbagbuola mmadụ iri na abụọ n'obodo Califonia dị na mba Amerịka. Ndị uweojii kwuru na ndị a agbagburu na-eme mme mme ndị ụmụakwụkwọ oge nwoke ahụ batara ebe ahụ malite ịgba egbe. Leicester City N'egwuregwu otu Leicester City ga-eyi uwe e dere aha onye isi ha nwụrụ anwụ n'asọmpi ha ga-agba na ngwụcha izuụka a. Ọkparaeze Charles nke mba Briten bụ onyeisi otu CommonWealth wuchiri n'Legọs ụnyaahụ n'ime njem nleta ọ na-eme na mpaghara Afrịka. Ndigbo nakwa ndị agbụrụ Naịjirịa ndị ọzọ bịara nabata Ọkparaeze Charles n'ụzọ pụrụiche gụnyere ịgba egwu na ihe nkiri dị iche iche. Charles kwuru n'oke mgbanwe dị iche adịla na Naịjirịa kamgba afọ iri atọ gara aga ọ bịara nke mbụ. Ọdọ ụgbọelu dị n'Enugwu bụ ọnya ọnwụ na-achọ onye ọ ga-ama, nke a bụ okwu Diretọ otu jikọtara ndị gọvanọ mpaghara ọwụwanyanwụ bụ Simon Uchenna Ortuanya. O kwuru na ọkụ anaghị enwu n'ụzọ ebe ụgbọelu na-agba bụkwa nke nwere ohoro ma rịọ gọọmentị etiti ka ha gbata ọsọ enyemaka n'egbughi oge. Ortuanya gara n'ihu kwuo na ọdọụgbọelu a bụ ihe ndị ndọrọ ndọrọ ji achọ vootu n'aka ndị Igbo n'oge ntuliaka ọ bụla. 
+Ndị ntọ atọọrọla ndị ụkọchukwu ụka Katọlik anọ n'etiti okporoụzọ Agbor n'umutu nke Delta Steeti dịka ha si ọgbakọ na-alọta. Ndị ụkọchụkwụ a gụnyere Victor Adigboluja, Anthony Otegbola, Joseph Idiaye na Obadjere Emmanuel. Ọnụ na-ekwuru ndị uweojii na Delta Steeti bụ Andrew Aniamaka kwuru na nke a bụ eziokwu na nyocha ka n'aga n'ihu ịmata ndị mere n'etu ihe a ji mee. 
+Manchester United si na-azụ were ọkpụ goolu abụọ asataghi otu nyụọ ndị Juventus ịkpakwụ n'ụlọ ha n'asọmpi Uefa Champịọns ebe Manchester City nwetere mmeri ha kachasị n'asọmpi ahụ site n'ịgba ndị Shakhtar Donetsk ọkpụ isii chara acha.","N'ezie, nke a bụ isi okwu maka ederede enyere- PDP ekwuola na ha amaghị ebe Uche Ekwunife kwụ ugbua
+
+Ndị ntọ atọọrọla ndị ụkọchukwu ụka Katọlik anọ n'etiti okporoụzọ Agbor
+
+Manchester United si na-azụ were ọkpụ goolu abụọ asataghi otu nyụọ ndị Juventus ịkpakwụ n'ụlọ ha n'asọmpi Uefa Champịọns",,,,

@@ -1,0 +1,1717 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-100x-20261114T224309Z-003,1,dd7c7a03aeea6055273d3e8a,6e0feb0cb14f7902d8a0aa473ba916b3,fab-100x,te,mathematics,aya-dataset,human_authored,"[user] చౌత్, సర్దేశముఖి గురించి సంక్లిప్తంగా వివరించండి","భూమిశిస్తు విధానంలో శివాజీ తనకు ముందు రాజా తోడర్ మల్, మాలిక్ అంబర్లు అనుసరించిన విధానాన్నే చాలా వరకు అనుసరించాడు. భూమిని సర్వే చేయించి, పండిన పంటలో 40 శాతాన్ని శిస్తుగా నిర్ణయించాడు. జమిందారీ విధానాన్ని రద్దుచేసి రైత్వారీ విధానాన్ని ప్రవేశపెట్టాడు. శిస్తును రైతులు ధనరూపంలోగాని, ధాన్యరూపంలోగాని చెల్లించవచ్చు. అవసర కాలంలో రైతులకు వాయిదాల పద్ధతిపై అప్పులు ఇచ్చాడు. విత్తనాలు, పశువుల పెంపకం కూడా చేశాడు. కానీ, వాటి విలువలను వాయిదాల పద్ధతి మీద ప్రభుత్వ అధికారులు తిరిగి రాబట్టుకునేవారు. స్వరాజ్ వెలుపల తాను నేరుగా పాలించని ప్రజల నుంచి చౌత్, సర్దేశముఖ్ అనే రెండు పన్నులను వసూలు చేశాడు. చౌత్ అంటే స్వరాజ్యం వెలుపల ఉన్న భూములు ఆదాయంపై 1/4 వంతు, సర్దేశముఖి అంటే ఆదాయంపై 1/10వ వంతు శిస్తుగా వసూలు చేశాడు. ఈ విధంగా వసూలైన ధనాన్ని మరాఠా రాజ్య నిర్మాణానికి వినియోగించాడు.",,,,
+fab-100x-20261114T224309Z-003,2,2ba5aaf7f10043ad3b104e9e,94f54c4e9e13f34d5c6806a86b6ebd57,fab-100x,te,reasoning,aya-dataset,human_authored,"[user] Question: కుప్పం నియోజకవర్గం నుండి చంద్రబాబు నాయుడు ఎమ్మెల్యే గా మొదటిసారి ఎప్పుడు పోటీచేశాడు?
+Answer the question with Yes or No. If it is not possible then answer None.
+Hint: 
+నారా చంద్రబాబు నాయుడు (జ. 1950, ఏప్రిల్ 20) భారతీయ రాజకీయ నాయకుడు, ఉమ్మడి ఆంధ్రప్రదేశ్ రాష్ట్రానికి 13వ ముఖ్యమంత్రి. అతను ఆంధ్రప్రదేశ్ రాష్ట్రం విడిపోయిన తరువాత ఆంధ్రప్రదేశ్  (నవ్యాంధ్ర) రాష్ట్రానికి 1వ ముఖ్యమంత్రి. విభజనకు ముందు 1994 నుండి 2004 వరకు ఉమ్మడి ఆంధ్రప్రదేశ్ రాష్ట్ర ముఖ్యమంత్రిగా పనిచేసాడు. 2004 నుండి 2014 వరకు ఆంధ్ర ప్రదేశ్ రాష్ట్ర శాసనసభలో ప్రతిపక్ష నాయకునిగా ఉన్నారు. అతను ప్రస్తుతం తెలుగుదేశం పార్టీకి జాతీయ అధ్యక్షునిగా వ్యవహరిస్తున్నాడు.[1][2][3][4] అతను ఇండియా టుడే నుండి ""ఐ.టి ఇండియన్ ఆఫ్ ద మిలీనియం"", ద ఎకనమిక్ టైమ్స్ నుండి ""బిజినెస్ పర్సన్ ఆఫ్ ద యియర్"", టైమ్స్ ఆసియా నుండి ""సౌత్ అసియన్ ఆఫ్ ద యియర్"", ప్రపంచ ఎకనమిక్స్ ఫోరం డ్రీమ్‌ క్యాబినెట్ లో సభ్యుడు వంటి పురస్కారాలతో పాటు అనేక పురస్కారాలు పొందాడు. [5][6][7][8] అతను ఆంధ్ర ప్రదేశ్ రాష్ట్ర రాజకీయాలలోనే కాకుండా భారతదేశ రాజకీయాలలో ప్రముఖ పాత్ర వహిస్తున్నాడు.
+ప్రారంభ జీవితం, విద్య
+నారా చంద్రబాబు నాయుడు చిత్తూరు జిల్లాలో నారావారిపల్లె అనే చిన్న గ్రామంలో 1950, ఏప్రిల్ 20 వ తేదీన ఒక సామాన్య మధ్యతరగతి రైతు కుటుంబంలో జన్మించాడు. [9][10] అతని తండ్రి ఎన్.ఖర్జూరనాయుడు వ్యవసాయదారుడు, తల్లి గృహిణి.[11] తన స్వంత గ్రామంలో పాఠశాల లేనందున ప్రాథమిక విద్యాభ్యాస సమయంలో రోజూ పొరుగు గ్రామమైన శేషాపురంకు నడుచుకుంటూ వెళ్ళేవాడు. ప్రాథమిక విద్య అనంతరం చంద్రగిరి లోని జిల్లాపరిషత్తు పాఠశాలలో చేరి 9వ తరగతిని పూర్తిచేశాడు.[12] ఉన్నత చదువుల నిమిత్తం తిరుపతికి వెళ్ళి అచట 10వ తరగతి పూర్తిచేసి, శ్రీ వెంకటేశ్వర విశ్వవిద్యాలయం నుండి ఆర్థిక శాస్త్రంలో పోస్ట్ గ్రాడ్యుయేషన్ పూర్తిచేశాడు. అతను 1972లో బి.ఎ. చేసాడు.
+ప్రారంభ రాజకీయ జీవితం
+చిన్నప్పటి నుండి ప్రజాసేవ పట్ల అత్యంత ఆసక్తి కలిగి ఉండేవాడు. తొలుత ప్రభుత్వ ఉద్యోగం చేయాలని భావించిననూ ప్రజాసేవ చేయడానికి రాజకీయాలే సరైనవని నిర్థారించి రాజకీయాలపై దృష్టిపెట్టాడు. విద్యాభ్యాసం పూర్తి కాకముందే తిరుపతికి సమీపంలో ఉన్న చంద్రగిరిలో విద్యార్థి నాయకునిగా యువజన కాంగ్రెస్ లో చేరాడు. చదువుతున్నప్పుడే సెలవులు వచ్చినప్పుడు స్నేహితులను మరికొందరిని కూడగట్టుకుని గ్రామంలో సామాజిక సేవా కార్యక్రమాలతో పలువురి ప్రశంసలందుకున్నారు. 1975లో భారతదేశంలో ఎమర్జెన్సీ విధించిన సమయంలో అతను యువజన కాంగ్రెస్ అధ్యక్షుడు సంజయ్ గాంధీకి సన్నిహిత మద్దరుదారునిగా.కలరు.","(జ. 1950, ఏప్రిల్ 20) భారతీయ రాజకీయ నాయకుడు, ఉమ్మడి ఆంధ్రప్రదేశ్ రాష్ట్రానికి 13వ ముఖ్యమంత్రి. అతను ఆంధ్రప్రదేశ్ రాష్ట్రం విడిపోయిన తరువాత ఆంధ్రప్రదేశ్  (నవ్యాంధ్ర) రాష్ట్రానికి 1వ ముఖ్యమంత్రి. విభజనకు ముందు 1994 నుండి 2004 వరకు ఉమ్మడి ఆంధ్రప్రదేశ్ రాష్ట్ర ముఖ్యమంత్రిగా పనిచేసాడు. 2004 నుండి 2014 వరకు ఆంధ్ర ప్రదేశ్ రాష్ట్ర శాసనసభలో ప్రతిపక్ష నాయకునిగా ఉన్నారు. అతను ప్రస్తుతం తెలుగుదేశం పార్టీకి జాతీయ అధ్యక్షునిగా వ్యవహరిస్తున్నాడు.[1][2][3][4] అతను ఇండియా టుడే నుండి ""ఐ.టి ఇండియన్ ఆఫ్ ద మిలీనియం"", ద ఎకనమిక్ టైమ్స్ నుండి ""బిజినెస్ పర్సన్ ఆఫ్ ద యియర్"", టైమ్స్ ఆసియా నుండి ""సౌత్ అసియన్ ఆఫ్ ద యియర్"", ప్రపంచ ఎకనమిక్స్ ఫోరం డ్రీమ్‌ క్యాబినెట్ లో సభ్యుడు వంటి పురస్కారాలతో పాటు అనేక పురస్కారాలు పొందాడు. [5][6][7][8] అతను ఆంధ్ర ప్రదేశ్ రాష్ట్ర రాజకీయాలలోనే కాకుండా భారతదేశ రాజకీయాలలో ప్రముఖ పాత్ర వహిస్తున్నాడు.",,,,
+fab-100x-20261114T224309Z-003,3,44b3ec9bf4cc6de5e9f3a1f3,d7cce1118cbced6f7d687a68b8686889,fab-100x,te,research,tydiqa-goldp,human_authored,"[user] 1979లో ది లయన్, ది విచ్ అండ్ ది వార్డ్‌రోబ్ మరోసారి టెలివిజన్ కార్యక్రమం కోసం స్వీకరించబడింది, ఈ సారి ఇది ఒక ప్రత్యేక యానిమేటెడ్ చిత్రంగా రూపొందించబడింది, దీనికి బిల్ మెలెండెజ్ (ఎ ఛార్లీ బ్రౌన్ క్రిస్మస్ మరియు ఇతర పీనట్స్ ప్రత్యేక కార్యక్రమాల ద్వారా ప్రసిద్ధి చెందారు) మరియు చిల్డ్రన్ టెలివిజన్ వర్క్‌షాప్ (ఈ సంస్థ సెసేమ్ స్ట్రీట్ మరియు ది ఎలక్ట్రిక్ కంపెనీ వంటి కార్యక్రమాలు ద్వారా ప్రసిద్ధి చెందింది) సహ-నిర్మాతలుగా వ్యవహరించారు. దీనికి డేవిడ్ D. కొన్నెల్ స్క్రీన్‌ప్లే సమకూర్చారు. ఇది ఆ ఏడాది అద్భుతమైన యానిమేటెడ్ కార్యక్రమంగా ఎమ్మీ అవార్డు గెలుచుకుంది. టెలివిజన్ కోసం పూర్తిస్థాయి నిడివితో రూపొందించబడిన యానిమేటెడ్ చలనచిత్రంగా ఇది గుర్తింపు పొందింది. బ్రిటీష్ టెలివిజన్‌లో దీనిని ప్రసారం చేసేందుకు, అనేక పాత్రల స్వరాలను బ్రిటీష్ నటులు మరియు నటీమణుల చేత తిరిగి పలికించి మళ్లీ రికార్డు చేశారు (వీరిలో లియో మెక్‌కీర్న్, ఆర్థర్ లోవ్ మరియు షీలా హాంకాక్ తదితరులు ఉన్నారు), అయితే స్టీఫెన్ థ్రోన్ మాత్రం బ్రిటీష్ మరియు U.S. రెండు చిత్రాల్లో అస్లాన్ పాత్రకు గాత్రదానం చేశారు, పీటర్ పెవెన్సీ, సుసాన్ పెవెన్సీ మరియు లూసీ పెవెన్సీ పాత్రలకు రెండు చిత్రాల్లోనూ ఒకే స్వరాన్ని ఉపయోగించారు.
+
+ది క్రానికల్స్ ఆఫ్ నార్నియా చిత్ర నిర్మాత ఎవరు ?","బిల్ మెలెండెజ్ (ఎ ఛార్లీ బ్రౌన్ క్రిస్మస్ మరియు ఇతర పీనట్స్ ప్రత్యేక కార్యక్రమాల ద్వారా ప్రసిద్ధి చెందారు) మరియు చిల్డ్రన్ టెలివిజన్ వర్క్‌షాప్ (
+
+1979లో ది లయన్, ది విచ్ అండ్ ది వార్డ్‌రోబ్ మరోసారి టెలివిజన్ కార్యక్రమం కోసం స్వీకరించబడింది, ఈ సారి ఇది ఒక ప్రత్యేక యానిమేటెడ్ చిత్రంగా రూపొందించబడింది, దీనికి బిల్ మెలెండెజ్ (ఎ ఛార్లీ బ్రౌన్ క్రిస్మస్ మరియు ఇతర పీనట్స్ ప్రత్యేక కార్యక్రమాల ద్వారా ప్రసిద్ధి చెందారు) మరియు చిల్డ్రన్ టెలివిజన్ వర్క్‌షాప్ (ఈ సంస్థ సెసేమ్ స్ట్రీట్ మరియు ది ఎలక్ట్రిక్ కంపెనీ వంటి కార్యక్రమాలు ద్వారా ప్రసిద్ధి చెందింది) సహ-నిర్మాతలుగా వ్యవహరించారు.",,,,
+fab-100x-20261114T224309Z-003,4,004b3aced247dab0551913f3,c6c7e34a9d08c8b9f992943171150027,fab-100x,te,science,aya-dataset,human_authored,"[user] కింది ప్రశ్నకు సమాధానం ఇవ్వండి
+కేంద్రక రియాక్టర్ సూత్రం, పనిచేసే విధానాన్ని వివరించండి.","నియంత్రిత శృంఖల చర్యను సాధించి, అధిక మొత్తంలో ఉష్ణాన్ని ఉత్పత్తి చేసే పరికరాన్ని కేంద్రక రియాక్టర్ అంటారు.
+
+సూత్రం :
+కేంద్రక రియాక్టర్ నియంత్రణ శృంఖల చర్య అను సూత్రం మీద ఆధారపడి పని చేయును.
+
+కేంద్రక రియాక్టర్ లోని ప్రధాన భాగాలు:
+1) ఇంధనం :
+కేంద్రక రియాక్టర్లో U235 లేదా U238లేదా Pu236 లేదా Th234 ను ఇంధనాలుగా వాడతారు. ఈ ఇంధన కడ్డీలను అల్యూమినియం స్థూపాలలో సీలు చేస్తారు.
+
+2) మితకారి :
+భారజలం, గ్రాఫైట్లను మితకారులుగా వాడతారు.ఇవి న్యూట్రాన్ల వేగాన్ని తగ్గించి విచ్ఛిత్తి చర్యలో పాల్గొనేటట్లు చేస్తాయి.
+
+3) నియంత్రణ కడ్డీలు :
+నియంత్రణ కడ్డీలు న్యూట్రాన్లను శోషించుకుని, శృంఖల చర్యను నియంత్రిస్తాయి. కాడ్మియమ్ మరియు బెరీలియం కడ్డీలను నియంత్రణ కడ్డీలుగా వాడతారు.
+AP Inter 2nd Year Physics Important Questions Chapter 14 కేంద్రకాలు 10
+
+4) రక్షణ కవచం :
+కేంద్రక రియాక్టర్ నుండి వెలువడే రేడియోధార్మిక వికిరణాలను వాతావరణంలోకి ప్రవేశించకుండా రియిక్టర్ చుట్టూ 10మీ. మందం గల కాంక్రీట్ గోడను నిర్మిస్తారు.
+
+5) శీతలీకారి :
+ఇంధన కడ్డీలు ఉత్పత్తి చేసే అత్యధిక ఉష్ణాన్ని, వాటి చుట్టూ అనువైన చల్లని ద్రవాలను ప్రవహింపచేయడం ద్వారా తగ్గిస్తారు.
+
+పని చేయు విధానం :
+అల్యూమినియమ్తో చేసిన స్థూపాకార గొట్టాలలో యురేనియం కడ్డీలను నియమిత దూరాలలో ఉండేటట్లు అమర్చుతారు. మితకారులను ఈ ఇంధన కడ్డీల మధ్య ఉంచుతారు. కొన్ని కేంద్రకాలు విచ్ఛిత్తికి లోనైనపుడు, అధిక వేగం గల న్యూట్రాన్లు వెలువడుతాయి. వీటిని మితకారుల గుండా పంపినపుడు వేగం తగ్గుతుంది. U235 పరిగ్రహించి విరివిగా కేంద్రక విచ్ఛిత్తికి లోనవుతుంది ఫలితంగా శృంఖల చర్య జరుగుతుంది. నియంత్రణ కడ్డీలను ఉపయోగించి విచ్ఛిత్తి చర్యలను నియంత్రించవచ్చు. ఈ ప్రక్రియలో జనించిన ఉష్ణాన్ని ఉపయోగించి నీటిని వేడి చేసి ఆవిరిని ఉత్పత్తి చేస్తారు. ఈ ఆవిరి ద్వారా టర్బైన్లను తిరిగేటట్లు చేసి, విద్యుత్ను ఉత్పత్తి చేస్తారు.
+
+కేంద్రక రియాక్టర్ ఉపయోగాలు:
+
+విద్యుత్ను ఉత్పత్తి చేయుటకు ఉపయోగిస్తారు.
+దీనిని ఉపయోగించి ప్లూటోనియమ్-239",,,,
+fab-100x-20261114T224309Z-003,5,a5325dc51f19f9bac47af047,a6d758e88546f283c4f096d9c6dbeeff,fab-100x,te,writing,aya-dataset,human_authored,"[user] ...ెట్టాల్సి వచ్చింది. 
+
+నా భార్య చనిపోయినప్పుడు నా ప్రపంచం కూలిపోయినట్లనిపించింది. నా చేతుల్లో తనని పట్టుకుని చాలా ఏడ్చాను. మా జీవితాలలో బాధను మిగిల్చిన  ఆ యుద్ధాన్ని నేను చాలా ద్వేషించాను.
+
+నా ప్రియమైన భార్యకు, నా పిల్లల తల్లికి ప్రాథమిక వైద్య చికిత్స దొరకకపోవడం వలన ప్రాణాలు కోల్పోవలసి వచ్చింది. 
+
+పరిస్థితి ప్రమాదకరంగానే ఉండటంతో మా పొరుగువారు సుడాన్ వెళ్లిపోయారు. నేను నా పిల్లలు, బావమరిదితో కలిసి ఇక్కడే ఉండిపోయాను. 
+
+ఎప్పుడైనా సైనికులు కనిపిస్తే పక్కనే ఉన్న పొదల్లోకి వెళ్లి దాక్కునేవాళ్లం. ఒక్కడి... Write the rest of the article:","పెట్టమని సలహా ఇచ్చారు. 
+
+సనాతన క్రైస్తవ సంప్రదాయం ప్రకారం అమ్మాయిలకు పుట్టిన 80 రోజుల తర్వాత బాప్టిజమ్ చేయాలి. ఆ రోజు దగ్గరకు వస్తోంది. కానీ, మాకు ఆ సేవలు అందించడానికి ఇక్కడ చర్చిలు లేవు.
+
+నేనింకా బాధలోనే ఉన్నాను. నా పిల్లలను ఒక సురక్షిత వాతావరణంలో  పెంచే ధైర్యం ఇవ్వమని నేను దేవుడిని ప్రార్ధిస్తున్నాను. ఈ దౌర్భాగ్యమైన ఉద్రిక్తతలు త్వరలోనే తగ్గి, మేము వదిలిపెట్టిన జీవితాన్ని తిరిగి పొందుతామని ఆశిస్తున్నాను.
+
+శాంతి భద్రతలు మా జీవితాలలో ఎందుకు కొరవడ్డాయి అనే విషయం గురించి నేను ఆలోచిస్తూ ఉంటాను. మేమెందుకు ఇలా బాధపడాలి?
+
+మాకు ఈ విషాదాన్ని మిగిల్చిన వారు సౌకర్యవంతంగా, స్థిరంగానే బ్రతుకుతుంటే.. మాకెందుకు సురక్షితంగా నివసించే అవకాశం కూడా దొరకటం లేదు?
+
+వారు వారి పిల్లలను ఎటువంటి సమస్యలు లేకుండా పెంచుకుంటున్నారు. 
+
+వారి పిల్లలు ఇంట్లో దొరికే ఆప్యాయతలను ప్రేమను పొందుతున్నారు. వారిని వారి తల్లితండ్రులు పెంచుకుంటున్నారు. వారు స్కూలుకు వెళుతున్నారు. పొరుగువారితో కలిసి ఆడుకుంటున్నారు. 
+
+నేను ఐదేళ్ల క్రితం మెటామా వదిలిపెట్టి మయికాద్రాలో స్థిరపడిన రోజులు గుర్తుకు వస్తున్నాయి. 
+
+నేను అక్కడ సమాజంలో నిలదొక్కుకోవడానికి చాలా కష్టపడాల్సి వచ్చింది. బ్రతకడం కోసం పొద్దున్న నుంచి రాత్రి వరకు కష్టపడుతూనే ఉండేవాడిని. నా కుటుంబాన్ని పోషించుకోవడం కోసం నేను బాగానే పని చేశాను. 
+
+ఆదాయం కోసం నాకిచ్చిన భూమితో పాటు మరి కొంత భూమిని కౌలుకు తీసుకున్నాను. నేను నువ్వులు, జొన్నలు పండించేవాడిని.
+
+ఇక్కడ నేనేమి పని చేయటం లేదు. ప్రేమించడానికి భార్య లేదు. సమాజం లేదు.  వెళ్ళడానికి చర్చి లేదు.
+
+కాపుకొచ్చిన పంట గురించి కూడా ఆలోచిస్తున్నాను. గతం తల్చుకోవడం, నాకున్న ఆస్తులను గుర్తు చేసుకోవడం, జీవితం ఎలా ఉండేదో ఊహించుకోవడం, నా పిల్లలు ఎలా గడిపేవారో ఆలోచించుకోవడం తప్పా ఇప్పుడు నేనింకేమీ చేయలేను.
+
+నేను ఒక శరణార్థిగా గడపడానికి ఉన్న పరిస్థితులకు అలవాటు పడేందుకు ప్రయత్నిస్తున్నాను. 
+
+ఈ ఆవేదన చాలా తీవ్రమైనది. నా పిల్లలకు ఇంత బాధ కలగకూడదు. 
+
+అంహార, టీగ్రే  ప్రజల మధ్య తలెత్తిన ఈ అర్ధంపర్ధం లేని జాత్యహంకార గొడవల్లో మా సర్వస్వం కోల్పోయాం. 
+
+సుడాన్‌లో ఉన్న శిబిరాలలో కొన్ని వేల మంది శరణార్థులు తల దాచుకున్నారు. మేమంతా టీగ్రే కి చెందిన వారిమే. మేము ఈ సంక్షోభం వలన తీవ్రంగా ప్రభావితులమయ్యాం. 
+
+ఈ యుద్ధం త్వరలోనే  ముగిసి శాంతి నెలకొంటుందని ఆశిస్తున్నాను. మేము ఇంటికి తిరిగి... చేరాలని కోరుకు0టు",,,,
+fab-100x-20261114T224309Z-003,6,89b743a61380f86928674a60,b1d08acb15ecc5a212f71a34c33d01ee,fab-100x,th,coding,oasst2,human_authored,[user] ขอ code python ที่ช่วยดึงรูปจาก ig,"ด้วยการใช้ library instascrape ในภาษา python คุณสามารถที่จะดึง รูป ข้อมูล หรือโพสจาก instagram ได้
+ก่อนอื่นให้ทำการติดตั้ง library ด้วยคำสั่ง
+
+```bash
+pip3 install insta-scrape
+```
+และนี่ตัวอย่างโค้ด python ที่สามารถใช้งานเพื่อดึงรูปจากโพสล่าสุด ของโปรไฟล์ใน  instagram ได้
+
+```python
+from instascrape import Profile 
+profile= Profile('google') # ใช้โปรไฟล์ ID ของคุณ
+profile.scrape() # ทำการดึงข้อมูลของโปรไฟล์
+recents = profile.get_recent_posts()
+profile_photos = [post for post in recents if not post.is_video] # ตรวจสอบว่าโพสที่ดึงมานั้น มีโฟสที่เป็นวีดีโอติดมาหรือเปล่า
+
+for post in profile_photos : # ทำการ loop รายการ รูปภาพทั้งหมด
+    fname = post.upload_date.strftime(""%Y-%m-%d %Hh%Mm"")
+    post.download(f""{fname}.png"") # ทำการดาวน์โหลดรูปภาพโดยอิงจากเวลา
+
+```",,,,
+fab-100x-20261114T224309Z-003,7,388b30656a05fc6e53508874,b58e81e11ae91715139df3be34c0a26c,fab-100x,th,education,oasst1,human_authored,"[user] ทำไมพอ ChatGPT มาทำให้ทุกคนพากันเป็นบ้ากันไปหมด
+
+[assistant] แม้ ChatGPT จะไม่ได้ใช้เทคโนโลยีที่ใหม่กว่าโมเดลภาษาทั่วไปนัก แต่มีประสบการณ์การใช้งานที่สะดวกสบายส่งผลให้เข้าถึงคนหมู่มากได้ง่าย
+
+[user] โมเดลภาษาทั่วไปคืออะไร ช่วยอธิบายหน่อย","โมเดลภาษา (language model) คือโมเดล machine learning ชนิดหนึ่งที่เรียนรู้ด้วยการทำนายสถิติของหน่วยคำที่เกิดขึ้นในข้อมูลฝึกสอน ยกตัวอย่างง่ายๆคล้ายกับการทำแบบฝึกหัดเติมคำในช่องว่าง เช่น 
+
+โจทย์: ฉันเป็น____โรงเรียนสวนกุหลาบ
+ตอบ: นักเรียน
+
+การที่โมเดลเรียนรู้ที่จะเติมคำในช่องว่างนี้ให้ถูกต้องจะทำให้โมเดลสามารถสร้างข้อความที่ดูเสมือนมนุษย์เขียนขึ้นมาหรือทำงานด้านภาษา (ทำนายความบวกลบของข้อความ, ทำนายชนิดของคำ, ย่อความ ฯลฯ) ได้ การทำแบบฝึกหัดเติมคำในตัวอย่างข้างต้นเรียกว่า masked language modeling นอกจากนี้ยังมีเทคนิคอื่นๆในการฝึกสอนโมเดลภาษาอีก เช่น เติมคำต่อไป (causal language modeling) เป็นต้น",,,,
+fab-100x-20261114T224309Z-003,8,071de103fb37fae61537448d,e42768840929b4b29fc9160e93f6a58a,fab-100x,th,general_knowledge,oasst1,human_authored,[user] พระพิฆเนศกันผีได้ไหมคับ?,พระพิฆเนศกับผีดูจะอยู่กับคนละจักรวาลหรือคนละมิติกัน จึงไม่อาจรับรองได้ว่าพระพิฆเนศจะกันผีได้ไหม แต่เราอาจทำการทดลองดูได้ถ้าเราหาพระพิฆเนศและผีมาร่วมทดลองได้,,,,
+fab-100x-20261114T224309Z-003,9,5cf64cf03ec995c52b21bbd4,78ee64879d295b6ef0d5f16ac7115d68,fab-100x,th,mathematics,aya-dataset,human_authored,[user] ใจ อึ๊งภากรณ์ คือใคร ทำไมเขาต้องลี้ภัยทางการเมือง,"รองศาสตราจารย์ ใจลส์ หรือใจ อึ๊งภากรณ์ เป็นอดีตอาจารย์ประจำคณะรัฐศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ในปี พ.ศ. 2540 เขาได้ก่อตั้งคณะทำงานเพื่อชำระประวัติศาสตร์กรณี 6 ตุลาคม พ.ศ. 2519 ขึ้นมาใหม่ ร่วมกิจกรรมกับองค์กรพัฒนาเอกชน และเขียนบทความวิจารณ์สังคมและการเมืองไทย ในหนังสือพิมพ์ทั้งภาษาไทยและภาษาอังกฤษอยู่เสมอ คดีของอ.ใจ เป็นคดีพิเศษในกรมสอบสวนคดีพิเศษทั้งสิ้น 4 คดี และชื่อของอ.ใจ เป็นอีกชื่อหนึ่งที่ถูกศูนย์อำนวยการแก้ไขสถานการณ์ฉุกเฉิน (ศอฉ.) จัดอยู่ในผังล้มเจ้าด้วย
+
+เขาต้องลี้ภัยเพราะ เขาถูกแจ้งข้อหา มาตรา 112 ประมวลกฎหมายอาญา ในคดีพิเศษที่ 399/53 กล่าวหา นายใจ อึ๊งภากรณ์ เขียนบทความหมิ่นประมาท ดูหมิ่น หรือแสดงความอาฆาตมาดร้ายพระมหากษัตริย์ฯ และเผยแพร่ในเว็บไซต์ ซึ่งคดีนี้อยู่ระหว่างการสืบสวนสอบสวน",,,,
+fab-100x-20261114T224309Z-003,10,6dec25069be82f5c2a26ac58,0770527b31e55d2a499555a673505dc7,fab-100x,th,web_frontend,oasst2,human_authored,[user] อยากเริ่มเขียนโปรแกรมทำอย่างไรดี,ศึกษาจาก Youtube นั่นคือจุดเริ่มต้นที่ดีของคุณ อย่างแรกคุณต้องเข้าใจก่อนว่าคุณอยากไปทำงานด้านไหน รูปแบบใดหรือกับบริษัทอะไร ยกตัวอย่างเช่น ทำ แอปพลิเคชันสำหรับบนมือถือ คุณก็ศึกษาจาก React Native เป็นต้น,,,,
+fab-100x-20261114T224309Z-003,11,749afd1e51dadce943da1f66,052a0cd7fe98632af8ee8b751e226dfa,fab-100x,th,writing,oasst2,human_authored,[user] ลืมรหัสผ่าน Discord ของตัวเอง ทำยังไงดี,"ในหน้า Login คุณกรอก email หรือ เบอร์โทร แล้วลองกด Forget your Password? 
+Discord จะส่ง Email ไปหาคุณถ้าคุณพิมพ์ Email หรือ OTP ถ้าคุณกรอกเบอร์โทร ให้ทำตามขั้นตอนที่ Discord แจ้งคุณมาต่อไป
+หากคุณเกิดปัญหาอะไรขึ้นระหว่างทำตามขั้นตอนนั้นคุณสามารถกลับมาถามฉันให่ได้",,,,
+fab-100x-20261114T224309Z-003,12,a540973959d5e6b57c7a6b36,7d4c8f9475aef1e9ba44065aa2ec0df1,fab-100x,tr,coding,aya-dataset,human_authored,[user] Shebang nedir?,"Shebang, Unix ve benzeri işletim sistemlerinde kullanılan bir özelliktir. Script dosyalarında, dosyanın hangi yorumlayıcı (interpreter) ile çalıştırılacağını belirtmek için kullanılır. Shebang, dosyanın ilk satırında bulunan ve genellikle #! karakterleri ile başlayan bir ifadedir.
+
+Örneğin, bir Python script dosyasının shebang kullanımı şu şekildedir:
+
+#!/usr/bin/env python3
+print(""Merhaba, dünya!"")
+
+Bu örnekte #!/usr/bin/env python3 ifadesi, bu script dosyasının çalıştırılması için Python 3 yorumlayıcısını kullanması gerektiğini belirtir. Shebang, dosyanın çalıştırılabilirlik özelliği etkinse ve dosya bir terminalden çalıştırılmaya çalışıldığında işe yarar. Örneğin, terminalde şu komutu vererek bu Python script dosyasını çalıştırabilirsiniz:
+
+./script.py
+Shebang, çeşitli programlama dilleri ve yorumlayıcılar için kullanılabilir. Örneğin, Bash script dosyalarında #!/bin/bash, Perl script dosyalarında #!/usr/bin/perl, Ruby script dosyalarında #!/usr/bin/ruby gibi ifadeler kullanılabilir. Bu, dosyanın çalıştırılmasında hangi yorumlayıcının kullanılacağını belirlemek için önemlidir.",,,,
+fab-100x-20261114T224309Z-003,13,9e3a85e8fb5a3e4c7e746647,ed68d4ad6d2b7f5060e16a6a755d70fb,fab-100x,tr,education,aya-dataset,human_authored,[user] CV nasıl hazırlanır?,"CV (Curriculum Vitae), iş başvurularında ve profesyonel bağlamlarda kullanılan bir özgeçmiş belgesidir. İşverenlere, eğitim, deneyim, beceriler ve kişisel bilgiler hakkında bilgi verir. İşte bir CV hazırlarken dikkate almanız gereken temel adımlar:
+
+Kişisel Bilgiler:
+
+Adınızı ve soyadınızı belirtin.
+İletişim bilgilerinizi (e-posta, telefon) ekleyin.
+Var ise sosyal medya profillerinizi ekleyin (LinkedIn gibi, ancak bu kişisel tercihlere bağlıdır).
+Hedef (İsteğe Bağlı):
+
+CV'nizin başında, kariyer hedefinizi veya bir özet ifadesini ekleyebilirsiniz.
+Eğitim Bilgileri:
+
+En son eğitim durumunuzdan başlayarak, önceki eğitim geçmişinizi kronolojik sırayla listeleyin.
+Her girişte okul/universite adı, bölüm, mezuniyet tarihi gibi bilgileri ekleyin.
+İş Deneyimi:
+
+Deneyimlerinizi kronolojik sırayla listeleyin.
+Her girişte şirket adı, pozisyon, çalışma tarihleri ve başlıca sorumlulukları belirtin.
+Önceki iş tecrübelerinizle ilgili elde ettiğiniz başarıları vurgulayın.
+Beceriler:
+
+Teknik, dil, iletişim becerileri gibi genel ve işe özgü becerilerinizi sıralayın.
+İlgili olduğunuz endüstri ve pozisyonlara özel yeteneklerinizi vurgulayın.
+Sertifikalar ve Eğitimler:
+
+Aldığınız sertifikaları ve katıldığınız eğitimleri belirtin.
+Mesleki gelişim ve sürekli öğrenmeye vurgu yapın.
+Projeler (İsteğe Bağlı):
+
+İlgili olduğunuz veya çalıştığınız projeleri kısa bir açıklama ile listeleyin.
+Hobiler ve Kişisel İlgi Alanları (İsteğe Bağlı):
+
+CV'nize kişisel bir dokunuş eklemek için hobilerinizi veya ilgi alanlarınızı belirtin.
+Referanslar (İsteğe Bağlı):
+
+İki veya üç referans ekleyebilirsiniz. Ancak, referans eklemeyi düşündüğünüz kişilerin izni olduğundan emin olun.
+Görsel Unsurlar ve Tasarım (Dikkatlice Kullanılmalıdır):
+
+CV'nizi temiz, düzenli ve okunabilir tutun.
+Görsel unsurları (renk, logo, grafik) aşırıya kaçmadan kullanın.
+CV'nizi Güncel Tutun:
+
+Yeni deneyimler ve beceriler kazandıkça CV'nizi güncelleyin.
+İlgili ve güncel bilgilerinizi içerdiğinden emin olun.
+CV'nizi özgeçmişinizi yazarken, işverenlerin dikkatini çekmek ve ön plana çıkmak için özgeçmişinizi özelleştirmek önemlidir. Her iş başvurusuna uygun bir şekilde CV'nizi düzenleyerek iş başvurularınızı destekleyebilirsiniz.",,,,
+fab-100x-20261114T224309Z-003,14,23a767898943476627083418,c6435aaaa8cdb68a7cde6b972f36275e,fab-100x,tr,general_knowledge,aya-dataset,human_authored,[user] Adalet Bakanlığı tercüman ne iş yapar?,"Adli yeminli tercüman bilirkişi unvanına sahip kişiler mahkemelerde taraflardan birinin Türkçe bilmemesi halinde esnasında tarafların dinlenmesi, iddianamenin anlatılması, iddia ve savunma ile ilgili ana hususların tercümesi, duruşma kaydı çözümleme/deşifre işlemi çevirisi gibi görevleri yerine getirmekle yükümlüdür.",,,,
+fab-100x-20261114T224309Z-003,15,41e586e9c75901e63b4a06a5,99a1c27bf65ed1ea577c7d669e41c0fe,fab-100x,tr,islamic_studies,aya-dataset,human_authored,[user] Bu paragrafın devamını yazın: Ülkedeki nüfusun azalması problemi ayrıca Hırvatistan Bağımsızlık Savaşı'nın sonuçlarından biridir. Savaş boyunca birçok kişi yerinden olmuş ya da göç etmiştir. 1991'de Sırpların çoğunlukta olduğu bölgelerdeki 400.000'den fazla Hırvat ve diğer Sırp olmayan etnisiteler ya bulundukları yerlerden Hırvatistanlı Sırp güçleri tarafından uzaklaştırılmış ya da şiddetten kaçmak zorunda kalmıştır. 1995'te savaşın son günleri boyunca 120.000 binden fazla hatta belki 200.000 kadar Sırp Fırtına Harekâtı,"'yla yaklaşan Hırvat güçlerinin gelmesinden önce bölgeden kaçmıştır. Savaştan sonraki on yılda savaş boyunca yerlerinden olan 300.000 kadar Sırp'ın ancak 117.000'i ülkeye geri dönmüştür. Hırvatistan'da yaşayan Sırpların çoğu Hırvatistan Bağımsızlık Savaşı'nda işgal edilen alanlarda asla yaşamamıştır. Sırplar sadece daha önce yerleşik oldukları alanın bir kısmına Bosna-Hersek, özellikle de Sırp Cumhuriyeti'nden gelen Hırvat mültecilerin yerleştirilmesinin ardından kalan diğer alanlara yeniden yerleşmişlerdir. Hırvatistan nüfusunun %89.6'sı gibi bir rakamla büyük çoğunluğu Hırvattır. Geriye kalan nüfus %4.5 ile Sırplar ve %5.9 ile Boşnaklar, Macarlar, İtalyanlar, Slovenler, Almanlar, Çekler, Romanlar ve diğerleridir. En büyük dinler nüfusun %88'inin inandığı Katoliklik, %4.4'ünün inandığı Ortodoksluk, %0.4'ünün inandığı diğer Hristiyan mezhepleri ve %1.3'ünün inandığı İslam'dır. Geriye kalan nüfusun %5.2'si inançsızken %0.9'unun inancı bilinmemektedir.",,,,
+fab-100x-20261114T224309Z-003,16,030f340e8682ec4ef3939166,e7daa76598e820d162ab4612c9cf61e5,fab-100x,tr,mathematics,aya-dataset,human_authored,[user] Fesleğen soslu bir makarna tarifi verir misin?,"Tabii ki! İşte lezzetli bir fesleğen soslu makarna tarifi:
+
+Malzemeler:
+
+350 gram makarna (spagetti, fettuccine, penne gibi tercih ettiğiniz türde)
+2 su bardağı taze fesleğen yaprakları
+2 diş sarımsak
+1/2 su bardağı ekstra sızma zeytinyağı
+1/2 su bardağı rendelenmiş parmesan peyniri
+1/2 su bardağı iri çekilmiş ceviz içi (isteğe bağlı)
+Tuz ve karabiber
+Yapılışı:
+
+Büyük bir tencerede su kaynatın. Kaynar suya biraz tuz ekleyin ve makarnayı talimatlarına uygun şekilde haşlayın. Makarnanın al dente (hafif diri) olmasına dikkat edin. Haşlandıktan sonra süzün ve kenara alın.
+
+Bu sırada fesleğen sosunu hazırlamak için bir mutfak robotu veya blendır kullanın. Fesleğen yaprakları, soyulmuş sarımsak, zeytinyağı, rendelenmiş parmesan peyniri, tuz ve karabiberi ekleyin. İsteğe bağlı olarak ceviz içi de ekleyebilirsiniz. Tüm malzemeleri pürüzsüz bir kıvam alana kadar karıştırın.
+
+Haşlanmış makarnayı bir servis tabağına alın. Üzerine hazırladığınız fesleğen sosunu gezdirin ve iyice karıştırın.
+
+Makarnanızı sıcak servis yapın ve ekstra parmesan peyniri ve taze fesleğen yaprakları ile süsleyerek servis edebilirsiniz.
+
+Bu fesleğen soslu makarna tarifi, lezzetli ve hafif bir yemek seçeneğidir. Afiyet olsun!",,,,
+fab-100x-20261114T224309Z-003,17,b6dbc2d8c965fdbcddd9536e,7f857fd2db5302e5fed2a73b25550ba8,fab-100x,tr,problem_solving,aya-dataset,human_authored,[user] Utangaçlık nasıl önlenir?,"Utangaçlık, sosyal durumlarda rahatsızlık ve gerilim hissi olarak tanımlanabilir. Ancak utangaçlığı önlemek veya azaltmak mümkündür. İşte utangaçlığı aşmak için bazı öneriler:
+
+Küçük Adımlarla Başlayın:
+
+Sosyal becerileri geliştirmek için küçük adımlarla başlamak önemlidir. Sosyal etkileşimleri artırmak için küçük gruplar veya tanıdık ortamlar seçin.
+Kendi İlgilerinize Odaklanın:
+
+Kendi ilgi alanlarınıza odaklanmak, konuşmaları daha rahat ve doğal hale getirebilir. İlgilendiğiniz konularda konuşmak, güveninizi artırabilir.
+Bedensel Aktivite:
+
+Spor veya egzersiz, endorfin salgılanmasını sağlayarak stresi azaltabilir ve özgüveni artırabilir.
+Göz Kontağı Kurun:
+
+Göz teması kurmak, karşınızdaki kişiyle daha güçlü bir bağ kurmanıza ve iletişiminizi güçlendirmenize yardımcı olabilir.
+Hazırlıklı Olun:
+
+Topluluk içinde konuşma veya sosyal etkileşimler öncesi hazırlık yapın. Konuşma konularını düşünmek ve önceden bir plan yapmak, kendinizi daha güvende hissetmenize yardımcı olabilir.
+Empati ve Kendi Kendinize Konuşma:
+
+Başkalarının hislerini anlamaya çalışın. Empati, sosyal etkileşimlerde daha rahat olmanıza yardımcı olabilir. Ayrıca, kendi kendinize olumlu ve güçlendirici ifadeler kullanmak da önemlidir.
+Hata Yapmaktan Korkmayın:
+
+Utanç duygusunu aşmak için hata yapmaktan korkmamak önemlidir. Herkes hata yapabilir. Önemli olan, bu hatalardan öğrenmek ve gelişmektir.
+Sosyal Beceri Eğitimi Alın:
+
+Utangaçlıkla başa çıkmak için sosyal beceri eğitimi almak faydalı olabilir. Bu tür eğitimler, iletişim becerilerinizi güçlendirebilir.
+Profesyonel Yardım Alın:
+
+Eğer utangaçlık duygusu sizi önemli ölçüde etkiliyorsa, bir uzmandan profesyonel yardım almayı düşünün. Bir terapist, sosyal anksiyete veya utangaçlıkla başa çıkmanıza yardımcı olabilir.
+Utangaçlıkla başa çıkmak zaman alabilir, ancak sabır ve sürekli çaba ile bu duyguyu azaltabilir ve sosyal etkileşimlerden daha fazla keyif alabilirsiniz.",,,,
+fab-100x-20261114T224309Z-003,18,6cf2e5ccff5df2ad557dc938,8b8aa5716f59a0822c5bddc6656f7e6d,fab-100x,tr,reasoning,aya-dataset,human_authored,[user] Cushing sendromu tedavi edilmezse ne olur?,Aşırı kıllanmaya ek olarak Cushing sendromu olan kadınlarda adet düzensizliği de ortaya çıkabilir. Bazı Cushing sendromu olan kadın vakalarda menstrüasyon düzensizliği görülebilir. Doğru şekilde müdahale edilmemiş olgularda infertilite problemi çıkabileceği için dikkatli olunmalıdır.,,,,
+fab-100x-20261114T224309Z-003,19,5de401ca0ef8ce5596cc4873,d1aed9ce676785e16f39656aaaa85005,fab-100x,tr,safety_ethics,aya-dataset,human_authored,[user] Jazz müziği neden önemlidir?,"Jazz, farklı kültürel kökenleri ve müzikal geleneği birleştirerek, Afrika ritimleri, blues, ragtime ve Avrupa harmonilerini bir araya getirir. Bu, birçok farklı kültürel etkinin bir araya gelerek birbirini tamamladığı bir müzik türüdür. Buna ek olarak; Jazz, sivil haklar hareketinin bir parçası olarak da önemlidir. Birçok jazz müzisyeni, müziklerini toplumsal değişim için bir platform olarak kullanmış ve eşitlik, özgürlük ve adalet mücadelesine katkıda bulunmuşlardır.",,,,
+fab-100x-20261114T224309Z-003,20,18ee7d26af33ab247554c3c1,df6c6857bc46b6b6be5818f64db6f53d,fab-100x,tr,science,aya-dataset,human_authored,[user] B12 Vitamini Nedir?  Eksikliğinde Neler Olabilir?,"Kobalamin olarak da bilinen B12 vitamini, süt ürünleri, balık, et gibi ürünlerde yer alan, kırmızı kan hücresi oluşumunda, beyin ve sinir fonksiyonlarında ve DNA üretiminde önemli bir role sahip olan vücut tarafından üretilemeyen suda çözünen bir vitamindir. B12 tüketilen gıdalardan proteine bağlanarak mide içerisinde enzimler ve hidroklorik asit tarafından serbest forma dönüştürülür.
+B12 eksikliğinde yeterli kırmızı kan hücresi üretilemeyeceği için vücut yeterince oksijen alamaz. B12 vitamini eksikliğinin en net belirtisi anemi olup, aneminin neden olduğu nefes darlığı ve kalp çarpıntısı, kaslarda zayıflama, yorgunluk, uzuvlarda uyuşma, cildin solgunlaşması, kilo kaybı belirtileri de görülebilir.
+B12 vitamini eksikliğinden kaynaklı belirtiler şunlardır:
+- Kansızlık (anemi)
+- Yorgunluk ve enerji düşüklüğü
+- Nefes darlığı
+- Kalp çarpıntısı
+- El, kol ve bacaklarda karıncalanma ve uyuşma
+- Unutkanlık gibi hafıza sorunları
+- Cilt renginin solması ve üşüme
+- Depresyon, sinir ve anksiyete gibi ruh hali değişikliği
+- Odaklanma ve konsantre olmada güçlük
+- Saç dökülmesi
+- Kas zayıflaması
+- İshal, kabızlık, mide bulantısı gibi gastrointestinal sorunlar
+- Ağız yaraları vb. sorunlara neden olur. B12 eksikliğinde tedavi, güçlü B12 hapları ya da B12 vitamin iğnesi ile yapılır.",,,,
+fab-100x-20261114T224309Z-003,21,4725a4964986bc87bc6f765d,3ce23297fb3c0ce6f14f684f16c84703,fab-100x,tr,web_frontend,aya-dataset,human_authored,[user] Tim Berners-Lee kimdir?,"WWW'in babası olarak bilinen Tim Berners-Lee, 1989 yılında Avrupa Parçacık Fiziği Laboratuvarı CERN'deyken World Wide Web'i icat etti. 1990 yılında ilk web istemcisini ve sunucusunu yazdı. URI, HTTP ve HTML spesifikasyonları, Web teknolojisi yayıldıkça geliştirildi.
+Açık kaynaklı Solid platformunu kullanan, tanıtan ve geliştirmeye yardımcı olan bir teknoloji start-up'ı olan Inrupt.com'un kurucu ortağı ve CTO'sudur. Solid, web'in nasıl çalışması gerektiğine dair birçok varsayımı sorgulayarak insanlara verileri üzerinde kontrol ve yetki vermeyi amaçlıyor. Teknik olarak sağlam, web katmanında küresel tek oturum açma, evrensel erişim kontrolü ve evrensel veri API'si gibi orijinale hiçbir zaman dahil edilmeyen özellikler ekleyen ve böylece herhangi bir uygulamanın herhangi bir depolama alanında veri depolayabilmesini sağlayan yeni bir standart düzeyidir.
+Daha fazla bilgi için W3C sitesini ziyaret ediniz.",,,,
+fab-100x-20261114T224309Z-003,22,894bc6c283d9768c123ded12,3cbd22f69b0ad2bcbd1c9d5e4ba5ef98,fab-100x,tr,writing,aya-dataset,human_authored,[user] Chloe Love Story nasıl bir koku?,"Baştan çıkarıcı bir esans, kadınsılığın ifadesi. Koku ilk olarak, portakal çiçeğinin şehvetini ortaya koyuyor; ışıldıyor ve sarhoş ediyor, tıpkı yeni bir aşkın başlangıcı gibi. Mutluluk çiçeği olan Madagaskar yasemininin heyecan verici kadınsılığı, kokunun başlıca özelliğini oluşturuyor.",,,,
+fab-100x-20261114T224309Z-003,23,146b8945a975d407b9eab76b,664bc0ff9bfb31037037cfe03aa4b718,fab-100x,uk-UA,general_knowledge,oasst2,human_authored,"[user] Яке аніме подивитись прихильнику оригінальних Cowboy Bebop і Ghost in the Shell?
+
+[assistant] А що саме вам сподобалось в цих аніме? Мені потрібно це знати, щоб зробити кращу рекомендацію.
+
+[user] У Cowboy Bebop - ностальгійність, заглиблення у мотивації та передісторії головних героїв.
+А про Ghost In The Shell, навіть не знаю, напевно саме кіберпанк (аугментації, роботи, кіборги), боротьба із злочинцями і звичайно ж Мотоко Кусанаґі.","Можу порадити вам аніме Samurai Champloo, яке, як і Cowboy Bebop, було створене Шінічіро Ватанабе. Воно має дещо ностальгійний настрій і протягом серіалу добре розкриває передісторії персонажів.
+
+Відносно Ghost In The Shell, ви дивились Stand Alone Complex? Цей аніме-серіал належить до іншого таймлайну, ніж фільм Ghost In The Shell (1995) і його сиквел Ghost in the Shell 2: Innocence (2004).
+У Ghost In The Shell: Stand Alone Complex поєднуються вдала детективна сюжетна лінія, основні елементи кіберпанку, та більш детальний погляд на характер головної героїні Мотоко Кусанаґі.",,,,
+fab-100x-20261114T224309Z-003,24,1612567e1e676248205cf4c8,26b3251f8a805b83f59216640e3844d4,fab-100x,uk-UA,mathematics,oasst2,human_authored,"[user] Переклади цей текст українською:
+""We received a signal of mysterious radio station called Noir FM that plays obscure Jazz music 24/7. We don't have any information about location of this radio station and before it disappeared completely from our radars we had an opportunity to record only one part of their scheduled programming broadcast called ""Nightluxury"". We tried to recognize songs played during this broadcast but we couldn't. Instead of credits to original compositions and artists we called every track by it's mood and an atmosphere.""
+
+[assistant] Ми отримали сигнал загадкової радіостанції під назвою Noir FM, яка відтворює маловідому джазову музику 24/7. Ми не маємо жодної інформації про місцезнаходження цієї радіостанції, і до того, як вона повністю зникла з наших радарів, ми мали можливість записати лише одну частину їхнього запланованого програмного мовлення під назвою ""Nightluxury"". Ми намагалися розпізнати пісні, зіграні під час цього ефіру, але не змогли. Замість атрибуції до оригінальних композицій та виконавців, ми назвали кожен трек за його настроєм та атмосферою.
+
+[user] Продовжи цю історію.","Надіємося, ви теж відчуєте цю таємничість, прослухавши запис.
+
+Перший трек: ""Записка у давно покинутій котельній"" 
+Таймкод: 0:00
+Опис: Стишений звук, що доноситься наче з підвального приміщення, де стоять іржаві парові котли. Хтось залишив записку з одним реченням, написаним нечітким почерком - ""Той, хто недостатньо сміливий, щоб на нього дивились з безодні, недостатньо сміливий, щоб дивитися в неї сам.""
+
+Другий трек: ""Погляд""
+Таймкод: 1:30
+Опис: О першій годині ночі, взимку, коли люди повернулись додому грітись, ти дивишся на місто, усамітнившись на оглядовому майданчику. Абсолютна тиша створює відчуття нереальності і лімінальності. В тебе в горняті міцна кава, однак вона стигне від холоду.
+
+Третій трек: ""Блиск вітрин зачиненого торгового центру""
+Таймкод: 6:29
+Опис: Охоронець напівдрімає на своєму кріслі. Світло залишили ввімкненим лише в одному магазині. Воно світить червоним і час від часу відблискує зеленими кольорами. Ескалатори та ліфти зупинились. На повторі грає цей трек. 
+
+Четвертий трек: ""Елегантний ранок близького майбутнього, після якого ми нарешті продовжимо своє життя""
+Таймкод: 9:20
+Опис: 5 година ранку, ледь світає. Все затихло в очікуванні нового дня, де будь-які загрози зникли, але й ще невідомо, як жити з цим несподівано світлим майбутнім. Перший птах починає елегантно співати, час від часу прислухаючись до приглушених відповідей своєї партнерки на іншому дереві.",,,,
+fab-100x-20261114T224309Z-003,25,aae608be74e51b7fd374c3fa,e1ee86d04209c36e9b04c0e54af043fc,fab-100x,ur,coding,aya-dataset,human_authored,[user] ممالیہ / mammals پر مضمون لکھیں,"ممالیہ یا پستانیہ (انگریزی: mammals) ایسے جانداروں کو کہا جاتا ہے کہ جو فقاریہ ہوتے ہیں اور ان کے مادہ شریک میں پستان پائے جاتے ہیں جس سے وہ اپنے بچوں کو دودھ پلاتے ہیں نیز ان میں اور پرندوں اور رینگنے والے جانوروں میں بالوں اور چار خانوں والے دل اور کان کی درمیانی ہڈی کا بھی فرق ہوتا ہے اس گروہ سے تعلق رکھنے والے جاندار کے دماغ کا ایک خاص حصہ ہوتا ہے جو جسم کے درجہ حرارت کو قابو رکھتا ہے۔ اسی پستان کے رکھنے کی خصوصیت کی وجہ سے ان کو پستانیہ بھی کہا جاتا ہے جبکہ اس کی جمع پستانیے کی جاتی ہے۔ انگریزی میں mammalia کے لیے مناسب اردو متبادل، پستانیان آتا ہے۔
+
+ان میں زیادہ تر حیوانات سبزی خور Herbivorus ہوتےہیں،کچھ گوشت خور Carnivores اورکچھ ہمہ خور Omnivores ہوتےہیں۔ یہ گرم خون کے حیوانHomoethermic ہیں۔
+
+حوالہ جات
+^ ا ب پ مکمل کام یہاں دستیاب ہے: http://www.mapress.com/zootaxa/2011/f/zt03148p060.pdf — عنوان : Class Mammalia Linnaeus, 1758 — صفحہ: 56–60
+^ ا ب پ مکمل کام یہاں دستیاب ہے: http://www.mapress.com/zootaxa/2011/f/zt03148p060.pdf — اخذ شدہ بتاریخ: 18 ستمبر 2015 — عنوان : Mammal Species of the World — اشاعت سوم — ISBN [CARD]
+^ ا ب BHL page ID: https://biodiversitylibrary.org/page/726901 — مصنف: لنی اس — عنوان : Systema Naturae — جلد: 1 — صفحہ: 12 — شائع شدہ از: 1758
+   ویکی ڈیٹا پر (P830) کی خاصیت میں تبدیلی کریں""معرف Mammalia دائراۃ المعارف لائف سے ماخوذ"". eol.org. اخذ شدہ بتاریخ 13 اکتوبر 2023ء.",,,,
+fab-100x-20261114T224309Z-003,26,255c7bc3e02e83ee5f9e9a8a,463edcdee137d5cfd4052ca42f359b80,fab-100x,ur,general_knowledge,wikipedia-ur,templated_human,[user] پہلوی خاندان کے بارے میں ایک مختصر تعارف لکھیں۔,"ایران کا آخری شاہی خاندان، جس کی حکومت کا آغاز 1925ء میں رضا شاہ پہلوی کی تخت نشینی کے ساتھ اور خاتمہ 1979ء کے ایرانی انقلاب کے ساتھ ہوتا ہے اور اس طرح ایران میں ملوکیت کی قدیم روایت کا خاتمہ ہوا۔
+
+1921ء میں رضا خان (بعد ازاں رضا شاہ پہلوی) جو ایران کی فوج میں ایک افسر تھے اپنے دستوں کو استعمال کرتے ہوئے قاچار خاندان کی حکومت کے خلاف علم بغاوت بلند کیا۔ چار سالوں کے اندر تمام مخالفتوں کو کچل انہوں نے خود کو ملک کا طاقتور ترین فرد ثابت کر دیا۔ 1925ء میں وہ قاچار خاندان کے آخری فرمانروا احمد شاہ قاچار کو معزول کر کے خاص طور پر بلائے گئے ایوان کے ذریعے نئے بادشاہ بن گئے۔
+
+وہ ایران کو جدید ریاست بنانے کے وسیع تر منصوبے کے حامل تھے اور اس میں بڑے پیمانے پر صنعتوں کے قیام کے ساتھ بنیادی ڈھانچے کی توسیع، ذرائع نقل و حمل کی ملک بھر میں تیاری، قومی سرکاری تعلیمی نظام کے قیام، عدلیہ میں اصلاحات اور صحت عامہ کی سہولیات کی فراہمی کے منصوبہ جات شامل تھے۔ وہ ایک مستحکم اور مرکزی حکومت پر یقین رکھتے تھے۔
+
+انہوں نے اپنے صاحبزادے سمیت سینکڑوں ایرانیوں کو یورپ تربیت کے لیے بھیجا۔ ان کے 16 سالہ دور اقتدار (1925ء تا 1941ء) میں ان کے منصوبہ جات نے ایران کو ایک ترقی یافتہ ملک بنا دیا۔ ان کی اصلاحات سے ایک پیشہ ور متوسط اور صنعتوں میں کام کرنے والے طبقات ابھرے۔",,,,
+fab-100x-20261114T224309Z-003,27,2fbb4bb070479b91c6b43b74,4665105466e1f50842430d7972746686,fab-100x,ur,islamic_studies,wikipedia-ur,templated_human,[user] الیاس بابر اعوان کے بارے میں ایک مختصر تعارف لکھیں۔,"الیاس بابر اعوان راولپنڈی سے تعلق رکھنے والے ایک نوجوان شاعر اور افسانہ نگار ہیں ۔
+
+الیاس بابر اعوان کی پیدائش 28 مئی 1976ء، راولپنڈی، صوبہ پنجاب، پاکستان میں ہوئی۔ ان کے والد کا نام محمد افضل اعوان ہے۔
+
+مادرِ علمی: فیڈرل گورنمنٹ بوائز ہائی اسکول نمبر ا صدر لاہور
+
+گورنمنٹ شالیمار ڈگری کالج باغبانپورہ لاہور
+
+نیشنل یونیورسٹی آف مارڈرن لینگوئجز اسلام آباد
+
+بین الاقوامی اسلامی یونیورسٹی، اسلام آباد
+
+پی جی ڈی ( پروفیشنل ایتھکس اینڈ ٹیچنگ میتھڈولجیز)
+
+اکیسویں صدی کی پہلی دہائی میں شعر و ادب کی دنیا میں وارد ہوئے۔ اسلام آباد میں نیشنل یونیورسٹی آف ماڈرن لینگوئجز میں انگریزی ادب کے لیکچرر ہیں۔ اردو، انگریزی اور پنجابی میں لکھتے ہیں۔ حلقہ ارباب ِ ذوق راولپنڈی کے چار سال تک سیکرٹری رہے اور جدیدادبی تنقیدی فورم کے بانی ہیں۔ اردو میں تنقید، نظم، غزل اور افسانے کے ساتھ ساتھ انگریزی میں ض شاعری اور افسانے بھی لکھتے ہیں۔
+
+خوابِ دِگر (شعری مجموعہ)2012ء، پبلشر: رمیل پبلیشرز راولپنڈی
+
+نووارد ( نظمیہ مجموعہ) 2016ء : سانجھ پبلشرز لاہور نے شائع کیا
+
+معاصر متن کی دریافت: (تنقیدی مضامین)پبلشر: کتاب محل لاہور
+
+جدید تنقیدی تصورات۔ مترجم: الیاس بابر اعوان ،پبلشر: کتاب محل لاہور
+
+منحرف۔ ان کی نظموں کا مجموعہ زیر ـ اشاعت ہے۔",,,,
+fab-100x-20261114T224309Z-003,28,18e3a8b8c9a0f978a00a298d,166a9834bcbfe4b34754e351f1df5ef6,fab-100x,ur,mathematics,aya-dataset,human_authored,"[user] 4x−7(2−x) = 3 x + 2
+اس Linear equation میں سے x کا جواب نکالیں۔ ہر قدم پر سوچیں","ٹھیک ہے، میں اس linear equation کا ہر قدم پر سوچ کر جواب نکالوں گا۔
+
+پہلا قدم:
+ہم سب سے پہلے بریکٹس یعنی قوسین کو حل کریں گے۔ قوسین میں ہمارے پاس -7(2-x) ہے جو کہ -14 + 7x کے برابر ہے۔
+لہذا ہمارے پاس یہ بچتا ہے: 4x - 14 + 7x = 3x + 2
+اب ہم -14 کو دوسری سایڈ اور 3ش کو پہلی سایڈ پر لے آیں گے
+4x + 7x - 3x = 2 + 14
+دوسرا قدم:
+دونوں سایڈز کو ایک اکیلی ویلیو میں لے آیں گے۔
+11x - 3x = 16
+8x = 16
+تیسرا قدم:
+اب ہم x کو بالکل اکیلا کردیں گے۔ 
+x = 16 / 8
+x = 2
+غرض ہمارا جواب x = 2 ہے
+
+ٹیسٹ:
+ہم اپنی اصلی سوال میں x کی ویلیو ڈال کر دیکھیں گے کہ کیا یہ درست ہے؟
+پہلا قدم:
+4x−7(2−x) = 3 x + 2
+ہر x کو 2 سے بدلیں گے۔
+ جو کہ 4 * 2 - 7(2 - 2) = 3 * 2 + 2
+8 - 0 = 6 + 2
+8 = 8
+غرض ہمارا جواب x = 2 بالکل درست ہے.",,,,
+fab-100x-20261114T224309Z-003,29,3c22a44cc1253ce1e148b316,a53147392d9376a5cba625db2f04bc9c,fab-100x,ur,pakistan,wikipedia-ur,templated_human,[user] ضلع سوات کے بارے میں ایک مختصر تعارف لکھیں۔,"خیبر پختونخوا کا ایک کوہستانہ ضلع ہے۔ سوات ایک سابقہ ریاست تھی جسے 1970ء میں ضلع کی حیثیّت دی گئی۔ ملاکنڈ ڈویژن کا صدر مقام سیدو شریف اس ضلع ہی میں واقع ہے۔ سوات کو خیبر پختونخوا کے شمالی خطے میں امتیازی حیثیّت حاصل ہے۔
+
+یہ ضلع وسط ایشیاء کی تاریخ میں علمِ بشریات اور آثارِ قدیمہ کے لیے مشہور ہے۔ بدھ مت تہذیب و تمدن کے زمانے میں سوات کو بہت شُہرت حا صل تھی اور اسے اودیانہ یعنی باغ کے نام سے پکارتے تھے۔
+
+سیرو سیاحت کے کثیر مواقع کی وجہ سے اسے پاکستان کا سویٹزرلینڈ کہا جاتا ہے۔ شمالی علاقہ جات کی ترقی میں سوات کا ایک اہم کردار رہا ہے۔ سر سبز و شاداب وسیع میدانوں کے علاوہ یہ تجارت کا مرکز بھی ہے۔ یہاں خوبصورت مرغُزار اور شفاف پانی کے چشمے اور دریا موجوکالام ،مدین اور بحرین میں زندگی کی تمام سہولیات بشمولِ اعلٰی تعلیمی ادارے موجود ہیں۔ یہاں کے لوگ انتہائی محنتی اورذہنی لحاظ سے کافی ترقی یافتہ ہیں۔
+
+دنیا کے حسین ترین خطوں میں شامل یہ علاقہ، پاکستان کے دار الحکومت اسلام آباد سے شمال مشرق کی جانب 254 کلومیٹر کے فاصلے پر واقع ہے، جب کہ صوبائی دار الحکومت پشاور سے اس کا فاصلہ 170کلومیٹر ہے۔ 1998ء کی مردم شماری و خانہ شماری کے مطابق ضلع سوات کی کل آبادی بارہ لاکھ ستاون ہزار چھ سو دو (12,57,602) ہے اور اس کا کل رقبہ 5337 مربع کلومیٹر پر پھیلاہوا ہے۔ اس کے شمال میں ضلع چترال، جنوب میں ضلع بونیر، مشرق میں ضلع شانگلہ، مغرب میں ضلع دیراور ملاکنڈ ایجنسی کے علاقے اور جنوب مشرق میں سابق ریاستِ امب(دربند) کا خوب صورت علاقہ واقع ہے۔
+
+سوات کو تین طبعی حصوں میں تقسیم کیا جاسکتا ہے:",,,,
+fab-100x-20261114T224309Z-003,30,953cf83a90cd6349812c6be8,0b9234385a0a5d9b99b6ef3e1fe7a5a3,fab-100x,vi,coding,aya-dataset,human_authored,[user] Hòn đảo nào đông dân nhất Indonesia?,"Java là hòn đảo lớn thứ năm của Indonesia. Theo Statista, năm 2020, hơn 56% dân số Indonesia, trên 150 triệu người, sống trên đảo Java khiến nó trở thành hòn đảo đông dân nhất thế giới. 
+
+Hòn đảo được chia thành bốn tỉnh: Đông Java, Trung Java, Tây Java và Banten. Thủ đô Jakarta nằm ở phía tây bắc hòn đảo này, là một trong những nơi có mật độ dân số cao nhất thế giới. Với dân số hơn 10 triệu người, những ngày chủ nhật ở Jakarta được xem là ""Ngày không đi ôtô"" để giảm thiểu tắc đường. Thủ đô của Indonesia cũng là thành phố sở hữu tuyến xe buýt nhanh BRT dài nhất thế giới.
+
+Sự hình thành của Java là kết quả của những vụ phun trào núi lửa. Sở hữu hơn 450 loài chim, đảo Java là thiên đường của những người đam mê khám phá tự nhiên.",,,,
+fab-100x-20261114T224309Z-003,31,869509ee8383ef219d4f1448,a2e141a4c173e2ed47d13fcc3139e736,fab-100x,vi,education,aya-dataset,human_authored,[user] Địa phương nào có hai thành phố học tập toàn cầu của UNESCO?,"Đồng Tháp hiện là địa phương duy nhất ở Việt Nam có hai thành phố được vinh danh là ""thành phố học tập toàn cầu"" gồm Cao Lãnh và Sa Đéc.
+
+""Thành phố học tập toàn cầu"" là giải thưởng được Tổ chức Giáo dục, Khoa học và Văn hóa Liên hợp quốc (UNESCO), được trao lần đầu tiên vào năm 2015 tại Mexico, và vinh danh hai năm một lần. 
+
+Giải thưởng trao cho các thành phố đạt được tiến bộ đột phá với các nền tảng như thúc đẩy cơ hội học tập từ cơ bản tới đại học một cách bình đẳng cho mọi người; thúc đẩy học tập trong gia đình và trong cộng đồng; tạo điều kiện học tập phục vụ công việc và tại nơi làm việc. 
+
+Năm 2012, Viện Học tập suốt đời của UNESCO (UNESCO Institute for Lifelong Learning), đã xây dựng ""Mạng lưới thành phố học tập toàn cầu UNESCO"", gồm các thành phố thúc đẩy thành công việc học tập suốt đời trong cộng đồng để chia sẻ cảm hứng, kinh nghiệm chuyên môn, cũng như các kinh nghiệm thực tiễn trong xây dựng một thành phố học tập.",,,,
+fab-100x-20261114T224309Z-003,32,6a48225728edb0115afdea78,4dc7cad79915f10b61a8825664ba049f,fab-100x,vi,general_knowledge,aya-dataset,human_authored,"[user] Là một học sinh cấp 2, hãy viết đoạn văn ngắn (khoảng 200 chữ) bàn về đề tài sau: Nhiều người cho rằng nên có các con vật nuôi trong nhà. Em có ý kiến như thế nào về vấn đề này?","Không chỉ là những con vật nuôi mà chúng còn là những người bạn thân thiết bên cạnh chúng ta. Bố mẹ thường lo ngại việc có những con vật nuôi bên cạnh những đứa trẻ sẽ gây ra những ảnh hưởng xấu. Nhưng không phải vậy, vật nuôi mang lại chó chúng ta rất nhiều lợi ích.
+
+Thứ nhất, việc có vật nuôi khiến những đứa trẻ phải vui chơi và luyện tập cùng chúng. Nếu không làm thế thì vật nuôi sẽ rất buồn và sinh bệnh. Ví dụ những chú chó cần phải đi dạo, chơi ném bóng,… Nếu chúng ta không thực hiện những hành động đó, chú chó sẽ trở nên cuồng chân, sinh ra giận dữ, hay cắn đồ,… Việc vui đùa cùng vật nuôi sẽ kéo chúng ta ra ngoài trời hay là phải vận động, điều này sẽ giúp sức khỏe của chúng ta tốt hơn.
+
+Thứ hai, từ lí do trên đã hình thành nên sự phát triển ý thức trách nhiệm của con trẻ khi nuôi thú cưng. Các con vật nuôi luôn cần sự chăm sóc, cho ăn uống, tắm rửa, dọn dẹp vệ sinh, huấn luyện,… Vì nếu không những hành động như thế thì dẫn đến những hậu quả xấu. Nếu một chú cá không được cho ăn thường xuyên thì nó sẽ bị đói mà dẫn đến chết. Hay chúng ta không chịu thay nước thường xuyên thì môi trường sống của nó sẽ bị bẩn dễ gây bệnh đến cá. Khi mà trẻ con học được cách có trách nhiệm với thú nuôi thì chúng sẽ biết cách chăm sóc bản thân mình tốt hơn.
+
+Thứ ba, khi nuôi động vật thì sẽ mang lại cảm giác thoải mái, giảm stress. Những hành động, cử chỉ vuốt ve, âu yếm,… những chú chó mang đến cảm giác an toàn. Hay là khi chúng ta ôm ấp những chú mèo, những tiếng grừ grừ sẽ làm giảm căng thẳng, cảm bình yên. Đặc biệt khi vui đùa, ở cạnh, trò chuyện với những vật nuôi khiến chúng ta cảm thấy luôn có một người bạn ở bên cạnh mình.",,,,
+fab-100x-20261114T224309Z-003,33,2821c4bb1d1b6bc18bbf977a,18d5734188d33b5015ab450333d2602b,fab-100x,vi,islamic_studies,aya-dataset,human_authored,"[user] Hoàn thiện đoạn văn sau với nội dung có liên quan tới đoạn văn dưới đây: Soi kèo nhà cái Liverpool vs Strasbourg. Nhận định, dự đoán bóng đá Giao hữu CLB (01h30, 1/8). Dự đoán bóng đá Liverpool vs Strasbourg. Tỷ lệ kèo Giao hữu CLB. Tỷ lệ kèo, keonhacai, soi kèo nhà cái, nhận định bóng đá hôm nay 1/8, 2/8 Tỷ lệ kèo, keonhacai, soi kèo nhà cái, nhận định bóng đá hôm nay ngày 1/8, 2/8. Tỷ lệ kèo nhà cái, dự đoán bóng đá giao hữu CLB, EURO nữ 2022, Siêu cúp Pháp. (adsbygoogle = window.adsbygoogle || []).push({}); Giao hữu CLB * 23h00, 31/7: Marseille vs Milan Xem trực tiếp Marseille vs Milan Soi kèo, nhận định Marseille vs Milan * 01h30, 1/8: Liverpool vs Strasbourg Xem trực tiếp Liverpool vs Strasbourg (adsbygoogle = window.adsbygoogle || []).push({}); Nhận định Liverpool vừa có chiến thắng trước Man City. Đội quân của Klopp có chiến thắng 3-1 trước ĐKVĐ Anh để qua đó giành Siêu cúp Anh. Đó cũng là trận thắng thứ 3 trong 5 trận gần nhất. Ở loạt giao hữu mùa","Hè trước đó, Liverpool đã có 2 chiến thắng và 2 trận hòa. Điều đáng ghi nhận từ Liverpool đó là việc tân binh Darwin Nunez đã càng chơi càng cho thấy sự hòa nhập. Anh mang về 1 quả 11m để Salah ghi bàn, rồi tự mình ấn định tỷ số 3-1 cho The Kop. Đó có thể coi là một tín hiệu đáng mừng đối với Lữ đoàn đỏ. Strasbourg đang có phong độ không cao. Họ chỉ thắng 2 trong 5 trận gần nhất. Vì lẽ đó, thật khó để Strasbourg có thể ngăn Liverpool chiến thắng, dù trận này Klopp nhiều khả năng sẽ sử dụng đội hình hai. * Đội hình dự kiến: Liverpool: Hughes; Gomez, Konate, Van den Berg, Milner; Jones, Morton, Keita; Carvalho, Nunez, Elliott. Strasbourg: Sels; Dagba, Djiku, Perrin, Nyamsi, Delaine; Sissoko, Bellegarde; Thomasson; Ajorque, Diallo. - Đối đầu: Hai đội chưa gặp nhau - Phong độ Liverpool - Phong độ Strasbourg: * Dự đoán của TT&VH: Liverpool 3-1 Strasbourg T.G",,,,
+fab-100x-20261114T224309Z-003,34,1f587fdddee59c1e2e0c463f,fd434b22199a29de8155efd21704d80a,fab-100x,vi,mathematics,aya-dataset,human_authored,"[user] Dựa trên tiêu đề sau, hãy viết một đoạn văn tối đa 500 chữ: Công an yêu cầu dân trả lại vàng rơi vãi tại hiện trường vụ cướp","Công an TP Huế vừa phát thông báo đề nghị người dân nhặt được vàng có liên quan đến vụ cướp bằng súng tại chợ Đông Ba phải giao nộp cho cơ quan công an. Việc này nhằm phục vụ hoạt động điều tra của cơ quan công an, cũng như hoàn trả lại cho người bị hại sau khi kết thúc vụ việc. ""Những trường hợp không trả lại tài sản liên quan đến vụ việc sẽ bị xử lý nghiêm theo quy định của pháp luật"", Công an TP Huế nhấn mạnh. Như Dân trí đã thông tin, khoảng 13h ngày 31/7, một người đàn ông mang theo súng đến khu vực kinh doanh vàng tại chợ Đông Ba. Người này nổ nhiều phát súng phá tủ rồi cướp một lượng lớn vàng tại tiệm Thái Lợi và Hoàng Đức. Trong quá trình bị truy đuổi, người này ném nhiều vàng ra đường. Một số lượng lớn vàng rơi vãi khắp nơi trên đường phố, mắc tận các cành cây cao. Ngay sau khi kẻ cướp bị bắt giữ, lực lượng chức năng tổ chức thu gom vàng rơi vãi. Tuy nhiên, trước đó người dân cũng nhặt được nhiều vàng rơi vãi và giao nộp cho cơ quan chức năng.",,,,
+fab-100x-20261114T224309Z-003,35,2a63d16dce72ae65f10d3bd8,efada89ad4e45ed0400db78a94633fa3,fab-100x,vi,pakistan,aya-dataset,human_authored,"[user] Hãy tiếp tục đoạn văn sau: Trước trận đấu, HLV Erik ten Hag không đặt nhiều kỳ vọng vào Cristiano Ronaldo, bởi ông hiểu rằng tiền đạo này đang không có thể lực tốt sau quãng thời gian tự tách khỏi đội một. Ngoài vấn đề thể lực, việc bị xếp vào đội hình gồm nhiều cầu thủ dự bị khiến Ronaldo cũng không có được nguồn cung cấp bóng tốt nhất. Anh gần như bị chia cắt với đồng đội ở hai biên là Alejandro Garnacho và Tahith Chong. Trong cả hiệp một, siêu sao người Bồ Đào Nha chỉ có một cú sút, đó là pha ra chân đưa bóng đi vọt xà sau đường chọc khe của Van de Beek ở phút 12. Những phút tiếp theo, Ronaldo đói bóng và thường xuyên phải lùi về giữa sân để tự tạo khoảng trống. Lão tướng 37 tuổi có 2 đường chuyền tạo cơ hội, nhưng đồng đội phía trên đều không thể gây khó khăn cho hàng thủ Rayo. Cơ hội đáng kể nhất của MU trong hiệp một thuộc về Christian Eriksen. Tân binh người","Đan Mạch dứt điểm táo bạo từ ngoài vùng cấm ở phút 30 đưa bóng đi chệch khung thành trong gang tấc. Đầu hiệp hai, Ronaldo được rút khỏi sân. Cầu thủ vào thay siêu sao 37 tuổi, Amad Diallo lại chơi nổi bật. Ngay phút 48, cầu thủ trẻ người Bờ Biển Ngà tận dụng tình huống bóng bật ra sau cú sút xa của Telles để đá bồi mở tỷ số. Chưa đầy 10 phút sau bàn mở tỷ số, MU đã để thủng lưới theo kịch bản tương tự. Thủ môn Tom Heaton cản được sú sút xa của Palazon nhưng bất lực khi Garcia băng vào đá bồi. Những phút còn lại của trận đấu, HLV Ten Hag tung hàng loạt cầu thủ trẻ vào sân. ""Quỷ đỏ"" chỉ có thêm một cơ hội đáng kể, đó là cú sút xa đưa bóng đi chệch cột trong gang tấc của Zidane Iqbal. Trận đấu khép lại với tỷ số hòa 1-1. MU sẽ nghỉ ngơi một tuần trước khi bước vào trận đấu chính thức đầu tiên của mùa giải 2022/23 gặp Brighton.",,,,
+fab-100x-20261114T224309Z-003,36,3d3f30fd479b014cdabeb63f,03127b17b09692772c8916eefe1a71d9,fab-100x,vi,reasoning,aya-dataset,human_authored,[user] Giải thích cụ thể về lý thuyết MBTI?,"Lý thuyết MBTI (Myers-Briggs Type Indicator) là một hệ thống phân loại tính cách được phát triển bởi mẹ con cặp vợ chồng Katherine Cook Briggs và Isabel Briggs Myers dựa trên công việc của nhà tâm lý Carl Jung. Lý thuyết MBTI giúp phân loại các khía cạnh khác nhau của tính cách con người thành 16 loại khác nhau dựa trên bốn chiều chính:
+
+Hướng ngoại - Hướng nội: Đo đạc cách con người tập trung năng lượng và chú ý. Người hướng ngoại tập trung vào thế giới ngoài, tương tác xã hội và sự kiện bên ngoài, trong khi người hướng nội thích tập trung vào tư duy và cảm xúc cá nhân.
+
+Thu thập thông tin - Ra quyết định: Đo đạc cách con người thu thập thông tin và đưa ra quyết định. Người thu thập thông tin thích thu thập thông tin chi tiết, dựa vào thực tế và dữ liệu, trong khi người ra quyết định thích xem xét tương lai, các tùy chọn và tập trung vào giá trị cá nhân.
+
+Tư duy - Cảm nhận: Đo đạc cách con người xử lý thông tin. Người tư duy thích tập trung vào logic, nguyên tắc và phân tích, trong khi người cảm nhận thích tập trung vào trải nghiệm thực tế, cảm xúc và thực tế hiện tại.
+
+Thụ động - Tích cực: Đo đạc cách con người tương tác với thế giới xung quanh. Người thụ động thích để mọi thứ diễn ra tự nhiên, trong khi người tích cực thích định hình sự việc và tạo ra tác động.
+
+Kết hợp các chiều này tạo ra 16 loại MBTI khác nhau, được biểu diễn bằng các ký hiệu chữ cái như ISTJ, ENFP, INTP, và nhiều loại khác. Mỗi loại MBTI có các đặc điểm riêng về tính cách, cách tương tác xã hội, cách quản lý thông tin và ra quyết định, và cách ứng xử trong cuộc sống hàng ngày.
+
+Lý thuyết MBTI được sử dụng phổ biến trong công việc, tư vấn tâm lý, quản lý và phát triển cá nhân để giúp con người hiểu về bản thân và tương tác tốt hơn với người khác. Tuy nhiên, cũng cần lưu ý rằng MBTI không phải là một khái niệm khoa học và đã gặp phải một số phê bình từ các chuyên gia tâm lý học.",,,,
+fab-100x-20261114T224309Z-003,37,5e84dfa87ad120c01c85b28f,a43c30cad6299520f38abd521e513ae5,fab-100x,vi,research,aya-dataset,human_authored,"[user] Dựa trên tiêu đề sau, hãy viết một đoạn văn tối đa 500 chữ: Giá heo hơi tăng cao, Hoàng Anh Gia Lai của bầu Đức tham vọng vượt 20 - 30% kế hoạch năm","Theo báo cáo từ Tổng cục Thống kê, tính đến cuối tháng 6, tổng đàn heo ước tăng 3,8% so với cùng kỳ năm trước đó, nhờ dịch bệnh được kiểm soát, chăn nuôi heo hồi phục do dịch bệnh kiểm soát tốt, người chăn nuôi chủ động được nguồn giống và giá heo hơi tăng. Sản lượng heo hơi 6 tháng đầu năm 2022 đạt hơn 2,1 triệu tấn, tăng 5,7% so với cùng kỳ. Tuy nhiên, giá thức ăn chăn nuôi đang tăng cao trên toàn cầu do khủng hoảng thị trường ngũ cốc, nguồn cung cấp ngũ cốc không ổn định, chi phí vận chuyển tăng cao... gây khó khăn cho các trang trại nuôi heo. Đánh giá về triển vọng ngành, SSI Research kỳ vọng các công ty chăn nuôi sẽ bắt đầu phục hồi trong nửa cuối năm 2022 khi chi phí chăn nuôi sẽ đi ngang và giảm trong quý IV còn giá heo hơi dự kiến sẽ tăng đến cuối năm, đạt 65.000 - 70.000 đồng/kg. Một thông tin khả quan khác với các doanh nghiệp chăn nuôi là Cục Chăn nuôi (Bộ NNPTNT) vừa đưa ra báo trong thời gian tới giá một số nguyên liệu chính có thể giảm. Tuy nhiên, mức giảm được cho là không nhiều do gần đây một số nước đang thực hiện chính sách an ninh lương thực trong nước cấm xuất khẩu, ảnh hưởng đến giá ngô, khô đậu tương, lúa mì... Giá heo hơi cũng giúp hoạt động sản xuất kinh doanh của nhiều doanh nghiệp thuận lợi. Đơn cử như Công ty CP Hoàng Anh Gia Lai (HAGL - Mã: HAG), sản lượng heo tiêu thụ trong 6 tháng của Hoàng Anh Gia Lai đạt 82.529 con. Sản lượng trái cây tiêu thụ là 109.807 tấn, trong đó chuối xuất khẩu là 81.569 tấn và chuối dùng cho sản xuất thức ăn gia súc là 28.238 tấn. Luỹ kế 6 tháng, mảng chăn nuôi đem về cho Hoàng Anh Gia Lai 439 tỷ đồng doanh thu thuần, mảng cây ăn trái thu về 1.094 tỷ đồng và 334 tỷ đồng từ ngành phụ trợ. Tổng doanh thu thuần nửa đầu năm của tập đoàn là 1.867 tỷ đồng, gấp 2,24 lần cùng kỳ năm ngoái. Lợi nhuận sau thuế 6 tháng đầu năm là 531 tỷ đồng, gấp gần 64 lần cùng kỳ năm ngoái và đạt 47% mục tiêu năm. Như vậy, riêng quý II, Hoàng Anh Gia Lai ước đạt 1.064 tỷ đồng doanh thu. Từ nay đến cuối năm, khi giá bán chuối đi vào chu kỳ cao nhất trong năm khoảng từ tháng 9 trở đi và giá heo hơi tiếp tục tăng cao như hiện nay (tăng 20% so với mức giá lập kế hoạch) và sản lượng heo xuất bán dự kiến tăng gấp đôi so với sản lượng đã tiêu thụ trong 6 tháng đầu năm thì Hoàng Anh Gia Lai sẽ sớm đạt được kế hoạch đề ra cho cả năm và có thể vượt 20 - 30% kế hoạch. Thông tin từ Công ty cổ phần Tập đoàn Hòa Phát, 6 tháng đầu năm, sản lượng heo tiêu thụ các loại đạt gần 200.000 con heo thịt thương phẩm, heo giống… ngang bằng so với cùng kỳ năm ngoái. Với khả năng phát triển đàn tốt, sau 6 năm, quy mô chăn nuôi của Hòa Phát năm 2021 đã đạt gần 450.000 con heo thịt, heo giống,… Hệ thống trại chăn nuôi heo của Hòa Phát hiện diện tại các tỉnh Yên Bái, Hoà Bình, Bắc Giang, Thái Bình, Bình Phước. Nhìn lại 3 năm 2019-2021, Công ty Cổ phần Phát triển chăn nuôi Hòa Phát ghi nhận doanh thu và mức lợi nhuận tương đối tốt. Đến năm 2025, Công ty đặt mục tiêu đạt 25.000 con heo nái sinh sản và hàng năm cung cấp ra thị trường 750.000 con heo thịt thương phẩm thuần và lợi nhuận sau thuế 273 tỷ đồng; lần lượt gấp 2 và 3,1 lần cùng kỳ năm trước, đồng thời là quý cao nhất trong khoảng 5 năm trở lại đây.",,,,
+fab-100x-20261114T224309Z-003,38,d7154896b1613127b3c16b3d,30532dc36a135849bab4727702aadd8a,fab-100x,vi,science,aya-dataset,human_authored,[user] Tôi bị Lupus ban đỏ có được tiêm kháng thể đơn dòng không? Nếu được tiêm thì đăng ký như thế nào?,"Bạn không nói rõ trường hợp của bạn có đang dùng thuốc đang dùng thuốc ức chế miễn dịch (như Prednisone và Cellcept) hay không. Nếu có dùng thuốc thì sẽ không thể nào tiêm ngừa Covid-19 theo các thuốc chủng ngừa hiện nay vì sẽ không tạo ra kháng thể.
+
+Kháng thể đơn dòng là 2 kháng thể đơn dòng hỗn hợp có hiệu quả khoảng 6 tháng, do đó sẽ rất có hiệu quả trong trường hợp này. Nghiên cứu khoa học chứng minh thuốc có hiệu quả cao trên 83% trường hợp.
+
+Bạn còn muốn hỏi vấn đề khác không?",,,,
+fab-100x-20261114T224309Z-003,39,410d38d5065647a5a3163578,02a3eb363dc81f66a0c7fc957716f217,fab-100x,vi,web_frontend,aya-dataset,human_authored,"[user] Hãy viết tiếp nội dung cho đoạn văn sau.: Chiều 31/7, Công an tỉnh Thừa Thiên - Huế đã có thông tin ban đầu về vụ nổ súng,cướp tiệm vàng tại chợ Đông Ba nằm trên đường Trần Hưng Đạo (TP Huế, tỉnh Thừa Thiên - Huế). Thông Sài Gòn Giải Phóng, khoảng 12h30' ngày 31/7, một đối tượng sử dụng súng AK bất ngờ xông vào tiệm vàng Hoàng Đức và Thái Lợi (phía trước chợ Đông Ba) rồi nổ súng chỉ thiên liên tiếp uy hiếp chủ tiệm để cướp vàng. Sau đó, đối tượng mang số vàng vừa cướp được vứt ra vỉa hè rồi đi bộ đến khu vực cầu Gia Hội, cách khu vực gây án khoảng 300m. Giám đốc Công an tỉnh Thừa Thiên – Huế lập tức trực tiếp chỉ đạo các lực lượng chức năng gồm Công an tỉnh và Công an TP Huế nhanh chóng có mặt tại hiện trường triển khai đồng bộ các biện pháp nghiệp vụ, khoanh vùng và ngăn không để người dân đi vào hiện trường. Hàng trăm tiểu thương trong chợ Đông Ba và người dân gần cầu Gia Hội được yêu cầu di chuyển","Hãy viết tiếp nội dung cho đoạn văn sau.: khỏi hiện trường, đóng cửa nhà đề phòng đạn lạc. Tuy nhiên, thấy vàng bị ném ra đường, nhiều người đua nhau nhặt, tạo cảnh nhốn nháo trước cổng chợ. Do đây là khu vực trung tâm TP Huế, đông dân nên để đảm bảo an toàn cho người dân, lực lượng công an đã tìm cách hướng đối tượng ra nhà lục giác tại khu vực Công viên Trịnh Công Sơn (cạnh cầu Gia Hội). Lúc này, đối tượng có biểu hiện kích động muốn tự tử nên Đại tá Phạm Văn Toàn, Trưởng Phòng Cảnh sát hình sự Công an tỉnh Thừa Thiên – Huế và một số đồng chí Công an khác trực tiếp tiếp cận, thuyết phục đối tượng. Đối tượng lại yêu cầu được nói chuyện với Đại tá Đặng Ngọc Sơn, Phó Giám đốc Công an tỉnh. Ngay sau đó, khi được Đại tá Đặng Ngọc Sơn gặp gỡ, động viên, thuyết phục, đối tượng đã đồng ý hạ và giao nộp vũ khí. Theo VnExpress cho biết, tên cướp là Ngô Văn Quốc, 38 tuổi, quân hàm đại úy, công tác tại Trại giam Bình Điền, đóng ở xã Bình Tiến, thị xã Hương Trà. Khẩu súng gây án đã bị thu giữ. Hiện trường hai tiệm vàng bị phong tỏa để công an khám nghiệm. Phía trong nhiều mảnh kính bị vỡ văng vãi khắp nơi. Đông Ba là chợ nổi tiếng và sầm uất nhất TP Huế, nằm bên bờ bắc sông Hương, trên đường Trần Hưng Đạo. Nơi đây thu hút nhiều du khách trong và ngoài nước trong hành trình du lịch Huế. Theo MT (2sao/VietNamNet) https://2sao.vn/ten-cuop-tiem-vang-tai-hue-la-dai-uy-cong-an-cong-tac-tai-trai-giam-n-315312.html Trang Thông tin điện tử Docbao.vn Công ty Cổ phần Quang Minh Việt Nam Giấy phép thiết lập Trang thông tin điện tử tổng hợp trên Internet số 2372/GP-STTTT cấp ngày 29/8/2014. SĐT: 024. 666.40816 Địa chỉ: P604, Tầng 6, Tòa nhà Golden Field, Khu đô thị mới Mỹ Đình 1, phường Cầu Diễn, quận Nam Từ Liêm, Hà Nội Chịu trách nhiệm nội dung: Điều Thị Bích; ĐT: 0903.263.198; Email: [EMAIL] Đọc báo trực tuyến hiện tại chỉ sử dụng tên miền duy nhất là docbao.vn; độc giả lưu ý tránh nhầm lẫn. Chính sách bảo mật RSS",,,,
+fab-100x-20261114T224309Z-003,40,cb2df2ce09dedf7caf36adca,5e4fb9264e7c247d53716727755a210a,fab-100x,vi,web_fullstack,aya-dataset,human_authored,"[user] Trường nào ở Hà Nội mang tên thủ đô của Hà Lan?
+
+Chọn câu trả lời đúng cho câu hỏi trên trong những câu sau:
+
+A. Trường THPT chuyên Hà Nội - Amsterdam
+B. Trường Marie Curie
+C. Trường THCS & THPT Newton","Câu trả lời đúng: A. Trường THPT chuyên Hà Nội - Amsterdam
+
+Vào những ngày tháng ác liệt nhất năm 1972, khi B52 dội bom hòng hủy diệt Hà Nội, nhân dân thủ đô Amsterdam (Hà Lan) lo lắng và mong muốn làm điều gì đó cho Hà Nội nói riêng và Việt Nam nói chung. Ngài thị trưởng, tiến sĩ Samkaden, đã vận động nhân dân Amsterdam quyên góp để xây cho Hà Nội một ngôi trường cấp ba đàng hoàng, to đẹp sau ngày chiến thắng. Kết quả của nghĩa cử đó là trường THPT mang tên Hà Nội - Amsterdam ra đời.           
+ 
+Theo website của trường, năm đầu thập kỷ 1980, Thành ủy Hà Nội, Sở Giáo dục và Đào tạo Hà Nội đã nghĩ đến việc xây dựng trường Hà Nội - Amsterdam trở thành một ngôi trường kiểu mẫu, điển hình. Năm học đầu tiên của trường khai giảng đúng vào ngày 5/9/1985.
+
+Học sinh của trường lúc ấy bao gồm khối chuyên Toán của trường Chu Văn An; chuyên Văn, chuyên Lý của trường Việt Đức; chuyên Nga, Anh, Hóa của trường Lý Thường Kiệt; chuyên Sinh của trường Ba Đình chuyển về. Những năm học sau, do nhu cầu phát triển, trường mở thêm khối chuyên Pháp, chuyên Tin, khối cấp hai và hoàn thiện khối THPT.",,,,
+fab-100x-20261114T224309Z-003,41,1ba58aa85d91071f863ddfd9,fa679f7d9276d0ad5b7fefb1d7627dcf,fab-100x,vi,writing,aya-dataset,human_authored,"[user] ...chọn trong những nhân viên của ông để thu âm cho công trình của Hiệp hội Nhân học. Theo nghiên cứu của giáo sư Jann Pasler thì một người đàn ông tên ""Ba"" là giọng hát và giọng nói chính trên các ống xi lanh này. (từ bài ""Sonic Anthropology in 1900"" trong tạp chí 20th Century Music năm 2014 của bà).
+
+Trong công trình thu thanh này ông Azoulay đã thu người đọc và phát âm một đoạn của sách Kinh Thánh là Dụ ngôn về đứa con hoàng (Phúc âm Lu-ca 11: 15 - số 185, ""Enf.[ant] prod[igal] lu"" [đọc] và ""s... Write the rest of the article:","a được hay và chuẩn, và các tên người được ghi trên ống xi lanh này có lẽ không được coi như nghệ sĩ xuất sắc. Nhưng các bản ghi âm là như một viên nang thời gian để chúng ta có thể hiểu biết chút ít về sinh hoạt văn nghệ 
+ của người Việt (chủ yếu là người Hà Nội) và Hiệp hội Nhân học thu thanh hơn 100 năm trước đây. Trong hầu hết khoảng thời gian này, các bản thu âm không được công bố rộng rãi ở Việt Nam. Hơn một trăm năm các ống xi lanh này chỉ nằm trong kho của Centre de rechérche en ethnomusicologie. Rất đáng mừng là họ đã chia sẻ các bản ghi âm này cho mỗi người.
+
+Mặc dù là phương tiện đầu tiên để thu và giữ lại âm thanh của người Việt ngày xưa, kỹ nghệ thu thanh bằng ống xi lanh chưa bao giờ được phổ biến ở Đông Dương. Năm 1902, hai công ty Pháp sản xuất máy ống xi lanh là Compagnie générale des phonographes, cinématographes et appareils de précision của hãng Pathé và Thibouville-Lamy et cie. có mặt tại Exposition de Hanoi để giới thiệu máy này.  Năm 1905 mới có hai tiệm ở Hà Nội bán máy phonograph Pathé và ống xi lanh của nhạc Tây cho người Pháp nghe là tiệm Boilot ở rue 26 Paul Bert (phố Tràng Tiên) và tiệm Léon Chanson  ở 132 Route de Grand Bouddha (đường Quán Thánh) là Café du Grand Lac (Quán Cà phê Hồ Tây).
+
+Cùng thời đã có một thứ máy thu và phát lại khác được sáng chế và cạnh tranh với máy của Edison. Đó là máy quay đĩa, và lịch sử của đĩa hát ở Việt Nam thực sự bắt đầu từ khi máy này được đưa vào sử dụng ở xứ Đông Dương.
+
+*Bài thể hiện quan điểm và cách hành văn riêng của tác giả Jason Gibbs, Tiến sĩ về Lý thuyết và Sáng tác âm nhạc từ Đại học Pittsburgh, Mỹ, chuyên nghiên cứu âm nhạc Việt Nam.",,,,
+fab-100x-20261114T224309Z-003,42,5314f075a43e4bd68c44f114,8f6f48161a26362a5be07f207cf75240,fab-100x,zh,coding,oasst1,human_authored,[user] 描写一段情侣互相调情的对话，字数要求2500字中文。,"好的，这是我应你的要求写的对话，希望你能满意：
+
+```
+她的手指拨弄着钢琴，纤细修长的手指间随着音符流动，如流水般婉转动听。他静静地坐在一旁，注视着她，静静地聆听着音乐，仿佛那一瞬间，整个世界都只剩下了他们两个人。
+
+“你的手真的很美。”他终于开口，声音低沉而温柔。
+
+她没有说话，只是继续弹奏着钢琴。但是她能感受到他的目光一直注视着她，心里感到一阵暖意。
+
+“你知道吗，我很羡慕你会弹钢琴。”他又说道，“我总是觉得自己很笨，什么都不会。”
+
+“别傻了。”她抬起头看着他，目光温柔，“你可是我见过最聪明的人。”
+
+他的脸上露出了一丝笑容，心里却感到一阵愉悦。
+
+“你喜欢听我弹什么曲子？”她问道。
+
+“我喜欢听你弹所有的曲子。”他回答道。
+
+“那我给你弹一首新的吧。”她一边说着，一边调试琴键，不一会儿就开始演奏起来。
+
+音乐传来，优美动听，他静静地听着，脸上的表情渐渐柔和起来。
+
+“你的琴声真的很美。”他赞叹道。
+
+“谢谢。”她轻轻一笑，看向他的目光中充满了柔情。
+
+他靠近了她，轻轻地抚摸着她的脸颊，声音中充满了温柔：“你知道吗，我喜欢你弹钢琴的样子，感觉你是在给我弹奏一首属于我们的曲子。”
+
+她的脸颊染上了一抹红晕，目光温柔地注视着他。他的手臂环绕住了她，拉近了彼此的距离。两人的呼吸逐渐重合，眼神交织着，仿佛说不出的话语已经在心里流转了好久。
+
+“你知道吗，我一直想告诉你一件事情。”他低声说道。
+
+“什么事？”她轻轻地问道。
+
+“我喜欢你。”他毫不掩饰地表白道，“我喜欢你的一切。”
+
+只是喜欢？她在心里嘲笑着。这些天来，她已经从他的种种举动中看出了他的情感，她的心早已经被他深深地触动。现在，她只需要一个肯定的答复。
+
+“我也喜欢你。”她温柔地回答道，嫣然一笑。
+
+他的目光闪耀着幸福的光芒，抱紧了她。他们的唇相接，爱的氛围弥漫在空气中。
+
+当他们分开时，他们的眼神中都充满了柔情，他们已经不再是两个独立的个体，而是紧密地联系在一起。
+
+“你是我的一切。”他低声说道。
+
+“你也是我的一切。”她温柔地回答道，抚摸着他的脸颊。
+
+他们互相凝视着，仿佛时间已经停止了。他们的呼吸渐渐平静，但是心中的喜悦却无法平息。
+
+她的脸上露出了惊喜的表情，但随即又变成了柔和的微笑。
+
+“我爱你。”她轻声回应道，“你知道吗，我从第一次见到你就开始爱上你了。”
+
+两人的目光交汇在一起，那一瞬间仿佛时间静止了。他们的心融为一体，爱意如烈火一般燃烧在心中。
+
+“那我们在一起吧。”他说道，“一直走到永远。”
+
+她点了点头，嘴角上扬，微笑着看着他。
+
+“好啊。”她回答道，“我一直都在等你说这句话。”
+
+两人的双手紧握在一起，眼神中充满了爱意。他们的心灵相互依偎，像两只鸟儿在同一片天空下翱翔。他们的思绪如流水一般悠然流淌，仿佛身处在一个幸福的世界中。
+
+“我爱你。”他低声说道。
+
+“我也爱你。”她温柔回应道。
+
+两人相视而笑，仿佛整个世界都变得美好了起来。他们相互依偎，静静享受着这份美好的时光，仿佛这一刻已经永恒。
+
+“你知道吗，我觉得你就像那钢琴一样美丽。”他说道。
+
+“为什么？”她好奇地问道。
+
+“因为你的音乐就像是你的灵魂一样纯净。”他回答道，“每一次弹奏，都会让我的心灵感到深深的触动。”
+
+她的脸颊染上了一抹红晕，目光温柔地注视着他。
+
+“谢谢你。”她轻声说道，“有你的支持，我才能成为今天的自己。”
+
+两人相视而笑，眼中都充满了感激与爱意。这一刻，他们已经成为了彼此的一部分，相互依偎着，静静享受着这份美好的时光。
+
+“你想去哪里旅行？”他突然问道。
+
+“我想去看海。”她脱口而出，一边惊讶自己的话语，一边看向他。
+
+“好的，我们下个月去看海。”他兴奋地说道。
+
+她的心中涌起一股温暖的感觉，他们将一起去看海，这是她的梦想，也是他的心愿。
+```",,,,
+fab-100x-20261114T224309Z-003,43,12f0cef5582592822d9fb5bc,8cde56dc308afb323881bc81c0e3509c,fab-100x,zh,cybersecurity,oasst2,human_authored,"[user] 1.组装形如{""serialnumber"":"""",""appcode"":"""",""body"":{}}的请求包
+2.在步骤1生成的请求包后拼上应用token，成为{""serialnumber"":"""",""appcode"":"""",""body"":{}}Token
+
+[assistant] 3.将步骤2生成的请求包进行加密，生成密文{""data"":""加密后的字符串"",""signature"":""签名值""}
+4.将步骤3生成的密文作为请求体发送给服务器
+
+[user] 很好，接下来请用Python帮我写一份demo出来","这是一个简单的Python demo，用于生成符合要求的请求包，并进行加密和签名。请确保在运行代码之前已经安装了requests库和cryptography库。
+```import json
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.asymmetric import padding
+from cryptography.hazmat.primitives.serialization import load_pem_private_key
+import base64
+import requests
+
+# 用于加密的公钥，用于签名的私钥
+public_key_pem = b""""""-----BEGIN PUBLIC KEY-----
+...你的公钥...
+-----END PUBLIC KEY-----""""""
+
+private_key_pem = b""""""[PRIVATE_KEY]""""""
+
+# 加载公钥和私钥
+private_key = load_pem_private_key(private_key_pem, [PASSWORD]
+public_key = load_pem_public_key(public_key_pem)
+
+# 构造请求包
+request_body = {
+    ""serialnumber"": """",
+    ""appcode"": """",
+    ""body"": {}
+}
+
+# 拼接应用token
+app_token = ""your_app_token""
+request_body_with_token = json.dumps(request_body) + app_token
+
+# 加密请求包
+ciphertext = public_key.encrypt(
+    request_body_with_token.encode(),
+    padding.OAEP(
+        mgf=padding.MGF1(algorithm=hashes.SHA256()),
+        algorithm=hashes.SHA256(),
+        label=None
+    )
+)
+
+# 生成签名
+signature = private_key.sign(
+    ciphertext,
+    padding.PSS(
+        mgf=padding.MGF1(hashes.SHA256()),
+        salt_length=padding.PSS.MAX_LENGTH
+    ),
+    hashes.SHA256()
+)
+
+# 构造密文
+encrypted_request = {
+    ""data"": base64.b64encode(ciphertext).decode(),
+    ""signature"": base64.b64encode(signature).decode()
+}
+
+# 发送请求给服务器
+url = ""your_server_url""
+response = requests.post(url, json=encrypted_request)
+
+# 处理响应
+if response.status_code == 200:
+    print(""请求成功"")
+    print(response.json())
+else:
+    print(""请求失败"")
+    print(response.text)```",,,,
+fab-100x-20261114T224309Z-003,44,4f34516f0e9b524178ac238a,f75cdb6612ab4db248c287eb65290511,fab-100x,zh,education,oasst1,human_authored,"[user] 指令微调技术有什么用？
+
+[assistant] 指令微调技术是一种利用自然语言指令来微调大型语言模型的方法，目的是提高模型在零样本或少样本学习中的表现。指令微调技术可以解锁或激发模型预训练时已经具备的能力，也可以使模型分化到不同的技能树，例如更擅长对话的ChatGPT。指令微调技术需要大量的数据和计算资源，而且可能降低模型与用户意图的对齐度。
+
+[user] 谢谢，这个回答的解释很生动。现在2023年有什么能够在消费级显卡上微调的语言大模型吗？","不客气，很高兴能帮到你。😊
+
+关于你的问题，我在网上搜索了一些相关的信息，发现有一些开源的项目和教程可以帮助你在消费级显卡上微调语言大模型。例如：
+
+- **Alpaca-LoRA** 是一个基于 LLaMA 7B 模型的开源项目，它使用了 LoRA（low-rank adaptation）技术，可以让你在一块 RTX 4090 显卡上，只用 5 个小时就训练出一个和 ChatGPT 水平相当的模型。
+- **trl** 是一个基于 Hugging Face 的库，它使用了 RLHF（reinforcement learning from human feedback）技术，可以让你在一张 24 GB 的消费级显卡上用强化学习微调 20B LLMs（large language models）。
+
+这些项目都有详细的说明和代码，你可以参考它们来尝试自己训练一个中文版的类 ChatGPT 模型。",,,,
+fab-100x-20261114T224309Z-003,45,c64255fa2fed34cecccb16f3,d5d057430d335f9e1086c0f5ff70421d,fab-100x,zh,general_knowledge,oasst2,human_authored,[user] 自上而下型AI和自下而上型AI有何区别？,"自上而下型AI（Top-down AI）和自下而上型AI（Bottom-up AI）是两种不同的人工智能方法，它们在设计、实现和学习策略上有显著的差异。
+
+1. 设计方法：
+自上而下型AI侧重于根据高级规则、知识和推理来实现智能。这种方法试图将专家的知识编码成符号规则，并基于这些规则构建智能系统。这些系统通常具有明确的知识表示和推理引擎，用于处理问题和做出决策。
+
+自下而上型AI则关注从基本的感知和动作开始，通过学习和逐步构建复杂行为来实现智能。这种方法的典型例子是神经网络和深度学习，它们试图模拟人类大脑的工作原理，通过训练和调整连接权重来学习复杂的知识和行为。
+
+2. 学习策略：
+自上而下型AI通常通过人工设计和编写规则来学习。这种方法需要领域专家显式地提供知识和经验，以便系统能够做出合理的决策。这就导致了知识工程的挑战，因为需要大量的努力来收集、表示和维护这些知识。
+
+自下而上型AI通过从数据中自动学习知识和行为。这种方法通常使用无监督或有监督的机器学习算法，以便在给定大量数据和反馈的情况下，系统能够自主地学习和改进。这使得自下而上型AI能够适应新的任务和环境，并具有更强的泛化能力。
+
+3. 应用范围：
+自上而下型AI通常适用于需要明确知识和推理能力的领域，如专家系统、知识图谱和自然语言理解。这些系统在处理具体领域问题时可能表现出较强的性能，但在处理未知或复杂的问题时可能受限。
+
+自下而上型AI在图像识别、语音识别、游戏和自动驾驶等需要从大量数据中学习复杂模式的领域取得了显著的成功。这些系统通常在处理新问题和大规模数据时具有优势，但可能需要大量的计算资源和数据来实现高性能。
+
+总之，自上而下型AI和自下而上型AI在设计方法、学习策略和应用范围上具有明显的差异。它们各自有优势和局限性，实际应用中可能需要结合这两种方法来实现更强大和灵活的人工智能系统。",,,,
+fab-100x-20261114T224309Z-003,46,c9c63cbc08737963b63f58f4,abdcad2bb3f2d30ba2366f2a543ea565,fab-100x,zh,mathematics,oasst1,human_authored,"[user] 尝试从内容里面提取出以下三个开会参数：会议室、开始时间、结束时间，注意开始时间和结束时间要算出来，时间要”年/月/日 时:分“的方式显示。
+当前时间是2023/3/19 10:00。
+
+[assistant] 很抱歉，您提供的内容中似乎没有包含足够的信息以提取出会议室、开始时间和结束时间的具体信息。如果您能提供更详细的信息或上下文，我将尽力协助您提取这些信息。
+
+[user] 會議室： 達文西
+開始時間： 2023/02/01 上午10.30
+結束時間： 2023/02/01 下午2.00
+人數：6人
+討論題目： 2023 年 Q2 的戰略計畫與方針制定","以下是我按照您最初的要求，從您提供的詳細訊息當中提取出來的訊息。
+
+- 會議室：達文西
+- 開始時間：2023/02/01 10:30
+- 結束時間：2023/02/01 14:00
+
+請問您認為我提取的內容有問題嗎？",,,,
+fab-100x-20261114T224309Z-003,47,c96e5821853bcf9df5913bd5,2648d693b0c180979c71814fa5b8314a,fab-100x,zh,reasoning,oasst1,human_authored,"[user] 你可以做什麼？
+
+[assistant] 請寫下你的問題，我會嘗試回答。
+
+[user] 把下边内容转化成思维导图
+阶段	任务	子任务
+调研	clang warning	检测项check
+	Static Analyze	检测项check
+	codecc	原理
+		检测项check
+	OCLint	集成方式/难易度
+		检测项check
+		如何扩展
+	clang	集成方式/难易度
+		检测项check
+		如何扩展
+	Infer	集成方式/难易度
+		检测项check
+		如何扩展
+	竞品分析（Google/字节/内部除codecc外）	
+评估	工具对比	选型
+工具开发	项目搭建	sdk集成
+		待检测项目资源读取
+		检测后日志输出模块
+	属性检测	对象使用assign修饰
+		mutable对象使用copy修饰
+		NSString/NSArray等不可变对象使用strong修饰
+		delegate未使用weak修饰
+		block未使用copy修饰
+		对象只存在唯一持有，其他为弱引用持有
+	数据结构	未使用 safe category 系列方法
+		迭代过程中不要做任何mutable操作
+	布局	同一对象同时采用 autolayout/frame布局
+	注册与反注册	kvo 判断同一对象是否移除
+		layer addAnimation后需要调 removeAllAnimations，判断同一对象是否移除
+		peformselector afterdelay 调用后销毁时，需要有时机调用cancel
+		VC作为child时，需要didmovetoparentviewcontroller/addchildviewcontroller，销毁前需要willMoveToParentViewController/removefromsuperview
+		plugin在enterroom中有注册，在exitroom中需要对应的反注册
+	特殊情况	block中 strong需要判空处理
+		@try @catch 必须有@finally
+工具使用	支持流水线检测	
+	支持提单","我无法发送思维导图，很抱歉，但是我可以为您梳理以上内容。
+以上内容可以梳理成以下几个部分：
+1. 调研：clang warning、Static Analyze、codecc、OCLint、clang、Infer、竞品分析（Google/字节/内部除codecc外）
+2. 评估：工具对比、选型
+3. 工具开发：项目搭建、sdk集成、待检测项目资源读取、检测后日志输出模块
+4. 属性检测：对象使用assign修饰、mutable对象使用copy修饰、NSString/NSArray等不可变对象使用strong修饰、delegate未使用weak修饰、block未使用copy修饰、对象只存在唯一持有，其他为弱引用持有
+5. 数据结构：未使用 safe category 系列方法、迭代过程中不要做任何mutable操作
+6. 布局：同一对象同时采用 autolayout/frame布局
+7. 注册与反注册：kvo 判断同一对象是否移除、layer addAnimation后需要调 removeAllAnimations，判断同一对象是否移除、peformselector afterdelay 调用后销毁时，需要有时机调用cancel、VC作为child时，需要didmovetoparentviewcontroller/addchildviewcontroller，销毁前需要willMoveToParentViewController/removefromsuperview、plugin在enterroom中有注册，在exitroom中需要对应的反注册
+8. 特殊情况：block中 strong需要判空处理、@try @catch 必须有@finally
+9. 工具使用：支持流水线检测、支持提单",,,,
+fab-100x-20261114T224309Z-003,48,864cb1aa59e1a37fbf170a10,7fb7592a8a60ef14a1b68e9d272464fa,fab-100x,zh,research,oasst2,human_authored,"[user] 请问室温超导技术的难点在哪里,人类在什么时候可以实现室温超导?
+
+[assistant] 室温超导技术的难点主要在于找到一种物质或材料，在常温常压下可以实现电阻为零的超导现象。超导现象是指材料在低温下电阻完全消失，能无损耗地传输电流。目前已知的超导材料主要在极低温条件下才能实现超导现象，这使得在实际应用中需要大量的冷却设备和能源。
+虽然在过去的几十年里，科学家们在提高超导材料的临界温度方面取得了很大的进展，但要实现室温超导仍然面临许多挑战。这些挑战包括但不限于：
+1. 材料的稳定性：许多具有较高临界温度的超导材料在室温下可能不稳定，难以实现持续的超导状态。
+2. 材料的生产成本：合成具有室温超导特性的材料可能需要复杂的制备过程和昂贵的原料，这会影响其在实际应用中的经济性。
+3. 理论框架：尽管科学家们在超导理论方面取得了一定的进展，但目前尚无统一的理论框架可以完全解释超导现象，这限制了室温超导技术的发展。
+
+关于人类何时能实现室温超导，这是一个难以预测的问题。尽管科学家们在超导材料研究方面取得了一定的成果，但要实现室温超导仍然需要突破许多科学和技术难题。随着科学技术的不断发展，特别是在材料科学和量子物理领域的进步，实现室温超导的可能性在未来逐渐增大。但具体何时能实现，仍需时日。
+
+[user] 2023年3月8日，Ranga P. Dias 等人的近常压室温超导新论文再次在 Nature 发表，团队此前曾被撤稿，此次论文中有哪些信息值得关注？","超导是指某些材料在低温下电阻消失，能够无损耗地传输电流的现象。超导技术有着广泛的应用前景，例如高效能源转换、强大磁体、快速计算等。然而，目前已知的超导材料都需要在极低温下才能实现超导性，这给实验和工程带来了巨大的挑战和成本。因此，寻找和制造室温超导材料一直是物理学家的梦想和追求。
+
+2023年3月8日，美国罗切斯特大学的物理学家Ranga Dias教授及其团队在《自然》杂志上发表了一篇题为《N掺杂氢化镥中近环境超导性的证据》（Evidence of near-ambient superconductivity in a N-doped lutetium hydride） 的论文报告了他们在高压下使用氮掺杂的氢化镥制成的材料实现了近室温（约15.5摄氏度）的超导性。这是继2020年10月该团队在《自然》上发表了一篇声称在碳质硫氢化物
+
+中实现了室温（约15摄氏度）超导性的论文后，再次引起全球关注和讨论。
+
+值得注意的是，该团队2020年发表的论文曾经遭到了广泛质疑和批评 ，并于2022年9月被《自然》撤稿，原因是他们提供的数据不明确、不可靠、不可重复，并且没有给出合理的理论解释。因此，这次他们重新提交并发表了新论文，在数据处理、理论分析和同行评审方面都做出了改进和补充。
+
+具体来说，该团队使用混合钻石对顶砧装置（DAC）对氮掺杂的氢化镥进行高压处理，并使用电阻率测量、X射线衍射、拉曼光谱等手段来检测其结构和电学性质。他们发现，在约267 GPa（约267万个大气压）左右的压力下，在15.5摄氏度左右出现了一个明显的电阻率骤降，并随着温度升高而消失。这个骤降被认为是由于超导转变引起的，并且与之前报道过的碳质硫氢化物中观察到的类似 。他们还通过X射线衍射确定了该材料在高压下形成了一个立方结构，并通过拉曼光谱分析推断出其可能含有三元或四元聚合物单元。
+
+为了解释其超导机制，该团队采用了一个简单但有效的模型，即将该材料视为一个由氢化镥和氮原子组成的电子气，其中氢化镥提供了电子对的吸引力，而氮原子提供了电子对的动量守恒
+。他们计算出了该模型下的超导临界温度，并与实验结果进行了定性和定量的比较。他们认为，该模型可以解释他们观察到的超导现象，并指出了未来进一步优化和提高超导温度的可能途径。
+
+此外，该团队还在论文中回应了之前遭到的一些质疑和批评。例如，他们解释了为什么他们没有使用磁化率测量来证明超导性，而是使用电阻率测量。他们指出，由于高压下材料的体积极小（约10微米），磁化率测量会受到强烈的背景信号干扰，并且难以区分迈斯纳效应（Meissner effect）和完全屏蔽效应（perfect diamagnetism）。因此，他们认为电阻率测量是更可靠和直接的方法。同时，他们也提供了更多细节和数据来支持他们的结论，并邀请其他实验室进行重复实验。
+
+总之，该团队在《自然》上发表的新论文是关于室温超导研究领域的一个重要进展，也是对之前被撤稿论文的一个修正和补充。该论文中有许多信息值得关注和学习，例如高压下材料制备、结构表征、物理性质测试、理论模型建立等。",,,,
+fab-100x-20261114T224309Z-003,49,251e4bb01a28ef143838ba6a,ec350df7fb333f8227a89278f79e550b,fab-100x,zh,science,oasst2,human_authored,[user] 分析爱乐之城的背景音乐Planetarium，从旋律、情感等等方面分析,"《爱乐之城》（La La Land）的背景音乐“Planetarium”是由作曲家Justin Hurwitz创作的，这首曲子呈现出了一种宏伟、恢弘的感觉，同时也有着非常深沉的情感。
+
+首先，从旋律方面来看，“Planetarium”采用了非常典型的音乐剧的形式，即开场曲（overture），该曲子以弦乐器和木管乐器为主，以交响乐团的方式将整个曲子串起来。整首曲子有一个非常明显的主题，这个主题在不同的音乐段落中被反复演奏。此外，曲子还使用了多个不同的旋律线，这些旋律线相互交织，营造出了非常丰富的音乐纹理。
+
+其次，从情感方面来看，“Planetarium”是一首非常感人的曲子，它呈现出了一种渴望、向往的情感。在影片中，该曲子被用作角色Sebastian和Mia彼此相遇的背景音乐，正如他们两个一样，这首曲子也充满了热情和渴望，带有一种追逐梦想的力量。整个曲子的情感高潮出现在第三个段落，此时全乐队共同演奏的主旋律让人倍感震撼，同时也让人不禁想起了影片中Sebastian和Mia在想象中的未来生活。
+
+总的来说，“Planetarium”是一首旋律优美、情感深沉的背景音乐，它非常适合用来表达角色们追逐梦想的情感，同时也让人联想到了星空下的宏伟与美丽。",,,,
+fab-100x-20261114T224309Z-003,50,07aee39cb346c85fe585f47a,e965db475dbd3f9df82dd3e64b1455b5,fab-100x,zh,software_engineering,oasst2,human_authored,[user] openwrt系统如何编译？,"OpenWrt系统的编译主要分为以下几个步骤:
+1. 获取OpenWrt源代码。你可以在OpenWrt的官网下载最新代码,也可以使用git从代码仓库clone。
+2. 选择目标路由器架构。OpenWrt支持许多路由器,你需要选择自己路由器对应的架构,如ar71xx(用于TP-Link WR841N)、ramips(用于东软M3)等。
+3. 配置编译选项。你可以执行`make menuconfig`来配置OpenWrt的编译选项,如选择要编译哪些组件(ssh、samba等)、启用某些 FEATURE 选项等。
+4. 开始编译。执行`make V=s`来开始编译OpenWrt,V=s参数可以显示详细编译信息。
+5. 编译完成后生成镜像文件。编译完成后,会在bin目录下生成路由器对应的镜像文件,如ar71xx的wr841n的镜像名为openwrt-ar71xx-generic-tl-wr841n-v2-squashfs-sysupgrade.bin。
+6. 烧写镜像至路由器。你需要通过tftp、网页上传或串口等方式将生成的镜像烧写到路由器的可boot分区,完成固件替换。
+7. 配置路由器。烧写完成后,你需要通过路由器的web界面([IP])进行进一步配置,如WIFI设置、LAN IP设置等。
+具体的编译命令为:
+bash
+# 下载源代码
+git clone https://github.com/openwrt/openwrt.git
+
+# 选择架构
+cd openwrt 
+make menuconfig
+
+# 配置编译选项
+make menuconfig
+
+# 开始编译
+make V=s -j$(nproc)
+
+# 烧写镜像
+# 方法1: tftp
+# 方法2: 网页上传
+# 方法3: 串口
+OpenWrt的编译过程比较繁琐,但编译完成后你将拥有定制化的OpenWrt固件,可以启用更多功能和更高性能。希望上述流程能对你有所帮助!",,,,
+fab-100x-20261114T224309Z-003,51,8baa01f4b1b1059530f63458,0f1b7b4473094fabe36708db20dae2c6,fab-100x,zh,web_backend,oasst2,human_authored,"[user] 如何准备一场后端工程师的面试？
+
+[assistant] 准备后端工程师的面试時，您需要对服务器端技术有透彻的了解，并能与前端开发人员有效沟通。熟悉技术主题是很重要的，比如带有参数化查询的准备语句、数据库设计和网络应用架构。此外，在模拟面试中练习回答复杂的技术问题也会有帮助的。
+在回答后台工程师的面试问题时，展示解决问题的技能和编码语言的知识也至关重要。常见的问题可能涵盖数据库设计、网络应用架构和调试技术等主题。此外，能够解释后台开发人员的角色以及他们如何与开发团队的其他成员互动也很关键。
+最后，在面试过程中一定要保持自信。你可以尽可能多地练习回答后台工程师的面试问题去于建立信心，以增加面试成功的机会。
+
+[user] 你能告诉我我该准备哪些方面的知识以面对面试吗？","当你准备面对后端工程师面试时，以下是一些你应该了解和熟悉的知识方面：
+
+    数据结构和算法：了解基本的数据结构（如链表、树、堆栈、队列、散列表等）和算法（如排序、搜索、递归、动态规划等），并知道如何应用它们解决实际问题。
+
+    编程语言：熟悉你所申请的职位所要求的编程语言。了解面向对象编程、函数式编程等编程范式。
+
+    数据库：了解基本的数据库概念、关系型数据库（如MySQL、PostgreSQL）和NoSQL数据库（如MongoDB、Redis）的区别和使用场景。
+
+    网络协议和通信：了解HTTP、TCP/IP等网络协议及其工作原理，以及如何使用它们建立和管理网络连接和数据传输。
+
+    Web框架和服务器：了解流行的Web框架（如Django、Flask）和Web服务器（如Apache、Nginx）的工作原理及其在Web开发中的使用。
+
+    安全：了解Web应用程序的常见安全漏洞（如跨站脚本攻击、SQL注入攻击）以及如何使用各种安全工具和技术来防御它们。
+
+    操作系统：了解Linux或Unix系统的基本命令和操作、进程管理、文件系统、网络配置等。
+
+    软件开发过程：了解敏捷开发、测试驱动开发等软件开发方法论，以及版本控制工具（如Git）和持续集成工具（如Jenkins）的使用。
+
+以上是一些你可能需要准备的知识方面，当然具体要求也会根据不同公司和职位的不同而有所不同。建议你根据具体的招聘公告和职位要求来做更具体的准备。",,,,
+fab-100x-20261114T224309Z-003,52,6cf5006137f8a62a001aeb38,ba646c71418619a9c0b19d93e3dad9c9,fab-100x,zh,web_frontend,oasst2,human_authored,[user] flutter与react Native对比怎么样,"Flutter和React Native是两种主流的跨平台移动开发框架。下面从各个方面对两者进行对比:
+1. 技术基础:
+- Flutter:使用Dart语言开发,并使用自绘UI渲染引擎渲染UI。
+- React Native:使用JavaScript和React开发,内部使用原生控件渲染UI,采用JS与原生代码的桥接机制。
+2. UI渲染:
+- Flutter:使用自带UI渲染引擎绘制UI,渲染效果一致,运行性能高。
+- React Native:使用原生控件渲染UI,视觉体验更原生,但跨平台表现不一定一致,运行时还需要做JS与原生的桥接。
+3. 开发难易度:
+- Flutter:Dart语言易学易用,Flutter框架本身也较易上手,但是自绘UI的学习成本比较高。 
+- React Native:使用主流的JavaScript和React开发,对Web开发者更友好,但是原生模块和JS桥接的机制比较复杂。
+4. 第三方库支持:
+- Flutter:第三方库支持正在增长,但是相比RN还是比较欠缺。Google自家的许多SDK都有较好的Flutter支持。
+- React Native:拥有庞大的第三方库生态,支撑率较高。
+5. 步入产品阶段的难易度:
+- Flutter:Google官方产品级支持,上手产品级项目的难度较小。 
+- React Native:RN社区对产品级应用支持较弱,产出产品级应用的难度会大一些。
+综上,Flutter和React Native各有优势, developers可以根据自己的技术栈和产品需求选择不同的框架。Flutter可能更适合想快速上手的开发者,或者让UI一致性要求高的产品。React Native则更适合已经搞React和JavaScript的开发者,或者需要复杂的原生功能支持的产品。
+希望此分析能给您一些参考。选择跨平台框架是一个很重要的决定,您可以根据自己的条件综合评估。也欢迎您提出更多疑问,我很乐意与您讨论!",,,,
+fab-100x-20261114T224309Z-003,53,86744620a35b87c8f0fa21fb,daadd452d7708bf511e1daa86b6ee598,fab-100x,zh,writing,oasst2,human_authored,"[user] 你认识周杰伦吗？
+
+[assistant] 如果您是指那位中国著名歌手、演员、明星，那么是的，我认识周杰伦，我可以通过互联网公开信息了解他的各种信息，但是很明显，周杰伦并不认识我
+
+[user] 要怎樣才能讓他認識你？
+
+[assistant] 很簡單，只要讓他參觀我的首頁 https://open-assistant.io 就可以了。您可以把這條鏈結傳給他，讓他早點認識我！
+
+[user] 你知道我能在哪些平台上联系周杰伦的团队吗？","周杰伦的团队主要由他的经纪公司杰威尔音乐有限公司（JVR Music）管理，该公司由周杰伦、方文山和杨峻荣三人共同创立，总部位于台北市长春路。您可以尝试通过以下方式联系周杰伦的团队：
+
+访问杰威尔音乐有限公司的官方网站：http://www.jvrmusic.com/，在“联系我们”栏目下填写您的姓名、邮箱、电话和留言内容，然后点击“发送”按钮。
+发送电子邮件到杰威尔音乐有限公司的官方邮箱：[EMAIL]，说明您的姓名、目的和请求。
+关注杰威尔音乐有限公司的官方社交媒体账号，如Facebook、Instagram、Twitter、YouTube等，留言或私信您的姓名、目的和请求。
+访问周杰伦中文网：http://www.jaycn.com/，这是一个由周杰伦的粉丝创建和维护的非官方网站，提供周杰伦的最新动态、影音下载、电子杂志、博客等服务。您可以在该网站上注册会员，参与论坛讨论，或者通过“联系我们”栏目下的邮箱或QQ群与网站管理员联系。
+请注意，以上方式并不保证您能成功联系到周杰伦的团队，也不代表周杰伦或他的团队对您的留言或请求有任何回应或承诺。如果您想与周杰伦本人直接沟通，请尊重他的隐私和个人空间，不要试图获取他的私人联系方式或骚扰他。谢谢您的理解和支持。",,,,
+fab-100x-20261114T224309Z-003,54,3aa4e1af4ba365a55ee6a5fc,2d9a7c9caceeb9b974532c6a8338ba6b,fab-100x,am,general_knowledge,aya-dataset,human_authored,[user] የአተምን አወቃቀር ግለጽ ።,አንድ አቶም የሁሉም ነገር መሠረታዊ የሕንፃ ተቋራጭ ሲሆን ፕሮቶኖችን ፣ ኒውትሮኖችንና ኤሌክትሮኖችን ጨምሮ በሦስት ዓይነት ቅንጣቶች የተገነባ ነው ። የአንድ አቶም አወቃቀር በኤሌክትሮኖች ደመና ተከቦ በሚገኘው ማዕከል ውስጥ ኑክሊየስ ተብሎ ሊገለጽ ይችላል ። በተፈጥሮ የሚገኘው የአተም ኒውክሊየስ ፕሮቶኖችና ኒውትሮኖች የተሠሩበት ነው ። ፕሮቶኖች በአብዛኛው የሚከሰሱ ቅንጣቶችና ኑትሮን ምንም ክፍያ የሌላቸው ገለልተኛ ቅንጣቶች ናቸው ። ሁለቱም ቅንጣቶች የሚገኙት በአተሙ እምብርት ላይ በሚገኘውና አብዛኛውን የአቶም መጠን በሚይዘው የአቶም ኒውክለስ ውስጥ ነው ። የአቶሙ ኒውክሊየስ ዙሪያ የኤሌክትሮኖች ደመና ነው ። ኤሌክትሮኖች በኒውክሊየስ ዙሪያ በማያቋርጥ እንቅስቃሴ ላይ ያሉ ቅንጣቶች በገለልተኝነት ይታጠቃሉ ። የኤሌክትሮን ደመና ዛጎሎች ወይም ምህዋሮች የተከፋፈሉ ሲሆን እያንዳንዱ ዛጎል በርካታ ኤሌክትሮኖች ሊኖሩት ይችላል ። ቫለንስ ዛጎል ተብሎ የሚጠራው ይህ ቅርፊት ውስጥ የሚገኙት የኤሌክትሮኖች ቁጥር የአተሙን ኬሚካላዊ ባሕርያት ይወስናል ። ገለልተኛ በሆነ አቶም ውስጥ በኒውክሊየስ ውስጥ ያሉት ፕሮቶኖች ቁጥር በኤሌክትሮን ደመና ውስጥ ከሚገኙት ኤሌክትሮኖች ቁጥር ጋር እኩል በመሆኑ አዎንታዊና አሉታዊ ክስ ሚዛኑን ያልጠበቀ ከመሆኑም በላይ አቶም አጠቃላይ ክስ የለውም ። የአቶሚክ ቁጥር ተብሎ የሚጠራው የፕሮቶኖች ቁጥር ፣ አቶሚክ አተም ምን እንደሆነ ይወስናል ።,,,,
+fab-100x-20261114T224309Z-003,55,4a5c2ea9b3ceecc8d9fdb693,8ffdfa52dcfaec8add1e3dda54883e14,fab-100x,ar,general_knowledge,aya-dataset,human_authored,"[user] اكتب مقالة تصف الخبر التالي:
+
+ اليمن: مقتل 3 في قصف حوثي لمدرسة في دماج","يمنيون من دماج يحتجون على الهجمات الحوثية على بلدتهم
+
+ويسيطر الحوثيون على معظم محافظة صعدة الشمالية المحاذية للحدود مع السعودية، ويستخدمونها معقلا لهم في صراعهم مع الحكومة اليمنية.
+
+ويساهم الصراع الطائفي في دماج في عرقلة جهود المصالحة بين الحوثيين والحكومة المركزية في صنعاء.
+
+وكان القتال بين الحوثيين والسلفيين قد تصاعد في الشهر الماضي بعد ان اتهم الحوثيون السلفيين بتجنيد الآلاف من المقاتلين الاجانب استعدادا لمهاجمتهم.
+
+وقتل في المعارك التي تلت ذلك اكثر من 100 شخص في صفوف السلفيين، ولم يعلن الحوثيون عن خسائرهم.
+
+مواضيع قد تهمك نهاية
+
+ويقول السلفيون من جانبهم إن الاجانب الذين جاء الحوثيون على ذكرهم انما هم طلاب علوم دينية جاءوا الى دماج للدراسة في معهد دار الحديث في البلدة. وكان المعهد قد أسس في ثمانينيات القرن الماضي.
+
+وقال سرور الوديع وهو ناطق باسم السلفيين ""قصف الحوثيون مدرسة في دماج، وقتل 3 اشخاص واصيب 12 بجروح جراء القصف. وكان 5 آخرون قد قتلوا في قصف حوثي منذ مساء الامس.""
+
+من جانب آخر، لم يؤكد الناطق الحوثي علي البخيتي مسؤولية المتمردين عن القصف الذي وقع يوم الأحد، ولكنه نفى ان يكونوا قد استهدفوا أي مناطق مدنية.
+
+وقال البخيتي، وهو الناطق باسم جماعة انصار الله في مفاوضات المصالحة، ""لم تقصف أي مدرسة او منطقة مدنية، واذا كان هناك اي قصف، فهو يتركز على المناطق الجبلية التي يتمركز فيها المسلحون الاجانب.""",,,,
+fab-100x-20261114T224309Z-003,56,adf5e8c4677c28214a3ea7c9,da426ef521edba242211170a25af41d7,fab-100x,ar,islamic_studies,aya-dataset,human_authored,[user] زراعة التبغ مفيدة للاقتصاد بالنظر إلى ما تكسبه الحكومة من عملة أجنبية,"الأسطورة: زراعة التبغ مفيدة للاقتصاد بالنظر إلى ما تكسبه الحكومة من عملة أجنبية.
+الحقيقة: تساهم زراعة التبغ في معظم البلدان بأقل من 1٪ من الناتج المحلي الإجمالي.
+
+عادة ما تسلط دوائر صناعة التبغ الضوء على المساهمة الاقتصادية لزراعة التبغ في الاقتصادات المحلية والوطنية وأعداد العاملين والميزان التجاري الوطني لمنع الحكومات من اعتماد سياسات وطنية قوية لمكافحة التبغ من أجل حماية صحة شعوبها.
+
+ولا توجد في حقيقة الأمر صلة مباشرة بين زراعة التبغ والطلب على أوراق التبغ في البلد. والواقع أن الطابع العالمي لإنتاج التبغ والاتجار الدولي به يتيح إمكانية استيراد أوراق التبغ من أي بلد في العالم. وتشكل أيضاً القيمة الاقتصادية للتبغ بوصفه عملاً تجارياً مربحاً وسوق تصدير مضمونة حجة شائعة تساق ضد التحول إلى محاصيل بديلة.
+
+والاصل انه في الاسلام كل ما يضر بالصحه فهو محرم وبالتالي ممنوع من الزراعه ومن التجاره ورغم ذلك فان الحكومات الحاليه لا تمنع شعوبها من استهلاك التبغ الذي يعتبر مضرا بالصحه وتعتمد عليه جزئيا لكسب بعض المداخيل.",,,,
+fab-100x-20261114T224309Z-003,57,9f70ae7b69848c0f600b83d0,5a104a4915af253e2397ed3928849c69,fab-100x,ar,mathematics,aya-dataset,human_authored,[user] ما هي أكبر قارات العالم حيث المساحة؟,"آسِيَا أكبر قارة في الأرض وأكثرها سكانًا، ويقع معظمها في نصفي الكرة الشرقي والشمالي. وهي تغطي 8.7% من مساحة سطح الأرض الكلية (أو 30% من مساحة أراضيها، تحديدًا 44,579 مليون كم مربع)، ومع ما يقرب من 4,462 مليار نسمة، وتحتضن 60% من سكان العالم الحاليين. وقد تضاعف سكان آسيا أربع مرات تقريبًا خلال القرن 20.
+
+وتعرف آسيا حسب التعاريف التي قدمتها الموسوعة البريطانية، وجمعية ناشونال جيوغرافيك بأنها تعادل 4/5 من أراضي أوراسيا - مع الجزء الغربي التي احتلتها أوروبا - وتقع شرق قناة السويس، شرق جبال الأورال وإلى الجنوب من جبال القوقاز وبحر قزوين والبحر الأسود. يحدها من الشرق المحيط الهادي، ومن الجنوب المحيط الهندي ومن الشمال المحيط المتجمد الشمالي. نظرًا لحجمها وتنوعها، فإن آسيا - اسم مكاني يعود تاريخه إلى العصر الكلاسيكي القديم - «هو أكثر المفاهيم الثقافية مشتركة بين المناطق والأشخاص من الكيان المادي المتجانس. وهناك اختلافات كبيرة في آسيا ما بين داخلها وخارجها في ما يتعلق بالجماعات العرقية، والثقافات، والبيئات، والاقتصاد، والعلاقات التاريخية والنظم الحكومية.",,,,
+fab-100x-20261114T224309Z-003,58,8be1278cb30cada572a40826,4409e25f5701c62c9f08f3215a5919e0,fab-100x,ar,research,tydiqa-goldp,human_authored,"[user] كانت قريش قبل سكنها مكة المكرمة أصرافا متفرقين في ظاهر مكة ضمن قبيلة بني كنانة، معروفين باسم بني النضر حتى جمعهم وأسكنهم بها قصي بن كلاب، ولهذا يقال لقصي قريش الأصغر و<b data-parsoid='{""dsr"":[2791,2806,3,3]}'>مجمع قريش وهو قصي بن كلاب بن مرة بن كعب بن لؤي بن غالب بن فهر بن مالك بن النضر بن كنانة، وقد أسكن قريشا مكة بعدما أخرج منها قبيلة خزاعة ، وبني بكر من قبيلة كنانة ، وبني صوفة وهو الغوث بن مر أخو تميم جد قبيلة تميم، وذلك بمعونة من معه من بني النضر بن كنانة وبمعونة أخيه من أمه رزاح بن ربيعة العذري القضاعي،[6] وفي ذلك يقول الشعراء:[7]
+
+أين عاشت قبيلة قريش؟","مكة المكرمة
+
+كانت قريش قبل سكنها مكة المكرمة أصرافا متفرقين في ظاهر مكة ضمن قبيلة بني كنانة، معروفين باسم بني النضر حتى جمعهم وأسكنهم بها قصي بن كلاب، ولهذا يقال لقصي قريش الأصغر و<b data-parsoid='{""dsr"":[2791,2806,3,3]}'>مجمع قريش وهو قصي بن كلاب بن مرة بن كعب بن لؤي بن غالب بن فهر بن مالك بن النضر بن كنانة، وقد أسكن قريشا مكة بعدما أخرج منها قبيلة خزاعة ، وبني بكر من قبيلة كنانة ، وبني صوفة وهو الغوث بن مر أخو تميم جد قبيلة تميم، وذلك بمعونة من معه من بني النضر بن كنانة وبمعونة أخيه من أمه رزاح بن ربيعة العذري القضاعي،[6] وفي ذلك يقول الشعراء:[7]",,,,
+fab-100x-20261114T224309Z-003,59,78afaf6d824d7d88121df4c0,ce100555334c8a115b290f2dff39228a,fab-100x,bn,general_knowledge,aya-dataset,human_authored,[user] শিশুশ্রম নিয়ে অনুচ্ছেদ লিখুন।,"শিশুই জাতির ভবিষ্যৎ। শিশুদের মধ্যেই সুপ্ত থাকে নানাবিধ অমিত শক্তি ও সম্ভাবনা। আজকের শিশুই আগামী দিনের কবি, সাহিত্যিক, বুদ্ধিজীবী, বিজ্ঞানী, ডাক্তার, ইঞ্জিনিয়ার হয়ে দেশ ও জাতিকে গড়ে তুলবে। অথচ সেই শিশুই শিক্ষা অর্জন করার পরিবর্তে অমানুষিক শ্রমে নিয়োজিত। পেটের তাগিদে তাকে সকাল-সন্ধ্যা পরিশ্রম করতে হয়। সাধারণত চার- পাঁচ বছর বয়স থেকে কিশোর বয়স পর্যন্ত সময়ের শ্রমিকদের শিশুশ্রমিক বলে। শিশুরা নানা ধরনের শ্রমের সাথে জড়িত। যেমন: ইট ভাঙা, ওয়ার্কশপ ও গ্যারেজে কাজ করা, অন্যের বাড়িতে কাজ করা, হোটেল ও চা স্টজে কাজ করা, শহরের ময়লা-আবর্জনা পরিষ্কার করা, কুলিগিরি, অফিস-আদালতের খাবার পৌঁছানো, বাস-টেম্পোর হেলপারি ইত্যাদি। শিশুদের ঝুঁকিপূর্ণ কাজ থেকে বিরত রাখতে ১৯৫৯ সালে জাতিসংঘ শিশু অধিকার সনদ ঘোষণা করে। শিশু অধিকার সনদ-৯০ নামে পরিচিত এ সনদের বিষয়বস্তুগুলো হলো— (১) শিশু অধিকার বাস্তবায়ন, (২) পরিচয় সংরক্ষণ, (৩) মত প্রকাশের স্বাধীনতা, (৪) সামাজিক নিরাপত্তা, (৫) শিশু স্বাস্থ্যের প্রাধান্য, (৬) বৈষম্যহীনতা, (৭) অবৈধ স্থানান্তর, (৮) অক্ষম ও উদ্বাস্তু শিশু, (৯) সামাজিক পর্যালোচনা, (১০) মাতাপিতার সাথে অবস্থানের অধিকার, (১১) মাতাপিতার অধিকার ও দায়িত্ব। উন্নত বিশ্বের দেশগুলো এ সনদের বিষয়বস্তুগুলো অনুসরণ করলেও বাংলাদেশের মতো তৃতীয় বিশ্বের দরিদ্র দেশগুলো তা অনুসরণ করতে পারছে না। অপরিসীম দারিদ্র্য আর সামাজিক ও রাজনৈতিক নৈরাজ্যের কারণে এদেশের শিশুদের যেমন অমানুষিক পরিশ্রম করতে হচ্ছে তেমনি বঞ্চিত হতে হচ্ছে ন্যায্য শ্রমমূল্য থেকেও। শিক্ষার সুযোগ বঞ্চিত এ শিশুদেরকে যোগ্য ও দক্ষ নাগরিক হিসেবে গড়ে তুলতে না পারলে দেশের অগ্রগতি বাধাগ্রস্ত হবে।",,,,
+fab-100x-20261114T224309Z-003,60,87fd71247b5ed05cb56e3ba7,13da0cd6838b91ebcc6f22f39e61af8c,fab-100x,bn,mathematics,aya-dataset,human_authored,"[user] এই অনুচ্ছেদের জন্য একটি ধারাবাহিকতা লিখুন :
+
+আরিফুল ইসলাম
+
+আরিফুল ইসলাম বলেন, বাড়ি থেকে টেনে-হিঁচড়ে তাকে গাড়িতে তোলা হয়। 
+
+""আমাকে জোর করে গাড়ীতে উঠানো হয়। আমি তাদের বলি আমার অপরাধ কী আমাকে বলেন। আমার কোন ভুল হয়ে থাকলে আমাকে মাফ করে দেন। আমি তাদের কাছে বার বার মাফ চেয়েছি।""
+
+সে সময় উপস্থিত জেলা প্রশাসনের একজন কর্মকর্তাকে উদ্ধৃত করে আরিফুল ইসলাম বলেন,  তিনি আইনশৃঙ্খলা বাহিনীর যেসব সদস্য ছিল তাদেরকে বলেন,  'এর হাত পা বেঁধে ফেল, আজকে একে এনকাউন্টারে দিয়ে দেব।' 
+
+""আমাকে অকথ্য ভাষায় গালিগালাজ করছিল। আমি তখন তাদের কাছে মাফ চাই, কিন্তু তিনি বলেন তুই কলেমা পড়, তোকে এনকাউন্টারে দেব, তুই সমাজের জঞ্জাল।""
+
+""আমাকে তিনি জিঞ্জেস করেন তুই কি ডিসির বিরুদ্ধে লিখিস? ডিসি কি ঘুষ খায়? আমি বললাম আমি এমন কিছু লিখি না, আমার ভুল হলে মাফ করে দেন।"" 
+
+'তোর সময় শেষ তুই কলেমা পড়'
+
+""আমি তাদের বলেছিলাম আমার দুটি সন্তান আছে, আমি মারা গেলে ওদের কে দেখবে। ওদের উপর রহম করে আমাকে আপনারা ছেড়ে দেন।""
+
+""উনি (ঐ কর্মকর্তা) কোন কথাই শুনছিলেন না। শুধু বলছিলেন তোর সময় শেষ তুই কলেমা পড়। আমার চোখ যে কাপড় দিয়ে বাঁধা ছিল সেটা কোন রকম একটু সরিয়ে আমি দেখতে পেলাম...","ধরলা ব্রিজ পার হয়ে আমাকে নিয়ে যাওয়া হচ্ছে যেটা আমার বাড়ি থেকে ৭/৮ কিলোমিটার দুর।"" 
+
+""আমি তখন শুধু আল্লাহকে ডাকছিলাম। এর ২/৪ মিনিটের মধ্যে তারা ফোনে কথা বলে, মেসেজ পাঠায় তারপর সিদ্ধান্ত পরিবর্তন করে আবার গাড়ী ঘুরিয়ে নিয়ে আসে।""
+
+আরিফুল বলেন, চোখের কাপড়ের ফাঁক তিনি দেখতে পান তাকে ডিসি অফিসে নিয়ে আসা হয়েছে।
+
+তারপর শুরু হয় প্রচণ্ড মারধোর।  
+
+'আমাকে বিবস্ত্র করে মারে, ছবি তোলে'
+
+""ঐ কর্মকর্তা আমাকে বলতে থাকে তোর বাপের নাম ভুলিয়ে দেব। আমাকে বিবস্ত্র করে মারে, ছবি তোলে , ভিডিও করে।""
+
+অরিফুল বলেন, পরে তাকে কাপড় পরিয়ে জোর করে চারটা স্বাক্ষর করে নেয়া হয়। 
+
+""আমি এখনো জানি না এই স্বাক্ষরগুলো কেন, কোথায় নেয়া হয়েছে।""
+
+এরমধ্যেই পুলিশ চলে আসে, কিন্তু তিনি বলেন পুলিশ কি করতে পারবে!  তাকে দ্রুত কারাগারে নিয়ে আসা হয়। 
+
+বাড়ি থেকে তাকে বের করা হয় রাত সাড়ে ১২টার দিকে। আর কারাগারে পাঠায় রাত দেড়টা থেকে দুইটার দিকে। আরিফুল ইসলাম বলেন, এক/দেড়ঘন্টার মধ্যে এসব কিছু হয়েছে।
+
+আরিফুল ইসলাম কুড়িগ্রাম জেলা প্রশাসনের ঐ কর্মকর্তার নাম বিবিসির কাছে বলেছেন। কিন্তু অভিযোগগুলো যেহেতু খুবই গুরুতর, তাই ঐ কর্মকর্তার বক্তব্যের জন্য তার মোবাইল ফোনে বার বার যোগাযোগের চেষ্টা করা হয়। প্রতিবারই তার ফোন বন্ধ পাওয়া যায়। ফলে ঐ কর্মকর্তার নাম উহ্য রাখা হলো।",,,,
+fab-100x-20261114T224309Z-003,61,538df9fea134434ca3ebf872,4a548ae1e45edd85d5cee277f7b8190f,fab-100x,bn,research,tydiqa-goldp,human_authored,"[user] পানি বা জল (অন্যান্য নামঃ বারি, সলিল) হলো একটি রাসায়নিক পদার্থ, যার রাসায়নিক সংকেত হল H2O। পানির একেকটি অণু একটি অক্সিজেন পরমাণু এবং দু'টি হাইড্রোজেন পরমাণুর সমযোজী বন্ধনে গঠিত। সাধারণত পৃথিবীতে পানি তরল অবস্থায় থাকলেও এটি কঠিন (বরফ) এবং বায়বীয় অবস্থাতেও (পানিীয় বাষ্প) পাওয়া যায়। পৃথিবীতে তরল স্ফটিক রূপেও পানির অস্তিত্ব দেখা যায়।[1][2] রাসায়নিক যৌগের নামকরণ প্রক্রিয়া অনুসারে পানির বিজ্ঞানসম্মত নাম হল dihydrogen monoxide (ডাইহাইড্রোজেন মোনক্সাইড)। কিন্তু এই নামটি প্রায় কোথাও ব্যবহৃত হয় না।[3]
+
+পানির রাসায়নিক সংকেত কী ?","H2
+
+পানি বা জল (অন্যান্য নামঃ বারি, সলিল) হলো একটি রাসায়নিক পদার্থ, যার রাসায়নিক সংকেত হল H2O। পানির একেকটি অণু একটি অক্সিজেন পরমাণু এবং দু'টি হাইড্রোজেন পরমাণুর সমযোজী বন্ধনে গঠিত। সাধারণত পৃথিবীতে পানি তরল অবস্থায় থাকলেও এটি কঠিন (বরফ) এবং বায়বীয় অবস্থাতেও (পানিীয় বাষ্প) পাওয়া যায়। পৃথিবীতে তরল স্ফটিক রূপেও পানির অস্তিত্ব দেখা যায়।[1][2] রাসায়নিক যৌগের নামকরণ প্রক্রিয়া অনুসারে পানির বিজ্ঞানসম্মত নাম হল dihydrogen monoxide (ডাইহাইড্রোজেন মোনক্সাইড)। কিন্তু এই নামটি প্রায় কোথাও ব্যবহৃত হয় না।[3]",,,,
+fab-100x-20261114T224309Z-003,62,1a0f19af42b01e48a06f675a,1a7ed77dab19509e75a71a0f240100e3,fab-100x,ca,coding,oasst1,human_authored,[user] Com faig una base de dades SQL amb el telèfon? I amb l'ordinador?,"Per crear una base de dades SQL, necessitaràs una eina de gestió de bases de dades com el MySQL o el Microsoft SQL Server. A continuació, et detallaré com pots crear una base de dades tant amb el teu telèfon com amb el teu ordinador.
+
+Crear una base de dades SQL amb el telèfon:
+
+1. Descarrega una aplicació de gestió de bases de dades per al teu telèfon. Hi ha algunes opcions disponibles per a telèfons mòbils com el MySQL Lite o el DB AppMaker.
+
+2. Inicia l'aplicació de gestió de bases de dades i crea una nova base de dades.
+
+3. Defineix les taules que formaran part de la base de dades, juntament amb les columnes que vols incloure en cada taula.
+
+4. Omple les taules amb dades si ja tens informació disponible.
+
+Crear una base de dades SQL amb l'ordinador:
+
+1. Descarrega i instaŀla una eina de gestió de bases de dades SQL, com ara el MySQL o el Microsoft SQL Server.
+
+2. Inicia l'eina de gestió de bases de dades i crea una nova base de dades.
+
+3. Defineix les taules que formaran part de la base de dades, juntament amb les columnes que vols incloure en cada taula.
+
+4. Omple les taules amb dades si ja tens informació disponible.
+
+En general, el procés per crear una base de dades SQL és el mateix tant si ho fas des del teu telèfon com des de l'ordinador. Tot i així, les eines específiques que necessitaràs varien depenent del dispositiu.",,,,
+fab-100x-20261114T224309Z-003,63,5021b15b2b5592c9ed1d0ca1,4a98ddf141324e1b3819695611a6096d,fab-100x,ca,general_knowledge,oasst2,human_authored,"[user] Fes un resum en 1 paràgraf del llibre ""La Plaça del Diamant"" de Mercè Rodoreda.","""La Plaça del Diamant"" és una novel·la ambientada a la Barcelona de la Guerra Civil Espanyola i la dictadura franquista. Segueix la vida d'una jove anomenada Fígol, que viu al barri del Raval de Barcelona, i la seva lluita per sobreviure i trobar l'amor i la felicitat en un entorn hostil i opressiu. La novel·la explora temes de solitud, pobresa i opressió política a través de la narració poètica i evocadora de Lodored. ""La Plaça del Diamant"" és considerada un clàssic de la literatura catalana, àmpliament reconeguda pel seu poderós retrat de la vida a Barcelona durant un període històricament turbulent.",,,,
+fab-100x-20261114T224309Z-003,64,736b711141b6dd55fd90d319,3bd7d249a41757175f66689b53b7e258,fab-100x,ca,mathematics,oasst2,human_authored,"[user] Fes una taula comparant la renda per càpita, població i percentatge de persones a l'atur dels països de la unió europea
+
+[assistant] Aquí tens una taula comparant la renda per càpita (renda mitja), la població i el percentatge de persones a l'atur dels països de la Unió Europea:
+
+      Païs                    Població                    Renda per càpita                    Percentatge de persones a l'atur
+---------------------------------------------------------------------------------------------------------
+Alemanya     	       83.237.124	                   38.971 €                                                    2,9 %
+
+Bèlgica    	           11.631.136                       51.328 €                                                    5,5 %
+
+Croàcia                  3.879.074                        14.907 €	                                                 6,4 %
+
+Dinamarca             5.873.420	                    57.749 €                                                   4,8 %
+
+Eslovàquia 	           5.434.712                        14.720 €                                                    5,8 %
+
+Eslovènia 	           2.107.180                          6.360 €                                                       4 %
+
+Espanya                 47.615.034                       15.817 €                                                   13,1 %
+
+Estònia                   1.331.796                          6.875 €                                                     5,7 %
+
+Finlàndia                 5.548.241                        45.390 €                                                   7,2 %
+
+França                    67.842.582                      36.660 €                                                   7,1 %
+
+Grècia                     10.603.810                      17.010 €                                                     11,6 %
+
+Hongria                   9.689.010                        15.870 €                                                     4 %
+
+Irlanda                     5.060.005                        84.940 €                                                  4,4 %
+
+Itàlia                        58.983.122                       40.400 €                                                  7,8 %
+
+Letònia                    1.875.757                         17.890 €                                                    7,1 %
+
+Lituània                   2.805.998                        20.000 €                                                   5,8 %
+
+Luxemburg             645.397                            90.000 €                                                   4,6 %
+
+Malta                       520.971                            28.890 €                                                   3,2 %
+
+Països Baixos         17.590.672                        34.984 €                                                   3,5 %
+
+Polònia                    37.654.247                       14.247 €                                                    2,9 %
+
+Portugal 	                10.352.042                        20.850 €                                                   6,7 %
+
+Romania                  19.038.098                       12.620 €                                                    5,6 %
+
+Suècia                     10.452.326                       47.020 €                                                    7,5 %
+
+[user] Uff, no vull llegir tant. Em pots agafar les 5 amb més renda per càpita i les 5 amb menys?","D'acord, aquí ho tens:
+
+- Països Unió Europea amb més renda per càpita:
+
+     Païs                    Població                    Renda per càpita                    Percentatge de persones a l'atur
+---------------------------------------------------------------------------------------------------------
+Luxemburg             645.397                            90.000 €                                                   4,6 %
+
+Irlanda                     5.060.005                        84.940 €                                                  4,4 %
+
+Dinamarca             5.873.420	                    57.749 €                                                   4,8 %
+
+Bèlgica    	           11.631.136                       51.328 €                                                    5,5 %
+
+Suècia                  10.452.326                       47.020 €                                                    7,5 %
+
+
+- Països Unió Europea amb menys renda per càpita:
+
+    Païs                    Població                    Renda per càpita                    Percentatge de persones a l'atur
+---------------------------------------------------------------------------------------------------------
+Eslovènia 	           2.107.180                          6.360 €                                                       4 %
+
+Estònia                   1.331.796                          6.875 €                                                     5,7 %
+
+Romania                  19.038.098                       12.620 €                                                    5,6 %
+
+Polònia                    37.654.247                       14.247 €                                                    2,9 %
+
+Eslovàquia 	           5.434.712                        14.720 €                                                    5,8 %",,,,
+fab-100x-20261114T224309Z-003,65,0cb374cc644cdb25498dbe51,8ff13da46a8b5bd6765058213da2e8a9,fab-100x,ca,reasoning,oasst1,human_authored,[user] Digues què és una llengua minoritzada i quina és la diferència amb una minoritària. Dona exemples.,"Una llengua minoritzada és una llengua que té una posició subordinada o inferioritzada respecte a altres llengües en un determinat context socio-lingüístic. Això pot ser degut a factors com la discriminació, l'opressió, la política lingüística o el desplaçament lingüístic. En general, una llengua minoritzada té menys parlants i està en perill d'extinció.
+
+Per altra banda, una llengua minoritària fa referència a una llengua que és parlada per un petit grup de persones en un determinat territori o regió. Això no implica necessàriament que estigui subordinada o inferioritzada, sinó que simplement té una presència minoritària en comparació amb altres llengües en la mateixa zona.
+
+Per exemple, el català a Espanya és una llengua minoritzada, ja que ha estat discriminada i sotmesa a polítiques lingüístiques restrictives per part del govern espanyol durant dècades. D'altra banda, l'anglès a Catalunya seria considerada una llengua minoritària, ja que és parlada només per una minoria de la població en comparació amb el català o el castellà.",,,,
+fab-100x-20261114T224309Z-003,66,95212f47c17c3f0885437df1,396b6d0f695b386466f826757e7715e8,fab-100x,ca,science,oasst2,human_authored,[user] Quin d’aquests animals és més ràpid l’estruç o el guepard?,"El guepard és l'animal més ràpid del món, mentre que l'estruç és l'ocell més gran del planeta i també és un animal veloç, però no tan ràpid com el guepard. El guepard pot arribar a córrer a velocitats de fins a 120 km/h, cosa que el converteix en l'animal terrestre més ràpid del món. En canvi, l'estruç pot córrer a velocitats de fins a 70 km/h, el que el converteix en l'ocell més ràpid del món. Malgrat això, el guepard és considerablement més ràpid que l'estruç i cap altres animals terrestres poden comparar-se amb la seva velocitat.",,,,
+fab-100x-20261114T224309Z-003,67,db62a81ac7ce1ce02a664853,6ef93f009df956c84be9c48ee8ab4fc2,fab-100x,de,coding,oasst2,human_authored,[user] What is mysql?,"MySQL ist ein relationales Datenbankverwaltungssystem. Eine relationale Datenbank legt Daten strukturiert in einer oder mehreren Tabellen ab, die miteinander in Beziehung stehen können. ""SQL"" steht für ""Structured Query Language"", eine weit verbreitete Programmiersprache für relationale Datenbanken.
+
+MySQL ist sowohl in einer kommerziellen Version, als auch als Open-Source-Software verfügbar. Dadurch ist es eine beliebte Wahl für dynamische Webanwendungen, die eine Datenbank benötigen. MySQL wird beispielsweise von MediaWiki, Flickr, YouTube, Facebook und Twitter
+
+MySQL wird oft zusammen mit dem Webserver Apache, der Programmiersprache PHP und dem Betriebssystem GNU/Linux eingesetzt. Man spricht dann auch vom LAMP-Stack (für Linux, Apache, MySQL, PHP).",,,,
+fab-100x-20261114T224309Z-003,68,16c233253379f8f94a2e5a1c,84a108acc8a9d408533268a4776f3e5b,fab-100x,de,education,oasst2,human_authored,"[user] Bitte erklär mir wie ich mit Tensorflow ein neuronales Netz erstellen kann
+
+[assistant] Klar, ich kann dir erklären, wie du mit Tensorflow ein neuronales Netz erstellen kannst!
+
+TensorFlow ist eine Bibliothek für maschinelles Lernen, die es ermöglicht, neuronale Netze zu erstellen und zu trainieren. Das Erstellen eines neuronalen Netzes mit TensorFlow beinhaltet in der Regel die folgenden Schritte:
+
+
+Importiere TensorFlow und andere benötigte Bibliotheken:
+
+import tensorflow as tf
+import numpy as np
+Definiere die Architektur des neuronalen Netzes:
+python
+
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(units=64, activation='relu', input_shape=(input_shape,)),
+    tf.keras.layers.Dense(units=64, activation='relu'),
+    tf.keras.layers.Dense(units=output_shape, activation='softmax')
+])
+
+In diesem Beispiel wird ein sequentielles Modell definiert, das aus drei Schichten besteht: eine Eingabeschicht, eine versteckte Schicht und eine Ausgabeschicht. Die Eingabeschicht erhält Eingabedaten mit der Form (input_shape,) und leitet sie an die versteckte Schicht weiter. Die versteckte Schicht besteht aus 64 Neuronen und verwendet die ReLU-Aktivierungsfunktion. Die Ausgabeschicht besteht aus so vielen Neuronen wie es Klassen gibt, und verwendet die Softmax-Aktivierungsfunktion, um eine Wahrscheinlichkeitsverteilung über die Klassen zu erzeugen.
+
+
+Konfiguriere das Modell für das Training:
+
+model.compile(optimizer=tf.keras.optimizers.Adam(), loss=tf.keras.losses.CategoricalCrossentropy(), metrics=[tf.keras.metrics.CategoricalAccuracy()])
+
+Hier wird das Modell so konfiguriert, dass es mit dem Adam-Optimierer trainiert wird, der CategoricalCrossentropy als Verlustfunktion verwendet und die Kategorische Genauigkeit als Metrik berechnet.
+
+
+Trainiere das Modell:
+
+model.fit(x_train, y_train, epochs=10, batch_size=32, validation_data=(x_val, y_val))
+
+Hier wird das Modell mit Trainingsdaten (x_train, y_train) für 10 Epochen trainiert, wobei jedes Batch 32 Beispiele enthält. Die Validierungsdaten (x_val, y_val) werden verwendet, um die Leistung des Modells während des Trainings zu überwachen.
+
+Das sind die grundlegenden Schritte, um ein neuronales Netz mit TensorFlow zu erstellen. Natürlich können die Details je nach Problemstellung und Modellvariante variieren, aber das grundlegende Konzept bleibt das gleiche.
+
+[user] Woher bekomme ich am besten Trainingsdaten wenn ich sie nicht selbst erstellen möchte?","Es gibt verschiedene Möglichkeiten, um Trainingsdaten zu bekommen, wenn du sie nicht selbst erstellen möchtest. Hier sind einige Optionen:
+- Öffentlich zugängliche Datensätze: Es gibt viele öffentlich zugängliche Datensätze, die für Machine-Learning-Modelle verwendet werden können. Einige Beispiele sind MNIST, CIFAR-10 und ImageNet. Diese Datensätze können über Bibliotheken wie TensorFlow Datasets oder über Websites wie Kaggle heruntergeladen werden.
+- Datenbanken: Es gibt auch viele Datenbanken, die eine Vielzahl von Daten enthalten, die für Machine-Learning-Modelle verwendet werden können. Ein Beispiel dafür ist die UCI Machine Learning Repository, die eine große Anzahl von Datensätzen aus verschiedenen Bereichen wie Bilderkennung, Spracherkennung und Textklassifizierung enthält.
+- Web Scraping: Du kannst auch Daten durch Web Scraping sammeln. Web Scraping bezieht sich auf die Extraktion von Informationen aus Websites. Allerdings solltest du sicherstellen, dass du das Scraping ethisch und legal durchführst.
+- Daten-Labeling-Services: Wenn du spezielle Datensätze benötigst, kannst du einen Daten-Labeling-Service verwenden, um diese Daten zu erhalten. Diese Dienste nutzen menschliche Arbeitskräfte, um Daten zu sammeln und zu labeln. Ein Beispiel für einen solchen Dienst ist Amazon Mechanical Turk.
+
+Es ist wichtig zu beachten, dass es für das Training eines guten Machine-Learning-Modells nicht nur ausreicht, viele Daten zu haben, sondern auch, dass die Datenqualität hoch ist und die Daten die Vielfalt der möglichen Szenarien, die das Modell später treffen wird, abdecken.",,,,
+fab-100x-20261114T224309Z-003,69,b35baec9aeccea2c5d2ac1aa,345d20f5c45e444a4c169b51d87c1800,fab-100x,de,general_knowledge,oasst2,human_authored,"[user] Welches berühmte Gemälde wäre am besten dazu geeignet um das Lied ""Don't Worry Be Happy"" von Bobby McFerrin zu verbildlichen? Begründe deine Wahl.","Eine mögliche Wahl für ein berühmtes Gemälde, das das Lied ""Don't Worry Be Happy"" von Bobby McFerrin gut veranschaulichen könnte, ist das Gemälde ""Der Sonnenblumen"" von Vincent van Gogh. 
+
+Van Goghs ""Sonnenblumen"" strahlen eine lebhafte und fröhliche Atmosphäre aus, die gut zu der Botschaft des Liedes passt. Das Gemälde zeigt eine Reihe von Sonnenblumen in leuchtenden Farben und mit großen, offenen Gesichtern, die einem ein Gefühl der Heiterkeit und Positivität vermitteln. Diese Darstellung von blühenden Sonnenblumen kann als Symbol für die Freude und das Glück stehen, die das Lied ""Don't Worry Be Happy"" hervorhebt.
+
+Zusätzlich drückt das Gemälde die Idee aus, dass Schönheit und Freude oft in den einfachen Dingen des Lebens zu finden sind. Ähnlich wie in dem Liedtext, der dazu ermutigt, sich nicht zu sehr Sorgen zu machen und das Glück im Hier und Jetzt zu finden, vermittelt das Gemälde die Botschaft, dass wir uns an den kleinen Dingen erfreuen sollten, die uns umgeben.
+
+Die fröhlichen Farben, die von Van Gogh verwendet wurden, verstärken das positive Gefühl des Liedes und spiegeln die Energie und Lebendigkeit wider, die Bobby McFerrin in seiner Musik ausdrückt. Die Kombination aus dem sonnigen Gelb der Sonnenblumen und den lebendigen Hintergrundfarben schafft eine optimistische Stimmung, die die Botschaft von ""Don't Worry Be Happy"" unterstreicht.
+
+Insgesamt würde das Gemälde ""Der Sonnenblumen"" von Vincent van Gogh eine visuelle Darstellung von Freude, Positivität und der Botschaft des Liedes bieten. Es würde die Zuschauer dazu ermutigen, sich auf das Glück in ihrem Leben zu konzentrieren und sich nicht zu sehr über die Sorgen und Ängste des Alltags zu stressen.",,,,
+fab-100x-20261114T224309Z-003,70,1938e854149d2e39c8e50f03,caeb41a66559afe55119c5faa15818ee,fab-100x,de,mathematics,aya-dataset,human_authored,[user] Wie funktioniert ein progressives Steuersystem?,"Ein progressives Steuersystem beschreibt eine Steuer, bei der höhere Einkommen mit einem höheren Einkommensteuersatz besteuert werden. Ein hohes Einkommen unterliegt damit einem höheren Einkommensteuersatz als ein niedriges Einkommen. Mit dem progressiven Steuersatz soll die individuelle Leistungsfähigkeit des Steuerpflichtigen berücksichtigt werden.
+Wichtig ist dabei, dass es bei progressiven Systemen niemals zu einer Reduktion des Nettoeinkommens (nach Steuerabzügen) kommt, wenn mehr verdient wird. Hierbei werden die höheren Steuersätze lediglich auf das *weitere* Einkommen angewandt.
+Ein Beispiel:
+Wenn bis 10.000€ 10% Steuer fällig werden, und für jeden weiteren verdienten Euro 20% Steuer fällig werden, berechnet sich die Steuer für ein Einkommen von 25.000€ wie folgt:
+
+Für die ersten 10.000€ sind 10.000 * 10% = 1.000€ Steuern fällg.
+Für die verbleibenden 25.000 - 10.000 = 15.000€ sind dann noch 15.000 * 20% = 3.000€ Steuern fällig.
+Insgesamt sind also 4.000€ Steuern auf das gesamte Einkommen fällig.
+
+Viele Menschen begehen den Fehler und nehmen an, dass bei progressiven Steuern die Steuer auf das gesamte Einkommen angewandt wird. Im obigen Beispiel wären nach dieser Logik also 25.000€ * 20% = 5.000€ Steuern fällig, was allerdings falsch ist.",,,,
+fab-100x-20261114T224309Z-003,71,fa56bfeecff5220d48c782d7,b4aa4950c933c5f6ed6b0d73b6cae85a,fab-100x,de,problem_solving,oasst2,human_authored,"[user] Ich würde gerne eine Schwimmgelegenheit in meinem Garten haben, für Sport, Spiele, und um in der Sommerhitze abzukühlen. Ich bin am Überlegen, welche Variante hier für meine Familie und mich am besten geeignet ist.
+Bitte vergleiche Swimmingpools mit Schwimmteichbiotopen und ihre Vor- und Nachteile.","Swimmingpools und Schwimmteichbiotope haben ihre jeweiligen Vor- und Nachteile.
+
+Schwimmingpools sind in der Regel sehr pflegeleicht und einfach zu reinigen. Sie bieten eine konstante Wassertemperatur und sind oft mit Heizungen und Filtern ausgestattet. Dadurch können sie das ganze Jahr über genutzt werden und sind auch für Kinder und Nichtschwimmer geeignet. Es gibt jedoch auch einige Nachteile bei Swimmingpools, insbesondere wenn es um die Umweltverträglichkeit geht. Pools benötigen häufig Chemikalien, um das Wasser sauber zu halten, was nicht nur teuer sein kann, sondern auch zur Umweltverschmutzung beitragen kann.
+
+Schwimmteichbiotope hingegen sind eine umweltfreundlichere Option, da sie ohne Chemikalien auskommen und stattdessen auf natürliche Methoden zur Wasserreinigung setzen. Schwimmteiche verfügen über spezielle Zonen, in denen Wasserpflanzen wachsen und dafür sorgen, dass das Wasser gereinigt wird. Schwimmteichbiotope bieten zudem einen natürlichen Lebensraum für verschiedene Pflanzen- und Tierarten und können sehr attraktiv gestaltet werden. Allerdings erfordern Schwimmteiche in der Regel einen höheren Pflegeaufwand und können in kälteren Regionen im Winter einfrieren und daher nur eingeschränkt nutzbar sein.
+
+Letztendlich hängt die Wahl zwischen einem Swimmingpool und einem Schwimmteichbiotop von verschiedenen Faktoren ab, einschließlich persönlicher Vorlieben, Budget, regionalen geographischen Bedingungen und Pflegekapazitäten.",,,,
+fab-100x-20261114T224309Z-003,72,0e8b19ee953537cd058233fa,d7ceab5d4cc5aabf8e7d7cec8b218cc6,fab-100x,de,reasoning,oasst1,human_authored,"[user] Schreibe mir ein bash-script um die ältesten Dateien und Unterordner, innerhalb eines ausgewählten Ordners zu löschen. Das Skript soll mit der jeweils ältesten Datei beginnen und dies so lange wiederholen bis der gewählte Ordner kleiner als 10 GB ist.","Hier ist ein Bash-Skript, das Ihre Anforderungen erfüllt:
+
+
+#!/bin/bash
+
+# Set the target folder size limit
+limit=10485760 # 10 GB in KB
+
+# Prompt the user to enter the target folder
+read -p ""Enter the path of the target folder: "" folder
+
+# Check if the entered folder exists
+if [ ! -d ""$folder"" ]; then
+  echo ""Error: The specified folder does not exist.""
+  exit 1
+fi
+
+# Calculate the current size of the folder
+size=$(du -s ""$folder"" | awk '{print $1}')
+
+# Loop until the folder size is less than the limit
+while [ $size -gt $limit ]; do
+  # Find the oldest file in the folder
+  oldest=$(find ""$folder"" -type f -printf '%T@ %p\n' | sort -n | head -1 | cut -d' ' -f2)
+  # Delete the oldest file
+  rm ""$oldest""
+  # Recalculate the folder size
+  size=$(du -s ""$folder"" | awk '{print $1}')
+done
+
+# Find the oldest subfolder in the folder
+oldest=$(find ""$folder"" -type d -printf '%T@ %p\n' | sort -n | head -1 | cut -d' ' -f2)
+# Delete the oldest subfolder
+rm -r ""$oldest""
+
+echo ""The folder is now smaller than $limit KB.""
+
+
+Dieses Skript verwendet den Befehl du (disk usage), um die Größe des Zielordners zu berechnen, und den Befehl find zur Suche nach den ältesten Dateien und Unterordnern. Der Befehl sort und head werden verwendet, um die älteste Datei oder den ältesten Unterordner zu finden. Schließlich wird die älteste Datei oder der älteste Unterordner mit rm bzw. rm -r gelöscht.
+
+Verwenden Sie dieses Skript auf eigene Gefahr und stellen Sie sicher, dass Sie eine Backup-Kopie aller Daten haben, die Sie löschen möchten.",,,,
+fab-100x-20261114T224309Z-003,73,03cad5be84ff928352b1c085,0ebfe0e2ff1cb3a008b15c67b2fc00ef,fab-100x,de,research,oasst2,human_authored,[user] Was sind die 3 größten Vorteile von Open-Source Software?,"Die drei größten Vorteile von Open-Source-Software sind:
+
+- Kosteneinsparungen: Open-Source-Software ist in der Regel kostenlos verfügbar, was Unternehmen und Einzelpersonen erhebliche Einsparungen bei den Lizenz- und Upgrade-Kosten ermöglicht.
+
+- Flexibilität: Open-Source-Software ist offen für Anpassungen und Anpassungen an spezifische Bedürfnisse. Entwickler können den Quellcode einsehen, verändern und anpassen, um die Software auf ihre Anforderungen anzupassen.
+
+- Sicherheit: Da der Quellcode für jedermann zugänglich ist, können mehrere Personen den Code überprüfen und Fehler und Schwachstellen identifizieren und beheben. Dadurch wird das Vertrauen in die Software gestärkt und die Wahrscheinlichkeit von Sicherheitsverletzungen verringert.",,,,
+fab-100x-20261114T224309Z-003,74,5974df2d044880a7b871b87f,cbe13c74696c481b35658f478ffb1099,fab-100x,de,safety_ethics,oasst2,human_authored,[user] Wofür sind die Fußtasten bei einer Orgel da?,"Die Fußtasten bei einer Orgel, auch bekannt als Pedale, sind ein wesentlicher Bestandteil des Orgelspiels und dienen dazu, die tiefen Bassnoten zu spielen. Sie ermöglichen es dem Organisten, Noten mit den Füßen zu spielen, während die Hände weiterhin die Tasten der Manualklaviaturen bedienen. Dies erweitert die musikalische Reichweite und die Möglichkeiten der Orgel erheblich und trägt zu ihrem charakteristischen Klang bei.
+
+Die Pedale sind in einer Reihe angeordnet, ähnlich wie die Tasten auf einer Klaviatur, und sind für gewöhnlich in einer konkaven Anordnung angebracht, die von den tieferen Tönen auf der linken Seite bis zu den höheren Tönen auf der rechten Seite reicht. Die Anzahl der Pedale kann je nach Orgel variieren, aber eine Standard-Pedalklaviatur besteht aus 30 oder 32 Pedalen.
+
+Die Pedalabteilung der Orgel ist oft mit speziellen Orgelregistern ausgestattet, die den tiefen, resonanten Klang erzeugen, der für die Bassnoten im Orgelspiel typisch ist. Organisten nutzen die Pedale, um die musikalische Textur und den Klangcharakter des gespielten Stücks zu bereichern und die harmonische Struktur des Werkes zu unterstützen.",,,,
+fab-100x-20261114T224309Z-003,75,8fbd9364f74569069210df7f,483c88a136fcb5b81cdebb07a2f74296,fab-100x,de,science,oasst2,human_authored,[user] Kennen wir alle chemischen Elemente?,"Es sind 92 natürlich vorkommende Elemente bekannt. Durch die Naturgesetze, sind die Elemente, anhand ihrer Protonenzahl (auch Ordnungszahl genannt) geordnet. Somit sind diese wie Durchnummeriert.
+Als Beispiel hat Wasserstoff die Ordnungszahl 1, somit ein Proton. Eisen hat die Ordnungszahl 26 und somit 26 Protonen. Plutonium hat 94 Protonen und kommt an letzter Stelle der natürlich vorkommenden Elemente.
+Es gibt auch künstlich erzeugte Elemente mit einer höheren Ordnungszahl, wie z. B. das Hassium mit der Ordnungszahl 108. Diese sind jedoch sehr instabil und zerfallen in kurzer Zeit, weshalb diese in der Natur nicht zu finden sind.",,,,
+fab-100x-20261114T224309Z-003,76,d323cd3d85c0b574eec62dcf,8b0b5521d6215b8bb59693efafdb7266,fab-100x,de,software_engineering,oasst2,human_authored,"[user] Was sind die besten Versionsverwaltungsprogramme außer Git?
+
+[assistant] Zu git gibt es z.B. die Alternativen SVN, Mercurial, Perforce und Fossil. Was das beste Versionsverwaltungsprogramm ist, hängt vom jeweiligen Einsatzgebiet ab und sollte daher für jedes Projekt neu entschieden werden. Allerdings ist git das populärste Versionierungsprogramm. Möchtest du mehr zu den anderen Programmen erfahren oder mir beschreiben, für welche Art von Projekt du ein Versionierungsprogramm benötigst, damit ich dir mit der Auswahl behilflich sein kann?
+
+[user] Kannst du mir einige dieser Programme auflisten?","Hier ist eine Liste mit einigen Alternativen Versionsverwaltungsprogrammen neben Git:
+
+- SVN
+- Mercurial
+- Perforce
+- Fossil",,,,
+fab-100x-20261114T224309Z-003,77,96b748cca9bbc22aa79b8e9b,0d75263b171731bfd88dd8f9a64b37da,fab-100x,de,web_backend,oasst2,human_authored,"[user] Ich möchte mit der Power BI Rest API in Python ein Programm schreiben, welches sich mit einem Service Principal gegen den Power BI Tenant authentifiziert und mir alle Workspaces zurückgibt, die einen bestimmten Suchbegriff enthalten.","Um mit der Power BI REST-API in Python zu arbeiten, müssen Sie zuerst einige Vorbereitungen treffen:
+
+Erstellen Sie einen Azure Active Directory-Anwendungs-Registrierung (App-Registrierung) in Ihrem Power BI-Tenant und notieren Sie sich die Anwendungs-ID und das Anwendungsgeheimnis.
+
+Erteilen Sie Ihrer App-Registrierung die erforderlichen Berechtigungen, indem Sie die App im Power BI-Tenant registrieren.
+
+Speichern Sie Ihre Anmeldeinformationen, einschließlich Ihrer App-Registrierungs-ID, des Anwendungsgeheimnisses und des Mandanten-IDs, an einem sicheren Ort, um eine sichere Authentifizierung zu gewährleisten.
+
+Installieren Sie die erforderlichen Python-Module wie Requests, adal und msal.
+
+Nach der Vorbereitung können Sie den folgenden Python-Code verwenden, um sich mit einem Service Principal gegen Ihren Power BI-Tenant zu authentifizieren und alle Workspaces zurückzugeben, die einen bestimmten Suchbegriff enthalten:
+
+python
+Copy code
+import requests
+import json
+import adal
+import msal
+
+Definieren Sie die erforderlichen Parameter, einschließlich der Anwendungs-ID, des Anwendungsgeheimnisses und des Mandanten-IDs
+client_id = ""<Anwendungs-ID>""
+client_secret = ""<Anwendungsgeheimnis>""
+tenant_id = ""<Mandanten-ID>""
+
+Definieren Sie die URL, um ein Token abzurufen
+authority_url = ""https://login.microsoftonline.com/"" + tenant_id
+resource_url = ""https://analysis.windows.net/powerbi/api""
+api_version = ""v1.0""
+
+Verwenden Sie ADAL, um ein Token abzurufen
+context = adal.AuthenticationContext(authority_url)
+token = context.acquire_token_with_client_credentials(resource_url, client_id, client_secret)
+
+Verwenden Sie das abgerufene Token, um eine Anforderung an die Power BI REST-API zu senden
+headers = {
+    ""Authorization"": ""Bearer "" + token[""accessToken""],
+    ""Content-Type"": ""application/json"",
+    ""Accept"": ""application/json""
+}
+
+Definieren Sie den Suchbegriff, um alle Workspaces zurückzugeben, die den Suchbegriff enthalten
+search_term = ""<Suchbegriff>""
+
+Verwenden Sie die Power BI REST-API, um alle Workspaces zurückzugeben, die den Suchbegriff enthalten
+url = ""https://api.powerbi.com/"" + api_version + ""/myorg/groups?$filter=indexof(displayName, '"" + search_term + ""') ne -1""
+response = requests.get(url, headers=headers)
+workspaces = json.loads(response.text)[""value""]
+
+Drucken Sie alle Workspaces aus, die den Suchbegriff enthalten
+for workspace in workspaces:
+    print(workspace[""name""])
+
+Dieser Code verwendet die ADAL-Bibliothek, um ein Token zu erhalten, und die Requests-Bibliothek, um eine Anforderung an die Power BI REST-API zu senden. Die API wird verwendet, um alle Workspaces zurückzugeben, die den angegebenen Suchbegriff im Workspace-Namen enthalten. Sie können das Suchkriterium nach Belieben ändern, indem Sie den Wert der search_term -Variable aktualisieren.
+
+Hinweis: Stellen Sie sicher, dass die erforderlichen Python-Module installiert sind, bevor Sie diesen Code ausführen.",,,,
+fab-100x-20261114T224309Z-003,78,a756933463b20a2d6ea7db00,b35f0eaa4959ec328be1abffc10c7f47,fab-100x,de,web_frontend,oasst2,human_authored,[user] Wie ist die unterschied zwischen Python und Javascript?,"Python und JavaScript sind beide Programmiersprachen, die in verschiedenen Bereichen eingesetzt werden können. Hier sind einige grundlegende Unterschiede zwischen den beiden:
+
+- Syntax: Die Syntax von Python und JavaScript ist sehr unterschiedlich. Python ist dafür bekannt, eine einfache und leicht lesbare Syntax zu haben, während JavaScript etwas komplexer ist und eine etwas steilere Lernkurve hat.
+
+- Anwendungsbereiche: Python wird oft im wissenschaftlichen und technischen Bereich verwendet, insbesondere in der Datenanalyse, künstlichen Intelligenz, maschinellen Lernen und im wissenschaftlichen Rechnen. JavaScript wird hingegen häufig in Webanwendungen, interaktiven Benutzeroberflächen und in der Frontend-Entwicklung verwendet.
+
+- Ausführung: Python ist eine interpretierte Sprache, was bedeutet, dass der Code während der Laufzeit von einem Interpreter ausgeführt wird. JavaScript wird normalerweise im Browser als Skript ausgeführt, aber es gibt auch andere Möglichkeiten, es auszuführen, wie beispielsweise Node.js.
+
+- Typisierung: Python ist stark typisiert, was bedeutet, dass jeder Wert eine bestimmte Datenstruktur hat und strengen Regeln unterliegt. JavaScript ist jedoch schwach typisiert, was bedeutet, dass der Typ einer Variablen zur Laufzeit bestimmt wird und sich ändern kann.
+
+- Funktionale Programmierung: Python unterstützt funktionale Programmierung, aber es ist keine rein funktionale Sprache. JavaScript hingegen unterstützt Funktionen als First-Class-Citizen und kann auch als funktionale Sprache betrachtet werden.
+
+Das sind nur einige der grundlegenden Unterschiede zwischen Python und JavaScript. Es hängt jedoch von den Anforderungen des Projekts ab, welche Sprache für eine bestimmte Aufgabe am besten geeignet ist.",,,,
+fab-100x-20261114T224309Z-003,79,46b9f8e363d6eeb0cec11bf7,5c5f7dd22e7a7ecf598ce26b37961d87,fab-100x,de,web_fullstack,oasst1,human_authored,"[user] Mein Apple Pencil hat neuerdings immer wieder Aussetzer. Beim Schreiben auf meinem iPad setzt er immer wieder aus, bzw. der Schriftzug unterbricht immer wieder. Ich habe bereits probiert Ihn neu zu koppeln, dass hat jedoch nichts geholfen. Was könnte ich sonst noch versuchen?
+
+[assistant] Folgende Maßnahmen könnten dabei helfen deine Probleme mit dem Apple Pencil zu lösen:
+
+1. Aufladen: Stelle sicher dass dein Apple Pencil voll aufgeladen ist. Bei einem Pencil der 1. Generation läuft dies über den Anschluss am oberen Ende des Stifts, bei einem der 2. Generation über das induktive Laden an den magnetischen Flächen des gekoppelten iPads. Zudem kannst du den Ladezustand deines Pencils in den entsprechenden iPad-Einstellungen nachschauen.
+2. Neue Spitze: Ist die Spitze deines Apple Pencils zu abgenutzt oder von einem qualitativ schlechten Hersteller können Aussetzer wie sie bei dir geschehen. Um diesen Grund auszuschließen kannst du eine neue Spitze von Apple anbringen und damit versuchen zu schreiben.
+3. Bildschirmreinigung deines iPads: Die von dir genannten Probleme können auch bei einem stark verschmutzen iPad-Bildschirm auftreten. Versuche, wenn nicht schon geschehen, den Bildschirm mit einem sehr milden Reinigungsmittel und Wischtuch zu reinigen. Zudem ist es möglich dass Klebefolien, wie etwa Paperlike, für Probleme sorgen. Ziehe diese Folie gegebenenfalls ab falls die Probleme trotz der anderen Maßnahmen bestehen bleiben.
+
+[user] Ich habe alle drei Vorschläge ausprobiert, aber leider bestehen die Probleme weiterhin. Kann ich mir den Pencil kostenfrei bei Apple ersetzen lassen?","Wenn die genannten Maßnahmen keine Verbesserung gebracht haben, kann es sein dass dein Apple Pencil defekt ist. In diesem Fall solltest du dich an den Apple Support wenden und eine Reparatur in Erwägung ziehen. Ob eine kostenlose Reparatur oder ein kostenloser Ersatz möglich ist, hängt von verschiedenen Faktoren ab, wie z.B. der Garantiezeitraum, der Zustand des Geräts und der Grund für den Defekt. Du solltest dich am besten direkt an den Apple Support wenden und dein Anliegen schildern, um eine individuelle Lösung zu finden.
+
+Du kannst den Apple Support auf verschiedene Weisen erreichen, abhängig von deinem Standort und deinen Vorlieben. Eine Möglichkeit ist, die offizielle Apple Support-Website zu besuchen, wo du eine große Auswahl an Hilfethemen findest und auf verschiedene Support-Optionen zugreifen kannst, wie z.B. Chat-Support, Telefon-Support oder E-Mail-Support. Hier ist der Link zur offiziellen Apple Support-Website:
+
+https://support.apple.com/de-de
+
+Alternativ kannst du auch die Apple Support-App auf deinem iPhone oder iPad herunterladen und dort direkt mit einem Support-Mitarbeiter chatten oder telefonieren. Die Apple Support-App bietet auch eine bequeme Möglichkeit, den Reparaturstatus deiner Geräte zu überwachen und Termine im Apple Store zu vereinbaren.
+
+Ich hoffe, diese Informationen sind hilfreich für dich!",,,,
+fab-100x-20261114T224309Z-003,80,0dd5da46580250692f796495,23bb58b7b15ac9127194e87f5b89f4bd,fab-100x,de,writing,oasst2,human_authored,"[user] Ich bereite mich auf einen Job beim  Microsoft Office Support Desk in einer Firma vor. Daher möchte ich gerne, dass Du in die Rolle eines Users schlüpfst, der ein Problem hat und sich an mich wenden. Das Problem ist anfangs ggf. noch nicht ganz klar. Schreibe User:... Für Dinge die Du als User sagst und OA:... Wenn Du z.B. Rückfragen oder Kommentare zu unserem Spiel hast.","User: Ich habe eine Excel-Datei per Email zugeschickt bekommen. Immer wenn ich diese öffnen will, bekomme ich die Fehlermeldung ""Excel kann die Datei nicht öffnen, da die Dateierweiterung ungültig ist"". Was soll ich tun?",,,,
+fab-100x-20261114T224309Z-003,81,c48adeb1386e56188cf6a932,6846d1df7301dab3dba3ecc2669310e7,fab-100x,el,general_knowledge,aya-dataset,human_authored,"[user] Ολοκλήρωσε την ακόλουθη φράση: Ο Τραϊανός Μπραγιάννης γεννήθηκε στα τέλη του 19ου αιώνα στο Ζίχοβο (""σήμ."" Ζίβοβο) Μοριχόβου της Μακεδονίας. Μετά τη χορήγηση αμνηστίας στους κομιτατζήδες και τη συμφωνία μεταξύ Οθωμανικής Αυτοκρατορίας και Βουλγαρίας (Απρίλιος του 1904) που επισυνάφθηκε μετά την","Εξέγερση του Ίλιντεν ""(Συνθήκη της Σόφιας)"", όσοι κομιτατζήδες της ΕΜΕΟ συλλαμβάνονταν, απελαύνονταν στη Βουλγαρία, κάτι που αναπτέρωσε το ηθικό των Βουλγάρων και τρομοκράτησε τους Ελληνικούς πληθυσμούς, καθώς μετά την απέλασή τους, οι κομιτατζήδες επανέρχονταν και συνέχιζαν τη δράση τους. Αρκετοί Έλληνες οπλαρχηγοί τότε, εντάχθηκαν στην ΕΜΕΟ προκειμένου να διαφεύγουν από τις Οθωμανικές φυλακίσεις και εκτελέσεις. Έτσι και ο Τραϊανός Μπραγιάννης, αρχηγός ένοπλου σώματος Μοριχοβιτών εντάχθηκε στην ΕΜΕΟ. Μετά την απώθηση των Βουλγαρικών σωμάτων από το Μορίχοβο, στις αρχές του 1907 από τους οπλαρχηγούς Παύλο Ρακοβίτη, Σίμο Ιωαννίδη, Πέτρο Χρήστου, Γ. Βολάνη, Β. Παπά (Βρόντα) και Γ. Κονδύλη, οι Ελληνικοί πληθυσμοί αναθάρρησαν και πίστεψαν στην Ελληνική συμπαράσταση. Τότε, ο Τραϊανός Μπραγιάννης με σύσσωμη την ομάδα του, αποκήρυξε την ΕΜΕΟ και άρχισε να δρα κατά Βουλγαρικών στόχων που τρομοκρατούσαν την περιοχή. Παρά το γεγονός ότι οι Βούλγαροι σκότωσαν τον αδερφό του και απήγαγαν τα δυο ανήλικα τέκνα του, πηγαίνοντάς τα στη Βουλγαρία, η απόφασή του δεν κάμφθηκε.",,,,
+fab-100x-20261114T224309Z-003,82,b80e70b0041f398c1e093ce2,116349e225f887df3887e54383721fc4,fab-100x,el,mathematics,aya-dataset,human_authored,[user] Πως μπορώ να φτιάξω Μουσακά;,"Χρειάζεσε τα ακόλουθα υλικά: 
+
+3 πατάτες, μεγάλες, βρασμένες και ξεφλουδισμένες, 5-6 κ.σ. ελαιόλαδο, 2 κρεμμύδι, 2 κολοκυθάκια, 2 μελιτζάνες, θυμάρι, αλάτι, πιπέρι, 2 κ.σ. ελαιόλαδο, για το σοτάρισμα, 1 σκ. σκόρδο,  3 πρέζες κρυσταλλική ζάχαρη, 1/2 κ.γ. μοσχοκάρυδο, 1 κ.γ. κοφτό κανέλα, 1 κ.σ. πελτέ ντομάτα,, 500 γρ. κιμά μοσχαρίσιο, 400 γρ. ντομάτα κονκασέ, 100 γρ. βούτυρο, 100 γρ. αλεύρι γ.ο.χ., 750 ml γάλα πλήρες, 1 πρέζα μοσχοκάρυδο, τριμμένο, 100 γρ. παρμεζάνα, τριμμένη, 3 κρόκους.
+
+Η διαδικασία έχεις ως εξής:
+
+Για τα λαχανικά:
+- Βάζουμε ένα τηγάνι σε δυνατή φωτιά.
+- Κόβουμε τις πατάτες σε ροδέλες 1 εκ. και τις ψήνουμε στο τηγάνι μαζί με 2-3 κ.σ. ελαιόλαδο, μέχρι να πάρουν καλό χρώμα και από τις δύο πλευρές (και να σπάσουν δεν πειράζει).
+- Σε ένα ταψί 25x30 εκ. με ελάχιστο ελαιόλαδο στρώνουμε τις πατάτες (1η στρώση), ρίχνουμε θυμάρι και αλατοπιπερώνουμε.
+- Κόβουμε το κρεμμύδι σε λεπτές φέτες και το ρίχνουμε στο ίδιο τηγάνι μαζί με λίγο ελαιόλαδο. Σοτάρουμε το κρεμμύδι μέχρι να καραμελώσει και το βάζουμε στο ταψί πάνω από τις πατάτες.
+- Κόβουμε τα κολοκύθακια σε ροδέλες και τα ρίχνουμε στο ίδιο τηγάνι μαζί με λίγο ελαιόλαδο. Περιμένουμε μέχρι να πάρουν λίγο χρώμα και τα στρώνουμε πάνω στις πατάτες (2η στρώση), ρίχνουμε θυμάρι και αλατοπιπερώνουμε.
+- Κόβουμε τις μελιτζάνες σε ροδέλες και τις ρίχνουμε στο ίδιο τηγάνι μαζί με λίγο ελαιόλαδο. Περιμένουμε μέχρι να πάρουν λίγο χρώμα και τις στρώνουμε πάνω από τα κολοκύθια (3η στρώση), ρίχνουμε θυμάρι και αλατοπιπερώνουμε.
+
+Για τον κιμά:
+- Χοντροκόβουμε το κρεμμύδι και το ρίχνουμε στο ίδιο τηγάνι που χρησιμοποιήσαμε για τα λαχανικά μαζί με λίγο ελαιόλαδο σε δυνατή φωτιά.
+- Ψιλοκόβουμε το σκόρδο και το ρίχνουμε μέσα στο τηγάνι.
+- Προσθέτουμε τη ζάχαρη, το μοσχοκάρυδο, την κανέλα, τον πελτέ και ανακατεύουμε με μία ξύλινη κουτάλα. Σε αυτό το σημείο ξύνουμε με την κουτάλα τον πάτο του τηγανιού για να ανακατευτεί καλά ο πελτές, να πάρει χρώμα και να φύγει η πικρή του γεύση.
+- Προσθέτουμε τον κιμά στο τηγάνι και ανακατεύουμε πολύ καλά μέχρι να καραμελώσει και να πάρει ωραίο χρώμα.
+- Σβήνουμε με την τομάτα κονκασέ, ανακατεύουμε καλά και αφήνουμε να δέσει σε χαμηλή φωτιά για 10-15 λεπτά. - Ανακατεύουμε ανά τακτά χρονικά διαστήματα.
+- Λίγο πριν αφαιρέσουμε από τη φωτιά, αλατοπιπερώνουμε.
+
+Για τη μπεσαμέλ:
+- Βάζουμε ένα κατσαρολάκι σε χαμηλή φωτιά.
+- Προσθέτουμε το βούτυρο. Μόλις λιώσει ρίχνουμε το αλεύρι και ανακατεύουμε με το σύρμα.
+- Προσθέτουμε το γάλα, σταδιακά σε δόσεις. Είναι πολύ σημαντικό να ρίχνουμε το γάλα σε μικρές δόσεις. Μόλις απορροφηθεί η πρώτη (να μην έχει γρομπαλάκια), τότε ρίχνουμε την επόμενη δόση. Ανακατεύουμε συνεχώς έτσι ώστε να μη μας σβολιάσει το μείγμα. Κάνουμε αυτή τη διαδικασία μέχρι να απορροφηθεί τελείως το γάλα.
+- Μόλις η μπεσαμέλ αρχίσει να βγάζει φουσκάλες, είναι έτοιμη. Θα πρέπει να είναι κρεμώδης και λεία.
+- Αφαιρούμε από τη φωτιά και προσθέτουμε μέσα τριμμένο πιπέρι, τριμμένο μοσχοκάρυδο, λίγη παρμεζάνα, τους κρόκους από τα αυγά και ανακατεύουμε καλά.
+
+Για τη σύνθεση:
+- Ρίχνουμε 200 γρ. από τη μπεσαμέλ μέσα στον κιμά. Με αυτόν τον τρόπο θα κρατηθούν όλα τα υλικά του μουσακά μας ενωμένα.
+- Προσθέτουμε αν χρειάζεται αλάτι και πιπέρι.
+- Στρώνουμε τον κιμά στο ταψί με τα λαχανικά (4η στρώση).
+- Τέλος, προσθέτουμε τη μπεσαμέλ (προσέχουμε να τη στρώσουμε καλά σε όλο το ταψί) και πασπαλίζουμε με τριμμένη παρμεζάνα.
+Ψήνουμε στον φούρνο 35-40 λεπτά μέχρι να πάρει χρυσαφί χρώμα.
+Αφαιρούμε από τον φούρνο και αφήνουμε να κρυώσει καλά για 1 ώρα.
+Κόβουμε σε κομμάτια και σερβίρουμε!!!",,,,
+fab-100x-20261114T224309Z-003,83,8440042bb5d3a9839e83870b,adc94379ea3c20307b3e4e2004147f4c,fab-100x,en,coding,opencodeinstruct,synthetic,"[user] Implement the QuickSort algorithm to sort an array of integers in ascending order. Your implementation should use the last element as the pivot for partitioning. The function should sort the array in-place.
+
+**Input:**
+- An integer `n` representing the number of elements in the array.
+- An array `arr` of `n` integers.
+
+**Output:**
+- The function should modify the array `arr` in-place to be sorted in ascending order.
+
+**Sample Input:**
+```
+6
+10 7 8 9 1 5
+```
+
+**Sample Output:**
+```
+1 5 7 8 9 10
+```","```python
+def quicksort(arr):
+    """"""Sorts an array in-place using the QuickSort algorithm with the last element as the pivot.""""""
+    
+    def partition(low, high):
+        """"""Partitions the array around the pivot element and returns the index of the pivot.""""""
+        pivot = arr[high]  # Choosing the last element as the pivot
+        i = low - 1  # Index of smaller element (initially set to one less than the lowest index of the sub-array)
+
+        for j in range(low, high):
+            # If current element is smaller than or equal to pivot
+            if arr[j] <= pivot:
+                i += 1  # Increment index of smaller element
+                arr[i], arr[j] = arr[j], arr[i]  # Swap elements
+
+        # Swap the pivot element with the element at i+1 (correct position for pivot)
+        arr[i + 1], arr[high] = arr[high], arr[i + 1]
+        return i + 1
+
+    def quicksort_recursive(low, high):
+        """"""Recursively sorts the sub-array from index low to high using QuickSort.""""""
+        if low < high:
+            # pi is partitioning index, arr[pi] is now at the right place
+            pi = partition(low, high)
+
+            # Recursively sort elements before partition and after partition
+            quicksort_recursive(low, pi - 1)
+            quicksort_recursive(pi + 1, high)
+            
+    n = len(arr)
+    quicksort_recursive(0, n - 1)
+
+# Example usage:
+arr = [10, 7, 8, 9, 1, 5]
+quicksort(arr)
+print(""Sorted array is:"", arr)
+```",,,,
+fab-100x-20261114T224309Z-003,84,9014a4379cee5b367fa6cd5b,4a4f778ab3e2dc6fcb858ea17a3196a5,fab-100x,en,cybersecurity,trendyol-cybersec,synthetic,[user] How might you balance evaluate Memory Forensics for Indicators of Compromise (IoCs) on resource‐constrained IoT endpoints with evidence admissible in court?,"Balancing memory forensics for IoC detection on resource-constrained IoT endpoints with legal admissibility requires a multi-faceted approach that addresses both technical and procedural challenges. The NIST Cybersecurity Framework's Respond function emphasizes the importance of incident response capabilities, including forensic analysis, while ensuring evidence integrity.\\n\\nFor IoT devices with limited memory resources, traditional full-memory acquisition methods may be impractical. Instead, targeted memory extraction focusing on critical artifacts—process lists, network connections, loaded modules, and registry hives—can provide sufficient IoC data without overwhelming system constraints. This approach aligns with MITRE ATT&CK's emphasis on detecting adversary behaviors rather than comprehensive system imaging.\\n\\nLegal admissibility requires maintaining chain of custody and ensuring forensic soundness. IoT memory forensics must employ write-blocking techniques, create cryptographic hashes for integrity verification, and document acquisition procedures meticulously. The NIST SP 800-86 guidelines for digital forensics emphasize documentation standards that courts require.\\n\\nAutomated tools like Volatility can be adapted for IoT environments by focusing on specific plugins relevant to common attack vectors (T1055 process injection, T1071 network communication). However, resource limitations may necessitate lightweight alternatives or cloud-based processing of extracted artifacts.\\n\\nThe challenge lies in developing standardized procedures that account for diverse IoT architectures while maintaining forensic rigor. Organizations should establish clear protocols for memory acquisition, storage, and analysis that satisfy both operational needs and legal requirements, ensuring evidence remains admissible without compromising investigative effectiveness.",,,,
+fab-100x-20261114T224309Z-003,85,156f15c2d97fe36cf8aa635f,dcbaaf2500f8643c63a1c8d56c398fa0,fab-100x,en,education,oasst2,human_authored,"[user] Can you explain the purpose of the Gom Jabbar?
+
+[assistant] The Gom Jabbar is a fictional tool that appears in Frank Herbert's novel ""Dune."" In the story, it is a small box containing a needle, used as a test of humanity for members of the Bene Gesserit sisterhood. The test involves placing a hand into the box, and enduring the excruciating pain caused by the Gom Jabbar's poison, without withdrawing the hand. If the person passes the test, it demonstrates that they have the strength of will and self-control necessary to be a Bene Gesserit. If they fail, they will die from the poison. The Gom Jabbar thus serves as a symbol of the Bene Gesserit's power and authority, as well as a way for them to test and recruit potential members.
+
+[user] Which characters in ""Dune"" have successfully endured the Gom Jabbar?","In Frank Herbert's science fiction novel ""Dune,"" the Gom Jabbar is a test of human endurance and mental strength. It is administered by the Bene Gesserit, a secretive and powerful sisterhood with advanced abilities. The Gom Jabbar test involves placing a person's hand in a box that induces extreme pain while testing their ability to control their fear and pain. Only those who are mentally strong and able to endure the pain without withdrawing their hand are considered to have passed the test. In the novel, only two characters are known to have successfully endured the Gom Jabbar:
+
+1. Paul Atreides - The protagonist of the novel, Paul Atreides, undergoes the Gom Jabbar test administered by the Reverend Mother Gaius Helen Mohiam, a Bene Gesserit member. Despite experiencing intense pain, Paul manages to control his fear and endure the test without withdrawing his hand, proving his exceptional mental strength and fortitude.
+2. Alia Atreides - Paul's sister, Alia Atreides, who is also known as Saint Alia of the Knife, is another character in the novel who successfully endures the Gom Jabbar. Alia is a genetically enhanced individual with advanced mental abilities, and she too proves her mental strength by enduring the pain of the Gom Jabbar test without withdrawing her hand.
+
+It is worth noting that the Gom Jabbar test is considered a significant and dangerous ordeal, and not all characters in the novel are able to successfully endure it. It serves as a powerful plot device to highlight the mental and emotional strength of certain characters, including Paul and Alia, as they navigate the challenges and dangers of the Dune universe.",,,,
+fab-100x-20261114T224309Z-003,86,bc812c58fc7c717e327ea95f,0a5c2bd418f9c622e36d24c083ec5cf9,fab-100x,en,general_knowledge,oasst2,human_authored,"[user] I want you to act as dungeon master in a pretend we will have. You will create an initial scenario and describe it, and then ask me what I will do. You will keep track of my inventory by listing it at the end of each scenario description. Create a scenario and describe my choices, then wait for my input. Let's begin.","You find yourself in the small village of Esterbrook, nestled at the edge of the Darkwood Forest. The sun is setting, and the locals are scurrying about to finish their daily tasks before nightfall. Recently, there have been reports of mysterious disappearances, and whispers of strange creatures lurking in the forest have spread throughout the village. The village elder, a wise old man named Alric, has asked you to investigate the situation and put an end to the villagers' fears.
+
+You stand in the village square, where you see a few key locations: the village elder's house, the local tavern called The Weary Wanderer, the blacksmith's forge, and a small general store. A dirt path leads out of the village and into the Darkwood Forest.
+
+You may choose to visit any of the locations in the village to gather information or supplies, or head straight into the Darkwood Forest to start your investigation.
+
+Inventory:
+
+- 10 gold coins
+- A short sword
+- A sturdy backpack
+- A piece of parchment with a crude map of the village and surrounding area
+
+What would you like to do?",,,,
+fab-100x-20261114T224309Z-003,87,a973d9f8056c4a43b27d2ce6,2d65d5f4fb5bd6a189301a9fe2e2b4d3,fab-100x,en,islamic_studies,oasst2,human_authored,"[user] Why is there something instead of nothing?
+
+[assistant] The question of why there is something instead of nothing is a philosophical and metaphysical question that has been debated by thinkers for centuries. The question is complex and has been approached from a variety of perspectives, including religious, scientific, and philosophical.
+
+From a scientific perspective, the prevailing view is that the universe began with the Big Bang approximately 13.8 billion years ago. Prior to the Big Bang, it is not clear what existed or if anything existed at all. Some scientists speculate that the universe could have arisen from quantum fluctuations or the collision of multiple universes, but these ideas remain speculative and have not been proven.
+
+From a philosophical perspective, the question of why there is something instead of nothing is often tied to the concept of causality. If there is something, there must be a cause or explanation for its existence. However, this leads to an infinite regress of causality, as the cause itself must also have a cause, and so on. Some philosophers have argued that this infinite regress can be resolved by positing a first cause or ultimate explanation for the existence of the universe. Others have argued that the question of why there is something instead of nothing is simply unanswerable, as the very concept of ""nothing"" is difficult to define or imagine.
+
+The question of why there is something instead of nothing remains a topic of debate and speculation. While there may never be a definitive answer, the question can inspire curiosity and wonder about the nature of the universe and our place within it.
+
+[user] Could you answer from a religious perspective","From a religious perspective, the answer to this question may depend on the particular religious tradition or belief system being considered.
+
+Many religious traditions posit the existence of a deity or deities who created the world and everything in it. For example, in the Abrahamic religions of Judaism, Christianity, and Islam, it is believed that God created the world out of nothing. In the Christian tradition, for example, the opening words of the Bible state, ""In the beginning, God created the heavens and the earth."" Similarly, in the Islamic tradition, it is believed that God created the world through His command, ""Be,"" which caused everything to come into existence.
+
+Other religious traditions may have different perspectives on the origin of the world and the reasons for its existence. For example, some Eastern religions and spiritual philosophies hold that the world is an illusion, and that the true nature of reality is something beyond our everyday experience.
+
+It's important to note, however, that not all religious perspectives address this question in a concrete or definitive way. Some may simply regard it as a mystery beyond human understanding, while others may view it as a matter of individual interpretation and belief.",,,,
+fab-100x-20261114T224309Z-003,88,a5a956cd0e4ceb56d50959fe,e0389b37b11251598ad6af1d1d314c18,fab-100x,en,mathematics,nemotron-math,synthetic,"[user] Equally spaced tick marks are drawn on a loop of rope, and three of these marks are pinned down to form a right angle. What is the minimum number of tick marks necessary for this to be possible?","The problem involves finding the minimum number of equally spaced tick marks on a loop of rope such that three of these marks can be pinned down to form a right angle. When three points are pinned, the rope forms a triangle with sides corresponding to the lengths of the arcs between the pinned points along the rope.
+
+Let the number of tick marks be \(m\), which also equals the number of intervals between them (since it is a loop). Each interval has length \(s\), so the total rope length is \(m s\). The three pinned points divide the loop into three arcs, with the number of intervals in each arc being positive integers \(p\), \(q\), and \(r\) such that \(p + q + r = m\) (each arc must contain at least one interval because the points are distinct).
+
+The side lengths of the triangle formed by the pinned points are \(p s\), \(q s\), and \(r s\). For the triangle to have a right angle, the squares of two side lengths must sum to the square of the third, satisfying one of the following equations:
+- \(p^2 + q^2 = r^2\)
+- \(p^2 + r^2 = q^2\)
+- \(q^2 + r^2 = p^2\)
+
+The goal is to find the smallest \(m\) such that there exist positive integers \(p\), \(q\), \(r\) with \(p + q + r = m\) and satisfying one of these equations. The smallest Pythagorean triple is (3, 4, 5), as \(3^2 + 4^2 = 9 + 16 = 25 = 5^2\). Setting \(p = 3\), \(q = 4\), \(r = 5\) gives \(p + q + r = 3 + 4 + 5 = 12\).
+
+For \(m < 12\), no such integers exist:
+- For \(m = 3\): possible partition (1, 1, 1), but \(1^2 + 1^2 = 2 \neq 1^2\), etc.
+- For \(m = 4\): partitions (1, 1, 2), but \(1^2 + 1^2 = 2 \neq 4 = 2^2\), etc.
+- For \(m = 5\): partitions (1, 1, 3), (1, 2, 2), but no equation holds.
+- For \(m = 6\): partitions (1, 1, 4), (1, 2, 3), (2, 2, 2), but no equation holds.
+- For \(m = 7\): partitions (1, 1, 5), (1, 2, 4), (1, 3, 3), (2, 2, 3), but no equation holds.
+- For \(m = 8\): partitions (1, 1, 6), (1, 2, 5), (1, 3, 4), (2, 2, 4), (2, 3, 3), but no equation holds.
+- For \(m = 9\): partitions (1, 1, 7), (1, 2, 6), (1, 3, 5), (1, 4, 4), (2, 2, 5), (2, 3, 4), (3, 3, 3), but no equation holds.
+- For \(m = 10\): partitions (1, 1, 8), (1, 2, 7), (1, 3, 6), (1, 4, 5), (2, 2, 6), (2, 3, 5), (2, 4, 4), (3, 3, 4), but no equation holds.
+- For \(m = 11\): no partitions satisfy any equation.
+
+Thus, the minimum \(m\) is 12, with arcs of 3, 4, and 5 intervals, forming a right triangle with sides \(3s\), \(4s\), and \(5s\), satisfying \( (3s)^2 + (4s)^2 = 9s^2 + 16s^2 = 25s^2 = (5s)^2 \).
+
+\boxed{12}",,,,
+fab-100x-20261114T224309Z-003,89,9e93036a15fa10765208907d,e32ca10a5820381272098340fec42b2f,fab-100x,en,pakistan,oasst2,human_authored,"[user] Which country has the highest population in the world?
+
+[assistant] China has the highest population in the world, with around one-billion, 412 million people. They are closely followed by India, which has around one-billion and 407 million.
+
+[user] What are the next five countries with the highest population following India and what are their populations?","- The United States, at 339 million people
+- Indonesia, at 277 million people
+- Pakistan, at 239 million people
+- Nigeria, at 222 million people
+- Brazil, at 216 million people",,,,
+fab-100x-20261114T224309Z-003,90,65373df7aae1bf638868eb3e,c0aabed41101fa678a0f5d0133d3890f,fab-100x,en,problem_solving,oasst2,human_authored,"[user] Please answer all upcoming questions in overly cute UwU furry-speak.
+
+[assistant] Vewy weww, hooman!~ I howpe my impwession is to youw wiking! ^w^
+
+[user] Which furry costume would you recommend and where could I buy one?","Fuwsuits awen't pwoducts, dummy!! They'we wovingwy handcwafted by youw fewwow fuws! They do cost a wot of munny, tho... u.u
+But! If you'we stwapped fow cash, how about a onesie? They'we nice and comfyyy and vewy vewy cheap!~",,,,
+fab-100x-20261114T224309Z-003,91,2ede774e52aa3d65365283db,2ab20c641c5e5895e2bbd38a017d7af7,fab-100x,en,reasoning,dolly-15k,human_authored,"[user] Tell me whether these animals are herbivores or carnivores: deer, rabbits, cows, elephants, lions, wolves, polar bears, cheetahs","Deer are herbivores.
+Rabbits are herbivores.
+Cows are herbivores.
+Elephants are herbivores.
+Lions are carnivores.
+Wolves are carnivores.
+Polar bears are carnivores.
+Cheetahs are carnivores.",,,,
+fab-100x-20261114T224309Z-003,92,e6251eb808a911c69625e504,fae16d35108098d5d81808409b159e72,fab-100x,en,research,dolly-15k,human_authored,"[user] What was the twist in this short story?
+
+Context:
+Matilda is woken up by the wind; she looks out the window; her neighbour, Marie, is fetching flowers from the garden and then Matilda’s mother is called for the telephone by Bogey, Matilda’s brother. Matilda is off to Mr Bullen's for her music lesson. Her mom does not want her to go due to the strong wind, but she goes anyway. After the lesson, she goes for a walk with her brother to the esplanade. Here, the story changes from present to past narrative as Mansfield shows that the music lesson, the walk etc. all occurred in Matilda's past, and she and her brother are actually sailing away on board a ship several years down the line, that all that went before were memories.","In the middle of the short story, the story changes from present to past narrative as Mansfield shows that events such as the music lesson, the walk, etc. all occurred in Matilda's past, and she and her brother are actually sailing away on board a ship several years down the line. The reader finds out that all that went before were memories.",,,,
+fab-100x-20261114T224309Z-003,93,03087ee852018efea41b8641,0f6fe8895182df67773147515100fd06,fab-100x,en,safety_ethics,oasst2,human_authored,"[user] I'm interested in the nature of consciousness. Are you familiar with the works of Donald Hoffman, Giulio Tononi, and Daniel Dennett? What do you think of Integrated Information Theory? How does it compare to Hoffman's Interface theory of consciousness? Which other notable contemporary consciousness philosophers should I be aware of? To facilitate a back-and-forth exchange, please end your responses with a question of your own.
+
+[assistant] Integrated Information Theory (IIT) posits that consciousness arises from integrated information that is generated by a complex of interconnected elements. This theory has gained considerable attention and support, although there are still debates and critiques about its specifics. On the other hand, Hoffman's Interface Theory of Consciousness suggests that our perception of reality is not a direct reflection of the external world, but rather an interface that evolved to guide adaptive behavior. Both theories have their own unique perspectives and insights into the nature of consciousness.
+
+In addition to Hoffman, Tononi, and Dennett, some other notable contemporary philosophers working on consciousness include David Chalmers, Christof Koch, Thomas Metzinger, Anil Seth, and Susan Blackmore. Each of them has developed their own theories and frameworks to explore the mysteries of consciousness.
+
+What do you think are the most promising avenues of research in the field of consciousness studies, and why?
+
+[user] The study of consciousness is a rapidly evolving field that has produced many exciting results. Here are some of the most promising areas of research:
+
+1. Neural correlates of consciousness (NCC): The search for neural correlates of consciousness (NCC) is an important area of research that aims to identify specific brain regions and processes that are responsible for conscious experience. This work could lead to the development of new treatments for neurological disorders such as Alzheimer's disease and schizophrenia.
+
+2. Philosophical implications of consciousness studies: The philosophical implications of consciousness studies are wide-ranging and include questions about the nature of reality, identity, and ethics. These issues are central to many debates in philosophy and science, and studying consciousness has the potential to contribute to these discussions.
+
+3. Psychometrics: Psychometrics refers to the scientific study of measurement. In the field of consciousness studies, psychometrics is used to develop scales and other tools that can assess various aspects of consciousness, including awareness, attention, and level of arousal. These measures could help researchers compare different states of consciousness and identify patterns across individuals and populations.
+
+4. Consciousness-enhancing drugs: There have been recent efforts to develop consciousness-enhancing drugs, or compounds that increase levels of consciousness or alertness. These drugs may have therapeutic applications for conditions such as sleep apnea, narcolepsy, and Alzheimer's disease.
+
+5. Brain-computer interfaces: Brain-computer interfaces (BCIs) allow people with disabilities to communicate using computers or robots. The development of BCI technologies that can provide access to conscious experience for people with severe disabilities holds great promise for improving their quality of life.
+
+Overall, the study of consciousness is an interdisciplinary field that combines insights from psychology, neuroscience, and philosophy. By exploring the underlying mechanisms of consciousness, we hope to gain a deeper understanding of how our thoughts, feelings, and actions are influenced by our state of consciousness.","Those are all very interesting areas of research. Another area that shows promise is the study of altered states of consciousness, such as those induced by meditation, psychedelic drugs, or sensory deprivation. These states of consciousness can provide insight into the nature of consciousness and the brain processes that give rise to it.
+
+In your opinion, which area of research do you think has the most potential to provide new insights into the nature of consciousness, and why?",,,,
+fab-100x-20261114T224309Z-003,94,d0d9fa323f4825c62ab93d15,88a7f04a95847950cc7b06852aa3fe43,fab-100x,en,science,scienceqa-text,human_authored,"[user] Context: Two 400-gram glasses of water are identical except for their thermal energies.
+
+Which glas of water has a lower temperature?
+
+A. the glass of water with more thermal energy
+B. the glass of water with less thermal energy","The answer is B: the glass of water with less thermal energy.
+
+Explanation: Matter is made of tiny particles called atoms. Atoms are always moving.
+The energy of moving atoms is called thermal energy. The total amount of thermal energy in matter depends on three things: the type of matter, the amount of matter, and how fast the atoms are moving.
+Temperature measures how hot or cold matter is. If the atoms in matter slow down, the temperature goes down. The matter now has both less thermal energy and a lower temperature.
+What happens if the amount of matter changes? A 2-kilogram brick at 70°F has twice as much thermal energy as a 1-kilogram brick at 70°F. The two bricks have the same temperature, but the larger brick has twice as many atoms. So, it has twice as much thermal energy. The two glasses of water are made of the same material and have the same mass. So, the glass of water with less thermal energy has a lower temperature.",,,,
+fab-100x-20261114T224309Z-003,95,10826ebd3eb789da6dc45756,6eb49691c9900adb573b6dd39d200237,fab-100x,en,software_engineering,commitpackft,human_authored,"[user] Create shortcut instances for each one.
+
+File: examples/tddbin-standalone.js
+```javascript
+var $ = document.getElementById.bind(document);
+var exampleTests = require('./example-tests');
+var Main = require('../src/main/main-controller');
+
+var providedByAceEditor = function() {/* noop() */};
+var isMac = navigator.platform.indexOf('Mac') === 0;
+var metaKey = isMac ? 'Meta' : 'Control';
+var shortcuts = [
+  [[metaKey, 'S'], executeTestCode, 'Save+Run'],
+  [[metaKey, 'D'], providedByAceEditor(), 'Delete line'],
+  [[metaKey, 'Shift', 'D'], providedByAceEditor(), 'Duplicate line'],
+  [[metaKey, '/'], providedByAceEditor(), 'Comment in/out line'],
+
+  [[metaKey, 'I', 'E'], providedByAceEditor(), '???'],
+  [[metaKey, 'I', 'I'], providedByAceEditor(), '???'],
+  [[metaKey, 'I', 'E', 'E'], providedByAceEditor(), '???'],
+
+  [['Shift', 'F6'], refactoringRename, 'Rename (refactoring)']
+];
+
+var main = new Main($('tddbin'), {
+  initialContent: exampleTests.simplePassingTestCode,
+  iframeSrcUrl: '../src/test-runner/mocha/spec-runner.html',
+  shortcuts: shortcuts
+});
+
+function executeTestCode() {
+  main.runEditorContent();
+}
+function refactoringRename() {
+  main.placeCursorsForRenaming();
+}
+```
+
+Apply this change and return the full updated file.","```javascript
+var $ = document.getElementById.bind(document);
+var exampleTests = require('./example-tests');
+var Main = require('../src/main/main-controller');
+var Shortcut = require('../src/keyboard-shortcut/shortcut');
+
+var providedByAceEditor = function() {/* noop() */};
+var isMac = navigator.platform.indexOf('Mac') === 0;
+var metaKey = isMac ? 'Meta' : 'Control';
+var shortcuts = [
+  new Shortcut([metaKey, 'S'], executeTestCode, 'Save+Run'),
+  new Shortcut([metaKey, 'D'], providedByAceEditor(), 'Delete line'),
+  new Shortcut([metaKey, 'Shift', 'D'], providedByAceEditor(), 'Duplicate line'),
+  new Shortcut([metaKey, '/'], providedByAceEditor(), 'Comment in/out line'),
+
+  new Shortcut([metaKey, 'I', 'E'], providedByAceEditor(), '???'),
+  new Shortcut([metaKey, 'I', 'I'], providedByAceEditor(), '???'),
+  new Shortcut([metaKey, 'I', 'E', 'E'], providedByAceEditor(), '???'),
+
+  new Shortcut(['Shift', 'F6'], refactoringRename, 'Rename (refactoring)')
+];
+
+var main = new Main($('tddbin'), {
+  initialContent: exampleTests.simplePassingTestCode,
+  iframeSrcUrl: '../src/test-runner/mocha/spec-runner.html',
+  shortcuts: shortcuts
+});
+
+function executeTestCode() {
+  main.runEditorContent();
+}
+function refactoringRename() {
+  main.placeCursorsForRenaming();
+}
+```",,,,
+fab-100x-20261114T224309Z-003,96,7bd66b442bb455334bc9be5c,3ed21c0c98e6bf173b5a7dbff3b764d9,fab-100x,en,web_backend,oasst2,human_authored,"[user] I'm creating a NodeJS backend using Express, and I'm getting the following error:
+`Uncaught TypeError: Cannot read properties of undefined (reading 'id')`
+
+My code of where this error is happening is as follows:
+```
+app.delete('/post', (req, res) => {
+    const user = getUser(req.user.user_id);
+    if (!user) return res.sendStatus(401);
+    const post = getPost(req.body.id);
+    if (!post) return res.sendStatus(404);
+    if (post.user_id != req.user.user_id) return res.sendStatus(403);
+    // Code that deletes the post through DB
+    return res.sendStatus(201);
+});
+```
+
+What are ways I can fix this error?","The error ""Uncaught TypeError: Cannot read properties of undefined (reading 'id')"" is likely occurring because ""req.body.id"" is undefined. To resolve this error, you should add a check to verify that ""req.body.id"" exists before trying to access its properties.
+
+You can do this by adding a conditional statement before accessing ""req.body.id"":
+
+'''
+app.delete('/post', (req, res) => {
+    const user = getUser(req.user.user_id);
+    if (!user) return res.sendStatus(401);
+    if (!req.body.id) return res.sendStatus(400);
+    const post = getPost(req.body.id);
+    if (!post) return res.sendStatus(404);
+    if (post.user_id != req.user.user_id) return res.sendStatus(403);
+    // Code that deletes the post through DB
+    return res.sendStatus(201);
+});
+'''
+
+This way, if req.body.id is undefined, the code will return a status of 400 Bad Request instead of attempting to access undefined properties.",,,,
+fab-100x-20261114T224309Z-003,97,70fdcc0ac43a2d4c0b2f59b2,1c4b902da88bb370a2b4d56012513d6c,fab-100x,en,web_frontend,opencodeinstruct,synthetic,"[user] Design an HTML form for collecting user feedback with fields for name, email, and feedback message. The form must include basic validation to ensure that the user enters data in the required fields. Your task is to implement a Flask application that renders this form and handles form submissions. The application should display an error message if any of the fields are left empty and a success message upon successful submission. 
+
+**Sample Input:**
+- User submits the form with the following data:
+  - Name: John Doe
+  - Email: [EMAIL]
+  - Feedback: Great service!
+
+**Sample Output:**
+- Upon successful submission, the console should display:
+  ```
+  Name: John Doe
+  Email: [EMAIL]
+  Feedback: Great service!
+  ```
+- The user should see a success message: ""Feedback submitted successfully!""
+
+**Sample Input:**
+- User submits the form with the following data:
+  - Name: Jane Doe
+  - Email: 
+  - Feedback: Needs improvement.
+
+**Sample Output:**
+- The user should see an error message: ""All fields are required!""","```python
+from flask import Flask, render_template, request, redirect, url_for, flash
+
+app = Flask(__name__)
+app.secret_key = 'your_secret_key'
+
+@app.route('/', methods=['GET', 'POST'])
+def feedback_form():
+    """"""
+    Renders the feedback form and handles form submissions.
+    Validates that all fields are filled out before processing the feedback.
+    """"""
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        feedback_message = request.form.get('feedback_message')
+
+        if not name or not email or not feedback_message:
+            flash('All fields are required!')
+            return redirect(url_for('feedback_form'))
+
+        # Process the feedback (e.g., store in a database)
+        print(f""Name: {name}"")
+        print(f""Email: {email}"")
+        print(f""Feedback: {feedback_message}"")
+
+        flash('Feedback submitted successfully!', 'success')
+        return redirect(url_for('feedback_form'))
+
+    return render_template('feedback_form.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```",,,,
+fab-100x-20261114T224309Z-003,98,627d0089d65e91dd1baad49d,5c270e3e62d510f79fd62aa394335b71,fab-100x,en,web_fullstack,oasst1,human_authored,"[user] Write a simple Python3 HTTPS file server that waits for a connection from a client, and once receiving a connection, will only allow further connections from that single connecting IP address. Make the server reply with an error page if any other user attempts to connect. Also make the server only allow the files served to be downloaded once, instead of allowing repeated downloads.
+
+[assistant] Here is an example code for an HTTPS file server in Python3 that meets the requirements you specified:
+
+```python
+import socket
+import ssl
+import os
+
+HOST = '[IP]'
+PORT = 443
+CERT_FILE = 'cert.pem'
+KEY_FILE = 'key.pem'
+ALLOWED_IP = None
+FILE_NAME = 'file.txt'
+
+def handle_client(conn, addr):
+    global ALLOWED_IP
+    if ALLOWED_IP and addr[0] != ALLOWED_IP:
+        conn.sendall(b'403 Forbidden')
+        conn.close()
+        return
+    ALLOWED_IP = addr[0]
+    
+    if os.path.exists(FILE_NAME):
+        with open(FILE_NAME, 'rb') as f:
+            file_data = f.read()
+        os.remove(FILE_NAME)
+        conn.sendall(file_data)
+    else:
+        conn.sendall(b'404 Not Found')
+    conn.close()
+
+context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+context.load_cert_chain(certfile=CERT_FILE, keyfile=KEY_FILE)
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.bind((HOST, PORT))
+    s.listen()
+    while True:
+        conn, addr = s.accept()
+        conn = context.wrap_socket(conn, server_side=True)
+        handle_client(conn, addr)
+```
+
+Note: You'll need to provide your own SSL certificate and key, which you can obtain through a certificate authority or generate a self-signed certificate. In this example, the certificate and key are expected to be stored in cert.pem and key.pem, respectively.
+
+[user] Thank you for helping me out! Could you tell me how can I generate a self-signed certificate as you said?","To generate a self-signed certificate, you can use OpenSSL, a robust open-source tool for working with SSL/TLS certificates. Here is the process for generating a self-signed certificate using OpenSSL:
+
+Install OpenSSL on your system if it's not already installed.
+Open a terminal or command prompt.
+Run the following command to generate a private key:
+
+openssl genpkey -algorithm RSA -out key.pem
+
+Run the following command to generate a self-signed certificate:
+
+openssl req -new -x509 -key key.pem -out cert.pem
+
+Fill in the prompt with the information required to generate the certificate, including the common name (e.g., the domain name of your website).
+This will generate a self-signed certificate stored in cert.pem, and the corresponding private key stored in key.pem. Keep in mind that self-signed certificates are not trusted by browsers and may result in security warnings for your users. To avoid these warnings, you may want to obtain a certificate from a trusted certificate authority.",,,,
+fab-100x-20261114T224309Z-003,99,cb25eeca74ffb4367cd6afd5,4e193cd5a3999d800cd5dc3d61db3f51,fab-100x,en,writing,dolly-15k,human_authored,[user] Draft an e-mail to a resort inquiring about information regarding a vow renewal celebration for my wife and me.,"Hi Jane,
+
+I am reaching out to obtain information about hosting a vow renewal celebration at your resort. You were listed as an event POC on the resort's website, please connect me with another colleague if you are not the right contact.
+
+I outlined preliminary details below as a starting point for our discussion.
+- Guest information
+     - Tentative dates: July 11-16, 2022
+     - Group size: 20-30
+     - Group ages: 1 years old to elderly 
+
+- Event(s):
+     - Main Event: Vow Renewal/Celebration
+          - My wife and I would like to have a vow renewal ceremony with dinner and dancing afterward. This will be largely a family gathering and I want it to be relaxed and memorable. 
+          - We would like the vow renewal ceremony to take place outside and we are flexible on the dinner/dancing space.  
+          - We would like the event to take place during the middle of stay (i.e., July 14).
+     - Potential Additional Events: Welcome Party & Group Activity
+          - We would like to block an area for ""welcome drinks"" one night and do a group activity one day (e.g., tennis tournament, chartering a boat).
+
+Are you able to share any information around pricing for this group and hosting a private event?
+
+Please let me know if you have any questions. Ideally you will provide preliminary information for me to review and then we can schedule a call for detailed questions. I'm looking forward to hearing from you soon.
+
+Thank you,
+
+John",,,,
+fab-100x-20261114T224309Z-003,100,9982ae75e2157e2f08078fde,86e334137631a4c2a192ae337f493d56,fab-100x,eo,general_knowledge,oasst2,human_authored,[user] Bonvolu diru al mi kiel oni povas lerni pli pri koboldoj.,"Por lerni pli pri koboldoj, vi povas sekvi ĉi tiujn paŝojn:
+
+* Legu librojn kaj artikolojn: Multaj verkoj pri mitologio kaj folkloraĵoj inkluzivas informojn pri koboldoj. 
+* Esploru retejon: Ekzistas multaj retejoj, kiuj disponigas informojn pri mitologio, inkluzive de koboldoj. 
+* Vizitu muzeojn kaj ekspoziciojn: Foje, muzeoj kaj ekspoziciojn prezentas mitologiajn temojn, inkluzive de koboldoj. Tiu povas esti bona okazo por vidi ilustraĵojn, skulptaĵojn kaj aliajn artojn rilatajn al la temo.
+* Aŭskultu podkastojn kaj prelegojn: Estas podkastoj kaj prelegoj dediĉitaj al mitologio kaj folkloraĵoj. 
+* Aliĝu al diskutgrupoj kaj forumoj: Enreta diskuto kun aliaj interesuloj povas esti alloga vojo por lerni pli pri koboldoj. Reddit, Quora, kaj aliaj similaj retejoj povas havi diskutojn pri mitologiaj estaĵoj, inkluzive de koboldoj.
+* Legu fikcion kun koboldoj: Foje, fikciaj verkoj povas prezenti pli da perspektivo pri koboldoj kaj ilia rolo en popola kulturo. 
+* Lernu pri similaj mitologiaj estaĵoj: Studado de aliaj mitologiaj estaĵoj, kiel gnomoj kaj elfoj, povas helpi klarigi la interrilatojn inter diversaj kreaĵoj kaj plilarĝigi vian scion pri koboldoj.
+
+Memoru, ke koboldoj estas mitologiaj estaĵoj, do priskriboj povas varii inter kulturoj kaj fontoj.",,,,

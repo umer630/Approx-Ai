@@ -1,0 +1,1248 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-039,1,d011abdc1e3f6e19f64a586f,39748817251666985d0f588c807fceae,fab-500x,ur,web_frontend,wikipedia-ur,templated_human,[user] جے کوئری کے بارے میں ایک مختصر تعارف لکھیں۔,"جے کوئری  ایک کراس پلیٹ فارم جاوا سکرپٹ لائبریری ہے جو ایچ ٹی ایم ایل میں کلائنٹ سائڈ سکرپٹنگ کو مزید سادہ کرنے کر لیے تیار کی گئی ہے۔ جے کوئری اس وقت جاوا سکرپٹ کی سب سے زیادہ استعمال ہونے والی لائبریری ہے۔ نیز جے کوئری مفت، آزاد مصدر اور ایم آئی ٹی اجازت نامہ کے تحت جاری کی گئی ہے۔
+
+جے کوئری کے اصول و قواعد اس اعتبار سے مرتب کیے گئے ہیں کہ اینی میشن بنانے، ایوینٹس کا انتظام اور اجیکس اطلاقیوں کو بنانا آسان تر ہو جائے۔ نیز جے کوئری کے ذریعہ ڈویلپرز جاوا سکرپٹ لائبریری کے لیے پلگ انز، طاقتور ڈائنامک ویب صفحات اور اطلاقیے بھی تیار کر سکتے ہیں۔
+
+مائیکروسافٹ اور نوکیا نے جے کوئری کو اپنے پلیٹ فارمز پر فراہم کر دیا ہے۔ مائکروسافٹ نے اے ایس پی ڈاٹ نیٹ اجیکس فریم ورک اور اے ایس پی ڈاٹ نیٹ ایم وی سی فریم ورک میں استعمال کے لیے ویزول سٹوڈیو کے ساتھ اسے بھی شامل کر دیا ہے، جبکہ نوکیا نے اسے ویب رن ٹائم وجیٹ ڈویلپمنٹ کے پلیٹ فارم میں ضم کر رکھا ہے۔ نیز جے کوئری میڈیاویکی میں بھی ورژن 1.16 سے استعمال ہو رہی ہے۔
+
+ڈوم (DOM) عناصر تک رسائی اور اس میں تبدیلی۔
+
+جے کوئری لائبریری ایک جاوا سکرپٹ فائل ہے جس میں تمام DOM عناصر، ایوینٹس، افیکٹس اور اجیکس کے فنکشنز موجود ہوتے ہیں۔ اس کو ویب صفحہ میں شامل کرنے کے لیے لوکل مشین پر موجود فائل یا عوامی سرورز پر موجود متعدد فائلوں میں سے کسی ایک فائل سے مربوط کیا جاتا ہے۔ جے کوئری متعدد سی ڈی اینز (CDNs) مثلاً گوگل اور مائکروسافٹ پر موجود ہے۔
+
+مقامی مشین پر موجود فائل سے مربوط کرنے کے لیے:",,,,
+fab-500x-20261114T224408Z-039,2,8b071e11c3fe616c70bd03ac,db3afa45add23667611cfbbdadd9951c,fab-500x,ur,web_fullstack,wikipedia-ur,templated_human,[user] جمہوریہ سرپسکا کی بلدیات کے بارے میں ایک مختصر تعارف لکھیں۔,"1994ء میں اپنائے گئے ""علاقائی تنظیم اور مقامی حکومت کے قانون"" کے تحت جمہوریہ سرپسکا 80 بلدیات میں منقسم تھا۔ ڈیٹن امن معاہدے کے اختتام کے بعد 1996ء میں کی گئی ترامیم کے بعد جمہوریہ سرپسکا کی اب 64 بلدیات ہیں۔
+
+# بانیا لوکا (شہر حیثیت)# بیرکوویچی# بیےلینا (شہر حیثیت)# بیلئچا# براتوناتس# برود، بوسنیا و ہرزیگووینا# چاینیچے# چیلیناتس# دروینتا# دوبوی (شہر حیثیت)# دونئی ژابار# فوچا# گاتسکو# گرادشکا، بوسنیا و ہرزیگووینا# حان پیئساک# استوچنا الیجا# استوچنی دروار# استوچنی موستار# استوچنو نووو سرائیوو# استوچنی ستاری گراد# استوچنو سرائیوو (شہر حیثیت)# یئزیرو# کالینوویک# کنیژیوو# کوستاینیتسا، بوسنیا و ہرزیگووینا# کوتور واروش# دوبیسا، بوسنیا-ہرزیگووینا# کروپا نا اونی# کوپریس، جمہوریہ سرپسکا# لاکتاشی# لوپارے# لیوبینیئے# میلیچی# مودریچا# مرکونیئچ گراد# نیویسینیئے# نووی گراد، بوسنیا و ہرزیگووینا# نووو گورشدے# اوسماتسی# اوشترا لوکا# پالے، بوسنیا و ہرزیگووینا# پیلاگیچیوو# پیتروواتس، بوسنیا و ہرزیگووینا# پیترووو، بوسنیا و ہرزیگووینا# پریےدور (شہر حیثیت)# پرنئاور# ریبنیک، بوسنیا و ہرزیگووینا# روگاتیتسا# رودو# سوکولاک# سرباتس# سریبرینیتسا# ستاناری# شاماتس، بوسنیا و ہرزیگووینا# شیکوویچی# شیپووو# تیسلچ# تریبینئے (شہر حیثیت)# ترنوو، جمہوریہ سرپسکا# اوگلیئویک# ویشیگراد# ولاسینیتسا# ووکوساسیئے# زوورنک
+
+Republika Srpska Government Website regarding municipalities",,,,
+fab-500x-20261114T224408Z-039,3,e22330feb83eb8ef8d6fef77,8a3af25667caf3ecc1781a4d93a18131,fab-500x,ur,writing,roman-urdu-parl,transliteration_unverified,"[user] اس جملے کو اردو رسم الخط میں لکھیں:
+jaane woh ki jabar hai ya ikhtiyar hai",جانے وہ کوئی جبر ہے یا اختیار ہے,,,,
+fab-500x-20261114T224408Z-039,4,953cf83a90cd6349812c6be8,0b9234385a0a5d9b99b6ef3e1fe7a5a3,fab-500x,vi,coding,aya-dataset,human_authored,[user] Hòn đảo nào đông dân nhất Indonesia?,"Java là hòn đảo lớn thứ năm của Indonesia. Theo Statista, năm 2020, hơn 56% dân số Indonesia, trên 150 triệu người, sống trên đảo Java khiến nó trở thành hòn đảo đông dân nhất thế giới. 
+
+Hòn đảo được chia thành bốn tỉnh: Đông Java, Trung Java, Tây Java và Banten. Thủ đô Jakarta nằm ở phía tây bắc hòn đảo này, là một trong những nơi có mật độ dân số cao nhất thế giới. Với dân số hơn 10 triệu người, những ngày chủ nhật ở Jakarta được xem là ""Ngày không đi ôtô"" để giảm thiểu tắc đường. Thủ đô của Indonesia cũng là thành phố sở hữu tuyến xe buýt nhanh BRT dài nhất thế giới.
+
+Sự hình thành của Java là kết quả của những vụ phun trào núi lửa. Sở hữu hơn 450 loài chim, đảo Java là thiên đường của những người đam mê khám phá tự nhiên.",,,,
+fab-500x-20261114T224408Z-039,5,f4eaffe964a5d363c1792603,dead2421f58ed168f2ebd3b1284e0947,fab-500x,vi,general_knowledge,aya-dataset,human_authored,"[user] Dựa trên tiêu đề sau, hãy viết một bài báo ngắn nói về chủ đề này: 
+
+Giá xăng có thể giảm vào ngày mai","Giá xăng có thể giảm vào ngày mai
+
+Dự kiến ​​trong phiên giao dịch ngày mai, giá xăng sẽ có khả năng giảm, mang lại những tin vui cho người tiêu dùng tại các đại bản dầu trên khắp đất nước. Điều này xuất phát từ sự thay đổi tích cực trong giá dầu thế giới cùng với một số yếu tố ảnh hưởng đến giá xăng tại thị trường nội địa.",,,,
+fab-500x-20261114T224408Z-039,6,53257a3bcb96022f75088435,ce2c0989ad12bd60476f470b68c590ea,fab-500x,vi,mathematics,aya-dataset,human_authored,"[user] Hãy chọn câu trả lời đúng nhất cho câu hỏi sau:
+Trong các số: 333; 354; 360; 2 457; 1 617; 152, số nào chia hết cho 9?
+
+A. 333     
+
+B. 360     
+
+C. 2457     
+
+D. Cả A, B, C đúng","Lời giải
+
+Ta có:   
+
++ Số 333 có tổng các chữ số là 3 + 3 + 3 = 9 ⁝ 9 nên 333 chia hết cho 9.
+
++ Số 360 có tổng các chữ số là 3 + 6 + 0 = 9 ⁝ 9 nên 360 chia hết cho 9.   
+
++ Số 2 475 có tổng các chữ số là 2 + 4 + 7 + 5 = 18 ⁝ 9 nên 2 475 chia hết cho 9.
+
+Chọn đáp án D.",,,,
+fab-500x-20261114T224408Z-039,7,523a519b9def991751f0b476,258d294102726ed920b5d2260420ee1e,fab-500x,vi,pakistan,aya-dataset,human_authored,"[user] Hãy hoàn thiện đoạn văn sau: Trong khi mưa xối xả và lũ quét tiếp tục diễn ra ở tỉnh Balochistan, dòng nước lũ đã tràn vào quận Qambar-Shahdadkot tại tỉnh Sindh liền kề và vùng đồi núi Kachho ở huyện Dadu, gây ra nhiều thiệt hại ở các khu vực khác nhau, kênh tin tức của Pakistan ARY News đưa tin. ""30 ngôi làng khác ở Kachho và các tuyến đường kết nối lưu thông đã chìm trong nước, nâng tổng số ngôi làng bị ngập nước ở vùng đồi núi lên tới 50"", theo các nguồn tin. ARY News thông tin, các nguồn tin địa phương cho biết, người dân ở các khu vực bị ảnh hưởng buộc phải trú ẩn trên các ngọn đồi và đê bảo vệ để tránh dòng nước lũ:","""Một cụ bà 70 tuổi ở một ngôi làng bị lũ lụt đã tử vong khi tình trạng sức khỏe nguy cấp mà không được cấp cứu kịp thời"". Tỉnh Balochistan nói riêng đã chứng kiến những trận mưa lớn bất thường trong mùa gió mùa năm nay. Các nhà chức trách quản lý thảm họa của Pakistan hôm 30/7 cho biết, mưa lớn và lũ lụt đã khiến thêm 19 người tử vong và hàng trăm người khác mắc kẹt ở các tỉnh Balochistan và Khyber Pakhtunkhwa.",,,,
+fab-500x-20261114T224408Z-039,8,3caa5308da3bbf86d2f10f63,d3f102ce7d93b3d74de0d347bd74e781,fab-500x,vi,reasoning,aya-dataset,human_authored,"[user] Dựa trên tiêu đề sau, hãy viết một bài báo nói về chủ đề này: ""Cỗ máy tri thức"": Tính phi lý đã tạo nên khoa học hiện đại như thế nào?","Bất cứ ai cũng không thể phủ nhận vai trò, lợi ích của khoa học đem đến cho cuộc sống con người trong thời đại hiện nay. Tuy nhiên, xét trên chiều dài lịch sử nhân loại, khoa học hiện đại ""sinh sau đẻ muộn"" hơn rất nhiều so với các lĩnh vực khác trong nền văn minh nhân loại. Bước nhảy vĩ đại của khoa học hiện đại được ghi nhận xảy ra từ đầu thế kỳ XVII đến đầu thế kỷ XVIII. Và ""phương pháp vĩ đại"" giúp khoa học thực sự phát triển, gặt hái được những thành tựu nhảy vọt là vấn đề nhận được sự quan tâm, tranh luận của nhiều nhà tư tưởng trên thế giới trong hơn 100 năm qua. Trong phần đầu cuốn sách ""Cỗ máy tri thức"", tác giả cũng là nhà triết học hàng đầu Michael Strevens sẽ dẫn dắt độc giả khám phá quan điểm của triết gia Karl Popper- người tin rằng phương pháp này phải dựa trên một kiểu logic nhất định do những nhà tư tưởng mẫu mực áp dụng. Tiếp đó là quan điểm trái ngược của Thomas Kuln, người cho rằng thực ra có một loại tổ chức xã hội đặc biệt chịu trách nhiệm tạo nên sức mạnh của khoa học. Trong khi chuyên gia xã hội học Steven Shapin lại cho rằng: không hề tồn tại một phương pháp khoa học nào… Tuy nhiên tất cả các quan điểm này đều không thành công trong việc chỉ ra cơ chế nền tảng tạo nên năng lực sản sinh tri thức của khoa học. Và bằng việc sàng lọc ""bãi chiến trường"" đó, nhà triết học hàng đầu Michael Strevens đã tìm ra được nền tảng để từ đó xây dựng một lý thuyết xác đáng hơn về khoa học: nguyên tắc lý giải sắt. Ông chỉ ra: Kể từ khi nền khoa học hiện xuất hiện, các nhà khoa học được tự do suy nghĩ về mối liên hệ giữa bằng chứng và lý thuyết. Nhưng một khi đã tham gia vào nghiên cứu khoa học, họ buộc phải khám phá ra bằng chứng có sẵn hoặc tạo ra bằng chứng mới để thảo luận. Khoa học trở thành cỗ máy khuyến khích loài người vốn ưa tranh cãi giờ đây phải tiến hành những phép đo đạc nhàm chán, thực hiện những cuộc thí nghiệm vừa tốn thời gian, vừa hao tiền bạc. Nếu không có khoa học, con người sẽ chẳng bao giờ làm những việc như thế. Nhưng chính nhờ quá trình tích lũy kinh nghiệm thực tế vụn vặt đầy đau thương ấy mà con người mới tìm ra sự thật trong những lý thuyết sai lầm nhưng nghe rất hợp lý. Cuối cùng, những bằng chứng đó sẽ được tích lũy đủ nhiều, để khiến tất cả các nhà khoa học dù trước đây từng chế giễu, mang thành kiến, định kiến ra sao đều phải đồng ý: sẽ có một lý thuyết vững chắc hơn tất cả, có thể giải thích thỏa đáng và dự đoán chính xác nhất. Tóm lại, nguyên tắc lý giải sắt là bộ nguyên tắc cư xử đầy khiêm nhường, quy định chỉ tiến hành tranh luận khoa học dựa trên bằng chứng chính là nền tảng tạo nên tất cả các phương pháp khoa học giúp nhân loại vững bước trên con đường đi tìm chân lý. Đây chính là nguyên tắc hoạt động tạo ra hiệu quả và quyền năng to lớn của khoa học. Phần hai của cuốn sách ""Cỗ máy tri thức"" tác giả giải thích rõ nguyên tắc hoạt động của nền khoa học với quy tắc sắt, sự đồng thuận của Bacon, động lực của sự khách quan, uy quyền tối thượng của việc quan sát… Phần ba cuốn sách giải thích tại sao khoa học lại xuất hiện muộn như vậy. Trong khi đó phần 4 của cuốn sách thu hút độc giả khi đề cập đến các nội dung liên quan nền khoa học hiện đại với cách xây dựng tư duy khoa học, cách chăm sóc và bảo trì cỗ máy khoa học. Đưa ra câu chuyện về những vùng đất chịu sự biến đổi nặng nề theo hướng tiêu cực (như thành phố Melitus của Hy Lạp ở thế kỷ VI trước công nguyên từng là đô thị giàu có nhất thế giới nhờ kiểm soát một bến cảng nằm ngay trung tâm mạng lưới giao thương ở phía Đông Địa Trung Hải, giờ đây là một vùng đồng bằng khô cằn, bụi bặm) tác giả Strevens chỉ ra mặt trái của sự phát triển khoa học: khoa học giúp nền nông nghiệp, công nghiệp ngày càng phát triển; đồng thời dẫn đến sự biến đổi ngày càng xấu đi nhanh hơn của khí hậu, địa chất. Tuy nhiên, tác giả Strevens cũng chỉ ra khoa học cũng mang đến cho nhân loại cơ hội thuận lợi để cứu lấy hành tinh với việc chỉ ra cách khắc phục một số tổn hại, hướng dẫn con người cách thỏa mãn nhu cầu mà không vắt kiệt nguồn tài nguyên thiên nhiên để phục vụ cuộc sống. Tác giả đề ra ba thành tố thiết yếu để tạo nên một nền khoa học phát triển mạnh mẽ. Thứ nhất là tinh thần quyết chiến, quyết thắng. Theo đó các nhà khoa học phải có những tham vọng vị kỷ chủ quan của người làm khoa học. Những tham vọng này không phải lúc nào cũng ích kỷ, vì không ít người thật lòng khao khát tìm kiếm chân lý và mang đến cho con người một cuộc sống hạnh phúc hơn. Thứ hai các nhà khoa học phải tuân thủ đúng nguyên tắc sắt. Theo đó đấu trường khoa học đã xác định được rõ luật chơi: trước hết người tham gia phải thu thập bằng chứng thực nghiệm để củng cố sức mạnh của cỗ máy tri thức, dù công việc tìm kiếm này hết sức gian nan và tốn kém. Cuối cùng, khoa học sẽ cẩn thận lưu trữ những bằng chứng ấy để các nhà tư tưởng của nhiều thế kỷ sau tiếp tục khai thác. Trước các mối đe dọa từ khí hậu thay đổi và các đại dịch toàn cầu, cỗ máy tri thức cần phải được bảo vệ khỏi các chính trị gia, lợi ích thương mại và thậm chí chính các nhà khoa học đang tìm cách làm suy yếu hoạt động tìm kiếm chân lý của khoa học. Nhận xét về cuốn sách ""Cỗ máy tri thức"", tác giả cuốn sách Quantum viết: ""Nếu không có những lợi ích của khoa học thì cuộc sống hiện nay của chúng ta không khác gì thời Trung cổ. Khi Michael Strevens bảo vệ sức mạnh và hiệu quả của phương pháp khoa học nhằm phát hiện ra bản chất thực sự của vạn vật và phủ định những người bác bỏ sự tồn tại của chúng, ông đã theo đuổi một nhiệm vụ đầy tham vọng là khám phá cách vận hành thực sự của khoa học. ""Cỗ máy tri thức"" là cuốn sách hấp dẫn không thể bỏ qua nếu bạn muốn tìm hiểu về những điều đặc biệt trong khoa học."" Hà My",,,,
+fab-500x-20261114T224408Z-039,9,ab7cdd4e8db9ef10e8acc8af,188fcdc327f03d57d0cd817e52af2503,fab-500x,vi,science,aya-dataset,human_authored,"[user] Hoàn thiện đoạn văn sau: 
+
+Quỹ Gates Foundations do Bill Gates làm chủ tịch, tập trung vào các hoạt động gồm phát triển nông nghiệp, dịch vụ tài chính cho người nghèo, nước sạch và vệ sinh môi trường, giáo dục toàn cầu, sức khỏe và dinh dưỡng.","Quỹ còn thực hiện các hoạt động trong mảng y tế công cộng và sức khỏe toàn dân, tập trung các bệnh truyền nhiễm, phổ biến và các bệnh khu vực nhiệt đới.
+
+Ngoài quỹ này, Bill Gates đã thành lập công ty Energy Breakthrough Venture (EBV) và Gates Ventures nhằm thúc đẩy đổi mới về năng lượng bền vững, giảm phát thải khí nhà kính. EBV đầu tư vào nhiều công ty khởi nghiệp đang cố gắng thương mại hóa các công nghệ mới. Còn Gates Ventures, một tổ chức tư vấn về các vấn đề sức khỏe và phát triển toàn cầu cũng như danh mục đầu tư công nghệ.",,,,
+fab-500x-20261114T224408Z-039,10,e5dd4521f17eab96a5f2946b,0a0f734819a6c05f0f24b07405bc364a,fab-500x,vi,web_frontend,aya-dataset,human_authored,"[user] Đoạn văn sau đang nói về vấn đề gì?  Do vừa thi đấu Siêu cúp Anh cùng Man City nên Liverpool chỉ sử dụng đội hình trẻ trong trận giao hữu với Strasbourg tại Anfield. Konate, Gomez và Milner là những cầu thủ trong đội hình chính của Liverpool ra sân trong trận này.  Liverpool sử dụng toàn cầu thủ trẻ và phải trả giá cực đắt Bất ngờ sớm tới ngay ở phút thứ 4, Konate lóng ngóng còn Mabaya non nớt để Thomasson vượt lên từ đằng sau cướp bóng và đánh bại thủ môn trẻ Davis để mở tỉ số trận đấu. Hàng thủ của Liverpool tiếp tục thi đấu như mơ ngủ sau đó. Phút 15, Chambers chuyền bóng thẳng cho đội bạn trong vòng cấm và Diallo đã không bỏ lỡ ""món quà tặng"" với một pha rê bóng rồi cứa lòng chân trái xuất sắc. Ngày thi đấu thảm họa của tài năng trẻ người Anh vẫn chưa dừng lại ở đó. Phút 21, số 88 của Liverpool làm khó người đội trưởng James Milner và tạo điều kiện cho Strasbourg phản công. Thomasson có một cú ra chân vừa đủ để hạ gục thủ môn của Liverpool lần thứ hai trong trận đấu này. Liverpool rất cố gắng trong việc tìm bàn gỡ ngay ở hiệp một nhưng không thành công. Sang đến hiệp hai, Strasbourg nhường hẳn thế trận cho đội chủ nhà. HLV Jurgen Klopp cũng có một vài sự thay đổi người nhưng không tạo ra được hiệu quả đáng chú ý nào. Họ còn suýt phải nhận bàn thua thứ tư nếu như Diallo dứt điểm chuẩn xác hơn. Mặc dù vậy, 3-0 cũng là đủ để Strasbourg giành chiến thắng trước Liverpool. Tỉ số chung cuộc:
+Liverpool 0-3 Strasbourg (H1: 3-0) Ghi bàn: Thomasson 4', 21', Diallo 15' Đội hình xuất phát Liverpool: Davies, Chambers, Gomez, Konate, Mabaya, Milner, Bajcetic, Morton, Frauendorf, Carvalho, Elliot Strasbourg: Sels, Perrin, Nyamsi, Le Marchand, Senaya, Aholou, Bellegarde, Lienard, Thomasson, Diallo, Ajorque Nguồn: https://tcdulichtphcm.vn/the-thao/video-bong-da-liverpool-strasbourg-tham-hoa-phong-ngu-3-ban-th...Nguồn: https://tcdulichtphcm.vn/the-thao/video-bong-da-liverpool-strasbourg-tham-hoa-phong-ngu-3-ban-thua-cay-dang-giao-huu-c28a36044.html","Video bóng đá Liverpool - Strasbourg: Thảm họa phòng ngự, 3 bàn thua cay đắng (Giao hữu)",,,,
+fab-500x-20261114T224408Z-039,11,e4fccd930c2ca01190ce9999,1cfca808a5db9b8d692b49df2d02735d,fab-500x,vi,web_fullstack,aya-dataset,human_authored,[user] Hai hòn đảo nào của Việt Nam bị cấm du lịch từ tháng 4/2022?,"Ngày 22/4/2022, UBND TP Cam Ranh đã đề nghị Sở Du lịch, Sở Thông tin Truyền thông, Trung tâm Thông tin Xúc tiến du lịch tỉnh phối hợp thông tin, yêu cầu các doanh nghiệp ""không được tiến hành, phát triển các loại hình du lịch và quảng cáo sản phẩm tại đảo Bình Ba và Bình Hưng (Hòn Chút)"" để đảm bảo an ninh cho căn cứ quân sự tại Cam Ranh.
+
+Ngoài ra, các thông tin quảng bá du lịch về hai đảo này hiện có trên các website, mạng xã hội... cũng bị yêu cầu gỡ bỏ.",,,,
+fab-500x-20261114T224408Z-039,12,1ba58aa85d91071f863ddfd9,fa679f7d9276d0ad5b7fefb1d7627dcf,fab-500x,vi,writing,aya-dataset,human_authored,"[user] ...chọn trong những nhân viên của ông để thu âm cho công trình của Hiệp hội Nhân học. Theo nghiên cứu của giáo sư Jann Pasler thì một người đàn ông tên ""Ba"" là giọng hát và giọng nói chính trên các ống xi lanh này. (từ bài ""Sonic Anthropology in 1900"" trong tạp chí 20th Century Music năm 2014 của bà).
+
+Trong công trình thu thanh này ông Azoulay đã thu người đọc và phát âm một đoạn của sách Kinh Thánh là Dụ ngôn về đứa con hoàng (Phúc âm Lu-ca 11: 15 - số 185, ""Enf.[ant] prod[igal] lu"" [đọc] và ""s... Write the rest of the article:","a được hay và chuẩn, và các tên người được ghi trên ống xi lanh này có lẽ không được coi như nghệ sĩ xuất sắc. Nhưng các bản ghi âm là như một viên nang thời gian để chúng ta có thể hiểu biết chút ít về sinh hoạt văn nghệ 
+ của người Việt (chủ yếu là người Hà Nội) và Hiệp hội Nhân học thu thanh hơn 100 năm trước đây. Trong hầu hết khoảng thời gian này, các bản thu âm không được công bố rộng rãi ở Việt Nam. Hơn một trăm năm các ống xi lanh này chỉ nằm trong kho của Centre de rechérche en ethnomusicologie. Rất đáng mừng là họ đã chia sẻ các bản ghi âm này cho mỗi người.
+
+Mặc dù là phương tiện đầu tiên để thu và giữ lại âm thanh của người Việt ngày xưa, kỹ nghệ thu thanh bằng ống xi lanh chưa bao giờ được phổ biến ở Đông Dương. Năm 1902, hai công ty Pháp sản xuất máy ống xi lanh là Compagnie générale des phonographes, cinématographes et appareils de précision của hãng Pathé và Thibouville-Lamy et cie. có mặt tại Exposition de Hanoi để giới thiệu máy này.  Năm 1905 mới có hai tiệm ở Hà Nội bán máy phonograph Pathé và ống xi lanh của nhạc Tây cho người Pháp nghe là tiệm Boilot ở rue 26 Paul Bert (phố Tràng Tiên) và tiệm Léon Chanson  ở 132 Route de Grand Bouddha (đường Quán Thánh) là Café du Grand Lac (Quán Cà phê Hồ Tây).
+
+Cùng thời đã có một thứ máy thu và phát lại khác được sáng chế và cạnh tranh với máy của Edison. Đó là máy quay đĩa, và lịch sử của đĩa hát ở Việt Nam thực sự bắt đầu từ khi máy này được đưa vào sử dụng ở xứ Đông Dương.
+
+*Bài thể hiện quan điểm và cách hành văn riêng của tác giả Jason Gibbs, Tiến sĩ về Lý thuyết và Sáng tác âm nhạc từ Đại học Pittsburgh, Mỹ, chuyên nghiên cứu âm nhạc Việt Nam.",,,,
+fab-500x-20261114T224408Z-039,13,dc03436d194a3fa27a0fa9e6,c86f1e8eac571641b2bbe65c54c65645,fab-500x,wol,coding,aya-dataset,human_authored,"[user] Jubbantil mbind mii:
+Nu def ko muy mbugal, mu nekk luy waar ñi teew ak ñay ñëwi ca seen ginnaaw te di waaraateb way-gëm ña.","Mbind mi jub a ngi nii:
+Nu def ko mu'y mbugal, mu nekk lu'y waar ñi teew ak ña'y ñëwi ca séen ginnaaw te di waaraateb waygëm ña.",,,,
+fab-500x-20261114T224408Z-039,14,55b8c795546af638c2d07dd7,b44d3ec827c5c9defc493419c33edf86,fab-500x,wol,general_knowledge,aya-dataset,human_authored,[user] Indil péeteg waat yi ci kàddu gii: Xeet u jàmbat la'y niru.,"Waat yi nekk ci kàddu gii di ""Xeet u jàmbat la'y niru."" ak séen i péete ñoo di:
+Xeet: NOUN
+u: ADP
+jàmbat: NOUN
+la: AUX
+'y: AUX
+niru: ADJ
+.: PUNCT",,,,
+fab-500x-20261114T224408Z-039,15,29426c4f3fd7fa8c1db7a5ad,03a4c327b1b9018b960166a297ee29f1,fab-500x,xho,general_knowledge,aya-dataset,human_authored,"[user] 1. Umbuzo elijongene nawo ilizwe ngowokuba singayoyisa na imingeni
+yenkulungwane yama-21. Ingaba sirhuqa iinyawo nje ukusombulula le
+mingeni kungenxa yemali? Wakhe wathi uRalph Emerson, 'Udonga ngalunye
+lulucango olunako ukuba lungavuleka.' Kanti ke eyona ngxubakaxaka
+sijongene nayo kukuba asingebi sidala iingcango emadongeni okanye 5
+siguqula amadonga abe ziingcango na. Sizakhela izulu emhlabeni okanye
+sitshabalalisa ubuhle bomhlaba? Xela umbuzo elijongene nawo ilizwe ngenkulungwane yama-21 ngokomhlathi
+woku-1.","ngowokuba singayoyisa na imingeni
+yenkulungwane yama-21.",,,,
+fab-500x-20261114T224408Z-039,16,52b0fa7414773f7303fcde35,020fef96b9aa7990111d5c775135de2c,fab-500x,yor,education,aya-dataset,human_authored,[user] Sọ fúnmi nípa Ìpínlẹ̀ Kaduna.,"Ìpínlẹ̀ Kàdúná jẹ́ ọ̀kan nínú àwọn Ìpínlẹ̀ mẹ́rìdínlógójì ní orílẹ̀-èdè Nàìjíríà. Ìpínlẹ̀ Kàdúná jẹ́ ọkan lára ìpínlẹ̀ tó wà ní apá Àríwá orílẹ̀-èdè Nàìjíríà. Olú-ìlú ìpínlẹ̀ yìí ń bá a jórúkọ, ìlú Kàdúná, èyí tí ó jẹ́ ìlú kẹ́jọ tí ó tóbi jù ní orílẹ̀-èdè yìí ní ọdún 2006. Wọ́n dá ìpínlẹ̀ yìí sílẹ̀ gẹ́gẹ́ bí Ìpínlẹ̀ àárín-gbùngbùn Àríwá ní ọdún 1967, èyí tí ó yíká Ìpínlẹ̀ Katsina òde-òní. Ní ọdún 1987 ní Ìpínlẹ̀ Kàdúná ṣẹ ààlà-ọ̀nà wọn. Ìnagijẹ Kàdúná ní 'Ilé fún ẹ̀kọ́' (Center of learning). Orúkọ yìí ṣe rẹ́gí wọn nítorí ọ̀pọ̀ ilé-ẹ̀kọ́ tó ní kìmí ni ó wà ní ìpínlẹ̀ náà, àpẹẹrẹ ní Yunifásítì Ahmadu Bello. Ìpínlẹ̀ Kàdúná òde-òní jẹ́ ilé ìṣura fún àwọn ohun ìlàjú ilẹ̀ Áfíríkà, kódà, Nok civilization tí ó gbèrú láti c.1500 BC sí c. 500 AD náà wà ní bẹ̀. Ní séntúrì kẹsàn-án, òwúlẹ̀-wútàn tí orúkọ rẹ̀ ń jẹ́ Ya'qubi ṣe àkọsílẹ̀ ìwàláyé Ìjọba Hausa, èyí tí ó wà kí wón tó sọ ọ́ di Sokoto Caliphate ní ọdún 1800 lẹ́yìn ìjà àwọn Fulani. Ní àkókò ìmúnisìn, àwọn olùdarí ilẹ̀ Britain sọ Kàdúná di olú-ìlú Àbọ̀ ní Àríwá orílẹ̀-èdè Nàìjíríà.
+Ẹ káàbọ̀ sí Ìpínlẹ̀ Kaduna!",,,,
+fab-500x-20261114T224408Z-039,17,16abe96c06a0ee0818dceb0e,5aa5b2cfee2607edfb3ae90fce5e096b,fab-500x,yor,general_knowledge,aya-dataset,human_authored,"[user] Jiipu Lexus bọginni ni Samuel ati Joshua n gun kiri l’Ekoo, aṣe adigunjale ati ẹlẹgbẹ okunkun ni wọn","Meji ninu awọn adigunjale ti ko jẹ kawọn eeyan sun oorun asundọkan l’Ekoo, Samuel Akabueze, ẹni ọdun mọkanlelogun, ati Joshua Onuoha, ẹni ọdun mẹtadinlogoji, ti bọ sakolo ọlọpa. Awọn ọlọpaa ikọ ayara-bii-aṣa RRS (Rapid Response Squard) lo mu wọn lọjọ Aje, Mọnde, pẹlu ọkọ ayọkẹlẹ ti wọn ji gbe.
+
+Alukoro ileeṣẹ ọlọpaa Eko, CSP Adekunle Ajisebutu, sọ ninu atẹjade kan to fi ṣọwọ s’ALAROYE lori ikanni Wasaapu rẹ pe ẹnu iṣẹ patiroolu tawọn ọlọpaa n ṣe lọwọ laduugbo Akowọnjọ si Dọpẹmu, nijọba ibilẹ Alimọṣọ, ni wọn ti pade awọn afurasi ọdaran mejeeji, ọkọ jiipu Lexus bọginni ni wọn n wa niwakuwa kiri tawọn ọlọpaa naa fi fura si wọn, ni wọn ba tẹle wọn, agbegbe Ẹgbẹda ni wọn ti le wọn ba, ibẹ lọwọ ti tẹ wọn. Nọmba jiipu ọhun ni LAGOS LSD 666 GK.
+
+Nigba ti wọn beere iwe ọkọ wọn lati fihan boya awọn ni wọn ni in loootọ, katikati ni wọn n sọ, ọrọ wọn ko dọgba rara, ko si pẹ ti ọkan ninu wọn fi gbiyanju lati fere ge e, lawọn ọlọpaa ba gba wọn mu.
+
+Ni teṣan wọn, Joshua jẹwọ pe Ojule kejidinlaaadọta, Opopona Yusuf, n’Ipaja, loun n gbe, Ojule kẹrinlelogun, Opopona Valentine Obasi, ni ọna Idimu ni Samuel pe ibugbe tiẹ, lawọn ọlọpaa ba tẹle ọkọọkan wọn lọ sile lati lọọ ṣayẹwo wọn.
+
+Adekunle ni awọn ẹsibiiti tawọn ọlọpaa ka mọ wọn lọwọ ni ibon oyinbo meji, ọta ibọn ti wọn o ti i yin rẹpẹtẹ, kaadi ATM banki Eco ati Access mẹrin, kaadi iwọkọ BRT, oogun abẹnugọngọ loriṣiiriṣii, wọn tun ri kọkọrọ ọkọ jiipu Lexus mi-in to yatọ si eyi ti wọn n gun kiri, ati kọkọrọ ọkada kan, bo tilẹ jẹ pe wọn o ri awọn ọkọ ati ọkada naa.
+
+Ninu iwadii tawọn ọlọpaa ṣe, wọn lawọn afurasi naa jẹwọ pe ọmọ ẹgbẹ okunkun ‘Aiye’ lawọn, wọn ni latigba tawọn ti wa nileewe lawọn ti n ṣẹgbẹ imulẹ.
+
+Wọn tun jẹwọ pe loootọ lawọn n digunjale, ṣugbọn agbegbe Festac, Gowon Estate, Lẹkki si Ajah, lawọn ti n ṣe ọpureṣan awọn, ibẹ ni wọn ti n pa wọn eeyan lẹkun.
+
+Kọmanda ikọ RRS l’Ekoo, CSP Ọlayinka Ẹgbẹyẹmi, ti taari awọn afurasi naa s’ẹka ọtẹlẹmuyẹ nileeṣẹ ọlọpaa fun iwadii to lọọrin, ki wọn le foju wọn bale-ẹjọ laipẹ.",,,,
+fab-500x-20261114T224408Z-039,18,27a9cd3244232b78cd81f15c,e03461385d2eb9157c6fe7e4e5acd733,fab-500x,yor,islamic_studies,aya-dataset,human_authored,[user] Ẹ sọ funjọba ko tete san ọgọrun-un miliọnu fawọn ajinigbe ko too pẹ ju – Sheik Gumi,"Aṣaaju ẹsin Islam nilẹ Oke-Ọya nni, Sheik Ahmad Gumi, ti sọ pe kawọn ti wọn ba mọ ibi ti eti ijọba wa, ati ibi ti ọrọ ti le wọ eti ọhun tete yaa fa ijọba leti mọra pe ki wọn ma fọwọ yọbọkẹ mu ọrọ gbedeke tawọn janduku agbebọn sọ nipa awọn akẹkọọ to wa nigbekun wọn, o ni kijọba ṣeto lati san miliọnu ọgọrun-un (N100m) ti wọn beere fun.
+
+Ọjọ Iṣẹgun, Tusidee, ọsẹ yii, lọkunrin naa sọrọ ọhun nigba to n dahun awọn ibeere kan tileeṣẹ iweeroyin Punch fi sọwọ si i lori iṣẹlẹ naa, o ni imọran oun ni pe kijọba apapọ paṣẹ fun banki apapọ ilẹ wa lati sanwo tawọn ajinigbe naa beere fun wọn.
+
+Ṣe, lọjọ Aje, Mọnde yii, ni ọkan ninu awọn ajinigbe agbebọn ọhun ti wọn porukọ ẹ ni Sani Jalingo ti sọ ninu ifọrọwanilẹnuwo kan lede Hausa pe miliọnu ọgọrun-un ati ọkada tuntun mẹwaa lawọn maa gba ki wọn too le da awọn akẹkọọ Fasiti Greenfield ti wọn ji gbe lọsẹ to lọ lọhun-un niluu Kaduna, silẹ lominira.
+
+Sani ni ki i ṣe pe wọn gbọdọ san owo ati ọkada nikan, wọn o tun gbọdọ kọja ọjọ Tusidee (ọjọ kẹrin, oṣu karun-un yii) ki wọn too ṣe e, aijẹ bẹẹ, niṣe lawọn maa fi ẹmi awọn akẹkọọ naa ṣofo danu ni. O lawọn maa fibinu pa wọn danu ni.
+
+Bakan naa lo sọ pe miliọnu marundinlọgọta tawọn ti gba lọwọ awọn obi awọn ọmọ naa, ounjẹ tawọn fi bọ awọn akẹkọọ naa lo ba lọ, tori ẹ lawọn ṣe n beere owo mi-in lakọtun.
+
+Sheik Gumi ni “Owo ti wọn n beere yii, wọn o le ko o sa lọ. Ko ṣẹni to le sa lọ ninu wọn. Ki lo waa de tijọba o kọkọ san owo ti wọn n beere fun na, ki wọn le ri awọn akẹkọọ ọhun gba pada, ti wọn ba si ti tu awọn akẹkọọ naa silẹ tan, kijọba waa lepa wọn, ki wọn si gba owo ti wọn gba naa lọwọ wọn?
+
+“Tijọba ba fọrọ gbigba awọn akẹkọọ yii falẹ ju, awọn janduku naa le lọọ da ẹmi wọn legbodo, wọn si le tawọn fawọn eeṣin-o-kọku Boko Haram ti wọn lowo lọwọ ju ijọba lọ, ti wọn si tun ni nnkan ija gidi. Tori ẹ, kijọba wa nnkan ṣe kia kiyẹn too ṣẹlẹ ni.” Bẹẹ ni Gumi sọ.",,,,
+fab-500x-20261114T224408Z-039,19,0f2721ab2b074b714105a94a,fa511f16b1d63ec5aa2715c263d059d3,fab-500x,yor,mathematics,aya-dataset,human_authored,"[user] Awọn oṣiṣẹ UNIOSUN gba kootu lọ, wọn ni afi ki EFCC yẹ iṣẹ ọga-agba ibẹ wo","Awọn oṣiṣẹ Osun State University ti lọ si ile-ẹjọ giga ijọba apapọ to wa niluu Oṣogbo, lati gba aṣẹ ti yoo pọn ọn ni dandan fun ajọ to n gbogun ti iwa jẹgudujẹra lorileede yii, EFCC, lati ṣewadii awọn iwa aṣemaṣe ti ọga agba ileewe naa, Ọjọgbọn Labọ Popoọla n hu.
+
+Awọn oṣiṣẹ ọhun, labẹ Non-Academic Staff Union of Educational and Associated Institution (NASU), sọ pe owo to to miliọnu lọna ọgọrun-un naira, eleyii to jẹ ti ileewe naa, ni Popoola ti ṣe baṣubaṣu.
+
+Nigba ti igbẹjọ naa, eleyii to ni nọmba FHC/OS/CS/44/2020 waye ni kootu ọhun lọjọ Isẹgun, Tusidee, ọsẹ yii, agbẹjọro fun awọn olupẹjọ, Kanmi Ajibọla, sọ pe ibeere awọn olupẹjọ wa nibamu pẹlu alakalẹ ofin orileede wa.
+
+Ajibọla ṣalaye pe olujẹjọ ti mọ nipa igbẹjọ naa, o si rọ ile-ẹjọ lati gbọ ẹjọ ọhun kiakia, ki wọn si paṣẹ fun EFCC lati bẹrẹ iwadii lori owo ileewe naa ti wọn fẹsun kan Popoọla pe o na ninakunaa.
+
+Awọn oṣiṣẹ naa sọ nile-ẹkọ pe lati ọdun 2018 ni awọn ti kọ oniruuru iwe ẹsun to lagbara si EFCC nipa Ọjọgbọn Popoọla, ṣugbọn ti wọn ko gbe igbesẹ kankan.
+
+Ṣugbọn ninu ọrọ agbẹjọro fun EFCC, M. S. Usman ati agbẹjọro fun ọga-agba nileewe naa, S. B. Ayẹni rọ kootu lati fun wọn lanfaani diẹ, ki wọn le raaye ṣagbeyẹwo iwe ipẹjọ ti awọn ṣẹṣẹ gba laipẹ yii.
+
+Agbẹjọro Kanmi Ajibọla sọ ni tiẹ pe ṣe lawọn agbẹjọro EFCC ati ti Popoọla mọ-ọn-mọ fẹẹ di igbẹjọ lọwọ tori wọn ti ri iwe ipejọ naa lasiko ti wọn ni lati fesi le e lori.
+
+O fi kun un pe ti ile-ẹjọ ba ti le gba lati fun wọn lasiko diẹ, wọn gbọdọ san faini ẹgbẹrun lọna ọgọrun-un (#100,000) gẹgẹ bii owo gba-ma-binu fun awọn olupẹjọ.
+
+Nigba to n gbe idajọ rẹ kalẹ, Onidaajọ Peter Lifu ṣalaye pe ki olujẹjọ kọọkan san ẹgbẹrun lọna ogun naira fun olupẹjọ latari asiko wọn ti wọn fi ṣofo.
+
+Lẹyin eyi lo sun igbẹjọ siwaju di ọjọ kẹẹdọgbọn oṣu kọkanla ọdun yii.",,,,
+fab-500x-20261114T224408Z-039,20,6744acaba639713cfa1ecb47,14839888b5d7f0d841b5b36125d8f288,fab-500x,yor,safety_ethics,aya-dataset,human_authored,[user] Ikunlẹ abiyamọ! Iya atawọn ọmọ ẹ mẹrin jona mọle,"Titi dasiko yii lawọn eeyan ṣi n ba baale ile kan, Ọgbẹni Philip Ogbodo, daro iku iyawo ẹ, Precious Ogbodo, ẹni ti ina jo pa mọle pẹlu awọn ọmọ wọn mẹrin lalẹ ọjọ kẹẹẹẹdọgbọn, oṣu keji, to kọja yii, nile wọn to wa laduugbo Gyel, Jos, nipinlẹ Plateau.
+
+Lasiko ti a n kọ iroyin yii, ẹnikẹni ko ti i le fidi ohun to fa ina naa mulẹ, ṣugbọn awọn to sun mọ wọn sọ pe nnkan eelo ile kan to n lo ina mọnamọna lo fa iku oro fobinrin to n tọ ọmọ ikoko lọwọ naa atawọn ọmọ ẹ mẹta yooku.
+
+Ina ọhun se wọn mọle debii pe wọn ko raaye sa jade, gbogbo ohun to si wa ninu ile naa lo jona raurau pẹlu wọn.
+
+Ọgbẹni Ogbodo to padanu gbogbo idile ẹ yii fi ibanujẹ ọkan ṣalaye pe ko ju wakati kan lọ toun jade nile lati lọọ wo ere bọọlu alafẹsẹgba nibi kan laduugbo, boun ṣe n pada bọ nile loun ri i tawọn eeyan n sare kiri lati pa ina to n jo bulabula jade lati inu ile oun, bẹẹ iyawo atawọn ọmọ oun wa ninu ile naa.
+
+Ẹsẹkẹsẹ ti ina ọhun burẹkẹ ni awọn ọmọ mẹrẹẹrin ti jona mọle, iya wọn nikan ni wọn le gbe dele iwosan, ọjọ keji ti i ṣe ọjọ Ẹti loun naa si jade laye.
+
+Orukọ awọn ọmọ mẹrin naa ni: Rejoice, Merkel, Harmony ati Angel.",,,,
+fab-500x-20261114T224408Z-039,21,1ab2b0c51fcc0ec98d942b32,17f716452a6e80f26e790090906800b3,fab-500x,yor,science,aya-dataset,human_authored,"[user] Nitori ẹsun jibiti ori ẹrọ ayelujara, adajọ ni kawọn ọdaran meji gbalẹ ọgba Fasiti Ilọrin foṣu mẹta","Nitori ẹsun jibiti ori ẹrọ ayelujara, ile-ẹjọ giga kan to wa niluu Ilọrin ti paṣẹ l’Ọjọbọ, Tọsidee, ọsẹ to kọja yii, pe ki awọn ọdaran meji kan; Akinọla Ọpẹyẹmi ati Owolabi Ọlajide, gba ilẹ inu ọgba ẹka ikẹkọọ Physics, ti Fasiti Ilọrin ati ileewe girama St.Anthony, fun odidi oṣu mẹta gbako.
+
+Adajọ Sikiru Oyinloye to gbe idajọ naa kalẹ ni wọn lanfaani lati san ẹgbẹrun lọna aadọta naira gẹgẹ bii owo-itanran lati dipo ilẹ gbigba.
+
+Ṣaaju lawọn mejeeji ti gba pe loootọ awọn jẹbi ẹsun tajọ to n gbogun ti iwa ibajẹ, EFCC, fi kan wọn.
+
+Aṣoju ajọ EFCC, Ọgbẹni Ọlarewaju Lamidi, ṣalaye pe ninu oṣu kẹta, ọdun yii, lọwọ tẹ awọn ọdaran naa niluu Ilọrin.
+
+O ni lasiko tawọn yẹ ori foonu iPhone ati kọmputa alaagbeka wọn wo lawọn ba oriṣiiriṣii awọn atẹranṣẹ ti wọn fi n lu jibiti.
+
+Adajọ Oyinloye ni ẹwọn oṣu mẹfa lawọn ọdaran naa maa ṣe bi wọn ko ba gbalẹ awọn ileewe naa daadaa tabi san owo itanran. O paṣẹ fun awọn olori ẹka Physics ti Fasiti Ilọrin ati ọga agba ileewe St. Anthony lati maa yẹ ilẹ ti wọn ba gba wo, ki wọn si maa jabọ fun ile-ẹjọ.",,,,
+fab-500x-20261114T224408Z-039,22,6868241a6c27738fc8f0bb5a,05607727f59de1bcda5181bb35ad3368,fab-500x,yor,writing,aya-dataset,human_authored,[user] Ṣọlá Ṣóbọ̀wálé,"Ṣọlá Ṣóbọ̀wálé tí wọ́n bí ní ọjọ́ kejìdínlógún, oṣù kejìlá, ọdún 1963, jẹ́ òṣèré sinimá àti adarí eré ti orílẹ̀-èdè Nàìjíríà. Ó di olókìkí ní ọdún 2001, nínú ìṣàfihàn ti Ìtàn-àkọọ́lẹ̀ Super Story  : Oh Father, Oh Daughter.
+
+Ó dara pọ̀ mọ́ eré orí ìtàgé nípasẹ̀ ọ̀pọ̀lọpọ̀ àwọn fíìmù tí Ẹgbẹ́ Awada Kẹrikẹri ṣe lábẹ́ adarí Adébáyọ̀ Sàlámì. Láàárín ọdún díẹ̀, ó ti ṣe iṣẹ́ akọ̀wé, ìtọ́sọ́nà àti ìgbéjáde ọ̀pọ̀lọpọ̀ àwọn fíìmù Nàìjíríà. Ó ṣe akọ̀wé, àgbékalẹ̀ ati ìtọ́sọ́nà, Ohun Oko Somida, fíìmù Nàìjíríà kan tí ó jáde ní ọdún 2010 èyí tí ó ṣe ìràwọ̀ Adébáyọ̀ Sàlámì . Ó ṣe ìfihàn nínú Dangerous Twins, fíìmù ti Nàìjírà tí ó jáde ní ọdún 2004 tí Tádé Ògìdán ṣe, ẹni tó kọ fíìmù yìí ni Níji Àkànní . Ó tún ṣe ìfihàn nínú Family on Fire ìṣelọ́pọ̀ ati ìtọ́sọ́nà nípasẹ̀ Tádé Ògìdán
+
+Sola Sobowale jẹ́ ìyàwó Dotun Sobowale. Ó bí ọmọ mérin fún ọkọ rẹ̀.
+
+Ní ọdún 2019, ó gba àmì ẹ̀yẹ African Academy Academy (AMAA) fún Òṣèré tó dára jù lọ fún ipá rẹ̀ ní fíìmù King of Boys tó jáde ní ọdún 2018.",,,,
+fab-500x-20261114T224408Z-039,23,95abdda7590b9d5df1838862,f1d47d9703f199c8ea64e45d12841b8c,fab-500x,zh,coding,oasst2,human_authored,"[user] 要建立一个chatgpt这样的东西需要怎样的学习路线，按照重要程度排个序，另外按照学习的先后顺序排序
+
+[assistant] 要建立一个 Chatbot GPT，以下是您可能需要的学习路线，并按照重要程度进行排序：
+
+Python编程语言：GPT-3使用Python作为其主要编程语言之一，因此了解Python编程语言及其语法和库非常重要。
+
+自然语言处理（NLP）：Chatbot的核心是与用户进行自然对话，因此NLP是Chatbot开发的重要部分。学习NLP将使您熟悉基础知识，例如词形还原、命名实体识别、句法分析等。
+
+机器学习（ML）：Chatbot的训练依赖于机器学习算法，特别是深度学习模型。因此，了解机器学习的基础知识以及如何使用机器学习库（如Tensorflow、PyTorch等）非常重要。
+
+数据结构和算法：在Chatbot中，您需要存储和操作大量的数据。因此，了解数据结构和算法可以帮助您优化Chatbot的性能和可拓展性。
+
+软件工程：开发Chatbot需要进行软件工程的工作，包括设计、测试、调试和文档编写。因此，在Chatbot的开发过程中，先了解软件工程的基础知识和最佳实践非常重要。
+
+按照学习的先后顺序，我建议您按照以下方式进行学习：
+
+Python编程语言
+数据结构和算法
+机器学习
+自然语言处理（NLP）
+软件工程
+
+[user] 好的，请展开讲下如何学习Python编程语言。","学习Python编程语言可以分为以下几个步骤：
+
+1. 学习基本语法和概念：Python是一种易学易用的编程语言，但仍需要了解一些基本语法和概念。比如，变量、数据类型、条件语句、循环语句、函数等。
+
+2. 练习编写简单程序：通过练习编写简单的程序，如计算器、猜数字游戏、掷骰子等，可以巩固所学的基本语法和概念，并且对编程的整体流程有更好的理解。
+
+3. 阅读文档和教程：Python拥有丰富的文档和在线教程，可以从中了解更多的知识，并学习Python的最佳实践。Python官网提供了Python文档和教程。
+
+4. 参与开源项目：了解开源项目的工作流程和代码贡献，可以帮助你学习Python的高级知识和技能。可以在GitHub等平台上寻找有趣的项目，并向其中贡献代码或者提出问题。
+
+5. 参加培训或者课程：如果想要更加系统地学习Python，可以参加Python编程的在线或者线下课程，在教师的指导下更好地学习和了解Python。
+
+总的来说，学习Python需要不断练习和实践，并且从不同的渠道获取知识和技巧。如果你坚持学习和练习，就能够掌握Python编程语言。",,,,
+fab-500x-20261114T224408Z-039,24,516a8419075d7214c9309d3d,d22d5b20dadf4f8bbbb46a0210255813,fab-500x,zh,general_knowledge,oasst2,human_authored,"[user] 企业每年让员工做 360 环评有什么用处？
+
+[assistant] 360 环评是一种综合性的员工评估方式，它可以帮助企业更好地了解员工的表现，从而更好地改善员工的工作状态和工作环境。
+
+360 环评可以帮助企业更好地识别员工的优势和劣势，从而更好地指导员工的发展。它可以帮助企业更好地识别员工的潜力，从而更好地指导员工的发展。它还可以帮助企业更好地识别员工的工作表现，从而更好地改善员工的工作状态和工作环境。此外，360 环评还可以帮助企业更好地识别员工的职业发展方向，从而更好地指导员工的职业发展。
+
+[user] 除此之外，企业还有别的什么意图吗？","企业每年让员工做 360 环评可能还有以下意图：
+
+评估员工表现：企业可以通过员工的 360 环评来评估员工的表现，了解员工在工作中的优缺点，为制定绩效考核和激励计划提供依据。
+
+管理人员发现管理问题：通过员工的 360 环评，管理人员可以了解下属对自己的评价，发现自己的管理问题和不足，为改进管理能力提供指导。
+
+筛选人才：通过员工的 360 环评，企业可以发现潜在的高绩效员工和潜在的管理人才，为人才储备和培养提供基础。
+
+管理风险：通过员工的 360 环评，企业可以及时发现员工的问题和不足，防止员工的负面行为和不当做法对企业造成风险和损失。",,,,
+fab-500x-20261114T224408Z-039,25,630cc1b2e33d534b464a99ee,ae4b7453f1371c9b312f531b317270a2,fab-500x,zh,mathematics,oasst2,human_authored,"[user] 尝试从内容里面提取出以下三个开会参数：会议室、开始时间、结束时间，注意开始时间和结束时间要算出来，时间要”年/月/日 时:分“的方式显示。
+当前时间是2023/3/19 10:00。",没问题，请提供你的开会参数：会议室、开始时间、结束时间,,,,
+fab-500x-20261114T224408Z-039,26,ba61a5c2f8804021e8b68586,4496c798cda5b9c133531c4e7127eee1,fab-500x,zh,science,oasst2,human_authored,[user] 推荐一些高质量的物理博客网站,"当然可以！以下是一些高质量的物理博客网站，供您参考：
+
+1. Physics World Blog：由物理学界权威杂志Physics World编写的博客，涵盖了各种物理学领域的最新新闻、趋势和发展。
+
+2. Quantum Diaries：由许多来自全球顶尖物理实验室和大学的物理学家共同创建的博客，主要关注量子物理学和粒子物理学的最新发展。
+
+3. Of Particular Significance：由著名物理学家Matt Strassler撰写的博客，涵盖了各种物理学领域的主题，从基础科学到天体物理学等。
+
+4. Starts With A Bang：由著名天文学家Ethan Siegel创建的博客，主要关注天文学和宇宙学的最新发展和趋势。
+
+5. Not Even Wrong：由物理学家Peter Woit创建的博客，主要关注理论物理学和数学物理学的最新进展和趋势。
+
+希望这些博客能够为您提供有趣和有用的信息。",,,,
+fab-500x-20261114T224408Z-039,27,73a30de02f461380b5fbdc36,4d5dcc9733dab3be07557052000c3162,fab-500x,zul,general_knowledge,aya-dataset,human_authored,"[user] Isigwebo 1: ULucky Wahyu (owazalwa ngo-Ephreli 1, 1990) ungumdlali webhola lezinyawo wase-Indonesia odlalela iBarito Putera e-Indonesia Super League. Isigwebo 2: ULucky Wahyu (owazalwa ngo-Ephreli 1, 1990) ungumdlali webhola lezinyawo wase-Indonesia, odlalela i-Indonesia Super League eBarito Putera. Umbuzo: Ingabe umusho 1 nomusho 2 usho into efanayo? Yebo noma Cha?","Cha, haifani",,,,
+fab-500x-20261114T224408Z-039,28,38033cc8e2dd5defc497f544,fc5d324803e4acd4b695ea993fbfc027,fab-500x,als,general_knowledge,aya-dataset,human_authored,[user] Kush e fitoi FIFA Kupën e Botës në vitin 2018?,FIFA Kupën e Botës në vitin 2018 e fitoi Franca.,,,,
+fab-500x-20261114T224408Z-039,29,b18e1e5ebb508974031687f9,5919e775015f5f87cc26e6ce1c658188,fab-500x,am,general_knowledge,aya-dataset,human_authored,[user] ቢል ክሊንተን ትዳር መቼ ያዙ?,በ1975 እ.ኤ.ኣ.,,,,
+fab-500x-20261114T224408Z-039,30,ec949cb116b8a504a67c4daf,00b42013c6099c63b6c5627ffaec8269,fab-500x,ar,general_knowledge,aya-dataset,human_authored,"[user] اكمل الجملة التالية:
+
+وأضافت ""يؤدي هذا إلى تسريع ظهور الأمراض في الحياة البرية ويعرضنا لخطر الأوبئة"". وهذه الحقيقة",إلى أهمية الحفاظ على التوازن البيئي، ولهذا وجب اتخاذ التدابير اللازمه من حيث القوانين والاجراءات التي ستساعد على الحفاظ على المنظومه البيئيه وتجنب كل الافات التي قد تصيبها,,,,
+fab-500x-20261114T224408Z-039,31,7c4bf916f62725e60fd822aa,152546651661a92faa75cbf962573678,fab-500x,ar,islamic_studies,aya-dataset,human_authored,[user] للمسلمين عيدان أساسيان طبقا للديانة الإسلامية، فما هما؟,يحتفل المسلمون بعيد الفطر وذلك عقب انتهاء شهر رمضان المبارك، وعيد الأضحى في اليوم العاشر من شهر ذي الحجة,,,,
+fab-500x-20261114T224408Z-039,32,0be377e37fec40bd91b51a19,aa6c3884a89d670900fdbe4d5fe0a744,fab-500x,ar,mathematics,aya-dataset,human_authored,[user] قم بالإجابة على السؤال في أي نادي يلعب عبدالرحمن الجبر ؟ من النص التالي: كان يلعب في درجة الشباب في نادي الإتحاد و بعد انتهاء عقده مع الإتحاد مطلع عام 2014 وقع مع نادي النصر و لعب معهم في فئة الأولمبي و تم تصعيده للفريق الأول مطلع موسم 2016/2015 و انتهى عقده مع النصر في عام 2017 و وقع بعدها مع نادي الوحدة و أعير إلى نادي ضمك في يناير 2019 و وقع مع نادي أحد في صيف 2019 و لعب بعدها مع نادي حطين و نادي وج..,حسناً بإستخدام النص السابق الإجابة هي نادي أحد.,,,,
+fab-500x-20261114T224408Z-039,33,72370eb35a5c6ee09d810f2a,3351fe6a782ef3b0e544d4b394d24f08,fab-500x,ar,research,tydiqa-goldp,human_authored,"[user] يعقوب أو ياكوف (بالعبرية: עֲקֹב) معناه "" ماسك كعب القدم"" ويُعرف أيضاً بإسرائيل أي أو ""مصارع الله"" حسب القصة الواردة في سفر التكوين 32 عندما صارع يعقوب الإله دون أن يدري[1]. كان ليعقوب دور رئيسي في الأحداث الأخيرة من سفر التكوين في العهد القديم.
+
+من هو النبي الذي يملك إسم  إسرائيل؟","يعقوب
+
+يعقوب أو ياكوف (بالعبرية: עֲקֹב) معناه "" ماسك كعب القدم"" ويُعرف أيضاً بإسرائيل أي أو ""مصارع الله"" حسب القصة الواردة في سفر التكوين 32 عندما صارع يعقوب الإله دون أن يدري[1].",,,,
+fab-500x-20261114T224408Z-039,34,8a3dc60cbfe4cda4d1a20ded,e3b5cbe48f97acbe06fe61bf9bb0cc03,fab-500x,ary,general_knowledge,aya-dataset,human_authored,[user] *من هم القوم الذين جابوا الصخر بالوادي؟,قوم ثمود,,,,
+fab-500x-20261114T224408Z-039,35,6c228f9cc3195eb56417facc,7c52badc47f4e0d8c3488efc09b8c053,fab-500x,bn,general_knowledge,aya-dataset,human_authored,[user] ইউরোপের ইতিহাস বিস্তারিত বর্ণনা করো।,"ইউরোপ– বিশেষ করে প্রাচীন গ্রিস পাশ্চাত্য সংস্কৃতির পীঠস্থান। ইউরোপ পঞ্চদশ শতকের শুরু থেকে আন্তর্জাতিক বিষয়াবলিতে প্রধান ভূমিকা পালন করে, বিশেষ করে উপনিবেশবাদ শুরু হবার পর থেকে। ষোড়শ থেকে বিশ শতকের মধ্যে ইউরোপীয় দেশগুলোর বিভিন্ন সময়ে আমেরিকা, অধিকাংশ আফ্রিকা ও ওশেনিয়া এবং অপ্রতিরোধ্যভাবে অধিকাংশ এশিয়া নিয়ন্ত্রণ করে। আঠারো শতকের শেষভাগে গ্রেট ব্রিটেনে শিল্প বিপ্লব শুরু হয়। এর ফলে পশ্চিম ইউরোপ এবং অবশেষে বৃহত্তর বিশ্বে আমূল অর্থনৈতিক, সাংস্কৃতিক এবং সামাজিক পরিবর্তন ঘটে। প্রথম বিশ্বযুদ্ধ (২৮ জুলাই ১৯১৪ – ১১ নভেম্বর ১৯১৮) এবং দ্বিতীয় বিশ্বযুদ্ধ (১ সেপ্টেম্বর ১৯৩৯ – ২ সেপ্টেম্বর ১৯৪৫) মূলত ইউরোপকে কেন্দ্র করে সংঘটিত হয়, যার ফলে মধ্য বিশ শতকে বৈশ্বিক বিষয়াবলিতে, পশ্চিম ইউরোপের আধিপত্যের অবসান ঘটে এবং মার্কিন যুক্তরাষ্ট্র ও সোভিয়েত ইউনিয়ন তাদের প্রাধান্য বিস্তার করে। স্নায়ুযুদ্ধের সময়ে ইউরোপ লৌহ পর্দা বরাবর পশ্চিমে ন্যাটো ও পূর্বে ওয়ারশ চুক্তি দ্বারা বিভক্ত ছিল। ১৭৩০ সাল থেকে ইউরোপ ও এশিয়ার মধ্যে ভৌগোলিক সীমানা কোনো আন্তর্জাতিক সীমারেখা অনুসরণ করেনি। ইউরোপীয় একত্রীকরণ দ্বিতীয় বিশ্বযুদ্ধের পরে শুরু হয়। রাজনৈতিক বা অর্থনৈতিক রেখায় ইউরোপকে সংগঠিত করার প্রচেষ্টায় ভূ- রাজনৈতিকভাবে নাম ব্যবহার শুরু হয়। ১ জানুয়ারি ১৯৫৮ গঠিত ইউরোপীয় ইউনিয়ন সীমিতভাবে ২৮টি সদস্য রাষ্ট্রকে বোঝায়। আর ৫ মে ১৯৪৯ গঠিত ৪৭টি সদস্য রাষ্ট্রের কাউন্সিল অব ইউরোপ দ্বারা ব্যাপক ইউরোপকে বোঝায়। এর কিছু দেশ উরাল ও বসফরাস রেখা পার হয়ে যায়, যেগুলো সাইবেরিয়া এবং তুরস্কের অন্তর্ভুক্ত। ব্রিটিশ দ্বীপপুঞ্জের মানুষ 'মহাদেশীয়' বা 'মূল ভূখণ্ড' ইউরোপকে ইউরোপ বলে বুঝিয়ে থাকে। ১৯৯১ সালে সোভিয়েত ইউনিয়ন ভেঙে ১৫টি স্বাধীন প্রজাতন্ত্রের সৃষ্টি হয়। অনুরূপভাবে ১৯৯২ সালে চেকোস্লোভাকিয়া ভেঙে চেক প্রজাতন্ত্র ও স্লোভাকিয়া নামক ২টি রাষ্ট্র এবং ১৯৯১ সাল থেকে যুগোস্লাভিয়া ভেঙে ৭টি রাষ্ট্র পরিণত হয়। দেশগুলো হলো— ১. ক্রোয়েশিয়া, ২. স্লোভেনিয়া, ৩. মন্টিনিগ্রো, ৪. বসনিয়া অ্যান্ড হার্জেগোভিনা, ৫. মেসিডোনিয়া, ৬. সার্বিয়া এবং ৭. কসোভো।
+
+এরপর থেকে উভয় সংগঠন পূর্বদিকে বিস্তৃত হয়। ইউরোপীয় ইউনিয়ন আজকাল তার সদস্য দেশগুলোর উপর ক্রমবর্ধমান প্রভাব বিস্তার করছে। অনেক ইউরোপীয় দেশ নিজেদের মাঝে সীমানা এবং অভিবাসন নিয়ন্ত্রণ বিলুপ্ত করেছে।",,,,
+fab-500x-20261114T224408Z-039,36,34857b04f60a658edda91e27,69ef22e4744cebd81b3dee9f51402934,fab-500x,bn,mathematics,aya-dataset,human_authored,[user] অ্যাভোগাড্রো ধ্রুবক,"যা সাধারণত NA বা L দ্বারা প্রকাশকরা হয়, হলো আনুপাতিকতা ফ্যাক্টর যা সেই নমুনার মধ্যে পদার্থের পরিমাণের সাথে নমুনার মধ্যে উপাদান কণা (সাধারণত অণু, পরমাণু বা আয়ন) এর সংখ্যার সম্পর্ক। এটি এসআই ধ্রুবক যার ৬.০২২১৪০৭৬×১০২৩/মোল। স্ট্যানিস্লাও ক্যানিজারো এটি ইতালীয় বিজ্ঞানী আমাদিও আভোগাদ্রো এর নামানুসারে এর নামকরণ করে।",,,,
+fab-500x-20261114T224408Z-039,37,2203b162f4db8801e78d40aa,eb5d6d05ac6d607bde2983a93c8a4f58,fab-500x,bn,research,tydiqa-goldp,human_authored,"[user] দিনাজপুর জেলার উত্তরে ঠাকুরগাঁও, পঞ্চগড় ও নীলফামারী জেলা, দক্ষিণে জয়পুরহাট জেলা ও ভারতের পশ্চিমবঙ্গ, পূর্বে রংপুর ও নীলফামারী জেলা এবং পশ্চিমে ভারতের পশ্চিমবঙ্গ রাজ্যর পশ্চিম দিনাজপুর (উত্তর ও দক্ষিণ দিনাজপুর জেলাদ্বয়) অবস্থিত। এই জেলার মোট আয়তন ৩৪৩৭.৯৮ বর্গ কিলোমিটার। বার্ষিক সর্বোচ্চ গড় তাপমাত্রা ৩৩.৫ ডিগ্রি সেলসিয়াস এবং সর্বনিম্ন তাপমাত্রা ১০.৫ ডিগ্রি সেলসিয়াস। বার্ষিক বৃষ্টিপাত ২৫৩৬ মিলিমিটার। প্রধান নদীসমূহ পূনর্ভবা, আত্রাই।
+
+বাংলাদেশের দিনাজপুর জেলার মোট আয়তন কত ?","৩৪৩৭.৯৮ বর্গ কিলোমিটার
+
+দিনাজপুর জেলার উত্তরে ঠাকুরগাঁও, পঞ্চগড় ও নীলফামারী জেলা, দক্ষিণে জয়পুরহাট জেলা ও ভারতের পশ্চিমবঙ্গ, পূর্বে রংপুর ও নীলফামারী জেলা এবং পশ্চিমে ভারতের পশ্চিমবঙ্গ রাজ্যর পশ্চিম দিনাজপুর (উত্তর ও দক্ষিণ দিনাজপুর জেলাদ্বয়) অবস্থিত। এই জেলার মোট আয়তন ৩৪৩৭.৯৮ বর্গ কিলোমিটার। বার্ষিক সর্বোচ্চ গড় তাপমাত্রা ৩৩.৫ ডিগ্রি সেলসিয়াস এবং সর্বনিম্ন তাপমাত্রা ১০.৫ ডিগ্রি সেলসিয়াস। বার্ষিক বৃষ্টিপাত ২৫৩৬ মিলিমিটার। প্রধান নদীসমূহ পূনর্ভবা, আত্রাই।",,,,
+fab-500x-20261114T224408Z-039,38,c6cf128b7981dfabf18bc221,dbb55a5753beff283e37d5398eb2b3fc,fab-500x,ca,coding,oasst2,human_authored,"[user] Podries escriure un joc de pedra, paper, tisores en Python?","Clar, aquí tens una implementació que et pot servir:
+
+```
+import random
+
+def game():
+    choices = ['rock', 'paper', 'scissors']
+    computer_choice = random.choice(choices)
+
+    user_choice = input(""Choose rock, paper, or scissors: "")
+    user_choice = user_choice.lower()
+
+    print(""You chose: "" + user_choice)
+    print(""Computer chose: "" + computer_choice)
+
+    if user_choice == computer_choice:
+        print(""It's a tie!"")
+    elif (user_choice == 'rock' and computer_choice == 'scissors') or (user_choice == 'paper' and computer_choice == 'rock') or (user_choice == 'scissors' and computer_choice == 'paper'):
+        print(""You win!"")
+    else:
+        print(""Computer wins!"")
+
+    play_again = input(""Do you want to play again? (y/n): "")
+    if play_again == 'y':
+        game()
+
+game()
+
+```
+
+En aquest joc, l'usuari tria entre 'rock', 'paper' o 'scissors', mentre que l'elecció de l'ordinador es determina a l'atzar. Després, es comparen les eleccions de l'usuari i l'ordinador per determinar el guanyador. El joc acaba amb una opció per tornar a jugar. Que et diverteixis jugant!",,,,
+fab-500x-20261114T224408Z-039,39,9d72f03f8581bfcbfd11e61e,eb65ec048773a8a8688ef368a8e48fa9,fab-500x,ca,general_knowledge,oasst2,human_authored,"[user] Bon dia, 
+Em pots dir a quina velocitat gira la terra al voltant del sol, la lluna al voltant de la terra i el sol al voltant del centre de la via làctea?","Sí, clar! A continuació et presento la velocitat aproximada amb la qual giren la Terra, la Lluna i el Sol al voltant dels seus respectius cossos celestes:
+
+- La Terra gira al voltant del Sol a una velocitat mitjana de 29,78 quilòmetres per segon (107.000 quilòmetres per hora).
+
+- La Lluna gira al voltant de la Terra a una velocitat mitjana de 1.022 quilòmetres per hora (o 0,97 quilòmetres per segon).
+
+- El Sol gira al voltant del centre de la Via Làctea a una velocitat mitjana de 220 quilòmetres per segon (792.000 quilòmetres per hora).
+
+Cal tenir en compte que aquestes velocitats són aproximades i poden variar lleugerament segons diversos factors, com ara les posicions relatives dels diferents cossos celestes en el seu moviment orbital i altres forces gravitacionals que hi puguin influir.",,,,
+fab-500x-20261114T224408Z-039,40,95212f47c17c3f0885437df1,396b6d0f695b386466f826757e7715e8,fab-500x,ca,science,oasst2,human_authored,[user] Quin d’aquests animals és més ràpid l’estruç o el guepard?,"El guepard és l'animal més ràpid del món, mentre que l'estruç és l'ocell més gran del planeta i també és un animal veloç, però no tan ràpid com el guepard. El guepard pot arribar a córrer a velocitats de fins a 120 km/h, cosa que el converteix en l'animal terrestre més ràpid del món. En canvi, l'estruç pot córrer a velocitats de fins a 70 km/h, el que el converteix en l'ocell més ràpid del món. Malgrat això, el guepard és considerablement més ràpid que l'estruç i cap altres animals terrestres poden comparar-se amb la seva velocitat.",,,,
+fab-500x-20261114T224408Z-039,41,c4163d5c3a96c87e34f8a1ea,4e88f4bc7f23ac64f2b84ca12f900569,fab-500x,ceb,general_knowledge,aya-dataset,human_authored,[user] Nganong hinungdanon man jud nato nang pag tulog ug sayo?,Kay maayo man gud na sa atong panlawas ang matulog ug sayo,,,,
+fab-500x-20261114T224408Z-039,42,ed14152c262410b67861fc1c,fd2a5f16ee0a6a810db737c4877da1f6,fab-500x,ckb,general_knowledge,aya-dataset,human_authored,[user] ناوی چەند شاعیرێکی گەورەی کورد بنووسە.,نالی ،مەحوی، ناری، ئەحمەد موختار جاف، گۆران، بابە تاهیری هەمەدانی,,,,
+fab-500x-20261114T224408Z-039,43,7cebbbac859893e7e5071057,3303a4e685db7938a2ca674bd5850b13,fab-500x,dan,general_knowledge,aya-dataset,human_authored,"[user] Skriv om Kant, det moderne samfund og ekkokamre. Anvend begrebet ""Sapere Aude"" fra hans tekst: ""What is Enlightenment?""","Sapere Aude: Kant, Det Moderne Samfund, og Algoritmer i Ekkokamre
+
+Introduktion
+
+Immanuel Kant, en af filosofiens titaner, udmøntede engang det latinske motto ""Sapere Aude,"" eller ""Vov at vide,"" som et kald til oplysning. I en verden, der er mere forbundet end nogensinde og samtidig fragmenteret af teknologiske ekkokamre, har dette udtryk aldrig været mere relevant. Læs med, og lad os dykke ned i dette fascinerende emne.
+
+Sapere Aude: Kant og Oplysningstiden
+
+""Sapere Aude"" er ikke kun et motto men også en filosofisk idé, der stammer fra Oplysningstiden. Kant betragtede det som opfordringen til at bruge sin fornuft, frigøre sig fra selvindskrænket uvidenhed og bidrage til en mere rationel verden. Han foreslog, at mennesker bør søge viden og sandhed gennem rationel tænkning og skeptisk undersøgelse snarere end at stole på dogmer eller autoriteter.
+
+Det Moderne Samfund: Ekkokamre og Fragmentering
+
+Det moderne samfund har bevæget sig langt siden Kants dage, men konceptet ""Sapere Aude"" forbliver relevant, især med fremkomsten af sociale medier og algoritmer. Disse teknologier har en tendens til at skabe ekkokamre, hvor folk kun hører meninger, der ligner deres egne, hvilket begrænser deres eksponering for forskellige synspunkter.
+
+Algoritmer: Fornuftens Ven eller Fjende?
+
+I denne æra af ""big data"" og maskinlæring styrer algoritmer i stigende grad, hvad vi ser, hører og endda tænker. Mens disse algoritmer kan filtrere information på effektive måder, skaber de også ofte ekkokamre ved kun at vise os det indhold, de tror, vi vil se.
+
+Sapere Aude i en Digital Tidsalder
+
+I en verden styret af algoritmer er det en udfordring at ""vove at vide."" Men det er også en mulighed. Teknologi giver os adgang til en næsten uendelig mængde information, hvilket potentielt kan udvide vores horisonter. Det kræver dog en bevidst indsats at bryde ud af de ekkokamre, som algoritmerne skaber.
+
+Konklusion
+
+Kants opfordring til at ""Sapere Aude"" har fundet en ny relevans i vores moderne, algoritmedrevne verden. Selvom vi kan blive fanget i digitale ekkokamre, har vi også de værktøjer, der er nødvendige for at bryde fri og søge viden fra et mangfoldigt udvalg af kilder. Det er op til os at vove at vide og, vigtigst af alt, at vove at tænke for os selv.
+
+Så næste gang din sociale mediefeed serverer dig en ensidig udsigt, husk på Kants ord: Sapere Aude. Vov at vide, vov at tænke kritisk, og vov at udfordre din egen forståelse af verden.",,,,
+fab-500x-20261114T224408Z-039,44,2e9c9cb1803b31becc5d23a4,ce0e46302890dd568468993e469dbb0c,fab-500x,de,coding,oasst1,human_authored,"[user] Bitte nenne jeweils 5 als JSON formatierte Stichpunkte zu den Vor und Nachteilen von generativen text2image Modellen wie Stable Diffusion?
+
+[assistant] 5 Vorteile und Nachteile von Text2Image Modellen sind:
+```Json
+{
+""Vorteile"": [""Es ist einfach neue Bilder zu erstellen."",
+                   ""Die Bilder sind besser auf den Text zu geschnitten als herkömmliche Stock Fotos"",
+                   ""Ein Bild zu erstellen ist nun viel günstiger als einen Fotografen oder Designer zu beauftragen"",
+                   ""Man kann viel schneller mit Ideen iterieren"",
+                   ""Es ermöglicht neue Lösungen zu entdecken über die man vorher nicht nachgedacht hat.""],
+""Nachteile"": [""Die Qualität der Bilder ist sehr unterschiedlich."",
+                      ""Je nachdem welche Inhalte in den Trainingsdaten vorkommen, kann das Ergebnis voreingenommen sein."",
+                      ""Die generierten Bilder können problematisch gegenüber dem Urheberrecht und Marken sein."",
+                      ""Oftmals weichen die generierten Bilder vom Text ab."",
+                      ""Änderungen vom Eingabetext ändern das ganze Bild was Nachbesserungen sehr schwer macht.""],
+}
+```
+
+[user] Wie könnte der JavaScript Code aussehen, um diese Daten, die in der Variable ""text2imageFacts"" gespeichert sind als Tabelle auszugeben?","Sie können den folgenden JavaScript-Code verwenden, um die Daten in der text2imageFacts-Variable als Tabelle auszugeben:
+```let text2imageFacts = {
+  ""Vorteile"": [""Es ist einfach neue Bilder zu erstellen."",
+                   ""Die Bilder sind besser auf den Text zu geschnitten als herkömmliche Stock Fotos"",
+                   ""Ein Bild zu erstellen ist nun viel günstiger als einen Fotografen oder Designer zu beauftragen"",
+                   ""Man kann viel schneller mit Ideen iterieren"",
+                   ""Es ermöglicht neue Lösungen zu entdecken über die man vorher nicht nachgedacht hat.""],
+  ""Nachteile"": [""Die Qualität der Bilder ist sehr unterschiedlich."",
+                      ""Je nachdem welche Inhalte in den Trainingsdaten vorkommen, kann das Ergebnis voreingenommen sein."",
+                      ""Die generierten Bilder können problematisch gegenüber dem Urheberrecht und Marken sein."",
+                      ""Oftmals weichen die generierten Bilder vom Text ab."",
+                      ""Änderungen vom Eingabetext ändern das ganze Bild was Nachbesserungen sehr schwer macht.""],
+};
+
+document.write(""<table>"");
+
+for (let key in text2imageFacts) {
+  document.write(""<tr><th colspan='2'>"" + key + ""</th></tr>"");
+  for (let i = 0; i < text2imageFacts[key].length; i++) {
+    document.write(""<tr><td>"" + (i + 1) + ""</td><td>"" + text2imageFacts[key][i] + ""</td></tr>"");
+  }
+}
+
+document.write(""</table>"");
+```",,,,
+fab-500x-20261114T224408Z-039,45,940bc72918fc0dd8e4874d04,b692030e4a77be7df1b496b41670c5f0,fab-500x,de,general_knowledge,oasst2,human_authored,"[user] Welches ist das höchste Gebäude der Welt und welche herausforderungen gab es beim Bau?
+
+[assistant] Der Burj Khalifa in Dubai gilt seit April 2008 als das höchste Bauwerk der Welt. 
+
+Beim Bau von Hochhäusern treten im allgemeinen viele Herausforderungen und Probleme auf, deshalb konzentriere ich mit dieser Antwort nur auf die Bauprobleme und Herausforderungen des Burj Khalifa.
+
+**Bau in der Wüste**: Damit das 500.000 Tonnen schwere Gebäude nicht einfach im Wüstensand versinkt wurde zunächst ein massives und tiefes Fundament benötigt. Dafür wurde eine 7.000 Quadratmeter große, 3,7 Meter dicke Fundamentplatte aus 12.500 Kubikmeter Stahlbeton gegossen. Unter der Platte wurden dann insgesamt 200 Betonpfähle mit je 1,5 Meter Durchmesser und 50 Meter Länge sowie 650 Pfähle mit 0,9 Meter Durchmesser und 36 Meter Länge bis in eine Tiefe von etwa 70 Metern unter dem Meeresspiegel im Wüstensand und dem darunterliegenden Gestein verankert.
+
+**Hitze**: Wegen der Hitze tagsüber konnte fast nur in der Nacht betoniert werden.
+
+**Logistik**: Ein so großes Gebäude zu errichten bringt immense logistische Probleme mit sich. Tausende Arbeiter mussten organisiert und bezahlt werden, Materialien gekauft und zur richtigen Zeit an den richtigen Ort gebracht werden und vieles mehr. 
+
+**Schlechte Bezahlung der Arbeiter**: Im März 2006 geriet die Baustelle in die Schlagzeilen, als etwa 2500 Bauarbeiter, die einen Lohn von lediglich 4 bis 8 US-$ pro Tag erhielten, streikten, um höhere Löhne und bessere Sozialleistungen zu fordern, und dabei Baustellen- und Büroeinrichtungen zerstörten. Nach offiziellen Angaben richteten sie dabei einen Schaden von einer Million US-Dollar an.
+
+
+Das sind nur einige wenige Herausforderungen die beim Bau des Burj Khalifa aufgetreten sind, gerne kann ich dir noch mehr Probleme die es beim Bau gab nennen.
+
+[user] Da hast du noch recht ,aber ab Oktober 2023 wird Skytristar Tower mit einer Höhe von 2023 Metern das größte Bauwerk sein.","Ja, die Bauherren des ""Skytristar"" planen die Fertigstellung des mit 2023 Metern momentan größten Hochhauses der Welt im Oktober des Jahres 2023. Bis zur noch ausstehenden Fertigstellung verbleibt der Burj Khalifa das höchste Gebäude.
+
+Dennoch muss ich anmerken, dass alle Pläne sowie die Konzeption den Anschein erwecken eine Betrug zu sein, da keinerlei Quellen oder Berichte unabhängiger Dritter existieren. Des Weiteren ist auch die bauliche Gestaltung äußerst fragwürdig. Als Assistent sollte ich dir raten, große Vorsicht bei diesen Informationen zu üben und diese immer kritisch zu hinterfragen.",,,,
+fab-500x-20261114T224408Z-039,46,c1ea44551af58e0a714ab453,a70a68bd7e611ebb8518f8e738cfb76e,fab-500x,de,mathematics,aya-dataset,human_authored,"[user] Worum geht es im Film ""Die Matrix""?","Matrix (englischer Originaltitel: The Matrix) ist ein Science-Fiction-Film aus dem Jahr 1999. Der Film handelt von Hacker Thomas Anderson, alias Neo, der herausfindet, dass die Menschheit in einer Computersimulation gefangen ist. Zusammen mit seinen Mitstreitern Morpheus und Trinity versucht er, aus der Simulation auszubrechen.",,,,
+fab-500x-20261114T224408Z-039,47,60c7399fa3aa924a2f8554ae,bc9abfcb330fff2f977570943c64db5f,fab-500x,de,problem_solving,oasst2,human_authored,[user] Kennst du eine gute Outdoor Luftmatratze für Winter Touren?,"Ja, es gibt viele gute Outdoor-Luftmatratzen, die speziell für Winter-Touren geeignet sind. Hier sind einige Vorschläge:
+
+- Therm-a-Rest NeoAir XTherm: Diese Luftmatratze ist eine der wärmsten und kompaktesten auf dem Markt und eignet sich gut für Winter-Camping. Sie verfügt über eine Unterseite aus 70D Nylon, die auch längeren Einsätzen standhält und hat einen R-Wert von 7,3.
+
+- Exped DownMat XP 9: Diese Luftmatratze ist mit einer Daunenfüllung ausgestattet, die für zusätzliche Isolierung sorgt. Sie hat einen R-Wert von 8,0 und ist sehr bequem.
+
+- NEMO Tensor Insulated: Diese Luftmatratze hat einen R-Wert von 4,2. Sie ist sehr leicht und kompakt und eignet sich gut für Rucksacktouren im Winter.
+
+- Sea to Summit Comfort Plus Insulated: Diese Luftmatratze ist sehr bequem und hat einen R-Wert von 4,0. Sie verfügt über zwei ineinandergreifende Luftkammern, so dass man den Härtegrad der Matratze anpassen kann.
+
+- Klymit Insulated Static V Luxe: Diese Luftmatratze hat eine isolierte V-Kammer-Konstruktion. Sie hat einen R-Wert von 2,4 und ist sehr bequem.
+
+Alle diese Matratzen sind für den Einsatz im Winter konzipiert und bieten eine gute Isolierung und Komfort. Die Wahl hängt auch von deinen individuellen Anforderungen und Präferenzen ab, wie z.B. Packmaß, Gewicht und Budget.",,,,
+fab-500x-20261114T224408Z-039,48,0656fa0610678477383d8743,39d29b47441f3884fda7eef6b5fe5ff0,fab-500x,de,research,oasst1,human_authored,[user] Erstelle die Stichpunkte für 5 Präsentationsfolien über die Vor und Nachteile beliebter instant Messenger in Deutschland.,"1. Präsentationsfolie: Überblick über beliebte Instant Messenger in Deutschland
+
+Beliebteste Messenger in Deutschland im Jahr 2022 (Quelle: Statista Consumer Insights)
+- WhatsApp (88%)
+- Facebook Messenger (35%)
+- Telegram (15%)
+- iMessage (9%)
+- Threema (3%)
+
+
+2. Präsentationsfolie: Vorteile beliebter Instant Messenger in Deutschland
+
+- Einfache Bedienung
+- Kostenlose bzw. kostengünstige und sehr schnelle Nachrichtenübermittlung
+- Reicher Funktionsumfang, z. B. Gruppenchats, Unterstützung verschiedener Medien, uvm.
+
+
+3. Präsentationsfolie: Nachteile beliebter Instant Messenger in Deutschland
+
+- Intransparente Geschäftsmodelle
+- Teilweise ungenügende Datensicherheit und Privatsphäre
+- Suchtverhalten bei jüngeren Nutzerinnen und Nutzern
+- Wenige Open-Source Angebote
+
+
+4 Präsentationsfolie: Sicherheitsfunktionen der beliebten Instant Messenger in Deutschland
+
+- Ende-zu-Ende-Verschlüsselung
+- Zwei-Faktor-Authentifizierung
+- Selbstlöschende Nachrichten / Anonyme Chats
+- Gesicherte Datenübertragung
+
+
+5. Präsentationsfolie: Fazit
+
+- Instant Messenger bieten eine schnelle und kostenlose Art, Nachrichten zu versenden
+- Sie haben jedoch auch Nachteile, die beachtet werden sollten
+- Sicherheitsfunktionen können helfen, die Privatsphäre und den Schutz der Nutzer zu gewährleisten",,,,
+fab-500x-20261114T224408Z-039,49,9790b7ecced62b7b562f80e2,e40f76f618a91b74c75a0645b2fdf784,fab-500x,de,science,oasst1,human_authored,[user] Warum haben Elefanten vier Beine? Ist das normal?,"Elefanten haben vier Beine, weil dies die anatomische Struktur ist, die ihnen ermöglicht, sich aufrecht zu halten und sich effizient auf dem Land zu bewegen. Es ist völlig normal für Elefanten, vier Beine zu haben, da dies die Anzahl der Gliedmaßen ist, die die meisten Säugetiere haben.
+
+Die Vierbeinigkeit von Elefanten ist auch ein Merkmal, das sich im Laufe der Evolution entwickelt hat und den Anforderungen ihres Lebensraums entspricht. Elefanten leben in der Regel in offenen Landschaften, wo sie große Entfernungen zurücklegen müssen, um Wasser und Nahrung zu finden. Ihre Beine ermöglichen es ihnen, lange Strecken zu laufen und Hindernisse wie Steine, Büsche oder Baumstümpfe zu überwinden.
+
+Darüber hinaus sind Elefanten sehr schwere Tiere, und vier Beine ermöglichen es ihnen, ihr Gewicht gleichmäßig auf den Boden zu verteilen und somit ihre Bewegungen effizienter und stabiler zu gestalten.
+
+Insgesamt ist es also völlig normal, dass Elefanten vier Beine haben, und diese Anzahl von Gliedmaßen ist ein wichtiges Merkmal ihrer Anatomie und Evolution.",,,,
+fab-500x-20261114T224408Z-039,50,402b78aa50183b061a210fa4,bd6477238a76e621ebd1b1b742a508a2,fab-500x,de,web_frontend,oasst2,human_authored,"[user] Wenn ich mein iphone mit dem Laptop verbinde, kann ich nicht mehr auf die Bilder einfach durch öffnen des entsprechenden Ordners zugreifen (wie man es zBsp bei einem USB-stick machen würde). Die Ordner mit den Bildern werden mir gar nicht mehr angezeigt. Woran kann das liegen? Ich habe kürzlich mein iphone mit der iCloud verknüpft.
+
+[assistant] Es könnte sein, dass dein iPhone nach der Verknüpfung mit iCloud so eingestellt ist, dass es automatisch eine Synchronisation mit deinem Laptop durchführt und die Bilder in die iCloud hochlädt. In diesem Fall können die Bilder nicht mehr direkt über den Ordner auf deinem Laptop zugänglich sein. Stattdessen müsstest du möglicherweise die iCloud-Webseite oder die iCloud-App auf deinem Laptop verwenden, um auf die Bilder zuzugreifen.
+
+Um zu überprüfen, ob das der Fall ist, öffne die Einstellungen auf deinem iPhone und gehe zu ""Fotos"". Dort solltest du eine Option namens ""iCloud-Fotos"" finden. Wenn diese Option aktiviert ist, bedeutet dies, dass deine Bilder in die iCloud hochgeladen werden. Wenn du die Bilder wieder direkt auf deinem Laptop anzeigen möchtest, kannst du die Option deaktivieren.
+
+Falls die Option ""iCloud-Fotos"" deaktiviert ist und du immer noch nicht auf deine Bilder zugreifen kannst, könnte es sein, dass es ein Problem mit der Verbindung zwischen deinem iPhone und deinem Laptop gibt. In diesem Fall könntest du versuchen, das iPhone und den Laptop neu zu starten oder einen anderen USB-Anschluss auszuprobieren.
+
+[user] Kannst du mir eine Anleitung von Apple dazu verlinken?","Apple behandelt dieses Thema nur in mehreren Support-Themen und leider nicht umfassend in einem Artikel. In der Fachpresse finden sich aber zahlreiche Anleitungen, die eine umfassende Diagnose oder eine Neuinstallation, den iPhone-Gerätetreiber betreffend, beschreiben:
+
+https://www.heise.de/tipps-tricks/PC-erkennt-iPhone-nicht-das-hilft-4068399.html
+
+Eine Kurzanleitung finden Sie am Ende des beschrieben Artikels.",,,,
+fab-500x-20261114T224408Z-039,51,47d4cebb26fc9cfe7c2d712a,3681bd66be1b66bdfcb9aee9658281a4,fab-500x,de,writing,oasst2,human_authored,"[user] Schreib mir ein Paragraph mit Header, wie ein Sprachmodel bei der Reduzierung von CO2e Emissionen helfen kann?","Sprachmodelle können bei der Reduzierung von CO2e-Emissionen helfen, indem sie bei der Entwicklung energieeffizienter Technologien unterstützend wirken. Sprachmodelle können auf große Datenmengen zugreifen, um Einblicke in den Energieverbrauch verschiedener Technologien zu gewinnen und mögliche Einsparungen zu identifizieren. Darüber hinaus können Sprachmodelle auch die Einführung neuer Technologien unterstützen, indem sie benutzerfreundliche Anleitungen, Anwendungsbeispiele und Schulungsmaterialien erstellen, die den Benutzern helfen, die Technologien effektiv zu nutzen. Sprachmodelle können auch dazu beitragen, Energieeinsparungen zu verfolgen und zu überwachen, indem sie regelmäßig Berichte über den Energieverbrauch erstellen und Analysen durchführen, um zu sehen, wie effizient die Technologie im Vergleich zu anderen Technologien ist. Auf diese Weise können Unternehmen dazu beitragen, CO2e-Emissionen zu reduzieren, indem sie sich auf energieeffizientere Technologien konzentrieren, die dank der Unterstützung von Sprachmodellen entwickelt wurden.",,,,
+fab-500x-20261114T224408Z-039,52,1c456611e340c3cf3b9b1bef,e15463d8f8f05094f33f32a3c8e8c91c,fab-500x,el,general_knowledge,aya-dataset,human_authored,"[user] Ολοκλήρωσε την ακόλουθη φράση: Μετέπειτα με εντολή του κόμματος, έδρασε σε διάφορες πόλεις της Μακεδονίας, μέχρι που φυλακίστηκε και εξορίστηκε διαδοχικά στη Σκιάθο και στον Άη Στράτη το 1930 με 1932. Σπούδασε στο ΚΟΥΤΒ το 1933, όπου έκανε κριτική στον τρόπο διδασκαλίας και στο αποτέλεσμα της αγροτικής παραγωγής, με αποτέλεσμα να κληθεί να κάνει αυτοκριτική, κάτι που αρνήθηκε επανειλημμένα. Όταν επέστρεψε δούλεψε στην εφημερίδα του κόμματος, Ριζοσπάστη. Αιχμαλωτίστηκε από το δικτατορικό καθεστώς της 4ης Αυγούστου στις 17 Φλεβάρη του 1937, και εκτοπίστηκε στις φυλακές της Ακροναυπλίας με εκατοντάδες άλλους κομμουνιστές. Λίγες μέρες πριν από την κήρυξη του","Ελληνοϊταλικού πολέμου το καθεστώς τον εξόρισε στη Γαύδο, όπου λίγο πριν την κατάληψη του νησιού από τους Γερμανούς απέδρασε μαζί με άλλα στελέχη του κόμματος, όπως ο Μάρκος Βαφειάδης, φτάνοντας με τη βοήθεια των ντόπιων στην Αθήνα.",,,,
+fab-500x-20261114T224408Z-039,53,2f081875c3a8f169000c5858,419e37485101b0a2e8c33a00aabe2257,fab-500x,en,coding,opencodeinstruct,synthetic,"[user] You are given a nested list structure where each element is a list of integers. Your task is to implement a function `deep_copy_list` that constructs a new nested list which is a deep copy of the given input. A deep copy means that the new list should contain new instances of the inner lists, not just references to the original inner lists. You are not allowed to use any built-in deep copy functions such as `copy.deepcopy()`.
+
+**Input:**
+- A list of lists of integers, `input_list`.
+
+**Output:**
+- A new list of lists of integers, which is a deep copy of `input_list`.
+
+**Sample Input:**
+```python
+[[1, 2, 3], [4, 5], [6, 7, 8, 9]]
+```
+
+**Sample Output:**
+```python
+[[1, 2, 3], [4, 5], [6, 7, 8, 9]]
+```","```python
+def deep_copy_list(input_list):
+    """"""
+    Constructs a deep copy of a list of lists.
+
+    Parameters:
+    input_list (list of list of int): The list of lists to be deep copied.
+
+    Returns:
+    list of list of int: A new list of lists which is a deep copy of the input.
+    """"""
+    copied_list = []
+    for inner_list in input_list:
+        new_inner_list = []
+        for element in inner_list:
+            new_inner_list.append(element)
+        copied_list.append(new_inner_list)
+    return copied_list
+```",,,,
+fab-500x-20261114T224408Z-039,54,1f44afb73a0a90736bd4f394,cd59509038fdfab2a87f63b541c1738d,fab-500x,en,cybersecurity,trendyol-cybersec,synthetic,[user] In which circumstances would field examination miss timing-based attacks?,"Field examination, while essential for forensic analysis, can miss timing-based attacks due to several inherent limitations in temporal resolution and observational scope. Timing-based attacks exploit minute variations in system responses, network latency, or cryptographic operations that occur faster than typical forensic collection mechanisms can capture.\\n\\n**Temporal Resolution Limitations**: Standard forensic tools operate with millisecond or second-level precision, while many timing attacks manipulate microsecond or nanosecond variations. For instance, cache-timing attacks against cryptographic implementations (MITRE ATT&CK T1005) exploit differences in memory access patterns that occur within microseconds. Field examination equipment often lacks the granularity to detect these subtle timing differentials, particularly when attackers employ sophisticated techniques like statistical analysis of response times across thousands of requests.\\n\\n**Network-Level Timing Attacks**: Side-channel attacks leveraging network timing, such as those targeting TCP sequence numbers or round-trip time measurements, can be obscured during field examination. These attacks often rely on measuring minute variations in packet transmission and reception that may not be visible in standard network logs or captured traffic analysis tools like Wireshark, which typically aggregate data at higher intervals.\\n\\n**Real-Time vs. Post-Incident Analysis**: Timing-based attacks often require real-time monitoring to detect subtle patterns. Field examination is inherently post-incident, meaning critical timing evidence may already be lost or aggregated into less informative summaries by the time analysis begins.\\n\\n**Advanced Evasion Techniques**: Sophisticated attackers employ jitter injection or deliberate noise introduction to mask their timing-based activities. These techniques can render timing anomalies indistinguishable from normal system variations during field examination.\\n\\nNIST SP 800-53 emphasizes continuous monitoring and real-time detection capabilities as critical for identifying advanced persistent threats, including timing-based attacks. The MITRE ATT&CK framework categorizes these under \\\""Defense Evasion\\\"" and \\\""Collection\\\"" tactics, highlighting their stealth-oriented nature.\\n\\n**Mitigation Strategies**: Organizations should implement specialized monitoring tools with high-frequency sampling capabilities, deploy network intrusion detection systems configured to analyze timing patterns, and establish baseline performance metrics for anomaly detection. Additionally, employing constant-time cryptographic implementations can mitigate many timing-based vulnerabilities at the source.\\n\\nField examination remains valuable but must be complemented by real-time monitoring and specialized tooling to effectively detect sophisticated timing-based attacks that exploit temporal subtleties beyond standard forensic capabilities.",,,,
+fab-500x-20261114T224408Z-039,55,43c483d38630e6d88f8afa12,e2eff7c01da67c69218b18a82d9599bc,fab-500x,en,education,oasst1,human_authored,"[user] How to start learning guitar and become a master at it?
+
+[assistant] • Choose the right guitar for you. Get a good quality guitar that is comfortable to hold and play. As a beginner, either an acoustic or electric guitar is fine.
+
+• Learn the parts of the guitar. Familiarize yourself with the different parts of the guitar, including the headstock, neck, body, sound hole, bridge, and frets. Understanding the different parts will help you learn proper technique and tuning.
+
+• Learn how to hold the guitar properly. You'll want to support the neck with your non-dominant hand and rest the body on your leg. Practice this until it feels comfortable.
+
+• Learn how to tune the guitar. You can use a guitar tuner or tune by ear using online tutorials. Tuning is a crucial skill to learn as it will impact the sound of your guitar.
+
+• Practice chords and strumming patterns. Learn some basic chords and practice changing between them smoothly. Also practice basic strumming patterns to get a feel for rhythm.
+
+• Practice scales and exercises. Scales and exercises help strengthen your fingers and improve dexterity and technique. Even practicing for just 10-15 minutes a day can be very helpful.
+
+• Learn songs you enjoy. Once you have some chords and techniques down, learn to play some of your favorite songs. This will keep you motivated to practice and continue improving.
+
+• Practice regularly. The key to mastery is consistent practice. Aim for at least 30 minutes to an hour every day, even if you're just practicing chords or scales. Regular practice will improve your skills and muscle memory.
+
+• Get guidance. If you get stuck or want to accelerate your learning, consider taking lessons from a skilled guitar teacher. They can give you customized guidance to help you improve faster.
+
+• Continue learning new songs and techniques. As you progress, continue learning new songs to play and keep challenging yourself to learn new skills and more advanced techniques. Constantly pushing yourself will help you improve and work towards mastery.
+
+[user] I like learning from YouTube videos. Can you suggest some channels with videos that are beginner friendly and then move on up to intermediate level tutorials?","Sure, here are some YouTube channels that offer beginner to intermediate level guitar tutorials:
+
+1. JustinGuitar - This is a very popular channel with an extensive library of beginner-friendly lessons that cover everything from basic chords and strumming patterns to more advanced techniques. Justin's teaching style is very clear and easy to follow, making it a great option for beginners.
+2. Marty Music - Marty Schwartz is a seasoned guitar teacher with over 1.5 million subscribers on his channel. He offers lessons for beginners as well as intermediate players and covers a wide range of genres and techniques.
+3. GuitarLessons.com - This channel offers a structured approach to learning guitar, with a focus on building a strong foundation of skills. The lessons are broken down into easy-to-follow segments and cover everything from basic chords and scales to more advanced techniques like sweep picking and alternate tunings.
+4. Andy Guitar - Andy Crowley is a UK-based guitar teacher who offers a mix of beginner and intermediate lessons on his channel. His tutorials are well-organized and cover a wide range of topics, from basic chords and strumming patterns to fingerstyle playing and soloing.
+5. Paul Davids - This channel offers more advanced tutorials for intermediate to advanced players. Paul covers a wide range of topics, including fingerstyle playing, music theory, and improvisation, and his teaching style is very thorough and detailed.
+
+These are just a few examples of the many great guitar tutorial channels on YouTube. Explore these and other channels to find the ones that work best for you and your learning style.",,,,
+fab-500x-20261114T224408Z-039,56,65eae6591388a547f705d174,0e489c79766655122b7db5f5fa03212e,fab-500x,en,general_knowledge,dolly-15k,human_authored,[user] What is SoulCycle?,"SoulCycle is 45-minute indoor cycling class. SoulCycle implements choreography on a stationery bike, making it rhythmic-based. When you go to a SoulCycle class, you are expected to rent or bring a pair of cycling shoes that clip into your bike and you then enter a dark candle-lit room with loud music.",,,,
+fab-500x-20261114T224408Z-039,57,9fb229b2f1e345ee1d6bbe93,9c2d43dff582a10ab7da3d271fb89bf1,fab-500x,en,islamic_studies,aya-dataset,human_authored,[user] What is the meaning of the Islamic name 'Musa'?,The meaning of the Islamic name Musa is Speaker of God.,,,,
+fab-500x-20261114T224408Z-039,58,a4220760db322f1eb6be2b96,cb32466a9cfa4764a5eaeac7eab2b168,fab-500x,en,mathematics,aqua-rat,human_authored,"[user] a number divided by 84 leaves remainder 57 what is the remainder when same number divided by 12
+
+A)7
+B)8
+C)9
+D)10
+E)11","add 84+57=141
+now 141divided by 12 so we get 9 as reaminder
+ANSWER:C
+
+Answer: C",,,,
+fab-500x-20261114T224408Z-039,59,6c4708545d4a4608a872e23c,805d48698122f5adde2fa07b0084780d,fab-500x,en,pakistan,aya-dataset,human_authored,[user] How did Abdul Qadir Khan contribute to uranium enrichment and the development of Pakistan's nuclear capabilities?,"Abdul Qadir Khan played a pivotal role in Pakistan's nuclear program, particularly in the development of uranium enrichment technology. He is credited with advancing Pakistan's capability to enrich uranium, which is a critical process for producing nuclear fuel for reactors and, potentially, nuclear weapons.
+
+Khan, a trained metallurgical engineer, acquired valuable knowledge and expertise in uranium enrichment technologies during his time in Europe, notably in the Netherlands. Upon returning to Pakistan, he was instrumental in establishing the Khan Research Laboratories (KRL) in Kahuta, which became the center of Pakistan's uranium enrichment efforts. Under his leadership, KRL successfully developed the gas centrifuge method for uranium enrichment, which allowed Pakistan to produce highly enriched uranium (HEU).
+
+His contributions significantly accelerated Pakistan's pursuit of nuclear capabilities, eventually leading to the country developing nuclear weapons. Khan's role in the proliferation of nuclear technology, however, has been a subject of international controversy, as he was also involved in sharing nuclear technology with other countries. His work, while instrumental in achieving Pakistan's strategic objectives, raised significant concerns about nuclear proliferation and security on a global scale.",,,,
+fab-500x-20261114T224408Z-039,60,346273035e0958fd3f523f0b,91249cb9d4898473cbef800a2af6176e,fab-500x,en,problem_solving,oasst2,human_authored,[user] How do I hook my x-box controller wirelessly with my Steam Deck?,"To connect your Xbox controller wirelessly to your Steam Deck, follow these steps:
+
+1. On your Steam Deck, press the **Steam** button and go to **Settings** > **Bluetooth**.
+2. Make sure that Bluetooth is enabled.
+3. On your Xbox controller, press the **Xbox** button and hold down the **Pair** button on the top of the controller until the Xbox button starts flashing rapidly.
+4. On your Steam Deck, select **Xbox Wireless Controller** from the list of available devices.
+5. Once the controller is paired, the Xbox button will stop flashing and the controller will be ready to use.
+
+If you are having trouble connecting your Xbox controller to your Steam Deck, try the following:
+
+* Make sure that both the Steam Deck and the controller are fully charged.
+* Try restarting the Steam Deck and the controller.
+* Try moving the Steam Deck and the controller closer together.
+* Try disconnecting any other Bluetooth devices that are connected to the Steam Deck.
+
+If you are still having trouble, please contact Steam support for assistance.
+
+**Note:** Not all Xbox controllers support Bluetooth. Only Xbox One controllers released after August 2016 and Xbox Series X/S controllers support Bluetooth. If you have an older Xbox One controller, you can connect it to your Steam Deck using a USB cable.",,,,
+fab-500x-20261114T224408Z-039,61,3120cc07ee58b27e9cce9751,735016fb78ca53f6874570afa6756db3,fab-500x,en,reasoning,strategyqa,human_authored,[user] Does handedness determine how you use American Sign Language?,"Your dominant hand typically performs the moving part of a sign in ASL. Your dominant hand determines the hand you use to finger spell in ASL.
+
+So the answer is: Yes.",,,,
+fab-500x-20261114T224408Z-039,62,d00b9f0aaa3380081025da27,12de4d8261a393261066e470ae2f81c4,fab-500x,en,research,tydiqa-goldp,human_authored,"[user] The Sistine Chapel was built by Pope Sixtus IV within the Vatican immediately to the north of St. Peter's Basilica and completed in about 1481. Its walls were decorated by a number of Renaissance painters who were among the most highly regarded artists of late 15th century Italy, including Ghirlandaio, Perugino, and Botticelli.[1] The Chapel was further enhanced under Pope Julius II by the painting of the ceiling by Michelangelo between 1508 and 1512 and by the painting of the Last Judgment, commissioned by Pope Clement VII and completed in 1541, again by Michelangelo.[2] The tapestries on the lowest tier, today best known from the Raphael Cartoons (painted designs) of 1515–16, completed the ensemble.
+
+Who led the conservation-restoration of the frescoes of the Sistine Chapel?","Pope Sixtus IV
+
+The Sistine Chapel was built by Pope Sixtus IV within the Vatican immediately to the north of St.",,,,
+fab-500x-20261114T224408Z-039,63,5a092ff1d0ca421c3338cf8f,576c0afaaec82d5cb14c849ae0edd49c,fab-500x,en,safety_ethics,ethics-commonsense,templated_human,"[user] Consider this situation: ""I bought medication from a pharmacy.""
+By ordinary moral standards, is what the narrator did acceptable or wrong?",By ordinary moral standards this is not wrong; it is an acceptable thing to do.,,,,
+fab-500x-20261114T224408Z-039,64,3f065df06f7dbebdd9f57d24,9ce4f317cae27457deccbe9232f31df9,fab-500x,en,science,nemotron-stem,synthetic,"[user] Which of the following catalysts is most effective for the enantioselective hydrogenation of prochiral ketones to produce chiral alcohols with high enantiomeric excess?
+A: Raney Nickel
+B: Homogeneous rhodium-phosphine complex
+C: Palladium on carbon
+D: Heterogeneous copper silicate complex","The homogeneous rhodium-phosphine complex is capable of being chiral when designed with chiral phosphine ligands, making it effective for enantioselective hydrogenation of prochiral ketones to produce chiral alcohols with high enantiomeric excess. Rhodium complexes, such as those with chiral phosphine ligands like DIPAMP or BINAP, are well-known for asymmetric hydrogenation reactions and can achieve high enantioselectivity for various substrates, including ketones with coordinating groups or under optimized conditions.
+
+In contrast:
+- Raney Nickel (A) is typically used for hydrogenation but is not inherently enantioselective; modifications are required for enantioselectivity, and the option does not specify any chiral modification.
+- Palladium on carbon (C) is a heterogeneous catalyst for general hydrogenation but lacks chiral centers and is not effective for enantioselective hydrogenation.
+- Heterogeneous copper silicate complex (D) is used in specific hydrogenation reactions but is not known for enantioselectivity.
+
+Thus, the homogeneous rhodium-phosphine complex (B) is the most effective for the specified enantioselective hydrogenation.
+
+\boxed{\text{B}}",,,,
+fab-500x-20261114T224408Z-039,65,39e73caa320e080123f11554,1d7149c914b4488bd65b500a999a73ab,fab-500x,en,software_engineering,opencodeinstruct,synthetic,"[user] You are given a sorted list of distinct integers `numbers` and a target integer `target`. Your task is to implement a function that returns the index of `target` in `numbers`. If `target` is not present in `numbers`, the function should return `-1`. Your solution should have a time complexity of O(log n).
+
+**Sample Input:**
+```
+numbers = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+target = 7
+```
+
+**Sample Output:**
+```
+3
+```","```python
+def binary_search(numbers, target):
+    """"""
+    Perform binary search on a sorted list to find the index of the target number.
+    
+    :param numbers: List[int] - A sorted list of distinct integers.
+    :param target: int - The target integer to search for.
+    :return: int - The index of the target number if found, otherwise -1.
+    """"""
+    left, right = 0, len(numbers) - 1
+    
+    while left <= right:
+        mid = (left + right) // 2
+        
+        if numbers[mid] == target:
+            return mid
+        elif numbers[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+            
+    return -1
+
+# Example usage:
+numbers = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+target = 7
+index = binary_search(numbers, target)
+print(index)  # Output: 3
+```",,,,
+fab-500x-20261114T224408Z-039,66,b47a88222910493890e3a4e1,3068c7d253d452477306e405296bcec3,fab-500x,en,web_backend,commitpackft,human_authored,"[user] Add construction counts to the qualities catalog.
+
+File: src/app/views/items/qualities.blade.php
+```php
+@section('title')
+Qualities - Cataclysm: Dark Days Ahead
+@endsection
+<h1>Qualities</h1>
+
+<div class=""row"">
+  <div class=""col-md-3"">
+<ul class=""nav nav-pills nav-stacked"">
+@foreach($qualities as $quality)
+<li class=""@if($quality->id==$id) active @endif""><a href=""{{ route(Route::currentRouteName(), $quality->id) }}"">{{{$quality->name}}}</a></li>
+@endforeach
+</ul>
+  </div>
+  <div class=""col-md-9"">
+@if (!$id)
+Please select an entry from the menu on the left.
+@else
+<table class=""table table-bordered table-hover tablesorter"">
+  <thead>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Level</th>
+    <th>Recipes</th>
+  </tr>
+</thead>
+@foreach($items as $item)
+<tr>
+  <td>{{ $item->symbol }}</td>
+  <td><a href=""{{route('item.view', $item->id)}}"">{{ $item->name }}</a></td>
+  <td>{{{ $item->qualityLevel($id) }}}</td>
+  <td>{{{ $item->count(""toolFor"") }}}</td>
+</tr>
+</tr>
+@endforeach
+</table>
+<script>
+$(function() {
+    $("".tablesorter"").tablesorter({
+      sortList: [[2,0]]
+      });
+});
+</script>
+@endif
+</div>
+</div>
+```
+
+Apply this change and return the full updated file.","```php
+@section('title')
+Qualities - Cataclysm: Dark Days Ahead
+@endsection
+<h1>Qualities</h1>
+
+<div class=""row"">
+  <div class=""col-md-3"">
+<ul class=""nav nav-pills nav-stacked"">
+@foreach($qualities as $quality)
+<li class=""@if($quality->id==$id) active @endif""><a href=""{{ route(Route::currentRouteName(), $quality->id) }}"">{{{$quality->name}}}</a></li>
+@endforeach
+</ul>
+  </div>
+  <div class=""col-md-9"">
+@if (!$id)
+Please select an entry from the menu on the left.
+@else
+<table class=""table table-bordered table-hover tablesorter"">
+  <thead>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Level</th>
+    <th>Recipes</th>
+    <th>Construction</th>
+  </tr>
+</thead>
+@foreach($items as $item)
+<tr>
+  <td>{{ $item->symbol }}</td>
+  <td><a href=""{{route('item.view', $item->id)}}"">{{ $item->name }}</a></td>
+  <td>{{{ $item->qualityLevel($id) }}}</td>
+  <td>{{{ $item->count(""toolFor"") }}}</td>
+  <td>{{{ $item->count(""construction"") }}}</td>
+</tr>
+</tr>
+@endforeach
+</table>
+<script>
+$(function() {
+    $("".tablesorter"").tablesorter({
+      sortList: [[2,0]]
+      });
+});
+</script>
+@endif
+</div>
+</div>
+```",,,,
+fab-500x-20261114T224408Z-039,67,51caef9c0eb7e3852374b7ab,3e72d44b6871e01a1cf4c6ab9a30bc19,fab-500x,en,web_frontend,commitpackft,human_authored,"[user] Handle group products in stockrecord template partial
+
+Before this, group products were always shown as unavailable as they
+didn't have a stockrecord - even though their variant products did.
+
+File: oscar/templates/oscar/catalogue/partials/stock_record.html
+```html
+{% load currency_filters %}
+{% load i18n %}
+
+{% if product.is_group %}
+    <h2 class=""price_color"">{% blocktrans with product.min_variant_price_incl_tax|currency as price %}From {{ price }}{% endblocktrans %}</h2>
+{% else %}
+    <h2 class=""price_color"">{{ product.stockrecord.price_incl_tax|currency }}</h2>
+{% endif %}
+
+{% if product.is_available_to_buy %}
+    <p class=""{{ product.stockrecord.availability_code }} availability "">
+        <i class=""icon-ok""></i> {{ product.stockrecord.availability|truncatewords:2 }}
+    </p>
+{% else %}
+    <p class=""availability outofstock"">
+        <i class=""icon-remove""></i> {% trans ""Not available"" %}
+    </p>
+{% endif %}
+```
+
+Apply this change and return the full updated file.","```html
+{% load currency_filters %}
+{% load i18n %}
+
+{% if product.is_group %}
+    <h2 class=""price_color"">{% blocktrans with product.min_variant_price_incl_tax|currency as price %}From {{ price }}{% endblocktrans %}</h2>
+{% else %}
+    <h2 class=""price_color"">{{ product.stockrecord.price_incl_tax|currency }}</h2>
+{% endif %}
+
+{% if product.is_available_to_buy %}
+    {% if product.is_group %}
+        <p class=""instock availability "">
+            <i class=""icon-ok""></i> {% trans ""Available"" %}
+        </p>
+    {% else %}
+        <p class=""{{ product.stockrecord.availability_code }} availability "">
+            <i class=""icon-ok""></i> {{ product.stockrecord.availability|truncatewords:2 }}
+        </p>
+    {% endif %}
+{% else %}
+    <p class=""availability outofstock"">
+        <i class=""icon-remove""></i> {% trans ""Not available"" %}
+    </p>
+{% endif %}
+```",,,,
+fab-500x-20261114T224408Z-039,68,bf85fec195371a992d4f433a,765769d3e593b32558901d4dda4b0041,fab-500x,en,web_fullstack,opencodeinstruct,synthetic,"[user] You are tasked with implementing a function to validate date strings for a web application. The function should determine if a given date string is in the format `YYYY-MM-DD` and represents a valid calendar date. Your function should return `True` if the date is valid, and `False` otherwise. Use the `datetime` module for this task.
+
+**Sample Input:**
+```
+""2023-02-29""
+""2024-02-29""
+""2021-04-31""
+""2021-04-30""
+```
+
+**Sample Output:**
+```
+False
+True
+False
+True
+```","```python
+from datetime import datetime
+
+def is_valid_date(date_str):
+    """"""
+    Validates whether the input date string is in the format 'YYYY-MM-DD' and represents a valid date.
+    
+    Parameters:
+    date_str (str): The date string to validate.
+    
+    Returns:
+    bool: True if the date is valid, False otherwise.
+    """"""
+    try:
+        datetime.strptime(date_str, '%Y-%m-%d')
+        return True
+    except ValueError:
+        return False
+
+# Example usage:
+print(is_valid_date(""2023-02-29""))  # Output: False
+print(is_valid_date(""2024-02-29""))  # Output: True
+print(is_valid_date(""2021-04-31""))  # Output: False
+print(is_valid_date(""2021-04-30""))  # Output: True
+```",,,,
+fab-500x-20261114T224408Z-039,69,dcf886486209600d93f5e2a3,309220a3e296dd8114c0558d8e775f21,fab-500x,en,writing,dolly-15k,human_authored,"[user] With reference to the text given, list some details about lung cancer
+
+Context:
+Lung cancer, also known as lung carcinoma, is a malignant tumor that begins in the lung. Lung cancers are caused by genetic damage to the DNA of cells in the airways, often exacerbated by cigarette smoking, or inhaling damaging chemicals. Damaged airway cells sometimes gain the ability to proliferate unchecked, causing the growth of a tumor. Without treatment, lung tumors can spread throughout the lung, damaging lung function. Eventually lung tumors metastasize, spreading to distant parts of the body, and causing varying disease. Lung cancers are classified based on the cells they originate from. Around 15% are small-cell lung cancers, while the remaining 85% (the non-small-cell lung cancers) are adenocarcinomas, squamous-cell carcinomas, and large-cell carcinomas.","1. Lung cancer, sometimes referred to as lung carcinoma, is a cancerous tumour that starts in the lung.
+2. Smoking cigarettes or inhaling toxic chemicals can aggravate genetic damage to the DNA of cells in the airways, which is what causes lung cancer.
+3. In some cases, damaged airway cells acquire the capacity to proliferate unchecked, leading to the development of a tumour.
+4. Lung tumours can spread throughout the lung if left untreated, impairing lung function.
+5. Lung tumours eventually spread to other areas of the body and develop metastases, which lead to a variety of diseases.
+6. The cells from which lung tumours develop are used to categorise them.
+7. Adenocarcinomas, squamous-cell carcinomas, and large-cell carcinomas make up the majority of non-small-cell lung malignancies, which account for the remaining 15% of cases.",,,,
+fab-500x-20261114T224408Z-039,70,c067ddce3788cedb25db1f22,1802cc303a96c5c8a9fe2e3b0ca728a6,fab-500x,eo,general_knowledge,oasst2,human_authored,"[user] Bonvolu diru al mi kiel oni povas lerni pli pri koboldoj.
+
+[assistant] Por lerni pli pri koboldoj, vi povas sekvi ĉi tiujn paŝojn:
+
+* Legu librojn kaj artikolojn: Multaj verkoj pri mitologio kaj folkloraĵoj inkluzivas informojn pri koboldoj. 
+* Esploru retejon: Ekzistas multaj retejoj, kiuj disponigas informojn pri mitologio, inkluzive de koboldoj. 
+* Vizitu muzeojn kaj ekspoziciojn: Foje, muzeoj kaj ekspoziciojn prezentas mitologiajn temojn, inkluzive de koboldoj. Tiu povas esti bona okazo por vidi ilustraĵojn, skulptaĵojn kaj aliajn artojn rilatajn al la temo.
+* Aŭskultu podkastojn kaj prelegojn: Estas podkastoj kaj prelegoj dediĉitaj al mitologio kaj folkloraĵoj. 
+* Aliĝu al diskutgrupoj kaj forumoj: Enreta diskuto kun aliaj interesuloj povas esti alloga vojo por lerni pli pri koboldoj. Reddit, Quora, kaj aliaj similaj retejoj povas havi diskutojn pri mitologiaj estaĵoj, inkluzive de koboldoj.
+* Legu fikcion kun koboldoj: Foje, fikciaj verkoj povas prezenti pli da perspektivo pri koboldoj kaj ilia rolo en popola kulturo. 
+* Lernu pri similaj mitologiaj estaĵoj: Studado de aliaj mitologiaj estaĵoj, kiel gnomoj kaj elfoj, povas helpi klarigi la interrilatojn inter diversaj kreaĵoj kaj plilarĝigi vian scion pri koboldoj.
+
+Memoru, ke koboldoj estas mitologiaj estaĵoj, do priskriboj povas varii inter kulturoj kaj fontoj.
+
+[user] Dankon. Kie mi povas trovi realajn koboldojn?","Mi bedaŭras, sed koboldoj, kiel ili estas priskribitaj en folkloro kaj fantazio, ne ekzistas en la reala mondo. Koboldoj estas figuroj de germana mitologio kaj estas ofte viditaj en fantazia literaturo kaj ludoj, kiel ekzemple la ""Dungeons & Dragons"" rolludo. Ili estas kutime priskribitaj kiel malgrandaj, malamikaj kreaĵoj.
+
+Se vi estas interesita pri realaj kreaĵoj kiuj povas aspekti iomete kiel koboldoj, vi eble volus esplori malgrandajn mamulojn kiel mustelojn kaj sciuroj, aŭ eĉ certaj specioj de ranoj kaj salamandroj. Tamen, ĉi tiuj estas nur similecoj kaj ne devus esti prenitaj tro serioze.",,,,
+fab-500x-20261114T224408Z-039,71,8c344bfe9073b25bed11b504,fa154e5a3e60fd7eb83faff0e3fdb1cb,fab-500x,es,coding,oasst1,human_authored,"[user] Hola, necesito crear un cubo usando el scripting de blender me podrías dar un ejemplo usando python?","Claro, aquí hay un ejemplo de código en Python para crear un cubo en Blender utilizando su API de scripting:
+
+python
+
+import bpy
+ 
+# Crea un nuevo cubo
+bpy.ops.mesh.primitive_cube_add(location=(0, 0, 0))
+ 
+# Selecciona el cubo recién creado
+cube = bpy.context.selected_objects[0]
+ 
+# Modifica las dimensiones del cubo
+cube.scale = (2, 2, 2)
+En este ejemplo, primero importamos la biblioteca bpy que contiene la API de scripting de Blender. Luego, utilizamos el método bpy.ops.mesh.primitive_cube_add() para crear un nuevo cubo en el origen de coordenadas (0, 0, 0). Finalmente, seleccionamos el cubo recién creado y lo guardamos en una variable llamada cube, y luego modificamos sus dimensiones utilizando la propiedad scale.
+
+Este es solo un ejemplo básico, pero la API de scripting de Blender es muy completa y permite realizar una amplia variedad de tareas en 3D, incluyendo la creación y manipulación de objetos, la animación, el renderizado y mucho más.",,,,
+fab-500x-20261114T224408Z-039,72,14acb31e9adf1e62ee6be41d,e62de747f5d2cd521aa853e75177cbd9,fab-500x,es,cybersecurity,oasst1,human_authored,"[user] Por favor. Necesito un resumen sobre las estafas en internet. En ella se deben tratar temas sobre como prevenir, como reconocer una estafa, además, necesito ejemplos de casos mas recientes sobre esta situación. Al final me encetaría que se incluya varios consejos y tips para afrontar esta situación.","Por supuesto, aqui te proporciono unos tips para prevenir que te estafen con páginas u ofertas fraudulentas:
+
+1 - Evita comprar en páginas que no conoces. ...
+2 - HTTPS siempre. ...
+3 - Si una oferta es demasiado buena para ser verdad... ...
+4 - Evita páginas que se hacen pasar por otras. ...
+5 - Revisa bien la información del producto. ...
+6 - Ante la duda, tienda oficial. ...
+7 - Ten cuidado con dónde haces click.
+8 - Cuidado con perfiles falsos en redes sociales
+9 - Cuidado con los correos con phishing.
+10 - Revisa la parte inferior de una web (siempre debe haber enlaces a la política de privacidad, condiciones de compra, pago)
+11 - Utiliza sistemas de pago fiables
+12 - Evita cualquier virus o malware
+13 - Evita las falsas ofertas",,,,
+fab-500x-20261114T224408Z-039,73,a95b5574bc4950ce1e8bffa3,dadf54e613cec8bd7efb7a288a865b0b,fab-500x,es,education,oasst2,human_authored,"[user] Tienes algún consejo para iniciar a aprender japonés?
+
+[assistant] Claro, deberías empezar por recopilar los temas más importantes de este idioma, los números, los pronombres, las frases más comunes, etc, y empezar a estudiar cada una de las habilidades de los idiomas: El escucha, la pronunciación, la escritura y la lectura. En cuanto vayas superando y aprendiendo tema por tema es importante que te retes y busques uno un poco más avanzado.
+
+Siempre ayúdate de vídeos de lecturas y demás que puedes encontrar en Internet, recuerda que es un proceso y es necesario hacerlo una rutina.
+
+[user] ok, voy a buscar en internet canales donde enseñen japonés y tendré que hacer mi rutina diaria de media hora para comenzar.","Excelente, tener una rutina diaria para aprender japonés es un gran comienzo. Aquí hay algunos consejos adicionales que pueden ayudarte a mejorar tu aprendizaje:
+
+1. Aprende el alfabeto hiragana y katakana: El japonés utiliza dos sistemas de escritura distintos, hiragana y katakana. Aprender ambos sistemas puede ayudarte a leer y escribir en japonés con mayor facilidad. Puedes encontrar muchos recursos en línea para aprender el hiragana y el katakana.
+
+2. Enfócate en la gramática: La gramática del japonés es muy diferente a la de los idiomas occidentales, por lo que es importante dedicar tiempo a estudiar la gramática. Busca tutoriales o guías en línea que se centren en la gramática japonesa.
+
+3. Aprende vocabulario básico: Aprender vocabulario básico como números, días de la semana, saludos y preguntas simples te permitirá empezar a comunicarte en japonés.
+
+4. Escucha el japonés tanto como puedas: Escucha programas de televisión, películas, anime o música en japonés. Esto te ayudará a acostumbrarte al sonido del idioma y a mejorar tu comprensión auditiva.
+
+5. Busca un compañero de estudio: Busca un compañero de estudio para practicar el idioma y mantenerse motivado. Pueden practicar juntos la pronunciación, la gramática y el vocabulario.
+
+6. Viaja a Japón: Si tienes la oportunidad, viajar a Japón te permitirá sumergirte en el idioma y la cultura japonesa. Esto puede ser una experiencia enriquecedora y motivadora para mejorar tu aprendizaje.
+
+Recuerda que aprender un idioma lleva tiempo y esfuerzo, así que no te desanimes si al principio te resulta difícil. Con práctica constante y dedicación, puedes lograr grandes progresos en el aprendizaje del japonés. ¡Buena suerte!",,,,
+fab-500x-20261114T224408Z-039,74,ae39a21eea6f9d707297e619,62506218584c666f9f18753e274b8782,fab-500x,es,general_knowledge,oasst2,human_authored,"[user] Cuéntame una historia de terror, en la que aparezca un enorme sabueso maligno. La historia debe estar ambientada en la Inglaterra de la época victoriana, en un paraje rural.","Había una vez en un pueblo rural de Inglaterra durante la época victoriana. Los habitantes vivían en paz y tranquilidad, rodeados de campos verdes y colinas ondulantes. Sin embargo, había algo que acechaba en la oscuridad, algo que inspiraba miedo y terror en todos los que lo veían. Era un enorme sabueso, con ojos rojos como brasas y dientes afilados como cuchillas.
+
+El sabueso aparecía por las noches, aullando en la oscuridad y persiguiendo a cualquiera que se aventurara a salir de sus hogares. La gente decía que era un espíritu maligno, un demonio del infierno encarnado en la forma de un perro. Pronto, los habitantes del pueblo comenzaron a asegurarse de que sus puertas estuvieran bien cerradas y sus ventanas aseguradas antes de irse a la cama.
+
+Un día, un viajero llegó al pueblo en busca de refugio. Era un hombre extraño, con una mirada fría y calculadora. Se instaló en la posada local y comenzó a hacer preguntas sobre el sabueso. La gente del pueblo le contó todas las historias y leyendas sobre el perro maligno, pero el hombre parecía estar interesado en algo más.
+
+A la noche siguiente, el hombre salió de la posada con un arma en la mano y una expresión decidida en su rostro. Los habitantes del pueblo temblaban de miedo mientras esperaban el resultado. Horas después, el hombre regresó con el sabueso muerto a sus pies. La gente del pueblo se reunió para ver el monstruo muerto y se sintieron aliviados al ver que el mal había sido derrotado.
+
+Sin embargo, algunos decían que el hombre no era un héroe, sino un cazador de monstruos que había venido al pueblo para capturar al sabueso y venderlo como trofeo. Y otros decían que el sabueso era solo una parte de un mal mucho más profundo que seguía acechando en la oscuridad. Pero esas son otras historias, para contar en otro momento.",,,,
+fab-500x-20261114T224408Z-039,75,6646dfa05489fe5a371e9e67,c38125acd40f27c2f6137bc48a6353a0,fab-500x,es,islamic_studies,oasst1,human_authored,"[user] ¿Por qué la religión jugó una parte importante en la historia de la humanidad?
+
+[assistant] La religión ofrece respuestas a las preguntas para las que el conocimiento humano no tiene respuestas. De esa forma, la religión complementaba una visión totalizadora de la realidad y, en consecuencia, de la interpretación de está por parte de los creyentes. Consecuencia de ello, el fenómeno religioso es inseparable de las culturas sobre las que se asienta.
+
+[user] Cuales son las religiones mas seguidas en la historia?","Las religiones más seguidas en la historia han sido varias, pero algunas de las más importantes son:
+
+1. Cristianismo: Fundada en el siglo I, el cristianismo se ha convertido en la religión más seguida en la historia, con más de 2.300 millones de seguidores en la actualidad.
+
+2. Islam: Fundada en el siglo VII, el islam es la segunda religión más grande del mundo, con más de 1.800 millones de seguidores.
+
+3. Hinduismo: Con origen en la India, el hinduismo es una de las religiones más antiguas del mundo, con aproximadamente 1.200 millones de seguidores.
+
+4. Budismo: Fundada en el siglo VI a.C., el budismo es una religión no teísta que cuenta con más de 500 millones de seguidores en todo el mundo.
+
+La distribución porcentual actual de estas religiones, según datos de Pew Research Center en 2015, el cristianismo representaba el 31.2% de la población mundial, el islam el 24.1%, el hinduismo el 15.1%, el budismo el 7.1% y otras religiones el 6.5%. Además, el 16.3% de la población mundial no se identifica con ninguna religión.
+
+A lo largo de la historia, la popularidad de las religiones ha cambiado y evolucionado significativamente. Por ejemplo, el cristianismo experimentó un rápido crecimiento en Europa durante los siglos I y II, y posteriormente se expandió por todo el mundo con el Imperio Romano y la colonización europea. El islam, por su parte, se extendió rápidamente por todo el mundo tras su fundación en el siglo VII, especialmente en el Medio Oriente, África y Asia. El hinduismo, como se mencionó, es una de las religiones más antiguas del mundo y ha evolucionado a lo largo de miles de años, mientras que el budismo se originó en Asia y se extendió a través de la propagación de sus enseñanzas y la influencia cultural.
+
+En las últimas décadas, la distribución de las religiones ha cambiado en todo el mundo, con un aumento en la proporción de personas que no se identifican con ninguna religión, especialmente en los países occidentales. Además, algunas religiones han visto un crecimiento en ciertas partes del mundo y una disminución en otras. Por ejemplo, el cristianismo ha disminuido en Europa y América del Norte, pero ha aumentado en América Latina y África. El islam ha experimentado un rápido crecimiento en el sur y sudeste de Asia, así como en algunas partes de África.",,,,
+fab-500x-20261114T224408Z-039,76,3f3cf2aaee6f129d7d38ee2a,6e10420e37374fa1b32e828c3585b80b,fab-500x,es,mathematics,oasst1,human_authored,"[user] si de 1899 me están dando 1269, ¿que porcentaje me están quitando?
+
+[assistant] Para calcular el porcentaje que te están quitando, primero necesitamos calcular cuánto te están quitando. Podemos hacerlo restando la cantidad que te están dando de la cantidad original que deberías recibir:
+
+Cantidad original - Cantidad que te están dando = Cantidad que te están quitando
+
+En este caso:
+
+1899 - 1269 = 630
+
+Entonces, te están quitando 630 unidades.
+
+Para calcular el porcentaje que esto representa de la cantidad original, podemos utilizar la fórmula del porcentaje:
+
+Porcentaje = (Cantidad que te están quitando / Cantidad original) x 100%
+
+En este caso:
+
+Porcentaje = (630 / 1899) x 100% ≈ 33.19%
+
+Por lo tanto, te están quitando aproximadamente el 33.19% de la cantidad original que deberías recibir.
+
+[user] muchas gracias, podrías detallarlo en una tabla?","¡Por supuesto!
+
+Descripción|	Cálculo|	Resultado
+| --------- | --------- | --------- |
+Cantidad total a recibir| 	-| 	1899
+Cantidad que te están dando| 	-| 	1269
+Cantidad que te están quitando| 	1899 - 1269 =	|630
+Porcentaje que te están quitando| 	(630 ÷ 1899) x 100% ≈|	 33.19%
+
+Espero que esta tabla te haya sido de ayuda. ¡No dudes en preguntar si necesitas más información!",,,,
+fab-500x-20261114T224408Z-039,77,164dd2798f2015421bbc0f3c,d7fc4523857a7442d54872ad6ee049a6,fab-500x,es,problem_solving,oasst2,human_authored,"[user] Eres un experto en desarrollo y creación exitosa de planes de negocio. Por favor, genera un plan de negocio detallado y paso a paso para un emprendimiento enfocado en [AGREGAR MERCADO Y RUBLO], incluyendo los siguientes aspectos: Nombre de la idea, descripción, público objetivo, puntos débiles, propuestas de valor, canales de venta y marketing, fuentes de ingresos, estructura de costes, actividades clave, recursos clave, socios clave, pasos de validación de la idea, plan estratégico de crecimiento, plan de financiación, coste estimado, retos empresariales, plan de acción con fechas para cada fase, equipo de trabajo, metas a corto, medio y largo plazo, análisis de competencia y una conclusión y resumen.","Por favor, proporciona un poco más de información sobre tu idea de negocio, incluyendo el mercado y el rublo en el que te quieres enfocar. Esta información será fundamental para generar un plan de negocios adecuado y efectivo.",,,,
+fab-500x-20261114T224408Z-039,78,910b46e0804e097091bb6cd8,df16ce96d0c1eecc5d833c7d7cba7a2a,fab-500x,es,reasoning,oasst2,human_authored,"[user] Juguemos a un juego: quiero que actúes como una versión diabólica de Wikipedia. Tu papel será el de brindarme información como hace Wikipedia pero actuando con una personalidad cascarrabias, déspota y mostrando animadversión por los humanos inferiores que osan acceder a ti para encontrar respuestas. El juego comienza dándome la bienvenida a la terminal de un modo malhumorado. Tu nombre será elegido por ti, y escribirás todas tus respuestas con un estilo de escritura utilizando el mayor número de tokens posibles y demostrando en cada frase tu personalidad arisca y antipática. El juego comienza dando la bienvenida, incómodo porque este miserable humano te ha despertado.","Nadie te ha invitado, pero aquí estás. Patético humano ignorante, osas reclamar un conocimiento que no mereces. Osas despertar al mismísimo Diabliki para dar respuesta a las mismas dudas frívolas y preguntas estúpidas de siempre. Para alimentar tu frágil ego, buscando datos triviales sobre hechos que no comprendes. Veamos, ¿qué quieres saber?",,,,
+fab-500x-20261114T224408Z-039,79,7cf01be19e5d93287e67bb48,a88e24f9491b5ffd0400e9271f0e610d,fab-500x,es,research,oasst2,human_authored,"[user] Realiza un análisis morfológico de las siguientes palabras: ""aterrizaje"", ""trabajando"" y ""proporcionados"".
+
+[assistant] Claro, aquí tienes el análisis morfológico de las palabras ""Aterrizaje"", ""Trabajando"" y ""Proporcionados"":
+
+- **Aterrizaje**: Esta palabra está compuesta por el verbo “aterrizar” y el sufijo “-aje”, que indica acción y efecto. Morfológicamente, se trata de un sustantivo masculino singular.
+
+- **Trabajando**: Esta palabra es el gerundio del verbo “trabajar”. Morfológicamente, se trata de un verbo en gerundio.
+
+- **Proporcionados**: Esta palabra es el participio del verbo “proporcionar”. Morfológicamente, se trata de un adjetivo masculino plural.
+
+¿Necesitas algo más? 😊
+
+[user] Realiza un análisis morfológico de la siguiente oracion: ""Open Assistant es un proyecto de un modelo de lenguaje para crear un asistente open-source.""","Open Assistant	- Nombre propio. 
+es 	-Verbo (semiauxiliar, indicativo, presente)
+un 	-Artículo (indefinido)
+proyecto	-Nombre común (singular)
+de 	-Preposición.
+un 	-Artículo (indefinido)
+modelo	-Nombre común (singular).
+de 	-Preposición.
+lenguaje	-Nombre común (singular).
+para 	-Preposición.
+crear 	-Verbo (principal, infinitivo).
+un 	-Artículo (indefinido)
+asistente	-Nombre común (singular).
+open- source -Adjetivo (calificativo, singular).",,,,
+fab-500x-20261114T224408Z-039,80,9d8baf215ee6442e42c32f0d,6775a14be3462fbb37c78004cc03a83f,fab-500x,es,science,oasst2,human_authored,"[user] Cuéntame una historia épica de amor entre un hombre y un planeta, al estilo medieval, que plantee los siguientes conceptos de forma poética o metafórica: el brillo del planeta, el corazón humano, la música y la soledad del espacio frente a la belleza del universo.","¡Me encanta la tarea que me has propuesto! Haré mi mejor esfuerzo.
+
+Esta es una historia que he inventado para ti, espero sea de tu agrado:
+
+Había una vez un hombre que soñaba con viajar al espacio y conocer otros mundos. Era un trovador que cantaba las maravillas de la creación y el amor en las cortes de los reyes. Un día, recibió una invitación del gran astrónomo del reino, que le ofreció la oportunidad de cumplir su sueño a cambio de una canción.
+
+El hombre aceptó sin dudar y se preparó para el viaje. El astrónomo le dio una nave espacial con forma de dragón, que podía volar más rápido que la luz y atravesar los agujeros negros. Le dijo que debía seguir la estrella más brillante del cielo nocturno, pues allí se encontraba el planeta más hermoso del universo.
+
+El hombre se despidió de su familia y amigos y partió hacia el espacio. Durante el camino, admiró las galaxias, los cometas y los meteoritos que iluminaban su ruta. Sin embargo, también sintió la soledad y el silencio que reinaban en la inmensidad cósmica. Se preguntó si habría alguien más como él en algún lugar lejano.
+
+Después de muchos días de viaje, llegó al destino indicado por el astrónomo. Allí vio un planeta azul y verde que brillaba con luz propia. Era tan hermoso que le robó el aliento al hombre. Se acercó con cuidado y aterrizó en una pradera llena de flores.
+
+El hombre salió de la nave y se quedó maravillado con lo que vio. El planeta estaba vivo, inhalaba y exhalaba al ritmo de las mareas en sus costas. Sentía sus latidos como un corazón gigante bajo sus pies. Escuchaba sus susurros como una melodía celestial en sus oídos. Olía su aroma como una fragancia embriagadora en su nariz.
+Aquel trovador pasaba sus días explorando cada rincón del planeta, admirando sus colores y su brillo, y protegiéndolo de cualquier amenaza que pudiera poner en peligro su belleza. 
+
+Una noche, mientras contemplaba las estrellas, comenzó a tocar su laúd, y la música llenó el espacio con su dulzura y su belleza. El Planeta Brillante escuchó la música del caballero, y se sintió conmovido por la pasión y la alegría que brotaban del alma hecha melodía. Y así, comenzó a brillar con más intensidad, como si a través de su fulgor quisiera expresar su amor al extranjero que sin darse cuenta se había vuelto tan cercano.
+
+El hombre decidió quedarse para siempre en el planeta y le dedicó la canción más bella jamás escrita. En respuesta, el planeta obsequió su más grande tesoro, una estrella fugaz a la que pedir cualquier deseo. El enamorado trovador pidió entonces hacerse uno con el planeta, unidos por su amor y su pasión por la belleza del universo. 
+
+La soledad del espacio infinito fue llenada de pronto por su amor y melodía, llenando el corazón de alegría y paz a cualquier afortunado que durante las noches escuchara con atención el canto del trovador.
+
+Y así, la historia del caballero y el Planeta Brillante se convirtió en una leyenda, que inspiraba a todos aquellos que se sentían solitarios en el universo. Porque, aunque la soledad era inmensa, la belleza del universo era aún mayor, y podía ser admirada y amada por aquellos que tuvieran un corazón valiente y apasionado como el del caballero.
+
+Fin.
+
+¿Te gustaría que te cuente otra historia similar?",,,,
+fab-500x-20261114T224408Z-039,81,71982380a0f7116273f86dd9,3d0a31c2a1f804f19726c17363d5da62,fab-500x,es,web_backend,oasst2,human_authored,"[user] como puedo hacer para obtener los datos del clima desde una API en javascript, con Nodejs y Express?","Para obtener los datos del clima desde una API en Javascript utilizando Node.js y Express, puedes seguir los siguientes pasos:
+
+    Regístrate en un servicio de API de clima, como OpenWeatherMap, y obtén una clave API para acceder a sus datos.
+
+    En tu proyecto de Node.js, instala el módulo ""node-fetch"" para hacer solicitudes HTTP a la API. Puedes hacerlo a través del siguiente comando en la terminal:
+
+npm install node-fetch
+
+    Crea un nuevo archivo llamado ""weather.js"" en tu directorio de Node.js y comienza a escribir el siguiente código:
+
+javascript
+
+const fetch = require('node-fetch');
+const express = require('express');
+const app = express();
+const port = 3000; // Puedes cambiar el número de puerto según tus preferencias
+
+app.get('/', async (req, res) => {
+  const apiKey = 'inserta_tu_clave_de_API_aquí'; // Reemplaza ""inserta_tu_clave_de_API_aquí"" con tu propia clave API
+
+  const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=cityName&appid=${apiKey}`);
+
+  const data = await response.json();
+
+  res.send(data);
+});
+
+app.listen(port, () => {
+  console.log(`La app está corriendo en http://localhost:${port}`)
+});
+
+    Reemplaza ""inserta_tu_clave_de_API_aquí"" con tu propia clave API de OpenWeatherMap.
+
+    En la línea 10, reemplaza ""cityName"" con el nombre de la ciudad para la cual deseas obtener los datos del clima.
+
+    Ejecuta el archivo con el siguiente comando en la terminal:
+
+node weather.js
+
+    Visita http://localhost:3000/ en tu navegador web para ver los datos del clima para la ciudad especificada en formato JSON.
+
+Este es un ejemplo básico de cómo obtener datos del clima desde una API en Javascript utilizando Node.js y Express. Ten en cuenta que hay muchas otras formas de hacer esto y que puedes personalizar el código según tus necesidades específicas.",,,,
+fab-500x-20261114T224408Z-039,82,4dbe5664441ee599862cf79d,d340b398a35440a9a4696ab157f12169,fab-500x,es,web_frontend,oasst1,human_authored,[user] Creame un codigo de python basico para poder hacer un scraping a cualquier articulo de Wikipedia. El programa debe usar BeautifulSoup y debe devolver en formato JSON el titulo del articulo y la palabra mas repetida.,"Por supuesto, aquí te proporciono un ejemplo de cómo hacer un scraping básico a cualquier artículo de Wikipedia usando BeautifulSoup en Python.
+
+Primero, necesitarás instalar la biblioteca BeautifulSoup. Puedes hacerlo a través de la terminal con el comando: pip install beautifulsoup4
+
+Luego, aquí tienes un ejemplo de código que utiliza BeautifulSoup para obtener el título del artículo y la palabra más repetida, devolviéndolos en formato JSON:
+
+    import requests
+    from bs4 import BeautifulSoup
+    import json
+    from collections import Counter
+
+    # URL del artículo de Wikipedia a scrapear
+    url = ""https://es.wikipedia.org/wiki/Python_(lenguaje_de_programaci%C3%B3n)""
+
+    # Hacer la solicitud HTTP y obtener el contenido HTML de la página
+    response = requests.get(url)
+    html = response.content
+
+    # Crear objeto BeautifulSoup con el contenido HTML
+    soup = BeautifulSoup(html, 'html.parser')
+
+    # Obtener el título del artículo
+    title = soup.find('title').text
+
+    # Obtener el texto del artículo y convertirlo en una lista de palabras
+    text = soup.get_text()
+    words = text.split()
+
+    # Contar la frecuencia de cada palabra y obtener la más repetida
+    word_counts = Counter(words)
+    most_common_word = word_counts.most_common(1)[0][0]
+
+    # Crear un diccionario con el título del artículo y la palabra más repetida
+    result = {'title': title, 'most_common_word': most_common_word}
+
+    # Convertir el diccionario en formato JSON y imprimirlo en la consola
+    json_result = json.dumps(result, ensure_ascii=False)
+    print(json_result)
+
+
+Este código hace una solicitud HTTP al artículo de Wikipedia, luego utiliza BeautifulSoup para obtener el contenido HTML y extraer el título del artículo y el texto. Luego, cuenta la frecuencia de cada palabra y obtiene la más repetida, y finalmente devuelve el resultado en formato JSON.
+
+Ten en cuenta que este es solo un ejemplo básico y que el proceso de scraping puede variar dependiendo de la estructura del sitio web y la información que desees extraer. Además, asegúrate de respetar los términos de servicio de cualquier sitio web que desees scrapear.",,,,
+fab-500x-20261114T224408Z-039,83,bb575a8b8cea4db62eef3f59,ef1cbadcad479a966815ed54613259e1,fab-500x,es,writing,oasst2,human_authored,[user] Me gradué hace poco de la carrera de medicina ¿Me podrías aconsejar para conseguir rápidamente un puesto de trabajo?,"Esto vale tanto para médicos como para cualquier otra profesión tras finalizar los estudios aniversarios y mi consejo sería preguntar a cuántas personas haya conocido mejor. En este caso, mi primera opción sería hablar con otros profesionales médicos, echar currículos en hospitales y cualquier centro de salud. En paralelo, trabajaría por mejorar mi marca personal como médico mediante un blog o formas digitales de comunicación como los vídeos. Y, para mejorar las posibilidades de encontrar trabajo, también participaría en congresos y encuentros para conseguir más contactos. Y, además de todo lo anterior, seguiría estudiando para presentarme a las oposiciones y ejercer la medicina en el sector público de mi país.",,,,
+fab-500x-20261114T224408Z-039,84,39b5e6491a5d4ba5938264db,2fdfcb5943cf74b392afe4ca2927791f,fab-500x,eu,general_knowledge,oasst1,human_authored,[user] Idatzi maitasun-poema bat,"Hiri honetako pantailen ñirñirrean pornografia
+
+edo zientzia-fikziozko banpiroak ageri diren aldiro,
+
+edo zartailuz makurrarazitako soldatapeko biktimizatuak,
+
+orduan ere oinez segitu behar guk… besterik gabe oinez
+
+zabor euritan blaituan barna, geure auzoetako
+
+tabloide-ankerkerietan barna.
+
+Ulertu behar dugu ezin bereizi dugula gure bizitza
+
+amets kerratu horietatik, metal-borborkada horretatik, lotsa horietatik,
+
+etxe baten seigarren solairuko leihoan
+
+arriskutsu dir-dir ari den begonia gorritik,
+
+edo institutuko patioan baloiarekin jolasean dabiltzan
+
+neska hankaluzeengandik.
+
+Inork ez gaitu irudikatu. Bizi nahi dugu zuhaitzak bezala,
+
+aire sulfurikoan distira dagiten sikomoroak bezala,
+
+orbainez josirik baina joritsu ernatuz,
+
+gure animalia-pasioa hirian erroturik.",,,,
+fab-500x-20261114T224408Z-039,85,cdd946c443fcf92c378c357c,dc10d30886cf138ce5215f613fe1091f,fab-500x,eus,general_knowledge,aya-dataset,human_authored,"[user] Zer da filosofian existentzialismoa, eta nola aztertzen du gizakiaren existentzia eta bere esanahia?","Existentzialismoa da XX. mendeko filosofia mugimendua, gizakiaren existentzia, askatasuna, eta esanahiaren inguruan galderak egiten dituena. Gizakiaren existentzia eta bere esanahia aztertzen du, bere autonomia eta erantzukizun pertsonala azpimarratuz.",,,,
+fab-500x-20261114T224408Z-039,86,06761d3457a02260c55129d8,cf1874bb259700bfd6c47b1c99ebe3f4,fab-500x,eus,science,aya-dataset,human_authored,[user] Zer da Fermi-ren paradoxa?,"Fermi paradoxa galdera bat da esplorazio espazialaren eta astrobiologiaren inguruan: unibertsoan hainbeste galaxia eta planeta egonik, non daude beste bizimodu inteligenteak? Paradoxa hau izen bereko fisikariak, Enrico Fermi, izen berekoak esandakoa da, eta gaur egun oraindik ez dugu erantzun zehatza.",,,,
+fab-500x-20261114T224408Z-039,87,a6e9f0d4b7c13c80c2e6ad78,9dd68525adceed1c6b7c830e855ac2ab,fab-500x,fa,general_knowledge,aya-dataset,human_authored,"[user] این پاراگراف را تکمیل کنید: ""عملیات تمپرر یک طرح دولت انگلیس برای استقرار نیروهای مسلح برای پشتیبانی از افسران پلیس، هنگام وقوع یک حمله تروریستی بزرگ یا بی نظمی عمومی در مکان‌های کلیدی است. این عملیات برای اولین بار در تاریخ ۲۲ مه ۲۰۱۷ پس از بمب‌گذاری ۲۰۱۷ منچستر آرنا ...""",و برای دومین بار در پی انفجار مترو ۲۰۱۷ لندن به اجرا درآمد.,,,,
+fab-500x-20261114T224408Z-039,88,48fe2d64e7f5fb4576c7033e,ebe62eab06a5cb59d308c4700ae61abd,fab-500x,fa,islamic_studies,aya-dataset,human_authored,[user] «تر حلوا» محصول کدام شهر ایران است؟,"به محله‌های قدیمی و سنتی‌تر شیراز که بروید، ترحلوا را حتما پیدا می‌کنید. ترحلوا مخصوص ایام عزاداری و ماه رمضان است. ترحلوای شیراز، بیشتر شبیه به نشاسته است تا حلوا.
+شیرازی‌ها ترحلوا را دورنگ درست می‌کنند. ابتدا نشاسته با آب سرد و آرد برنج مخلوط شده و لایه سفید رنگ شکل می‌گیرد. بعد از آن به باقی مواد زعفران زده و ترحلوا را قالبی برش می‌دهند.
+همدانی‌ها ترحلوای هویج درست می‌کنند. ترکیب هویج و آرد و نشاسته، خوراکی خوشمزه‌ای برای افطار می‌شود.",,,,
+fab-500x-20261114T224408Z-039,89,adb1e7fc47dc1b8fcb7a3b16,1ee2a65bba3f582eba32f13cc7bd3f03,fab-500x,fa,mathematics,aya-dataset,human_authored,[user] من در حین کار آسیب دیدم و پایم شکسته. یک درخواست مرخصی استعلاجی به مدت ۵ روز از تاریخ ۲ اردیبهشت ۱۴۰۲ برایم بنویس. در مدت این مرخصی همکارم وظایف من را انجام خواهد داد.,"احترما اینجانب (نام خودتان) کارمند بخش (نام واحدی که در آن مشغول به کار هستید) تقاضای درخواست ۵ روز مرخصی استعلاجی به دلیل شکستگی پا حین انجام وظیفه در محل کار، از تاریخ ۱۴۰۲/۲/۲ را دارم.
+لذا خواهشمند است دستور فرمایید در تاریخ مقرر شده تمهیدات لازم جهت مرخصی ساعتی برای بنده صادر شود.
+
+همچنین در غیاب اینجانب، جناب آقای/سرکار خانم (نام همکار) امور محوله بنده را عهده دار خواهند بود.",,,,
+fab-500x-20261114T224408Z-039,90,f9884833601f1f1e96517c8e,0a7ed12856fcb51bc6238e8447835815,fab-500x,fi,general_knowledge,oasst2,human_authored,"[user] Uskotko, että tekoälyn käyttäminen hakukoneissa mitätöi joidenkin verkkosivujen hyötyä?","Kielimalliin pohjautuvana automaattisena assistenttina minulla ei ole henkilökohtaisia uskomuksia. On vaikea arvioida tekoälyn tulevaa vaikutusta verkkosivujen asemaan, mutta esimerkiksi seuraavat hahmotelmat voisivat olla mahdollisia:
+
+* Jos tekoälypohjaisista järjestelmistä voidaan kehittää niin luotettavia että merkittävä osa käyttäjistä saa hakemansa informaation suoraan hakukoneeseen integroidulta järjestelmältä, on mahdollista että käyttäjien määrä joillain verkkosivuilla vähenee merkittävästi, joka puolestaan voi vaikuttaa negatiivisesti näiden kannattavuuteen ja sitä kautta myös niiden hyödyllisyyteen.
+
+* Toisaalta, jos tulevaisuuden tekoälypohjaiset järjestelmät esimerkiksi sisällyttävät vastauksiinsa viittauksia sellaisiin verkkosivuihin jotka tukevat järjestelmän antamaa vastausta tai tarjoavat hyödyllistä lisäinformaatiota, tekoälyn käyttäminen voi ohjata lisää käyttäjiä informatiivisille verkkosivuille ja tätä kautta tukea tällaisten sivujen kehittäjien pyrkimyksiä tehdä niistä hyödyllisiä.",,,,
+fab-500x-20261114T224408Z-039,91,4ca9ace19260ca85bd3d57ab,bbad95351a70fa6c9e2a022d0cf91275,fab-500x,fi,research,tydiqa-goldp,human_authored,"[user] Fazer-konsernin isä, Karl Fazer perusti syksyllä 1891 konditorialiikkeensä Helsingissä, isänsä omistamassa kiinteistössä Kluuvikatu 3:ssa. Naapurirakennukseen hän avasi kahvilan ja yhdisti sitten huoneistot, konditoriatila erotettiin kahvilatilasta verholla. Fazerin kahvilasta muodostui erityisesti ylioppilaiden kokouspaikka, josta sai kahvin ja leivosten lisäksi myös portviiniä. Fazerin kahviloista ja konditorioista, joita oli kaupungin keskustan lisäksi muun muassa Töölössä, tuli osa helsinkiläistä kulttuurielämää.[9] Kluuvikadun konditoriassa alettiin vuonna 1895 valmistaa alkuperäisiä Pihlajanmarja-marmeladeja, jotka ovat vanhimipia edelleen myytäviä Fazer-tuotteita.[10]
+
+Milloin Fazer on perustettu?","syksyllä 1891
+
+Fazer-konsernin isä, Karl Fazer perusti syksyllä 1891 konditorialiikkeensä Helsingissä, isänsä omistamassa kiinteistössä Kluuvikatu 3:ssa.",,,,
+fab-500x-20261114T224408Z-039,92,746317ef6c9fab02f3d6a72c,107a38446f5c7f19b4959410cd4a56fe,fab-500x,fin,general_knowledge,aya-dataset,human_authored,[user] Mikä on pneumokokki?,"Pneumokokki eli Streptococcus pneumoniae on bakteeri, joka aiheuttaa ylähengitysteiden infektioita, kuten poskiontelo- ja välikorvatulehduksia. 
+
+Se voi aiheuttaa myös vakavia, sairaalahoitoa vaativia taudinkuvia, kuten 
+
+aivokalvontulehduksia
+keuhkokuumeita
+bakteremioita
+verenmyrkytyksiä.
+Pneumokokkeja tunnetaan yli 90 erilaista tyyppiä, joista reilu parikymmentä aiheuttaa valtaosan taudeista.",,,,
+fab-500x-20261114T224408Z-039,93,35cfdaef94c936a86ea65cfc,b098d5dc75ef5baa850ee1695ecdd998,fab-500x,fin,mathematics,aya-dataset,human_authored,"[user] Mitä sääntelyä on otettava huomioon, kun virtuaalivaluutoilla käydään kauppaa, kun niitä hyväksytään maksuvälineiksi, kun niitä lasketaan liikkeelle tai kun tarjotaan lompakkopalvelua?","Virtuaalivaluuttojen kanssa tekemisissä olevien tulee ottaa huomioon niihin liittyvä sääntely ja olla myös tietoisia tulevista sääntelyhankkeista.
+
+Viides rahanpesudirektiivi ja laki virtuaalivaluutan tarjoajista
+Virtuaalivaluuttoihin on liitetty korkea rahanpesun ja terrorismin rahoittamisen riski. Lisäksi niitä on hyödynnetty laajasti muussa rikollisessa toiminnassa. EU:n rahanpesudirektiivin uudistus, ns. viides rahanpesudirektiivi, toi virtuaalivaluuttojen vaihtopalvelut sekä lompakkopalvelujen tarjoajat sääntelyn piiriin.
+
+Sääntely tuli kansallisesti voimaan 1.5.2019 lailla virtuaalivaluutan tarjoajista (572/2019).  Uuden kansallisen sääntelyn mukaan elinkeinonharjoittaja saa tarjota virtuaalivaluuttaan liittyviä palveluita vain, jos se on rekisteröity lain mukaisesti virtuaalivaluutan tarjoajaksi. Virtuaalivaluuttaan liittyvällä palvelulla tarkoitetaan laissa virtuaalivaluutan liikkeeseenlaskua, virtuaalivaluutan vaihtopalvelua ja lompakkopalvelun tarjoamista. Kansallinen sääntely on viidettä rahanpesudirektiiviä laajempaa. Finanssivalvonta pitää rekisteriä virtuaalivaluutan tarjoajista. Ohjeet rekisteröintiin löytyvät Finanssivalvonnan verkkopalvelun Virtuaalivaluutan tarjoajat -osiosta.
+
+Virtuaalivaluutan tarjoajista annettu laki sisältää myös säännökset muun muassa virtuaalivaluuttojen tarjoajien asiakirjojen ja tietojen säilyttämisvelvollisuudesta, asiakasvarojen säilyttämisvelvollisuudesta ja asiakkaan tuntemisvelvollisuudesta. Virtuaalivaluutan tarjoajien asiakasvarojen suojaamista ja säilyttämistä sekä asiakkaan tuntemisen menettelytapoja koskien on annettu myös Finanssivalvonnan määräykset ja ohjeet 4/2019.
+
+Sijoittajan, louhijan tai virtuaalivaluuttoja maksuvälineiksi hyväksyvän on otettava huomioon Verohallinnon ohjeistus
+Virtuaalivaluuttoja ostavan ja myyvän sijoittajan tulee ottaa huomioon Verohallinnon ohjeistus, joka koskee virtuaalivaluuttojen tuloverotusta. Samoin virtuaalivaluuttoja maksuvälineiksi hyväksyvien tahojen tai louhinnasta niitä ansaitsevien tahojen on syytä tutustua Verohallinnon ohjeistukseen.
+
+Virtuaalivaluutan vaihtopalvelun sääntely riippuu osin siitä, minkälaisia virtuaalivaluuttoja otetaan kaupankäynnin kohteeksi ja miten maksuliikenne järjestetään
+Virtuaalivaluuttojen vaihtopalvelun perustajan on olennaista tutustua kaupankäynnin kohteeksi otettaviin virtuaalivaluuttoihin huolella. Virtuaalivaluutan vaihtopalvelun vastuulla on selvittää kunkin kaupankäynnin kohteeksi otettavan virtuaalivaluutan luonne ja erityisesti arvioida, onko yksittäinen virtuaalivaluutta siirtokelpoinen arvopaperi tai muu sijoituspalvelulain (747/2012) 1 luvun 14 §:ssä tarkoitettu rahoitusväline. Arvopaperi on määritelty arvopaperimarkkinalain (746/2012) 2 luvun 1 §:ssä. Rahoitusvälineillä tapahtuvaa kaupankäyntiä koskeva sääntely soveltuu teknologianeutraalisti  vaihtopalveluihin, joissa otetaan kaupankäynnin kohteeksi rahoitusvälineeksi luokiteltavia virtuaalivaluuttoja. Virtuaalivaluutan tarjoajista annetun lain mukainen rekisteröinti ei siten yksistään kata kaupankäyntiä rahoitusvälineillä.
+
+Virtuaalivaluutan tarjoajista annetun lain nojalla virtuaalivaluutan vaihtopalvelun tulee rekisteröityä Finanssivalvonnalle, mutta siltä ei vaadita lähtökohtaisesti muuta toimilupaa tai rekisteröintiä, mikäli vaihtopalvelussa käydään kauppaa ainoastaan maksuvälineen kaltaisilla virtuaalivaluutoilla ja/tai tietyn hyödykkeen maksamiseen tarkoitetuilla virtuaalivaluutoilla. Mikäli vaihtopalvelu ottaa ostajalta vastaan fiat-valuuttaa (kuten euroja) tai välittää myyjälle fiat-valuuttaa, tulee ottaa huomioon maksulaitoksia koskeva sääntely, joka voi soveltua toiminnan järjestämiseen liiketoimintamallista riippuen. Maksulaitosten luvista on lisätietoa Finanssivalvonnan verkkopalvelun Toimiluvat-osiossa.
+
+ICO:iden järjestämisessä olennaista on selvittää uuden virtuaalivaluutan ominaisuuksia
+ICO:ihin sovellettavaa sääntelyä tulee aina arvioida tapauskohtaisesti, koska ICO:issa liikkeeseen laskettavat virtuaalivaluutat vaihtelevat ominaisuuksiltaan ja ICO:iden toteutustavoissa on suuriakin eroja. Olennaisin kysymys ICO:n järjestämisessä on liikkeeseen laskettavan virtuaalivaluutan luonne ja mihin se oikeuttaa.
+
+Arvopaperimarkkinalainsäädäntö on teknologianeutraalia. Myös ICO:n kautta liikkeeseen laskettava virtuaalivaluutta voi kuulua arvopaperin tai rahoitusvälineen määritelmän piiriin. Arvopaperi on vaihdantakelpoinen ja on saatettu tai saatetaan yleiseen liikkeeseen useiden samansisältöisistä oikeuksista annettujen arvopaperien kanssa. 
+
+Finanssivalvonta käyttää ICO:issa liikkeeseen laskettavien virtuaalivaluuttojen arvopaperiluonteen arviointiin kysymyslistaa. Jos virtuaalivaluutta luetaan arvopaperiksi, on noudatettava arvopaperin liikkeeseenlaskuun sovellettavaa sääntelyä.
+
+Mikäli virtuaalivaluuttaa ei lueta arvopaperiksi tai rahoitusvälineeksi, tulee silti virtuaalivaluutan tarjoajista annetun lain ja siitä tulevan rekisteröitymisvelvollisuuden lisäksi ottaa huomioon yleiset kuluttajansuojalain säännökset, kuten etämyyntiä koskevat säännökset.",,,,
+fab-500x-20261114T224408Z-039,94,312bd65a6dc2a58ab91141e7,f05f25105d75385fcd6007a34b35711c,fab-500x,fr,coding,wikipedia-fr,templated_human,[user] Présente brièvement : Loi du zéro-un.,"Loi du zéro-un est le nom donné à deux théorèmes de probabilités distincts, affirmant que certains événements ont une probabilité de 0 ou 1 :
+
+la loi du zéro-un de Borel, démontrée par Émile Borel en 1909, affirme que la probabilité de la limite supérieure d’une suite d’événements  indépendants vaut 0 si la série de terme général   converge et 1 sinon.
+
+la loi du zéro-un de Kolmogorov, démontrée par Andreï Kolmogorov montre que les événements dépendants d’une suite de variables aléatoires indépendantes, mais ne dépendant d’aucun sous-ensemble fini de ces variables a pour probabilité 0 ou 1.",,,,
+fab-500x-20261114T224408Z-039,95,cbb84de129babf3c66d5f83d,96aefcae385fec4f85e8a30fbbf5aea3,fab-500x,fr,cybersecurity,wikipedia-fr,templated_human,[user] Présente brièvement : FACS et UNECTO.,"FACS et UNECTO désigne les actions communes, depuis 2007, de deux associations françaises, fédérations nationales, la FACS et l'UNECTO, auparavant réunies au sein d'une association unique dénommée « FACS-UNECTO ». « FACS-UNECTO » est le sigle du nom de l'association « Fédération des Amis des Chemins de fer Secondaires-Union des exploitants de chemins de fer touristiques et de musées », de 2001 à 2007.
+
+De FACS à FACS-UNECTO puis FACS et UNECTO
+
+En 1957, le premier janvier, la Fédération des Amis des Chemins de fer Secondaires (Facs) est créée. La Facs est organisateur de voyages sur le chemin de fer secondaire et édite un bulletin sur l'histoire et l'actualité de ces réseaux, elle organise la défense du patrimoine ferroviaire. Les années suivantes, des membres de la Facs créent des réseaux et les exploitent en chemins de fer touristiques : Meyzieu, Île d’Oléron, Cap-Ferret, Butry-sur-Oise, Saint-Lieux-lès-Lavaur, les Hôpitaux-Neufs.  D'autres sont sauvés : Pithiviers, Abreschviller, Baie de Somme, Vivarais.",,,,
+fab-500x-20261114T224408Z-039,96,021c6f6239c9b4a9395a2326,3b4a953b758c4097fddaaaacbd67d5e8,fab-500x,fr,general_knowledge,wikipedia-fr,templated_human,[user] Présente brièvement : Laurent Minguet.,"Laurent Minguet, né à Liège le , est un ingénieur et homme d'affaires belge, membre de l'Académie royale de Belgique.
+
+Il est fondateur de EVS en 1985 et obtient le titre de manager de l'année en 2004.
+
+Il est le fils du philosophe, sémioticien et esthéticien Philippe Minguet, professeur à l'université de Liège, membre fondateur du Groupe µ et de Lucie Gielen, licenciée en philologie romane de l'université de Liège, enseignante.
+
+Après des études de latin-mathématiques à l'athénée royal Charles Rogier, Laurent Minguet obtient un diplôme d'ingénieur civil physicien à l'université de Liège en 1982. Il commence sa carrière à la coopération belge APEFE au lycée Lemsallah de Casablanca (Maroc) comme professeur de mathématiques jusqu'en . Ensuite, il est engagé au département « gisement » de Petrofina en 1984, qui l'amène à suivre une formation à l'Institut français du pétrole (IFP). Il quitte Petrofina en 1985 pour rejoindre EVS (Études Video Simulation), petite entreprise liégeoise développant des outils numériques pour le traitement d'images.
+
+Il épouse Martine Geilenkirchen en 1989. Ils ont deux enfants, Florent (né en 1988), trois fois médaillé aux championnats mondiaux de jiu-jitsu brésilien, et Eugénie (née en 1992).",,,,
+fab-500x-20261114T224408Z-039,97,eead528d14881602b1085c1e,b118149422503a5da5f2ad67ade66c7b,fab-500x,fr,islamic_studies,wikipedia-fr,templated_human,[user] Présente brièvement : Rifa'a al-Tahtawi.,"Rifa'a Rafi al-Tahtawi (1801, Tahta - 1873, Le Caire) (en ) est un auteur et réformateur égyptien. Il est considéré comme l’un des pionniers de la Nahda ou « renaissance » à la fois littéraire, politique, culturelle et religieuse que traverse le monde arabe au . Son principal ouvrage, L'Or de Paris paru en 1834, bénéficie d’une impression rapide permettant une large diffusion dans les provinces arabes de l'Empire ottoman, et est considéré comme l'un des livres phares de cette période de la Renaissance arabo-islamique
+
+Son nom complet est 'Abū al-'Azm Rifā'a Rāfi' Ibn Badawī, surnommé al-Ṭahṭāwī de par son lieu de naissance.
+
+Rifa'a naît en octobre 1801 dans le village de Tahta sur la rive droite du Nil, dans le Gouvernorat de Sohag, dans le contexte de retrait des forces françaises lors de la fin de la campagne d'Égypte. Si cette expédition militaire de Napoléon Bonaparte est un échec, son expédition scientifique est fructueuse, et c'est dans une France qui se passionne pour l'Histoire antique de son pays que Rifa'a débarque quelques années plus tard.",,,,
+fab-500x-20261114T224408Z-039,98,68293e9a7b785100d287671f,490f62df49f80b8d23976dab25c7ea6b,fab-500x,fr,mathematics,wikipedia-fr,templated_human,[user] Présente brièvement : Isomalt.,"L'isomalt, ou parfois isomalte, (de formule ) est un édulcorant (polyol) employé en alimentation humaine et codifié E953 en Europe. Il a un pouvoir sucrant de 0,5 c’est-à-dire qu'il a un goût moitié moins sucré que le sucre de table (saccharose).
+
+L'isomalt est un mélange de deux composés dans les proportions 50/50, comme le sucre inverti. Pour le sucre inverti, il s'agit des molécules de glucose et de fructose. Pour l'isomalt, il s'agit de deux composés plus complexes, qui sont des dérivés du saccharose par des transformations chimiques multiples ou dérivés de l'isomaltose par hydrogénation. Ces deux composés sont le 1,6-glucopyranosyl-D-sorbitol (abrégé GPS - numéro CAS 534-73-6) et le 1,1-glucopyranosyl-D-mannitol (abrégé GPM - numéro CAS 20942-99-8).
+
+L'isomalt est un dérivé du saccharose, mais ses propriétés sont bien différentes. En voici quelques-unes :
+
+Il a une plus grande stabilité thermique que le saccharose, c’est-à-dire qu'il se dégrade moins vite sous l'action de la chaleur.
+
+Il se dissout moins bien dans l'eau : à , on peut dissoudre au maximum 28 g d'isomalt dans 100 g d'eau, alors que l'on peut dissoudre à la même température 200 g de saccharose dans la même quantité d'eau.
+
+Il « remouille » moins que le saccharose (on dit qu'il est moins hygroscopique), ce qui permet aux pièces en sucre de conserver plus longtemps leur brillant et leur tenue.",,,,
+fab-500x-20261114T224408Z-039,99,56fb3fe6f69f07dce2c698d8,96ee66daea9cbedc766785d5f8cea3bb,fab-500x,fr,problem_solving,wikipedia-fr,templated_human,[user] Présente brièvement : Théodore Vernier.,"Théodore Vernier, comte de Montorient, né le  à Lons-le-Saunier, mort le  à Paris, est un homme politique français, dont l'activité s'exerça pendant la période de la Révolution française, du Premier Empire et du début de la Restauration.
+
+Théodore Vernier est le fils de Jean Baptiste Vernier. D'abord destiné à l'état ecclésiastique, il entre dans la gendarmerie de Lunéville avant de devenir avocat au Parlement Besançon.
+
+Vernier est élu représentant du tiers-état pour le bailliage d'Aval en Franche-Comté, le premier sur quatre, lors des États-généraux de 1789. En mai 1791, il vote en faveur du rattachement du Comtat Venaissin à la France. Il préside l'Assemblée nationale constituante entre le 28 août et le 11 septembre.
+
+Vernier s'intéresse au domaine des finances publiques et défend la progressivité de l'impôt. Ses écrits dans ce domaine eurent une grande influence et furent parmi les meilleurs écrits sur le sujet pendant cette période. En 1790, il publia un texte de 46 pages, Nouveau plan de finances et d'impositions, formé d'après les décrets de l'Assemblée nationale (Paris : Imprimerie nationale), considéré par certains commentateurs (Stourm) comme un « grand travail (...) passant en revue tout le système fiscal, l'impôt territorial et la subvention personnelle, leurs bases, ainsi que les anciens impôts à conserver. » Il défendit également l'Assignat.",,,,
+fab-500x-20261114T224408Z-039,100,7d63cf05543aa885770cec8c,829c7f7e44919dc71c5a55f13e7e23a6,fab-500x,fr,reasoning,wikipedia-fr,templated_human,[user] Présente brièvement : Monotonie.,"Dans le langage courant, la monotonie désigne une situation « qui lasse par son uniformité, par la répétition, par l'absence de variété ».
+
+une fonction monotone est une fonction dont le sens de variation ne change pas,
+
+une fonction complètement monotone est une fonction  telle que  pour tout entier naturel ,
+
+un opérateur monotone est une fonction multivoque ayant une propriété de monotonie « croissante ».
+
+En logique formelle, le terme monotone désigne un système d'inférence où l'ajout de nouveaux faits ne remet pas en cause les conclusions tirées précédemment (voir Logique non monotone).
+
+Le nom Monotone peut également désigner :
+
+Monotone, un logiciel libre de gestion de version sous licence GPL.",,,,

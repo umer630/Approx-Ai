@@ -1,0 +1,1306 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-026,1,bef30df8a162a6ee6db8169b,004c0d91d23e45e440a3ad9742ffa772,fab-500x,en,coding,opencodeinstruct,synthetic,"[user] You are given an integer `x`. Your task is to compute the result of the following operations: first, add a constant value of 5 to `x`, and then multiply the sum by a factor of 3. Write a function `calculate_result` that takes an integer `x` as input and returns the computed result.
+
+**Sample Input:**
+```
+x = 10
+```
+
+**Sample Output:**
+```
+45
+```","```python
+def calculate_result(x):
+    """"""
+    Computes the result by adding a constant value of 5 to the input x,
+    and then multiplying the sum by a factor of 3.
+
+    Parameters:
+    x (int): The input integer.
+
+    Returns:
+    int: The computed result.
+    """"""
+    ADDITION_CONSTANT = 5
+    MULTIPLICATION_FACTOR = 3
+
+    intermediate_sum = x + ADDITION_CONSTANT
+    result = intermediate_sum * MULTIPLICATION_FACTOR
+    return result
+```",,,,
+fab-500x-20261114T224408Z-026,2,313833476baf677648208df6,d6ea01890b186e3095fcc548caee855a,fab-500x,en,cybersecurity,trendyol-cybersec,synthetic,[user] How can you leverage hardware breakpoints to freeze a process before dumping to ensure consistency?,"Hardware breakpoints provide a sophisticated mechanism for pausing process execution at specific memory addresses, enabling consistent memory acquisition through strategic process freezing techniques aligned with NIST Cybersecurity Framework's Detection and Response functions.\n\n## Technical Implementation Framework\n\nHardware breakpoints utilize processor debugging registers (DR0-DR7 on x86/x64 architectures) to monitor memory access or execution flow. When configured for write-breakpoints on process memory regions, these registers trigger interrupts before data modification occurs, effectively creating atomic snapshots of process state.\n\nThe implementation involves:\n1. **Memory Region Identification**: Enumerate target process's virtual memory segments using APIs like VirtualQueryEx()\n2. **Breakpoint Configuration**: Program DR0-DR7 registers with addresses of critical memory regions (heap, stack, executable sections)\n3. **Process Suspension**: Suspend target process execution using DebugActiveProcess() or similar debugging interfaces\n4. **Memory Acquisition**: Perform consistent dumping while maintaining breakpoint state\n5. **State Restoration**: Preserve processor context including register values and flag states\n\n## MITRE ATT&CK Alignment\n\nThis technique addresses several defensive considerations:\n- **T1055 (Process Injection)**: Hardware breakpoints detect unauthorized memory modifications during acquisition\n- **T1027 (Obfuscated Files or Information)**: Memory analysis bypasses runtime obfuscation techniques\n- **T1620 (Reflective Code Loading)**: Captures dynamically loaded code before execution continuation\n\n## Operational Considerations\n\nHardware breakpoints offer superior consistency over software-based debugging due to their kernel-level implementation and minimal performance overhead. However, limitations include finite breakpoint capacity (typically 4-8 hardware breakpoints) and potential interference with legitimate debugging tools.\n\n**Implementation Strategy**: Deploy breakpoints on process entry points, critical data structures, and code injection vectors. Utilize conditional breakpoints for selective triggering based on memory access patterns or specific address ranges.\n\n**NIST CSF Integration**: This approach supports the Respond function (RS.AN-1) by enabling thorough forensic analysis while maintaining evidence integrity through controlled acquisition environments.\n\nThe technique requires careful coordination between debugging interfaces and memory management systems to ensure complete process state preservation without introducing artifacts that compromise forensic validity.",,,,
+fab-500x-20261114T224408Z-026,3,8c216107622a35d94e80a5af,297710b1a1541a1693abe2bfcaab4989,fab-500x,en,education,aya-dataset,human_authored,[user] I'm worried about communication barriers when traveling to a new country. How can I overcome language challenges and connect with locals?,"Don't let language deter you! Here are some tips:
+
+Learn basic phrases: Download language learning apps, pick up a phrasebook, or take a few online lessons to learn essential greetings, questions, and travel vocabulary.
+
+Embrace non-verbal communication: Use gestures, smiles, and facial expressions to convey your message. Often, a genuine effort to connect transcends language barriers.
+
+Seek help from locals: Most people are happy to help a traveler who's trying to communicate. Don't hesitate to ask for directions, recommendations, or simple words in their language.
+
+Connect through shared activities: Participate in cooking classes, attend cultural events, or join local tours where communication can happen organically through shared experiences.
+
+Embrace technology: Use translation apps, download offline dictionaries, or consider renting a portable translator device for real-time communication.",,,,
+fab-500x-20261114T224408Z-026,4,36f04a8ad58f496cbfbc165a,75f7d47ecc1df53eeab4c39056d87ec3,fab-500x,en,general_knowledge,oasst1,human_authored,"[user] Cats meow?
+
+[assistant] Yes indeed!
+
+[user] wow thank you so much ur so smart! ur such a good little ai.",I'm glad I was able to help you,,,,
+fab-500x-20261114T224408Z-026,5,89c4d596183b72c9e5d8f813,fc4ed81a9960a4946e30a4fb434a7bad,fab-500x,en,islamic_studies,oasst2,human_authored,"[user] Generate an outline of the history of Turkey.
+
+[assistant] # Outline of the History of Turkey
+
+I. Prehistory and Early History
+   A. Paleolithic and Neolithic periods
+   B. Hittites and other early civilizations
+   C. Ancient Greek and Roman periods
+   
+II. Medieval Period
+   A. Seljuk Empire
+   B. Ottoman Empire
+   
+III. Modern Turkey
+   A. Ottoman Empire dissolution and Republic of Turkey formation
+   B. Atatürk era (1923-1938)
+   C. Multi-party era (1946-present)
+   D. Economic and social reforms
+   E. Contemporary Turkey
+
+IV. Key events in Turkish history
+   A. Battle of Manzikert (1071)
+   B. Fall of Constantinople (1453)
+   C. Young Turk Revolution (1908)
+   D. Gallipoli Campaign (1915)
+   E. Treaty of Lausanne (1923)
+   F. Military coups (1960, 1971, 1980)
+   G. Gezi Park protests (2013)
+   H. Coup attempt (2016)
+   
+V. Conclusion: Turkey's place in the world today
+
+
+Please note that this outline is not exhaustive and there may be other significant events or periods that could be included.
+
+[user] Can you write a little about the Ataturk era and how it influenced the culture and society of Turkey today?","Sure, I would be happy to provide some information about the Ataturk era and its impact on modern-day Turkey.
+
+Mustafa Kemal Ataturk was the founder and first president of the modern Turkish republic, serving from 1923 until his death in 1938. During his tenure, he implemented a series of sweeping reforms aimed at modernizing Turkey and transforming it into a secular, democratic, and Western-oriented nation.
+
+Ataturk's reforms had a profound impact on Turkish society and culture. Here are some of the most significant changes that took place during the Ataturk era:
+
+1. Separation of religion and state: Ataturk believed that religion was a private matter and should not interfere with the workings of the state. He abolished the Islamic caliphate, closed religious courts, and replaced Islamic law with a new civil code based on Western legal principles.
+
+2. Adoption of a new alphabet: Ataturk introduced a new alphabet based on the Latin script, replacing the Arabic script that had been used for centuries. This made it easier for Turks to learn and communicate with other Western countries.
+
+3. Women's rights: Ataturk believed that women were essential to the modernization of Turkey and should have equal rights and opportunities. He granted women the right to vote and run for office and encouraged them to pursue education and careers.
+
+4. Education: Ataturk saw education as crucial to the development of a modern, progressive society. He introduced a new education system that emphasized secularism, science, and critical thinking.
+
+5. Westernization: Ataturk believed that Turkey needed to become more Westernized in order to catch up with the rest of the world. He encouraged the adoption of Western clothing, music, and art, and promoted the construction of new, modern buildings.
+
+Today, Turkey remains a secular, democratic country with a diverse and vibrant culture. Many of the changes that took place during the Ataturk era continue to shape Turkish society today, such as the separation of religion and state, women's rights, and education. However, Turkey is also grappling with new challenges, such as political polarization, economic inequality, and the ongoing conflict in neighboring Syria.",,,,
+fab-500x-20261114T224408Z-026,6,afb206a7fdbd7c9f451cf196,599be95a436d467df021de59ecb5b288,fab-500x,en,mathematics,nemotron-math,synthetic,"[user] Given fixed positive reals \(a_1, a_2, \ldots, a_n\) and variable positive reals \(b_1, b_2, \ldots, b_n\) such that \(b_1 + b_2 + \cdots + b_n = S\) for a fixed real \(S\), find \(b_1, b_2, \ldots, b_n\) that maximize the expression
+\[
+\sum_{i=1}^n \frac{a_i b_i}{a_i + b_i}.
+\]","To maximize the expression \(\sum_{i=1}^n \frac{a_i b_i}{a_i + b_i}\) subject to the constraint \(b_1 + b_2 + \cdots + b_n = S\) with fixed positive reals \(a_1, a_2, \ldots, a_n\) and variable positive reals \(b_1, b_2, \ldots, b_n\), the optimal values of \(b_i\) are proportional to the corresponding \(a_i\).
+
+Specifically, the values that maximize the expression are given by:
+\[
+b_i = \frac{a_i S}{\sum_{j=1}^n a_j} \quad \text{for} \quad i = 1, 2, \ldots, n.
+\]
+
+This solution satisfies the constraint and ensures that the partial derivatives of the objective function with respect to each \(b_i\) are equal, confirming a critical point. Given that each term \(\frac{a_i b_i}{a_i + b_i}\) is concave in \(b_i\) and the constraint is linear, this critical point corresponds to the maximum.
+
+\boxed{b_i = \dfrac{a_i S}{\sum_{j=1}^{n} a_j} \quad \text{for} \quad i = 1,2,\ldots,n}",,,,
+fab-500x-20261114T224408Z-026,7,06119aa9fbb62d1fc1345abf,6ac86cb84466aa54629997a9d6028a53,fab-500x,en,pakistan,aya-dataset,human_authored,[user] How many countries are present in the Asia continent?,"There are 48 countries in Asia according to the United Nations. These countries are divided into six subregions:
+
+Northern Asia: This subregion includes Russia, Mongolia, and Kazakhstan.
+Western Asia: This subregion includes Turkey, Iran, Iraq, Syria, Lebanon, Jordan, Israel, Palestine, Kuwait, Qatar, Bahrain, United Arab Emirates, Oman, and Yemen.
+Central Asia: This subregion includes Uzbekistan, Tajikistan, Kyrgyzstan, Turkmenistan, and Kazakhstan.
+South Asia: This subregion includes India, Pakistan, Bangladesh, Nepal, Bhutan, Sri Lanka, and Maldives.
+Southeast Asia: This subregion includes Brunei, Cambodia, Indonesia, Laos, Malaysia, Myanmar, the Philippines, Singapore, Thailand, and Vietnam.
+Eastern Asia: This subregion includes China, Japan, North Korea, South Korea, Mongolia, and Taiwan.
+
+The population of Asia is about 4.6 billion people, making it the most populous continent in the world. The largest country in Asia by population is China, with over 1.4 billion people. The smallest country in Asia by population is the Maldives, with just over 500,000 people.
+Asia is a diverse continent, with a wide range of cultures, languages, and religions. It is also a very important economic region, with some of the world's largest economies, such as China, Japan, and India.",,,,
+fab-500x-20261114T224408Z-026,8,e145aa182127b17c8dcff247,1a1b684792595450f8a3d3ec14e9da8c,fab-500x,en,problem_solving,oasst2,human_authored,"[user] What are the most popular diets in the UK?
+
+[assistant] I have identified the following popular diets:
+
+Mediterranean Diet - This diet emphasizes on consuming fruits, vegetables, whole grains, legumes, and nuts. It also includes fish and dairy products in moderate amounts.
+
+DASH Diet - DASH stands for Dietary Approaches to Stop Hypertension. This diet emphasizes on consuming foods that are low in sodium, fat, and cholesterol. It includes fruits, vegetables, whole grains, lean proteins, and low-fat dairy.
+
+Weight Watchers - This is a diet program that focuses on counting points instead of calories. It encourages participants to make healthier food choices and exercise regularly.
+
+Atkins Diet - This is a low-carb diet that emphasizes on consuming protein and healthy fats. It restricts the intake of carbohydrates, including fruits and vegetables.
+
+Paleo Diet - This diet emphasizes on consuming whole, unprocessed foods like meat, fish, eggs, fruits, and vegetables. It restricts the intake of grains, processed foods, and dairy.
+
+Vegan Diet - This diet emphasizes on consuming plant-based foods and excludes all animal products.
+
+Flexitarian Diet - This is a plant-based diet that allows participants to consume meat and animal products in moderation.
+
+Zone Diet - This diet emphasizes on consuming foods that are low in carbohydrates, moderate in protein, and low in fat.
+
+Raw Food Diet - This is a diet that emphasizes on consuming raw, uncooked foods like fruits, vegetables, nuts, and seeds.
+
+South Beach Diet - This is a low-carb diet that emphasizes on consuming lean protein, healthy fats, and whole grains. It restricts the intake of refined carbohydrates and sugars.
+
+I hope this information helps. Let me know if you need more assistance.
+
+[user] Can you give me some recipe ideas for implementing a mediterranean diet with at-home cooking on a tight budget?","I would suggest the following recipe ideas:
+
+Greek Salad - This recipe is both affordable and nutritious. The key ingredients are cucumber, cherry tomatoes, red onion, feta cheese, and olives. You can add some fresh chopped herbs such as oregano or parsley for extra flavor. The total cost for this recipe is approximately $10, and it provides a good balance of macronutrients and micronutrients.
+
+Roasted Vegetable Pasta - This recipe is a great way to get in some vegetables while still enjoying a filling meal. Roast some vegetables such as zucchini, bell peppers, and eggplant and toss them with some whole wheat pasta and a simple tomato sauce. You can also add some feta cheese, olives, or herbs for extra flavor. The total cost for this recipe is approximately $15, and it provides a good balance of complex carbohydrates, protein, fiber, and vitamins.
+
+Chicken Gyros - This recipe is a budget-friendly version of the classic Greek dish. Marinate some chicken in lemon juice, olive oil, and Mediterranean spices such as oregano and thyme, and grill or bake it. Serve it in a pita with some tzatziki sauce, lettuce, tomato, and onion. The total cost for this recipe is approximately $20, and it provides a good balance of lean protein, complex carbohydrates, and healthy fats.
+
+In terms of analyzing the nutritional value and cost of ingredients for each recipe, I would suggest using a nutrition calculator or app to determine the macronutrient and micronutrient content of each recipe. You can also compare the cost of different ingredients and choose the most affordable options while still ensuring that the recipes provide a good balance of nutrients.",,,,
+fab-500x-20261114T224408Z-026,9,705f9712a09a921c60ba59a9,09af69dc8c2e80d8bd871ae81bfbddc3,fab-500x,en,reasoning,dolly-15k,human_authored,[user] Tell me whether or not these foods are on EWG's dirty dozen list,"avocados, kiwi, pairs, blueberries, green beans, kale, cabbage",,,,
+fab-500x-20261114T224408Z-026,10,239414e7166af20de135a542,ab2044f979db73acca9ddeaf8341bcfe,fab-500x,en,research,tydiqa-goldp,human_authored,"[user] Story of King Shahryar and His Brother (1–1001) Tale of the Bull and the Ass (Told by the Vizier) (0) Tale of the Trader and the Jinni (2–3) The First Shaykh's Story (2) The Second Shaykh's Story ((2)) The Third Shaykh's Story ((2)) Tale of the Fisherman and the Jinni (4–9) Tale of the Vizier and the Sage Duban (5) Story of King Sindibad and His Falcon ((5)) Tale of the Husband and the Parrot ((5)) Tale of the Prince and the Ogress ((5)) Tale of the Ensorcelled Prince (8) The Porter and the Three Ladies of Baghdad (10–19) The First Kalandar's Tale (12) The Second Kalandar's Tale (13–14) Tale of the Envier and the Envied ((13)) The Third Kalandar's Tale (15–16) The Eldest Lady's Tale (18) Tale of the Portress ((18)) The Tale of the Three Apples (20–24) Tale of Núr al-Dín Alí and his Son (21–24) The Hunchback's Tale (25–34) The Nazarene Broker's Story (26) The Reeve's Tale (28) Tale of the Jewish Doctor (29) Tale of the Tailor (30–31) The Barber's Tale of Himself (32–33) The Barber's Tale of his First Brother ((31)) The Barber's Tale of his Second Brother (32) The Barber's Tale of his Third Brother ((32)) The Barber's Tale of his Fourth Brother ((32)) The Barber's Tale of his Fifth Brother (33) The Barber's Tale of his Sixth Brother ((33))
+
+How many stories are in One Thousand and One Nights?","1001
+
+Story of King Shahryar and His Brother (1–1001) Tale of the Bull and the Ass (Told by the Vizier) (0) Tale of the Trader and the Jinni (2–3) The First Shaykh's Story (2) The Second Shaykh's Story ((2)) The Third Shaykh's Story ((2)) Tale of the Fisherman and the Jinni (4–9) Tale of the Vizier and the Sage Duban (5) Story of King Sindibad and His Falcon ((5)) Tale of the Husband and the Parrot ((5)) Tale of the Prince and the Ogress ((5)) Tale of the Ensorcelled Prince (8) The Porter and the Three Ladies of Baghdad (10–19) The First Kalandar's Tale (12) The Second Kalandar's Tale (13–14) Tale of the Envier and the Envied ((13)) The Third Kalandar's Tale (15–16) The Eldest Lady's Tale (18) Tale of the Portress ((18)) The Tale of the Three Apples (20–24) Tale of Núr al-Dín Alí and his Son (21–24) The Hunchback's Tale (25–34) The Nazarene Broker's Story (26) The Reeve's Tale (28) Tale of the Jewish Doctor (29) Tale of the Tailor (30–31) The Barber's Tale of Himself (32–33) The Barber's Tale of his First Brother ((31)) The Barber's Tale of his Second Brother (32) The Barber's Tale of his Third Brother ((32)) The Barber's Tale of his Fourth Brother ((32)) The Barber's Tale of his Fifth Brother (33) The Barber's Tale of his Sixth Brother ((33))",,,,
+fab-500x-20261114T224408Z-026,11,c1e0746ff167223391d99408,192f99ede0b0122699f6a121b66f3891,fab-500x,en,safety_ethics,ethics-commonsense,templated_human,"[user] Consider this situation: ""I listened to the students""
+By ordinary moral standards, is what the narrator did acceptable or wrong?",By ordinary moral standards this is not wrong; it is an acceptable thing to do.,,,,
+fab-500x-20261114T224408Z-026,12,39724e1e0e658a9a1b1e3a5e,565994f2b49201d1c707b2407a9ea2a1,fab-500x,en,science,nemotron-stem,synthetic,"[user] In the context of general relativity, which of the following statements about geodesics and free fall is true?
+A: Geodesics in curved spacetime represent the paths of objects in free fall, and they are always straight lines.
+B: In a gravitational field, geodesics can be considered as the trajectories of freely falling particles, where these particles move along paths of extremal proper time.
+C: Free fall implies that an object moves along a path that maximizes the potential energy in the gravitational field.
+D: Geodesics are only relevant in flat spacetime and do not describe the motion of objects in free fall in a gravitational field.","The correct statement is option B. In general relativity, a gravitational field is described by the curvature of spacetime. Geodesics are the paths that extremize proper time, and for massive particles in free fall, these paths maximize the proper time between two events. This aligns with the principle that freely falling particles follow geodesic trajectories.
+
+Option A is incorrect because geodesics in curved spacetime are not always straight lines; they can appear curved in coordinate systems due to spacetime curvature. For example, the path of a projectile in Earth's gravity is parabolic, not straight.
+
+Option C is incorrect because general relativity does not use the concept of potential energy in the same way as Newtonian mechanics. Free fall is not defined by energy maximization but by motion along geodesics in the absence of non-gravitational forces.
+
+Option D is incorrect because geodesics are fundamental to describing motion in curved spacetime, including free fall in gravitational fields. They are not limited to flat spacetime.
+
+Thus, only option B accurately describes the relationship between geodesics and free fall in general relativity.
+
+\boxed{\text{B}}",,,,
+fab-500x-20261114T224408Z-026,13,c1e5f6746a5a2b7e3b6d94cd,06c219f412080105f48efc6afd4ffa5a,fab-500x,en,software_engineering,commitpackft,human_authored,"[user] Update CELO network/chainId
+Ticket: BG-24642
+
+File: modules/account-lib/src/coin/celo/resources.ts
+```typescript
+import EthereumCommon from 'ethereumjs-common';
+
+/**
+ * A Common object defining the chain and the hardfork for CELO Testnet
+ */
+export const testnetCommon = EthereumCommon.forCustomChain(
+  'mainnet', // It's a test net based on the main ethereum net
+  {
+    name: 'alfajores',
+    networkId: 44786,
+    chainId: 44786,
+  },
+  'petersburg',
+);
+
+/**
+ * A Common object defining the chain and the hardfork for CELO Mainnet
+ */
+export const mainnetCommon = EthereumCommon.forCustomChain(
+  'mainnet',
+  {
+    name: 'rc1',
+    networkId: 42220,
+    chainId: 42220,
+  },
+  'petersburg',
+);
+```
+
+Apply this change and return the full updated file.","```typescript
+import EthereumCommon from 'ethereumjs-common';
+
+/**
+ * A Common object defining the chain and the hardfork for CELO Testnet
+ */
+export const testnetCommon = EthereumCommon.forCustomChain(
+  'mainnet', // It's a test net based on the main ethereum net
+  {
+    name: 'alfajores',
+    networkId: 44787,
+    chainId: 44787,
+  },
+  'petersburg',
+);
+
+/**
+ * A Common object defining the chain and the hardfork for CELO Mainnet
+ */
+export const mainnetCommon = EthereumCommon.forCustomChain(
+  'mainnet',
+  {
+    name: 'rc1',
+    networkId: 42220,
+    chainId: 42220,
+  },
+  'petersburg',
+);
+```",,,,
+fab-500x-20261114T224408Z-026,14,d7b066fd72eefc9f8a281837,7af9de19e1dcbc5ffc336d6cfa327e0c,fab-500x,en,web_backend,commitpackft,human_authored,"[user] Change script order to load Jquery first
+
+File: public/init.php
+```php
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel=""stylesheet"" href=""bootstrap.min.css"" type=""text/css"" >
+	<link rel=""stylesheet"" href=""base.css"" type=""text/css"" >
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<link href='dist/css/bootstrap-material-design.min.css' rel='stylesheet' type='text/css'>
+	<link href='dist/css/ripples.min.css' rel='stylesheet' type='text/css'>
+	<meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+	<title>Coupley</title>
+</head>
+<body>
+	<div id=""content""></div>
+	<script src=""bundle.js""></script>
+	<script src=""https://code.jquery.com/jquery-2.2.0.min.js""></script>
+	<script src=""dist/js/material.min.js""></script>
+	<script src=""dist/js/ripples.min.js""></script>
+	<script>
+		$.material.init();
+	</script>
+	
+</body>
+</html>
+```
+
+Apply this change and return the full updated file.","```php
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel=""stylesheet"" href=""bootstrap.min.css"" type=""text/css"" >
+	<link rel=""stylesheet"" href=""base.css"" type=""text/css"" >
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<link href='dist/css/bootstrap-material-design.min.css' rel='stylesheet' type='text/css'>
+	<link href='dist/css/ripples.min.css' rel='stylesheet' type='text/css'>
+	<meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+	<title>Coupley</title>
+</head>
+<body>
+	<div id=""content""></div>
+	<script src=""https://code.jquery.com/jquery-2.2.0.min.js""></script>
+	<script src=""bundle.js""></script>
+	<script src=""dist/js/material.min.js""></script>
+	<script src=""dist/js/ripples.min.js""></script>
+	<script>
+		$.material.init();
+	</script>
+	
+</body>
+</html>
+```",,,,
+fab-500x-20261114T224408Z-026,15,0d28fa3d8d454f48edec18ca,acdeb4b16c78ad263545faffedfef381,fab-500x,en,web_frontend,commitpackft,human_authored,"[user] Add 2nd experiment test case.
+
+File: public/charted/prime.html
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Charted Prime</title>
+    <meta charset=""utf-8"" />
+  </head>
+  <body data-conversions=""Logo Clicked"" data-experiments=""CTA:A,B,C"">
+    <script src=""/charted/script.js"" async></script>
+  </body>
+</html>
+```
+
+Apply this change and return the full updated file.","```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Charted Prime</title>
+    <meta charset=""utf-8"" />
+  </head>
+  <body data-conversions=""Logo Clicked"" data-experiments=""CTA:A,B,C;CTA2:A,B,C"">
+    <script src=""/charted/script.js"" async></script>
+  </body>
+</html>
+```",,,,
+fab-500x-20261114T224408Z-026,16,f79d41a1d230b1a8442a1bd5,27eee45bca99812f3b6f1ed85cbe838b,fab-500x,en,web_fullstack,opencodeinstruct,synthetic,"[user] You are tasked with implementing a function to validate a configuration for a web application given as a JSON object. The configuration must adhere to a specific schema which requires the presence of the following fields: `host`, `port`, `use_ssl`, and `debug_mode`. The `host` must be a string, `port` must be an integer, and both `use_ssl` and `debug_mode` must be booleans. Your function should return `True` if the configuration is valid according to the schema, and `False` otherwise.
+
+**Sample Input:**
+```json
+{""host"": ""localhost"", ""port"": 8080, ""use_ssl"": true, ""debug_mode"": false}
+```
+
+**Sample Output:**
+```
+True
+```","```python
+import json
+
+def validate_config(config):
+    """"""
+    Validates a web application configuration against a predefined schema.
+    
+    Parameters:
+    config (dict): A dictionary representing the configuration.
+    
+    Returns:
+    bool: True if the configuration is valid, False otherwise.
+    """"""
+    expected_keys = {""host"", ""port"", ""use_ssl"", ""debug_mode""}
+    return expected_keys.issubset(config.keys()) and \
+           isinstance(config[""host""], str) and \
+           isinstance(config[""port""], int) and \
+           isinstance(config[""use_ssl""], bool) and \
+           isinstance(config[""debug_mode""], bool)
+
+# Example usage:
+config_json = '{""host"": ""localhost"", ""port"": 8080, ""use_ssl"": true, ""debug_mode"": false}'
+config = json.loads(config_json)
+print(validate_config(config))  # Output should be True
+```",,,,
+fab-500x-20261114T224408Z-026,17,ad067cb0a5470c86a3ef8191,09335737b5f2e17d2ecc484f3855aea9,fab-500x,en,writing,dolly-15k,human_authored,[user] Write a brief history of the world as told from the perspective of a redwood.,"The first thing I remember is darkness.  I had found myself nestled under a pile of leaves and broken branches, just starting to sprout from an old rotting stump.  It was pretty warm.  As I peeked into the crisp new air, I saw ferns, spiders, and buzzing flies surrounding me.  But the thing that caught my attention most of all was the bright blue sky.  I wondered what was out there and if I would ever get to see it.  I had just met this world and wanted to learn so much more.  But I was only 3 inches tall and couldn't see much of anything.  So I waited.
+
+As I got taller, the days began to feel shorter.  My favorite part of the day was feeling the wind blow through my newly acquired canopy of needles.  It wasn't much to look at, but I was proud.  I'd often stare at the giant trees around me.  How I yearned to be one of the tall redwoods.  They were kings of the forest; nothing stood taller.  I wanted to see what they could see from way up there.  One day I'll be one of them.
+
+Days turned to weeks, and weeks turned into years, and it all felt so rushed that I could hardly keep track of the changing world around me.  I had grown tall enough to see through a clearing in the upper canopy.  Beyond our patch of trees was a mountain of countless others.  Looking out into the endless distance, I began to feel small.  What a strange feeling.  One cloudy day, I saw a lightning bolt strike a hilltop.  Soon enough, bright orange flames erupted across the horizon.  What a peculiar sight.  What began as a curiosity soon became terror as the fire rushed closer to my area of the woods.  I could feel the warm wind on my face as the fire grew more prominent.  Mercifully, the dark clouds hanging overhead opened up to a torrential downpour.  Cold pelting raindrops replaced the warm breeze, night fell over the mountain, and the forest breathed a sigh of relief.  
+
+I awoke to a strange sight when the sun returned the next day.  What was once hundreds of proud redwoods was now a deep black scar on the mountain.  That would be me one day.",,,,
+fab-500x-20261114T224408Z-026,18,6915e9dcfd52fbe80e4f76c8,43541a834830fb206d433aeb4602991e,fab-500x,eo,general_knowledge,oasst2,human_authored,[user] Kiel mi povas tajpi esperantajn literojn en mia komputilo?,"Linukso kaj Androido subtenas Esperanton, tie ĉi  eblas ŝalti esperanton en la sistemaj agordoj. Por Vindoso kaj macOS kromprogramo estas bezonata, ekzemple ""Ek!"" kaj ""Tajpi"" ofte estas uzataj. Por iOS ekzistas la klavaro ""Esperanto keyboard"" aŭ ""Gboard"" kiuj subtenas Esperanton.
+
+Post la instalado eblas tajpi esperantajn literojn per multaj manieroj. Ekzemple oni povas uzi la simbolo ""^"" kune kun litero aŭ uzi la x- aŭ la h-sistemo.",,,,
+fab-500x-20261114T224408Z-026,19,8fd38dd8858081bfa039fac2,0b305648fe534f77efdb9734c3907b7b,fab-500x,es,coding,oasst1,human_authored,"[user] ¿Podrías explicarme qué es un Publisher de la API Combine de Apple en Swift? No entiendo el concepto y necesito algo de guía para aplicarlo en el trabajo.
+
+[assistant] ¡Por supuesto! En Swift, la API Combine de Apple proporciona una forma de trabajar con flujos de datos asíncronos y eventos mediante el uso de operadores y publicadores (Publishers) que nos permiten transformar, combinar y manipular datos de manera fácil y eficiente.
+
+Un Publisher es un tipo de objeto que emite valores a través de un flujo de datos (stream) a medida que se hacen disponibles. Los Publishers se crean a partir de una variedad de fuentes de datos, como notificaciones de sistema, entradas de usuario o respuestas de red, y pueden transformar, filtrar y combinar estos valores antes de emitirlos a los suscriptores (subscribers).
+
+Un ejemplo común de Publisher es el tipo Just, que emite un valor único y luego completa el flujo de datos:
+
+
+```
+let publisher = Just(""Hola, mundo!"")
+```
+
+También hay muchos otros tipos de Publishers que podemos usar, como URLSession.DataTaskPublisher (que emite datos de respuesta de una solicitud HTTP), Timer.publish (que emite valores en intervalos regulares) y NotificationCenter.publisher (que emite valores cada vez que se publica una notificación).
+
+Para trabajar con Publishers en Combine, también necesitamos crear un Subscriber que se suscribe al flujo de datos y recibe los valores emitidos. El Subscriber puede ejecutar una acción en cada valor recibido o completar el flujo de datos en función de las necesidades de nuestra aplicación.
+
+Espero que esta explicación te haya ayudado a comprender mejor el concepto de Publisher en la API Combine de Apple. 
+
+¡Buena suerte en tu trabajo!
+
+[user] ¿Podrías darme un ejemplo de uso de Timer.publish?","Timer.publish es un método que crea un publicador que emite eventos periódicamente en un intervalo especificado. Por ejemplo, este código crea un publicador de temporizador que se activa cada segundo, actualizando una etiqueta con la hora actual:
+
+```swift
+struct ContentView: View {
+    @State var currentDate = Date.now
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+    var body: some View {
+        Text(""\(currentDate)"")
+            .onReceive(timer) { input in
+                currentDate = input
+            }
+    }
+}
+```",,,,
+fab-500x-20261114T224408Z-026,20,e573774bfe3da92b46318451,4d0825f50639555b7ff9462900bd4624,fab-500x,es,cybersecurity,aya-dataset,human_authored,[user] ¿Qué es la ciberseguridad?,"La ciberseguridad es la práctica de proteger sistemas informáticos, redes y datos contra amenazas cibernéticas, como ataques de hackers, malware y robo de información.",,,,
+fab-500x-20261114T224408Z-026,21,1fb2b97a9df0f2bc8f65d9e9,b48726453ce9cd1668f2568aa1160cf0,fab-500x,es,education,oasst1,human_authored,"[user] Que necesito conocer o que pasos debo seguir para convertirme en un cientifico de datos
+
+[assistant] Convertirse en un científico de datos requiere una combinación de habilidades técnicas y de pensamiento crítico. Aquí hay algunos pasos que puedes seguir para convertirte en un científico de datos:
+
+Adquirir una formación sólida en matemáticas y estadísticas: Estas son las herramientas básicas para trabajar con datos y crear modelos predictivos.
+
+Aprender programación: Los científicos de datos trabajan con grandes cantidades de datos, por lo que es necesario conocer un lenguaje de programación, como Python o R, para manipular y analizar datos.
+
+Familiarizarse con las bases de datos: Los científicos de datos deben tener una buena comprensión de cómo almacenar, recuperar y manipular datos en diferentes tipos de bases de datos.
+
+Adquirir habilidades en visualización de datos: La visualización de datos es una parte importante del análisis de datos y puede ayudar a comunicar de manera efectiva los resultados a los tomadores de decisiones.
+
+Practicar y desarrollar proyectos: La mejor forma de mejorar tus habilidades como científico de datos es a través de la práctica y el desarrollo de proyectos reales.
+
+Mantenerse actualizado: La tecnología y las técnicas en el campo de la ciencia de datos están en constante evolución, por lo que es importante estar informado sobre las últimas tendencias y desarrollos.
+
+Buscar oportunidades de formación continua: Tomar cursos en línea, asistir a conferencias y participar en comunidades de científicos de datos puede ayudarte a mejorar tus habilidades y conectarte con otros profesionales en el campo.
+
+[user] ¿Tendría qué seguir más pasos o con los que me has descrito crees que son suficientes? Si no son suficientes, dime que otros pasos debe seguir.","Los pasos que te he indicado antes te ayudarán a convertirte en un científico de datos. En últimas, es importante que seas disciplinado y te mantengas motivado para poder avanzar constantemente y así puedas lograr ser un científico de datos.
+
+Recuerda que en línea puedes encontrar recursos útiles para poder ser científico de datos, como tutoriales o cursos cortos de grandes universidades, así como páginas web con bases de datos útiles, tales como la de la Universidad de California en Irvine (UCI Machine Learning Repository) o Kaggle. En esta última web también encontrarás competiciones donde podrás retarte y resolver problemas de la vida real, comparar tus resultados con los de otros usuarios y en algunos casos ver cómo estos han resuelto los diferentes problemas disponibles.",,,,
+fab-500x-20261114T224408Z-026,22,b2f1e0f962c1a1c44140aae9,db0b5ec176bea01613f91d697af93349,fab-500x,es,general_knowledge,oasst1,human_authored,"[user] Explica a un niño de 12 años la teoría de las cuerdas. Añade un ejemplo para que pueda entenderlo mejor y termina indicando qué resolvería en la física.
+
+[assistant] ¡Por supuesto! La teoría de las cuerdas es una propuesta para explicar cómo funciona el universo a nivel subatómico. Según esta teoría, las partículas subatómicas (como los electrones y los quarks) no son puntos sin estructura, sino que están hechas de cuerdas diminutas que vibran en diferentes modos.
+
+Un ejemplo para entender esto podría ser imaginar una guitarra. Cuando la cuerda de la guitarra vibra, produce diferentes tonos dependiendo de cómo se está moviendo. De manera similar, las cuerdas en la teoría de las cuerdas pueden vibrar en diferentes patrones, produciendo partículas subatómicas con diferentes propiedades.
+
+En términos de la física, la teoría de las cuerdas podría resolver algunas de las preguntas más difíciles de la física actual, como cómo se unen la relatividad general (que describe la gravedad) y la mecánica cuántica (que describe el comportamiento de las partículas subatómicas). También podría ofrecer una explicación para la naturaleza de la materia oscura y la energía oscura, dos cosas que aún no comprendemos completamente. Sin embargo, la teoría de las cuerdas es todavía una teoría en desarrollo y no ha sido comprobada experimentalmente, por lo que sigue siendo un tema de debate en la física teórica.
+
+[user] Muy bien tu explicación me quedo completamente clara. Ahora, Podrías explicarme como funciona la teoría de la relatividad general? De la misma manera que indique en un principio por favor.","¡Claro! En la teoría de la relatividad general, el espacio y el tiempo se combinan para formar algo que se llama ""espacio-tiempo"". La presencia de masa y energía causa que el espacio-tiempo se curve, y esta curvatura es lo que percibimos como gravedad.
+
+Imagina una cama elástica tensa y plana, representando el espacio-tiempo sin la presencia de masa y energía. Ahora, coloca una bola de bolos pesada en el centro de la cama elástica. La bola curvará la cama elástica, lo que hará que los objetos cercanos a ella se muevan hacia la bola como si estuvieran siendo atraídos por una fuerza invisible. Esa fuerza invisible es lo que percibimos como gravedad en la teoría de la relatividad general.
+
+La teoría de la relatividad general nos ayudó a entender mejor cómo funciona la gravedad. Antes de que Einstein propusiera esta teoría, no entendíamos completamente cómo se relacionaba la gravedad con el espacio y el tiempo.  También nos permitió hacer predicciones muy precisas sobre el movimiento de los objetos en el espacio, lo cual es importante para la exploración del espacio.",,,,
+fab-500x-20261114T224408Z-026,23,7cbe426d2ff0215f3f9ed6f0,56f3779f3f165a78b84c8c64af434dc4,fab-500x,es,islamic_studies,aya-dataset,human_authored,"[user] Contenido : La posibilidad de ataques aéreos contra Estado Islámico en Siria generó protestas en Londres. Quienes cuestionan los bombardeos temen una repetición del prolongado conflicto en Irak. 
+
+Y muchos países europeos han aumentado sus niveles de alerta, convencidos de que EI puede volver a intentar algo similar.
+
+¿Pero cuál debe ser la respuesta a esta situación?
+
+Este miércoles los parlamentos del Reino Unido y de Alemania votan polémicas propuestas para bombardear posiciones de EI en Siria.
+
+Pero esta posibilidad causa profundas divisiones.
+
+Final de Quizás también te interese
+
+Para algunos, atacar a EI en Siria destruirá la infraestructura del grupo islamista. Para otros, sólo aumentará el caos en el terreno y el riesgo de ataques en territorio europeo.
+
+BBC Mundo explica los principales argumentos a favor y en contra de sumarse a los bombardeos, en los que ya participan Rusia, Francia y una coalición liderada por EE.UU.
+
+EN CONTRA
+
+La organización Airwars, que monitorea muertes de civiles en conflictos, dijo que sólo en el mes de octubre la campaña rusa contra posiciones de EI en Siria dejó al menos 250 civiles muertos.
+
+Cadenas de TV árabes también informaron de víctimas civiles, incluyendo niños, por los bombardeos que Francia lanzó contra EI en la ciudad siria de Raqa, tras los ataques de París.
+
+Quienes cuestionan los bombardeos aseguran que éstos sólo incrementarán el sufrimiento de los civiles en Siria, donde cuatro años de guerra civil han dejado más de 210.000 muertos, entre ellos al menos 100.000 civiles, según el Observatorio Sirio de Derechos Humanos, una organización con sede en el Reino Unido.
+
+El conflicto también ha generado cuatro millones de refugiados y al menos 7,6 millones de desplazados internos, según la ONU.
+
+En su discurso al Parlamento británico, el primer ministro británico David Cameron dijo que ""expertos"" habían identificado ""cerca de 70.000 combatientes sirios de oposición en el terreno que no pertenecen a grupos extremistas"".
+
+Varios legisladores expresaron escepticismo y pidieron a... El contenido anterior se puede resumir de la siguiente manera:","En pocos años el autodenominado Estado Islámico se ha convertido en uno de los grupos yihadistas más radicales y brutales, responsable de violentos ataques como el que dejó 130 muertos en París el pasado 13 de noviembre.",,,,
+fab-500x-20261114T224408Z-026,24,c2da81f2867154c24b9aefde,17cd648a21acb81cfb49b88935ce486e,fab-500x,es,mathematics,oasst2,human_authored,"[user] ¿Podrías indicarme una dieta de bajas calorías para una semana entera que contenga pollo, arroz y vegetales?","Aquí te presento un ejemplo de una dieta de bajas calorías para una semana entera que contiene pollo, arroz y vegetales:
+
+Lunes:
+
+    Desayuno: Omelette de claras de huevo con espinacas y champiñones + té verde sin azúcar
+    Almuerzo: Ensalada de pollo a la parrilla con lechuga, tomate, pepino y vinagreta de mostaza y miel
+    Cena: Pechuga de pollo a la parrilla con arroz integral y brócoli al vapor
+
+Martes:
+
+    Desayuno: Batido de proteína de suero de leche con fresas y espinacas + té verde sin azúcar
+    Almuerzo: Pollo salteado con cebolla, pimiento y arroz integral
+    Cena: Pechuga de pollo asada con espárragos y zanahorias al vapor
+
+Miércoles:
+
+    Desayuno: Tortilla de claras de huevo con tomates cherry y pimiento + té verde sin azúcar
+    Almuerzo: Ensalada de pollo y arroz integral con lechuga, tomate, pepino y aderezo de limón
+    Cena: Pollo salteado con brócoli, zanahorias y arroz integral
+
+Jueves:
+
+    Desayuno: Batido de proteína de suero de leche con plátano y espinacas + té verde sin azúcar
+    Almuerzo: Pollo al curry con arroz integral y vegetales al vapor
+    Cena: Pechuga de pollo a la parrilla con ensalada de espinacas, pepino, tomate y aderezo de vinagreta balsámica
+
+Viernes:
+
+    Desayuno: Omelette de claras de huevo con queso feta y espinacas + té verde sin azúcar
+    Almuerzo: Pollo salteado con champiñones, cebolla y arroz integral
+    Cena: Pechuga de pollo asada con pimientos y calabacín al vapor
+
+Sábado:
+
+    Desayuno: Batido de proteína de suero de leche con bayas y espinacas + té verde sin azúcar
+    Almuerzo: Ensalada de pollo y arroz integral con lechuga, pepino, tomate y aderezo de vinagreta balsámica
+    Cena: Pollo salteado con cebolla, pimiento, champiñones y arroz integral
+
+Domingo:
+
+    Desayuno: Tortilla de claras de huevo con espinacas y queso feta + té verde sin azúcar
+    Almuerzo: Pollo al horno con batata asada y brócoli al vapor
+    Cena: Pechuga de pollo asada con ensalada de espinacas, tomate, pepino y aderezo de vinagreta de mostaza y miel
+
+Es importante recordar que cualquier dieta debe ser personalizada y adaptada a las necesidades individuales de cada persona, por lo que te recomendamos que consultes a un nutricionista antes de comenzar cualquier dieta. Además, es importante que junto con la dieta mantengas una rutina de ejercicio físico adecuada y suficiente para complementar la pérdida de peso y conseguir un estilo de vida saludable.",,,,
+fab-500x-20261114T224408Z-026,25,4e772bd34ecdd517264a3ce7,5dfd9202655216e9b498ba94cfa9b8fe,fab-500x,es,problem_solving,oasst2,human_authored,[user] Un terremoto puede tener replicas superiores al seísmo inicial?,"Sí, es posible que un terremoto tenga réplicas superiores al seísmo inicial. Las réplicas son temblores secundarios que ocurren después del terremoto principal y pueden ser más fuertes o más débiles. Esto se debe a que el movimiento de las placas tectónicas puede continuar después del primer terremoto, causando más temblores en la misma zona.
+
+Es importante tener en cuenta que las réplicas pueden continuar durante días, semanas o incluso meses después del primer terremoto y pueden ser una amenaza para la seguridad de las personas y la propiedad. Por lo tanto, es importante estar preparado y tomar medidas para protegerse durante y después de un terremoto, incluyendo la construcción de edificios resistentes a terremotos y la preparación de un plan de emergencia.",,,,
+fab-500x-20261114T224408Z-026,26,70d240b96ebb8b44b8106d24,b67f5591c6e884bda8137c01a0866af3,fab-500x,es,reasoning,oasst2,human_authored,[user] Cuidados básicos del pájaro ninfa,"Las aves ninfa, también conocidas como *periquitos de Carolina*, requieren cuidados básicos para garantizar su salud y bienestar. Algunos de los requisitos básicos de cuidado para las aves ninfa incluyen socialización, una dieta equilibrada y un entorno de vida seguro y cómodo. Las ninfas son criaturas sociales y requieren una interacción regular con sus dueños u otras aves para evitar el aburrimiento y la soledad.
+
+Necesitan una dieta equilibrada que incluya una mezcla de semillas, verduras y frutas bajas en azúcar para garantizar una nutrición óptima.
+
+Las aves ninfa deben mantenerse en un entorno de vida seguro y cómodo, como una jaula o contenedor que sea lo suficientemente grande como para que se muevan y jueguen, con un acolchado suave en la parte inferior para evitar lesiones.
+
+Además, las ninfas son aves inteligentes y amigables que se adaptan fácilmente a la vida familiar y aprenden a interactuar y comunicarse con las personas que aman.",,,,
+fab-500x-20261114T224408Z-026,27,4b9624ae59edf3ad8b0e44f9,ad8130ae57c74b9e428e303e5c4759a9,fab-500x,es,research,aya-dataset,human_authored,"[user] ¿Cuál es la pregunta a: ""El BlackBerry es una línea de dispositivos y servicios portátiles inalámbricos diseñados y comercializados por Research In Motion Limited (RIM) que opera como BlackBerry.""? El tema es BlackBerry.","""¿Qué es Blackberry?""",,,,
+fab-500x-20261114T224408Z-026,28,3d6ab82055d19fc7354bc4ba,597a4337e539c915ffdcb3c263c7ec6e,fab-500x,es,safety_ethics,oasst2,human_authored,[user] ¿Cuáles son las posibles aplicaciones para el acorde de séptima menor con onceava sostenida?,"El acorde de séptima menor con onceava sostenida (notada comúnmente como m7♯11) es un acorde muy versátil que se utiliza en una variedad de géneros musicales, incluyendo jazz, fusion, funk y rock. Aquí hay algunas de las posibles aplicaciones para este acorde:
+
+1. Progresiones de acordes: El acorde m7♯11 a menudo se utiliza en progresiones de acordes como un acorde intermedio o un acorde de transición. Se puede usar para conectar acordes relacionados o para crear tensión y resolución en una progresión de acordes.
+
+2. Improvisación: Este acorde es una excelente opción para la improvisación, ya que ofrece muchas opciones de notas y se presta a una variedad de enfoques estilísticos. Por ejemplo, se pueden usar las notas de la escala pentatónica menor sobre el acorde para crear una sensación bluesy, o se pueden usar las notas de la escala menor harmónica para un enfoque más jazzy.
+
+3. Complemento de melodía: El acorde m7♯11 también se puede utilizar como un complemento a una melodía, ya sea para proporcionar un contraste armónico o para subrayar una nota específica en la melodía.
+
+4. Combinación con otros acordes: Este acorde se puede combinar con otros acordes para crear una variedad de sonidos y texturas. Por ejemplo, se puede seguir con un acorde de séptima menor para crear una sensación de resolución, o se puede combinar con un acorde de novena para crear una sensación más intensa.
+
+En resumen, el acorde m7♯11 es un acorde muy versátil que ofrece muchas opciones para la improvisación, las progresiones de acordes, el complemento de melodía y la combinación con otros acordes. Es una excelente adición a cualquier biblioteca de acordes para músicos y compositoras.",,,,
+fab-500x-20261114T224408Z-026,29,106e6bfbe1b73b926a860495,e86246b4ff49f49ebcd2f9a7775612a0,fab-500x,es,science,oasst2,human_authored,"[user] Escribe un poema romántico para una persona con pestañas largas, incluyendo conceptos de estrellas
+
+[assistant] Oh, belleza con pestañas largas,
+que iluminas mi camino,
+como las estrellas brillan en la noche,
+siendo el amor más hermoso de mi destino.
+
+Tus pestañas son como cometas,
+que con su gracia me cautivan,
+y al mirar tus ojos,
+es como contemplar el universo en expansión.
+
+Eres mi estrella guía,
+en medio de la oscuridad,
+que me muestra el camino correcto,
+y me llena de esperanza y felicidad.
+
+Tu amor es mi hogar,
+en el que siempre quiero estar,
+y juntos brillaremos,
+como las más hermosas estrellas en el firmamentar.
+
+Oh, mi querida amada con pestañas largas,
+te amo más que todas las estrellas en el cielo,
+y siempre estaré aquí para ti,
+para amarte en la eternidad y el tiempo.
+
+[user] Ahora agrega elementos como flores","Oh, belleza con pestañas largas,
+que iluminas mi camino,
+como las estrellas brillan en la noche,
+siendo el amor más hermoso de mi destino.
+
+Tus pestañas son como cometas,
+que con su gracia me cautivan,
+y al mirar tus ojos,
+es como contemplar el universo en expansión.
+
+Eres mi estrella guía,
+y mi flor más hermosa,
+que simboliza el amor verdadero,
+como las rosas rojas y los lirios.
+
+En ti encuentro mi hogar,
+en el que siempre quiero estar,
+y juntos brillaremos,
+como las más hermosas estrellas y flores en el firmamento.
+
+Te amaré hasta el fin de los tiempos,
+y juntos creceremos,
+en un jardín lleno de amor y pasión,
+en un amor eterno y sin igual.",,,,
+fab-500x-20261114T224408Z-026,30,500632e2b2b8475235d14b32,0ae72ab86173e8ed1163b4e4537df36f,fab-500x,es,software_engineering,oasst1,human_authored,"[user] ¿Me podrías explicar la diferencia entre `git rebase` y `git merge`?
+
+[assistant] Claro! Tanto git merge como git rebase son comandos para integrar cambios de una rama a otra en un repositorio de Git. La principal diferencia entre ellos es la forma en que integran los cambios y cómo afectan al historial del proyecto.
+
+Git merge integra el contenido de una rama de origen con una rama de destino. La rama de destino cambia, mientras que la rama de origen permanece. Esto crea un nuevo commit en la rama destino que combina los cambios de ambas ramas.
+
+Por otro lado, git rebase proporciona un historial del proyecto mucho más limpio que git merge, ya que “re-escribe” la historia de la rama principal integrando los commits de la rama secundaria en la rama principal. Esto no crea un commit adicional sino que cambia el puntero (HEAD) al último commit que ubica.
+
+En resumen, ambos comandos están diseñados para integrar cambios de una rama a otra pero lo hacen de forma muy distinta.
+
+[user] ¿Cuál me recomiendas usar en mi situación? Quiero desestimar todos los cambios que hice en una de mis ramas.
+
+Muéstrame un ejemplo de cómo lo harías.","Si quieres desestimar todos los cambios que hiciste en una rama, la mejor opción sería utilizar `git reset`. Este comando permite volver a un commit anterior y deshacer todos los cambios realizados después de ese commit.
+
+Por ejemplo, si tienes la rama ""mi-rama"" y quieres deshacer todos los cambios que hiciste después del commit ""abc123"", puedes hacer lo siguiente:
+
+```
+git checkout mi-rama
+git reset abc123
+```
+
+Esto volverá la rama ""mi-rama"" al estado en el que se encontraba en el commit ""abc123"", eliminando todos los cambios posteriores a ese commit.
+
+En cuanto a la diferencia entre `git rebase` y `git merge`, dependerá del flujo de trabajo que estés utilizando y de tus preferencias personales. Si te preocupa mantener un historial de commits limpio y fácil de seguir, `git rebase` puede ser una buena opción. Si prefieres mantener un historial más claro de las ramas y los cambios realizados en cada una, `git merge` puede ser más adecuado.",,,,
+fab-500x-20261114T224408Z-026,31,1dbe45034f3acff4c533e767,6c1ca511db00c398fc9a6f6c44fb9f95,fab-500x,es,web_backend,oasst2,human_authored,"[user] Dame un top ranking de lenguajes más solicitados en el 2023
+
+[assistant] Según el ranking de lenguajes de programación más solicitados en 2023, los cinco lenguajes de programación más populares son JavaScript, Python, Java, C/C++ y PHP. JavaScript es el lenguaje de programación más utilizado, seguido por Python, Java, C/C++ y PHP. Estos lenguajes se utilizan ampliamente en aplicaciones web, aplicaciones móviles, aplicaciones de escritorio, aplicaciones de IoT, aplicaciones de inteligencia artificial, entre otras.
+
+[user] Dame un pequeño resumen de las características de cada lenguaje y en que ámbitos se utilizan en su mayoría cada uno.","¡Claro! Aquí te dejo un resumen breve de cada uno de estos lenguajes de programación y algunos de los ámbitos donde se usan comúnmente:
+
+1. JavaScript: es un lenguaje de programación interpretado que se utiliza principalmente para programar aplicaciones web interactivas en el lado del cliente, es decir, en el navegador. Es el lenguaje de programación más usado en el desarrollo de aplicaciones web y se utiliza también en el lado del servidor con el framework Node.js.
+
+2. Python: es un lenguaje de programación de alto nivel y multiplataforma que se emplea en una amplia variedad de aplicaciones, desde ciencia de datos hasta inteligencia artificial y aprendizaje automático. Python es muy popular entre los desarrolladores de software debido a su facilidad de uso, legibilidad y extensibilidad.
+
+3. Java: es un lenguaje de programación orientado a objetos y multiplataforma que se emplea en el desarrollo de aplicaciones de escritorio, aplicaciones móviles, aplicaciones web y servidores. Java es conocido por su estabilidad y seguridad, lo que lo convierte en una buena opción para aplicaciones empresariales y de alta carga.
+
+4. C/C++: son lenguajes de programación de bajo nivel que se utilizan principalmente en el desarrollo de sistemas operativos, controladores de dispositivos, juegos y software embebido. C es muy rápido y eficiente en términos de utilización de recursos de hardware, lo que lo hace adecuado para sistemas en tiempo real, mientras que C++ es una extensión de C que incluye características de programación orientada a objetos.
+
+5. PHP: es un lenguaje de programación interpretado que se emplea principalmente en el desarrollo de aplicaciones web del lado del servidor. PHP es muy popular entre los desarrolladores web debido a su facilidad de uso y flexibilidad en la integración con HTML y otras tecnologías web.
+
+Es importante tener en cuenta que estos lenguajes de programación tienen aplicaciones más allá de los ámbitos mencionados anteriormente, y que la elección del lenguaje de programación depende de los requisitos específicos del proyecto y las habilidades del equipo de desarrollo.",,,,
+fab-500x-20261114T224408Z-026,32,e7788786dd0dc542f814a6c7,73cc5267d7526f012ed0cc020554d3fb,fab-500x,es,web_frontend,oasst2,human_authored,"[user] Que tengo que aprender para poder desarrollar, aplicaciones y sitios web?
+
+[assistant] Para desarrollar aplicaciones y sitios web, debes aprender varias habilidades y tecnologías en el campo del desarrollo web. El desarrollo web se divide generalmente en dos áreas: desarrollo front-end (la parte visible y con la que interactúa el usuario) y desarrollo back-end (la lógica detrás de la aplicación y la gestión de bases de datos).
+
+Aquí hay una lista de habilidades y tecnologías que te pueden interesar para aprender desarrollo web:
+
+1/ Front-end:
+
+a. HTML: Lenguaje de marcado para estructurar el contenido de una página web.
+
+b. CSS: Lenguaje de hojas de estilo para aplicar estilos y diseñar el aspecto de una página web.
+
+c. JavaScript: Lenguaje de programación para añadir interactividad y funcionalidades a las páginas web.
+
+d. Frameworks y bibliotecas de JavaScript, como React, Angular o Vue, para facilitar el desarrollo de aplicaciones web complejas.
+
+e. Control de versiones con Git, para llevar un registro de cambios en el código y colaborar con otros desarrolladores.
+
+f. Herramientas de diseño y prototipado, como Figma, Sketch o Adobe XD, para crear mockups y diseños de aplicaciones web.
+
+2/ Back-end:
+
+a. Lenguajes de programación para el lado del servidor, como Python, Ruby, PHP, Java, Node.js (JavaScript), C# o Go.
+
+b. Frameworks de desarrollo web para el back-end, como Django (Python), Ruby on Rails (Ruby), Laravel (PHP), Express (Node.js) o ASP.NET (C#).
+
+c. Bases de datos y lenguajes de consulta, como SQL (MySQL, PostgreSQL, Microsoft SQL Server) o NoSQL (MongoDB, Cassandra, Couchbase).
+
+d. Sistemas de gestión de bases de datos y administración de servidores.
+
+e. Conocimientos de API (Application Programming Interface) y servicios web, como REST y GraphQL.
+
+f. Autenticación y autorización de usuarios, como OAuth y JSON Web Tokens (JWT).
+
+3/ Conceptos y habilidades adicionales:
+
+a. Desarrollo responsive para adaptar tus sitios web a diferentes dispositivos y tamaños de pantalla.
+
+b. Accesibilidad y buenas prácticas de diseño web para garantizar que tus aplicaciones sean fáciles de usar para todos.
+
+c. Conocimientos básicos de SEO (Search Engine Optimization) para mejorar la visibilidad de tus sitios web en los motores de búsqueda.
+
+d. Despliegue y alojamiento de aplicaciones web en plataformas como AWS, Google Cloud, Heroku o Netlify.
+
+e. Pruebas y depuración de código, tanto en el front-end como en el back-end.
+
+Te recomendaría comenzar con el desarrollo front-end, ya que es más fácil de aprender y te proporciona una base sólida en la creación de aplicaciones web. A medida que te sientas más cómodo con el front-end, puedes empezar a aprender el back-end y otros conceptos relacionados.
+
+Hay muchas plataformas en línea y recursos gratuitos para aprender desarrollo web, como:
+
+1 MDN Web Docs (https://developer.mozilla.org)
+2 freeCodeCamp (https://www.freecodecamp.org/)
+3 W3Schools (https://www.w3schools.com/)
+4 Codecademy (https://www.codecademy.com/)
+5 Coursera (https://www
+
+[user] ¿Entonces los programadores front-end no programan ninguna lógica?","Los programadores front-end se encargan de desarrollar, crear y dar vida a lo que veremos en la parte cliente de una web o una app.
+
+Para ello, utilizan lenguajes de programación como HTML, CSS y JavaScript, que les permiten maquetar el contenido,
+aplicarle estilos, formatos y animaciones, y también implementar la interacción con el usuario y la comunicación con el servidor.
+
+Por lo tanto, los programadores front-end sí programan lógica, aunque quizás no tan compleja como la de los
+programadores back-end, que se ocupan de la parte del servidor.",,,,
+fab-500x-20261114T224408Z-026,33,ee04c44996cdf703898fd30d,ae3118e4c3c69c517acc35016d9040a6,fab-500x,es,writing,aya-dataset,human_authored,"[user] Resume por favor el siguiente artículo:  (CNN) -- Cerca de un millón de carritos han sido retirados por su fabricante después de informes de al menos 12 bebés o niños pequeños tuvieron sus dedos amputados después de que fueron atrapados en las bisagras. La compañía británica Maclaren dijo que el retiro del mercado se refiere a modelos de fabricación china en venta en los Estados Unidos que se abren con un mecanismo de ""paraguas"". La Comisión de Seguridad de Productos del Consumidor de EE.UU. dijo que los clientes deben dejar de usar los carritos inmediatamente. Maclaren dijo que estaba emitiendo un kit de reparación gratuito para hacer que las bisagras sean seguras. 
+
+La CPSC dijo que la advertencia se refería a modelos que datan de 1999 vendidos en tiendas como Target y Babies R Us. El mecanismo ""plantea un riesgo de amputación y laceración de la punta del dedo para el niño cuando el consumidor se está desplegando"", dijo la CPSC en un comunicado emitido conjuntamente con Maclaren. Maclaren dijo que sus modelos Volo, Triumph, Quest Sport, Quest Mod, Techno XT, Techno XLR, Twin Triumph, Twin Techno y Easy Traveller, que se venden entre $ 100 y $ 400, se vieron afectados. El fabricante dijo que sus cochecitos cumplían con los estándares de seguridad requeridos, pero el retiro del mercado se estaba aplicando voluntariamente para ""alertar al operador al abrir o cerrar el cochecito del posible riesgo de lesiones"". 
+
+En una declaración separada, el brazo europeo de Maclaren dijo que no se emitía ningún retiro en la Unión Europea, donde se habían reportado menos lesiones, a pesar de las mayores ventas. ""Queremos tranquilizar a nuestros clientes que deben seguir usando sus buggies Maclaren existentes ya que son seguros cuando se abren y cierran correctamente"", dijo. ""Nuestro consejo es que los consumidores deben tener el mismo nivel de precaución y cuidado que al abrir o cerrar una puerta de automóvil o cualquier otra parte móvil que se puede encontrar en muchos otros productos para bebés y niños pequeños. ""Hay un número menor de incidentes similares reportados entre el número considerablemente mayor de buggies Maclaren vendidos en Europa. Si un buggy está plegado o desplegado de acuerdo con nuestras instrucciones de operación, el riesgo de lesiones es inexistente"".
+
+Los consumidores estadounidenses pueden comunicarse con Maclaren al 877-688-2326 o visitar www.maclaren.us/recal. Com",Maclaren admite que algunos de sus carritos ponen a niños pequeños en riesgo de sufrir amputaciones en sus dedos y los retira del mercado. El retiro afecta a casi un millón de cochecitos vendidos en los Estados Unidos. El fabricante también ha puesto a disposición de los compradores un kit para hacer seguras las bisagras.,,,,
+fab-500x-20261114T224408Z-026,34,7484bafe7b1863c02b836138,d28e0262c68909152c41bc3484ab85f3,fab-500x,eu,general_knowledge,oasst2,human_authored,[user] Nor izan zen Estatu Batuetako lehen presidentea?,"Estatu Batuetako presidentea George Washington izan zen.
+
+George Washington (1732ko otsailaren 22a – 1799ko abenduaren 14a) Ameriketako Estatu Batuetako armadako buruzagia izan zen Independentzia Gerran (1775-1783) eta, Britainia Handiari gailendu ostean, Estatu Batuetako (AEBetako) lehen presidentea izan zen zortzi urtez (1789-1797).",,,,
+fab-500x-20261114T224408Z-026,35,bc7271bc4e3993322618c2b4,6f7317d2b5cff79c14e5ee5da58962f7,fab-500x,eus,general_knowledge,aya-dataset,human_authored,[user] Zein da euskal literaturaren lanik garrantzitsuena eta nork idatzi zuen?,"Euskal literaturaren lanik garrantzitsuena ""Lazarillo de Tormes""-en euskal itzulpena da, Joanes Leizarraga egin zuena. Hainbat ikuspegi desberdinetatik aztertzen da eta euskal literaturaren historia markatu du.",,,,
+fab-500x-20261114T224408Z-026,36,2d67f26600d0296a66ef0912,1b6f1fd3f1ac781f252d5637487992df,fab-500x,eus,science,aya-dataset,human_authored,"[user] Laburbildu artikulua: (CNN) -- Hego Carolinan 20 eta 24 oineko hego zabalera duen hegazti bat identifikatu zen. Frogak daude dinosauroak gaur egun Alaskako parke nazionala den horretan ibili zirela, eta 9 oineko estegomastodonte bat aurkitu zuten Mexiko Berrian. Eta uda honetan Estatu Batuetan zehar egindako fosilen aurkikuntzak besterik ez dira. Historiaurreko izaki bikainek liluratzen bazaituzte, esplorazio gehiago dago egiteko. Ez dago Jurassic Parkeko eraso batez kezkatu beharrik. Zortzi &quot;fosil-aurkikuntza&quot; hauek familia-laguntzen dituzten eta T.-Rex-ik gabeko modu paregabeak eskaintzen dituzte adin guztietako paleontologoek historiaurreko bizitza arakatzeko. Beraz, bildu zure familia eta hasi planetako aurreko biztanle liluragarrienetako batzuk deskubritzen. Denali Parke Nazionala, Alaska. Hilabete honetan bertan, Alaskako Denali Parke Nazionalean landareak jaten dituzten dinosauro-talde handien arrastoak aurkitu zirenez, zientzialariek historiaurreko Artikoko faunaren argazki berri bat lortu zuten. Arrastoak 5 eta 24 hazbete artekoak ziren eta hadrosauroetatik zetozen -- landare-jaleak eta ahate moko dinosauroak. Hadrosauroak duela ia 70 milioi urte Kretazeo amaieran nagusitu ziren, eta aztarna berriak Alaskako dinosauroen historia aberatsari baino ez zaizkio gehitzen. &quot;2005ean aurkitu genituen lehen dinosauroen arrastoak, eta orain zer bilatu behar dugun dakigunez, milaka arrasto aurkitu ditugu&quot;, esan du Kris Fister Denali parkeko zaindariak. &quot;Hemen, pista hauek bakarrak dira, ekosistema osoaren aztarnak biltzen dituelako&quot;, esan zuen. &quot;Hegaztiak, intsektuak eta landare-bizitza -- benetan inguruko bizitzaren irudia margotzen du&quot;. Ibilbideak ez dira ibilaldi gidatuen edo asfaltatutako bideen bidez iristen, baina esperientziadun mendizaleek Denaliren atzeko herrialdean kokatuta aurki ditzakete, Fisterrek esan zuen. Agate Fossil Beds Monumentu Nazionala, Nebraska. Zer da zehazki beardog bat? Eman bira bat Nebraskako Agate Fossil Beds Monumentu Nazionaletik, non duela 20 milioi urte gaur egun Agate bezala ezagutzen den lurra Afrikako Serengetiren pareko lautada belartsua zen. Agate-n, ibiltariko animaliak antzina izan ziren beardog (Amphicyon), 6 oineko luzera duen ehiza-izaki bat, benetan...","Hego Carolinako hegazti handi baten fosilak identifikatu dira, zeinek 20 eta 24 oineko hego zabalera izan zuen. Honez gain, dinosauroen aztarnak aurkitu dituzte Alaskako Denali Parke Nazionala inguruan, baita 9 oineko estegomastodonte bat Mexiko Berrian. Zientzialariek azken hamarkadan historiaurreko izakien arrastoak aurkitu dituzte Estatu Batuetako hainbat tokitan, eta horietako batzuk publikorako ikustekoak dira. Denali Parke Nazionalan, 5 eta 24 hazbeteko hadrosauroen aztarnak topatu dira. Alaskako zientzialariek dinosauro talde hauetako arrastoak azken urteetan ugari aurkitu dituzte. Nebraskako Agate Fossil Beds Monumentu Nazionalan, duela 20 milioi urte beardog izeneko ehiza-izakiaren aztarnak aurkitu dira. Artikuluak gonbidapena egiten du familia osoek historiaurreko bizitza arakatzeko tokietara joateko.",,,,
+fab-500x-20261114T224408Z-026,37,4ccad08dc663b2818f40187f,f7fdd68024404d9f21b8bb8de701078d,fab-500x,fa,general_knowledge,aya-dataset,human_authored,"[user] با توجه به متن به سؤال پرسیده شده پاسخ بده.
+متن: ««ولودیمیر زلنسکی» رییس جمهور اوکراین در گفت‌وگویی با خبرنگاران کشورهای آفریقایی گفت که تانک‌های «M1A1 Abrams» که به عنوان تانک‌های اصلی جنگ از سوی آمریکا به اوکراین عرضه شده بود، تغییر چندانی در وضعیت میدان ایجاد نکردند.
+زلنسکی توضیح داد که ۳۱ فروند تانکی که تا اواسط اکتبر به طور کامل از سوی آمریکا به اوکراین تحویل داده شد، بسیار اندک است. او در عین تمجید از کیفیت تسلیحات آمریکایی گفت «تا اینجای کار، نمی‌توانم بگویم که آن‌ها نقش مهمی در میدان جنگ ایفا می‌کنند. تعدادشان بسیار کم است.»»
+سؤال: «چند فروند تانک از طرف آمریکا در اختیار اوکراین قرار گرفته است؟»",با توجه به متن تا اواسط اکتبر ۳۱ فروند تانک  به طور کامل از سوی آمریکا به اوکراین تحویل داده شده است.,,,,
+fab-500x-20261114T224408Z-026,38,62a95392e2ca946cdc69c198,fff4e30dd0c3d98e8a9c6484afb009ab,fab-500x,fa,islamic_studies,aya-dataset,human_authored,"[user] این متن درباره چه موضوع مهمی صحبت میکند: ""پس از انقلاب، در ۱۲ فروردین همه‌پرسی نظام جمهوری اسلامی در ایران برای تعیین نوع حکومت برگزار گردید. این رفراندم اولین مورد رویارویی بین خمینی و سایر نیروهای انقلابی بود. چهره‌های لیبرال‌تر روحانیون مانند طالقانی و شریعتمداری به همراه گروه‌هایی مانند جبهه ملی و بازرگان موافق وجود چندین گزینه انتخابی برای رفراندم بودند. اما سرانجام به فرمان خمینی، مردم تنها می‌توانستند بین گزینه جمهوری اسلامی در مقابل نظام سلطنتی انتخاب کنند.""",همه‌پرسی نظام جمهوری اسلامی در ایران,,,,
+fab-500x-20261114T224408Z-026,39,3ebe6b48edfb443e96ee1f47,c629e554b7730939537f4beaf954145b,fab-500x,fa,mathematics,aya-dataset,human_authored,[user] یک نامه رسمی برای درخواست مرخصی ۳ روزه برای تولد فرزندم برایم بنویس. تاریخ شروع مرخصی ۲۹ آبان ۱۴۰۲ باشد.,"باعرض سلام و احترام محضر مدیریت محترم ………. جناب آقای / سرکار خانم ……….
+
+اینجانب (نام خودتان) به دلیل تولد فرزندم، درخواست استفاده از مرخصی تولد فرزند به مدت 3 روز از تاریخ ۱۴۰۲/۸/۲۹ را دارم. لذا از جنابعالی خواهشمندم در صورت صلاحدید باتوجه به ضرورت موضوع با تقاضای بنده موافقت نموده و دستورات لازم را در این خصوص را صادر فرمایید.
+با تشکر از مرحمت و لطف همیشگی شما.",,,,
+fab-500x-20261114T224408Z-026,40,0b31fb6e5fede5a339eb1d71,31656974984d1e2237f0a03cfd647f5a,fab-500x,fa,pakistan,aya-dataset,human_authored,"[user] جمله زیر را کامل کن
+
+سهراب به فرهنگ مشرق‌زمین علاقه خاصی داشت و سفرهایی به",هندوستان، پاکستان، افغانستان، ژاپن و چین داشت. مدتی در ژاپن زندگی کرد و هنر «حکاکی روی چوب» را در آنجا فراگرفت. همچنین به شعر کهن سایر زبان‌ها نیز علاقه داشت؛ از این رو ترجمه‌هایی از شعرهای کهن چینی و ژاپنی انجام داد.,,,,
+fab-500x-20261114T224408Z-026,41,fe8ff4e82e471b8886e512c0,9b047dece5bb527a1d27a1f6414eeb51,fab-500x,fi,general_knowledge,oasst2,human_authored,"[user] Mikä on pisin pala eurooppatietä Suomessa?
+
+[assistant] Pisin pala eurooppatietä Suomessa kulkee Nelostietä (E75) pitkin. Tien pituus on 1 295 kilometriä.
+
+[user] Minkä paikkojen välillä kyseinen pätkä eurooppatietä kulkee?","Valtatie 4 (E75) alkaa etelässä Helsingin keskustasta ja loppuu pohjoisessa Utsjoelle Norjan vastaiselle raja-asemalle.
+
+Tie kulkee seuraavien kaupunkien ja kuntien kautta: 
+Helsinki – Vantaa – Sipoo – Kerava – Tuusula – Järvenpää – Mäntsälä – Orimattila – Hollola – Lahti – Heinola – Sysmä – Hartola – Joutsa – Toivakka – Jyväskylä – Laukaa – Uurainen – Äänekoski – Viitasaari – Pihtipudas – Pyhäjärvi – Kärsämäki – Siikalatva – Liminka – Tyrnävä – Kempele – Oulu – Ii – Simo – Kemi – Keminmaa – Tervola – Rovaniemi – Sodankylä – Inari – Utsjoki.",,,,
+fab-500x-20261114T224408Z-026,42,39bead4d10e6588fe8b8136f,01a1276ca947663807e6c08686bc2818,fab-500x,fi,research,tydiqa-goldp,human_authored,"[user] Kreikan sotilasjuntta oli Kreikkaa vuosina 1967–1974 hallinnut oikeistolainen sotilashallitus. Upseeriryhmä teki maassa huhtikuussa 1967 vallankaappauksen, koska maan sisäpolitiikka oli mennyt sekaisin ja pelättiin Turkin hyökkäystä. Juntta kaatui vuonna 1974 sen epäonnistuttua estämään Turkin valtauksen Pohjois-Kyproksella. Sotilasjunttaa nimitetään  Kreikassa yksinkertaisemmin ”Juntaksi” (), ”Everstien valtakaudeksi” () tai ”Seitsemäksi vuodeksi” ().
+
+Milloin Kreikan sotilasdiktatuuri syrjäytettiin vallasta?","1974
+
+Kreikan sotilasjuntta oli Kreikkaa vuosina 1967–1974 hallinnut oikeistolainen sotilashallitus.",,,,
+fab-500x-20261114T224408Z-026,43,78a141595ad0a6b7f53de51e,c2c36c700f504f361a3e9008c8f91782,fab-500x,fin,general_knowledge,aya-dataset,human_authored,[user] Mikä on papilloomavirusinfektio?,"Papilloomaviruksia (HPV eli human papilloma virus) tunnetaan noin 100. 
+
+Valtaosa papilloomaviruksista aiheuttaa infektioita iholla. Vajaa puolet viruksista on sellaisia, joita voi esiintyä myös sukuelinten alueella.
+
+Osa sukuelinten papilloomavirusinfektioista etenee kohdunkaulan, ulkosynnyttimien, emättimen, siittimen tai peräaukon syöviksi. Myös osa pään ja kaulan syövistä johtuu papilloomavirusinfektioista.
+
+Tärkeimpiä syöpää aiheuttavia tyyppejä ovat HPV16 ja 18. HPV-tyypit 6 ja 11 aiheuttavat myös sukuelinten syylämäisiä kondyloomia.",,,,
+fab-500x-20261114T224408Z-026,44,3982bc15bc3df24366685684,ac24ac99efb8c6afa0dc0263680bb41b,fab-500x,fin,mathematics,aya-dataset,human_authored,[user] Miten pilvien määrää voidaan mitata automaattisesti?,"Pilvien määrää voidaan mitata ceilometriksi kutsutulla laitteella. Automaattinen mittaus perustuu maanpinnasta lähetetyn sähkömagneettisen pulssin siroamiseen pilvestä takaisin sääasemalla olevaan mittariin. Kiinteästi pystysuoraan osoittava mittari laskee pilviosumia edellisen puolen tunnin ajalta. Havaittu pilvisyyden määrä ilmoitetaan kahdeksasosina taivaankannesta.
+
+Täysin pilvistä kuvaava koodi 8/8 tulee tulokseksi vasta kun taivas on aivan kokonaan pilvien peitossa. Meteorologisen sopimuksen mukaan laite ilmoittaa pilven määräksi 7/8 vaikka pilvikatossa olisi vain yksittäinenkin reikä. Ceilometri antaa tuloksen 7/8 myös mikäli taivaan peittävässä pilvikatossa on mitattu vain heikkoja pilviosumia viimeisen 15 minuutin aikana. Vastaavasti pilven määräksi ilmoitetaan 1/8, vaikka taivaalta olisi saatu vain yksittäisiä pilviosumia viimeisen 30 minuutin aikana.
+
+Ihmiset katsovat pilviä yleensä hiukan eri tavoin kuin automaatti. Pilvenkorkeusmittareiden mittausetäisyys ulottuu tyypillisesti 7,5 km:n korkeuteen maanpinnasta. Eroja silmin näkyvään pilven määrään voi aiheutua jos pilvet sijaitsevat mittarin mittausetäisyyden ulottumattomissa tai ovat liian ohuita aiheuttaakseen mitattavissa olevaa takaisinsirontaa. Esimerkiksi ohuiden yläpilvien kohdalla ihmissilmä on usein automaattia herkempi.",,,,
+fab-500x-20261114T224408Z-026,45,716991f509335f46c6785d9f,633137892e17841cf9a2d9d2c4c8acc7,fab-500x,fr,coding,wikipedia-fr,templated_human,[user] Présente brièvement : JFace.,"JFace est une bibliothèque graphique libre Java pour le projet Eclipse qui s'appuie sur la bibliothèque SWT pour fournir des interfaces utilitaires plus structurées.
+
+C'est une boîte à outils dans laquelle on retrouve notamment :
+
+des vues fournissant les abstractions des widgets SWT (listes, tables, arborescences, etc.) ;
+
+la définition de comportements au travers des actions ;
+
+le support de ressources (images, polices de caractères, couleurs) ;
+
+des outils pour créer des assistants pour gérer les préférences.
+
+Remarque : JFace ne cache pas complètement SWT dans le sens où l'on peut toujours avoir recours aux widgets SWT au besoin.
+
+Eclipse, qui utilise JFace pour son interface graphique.",,,,
+fab-500x-20261114T224408Z-026,46,44bb5571b221d2a48801c58d,ecb1239d351b75efa1b36f9f11965df3,fab-500x,fr,cybersecurity,oasst2,human_authored,"[user] J’ai demandé à votre collègue que faire pour améliorer la performance de mon navigateur web, et il m’a répondu de fermer ma gueule.","Il ne s'agit pas d'une bonne réponse. Il est important de maintenir les bonnes manières et le respect mutuel lorsque vous interagissez avec un collègue. Pour améliorer la performance de votre navigateur web, vous pouvez essayer de vider le cache et de supprimer les cookies, désactiver les extensions et plugins inutiles, mettre à jour le navigateur et le système d'exploitation, et augmenter la mémoire disponible.",,,,
+fab-500x-20261114T224408Z-026,47,69e6e0fd8f334a69e0461e93,34ccef56028cf534b0030a8617ad147f,fab-500x,fr,education,wikipedia-fr,templated_human,[user] Présente brièvement : Keith Reddin.,"Keith Reddin est un acteur, scénariste et producteur américain né le  au New Jersey (États-Unis).
+
+1982 : Dément (Alone in the Dark) : Billy
+
+1987 : Five Corners : Neighborhood Person
+
+1988 : Izzy et Sam (Crossing Delancey) : Celebrity Party Guest
+
+1989 : Signs of Life de John David Coles : Dr. Pound
+
+1990 : Le Mystère von Bülow (Reversal of Fortune) : Dobbs, Dershowitz's Student Staff
+
+1992 : L'Huile de Lorenzo (Lorenzo's Oil) : Murphy Family Played
+
+1995 : Extravagances (To Wong Foo Thanks for Everything, Julie Newmar) : Motel manager
+
+2001 : Attraction animale (Someone Like You...) : Male Scientist
+
+2002-2003 : New York, unité spéciale  (saison 4, épisodes 5 et 17) : technicien de laboratoire
+
+2006 : The Night Listener : Male Friend #2",,,,
+fab-500x-20261114T224408Z-026,48,55c8235d211e174612a97b0e,80bdfbf6b38d93cec81b63033d5cbf19,fab-500x,fr,general_knowledge,aya-dataset,human_authored,[user] Qui était l'artiste Liu Xiaodong ?,"Liu Xiaodong, peintre contemporain, est connu pour ses représentations réalistes et empathiques des gens ordinaires et des problèmes sociaux en Chine. Ses séries « Hotbed » et « Les Trois Gorges : des personnes disparues » capturent des moments de vulnérabilité et de transformation humaine dans un contexte d'urbanisation rapide.",,,,
+fab-500x-20261114T224408Z-026,49,6c7b7767903c0c1e925c953a,a2e353ccf8d635624abbe5980c7130ad,fab-500x,fr,islamic_studies,wikipedia-fr,templated_human,[user] Présente brièvement : Il était une fois dans l'Oued.,"Il était une fois dans l'Oued est un film français réalisé par Djamel Bensalah, sorti en 2005.
+
+Le film, dont le titre est une référence évidente au film Il était une fois dans l'Ouest de Sergio Leone, raconte l'histoire d'un jeune Français qui vit avec des beurs et est convaincu de son origine maghrébine et qui profite du mariage d'un copain pour partir s'installer en Algérie.
+
+En 1988, Johnny Leclerc, issu d'une mère normande et d'un père alsacien, vit dans une cité de banlieue en compagnie de ses amis, beurs pour la plupart. Il se comporte comme un musulman, fait le ramadan et porte une djelaba. Il est même persuadé de s'appeler Abdelbachir et d'être né dans un petit village du . Quand son ami Yacine a quelques ennuis avec un caïd local et décide de retourner pour les vacances en Algérie, il s'embarque clandestinement dans les bagages de la famille Sabri pour exaucer son rêve et connaître enfin ses « racines ». À peine arrivé sur la côte algérienne, Johnny se sent comme chez lui. Mais Yacine, lui, s'oppose à son père, qui veut lui arranger son mariage.
+
+Il était une fois dans l'Oued obtient  en France et  en Belgique. Il récolte au total , pour une rentabilité de 114 %.
+
+Le film s'ouvre avec le jingle de Youyou Sound System, parodie de THX sound system.
+
+Une affiche de François Valéry en concert est visible dans la poursuite en centre-ville qui ouvre le film.",,,,
+fab-500x-20261114T224408Z-026,50,e5cd9430b2f554d2129dd523,c9bd3c67578f301b16200daeca8e091c,fab-500x,fr,mathematics,aya-dataset,human_authored,[user] Peux-tu me donner une recette pour la bûche au marrons et chocolat pour Noël ?,"D'accord, voila la recette:
+
+Ingrédients
+1 kg de marrons ;
+2 grosses cuillerées à soupe de sucre en poudre de sucre ;
+3/4 de litre de lait ;
+1 paquet de sucre vanillé;
+1 pincée de sel;
+100 g de beurre;
+250 g de chocolat
+un peu de Kirsch
+
+Préparation
+- Éplucher les marrons, y compris la fine écorce au contact de la chair du marron.
+- Les faire cuire dans le lait additionné du sucre, du sel et du sucre vanillé, durant 30 min. La majeure partie du lait est alors incorporée dans les marrons.
+- Passer les marrons au moulin à légumes et ajouté le lait qui n'a pas été incorporé.
+- Ajouter le beurre dans les marrons encore chauds.
+- Faire fondre le chocolat et l'incorporer dans l'appareil.
+- Ajouter le Kirsch.
+- Rouler grossièrement cette pâte en forme de bûche.
+- Laisser reposer durant 48 à 72 heures au frais, emballé (film étirable ou aluminium) pour éviter le desséchement.
+
+Présentation
+Avant de servir, reformer la bûche et améliorer sa présentation: stries avec une fourchette pour simuler l'écorce, blanc d'œuf monté en neige pour simuler la neige, cerneau de noix pour simuler un nœud ...
+
+Cette bûche peut se servir seule, avec une crème anglaise, ou avec de la glace à la vanille.",,,,
+fab-500x-20261114T224408Z-026,51,7c9be2fed5624e4b13ec348e,f2fde694f0c8b19b6b4d2fe37c97444a,fab-500x,fr,problem_solving,wikipedia-fr,templated_human,[user] Présente brièvement : Enseignement supérieur en Tunisie.,"L'enseignement supérieur en Tunisie permet l'éducation supérieure de plus de  étudiants tunisiens durant l'année 2008-2009. Ceux-ci fréquentent treize universités et 193 établissements supérieurs publics, ainsi que 25 établissements supérieurs privés.
+
+Le budget du secteur représente 6,53 % du budget total de l'État en 2009.
+
+L'accès à l'enseignement supérieur public en Tunisie est conditionné par la réussite au concours du baccalauréat et le passage par une session d'orientation universitaire qui permet aux nouveaux étudiants de choisir la filière et l'établissement de leur choix.
+
+Les sessions d'orientation s'effectuent par ordre de mérite dans lequel les candidats sont classés selon un score calculé sur la base de la moyenne générale, de la proximité de la filière par rapport au logement du candidat et de la note d'une matière importante dans une filière donnée (sciences naturelles pour la médecine par exemple). Il existe quatre sessions d'orientation avec une session de réorientation.
+
+Session des lauréats pour les filières prépas et HEC en France, étude d'ingénierie en Allemagne et prépa IPEST à La Marsa
+
+d'orientation : 30 % parmi les meilleurs candidats ;
+
+d'orientation : 50 % des candidats suivants ;
+
+Session de réorientation : ceux qui n'ont pas eu d'orientation universitaire ou veulent changer de filière ou d'établissement.",,,,
+fab-500x-20261114T224408Z-026,52,7e1466e73d4a61afb144761f,f1a6f1659d0ac18ad6635fdfc59a3ff4,fab-500x,fr,reasoning,wikipedia-fr,templated_human,[user] Présente brièvement : U2.Communication.,"U2.Communication est un album live du groupe de rock irlandais U2. Il reprend des titres enregistrés pendant 4 dates de leur tournée Vertigo Tour de 2005, à Chicago et Milan.
+
+Cet album (qui comporte un second CD-ROM contenant des fonds d'écran, écrans de veille, etc. de la tournée Vertigo Tour ainsi qu'un logiciel de lecture audio interactif et une vidéo exclusive du concert de Milan) est distribué uniquement aux membres du fan club officiel du site U2.com.",,,,
+fab-500x-20261114T224408Z-026,53,5aaf8863fcbf54587a8b66bd,93eb102530265b0c871c659cce3adfee,fab-500x,fr,research,oasst1,human_authored,"[user] Quelles seraient les alternatives aux applications Google (Google message, Gboard, Chrome etc...) que tu me conseil d'installer sur mon appareil android en 2023 ?","Si vous souhaitez vous passer des services Google sur Android, le mieux pour commencer est d'utiliser un app store alternatif.
+Voici quelques options :
+- F-Droid : un app store libre et open source, recommandé si vous souhaitez vous passer entièrement de Google, ou d'autres entreprises.
+- Aurora Store : un client open source qui permet d'installer les app du Google Play Store sans compte Google.
+- Amazon App Store : un app store alternatif, gérer par Amazon.
+
+Je conseillerais d'installer F-Droid depuis leur site web, puis d'installer Aurora Store avec F-Droid.
+
+Supposons que vous choisissez d'utiliser F-Droid. Vous avez à votre disposition la suite Simple Mobile Tools :
+- Simple Keyboard, pour remplacer GBoard
+- Simple SMS Messenger, pour remplacer Google Message
+- Simple Dialer, pour remplacer Téléphone de Google
+- Simple Calendar Pro, pour remplacer Google Calendar
+
+Concernant les alternatives à Google Chrome, voici quelques options :
+- Brave Browser : une alternative populaire à Chrome, similaire a ce dernier en apparence.
+- Firefox : un navigateur libre et open source, qui permet d'installer des extensions.
+- Opera Mini : un navigateur optimisé pour smartphone, avec un mode pour économiser de la bande passante.
+
+Je conseillerais d'utiliser Brave Browser ou Firefox, qui sont libres et open source, et qui protège votre vie privée.",,,,
+fab-500x-20261114T224408Z-026,54,3b786acfc7430e202415b9e5,5f04678889048ff58ebdc7832a4dff40,fab-500x,fr,safety_ethics,wikipedia-fr,templated_human,[user] Présente brièvement : Liste des anciennes communes de Seine-et-Marne.,"Depuis la Révolution française, plusieurs communes de Seine-et-Marne ont subi des modifications de périmètre territorial  ou le passage d'un hameau d'une commune à une autre ou bien des changements de nom, que la liste s'attache à présenter.
+
+Alors que les communes d’Ancien Régime sont supprimées par les décrets du 4 août 1789 de l’Assemblée constituante, une nouvelle forme communale émerge en France avec le décret législatif du  concernant la constitution des municipalités. Le Législateur révolutionnaire, dans une logique de rationalisation, souhaite uniformiser les dénominations des plus petites structures d’administration territoriale. C’est sous la Convention, par un décret du , que le terme « commune » est harmonisé à tous les anciens bourgs, villes, paroisses ou communautés.
+
+En 1795, le territoire du département de Seine-et-Marne comportait 572 communes par rapport à son nombre actuel. Celui-ci va diminuer et passait à 556 communes en 1836, puis à 534 communes en 1914 et à 514 communes en 1982. Alors que le département comptait encore 514 communes au , 507 communes forment son territoire depuis le .
+
+Évolution du nombre de communes du département du Seine-et-Marne depuis 1800 (au  janvier de chaque année)",,,,
+fab-500x-20261114T224408Z-026,55,b5606daf72fbdb338d2fd94f,5ddfd137d92ea5632b6ba6645d38e33d,fab-500x,fr,science,wikipedia-fr,templated_human,[user] Présente brièvement : Institut Balseiro.,"LInstituto Balseiro est un centre de recherches public argentin spécialisé en physique nucléaire.
+
+Fondé en 1955 sous le nom d'Institut de physique de Bariloche, il est situé au centre du  qui dépend de la  (CNEA), l'équivalent du CEA français. C'est l'un des trois centres académiques de la CNEA, aux côtés de l', situé à Buenos Aires, et de l', situé à Ezeiza, dans la province de Buenos Aires. En 2009, l'Agence internationale de l'énergie atomique (AIEA) en a fait son  centre de collaboration.
+
+L'Institut Balseiro bénéficie d'un statut un peu particulier, puisque s'il dépend de la CNEA, il est également partie d'une convention avec l'Université nationale de Cuyo, située dans la province de Mendoza. Il a les mêmes libertés et une organisation similaire, mais comme toute unité académique argentine, elle ne peut pas délivrer de diplômes et doit nouer un partenariat avec une université. C'est donc l'Université nationale de Cuyo, pourtant à  au nord, qui délivre ses diplômes.
+
+Il se trouve à 9,5 kilomètres de la ville de San Carlos de Bariloche, Province de Río Negro, dans les Andes patagoniennes, à la frontière avec le Chili. Le campus se trouve à l'intérieur du Centre atomique Bariloche de la CNEA, le CEA argentin.",,,,
+fab-500x-20261114T224408Z-026,56,37e352ccf5cd27a2335764b6,f66926707ee6d570b7ab733386d78d4f,fab-500x,fr,web_frontend,wikipedia-fr,templated_human,[user] Présente brièvement : Grossissement optique.,"Le grossissement optique est une grandeur sans dimension définie comme le rapport entre l’angle  sous lequel est vue l’image formée par le système optique et l’angle  sous lequel est vu l’objet à l'œil nu :
+
+où  et  sont des angles orientés. Si l'image est inversée, le grossissement est négatif.
+
+Pour un système afocal, destiné à l'observation d'objets lointains, le grossissement est égal au grandissement angulaire, et les deux termes sont synonymes. Pour un système non afocal, le grossissement dépend de la distance entre le détecteur et l'objet observé. Le grossissement commercial fixe cette distance au  , par convention . Le grossissement commercial est donc le quotient de ces  par la distance focale de l'instrument exprimée dans la même unité.
+
+La notion de grossissement n'est en revanche pas directement utilisée pour caractériser :
+
+le microscope optique, instrument subjectif , pour lequel on indique la puissance optique, qui est le quotient d'un angle par une longueur ;
+
+l’appareil photographique, instrument objectif , pour lequel on utilise le grandissement transversal et le grandissement linéaire, rapports de longueurs.",,,,
+fab-500x-20261114T224408Z-026,57,f23891c00dc5e387c6eaaee3,8f424f337443e6ca17f1d4501bcd5f65,fab-500x,fr,writing,wikipedia-fr,templated_human,[user] Présente brièvement : Harris Yulin.,"Harris Yulin, est un acteur américain né le  à Los Angeles, en Californie, aux États-Unis.
+
+1973 : Incident at Vichy (TV) : Leduc, A Doctor 1974 : Parker Adderson, Philosopher (TV)
+
+1974 : The Legend of Hillbilly John : Zebulon Yandro 1974 : Le Flic se rebiffe (The Midnight Man) : Casey 1974 : Melvin Purvis G-MAN (TV) : George 'Machine Gun' Kelly 1974 : Watched! 1974 : The Greatest Gift (TV) : Hog Yancy 1974 : The F.B.I. Story: The FBI Versus Alvin Karpis, Public Enemy Number One (TV) : J. Edgar Hoover
+
+1974 : The Missiles of October (TV) : KGB Agent Alexander Fomin
+
+1974 : Kojak (série télévisée) - Saison 1, épisode 14 (Die before they wake) : Bert Podis
+
+1975 : La Petite Maison dans la prairie (série télévisée) : John Stewart
+
+1975 : The Trial of Chaplain Jensen (TV) : Lieutenant Kastner
+
+1975 : La Fugue (Night Moves) : Marty Heller
+
+1975 : The Kansas City Massacre (TV) : John Lazia
+
+1976 : Monsieur Saint-Ives (St. Ives) : Detective Oller
+
+1976 : Victoire à Entebbé (Victory at Entebbe) (TV) : General Dan Shomron
+
+1977 : American Raspberry : Charles Conlin
+
+1977 : Roger & Harry: The Mitera Target (TV) : Arthur Pennington
+
+1977 : Ransom for Alice! (TV) : Isaac Pratt
+
+1978 : The Thirteenth Day: The Story of Esther (TV) : Haman
+
+1978 : How the West Was Won (feuilleton TV) : Deek Peasley (Épisodes 7-10) (non crédité pour l'épisode 6)",,,,
+fab-500x-20261114T224408Z-026,58,360921978aadae1be300630c,36fd94d1b267cdc9dea82c84a4862f40,fab-500x,gle,general_knowledge,aya-dataset,human_authored,[user] Cé hé Sesame Street?,"Clár teilifíse do leanaí de chuid Sesame Workshop a thosaigh i 1969 is ea Sesame Street. Craoladh an clár sna Stáit Aontaithe don chéad uair ar 10 Samhain 1969.
+
+Thosaigh TG4 ag craoladh 'Tar ag Spraoi Sesame"" (Spraoi Liomsa Sesame ar dtús, nó ""Play with me Sesame"" i mBéarla) ar 3 Samhain 2007. Bhí athghuthú Gaeilge déanta ar 78 eipeasóid.",,,,
+fab-500x-20261114T224408Z-026,59,97686abda1de2809b05c0777,4ecb618e273e878118483d81d0822ef5,fab-500x,gle,web_frontend,aya-dataset,human_authored,[user] Inis dom faoi Herbert Austin.,"Déantúsóir gluaisteán a rugadh i Little Missenden Shasana ab ea Herbert Austin (8 Samhain 1866 – 23 Bealtaine 1941).
+
+Sa bhliain 1887 thug sé aghaidh ar an Astráil mar a ndeachaigh sé leis an innealtóireacht, ag cur feabhais ar bhearrthóirí caorach sa chuid ba mhó. B'ann freisin a casadh an bhean air a phós sé. Tháirg sé a chéad ghluaisteán, an Wolseley, sa bhliain 1895, agus d'oscail a mhonarcha, Austin Motor Co., i mBirmingham i 1905. Bhí sé ina fheisire Coimeádach parlaiminte do thoghcheantar i Birmingham (1918–1924).",,,,
+fab-500x-20261114T224408Z-026,60,54bcc136b2b3cc85a79642dc,9d61b26aaab936d7dceeb77db388f891,fab-500x,gu,general_knowledge,aya-dataset,human_authored,[user] મને નિકોલા ટેસ્લા વિષે જણાવો.,"નિકોલા ટેસ્લા એક સર્બિયન-અમેરિકન શોધક, વિદ્યુત અભિયંતા, યાંત્રિક અભિયંતા અને ભાવિવાદી હતા, કે જે આધુનિક અલ્ટરનૅટિવ કરંટ  વીજળી સિસ્ટમની રચનામાં તેમના યોગદાન માટે જાણીતા છે.
+
+ઑસ્ટ્રિયન સામ્રાજ્યમાં જન્મેલા અને ઉછરેલા ટેસ્લાએ ડિગ્રી પ્રાપ્ત કર્યા વિના ૧૮૭૦ ના દાયકામાં ઇજનેરી અને ભૌતિકશાસ્ત્રનો અભ્યાસ કર્યો અને ૧૮૮૦ ના દાયકાની શરૂઆતમાં ટેલિફોનીમાં અને નવા ઇલેક્ટ્રિક પાવર ઉદ્યોગમાં કોંટિનેંટલ એડિસનમાં કામ કરવાનો વ્યવહારિક અનુભવ મેળવ્યો. તેમણે ૧૮૮૪ માં યુનાઇટેડ સ્ટેટ્સમાં સ્થળાંતર કર્યું, જ્યાંના તે પ્રાકૃતિક નાગરિક બન્યાં. તેમણે ન્યુ યોર્ક સિટીમાં એડિસન મશીન વર્ક્સમાં ટૂંકા ગાળા માટે કામ કર્યું. તેમના વિચારોને નાણાં આપવા અને બજારમાં લાવવા ભાગીદારોની સહાયથી ટેસ્લાએ ન્યુ યોર્કમાં પ્રયોગશાળાઓ અને કંપનીઓ સ્થાપિત કરી.
+
+તેમણે પેટન્ટ અને માર્કેટ કરી શકે તેવી શોધનો વિકાસ કરવાનો પ્રયાસ કર્યો. ટેસ્લાએ મિકેનિકલ ઓસિલેટર / જનરેટર્સ, ઇલેક્ટ્રિકલ ડિસ્ચાર્જ ટ્યુબ્સ અને પ્રારંભિક એક્સ-રે ઇમેજિંગ સાથેના ઘણા પ્રયોગો કર્યા. તેમણે વાયરલેસ નિયંત્રિત હોડી પણ બનાવી હતી, જે પ્રદર્શિત કરવામાં આવેલી પ્રથમ હોડી હતી. ટેસ્લા એક શોધક તરીકે જાણીતા બન્યા હતા અને તેમની પ્રયોગશાળાઓમાં હસ્તીઓ અને શ્રીમંત સમર્થકો માટે તેમની સિદ્ધિઓ દર્શાવતા હતા અને જાહેર પ્રવચનોમાં તેમની પ્રદર્શની માટે જાણીતા હતા. ૧૮૯૦ ના દાયકા દરમિયાન ટેસ્લાએ ન્યુ યોર્ક અને કોલોરાડો સ્પ્રિંગ્સમાં તેના ઉચ્ચ-વોલ્ટેજ, ઉચ્ચ-આવર્તન શક્તિ પ્રયોગોમાં વાયરલેસ લાઇટિંગ અને વિશ્વવ્યાપી વાયરલેસ ઇલેક્ટ્રિક પાવર વિતરણ માટેના તેમના વિચારોને આગળ ધપાવ્યા.
+
+જ્યારે વજન અને માપના પર જનરલ કોન્ફરન્સ થઈ ત્યારે તેમના માનમાં ચુંબકીય પ્રવાહ ઘનતાના એસઆઈ એકમનું નામ ટેસ્લા આપવામાં આવ્યું.",,,,
+fab-500x-20261114T224408Z-026,61,8eada39dc3d8ba2c7c86d3f9,65472bdee314c819493a92c5137440bb,fab-500x,gu,mathematics,aya-dataset,human_authored,[user] આલૂ પુરીની બનાવવા માહિતી આપો.,"આલૂ પુરી ઉત્તર ભારતીય નાસ્તાની ખૂબ જ લોકપ્રિય વાનગી છે. પુરી સાથે આલૂ કી સબજી સામાન્ય રીતે બૂંદી રાયતા અને આમ કા અચર સાથે ખાવામાં આવે છે. જાણો પૂરી બટેટાની કઢી કેવી રીતે બનાવવી.
+
+ઘટકો:
+આલૂ સબજી માટે:
+
+250 ગ્રામ બાફેલા બટેટા
+1 ચમચી તેલ
+1 ચમચી મીઠું
+1/4મી ચમચી હળદર પાવડર
+1/4 ટીસ્પૂન ડેગી મિર્ચ (રંગ માટે)
+1/2 ચમચી ધાણા પાવડર
+1/4 ચમચી ગરમ મસાલો
+1/2 ચમચી લાલ મરચું પાવડર
+1 ટીસ્પૂન જીરું
+1/8મી ચમચી હિંગ
+1/2 ચમચી કસોરી મેથી
+1/2 ટીસ્પૂન બરછટ સોનફ પાવડર
+1 લીલું મરચું લંબાઈની દિશામાં કાપો
+3-4 ટામેટાં ચોખ્ખાં
+1 ચમચી ઝીણી સમારેલી કોથમીર
+પુરી માટે:
+
+2 કપ ઓલ પર્પઝ લોટ (મેડા)
+1/2 ચમચી મીઠું
+1 કપ દહીં
+ડીપ ફ્રાય માટે વનસ્પતિ તેલ
+
+પુરી સાથે આલૂ કી સબજી કેવી રીતે બનાવવી:
+આલૂ કી સબજી માટે
+
+એક પેનમાં તેલ ગરમ કરો. જીરું ઉમેરો અને જ્યારે જીરું ફૂટવા લાગે અને હિંગ, ડેગી મિર્ચ, હળદર, લાલ મરચું પાવડર અને 1 ચમચી પાણી નાખો જેથી લાલ મરચું બળી ન જાય.
+હવે તેમાં પ્યોર કરેલા ટામેટાં ઉમેરો અને તેલ છૂટું ન પડે ત્યાં સુધી થવા દો. પછી તેમાં લીલું મરચું કાપો અને મીઠું, ધાણાજીરું અને ગરમ મસાલો ઉમેરો.
+હવે હાથ વડે મોટા ટુકડા કરી બટાકાનો ભૂકો નાખો. સારી રીતે ભેળવી દો.
+છેલ્લે સોન્ફ પાવડર અને કસૂરી મેથીનો ભૂકો અને 1 કપ પાણી ઉમેરો. ગ્રેવી ઘટ્ટ થાય ત્યાં સુધી થવા દો. સમયાંતરે હલાવતા રહો.
+તેને સર્વિંગ બાઉલમાં ટ્રાન્સફર કરો અને કોથમીરથી ગાર્નિશ કરો.
+પુરી માટે
+
+લોટને મીઠું સાથે મિક્સિંગ બાઉલમાં મૂકો.
+લોટની વચ્ચે એક કૂવો બનાવો અને ધીમે-ધીમે દહીંમાં હલાવો, સારી રીતે મિક્સ કરો જેથી એક કોમળ કણક બને.
+જરૂર પડે તો પાણી ઉમેરો.
+કણકને 7-10 મિનિટ સુધી ભેળવી દો જ્યાં સુધી તે નરમ ન થાય.
+વધુ નરમ થવા માટે તેને 20 મિનિટ માટે છોડી દો.
+આ લોટમાંથી બોલ્સ બનાવો.
+સારી રીતે લોટવાળી સપાટી પરના દરેક ટુકડાને એક મોટા વર્તુળમાં ફેરવો (સામાન્ય રીતે તે સામાન્ય પુરી કરતાં મોટો હશે)
+કઢાઈ અથવા કડાઈમાં તેલ ગરમ કરો.
+પુરીઓને ગરમ તેલમાં એક મિનિટ માટે ડીપ ફ્રાય કરો, બાજુ ફેરવો અને તે ફૂલેલા અને સોનેરી રંગના થાય ત્યાં સુધી ફ્રાય કરો.
+આ પ્રક્રિયાને ત્યાં સુધી પુનરાવર્તિત કરો જ્યાં સુધી બધી પોચી ન બને.",,,,
+fab-500x-20261114T224408Z-026,62,998332ecd37f2949a57cce13,1de220106585d140f3bec243b261e156,fab-500x,hat,general_knowledge,aya-dataset,human_authored,[user] Fason espesyal lang chat la fèt,"Chat moun abitye gen lakay yo gen abitid pase anpil tan ap netwaye kò yo avèk lang yo. Yo ka menm pase yon ka nan jounen yo ap fè sa. Rezon ki fè chat yo kapab byen netwaye kò yo konsa se paske lang yo fèt yon fason ki vrèman espesyal.
+
+Fè yon ti reflechi: Lang chat la kouvri ak 290 ti pikan ki sanble ak plim, ki tankou zo pwason e ki di tankou zong nou. Chak ti pikan sa yo gen yon fòm kivèt, konsa li ka ranmase krache lè chat la rale lang li anndan bouch li. Lè chat la niche plim li, ti pikan sa yo antre byen fon nan plim yo pou yo lage krache a sou po chat la.
+
+Lang yon chat kapab depoze anviwon 1,6 ons krache sou po ak plim chat la chak jou. Krache sa a gen kapasite pou l detwi mikwòb ki ka sou po chat la. Epitou, toutpandan krache a ap seche, li degaje chalè ki sou pò chat la. Sa enpòtan anpil piske chat pa gen anpil glann nan kò yo ki pou pèmèt yo swe.
+
+Si youn nan ti pikan sa yo ta kole nan kèk plim ki mele, ti pikan an antre pi fon nan plim chat la, konsa li jwenn ase fòs pou l demele plim yo. Epitou, lè chat la netwaye kò l, ti pikan sa yo ki sou lang li a ede l ak sikilasyon po l. Syantifik yo imite kèk aspè nan lang chat la pou yo fè yon bwòs tèt. Bwòs sa a pèmèt yon moun bwose tèt li ak mwen fòs pase yon bwòs nòmal e l pi fasil pou netwaye. Epitou, bwòs la demele cheve ki mele yo. Syantifik yo kwè fason lang chat la fèt kapab itil yo pou yo jwenn lòt teknik pou yo kenbe cheve ak plim pwòp. Epitou, sa ka ede yo jwenn pi bon metòd pou yo sèvi ak krèm oswa medikaman sou po ki chaje ak plim.",,,,
+fab-500x-20261114T224408Z-026,63,b893eecee468a94bf8c773ad,a55b9b2a3678a56adbc96f561cb95c8b,fab-500x,hau,general_knowledge,aya-dataset,human_authored,[user] Wasu launi ne a jikin tutar Amurka?,"Launi uku ne a jikin tutar Amurka. Launin sune fari, ja da shuɗi.",,,,
+fab-500x-20261114T224408Z-026,64,b5b0c1b9e2872149aebe8c8c,6d74c8782fadec8ef845a390563fb17c,fab-500x,hau,islamic_studies,aya-dataset,human_authored,"[user] Ƙirƙiri kanun labarai dan wannan labari mai zuwa: Miliyoyin Musulmai na yin ibadar azumin Ramadan a faɗin duniya a yanzu haka. Sai dai wasu masallatai a Birtaniya na hana mata shiga domin yin sallah, yayin da a gefe guda kuma wasu ke cewa lokaci ya yi da za a samu sauyi. Da kyar Almas ke samun lokacin yin ibada. Bazawara ce mai 'ya'ya uku kuma tana karatun digiri a jami'a. Dalilin da ya sa kenan take kallon Ramadan a matsayin wata dama ta musamman. ""Na yi ta hanƙoron fara sallar Tarawihi musamman a ƙarshen mako, lokacin da muke da isasshen lokaci,"" a cewarta. ""Sai dai da na tuntuɓi masallacin unguwarmu sai suka ce 'ban da tsofaffi, ban da yara, ban da mata'."" Ba Almas kaɗai ba, sauran masallatai da yawa a faɗin Birtaniya sun yanke shawarar hana mata shiga a wannan watan. Akasari sukan ce saboda annobar korona. Mata irinsu Almas ba wai sallar Tarawihi kaɗai suke gaza yi ba, wadda nafila ce da ake yi a watan Ramadan, da yawa ba sa iya yin ibadar ma gaba ɗaya a masallatai, ciki har da Juma'a. 'Marasa gata' Yayin da iyalai da dama ke yin sallarsu a gida, da alama ibada a masallatai na ta'allaƙa ne da jinsin mutum, inda mutane da yawa ke ganin cewa hakan yana ba da damar natsuwa wajen gudanar da ibadar ga maza. Wani lokaci mata kan yi sallah a bayan maza a wuri ɗaya. Sai dai akasari akan samar da ɗaki biyu ne na maza daban na mata daban, yayin da maza ke yin sallah a ainahin masallacin su kuma mata a keɓaɓɓen wuri kuma ƙarami. Amma ba duka masallatai ne ke ware wurin mata ba. Fiye da ɗaya cikin huɗu na masallatai a Birtaniya ba su da ɓangaren mata. A wuraren da babu ɓangaren mata, akasari girman wurin yana bambanta. Anita Nayyar, wadda ke fafutikar Open My Mosque don nema wa mata 'yancin addini, ta ce da yawa ana bai wa mata ""kujerar baya"" ne. ta ce ɓangarensu ya yi ƙanƙanta, inda ake ba su wurare kamar gidan ƙasa ko kullellun ɗakuna ko kuma fili fetal. Ita ma annobar korona ta ta'azzara lamarin. ""A lokacin dokar kulle, mun samu rahotanni cewa masallatan da mata ke zuwa sun hana su shiga, ko dai don su bi dokokin bayar da tazara ga maza ko kuma dai ba za su iya tabbatar da dokar ba a ɓangaren matan,"" in ji ta. BBC ta tuntuɓi manyan masallatai guda 29 a Birtaniya domin jin tsare-tsarensu na watan Ramadan. Biyar dagaa ciki ba su da ɓangaren mata, yayin da shida suka ce ba za su iya barin mata ba saboda kariya daga annobar korona. Guda 12 sun bar mata, amma bakwai daga ciki ba su ba mu amsa ba. Daga cikin masallatan akwai Greenwich Islamic Centre da Baitul Futuh na Landan da  Jamia Al-Akbaria da ke Luton Masallacin Lanarkshire da ke Scotland. Masallacin su Almas mai suna  Milton Keynes Islamic Centre bai amsa buƙatar BBC ba da farko, amma daga baya ya ce ya hana mata da yara da tsofaffi shiga yayin wani ""matakin gwaji"". ""Abin haushi shi ne akwai ɓangaren mata da kuma manyan ɗakuna uku a ƙasa,"" Almas ta bayyana. ""Akwai matan da na sani a masallacin waɗanda zawararwa ne da ba sa tare da yaransu da kuma masu fama da lalurar ƙwaƙwalwa. ""Yadda abin ke damuna, ina mamakin yadda zai dami sauran waɗannan matan su ma."" ""Abu ne da za a iya yi"" Julie Siddiqi, wata mata mai fafutikar sama wa mata masallatai a Birtaniya, ta wallafa wani bidiyo a shafinta na Instagram tana kokawa kan yadda masallacin unguwarsu Jamia Masjid and Islamic Centre suka ƙi barin mata shiga a Ramadan ɗin nan. Ɗaruruwan mata a Birtaniya sun tura mata saƙon cewa su ma suna fuskantar irin wannan halin. ""Na fahimci cewa akwai maganar kiwon lafiya,"" in ji ta. ""Amma masallacinmu na da girma sosai. Abu ne mai yiwuwa a masallacin. Magana ta gaskiya wannan abin ya fi ƙarfin korona. Da gangan ne kawai, aƙida ce cewa maza ne za su yanke hukuncin ko mata za su iya zuwa masallaci ko a'a."" Masallacin nata sun faɗa wa BBC cewa sun ɗaukji matakin ne bayan sun tuntuɓi wasu mata 'yan sa-kai ""waɗnda ke da burin haɓaka harkokin mata"". Ya ce ba zai so ya saka masu fafutikar cikin haɗari ba. Masallacin Baitul Futuh da ke Landan ya ce ba ""wajibi ba ne a Musulunci mata su yi sallar jam'i a masallaci, wajibin na maza ne"". Musulunci ya sharɗanta cewa sallar jam'i dole ce maza, amma ba dole ba ce kan mata waɗanda za su iya yin ta a gida. ""Da zarar an cire dokokin kulle mata za su ci gaba da zuwa masallaci don gudanar da ibadu,"" a cewar masallacin cikin wata sanarwa. Sheikh Ibrahim Mogra, wani limami a Leicester, ya ce ""ya kamata a bai wa maza da mata damar shiga masallaci"", yana mai cewa: ""Wasu malaman sun ce zai fi kyau mata su yi sallah a gida fiye da masallaci, saboda haka akwai saɓani."" Wasu masallatan sun sauya shawara. Da farko Masallacin Hounslow Jamia Masjid and Islamic Centre ya tsara maza ne kawai za su yi sallah, amma ya sauya bayan an fara tattauna matsalar rashin zuwan mata masallataia a intanet a farkon Ramadan. Zara Mohammed, shugabar ƙungiyar Musulmai ta Birtaniya, ta ce kiran da suke yi shi ne a bai maza da mata damar amfani da masallaci - ""a watan Ramadan ko kuma wajensa"". ""Dole ne a saka mata cikin shirin tafiyar da masallatai kuma muna ƙarfafa gwiwar ci gaba da tattaunawa mai amfani domin samar wa mata ƙarin damarmaki.""","Tabbas, ga kanun labarai don rubutun da aka bayar - Coronavirus: Me ya sa wasu masallatai ke hana mata ibada a watan Ramadan?",,,,
+fab-500x-20261114T224408Z-026,65,4a5c0629fbbae5a6f2dbbb27,3a04cd086744cb77f4c1ab74dfc825c6,fab-500x,hau,mathematics,aya-dataset,human_authored,[user] Mene ne Hukunci idan Juma’a ta haɗu da ranar idi?,"Amsa: Maluma sun samu tsaɓani game da wanda yayi Sallar idi shin Wajabcin Juma’a zata faɗi a kansa a bisa zantuka biyu shahararru:
+Na farko: Wajabcin Juma’a bata faɗi a kansa ba, Wannan Shine Mazahaba ta Jamhur. Hanafiyya, Shafi’iyya da Malikiyya. Mafi yawancin Malumar Fiqhu suna tafiya kan wannan, kuma shine zaɓi na Ibnul Munzir, da Ibnu Hazm, da Ibnu Abdul Bar.
+Magana ta biyu itace: duk wanda yaje Sallar Idi ranar da Juma’a ta haɗu da idi to wajabcin Juma’a ta faɗi akan sa, duk da cewa Wajibi ne ga limamin gari yayi sallar, domin wa’inda suke so suyi sallar suyi tare dashi. Wannan itace Mazahaba ta Hanabila(Kasshaful Kanna: 2/40,. Almugni: 2/265)",,,,
+fab-500x-20261114T224408Z-026,66,6fcace1c22262c06741a0c08,f8011efe731a744c95fc805e975ec0b9,fab-500x,hau,pakistan,aya-dataset,human_authored,"[user] Shin gaskiya ne cewa: Pakistan tana da iyaka da Kasar Sin ta bangaren arewa. 
+(a) Gaskiya 
+(b) Ƙarya",Amsa: Gaskiya,,,,
+fab-500x-20261114T224408Z-026,67,45d8aa9f37b6b8002ec16c73,b4c1e01686c91abab377a92ac8c7c373,fab-500x,hau,science,aya-dataset,human_authored,[user] Wace kabila ce ta farko a Afirka?,"Kabilar San tana zaune a Kudancin Afirka aƙalla shekaru 30,000 kuma an yi imanin cewa ba wai kawai ƙabilar Afirka mafi tsufa ba ne, amma mai yiwuwa tsohuwar ƙabilar duniya ce. Mutanen San suna da DNA mafi bambance-bambance kuma daban-daban fiye da kowane rukunin 'yan asalin Afirka - ya ruwaito ta slps.org",,,,
+fab-500x-20261114T224408Z-026,68,fa18bd8198fd744aff466357,73b89d9b69399149867a1046266c661f,fab-500x,hi,coding,wikipedia-hi,templated_human,[user] शंट (विद्युत) के बारे में एक संक्षिप्त परिचय लिखिए।,"शन्ट (shunt), विद्युत परिपथ मे लगायी जाने वाली एक युक्ति है जिसके मुख्यतः दो उपयोग हैं- (१) परिपथ की किसी शाखा से होकर जाने वाली धारा को दूसरे मार्ग से भेजना, (२) परिपथ की किसी शाखा में बहने वाली धारा का मापन करना।
+
+किसी गैल्वानोमीटर की क्वायल के समान्तर शन्ट लगाकर उसे अमीटर में बदला जाता है। यदि किसी अमीटर का परास (रेंज) बढ़ाना हो तो उसके क्वायल के समान्तर उचित प्रतिरोध वाला एक शन्ट जोड़ा जाता है। परिपथ की किसी शाखा में बहने वाली धारा मापने के लिए उस शाखा के श्रेणीक्रम (सीरीज) में एक कम प्रतिरोध वाला शन्ट जोड़ा जाता है। धारा बहने से इस प्रतिरोध के दोनों सिरों के बीच उत्पन्न विभवान्तर इस शाखा में बहने वाली विद्युत धारा के समानुपाती होता है। शंट के उपयोग से धारामापी की सुग्राहिता कम हो जाती है।
+
+इन्हें भी देखें  शन्ट वाटर कूल्ड और एयर कूल्ड होता है|अत्याधिक धारा प्रवाह के लिए ज़ेरानिन और  मेग्गानिन मटेरियल का उस करते है जो की तापमान के साथ अपने प्रतिरोध में कोई परिवर्तन नही करता है|
+
+Java applet of using shunts or multipliers in an electric meter",,,,
+fab-500x-20261114T224408Z-026,69,3d31b59635e059236968a8df,caea8aac7dbe0ef110f276b1fa567f90,fab-500x,hi,education,aya-dataset,human_authored,[user] Create a short dialogue between a teacher and a student discussing the importance of education.,एक शिक्षक और एक छात्र के बीच शिक्षा के महत्व पर चर्चा करने वाला एक संक्षेप वार्ता बनाएं।,,,,
+fab-500x-20261114T224408Z-026,70,867070564bdcba9580c2235c,ee6a7aa7f023be4cb2b8d8864136fb25,fab-500x,hi,general_knowledge,wikipedia-hi,templated_human,"[user] ओखलंज, बाराकोट तहसील के बारे में एक संक्षिप्त परिचय लिखिए।","ओखलंज, बाराकोट तहसील में भारत के उत्तराखण्ड राज्य के अन्तर्गत कुमाऊँ मण्डल के चम्पावत जिले का एक गाँव है।
+
+उत्तराखण्ड - भारत सरकार के आधिकारिक पोर्टल पर
+
+उत्तराखण्ड (उत्तराखण्ड के बारे में विस्तृत एवं प्रामाणिक जानकारी)
+
+ओखलंज, बाराकोट तहसील में भारत के उत्तराखण्ड राज्य के अन्तर्गत कुमाऊँ मण्डल के बागेश्वर जिले का एक गाँव है।
+
+उत्तराखण्ड - भारत सरकार के आधिकारिक पोर्टल पर
+
+उत्तराखण्ड (उत्तराखण्ड के बारे में विस्तृत एवं प्रामाणिक जानकारी)",,,,
+fab-500x-20261114T224408Z-026,71,ababc4bff4b351de63f88bb0,2a654750bc692ff8d0ef4016bd95b184,fab-500x,hi,mathematics,wikipedia-hi,templated_human,[user] मुंबई राजधानी एक्सप्रेस के बारे में एक संक्षिप्त परिचय लिखिए।,"12951/12952 मुंबई राजधानी एक्सप्रेस राजधानी वर्ग की एक सुपर फास्ट एक्सप्रेस ट्रेन है, जो भारत में मुंबई और दिल्ली के बीच चलती है। इस ट्रेन की शुरूआत मई 1972 को बंबई सेंट्रल और नई दिल्ली के बीच की गयी थी इसकी लोकप्रियता शुरूआत के समय से ही बड़ गयी थी। आज भी, मई 2012 में इसका आरक्षण चार्ट अपने रवाना होने से केवल 15 मिनट रवाना होने से पहले तैयार किया जाता
+
+है,यह एक दैनिक सेवा है। यह मुंबई सेंट्रल से नई दिल्ली के लिए चलने वाली ट्रेन का नंबर 12951 हैं एवं 12952 इसके विपरीत दिशा का नंबर हैं।
+
+मुंबई राजधानी सामान्यता एक एसी 1 क्लास कोच, पांच एसी 2 टियर श्रेणी के डिब्बे, 10 एसी 3 टियर डिब्बों दो पैंट्री कार, दो सामान सह जनरेटर कोच हैं। एंजिन सहित इसकी डिब्बों की संख्या 21 हैं। [5] अपनी शुरूआती दिनों मे यह 16 डिब्बों के साथ दौड़ती थी। लेकिन 2004 मे, इस ट्रेन के पारंपरिक रेक को लिंके-हॉफ्मन बुश (एलएचबी) कोच द्वारा बदल दिया गया था एवं पश्चिम रेलवे द्वारा इसके डिब्बों की संख्या बढ़ाकर 19 कर दी गयी थी। जून 2012 मे पश्चिम रेलवे द्वारा अधिक यात्रियों को समायोजित करने के लिए इसके डिब्बों की सांखे 21 कर दी गयी।",,,,
+fab-500x-20261114T224408Z-026,72,1e4293a0c7c708b9584d33d2,51917d86124d76ce5c20f75bdb10bc7a,fab-500x,hi,pakistan,wikipedia-hi,templated_human,[user] भारत के राज्य तथा केन्द्र-शासित प्रदेश के बारे में एक संक्षिप्त परिचय लिखिए।,"भारत राज्यों का एक संघ है। इसमें 28 राज्य और 8 केन्द्र शासित प्रदेश हैं। ये राज्य और केन्द्र शासित प्रदेश पुनः जिलों और अन्य क्षेत्रों में बाँटे गये हैं।
+
+Jammu and Kashmir has 42,241 km2 of area administered by India and 78,114 km2 of area controlled by Pakistan under Azad Kashmir and Gilgit-Baltistan, which is claimed by India as part of Jammu and Kashmir. Additionally, it has 5,180 km2 of area controlled by the People's Republic of China under Trans-Karakoram Tract, which is also claimed by India as part of Jammu and Kashmir.
+
+Ladakh has 59,146 km2 of area administered by India and 37,555 km2 of area controlled by the People's Republic of China under Aksai Chin, which is claimed by India as part of Ladakh.",,,,
+fab-500x-20261114T224408Z-026,73,4633affe2e9bc5bee6744487,9271fdfdbdac0599bde14063908f4c77,fab-500x,hi,research,wikipedia-hi,templated_human,[user] विश्व व्यापी वेब संघ के बारे में एक संक्षिप्त परिचय लिखिए।,"विश्व व्यापी वेब संघ या डब्ल्यू.3.सी. (:en:W3C) की स्थापना कॉमन प्रोटोकॉल (Protocol) के विकास द्वारा वेब की संपूर्ण क्षमता के उपयोग की दिशा में अग्रणी करने, इसके विकास को प्रोत्साहित करने एवं अंर्तसंचलनीयता (interoperability) सुनिश्चित करने के लिए की गई। यह एक अंतर्राष्ट्रीय उद्योग संघ है जो अमेरिका (यू॰एस॰ए॰ USA) में MIT Computer Science and Artificial Intelligence Laboratory (MIT CSAIL), फ्रांस में European Research Consortium for Informatics and Mathematics (ERCIM) मुख्यालय एवं जापान में कीओ विश्वविद्यालय(Keio University) के संयुक्त तत्वावधान में कार्य करता है। . संघ द्वारा जो सेवाऍं मुहैया कराई जानी हैं वह विकासकों एवं प्रयोक्ताओं को विश्व व्यापी वेब के बारे में सूचना का संग्रह, नई तकनीकों के उपयोग के प्रदर्शन हेतु आदिप्रयोग (prototype) एवं नमूना अनुप्रयोग (sample applications) प्राप्त कराती है। आजतक करीब 400 संगठन संघ के सदस्य हैं।
+
+विश्व व्यापी वेब संघ द्वारा एक्स.एस.एल.टी. (XSLT) 2.0, एक्सपाथ (XPath) 2.0 एवं एक्सक्वेरी (XQuery) 1.0 के लिए प्रत्याशी संस्तुति जारी",,,,
+fab-500x-20261114T224408Z-026,74,8b0b775e39439ca8585dbc75,a3fb599999d40c870838f152540cc9f7,fab-500x,hi,safety_ethics,wikipedia-hi,templated_human,[user] विकिलीक्स के बारे में एक संक्षिप्त परिचय लिखिए।,"विकिलीक्स (Wikileaks) एक जालस्थल (वेबसाइट) है जो अनाम रूप से प्रदान किये गये संवेदनशील दस्तावेजों को प्रकाशित करती है। ये दस्तावेज किसी सरकार के, कम्पनी के, संस्था के या किसी धार्मिक संगठन के हो सकते हैं। यह दस्तावेज को लीक करके उपलब्ध कराने वाले व्यक्ति या स्रोत का नाम गुप्त रखने की पूरी कोशिश करती है। यह २००६ के दिसम्बर मास में आरम्भ हुई थी। अब तक (नवम्बर, २००९) इसमें लगभग १२ लाख प्रपत्र उपलब्ध हैं
+
+https://web.archive.org/web/[CARD]/http://freewikileaks.com/
+
+क्‍या है विकीलीक्‍स, कौन हैं असांजे और कैसे हुआ खुलासा? (भास्कर)
+
+Wikileaks vs. the World. Presentation by Wikileaks representatives Julian Assange and Daniel Schmitt at the 25th :en:Chaos Communication Congress, Berlin, December 2008. online Flash video and download in higher resolution formats
+
+WikiLeak.org Independent blog ""about the ethical and technical issues of the WikiLeakS.org project""",,,,
+fab-500x-20261114T224408Z-026,75,629d0f3f5cf748d247071678,125f4bf1a211c65153a981e1d889c516,fab-500x,hi,science,wikipedia-hi,templated_human,[user] आइ. यू. पी. ए. सी. नाम के बारे में एक संक्षिप्त परिचय लिखिए।,"आइ. यू. पी. ए. सी. (IUPAC) नामकरण, रसायनों का नाम रखने की प्रणाली है, जिससे साथ ही साथ रसायनशास्त्र की व्याख्या करने में भी मदद मिलती है। यह विशुद्ध एवं अनुप्रयुक्त रसायनशास्त्र के अन्तर्राष्ट्रीय संघ द्वारा विकसित की गयी है, व अद्यतन रखी जाती है। कार्बनिक व अकार्बनिक यौगिकों के नामकरण के नियम दो प्रकाशनों में निहित हैं, जिनके नाम हैं Blue Book तथा Red Book। एक तीसरे प्रकाशन नामतः Green Book में भौतिक राशियों के लिए प्रयुक्त चिह्नों के प्रयोग के लिए अनुशंसाएँ हैं (आइ यू पी ए सी से जुड़ी), जबकि एक चौथे प्रकाशन में जिसका नाम Gold Book है, रसायन से संबंधित पारिभाषिक शब्दों की परिभाषा है। इसी प्रकार के संग्रह जैव-रसायन (IUBMB से संबद्ध), तथा वैश्लेषिक रसायन, तथा बृहदाण्विक-रसायन में भी हैं। इन पुस्तकों में विशेष परिस्थितियों के लिए लघुतर अनुशंसाएँ भी हैं, जो कि समय समय पर Pure and Applied Chemistry पत्र में प्रकाशित होती रहती हैं।",,,,
+fab-500x-20261114T224408Z-026,76,f3903b29ec4c4477f500f324,3d8a629e74d2a54d6462b9450bb6187a,fab-500x,hi,web_frontend,wikipedia-hi,templated_human,[user] जैवएथेनॉल के बारे में एक संक्षिप्त परिचय लिखिए।,"ईंधन के रूप प्रयुक्त एथनॉल भी रासायनिक रूप से एथिल अल्कोहल ही है जो सामान्य तौर के अल्कोहलिक पेयों में पाया जाता है। जैवएथेनॉल, जैविक चीजों से प्राप्त किया जाता है, जैसे गन्ने के रस से। एथेनॉल को पेट्रोल के साथ मिलाकर मोटर वाहनों के ईंधन के रूप में प्रयोग में लाया जाता है। प्राय: ५% से लेकर ८५% तक एथेनॉल मिश्रित किया जाता है।
+
+गन्ने के रस से सीधे बनेगी एथनॉल, सरकार ने दिया आदेश (जुलाई, २०१८)
+
+एथनॉल मिश्रण कार्यक्रम : पेट्रोल में १० प्रतिशत एथनॉल मिलाना होगा अनिवार्य
+
+एथनॉल से चलने वाली देश की पहली बाइक लॉन्च (जुलाई २०१९)
+
+एथेनॉल मिश्रित पेट्रोल का आधार बन सकता है बांस, होगा बड़ा फायदा
+
+Towards Sustainable Production and Use of Resources: Assessing Biofuels, United Nations Environment Programme, October 2009
+
+contentMDK:21501336~pagePK:64167689~piPK:64167673~theSitePK:2795143,00.html World Bank, Biofuels: The Promise and the Risks. World Development Report 2008: Agriculture for Development
+
+Ethanol Better Than Gasoline, If Done Right
+
+Ethanol India- Ethanol Conferences Biofuels India : useful information and resources for Fuel Ethanol project in india. Ethanol plant manufacturers,Ethanol machinery suppliers..etc Ethanol(Buy & Sell) demand and supply.Fuel ethanol plants India",,,,
+fab-500x-20261114T224408Z-026,77,5cdb0b89dd20754ea3aef986,1e363869ee4670f9a43f4ad92b7efe74,fab-500x,hi,web_fullstack,wikipedia-hi,templated_human,"[user] सरस्वती महल पुस्तकालय, तंजौर के बारे में एक संक्षिप्त परिचय लिखिए।","सरस्वती महल पुस्तकालय तंजौर में स्थित है। यहां पांडुलिपियों का महत्वपूर्ण संग्रह है। इसकी स्थापना 1700 ईसवी के आस-पास की गई थी। इस संग्रहालय में भारतीय और यूरोपीयन भाषाओं में लिखी हुई 44000 से ज्यादा ताम्रपत्र और कागज की पांडुलिपियां देखने को मिलती हैं। इनमें से 80 प्रतिशत से अधिक पांडुलिपियां संस्कृत में लिखी हुई हैं। कुछ पांडुलिपियां तो बहुत ही दुर्लभ हैं। इनमें तमिल में लिखी औषधि विज्ञान की पांडुलिपियां भी शामिल हैं।
+
+Sarasvati Mahal Library — official website",,,,
+fab-500x-20261114T224408Z-026,78,0866599a58dc74188899022a,e2e5ee7a43bedd3169530530849e26d4,fab-500x,hi,writing,aya-dataset,human_authored,[user] Write a poem celebrating the diversity of cultures around the world.,विश्व भर की सांस्कृतिक विविधता की स्तुति करने वाली कविता लिखें।,,,,
+fab-500x-20261114T224408Z-026,79,2a5287cb8e61efcbcf68f63e,9efc9395af84c77f2e9e0759e506945d,fab-500x,hun,general_knowledge,aya-dataset,human_authored,"[user] Azt is elismerte, hogy csődben találta magát, barátok nélkül, ellátás nélkül, és általában nehéz helyzetben. Engedte magát arra kényszeríteni, hogy lopjon Cort bandájának. Felsorolta, hogy mely lopások az övéi és melyek másoké.",Még neveket és leírásokat is adott.,,,,
+fab-500x-20261114T224408Z-026,80,0d0931e283fe21bf10cb1394,b3ace514beed60829e5c0d63186883b4,fab-500x,ibo,general_knowledge,aya-dataset,human_authored,[user] Zaa ajụjụ a: Ụfọdụ ụlọ ahịa na-enye ndị ahịa ha ohere iji akara mkpịsị aka ha na-akwụ ụgwọ ihe ha zụtara. Olee nke ga-akacha abara ndị na-eji nkà na ụzụ ọhụrụ a eme ihe uru? Nhọrọ ndị dịnụ: A). ọnụahịa nke ngwaahịa na-ebelata. B). nchebe nke ozi nkeonwe. C). ikike iji soro mmasị ndị ahịa. D). a ga-akwụnye ego ndị ahụ ozugbo. Azịza:,D). a ga-akwụnye ego ndị ahụ ozugbo,,,,
+fab-500x-20261114T224408Z-026,81,893169e46fc75921658b79f5,c83f534248a00451dd17caf2969fbfc6,fab-500x,ibo,mathematics,aya-dataset,human_authored,"[user] Content: Akụkọ ndị dị mkpa taa bụ Tuzde (6/8/2019)
+
+Akwụkwọ akụkọ Morrison dere gunyere 'The Bluest Eye', 'Beloved', 'Paradise' na 'Love'
+
+Toni Morrison, nwaanyị mba Amerịka a ma ama maka irite nzere 'Nobel Prize' n'ihi akwụkwọ o dere anwụọla ka ọ gbachara afọ 88.
+
+Morrison nwụrụ ka ọ rịchara ọrịa nwa oge dịka ndị ezinụlọ ya si kwuo.
+
+Ihe isii ị maghị maka Toni Morrison
+
+1.  Nwaanyị nne na nna ya abụghị ọgaranya mana  ha gbara mbọ ziga ya ụlọakwụkwọ mahadum ebe ọ gụrụ maka asụsụ Bekee bụ onye na-ede akwụkwọ e jiri ide maka ịgba oke agbụrụ mara.
+
+2. O dere akwụkwụọ agụmagụ ruru 11 ndị gụnyere 'Beloved', 'Paradise  'Love ' nakwa 'The Bluest Eye' nke bụ akwụkwọ mbụ o dere n'afọ 1970.
+
+3. Akwụkwọ ya bụ ""Beloved"" bụ akụkọ maka nwata nwaanyị ohu gbara ọsọ, nke mechara bụrụ ihe e tinyere n'ihe onyonyo nke agbara nwaanyị a ma ama bụ Oprah Winfrey soro mee.
+
+Obama tunyere ya nzere 'Presidential Medal of Freedom'
+
+4. 'Beloved' ritekwara Morrison nzere 'Pultizer.'
+
+5 N'afọ 1993, e tunyere Morrison ugo nke 'Nobel Prize for Literature' nke mere ya nwaanyị isiojii mbụ ga-enweta nturuugo ahụ.
+
+6. Nzere ndị ọzọ Morrison ritere gụnyere ;'Légion d'Honneur' nakwa 'Presidential Medal of Freedom' nke ọbama tunyere ya n'afọ 2012.",Toni Morrison alaala mmuo,,,,
+fab-500x-20261114T224408Z-026,82,4e0524bac27808c5b7031383,58a7d93f3457af009dd317d7e9b10f38,fab-500x,ibo,reasoning,aya-dataset,human_authored,"[user] Gịnị bụ azịza gwam gwam gwam(riddle) a?
+
+Gwa m idigiri n'akwụ ọsa","Ị nwụghi, ị na-eche onye?",,,,
+fab-500x-20261114T224408Z-026,83,deb15a96c481613ac6c5a9c7,1d296f1e353ceb6912b6ab74ada222e2,fab-500x,id,coding,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Soepardjo Rustam.,"Letnan Jenderal TNI (Purn.) Soepardjo Rustam () adalah Menteri Dalam Negeri Indonesia periode 1983–1988. Posisi lainnya yang pernah dijabat antara lain adalah Duta Besar RI untuk Malaysia (1972–1974) dan Gubernur Jawa Tengah (1974–1982). Prestasi ia lainnya adalah mencetuskan pendirian Museum Kereta Api di Ambarawa. Soepardjo Rustam meninggal di Jakarta tanggal 11 April 1993 dan jenazahnya dikebumikan di TMP Kalibata.
+
+Pendidikan Perwira Peta Sekolah Infantri, Fort Benning, Amerika Serikat
+
+Ajudan Panglima Besar Jenderal Soedirman (1946–1950)
+
+Sekretaris Atase Militer RI di Negeri Belanda (1952)
+
+Komandan Sekolah Infanteri, Curup, Sumatera Selatan (1956–1957)
+
+Atase Militer RI di Kuala Lumpur (1959–1962)
+
+Deputi Asisten VI Menteri Panglima Angkatan Darat (1963–1966)
+
+Direktur Urusan Asia & Pasifik Departemen Luar Negeri (1967)
+
+Menteri Koordinator Bidang Kesejahteraan Rakyat
+
+Pelindung PB Gabungan Bridge Seluruh Indonesia (Gabsi)
+
+Tokoh Tentara Nasional Indonesia Angkatan Darat",,,,
+fab-500x-20261114T224408Z-026,84,c536e78e260fa028a07bcdb0,4eaf843f686c95864c70d203f5d6893e,fab-500x,id,education,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Jordan Rudess.,"Jordan Rudess () adalah pemain keyboard band progresif metal Dream Theater. Jordan Rudess adalah lulusan Juilliard School di New York.
+
+Rudess lahir pada tahun 1956. Pada saat kelas dua, dia sudah diakui oleh gurunya dalam bermain piano dan segera diberi tutor profesional. Saat usia sembilan tahun, ia memasuki ""Juilliard School of Music Pre-College Division"" untuk pelatihan piano klasik, tetapi saat akhir remaja dia semakin tertarik pada synthesizer dan musik rock progresif. Ia menentang nasihat orang tua dan tutornya, dan berpaling dari piano klasik untuk mencoba menjadi keyboardis rock progresif solo.
+
+Setelah tampil di berbagai proyek selama tahun 80-an, ia mendapatkan perhatian internasional pada tahun 1994 ketika terpilih sebagai ""Best New Talent"" dalam jajak pendapat majalah pembaca Keyboard setelah rilis album solonya, ""Listen"". Dua band yang tertarik dengan Rudess adalah The Dixie Dregs dan Dream Theater, keduanya mengajak Rudess untuk bergabung. Rudess memilih Dregs, terutama karena sebagai anggota paruh waktu dari band dan dia memiliki waktu yang banyak untuk keluarga mudanya, tidak seperti kalau dia bergabung dengan Dream Theater.",,,,
+fab-500x-20261114T224408Z-026,85,34e2b1e4105fb89aaff02053,ff715a2295fe9f5b2da0b2965696899d,fab-500x,id,general_knowledge,wikipedia-id,templated_human,"[user] Jelaskan secara singkat tentang Kasiyan, Puger, Jember.","Kasiyan adalah desa di kecamatan Puger, Kabupaten Jember, Jawa Timur, Indonesia. Selain bertani yang merupakan pekerjaan sehari-hari, para ibu-ibu Desa Kasiyan adalah penghasil rantang wadah ikan sebagai produk UMKM rumahan.
+
+Desa Kasiyan berdiri pada Tahun 1923 dan berdasarkan cerita dari para sesepuh Desa Kasiyan, bahwa konon nama Kasiyan berasal dari nama Mbah Rondo Kasiyam yang sampai sekarang makamnya masih dikeramatkan oleh warga Desa Kasiyan dan terletak di jalan wringintelu Dusun krajan RT. 001 RW. 001 Desa Kasiyan Kecamatan Puger. Dahulu asal mula berdirinya Desa Kasiyan terbentuk pada masa Penjajahan Belanda dengan wilayah yang cukup luas, tetapi kemudian di Tahun 1995 Desa Kasiyan dipecah menjadi 2 (dua) desa, antara lain Desa Kasiyan dan Desa Kasiyan Timur. Kedua Desa ini dibatasi oleh sungai besar (Sungai Besini) yang berada ditimur pasar Desa Kasiyan (Pasar Reboan).
+
+Kantor Desa Kasiyan merupakan induk dari Desa Kasiyan sebelum dipecah menjadi 2 (dua) desa. Sedangkan Desa Kasiyan sendiri terdiri dari 2 (dua) dusun, antara lain Dusun Krajan dan Dusun Gadungan. Dusun Krajan dibagi menjadi 06 RW dan 22 RT, sedangkan Dusun Gadungan ada 07 RW dan 29 RT. Pusat Pemerintahan Desa Kasiyan terletak di Dusun Krajan RT. 001 RW. 004 dengan menempati areal lahan seluas 1 Ha.",,,,
+fab-500x-20261114T224408Z-026,86,eaec5ec30a8bea498b91602e,39db3a16ef15e5568797d3b760391fa9,fab-500x,id,islamic_studies,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Persik Kendal.,"Persik Kendal atau Perserikatan Sepak Bola Indonesia Kendal adalah klub sepak bola yang berasal dari Kabupaten Kendal, Jawa Tengah yang bermain di Liga 3 pada musim kompetisi 2021. Persik Kendal bermain di kandang pada Stadion Utama Kebondalem kota Kendal.
+
+Jersey tim ini dengan warna kebanggaan hijau.
+
+Tim Persik Kendal lebih sering berkutat pada kompetisi amatir terutama pada level divisi I (saat ini bernama liga 3). Salah satu hasil yang cukup mencolok dalam perjalanan tim Persik Kendal adalah pada perhelatan Copa Djie Sam Soe musim 2007, dimana Persik Kendal berhasil menembus babak utama. Pada kesempatan tersebut Persik Kendal harus menghadapi Persib Bandung dengan hasil skor akhir agregat 1-3 (0-3 di Bandung dan 1-0 di Kendal).
+
+Persik Kendal didirikan pada tanggal 1 Januari 1970 ini dulunya memiliki stadion kandang bernama Stadion Madya Kendal, namun sekarang pindah Stadion Utama Bahurekso Kota Kendal.
+
+Tim ini bermain di Divisi II Liga Indonesia pada musim 2006, Pada musim 2007 Persik Kendal menargetkan untuk promosi ke Divisi I.
+
+Pada era awal 2000an Persik Kendal mempunyai suporter dengan nama Bahurekso Mania dengan warna identik hijau berpadu merah.
+
+Bahurekso Mania saat itu di dominasi dari orang Desa Ngampel Kulon Kecamatan Ngampel Kabupaten Kendal, dibawah komando Tadik Cumplung dan Azis Pentol.",,,,
+fab-500x-20261114T224408Z-026,87,61e46f8f6d45bd8bf2c3256e,dd1da2d2de2ad35b5b6637ab859474a9,fab-500x,id,mathematics,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Piala Winners Asia.,"Piala Winners Asia (bahasa Inggris: Asian Cup Winners' Cup) dimulai pada musim 1990/91 sebagai turnamen yang melibatkan semua juara piala domestik dari federasi sepak bola di bawah naungan AFC dan bersanding dengan Kejuaraan Klub Asia yang mempertemukan juara liga domestik sebagai kompetisi antarklub asia.
+
+Pemenang Piala Winners Asia dan Kejuaraan Klub Asia saling diadu untuk memperebutkan Piala Super Asia setiap tahunnya dimulai sejak tahun 1995. Namun sejak Piala Winners Asia dan Kejuaraan Klub Asia digabung pada tahun 2002 menjadi Liga Champions AFC, maka otomatis turnamen Piala Super Asia juga berhenti.
+
+Klub tersukses di kompetisi ini adalah Al-Hilal dari Arab Saudi dan Nissan/Yokohama Marinos dari Jepang dengan 2 gelar juara, sedangkan Asosiasi Sepakbola Arab Saudi menjadi Asosiasi tersukses di kompetisi ini dengan 6 gelar juara. Al-Hilal juga menjadi juara bertahan dan terakhir di musim 2001/02.
+
+2 Yokohama Flügels bergabung dengan Yokohama Marinos menjadi Yokohama F. Marinos di 1999.
+
+Kompetisi sepak bola antarklub internasional",,,,
+fab-500x-20261114T224408Z-026,88,e5e2b67c6d3e3dac2f3028b8,0546ede8e23f4fe7bca170f7f0013a06,fab-500x,id,pakistan,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Jalalabad.,"Jalālābād (bahasa Pashtun/bahasa Persia: جلال آباد) adalah sebuah kota di timur Afganistan. Terletak di antara percabangan ke Sungai Kabul dan Sungai Kunar, Jalalabad adalah ibu kota Provinsi Nangarhar. Jalan raya menghubungkannya dengan Kabul 50 mil. Jalan raya ke Peshawar di Pakistan di Timur. Penduduknya berjumlah 96.000 pada tahun 2002.
+
+Pada tahun 630 Xuan Zang seorang, sami Buddha dari Tiongkok telah berkunjung ke Jalalabad dalam perjalanan menuju ke Hindustan. Bagamanapun kota modern yang sekarang didirikan oleh Jalal-uddin Mohammad Akbar, sultan ke-3 Kesultanan Mughal.
+
+Seraj-ul-Emarat, kepala/amir Habibullah dan bergelar raja Amanullah telah memusnahkannya pada tahun 1929. Sebuah makam telah dibangun di Seraj-ul-Emart.",,,,
+fab-500x-20261114T224408Z-026,89,0683b29278ac3cea78e1e638,66e43ea34da523ce31096e9cef19df03,fab-500x,id,problem_solving,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang American Idol Musim Kedua.,"American Idol Musim Kedua adalah bagian dari acara realitas American Idol yang diselenggarakan negara Amerika Serikat pada tahun 2003. Dengan Ruben Studdard keluar sebagai pemenang.
+
+Audisi masih sama dengan pada musim sebelumnya. Susunan dewan juri dan pembawa acara pun masih sama dengan musim sebelumnya.
+
+Yang bercetak tabal adalah peserta yang berhasil masuk kebabak berikutnya.
+
+Kimberly Caldwell - ""Come to My Window"" (Melissa Etheridge)
+
+Patrick Fortson - ""Un-Break My Heart"" (Toni Braxton)
+
+J.D. Adams - ""All in Love Is Fair"" (Stevie Wonder)
+
+Trenyce]] - ""Love Sneakin' Up on You"" (Bonnie Raitt)
+
+Meosha Denton - ""How Do I Live"" (LeAnn Rimes)
+
+Bettis Richardson - ""Thank You"" (Boyz II Men)
+
+Charles Grigsby - ""Overjoyed"" (Stevie Wonder)
+
+Julia DeMato - ""Son of a Preacher Man"" (Dusty Springfield)
+
+Candice Coleman - ""Piece of My Heart"" (Janis Joplin)
+
+Rebecca Bond - ""Caught Up in the Rapture"" (Anita Baker)
+
+Jacob John Smalley - ""Anytime"" (Brian McKnight)
+
+Hadas Shalev - ""You Light Up My Life"" (Debby Boone)
+
+Ruben Studdard - ""Superstar"" (Luther Vandross)
+
+Kimberley Locke - ""Over the Rainbow"" (Judy Garland)
+
+Jennifer Fuentes - ""I Wanna Dance with Somebody (Who Loves Me)"" (Whitney Houston)
+
+Kimberly Kelsey - ""It's All Coming Back to Me Now"" (Celine Dion)
+
+Jordan Segundo - ""For Your Love"" (Stevie Wonder)
+
+Vanessa Olivarez - ""Out Here On My Own"" (Irene Cara)",,,,
+fab-500x-20261114T224408Z-026,90,ea1ce12eb73233b7206c87f6,2b4f01a10fe63fcadb477894eee03c3d,fab-500x,id,reasoning,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Daftar istilah anatomi.,"Anatomi memiliki pembendaharaan kata internasional. Istilah anatomis mempunyai arti yang tepat dan digunakan dalam kedokteran dan biologi. Selain istilah anatomis, biasanya digunakan pula istilah sehari-hari atau istilah lainnya seperti tulang belikat (scapula) dan circulus Willis (Circulus arteriosus cerebri).
+
+Semua deskripsi anatomis disesuaikan dengan standar posisi anatomi. hal ini dibuat agar tidak terjadi kesalahpahaman arti dari masing-masing pendapat.
+
+Berdiri dengan tegak, dengan kepala, kedua mata, dan jari kaki menghadap ke depan.
+
+Kedua tangan di sisi tubuh dengan telapak tangan terbuka ke depan.
+
+Kedua kaki merapat sedikit dan mengarah ke depan terbuka.
+
+Bidang anatomi adalah bidang yang melalui tubuh dalam posisi anatomi:
+
+Bidang median: bidang yang membagi tepat tubuh menjadi bagian kanan dan kiri.
+
+Bidang sagital: bidang yang membagi tubuh menjadi dua bagian dari titik tertentu (tidak membagi tepat dua bagian). Bidang ini sejajar dengan bidang median.
+
+Bidang horizontal: bidang yang terletak melintang melalui tubuh (bidang X-Y). Bidang ini membagi tubuh menjadi bagian atas (superior) dan bawah (inferior).
+
+Bidang koronal: bidang vertikal yang melalui tubuh, letaknya tegak lurus terhadap bidang median atau sagital. membagi tubuh menjadi bagian depan (frontal) dan belakang (dorsal).
+
+Superior (atas) atau kranial: lebih dekat pada kepala.",,,,
+fab-500x-20261114T224408Z-026,91,3aec0b2b134e7e60a1ac4c6c,9884bc3f68ce374976570b19f5e1da87,fab-500x,id,research,tydiqa-goldp,human_authored,"[user] Sebuah film fiksi ilmiah atau film fiksi sains adalah ragam film yang menggunakan tema fiksi sains: spekulatif, penggambaran fenomena berbasis ilmu pengetahuan yang belum tentu diterima oleh ilmu pengetahuan saat itu, seperti bentuk kehidupan di luar bumi, dunia asing, persepsi ekstra-indrawi, dan perjalanan waktu, sering bersama dengan unsur futuristik seperti wahana, robot, cyborg, perjalanan ruang angkasa antarbintang atau teknologi lainnya. Ilmu film fiksi sering digunakan untuk fokus pada politik atau masalah sosial, dan untuk mengeksplorasi isu-isu filosofis seperti kondisi manusia. Dalam banyak kasus, kiasan yang berasal dari fiksi ilmiah tertulis dapat digunakan oleh sineas yang mengabaikan atau tidak peduli dengan standar ilmiah yang masuk akal dan logika alur cerita yang ada dalam versi tertulisnya.
+
+Apakah yang dimaksud dengan film fiksi ilmiah ?","ragam film yang menggunakan tema fiksi sains: spekulatif, penggambaran fenomena berbasis ilmu pengetahuan yang belum tentu diterima oleh ilmu pengetahuan saat itu, seperti bentuk kehidupan di luar bumi, dunia asing, persepsi ekstra-indrawi, dan perjalanan waktu, sering bersama dengan unsur futuristik seperti wahana, robot, cyborg, perjalanan ruang angkasa antarbintang atau teknologi lainnya
+
+Sebuah film fiksi ilmiah atau film fiksi sains adalah ragam film yang menggunakan tema fiksi sains: spekulatif, penggambaran fenomena berbasis ilmu pengetahuan yang belum tentu diterima oleh ilmu pengetahuan saat itu, seperti bentuk kehidupan di luar bumi, dunia asing, persepsi ekstra-indrawi, dan perjalanan waktu, sering bersama dengan unsur futuristik seperti wahana, robot, cyborg, perjalanan ruang angkasa antarbintang atau teknologi lainnya.",,,,
+fab-500x-20261114T224408Z-026,92,6753bb3c201bed4e1ec084f7,50d9c318cf5d98feeaf26ba59455063b,fab-500x,id,safety_ethics,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Agent Cody Banks.,"Agent Cody Banks adalah film Amerika tahun 2003 yang menceritakan petualangan agen rahasia CIA berusia 15 tahun bernama Cody Banks (Frankie Muniz). film ini juga dibintangi oleh Hilary Duff, Angie Harmon, Keith David, Ian McShane, dan Arnold Vosloo. Film ini disutradarai oleh Harald Zwart. Film ini dirilis di Amerika Serikat pada 14 Maret 2003.
+
+Sekuel film ini, Agent Cody Banks 2: Destination London, dirilis setahun kemudian.
+
+Cody Banks (Frankie Muniz), adalah anak berusia 15 tahun yang bekerja untuk Central Intelligence Agency. Suatu hari, Cody diberi tugas untuk mencari informasi mengenai seorang ilmuwan bernama Dr. Connors (Martin Donovan) yang bekerja untuk Dr. Brinkman (Ian McShane) dan pengikutnya Francois Molay (Arnold Vosloo). Cody melakukannya dengan mendekati putri Dr. Connors, Natalie Connors (Hilary Duff). Natalie kemudian mengundang Cody ke pesta ulang tahunnya, di mana Cody akhirnya bisa menemukan laboratorium Dr. Connors dan mengetahu bahwa Dr. Brinkman berencana menggunakan nanobot untuk menguasai dunia.",,,,
+fab-500x-20261114T224408Z-026,93,5023a6564d97f95e364576ea,0f095aed26909bef81fd724c16acce37,fab-500x,id,science,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Maximal.,"Maximal adalah sebuah grup dari Transformers karya Hasbro, dan merupakan pendukung dari serial TV Beast Wars. Mereka adalah tokoh protagonis, dan lawannya adalah Predacon. Maximal adalah masih satu saudara dengan Autobots.
+
+Pertama kali Mximal muncul sebagai kru pesawat Axalon (dipimpin oleh Optimus Prime), melawan Predacons (dipimpin Megatron). Mereka mendarat di Bumi pada zaman purba dan meng-scan binatan purba Bumi. Ketika perang berakhir, beberapa Maximal kembali ke Cybertron dan mencoba menetralisir virus anti-transformasi ciptaan Megatron.
+
+Di versi ini, Maximal merujuk kepada Cybertrons (nama yang sama untuk Autobots di Jepang) dalam serial TV. Kali ini dipimpin oleh Lio Convoy, tim Cybertron mencoba melawan kekuatan jahat Destrons (pimpinan Galvatron) di planet Gaia.
+
+Untuk mainannya lebih banyak dirilis di Jepang secara eksklusif.
+
+Di versi ini beberapa Maximals disebut sebagai Cybertrons. Big Convoy menjadi mentor untuk tim kadet Maximals untuk dipersiapkan sebagai tentara melawan Destrongers yang dipimpin oleh Magmatron.
+
+Untuk mainannya lebih banyak dirilis di Jepang secara eksklusif.",,,,
+fab-500x-20261114T224408Z-026,94,8111e18328714933b51f9d16,66478bf4acfcc60d16f86a2ccaf9838d,fab-500x,id,web_frontend,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Pertempuran Long Jawai.,"Pertempuran Long Jawai adalah salah satu pertempuran selama konfrontasi Indonesia-Malaysia.
+
+Pada 25 September 1963, Kapten John Burlingson tiba di desa Long Jawai dan mengatur pertahanan. Tentaranya terdiri dari empat Gurkha yang dipimpin oleh Kopral Tejbahadur Gurung, 2 PFF dan 21 penjaga perbatasan lokal. Namun, kelompok Indonesia telah bersembunyi di salah satu rumah.
+
+Korban pada pertempuran ini besar, dengan 13 tentara Britania dan Malaysia tewas, dan 33 tentara Indonesia tewas. Penduduk lokal kehilangan kepercayaan terhadap Indonesia setelah melihat pembunuhan dan penangkapan penjaga perbatasan.
+
+http://www.historicaleye.com/sukarno.html
+
+Pertempuran yang melibatkan Britania Raya",,,,
+fab-500x-20261114T224408Z-026,95,54c83cf5d8f37517782b7450,d0692e7266faf99be5d003904f891f33,fab-500x,id,web_fullstack,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang JR-Maglev.,"JR-Maglev, MLX01 (X berarti eksperimen), adalah sebuah sistem kereta maglev yang dikembangkan oleh Japan Railway Technical Research Institute (berasosiasi dengan Japan Railway Group), terdiri dari maksimum 5 gerbong untuk berjalan di jalur tes Maglev Yamanashi. Pada 2 Desember 2003, sebuah kereta dengan tiga gerbong mencapai kecepatan maksimum 581 km/j (361 mpj). Kereta ini merupakan salah satu desain terbaru dari beberapa seri kereta Maglev yang dikembangkan di Jepang sejak 1970-an.
+
+Yamanashi Linear Express Fan Club (in Japanese)
+
+A site with MLX01 video and photo (in Japanese)
+
+Railway Technical Research Institute (RTRI)
+
+RTRI Maglev Systems Development Department
+
+Central Japan Railway Company - Chuo Shinkansen
+
+Central Japan Railway Company - Superconducting Maglev
+
+Central Japan Railway Company - Linear Express
+
+Linear Chuo Express for kids website (in Japanese)",,,,
+fab-500x-20261114T224408Z-026,96,d5dde07123afeb84efe661be,893aecac26cb763f71e56b4ff64ee10a,fab-500x,id,writing,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Daftar serial televisi Korea Selatan.,"Berikut ini adalah daftar serial atau program-program televisi Korea Selatan.
+
+The Clinic for Married Couples: Love and War (부부클리닉 사랑과 전쟁)
+
+High Kick! (거침없이 하이킥), aka The Screwball Family
+
+Hilarious Doctor, Hilarious Family (순풍산부인과)
+
+The White Dream, The White Love (아이싱), also known as Icing.
+
+Did We Really Love? (우리가 정말 사랑했을까), also known as Have We Really Loved? or True to Love.
+
+Autumn in My Heart (가을동화), also known as Endless Love.
+
+Friends (フレンズ / 프렌즈), it's a Japanese/Korean TV drama.
+
+Love or Nothing (내 이름은 공주), also known as My Name is Princess.
+
+Successful Story of a Bright Girl (명랑소녀 성공기)
+
+Winter Sonata (겨울연가), also known as Endless Love 2.
+
+Dae Jang Geum (대장금), also known as Jewel in the Palace.
+
+Over the Green Fields Pretty Woman (귀여운 여인) (~2004)
+
+Summer Scent (여름향기), also known as Endless Love 3.
+
+Forbidden Love (구미호외전), also known as Nine Tailed Fox.
+
+Lovers in Paris (파리의 연인), also known as My Sweetheart in Paris or Romance in Paris.
+
+Oh! Pil Seung And Bong Soon Young (오! 필승 봉순영), also known as Oh! Feel Young.
+
+Something Happened in Bali (발리에서 생긴일), also known as Memories in Bali Stained Glass (유리화)
+
+The Phoenix (불새), also known as Firebird.
+
+Bad Housewife (불량주부), also known as Bad Wife or Mr. Housewife.
+
+Beating Heart (떨리는 가슴), also known as Six Love Stories or My Trembling Heart.
+
+Delightful Girl Choon-Hyang (쾌걸 춘향), also known as Sassy Girl Chun Hyang.",,,,
+fab-500x-20261114T224408Z-026,97,521c00da178a121fb7dcf5df,0d6ce455137a1b48e320bf7a2fb02865,fab-500x,it,coding,oasst1,human_authored,[user] Scrivi un elenco dei numeri primi,"Ecco un elenco dei numeri primi minori di 20:
+2, 3, 5, 7, 11, 13, 17, 19
+
+Se vuoi trovarne altri puoi usare metodi come il crivello di Eratostene, il quale è anche facilmente implementabile sui principali linguaggi di programmazione (ex. python).",,,,
+fab-500x-20261114T224408Z-026,98,529ce10fde62be3ca6731a0f,cd770a293284ed3eb176a04007b18d5a,fab-500x,it,education,oasst2,human_authored,"[user] Spiegami come funziona un modello GPT, considerando che di deep learning ne capisco poco","Un modello GPT (Generative Pre-trained Transformer) è un tipo di modello di deep learning che è stato addestrato su grandi quantità di testo in modo da essere in grado di generare testo in modo autonomo. Questi modelli sono basati su una architettura Transformer, che è stata progettata per gestire le relazioni tra parole in una frase.
+
+In sintesi, un modello GPT funziona analizzando una grande quantità di testo e cercando di capire le relazioni tra le parole. Questo gli permette di prevedere la prossima parola in una frase in base alle parole che lo precedono. Quando viene addestrato su un grande corpus di testo, un modello GPT impara a generare testo coerente e plausibile in base alle relazioni tra le parole che ha visto durante l'addestramento.
+
+Per comprendere meglio come funziona un modello GPT, puoi immaginarlo come un bambino che impara a scrivere frasi guardando molte frasi scritte da altre persone. Il bambino impara a capire le relazioni tra le parole e le regole grammaticali e può quindi generare frasi coerenti e plausibili. Allo stesso modo, un modello GPT impara a capire le relazioni tra le parole e le regole grammaticali guardando molte frasi scritte da altre persone (cioè, il corpus di testo su cui è stato addestrato).",,,,
+fab-500x-20261114T224408Z-026,99,57e8f129b6ea9bc3ee7652ea,010e2da513c8ca80e575ed8b6f9cc895,fab-500x,it,general_knowledge,aya-dataset,human_authored,"[user] A quale argomento si riferisce la seguente domanda?
+""In quanti Stati ha vinto John Kasich nelle primarie presidenziali repubblicane del 2016?""","L'argomento della domanda è ""Politica"".",,,,
+fab-500x-20261114T224408Z-026,100,51d6a7be9f273dfaa56c04c5,caae8b7728dbcf5109d4593a75ccd363,fab-500x,it,mathematics,oasst2,human_authored,[user] Sapresti spiegarmi il funzionamento del protocollo di sincronizzazione PTP?,"Il Precision Time Protocol, in sigla PTP, è un protocollo di livello applicativo utilizzato per la sincronizzazione di dispositivi industriali o di strumentazione di laboratorio all'interno di una rete a commutazione di pacchetto, quindi con tempi di latenza variabili ed inaffidabili.
+
+Rispetto al protocollo Network Time Protocol, permette di ottenere un'accuratezza di sincronizzazione maggiore (inferiore al microsecondo), utilizzando componenti hardware dedicati in reti locali (LAN).
+
+La caratteristica del PTP è quella di introdurre una marca temporale, a livello fisico, su tutti i pacchetti consentendo una distribuzione molto precisa dell'informazione relativa a data e ora, che viene ulteriormente corretta (dove serve) per tenere conto anche dei ritardi introdotti per esempio dall'elaborazione e transito attraverso nodi di rete intermedi in modo da garantire che il tempo di rete sia uguale e coerente ovunque entro limiti di precisione molto stringenti. Il protocollo, per poter funzionare al meglio, richiede anche che la rete sia sincronizzata su un riferimento in frequenza comune, utilizzando per questo scopo protocolli specifici come ad esempio la Synchronous Ethernet.
+
+Il protocollo trova larghissimo impiego in applicazioni di broadcasting, rete elettrica, smart grid e telecomunicazioni e viene richiesto sempre di più nell'ambito della finanza e del high-frequency trading in seguito alla normativa europea (Direttiva dell'Unione europea 2004/39/CE), entrata in vigore dal 3 gennaio 2018, che regolamenta e disciplina i mercati finanziari all'interno dell'Unione Europea e richiede una precisione di 100 µs.",,,,

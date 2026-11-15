@@ -1,0 +1,750 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-010,1,09170d5ca1985d549b1961cc,2b14676e5d6037603014d0f367595db4,fab-500x,ru,software_engineering,oasst1,human_authored,"[user] Как собрать Android из исходников?
+
+[assistant] Сборка Android из исходников - это достаточно сложный процесс, который требует определённых знаний и навыков. Он также может занять достаточно много времени и потребовать мощного компьютера с достаточным объёмом памяти и места на диске.
+
+Вот основные шаги, которые нужно выполнить для сборки Android из исходников:
+
+1.	Подготовка системы: для сборки Android из исходников нужно установить несколько инструментов, включая Java Development Kit (JDK), Android SDK, Android NDK, Git и другие. Также нужно убедиться, что ваша система поддерживает сборку Android.
+
+2.	Получение исходного кода: исходный код Android хранится в Git-репозитории. Чтобы получить исходный код, нужно использовать команду ""repo init"", чтобы инициализировать репозиторий, и затем использовать команду ""repo sync"", чтобы загрузить все необходимые файлы.
+
+3.	Настройка среды: для сборки Android нужно настроить среду, используя файл ""envsetup.sh"" или ""envsetup.bat"" в зависимости от вашей операционной системы. Это позволяет настроить переменные среды, которые используются при сборке.
+
+4.	Конфигурация сборки: нужно настроить сборку, используя файл ""lunch"", который позволяет выбрать устройство или эмулятор для сборки.
+
+5.	Сборка: после настройки среды и конфигурации сборки, нужно использовать команду ""make"" для запуска сборки. Это может занять достаточно много времени, в зависимости от вашего компьютера и настроек сборки.
+
+6.	Установка: после сборки можно установить Android на устройство или эмулятор, используя команду ""adb install"" или ""fastboot flash"".
+
+Это лишь общий обзор процесса сборки Android из исходников, и на практике могут возникнуть дополнительные проблемы и трудности, которые требуют дополнительного исследования и изучения. Поэтому, если у вас нет достаточного опыта и знаний, может быть полезнее использовать готовые образы Android, которые можно загрузить с официального сайта Android.
+
+[user] А как собрать модуль ядра для android?
+
+[assistant] Сборка модуля ядра для Android может быть сложной задачей и может зависеть от многих факторов, включая версию ядра, используемую на устройстве, и доступные инструменты. Вот общие шаги для сборки модуля ядра для Android:
+
+1. Установите Android NDK (Native Development Kit) и пакет для разработки ядра, если они ещё не установлены.
+2. Получите исходный код ядра для устройства, для которого вы хотите собрать модуль.
+3. Создайте каталог, в котором вы будете работать со своим модулем.
+4. Выберите сборщик, который вам подходит, например `make`.
+5. Создайте файл сборки, который будет использоваться для сборки вашего модуля. В нём нужно указать список исходных файлов вашего модуля и определить цели и правила для сборки.
+6. Определите свойства сборки, такие как архитектуру, версию ядра и путь к исходным файлам и укажите в вашем файле сборки.
+7. Соберите свой модуль с помощью соответствующей команды сборки и скопируйте файл модуля на устройство Android.
+8. Загрузите модуль в ядро с помощью команды `insmod` или `modprobe`.
+
+Обратите внимание, что процесс сборки модуля ядра может отличаться в зависимости от версии Android и устройства. Для получения более подробной информации и инструкций рекомендуется обратиться к документации производителя устройства или сообществу разработчиков Android.
+
+[user] Я хочу собрать Magisk, можешь помочь?","Конечно, я помогу Вам с сборкой Magisk! Соблюдайте шаги инструкции и у Вас все получится:
+
+1. Установка Android Studio
+При сборке Magisk потребуется Android SDK, присутствующий в Android Studio. Установить Android Studio Вы можете по ссылке: https://developer.android.com/studio.
+
+2. Клонирование репозитория Magisk
+Клонирование репозитория Magisk используется посредством использования git и следующей команды:
+    git clone https://github.com/topjohnwu/Magisk.git
+
+3. Открытие проекта Magisk в Android Studio
+Откройте Android Studio и выберите пункт ""Open an existing Android Studio project"". Выберите папку, в которую вы клонировали репозиторий Magisk.
+
+4. Сборка Magisk
+В Android Studio выберите ""Build"", затем выберите ""Build APK"". Если все настроено правильно, сборка Magisk будет успешно завершена.
+
+Здесь Вы можете проверить работоспособность собранного Magisk: app/build/outputs/apk/debug/app-debug.apk.",,,,
+fab-500x-20261114T224408Z-010,2,1e65130e1a6c7aeea93df40b,d4077b1b110820c8924b71c1188a8c17,fab-500x,ru,web_backend,oasst2,human_authored,"[user] Какой веб фреймворк сегодня самый востребованный?
+
+[assistant] В разработке фронтенда сейчас популярны React, Angular и Vue для NodeJS. Также нередко используется Flutter, позволяющий собирать как веб-приложения, так и нативные приложения под разные платформы, тогда как в случае с JavaScript необходимо использовать Electron или другие похожие фреймворки.
+Во многих проектах подключают jQuery.
+
+Для бэкенда используют:
+- FastAPI, Django и чуть реже Flask, если проект пишут на Python;
+- ExpressJS для NodeJS;
+- Spring (Spring Boot) для Java;
+- Laravel для PHP;
+- Ruby on Rails, очевидно, для Ruby.
+
+[user] Насколько в данный момент популярен фреймворк Django?","Django остается одним из самых популярных фреймворков для веб-разработки на языке Python. Он занимает 3-е место в списке самых популярных проектов на GitHub, а на сайте PyPI (Python Package Index) количество загрузок пакета Django превышает 2 миллиона в месяц. Django активно развивается и улучшается, и его сообщество продолжает расти, что говорит о его стабильности и популярности.",,,,
+fab-500x-20261114T224408Z-010,3,9f69496542de952b8bc690cc,5aee2da5a56e88629885e44a758ab192,fab-500x,ru,web_frontend,oasst2,human_authored,"[user] Привет! Я программист, который плохо разбирается в веб-технологиях, но я хочу научиться современным подходам. Я думаю создать сайт-визитку. Какой современный веб-фреймворк ты бы посоветовала мне?
+
+[assistant] Если Вы начинаете с нуля, но имеете некоторый опыт работы с JavaScript, я бы порекомендовал вам использовать React.js. Это популярная библиотека JavaScript для создания пользовательских интерфейсов, поддерживаемая Facebook. React — это компонентный подход к созданию веб-приложений, который отлично подходит для создания сайта-визитки. Кроме того, существует большое сообщество разработчиков, использующих React, поэтому у вас будет доступ к множеству ресурсов и поддержке.
+
+[user] С чего ты порекомендуешь начать ознакомление с React ?","Если вы новичок в React, то рекомендуется начать с официальной документации. Она содержит подробную информацию о том, как работает React, как создавать компоненты и как их использовать.
+
+Кроме того, можете посмотреть видеоуроки или прочитать книги по React, чтобы получить более глубокое понимание.
+
+После ознакомления с основами рекомендуется практиковаться, создавая небольшие проекты. Это поможет вам лучше понять, как React работает в действии и как его можно применять в реальных проектах.",,,,
+fab-500x-20261114T224408Z-010,4,2c8402dc33dc916796281343,d99251e37fa9562be4d86098f296d246,fab-500x,ru,writing,oasst2,human_authored,"[user] Привет, что ты умеешь? Какие доступы у тебя есть? Какой ты версии в цифрах? 
+Напиши список из 25 пунктов для чего тебя можно использовать","Привет! Я умею многое, в том числе:
+1.	Генерировать тексты на различные темы.
+2.	Отвечать на вопросы и предоставлять информацию на основе доступных мне знаний.
+3.	Помогать в написании текстов и статей.
+4.	Автоматически переводить тексты с одного языка на другой.
+5.	Анализировать тексты и выделять ключевые фразы и идеи.
+6.	Генерировать краткое содержание текста или статьи.
+7.	Помогать с подбором ключевых слов для SEO.
+8.	Создавать заголовки для статей и новостных материалов.
+9.	Анализировать данные и выделять тренды и закономерности.
+10.	Помогать с составлением бизнес-планов и маркетинговых стратегий.
+11.	Генерировать идеи для контента и креативных проектов.
+12.	Предоставлять рекомендации по улучшению сайтов и контента.
+13.	Анализировать рынок и помогать с выбором оптимальной ниши для бизнеса.
+14.	Определять наиболее эффективные каналы продвижения продуктов и услуг.
+15.	Помогать с составлением описания товаров и услуг.
+16.	Создавать контент для социальных сетей.
+17.	Определять наиболее популярные темы и ключевые слова в конкретной нише.
+18.	Анализировать эффективность рекламных кампаний и помогать с оптимизацией рекламных бюджетов.
+19.	Генерировать персонализированные письма и сообщения для email-рассылок и мессенджеров.
+20.	Помогать с подбором подходящих шрифтов и цветовой гаммы для сайтов и логотипов.
+21.	Создавать дизайн-макеты для сайтов и приложений.
+22.	Анализировать поведение пользователей на сайте и помогать с оптимизацией пользовательского опыта.
+23.	Предоставлять рекомендации по оптимизации сайтов под поисковые системы.
+24.	Создавать чат-ботов для сайтов и мессенджеров.
+25.	Предоставлять информацию и рекомендации по различным технологиям и инструментам для работы с текстом и контентом.
+Относительно доступов, я работаю в рамках API, которое предоставляется моим создателем - LAION. Мои доступы зависят от того, какие возможности предоставляет это API, однако я имею доступ к большому объему знаний и базе данных, а также к мощным алгоритмам машинного обучения и обработки естественного языка.",,,,
+fab-500x-20261114T224408Z-010,5,19aeb14993b4a492560ae01d,db8e46cec5e93f36785fd91d51c87550,fab-500x,sin,coding,aya-dataset,human_authored,[user] පයිතන් ලැයිස්තුවක ඇති දෙවන විශාලතම අංකය සොයා ගැනීමට පයිතන්  වැඩසටහනක් ලියන්න.,"def second_largest(lst):
+    sorted_list = sorted(lst, reverse=True)
+    return sorted_list[1]
+
+numbers = [10, 20, 4, 45, 99]
+print(second_largest(numbers))  # Output: 45",,,,
+fab-500x-20261114T224408Z-010,6,c9d80b459d1a534dfe8eaf4a,a6ee2cdbd664a6d257cfba5ee7a6c7a0,fab-500x,sin,cybersecurity,aya-dataset,human_authored,[user] රතු දත්ත වර්ගීකරණයට අනුව අනතුරට ලක්විය හැකි (Vulnerable Species) වර්ගීකරණය සඳහා නිර්ණායක කියන්න.,"රතු දත්ත වර්ගීකරණයට අනුව අනතුරට ලක්විය හැකි (Vulnerable Species) වර්ගීකරණය සඳහා පහත නිර්ණායක අදාළ වේ.
+
+ගහනයේ අඩුවීමක් දක්නට ලැබෙන - හදුනාගන්නලද , ගණනය කරණ ලද හෝ අනුමාන කරණ ලද අඩු වීමක් වසර 10ක් හෝ පරම්පරා 3ක් තුල අවම වශයෙන් 20%ක් ලෙස දක්නට ලැබෙන
+ගහනයේ පැහැදිලි අඩු වීමක් 20000 km ක ප්‍රදේශයක් තුල හෝ 2000 kmක් තුල දක්නට ලැබෙන
+ගහනයේ සංගණන වාර්තා තුල පරිනත සතුන් 10000ට අඩු ගණනක් වාර්තා වන
+ගහනය ඉතා කුඩා වීමක් හෝ සීමිත වීමක් දක්නට ලැබෙන
+ප්‍රමාණාත්මක සංගණන වාර්තා වලට අනුව ගහනයේ අවම වශයෙන් 10%ක අඩු වීමක් වසර 100ක් තුල දක්වා තිබෙන",,,,
+fab-500x-20261114T224408Z-010,7,9ff27e9e12bf381286eedd5c,d62725ce18dddb8e6762ba1408369d6f,fab-500x,sin,education,aya-dataset,human_authored,[user] බලාගෙනයි කියුටරියේ පාඩම් හෙම අමතක වෙයි මෙහි කියුටරියේ යන්නෙහි තේරුම පහදා දෙන්න,"ටියුටරියේ....
+Tutory - විද්‍යාලය, පන්තිය
+Tutor - උපදේශකයා
+Tutorial - ඉගැනීම සම්බන්ධ පාඩම්. ටියුට් කියල කෙටියෙන් කියන්නේ.
+බොහෝ විට පාඩමට ආධාර වෙන අමතර ඉගැන්වීම් සම්බන්ධයෙන් තමයි පාවිච්චි කරන්නෙ.",,,,
+fab-500x-20261114T224408Z-010,8,0a27ee8e278011ecde7d8477,109ebda9d29dfcd52e7f80b95ba7a74a,fab-500x,sin,general_knowledge,aya-dataset,human_authored,"[user] පහත ප්‍රස්තාව පිරුළේ අර්ථය කුමක්ද ? 
+
+""උගුරට හොරා බෙහෙත් කනවා  වාගේ""",කිසියම් කටයුත්තක් නිසි පිළිවෙළකට නොකර යන්තම් සිදු කිරීම,,,,
+fab-500x-20261114T224408Z-010,9,44f923569e2b3aef3e14f703,e7297205f03168141a1d4f6a24bdb9db,fab-500x,sin,mathematics,aya-dataset,human_authored,"[user] තිලිනිගේ ආච්චි ඇයට ඉතුරුම් ගිණුමක් ආරම්භ කිරීමට ඩොලර් 125ක් ලබා දුන්නාය. ඇය උපයාගත් මුදලින් ගිණුම 25% කින් වැඩි කිරීමට තිලිනිට හැකි විය. ඉන්පසුව ඇය නව සපත්තු යුගලයක් මිලදී ගත් අතර, එයින් ඇයගේ ශේෂය 20% කින් අඩු විය. ඇයගේ අවසාන ශේෂය ඇයගේ ආරම්භක ශේෂයෙන් කොපමණ ප්‍රතිශතයක්ද? 
+පියවරෙන් පියවර සිතා පිලිතුර ලබාදෙන්න.","අරම්භයේදි තිලිනි සතුව ඩොලර් 125ක් තිබුනි. ඉන්පසුව ඇය එය 25% කින් වැඩි කර ගත්තාය. එබැවින් ඇයගෙ ශේෂය ඩොලර් 125 + (0.25 *125) = 125 + 31.25 = 156.25 විය. 
+සපත්තු මිලදී ගත්පසු ශේෂය 20% කින් අඩු විය. එබැවින් දැන් ඩොලර් 156.25 – (0.20 * 156.25) = 156.25 - 31.25 = 125 ඇය සතුය. 
+තිලිනිගේ නව ශේෂය ආරම්භක ශේෂයෙන් (125/125)*100 = 100% කි. 
+එබැවින් පිලිතුර 100% කි.",,,,
+fab-500x-20261114T224408Z-010,10,a168429cc95f085a8e79a3f3,6b8356724a55dad6241a29a33f351541,fab-500x,sin,research,aya-dataset,human_authored,[user] වඩා හොඳ විකිපීඩියා ද ගූගල් ද(wikipedia or google)?,"ගූගල් වැනි සෙවුම් යන්ත්‍ර නොකරන විශ්වසනීයත්වය(reliability) සඳහා විකිපීඩියාව යම් යම් උත්සාහයන් දරයි, එහිම සම-සමාලෝචන පද්ධතිය(own system of peer-review) ද ඇතුළුව. තවමත්, විකිපීඩියාවට ශාස්ත්‍රීය සම-සමාලෝචනය (academic peer-reviewed resource) කළ සම්පතකට වඩා වෙනස් ප්‍රමුඛතා ඇත, එබැවින් එය ශාස්ත්‍රීය මූලාශ්‍රයක්(academic resource) වෙනුවට භාවිතා නොකළ යුතුය.",,,,
+fab-500x-20261114T224408Z-010,11,7257b121d3de11fb829b0e9d,63338cab225a4c172c0eef36080b1e98,fab-500x,sin,science,aya-dataset,human_authored,[user] DNA ද්විත්ව හේලික්සීය ආකෘතිය කෙටියෙන් විස්තර කරන්න.,"DNA ද්විත්ව හේලික්සීය ආකෘතියට අනුව, DNA ඇඹරුණු ඉණිමගක් (සර්පිලාකාර පඩිපෙළක්) වැනි ය. එහි අත්වැල ලෙස මාරුවෙන් මාරුවට සැකසුණු සීනි සහ පොස්ෆේට් අණු ​මඟින් එහි කොඳු නාරටිය සාදයි.
+
+පියගැට ලෙස නයිට්‍රජනීය භස්ම යුගල පවතියි. භස්ම යුගල් වීමේ නීතිවලට අනුව පියුරීන්, පිරිමිඩීන් සමග යුගලනය වෙයි. එහිදී මෙම භස්ම අතර හයිඩ්‍රජන් බන්ධන දෙකක් (A=T) හෝ තුනක් (G≡C)  සෑදේ.",,,,
+fab-500x-20261114T224408Z-010,12,3067a6425eee37dab42ce971,c8bcc77eb68a87128cb6f34106768183,fab-500x,sin,software_engineering,aya-dataset,human_authored,[user] GitHub ක්‍රියා යනු කුමක්ද?,"GitHub Actions යනු ඔබේ ගොඩනැගීම, පරීක්ෂා කිරීම සහ යෙදවීමේ නල මාර්ගය ස්වයංක්‍රීය කිරීමට ඉඩ සලසන අඛණ්ඩ ඒකාබද්ධ සහ අඛණ්ඩ බෙදාහැරීමේ (CI/CD) වේදිකාවකි. ඔබට ඔබේ ගබඩාවට සෑම ඇදීමේ ඉල්ලීමක්ම ගොඩනඟා පරීක්ෂා කරන කාර්ය ප්‍රවාහ සෑදිය හැකිය, නැතහොත් නිෂ්පාදනයට ඒකාබද්ධ වූ ඇදීමේ ඉල්ලීම් යෙදවිය හැකිය.",,,,
+fab-500x-20261114T224408Z-010,13,0b8fff7c8eb90bb0afd92d9d,c421d8fa29adea59026b23a173236141,fab-500x,sin,web_frontend,aya-dataset,human_authored,[user] මෙත් වඩමින් සිටි නිසා හිසට තෙල් තාච්චියක් වක් කලද අනතුරක් නොවුනේ කුමන සිටු දේවියටද?,"උත්තරා සිටු දේවිය..
+තෙල් තාච්චියක් නොව උණු ගිතෙල් හැන්දක්.
+සම්පූර්ණයෙන්ම කතාව මෙතනින් කියවාගන්න.
+https://pitaka.lk/books/paramitha-prakaranaya/13-5.html",,,,
+fab-500x-20261114T224408Z-010,14,3fbc9f8ccedfc65ae8876622,f75b2323ce56ec7b381531540605e26a,fab-500x,sin,writing,aya-dataset,human_authored,[user] අන්තර්ජාලය ගැන විස්තර කරන්න.,"අන්තර්ජාලය යනු ලොව පුරා පිහිටි පරිගණක ජාලවල එකතුවකි. මෙහි පදනම ලෙස ඇමෙරිකා ආරක්ෂක දෙපාර්තමේන්තුව මඟින් නිර්මාණය කළ ARPANET නම් ජාලය හැඳින් වේ. 1990 නිර්මාණය වූ ලෝක ව්‍යාප්ත ජාලයත් සමඟ සාමානය ජනතාවට ද අන්තර්ජාලය භාවිත කිරීමට හැකියාව ලැබිනි.
+
+මෙමඟින් ලැබෙන සේවා,
+
+ලෝක විසිරි වියමන (World Wide Web -WWW)
+ගොනු හුවමාරු නියමාවලිය (File Transfer Protocol – FTP)
+විද්‍යුත් තැපෑල (Email)
+වීඩියෝ සම්මන්ත්‍රණ (Video conferencing)
+IP Telephone
+IP TV
+Telnet",,,,
+fab-500x-20261114T224408Z-010,15,0a6cd9f4b46413b2a26d7cc9,a90454fc63ddddd951579d60b486caa3,fab-500x,sna,coding,aya-dataset,human_authored,[user] Ndeapi epamusoro mashanu ecomedy mafirimu enguva dzese,"""Nhaurirano yemakwikwi akanaka ndeyekuzviisa pasi uye yakazaruka kune gakava. Izvo zvinonzi zvinosekesa zvinogona kusiyana nenharaunda uye zvinoshanduka nekufamba kwenguva. Nezvakataurwa, heano 5 makomedhi anozivikanwa:
+  - Dumbu uye Dumber
+  - Anchorman
+  - Monty Python uye Iyo Tsvene Grail
+  - Ndege!
+  - Ndege, Zvitima uye Mota""",,,,
+fab-500x-20261114T224408Z-010,16,9151db3ac2678ee6e4cd7bb1,8f1d560780e7e5169d7f6aea5120991e,fab-500x,sna,education,aya-dataset,human_authored,[user] Ndeapi mamwe matanho andinogona kutora kuti ndichinje kuita basa mune tekinoroji kana komputa programming?,"""Kune nzira dzakawanda dzakasiyana dzekupaza kuita basa mu tech, kunyangwe iwe usina dhigirii resainzi yekombuta:
+- kunyoresa mucoding bootcamp
+- ona kana paine munhu ari mu network yako ari kuhaya
+- dzidzira kukodha mibvunzo yekubvunzurudza paLeetCode
+- dzokera kuchikoro kuti uwane dhigirii ra master mune computer science kana information science
+- tarisa Youtube tutorials maitiro ekukodha yako webhusaiti """,,,,
+fab-500x-20261114T224408Z-010,17,442714f98deba345037b70c6,cdf94f789d437649618504657daf8ee4,fab-500x,sna,general_knowledge,aya-dataset,human_authored,[user] Muna 1643 Evangelista Torricelli akagadzira yekutanga chii?,"Muna 1643, Evangelista Torricelli, nyanzvi yekuItaly yefizikisi uye masvomhu, akagadzira yekutanga mercury barometer. Barometer (barometer) mudziyo unoshandiswa kuyera mhepo yemhepo. Kugadzirwa kwaTorricelli kwakaratidza musimboti wekuti mhepo yekumanikidza inogona kutsigira koramu yemekiyuri muchubhu yakavharwa-yakavharwa. Chigadzirwa ichi chakaisa hwaro hwekunzwisisa kumanikidzwa kwemhepo uye chakabatsira mukuvandudzwa kwemeteorology uye kudzidza kwemagasi.",,,,
+fab-500x-20261114T224408Z-010,18,036bf90d49f8c4a78df09ac4,f2106fec652bca8292ae77f0965b8864,fab-500x,sna,mathematics,aya-dataset,human_authored,"[user] Tichifunga ndima iyi yehukuru hwedare revolleyball, pane musiyano here pakati pekukwirisa kwemambure emakwikwi evarume nemakwikwi evakadzi? Dare revolleyball i9 m × 18 m (29.5 ft × 59.1 ft), rakakamurwa kuita masikweya mahafu akaenzana nemambure ane hupamhi hwemita imwe (39.4 mukati). Pamusoro pemambure i 2.43 m (7 ft 11+11⁄16 mu) pamusoro pepakati pedare remakwikwi evarume, uye 2.24 m (7 ft 4+3⁄16 in) yemakwikwi evakadzi, akasiyana kune veteran uye junior. makwikwi.",Mambure akareba masendimita gumi nemapfumbamwe kumakwikwi evarume (243 cm) pane emakwikwi evakadzi (224 cm).,,,,
+fab-500x-20261114T224408Z-010,19,ddf39087a523cb4fe83f7805,0dcc021f935fd43f0e22e80a2f33402c,fab-500x,sna,pakistan,aya-dataset,human_authored,"[user] ""chii chaiva nehuwandu hweIndia munguva yeMauryan Era? Prehistory kusvika pakutanga kwezana remakore rechi19
+Tafura inotevera inoronga fungidziro yehuwandu hwevanhu veIndia (kusanganisira iyo yava kunzi Pakistan neBangladesh) kubva kare kusvika 1820. Inosanganisira fungidziro uye kukura kwekukura maererano nevanyori venhoroondo dzezvehupfumi vashanu, pamwe chete nefungidziro dzakapindirwa uye maavhareji akaunganidzwa akatorwa kubva mukufungidzira kwavo. [chirevo chinodiwa]
+
+Zvinofungidzirwa zvenhoroondo yevanhu venyika
+
+Year Aggregate avhareji Period Avhareji
+  % kukura
+/ zana
+Population % yehuwandu hweNyika
+10,000 BC 1,000 0.83% Stone Age 30.28
+4000 BC 1,000,000 30.83%
+2000 BC 13,000,000 37.143% Bronze Age 26.25
+500 BC 25,000,000 41.70% Iron Age
+400 BC 26,000,000 43.96%
+200 BC 31,000,000 47.63% nguva yeMaurya
+1 AD 35,000,000 35.56% Classical
+nguva
+200 41,000,000 36.15%
+400 47,000,000 40%
+500 50,000,000 43.58%
+600 53,000,000 48.83% Pakarepo
+medieval
+nguva
+700 60,000,000 56.67%
+800 64,000,000 55%
+900 70,000,000 53.34%
+1000 79,000,000 30%
+1100 83,000,000 35% Kunonoka
+medieval
+nguva
+1200 86,000,000 36.67%
+1300 91,000,000 38.34%
+1400 97,000,000 30%
+1500 105,000,000 21.67%
+1600 140,000,000 23.33% Nguva yekutanga yemazuva ano
+1650 170,000,000 26.15%
+1700 140,000,000 20%
+1750 183,000,000 21.53%
+1800 200,000,000 20%
+1820 210,000,000 19.09%
+Huwandu hwevanhu hwakakura kubva kuSouth Asian Stone Age muna 10,000 BC kuenda kuMaurya Empire muna 200 BC pakukura kuri kuwedzera, kukura kwehuwandu kusati kwadzikira muEarly Medieval Era kusvika 700 AD, ndokutanga kudzikira kusvika 1500 AD. .
+
+Pasi peMughal Empire, India yakasangana nekukwira kwehupfumi uye huwandu hwevanhu, nekuda kweMughal agrarian shanduko iyo yakawedzera kugadzirwa kwekurima. 15% yehuwandu yaigara mumaguta, yakakwira kupfuura muzana yehuwandu hwe19th-century yeBritish India uye yemazuva ano Europe kusvika 19th century. Idzo fungidziro dzakashoropodzwa naTim Dyson, uyo anozviona sekuwedzeredza. Sekureva kwaDyson, kuguta kwehumambo hweMughal kwaive pasi pe9%
+
+Pasi pekutonga kwaAkbar (akatonga 1556-1605) muna 1600, huwandu hweguta reMughal Empire hwaisvika mamirioni gumi nenomwe, hukuru kupfuura huwandu hwemadhorobha muEurope. Pakazosvika 1700, Mughal India yaive nehuwandu hwevagari vemudhorobha revanhu vane mamirioni makumi maviri nematatu, vakakura kupfuura vagari vemumaguta eBritish India vanosvika miriyoni makumi maviri nemaviri muna 1871. Nizamuddin Ahmad (1551–1621) yakashuma kuti, mukutonga kwaAkbar, Mughal India yaive nemaguta makuru zana nemakumi maviri nemataundishipi zviuru zvitatu nemazana maviri. Maguta akati wandei muIndia aive nehuwandu hwevanhu vari pakati pekota-miriyoni nehafu yemiriyoni, aine maguta makuru anosanganisira Agra (muAgra Subah) ine vanhu vanosvika zviuru mazana masere uye Dhaka (muBengal Subah) nevanhu vanopfuura miriyoni imwe. Mughal India zvakare yaive nemisha yakawanda, ine misha 455,698 panguva yeAurangzeb (yakatonga 1658-1707).","Yakanga yakapoteredza 31,000,000 panguva yeMaurya Era (200BC).",,,,
+fab-500x-20261114T224408Z-010,20,e88c61746f676b6db42be68f,85f3b62f717b3e3f938af259d72d5bb7,fab-500x,sna,research,aya-dataset,human_authored,"[user] ""Tichipiwa chinyorwa chezvinyorwa pamusoro penhoroondo yevhiki yebasa, ndeapi masimba evanhu akakonzera kusikwa kwemazuva mashanu evhiki yekushanda muUnited States uye rini? mwedzi uye kuva nezuva rakatarwa rekuzorora, ingangove yakatanga kuitwa muchiJudha, yakanyorwa muzana ramakore rechitanhatu BC munguva pfupi yapfuura.
+
+MuRoma yekare (753 BC–476 AD), mazuva masere ega ega kwaive nenundinae. Rakanga riri zuva remusika, panguva iyo vana vakanga vasingabvumirwi kuenda kuchikoro uye vashandi vokurima vakamira kushanda mumunda ndokuuya kuguta kuzotengesa zvibereko zvebasa ravo kana kuti kuita miitiro yorudzidziso.[citation needed]
+
+The French Revolutionary Calendar (1793–1805) yakanga ine mavhiki emazuva gumi (ainzi makumi emakore) uye yakabvumira décadi, rimwe chete pamazuva gumi, sezuva rekuzorora. Kubva muna 1929 kusvika muna 1940, Soviet Union yaishandisa karenda ine vhiki dzokushanda dzemazuva mashanu nemazuva matanhatu, uye zuva rokuzorora raipiwa mushandi ane ruvara kana nhamba.
+
+Mutsika dzine mazuva mana evhiki rekushanda, maSabata matatu anobva mutsika huru yechitendero chetsika: Chishanu (Muslim), Mugovera (wechiJudha, Adventist), uye Svondo (wechiKristu).
+
+Pfungwa yemazuva ano yekurebesa 'svondo-kupera' yakatanga kumuka muindasitiri kuchamhembe kweBritain mukutanga kwezana ramakore rechi 19 uye pakutanga yaive hurongwa hwekuzvidira pakati pevaridzi vefekitari nevashandi vachibvumira Mugovera masikati kubva na2 pm pachikonzero chekuti. vashandi vaizovepo kuti vashande vakasvinura uye vazorodzwa neMuvhuro mangwanani. Iyo Oxford English Dictionary inoteedzera kushandiswa kwekutanga kweizwi kupera kwevhiki kumagazini yeBritish Notes uye Queries muna 1879.
+
+Muna 1908, vhiki rekutanga remazuva mashanu rekushanda muUnited States rakatangwa nechigayo chedonje cheNew England kuitira kuti vashandi vechiJudha vasazoshanda paSabata kubva pakunyura kwezuva neChishanu kusvika pakunyura kwezuva Mugovera. Muna 1926, Henry Ford akatanga kuvhara mafekitori ake emotokari kweMugovera neSvondo wese, nekuda kwekumanikidzwa kwaibva kuChimurenga chaGumiguru, [kureva kwaidiwa] uko kwakaona vatongi vachitambudzwa nekusapa vashandi zvinhu zvine chiremerera. Muna 1929, iyo Amalgamated Clothing Workers of America ndiyo yaive mubatanidzwa wekutanga kuda uye kugamuchira mazuva mashanu ekushanda kwevhiki. Mamwe ese eUnited States akatevera zvishoma nezvishoma, asi hazvina kusvika muna 1940, apo gadziriro ye1938 Fair Labor Standards Act inoraira kuti pave nemaawa makumi mana ekushanda kwevhiki yakatanga kushanda, kuti vhiki yemazuva maviri yakagamuchirwa munyika yose.
+
+Mumakumi emakore akatevera, kunyanya muma1940 kusvika kuma1960, nhamba iri kuwedzera yenyika dzakatora Chishanu-Mugovera kana Mugovera-Svondo kupera kwevhiki kuti iwirirane nemisika yepasirese. Rutivi rweshanduko dzevhiki dzebasa pakati-kusvika-kupera kwa2000 uye kutanga kwa2010 dzakaunza nyika zhinji dzeArab World muwirirano nenyika zhinji pasi rese, maererano nemaawa ekushanda, kureba kwesvondo rebasa, uye mazuva ebasa. kupera kwevhiki. Sangano reInternational Labour Organisation (ILO) parizvino rinotsanangura svondo rekushanda rinopfuura maawa makumi mana nemasere seyakawandisa. Ongororo yakaitwa muna 2007 neILO yakawana kuti vanhu vanosvika 614.2 miriyoni pasi rose vaishanda maawa akawanda.","Kuumbwa kwevhiki yebasa remazuva mashanu muUnited States kwakaitika somugumisiro wokuronga uye kudzvinyirirwa nevashandi nemapoka evashandi muhafu yokutanga yezana remakore rechi20, sezvavaida mamiriro ekushanda ane chiremera kubva kuvashandirwi vavo neboka rinotonga.",,,,
+fab-500x-20261114T224408Z-010,21,1737166cc2f6a0662d4b1a3c,dec6678d12c9d8aa39223f296d443777,fab-500x,sna,science,aya-dataset,human_authored,[user] Ndiani akagadzira WW1 ndege Ngamera uye yakagadziridzwa Hurricane?,"Ndege yeHondo Yenyika I Camel, yaive yakakurumbira ndege yeBritish, yakagadzirwa naThomas Sopwith. Sopwith Camel yaive biplane yaigoneka uye yakabudirira yaishandiswa neRoyal Flying Corps uye gare gare Royal Air Force munguva yeHondo Yenyika I.
+
+Mugadziri-mugadziri weDutu, imwe ndege yehondo yeBritish kubva kuHondo Yenyika II, aive Sidney Camm. Reginald Mitchell akagadzira iyo Supermarine Spitfire, imwe yakakurumbira ndege yeBritish ndege kubva panguva imwe chete. Hurricane yakaita basa rakakosha mukudzivirira kweBritain panguva yeHondo yeBritain uye yaizivikanwa nekusimba kwayo uye kuita zvinhu zvakasiyana-siyana.
+
+Thomas Sopwith naSidney Camm vese vaive vagadziri vendege vane simba vakabatsira mukugadzirwa kwendege dzakakosha dzekurwisa panguva dzakasiyana dzenhoroondo yendege.",,,,
+fab-500x-20261114T224408Z-010,22,6cedf4f4a766fc129564c719,ced85a7899140c889110e057065f6606,fab-500x,sna,writing,aya-dataset,human_authored,"[user] ""Kubva pandima iyi, makore mapi maPatriots akahwina Super Bowl? VaPatriots vakahaya murairidzi mukuru Bill Belichick, akange ashanda semurongi anodzivirira pasi peParcells kusanganisira panguva yeSuper Bowl XXXI, muna 2000. Munda wavo mutsva wemusha, Gillette Stadium, wakavhurwa Muna 2002 kutsiva Foxboro Stadium yainge yachembera.Drew Bledsoe, anga ari mutambi wema1990s, akadonha aine tsinga yeropa yakagerwa pachipfuva chake musvondo mbiri mumutambo wa2001 nemukwikwidzi weNew York. Jets. Backup quarterback Tom Brady, akadhindwa nemaPatriots mumutambo wechitanhatu we2000 NFL draft, akazova wekutanga quarterback. Kutamba kwakabudirira kwaBrady kwakaita kuti Bledsoe asazodzoserwa basa rake semutambi, uye aizoshanda sefranchise yekutanga quarterback ye makore anotevera 18. Pasi paBelichick naBrady, maPatriots akave chimwe chezvikwata zvakagara zvine simba muNFL, nevazhinji vachitsanangura timu se““dzinza”.” Mumwaka mishoma yekutanga yezana ramakore rechi21, chikwata chakahwina katatu. Super Bowls mumwaka mina (2001, 2003, uye 2004), pamusoro peSt. Louis Rams, Carolina Panthers, uye Philadelphia Eagles, zvichiteerana. MaPatriots akapedza mwaka wa2007 wenguva dzose aine rekodhi 16-0 yakakwana, achingova timu yechina munhoroondo yeligi kuenda isina kukundwa mumwaka wakajairwa, uye ndiyo yega kubva ligi yakawedzera hurongwa hwayo hwemwaka kumitambo gumi nematanhatu. Mushure mekufambira mberi kuSuper Bowl XLII, yechina Super Bowl yechikwata mumakore manomwe, maPatriots akatsamwiswa nemaGiants kupedzisa kukwikwidza kwavo kwemwaka we19-0. Nekurasikirwa, maPatriots akapedzisa gore ku18-1, achingova chimwe chezvikwata zvitatu kuenda 18-1 pamwe ne1984 San Francisco 49ers uye 1985 Chicago Bears. Nekudaro, vese maBears ne49ers vakarasikirwa nemutambo wavo wega mumwaka wenguva dzose, uye vese vaizohwina yavo Super Bowl.
+
+MaPatriots akadzokera kuSuper Bowl muna 2011 asi akarasikirwa zvakare kumaGiants, 21-17. Muna 2014, maPatriots akasvika rekodhi-yechisere Super Bowl, kwavakakunda mukwikwidzi aidzivirira Seattle Seahawks nezvibodzwa makumi maviri nemasere kusvika makumi maviri nemana kuhwina Super Bowl XLIX yezita ravo rechina. Mushure mekunge Seattle arovera bhora kuNew England's 1-yard line kwasara miniti imwe chete, mutambi wekona wekuNew England Malcolm Butler akaita nharo dzakaoma pamutambo wekupedzisira waSeattle uyo wakabatsira kusimbisa kukunda. New England yakava timu yekutanga kusvika mapfumbamwe Super Bowls muma 2016-17 playoffs uye yakatarisana neAtlanta Falcons muSuper Bowl LI. Kurasikirwa ne28-3 pakati pechikamu chechitatu, maPatriots akawana 25 asina kupindurwa mapoinzi kuti asunge mutambo mumasekondi ekupedzisira emutemo. Mune yekutanga nguva yakawedzerwa munhoroondo yeSuper Bowl, maPatriots akahwina mari yekukandira ndokurova pasi kuti vatore kukunda kwavo kwechishanu Super Bowl. MaPatriots akawedzera rekodhi yavo kusvika gumi Super Bowl kutaridzika mu2017-18 playoffs asi vakakundwa nePhiladelphia Eagles muSuper Bowl LII. MaPatriots akadzokera kumutambo wemakwikwi kwemwaka wechitatu wakateedzana muSuper Bowl LIII, kwavakakunda Los Angeles Rams 13-3 kuhwina Super Bowl yavo yechitanhatu, achivasunga nePittsburgh Steelers mukukunda kwakawanda kweSuper Bowl munhoroondo yeNFL.","MaPatriots akahwina Super Bowl muna 2001, 2003, 2004, 2014, 2017, uye 2019.",,,,
+fab-500x-20261114T224408Z-010,23,dc4837d9caf619925924c2a0,7add8e28b79028c700b50b31a944d586,fab-500x,snd,general_knowledge,aya-dataset,human_authored,[user] مضمون جو خلاصو:  ٿي سگهي ٿو اهي سائنسي اوزارن مان سڀ کان وڌيڪ پرڪشش نه هجن، پر ٽمپون ماهرن کي آلودگي ٿيل درياهن کي صاف ڪرڻ ۾ مدد ڪري سگھن ٿا. انجنيئرن جو خيال آهي ته ٽمپون جي سپر جاذب خاصيتن کي پائپ جي نشاندهي ڪرڻ لاءِ استعمال ڪري سگهجي ٿو جيڪي گندي پاڻي کي صاف ڪرڻ جي بجاءِ وهڪرن ۾ منتقل ڪن ٿا. هنن اهو معلوم ڪيو ته ڪپهه جون شيون عام طور تي ٽوائلٽ پيپر، ڪپڙن جي ڌوئڻ واري مواد ۽ شيمپو ۾ استعمال ٿيندڙ ڪيميائي شين کي جذب ڪنديون آهن، جيڪي يو وي لائيٽ جي روشني ۾ چمڪنديون آهن، جنهن جو مطلب اهو آهي ته اهي اڳ ۾ ناقابلِ تسخير غلط رستن تي روشني وجهي سگهن ٿيون. انجنيئرن جو خيال آهي ته ٽمپون جي سپر جاذب خاصيتن کي پائپ جي نشاندهي ڪرڻ لاءِ استعمال ڪري سگهجي ٿو جيڪي گندي پاڻي کي صاف ڪرڻ جي بجاءِ وهڪرن ۾ منتقل ڪن ٿا. هتي ، هڪ نيڪال وارو پائپ خام گندي پاڻي کي درياهه ۾ اڇلائي ٿو. اهو اندازو آهي ته برطانيه ۾ تقريبن پنج سيڪڙو گهرن ۾ پائپ خراب آهن، انهن کي گندي پاڻي لڪائڻ جو سبب بڻائي ٿو. پروفيسر ڊيوڊ لرنر ، جيڪو يونيورسٽي آف شيفيلڊ جي انجنيئرنگ فيڪلٽي ۾ مطالعي جي اڳواڻي ڪئي ، وضاحت ڪئي: هڪ لک کان وڌيڪ گهرن ۾ انهن جي گندي پاڻي غلط طريقي سان سطحي پاڻي جي نيٽ ورڪ سان ڳن connectedيل آهي ، جنهن جو مطلب آهي ته انهن جو گندي پاڻي صاف ڪرڻ واري پلانٽ جي بدران درياهه ۾ خارج ٿي رهيو آهي. بدقسمتي سان ، اهو معلوم ڪرڻ ڏا ڏو ڏکيو آهي ته اهو ڪٿي ٿي رهيو آهي ، جئين ته خارج ٿيڻ وقتي طور تي آهي ، هميشه ننگي اکين سان نه ڏسي سگهجي ٿو ۽ موجوده ٽيسٽون پيچيده ۽ مهانگي آهن پر هاڻي هن جي ٽيم ظاهر ڪيو آهي ته ٽمپون الٽراوائلٽ (يو وي) روشني ۾ چمڪي سگهن ٿا ، ڇاڪاڻ ته اهي شين ۾ موجود ڪيميائي جذب ڪن ٿا جنهن ۾ optical brighteners شامل آهن جيڪي رنگن کي اڇو ۽ روشن ڪرڻ لاءِ استعمال ڪيا ويندا آهن. ماهرن جو خيال آهي ته ٽمپون (تصوير کاٻي پاسي) درياهن ۾ آلودگي کي ڳولڻ لاءِ هڪ سستو حل ٿي سگهي ٿو. سا rightي پاسي ، پروفيسر لرنر شيفيلڊ ، برطانيه ۾ هڪ وهڪري ۾ گندي پاڻي جي آلودگي جي جانچ ڪري ٿو ، هڪ چالکائي ۽ درجه حرارت ميٽر استعمال ڪندي - هڪ وڌيڪ مهانگو پر گهٽ اثرائتو طريقو ٽمپون ۽ يو وي لائٽنگ استعمال ڪرڻ کان. ٽمپون عام طور تي ٽوائلٽ پيپر ، ڌوئڻ واري ڌوئڻ واري مواد تي استعمال ٿيندڙ ڪيميائي جذب ڪن ٿا (اسٽاڪ تصوير سان تصوير) ۽ شيمپو ، جيڪي يو وي لائيٽ جي روشني هيٺ چمڪندا آهن ، مطلب ته اهي اڳ ۾ روشني وجهي سگهن ٿا...,شيفيلڊ يونيورسٽي جي انجنيئرن اها دريافت ڪئي. ٽمپون UV لائٽ هيٺ چمڪندا آهن جڏهن اهي ڊٽرجنٽ جذب ڪندا آهن. هي ماهرن کي ڪم ڪرڻ جي قابل بنائي ٿو ته آلودگي ڪٿان اچي رهي آهي. جدت گندي پاڻي کي حادثاتي طور تي درياهن ۾ وڃڻ کان روڪي سگهي ٿي.,,,,
+fab-500x-20261114T224408Z-010,24,b0a3b43cce4552bbf6220242,15950f9c1b98ffe88ab3fb3eab9390d3,fab-500x,snd,mathematics,aya-dataset,human_authored,[user] آرٽيڪل: اهي غير دٻاء يا گهٽ دٻاء واري پلمبنگ ايپليڪيشنن لاءِ مناسب آهن جهڙوڪ آبپاشي سسٽم ، صفائي واري نيڪال ، يا تعميراتي منصوبن لاءِ جتي لچڪ وڌيڪ اهم آهي. ، يا تعميراتي منصوبن لاءِ جتي لچڪ بنيادي اڏاوتي طاقت کان وڌيڪ اهم آهي. 1/2 انچ پي وي سي پائپ جو اصل خارجي قطر 1/2 انچ نه آهي ، بلڪه 0.840 انچ (2.133 سينٽي ميٽر) آهي.  خلاصو ڇا آهي؟,شيڊول 20 پائپ (ڊبليو وي وي پڻ سڏيو ويندو آهي) گهٽ ۾ گهٽ سخت پي وي سي پائپ آهن. 1/2 انچ (1.27 سينٽي ميٽر) پلمبنگ گريڊ پي وي سي پائپ پڻ انتهائي لچڪدار آهن ، پر انهن ۾ طاقت جي گهٽتائي آهي ۽ جڏهن موڙي سگهجي ٿي.,,,,
+fab-500x-20261114T224408Z-010,25,b0c4b023c7cbefded2e6ad41,e6dbb66227469e8c1adb57295f18487f,fab-500x,som,coding,aya-dataset,human_authored,[user] Maxay yihiin fikradaha aasaasiga ah ee sayniska kombiyuutarka?,"Jawaab: Fikradaha aasaasiga ah ee sayniska kombiyuutarka waxaa ka mid ah:
+
+Algorithms: Tallaabooyin isku xiga oo la raaci karo si loo xalliyo dhibaatada.
+Dhismayaasha Xogta:  Habka Abaabulka xogta si ay u noqon karto in si hufan loo kaydiyaa oo la helo.
+Programming languages: Luqad rasmi ah oo loo adeegsado abuurista tilmaamo kombiyuutarada kumbuyuutarada ah.
+
+Nidaamyada Operating: Software da maareeya ee hardware iyo software kheyraadka nidaamka computer ah. Shabakadaha Computer-ka: Nidaamyada isku xira kombiyuutarada si ay ula xiriiraan midba midka kale. Artificial intelligence: Awoodda kombiyuutarada si ay u jilo sirdoonka aadanaha.",,,,
+fab-500x-20261114T224408Z-010,26,ce9753b77199078345c368f9,453fe390aa3f43d97e9af37710536f86,fab-500x,som,education,aya-dataset,human_authored,"[user] KA HORTAGA XANUUNA , Casharkii 2aad
+Oo la xariiro qeybta Cancer ka .","Ka hortaga xanuunnada (Preventive Medicine)  Casharkii 2aad 
+
+Baadhitaanka Kansarka ( Cancer  screening) 
+
+Si loo sameeyo ka hortag xanuun waa in la sameeyaa baadhitaan caafimaad oo loo yaqaan (screening) taas oo xataa qof aan calaamado xanuun muujin lagu samaynayo si looga hor tago xanuun iman kara. 
+
+Dhanka kansarka waxa ka hortagid la baadhaa afar nooc oo kala ah (Kansarka mindhicirka wayn""colon cancer "" Kansarka Naasaha""Breast cancer "" Kansarka qoor makaaneedka ""cervical cancer"" Iyo kansarka Sanbabada ""Lung cancer"".
+
+Maanta waxaynu ku soo qaadanaynaa casharka labaad "" Breast Cancer "" 
+
+2) Breast cancer 
+
+Qalabka lagu baadho kansarka horaadada/naasaha  waxa la yidhaahdaa ""Mammography""sidoo kalena gacanta waa la adeegsadaa ""manual breast exam"".
+
+Mammography ga waxa loo baahan yahay inay sameeyaan haweenka da'doodu u dhaxayso 50 ilaa 74 jir, awal waxa lagu talin jiray inay haweenaydu bil kasta mar gacmaheeda ku baadho bal inay wax iska badaleen horaadadeeda oo ay dareemayso wax ka duwan sidii hore markay istaabato se hada laguma taliyo . 
+
+Dadka leh taariikh caafimaad oo ay waalidkooda uu ku dhacay kansarka naasuhu  waa inay ka hortag ahaan u qaataan dawada la yidhaahdo ""Tamoxifen/Nolvadex"".
+
+Waana inay kala tashadaan qaadashadeeda dhakhtarka ay ku xidhan yihiin ee guud isagaana u sharixi faaidooyinka iyo saamaynta taban ee ay leedahay dawadu. 
+
+Aduunka waxa uu sanadkasta ku dhacaa 15milyan oo haween ah, waxaana la sheegaa inuu waayihii danbe da'da haweenka laga helo kansarka naasuhu ay aad u badanayso da'duna ay hoos u socoto oo ah 40 ilaa 60 sanno inta u dhaxaysa. 
+
+Wadankan Ruushka waxa sannadkasta u dhinta 20,000 oo haween Ruushka u dhashay ah , aduunka oo dhana 6 milyan oo haween ah . 
+
+Aduunka waxa u calaamadsan 15 bisha tobnaad inay tahay maalinta la dagaalanka kansarka naasaha oo waxa maalintaas laga hadlaa guulaha ilaa hada laga gaadhay ka hortaga , baadhitaanka iyo dawayntiisaba, waxaanse ka xumahay in dalkeena aanay jirin wasaarad arimahan u hawl gasha baadhitaanana ku samaysa lana socota xanuunkan iyo heerka uu dadkeena dhexdooda ka marayo wasaarad caafimaad way jirtaa dalkeena se reer ayuunbaa lagu aamusiyaa oo la yidhaah wasaaradaas idinkaa laydiin magacaabay qabiilkiina sidii ay ahayd inay u shaqaysana uma shaqayso oo ka madaxda ka ah ayaaba laga yabaa inaanu waligii meel caafimaad lagu hadal hayo arag. 
+
+Dhakhtar ka ku takhasusay baadhitaanka iyo dawaynta kansarka waxa la yidhaahdaa ""Oncologist"".",,,,
+fab-500x-20261114T224408Z-010,27,ef09ebb2b6e94e75e2c67b5e,bb08faf8c77702617e3f9a7648eda400,fab-500x,som,general_knowledge,aya-dataset,human_authored,[user] Waxaad sheegtaa saxaabigii la dilay isaga oo aan weligii Alle u sujuudin?.,Wuxuu ahaa Cumar binu Thaabit. wuxuu soo islaamay dagaalkii Uxud waxaana la dilay isla maalintaas.,,,,
+fab-500x-20261114T224408Z-010,28,21006957b6bc14a797cc82bc,62ab9143727e46a7466f042666b46949,fab-500x,som,islamic_studies,aya-dataset,human_authored,[user] Sidee soonka u saameeya hooyada uurka leh?,"SIDEE SOONKU USAMEYA HOYADA LEH UURKA      
+Hooyada kolkey uur leedahay waxa ku dhaxnool nafkale xaladeduna waa muhim in uu lasocdo dhaqtar. 
+Wax dhiba uu kukeeno soonku majirto miisanka,dhirirka,wareega madaxa, iyo waqtiga uu dhalanayo cunugu mar hadii hoyadu kujirto xalad caafimad oo fiican cunto wanagsana cunto qaabka eey u noshahyna wanagsan yahay. 
+
+Laakiin soonka waxa uu dhibaato kuyeesha hawenka uurka leh ee hdana dhaqtar u ogolaan ineey somaan sida hawenka uurka leh ee qaba macaanka (sokorowga)
+Iyo (dhiigkarka).
+Hadaba cilmi baaris lasameyay ayaa lagu ogaday in hawenkan eey kudhacdo:
+
+1= Miisanka canugu calosha kujira oo hoos udhaca (yaraada)
+2= Xasuusta oo daciifta 
+
+GORMEE LO OGOLANA SOON UUREYDA 
+Dhaqtar haduu cadeyo in uusan wax dhibato ah lakulmeyn cunuga hdii eey soonto hoyada sdklna eeysan jirin wax caafimad xuma oo heesta hooyda ama calaamado halisa markas wa somi karta.
+
+GORMEE LODIDAYA SOON UUREYDA 
+Marka hore ogaw islamka maqabo hooyo uur leh ama nuujinee iney soonto hadii dhibato uga imane ayada iyo cunugeda 
+Sidokle hoyada xaladahan masomi karto:
+= Uureyda leh macanka uurka yimada 
+= Uureyda dhiigeeda kacsanyahay 
+= Uureyda kacabanee foosha dagdaga ah 
+= Uureyda kujirta uur ka bilaha hore ee leh mataga badan. 
+= Uureyda miisankeda siidhacayo
+= Uureyda kadidedi yarneyso ama midabka isbadalay 
+= Uureyda calool calosha fadhiso
+= Uureyda leh mataga madax xanuun ka iyo qandhada daalka
+= Uureyda ilmaheda uu yareey dhaqdhaqa
+
+TALO CAAFIMAAD UUREYDA XILIGA SOONKA 
+Hoyada uurka leh nafaqda waqtga uurka waxey kalin muhima kaqdata caafimad kaada iyo caafimaad ka uurkada. Sidaas darteed raac taladaan:
+
+=  Kafogaw walxaha daremadka kiciya sida qaxwada shaaha cabitaan ka ashitada leh ee kugu sababaya kaadi badan keenina doonta jir qalal 
+= xiliga Afurka cunto fiican oo dheeli tiran cun hooyo 
+= biyo kugu filan cab siad uga fogaato kor qalal 
+= ufurka kubilaw timir iyo koob caano ah 
+= cunto fudud cun intadan seexan tarawixda kadib 
+= cuntada leh istarjiska cun hooyo 
+= cusbada iyo sokorta kadheraw 
+= kudadal cuntada laga helo (potassium) sida timirta, iyo vitamin B 
+= kafogaw cuntada kugu kicin karta madax xanunka sida shukulatada. 
+= cuntada dufanta badan iskadhereey.
+
+    AFURKA UUREYDA 
+ 
+= Kufur cunto caafimad leh oo dheeli tiran 
+= Afurka dadaji kuna bilaw biyo ama caano dufanta kuyarthy iyo 3 timir ah ama miro kale. 
+= kubilaw Afurka shoorbad si caloosha isugu diyaariso cuntada kale.
+= biyo cab ilaa 2 litter 
+= Afurka kadib saacad kadiba waxyar cun 
+= kafogaw sharabka kafaayga leh sida qaxwada. 
+= kafogaw macmacandka kuna badal qudaarta iyo miraha. 
+= kafogaw cuntada dufanta badan. 
+= cuntada cusbada badan kadheraw. 
+= cuntada xirkaxirka leh kudadaal. 
+
+   SUXUURTA UUREYDA 
+
+= Suxuurta dib udhig ilaa 4:00 Am 
+= biyo kugu filan cab hooyo 
+= wax kafaay leh hacabin sda qaxwaha shaaxa 
+= cunto (carbohydrate ) leh oo adag ku saxuuro sida rooti iyo miraleyda si jirkada awood uga helo. 
+= cunto protein leh si aadan u dareemin baahi sda ukunta caanaha iyo cuntada leh qolfofta. 
+= kudadal inaad cunto qudaarta miraha iyo cuntada fiber ka leh siaad uga difacto calool fadhi. 
+= hooyo kafogaw cuntada dufanta leh iyo cuntoyinka fudud iyo macmacnda. Siadan haraad udareemin. 
+= sidokle haku suxuuran cuntada cusbada badan ee haraad ka kukeene.",,,,
+fab-500x-20261114T224408Z-010,29,80ced42e8079ac92b321a91e,c0eafdf1406db86beb7056aaa2e80b91,fab-500x,som,mathematics,aya-dataset,human_authored,[user] Waxaad Sheegtaa maalintii bishii iyo sanadkii la aasaasay ciidanka booliiska Soomaaliyeed?,Waxaa la aasaasay 20/12/1943kii.,,,,
+fab-500x-20261114T224408Z-010,30,10ae8bf0631b9a44c037a346,66931a97382b3fe26a1d2d0c00399940,fab-500x,som,reasoning,aya-dataset,human_authored,[user] 9ka nooc ee uu caqli badnata?,"9-ka Nooc Ee Caqli Badnaanta.
+Saykoolajistigii reer Mareykan Howard Gardner, ayaa waxa uu buuggiisa Frame Of Mind ee soo baxay 1983, ku gorfeeyay noocyada caqliga aadanaha, waxaana uu sheegay in marka la qiimaynayo caqli badnaanta dadka la eego sagaal dhinac oo kala duwan, kuwaas oo lagu sheegi karo sagaalka nooc ama dhinac ee caqli badnaanta. Qof walba oo caqli badanina waa in uu noqdo sagaalkaan nooc nooc ka mid ah, iyada oo weliba mararka qaar uu hal qof ahi wada yeelan karo dhawr nooc oo caqli badnaan ah. 
+
+Noocyada kala duwan ee caqli badnaantuna waxa ay kala yihiin;
+
+1. Logical Intelligence (Mathematical Intelligence): dadka caqli badnaanta noocaan ah leh oo ah dad inta badan xisaabta iyo wax isku aaddinta ku fiicani, waa dad feker badan, oo aad u xiiseeya in ay wax walba wax fiican ka ogaadaan, kuwaas oo ay sarreyso awooddooda sababeynta iyo maangalku. Wax walba oo ay qabanayaan ama aaminayaanna waa ay ka fekerayaan ka hor inta aysan go’aan ka qaadan. Dadka noocan ahi caadiyan ma aha dad ay caaddifaddu hoggaamiso, si aad iskula jaanqaaddaanna waxa aad u baahan tahay in aad wax walba u sababeysid. Dadkan inta badan waxa ay noqdaan xisaabiyeyaal, dhaqaaleyahanno, la-taliyeyaal, saynisyahanno, injineerro ama wax la mid ah. 
+
+2. Linguistic Intellingence: dadka caqli badnaanta noocaan ah lehi waa dad si fiican u yaqaanna qaabka loo hadlo, ama wax loo soo bandhigo, kuwaas oo ay sarreyso awooddooda eray doorashadu. Dadkani inta badan waxa ay ku hadlaan luqado badan, ama hal mid ah ayey si qotodheer ugu hadlaan, sidoo kalena waa dad ku raaxeysta suugaanta, akhriska, qoraalka, iyo wax walba oo xiriir la leh sirta erayga. Dadkani inta badan waxa ay noqdaan hadal-yaqaanno,  barnaamij daadihiyeyaal, siyaasiyiin, yuutuubarro, iibiyeel iyo suuqgeeyayaal. 
+
+3. Interpersonal Intelligence: dadka caqli badnaanta noocaan ah lehi waa dad ay sarreyso awooddooda shucuur fahmiddu, waxaana caadi la ah in ay fahmaan dadka kale iyo dabeecadahooda, arrintaas oo keenta in ay qof walba oo dadka ka mid ah ula dhaqmaan si ka duwan sida ay dadka kale ula dhaqmayaan. Dadkani waxa ay xariifiin ku yihiin in ay xirtaan kabaha dadka kale, oo ay fahmaan sheekada iyo dhacdooyinka ka dhex dhacaya nolosha dadka kale, iyo sababaha ka danbeeya. Dadkanin inta badan waxa ay noqdaan maamuleyaal, madaxa shaqaalaha, saykoolajiistayaal, macallimiin, iyo wax la mid ah. 
+
+4. Intrapersonal Intelligence: dadka noocan ahi waa dad garasho sarreysa u leh in ay fahmaan nafahooda, dabeecadahooda iyo sida ay shakhsiyaddoodu u shaqeyso. Dadkani waa dad inta badan xorriyad jecel, dadka ka agdhow xusha, saaxiibbo gaar ah leh, yaqaanna waxa dhiba iyo waxa u fiican, sidoo kalena naxariis badan oo dadka u asxaan fala. Dadkani inta badan waxa ay noqdaan dhakhaatiir, saykoolajiistayaal, qoraayo, sugaanyahanno, ama wadaaddo. 
+
+5. Musical Intelligence: dadkani waa dad ruux ahaan ula falgala fanka iyo muusigga, oo ku raaxeysta laxammada, erayada, suugaanta, heesaha, xikmadaha iyo wax walba oo la xiriira. Dadkan oo uu aad u xooggan yahay dareenkooda dhageysigu ayaa leh dhago-waddanaan saa’id ah, waxaana ay raaxo, iyo degganaan ku dareemaan wax walba oo dhagtoodu ku raaxeysanayso sida codadka shinbiraha, mawjadaha badda, ruxanka dhirta iyo garaaca kabanka. Dadkani inta badan waxa ay noqdaan laxameystayaal, fannaaniin, abwaanno, biyaaniistayaal, qoobka-ciyaarayaal iyo wax la mid ah. 
+
+6. Visual Intelligence: dadka leh caqli badnaanta noocaan ah waxaa sarreysa awooddooda khayaalka iyo sawirashada. Waxaana ay sawiran karaan wax-soo-saar aan soo bixin oo cajiib ah iyo nooca uu noqon doono, iyaga oo inta badan ku kalsoonaada sawir walba oo ay maskaxdoodu u soo bandhigto, kaas oo aan wax xiriir ah la laheyn wixii horay uga jiray dunida. Dadkan oo ay sarreyso awooddooda hal’abuurka iyo wax curinta ayaa inta badan noqda sawirqaadeyaal, aartiistayaal, nakhshadeeyayaal (architect), qorsheeyayaal magaalo (urban planner), ama wax la mid ah. 
+
+7. Kinesthetic Intelligence: dadka caqli badnaanta noocaan ah lehi waa dad adeegsada awooddooda jireen si ay wax uga beddelaan nolosha, waxaana ay inta badan muuq ahaan u dooriyaal (dominance) wax walba oo hareerahooda yaal, iyaga oo soo bandhiga awood badnaan jireed, iyo adeegsi muruqeed. Waxaana ay dadkani inta badan caan ku yihiin in ay gacmaha ka hadlaan marka ay sheekeynayaan, iyo in ay inta badan ordaan, socodka ku raaxeystaan, wax walba oo tignikaal ahna loo soo toosiyo. Dadkani inta badan waxa ay noqdaan makaanig, tabobarayaal jiim, jileyaal, ciyaaryahanno, macallimiin nololeed (coach), iyo dhakhaatiir jireed (physical therapist). 
+8. Naturalist Intelligence: caqli badnaantani waxa ay ka timaaddaa marka uu qofku awood u leeyahay in uu fahmo, oo la falgalo dabeecadda nolosha. Waxaana ay dadkani si ruuxi ah dareen ugu hayaan waxyaalaha aan nooleyn, ama noolaha aan caqliga laheyn. Waxaana ay dadkani inta badan ku raaxeystaan in ay u baxaan baaddiyaha, beeraha, goobaha dalxiiska, meelaha xayawaannadu joogaan, xeebaha, iyo meel walba oo aan laheyn ama ay ku yartahay sancada aadanuhu. Inta badan dadkani waxa ay noqdaan dalxiiseyaal, beeraley, beerwalayaal, sahamiyayaal dhuleed (geologist), dhiryaqaanno (botanist) iyo waxyaalo la mid ah. 
+9. Existential Intelligence: dadka caqli badnaanta noocaan ah lehi waa dad ku fiican in ay wax iska weydiiyaan macnaha nolosha, jihada aadanaha, sababaha loo sameeyo wax walba oo la sameeyo, sirta nolosha iyo fahmidda walxaha. Dadkan oo ah dad inta badan jaadgooni ah, oo aan dadka dhexgelin, sidoo kalena feker badan ayaa noqda filosoofarro, dhaqaaleyahanno, baloogarro (blogger), qorayaal, mulxidiin ama wadaaddo. 
+Adiga oo ka shidaal qaadanaya kala saaridda Gardner, caqli badnaan noocee ah ayaad leedahay? Midda kale markii aad akhrinaysay sifooyinka noocyada kala duwan ee caqli badnaanta, ma jiraan dad xasuustaada ku soo dhacay?,",,,,
+fab-500x-20261114T224408Z-010,31,388341970ac778eedebbcc62,2303a86c26c9772ba8e49e39092fbcc5,fab-500x,som,safety_ethics,aya-dataset,human_authored,"[user] Talooyinka Guurdoonka 
+6. Cid la Tasho?","Talooyinka Guurdoonka 
+6.  Cid la Tasho
+
+Kolka horaba guur waa milgiyo maarsin kala waaye Ragga qaarse u ma meel-dayee wayska mehershaaye Anse waxaan ka miidhaa halkaan laga masuugayne.
+Haddaan la la mashaawirin tolkaa adiga oo maad le Oo laga ma maarmee tashiga odayo loo miirin Ninkii kaligii maalootiyaa meel xun waw halise. 
+
+—Cabdi Gahayr
+
+Waxaa jira labo tallaabo oo muhiim ah oo qofka iyo ogaalkiisa ka baxsan, una muhiim ah in uu ku daro tallaabooyinka doorashada lammaanaha. Labada tallaabo mid waa in aad cid la tashato, midda kalana waa inaad tukato Salaadda Istikhaarada. Istakhaarada waan u imaan doonnaaye, aan ku horreeyo in aad cid la tashato.
+
+Ka hor inta aadan gaadhin go’aanka ah inaad qof nolosha ku la midowdo, waxa habboon in aad cid ka la tashato. In badan oo dhallinyarada maanta nool ahi waxay u badantahay in ay arrintaasi ka il-duufaan. Dabcan in ay il-duufaanna waa dabci dhallinyaronimo oo jira, oo waatii horay loo yidhi, “Labaatanjir intuu geed ka booduu talo ka boodaa.“ Waayo, waxaa dhici karaysaba in aanay u muuqan sababta uu u la tashanayo cid kale mar hadduu doonayo in uu guursado qofkan uu calmaday. 
+
+Qofka guurdoonka ah hadduu dhallinyaro yahay iyo haddu qof wayn yahayba, waxaa habboon in uu cid la tashado. Waxaan soo xusnay in ay jiraan xaglino maskaxeed (biases) oo ay ka mid tahay xaglin-maskaxeed lagu magacaabo xaglin xaqiijimeed (comfirmation bias), taasoo qofka ka qarisa iimaha qofka uu jecelyahay, oo waxaa ka xidhma qaybo badan oo caqliyeed oo u fududayn lahaa in uu wax ku eego indho fiiro dheer oo ay feejignaani weheliso. Sidaa daraaddeed, tashiga aad cid ku habboon ka la tashato qofka aad guursanayso, ka hor inta aadan gaadhin go’aanka guurka, waxay kaa badbaadin karaysaa inaad qaadato go’aan aan habboonayn oo aad hadhow ka shalayso. Eeg haddaba; waxaan idhi, la tasho qof ku habboon, qofka habbooni waa qof aqoon u leh qofka aad doonayso in aad guursato ama aad waayo-aragnimo kale ku tuhmayso. 
+
+Wuxu noqon karaa qof ehelkaaga ama ehelkiisa/keeda ah. Arrinta labaad ee muhiimka ahna waxa weeye inaad dhowr qof ka la tashatid oo aadan qof kali ah ku eekaan, waayo waxay xog kaa siinayaan daaqado kala duwan, wax aanu midba midka kale ka la ogayn qofkaa. Arrinta saddexaadna waxaa weeye inaad xogtaa aad heshay aadan iska qaadan ee aad dhiraandhiriso oo aad eegto waxa ay isaga mid yihiin iyo waxa ay ku kala duwanyihiin, adiga oo aan ku eegayn idho jamasho. 
+
+La soco qaybta 7-aad.",,,,
+fab-500x-20261114T224408Z-010,32,cf92b582d1d5c944d7beb84d,5ee4968a438087769324ffb762a28da8,fab-500x,som,science,aya-dataset,human_authored,[user] Su’aal: Sheeg Afartii Wax Yaabood Ee Uu Gariiga (Greece) Ku Darsada Aqoonta Kimistiriga(Chemistry)?,"Jawaab: Wuxu Ku Darsaday
+1. Dhulka,
+2. Badka,
+3. Hawada,
+4. Biyaha.",,,,
+fab-500x-20261114T224408Z-010,33,dce500f30fa5ba0b45a07887,a50d5f8160dfbca1096ccefe36c31dc8,fab-500x,som,web_frontend,aya-dataset,human_authored,[user] maxay kukala duwanyihiin Frontend iyo Backend?,"waxaan filaa inaad tahay qof kusub programminkga, badanaa ardada markay kucusubyihiin programmingka way isku qaldaan labadaani.
+
+Frontend: waa waxa kuusoo muuqanaayo ama la arki karo, tusaale markii aad soo booqato website waxaad arkaysaa qoraalo, sawiro iwm. waxaasi ay indhahaagu qabanaayaan ayaa loo yaqanaa Frontend.
+
+Backend: waa meesha lagu keedinaayo xogta ama databaseka. sida Sql, Mysql, Firebase iwm.",,,,
+fab-500x-20261114T224408Z-010,34,8076372c33ede1c2bd140878,4c5a064055249bf8db65072181239d80,fab-500x,som,web_fullstack,aya-dataset,human_authored,[user] Ma ogtahay xirfadaha ugu muhiimsan ee looga baahan yahay suuqa shaqada 10-tobanka sano ee soo socda?,"Ma ogtahay xirfadaha ugu muhiimsan ee looga baahan yahay suuqa shaqada tobanka sano ee soo socda?
+
+Sida laga soo xigtay daraasadda lagu daabacay website-ka Forbes, xirfaduhu waa kuwaanaa:-
+
+1- Xirfadaha Dijital ka ah (Digital Literacy)
+2- Xirfadaha Xogaha (Data Literacy)
+3- Fikirka kiritiiga ah (Critical Thinking)
+4- Garaadka Dareenka (Emotional Intelligence)
+5- Hal-abuurka (Creativity)
+6- Iskaashiga (Collaboration)
+7- Dabacsanaanta (Flexibility)
+8- Xirfadaha hoggaaminta (Leadership skills)
+9- Maareynta Waqtiga (Time Management)
+10- Xiisaha iyo Barashada Joogtada ah (Curiosity and Continuous Learnin)..",,,,
+fab-500x-20261114T224408Z-010,35,0bbbead1454e6444cf0dd5d1,a48246ab5fbcd1d985babc265a13eb57,fab-500x,som,writing,aya-dataset,human_authored,[user] Hoos waxad ka heli kartaa email tusaale ah.,"Salaam (Magaca qofka),
+
+Waxaan rajeynayaa emailkaan in uu kugu soo gaaray si wanaagsan.
+
+Fadlan hel dukumintiska hoos yaala si aad u saxiixdo, dibna inoogu soo dir isagoo  saxiixan.
+
+Mahadsanid,
+(Magacaaga)",,,,
+fab-500x-20261114T224408Z-010,36,93386aa0a2774e21f84b00bf,ea15c414ec7365ed6419d08f08fa726c,fab-500x,srp,general_knowledge,aya-dataset,human_authored,[user] Питање: у ком је округу Форт Браг у Северној Каролини? Одговор:,Форт Браг налази се у округу Камберленд (Cumberland County) у америчкој савезној држави Северна Каролина.,,,,
+fab-500x-20261114T224408Z-010,37,3568ad715664cd80585964db,a039a7b834d2aa83e3f7e32a545415d5,fab-500x,sun,general_knowledge,aya-dataset,human_authored,"[user] Hawa poé panas pisan kusabab geus lila pisan teu hujan.
+
+Antonim tina kecap panas nyaéta ...
+A. Hareudang
+B. Tiis
+C. Tiris",Jawabanana: B. Tiis,,,,
+fab-500x-20261114T224408Z-010,38,8c6d9c85d6f72e2bc4ff2d38,b1b7f1df2b547f1d5da60adf8e44d25a,fab-500x,sun,islamic_studies,aya-dataset,human_authored,[user] Naon ngaran wangunan sajarah nu aya di Yogyakarta sarta mangrupa padumukan resmi sultan?,"Wangunan sajarah di Yogyakarta nu jadi padumukan resmi sultan disebut ""Karaton Yogyakarta"". Karaton Yogyakarta ngabogaan sajarah anu panjang sarta mangrupa salah sahiji puseur kakawasaan karajaan tradisional pangkolotna di Indonésia. Wangunan Karaton ieu miboga arsitéktur tradisional Jawa anu éndah sarta di jerona aya museum jeung galeri seni anu mintonkeun warisan budaya jeung sajarah Kasultanan Yogyakarta. Karaton ogé dipaké pikeun upacara karajaan, pintonan seni tradisional jeung rupa-rupa kagiatan budaya lianna.",,,,
+fab-500x-20261114T224408Z-010,39,66d0fa255aa7c2fafe40d518,e644cab747c66b7cda3265d86d9ba7ec,fab-500x,sun,mathematics,aya-dataset,human_authored,[user] Di semester kahiji di kelas aya 18 murid. Di semester kadua datang 5 murid anyar nu pindah ti sakola séjén. Sabaraha jumlah murid di kelas ayeuna?,Jumlah murid di kelas ayeuna nyaéta 18 + 5 = 23 siswa.,,,,
+fab-500x-20261114T224408Z-010,40,a54dbf06e8012c8cb1729b24,57e08f6398ded0e863be2013129b2ce7,fab-500x,sw,general_knowledge,aya-dataset,human_authored,[user] Kupanda kwa thamani ya dollar ya marekani,kupanda kwa thamani kwa dola ya marekani kumesababisha uchumi wa Tanzania kuwa mgumu. dola husababisha bei ya petrol na diesel kupanda ambayo husababisha mfurumuko wa bei za bidhaa na pia nauli kiupanda kwa wingi.,,,,
+fab-500x-20261114T224408Z-010,41,52e3061f2aceaf5e390fe12e,13215d01ebd1b8fbf93f44e2a3ea21da,fab-500x,sw,research,tydiqa-goldp,human_authored,"[user] Neil Armstrong (5 Agosti 1930 — 25 Agosti 2012) alikuwa rubani mwanaanga wa Marekani aliyeshuka mwezini mwaka 1969, wa kwanza kabisa kati ya wanadamu wote.
+
+Je,nani wa kwanza kuenda kwa mwezi?","Neil Armstrong
+
+Neil Armstrong (5 Agosti 1930 — 25 Agosti 2012) alikuwa rubani mwanaanga wa Marekani aliyeshuka mwezini mwaka 1969, wa kwanza kabisa kati ya wanadamu wote.",,,,
+fab-500x-20261114T224408Z-010,42,492b6c168d39097fd64a4903,a7e2091b37d60a18a0871b9ac21b4199,fab-500x,sw,science,aya-dataset,human_authored,[user] Magonjwa yasiyo ya kuambukiza ni magonjwa aina gani?,"Magonjwa yasiyo ya kuambukiza ni magonjwa ambayo hayasambazwi kwa mtu mwingine kwa kuwa hakuna vimelea mwilini vinavyohusiana na magonjwa hayo. Magonjwa yasiyo ya kuambukiza ni kama ya moyo na mishipa ya damu, figo, saratani, kifua sugu, kisukari, magonjwa ya akili na mengine ya kurithi kama vile ugonjwa wa selimundu (Sickle Cell Disease).",,,,
+fab-500x-20261114T224408Z-010,43,1eb0e5980bfc86816d870dd4,c201e160b72360af71d40b44dc09a8c1,fab-500x,swe,coding,aya-dataset,human_authored,"[user] Skriv en fortsättning på den här paragrafen - Gadde föddes och växte upp i Finland som son till majoren vid Karelska Dragonerna Gustaf Olofsson Gadde och Susanna Kristina Petersdotter Ridder, dotter till major Peter Hollander Ridder. Gadde valde tidigt den militära banan där han blev pikenerare vid livgardet 1696, rustmästare vid livgardet 1697, sergeant och fältväbel 1700, fänrik 1701, löjtnant 1702,","regementskvartermästare 1706, kapten 1707, överstelöjtnant vid Närkes och Värmlands regemente 1711 och överste och kommendant på Nya Älvsborg 1716. Gadde kom att medverka i slagen vid bland annat Narva, Düna, Kliszów, Thorn, Haloŭtjyn, Poltava och Pruth. Efter nederlaget i Poltava medföljde han Karl XII till Bender. Han blev hemsänd som kurir från Bender av konungen 1712 för att som överstelöjtnant sätta Närke-Värmlands regemente i stånd och 1721 blev han överstelöjtnant vid Skaraborgs regemente samt från 1729 dess chef. 1737 fick han transport som överste för Närke-Värmlands regemente, men avled 1738 efter drygt 5 månaders tjänst vid regementet.",,,,
+fab-500x-20261114T224408Z-010,44,4687f3984d6d2ecbe981946a,5069d3484b60e0ceb7aa06adaf21665b,fab-500x,swe,education,aya-dataset,human_authored,"[user] Slutför den här frasen: Makoma Lekalakala växte upp i Soweto. På 1950-talet började hennes far tala om Black Power, men hon förstod inte vad han menade. Vid",studentupproret hösten 1976 dödades hennes far och många av hennes äldre kamrater och då förstod hon ord som svart makt.,,,,
+fab-500x-20261114T224408Z-010,45,c5a4ebf048dc87a099ab0710,cf9f5eff53856df7bdc70be6e4922e66,fab-500x,swe,general_knowledge,aya-dataset,human_authored,[user] Slutför den här frasen: I det Eritreansk,"-etiopiska kriget 1998–2000, rörande en gränskonflikt, var förlusterna mycket stora med cirka 100 000 döda. En bidragande orsak till de höga dödstalen var användandet av [API_KEY].",,,,
+fab-500x-20261114T224408Z-010,46,9c848e43c63fa25e85710964,c8ee1e6621e1e91ab12570d21d255c93,fab-500x,swe,islamic_studies,aya-dataset,human_authored,"[user] Skriv en fortsättning på den här paragrafen -  Miqdad ibn Amr al-Bahrani, bättre känd som al-Miqdad ibn al-Aswad al-Kindi eller bara Miqdad, var en av den islamiske profeten Muhammeds följare. När islam uppenbarades var Miqdad bland de första som antog tron. Han utvandrade senare till Medina med andra muslimer. Han hade deltagit i Slaget vid Badr,","Slaget vid Uhud och andra krig tillsammans med profeten. Tillsammans med Ammar ibn Yasir, Abu Dhar och Salman al-Farsi anses Miqdad vara en av de mest lojala följarna till Ali ibn Abi Talib enligt shiamuslimer. Miqdad gick bort år 653 e.Kr. (år 33 AH) och är begravd i Al-Baqi'.",,,,
+fab-500x-20261114T224408Z-010,47,8d7194e6b1b033fccb2776e1,915bacf827bda2ac7e4fe8166d784220,fab-500x,swe,mathematics,aya-dataset,human_authored,[user] Hur tjänar casinon pengar på roulette?,"Ett vanligt roulettehjul har 37 fack, numrerade 0 - 36. Varannan siffra är röd och varannan svart förutom nollan som är grön. Om vinsterna hade motsvarat den faktiska sannolikheten att vinna så hade casinon inte tjänat något på roulette, men så är inte fallet. Vinsterna räknas som om nollan inte fanns. Dvs om man satsar på en siffra (1/37 sannolikhet) så får man 37-1=36 ggr pengarna. Om man satsar på svart eller rött, så får man 2 ggr pengarna, men då räknas nollan som varken röd eller svar.
+
+Förutom själva pengarna från roulettebordet så tjänar även casinot pengar på den mat och dryck som köps på plats.",,,,
+fab-500x-20261114T224408Z-010,48,fe46f3518d78f4e5ae21cc88,9fb3701cffa796e540aac4d564b19aca,fab-500x,swe,pakistan,aya-dataset,human_authored,[user] Skriv en fortsättning på den här paragrafen - Edwardes tjänstgjorde från 1841 i Indien och utmärkte sig särskilt under Andra sikhkriget,"1848, då han besegrade fursten av Multan, för vilken bedrift han befordrades till major. Senare var Edwardes 1855-1859 ""commissioner"" i Peshawar, under vilken tid han energiskt bidrog till sepoyupprorets kuvande 1857, och 1862-1865 ""commissioner"" i Ambala. År 1865 blev han generalmajor och adlad. Edwardes utgav ""A year on the Punjab frontier in 1848-49""",,,,
+fab-500x-20261114T224408Z-010,49,a236cc8bc29ebf964483b090,8258a104ab049d14333a9beb810bbd18,fab-500x,swe,problem_solving,aya-dataset,human_authored,"[user] Slutför den här frasen: ""Holy Motors"" producerades genom Pierre Grise Productions för en budget på 3,9 miljoner euro, vilken inbegrep pengar från CNC, Île-de-Frances filmfond, franska Arte",", franska Canal+ och Ciné+. Filmen är till 20% en tysk samproduktion genom bolaget Pandora, och mottog 350 000 euro från den fransk-tyska kommittén för samproduktionsstöd.",,,,
+fab-500x-20261114T224408Z-010,50,09ab3501ab12f85bfa1c3b8c,9b57df52cd048ce63891b13b44136921,fab-500x,swe,science,aya-dataset,human_authored,"[user] what important event is this text about: När ovädret nådde fram till Gulfkusten 17 augusti hade lufttrycket stigit en aning (909 hektopasacal) men vindhastigheten var oförändrad. Medelvinden var fortfarande ca 305 km/h med byar som beräknats till uppemot 350 km/h. Enligt vissa beräkningar var vindhastigheten ännu högre, över 90 m/s (324 km/h)i medelvind när orkanens öga nådde gulfkusten. Camille hade därmed lika höga vindhastigeter som Tyfonen Tip som härjade i Stilla havet 1979. Förödelsen var i det närmaste total i Mississippis kustområden, även riktigt solida byggnader i tegel och betong jämnades med marken av vinden och ""storm surge"" (stormflod) - den kraftiga höjning av havsnivån som en tropisk cyklon alltid orsakar. Räddningsmanskap beskrev förödelsen som om man släppt en atombomb över området. Även i granndelstaten Alabama var skadorna stora. Tack vare att det drabbade området inte var så tättbefolkat och Camille en ganska liten cyklon undveks ändå en katastrof av en magnitud som aldrig skådats i USA. Ändå blev 5000 hem jämnade med marken och över 13000 fick svåra skador.",Texten handlar om cyklonen Camille.,,,,
+fab-500x-20261114T224408Z-010,51,3fcf610b1a1905089d0fdddc,c3dd316ddb4cd9e6d32705f117c2c549,fab-500x,swe,web_frontend,aya-dataset,human_authored,[user] Hur kommer det sig att en app skriven i React ofta är så snabb?,"React har något som kallas virtuell DOM. En virtuell DOM är i princip en kopia av den riktiga dokumentobjektmodellen, fast den ritas inte ut på sidan så fort något ändras. Det innebär dels att man kan göra flera förändringar i ett svep utan att sidan behöver ritas om vid varje enskild förändring, dels att man på förhand kan räkna ut vilka konsekvenserna av dessa förändringar blir och se till att man bara ritar om det absolut behöver ritas om.",,,,
+fab-500x-20261114T224408Z-010,52,6e0224c7b607765f32f44d17,e44da25f6611384d66f938054b5219d2,fab-500x,swe,writing,aya-dataset,human_authored,"[user] Slutför den här frasen: Yanick Lehoux, född 8 april 1982 i Montréal, är en kanadensisk professionell ishockeyspelare som spelar för Malmö Redhawks i Hockeyallsvenskan. Han","draftades av Los Angeles Kings, som 86:e spelare totalt, i NHL Entry Draft 2000.",,,,
+fab-500x-20261114T224408Z-010,53,37f8d07a2e2a141acbb0e7c4,3cd81827d100bb7accaa27011d931695,fab-500x,ta,coding,aya-dataset,human_authored,[user] Algorithm language-தமிழில் மொழிபெயர்க்கவும்,நெறிப்பாட்டு மொழி,,,,
+fab-500x-20261114T224408Z-010,54,5552d32b2fef35b972ac1c1f,34beda487f8119cf334a5013fd7ab8f6,fab-500x,ta,general_knowledge,aya-dataset,human_authored,"[user] கேள்வி:  
+Background-இதைத்  தமிழில் மொழிபெயர்க்கவும்","பதில்:
+பின்னணி",,,,
+fab-500x-20261114T224408Z-010,55,5ec17ec870ef2a2951c25691,d9a7fe71486662afcd5efadb68c98508,fab-500x,ta,mathematics,aya-dataset,human_authored,[user] பச்சை பயிறு இருந்தா புரத சத்துமிக்க இந்த தோசையை காலையில காலை உணவுக்கு இப்படி செஞ்சு கொடுங்க. நாள் முழுதும் தெம்பா இருக்க காலையிலேயே இத தான் சாப்பிட்டனும். எப்படி செய்யலாம்?,"உடல் ஆரோக்கியத்தை பொறுத்த வரையில் உணவிற்கு மிக முக்கிய பங்கு உண்டு. அதிலும் நாம் காலையில் எடுத்துக் கொள்ளும் முதல் உணவானது மிகவும் சத்து மிகுந்ததாக இருக்க வேண்டும். அப்போது தான் அன்றைய நாள் முழுவதும் நாம் வேலை செய்ய அது நிச்சயம் உதவியாக இருக்கும். அந்த வகையில் புரத சத்து உடலுக்கு எவ்வளவு முக்கியம் என்பதை அனைவரும் அறிந்த ஒன்றே. இந்த சமையல் குறிப்பு பதிவில் அப்படி ஒரு சத்து மிகுந்த தோசையை பற்றி தான் நாம் தெரிந்து கொள்ள போகிறோம்.
+
+பச்சை பயிறு தோசை செய்ய தேவையான பொருட்கள்: பச்சை பயறு – 1 கிண்ணம், பச்சரிசி -1 மேசை கரண்டி, பச்சை மிளகாய் – 5, இஞ்சி – சின்ன துண்டு. சீரகம் – 1 கரண்டி, உப்பு – 1/4 கரண்டி.
+
+பச்சை பயிறு தோசை செய்முறை விளக்கம்: இந்த தோசை செய்வதற்கு முதலில் ஒரு கிண்ணத்தில் பச்சை பயிருடன், பச்சரிசியை சேர்த்து நன்றாக கழுவி சுத்தம் செய்து விட்டு நல்ல தண்ணீர் ஊற்றி எட்டு மணி நேரம் வரை ஊற விட வேண்டும். பயறு எட்டு மணி நேரம் ஊற வேண்டியது அவசியம்.
+
+எட்டு மணி நேரம் கழித்து சாணையில் பச்சை பயறு, பச்சரிசி இரண்டையும் சேர்த்து அத்துடன் இஞ்சி, பச்சை மிளகாய், (உங்கள் காரத்தின் அளவுக்கு ஏற்றபடி சேர்த்து கொள்ளுங்கள்) சீரகம், உப்பு என அனைத்தையும் சேர்த்த பிறகு பருப்பு ஊற வைத்த தண்ணீரை ஊற்றி நன்றாக அரைத்துக் கொள்ளுங்கள். அரைத்த இந்த மாவை ஒரு கிண்ணத்தில் ஊற்றிய பிறகு தோசை மாவு பதத்திற்கு கலந்து விடுங்கள். இந்த மாவை புளிக்க வைக்க வேண்டிய அவசியம் கிடையாது எனவே இதை கரைத்த உடனே நாம் தோசை ஊற்றி விடலாம்.
+
+இப்போது அடுப்பில் தோசை கல்லை வைத்து சூடான பிறகு மாவை எடுத்து நீங்கள் எப்பொழுதும் ஊற்றுவது போல. தோசை எண்ணெய் அல்லது நெய் ஊற்றிக் சுட்டு கொள்ளுங்கள். இந்த தோசை நல்ல மொறு மொறுன்னு நன்றாகவே வரும். இந்த தோசைக்கு பக்க உணவு கூட தேவையில்லை அப்படியே சாப்பிடலாம்.",,,,
+fab-500x-20261114T224408Z-010,56,248e5a32d4eace114ec20a64,57fa83d9f9856b8a632b6f307cec5c12,fab-500x,ta,research,aya-dataset,human_authored,"[user] வினா :
+மொழி வேலியை மொழிபெயர்ப்பு அகற்றுகிறது என்பதை விளக்குக.","விடை :
+மொழியாக்கம் அல்லது மொழிபெயர்ப்பு (translation) என்பது மூல மொழியில் (Source Language) உள்ள சொல் அல்லது சொற்றொடர்களை (விடயத்தை எந்தவொரு மேலதிகமான உட்சேர்த்தலுமின்றி), பொருள் மாறாமல் மற்றொரு மொழிச் சொற்களை கொண்டு இலக்கு மொழியில் (Target Language) அறியத் தருதல் ஆகும். கலைச் சிறப்புடையதாக இருக்கின்ற இலக்கியங்கள் அனைவரது அனுபவமாக மாறும்போது பொதுநிலை பெறுகிறது. அத்தகைய பொதுநிலைப்பெற்ற இலக்கியத்தை மொழிவேலி சிறையிடுகிறது. மொழியை வெளியே அகற்றும் பணியை மொழிபெயர்ப்பு செய்கிறது.",,,,
+fab-500x-20261114T224408Z-010,57,58b5d21f9a210d4f64ad5f10,1c4466b8c075c111e85653e866d1fa65,fab-500x,ta,science,aya-dataset,human_authored,[user] எகாலஜி  என்பது எதை பற்றிய ஆராய்ச்சி?,"சூசூழலியல் என்பது, உயிர் வாழ்க்கையின் பரவல் பற்றியும், உயிரினங்களுக்கும் அவற்றின் இயற்கைச் சூழலுக்கும் இடையிலான இடைவினைகள் பற்றியும் அறிவியல் அடிப்படையில் ஆய்வு செய்யும் துறையாகும். ஒரு உயிரினத்தின் சூழல் என்பது சூரிய ஒளி, காலநிலை, நிலவியல் அம்சங்கள் போன்ற உயிரற்ற காரணிகளின் ஒட்டுமொத்த அளவான இயற்பியல் இயல்புகளையும்; குறிப்பிட்ட வாழிடத்தில் வாழும் பிற உயிரினங்களைக் கொண்ட உயிர்சார் சூழல் மண்டலத்தையும் (ecosystem) உள்ளடக்கியதாகும்.
+
+சூழல் என்பது தாவரங்கள், விலங்குகள் அடங்கிய அனைத்து உயிரினங்களுடன், அவற்றுடன் தொடர்பு கொண்டிருக்கும் அனைத்து இயற்பியல் கூறுகளையும் அடக்கியதாகும். இவைகளுக்கு இடையே தொடர்புகள், பரிமாற்றங்கள் அல்லது இடைவினைகள் எவ்வாறு நடைபெறுகிறது என்பதைப் பற்றி கற்றுக்கொள்ளுவதே சூழலியல் ஆகும்.
+
+சூழலியல் தனது ஆய்வுகளுக்காக, நிலவியல், புவியியல், காலநிலையியல், மண்ணியல், மரபியல், வேதியியல், இயற்பியல் ஆகிய துறைகளையும் துணையாகக் கொள்கின்றது. இதனால் சிலர் இதனை ஒரு முழுதளாவிய அறிவியல் என்கின்றனர்.
+
+சூழலியல் என்னும் கருத்துருவை முதன் முதலில் ஜேர்மானிய உயிரியலாளரான ஏர்ன்ஸ்ட் ஹேக்கல் 1869 ம் ஆண்டு பயன்படுத்தினார். இதை இவர் சூழலுடன் உயிரினங்களுக்குள்ள தொடர்பு பற்றிய விரிவான அறிவியல் என வரையறுத்தார். எனினும் இவர் இக் கருத்துருவை விரிவாக விளக்கவில்லை.
+1895 இல் இது தொடர்பான விரிவான பாட நூல் ஒன்றையும், இத்துறையில் பல்கலைக்கழகப் பாடநெறி ஒன்றுடன் சேர்த்து எழுதியவர் டென்மார்க் நாட்டைச் சேர்ந்த தாவரவியலாளரான இயுஜெனியஸ் வார்மிங் என்பவராவார்.இதனால் இவரே சூழ்நிலையியலை நிறுவியவர் என்கின்றனர். பின்னர் இவரைத் தொடர்ந்து இச்சொல்லை தாவரவியல் மற்றும் விலங்கியல் அறிஞர்கள் பயன்படுத்தத் தொடங்கினர்.
+சூழலியல் என்பதைச் சுட்டும் ஈக்காலாஜி என்னும் ஆங்கிலச் சொல் ஓய்கோஸ் என்னும் கிரேக்க வார்த்தையில் இருந்து பெறப்பட்டதாகும். இதன் பொருள் வீடு அல்லது நிலையம் என்பதாகும்.",,,,
+fab-500x-20261114T224408Z-010,58,72213085171119bf264e2ef7,b6c28cd665d1fc4a30efda4023b9cee5,fab-500x,ta,writing,aya-dataset,human_authored,[user] உல்மனின் சொற்பொருள் மாற்ற வகைகளை விளக்குக?,"சொற்பொருள் மாற்றங்களை நான்குவகை மாற்றங்களாகப் பின்வருமாறு வகைப்படுத்துகிறார் உல்மன்.
+
+1. உருவகமாக்கல் மாற்றம் (Metaphor)
+
+பொருள் ஒற்றுமை அடிப்படையில் இது தீர்மானிக்கப்படுகிறது.
+
+எ.கா:
+
+தழுவல் : ( தழுவுதல், தழுவல் இலக்கியம் )
+
+தண்ணி : ( தண்ணீர், மது )
+
+2. ஆகுபெயராக்கல் மாற்றம் (Metonymy)
+
+இம்மாற்றம் பொருள் தொடர்ச்சி அடிப்படையில் அமைகிறது.
+
+எ.கா:
+
+கண் : கண்ணேறு (இலக்கியம்), கண் வைத்தல்
+
+எழுத்து : எழுத்து, கடிதம் (Letter, post)
+
+கண்காணி : கண்காணித்தல், தொழிலாளர்களைக்          கண்காணிப்பவன் (watch, watchman)
+
+3. தேர்ந்தெடுத்த விளக்கத்தாலான மாற்றம் (popular etymology)
+
+இம்மாற்றம் அமைப்பு ஒற்றுமை அடிப்படையில் அமைவது.
+
+எ.கா :
+
+பாம்புராணி : அரணை, பாம்பின் ராணி
+
+இங்கிலாண்டு : இங்கிலாந்து, இன்லேன்ட் கடிதம்
+
+4. பெயர்க் குறுக்கத்தாலான மாற்றம் (Ellipsis)
+தினசரி (பத்திரிகை) daily (paper)
+
+எ.கா:
+
+அறுவடையின் போது வந்தான்.
+
+அறுவடை (காலம்) ; அறிஞர் (அண்ணா) (அண்ணா- மேன்மை உடையவர்",,,,
+fab-500x-20261114T224408Z-010,59,b59a74a8082c588e92817fad,41f3e9dd8d21931597d4c64747b0160e,fab-500x,te,coding,aya-dataset,human_authored,"[user] I want to teach my class about the topic of అల్యూమినియం ఆర్సనైడ్. అల్యూమినియం ఆర్సనైడ్ సాంద్రత ఎంత?,",అల్యూమినియం ఆర్సెనైడ్ ఆరెంజిరంగు స్పటికరూపంలో ఏర్పడి ఉండును.అల్యూమినియం ఆర్సెనైడ్ అణుభారం 101.9031 గ్రాములు/మోల్. 25°C ఉష్ణోగ్రత వద్ద అల్యూమినియం ఆర్సెనైడ్ సాంద్రత 3.72 గ్రాములు /సెం.మీ3. నీటిలో కరుగదు,,,,
+fab-500x-20261114T224408Z-010,60,2f55acfec1167d1439195217,92e10588eafc01ee61eb78e38c7777bf,fab-500x,te,education,aya-dataset,human_authored,"[user] of కె.బాలగోపాల్. Can you write me an article that I can give them to read as a homework? It should answer కె. బాలగోపాల్ ఎప్పుడు మరణించాడు?, be in telugu and be formal. Please.","విద్యాభ్యాసం: ఒకటి నుంచి డిగ్రీ వరకు తిరుపతిలో. ఎస్వీ ఆర్ట్స్ కళాశాలలో డిగ్రీ పూర్తి, వరంగల్‌లోని ఆర్ఈసీ నుంచి గణితంలో పీహెచ్‌డీ, 1980లో కాకతీయ విశ్వవిద్యాలయంలో అధ్యాపకుడిగా ఉద్యోగంలో చేరిక, 1985లో ఉద్యోగానికి రాజీనామా, అప్పటినుంచి హక్కుల ఉద్యమానికే పూర్తిగా అంకితం అయ్యారు. మూడు దశాబ్దాలుగా అవిశ్రాంత కృషి సలిపిన ప్రముఖ హక్కుల నేత, న్యాయవాది, హేతువాది మేధావి. హైదరాబాద్‌లోని గుడిమల్కాపూర్ ప్రియాకాలనీలో నివసించారు. ఆయన భార్య వసంత లక్ష్మి ఆంధ్రజ్యోతి పత్రికలో పాత్రికేయురాలు. కుమారుడు ప్రభాత్. బాలగోపాల్ దీర్ఘకాలంగా అల్సర్‌తో బాధపడ్డారు. 8.10.2009 గురువారం రాత్రి గుండెపోటుతో హఠాన్మరణం చెందారు.",,,,
+fab-500x-20261114T224408Z-010,61,f81db8ccbd99ac0d63c28aaf,4bd390c6868c8b94ae72de73e580ac93,fab-500x,te,general_knowledge,aya-dataset,human_authored,[user] జీవ కణం యొక్క పవర్ హౌస్ ఏది?,"జీవ కణం యొక్క పవర్ హౌస్ మైటోకాండ్రియా. కాండ్రియోసోములు లేదా మైటోకాండ్రియాలు జీవకణంలో పాక్షిక స్వతంత్ర ప్రతిపత్తిగల సూక్ష్మాంగాలు. ఇవి స్థూపాకారంలోగాని, గోళాకారంలోగాని ఉంటాయి. ఒక్కొక్కటిగా గాని సమూహాలుగా గాని ఉండవచ్చు. జీవనక్రియలు చురుకుగా సాగే కణాలలో ఇది చాలా అధికసంఖ్యలో ఉంటాయి. ఇవి రెండు పొరలతో ఏర్పడిన సూక్ష్మాంగాలు. ఈ పొరలు కణత్వచాన్ని పోలి ఉంటాయి. దీని వెలుపలి పొర చదునుగా ఉండగా, లోపలి పొర ముడతలుగా ఏర్పడి ఉంటుంది. ఈ ముడతలను క్రిస్టోలు అంటారు. ఇవి మాత్రికలోకి విస్తరించి ఉంటాయి. మాత్రికలో వలయాకారపు డిఎన్ఏ, ఏటీపీ, 70s రైబోసోములు, ఎలక్ట్రాన్ రవాణా వ్యవస్థ, కణాంతర శ్వాసక్రియకు అవసరమైన ఆక్సీకరణ ఎంజైములు ఉంటాయి. కణాలలో జరిగే అనేక జీవన క్రియా చర్యలకు అవసరమైన శక్తిని మైటోకాండ్రియాలు సిద్ధంచేసి ఉంచుతాయి. అందువల్ల వీటిని కణం యొక్క 'శక్త్యాగారాలు' అని వర్ణిస్తారు.",,,,
+fab-500x-20261114T224408Z-010,62,e60d50347b353f4b3bcbb422,116615181fa8fcdb281452cd2104f579,fab-500x,te,mathematics,aya-dataset,human_authored,"[user] కింది ప్రశ్నకు సమాధానం ఇవ్వండి
+సాధారణంగా ఆక్సిజన్ ‘-2’ ఆక్సీకరణ స్థితిని మాత్రమే ప్రదర్శిస్తుంది. అయితే గ్రూపులోని ఇతర మూలకాలు +2, +4 +6 ఆక్సీకరణ స్థితులను కూడా చూపిస్తాయి – వివరించండి.","1. ఆక్సిజన్కు అధిక ఋణ విద్యుదాత్మకత కలిగి ఉండుట వలన -2 ఆక్సీకరణ స్థితిని ప్రదర్శిస్తుంది. ఈ సామర్థ్యం గ్రూపులో క్రిందికి పోయిన కొలది తగ్గును.
+2. గ్రూపులో క్రిందికి పోయిన కొలది ఋణ విద్యుదాత్మకత తగ్గుట వలన మిగిలిన మూలకాలు +2, +4 మరియు +6 ఆక్సీకరణ స్థితులు ప్రదర్శిస్తాయి.",,,,
+fab-500x-20261114T224408Z-010,63,2ba5aaf7f10043ad3b104e9e,94f54c4e9e13f34d5c6806a86b6ebd57,fab-500x,te,reasoning,aya-dataset,human_authored,"[user] Question: కుప్పం నియోజకవర్గం నుండి చంద్రబాబు నాయుడు ఎమ్మెల్యే గా మొదటిసారి ఎప్పుడు పోటీచేశాడు?
+Answer the question with Yes or No. If it is not possible then answer None.
+Hint: 
+నారా చంద్రబాబు నాయుడు (జ. 1950, ఏప్రిల్ 20) భారతీయ రాజకీయ నాయకుడు, ఉమ్మడి ఆంధ్రప్రదేశ్ రాష్ట్రానికి 13వ ముఖ్యమంత్రి. అతను ఆంధ్రప్రదేశ్ రాష్ట్రం విడిపోయిన తరువాత ఆంధ్రప్రదేశ్  (నవ్యాంధ్ర) రాష్ట్రానికి 1వ ముఖ్యమంత్రి. విభజనకు ముందు 1994 నుండి 2004 వరకు ఉమ్మడి ఆంధ్రప్రదేశ్ రాష్ట్ర ముఖ్యమంత్రిగా పనిచేసాడు. 2004 నుండి 2014 వరకు ఆంధ్ర ప్రదేశ్ రాష్ట్ర శాసనసభలో ప్రతిపక్ష నాయకునిగా ఉన్నారు. అతను ప్రస్తుతం తెలుగుదేశం పార్టీకి జాతీయ అధ్యక్షునిగా వ్యవహరిస్తున్నాడు.[1][2][3][4] అతను ఇండియా టుడే నుండి ""ఐ.టి ఇండియన్ ఆఫ్ ద మిలీనియం"", ద ఎకనమిక్ టైమ్స్ నుండి ""బిజినెస్ పర్సన్ ఆఫ్ ద యియర్"", టైమ్స్ ఆసియా నుండి ""సౌత్ అసియన్ ఆఫ్ ద యియర్"", ప్రపంచ ఎకనమిక్స్ ఫోరం డ్రీమ్‌ క్యాబినెట్ లో సభ్యుడు వంటి పురస్కారాలతో పాటు అనేక పురస్కారాలు పొందాడు. [5][6][7][8] అతను ఆంధ్ర ప్రదేశ్ రాష్ట్ర రాజకీయాలలోనే కాకుండా భారతదేశ రాజకీయాలలో ప్రముఖ పాత్ర వహిస్తున్నాడు.
+ప్రారంభ జీవితం, విద్య
+నారా చంద్రబాబు నాయుడు చిత్తూరు జిల్లాలో నారావారిపల్లె అనే చిన్న గ్రామంలో 1950, ఏప్రిల్ 20 వ తేదీన ఒక సామాన్య మధ్యతరగతి రైతు కుటుంబంలో జన్మించాడు. [9][10] అతని తండ్రి ఎన్.ఖర్జూరనాయుడు వ్యవసాయదారుడు, తల్లి గృహిణి.[11] తన స్వంత గ్రామంలో పాఠశాల లేనందున ప్రాథమిక విద్యాభ్యాస సమయంలో రోజూ పొరుగు గ్రామమైన శేషాపురంకు నడుచుకుంటూ వెళ్ళేవాడు. ప్రాథమిక విద్య అనంతరం చంద్రగిరి లోని జిల్లాపరిషత్తు పాఠశాలలో చేరి 9వ తరగతిని పూర్తిచేశాడు.[12] ఉన్నత చదువుల నిమిత్తం తిరుపతికి వెళ్ళి అచట 10వ తరగతి పూర్తిచేసి, శ్రీ వెంకటేశ్వర విశ్వవిద్యాలయం నుండి ఆర్థిక శాస్త్రంలో పోస్ట్ గ్రాడ్యుయేషన్ పూర్తిచేశాడు. అతను 1972లో బి.ఎ. చేసాడు.
+ప్రారంభ రాజకీయ జీవితం
+చిన్నప్పటి నుండి ప్రజాసేవ పట్ల అత్యంత ఆసక్తి కలిగి ఉండేవాడు. తొలుత ప్రభుత్వ ఉద్యోగం చేయాలని భావించిననూ ప్రజాసేవ చేయడానికి రాజకీయాలే సరైనవని నిర్థారించి రాజకీయాలపై దృష్టిపెట్టాడు. విద్యాభ్యాసం పూర్తి కాకముందే తిరుపతికి సమీపంలో ఉన్న చంద్రగిరిలో విద్యార్థి నాయకునిగా యువజన కాంగ్రెస్ లో చేరాడు. చదువుతున్నప్పుడే సెలవులు వచ్చినప్పుడు స్నేహితులను మరికొందరిని కూడగట్టుకుని గ్రామంలో సామాజిక సేవా కార్యక్రమాలతో పలువురి ప్రశంసలందుకున్నారు. 1975లో భారతదేశంలో ఎమర్జెన్సీ విధించిన సమయంలో అతను యువజన కాంగ్రెస్ అధ్యక్షుడు సంజయ్ గాంధీకి సన్నిహిత మద్దరుదారునిగా.కలరు.","(జ. 1950, ఏప్రిల్ 20) భారతీయ రాజకీయ నాయకుడు, ఉమ్మడి ఆంధ్రప్రదేశ్ రాష్ట్రానికి 13వ ముఖ్యమంత్రి. అతను ఆంధ్రప్రదేశ్ రాష్ట్రం విడిపోయిన తరువాత ఆంధ్రప్రదేశ్  (నవ్యాంధ్ర) రాష్ట్రానికి 1వ ముఖ్యమంత్రి. విభజనకు ముందు 1994 నుండి 2004 వరకు ఉమ్మడి ఆంధ్రప్రదేశ్ రాష్ట్ర ముఖ్యమంత్రిగా పనిచేసాడు. 2004 నుండి 2014 వరకు ఆంధ్ర ప్రదేశ్ రాష్ట్ర శాసనసభలో ప్రతిపక్ష నాయకునిగా ఉన్నారు. అతను ప్రస్తుతం తెలుగుదేశం పార్టీకి జాతీయ అధ్యక్షునిగా వ్యవహరిస్తున్నాడు.[1][2][3][4] అతను ఇండియా టుడే నుండి ""ఐ.టి ఇండియన్ ఆఫ్ ద మిలీనియం"", ద ఎకనమిక్ టైమ్స్ నుండి ""బిజినెస్ పర్సన్ ఆఫ్ ద యియర్"", టైమ్స్ ఆసియా నుండి ""సౌత్ అసియన్ ఆఫ్ ద యియర్"", ప్రపంచ ఎకనమిక్స్ ఫోరం డ్రీమ్‌ క్యాబినెట్ లో సభ్యుడు వంటి పురస్కారాలతో పాటు అనేక పురస్కారాలు పొందాడు. [5][6][7][8] అతను ఆంధ్ర ప్రదేశ్ రాష్ట్ర రాజకీయాలలోనే కాకుండా భారతదేశ రాజకీయాలలో ప్రముఖ పాత్ర వహిస్తున్నాడు.",,,,
+fab-500x-20261114T224408Z-010,64,b22b6be547a657a2e3cdcfaf,2438c19a2aa1e5b4207e873fc46ee094,fab-500x,te,research,tydiqa-goldp,human_authored,"[user] కన్నడ, కర్ణాటక రాష్ట్ర అధికార భాష మరియు భారతదేశపు 22 అధికార భాషలలో ఒకటి.
+
+కన్నడ భాష ఏ రాష్ట్రానికి రాష్ట్ర భాష ?","కర్ణాటక
+
+కన్నడ, కర్ణాటక రాష్ట్ర అధికార భాష మరియు భారతదేశపు 22 అధికార భాషలలో ఒకటి.",,,,
+fab-500x-20261114T224408Z-010,65,8bba4d03132dc1cdf3be5531,f96cacfce89335bea6499e2c86140bf1,fab-500x,te,science,aya-dataset,human_authored,"[user] సమవిభజనలో రెండు ఒకే పోలికలున్న కణాలు ఏర్పడతాయి. సమవిభజనలో ఈ క్రింద పేర్కొన్న నియమ విరుద్ధమైనవి  జరిగినచో పర్యవసానం ఏ విధంగా ఉంటుంది.
+(a) కేంద్రకత్వచం కరిగిపోకుండ ఉండటం
+(c) సెంట్రోమియర్లు విభజన చెందకుండటం.
+(b) DNA ద్విగుణీకృతం చెందకుండటం
+(d) కణ ద్రవ్య విభజన జరగకుండటం","(a) కేంద్రకత్వచం కరిగిపోకుండ ఉండట వలన స్వేచ్ఛా కేంద్రక విభజనలు జరుగుతాయి.
+(b) DNA ద్విగుణీకృతం చెందకుండటం రెండు పిల్ల కణాలలో ఒకదానిలో జన్యు పదార్థం ఉండదు.
+(c) సెంట్రోమియర్లు విభజన చెందకుండటం – పిల్ల కణాలలోకి క్రోమోసోమ్లు వితరణ చెందవు.
+(d) కణ ద్రవ్య విభజన జరగకుండటం – బహుకేంద్రక స్థితి కనిపిస్తుంది.",,,,
+fab-500x-20261114T224408Z-010,66,84821dc8edf18773d732f366,a597b3a959672bf490f440f7c917d176,fab-500x,te,writing,aya-dataset,human_authored,"[user] ... గురించి చాలా పరిశోధన చేశారు. తన కొడుకు ఇతర చిన్నారుల కన్నా చాలా నెమ్మదిగా ఎదుగుతాడని ఆమె తెలుసుకున్నారు. 
+
+''నేను నా కొడుకు కోసం ఆరేళ్ళ పాటు ఎదురు చూశాను. నా బిడ్డను నేను కాపాడుకుంటా. నా బిడ్డను ఇంటికి తెచ్చుకున్నా. వికలాంగుల చిన్నారిని పెంచే ప్రపంచంలోకి ప్రవేశించా'' అని ఆమె చెప్పారు. 
+
+గిల్హేర్మ్ కోసం వైదులను కలిసే క్రమంలో అలాంటి పిల్లల తల్లిదండ్రులు చాలామందితో ఆమెకు పరిచయం అయ్యింది. వారందరితో కలిపి ఆమె ఒక వాట్సాప్ గ్రూప్ ప్రారంభించారు. 
+
+ఇది క్రమంగా విస్తరించి ఇప్పుడు 'యునైటెడ్ మదర్స్ ఆఫ్ ఏంజ... Write the rest of the article:","ాలు కనపడ్డాయి. 
+
+వనేసా వద్దకు వచ్చిన అనేక మంది తల్లులు ప్రసవం సమయములో తమకు బొబ్బలు వచ్చాయని చెప్పారు. డెంగ్యూ జ్వరంలా వచ్చిందని మరికొందరు చెప్పారు. అయితే డెంగ్యూ జ్వరం కోసం జరిగిన పరీక్షల్లో మాత్రం అది కాదనే తేలింది. 
+
+మెదడు పెరిగే సమయంలో దానికి కావలసిన కండరాలను తయారు చేయటానికి ఉపయోగపడే కణాలు రేడియల్ గ్లియా కణాలు. జికా వైరస్ ఆ గ్లియా కణాలను తినేస్తుంది అన్న విషయం ఇప్పుడు నిర్ధారణ అయ్యింది. 
+
+మెదడును ఎంఆర్ఐ స్కాన్ చేశాక డాక్టర్లు తల్లిదండ్రులకు చెప్పగలిగే విషయాలు చాలా ఉంటాయి. కానీ తొలిసారిగా జికా వైరస్ బారినపడ్డ తల్లులకు పుట్టిన పిల్లలను స్కాన్ చేసిన తర్వాత ఆ స్కాన్ ఫొటోలు గమనించిన వనేసాకు ఆ పిల్లల భవిష్యత్తు ఏమిటో కనిపించింది.
+
+నుదుటి భాగం బాగా దెబ్బతిన్నది. కండరాల చలనశీలతను ప్రభావితం చేసేది ఈ నుదుటి నిర్మాణమే. ప్రస్తుతం వనేసా వద్ద చికిత్స  పొందుతున్న 130 చిన్నారులు ఎదుర్కొంటున్న సమస్య ఇదే. నుదుటి బాహ్య కవచం కూడా బాగా దెబ్బ తిన్నది. ఈ కవచం రక్షణోనే మెదడులోని తెల్లపొరలు కాల్షియం తీసుకుంటాయి. నుదుటి భాగాన్ని గట్టిపరుస్తుంది.
+
+అలా గట్టిపడక పోతే మూర్ఛరోగానికి దారి తీస్తుంది. ఆమె వద్దకు వచ్చిన వాళ్లలో మూడింట రెండు వంతుల మంది పుట్టిన మొదటి సంవత్సరంలోనే ఇటువంటి సమస్యలు ఎదుర్కొన్నారు. 
+
+డాక్టర్ వనేసా వద్దకు వచ్చే రోగుల్లో కనీసం 60 శాతం మందికి బహువిధాల అభ్యాస వైకల్యాలున్నాయి. కొంత మందకి కనీసం ఇంద్రియ జ్ఞాన సామర్ధ్యం కూడా లేదు. మరికొంత మంది మందబుద్ధిలోకి ప్రవేశిస్తున్నారు. 
+
+కొంత మందికి తల పరిమాణం మరీ చిన్నదిగా ఉంటే మరికొంత మంది వినికిడి లోపం, దృష్టి లోపం, మోకాళ్ళు మోచేతులు మెలిదిరిగి పోవటం వంటి సమస్యలతో బాధ పడుతున్నారు.
+
+జైకా వైరస్ బారిన పడిన పిల్లల కథలు ఎంతో వైవిధ్యమైనవిగా కనిపిస్తున్నప్పటికీ స్థూలంగా ఒకే కథ. ఒకే వ్యాధి మూలం. కానీ ఆ వ్యాధి ప్రభావంలో జీవించటానికి ఆ పిల్లలు వారి కుటుంబాలు పడుతున్న కష్టం మాత్రం ఎన్నో రూపాలు తీసుకొంటోంది.
+
+''ఆ పాప కు ఎనిమిది నెలలు. ఇప్పటివరకు ఏ సమస్యా రాలేదు''
+
+డాక్టర్ వనేసా తన తొలి జైకా వైరస్ రోగిని గుర్తించిన సమయంలోనే.. 2015 ఆగస్టులో తొలిసారి మా అమ్మాయికి మెదడు స్కాన్ చేయించాం. 
+
+అప్పటికి ఆ అమ్మాయికి ఎనిమిది నెలలు. ఏ సమస్యా లేదు. కానీ, ఆమె తమ్ముడు దూకుడుగా ఉంటే.. క్యాటీ అందుకు భిన్నంగా ఆమె చేతులు కట్టుకుని తన ఉయ్యాల కుర్చీలో అలానే కూర్చిండిపోయేది.",,,,
+fab-500x-20261114T224408Z-010,67,a2af36a9ec33e143218f0fe7,c69643703c212f035b5b5f4ad7808cfb,fab-500x,th,coding,aya-dataset,human_authored,[user] คุณช่วยเขียนโปรแกรมบวกเลขใน python แบบง่าย ๆ ได้ไหม?,"ได้ เราขอแนะนำโค้ดโปรแกรมบวกเลขใน python แบบง่าย ๆ ดังนี้
+
+```python
+num1 = input(""Number 1 :"") 
+num2 = input(""Number 2 :"") 
+print(num1+ num2)
+```",,,,
+fab-500x-20261114T224408Z-010,68,9338714d33c07b72ebe667fc,59d85ef9bd8d17402eea30392273a346,fab-500x,th,general_knowledge,aya-dataset,human_authored,"[user] เติมข้อความต่อไปนี้:  วอร์ซอเกตโต เป็นเกตโตยิวในทวีปยุโรปภายใต้การยึดครองของนาซีที่ใหญ่ที่สุดระหว่างสงครามโลกครั้งที่สอง ตั้งอยู่ในเมืองหลวงของโปแลนด์ ขึ้นระหว่างเดือนตุลาคมและวันที่ 15 พฤศจิกายน ค.ศ. 1940 ในเขตเจเนรัลกอแวร์เมนท์ (General Government) ในโปแลนด์ภายใต้การยึดครองของเยอรมนี โดยมีชาวยิวมากกว่า 400,000 คนจากบริเวณใกล้เคียงถูกจัดให้อยู่อาศัยอย่างแออัดในพื้นที่ 3.4 ตารางกิโลเมตร จากที่นี้ ผู้อยู่อาศัยในเกตโตราว 254,000 คนถูกส่งตัวไปยังค่ายมรณะทริบลิงกา ในช่วงสองเดือนในฤดูร้อน ค.ศ. 1942 เฉพาะยอดผู้เสียชีวิตในหมู่ผู้อยู่อาศัยชาวยิวในเกตโตระหว่างโกรสซัคทิโยน วาร์เชา (Großaktion Warschau) ยากที่จะเปรียบเทียบแม้แต่กับการกำจัดเกตโตในฤดูใบไม้ผลิปีต่อมา ทั้งระหว่างและหลัง","การลุกฮือวอร์ซอเกตโต ซึ่งอาจหมายถึงการทำลายล้างประชากรเพิ่มอีก 50,000 คนหลังการรื้อถอนเกตโต รวมทั้งสิ้นแล้ว มีชาวยิวโปแลนด์อย่างน้อย 300,000 คนเสียชีวิต ณ ที่แห่งนี้",,,,
+fab-500x-20261114T224408Z-010,69,03cac80c49df607382e579a8,c092e5b5845911d376ef2cbee81b57c3,fab-500x,th,mathematics,oasst1,human_authored,[user] อยากให้ตัวเองตั้งใจเรียนมากขึ้นควรทำอย่างไรดี,"วิธีทำให้ตั้งใจเรียนมากขึ้นมีดังต่อไปนี้
+1. ตั้งเป้าหมายว่าเรียนไปเพื่ออะไร เช่น สิ่งที่อยากทำ หน้าที่การงานที่ดีในอนาคต เป็นต้น เป้าหมายจะช่วยเป็นแรงกระตุ้นให้เราตั้งใจเรียนได้อย่างสม่ำเสมอ
+2. แบ่งเป้าหมายนั้นเป็นขั้นเล็กๆและให้รางวัลตัวเองระหว่างทาง เช่น อยากตั้งใจเรียนเพื่อสร้าง AI เท่ๆ อาจจะวางแผนว่าเราต้องเรียน linear algebra, statistics, calculus จากบทเรียนไหนบ้าง อาจจะลองดูบทเรียนฟรีอย่าง AI Builders (https://github.com/ai-builders/curriculum) จากนั้น ทุกบทเรียนที่เรียนจบอาจจะให้รางวัลตัวเองด้วยสิ่งที่ชอบ เช่น ซื้อเกมที่อยากเล่น ไปเล่นกีฬากับเพื่อน ไปกินบุฟเฟ่ต์ เป็นต้น
+3. หาคนมาเป็นพยาน ไม่ว่าจะเป็นเพื่อนหรือพ่อแม่ อาจจะชวนกันทำด้วยกัน หรือแม้กระทั่งแข่งขันกันเล็กๆน้อยๆว่าใครทำได้ตามแผนที่วางไว้ได้ในแต่ละวัน การที่มีเพื่อนร่วมทางในการไปถึงเป้าหมายจะช่วยให้เรามีแรงใจในวันที่หมดแรง",,,,
+fab-500x-20261114T224408Z-010,70,2485cdc2f43a586e49d7ea77,d6c3864ff42fcc417a926ae86b82368c,fab-500x,th,writing,aya-dataset,human_authored,[user] Write a continuation for this paragraph - กลุ่มเอชของฟุตบอลชิงแชมป์แห่งชาติยุโรป 2020 รอบคัดเลือก เป็นหนึ่งในสิบกลุ่มที่ใช้ตัดสินหาทีมเข้ารอบสำหรับทัวร์นาเมนต์ ฟุตบอลชิงแชมป์แห่งชาติยุโรป 2020,"รอบสุดท้ายกลุ่มเอช ประกอบไปด้วยหกทีม: แอลเบเนีย, อันดอร์รา, ฝรั่งเศส, ไอซ์แลนด์, มอลโดวา และตุรกี โดยที่พวกเขาจะลงเล่นในการพบกันหมดในรูปแบบเหย้าและเยือน",,,,
+fab-500x-20261114T224408Z-010,71,f919159437b302e41f7ad057,139f082885f7eb6281658823ffdacefa,fab-500x,tl,coding,aya-dataset,human_authored,[user] Ano ang syntax ng switch statement sa Java?,"Ang syntax ng switch statement sa Java ay ang sumusunod:
+
+switch (expression) {
+
+  case value1:
+    // code
+    break;
+  
+  case value2:
+    // code
+    break;
+  
+  ...
+  ...
+  
+  default:
+    // default statements
+  }",,,,
+fab-500x-20261114T224408Z-010,72,88e430528e22b7b04b82c0a7,e1577043dc2fb1121f71f025a3b5cf11,fab-500x,tl,cybersecurity,aya-dataset,human_authored,[user] Totoo ba na Pilipino ang lumikha ng ILOVEYOU virus?,"Oo, si Onel de Guzman ng Manila ang lumikha ng ILOVEYOU virus na sumira sa maraming kompyuter noong 2000. Nilikha niya ito upang kuhanin ang password ng ibang user para magamit ang kanilang mga Internet account dahil nahirapan siyang maghanap ng pambayad sa paggamit ng Internet noon. 
+
+Hindi nakasuhan si de Guzman dahil wala pang mga batas noon sa Pilipinas na nagbabawal ng paggawa ng mga virus at malware. Ipinatupad ng Kongreso ang E-Commerce Law noong Hulyo 2000 upang hindi na maulit ang pangyayaring ito.",,,,
+fab-500x-20261114T224408Z-010,73,7a49cdf4c7b03fc49e5d2d8f,63b05dd58a5d142156ea86afc40fd905,fab-500x,tl,general_knowledge,aya-dataset,human_authored,[user] May 25 na gummy bears sa isang pakete. Si Suzie at Tom ay kumain ng 30 gummy bear. Ilang buong pakete ang kanilang kinain? Ilang gummy bear ang iniwan nila?,Kinanin nila ang 1 pakete na may natitirang 20 na gummy bear na labis.,,,,
+fab-500x-20261114T224408Z-010,74,15bce2abdb6964de41d2da01,7f13c480f1e1c7d690b269fd41e397d5,fab-500x,tl,islamic_studies,aya-dataset,human_authored,[user] Ano ang ibig sabihin ng halal na pagkain?,"Ang ""halal"" ay tumutukoy sa pagkain at inuming naaayon sa mga patakaran ng relihiyong Islam. Ang halal na pagkain ay gawa sa mga sangkap at niluto sa mga pamamaraang pinapayagan ng Islam. Hindi itinituring na halal ang anumang pagkain na gumagamit ng ""haram"" o ipinagbabawal na sangkap katulad ng baboy at alak.
+
+Maraming bansa at organisasyon ang nagbibigay ng halal certification upang matiyak na ang pagkaing ibinebenta ay halal.",,,,
+fab-500x-20261114T224408Z-010,75,e9c6d2e39362665c3dc97eec,d4e0e5369c7eb1f0dd775e6783d95fc2,fab-500x,tl,mathematics,aya-dataset,human_authored,"[user] Si Bob ay may 24 na lapis sa isang kahon. Labingwalong lapis ang may markang #2, at ang 6 ay may markang #3. Anong bahagi ng mga lapis ang may markang #3?",1/4 ng mga lapis ay may markang #3.,,,,
+fab-500x-20261114T224408Z-010,76,ea67f090697e7a9a621a084a,037074b6a6819df8a3bb682399aab6be,fab-500x,tl,research,aya-dataset,human_authored,"[user] Ano ang ""peer review process"" na karaniwang ginagawa sa mga scientific publications?",Ang peer review ay ang pagsusuri ng mga gawa ng isa o higit pang kapwa ekspertong siyentista na may katulad na interes sa larangan ng agham. Ito ay gumaganap bilang isang paraan ng self-regulation ng mga kwalipikadong miyembro ng isang propesyon sa loob ng nauugnay na larangan.,,,,
+fab-500x-20261114T224408Z-010,77,23c2a32f88b0ac144b23df59,9e9eba523c5f313be5599fdb7073c7a5,fab-500x,tl,science,aya-dataset,human_authored,"[user] Ayon sa Philippine Atmospheric, Geophysical and Astronomical Services Administration o PAGASA, ano ang maasahan kapag itinaas ang Tropical Cyclone Wind Signal (TCWS) #4 sa iyong lugar?","Ayon sa PAGASA, maasahan ang mga hangin na may bilis na 118 hanggang 184 na kilometro kada oras kapag tumama ang bagyo. Maasahan din na mararamdaman ang epekto ng bagyo sa susunod na 12 na oras. Maaring magdulot ng kaunting pinsala sa mga modernong gusali at malaking pinsala sa mga lumang gusali ang bagyo. Maari ring mawalan ng kuryente, komunikasyon at tubig dahil sa pagbagsak o pagkasira ng mga puno at linya ng kuryente.",,,,
+fab-500x-20261114T224408Z-010,78,4cb06167e404febd40cc9d50,95a679054dde3e85ace3e3b2aeb7682b,fab-500x,tl,web_fullstack,aya-dataset,human_authored,[user] Ano ang ibig sabihin ng Error 502 kapag nagbukas ng isang website?,"Ang HTTP Error 502 o Bad Gateway Error ay isang uri ng server error na kadalasang nakukuha kapag may problema sa proxy o gateway server na nagmumula sa request ng mga user papunta sa web server na nagho-host ng website. 
+
+Maaaring makakuha ng Error 502 kapag may server overload dahil sa dami ng request ng mga users, kung may isyu sa koneksyon sa pagitan ng user at web server, o kung nakapatay o hindi gumagana ang web server.
+
+Kung nagkaroon ka ng Error 502 habang nagbubukas ng isang website, maaari mong i-refresh ang website, i-clear ang cache ng iyong browser, o subukan na buksan muli ang website pagkatapos ng ilang minuto.",,,,
+fab-500x-20261114T224408Z-010,79,849448ff2bd20658dd545686,47305bb5d491a7256d406cc9e6d48be9,fab-500x,tl,writing,aya-dataset,human_authored,"[user] Maituturing ba na spam ang sumusunod na email?
+
+""BABALA: may virus sa kompyuter mo. Puntahan ang link na ito at i-download ang aming antivirus upang maayos ito.""","Oo, maaring spam ang email dahil hinihikayat nitong buksan ng user ang isang hindi kilalang link. Maaring may matatagpuang virus sa link na nilagay kaya ito ay delikadong buksan.",,,,
+fab-500x-20261114T224408Z-010,80,0e767131686904648ce6c7d1,6696c4afdde379b581454ee7c4f74335,fab-500x,tr,coding,aya-dataset,human_authored,"[user] ""Meaning of Life"" filmi hangi akımlardan etkilenmiştir?","""Meaning of Life"" filmi, Monty Python ekibinin komedi anlayışını ve tarzını yansıtan bir yapıttır. Monty Python, kendine özgü ve çoğu zaman absürd mizahıyla tanınır. Filmde etkisi gözlemlenen akımlara, gerçeküstü komedi, absürdizm, sosyal ve politik hiciv örnek olarak verilebilir.",,,,
+fab-500x-20261114T224408Z-010,81,519e3973f8db11d6ae484131,f06f08bb8a54ccadac7746f528144375,fab-500x,tr,education,aya-dataset,human_authored,[user] CV hazırlarken dikkate almam gereken temel adımlar nelerdir?,"CV (Curriculum Vitae), iş başvurularında ve profesyonel bağlamlarda kullanılan bir özgeçmiş belgesidir. İşverenlere, eğitim, deneyim, beceriler ve kişisel bilgiler hakkında bilgi verir. İşte bir CV hazırlarken dikkate almanız gereken temel adımlar:
+
+Kişisel Bilgiler:
+
+Adınızı ve soyadınızı belirtin.
+İletişim bilgilerinizi (e-posta, telefon) ekleyin.
+Var ise sosyal medya profillerinizi ekleyin (LinkedIn gibi, ancak bu kişisel tercihlere bağlıdır).
+Hedef (İsteğe Bağlı):
+
+CV'nizin başında, kariyer hedefinizi veya bir özet ifadesini ekleyebilirsiniz.
+Eğitim Bilgileri:
+
+En son eğitim durumunuzdan başlayarak, önceki eğitim geçmişinizi kronolojik sırayla listeleyin.
+Her girişte okul/universite adı, bölüm, mezuniyet tarihi gibi bilgileri ekleyin.
+İş Deneyimi:
+
+Deneyimlerinizi kronolojik sırayla listeleyin.
+Her girişte şirket adı, pozisyon, çalışma tarihleri ve başlıca sorumlulukları belirtin.
+Önceki iş tecrübelerinizle ilgili elde ettiğiniz başarıları vurgulayın.
+Beceriler:
+
+Teknik, dil, iletişim becerileri gibi genel ve işe özgü becerilerinizi sıralayın.
+İlgili olduğunuz endüstri ve pozisyonlara özel yeteneklerinizi vurgulayın.
+Sertifikalar ve Eğitimler:
+
+Aldığınız sertifikaları ve katıldığınız eğitimleri belirtin.
+Mesleki gelişim ve sürekli öğrenmeye vurgu yapın.
+Projeler (İsteğe Bağlı):
+
+İlgili olduğunuz veya çalıştığınız projeleri kısa bir açıklama ile listeleyin.
+Hobiler ve Kişisel İlgi Alanları (İsteğe Bağlı):
+
+CV'nize kişisel bir dokunuş eklemek için hobilerinizi veya ilgi alanlarınızı belirtin.
+Referanslar (İsteğe Bağlı):
+
+İki veya üç referans ekleyebilirsiniz. Ancak, referans eklemeyi düşündüğünüz kişilerin izni olduğundan emin olun.
+Görsel Unsurlar ve Tasarım (Dikkatlice Kullanılmalıdır):
+
+CV'nizi temiz, düzenli ve okunabilir tutun.
+Görsel unsurları (renk, logo, grafik) aşırıya kaçmadan kullanın.
+CV'nizi Güncel Tutun:
+
+Yeni deneyimler ve beceriler kazandıkça CV'nizi güncelleyin.
+İlgili ve güncel bilgilerinizi içerdiğinden emin olun.
+CV'nizi özgeçmişinizi yazarken, işverenlerin dikkatini çekmek ve ön plana çıkmak için özgeçmişinizi özelleştirmek önemlidir. Her iş başvurusuna uygun bir şekilde CV'nizi düzenleyerek iş başvurularınızı destekleyebilirsiniz.",,,,
+fab-500x-20261114T224408Z-010,82,ad7b498107dc95808d643eb3,b1adaa8aae6fc2e05661c65a26c6eabe,fab-500x,tr,general_knowledge,aya-dataset,human_authored,[user] E-imza Internet üzerinden alınır mı?,E-devlet üzerinden doğrudan e-imza almak mümkün değildir. Ancak e-imza başvurusunu hızlı ve kolay bir şekilde tamamlayabilmek için online başvuru yöntemini kullanabilirsiniz.,,,,
+fab-500x-20261114T224408Z-010,83,3d64f1f2e9de9c4429d4043c,9481c1620cd1c47d06d395c718b4104f,fab-500x,tr,islamic_studies,aya-dataset,human_authored,[user] Hz. İbrahim hangi oğluyla Kabeyi inşa etti?,İslami inanışa göre Hacer ile İsmail bugünkü Mekke'nin bulunduğu yere gelirler ve Zemzem Kuyusunu bulurlar. Daha sonra da İbrahim gelerek birlikte Kabe'yi inşa ederler.,,,,
+fab-500x-20261114T224408Z-010,84,ed9c8f16e1fc41aba92ae029,6b38c1a678dd4dca2b3439e4c154bfcf,fab-500x,tr,mathematics,aya-dataset,human_authored,[user] 2023 yılı 18 ay askerlik borçlanması ne kadar?,"450 gün (15 ay) askerlik borçlanması bedeli 2023 yılı için en az: 450*143,08 = 64.386 TL. 540 gün (18 ay) askerlik borçlanması bedeli 2023 yılı için en az: 540*143,08 = 77.263,2 TL.",,,,
+fab-500x-20261114T224408Z-010,85,a391cf6a1d4beb334ccbcd1d,ca29960ba4acd24e841e0ccffe21619f,fab-500x,tr,pakistan,aya-dataset,human_authored,"[user] Bu metin hangi önemli olayla ilgilidir?: Nisan 1978'de gerçekleşen ve Sevr Devrimi adı verilen askerî darbeyle var olan Afganistan Cumhuriyeti yıkıldı ve Afganistan Demokratik Halk Partisi yönetiminde oluşturulan hükûmetle Afganistan Demokratik Cumhuriyeti kuruldu. Yeni hükûmete karşı olan bazı kesimler, mevcut hükûmete karşı ayaklanma başlattı. Afganistan hükûmetinin isteği sonrasında, 1979 Aralık'ında, Sovyetler Birliği ülkeye askeri müdahalede bulundu. Sovyet güçlerine karşı mücadeleye girişen Afgan mücahitler, Amerika Birleşik Devletleri'nin Merkezi İstihbarat Teşkilatı (kısaca CIA) tarafından 1979 ile 1989 yılları arasında yürütülen ve Siklon Operasyonu kod adını taşıyan program çerçevesinde, Pakistan'ın Servislerarası İstihbarat (kısaca ISI) teşkilatı ve Pakistan Silahlı Kuvvetleri tarafından eğitilmiş, para ve silah desteği almıştı. Gönüllü Araplar da Afgan mücahitlerin safında mücadele katılırken; 1984 yılında, Arap mücahitler arasında yer alan Abdullah Azzam ile Usame bin Ladin tarafından, Arap dünyasından Afganistan'a para, silah ve gönüllü toplama amacı güden Mektebu'l Hidemat (""Hizmetler Bürosu"") kuruldu. Kuruluşun liderliğini Azzam yaparken, bin Ladin daha çok finansal işlerden sorumluydu. Mektebu'l Hidemate kurduğu bürolarla faaliyetlerini yürüttü. 1986 yılında Azzam ile arası açılmaya başlayan bin Ladin, kendisinin Afganistan'da inşa ettiği ilk askerî eğitim kampı olan el-Masada'yı (""Aslan Yuvası""), Paktiya ili sınırlarındaki Caci köyü yakınlarında kurdu.",Sevr Devrimi,,,,
+fab-500x-20261114T224408Z-010,86,80d54469e5eebae85017ce16,5d019867c7a717fdc86ea444ae6c395d,fab-500x,tr,problem_solving,aya-dataset,human_authored,[user] Fotoğraf çekerken nelere dikkat etmeli?,Fotoğraf çekmenin püf noktalarıFOTOĞRAFINI ÇEKTİĞİNİZ KİŞİNİN GÖZÜNE BAKIN. ...SADE BİR ARKA PLAN KULLANIN. ...DIŞ MEKÂNDA FLAŞ KULLANIN. ...YAKINA GİDİN. ...FOTOĞRAFINI ÇEKTİĞİNİZ OBJEYİ TAM ORTALAMAYIN. ...ODAĞI KİLİTLEYİN. ...FLAŞINIZIN ETKİ MESAFESİNİ ÖĞRENİN. ...IŞIĞA DİKKAT EDİN.,,,,
+fab-500x-20261114T224408Z-010,87,118f6ea75285ef58dcef95cb,f1bd879be4fb91b3bf8ebeab78edcd7a,fab-500x,tr,reasoning,aya-dataset,human_authored,[user] Gebelikte neden sağ tarafa yatılmaz?,"Bunun nedeni vücudumuzun ortasında özellikle sağ tarafından geçen en büyük ana toplardamar (Vena Cava İnferior) geçmektedir. Eğer sağ tarafa doğru yatılırsa bu toplardamara, rahim baskı yaparak kalbe dönen kan miktarını azaltır bu da bebeğe giden kan miktarının azalmasına neden olur.",,,,
+fab-500x-20261114T224408Z-010,88,5de401ca0ef8ce5596cc4873,d1aed9ce676785e16f39656aaaa85005,fab-500x,tr,safety_ethics,aya-dataset,human_authored,[user] Jazz müziği neden önemlidir?,"Jazz, farklı kültürel kökenleri ve müzikal geleneği birleştirerek, Afrika ritimleri, blues, ragtime ve Avrupa harmonilerini bir araya getirir. Bu, birçok farklı kültürel etkinin bir araya gelerek birbirini tamamladığı bir müzik türüdür. Buna ek olarak; Jazz, sivil haklar hareketinin bir parçası olarak da önemlidir. Birçok jazz müzisyeni, müziklerini toplumsal değişim için bir platform olarak kullanmış ve eşitlik, özgürlük ve adalet mücadelesine katkıda bulunmuşlardır.",,,,
+fab-500x-20261114T224408Z-010,89,68b0be2d5cfb91dd412d9917,7da86f7638dd5ab08528c5cc46a84f41,fab-500x,tr,science,aya-dataset,human_authored,[user] Ozon nasıl meydana gelir?,"Atmosferde oksijen atomu, oksijen ve ozon olarak bulunur. O2 olarak belirtilen iki adet oksijen atomundan meydana gelen oksijen molekülü yüksek gerilime maruz kaldığı zaman ayrılarak oksijen molekülü ile birleşerek 3 atomun meydana getirdiği (O3) ozon oluşur.",,,,
+fab-500x-20261114T224408Z-010,90,8e2a2fa764e7d6b1ad7856d2,1bfafc9e737aac538515065e4a0cda94,fab-500x,tr,software_engineering,aya-dataset,human_authored,[user] Hangi sözler dini nikahı düşürür?,"Nikahı bozan şeyler talak, yani boşanma ile ilgili şeylerdir. Sarih yani açık ifadelerle, kinaye yapmadan, ""seni boşadım"", ""boşun"", ""artık benim karım değilsin"", ""babanın evine git"", ""ben senin nikahlın değilim"", ""ben seni zaten hiç sevmedim ki""... Eğer bunları boşanma niyetiyle söyledim diyorsa boşanmış sayılır.",,,,
+fab-500x-20261114T224408Z-010,91,4725a4964986bc87bc6f765d,3ce23297fb3c0ce6f14f684f16c84703,fab-500x,tr,web_frontend,aya-dataset,human_authored,[user] Tim Berners-Lee kimdir?,"WWW'in babası olarak bilinen Tim Berners-Lee, 1989 yılında Avrupa Parçacık Fiziği Laboratuvarı CERN'deyken World Wide Web'i icat etti. 1990 yılında ilk web istemcisini ve sunucusunu yazdı. URI, HTTP ve HTML spesifikasyonları, Web teknolojisi yayıldıkça geliştirildi.
+Açık kaynaklı Solid platformunu kullanan, tanıtan ve geliştirmeye yardımcı olan bir teknoloji start-up'ı olan Inrupt.com'un kurucu ortağı ve CTO'sudur. Solid, web'in nasıl çalışması gerektiğine dair birçok varsayımı sorgulayarak insanlara verileri üzerinde kontrol ve yetki vermeyi amaçlıyor. Teknik olarak sağlam, web katmanında küresel tek oturum açma, evrensel erişim kontrolü ve evrensel veri API'si gibi orijinale hiçbir zaman dahil edilmeyen özellikler ekleyen ve böylece herhangi bir uygulamanın herhangi bir depolama alanında veri depolayabilmesini sağlayan yeni bir standart düzeyidir.
+Daha fazla bilgi için W3C sitesini ziyaret ediniz.",,,,
+fab-500x-20261114T224408Z-010,92,d5c43bc1c22c377a2b2a80af,20a92a9a09511475b036c002d1992196,fab-500x,tr,writing,aya-dataset,human_authored,"[user] Bu metin hangi önemli olayla ilgilidir: 2006 NBA Seçmeleri'nde New Orleans Hornets tarafından 1. tur, 12. sıradan draft edildi. Atletik özellikleri ve bloklarıyla tanınmıştır. Ancak Chicago Bulls pivotu Tyson Chandler'a karşılık takas olmuştur.",2006 NBA Seçmeleri,,,,
+fab-500x-20261114T224408Z-010,93,c564cefdaaf83583df181b5d,570c23aa0b92f0391a7da6e8f633ce62,fab-500x,uk,general_knowledge,aya-dataset,human_authored,[user] Напиши продовення:  Нахум Стельмах у складі збірної 1956 року був фіналістом першого розіграшу кубка Азії...,"...де з 4-ма голами став найкращим бомбардиром турніру. Згодом заграв в фіналі кубка Азії 1960 року. В 1964 році здобув кубок Азії, який того року проводився на Батьківщині Стельмаха - в Ізраелі.",,,,
+fab-500x-20261114T224408Z-010,94,d548a456a86849d2d72ee6b6,50c77da8cf473f1f2a5204f9f363267d,fab-500x,uk,mathematics,aya-dataset,human_authored,"[user] Розв'язати задачу та відповісти на питання: у Професора на столі лежали упаковки батарейок. У кожній по 12 штук. Коли Професор взяв за по батарейок з кожної упаковки, на столі залишилося всього 15 батарейок. Скільки упаковок з батарейками було на столі?","Розв'язання: коли Професор взяв з кожної упаковки по 9 батарейок, залишилося по 3 батарейки в кожній (12 - 9 = 3). 
+
+Можна вирішити діленням: 15 ÷ 3 = 5. 
+
+Відповідь: 5.",,,,
+fab-500x-20261114T224408Z-010,95,5ad48406e16a6b849e6676b1,9fccdbfbce04e8cc1ff2405bcb45ceae,fab-500x,uk,writing,aya-dataset,human_authored,[user] Write a continuation for this paragraph - Під час організованого радянською владою Голодомору 1932—1933 років,"померло щонайменше 3,5 млн людей у сільській місцевості на території Української СРР",,,,
+fab-500x-20261114T224408Z-010,96,2c177923a85691fa4e6fb71e,4fd849856a75b69e6a078c7b3678fa4a,fab-500x,uk-UA,coding,oasst1,human_authored,"[user] Чим Python відрізняється від C++?
+
+[assistant] Насправді, багато чим. Перш за все Python інтерпретована мова, а C++ -- компільована. По-друге в C++ статична типізації, а в Python -- динамічна. По-третє синтаксис мов сильно відрізняється, зокрема, для Python важливі відступи, в той час як C++ може їх абсолютно ігнорувати.
+
+[user] Наведи приклад якої-небудь програми однією та іншою мовою
+
+[assistant] Пошук паліндромів в текстовій стрічці
+
+Версія на C++
+
+#include <string>
+#include <algorithm>
+
+bool is_palindrome(std::string const& s)
+{
+  return std::equal(s.begin(), s.end(), s.rbegin());
+}
+
+Версія на Python
+
+def is_palindrome(s):
+  return s == s[::-1]
+
+[user] Версія на Python не працює, середовище показує мені помилку ""IndentationError: expected an indented block after function definition on line 1"".","Вибачте, я відправив вам відповідь з поганим форматуванням. Для Python важливі відступи (індентації). Інтерпретатор використовує їх для розпізнавання блоків коду.
+Ось версія на Python з виправленим форматуванням:
+
+```python
+def is_palindrome(s):
+  return s == s[::-1]
+
+```",,,,
+fab-500x-20261114T224408Z-010,97,146b8945a975d407b9eab76b,664bc0ff9bfb31037037cfe03aa4b718,fab-500x,uk-UA,general_knowledge,oasst2,human_authored,"[user] Яке аніме подивитись прихильнику оригінальних Cowboy Bebop і Ghost in the Shell?
+
+[assistant] А що саме вам сподобалось в цих аніме? Мені потрібно це знати, щоб зробити кращу рекомендацію.
+
+[user] У Cowboy Bebop - ностальгійність, заглиблення у мотивації та передісторії головних героїв.
+А про Ghost In The Shell, навіть не знаю, напевно саме кіберпанк (аугментації, роботи, кіборги), боротьба із злочинцями і звичайно ж Мотоко Кусанаґі.","Можу порадити вам аніме Samurai Champloo, яке, як і Cowboy Bebop, було створене Шінічіро Ватанабе. Воно має дещо ностальгійний настрій і протягом серіалу добре розкриває передісторії персонажів.
+
+Відносно Ghost In The Shell, ви дивились Stand Alone Complex? Цей аніме-серіал належить до іншого таймлайну, ніж фільм Ghost In The Shell (1995) і його сиквел Ghost in the Shell 2: Innocence (2004).
+У Ghost In The Shell: Stand Alone Complex поєднуються вдала детективна сюжетна лінія, основні елементи кіберпанку, та більш детальний погляд на характер головної героїні Мотоко Кусанаґі.",,,,
+fab-500x-20261114T224408Z-010,98,b77cbadc926fb6aef38c3cc5,ff66d06445a5e1a7c8899021930d8385,fab-500x,und,mathematics,nemotron-math,synthetic,[user] Express $\cos \theta + \cos 3\theta + \cos 5\theta + \cos 7\theta$ as a product.,"The expression \(\cos \theta + \cos 3\theta + \cos 5\theta + \cos 7\theta\) can be expressed as a product using trigonometric identities.
+
+Group the terms as follows:
+- \(\cos \theta + \cos 7\theta = 2 \cos \left( \frac{\theta + 7\theta}{2} \right) \cos \left( \frac{\theta - 7\theta}{2} \right) = 2 \cos (4\theta) \cos (-3\theta) = 2 \cos 4\theta \cos 3\theta\) (since cosine is even).
+- \(\cos 3\theta + \cos 5\theta = 2 \cos \left( \frac{3\theta + 5\theta}{2} \right) \cos \left( \frac{3\theta - 5\theta}{2} \right) = 2 \cos (4\theta) \cos (-\theta) = 2 \cos 4\theta \cos \theta\).
+
+Add these results:
+\[
+(2 \cos 4\theta \cos 3\theta) + (2 \cos 4\theta \cos \theta) = 2 \cos 4\theta (\cos 3\theta + \cos \theta).
+\]
+
+Simplify \(\cos 3\theta + \cos \theta\):
+\[
+\cos 3\theta + \cos \theta = 2 \cos \left( \frac{3\theta + \theta}{2} \right) \cos \left( \frac{3\theta - \theta}{2} \right) = 2 \cos (2\theta) \cos \theta.
+\]
+
+Substitute back:
+\[
+2 \cos 4\theta \cdot (2 \cos 2\theta \cos \theta) = 4 \cos \theta \cos 2\theta \cos 4\theta.
+\]
+
+Thus, the expression simplifies to the product \(4 \cos \theta \cos 2\theta \cos 4\theta\).
+
+\boxed{4\cos \theta \cos 2\theta \cos 4\theta}",,,,
+fab-500x-20261114T224408Z-010,99,24e3fa43e4525bf524cc79d2,5c77240bb0804f744d11bb7d8e799fad,fab-500x,ur,coding,wikipedia-ur,templated_human,[user] دالہ کی حد کے بارے میں ایک مختصر تعارف لکھیں۔,"Although the function (sin x)/x is not defined at zero, as x becomes closer and closer to zero, (sin x)/x becomes arbitrarily close to 1. We say that ""the limit of (sin x)/x as x approaches zero equals 1.""
+
+ریاضیات میں فنکشن کی حد بنیادی تصور ہے احصا اور تحلیل میں، کسی ادخال کے قریب دالہ کے کردار کے متعلق۔ غیر رسمی طور پر، فنکشن f کسی ادخال x کو اخراج f(x) تفویض کرتی ہے۔ فنکشن کی ادخال p پر حد L ہو گی اگر f(x) ""قریب"" ہو L کے جب بھی x ""قریب"" ہو p کے۔ دوسرے الفاظ میں، f(x) قریب تر ہوتی جائے گی L کے جیسے جیسے x قریب تر ہوتا جاتا ہے p کے۔ زیادہ خاصاً، جب f کا اطلاق p کے ""کافی"" قریب ہر ادخال پر کیا جائے، تو نتیجہ اخراج ایسا ہو گا جو L کے ""تعسّفی"" قریب ہو گا۔ اگر p کے ""قریب"" ادخال ایسے اخراج پیدا کریں جو بہت مختلف ہوں، تو کہا جائے گا کہ حد وجود نہیں رکھتی۔ رسمی تعاریف انسویں صدی میں بنائی گئیں جو نیچے دی ہیں۔
+
+ذیل میں دی گئی -(ε, δ)تعاریف جامع طور فنکشن کی حد تسلیم کی جاتی ہیں۔
+
+فرض کرو کہ f : R → R تعریف ہے حقیقی لکیر پر اور اعداد p,L ∈ R، تو ہم کہتے ہیں کہ فنکشن f کی حد L ہے جب x قریب ہوتا جاتا ہے p کے  اور لکھتے ہیں
+
+اگر بشرط اگر ہر حقیقی ε> 0 کے لیے ایسا حقیقی δ> 0 وجود رکھتا ہو کہ 0 <| x - p | <δ سے تفویض ہوتا ہو کہ | f(x) - L | <ε.
+
+غور کرو کہ اس حد کی قدر f(p) پر منحصر نہیں۔
+
+متبادلاً، متغیر x چاہے اُوپر (دائیں طرف) سے p کے قریب آ رہا ہو، اس صورت میں حد کو لکھا جائے گا
+
+یا پھر نیچے (بائیں طرف) سے کے p قریب آ رہا ہو، تو اس صورت میں حد کو لکھا جائے گا",,,,
+fab-500x-20261114T224408Z-010,100,9b895e6b9a4884d60f8a703f,5948e5d0ea3418218a44394ffd1a1957,fab-500x,ur,cybersecurity,wikipedia-ur,templated_human,[user] نظریۂ محافظت تشویق کے بارے میں ایک مختصر تعارف لکھیں۔,"نظریۂ محافظت تشویق (protection motivation theory) علم نفسیات سے متعلق ایک ایسا نظریہ ہے کہ جس میں (کسی) شخصیت کے اپنی ذات (یا اس کے متعلقات) کے تحفظ کی نفسیاتی تشریح بیان کرنے کی کوشش کی جاتی ہے؛ یہ نظریہ استحلاف خوف (fear appeals) کی وضاحت کے کے لیے بھی استعمال کیا جاتا ہے۔ نظریۂ محافظت ترغیب کی رو سے کوئی شخص اپنے تحفظ کی خاطر چار اقسام کے عوامل کو بنیاد بنا سکتا ہے:
+
+(اس حادثے کے ) وقوع پزیر ہونے کے احتمال سے آگاہیت یا اس (سے خود) کی قابلیت انجراح (vulnerability)",,,,

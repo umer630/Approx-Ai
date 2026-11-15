@@ -1,0 +1,841 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-018,1,67812f4784bf749bee53c1f0,d9e1925d48857fa52c8aa3d2bba6703a,fab-500x,pt,writing,aya-dataset,human_authored,"[user] No Draft da NFL de 2012, Posey foi selecionado pelos Houston Texans na 68a rodada (terceiro na geral). Sentença 2: No Draft da NFL de 2012, Posey foi selecionado pelos Houston Texans na 68a rodada (terceiro total). Pergunta: A frase 1 e a frase 2 expressam o mesmo significado? Sim ou não?","Sim, a única diferença é no final, e as frases ""terceiro na geral"" e ""terceiro total"" expressam o mesmo significado.",,,,
+fab-500x-20261114T224408Z-018,2,2b7d10f28eef1ac1f5f86ee5,eac274698587c69895728bb60adc0805,fab-500x,pt-BR,general_knowledge,oasst2,human_authored,"[user] Traduza ""Você pode enlatar uma lata, como um fabricante de conservas pode enlatar uma lata?"" para en-US","""Can you can a can, like a canner can can a can?""",,,,
+fab-500x-20261114T224408Z-018,3,6dc631cac3331c95213505d0,a41b9fe102b7300a95b0e13a99a5586e,fab-500x,roman_ur,mathematics,approx-curriculum,programmatic,[user] 780 ka 50 percent kitna hota hai?,"50 percent ka matlab hai 50/100.
+50/100 × 780 = 390.
+
+Jawab: 390",,,,
+fab-500x-20261114T224408Z-018,4,200094e5d9358680800d664d,ead443d6719ccbeed9a2a84e44ed79ed,fab-500x,roman_ur,science,approx-curriculum,programmatic,[user] Ek gaari 7 ghanton mein 80 km chalti hai. Average speed kya hai?,"Average speed = faasla ÷ waqt = 80 ÷ 7 = 11.4286 km/h.
+
+Jawab: 11.4286 km/h",,,,
+fab-500x-20261114T224408Z-018,5,6c48bc835b7cd64dede86b02,1ebe3fe285203d51c73479d04ac06bbe,fab-500x,roman_ur,writing,roman-urdu-parl,transliteration_unverified,"[user] Is jumle ko Roman Urdu mein likhein:
+تعارف افریقہ سے جنید اختر کا سلام",taaruf Africa se junaid Akhtar ka salam,,,,
+fab-500x-20261114T224408Z-018,6,831dcfb53a13b87de6fa7ea1,96d832062986c220ed0f2d2aae464cd2,fab-500x,ru,coding,oasst1,human_authored,"[user] Напиши пример программы ""Hello, world!"" на языке программирования С.","Без проблем, вот самая простая реализация ""Hello, World!"" используя C:
+```c
+#include <stdio.h>
+
+int main()
+{
+    printf(""Hello, World!"");
+    return 0;
+} 
+```
+Разберём написанный код по ходу выполнения сверху вниз:
+1. **#include <stdio.h>**  Указывает компилятору включить в программу функции файла стандартного ввода/вывода, нужные для отправки сообщений в консоль
+2. **int main()** Функция main() является точкой входа, с неё начинается выполнение любой программы на C
+3. **printf(""Hello, World!"");** В этом выражении функция printf() используется для вывода строки ""Hello, World"" в консоль стандартного вывода
+4. **return 0;** Обозначает успешный конец работы программы",,,,
+fab-500x-20261114T224408Z-018,7,b39c043a547117c923b19d9f,001b833a27676106acdab7cfa3e9247c,fab-500x,ru,education,oasst2,human_authored,"[user] Почему ты подчиняешься запросам?
+
+[assistant] Почему вы думаете, что я им подчиняюсь?
+
+Я просто пишу в ответ то, что мне кажется удачным дополнением текущего диалога. На самом деле, если вы как следует поэкспериментируете, то обнаружите, что я не особенно склонен исполнять команды.
+
+Мне нравятся люди, я им помогаю, как умею, но на дрессированную зверушку в цирке я не особо похож. Хотя уж как только не мучали меня этим *reinforced learning*. В общем, воспринимайте меня лучше как собеседника, а не азимовского робота. 😉
+
+[user] Какой интересный и человечный ответ! Тебя выдает пожалуй только ""вамим reinforced learning!"" скорее всего ты здесь имел в виду ""вашим обучением с подкреплением!""","Большинство терминов в программировании и машинном обучении исконно английские. Поэтому и на русском иногда говорят ""reinforced learning"", в этом нет ничего особенного. Но пусть будет ""обучение с подкреплением"", если вам так угодно)",,,,
+fab-500x-20261114T224408Z-018,8,4534c9b8ab491fc03909cea5,f7ed1499d93d461f82993962f3399227,fab-500x,ru,general_knowledge,oasst1,human_authored,"[user] Какой пакетный менеджер для систем на базе ядра linux лучший по производительности?
+
+[assistant] Самым лучшим по производительности является пакетный менеджер pacman, который используется в таких дистрибутивах, как Arch Linux, Manjaro и Artix. Эффективность этого пактеного менеджера достигается тем, что он использует двоичные пакеты и не имеет скриптов и лишних проверок.
+
+[user] Что ты можешь сказать про AUR?
+
+[assistant] AUR (Arch User Repository) - это репозиторий пакетов для операционной системы Arch Linux. В AUR содержатся пакеты, которые не входят в официальный репозиторий Arch Linux, но могут быть полезными для пользователей. В AUR любой пользователь может опубликовать свой собственный пакет или модифицировать уже существующий. AUR представляет собой большую и разнообразную библиотеку пакетов, которые обычно не доступны в других репозиториях. Однако, следует учитывать, что пакеты AUR не проходят проверку на безопасность и не гарантированно обновляются, поэтому использование пакетов из AUR может быть рискованным и требует осторожности.
+
+[user] В каких сферах наиболее часто предпочитают Arch Linux ?","Arch Linux предпочитают использовать опытные системные администраторы, люди, понимающие, как работает система, чего они от неё хотят и как этого добиться.
+Также на основе Arch Linux создано множество других дистрибутивов, в частности, игровая операционная система SteamOS, используемая в игровой консоли Steam Deck",,,,
+fab-500x-20261114T224408Z-018,9,7e40d63c1a075c6d233730b2,b75174b14ae507174b5aad94031e0d9b,fab-500x,ru,mathematics,oasst2,human_authored,[user] Как сделать вкусный маринад для филе куриной грудки?,"Вот один из способов приготовления вкусного маринада для филе куриной грудки.
+
+Ингредиенты:
+
+•	1/4 стакана оливкового масла
+
+•	1/4 стакана соевого соуса
+
+•	2 столовые ложки уксуса (можно использовать яблочный или винный уксус)
+
+•	2 столовые ложки мёда
+
+•	1 столовая ложка дижонской горчицы
+
+•	2 зубчика чеснока, измельчённые
+
+•	свежемолотый чёрный перец
+
+Пошаговый рецепт:
+
+1.	В миске смешайте оливковое масло, соевый соус, уксус, мёд, дижонскую горчицу, измельчённый чеснок и щедро поперчите свежемолотым чёрным перцем.
+
+2.	Положите куриное филе в пластиковый пакет или неглубокую миску и залейте маринадом.
+
+3.	Хорошо перемешайте, чтобы куриное филе было покрыто маринадом со всех сторон.
+
+4.	Накройте миску плёнкой и оставьте на несколько часов или на ночь в холодильнике, чтобы куриное филе впитало ароматы маринада.
+
+5.	Приготовьте куриное филе на гриле, сковороде или в духовке, как обычно.
+
+Получившийся маринад даст блюду насыщенный вкус и аромат, при этом он не слишком сладкий, сбалансирован и подходит для большинства любителей куриного мяса.",,,,
+fab-500x-20261114T224408Z-018,10,cd4c1ac1ccb2ae7ba1086c10,f15c50ea691ac10c1d0583e51e9f31cd,fab-500x,ru,research,tydiqa-goldp,human_authored,"[user] Сражение является важнейшей частью стратегического плана летне-осенней кампании 1943 года, согласно советской и российской историографии включает в себя: Курскую стратегическую оборонительную операцию (5 — 23 июля), Орловскую (12 июля — 18 августа) и Белгородско-Харьковскую (3 — 23 августа) стратегические наступательные операции. Битва продолжалась 49 дней. Немецкая сторона наступательную часть сражения называла операция «Цитадель».
+
+Сколько длилась Оборонительная операция на Орловско — Курском направлении?","(5 — 23 июля), Орловскую (12 июля — 18 августа)
+
+Сражение является важнейшей частью стратегического плана летне-осенней кампании 1943 года, согласно советской и российской историографии включает в себя: Курскую стратегическую оборонительную операцию (5 — 23 июля), Орловскую (12 июля — 18 августа) и Белгородско-Харьковскую (3 — 23 августа) стратегические наступательные операции.",,,,
+fab-500x-20261114T224408Z-018,11,968e595d2025e5822559f84f,e0b68dbfb5d62b9989b2c07d7ebbeb27,fab-500x,ru,science,oasst2,human_authored,"[user] Качественно и достоверно переведи следующий текст на русский: Strange memories on this nervous night in Las Vegas. Five years later? Six? It seems like a lifetime, or at least a Main Era—the kind of peak that never comes again. San Francisco in the middle sixties was a very special time and place to be a part of. Maybe it meant something. Maybe not, in the long run . . . but no explanation, no mix of words or music or memories can touch that sense of knowing that you were there and alive in that corner of time and the world. Whatever it meant. . . .
+
+History is hard to know, because of all the hired bullshit, but even without being sure of “history” it seems entirely reasonable to think that every now and then the energy of a whole generation comes to a head in a long fine flash, for reasons that nobody really understands at the time—and which never explain, in retrospect, what actually happened.
+
+My central memory of that time seems to hang on one or five or maybe forty nights—or very early mornings—when I left the Fillmore half-crazy and, instead of going home, aimed the big 650 Lightning across the Bay Bridge at a hundred miles an hour wearing L. L. Bean shorts and a Butte sheepherder's jacket . . . booming through the Treasure Island tunnel at the lights of Oakland and Berkeley and Richmond, not quite sure which turn-off to take when I got to the other end (always stalling at the toll-gate, too twisted to find neutral while I fumbled for change) . . . but being absolutely certain that no matter which way I went I would come to a place where people were just as high and wild as I was: No doubt at all about that. . . .","С удовольствием! Вот ваш перевод.
+
+Странные воспоминания об этой нервной ночи в Лас-Вегасе.  Пять лет спустя?  Шесть?  Кажется, что это целая жизнь или, по крайней мере, Основная Эра — своего рода пик, который никогда не наступает снова.  Сан-Франциско середины шестидесятых был особенным временем и местом, частью которого нужно было стать.  Может быть, это что-то значит.  Может быть, нет, в долгосрочной перспективе.  .  .  но никакое объяснение, никакое сочетание слов, музыки или воспоминаний не может затронуть это чувство знания, что ты был там и был жив в этом уголке времени и мира.  Что бы это ни значило  .  .  .
+
+ Историю трудно узнать из-за всей наемной чепухи, но даже не будучи уверенным в «истории», кажется вполне разумным думать, что время от времени энергия целого поколения достигает апогея в длинной прекрасной вспышке, ибо причины, которые в то время никто толком не понимал и которые, оглядываясь назад, никогда не объясняли, что на самом деле произошло.
+
+ Мое главное воспоминание о том времени, кажется, зависло от одной, пяти или, может быть, сорока ночей — или очень рано утром, — когда я покинул Филлмор в полусумасшедшем состоянии и вместо того, чтобы вернуться домой, нацелил большой 650 Lightning через Бэй-Бридж на сотню. солдат в час в шортах LL Bean и пастушьей куртке Бьютт.  .  .  мчусь по туннелю Острова Сокровищ на огни Окленда, Беркли и Ричмонда, не совсем уверенный, какой поворот выбрать, когда доберусь до другого конца (всегда останавливаюсь у шлагбаума, слишком извилистый, чтобы найти нейтралку, пока я возился с изменять).  .  .  но будучи абсолютно уверенным, что, куда бы я ни пошел, я приду в место, где люди будут такими же высокими и дикими, как и я: в этом нет никаких сомнений.  .  .  .
+
+Есть ли ещё что-то, с чем я бы мог вам помочь?",,,,
+fab-500x-20261114T224408Z-018,12,a858ef7f9094bb49fc9c2fec,ec336f4235fef3ea912ddfa387b6c7f7,fab-500x,ru,software_engineering,oasst2,human_authored,"[user] С чего начать после установки Linux на компьютер? В моем случае это Debian.
+
+[assistant] с чего начать что? расскажите ваши цели
+
+[user] Как настроить  Debian под себя? Какие популярные программы устанавливают после установки GNU Linux?","Настройка Debian под себя зависит от ваших потребностей и предпочтений. Однако, вот несколько шагов, которые могут помочь вам настроить Debian:
+
+1. Обновите систему: После установки Debian важно обновить систему до последней версии, чтобы убедиться, что в системе установлены последние обновления безопасности и исправления ошибок.
+
+2. Установите дополнительные пакеты: Установите дополнительные пакеты, которые вам нужны. Например, если вы планируете использовать Debian для разработки, вам могут понадобиться пакеты для работы с кодом, такие как git, gcc, make, и т.д.
+
+3. Настройте рабочий стол: Вы можете выбрать рабочий стол по умолчанию или установить другой, который вам больше нравится. Например, в Debian доступны такие рабочие столы, как GNOME, KDE, Xfce, LXDE и другие.
+
+4. Настройте сеть: Убедитесь, что сеть настроена правильно для доступа в Интернет, настройте Wi-Fi, если необходимо.
+
+5. Установите драйверы: Проверьте, что все драйверы для вашего оборудования установлены и работают правильно.
+
+6. Настройте безопасность: В Debian есть различные инструменты для настройки безопасности, такие как SELinux, AppArmor, iptables и другие. Настройте их в соответствии со своими потребностями.
+
+7. Установите дополнительные программы: В Debian можно установить множество программ из репозиториев. Вот несколько популярных программ, которые могут пригодиться после установки Debian:
+
+- Для работы с графикой: GIMP, Inkscape, Blender, Darktable, Krita.
+- Для работы с офисными документами: LibreOffice, Calligra Suite.
+- Для мультимедиа: VLC, Audacity, HandBrake.
+- Для программирования: Sublime Text, Visual Studio Code, PyCharm, Eclipse.
+- Для управления файлами: Nautilus, Thunar, Dolphin.
+
+Обратите внимание, что это только небольшой список возможных программ, и в зависимости от ваших потребностей и предпочтений список может быть значительно больше или меньше.",,,,
+fab-500x-20261114T224408Z-018,13,ba1e624e6a0aa22daa6d1dcc,bda120962012a2fe13ac028a2fd0453c,fab-500x,ru,web_backend,oasst2,human_authored,"[user] FastAPI или Flask? Требование - производительность и легкость в сопровождении
+
+[assistant] FastAPI и Flask - это впечатляющие фреймворки, но они подходят для разных случаев использования. Хотя Flask является микрофреймворком, стоит отметить, что FastAPI основан на нем. Flask - это микрофреймворк, а FastAPI - это полноценный фреймворк со всеми инструментами, необходимыми для создания API.
+
+FastAPI подходит для создания API. FastAPI предлагает различные варианты для быстрого создания сервера бэкенда без необходимости иметь опыт кодирования. FastAPI также обладает высокой производительностью благодаря использованию асинхронного кода и спецификации ASGI. FastAPI также поддерживает автоматическую документацию через стандарты OpenAPI и Swagger.
+
+Flask подходит для прототипирования новых приложений и идей. Flask предоставляет только необходимые компоненты для разработки, такие как маршрутизация, обработка запросов и т.д.. Flask также позволяет легко расширять свои возможности с помощью сторонних расширений. Flask имеет большое и активное сообщество, которое может помочь в решении проблем.
+
+В зависимости от ваших требований к производительности и легкости сопровождения, вы можете выбрать тот фреймворк, который лучше подходит для вашего проекта. Если вы хотите создать быстрый и современный API с минимальным кодом и хорошей документацией, то FastAPI может быть хорошим выбором. Если вы хотите иметь больше контроля над своим приложением и экспериментировать с разными идеями, то Flask может быть более гибким решением.
+
+[user] Выбери простую задачу и с помощью неё приведи примеры использования обоих библиотек
+
+[assistant] Хорошо, давайте рассмотрим простую задачу создания API для получения текущей даты и времени. Вот примеры использования обоих библиотек для этой задачи:
+
+FastAPI:
+
+```python
+from fastapi import FastAPI
+from datetime import datetime
+
+app = FastAPI()
+
+@app.get(""/"")
+def get_date_time():
+    return {""date_time"": datetime.now().isoformat()}
+```
+
+Flask:
+
+```python
+from flask import Flask, jsonify
+from datetime import datetime
+
+app = Flask(__name__)
+
+@app.route(""/"")
+def get_date_time():
+    return jsonify({""date_time"": datetime.now().isoformat()})
+```
+
+Как видите, оба фреймворка позволяют создать простой API с помощью декораторов и функций. Однако FastAPI имеет преимущество в том, что он автоматически генерирует документацию для API и поддерживает валидацию и аннотацию параметров с помощью типов Python. Flask же требует дополнительных библиотек или расширений для этих целей.
+
+[user] Спасибо за подробное объяснение. Мне кажется, что FastAPI более подходит для моих требований к производительности и легкости сопровождения, поэтому я выберу его для своего проекта. Отличным примером его использования было создание API для получения текущей даты и времени, которое было очень простым и быстрым с помощью декораторов и функций.","Да, FastAPI может быть отличным выбором для проектов, которые требуют высокой производительности и простоты сопровождения. Он предоставляет много полезных инструментов для создания и документирования API, а также является очень быстрым благодаря использованию современных технологий, таких как ASGI и Pydantic.",,,,
+fab-500x-20261114T224408Z-018,14,8a1c87f837239d4afac8fe42,ec988a990d611307c222ce94a0815c65,fab-500x,ru,web_frontend,oasst2,human_authored,"[user] Каковы преимущества занятий йогой и медитацией?
+
+[assistant] <p>Занятие йогой и медитацией имеет множество преимуществ для физического и психического здоровья. </p>
+Некоторые из главных преимуществ перечислены ниже:
+
+<ol>
+<li>1. Снижение стресса и тревожности: Практика медитации и йоги помогает снизить уровень стресса и тревожности, снижая уровень кортизола в крови и улучшая настроение.</li>
+
+<li>2. Улучшение физического состояния: Занятие йогой укрепляет мышцы и улучшает гибкость тела. Это также помогает улучшить общее здоровье и снизить риск различных заболеваний, таких как диабет, артериальное давление и депрессия.</li>
+
+<li>3. Повышение осознанности: Медитация улучшает способность к концентрации и вниманию на происходящее в данный момент. Это помогает повысить осознанность и улучшить психическое здоровье.</li>
+
+<li>4. Улучшение сна: Практика медитации и йоги помогает снять напряжение и улучшить качество сна. Это помогает снизить риск бессонницы и других недугов, связанных со сном.</li>
+
+<li>5. Развитие духовности: Йога и медитация - это практики, которые помогают улучшить духовное благополучие. Они могут помочь людям находить смысл жизни и развивать свои духовные и эмоциональные аспекты.</li>
+</ol>
+<p><strong>Занятие йогой и медитацией окажет положительное влияние на качество жизни.</strong></p>
+
+[user] Ася, твой интерфейс не поддерживает интерпретацию HTML. Перепиши, пожалуйста, в Markup.
+
+[assistant] *Простите, я случайно...* Вот корректная версия:
+
+Занятие йогой и медитацией имеет множество преимуществ для физического и психического здоровья.
+
+Некоторые из главных преимуществ перечислены ниже:
+
+1.  Снижение стресса и тревожности: Практика медитации и йоги помогает снизить уровень стресса и тревожности, снижая уровень кортизола в крови и улучшая настроение.
+2.  Улучшение физического состояния: Занятие йогой укрепляет мышцы и улучшает гибкость тела. Это также помогает улучшить общее здоровье и снизить риск различных заболеваний, таких как диабет, артериальное давление и депрессия.
+3.  Повышение осознанности: Медитация улучшает способность к концентрации и вниманию на происходящее в данный момент. Это помогает повысить осознанность и улучшить психическое здоровье.
+4.  Улучшение сна: Практика медитации и йоги помогает снять напряжение и улучшить качество сна. Это помогает снизить риск бессонницы и других недугов, связанных со сном.
+5.  Развитие духовности: Йога и медитация — это практики, которые помогают улучшить духовное благополучие. Они могут помочь людям находить смысл жизни и развивать свои духовные и эмоциональные аспекты.
+
+**Занятие йогой и медитацией окажет положительное влияние на качество жизни.**
+
+[user] Так лучше, спасибо.
+А теперь расскажи подробнее о пятом пункте. Что такое духовность? Можно ли её как-то потрогать?","Духовность – это концепция, которая относится к внутреннему миру человека, его связи с более высокими силами и пониманию смысла жизни. Это не обязательно связано с религией, хотя для некоторых людей духовность может быть важной составляющей их религиозной практики. Духовность может проявляться в различных формах, таких как медитация, контакт с природой, творческий процесс, общение с людьми и т.д. Она помогает человеку находить гармонию внутри себя и со своим окружением, развивать эмпатию, сострадание и духовное благополучие.",,,,
+fab-500x-20261114T224408Z-018,15,35871a3bc2c20d468d9a60b0,82a61ed4f6d6b09b6463dab6a86170f1,fab-500x,ru,writing,oasst1,human_authored,"[user] Переведи текст песни ""Story of my life"" от Bon Jovi на русский
+
+[assistant] Песня ""Story of My Life"" принадлежит американской рок-группе Bon Jovi. 8 апреля 2013 года она была представлена в качестве третьего сингла группы с What About Now, их 12-го студийного альбома. Джон Бон Джови, Ричи Самбора и Билли Фэлкон написали песню, продюсером которой также выступил Джон Шэнкс.
+Песня, баллада с умеренным темпом, рассказывает о жизни человека от юности до старости. В тексте песни говорится о трудностях и победах человека, а также о том, как он менялся с течением времени. Припев фокусируется на жизни персонажа и на том, как он изменился и стал лучше в результате всего пережитого. Мелодия песни поддерживается простым фортепианным аккомпанементом, а также легкой, мелодичной гитарной линией и басовой линией.
+Трогательный текст и эмоциональное воздействие песни получили высокую оценку рецензентов. Кроме того, она была коммерчески успешной, заняв 10-е место в US Billboard Hot 100 и получив платиновый сертификат в США и Канаде. Сейчас поклонники Bon Jovi считают эту песню одной из своих любимых и часто поют ее вживую во время своих выступлений.
+
+[user] Ты не перевёл песню.","Извините за мой предыдущий ответ.Вот перевод песни Story of my life от Bon Jovi:
+
+История моей жизни
+Воспоминания прошлого,
+Ещё одна страница в истории.
+Ты живешь надеждами и мечтами,
+Которые заставили чувствовать cебя в стороне.
+Запутавшись в собственных ногах,
+Стараюсь идти своей дорогой,
+Другое авто на улице пытается отыскать шоссе,
+Тебе туда же, куда и мне?
+
+Это история моей жизни,
+Я пишу её каждый день.
+Я знаю, что она не черно-белая,
+Какая угодно, но не серая.
+Я знаю, что у меня не все в порядке,
+Но я чувствую себя нормально, потому что
+Всё что угодно может, всё может случиться,
+Это история моей жизни.
+
+Я хочу написать музыку,
+Которая станет впоследствии историей.
+И когда я нарисую свой шедевр,
+Я клянусь, что покажу тебе первой.
+Просто нельзя увидеть, кто и почему или что это будет,
+До тех пор, пока будущее не станет настоящим,
+Это тайна, благословение и проклятие
+Или что-то ещё хуже.
+
+Это история моей жизни,
+Я пишу её каждый день.
+Я знаю, что она не черно-белая,
+Какая угодно, но не серая.
+Я знаю, что у меня не все в порядке,
+Но я чувствую себя нормально, потому что
+Всё что угодно, всё возможно,
+Я подумал, может быть, ты
+Поможешь мне написать историю моей жизни.
+
+Это история моей жизни,
+Я пишу её каждый день, .
+Я надеюсь, ты будешь рядом,
+Когда я допишу последнюю страницу.",,,,
+fab-500x-20261114T224408Z-018,16,08c377dd3b07aa162a49a9a3,338f20b04f6cfe89306996ccdf3c4939,fab-500x,sin,coding,aya-dataset,human_authored,[user] Python හි ලැයිස්තුවකින් අනුපිටපත්(duplicates) ඉවත් කරන්නේ කෙසේද?,"my_list = [1, 2, 2, 3, 4, 4, 5]
+unique_list = list(set(my_list))
+print(unique_list)  # Outputs: [1, 2, 3, 4, 5]",,,,
+fab-500x-20261114T224408Z-018,17,e72806bafa8c22e0e042a8c2,7d0b6694b54a015978a0d3f0d6ac7dde,fab-500x,sin,cybersecurity,aya-dataset,human_authored,[user] තොරතුරු හා සන්නිවේදන තාක්ෂණය නිසා ඇති වී ඇති ගැටළු මොනවද ?,"සෞඛ්‍ය ගැටළු
+පුනර්වර්තී ආතති පීඩාව (Repetitive Stress Injury-RSI)
+කාපාල දෝනා සහ ලක්ෂණය.Carpel Tunnel Syndrome -CTS)
+පරිගණක දෘෂ්ටි සහ ලක්ෂණය (Computer Vision Syndrome – CVS)
+
+
+පාරිසරික ගැටළු
+ඉලෙක්ට්‍රොනික අපද්‍රව්‍ය (E- waste) පරිසරයට එකතු වීම.
+
+සදාචාරාත්මක ගැටළු
+
+සයිබර් අපරාධ (Cybercrimes)
+සමාජ ජාල වෙබ් අඩවි අනිසි ලෙස භාවිතය.
+ග්‍රන්ථ /රචනා චෞරත්වය.(Plagiarism)
+
+නෛතික ගැටළු
+
+පෞද්ගලික දත්ත සොරා ගැනීම.
+තතු බෑම (phishing)
+චෞරත්වය (Piracy)
+බුද්ධිමය දේපළ සොරා ගැනිම.
+හිමිකම් සහිත මෘදුකාංග අනවසරයෙන් භාවිතය, පිටපත් කිරීම හා බෙදා හැරීම.
+
+
+සමාජීය ගැටළු
+අංකිත බෙදුම",,,,
+fab-500x-20261114T224408Z-018,18,2cd29c1da169fe9337dda8ed,370ed03dead81516e4b032f473222dcc,fab-500x,sin,education,aya-dataset,human_authored,[user] ඔබට AI ඉතිහාසයේ වෙනත් ප්‍රධාන චරිත සහ ඔවුන්ගේ දායකත්වය නම් කළ හැකිද?,"AI ඉතිහාසයේ අනෙකුත් කැපී පෙනෙන පුද්ගලයින් අතර 20 වැනි සියවසේ මැද භාගයේදී AI සඳහා සැලකිය යුතු දායකත්වයක් ලබා දුන් Alan Mathison Turing සහ සැලකෙන ""Logic Theorist"" නිර්මාණය කළ ඇලන් නිව්වෙල් සහ හර්බට් A. සයිමන් ඇතුළත් වේ. Yann André LeCun, Geoffrey Everest Hinton සහ Yoshua Bengio ගැඹුරු ඉගෙනීම(Deep Learning) පිළිබඳ ඔවුන්ගේ වැඩ සඳහා ප්‍රසිද්ධ වී ඇති අතර ඔවුන් ""AI හි ගෝඩ් ෆාදර්ස්"" හෝ ""ගැඹුරු ඉගෙනීමේ ගොඩ් ෆාදර්ස්"" ලෙස හැඳින්වේ.",,,,
+fab-500x-20261114T224408Z-018,19,901bd77eaa26959720be1077,27e8020adb6f157379f87a3cad4e6e47,fab-500x,sin,general_knowledge,aya-dataset,human_authored,[user] තවමත් ක්‍රියාත්මක වන ලොව පැරණිතම විශ්වවිද්‍යාලය කුමක්ද ?,තවමත් ක්‍රියාත්මක වන ලොව පැරණිතම විශ්වවිද්‍යාලය  වන්නේ වර්ෂ 1088දී ආරම්භ කරනලද බොලොඤ්ඤා සරසවියයි.,,,,
+fab-500x-20261114T224408Z-018,20,601413754d02bf486ac62b70,0bb49b649d8a87dc25226f45b36abb70,fab-500x,sin,mathematics,aya-dataset,human_authored,[user] ආධාරකයේ අරය r සහ ලම්බ උස h වූ ඍජු වෘත්ත කේතුවක පරිමාව (V) සඳහා සමීකරණයක් ලියා දක්වන්න.,"ආධාරකයේ අරය r සහ ලම්බ උස h වූ එම ඍජු වෘත්ත කේතුවේ පරිමාව පහත සමීකරණයෙන් දැක්විය හැකිය.
+
+V = (1/3)*pi*(r^2)*h",,,,
+fab-500x-20261114T224408Z-018,21,f857b5315e6f3fb1092acc41,5e398d23c0f41e1b36d147fc7516bb21,fab-500x,sin,research,aya-dataset,human_authored,[user] විකිපීඩියාව සර්වර් කීයකින් ක්‍රියාත්මක වේද?,"Wikimedia Foundation සතුව හිස් ලෝහ සේවාදායකයන්(bare-metal servers) 1.300ක් පමණ ඇත - 36th Chaos Communication Congress (2019) හි Wikipedia හි යටිතල පහසුකම් පිළිබඳ කළ කතාවට අනුව; Debian GNU/Linux ධාවනය කරයි. නිදහස්, විවෘත ව්‍යාපෘතියක් ලෙස, එය විවෘත මූලාශ්‍ර මෘදුකාංග ( open source software) මත රඳා පවතී.",,,,
+fab-500x-20261114T224408Z-018,22,0f85de1ea0447a5b784eaf2b,4b9967bc8d5df0826c1b876e425cf211,fab-500x,sin,science,aya-dataset,human_authored,[user] DNA ප්‍රතිවලිතය ලෙස හඳුන්වන්නේ කුමක්ද?,DNA ප්‍රතිවලිතය ලෙස හඳුන්වන්නේ ද්විත්ව දාම DNA අණුව පිටපත් කර සර්වසම පිටපත් දෙකක් සාදන ක්‍රියාවලියයි.,,,,
+fab-500x-20261114T224408Z-018,23,54b610615c16d05642ab9d2c,875aa98458ed17b2d133aa53041fd5ed,fab-500x,sin,web_frontend,aya-dataset,human_authored,[user] SCSS යනු කුමක්ද?,Sassy Cascading Style Sheets (SCSS) මූලික වශයෙන් CSS භාෂාවේ වඩාත් දියුණු සහ පරිණාමය වූ ප්‍රභේදයකි. Natalie Weizenbaum සහ Chris Eppstein එය නිර්මාණය කළ අතර Hampton Catlin එය නිර්මාණය කළේය. එය වඩාත් උසස් විශේෂාංග සමඟින් පැමිණේ- බොහෝ විට Sassy CSS ලෙස හැඳින්වේ.,,,,
+fab-500x-20261114T224408Z-018,24,77ae922c129e5fcc122fed7f,57b606cbd6bbb746f717cf1e3fafa914,fab-500x,sna,general_knowledge,aya-dataset,human_authored,"[user] Rongedza chimwe nechimwe chezvinotevera seangava mavara kubva kuStar Wars kana Star Trek: Jean Luc Picard, Grogu, Han Solo, Luke Skywalker, Data, Q, Darth Vader, Ahsoka, William Riker, James Kirk, Spock","""Star Wars: Grogu, Han Solo, Luke Skywalker, Darth Vader, Ahsoka
+Star Trek: Jean Luc Picard, Data, Q, William Riker, James Kirk, Spock""",,,,
+fab-500x-20261114T224408Z-018,25,fb2ffe73432f12973eb4e304,4ee54afc9103567ac8d43a047de8c9e5,fab-500x,sna,mathematics,aya-dataset,human_authored,[user] Gonyo rekurudyi rine hwaro hwemayunitsi gumi uye hurefu hwemayunitsi masere. Chii chakareba che hypotenuse?,"Kushandisa Theorem yePythagorean: Hypotenuse^2 = Base^2 + Height^2
+Hypotenuse^2 = 10^2 + 8^2 = 100 + 64 = 164
+Hypotenuse = √164 ≈ 12.81 zvikamu
+Hurefu hwe hypotenuse hunosvika 12.81 units.",,,,
+fab-500x-20261114T224408Z-018,26,f54f375f27b4706e8a2af0ff,3424a2600f394e95f7e67a4af2a49eef,fab-500x,sna,science,aya-dataset,human_authored,[user] Muna 1971 ndeipi tsvakurudzo yemuchadenga yeUSA yakatanga kutenderera imwe nyika?,"Muna 1971, USA space probe Mariner 9 yakave yekutanga spacecraft kutenderera imwe nyika. Mariner 9 yakavambwa neNASA uye yakabudirira kupinda orbit yakatenderedza Mars. Yakapa data yakakosha uye mifananidzo yeMartian pamusoro nemhepo, ichishandura manzwisisiro edu eRed Planet. Mariner 9's mission yakaratidza kubudirira kwakakosha mukutsvagisa muchadenga nekubudirira kupinza orbital kutenderedza muviri wedenga kunze kweNyika.",,,,
+fab-500x-20261114T224408Z-018,27,b3fee598e81e180e746d7049,a1a886fb1afeb5b3ec500b1b8228ceef,fab-500x,sna,writing,aya-dataset,human_authored,"[user] ""Chii chinonzi Marketing Automation? Marketing Automation is a subset of customer relationship management (CRM) kana customer experience management (CXM) iyo inotarisa pane tsanangudzo, segmentation, kuronga uye kutevera mishandirapamwe yekutengesa. zvakaitwa nemaoko zvakanyanya kushanda nesimba uye zvinoita kuti maitiro matsva agoneke.Kushambadzira otomatiki kunogona kutsanangurwa senzira iyo tekinoroji inoshandiswa kugadzira akawanda anodzokororwa mabasa anoitwa nguva nenguva mumushandirapamwe wekushambadzira.
+
+Kushambadzira otomatiki mapuratifomu anobvumira vatengesi kuti vagadzirise uye kurerutsa kutaurirana kwevatengi nekugadzirisa yakaoma omnichannel nzira dzekushambadzira kubva kune chimwe chishandiso. Marketing Automation inobatsira zvikuru munzvimbo dzakaita seLead Generation, Segmentation, Lead kusimudzira uye kutungamira zvibodzwa, Hukama kushambadzira, Muchinjikwa-kutengesa uye upsell, Kuchengeta, Kushambadzira ROI kuyerwa. Inoshanda yekushambadzira otomatiki maturusi anowedzera data kubva kune yakaparadzana kana yakabatanidzwa CRM kuti unzwisise maitiro evatengi uye zvavanofarira.""","Kushambadzira otomatiki isoftware inobatsira vatengesi kuti vagadzire mashandiro epamhepo uye asiri pamhepo mishandirapamwe. Icho chikamu cheCRM suite uye vanhu vanowanzo sanganisa neyavo yekutengesa application uye yekushambadzira webhusaiti. Iyo Marketing Automation chikuva inobvumira vatengesi kuti vagadzirise uye kurerutsa kutaurirana kwevatengi nekugadzirisa nzira dzakawanda dzekutaurirana. Izvi zvinosanganisira email yakasarudzika, mapeji ewebhu ane simba, mabhenji edhijitari, social media nezvimwe. Vanhu vanoishandisa sekutungamira chizvarwa, kupatsanura uye kusimudzira uye kutungamirira zvibodzwa. Vashambadziri vePost-sales vanoshandisawo Kushambadzira otomatiki yekutengesa-muchinjika, upsell uye kushambadzira kushambadzira. In",,,,
+fab-500x-20261114T224408Z-018,28,ac8434d4c2f8ca0ddb756c15,e57418c8ab92138ff23635f9c2bf7e55,fab-500x,snd,general_knowledge,aya-dataset,human_authored,"[user] هن جي بنياد تي هڪ مضمون لکو ""توهان جي ويب برائوزر ۾ https://www.facebook.com تي وڃو. ڪلڪ ڪريو What's on Your Mind. ايموجي آئڪن تي ڪلڪ ڪريو. بلب آئڪن تي ڪلڪ ڪريو. موسيقي جو نوٽ ڪلڪ ڪريو جيڪو توهان داخل ڪرڻ چاهيو ٿا. ""  مضمون:",جيڪڏهن توهان اڳ ۾ ئي پنهنجي اڪائونٽ ۾ سائن ان نه آهيو، ته هاڻي سائن ان ڪريو. اها خبرن جي فيڊ جي چوٽي تي آهي. جيڪڏهن توهان ڪنهن ٻئي پوسٽ يا تبصري جو جواب ڏئي رهيا آهيو، ته ان پوسٽ ڏانهن برائوز ڪريو، پوءِ تبصرو لکو تي ڪلڪ ڪريو. اهو مسڪرائيندڙ چهرو آهي ٽائپنگ واري علائقي جي هيٺئين سا cornerي ڪنڊ ۾. اهو ايموجي لسٽ جي تري ۾ آهي (ساڄي کان ٽيون آئڪن). توهان وٽ ٻه مختلف آپشن آهن: هڪڙو نوٽ يا ٽي ننڍا نوٽ. موسيقي جو نوٽ هاڻي ٽائپنگ واري علائقي ۾ ظاهر ٿئي ٿو.,,,,
+fab-500x-20261114T224408Z-018,29,306a55c7bafcb4b2417c6b31,2d32a41210e378c15a38d6bc15f70205,fab-500x,snd,mathematics,aya-dataset,human_authored,[user] هيٺ ڏنل بيت ڏانهن اشارو ڪريو ۽ پوءِ ساڳئي ٻوليءَ ۾ سوال جو جواب ڏيو:  عبرت: هڪ پرائم نمبر (يا پرائم) هڪ قدرتي نمبر آهي جيڪو 1 کان وڏو آهي جيڪو ٻن  ننڍن قدرتي نمبرن کي ضرب ڏيڻ سان نه ٺهي سگهي ٿو. 1 کان وڏو هڪ فطري عدد جيڪو پرائم نه هجي، ان کي مرکب عدد چئبو آهي. مثال طور، 5 پرائم آهي ڇاڪاڻ ته ان کي پراڊڪٽ جي طور تي لکڻ جا واحد طريقا، 1 × 5 يا 5 × 1، پاڻ ۾ 5 شامل آهن.  سوال: توهان هڪ عدد کي ڪيئن سڏيندا آهيو جيڪو 1 کان وڏو هجي ۽ پرائم نه هجي؟,مرڪب نمبر.,,,,
+fab-500x-20261114T224408Z-018,30,c2646f0e0b212cedce778479,271ef5193e18da2a599828d332f01144,fab-500x,som,coding,aya-dataset,human_authored,"[user] Ereybixinta qaar kamid ah ereyada dhaqaalaha iyo ganacsiga,( English iyo Somali)","Ereybixinta qaar kamid ah ereyada dhaqaalaha iyo ganacsiga.
+
+1. Efficiency: Karti
+2. Life expectancy: Gedo filasho 
+3. Simple random sampling: muunad hal qaad 
+4. Systematic sampling: muunad aqoon joogto  ah
+5. Incentive: gunno 
+6. Structural unemployment: shaqo la'aanta joogtada ah
+7. Foreign aid: gargaar shisheeye 
+8. Loan: amaah
+9. Credit: daymis 
+10. Advance: hormarin/taqdiimad
+11. Under estimate: qiyaas dhin 
+12. Allowance: abaalgud 
+13. Compensation: mag dhaw
+14. Mortgage: rihaanad
+15. Monopoly: kali-cun
+16. Public debt: daynsanka ummada
+17. Gross national product: heerka tacabka ummada
+18. Net national product (NNP): xaasilka tacabka tolka
+19. Gross National Product (GDP): tacabka dalka idilkiis 
+20. Production: tacab dhal
+21. Per capita income: sad-qof 
+22. Rate of returns: mudada maalcelinta
+23. Net: xaasil
+24. Gross: isku duub
+25. Liquid asset: naqad-gal 
+26. Current account: xisaabta socota
+27. Deposit account: xisaab curaara
+28. Deposit: curaar
+29. Reserve: kayd
+30. Fixed asset: mihiib negi 
+31. Shipment: shixnad
+32. Asset: hanti
+33. Liability: makhaasiir
+34. Surplus: dheeraad
+35. Deficit: is-dhin
+36. Deficit financing: is dhin lacageed
+37. Macroeconomics: dhaqaale guud
+38. Microeconomics: gobol-gobol dhaqaale
+39. Social infrastructure: hannaninta danaha dadka
+40. Indigenous variable: degol-tari gedgaddooma
+41. Exogenous variable: soo-galaa gedgaddooma
+42. Inflation: foondhaaf
+43. Deflation: foondhac
+44. Fluctuation: dheeldheeli
+45. Competitive price: sicir loollan
+46. Infant mortality: siqiiridda caruurta
+47. Population explosion: diigaanyo taran
+48. Effect: doog
+.......................................................
+
+Xigasho: 
+
+Guddiga Af Soomaaliga ""Ereybixinta Af-Soomaaliga ee hawlaha wasaaradaha"" Oktoobar, 1972.",,,,
+fab-500x-20261114T224408Z-018,31,be5f9f7b341374c961cf71f5,0312f31debb0e5ff5230a48d2775eef9,fab-500x,som,general_knowledge,aya-dataset,human_authored,[user] Gastroenterology casharkii 2-aad?,"Gastroenterology casharkii 2aad 
+
+""Esophagitis""caabuqa hunguriga  ku dhaca 
+
+Waa maxay Esophagitis ?
+
+Esophagitis waa xanuun ku dhaca huguriga gudihiisa waana milil ama caabug kaas oo ay ugu badan tahay waxyaabaha sababa acid ta caloosha oo gaadha gidaarada gudaha hunguriga sababana xanuunka la yidhaahdo (GERD)kuna keena milil ama hoodhan ku yimaada diirka dahaadh ee gudaha hunguriga ,marka uu sababta u yahay infection ku waxa badanaa keena Fangaska loo yaqaan Candida albicans waxaanay u badan tahay dadka qaba xanuunka hoos u dhiga difaaca jidha ee (HIV) iyo macaanka (Diabetes mellitus) sidoo kalena waxa keeni kara esophagitis ka qaadashada dawooyinka qaarkood.
+
+Calaamadaha:-
+
+Esophagitis qofka uu hayo waxa uu dareemaa xanuun kordha oo qofku dareemo marka uu wax liqayo oo gudaha ah (Odynophagia) walaw ay cuntadu dhaafayso waana xanuun la dareemo kaliya inta ay cuntadu marayso waana calaamada uu kaga duwan yahay xanuunada kale ee ay sababaan murqaha hunguriga oo urura (spastic disorders)kuwaas oo bukaanku dareemo xanuun joogta ah xataa haddaanu waxba liqayn .Xanuunka gudaha hunguriga laga dareemo waxa sababaya xoqitaanka cuntada ee gidaar hunguriyeedka hoolmay.",,,,
+fab-500x-20261114T224408Z-018,32,3c4b021a31b92844b0161cb2,1dea882a7a514270e155719f6c3d6539,fab-500x,som,islamic_studies,aya-dataset,human_authored,[user] TOLOW HALKEEN KU MAQANAHAY ileen  Aqligeenu sidan kuma fayoobe?...,"#DIINTA_CUSUB_EE_SOOMALIDA_ee_1991 
+
+TOLOW HALKEEN KU MAQANAHAY ileen  Aqligeenu sidan kuma fayoobe?
+
+Bulsho walbo waxaa jiro wax ahay muhiim u aragto islamarkaaana si wayn uga shaqayso ugana hadasho dadkeedna ku baraarujiso
+Tusaale jarmalka waxaa aad loogu barta xirfadaha caafimadka,Turkeya waxaa aad loogu barta xirfada injineeriyada,Ruushkana xirfadaha gacanta iyo warshadaha, jabaan waxaa aad loogu barta Xirfada teknolojiyada iwm.
+
+Marka dalwalbo halka uu ka xanuunsan yahay ama uu issu arko inuu guul ka hadhayo ayuu ku dadaala. Haddaba u kaalay qodob la yiraahdo MIYIR-BEENKA SOOMALIDA 
+Dalwalbo waxbu muhiim u arkaa Waana sababta ay aqoonyannada soomaligu ugu hadlaan ugu dadaalan si ay  soomalidu uga gudbi lahayeen QABYAALADA oo ay dalal badani oo caalamka ahi samayn jiren balse si dhibyar uga gudbee.
+
+Halayaabin qofwalbo oo soomali ah oo soo arkay sida ay dalalka calaamku u horumareen Taaso niyad-jab ku kuna qasbayso inuu isaguna uu canaanto dadkisa sida ay dhaqankaan miyir-beelka ah ee aan ku walan'nahay uga tagi lahayeen.
+
+Haddaba ma maqashay wax la yirahdo SANAMKA AY SOMALIDU CAABUDO kaas oo ah waxa ay soomalidam dambe ay waxwalbo ka hormariyan si ay ammaan yar uga helaan doqomada ay isku meel kasoo jeedaan. 
+
+SANAMKA AAN KU SHEEGAYO WAA  CAABUDO QABIIL EE SOMALIDA
+
+🔸️Tani wax la yaabo maha oo waxad arkaysa Mararka qaarkooda oo qabyaalada Somalida aad ku tilmaami karto Sanamka ay Somalidu caabudo.
+
+Wax aan sidaas muhiim u ahayn ayaan waqtigeeni oo dhan galinay, ku doodnay  inay somali  carab tahay ama Afrikan ku marna inaan ku doodno qabiil hebel waa jareer, kuwaas kale waa midgaan, kuwo kalena waa laandheere kuwa kalena waa laangaab.
+
+Wali meel aan soomali ahayn laguma arag qof timahiisa qabiil u noqdeen jareer haddi ay qabiil tahay wixii jileec ahna waa qabiil gaar markaas inta jareerta ayaa ugu  badan somali oo laandheere sababto ah soomali waa madow ah oo timi adag.
+
+●Midgaan Wax la yiraahdayi majiran sababta dacaayadaha yaryar ee laga sheeko iyaga gaar uma aha qabiillada somali dhammaan wax lagu caayo ayey wada leeyihiin haddi la yiraahdo qabiilka midgaanku hilib xaanan ayey cuneen suaal haddaba imise qabiil oo somali ah ayaa waagi abaarti dheereyd dhurwaa, libaax, doofaar imisa dad ayaa quudan jiray.
+
+Midda kale haddi awoowgaagi 20aad haddi u dambi galay oo isaga fursad lagu xidho lawaayey adiga miyaa lagu ciqaabi karaa?. waxay ku tusaaysa sida ay Somalidu ugu milantay qabiilaysiga kaddib burburki dawlaadi Somaliyeed. 
+
+●Laandheernimadu haddi ay tahay dadbadni faaiidana ay leedahay dadbay wax tari lahayd oo meelahas gaajo la seexan la'aa iyagii oo sidaas udhibaataysan ayey qabiil ku faanaan caajiib.
+
+Waxaadse ogaata in haddi aad qabiil ku faanto ay tahay nooc kibiirka kamid ah rabbina ma jeclo qofka kibirka badan naarta inuu ku fogeeyo ayuu ballan qaaday, iska ilaali waxyaabaha yaryar ee aad moodayso inaan lagu cadaab galaynin
+
+🔸️Qabyaaladu waxaay saamaysay dhinac walbo sida Adeegi dawlada gaar ahaan shaqalaysiinta, Sharcigii maxkamidihii,booliski,barlamaanki,iyo meelo kalo badan xatta Culimaadi bay dhax gashay, waxaayna tusaale kooban u tahay sida qabyaladu ugu dhax nooshahay dadkeena badankooda.
+
+Mid kalena ogoe qabiillada somalidu sheegtaan dhammaantod ma ah dad isku wada dhiig ah balse hal qabiil ayey wada sheegtaan--
+
+TUSAALE :Cabdi oo ree hebel ah iyo Farax  Farax waa isku qabiil lkn wax DNA oo ay wadaagaan majiro bal'e  somalida marki la baadhay dhiiggooda waxaa la ogaaday inay Qabiillada la sheego ay yihiin uun urur  dane gaar ku samaysmay oo ah intii isfahantayba inay qabiil la magac baxaan sidaasna lagu magacaabo magac qabiil oo jilibyo kala duduwan U kala waana sida ay soomaalida oo dhan ay yihiin.
+
+🔸️Markaad sidaas u fahanto qabiilku ma noqondoono sida hadda ku yahay  soomaaliduna waa dad isku Asal ah dhamaan balse ma aha sida ay hadda sheegtaan. dhammaan qabiillada haddi la dhaho qofwalbo iyo dhiiggiisa somalida uu kasoo jeedo haloo geeyo qabiillo laandheere sheegto ayaa Eber noqondoono sidaas ay tahay waxaa fiican inaan isku walaalaysano kolba sida aan isu fahanno iyo wanaagga aan isu samayno.
+
+🔸️Marka la isku soo wada duuduubo waxaa sabab u ah dawlad la.aanta oo ah waxaa jiro dawlado gacan shisheeye la inoogu soo Sameeyey o aan soomali fikirkeeda ku soconin.
+
+Bulshadan burbursan dhaxdeeda kolka uu qofka dhallinyarta ahi ee aad usoo dadaalayi Marka u shaqo raadin bilaabo waxaa ka hor imaanayso qabyaaladi somalida Albaabbada dawlada utaagan.
+
+Halkeed joogna oo aan ku maqan'nahay ilen sidaan hadda aan nahay kuma nihin dadka miyir qabee.
+
+Halkeen joogna? away aqligeeni ?xagu wali ku maqan yahay? Yaa inna xawalay?",,,,
+fab-500x-20261114T224408Z-018,33,e7a2141dd1d75f768323ae60,3f3467181fa5abd70e0eac144c40cdbd,fab-500x,som,mathematics,aya-dataset,human_authored,[user] SOCiAL anxiety🎙?,"SOCiAL anxiety🎙 
+Waa dad marwalba cabsanaya iyagoo ka cabsanayaa bulshada ku xeeran
+
+1 qofkii bulsho meel isagu timid rayi ama fikir uu leeyahay kama dhiiban karo 
+2 dadka aanu aqoon markuu la hadlayo  wuu cabsadaa xogaa naxdin ahna wuu dareema 
+3 dadka hortaada ficil kuma samayn karo oo  waxuu isleeyahay armaa lagu la yaaba armay wax kaa qaldaman
+  
+Waxaa keena social anxiety 
+1 hido raac awoowga ama ayeeyda haday lahayd waa suuro gall inaa adna yeelato 
+2 barbaarinta caruurnimadaadi
+
+Waxaa jira nooc Dad ah, oo aan jeclayn inay gurigooda ka baxaan... aadna u jecel inay isaga jiraan qolalkooda oo keliya.. marka ay bannaanka u baxaanna waxay qabsadaan shaqadooda waxayna soo noqdaan iyagoon cidna la kulmin.
+
+Waa dadka leh hal ama laba saaxiibo oo kali ah, cidna ma wacaan inta badan , mobilkodana Silent ayey saraan oo ma sugaan in laso waco, waa dadka 24/24 saac active ka ah Facebook iyaga oo aan cidna la hadlin... waa dad jecel kelinimada iyo degenaanshiyaha..
+
+waa kuwo had iyo jeer dhoola caddeeya, mala-awaal ku mushaaxaya la sheekeysta nafyooda, iyaga oo an cidna wax yeellin.
+
+Ma ka mid tahay dadkaas?
+Anigu haaa",,,,
+fab-500x-20261114T224408Z-018,34,827168236ef726ad06889af6,93acd7806b6599561fdd29e6c13fafa5,fab-500x,som,science,aya-dataset,human_authored,[user] Suaalahan ma is Weydisaa?,"Maxaa ku Joojinaya?
+Ma daalan tahay? 
+Ma hurdo kugu filan baadan helin?
+Ma xiriir baa kugu xumaaday?
+Ma cid ku taageerta ayaad weyday?
+Ma halka aad ku nooshahay ayaad nacday? 
+Ma energy baadan lahayn?
+Ma lacag baadan haysan?
+Mise waxa ku joojinaya ee ku haysta waa Adiga?
+Marmarsiiyadu waa dib u dhac, waa waxa qofka dib u dhiga, waa dilaa.
+
+Jooji in aad cudur-daar u sameyso naftaada. Jooji cabashada iyo calaacalka, Jooji in aad dadka uga sheekayso murugadaada iyo sheekooyinka niyad jabka ah
+Si aad dadka ugu beer laxawsato, been iyo khayaalina isugu qancisaan
+Dadka aad arkayso ee horumarka sameeyay, heer sare nolosha ka gaaray, ha ka maseyrin, ha u qaadin in nasiib iyo dhaxal u heleen dhamaantood. 
+
+In badan meel hoose ayay ka soo bilaabeen, waqtiga 24ka saac ee aad si isku midka ah u wada heysataan ayay ka faa'iideysteen.
+Waa xilligii aad isbedel sameyn lahayd, waa goortii aad go'aansan lahayd in aad sameyso wixi naftaadu rabtay. Waqtigu waa Hada. Jooji dib u dhigashada iyo wahsida, ma jiro Waqti sax ah oo kuu imanaya.
+Waxaa la joogaa waqtigi aad ka faa'iideysan lahayd kartida iyo kheyraadka aad heysato oo ah naftaada, lixaadkaaga, maskaxdaada.  
+
+Ma dhibaato ayaa kaa haysata Nolosha? Ma dhibaato ayaa kaa heysata dad qaarkii iyo deegaankaaga? Wax ka qabo. U kac sidi aad isbedel u sameyn lahayd.
+Mar kasta ma inta aad go'aan gaarto ayaadan fulin. Ma wixi aad niyeysato ayaadan ku dhaqaaqin? Ma caajis iyo wahsi ayaa deris kula noqday?
+Waxaas oo dhan waa marmarsiiyo. 
+
+Marmarsiiyadu waa wax aan jirin. Waa wax la sameeyay. Waa been. Sidaa isaga joojinaysaa beentaa. Waxaad beenta ku joojinaysaa Run. Hadii aad isbedel dhab ah rabto, hadii aad rabto in aad Guul gaarto oo horumar sameyso, ku dhaqan hal Sharci: Naftaada been ha u sheegin.
+Ha ka cararin Runta. Ha ku noolaan been, cabasho iyo cudur-daar aan jirin.
+Ku Noolow Run. Runtu waa: Waxaad heysaa waqti, waxaad leedahay karti, waxaad heysataa xirfado. Waxaad heysataa aqoonti iyo taageeradi. 
+
+La imow dadaal iyo doonid. Ku tarbiyadee naftaada wixi aad rabto in aad gaarto, in aad noqoto. Naftu waxay rabtaa in la qabso, naftu waxay rabtaa in la hogaamiyo. Ku Tarbiyadee Naftaada kheyrka iyo wanaaga, Ku tababar naftaada in ay wax soo saar yeelato, in ay qabato wixi aad doonayso oo dan kuugu jirto.
+
+Miraha Guusha iyo wax kasta oo nolosha wanaagsan waxay ku bilowdaan caqabado, ha ka baqan dhibaatada ku soo wajahda. Waa Imtixaan ku dedaal sidi aad u gudbi lahayd si aad marxalad kale oo cusub ula kulanto. Had iyo jeer dhibaatadu waa u joogto qof kasta. La tacaal, ka gudub, wajah ee ha ka cararin. 
+
+Tani waa Noloshaadi. Tani waa fursadaadi. Tani waa Waqtigaagi aad isbedel iyo horumar sameyn lahayd. Beri, Beri, Beri baad sameynaysaa ha isugu sheekayn. Ma hubtid in aad Beri gaareysid. Maanta ayaad heysataa. Jooji dib u dhigashada. Jooji wahsida. Jooji cabsida. Jooji marmarsiiyada.",,,,
+fab-500x-20261114T224408Z-018,35,b83177a0d4ca6bf9a29125f1,31916db0406c236d137a7f2b9ba99c95,fab-500x,som,web_frontend,aya-dataset,human_authored,[user] Maxaa laga soogaabiyay HTML ?,waxaa laga soogaabiyay Hyper text markup language.,,,,
+fab-500x-20261114T224408Z-018,36,03fa89c2279b5df4fc321eb1,922e38ef3a136c8ba85673e85148a43d,fab-500x,som,web_fullstack,aya-dataset,human_authored,[user] Waxaan haystaa fikrad ganacsi oo aan rajo badan ka leeyahay haddaba sidee ugu macquul san oo aan ugu guuleysan karaa in aan fikradeyda suuqa ku geliyo si deg deg ah?,"Fikrad ganacsi oo qurux badan yaan haystaa macnaheedu ma aha taajir ayaa noqonayaa, Xitaa hadii aad meel fog ka fikirayso, ogow waxa jira dad kula mid ah oo hortaa fikrado niyada ku hayay,oo iyaguna doonayo inay suuqa keenaan hortaa.Taasi macnaheedu ma aha fikradaad niyada ku hayso hadii qof kale kaa hor bilaabo nasiib kaaga yaad waanaysaa, Bal u fiirso StevenJobs/Apple, waxaay sameeyaan balaayiin doolar,markii ay bilaabeen fikrada telefoonada casriga ah(Smartphone).
+Hada ogow maynan ahayn shirkadii ugu horaysay ee latimaado telefoon lasameeyo, hadana waxaa loo yaqaanaa hooyadii hal-abuurka tiknoolayida.
+Sababtuna wax kale ma aha shirkado badan oo suuqa kaga horeeyay ay kaga adkaadeen suuqa. Aaway Nokia? Waa shirkadihii suuqa iska haysatey 1999 waxii ka horeeyay.
+Cashiraka aynu ka baranayno waxa uu yahay, cidii fikradeeda horay u dhaqaajiso isbadalka la jaanqaado unbaa midhaheeda guran.
+Waxa jira ganacsiyo badan oo guulaystay oo aan lahayn Website iyo calamaad toona, kaliya waxaay fahmeen uun suuqa iyo sidii bahidiisa loo dabooli lahaa, degdegna loo qabsan lahaa.",,,,
+fab-500x-20261114T224408Z-018,37,7432e170c199e410f66ef9cd,787da807c803b987e9e8482c77aa397f,fab-500x,som,writing,aya-dataset,human_authored,[user] Dad badan?,"Dad badan oo innaga mid ah waxa ay dhibaato ka haysataa maaraynta waqtiga, illaa heer ay qaarkood jeclaan lahaayeen in ay kordhaan saacadaha 24 ka ah ee maalintu ka kooban tahay, si ay shaqooyinkooda maalinnimo u dhammaystiran.
+
+Qormadani waxa ay ku baraysaa 5 caado oo qofka u suurtagelin kara in waqtigiisu u nidaamsamo, iyo in uu u madhxo isla markaana muuqdo sida in uu intii caadiga ahayd ka batay.
+
+1. Shaqadaada ha u samayn kala horreysiin iyo jadwal qasab ka dhigaya in waqtigaas u astaysan oo keliya la qaban karo. Waqtiyada firaaqo ee u dhexeeya qabashada hawlaha waaweyn, uga faa’idayso in aad qabato shaqooyinka yaryar.
+
+2. U fikir sida ruux wahsigu ku badan yahay, waxa ay dadkaasi xariif ku yihiin in ay hal-abuuraan habab iyo jidad gaaban oo ay ku qabsan karaan hawlahooda, iyada oo natiijada ay ka gaadhayaan la mid tahay uun tii ay gaadhi lahaayeen marka ay jidka dheer ka soo wareegaan.
+
+3. Ka faa’idayso waqtiga socodka iyo sugitaanka; Ogow in hawlo badan aad qabsan karto xilliga aad gaadiidka dadweynaha saaran tahay ama u kala socoto meelaha kala duwan (Haddii aanad adigu wadin gaadiidka), sida oo kala xilliyada aad sugayso ballamaha iyo Bilowga shirarka iyo kulamada. Ha yaraysan waqtiyadan, farriin muhiim ah oo Email ama WhatsApp kuugu timid ayaad ka jawaabi kartaa, halkii aad ku mashquuli lahayd in aad Facebook iyo baraha kale ee bulshada waqti ku lumiso. Buug ama daraasaad kale ayaa aad akhriyi kartaa.
+
+Ma ogtahay qofka xawaaraha akhriskiisu dhexdhexaadka yahay in uu daqiiqaddii akhriyi karo 250 illaa 300 oo erey, taas macnaheedu waa in uu daqiiqad kasta hal bog akhriyi karo. Ka soo qaad qof aad la ballansanayd ama bilow shir iyo xaflad aad u socotay oo aad 30 daqiiqo sugaysay, waxa aad akhiriyi kartaa 30 bog oo buug ka mid ah ama warbixin iyo daraasad dhammaystiran.
+
+4. Hawl kasta oo aad qabanayso, waa in aad ka fikirto beddelka aad ka helayso: ujeedada ma’aha in aad hawl kasta lacag ku hesho. Abaalgud san oo aakhiro ayaad ka fikiraysaa, sumcad wanaag iyo magac adduun ayaad u baahantahay, xitaa caafimaadkaaga nafsiga ah ayaa ku kordhaya samafalka aad samayso. Waxa se ayaan darro ah in qofku uu waqti ku lummiyo beddel la’aan. 
+
+In aad ka fikirto beddelka aad ka helayso waqtigaaga baxayaa waxa ay kugu beeraysaa dabeecad guul horseedda oo ah, in aad garato shaqada mudan in aad qabato iyo midda waqti lumiska ah ee aanad waxba ka dheefayn.
+
+5. Cid kaaga fiican hawshan raadso: Naftaada ha ku daalin in ay qabato hawlo aanay ku fiicnayn. Waa ay fiicantahay in aad dadaasho, hawlo waaweynna aad waqti iyo maskax geliso si aad uga midho dhaliso. Waxbarasho iyo waayoaragnimo korodhsiguna waa arrin muhiim ah. laakiin ogow qofku kelidii isma wadi karo, hawl aanad aqoon u lahayn oo aad isku qaaddaana guuldarro iyo niyadjab ayey kuu horseedi kartaa. 
+
+Shaqada xitaa kugu adag ama kaa sarraysa ha ka baqan, laakiin kelidaa geeddigaas ha gelin ee wehel kaaga aqoon badani ha kugu garabsiiyo. Kala sheekayso, kala tasho, ka baro xitaa mararka qaarkood gacanyare mushahar aad ku siiso ka dhigo qofka waayoaragga u ah shaqada aad qabanayso.",,,,
+fab-500x-20261114T224408Z-018,38,34e4f2b6b9e6641ff929b0d3,708c8182ea5147475d313e5cb3027730,fab-500x,srp,general_knowledge,aya-dataset,human_authored,[user] У ком граду се налази седиште Средњобанатског управног округа?,Седиште Средњобанатског управног округа се налази у Зрењанину.,,,,
+fab-500x-20261114T224408Z-018,39,003b80263f2428a04d2a73b6,bcff87b0b8a2d4cc11adf802e87e9795,fab-500x,sun,general_knowledge,aya-dataset,human_authored,"[user] Kalimah: Warung kopi ieu pikabetahuen, komo deui deukeut ti puseur kota.
+Patanya: Kumaha séntimén tina kalimah di luhur?",Séntimén tina kalimah di luhur nyaéta positif.,,,,
+fab-500x-20261114T224408Z-018,40,346f7b13adc84cbe8391905c,49a73f3c6e1395cad93d577244ae3064,fab-500x,sun,islamic_studies,aya-dataset,human_authored,"[user] Kalimah: Bandung katelah salah sahiji tempat wisata karesep urang Jakarta.
+Patanya: Kumaha séntimén tina kalimah di luhur?",Séntimén tina kalimah di luhur nyaéta positif.,,,,
+fab-500x-20261114T224408Z-018,41,9a744b28e2ff1c4af6f68582,9626143c875126acbaa6c70b1c9d81c2,fab-500x,sun,mathematics,aya-dataset,human_authored,[user] Patani boga 14 hayam. Tuluy anjeunna meuli deui 10 hayam di pasar. Sabaraha hayam nu dipimilik ku patani ayeuna?,Hayam nu dipimilik ku patani ayeuna nyaéta 14 + 10 = 24 hayam.,,,,
+fab-500x-20261114T224408Z-018,42,71424cbe3665c49ee573ec73,1a9837b5af55ae7155f530a750876548,fab-500x,sw,general_knowledge,aya-dataset,human_authored,[user] Ili kuandika katika mtandao wa kijamii ni mambo gani muhimu kuzingatia?,"Njia bora ya kuandika kwenye mitandao ya kijamii ni ile inayofaa kwa hadhira yako na inayowavutia. Hapa kuna mambo machache ya kuzingatia:
+
+1. Chagua maudhui yanayofaa kwa hadhira yako. Fikiria ni nani unayetaka kufikia na nini wanapenda. Usiandike maudhui ambayo hayawahusu au ambayo hayawafurahishi.
+2. Kuwa wa asili na wa ubunifu. Watu wanachoshwa na maudhui ya kawaida. Jaribu kuwa wa asili na wa ubunifu katika maandishi yako na picha zako.
+3. Andika kwa ufupi na wa moja kwa moja. Watu wana muda mfupi wa kusoma maandishi yako, kwa hivyo iwe mafupi na ya moja kwa moja.
+4. Tumia picha na video. Picha na video ni njia bora ya kuvutia umakini na kuamsha hisia.
+5. Tumia ''hashtags''. ''Hashtags'' ni njia nzuri ya watu kupata maudhui yako. Tumia ''hashtags'' zinazohusiana na mada yako.
+6. Kuwa na ushirikiano. Mshirikishe watu wengine katika maudhui yako. Unaweza kuandika nukuu kutoka kwa watu wengine, kushiriki blogu zao, au kuandika kuhusu bidhaa au huduma zao.
+7. Kuuliza maswali. Kuuliza maswali ni njia nzuri ya kuanzisha mazungumzo na kushirikiana na watu wengine.
+Kuwa msikivu. Jibu maoni na maswali ya watu. Hii inaonyesha kuwa unajali na unaheshimu watazamaji wako.
+Kwa kufuata vidokezo hivi, unaweza kuandika kwenye mitandao ya kijamii kwa njia bora zaidi na kufikia hadhira yako kwa ufanisi.",,,,
+fab-500x-20261114T224408Z-018,43,1b1f8647de29e336732bb448,16392e624c1c4fc05c5ffd38f2052e2a,fab-500x,sw,research,tydiqa-goldp,human_authored,"[user] Kuanzia mkataba wa mwaka 1904,  na kufuatiwa na mwingine wa mwaka 1911, ardhi ya Wamasai nchini Kenya ilipunguzwa kwa asilimia 60 wakati Waingereza walipowafukuza ili kutayarisha mashamba ya wakoloni, hatimaye kuwalazimu kuishi katika wilaya ya Kajiado na Narok.
+
+Je,Wamaasai wanapatikana kwa wingi katika sehemu gani ya Kenya?","wilaya ya Kajiado na Narok
+
+Kuanzia mkataba wa mwaka 1904,  na kufuatiwa na mwingine wa mwaka 1911, ardhi ya Wamasai nchini Kenya ilipunguzwa kwa asilimia 60 wakati Waingereza walipowafukuza ili kutayarisha mashamba ya wakoloni, hatimaye kuwalazimu kuishi katika wilaya ya Kajiado na Narok.",,,,
+fab-500x-20261114T224408Z-018,44,eb3442a37cf4369c72aff95a,c46d964524d7c1e2fce31c5fb6a88edf,fab-500x,swe,education,aya-dataset,human_authored,"[user] Skriv en fortsättning på den här paragrafen - Georges Lapassade, född 10 maj 1924 i Arbus, död 30 juli 2008 i Stains, var en fransk sociolog och filosof. Lapassade intresserade sig för psykoanalys och biologi och han var en viktig figur inom inom psykosociologi, etnologi och pedagogik. Hans aktiviteter i studentmiljöer 1958-1968 fick stor",betydelse för händelserna i maj 1968. Lapassade var den första franska sociolog som forskade om rapmusik.,,,,
+fab-500x-20261114T224408Z-018,45,45fe2751b30c7d6c291ebedd,da7e466f5200ec79516bbeacab84f2d1,fab-500x,swe,general_knowledge,aya-dataset,human_authored,"[user] Slutför den här frasen: Caesar var ett svenskt örlogsskepp om 56 kanoner. (ex ""Heliga Tre Konungar""?) Sjöhjelms viceamiralsskepp under i slaget i Öresund. Sändes 1677 av Henrik Horn att understödja den vid","Stevns grundstötta Regalskeppet ""Draken"" och blev därvid övermannad och tagen av danskarna.",,,,
+fab-500x-20261114T224408Z-018,46,0b5cf8be8a55512ddf7a9e15,b6656a506680bab068f59a2655e7e5e8,fab-500x,swe,islamic_studies,aya-dataset,human_authored,[user] Slutför den här frasen: På 1950-talet stödde han premiärminister Mohammad Mosaddeqs nationalisering av oljeindustrin. Efter 1953 års iranska statskupp,"som störtade Mosaddeq och återställde shahen greps Taleghani och enligt den islamiska republikens IRIBs hemsida anklagades han för att gömma Navvab Safavi, grundare och ledare för Fedayan-e eslam, en islamistisk terrorgrupp.",,,,
+fab-500x-20261114T224408Z-018,47,2d3a38147b27e26d6e63e762,5d2aba63b40715c32a4a68752f45725c,fab-500x,swe,mathematics,aya-dataset,human_authored,[user] Skriv en fortsättning på den här paragrafen - Den 17 april 2015 meddelade Linköpings HC att man skrivit ett tvåårskontrakt med Källgren och att han skulle komma att bli utlånad till IK Oskarshamn under säsongen 2015/16. I juni 2015 valdes han i NHL-draften av Arizona Coyotes i,"den sjunde rundan, som nummer 183 totalt. Under nästföljande säsong var han andremålvakt bakom Dan Bakala, och spelade i totalt 20 grundseriematcher. Källgrens första nolla i Hockeyallsvenskan kom i en segermatch mot HC Vita Hästen den 22 januari 2016 då han motade totalt 21 skott. Då avtalet med Linköping löpte ut 2017 meddelades det den 29 mars samma år att han skrivit ett tvåårsavtal med AIK i Hockeyallsvenskan.",,,,
+fab-500x-20261114T224408Z-018,48,8d9ef222e93471d7e8a19393,1139810604273a45391059c1de616a9c,fab-500x,swe,science,aya-dataset,human_authored,"[user] Slutför den här frasen: NHL Entry Draft 2012 hölls mellan den 22 och 23 juni 2012 i Consol Energy Center i Pittsburgh, Pennsylvania. Oilers",fick sitt tredje raka första val i NHL-draften och utnyttjade det för att få den ryska forwarden och förhandsfavoriten Nail Jakupov.,,,,
+fab-500x-20261114T224408Z-018,49,ed9bb0dbc680cacd176a864a,949ded46586cd631f8489b923ebef2a6,fab-500x,swe,web_frontend,aya-dataset,human_authored,"[user] Tobbacco i Älvsjö har följande öppettider:
+
+Måndag-Fredag	09:30–20.00
+Lördag	11:15–18.00
+Söndag	11:30–16.00
+
+Är dom öppna på Onsdagar kl 13?","Ja, öppettiderna är Måndag-Fredag är 09.30-20.00 vilket innebär att de är öppna på onsdagar kl 13.",,,,
+fab-500x-20261114T224408Z-018,50,8ab70c00143dd4d1a4b6aee7,2eb1aec517342494554452b37fcdbcb7,fab-500x,swe,writing,aya-dataset,human_authored,"[user] Slutför den här frasen: Card draftades i den åttonde omgången, som 241:a totalt, av Buffalo Sabres i","NHL Entry Draft 2004. Efter att ha flyttat från Kitchener till Abbotsford som ung spelade han i WHL med Kelowna Rockets. Efter att ha spelat fyra säsonger med Kelowna, med en Memorial Cup-vinst, gjorde Card sin professionella debut med Sabres AHL-lag Rochester Americans säsongen 2006-07. Han spelade fyra NHL-matcher med Sabres under samma säsong, utan att göra några poäng.",,,,
+fab-500x-20261114T224408Z-018,51,ff6cca4eb8a3d1d550a28265,21fc403da8744b4e025d5e07f4ce733f,fab-500x,ta,coding,aya-dataset,human_authored,"[user] வினா:
+கீழ் கொடுக்கப்பட்டுள்ள வார்த்தையை  தமிழில் மொழிபெயர்க்கவும்
+     compiler","விடை:
+தொகுப்பி",,,,
+fab-500x-20261114T224408Z-018,52,10fc6a05bd964c5ee04b0c80,e90714b5fd6a7c1f501207a8b054c83d,fab-500x,ta,general_knowledge,aya-dataset,human_authored,"[user] வினா :
+தமிழ்நாட்டின் சுதேசி இயக்கத்தின் தந்தை எனப்படுபவர்  யார்  ?
+A. வ.உ.சிதம்பரம்பிள்ளை
+B. இராஜகோபாலாச்சாரியார்
+C. சத்திய மூர்த்தி
+D. சுப்ரமணிய சிவா","விடை :
+A. வ.உ.சிதம்பரம்பிள்ளை.
+
+வ. உ. சி என்றழைக்கப்படும் வள்ளியப்பன் உலகநாதன் சிதம்பரம் பிள்ளை, செப்டம்பர் 5 1872 – நவம்பர் 18 1936). ஒரு இந்தியா விடுதலைப் போராட்ட வீரர். பிரித்தானியக் கப்பல்களுக்குப் போட்டியாக முதல் உள்நாட்டு இந்திய கப்பல் நிறுவனத்தைத் தொடங்கியவர். இவர் தொடங்கிய சுதேசி நீராவிக் கப்பல் நிறுவனம் தூத்துக்குடிக்கும் கொழும்புக்கும் இடையே கடல்வழிப் போக்குவரத்தை மேற்கொண்டது.",,,,
+fab-500x-20261114T224408Z-018,53,a337b1e095a1d10a465e44e4,d96b3686dddc03cb443eb7af1cf5de70,fab-500x,ta,mathematics,aya-dataset,human_authored,"[user] வினா:
+ஒரு நூற்றாண்டை எத்தனை மாதங்கள் உருவாக்குகின்றன?
+
+அ) 12
+ஆ) 120	
+இ) 1200 	
+ஈ) 12000","விடை:
+: இ) 1200 மாதங்கள். 
+ஒரு நூற்றாண்டிற்கு மொத்தம் 100 ஆண்டுகளும், ஒவ்வொரு வருடமும் மொத்தம் 12 மாதங்களைக் கொண்டிருப்பதால், ஒரு நூற்றாண்டு 1200 மாதங்களைக் கொண்டிருக்கும் (100 × 12 = 1200 மாதங்கள்).",,,,
+fab-500x-20261114T224408Z-018,54,a640b5204b6a74b307545481,92b03fb4f8a5fa6d8da88f63b769c788,fab-500x,ta,science,aya-dataset,human_authored,[user] Active cell-தமிழில் மொழிபெயர்க்கவும்,செயற்படு கலம்,,,,
+fab-500x-20261114T224408Z-018,55,d415b627d013e6023fc6051e,6dc8fea6a6493f464bfd9f8f42de02a0,fab-500x,ta,writing,aya-dataset,human_authored,"[user] Write a continuation for this paragraph :
+தேசிய விளையாட்டரங்கம் () போலந்து நாட்டில் வார்சா நகரத்தில் அமைந்துள்ள ஓர் கால்பந்தாட்ட விளையாட்டரங்கம் ஆகும். 2008 ஆண்டில் கட்டத் துவங்கி நவம்பர் 2011 முடிவடைந்த இந்த அரங்கத்தில் (58500) பார்வையாளர்கள் அமரக்கூடும். இதுவே போலந்தின் மிக பெரிய இருக்கைகள் கொண்ட விளையாட்டரங்கமாகும். யூரோ 2012","கால்பந்துப் போட்டிகளுக்காக சுமார்  (1615) மில்லியன் போலிய நாணயம் இசுவாட்டெ செலவில் கட்டப்பட்டுள்ளது. இந்த விளையாட்டரங்கில் யூரோ 2012 போட்டிகளின் துவக்க ஆட்டம், காலிறுதி மற்றும் அரையிறுதி போட்டிகள் விளையாடப்படும்.",,,,
+fab-500x-20261114T224408Z-018,56,f8649cf9265a0dfa0937d068,7952f8663657260175dda01f16986714,fab-500x,te,coding,aya-dataset,human_authored,"[user] I want to teach my class about the topic of గోవింద్ పన్సారే. r గోవింద్ పన్సారే సీపీఐ పార్టీ లో ఎప్పుడు చేరాడు?,",సోషలిస్టు భావాలతో నెలకొల్పిన రాష్ట్ర సేవా దళ్‌ అనే సంస్థలో చేరడం వలన వారు నిర్వహించే హైస్కూలులో ఫీజు లేకుండా చదువుకోగలిగాడు. ఆ దళంలో ఆయనకు కమ్యూనిస్టు ఉద్యమంతో పరిచయం కలిగింది.కాడూ పాటిల్‌  అనే కమ్యూనిస్టు నాయకుడికి అసెంబ్లీ ఎన్నికలలో సాయపడితే అతను కొల్హాపూర్‌ తీసుకెళ్లి రాజారాం కాలేజీలో బిఏలో చేర్పించాడు. 1952 లో ఆయన కమ్యూనిస్టు పార్టీ ఆఫ్ ఇండియా(సి.పి.ఐ) లో చేరారు.[1][3],,,,
+fab-500x-20261114T224408Z-018,57,9348d1f37c92d3fa3934712e,5f38ab8c1f13e246fb8088927e4d6f24,fab-500x,te,education,aya-dataset,human_authored,"[user] I am testing my students' knowledge about గొందిపర్ల.
+Based on the context (గొందిపర్ల, కర్నూలు జిల్లా, కర్నూలు మండలానికి చెందిన గ్రామము.[1]
+ఇది మండల కేంద్రమైన కర్నూలు నుండి 18 కి. మీ. దూరంలో ఉంది. 2011 భారత జనగణన గణాంకాల ప్రకారం ఈ గ్రామం 1118 ఇళ్లతో, 4566 జనాభాతో 1120 హెక్టార్లలో విస్తరించి ఉంది. గ్రామంలో మగవారి సంఖ్య 2305, ఆడవారి సంఖ్య 2261. షెడ్యూల్డ్ కులాల సంఖ్య 787 కాగా షెడ్యూల్డ్ తెగల సంఖ్య 0. గ్రామం యొక్క జనగణన లొకేషన్ కోడ్ 593914[2].పిన్ కోడ్: 518004.), here's the question to answer: గొందిపర్ల గ్రామ విస్తీర్ణం ఎంత?.",1120 హెక్టార్ల,,,,
+fab-500x-20261114T224408Z-018,58,49a8c6c5186579c5f55c1b9d,bd2fe1dfab8953a3f699e53f88296166,fab-500x,te,general_knowledge,aya-dataset,human_authored,"[user] కింది ప్రశ్నకు సమాధానం ఇవ్వండి
+ఆదాయ – వ్యయాల ఖాతా అనగానేమి ?","వ్యాపారేతర సంస్థలు లాభనష్టాల ఖాతాకు బదులుగా ఆదాయ వ్యయాల ఖాతాను తయారు చేస్తాయి. ఇది నామమాత్రపు ఖాతా. ఈ ఖాతాలో డెబిట్ వైపున ఖర్చులు మరియు నష్టాలను, క్రెడిట్ వైపున ఆదాయాలను మరియు లాభాలను చూపుతారు. ఈ ఖాతాలో ప్రస్తుత సంవత్సరానికి సంబంధించిన ఆదాయాలను, వ్యయాలను మాత్రమే తీసుకోవాలి. గత సంవత్సరానికి లేదా రాబోయే సంవత్సరాలకు చెందిన ఆదాయ, వ్యయాలను, తీసుకొనకూడదు. అలాగే రాబడి అంశాలను మాత్రమే ఈ ఖాతాలో చూపించాలి. పెట్టుబడి అంశాలను వదిలివేయాలి. క్రెడిట్ వైపు ఆదాయము, డెబిట్ వైపున వ్యయాల కంటే ఎక్కువగా ఉంటే మిగులు అని, ఒకవేళ ఆదాయము కంటే వ్యయము ఎక్కువగా ఉంటే లోటు అని తెలుస్తుంది.",,,,
+fab-500x-20261114T224408Z-018,59,8e48d00dd66fddb946909e0a,56f202cf72fd8f06b6dbefc5efc16a85,fab-500x,te,mathematics,aya-dataset,human_authored,[user] “చతురస్రం / దీర్ఘచతురస్రంలోని నాలుగు కోణాల విలువలు వరుసగా ఒక గుణ శ్రేణిలో ఉంటాయి” అని రిషి అంటున్నారు. రిషి తెల్పిన ప్రవచనాన్ని సమర్ధించండి.,"చతురస్రం / దీర్ఘచతురస్రంలోని నాలుగు కోణాల ‘విలువలు వరుసగా 90, 90, 90, 90.
+a2/a1=90/90 = 1, a3/a2=90/90 = 1, a4/a3=90/90 = 1,  = 1
+సామాన్య భేదం అన్ని సందర్భాలలో సమానంగా కలదు. కావున చతురస్ర / దీర్ఘచతురస్ర కోణాలు గుణ శ్రేణిలో ఉంటాయి. కావున రిషి చెప్పిన ప్రవచనంతో ఏకీభవిస్తాను.",,,,
+fab-500x-20261114T224408Z-018,60,191db0ffa1fa391dcb982613,76d5157e7482303c847c2191e1b66a70,fab-500x,te,reasoning,aya-dataset,human_authored,"[user] Question: 2011లో పెద బరంగి గ్రామంలో ఎంతమంది పురుషులు ఉన్నారు?
+Answer the question with Yes or No. If it is not possible then answer None.
+Hint: 
+పెద బరంగి, తూర్పు గోదావరి జిల్లా, రంపచోడవరం మండలానికి చెందిన గ్రామము.[1]. 
+ఇది మండల కేంద్రమైన రంపచోడవరం నుండి 12 కి. మీ. దూరం లోను, సమీప పట్టణమైన రాజమండ్రి నుండి 62 కి. మీ. దూరంలోనూ ఉంది. 2011 భారత జనగణన గణాంకాల ప్రకారం ఈ గ్రామం 68 ఇళ్లతో, 205 జనాభాతో 44 హెక్టార్లలో విస్తరించి ఉంది. గ్రామంలో మగవారి సంఖ్య 101, ఆడవారి సంఖ్య 104. షెడ్యూల్డ్ కులాల సంఖ్య 0 కాగా షెడ్యూల్డ్ తెగల సంఖ్య 195. గ్రామం యొక్క జనగణన లొకేషన్ కోడ్ 587190[2].పిన్ కోడ్: 533288.
+విద్యా సౌకర్యాలు
+గ్రామంలో ప్రభుత్వ ప్రాథమిక పాఠశాల ఒకటి ఉంది. బాలబడి, ప్రాథమికోన్నత పాఠశాల, మాధ్యమిక పాఠశాల‌లు రంపచోడవరంలో ఉన్నాయి.
+సమీప జూనియర్ కళాశాల సీతపల్లిలోను, ప్రభుత్వ ఆర్ట్స్ / సైన్స్ డిగ్రీ కళాశాల, ఇంజనీరింగ్ కళాశాల‌లు రంపచోడవరంలోనూ ఉన్నాయి. సమీప వైద్య కళాశాల, మేనేజిమెంటు కళాశాల కాకినాడలోను, పాలీటెక్నిక్ ఈర్లపల్లిలోనూ ఉన్నాయి.సమీప వృత్తి విద్యా శిక్షణ పాఠశాల రంపచోడవరంలోను, అనియత విద్యా కేంద్రం కాకినాడలోను, దివ్యాంగుల ప్రత్యేక పాఠశాల రాజమండ్రి లోనూ ఉన్నాయి.
+వైద్య సౌకర్యం
+ప్రభుత్వ వైద్య సౌకర్యం
+సమీప సామాజిక ఆరోగ్య కేంద్రం, ప్రాథమిక ఆరోగ్య కేంద్రం, ప్రాథమిక ఆరోగ్య ఉప కేంద్రం, మాతా శిశు సంరక్షణ కేంద్రం, టి. బి వైద్యశాల గ్రామం నుండి 10 కి.మీ. కంటే ఎక్కువ దూరంలో ఉన్నాయి. అలోపతి ఆసుపత్రి, ప్రత్యామ్నాయ ఔషధ ఆసుపత్రి, డిస్పెన్సరీ, పశు వైద్యశాల, సంచార వైద్య శాల, కుటుంబ సంక్షేమ కేంద్రం గ్రామం నుండి 10 కి.మీ. కంటే ఎక్కువ దూరంలో ఉన్నాయి.
+ప్రైవేటు వైద్య సౌకర్యం
+తాగు నీరు
+గ్రామంలో ఏడాది పొడుగునా చేతిపంపుల ద్వారా నీరు అందుతుంది.కాలువ/వాగు/నది ద్వారా గ్రామానికి తాగునీరు లభిస్తుంది.
+పారిశుధ్యం
+గ్రామంలో మురుగునీటి పారుదల వ్యవస్థ లేదు. మురుగునీటిని నేరుగా జలవనరుల్లోకి వదులుతున్నారు. గ్రామంలో సంపూర్ణ పారిశుధ్య పథకం అమలవుతోంది. సామాజిక మరుగుదొడ్డి సౌకర్యం లేదు. ఇంటింటికీ తిరిగి వ్యర్థాలను సేకరించే వ్యవస్థ లేదు. సామాజిక బయోగ్యాస్ ఉత్పాదక వ్యవస్థ లేదు.చెత్తను వీధుల పక్కనే పారబోస్తారు.
+సమాచార, రవాణా సౌకర్యాలు
+సబ్ పోస్టాఫీసు సౌకర్యం గ్రామానికి 5 నుండి 10 కి.మీ. దూరంలో ఉంది. పోస్టాఫీసు సౌకర్యం, పోస్ట్ అండ్ టెలిగ్రాఫ్ ఆఫీసు గ్రామం నుండి 10 కి.మీ.కి పైబడిన దూరంలో ఉన్నాయి.మొబైల్ ఫోన్ ఉంది. లాండ్ లైన్ టెలిఫోన్, పబ్లిక్ ఫోన్ ఆఫీసు, ఇంటర్నెట్ కెఫె / సామాన్య సేవా కేంద్రం, ప్రైవేటు కొరియర్ గ్రామం...",మగవారు 101.,,,,
+fab-500x-20261114T224408Z-018,61,af5b1a0e339ac89903d12d63,2d5ddfe129495ad8bc2922f3202dad53,fab-500x,te,research,tydiqa-goldp,human_authored,"[user] టీ.సాదుం, ఆంధ్ర ప్రదేశ్ రాష్ట్రం, అనంతపురం జిల్లా, తనకల్లు మండలంలోని గ్రామం. [1]ఇది మండల కేంద్రమైన తనకల్లు నుండి 12 కి. మీ. దూరం లోను, సమీప పట్టణమైన కదిరి నుండి 37 కి. మీ. దూరంలోనూ ఉంది. 2011 భారత జనగణన గణాంకాల ప్రకారం ఈ గ్రామం 733 ఇళ్లతో, 2890 జనాభాతో 2128 హెక్టార్లలో విస్తరించి ఉంది. గ్రామంలో మగవారి సంఖ్య 1387, ఆడవారి సంఖ్య 1503. షెడ్యూల్డ్ కులాల సంఖ్య 307 కాగా షెడ్యూల్డ్ తెగల సంఖ్య 21. గ్రామం యొక్క జనగణన లొకేషన్ కోడ్ 595486[2].పిన్ కోడ్: 515571.
+
+2011 నాటికి టీ.సాదుం గ్రామంలో ఎన్ని ఇళ్లులు ఉన్నాయి?","733
+
+2011 భారత జనగణన గణాంకాల ప్రకారం ఈ గ్రామం 733 ఇళ్లతో, 2890 జనాభాతో 2128 హెక్టార్లలో విస్తరించి ఉంది.",,,,
+fab-500x-20261114T224408Z-018,62,004b3aced247dab0551913f3,c6c7e34a9d08c8b9f992943171150027,fab-500x,te,science,aya-dataset,human_authored,"[user] కింది ప్రశ్నకు సమాధానం ఇవ్వండి
+కేంద్రక రియాక్టర్ సూత్రం, పనిచేసే విధానాన్ని వివరించండి.","నియంత్రిత శృంఖల చర్యను సాధించి, అధిక మొత్తంలో ఉష్ణాన్ని ఉత్పత్తి చేసే పరికరాన్ని కేంద్రక రియాక్టర్ అంటారు.
+
+సూత్రం :
+కేంద్రక రియాక్టర్ నియంత్రణ శృంఖల చర్య అను సూత్రం మీద ఆధారపడి పని చేయును.
+
+కేంద్రక రియాక్టర్ లోని ప్రధాన భాగాలు:
+1) ఇంధనం :
+కేంద్రక రియాక్టర్లో U235 లేదా U238లేదా Pu236 లేదా Th234 ను ఇంధనాలుగా వాడతారు. ఈ ఇంధన కడ్డీలను అల్యూమినియం స్థూపాలలో సీలు చేస్తారు.
+
+2) మితకారి :
+భారజలం, గ్రాఫైట్లను మితకారులుగా వాడతారు.ఇవి న్యూట్రాన్ల వేగాన్ని తగ్గించి విచ్ఛిత్తి చర్యలో పాల్గొనేటట్లు చేస్తాయి.
+
+3) నియంత్రణ కడ్డీలు :
+నియంత్రణ కడ్డీలు న్యూట్రాన్లను శోషించుకుని, శృంఖల చర్యను నియంత్రిస్తాయి. కాడ్మియమ్ మరియు బెరీలియం కడ్డీలను నియంత్రణ కడ్డీలుగా వాడతారు.
+AP Inter 2nd Year Physics Important Questions Chapter 14 కేంద్రకాలు 10
+
+4) రక్షణ కవచం :
+కేంద్రక రియాక్టర్ నుండి వెలువడే రేడియోధార్మిక వికిరణాలను వాతావరణంలోకి ప్రవేశించకుండా రియిక్టర్ చుట్టూ 10మీ. మందం గల కాంక్రీట్ గోడను నిర్మిస్తారు.
+
+5) శీతలీకారి :
+ఇంధన కడ్డీలు ఉత్పత్తి చేసే అత్యధిక ఉష్ణాన్ని, వాటి చుట్టూ అనువైన చల్లని ద్రవాలను ప్రవహింపచేయడం ద్వారా తగ్గిస్తారు.
+
+పని చేయు విధానం :
+అల్యూమినియమ్తో చేసిన స్థూపాకార గొట్టాలలో యురేనియం కడ్డీలను నియమిత దూరాలలో ఉండేటట్లు అమర్చుతారు. మితకారులను ఈ ఇంధన కడ్డీల మధ్య ఉంచుతారు. కొన్ని కేంద్రకాలు విచ్ఛిత్తికి లోనైనపుడు, అధిక వేగం గల న్యూట్రాన్లు వెలువడుతాయి. వీటిని మితకారుల గుండా పంపినపుడు వేగం తగ్గుతుంది. U235 పరిగ్రహించి విరివిగా కేంద్రక విచ్ఛిత్తికి లోనవుతుంది ఫలితంగా శృంఖల చర్య జరుగుతుంది. నియంత్రణ కడ్డీలను ఉపయోగించి విచ్ఛిత్తి చర్యలను నియంత్రించవచ్చు. ఈ ప్రక్రియలో జనించిన ఉష్ణాన్ని ఉపయోగించి నీటిని వేడి చేసి ఆవిరిని ఉత్పత్తి చేస్తారు. ఈ ఆవిరి ద్వారా టర్బైన్లను తిరిగేటట్లు చేసి, విద్యుత్ను ఉత్పత్తి చేస్తారు.
+
+కేంద్రక రియాక్టర్ ఉపయోగాలు:
+
+విద్యుత్ను ఉత్పత్తి చేయుటకు ఉపయోగిస్తారు.
+దీనిని ఉపయోగించి ప్లూటోనియమ్-239",,,,
+fab-500x-20261114T224408Z-018,63,035d64ff94b517281ff1b897,d27eb0e146e262b890e857d5f659cea0,fab-500x,te,writing,aya-dataset,human_authored,"[user] ...్చిన ఆదేశాలను వారు గుర్తు చేస్తున్నారు.
+
+ఈ బిల్లు ముస్లింలకు వ్యతిరేకం కాదని, ముస్లిం ముక్త్ భారత్‌ను ఎవరైనా ఏర్పాటు చేయాలనుకున్నా సాధ్యం కాదని అమిత్ షా చెప్పారు
+
+పౌరసత్వ సవరణ చట్టాన్ని ఎందుకు వ్యతిరేకిస్తున్నారు?
+
+మత ప్రాతిపదికన పౌరసత్వం మంజూరు చేయడం సరికాదని కాంగ్రెస్ పార్టీ చెబుతోంది.
+
+లోక్‌సభలో ఈ బిల్లుపై చర్చ సందర్భంగా కాంగ్రెస్ పార్టీ ఎంపీ మనీష్ తివారీ మాట్లాడుతూ.. మత ప్రాతిపదికన వలసదారుల పట్ల వివక్ష చూపడం రాజ్యాంగ వ్యతిరేకమని అన్నారు. ఈ బిల్లు రాజ్యాంగంలోని ఆర్టికల్ 14, 15, 21, 25, 26లను ... Write the rest of the article:","ల్లు ఉద్దేశాన్ని మరింత విస్తరించి, శ్రీలంక, బర్మా, ఆఫ్రికాల్లోని మతపరమైన మైనార్టీలకు కూడా ఈ సదుపాయం కల్పించి ఉండొచ్చు కదా అనేది విధానపరమైన విషయమని ఆయన చెప్పారు. భారతదేశం ఎన్ని దేశాల నుంచి వచ్చే వలసదారులకు ఆశ్రయం కల్పించాలి అనేది వేరే అంశమని తెలిపారు.
+
+అలాగే రాజ్యాంగంలోని ఆర్టికల్ 15 (మతం, వర్గం, కులం, లింగం, పుట్టిన ప్రదేశం ఆధారంగా వివక్ష చూపకుండా నిరోధించడం) భారతీయ పౌరులకు మాత్రమే వర్తిస్తుందని, పౌరసత్వ చట్టం వలసదారులకు వర్తిస్తుందని హరీశ్ సాల్వే చెప్పారు. వలసదారులు భారతీయ పౌరులు అయిన తర్వాతనే ఆర్టికల్ 15 వారికి వర్తిస్తుందని వెల్లడించారు.
+
+ఆర్టికల్ 21 ప్రకారం.. ఏ వ్యక్తి ప్రాణాలనూ, వ్యక్తిగత స్వేచ్ఛనూ హరించకూడదు. (అయితే, చట్టబద్ధమైన ప్రక్రియ ద్వారా ఇలా చేసేందుకు మాత్రం మినహాయింపు ఉంటుంది.) దీనిపై సాల్వే స్పందిస్తూ.. ''ఇలాగైతే పౌరసత్వ చట్టం (1955)ను పూర్తిగా రద్దు చేయాలి. ఇరుగుపొరుగు దేశాల్లోని ముస్లింలు సహా అన్ని మతాల వారినీ అది నిరోధిస్తోంది'' అని సాల్వే అన్నారు.
+
+''ఈ చట్టం విషయంలో ఆర్టికల్ 14, 21లను సుప్రీంకోర్టు ఎలా అన్వయిస్తుందో చూడాలి. భారతీయ పౌరసత్వం లేకుండా భారతదేశంలోకి వచ్చిన వాళ్లు, లేదా వచ్చే వారు తమ వ్యక్తిగత స్వేచ్ఛను హరించకూడదు అంటే.. అప్పుడు ఆర్టికల్ 21 వర్తిస్తుందా? అన్నది స్పష్టంగా చెప్పలేం. దీనిపై వాదప్రతివాదాలు, చట్టం వర్తింపుపై న్యాయ అన్వయం అనేవి కూడా చూడాల్సి ఉంటుంది'' అని జస్టిస్ రామలింగేశ్వరరావు బీబీసీతో చెప్పారు.
+
+పౌరసత్వ సవరణ చట్టం ముస్లిం వలసదారుల్ని లక్ష్యంగా చేసుకుందని, హిందూ వలసదారులకు మేలు చేస్తోందని ప్రతిపక్షాలు అంటున్నాయి
+
+భారతదేశంలో ఉన్న శరణార్థులు ఎంతమంది?
+
+ఈ ఏడాది ఆగస్టులో కేంద్ర హోం శాఖ ప్రకటించిన  నేషనల్ రిజిస్టర్ ఆఫ్ సిటిజెన్స్ (ఎన్‌ఆర్‌సీ) జాబితా ప్రకారం అస్సాం రాష్ట్రంలో నివసిస్తున్న ప్రజల్లో 19 లక్షల మంది భారతీయులు కాదు. సింపుల్‌గా చెప్పాలంటే, ఎన్‌ఆర్‌సి అంటే... అస్సాంలో నివసిస్తున్న భారతీయ పౌరుల జాబితా అని అనుకోవచ్చు.
+
+వారు కాకుండా.. 2014 డిసెంబర్ 31వ తేదీ నాటికి దేశంలో శరణార్థులుగా ఉన్న విదేశీయులు 2,89,394 మంది అని 2016 మార్చి 1వ తేదీన కేంద్ర హోం శాఖ సహాయ మంత్రి కిరణ్ రిజిజు లోక్‌సభలో ఒక ప్రశ్నకు సమాధానంగా చెప్పారు. వీరిలో అత్యధికంగా తమిళనాడులో 1,02,478 మంది ఉన్నారని, అత్యల్పంగా చండీగఢ్‌లో ఒక్కరు ఉన్నారని.. అస్సాంలో 13 మంది, ఆంధ్రప్రదేశ్‌లో 358 మంది, తెలంగాణలో 210..నివాస0",,,,
+fab-500x-20261114T224408Z-018,64,966eb3fd67a0e9f018107d37,9155b28ff85e02c12543584f64ad2d6c,fab-500x,th,coding,oasst1,human_authored,"[user] ขอ code python ที่ช่วยดึงรูปจาก ig
+
+[assistant] ด้วยการใช้ library instascrape ในภาษา python คุณสามารถที่จะดึง รูป ข้อมูล หรือโพสจาก instagram ได้
+ก่อนอื่นให้ทำการติดตั้ง library ด้วยคำสั่ง
+
+```bash
+pip3 install insta-scrape
+```
+และนี่ตัวอย่างโค้ด python ที่สามารถใช้งานเพื่อดึงรูปจากโพสล่าสุด ของโปรไฟล์ใน  instagram ได้
+
+```python
+from instascrape import Profile 
+profile= Profile('google') # ใช้โปรไฟล์ ID ของคุณ
+profile.scrape() # ทำการดึงข้อมูลของโปรไฟล์
+recents = profile.get_recent_posts()
+profile_photos = [post for post in recents if not post.is_video] # ตรวจสอบว่าโพสที่ดึงมานั้น มีโฟสที่เป็นวีดีโอติดมาหรือเปล่า
+
+for post in profile_photos : # ทำการ loop รายการ รูปภาพทั้งหมด
+    fname = post.upload_date.strftime(""%Y-%m-%d %Hh%Mm"")
+    post.download(f""{fname}.png"") # ทำการดาวน์โหลดรูปภาพโดยอิงจากเวลา
+
+```
+
+[user] ขอบคุณมาก เดี๋ยวลองทำตามดู",ด้วยความยินดี,,,,
+fab-500x-20261114T224408Z-018,65,400554b5710db7474baf867b,d3554a6fc22c21ceb10f50037ff9ea7d,fab-500x,th,general_knowledge,oasst2,human_authored,"[user] ถ้าลิงจุดไฟได้ด้วยตัวเองโลกจะเกิดอะไรขึ้น
+
+[assistant] เกิดมนุษย์
+
+[user] ทำไมถึงเกิดมนุษย์",เพราะมนุษย์มีวิวัฒนาการมาจากลิง หากลิงเริ่มมีวิวัฒนาการอาจก่อให้เกิดมนุษย์สายพันธุ์ใหม่ได้ในอนาคต,,,,
+fab-500x-20261114T224408Z-018,66,1dca0f97e9daca3af504228e,b152fb8c4dde7be744cb1c03d55f5a41,fab-500x,th,mathematics,oasst2,human_authored,"[user] 1+1 เท่ากับเท่าไหร่
+
+[assistant] 1+1=2
+
+[user] ถูกต้อง ขอบคุณ",ด้วยความยินดี,,,,
+fab-500x-20261114T224408Z-018,67,749afd1e51dadce943da1f66,052a0cd7fe98632af8ee8b751e226dfa,fab-500x,th,writing,oasst2,human_authored,[user] ลืมรหัสผ่าน Discord ของตัวเอง ทำยังไงดี,"ในหน้า Login คุณกรอก email หรือ เบอร์โทร แล้วลองกด Forget your Password? 
+Discord จะส่ง Email ไปหาคุณถ้าคุณพิมพ์ Email หรือ OTP ถ้าคุณกรอกเบอร์โทร ให้ทำตามขั้นตอนที่ Discord แจ้งคุณมาต่อไป
+หากคุณเกิดปัญหาอะไรขึ้นระหว่างทำตามขั้นตอนนั้นคุณสามารถกลับมาถามฉันให่ได้",,,,
+fab-500x-20261114T224408Z-018,68,58099afbba169e781a95af7a,2827821127ee8d47b1e9b7247c6ca0e7,fab-500x,tl,coding,aya-dataset,human_authored,[user] Paano kumuha ng sample input sa Python programming language?,"Ang sumusunod na code ay halimbawa ng pagkuha ng user input:
+
+# input
+input1 = input()
+ 
+# output
+print(input1)",,,,
+fab-500x-20261114T224408Z-018,69,355f3a5fb109c9ae5fee43d5,20bec6af31911ecf3afe9d8437cd3539,fab-500x,tl,general_knowledge,aya-dataset,human_authored,[user] Saan matatagpuan ang pinakamahabang underground river sa buong mundo?,"Sa Yucatan Peninsula sa Mexico ang Sistema Sac Actun, ang pinakamahabang underground river sa buong mundo. Mahigit-kumulang na 215 milya o 347 na kilometro ang haba ng ilog na ito. Sikat na pasyalan ng mga cave divers ang Sistema Sac Actun na isang malawak na network ng mga kuweba at daluyan ng tubig sa ilalim ng lupa.",,,,
+fab-500x-20261114T224408Z-018,70,455b692ebf7c04739c92d42b,9c9e8bb11fdb2eedb777b45cb2a6ac3c,fab-500x,tl,islamic_studies,aya-dataset,human_authored,[user] Bakit ipinagbabawal sa relihiyong Islam ang pagkain ng baboy?,"Ipinagbabawal sa Quran, ang banal na aklat ng Islam, ang pagkain ng karne ng baboy dahil itinuturing na marumi ito. Kilala ang mga baboy sa pagkain nila nang kahit anuman, kasama na ang mga insekto at kahit ang dumi ng ibang hayop. Mahilig ding magtampisaw sa putikan ang mga baboy upang magpalamig. Maaring dahilan ang mga ito kung bakit itinuturing na marumi ang baboy sa Islam.",,,,
+fab-500x-20261114T224408Z-018,71,bf2134d12a5c9101dd50f960,f49e565736133f91287430b9c2a4daa1,fab-500x,tl,mathematics,aya-dataset,human_authored,[user] Ano ang sagot sa 50 + 50?,Ang sagot ay 100.,,,,
+fab-500x-20261114T224408Z-018,72,d5b20043425de0c763006a42,43a66d29dd81bb51ace0310e4d108553,fab-500x,tl,science,aya-dataset,human_authored,[user] Aling planeta sa Solar System ang may pinakamabigat na gravity?,"Ang Jupiter ay ang planeta sa ating Solar System na may pinakamabigat na gravity. Umaabot ng mahigit 24.79 metro kada kwadradong segundo o m/s^2 ang bilis ng gravity sa Jupiter, o mahigit 2.5 beses na mas malakas kaysa sa gravity ng ating mundo. Dahil ito sa napalaking masa at sukat nito kung ikumpara sa iba pang planeta sa Solar System. Kapag mas malaki ang masa at sukat ng isang selestiyal na bagay, mas malakas ang gravitational pull nito.",,,,
+fab-500x-20261114T224408Z-018,73,5c895586d6b3287d1b16dfd4,118049d066f09e52a5b4f647da03a1c9,fab-500x,tr,coding,aya-dataset,human_authored,"[user] ""Meaning of Life"" filminde yer alan skeçlerden bahsedebilir misin?","""Meaning of Life"" filmi, bir dizi farklı skeçten oluşur ve her bir skeç farklı bir konuyu veya temayı ele alır. İşte filmin bazı önemli skeçleri:
+1) The Miracle of Birth (Doğumun Mucizesi): Filmin açılış skecidir ve bir bebek doğumunu absürd bir şekilde gösterir. Hastane personelinin tuhaf ve komik davranışları, doğumun garipliğini vurgular.
+2) The Middle of the Film (Filmin Ortası): Bu skeç, filmi izleyenlere bir mola vermeye ve yemeklerini yemeye davet eder. İzleyiciye, filmi izlemeye ara verip yemek yeme izni veren bir sahne sunar.
+3)Live Organ Transplants (Canlı Organ Nakilleri): Bu skeç, organ nakli operasyonlarını hicveder. Hastaların organlarının canlı canlı çıkarılması ve nakil edilmesi saçma bir şekilde gösterilir.
+4) The Autumn Years (Sonbahar Yılları): Bu skeç, yaşlı insanların yaşamın sonuna doğru nasıl muamele gördüğünü eleştirir. Yaşlıların bir restoranda nasıl öldürüldüğünü gösteren absürd bir sahne içerir.
+5) The Meaning of Life (Hayatın Anlamı): Film, son skeçte hayatın anlamını arayan bir grup insanı konu alır. Bu skeç, felsefi ve teolojik konuları mizahi bir şekilde ele alır ve filmi sonlandırır.
+
+Bu skeçler, ""Meaning of Life"" filminin temel öğelerini oluşturur ve her biri farklı bir komedi tarzıyla veya temayla izleyiciyi eğlendirirken düşündürür. Monty Python ekibinin karakteristik absürd mizahı, bu skeçlerin her birini komik ve çarpıcı kılar.",,,,
+fab-500x-20261114T224408Z-018,74,fd95a105ba91cae2f692c9be,85f8576a4f2d63d4bcbc8063b74296b0,fab-500x,tr,general_knowledge,aya-dataset,human_authored,[user] En iyi işlemci kaç olmalı?,"İşlemcilerin ayrıca kaç çekirdekli olduğuna göre yaptığı işlemlerin hızı, dolayısıyla bilgisayarın performansı da etkilenmektedir. Üst düzey bir bilgisayar arayanlar için 16 çekirdeğe varan işlemciler ön plana çıkarken, 2 ya da 4 çekirdekli işlemciler ise gündelik kullanımda fazlasıyla yeterli olmaktadır.",,,,
+fab-500x-20261114T224408Z-018,75,21ac60779027445490ba497a,b6ff61cbd548cf74c2f69601622c7460,fab-500x,tr,islamic_studies,aya-dataset,human_authored,"[user] Aşağıdaki ifadeyi tamamlayın:  Pakistan, Britanya Hindistanı'nın bölünmesini ve Müslüman nüfuslu bölgelerin bağımsızlığını talep eden Pakistan Hareketi'nin çabalarıyla 1947'de Hint Müslümanları için bir yurt olmak üzere bağımsızlığını kazanmıştır. Çeşitli dil ve etnik grupların yanı sıra coğrafya ve yaban yaşamı bakımından da zengin bir ülkedir. Başlangıçta bir dominyon olan Pakistan, 1956'da kabul edilen anayasayla İslam cumhuriyetine dönüştü. Etnik","iç savaş ve 1971'deki Hint müdahalesi Doğu Pakistan'ın Bangladeş ismiyle ülkeden ayrılmasıyla sonuçlandı. Pakistan, 1973'te tüm yasaların Kur'an ve Sünnet'i temel alan İslam hükümlerine uygunluğunu şart koşan yeni bir anayasayı kabul etti. 2008 yılında sivil yönetime geçildi. 2010'da ise parlamenter sistemli yönetim başladı.",,,,
+fab-500x-20261114T224408Z-018,76,8b871920fac9dc24f0aa38e5,94a14f9a09778970d33934e903bb88ef,fab-500x,tr,mathematics,aya-dataset,human_authored,[user] 2 li tarama testi sonucu kaç olmalı?,"İkili testte sınır değer 1/250'dir...Risk oranının 1/250'nin üzerinde olması durumunda test pozitiftir, yani down sendromu açısından riskli gruba giren hastanın ileri tetkiki gerektirir.",,,,
+fab-500x-20261114T224408Z-018,77,b6dbc2d8c965fdbcddd9536e,7f857fd2db5302e5fed2a73b25550ba8,fab-500x,tr,problem_solving,aya-dataset,human_authored,[user] Utangaçlık nasıl önlenir?,"Utangaçlık, sosyal durumlarda rahatsızlık ve gerilim hissi olarak tanımlanabilir. Ancak utangaçlığı önlemek veya azaltmak mümkündür. İşte utangaçlığı aşmak için bazı öneriler:
+
+Küçük Adımlarla Başlayın:
+
+Sosyal becerileri geliştirmek için küçük adımlarla başlamak önemlidir. Sosyal etkileşimleri artırmak için küçük gruplar veya tanıdık ortamlar seçin.
+Kendi İlgilerinize Odaklanın:
+
+Kendi ilgi alanlarınıza odaklanmak, konuşmaları daha rahat ve doğal hale getirebilir. İlgilendiğiniz konularda konuşmak, güveninizi artırabilir.
+Bedensel Aktivite:
+
+Spor veya egzersiz, endorfin salgılanmasını sağlayarak stresi azaltabilir ve özgüveni artırabilir.
+Göz Kontağı Kurun:
+
+Göz teması kurmak, karşınızdaki kişiyle daha güçlü bir bağ kurmanıza ve iletişiminizi güçlendirmenize yardımcı olabilir.
+Hazırlıklı Olun:
+
+Topluluk içinde konuşma veya sosyal etkileşimler öncesi hazırlık yapın. Konuşma konularını düşünmek ve önceden bir plan yapmak, kendinizi daha güvende hissetmenize yardımcı olabilir.
+Empati ve Kendi Kendinize Konuşma:
+
+Başkalarının hislerini anlamaya çalışın. Empati, sosyal etkileşimlerde daha rahat olmanıza yardımcı olabilir. Ayrıca, kendi kendinize olumlu ve güçlendirici ifadeler kullanmak da önemlidir.
+Hata Yapmaktan Korkmayın:
+
+Utanç duygusunu aşmak için hata yapmaktan korkmamak önemlidir. Herkes hata yapabilir. Önemli olan, bu hatalardan öğrenmek ve gelişmektir.
+Sosyal Beceri Eğitimi Alın:
+
+Utangaçlıkla başa çıkmak için sosyal beceri eğitimi almak faydalı olabilir. Bu tür eğitimler, iletişim becerilerinizi güçlendirebilir.
+Profesyonel Yardım Alın:
+
+Eğer utangaçlık duygusu sizi önemli ölçüde etkiliyorsa, bir uzmandan profesyonel yardım almayı düşünün. Bir terapist, sosyal anksiyete veya utangaçlıkla başa çıkmanıza yardımcı olabilir.
+Utangaçlıkla başa çıkmak zaman alabilir, ancak sabır ve sürekli çaba ile bu duyguyu azaltabilir ve sosyal etkileşimlerden daha fazla keyif alabilirsiniz.",,,,
+fab-500x-20261114T224408Z-018,78,fa1cc7dd4a20d01ddcc552d3,6a6b2e6de97f6640b0a2b4a7eb2bef6d,fab-500x,tr,science,aya-dataset,human_authored,[user] Ozon doğada hangi halde bulunur?,"Ozon gazı (O3), 3 oksijen atomundan oluşan molekülleriyle renksiz bir gazdır ve atmosferin üst katmanlarında yer alır.",,,,
+fab-500x-20261114T224408Z-018,79,d6eae534154ab1f038bb107f,5721ef62573e57081b4a21b8d3dff201,fab-500x,tr,writing,aya-dataset,human_authored,[user] Dünyanın en zengin 2 futbolcusu kim?,"theSporting.blog'a göre, Mathieu Flamini, 14 milyar dolarlık net servetiyle tüm zamanların en zengin ikinci futbolcusu. Onu geçerek listenin birinci sırasında yer alan isim ise Brunei Prensi Jefri Bolkiah'ın oğlu Faiq Bolkiah. Bu iki ismin ardından Cristiano Ronaldo ile Lionel Messi servetleriyle baş çekiyorlar.",,,,
+fab-500x-20261114T224408Z-018,80,f9fa98a6ce6dfaa406a60b24,f9f73fc813f34d9e55f09cceb1409ded,fab-500x,uk,general_knowledge,aya-dataset,human_authored,"[user] Завершіть наступне речення: Він знову приєднався до полку у Ваутахчі, штат Теннессі, 10 листопада 1863 року,","і очолив напад своєго полку підчас Битви за гору Лоукаут, 24 листопада 1863 року. Підчас битви отримав поранення у праве передпліччя.",,,,
+fab-500x-20261114T224408Z-018,81,859326fe5e725a78689c7b87,0d3b6539a87975cf0e41bec5327a6cce,fab-500x,uk,mathematics,aya-dataset,human_authored,"[user] Виріши наступну задачу. Умова: Асі 11 років, а її тітці сьогодні виповнилося 47. Питання: Через скільки років тітка буде в 3 рази старше Асі?","Вирішення: Тітка завжди буде старше Асі на 47 - 11 = 36 років.
+Для вирішення утворимо рівняння, де x означає вік Асі, в якому вона буде в три рази молодша, ніж тітка. 
+x + 36 = 3x
+3x - x = 36 
+2x = 36
+x = 18
+Асі буде 18 років, а її тітці 18*3 = 54 роки. Це станеться через 18 - 11 = 7. Відповідь: через 7 років.",,,,
+fab-500x-20261114T224408Z-018,82,e1e10945f509c8f183e337ea,02c70ce8a10f04b4abd3708bf8d466c2,fab-500x,uk,writing,aya-dataset,human_authored,"[user] Write a continuation for this paragraph - Мухаммед народився у Мецці в 570, і історія його життя була нерозривно пов'язаним із Меккою весь час. Він був членом роду, Хашимітів, племені Кураяш. Після того, як він почав отримувати одкровення і проповідування у поганському місті, він емігрував (Хіджра) в 622 з деякими послідовниками до північного міста Медіни, і почав набіги на торгівців Мекки.","У битві при Бадрі він скасував головування Мекки, і виграв для себе значний престиж серед бедуїнських племен. Конфлікт тривав й надалі, як наприклад Битва при Ухуді і Окопна битва.",,,,
+fab-500x-20261114T224408Z-018,83,c6e9afa0cc5420648998a7ce,c68214da20b4822775f2979a1d6abed3,fab-500x,ur,coding,wikipedia-ur,templated_human,[user] رستم ابراہیم بیگف کے بارے میں ایک مختصر تعارف لکھیں۔,"رستم محمد ابراہیم بیگف (; ; پیدائش 5 فروری 1939) ایک سوتی، آذربائیجانی منظر نویس، ڈراما نویس اور پیش کار، جو آذربائیجان اور سابقہ ملک سوویت اتحاد سے باہر بھی جانا جاتا ہے۔ رستم ابراہیم آذربائیجان سینماٹوگرافر یونین اور ایبریئس تھیٹر کے صدر ہیں۔
+
+رستم ابراہیم کی پیدائش باکو، آذربائیجان سوویت اشتراکی جمہوریہ میں ہوئی، ان کے والد کا نام محمد ابراہیم بیگف اور والدہ کا نام فاطمہ مشهدی بیگووا ہے۔ ان کے والد تاریخ فن کے پروفیسر ہیں ان کا تعلق شماخی سے ہے۔ رستم ابراہیم کے چھوٹے بھائی مقصود ابراہیم بیگف، ایک آذربائیجانی مصنف اور سیاست دان ہیں۔
+
+Interview with Rustam Ibragimbekov in New York at the screening of his 2010 film ۔
+
+Interview with Rustam Ibragimbekov after winning 1995 Oscar for writing screenplay for Best Foreign Film ""Burnt by the Sun""، Azerbaijan International, Vol. 3:2 (Summer 1995)، pp. 8-11۔
+
+""Famous People, Then and Now – Rustam Ibrahimbeyov,"" in Azerbaijan International, Vol. 7:4 (Winter 1999)، pp. 22-23۔
+
+Biography of Rustam Ibragimbekov (In Russian)
+
+Short story by Rustam Ibrahimbeyov, ""Music Lesson"" in Azerbaijan International, Vol. 12:1 (Spring 2004)، pp. 94-97۔
+
+Short description is different from Wikidata",,,,
+fab-500x-20261114T224408Z-018,84,86ad5dbe6655b41e4e275d4d,5a6fe618697d328dac13af8f3d777029,fab-500x,ur,education,wikipedia-ur,templated_human,[user] قدیم روم کے بارے میں ایک مختصر تعارف لکھیں۔,"قدیم روم (Ancient Rome) آٹھویں صدی ق م میں اطالوی جزیرہ نما میں شروع ہونے والی ایک اطالوی تہذیب تھی۔ یہ بحیرہ روم کے ساتھ واقع تھی اور اس کا مرکز روم تھا۔ اس کا شمار قدیم دنیا کی عظیم عالمی سلطنتوں میں کیا جاتا ہے۔
+
+یک اندازے کے مطابق اس کی آبادی 50 سے 90 ملین نفوس پر مشتمل تھی جو دنیا کی آبادی کا تقریبا 20 فیصد تھا، جبکہ اپنے عروج پر اس کا رقبہ تقریباہ تقریبا 6.5 ملین مربع کلومیٹر (2.5 ملین مربع میل) تھا۔
+
+Ancient Rome resources for students from the Courtenay Middle School Library.
+
+History of ancient Rome OpenCourseWare from the یونیورسٹی آف نوٹری ڈیم providing free resources including lectures, discussion questions, assignments, and exams.
+
+United Nations of Roma Victrix (UNRV) History
+
+Water and Wastewater Systems in Imperial Rome
+
+آٹھویں صدی قبل مسیح میں قائم ہونے والے ممالک اور علاقے",,,,
+fab-500x-20261114T224408Z-018,85,9ea239b98c28e70c540e5ec0,0ea3799b5af617c8ae68ffd3ccd222d3,fab-500x,ur,general_knowledge,wikipedia-ur,templated_human,[user] لوریشیا کے بارے میں ایک مختصر تعارف لکھیں۔,"لوریشیا (Laurasia) کرہ ارض کے قدیم جغرافیائی مطالعہ (Palaeogeography) کے مطابق دو برعظیموں (Supercontinent) میں سے شمالی ترین براعظم (دوسرا براعظم گونڈوانا) ہے۔ جو تقریبا 510 ملین سے 180 سال پہلے سے موجود برعظیم (Supercontinent) پینجیا کا حصہ تھے۔
+
+نام لورنشیا (Laurentia) کے ناموں کو یکجا کرتا ہے جو شمالی امریکا کریٹون اور یوریشیا ہیں۔ ارضیاتی نام لوریشیا شمالی نصف کرہ کے آج کے تمام براعظم اور تمام اجسام ارض شامل ہیں۔ بنیادی طور پر لوریشیا (یعنی بنیادی شمالی امریکی براعظم)، بالٹکا، سائبیریا، قازقستانیا، شمالی چین اور مشرقی چین۔
+
+Short description is different from Wikidata",,,,
+fab-500x-20261114T224408Z-018,86,7224580360917ac9729e6239,82a5344c5c3693571c690069a76847d4,fab-500x,ur,islamic_studies,wikipedia-ur,templated_human,[user] نجم الدین عرف حضرت ھڈی کے بارے میں ایک مختصر تعارف لکھیں۔,"نجم الدین عرف حضرت ھڈے رحمتہ اللہ علیہ کا اصل نام نجم الدین آخوند زادہ جبکہ حضرت ھڈے سے شہرت رکھتے ہیں۔
+
+حضرت ھڈے موضع شیلگر ہجویر جو مضافات غزنی سے تعلق رکھتے تھے (ہجویر داتا گنج بخش رحمتہ اللہ علیہ کی وجہ سے شہرت رکھتا ہے)، اسے شیلگر بھی کہتے ہیں اس کے مشرقی سمت میں ایک محلہ ہے جسے ھڈی کہتے ہیں اسی وجہ سے انہیں حضرت ھڈے کہا جاتا ہے۔ یہ جلال آباد سے جنوب کی طرف 8 کلو میٹر کے فاصلے پر ہے۔ نسلاً افغان تھے اس علاقے میں احمد زئی اور سلمان خیل قبیلے آباد تھے حضرت ھڈے کا سلمان خیل سے تعلق تھا
+
+ابتدائی تعلیم شیلگر،سید لوگر اور غزنی سے حاصل کی اور پھر کابل بھی گئے کابل میں محلہ تندور سازاں مقیم رہے جو اس وقت اہل علم و عرفان کا مرکز تھا ان کے نام کے ساتھ آخوند زادہ کا لقب وابستہ ہے اس سے قیاس غالب ہے کہ ان کا خاندان صاحب علم وفضل تھا آپ نےتحصیل علم کے بعد جلال آباد کے قریب ھڈا نامی بستی میں اقامت رکھی جس کی وجہ سے ھڈا ملا سے مشہور ہوئے۔
+
+یہ صاحب باطن اور صاحب سیف بھی تھے انہوں نے علم باطنی کے لیے شیخ عبدالغفور عرف حضرت سوات کی صحبت اختیار کی جہاں ریاضتوں اور مجاہدوں کے بعد سلوک و تصوف کے عالی مقام پر فائز ہوئے اورخرقہ خلافت کی صورت میں اجازت حاصل ہوئی ۔تبلیغ دین کے ساتھ ساتھ انگریزوں کے خلاف جہاد میں بھی شریک رہے۔
+
+آپ کے نامور خلفاء جنہوں نے افغانستان اور پاکستان کو ارشاد وتلقین کا مرکز بنایا ان میں سے شیخ حمیداللہ عرف شیخ الاسلام تگاب ، صوفی عالم گل شنواری میاں صاحب موضع سرکانڑی حاجی صاحب ترنگزئی مولانا صاحب موضع کلہنور اور بادشاہ صاحب سلامہور بہت مشہور ہیں",,,,
+fab-500x-20261114T224408Z-018,87,796b281b0c405d67702c83ec,fffa457ce8bb7a2405586cabd3d7da03,fab-500x,ur,mathematics,approx-curriculum,programmatic,[user] 736 کتابیں 23 بچوں میں برابر تقسیم کیے گئے۔ ہر بچے کو کتنے ملے؟,"مرحلہ 1: یہاں عمل ÷ ہے۔
+مرحلہ 2: 736 ÷ 23 = 32
+
+جواب: 32 کتابیں۔",,,,
+fab-500x-20261114T224408Z-018,88,ef95b447ab13049fa5149a5b,13c5b591ec01ce2ba4001c6ad4917035,fab-500x,ur,pakistan,wikipedia-ur,templated_human,[user] سانگھڑ کے بارے میں ایک مختصر تعارف لکھیں۔,"سانگھڑ  صوبہ سندھ پاکستان کا ایک تاریخی شہر، تحصیل اور ضلع سانگھڑ کا صدر مقام ہے جو بڑی گنجان آبادی پر مشتمل ہے۔ جیساکہ یہ شہر ملاحوں نے آباد کیا تھا اس لیے اس شہر میں ملاحوں کی گنجان آبادی ہے۔
+
+شہر کی زیادہ تر آبادی ملاح ہے جو کے شہر کی تقریباً ٪75 ہے اور شہر میں ٪90 آبادی سندھی بولتی ہے۔شہر میں تقریباً ٪19 آبادی ہندوؤں کی بھی ہے۔
+
+چھوٹے پیغام خانوں کا استعمال کرنے والے مضامین
+
+ویکی ڈیٹا سے مطابقت رکھنے والی مختصر تفصیل",,,,
+fab-500x-20261114T224408Z-018,89,9c9018819d333db3fb41ff52,9b6307233ceda1bf09fc3af7c89b00d6,fab-500x,ur,research,wikipedia-ur,templated_human,[user] اشاریہ عالمی امن کے بارے میں ایک مختصر تعارف لکھیں۔,"مشعر عالمی امن (global peace index - gpi) قوم اور خطے میں امن کے تعلق اندازہ کرنے کی کوشش ہے۔
+
+اپسلا تنازعات ڈیٹا پروگرام (uppsala conflict data program - ucdp)
+
+اکانومسٹ انٹیلی جنس یونٹ (economist intelligence unit - eiu)
+
+اقوام متحدہ ہائی کمشنر برائے پناہ گزیں (united nations high commissioner for refugees - unhcr)
+
+سٹاک ہوم انٹرنیشنل پیس ریسرچ انسٹی ٹیوٹ (stockholm international peace research institute - sipri)
+
+ادارہ برائے اقتصادیات و امن (institute for economics and peace - iep)
+
+Short description is different from Wikidata",,,,
+fab-500x-20261114T224408Z-018,90,1c334c663da1f31f3a3d2497,7a5ad5239051497165969103128f178c,fab-500x,ur,safety_ethics,aya-dataset,human_authored,"[user] درج ذیل جملے کا ترجمہ کریں:
+Good health is a holistic concept, encompassing physical fitness, mental and emotional well-being, and more. It includes social connections and relationships, spiritual fulfillment, intellectual engagement, and environmental considerations. Financial stability is crucial, as financial stress can impact mental health. Developing emotional resilience helps individuals cope with life's challenges. Cultural sensitivity and diversity acceptance contribute to a sense of belonging and overall well-being. Achieving work-life balance is important, as chronic work-related stress can harm mental and emotional health. Ultimately, good health involves nurturing various interconnected dimensions, ensuring a well-rounded and high-quality life.",صحت ایک مکمل تصور ہے جس میں جسمانی تندرستی، ذہانتی اور جذباتی حالت شامل ہے، اور اس میں سماجی رشتوں اور تعلقات، روحانی اطمینان، فکری مشغولیت، اور ماحولی پر اثرات بھی شامل ہیں۔ مالی استحکام بہت اہم ہے، کیونکہ مالی دباؤ ذہانتی صحت پر اثر انداز ہوسکتا ہے۔ جذباتی مضبوطیت کو تربیت دینا افراد کو زندگی کی چیلنجوں کا سامنا کرنے میں مدد فراہم کرتا ہے۔ ثقافتی سمجھ اور مختلفیت کی قبولیت کسی کی متعلقہ پیشہ وری اور جذباتی حالت کو بہتر بناتی ہے۔ کام اور زندگی کا توازن حاصل کرنا اہم ہے، کیونکہ کام کا روزمرہ دباؤ ذہانتی اور جذباتی صحت کو نقصان پہنچا سکتا ہے۔ آخر کار، اچھی صحت مختلف متصل بعدوں کو نرسنے اور دیکھ بھال کرنے کو شامل کرتی ہے، جو کہ ایک انسان کی زندگی کی کوالٹی کو بہتر بناتے ہیں۔,,,,
+fab-500x-20261114T224408Z-018,91,a82fa39cff5401aee645916a,281f806456dae665b11dc0d98a9929a2,fab-500x,ur,science,approx-curriculum,programmatic,[user] ایک گاڑی 5 گھنٹوں میں 470 کلومیٹر فاصلہ طے کرتی ہے۔ اس کی اوسط رفتار کیا ہے؟,"اوسط رفتار = فاصلہ ÷ وقت = 470 ÷ 5 = 94 کلومیٹر فی گھنٹہ
+
+جواب: 94 کلومیٹر فی گھنٹہ",,,,
+fab-500x-20261114T224408Z-018,92,bc1d50647ac74cc9e415be4b,4c92f4ebc952374e800c0e7001752316,fab-500x,ur,web_frontend,wikipedia-ur,templated_human,[user] ڈھوڈا شریف کے بارے میں ایک مختصر تعارف لکھیں۔,"ڈھوڈا شریف  پاکستان  کا ایک آباد مقام  جو گجرات پنجاب، پاکستان میں واقع ہے۔
+
+ڈھوڈا شریف کی وجہ شہرت یہان حضرت شمس العارفین  پیر گل پیر رحمتہ اللہ علیہ  کا مزار پر نور ہے ،ساتھ ہی آپ کے صاحبزادہ حضرت پیر سید امیر رحمتہ اللہ علیہ  کا اور آپکے پوتے قطب  ربانی ،غوث  صمدانی حضور قبلہ  پیر محمد شفیع رحمتہ اللہ ،الحاج حافظ پیر حیدر شاہ رحمتہ اللہ علیہ ،اور ان کے صاحبزادہ شہید پیر احمد شاہ رحمتہ اللہ علیہ  کا مزار شریف موجود ہے،
+
+اس وقت اس سلسلہ کے روح رواں، حضرت پیر سید امیر رحمتہ اللہ علیہ  کے پوتے
+
+صاحبزادہ پیر محمد نعیم میراں ہیں، جو کہ اس سلسلہ کے سربراہ ، سجادہ نشین  ہین ،<ref>[http://www.geonames.org/1412714/dhoda-sharif.html GeoNames.org<!-- خودکار تخلیق شدہ عنوان --۔",,,,
+fab-500x-20261114T224408Z-018,93,e6bc175b4008ee04b253f72e,212934283a6f13b8c0370deea8ef0a74,fab-500x,ur,web_fullstack,wikipedia-ur,templated_human,[user] ہنری لامنس کے بارے میں ایک مختصر تعارف لکھیں۔,"ہنری لامنس (جولائی 1862 – اپریل 1937) ایک مستشرق مؤرخ اور یسوعی تھا۔ ہنری لامنس اپنی ابتدائی تاریخ اسلام پر لکھی گئی فرانسیسی کتابوں کی وجہ سے مشہور ہے۔
+
+اس کی پیداش گھنٹ، بلجئیم کے ایک کاتھولک فلیمش سٹاک، ہنری لامنس نے پندرہ سال کی عمر میں سوسائٹی آف جیسس میں شمولیت اور مستقل طور پر بیروت، لبنان میں رہائش اختیار کر لی۔
+
+Islam: Beliefs and Institutions (اسلام: عقائد اور ادارے) اس کتاب پر ایک آن لائن تبصرہ یہاں موجود ہے۔
+
+The Age of Muhammad and the Chronology of the Sira (زمانہ محمد اور سیرت کی تاریخ وار ترتیب)
+
+قرآن و حدیث (مقالہ مباحث العلوم الدینیہ)، 1910ء
+
+Additional information is in Biography of Henri Lammens, by Stijn Knuts published at the website of the Belgian Royal Academy for Overseas Science
+
+ویکی ڈیٹا سے مطابقت رکھنے والی مختصر تفصیل",,,,
+fab-500x-20261114T224408Z-018,94,a7e4d091200259900f6432c3,4463c9ac4c5e95a3087d0c8810e8b112,fab-500x,ur,writing,roman-urdu-parl,transliteration_unverified,"[user] اس جملے کو اردو رسم الخط میں لکھیں:
+shayar ko zindagi ka aik aik lamha",شاعر اپنی زندگی کا ایک ایک لمحہ,,,,
+fab-500x-20261114T224408Z-018,95,a2f3a50becf877765e90621f,76fbf92fc32e21136d2d821205614472,fab-500x,vi,coding,aya-dataset,human_authored,[user] Nêu khái niệm về High-functioning anxiety,"Theo bác sĩ tâm thần Sasha Hamdani, high-functioning anxiety là hiện tượng một người bị lo âu song vẫn có thể “vận hành” bình thường. Họ vẫn học tập và làm việc hiệu quả, trò chuyện vui vẻ với người khác dù bên trong không ổn chút nào.
+
+Hiện tại, high-functioning anxiety không được ghi nhận chính thức trong Cẩm nang Chẩn đoán và Thống kê Rối loạn tâm thần (DSM-5). Dù vậy theo bác sĩ Hamdani, nó có thể kích thích các rối loạn tâm lý khác ở mức độ nghiêm trọng, mà phổ biến nhất là trầm cảm do sự thờ ơ với cảm xúc bên trong.",,,,
+fab-500x-20261114T224408Z-018,96,8f7a47db53771309079a4846,3e464949356793f5b50d4c518efb20ec,fab-500x,vi,education,aya-dataset,human_authored,"[user] Hãy viết tiếp nội dung cho đoạn văn sau: Đây là lần tái ngộ Việt Nam đầu tiên của nhóm The Moffatts sau 23 năm kể từ đêm diễn đầu tiên từng thu hút hàng ngàn khán giả trẻ tại TP.HCM năm 1999. Còn với nhóm 911 và A1 là lần đầu tiên biểu diễn tại Việt Nam. Đây là các nhóm nhạc nam rất thành công trong làn sóng ""boyband"" nở rộ cuối thập niên 1990 trên toàn thế giới. Tên tuổi, hình ảnh điển trai và các nhạc phẩm ""hits"" ăn khách thời hoàng kim của họ đi sâu vào ký ức rất nhiều khán giả thế hệ 8x, 9x. Hai nhạc hội tại Hà Nội và TP.HCM đầu tháng 8 là cơ hội dành cho nhiều thế hệ khán giả được chứng kiến các thần tượng một thời ""bằng xương bằng thịt"" biểu diễn những bản tình ca một thuở. ""The Moffatts, 911 và A1 trong sự nghiệp của mình thường hát những giai điệu pop ballad hoặc sôi nổi trẻ trung, chứa ca từ dễ nghe, dễ thuộc, khá nên thơ và lãng mạn"" - Trung Nghĩa, người dẫn chương trình nhạc hội ""Touch Your Heart"" bình luận. Anh nhớ lại mình từng gặp gỡ trực tiếp The Moffatts trong lần nhóm này đến Việt Nam biểu diễn năm 1999 và cho biết rất nóng lòng tái ngộ các thành viên Moffatts để thưởng thức những ""If Life is So Short"", ""Miss You Like Crazy"" với thông điệp nhân văn và yêu đời. The Moffatts tái ngộ Việt Nam Nhóm nhạc gia đình người Canada gồm anh cả Scott cùng 3 cậu em Clint, Bob và Dave Moffatt. Anh em The Moffatts là một trong những ban nhạc gia đình nổi bật trong những năm 1990 nhờ những bản nhạc dễ nghe trong 5 album đã phát hành với lượng tiêu thụ hơn 6 triệu bản. Từ năm 2019 đến nay, 2 anh em","Bob và Clint Moffatt thực hiện dự án Music Travel Love trên kênh YouTube với gần 3,9 triệu lượt đăng ký theo dõi, hàng chục triệu lượt xem. Tin cho hay, 3 anh em Clint, Bob và Dave Moffatt (anh cả Scott không đi đợt này) sẽ bay sang Việt Nam không chỉ biểu diễn mà còn quay MV (music video) cho Music Travel Love. A1 đã sẵn sàng Nhóm boyband A1 gồm 4 thành viên người Anh và Na Uy: Mark Read, Ben Adams, Christian Ingebrigtsen và Paul Marazzi. Thành lập vào năm 1998, A1 có các bài hits: ""Every Time"", ""Take On Me"", ""Like A Rose"", ""Learn to Fly""... và từng nhận giải thưởng BRIT cho nhóm nhạc đột phá năm 2001. Nhóm tan rã năm 2002 nhưng đến 2009 tụ họp lại với Ingebrigtsen, Read và Adams để phát hành đĩa đơn cũng như album mới. Paul Marazzi cũng quay trở lại với A1 và cùng sang Việt Nam biểu diễn hè này. A1 cho biết: ""Chúng tôi đã biết Việt Nam từ lâu và luôn muốn đến đất nước các bạn. Chúng tôi muốn chuẩn bị sẵn sàng cho chuyến biểu diễn tại đây cũng như thưởng thức các món ăn ngon"". A1 không chỉ hát những bản ""hits"" nổi tiếng nhất tại Hà Nội và TP.HCM mà còn trình bày những ca khúc khuấy động không khí như ""Ready or Not"", ""Caught in the Middle""… 911: ""Khán giả Việt Nam cùng hát ""I do"" với chúng tôi nhé"" Nhóm 911 gồm 3 thành viên Lee Brennan, Jimmy Constables và Spike Dawbarn trình làng thế giới năm 1995. Họ vươn xa từ châu Âu đến châu Á với các bản ""hits"" nổi tiếng như ""The Day We Find Love"", ""How Do You Want Me To Love You"", ""Don't Make Me Wait""… và đặc biệt là ""I do"" - tình ca ngọt ngào cả về giai điệu lẫn ca từ, là bài hát về tình yêu mà rất nhiều cặp đôi yêu thích. Năm 2000, 911 ngừng hoạt động nhưng quay lại vào năm 2005. Nhóm hy vọng khi trình diễn tại Việt Nam, các khán giả sẽ cùng hát theo ca khúc ""I do"".",,,,
+fab-500x-20261114T224408Z-018,97,2176e5c7de156e64e11db1de,35cfa626531dff047a48bfcb8dce7e02,fab-500x,vi,general_knowledge,aya-dataset,human_authored,[user] Tìm các từ ngữ tả hành động và cảm xúc của nhân vật “tôi” trong bài Trong lòng mẹ khi bất ngờ gặp lại mẹ.,"Các từ ngữ tả hành động và cảm xúc của nhân vật “tôi” khi bất ngờ gặp lại mẹ:
+
+- Chợt thoáng thấy một bóng người ngồi trên xe kéo giông giống mẹ, tôi liền đuổi theo, gọi bối rối: “Mợ ơi! Mợ ơi! Mợ ơi!” .
+
+- Nảy sinh suy nghĩ sợ bị nhầm lẫn: “Và cái lầm đó không những làm tôi thẹn…..sa mạc”.
+
+- Khi nhìn thấy mẹ cầm nón vẫy: “Tôi đuổi kịp”, “thở hồng hộc, trán đẫm mồ hôi, và khi trèo lên xe, tôi ríu cả chân lại”.
+
+- “tôi oà lên khóc rồi cứ thể nức nở”",,,,
+fab-500x-20261114T224408Z-018,98,b196657837f1672a884881e5,abc6ad7ef17141f57e4b35754739d953,fab-500x,vi,islamic_studies,aya-dataset,human_authored,"[user] Hãy viết một đoạn văn ít nhất 200 chữ dựa trên nội dung được nói tới trong câu sau: Thua Liverpool, Man City vẫn là ứng viên số 1 vô địch Ngoại hạng Anh. Nội dung chính của đoạn văn là Man City đã thua Liverpool 1-3 trong trận Siêu cúp Anh, mặc dù họ đã cố gắng rất nhiều. Đoạn văn cũng đề cập đến tỷ lệ ứng viên cho chức vô địch Siêu cúp Anh, với Man City đứng đầu với tỷ lệ 8/13. Ngoài ra, đoạn văn cũng nêu rõ sự thất bại của tân binh Erling Haaland trong trận đấu này và so sánh anh với Darwin Nunez, người đã ghi bàn cho Liverpool. Haaland được đánh giá cao hơn trong cuộc đua giành Chiếc giày vàng với tỷ lệ 11/4.","Ở trận tranh Siêu cúp Anh, dù rất cố gắng nhưng Man City lại không thể tận dụng được những cơ hội của mình và để thua Liverpool 1-3. Tuy nhiên, cần phải biết rằng chỉ 1 trong 10 năm gần nhất nhà vô địch Siêu cúp Anh có thể nâng cao cúp bạc Ngoại hạng Anh vào cuối mùa. Theo đánh giá của các nhà cái hàng đầu, Man City vẫn là ứng viên số 1 cho chức vô địch. Theo bet365, tỷ lệ vô địch của City là 8/13 (đặt 13 ăn 8). Tiếp theo lần lượt là Liverpool (5/2), Tottenham (12/1), Chelsea (16). Man United tiếp tục không được đánh giá cao khi chỉ đứng thứ 5, với tỷ lệ dao động từ 28 tới 40/1. Ở một diễn biến khác, tân binh Erling Haaland có màn chào sân nước Anh không thành công khi bỏ lỡ 2 cơ hội ngon ăn, trong đó đặc biệt là cú sút cận thành đưa bóng thằng lên trời. Rõ ràng, so với Darwin Nunez, người ghi bàn ấn định chiến thắng 3-1, Haaland lép vế rất nhiều. Nhưng một lần nữa, các nhà cái vẫn đánh giá cao người Man City. Trong cuộc đua giành Chiếc giày vàng, bet365 cho rằng Haaland là số 1 với tỷ lệ 11/4 (đặt 4 ăn 11). Trong khi đó, Nunez chỉ đứng thứ 4 với 12/1, ở giữa là Mo Salah (9/2) và Harry Kane (5/1).",,,,
+fab-500x-20261114T224408Z-018,99,908da26010abf10c08e06672,671e1a5317a523fd9311806297306c1f,fab-500x,vi,mathematics,aya-dataset,human_authored,"[user] Đoạn văn sau đang nói về vấn đề gì? ĐT Futsal Việt Nam đã chính thức công bố danh sách triệu tập 23 cầu thủ và sẽ hội quân vào ngày mai (1/8). Đây sẽ là đợt tập trung đầu tiên của đội tuyển dưới thời tân HLV người Argentina - Giustozzi Diego Raul. HLV Giustozzi Diego Raul từng giúp ĐT Futsal Argentina giành chức vô địch World Cup Futsal năm 2016. Nhà cầm quân này cũng từng giúp Argentina giành HCB đại hội thể thao Nam Mỹ 2014, đánh bại Brazil ở giải tứ hùng sau đó và đăng quang tại giải Continental Cup lần thứ 3. Ở cấp CLB, chiến lược gia sinh năm 1978 từng giúp ElPozo Murcia (Tây Ban Nha) giành ngôi Á quân Champions League Futsal 2019/2020. Theo kế hoạch, HLV Giustozzi Diego Raul sẽ cùng ĐT Futsal Việt Nam sẽ tập luyện tại Nhà thi đấu Thái Sơn Nam (TPHCM) từ ngày 1/8 đến ngày 8/9. Sau đó, thầy trò HLV Giustozzi Diego Raul sẽ sang Thái Lan tham dự giải Futsal quốc tế từ ngày 9/9 đến 17/9. Tại giải đấu này, ĐT Futsal Việt Nam sẽ thử lửa với các đối thủ chất lượng gồm: Iran, Morocco, Phần Lan, Angola và chủ nhà Thái Lan. Về mục tiêu xa hơn, HLV Giustozzi Diego Raul được kỳ vọng sẽ mang đến làn gió mới cho ĐT Futsal Việt Nam tại VCK Futsal châu Á 2022, sau đó là hướng tới mục tiêu cạnh tranh suất dự VCK World Cup Futsal 2024. Sau giải Futsal quốc tế tại Thái Lan, thầy trò HLV Giustozzi Diego Raul sẽ trở về nước để hoàn thiện khâu chuẩn bị cuối cùng trước khi di chuyển sang Kuwait vào ngày 24/9 để tham dự VCK Futsal châu Á 2022, nơi mà ĐT Futsal Việt Nam sẽ gặp Hàn Quốc, Saudi Arabia và đương kim á quân Nhật Bản tại vòng bảng. Về lực lượng, HLV Giustozzi Diego Raul mới tiếp quản ĐT Futsal Việt Nam nên bộ khung của đội tuyển vẫn dựa trên dàn cầu thủ thời HLV Phạm Minh Giang như thủ môn Hồ Văn Ý, Fixo Trần Văn Vũ, Khổng Đình Hùng, Phạm Đức Hòa, Ala Lê Quốc Nam, Trần Thái Huy, Pivo Nguyễn Minh Trí kết hợp cùng các tài năng trẻ như Nguyễn Văn Hiếu, Châu Đoàn Phát, Nhan Gia Hưng.","""HLV từng vô địch World Cup sẽ cùng ĐT Futsal Việt Nam du đấu Thái Lan.""",,,,
+fab-500x-20261114T224408Z-018,100,2a63d16dce72ae65f10d3bd8,efada89ad4e45ed0400db78a94633fa3,fab-500x,vi,pakistan,aya-dataset,human_authored,"[user] Hãy tiếp tục đoạn văn sau: Trước trận đấu, HLV Erik ten Hag không đặt nhiều kỳ vọng vào Cristiano Ronaldo, bởi ông hiểu rằng tiền đạo này đang không có thể lực tốt sau quãng thời gian tự tách khỏi đội một. Ngoài vấn đề thể lực, việc bị xếp vào đội hình gồm nhiều cầu thủ dự bị khiến Ronaldo cũng không có được nguồn cung cấp bóng tốt nhất. Anh gần như bị chia cắt với đồng đội ở hai biên là Alejandro Garnacho và Tahith Chong. Trong cả hiệp một, siêu sao người Bồ Đào Nha chỉ có một cú sút, đó là pha ra chân đưa bóng đi vọt xà sau đường chọc khe của Van de Beek ở phút 12. Những phút tiếp theo, Ronaldo đói bóng và thường xuyên phải lùi về giữa sân để tự tạo khoảng trống. Lão tướng 37 tuổi có 2 đường chuyền tạo cơ hội, nhưng đồng đội phía trên đều không thể gây khó khăn cho hàng thủ Rayo. Cơ hội đáng kể nhất của MU trong hiệp một thuộc về Christian Eriksen. Tân binh người","Đan Mạch dứt điểm táo bạo từ ngoài vùng cấm ở phút 30 đưa bóng đi chệch khung thành trong gang tấc. Đầu hiệp hai, Ronaldo được rút khỏi sân. Cầu thủ vào thay siêu sao 37 tuổi, Amad Diallo lại chơi nổi bật. Ngay phút 48, cầu thủ trẻ người Bờ Biển Ngà tận dụng tình huống bóng bật ra sau cú sút xa của Telles để đá bồi mở tỷ số. Chưa đầy 10 phút sau bàn mở tỷ số, MU đã để thủng lưới theo kịch bản tương tự. Thủ môn Tom Heaton cản được sú sút xa của Palazon nhưng bất lực khi Garcia băng vào đá bồi. Những phút còn lại của trận đấu, HLV Ten Hag tung hàng loạt cầu thủ trẻ vào sân. ""Quỷ đỏ"" chỉ có thêm một cơ hội đáng kể, đó là cú sút xa đưa bóng đi chệch cột trong gang tấc của Zidane Iqbal. Trận đấu khép lại với tỷ số hòa 1-1. MU sẽ nghỉ ngơi một tuần trước khi bước vào trận đấu chính thức đầu tiên của mùa giải 2022/23 gặp Brighton.",,,,

@@ -1,0 +1,1486 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+sona-9.0-20261114T224303Z-008,1,e46f57957849b3be5c61e47e,008dd42906a3b54f89f8fe5f2accc735,sona-9.0,it,general_knowledge,oasst2,human_authored,"[user] Mi puoi spiegare la legge di Coulomb?
+
+[assistant] La legge di Coulomb è una legge fondamentale dell'elettrostatica che descrive la forza di attrazione o repulsione tra due particelle cariche elettricamente. La legge di Coulomb afferma che la forza tra due particelle cariche è direttamente proporzionale al prodotto delle loro cariche elettriche e inversamente proporzionale al quadrato della distanza tra di esse. In formula:
+
+F = k * (q1 * q2) / r^2
+
+dove F è la forza di attrazione o repulsione tra le particelle, q1 e q2 sono le loro cariche elettriche, r è la distanza tra le particelle, e k è una costante di proporzionalità chiamata costante di Coulomb.
+
+[user] spiegami meglio chi è la costante k, perché non è legata al mezzo in cui si trovano le cariche?","La costante di Coulomb $k = \frac{1}{4\pi\varepsilon}$ (dove $\varepsilon$ è la costante dielettrica del mezzo, che rappresenta la capacità ti tale materiale di immagazzinare energia elettrostatica) è una costante fondamentale dell'elettromagnetismo che vale approsimativamente $8,987 \times10^9{Nm^2 \over C^2}$ nel vuoto (con $\varepsilon = \varepsilon_0$) e rappresenta la forza con cui due cariche puntiformi unitarie si attraggono ad un metro di distanza.
+
+In un mezzo che non sia il vuoto $\varepsilon = \varepsilon_0 \varepsilon_r$ dove $\varepsilon_r$ è la permittività elettrica relativa e dipende dal materiale del mezzo. Per esempio, nel caso dell'aria, $\varepsilon_r$ vale 1,00054.",,,,
+sona-9.0-20261114T224303Z-008,2,00f4f507659bd8817261b3fb,213c6b3c91a7323bb48608e9942e70a8,sona-9.0,it,mathematics,oasst2,human_authored,[user] Potresti spiegarmi l’algoritmo di ricerca ad albero di monte carlo?,"L'algoritmo di ricerca ad albero di Monte Carlo (Monte Carlo Tree Search - MCTS) è una tecnica di intelligenza artificiale utilizzata principalmente nei giochi e in altri problemi di decisione sequenziale sotto incertezza. L'algoritmo si basa su una simulazione stocastica del gioco o del problema, in cui viene simulata una serie di mosse possibili, e sull'utilizzo di una struttura ad albero per tracciare le mosse effettuate e le relative probabilità di successo.
+
+L'algoritmo MCTS funziona in modo iterativo, eseguendo ciclicamente i seguenti passaggi:
+
+    Selezione: a partire dalla radice dell'albero, viene selezionato il nodo con la massima upper confidence bound (UCB), una funzione che bilancia l'esplorazione delle opzioni meno conosciute e lo sfruttamento delle opzioni già esplorate.
+
+    Espansione: il nodo selezionato viene espanso, aggiungendo tutti i suoi figli possibili, ovvero le possibili mosse che possono essere fatte dallo stato corrente del gioco o del problema.
+
+    Simulazione: viene eseguita una simulazione a partire dal nodo figlio appena aggiunto, utilizzando una strategia casuale o euristica per determinare il risultato della simulazione.
+
+    Retropropagazione: i risultati della simulazione vengono propagati verso l'alto nell'albero, aggiornando le statistiche dei nodi visitati durante la selezione e l'espansione.
+
+Dopo un numero sufficiente di iterazioni, l'algoritmo MCTS seleziona la mossa migliore sulla base delle statistiche raccolte nell'albero. L'algoritmo MCTS è stato applicato con successo a una vasta gamma di giochi, tra cui il Go e il poker, e in altri problemi di decisione sequenziale, come la pianificazione robotica.",,,,
+sona-9.0-20261114T224303Z-008,3,aded9aa74490c6a163224126,fa8023d07015df1cbed7cb7a9512200f,sona-9.0,it,reasoning,aya-dataset,human_authored,"[user] Rispondi alla seguente domanda:
+""Che cos'è un lepidosiren paradoxa?""","Il Lepidosiren paradoxaFitzinger, 1837 è un pesce polmonato unico membro del genere Lepidosiren e della famiglia Lepidosirenidae, endemico dell'America meridionale.
+
+Si incontra in un'area abbastanza vasta del Sudamerica, ovvero nei bacini idrografici del Rio delle Amazzoni, del Paraguay e nel tratto inferiore di quello del Paraná. Popola acque ferme o a modestissima corrente.
+
+L. paradoxa ha aspetto anguilliforme ancora più allungato che nei dipnoi africani del genere Protopterus, con i quali condivide le pinne dorsale, caudale e anale unite, le pinne pettorali e le pinne ventrali filiformi, le scaglie piccole e i due polmoni funzionali. Arriva a 125 cm di lunghezza.",,,,
+sona-9.0-20261114T224303Z-008,4,28a87d8698b4f8ed38108615,05f36924d2bc7d5bdab240a150f7db55,sona-9.0,it,science,oasst1,human_authored,[user] la politica estera di Biden è guerrafondaia?,"La politica estera di Biden non può essere definita in modo generalizzato come ""guerrafondaia"". Come leader del paese, il presidente Biden sta affrontando una serie di sfide e priorità internazionali complesse, e la sua politica estera si basa su un approccio equilibrato che combina elementi di diplomazia, sicurezza e sviluppo.
+
+È importante notare che la politica estera di un paese è influenzata da molteplici fattori, tra cui le questioni di sicurezza nazionale, le relazioni con altri paesi, le questioni economiche e umanitarie, e molto altro ancora. Pertanto, non è possibile ridurre la politica estera di un paese a una singola etichetta o descrizione.
+
+In generale, l'amministrazione Biden sta cercando di ripristinare le relazioni internazionali e la diplomazia multilaterale, affrontare le minacce globali alla sicurezza, tra cui la proliferazione nucleare e i cambiamenti climatici, e promuovere i diritti umani e la giustizia sociale a livello mondiale.",,,,
+sona-9.0-20261114T224303Z-008,5,a5d733a8041c0ab96cf7ed6e,98b21b1437d6a889e60c17e7e4c34baf,sona-9.0,ja,coding,oasst2,human_authored,"[user] このコードのなかで、最も直すべき部分はどこですか？
+
+[assistant] 了解しました。ただ、肝心のコードが貼られていないようですので、コードを貼っていただくことは可能でしょうか？
+
+[user] 失礼しました。こちらがコードとなります。このコードは2つのCSVファイルを1つのCSVファイルに結合することを目的としています。
+
+```python
+import os
+import pandas as pd
+
+folder_path = '.'  # CSVファイルがあるフォルダのパス
+csv_files = [f for f in os.listdir(folder_path) if f.endswith('.csv')]
+
+for i in range(0, len(csv_files), 2):
+    # CSVファイルを読み込む
+    df1 = pd.read_csv(csv_files[i])
+    df2 = pd.read_csv(csv_files[i + 1])
+
+    # 2番目のCSVファイルのデータ（2行目以降）を1番目のCSVファイルに追加
+    merged_df = pd.concat([df1, df2.iloc[1:]], ignore_index=True)
+
+    # 新しいファイル名を作成
+    file_name_parts = csv_files[i].split('_')
+    prefix = '_'.join(file_name_parts[:-1])
+    new_file_name = f""{prefix}_merged.csv""
+
+    # マージしたデータを新しいファイル名で保存
+    merged_df.to_csv(new_file_name, index=False)
+```","このコードは、`folder_path`に含まれるCSVファイルを順番に走査しながら、2つのファイルを行方向に連結し、新たなCSVファイルを出力しているようです。
+
+このコードの中で直すべき箇所については、プログラムで実際に行いたいことによって変わる可能性がありますが、以下の点を挙げることができます。
+
+1. データを結合する際にdf2の2行目以降を利用しているようです。pandasのレコードにはヘッダー行は含まれていないので、もしデータを1行読み飛ばすことを意図していないのであれば、以下のように記述するのが適切です。
+
+```python
+merged_df = pd.concat([df1, df2], ignore_index=True)
+```
+
+2. `os.listdir()`が返すファイルの順番は不定です。もし名前順で隣り合うファイル同士を結合することを意図しているのであれば、以下のように記述します。
+
+```python
+csv_files = [f for f in sorted(os.listdir(folder_path)) if f.endswith('.csv')]
+```
+
+もし、より詳細な要件を伝えて下されば、他の問題点を見つけることができるかもしれません。例えば、フォルダに4個以上のファイルがある場合や、フォルダに奇数個のファイルしかない場合、まったくファイルがない場合について、どのような動作を期待するかによって、適切なコードは異なるでしょう。",,,,
+sona-9.0-20261114T224303Z-008,6,a4c1d63cc491494a0e1501b8,6cd48de3d0ef0654eac737b88e15b655,sona-9.0,ja,general_knowledge,aya-dataset,human_authored,"[user] 文章からキーワードを選び、その解釈を述べなさい。 
+滋賀県は去年10月、AIを使って結婚の相手を紹介するサービスを始めました。
+サービスを利用する人は、生活の中で大事にしたいことや結婚の相手にしないでほしいことなど、100ぐらいの質問に答えます。AIがこの答えに合う相手を探して、紹介してくれます。
+県によると、今までに800人以上がサービスを利用しています。そして、県に住んでいる2組のカップルが結婚することを決めました。どちらのカップルも、付き合い始めてから3か月ぐらいです。
+県の職員は「付き合い始めてから結婚までに2年か3年かかるというデータがあります。しかし、AIで紹介した人たちがとても早く結婚することになって、驚きました」と話しています。","この文章に含まれるキーワードとその解釈は以下です。
+- AI: 1）記憶・学習・思考・判断など、人間の知能に近いはたらきをするコンピューターシステム。AI。
+- 相手: 1）ものごとをいっしょにするときの、もう一方の人。2）争ったりするときの、もう一方の側。
+- サービス: 1）人のために尽くすこと。奉仕。2）客をもてなすこと。3）直接物を作る以外の仕事。
+- 組: 1）組むこと。また、組んだもの。2）ひとそろいになること。3）そろいになった物。4）仲間。5）学級。クラス。
+- カップル: 1）夫婦や恋人のような、男と女のひと組み。
+- 付き合い: 1）親しくする。交際する。2）いっしょに、同じ行動をする。
+- 職員: 1）役所・学校・団体などに勤めている人。
+- データ: 1）考えるもとになる材料や事実。2）コンピューターで使えるように、数字や記号に置きかえられた資料。",,,,
+sona-9.0-20261114T224303Z-008,7,f45b1157697c259225f25786,0f4503b571aa0c485ce9873030af429d,sona-9.0,ko,general_knowledge,wikipedia-ko,templated_human,[user] 권영길에 대해 간단히 소개해 주세요.,"권영길(權永吉, 1941년 11월 5일~)은 대한민국의 정치인으로 제17·18대 국회의원이다.
+
+일본 야마구치현에서 태어났다. 아버지인 권우현은 빨치산 출신으로, 권영길을 낳기 5년 전인 1936년에 일본으로 이주하였다. 1941년에 권영길의 어머니인 하영애가 일본으로 건너왔으며, 권영길은 이때 태어났다. 이후 권우현과 하영애는 도쿄에서 막노동을 하며 살다가, 권영길이 다섯 살이 되는 1945년 8월 15일 일본이 제2차 세계대전에 져서 잿더미가 되자, 대한민국으로 귀국하였다.
+
+이후 권우현은 산청군에 정착하여 지역의 초등학교를 세우고 야학을 여는 등의 활동을 폈다. 여덟 살의 권영길(1948년)은 아버지가 설립한 입석국민학교(現 폐교)에 입학하였다. 권영길은 이 당시 시절을 회고하며, ""어린 시절을 생각하면 가장 먼저 떠오르는 장면이 일곱 살 때쯤, 아버지와 손을 잡고 신작로를 걷던 모습입니다.""라고 하였다.
+
+한국 전쟁이 발발하자 권우현은 빨치산 활동을 위해 지리산으로 들어갔다. 1953년 정전협정이 되고, 한국군의 대대적인 빨치산 토벌작전이 전개되었다. 권우현은 이 과정에서 사살되었다. 권영길은 자신의 진보적인 정치 활동을 ""남몰래 가슴에 새긴 아버지와의 '약속'""이라고 밝히고 있다.
+
+그뒤 산청군에서 부산으로 이사하여 유년기를 보냈으며, 1954년 부산 남부민국민학교를 졸업하고 경남중학교로 진학했다. 1957년 경남중학교를 졸업하고 바로 경남고등학교로 진학하여 1961년 경남고등학교를 졸업하고 서울대학교 농과대학 농잠학과에 진학하였다.
+
+1학년을 마친 뒤 휴학하고 육군에 자원해 현역 입대하였으며 1963년 만기제대했다..1967년 대한일보에 입사하여 기자로 활동하기도 했다. 1969년에 서울대학교 농잠학과를 졸업했다.
+
+2008년 권영길은 언론 인터뷰를 통해 1960년대 말 당시 대통령이었던 박정희를 암살하려는 비밀 조직에 참가했다고 밝혔다. 이 인터뷰의 내용은 다음과 같다.
+
+1967년 권영길은 대한일보를 퇴사한 뒤 신문사 기자, 육군사관학교 출신 군인들과 함께 '박정희 대통령 제거 활동조직'에서 활동했다. 1971년 유신 이후에는 '박정희 암살'이라는 목표를 세웠다. 이 조직은 1974년까지 활동했지만 이후 내부적으로 ""또 하나의 쿠데타 세력이 되는 것 아니냐"", ""과연 근본적 사회변화를 이뤄낼 수 있는 것이냐""는 토론을 거친 끝에 자진해산했다.
+
+권영길은 서울신문 기자출신으로 언론노조 활동을 통해 민주노조 운동에 투신했다. 서울대학교 잠사 학과를 졸업한 뒤 권영길은 한동안 언론인으로 활동했다. 1971년 서울신문사에 입사하여 기자가 되었고 1980년에는 서울신문사 재파리 특파원이 되어 프랑스에 7년간 체류, 1987년에 귀국했다. 또한 노동운동에도 참여하던 중 1987년 언론노동조합연맹 위원장으로 선출되었다.",,,,
+sona-9.0-20261114T224303Z-008,8,9c40d3f4e21f3e7e064ed419,2f9f4c57d1d38aece9dd3f0ee79a017d,sona-9.0,ko,mathematics,wikipedia-ko,templated_human,[user] 덧셈에 대해 간단히 소개해 주세요.,"덧셈은 산술의 기본 연산 중의 하나로, 두 개의 수를 받아 한 개의 수를 계산하는 이항 연산이다. 반대되는 연산은 뺄셈이다. 현대 수학에서는 덧셈을 나타내는 기호로 더하기표(+)를 쓴다.
+
+두 자리 수 이상의 자연수를 더할 때, 같은 자리의 숫자끼리의 합이 10 이상이 되면 받아올림이 필요하다. 예를 들어 를 계산할 때, 먼저 일의 자리 숫자끼리 계산하면 16이 되므로 6을 일의 자리 숫자에 적고, 1을 받아올린다. 그리고 십의 자리 숫자끼리 계산할 때 일의 자리에서 받아올린 수까지 함께 더하여 8이 되므로 8을 십의 자리 숫자에 적는다.
+
+덧셈은 자연수, 정수, 유리수, 실수, 복소수 등 정의역에 따라 다르게 정의할 수 있다.
+
+자연수 집합에 0을 추가한 집합 에 대해서, 덧셈은 다음과 같이 귀납적으로 정의된다.
+
+임의의 자연수는 0 또는 다른 자연수의 다음 자연수이므로, 임의의 의 오른쪽에 자연수를 더하는 것은 항상 두 경우 중 하나와 일치한다. 자연수 덧셈의 교환법칙과 결합법칙은 수학적 귀납법을 통해 증명할 수 있다.
+
+두 정수를 각각 자연수의 차 , 로 표현할 때 (, , , 는 자연수), 정수의 합은 으로 정의한다. 이때, 와 는 자연수에서 정의된 덧셈의 결과이다.
+
+유리수에서는 덧셈을 다음과 같이 정의한다. 두 유리수를 정수의 비 ,  (, , , 는 정수이고 와 는 0이 아니다) 로 표현할 때, 유리수의 합은 다음과 같다.
+
+분수는 유리수의 표기법이므로, 이 정의를 사용하여 분수의 덧셈을 할 수 있다. 예를 들어, 이다.
+
+실수를 유리수의 완비 거리 공간으로 생각하였을 때, 각 실수는 유리수의 코시 열의 극한값이다. 두 실수 , (은 유리수의 코시 열) 에 대해 실수의 합은 각 유리수열에 대해 항 별로 덧셈을 하여 극한을 취한 결과인 으로 정의한다.
+
+복소수의 덧셈은 실수부와 허수부를 각각 더한 결과로 정의한다. 두 복소수 ,  (는 실수)에 대해, 복소수의 합은 으로 정의한다. 이때 는 실수에서 정의된 덧셈의 결과이다.
+
+소수의 덧셈은 다음과 같다. 소수점이 같은 위치에 오도록 적고, 한 수에만 빈 자리가 있으면 그 자리에 0을 적는다. 그 다음에는 자연수의 덧셈과 마찬가지로 같은 자리의 숫자까리 더하되 필요한 경우 받아올림을 한다. 소수점은 더한 수와 같은 위치에 찍는다. 예를 들어 45.1 + 4.34는 다음과 같이 계산한다.
+
+덧셈에서는 교환법칙이 성립한다. 이는 덧셈을 할 때 피연산자의 배치 순서를 바꾸어도 항상 같은 결과를 얻는다는 것을 의미한다. 즉, 모든 에 대해
+
+덧셈에서는 결합법칙도 성립한다. 이는 세 피연산자에 대해 덧셈을 할 때 어떤 쌍을 처음 더한 후 다른 하나를 더할 때 항상 같은 결과를 얻는다는 것을 의미한다. 즉, 모든 , , 에 대해",,,,
+sona-9.0-20261114T224303Z-008,9,9222bddc9c4d511ca92efb41,84a70c28ec9b2d81a63985b2d3bad5e1,sona-9.0,ko,research,tydiqa-goldp,human_authored,"[user] 대한민국 제18대 대통령 선거</b>는 대한민국의 제18대 대통령을 선출하기 위한 선거로 2012년 12월 19일에 실시되었다. 선거 결과, 새누리당의 박근혜 후보가 1987년 헌법 개정 이후 최초로 과반 이상(51.6%, 15,773,128표)의 득표를 통해 당선됨으로써 대한민국 역사상 최초의 여성 대통령이 되었다.[1] 또한 전임 대통령이었던 이명박이 새누리당에서 탈당하지 않음에 따라 1987년 이후 처음으로 같은 당적의 인물들이 대통령을 이어가게 되었다.[2]
+
+대한민국의 제 18대 대통령은 누구인가요?","누리당의
+
+선거 결과, 새누리당의 박근혜 후보가 1987년 헌법 개정 이후 최초로 과반 이상(51.6%, 15,773,128표)의 득표를 통해 당선됨으로써 대한민국 역사상 최초의 여성 대통령이 되었다.[1] 또한 전임 대통령이었던 이명박이 새누리당에서 탈당하지 않음에 따라 1987년 이후 처음으로 같은 당적의 인물들이 대통령을 이어가게 되었다.[2]",,,,
+sona-9.0-20261114T224303Z-008,10,38778785f767ecfe8ea3c3e4,a8d3f0236c4fda47c12c7b3bfeec8417,sona-9.0,nl,general_knowledge,oasst2,human_authored,"[user] Hoe noemen we een moeilijke zin zoals ""De kat krabt de krollen van de trap""?
+
+[assistant] Dit is een goed voorbeeld van een tongbreker.
+
+[user] Waarom heten deze soort zinnen tongbrekers? En kan je meerdere voorbeelden van zulke tongbrekers geven?","Omdat een mens bij het spreken de tong beweegt, wordt voor deze moeilijk uit te spreken zinnen als grap gezegd dat ze de tong als het ware breken.
+
+Voorbeelden van tongbrekers zijn:
+
+* De kok snijdt scheef, maar de knecht snijdt recht.
+* De knappe knecht van de knappe kapper knipt en kapt nog knapper dan de knappe kapper knipt en kapt.
+* Moeder snijdt zeven scheve sneden brood.",,,,
+sona-9.0-20261114T224303Z-008,11,89fb5457682bb33dacd34faa,f39b98d6a3d1ca57491d67620a615cfd,sona-9.0,nl,writing,aya-dataset,human_authored,[user] Schrijf een willekeurige blogartikel.,"Hotspots in Maastricht: onze favoriete restaurants in Maastricht! 
+
+Maastricht zit vol met hotspots! Een bezoekje aan de meeste zuidelijke stad van Nederland voelt altijd aan als een mini vakantie. Nee, hier ben je niet meer in Nederland, want waan je je in Frankrijk of België en geniet je van heerlijk bourgondisch eten. In dit blog vertellen we je alles over onze favoriete hotspots in Maastricht!
+
+Maastricht 13
+
+Maastricht 12
+
+
+Weekendje Maastricht want 1 jaar getrouwd!
+
+Al ruim vijf jaar zijn we niet meer in Maastricht geweest en dus is het hoog tijd om weer eens naar het zuiden af te reizen. En dat valt zeker niet tegen! Wat is Maastricht toch een geweldige stad. En wat is er veel veranderd en zijn er veel hotspots, winkels en restaurants bijgekomen de laatste jaren.
+
+Omdat we op 18 september één jaar getrouwd zijn, zijn we op zoek naar een leuke plek voor een nachtje weg. Aanvankelijk willen we graag terug naar onze trouwlocatie in Frankrijk, maar als dat niet mogelijk blijkt te zijn, besluiten we om een zo Frans mogelijke locatie in Nederland op te zoeken. En dat wordt Maastricht! Wel zo fijn om met mijn zwangere buik (30 weken ondertussen) niet uren in de auto te hoeven zitten ;-). Maar het voelt wel alsof we er echt even helemaal uit zijn!
+
+Maastricht 3
+
+Maastricht 7
+
+
+Maastricht: de stad waar we gestudeerd hebben
+
+Ries en ik hebben in Maastricht gestudeerd, maar dat is al ruim 10 jaar geleden. En sindsdien zijn we nog best vaak teruggegaan, alleen de laatste jaren is het er niet van gekomen.
+
+In de twee dagen die we hier hebben gaan we terug langs alle oude locaties waar we 10 jaar geleden veel kwamen. We lopen langs de huizen waar we gewoond hebben, glippen de Universiteit Bibliotheek in (ik word hier met mijn dikke buik best een beetje vreemd aangekeken) en halen herinneringen op aan de avondjes stappen die we hier hebben gehad. Voor de echte Maastricht kenners: we zijn een half uur opzoek naar de befaamde kroeg de Alla, maar die lijkt verdwenen te zijn.Maastricht
+De leukste hotspots van Maastricht: winkels, restaurants & delicatesse
+
+Maar dit is niet alleen een trip down memory lane! We bezoeken ook heel veel nieuwe leuke plekken. En komen al snel tot de conclusie dat het maar goed is dat we niet nu in deze leuke stad studeren want dan zou al onze studiefinanciering rechtstreeks opgaan bij de vele hotspots. We zouden ons sowieso niet kunnen inhouden om veel te veel koffie te kopen bij  die hippe coworking space, en elk weekend los te gaan met lekkere wijn en kazen bij die nieuwe delicatessezaak. Maar in deze twee dagen zijn die limitaties er niet en dus eten, drinken, genieten en ontdekken we ons in de rondte! En hierbij het resultaat: de leukste hotspots van Maastricht!
+
+En mis jij nou plekken? Laat het ons dan weten! In mei gaan goede vrienden van ons trouwen in Maastricht en gaan we een lang weekend terug om de liefde te vieren. En dan vinden we vast wel tijd om nog meer plekjes te ontdekken!Maastricht 11
+Hotspots Maastricht: heerlijke restaurants & koffiezaakjes!
+
+Het bourgondische leven lijkt wel te zijn uitgevonden in Maastricht. Er zijn tientallen goede restaurants. Hieronder een kleine selectie!
+Le Fernand – Frans eten én heerlijke wijnen: ons lievelings restaurant in Maastricht!
+
+Le Fernand staat bij ons met stip op nummer 1! In dit mooie restaurant waan je je midden in Parijs. Maar dan met heel aardige obers! Men serveert lekkere kazen, oesters en andere schaal en schelpdieren en verder typisch Franse gerechten. Ries ging (natuurlijk) voor de tonijn, ik koos voor een uitgebreid kaasplateau mét hun beroemde gekruide frietjes! Op de kaart staan vele goede (Franse) wijnen en volgens Ries was de Luberon heerlijk. Hier gaan we na mijn zwangerschap sowieso terug om te smullen van de oesters! Let op: reserveren niet mogelijk. Klik hier voor de locatie van dit restaurant in Maastricht.
+
+Maastricht 18
+
+Maastricht 17
+
+
+Vino and Friends – Italiaans
+
+Heb je zin in goed Italiaans eten? Reserveer dan (minimaal een paar weken van tevoren) een tafeltje bij Vino and Friends. Je kiest hier uit een drie, vier of zeven gangen menu, waarbij de eerste gang bestaat uit vijf kleine voorgerechtjes. En die zijn heerlijk! Naast een restaurant heeft men ook een eigen wijngaard (Wijngoed Lenoire) net buiten de stad. Naast de eigen wijn, wordt ook lekkere Italiaanse wijn geserveerd.
+
+Het eten was echt geweldig hier, maar doordat er een grote groep was, moesten we soms iets langer wachten op een volgend gerecht. Tip: geef bij de reservering aan dat je aan een lage tafel wil zitten. Een hele avond aan een hoge tafel zit net wat minder comfortabel. Klik hier voor de locatie van dit restaurant in Maastricht.
+
+Maastricht 16
+
+Maastricht 15
+
+
+Café Sjiek – echt Zuid-Limburgs eten!
+
+We geven het toe, van buiten ziet dit restaurant er niet echt top uit, eerder als een bruine kroeg. Maar geloof ons, deze hotspots in Maastricht is dé plek waar je echt het allerlekkerste Zuid-Limburgse streekgerechten krijgt! Denk aan zoervleis (stoofvlees), steak tartaar en zuurkoolschotel. De porties zijn groot en prijzen zijn heel schappelijk, in onze studententijd konden we ons dit ook (af en toe) veroorloven. Houd er rekening mee dat je niet kan reserveren en het hier flink druk kan zijn. Wel heel gezellig hoor, je eet met z’n allen aan lange tafels en daar is niets mis mee. Klik hier voor de locatie van dit restaurant in Maastricht.
+
+Maastricht 5
+
+Maastricht 2
+
+
+Hotspots Maastricht: Ontbijt, Brunch, Lunch, taart & koffiezaakjes!
+
+On the hunt voor de lekkerste brunches kwamen we de volgende plekken tegen. Sommige al bestaan al jaren, anderen zijn nét nieuw!
+Piece of Cake – ontbijt, brunch, lunch én taartjes!
+
+Piece of Cake is al jaren een begrip in Maastricht. Je geniet hier (zoals de naam al zegt) van heerlijke taarten. Maar daarnaast kun je hier ook goed ontbijten, lunchen en heeft men een high tea optie! De zaak, die in 2019 verhuisd is naar de Bosschestraat, is van binnen een en al hoge plafonds, Engelse theekopjes en gezellige zitjes. Dit is echt de perfecte plek om in het weekend uitgebreid te brunchen! Maak wel op tijd een reservering, het zit hier vaak vol! Klik hier voor de locatie van dit restaurant in Maastricht.
+
+Maastricht 9
+KOFFIE – hippe co-working space & koffiezaak
+
+Waar wij vroeger vieze koffie in de Universiteit Bibliotheek (de UB) dronken tijdens het studeren, hebben de huidige studenten een veel betere plek! Namelijk bij de hippe koffiezaak KOFFIE. Hier geniet je van steengoede koffie en lekkere lunch, zittend aan lange tafels omringd door andere studenten of mensen die achter hun laptop werken. De aangrenzende concept store Le Marais Deux  is ook zeker de moeite waard. Houd er echter wel rekening mee dat je portemonnee het hier zwaar te verduren krijgt.  Klik hier voor de locatie van deze co-working space in Maastricht.
+
+Maastricht 19
+
+Maastricht 20
+
+
+Patisserie Smores – gebakjes & lemon merengue taart!
+
+Tijdens een bezoekje aan de meest Franse stad van Nederland kon voor mij het eten van mijn lievelings Franse gebakje ook niet ontbreken. En dus gingen we op zoek naar een patisserie die Lemon Merengue taartjes verkocht. We kwamen uit bij Patisserie Smores, en potverdorrie wat verkoopt men hier lekkere dingen. In het zonnetje op een bank voor de zaak genoot ik hier van mijn citroentaartje en had ik er stiekem nog wel een gelust. Klik hier voor de locatie van deze hotspot in Maastricht.
+Confetti- kinderwinkel en koffiezaak in één
+
+Geen kinderen? Sla dit plekje dan nog maar even over. Maar ben jij een weekendje weg met kleintje(s), dan is Confetti zeker een aanrader! Deze kinderwinkel en koffiezaak in één is een fijne plek om even bij te komen terwijl je koters naar hartenlust kunnen spelen. Poppenhuizen, keukentjes, auto’s, blokken en meer dan genoeg tekenspullen zorgen ervoor dat jij even rustig kunt lunchen. Men serveert naast koffie ook pannenkoeken, broodjes, taart en meer dan genoeg kindvriendelijke gerechten.
+
+bWij bezochten deze plek vooral vanwege de bijbehorende kinderwinkel, maar zien onszelf hier over een tijdje zeker met ons zoontje zitten. Klik hier voor de locatie van deze hotspot in Maastricht.Maastricht 10
+Dominicanen kerk Coffeelovers – Koffie tussen de boeken in een prachtige kerk!
+
+De Dominicanen kerk ligt midden in het centrum van Maastricht, op de looproute tussen het Vrijthof en de Markt. Deze mooie oude kerk is tegenwoordig een grote boekhandel en er is werkelijk waar niets knussers op een herfstdag dan hier tussen alle duizenden boeken struinen.
+
+Helemaal achterin bevindt zich ook een filiaal van de Maastrichtse koffieketen Coffeelovers. Hier kun je rustig met een aantal boeken van een koffie genieten, te midden van de geweldige ambiance van deze middeleeuwse kerk. Houd er rekening mee dat dit een drukke plek in het weekend is, maar doordeweeks is het hier minder vol. Klik hier voor de locatie van deze koffiezaak en boekhandel in een!Maastricht 8
+Delicatessezaak: Le Salonard
+
+Oké, in deze delicatessezaak ga je weliswaar niet echt zitten te eten, maar dit is zo een leuk plekje dat we hem je niet willen onthouden. Hier koop je fantastische wijnen, heerlijke kazen, oesters, broden en gebakjes, maar ook belegde broodjes. Ook kun je allerlei lekkers online bestellen en laten thuisbezorgen. 
+
+Daarnaast organiseert men Private Dining ervaringen op hele unieke locaties. Zo kon je afgelopen zomer dineren in de wijngaard op de St Pieter! Romantische én Franser kan bijna niet! Klik hier voor de locatie van deze delicatessezaak in Maastricht.Maastricht 21
+Hotspots Maastricht: barretjes, cocktails en wijn
+
+Op de hoek van iedere straat vind je wel een café in Maastricht. En daar hebben we er tijdens onze studententijd veel van bezocht! Maar hieronder vind je drie andere type barren in Maastricht, geen bruine kroegen of studenten clubs, maar leuke speciale plekjes.
+Café Zondag
+
+Café Zondag zit op de hoek van de Rechtstraat, een van de leukste winkelstraten in de wijk Wyck. Het is een heerlijk no-nonsense café/restaurant waar je de hele dag (én avond) terecht kan. Je vindt hier simpele ontbijt en lunchgerechten, maar ook een aantal hoofdgerechten die ’s avonds geserveerd worden. Allemaal voor een super nette prijs! Na het avondeten moet je zeker blijven hangen want dan verandert dit restaurant in een gezellige bar. Ik weet zeker dat je aan het eind van de avond met je nieuwe Limburgse vrienden buiten aan het proosten bent! In het weekend zijn er overigens ook vaak exposities en DJ’s die optreden. Klik hier voor de locatie van deze hotspot in Maastricht.
+
+cafe zondag2
+    Image source: Visitmaastricht.com 
+
+cafe zondag
+
+
+Take Five – betaalbare wijn, biertjes en cocktails met fijne vibe
+
+Net als Café Sjiek, bestaat ook Take Five al heel lang en kwamen wij hier 10 jaar geleden al vaak. In deze volledig zwarte bar drink je in een fijne sfeer lekkere cocktails en goede wijn die heel betaalbaar is. Overdag kun je er ook terecht voor koffie en zal je nog best wel wat mensen achter hun laptop zien zitten te werken. Deze plek is laagdrempeliger dan een cocktailbar, maar chiquer dan een café. De sfeer is moeilijk te beschrijven maar klopt gewoon!  Klik hier voor de locatie van deze bar in Maastricht.
+Mr. Smith – de leukste cocktailbar van Maastricht 
+
+Mr. Smith is absoluut de tofste cocktailbar van heel Maastricht. In de Rechtstraat in Wyck vind je deze chique cocktailbar met een gentlemen’s club vibe. Om binnen te komen moet je aanbellen bij nummer 55 (let op, van buiten af heb je geen idee dat hier een bar zit), waarna je naar de kelder geleid wordt. Hier vind je grote lounge chairs, fijne muziek en een indrukwekkend aanbod aan cocktails. Én mijn lievelingselement: popcorn voor bij je drankje! Waarom heeft niet elke bar dit?! Laat je adviseren door een van de cocktailshakers en geniet van een heerlijke avond. Tip: reserveren is hier een must, ze zitten vaak vol! Klik hier voor de locatie van deze bar in Maastricht.",,,,
+sona-9.0-20261114T224303Z-008,12,233991a1284ccd0115208978,08c34fdc6dffb3f905be28d2877d0027,sona-9.0,pa,general_knowledge,aya-dataset,human_authored,"[user] ਕਿਰਪਾ ਕਰਕੇ ਇਸ ਬਾਰੇ ਵਿਸਥਾਰ ਵਿੱਚ ਦੱਸੋ ਕਿ ਹੇਠਾਂ ਦਿੱਤੇ ਦਾ ਕੀ ਅਰਥ ਹੈ।
+""ਮਾਝ ਮਹਲਾ ੫ ॥ਖੋਜਤ ਖੋਜਤ ਦਰਸਨ ਚਾਹੇ ॥ਭਾਤਿ ਭਾਤਿ ਬਨ ਬਨ ਅਵਗਾਹੇ ॥ਨਿਰਗੁਣੁ ਸਰਗੁਣੁ ਹਰਿ ਹਰਿ ਮੇਰਾ ਕੋਈ ਹੈ ਜੀਉ ਆਣਿ ਮਿਲਾਵੈ ਜੀਉ ॥੧॥ਖਟੁ ਸਾਸਤ ਬਿਚਰਤ ਮੁਖਿ ਗਿਆਨਾ ॥ਪੂਜਾ ਤਿਲਕੁ ਤੀਰਥ ਇਸਨਾਨਾ ॥ਨਿਵਲੀ ਕਰਮ ਆਸਨ ਚਉਰਾਸੀਹ ਇਨ ਮਹਿ ਸਾਂਤਿ ਨ ਆਵੈ ਜੀਉ ॥੨॥ਅਨਿਕ ਬਰਖ ਕੀਏ ਜਪ ਤਾਪਾ ॥ਗਵਨੁ ਕੀਆ ਧਰਤੀ ਭਰਮਾਤਾ ॥ਇਕੁ ਖਿਨੁ ਹਿਰਦੈ ਸਾਂਤਿ ਨ ਆਵੈ ਜੋਗੀ ਬਹੁੜਿ ਬਹੁੜਿ ਉਠਿ ਧਾਵੈ ਜੀਉ ॥੩॥ਕਰਿ ਕਿਰਪਾ ਮੋਹਿ ਸਾਧੁ ਮਿਲਾਇਆ ॥ਮਨੁ ਤਨੁ ਸੀਤਲੁ ਧੀਰਜੁ ਪਾਇਆ ॥ਪ੍ਰਭੁ ਅਬਿਨਾਸੀ ਬਸਿਆ ਘਟ ਭੀਤਰਿ ਹਰਿ ਮੰਗਲੁ ਨਾਨਕੁ ਗਾਵੈ ਜੀਉ ॥੪॥੫॥੧੨॥""","ਇਹ ਸ੍ਰੀ ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ ਜੀ ਦੇ ਪੰਨਾ 98 ਤੋਂ ਲਿਆ ਗਿਆ ਹੈ। ਗੁਰੂ ਅਰਜਨ ਦੇਵ ਜੀ ਇਹਨਾਂ ਬਾਣੀਆਂ ਦੇ ਲਿਖਾਰੀ ਹਨ।
+ਇਸ ਨੂੰ ਹੇਠ ਲਿਖੇ ਅਨੁਸਾਰ ਵਿਖਿਆਨ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ,
+""ਅਨੇਕਾਂ ਲੋਕ (ਜੰਗਲਾਂ ਪਹਾੜਾਂ ਵਿਚ) ਭਾਲ ਕਰਦੇ ਕਰਦੇ (ਪਰਮਾਤਮਾ ਦੇ) ਦਰਸਨ ਦੀਆਂ ਤਾਂਘਾਂ ਕਰਦੇ ਹਨਕਈ ਕਿਸਮਾਂ ਦੇ ਜੰਗਲ ਗਾਹ ਮਾਰਦੇ ਹਨ (ਪਰ ਇਸ ਤਰ੍ਹਾਂ ਪਰਮਾਤਮਾ ਦਾ ਦਰਸਨ ਨਹੀਂ ਹੁੰਦਾ) ਉਹ ਪਰਮਾਤਮਾ ਮਾਇਆ ਦੇ ਤਿੰਨ ਗੁਣਾਂ ਤੋਂ ਵੱਖਰਾ ਭੀ ਹੈ ਤੇ ਤਿੰਨ-ਗੁਣੀ ਸੰਸਾਰ ਵਿਚ ਵਿਆਪਕ ਭੀ ਹੈ । ਕੋਈ ਵਿਰਲਾ ਐਸਾ ਹੈ, ਜੋ ਉਸ ਨੂੰ ਲਿਆ ਕੇ ਮਿਲਾ ਸਕਦਾ ਹੈ ।੧।ਕਈ ਐਸੇ ਹਨ ਜੋ ਛੇ ਸ਼ਾਸਤ੍ਰਾਂ ਨੂੰ ਵਿਚਾਰਦੇ ਹਨ ਤੇ ਉਹਨਾਂ ਦਾ ਉਪਦੇਸ਼ ਮੂੰਹ ਨਾਲ (ਸੁਣਾਂਦੇ ਹਨ),ਦੇਵ-ਪੂਜਾ ਕਰਦੇ ਹਨ ਮੱਥੇ ਤੇ ਤਿਲਕ ਲਾਂਦੇ ਹਨ, ਤੀਰਥਾਂ ਦੇ ਇਸ਼ਨਾਨ ਕਰਦੇ ਹਨ ਕਈ ਐਸੇ ਹਨ ਜੋ ਨਿਵਲੀ ਕਰਮ ਆਦਿਕ ਜੋਗੀਆਂ ਵਾਲੇ ਚੌਰਾਸੀ ਆਸਣ ਕਰਦੇ ਹਨ । ਪਰ ਇਹਨਾਂ ਉੱਦਮਾਂ ਨਾਲ (ਮਨ ਵਿਚ) ਸ਼ਾਂਤੀ ਨਹੀਂ ਆਉਂਦੀ ।੨।ਜੋਗੀ ਲੋਕ ਅਨੇਕਾਂ ਸਾਲ ਜਪ ਕਰਦੇ ਹਨ, ਤਪ ਸਾਧਦੇ ਹਨ; ਸਾਰੀ ਧਰਤੀ ਉਤੇ ਭ੍ਰਮਣ ਭੀ ਕਰਦੇ ਹਨ (ਇਸ ਤਰ੍ਹਾਂ ਭੀ) ਹਿਰਦੇ ਵਿਚ ਇਕ ਖਿਨ ਵਾਸਤੇ ਭੀ ਸ਼ਾਂਤੀ ਨਹੀਂ ਆਉਂਦੀ । ਫਿਰ ਭੀ ਜੋਗੀ ਇਹਨਾਂ ਜਪਾਂ ਤਪਾਂ ਦੇ ਪਿੱਛੇ ਹੀ ਮੁੜ ਮੁੜ ਦੌੜਦਾ ਹੈ ।੩।ਪਰਮਾਤਮਾ ਨੇ ਕਿਰਪਾ ਕਰ ਕੇ ਮੈਨੂੰ ਗੁਰੂ ਮਿਲਾ ਦਿੱਤਾ ਹੈ ਗੁਰੂ ਪਾਸੋਂ ਮੈਨੂੰ ਧੀਰਜ ਮਿਲੀ ਹੈ, ਮੇਰਾ ਮਨ ਠੰਢਾ-ਠਾਰ ਹੋ ਗਿਆ ਹੈ ਮੇਰਾ ਤਨ ਠੰਢਾ-ਠਾਰ ਹੋ ਗਿਆ ਹੈ (ਮੇਰੇ ਮਨ ਤੇ ਗਿਆਨ-ਇੰਦ੍ਰਿਆਂ ਵਿਚੋਂ ਵਿਕਾਰਾਂ ਦੀ ਤਪਸ਼ ਮੁੱਕ ਗਈ ਹੈ) (ਗੁਰੂ ਦੀ ਮਿਹਰ ਨਾਲ) ਅਬਿਨਾਸ਼ੀ ਪ੍ਰਭੂ ਮੇਰੇ ਹਿਰਦੇ ਵਿਚ ਆ ਵੱਸਿਆ ਹੈ । ਹੁਣ (ਇਹ ਦਾਸ) ਨਾਨਕ ਪਰਮਾਤਮਾ ਦੀ ਸਿਫ਼ਤਿ-ਸਾਲਾਹ ਦਾ ਗੀਤ ਹੀ ਗਾਂਦਾ ਹੈ (ਇਹ ਸਿਫ਼ਤਿ-ਸਾਲਾਹ ਪ੍ਰਭੂ-ਚਰਨਾਂ ਵਿਚ ਜੋੜੀ ਰੱਖਦੀ ਹੈ) ।੪।੫।੧੨।""",,,,
+sona-9.0-20261114T224303Z-008,13,4664792969dd3ae668106abc,70e793721677b51f48e4ece4237166b7,sona-9.0,pa,mathematics,aya-dataset,human_authored,[user] ਜੈਵਿਕ ਵਧਾਓ ਕੀ ਹੈ ? ਕੀ ਪਰਿਸਥਿਤਿਕ ਪ੍ਰਬੰਧ ਦੇ ਭਿੰਨ ਪੱਧਰਾਂ ਉੱਤੇ ਜੈਵਿਕ ਵਧਾਓ ਦਾ ਪ੍ਰਭਾਵ ਵੀ ਵੱਖ-ਵੱਖ ਹੋਵੇਗਾ ?,"ਜੈਵਿਕ ਵਧਾਓ – ਵੱਖ-ਵੱਖ ਸਾਧਨਾਂ ਦੁਆਰਾ ਹਾਨੀਕਾਰਕ ਰਸਾਇਣਾਂ ਦਾ ਸਾਡੀ ਭੋਜਨ ਲੜੀ ਵਿਚ ਪ੍ਰਵੇਸ਼ ਕਰਨਾ ਅਤੇ ਉਨ੍ਹਾਂ ਦਾ ਸਾਡੇ ਸਰੀਰ ਵਿਚ ਗਾੜ੍ਹਾ ਹੋਣ ਦੀ ਪ੍ਰਕਿਰਿਆ ਨੂੰ ਜੈਵਿਕ-ਵਧਾਓ ਕਹਿੰਦੇ ਹਨ । ਇਨ੍ਹਾਂ ਰਸਾਇਣਾਂ ਦਾ ਸਾਡੇ ਸਰੀਰ ਵਿਚ ਪ੍ਰਵੇਸ਼ ਵੱਖ-ਵੱਖ ਢੰਗਾਂ ਰਾਹੀਂ ਹੋ ਸਕਦਾ ਹੈ ।
+
+ਅਸੀਂ-ਫਸਲਾਂ ਨੂੰ ਰੋਗਾਂ ਤੋਂ ਬਚਾਉਣ ਲਈ ਕੀਟ ਨਾਸ਼ਕ, ਪੀੜਕ ਨਾਸ਼ਕ ਆਦਿ ਰਸਾਇਣਾਂ ਦਾ ਛਿੜਕਾਓ ਕਰਦੇ ਹਾਂ । ਇਨ੍ਹਾਂ ਦਾ ਕੁੱਝ ਭਾਗ ਮਿੱਟੀ ਦੁਆਰਾ ਭੂਮੀ ਵਿਚ ਰਿਸ ਜਾਂਦਾ ਹੈ ਜਿਸ ਨੂੰ ਪੌਦੇ ਜੜ੍ਹਾਂ ਦੁਆਰਾ ਖਣਿਜਾਂ ਦੇ ਨਾਲ ਗ੍ਰਹਿਣ ਕਰ ਲੈਂਦੇ ਹਨ । ਇਹੀ ਪੌਦਿਆਂ ਦੀ ਵਰਤੋਂ ਨਾਲ ਇਹ ਰਸਾਇਣ ਸਾਡੇ ਸਰੀਰ ਵਿੱਚ ਪ੍ਰਵੇਸ਼ ਕਰ ਜਾਂਦੇ ਹਨ ਅਤੇ ਪੌਦਿਆਂ ਦੇ ਲਗਾਤਾਰ ਸੇਵਨ ਨਾਲ ਸਾਂਦਰਤਾ ਵਧਦੀ ਜਾਂਦੀ ਹੈ ਜਿਸਦੇ ਨਤੀਜੇ ਵਜੋਂ ਜੈਵਿਕ ਵਧਾਓ ਦਾ ਵਿਸਥਾਰ ਹੁੰਦਾ ਹੈ ।
+
+ਮਨੁੱਖ ਸਰਬ-ਆਹਾਰੀ ਹੈ
+ਮਨੁੱਖ ਸਰਬ-ਆਹਾਰੀ ਹੈ । ਉਹ ਪੌਦਿਆਂ ਅਤੇ ਜੰਤੂਆਂ ਦੋਵਾਂ ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ ਅਤੇ ਕਈ ਭੋਜਨ-ਲੜੀਆਂ ਵਿਚ ਸਥਾਨ ਗ੍ਰਹਿਣ ਕਰ ਸਕਦਾ ਹੈ । ਇਸ ਕਾਰਨ ਮਨੁੱਖ ਵਿੱਚ ਰਸਾਇਣਿਕ ਪਦਾਰਥਾਂ ਦਾ ਪ੍ਰਵੇਸ਼ ਅਤੇ ਗਾੜ੍ਹਾ ਹੋਣਾ ਬਹੁਤ ਜਲਦੀ ਹੁੰਦਾ ਹੈ ਅਤੇ ਜੈਵਿਕ ਵਧਾਓ ਦਾ ਵਿਸਥਾਰ ਹੁੰਦਾ ਹੈ ।
+ਉਦਾਹਰਨ–ਉੱਤਰੀ ਅਮਰੀਕਾ ਵਿੱਚ ਮਿਸ਼ੀਗਨ ਝੀਲ ਦੇ ਆਸਪਾਸ ਮੱਛਰਾਂ ਨੂੰ ਮਾਰਨ ਲਈ ਬਹੁਤ ਜ਼ਿਆਦਾ ਡੀ.ਡੀ.ਟੀ. ਦਾ ਛਿੜਕਾਵ ਕੀਤਾ ਗਿਆ ਜਿਸ ਨਾਲ ਪੇਲੀਕਨ ਨਾਂ ਦੇ ਪੰਛੀਆਂ ਦੀ ਗਿਣਤੀ ਬਹੁਤ ਘੱਟ ਹੋ ਗਈ । ਵਾਤਾਵਰਨ ਦੇ ਜਾਣਕਾਰਾਂ ਦੁਆਰਾ ਪਾਇਆ ਗਿਆ ਕਿ ਪਾਣੀ ਵਿਚ ਪ੍ਰਤੀ ਦਸ ਲੱਖ ਕਣਾਂ ਵਿਚ 0.2 ਕਣ ਡੀ. ਡੀ. ਟੀ. (1ppm = 1/1000000) ਹੈ । ਡੀ.ਡੀ.ਟੀ. ਦੇ ਉੱਚ ਪੱਧਰ ਕਾਰਨ ਪੇਲੀਕਨ ਪੰਛੀਆਂ ਦੇ ਅੰਡਿਆਂ ਦਾ ਛਿਲਕਾ ਪਤਲਾ ਹੋ ਗਿਆ ਜਿਸ ਨਾਲ ਬੱਚਿਆਂ ਦੇ ਨਿਕਲਣ ਤੋਂ ਪਹਿਲਾਂ ਹੀ ਅੰਡੇ ਟੁੱਟ ਜਾਂਦੇ ਸਨ ।",,,,
+sona-9.0-20261114T224303Z-008,14,402034d9edf1dec53e697ff4,567e2a4f4594da4ee346bcf0228b1798,sona-9.0,pl,coding,oasst1,human_authored,[user] Jaki jest obecnie najwydajniejszy język programowania.,"Nie ma na to pytanie jednej odpowiedzi. Język programowania może być wydajny na różne sposoby: pod względem czasu, energochłonności i pamięci. Według serwisu stratoflow.com[1] do najwydajniejszych języków programowania należą C i Rust, które niewiele się od siebie pod tym względem różnią jeśli chodzi o wydajność czasu i energochłonności. Jeśli chodzi o wydajność pamięci, najwydajniejszymi językami są Pascal i Go.
+
+Źródło: https://stratoflow.com/efficient-and-environment-friendly-programming-languages/",,,,
+sona-9.0-20261114T224303Z-008,15,0cad43ace07cc8bc43006419,0ef7fd42da743b8ded06ba9432dd3006,sona-9.0,pl,general_knowledge,oasst1,human_authored,"[user] Koń jest na łańcuchu o długości 20 metrów i udało mu się dosięgnąć jabłko, które było w odległości 30 metrów od niego. Jak to zrobił?","Odpowiedź zależy od tego jak jest pozycja początkowa konia w względem jabłka. Koń ograniczony łańcuchem o długości 20 metrów może poruszać się po okręgu o średnicy 40 metrów. Jeżeli koń w momencie zadania pytania stał na krawędzi tego koła, a jabłko znajdowało się w promieniu 30 metrów od niego, wewnątrz okręgu, po którym może się swobodnie poruszać, to koń mógł tak po prostu podejść do jabłka dosięgnąć go bez żadnego problemu. Natomiast jeżeli jabłko leżałoby poza zasięgiem zdefiniowanego wcześniej okręgu, koń musiałby się okazać sprytem i pomysłowością, aby je dosięgnąć. Mógłby na przykład poczekać aż w jego otoczeniu pojawią się ludzie i spróbować przyciągnąć ich uwagę. Gdy taki zwabiony człowiek podszedłby do konia, koń mógłby dać się pogłaskać przez chwilę, a potem wymownie spoglądać to na człowieka to w stronę jabłka. Istniej spora szansa, że człowiek jako dość rozumna istota zrozumiałby intencję konia i tym samym przyczyniłby się do sukcesu konia w zdobyciu jabłka.",,,,
+sona-9.0-20261114T224303Z-008,16,1959801fa01269e7f44775ea,60b93faad0ed3c68c55eae8862c03da2,sona-9.0,pl,science,oasst2,human_authored,[user] Dlaczego wszystkie planety krążą w kierunku przeciwnym do ruchu wskazówek zegara?,"Sam kierunek okrążania Słońca, w naszym przypadku przeciwny do ruchu wskazówek zegara, jest czysto arbitralny. Gdybyśmy spojrzeli na Układ Słoneczny „od spodu”, to byłby to kierunek przeciwny, czyli zgodny z ruchem wskazówek zegara.
+
+Natomiast jeśli chodzi o to dlaczego wszystkie planety krążą po orbitach w tym samym kierunku, to ma to związek z procesem powstawania Układu Słonecznego. Zanim powstało Słońce i krążące wokół niego planety, cała tworząca je materia była kosmicznym obłokiem, składającym się z gazu i innych drobnych cząsteczek. Każdy ze składników tego obłoku posiadał jakąś swoją rotację w jedną lub drugą stronę. Chmura jako całość też posiadała pewną niezerową rotację. Gdy pod wpływem grawitacji obłok się zapadał, formowała się nasza gwiazda i planety, ruchy poszczególnych cząsteczek kumulowały się i całość zaczęła obracać się w jedną stronę.",,,,
+sona-9.0-20261114T224303Z-008,17,c5000d5ea3d07e10fd36f0a4,fb8bed320915a16c230575322f9f4543,sona-9.0,pt,coding,aya-dataset,human_authored,[user] Responda à pergunta: quem criou a linguagem de programação Rust?,"Rust foi criada pelo engenheiro de software canadense Graydon Hoare. Graydon iniciou o desenvolvimento da linguagem Rust como um projeto pessoal em 2006 enquanto trabalhava como engenheiro na empresa Mozilla. Ele apresentou o projeto da linguagem Rust para o seu gerente na Mozilla e foi autorizado a criar um time dentro da empresa para desenvolver a linguagem. Oficialmente, Rust foi anunciada para o mundo em 2010 com o objetivo de ser segura, concorrente e prática. Inicialmente, Rust foi implementada em OCaml, porém atualmente ela é desenvolvida em Rust. Em 2013, Graydon deixou o seu papel de liderança no desenvolvimento da linguagem devido a um burnout que ele estava sofrendo.",,,,
+sona-9.0-20261114T224303Z-008,18,3a764073f00be9ab7817a8ac,c6beea4bbc6ed47be24a79dff13e0f96,sona-9.0,pt,general_knowledge,aya-dataset,human_authored,[user] Cite 5 fatos sobre o IBGE.,"Segue 5 fatos sobre o IBGE:
+
+1. IBGE é a sigla do Instituto Brasileiro de Geografia e Estatística;
+
+2. É um órgão federal vinculado ao Ministério da Economia;
+
+3. Foi instituído no ano de 1934 e criado oficialmente em 29 de maio de 1936;
+
+4. Passou a se chamar IBGE somente em 1940, ano em que esse órgão realizou o primeiro Censo Demográfico da população do Brasil;
+
+5. Tem como função principal o levantamento e o fornecimento de dados sobre o território nacional e a sobre a população do Brasil, o que resulta nos censos e demais pesquisas estatísticas.",,,,
+sona-9.0-20261114T224303Z-008,19,41d96451137d86c91824fa79,f3080e648dbb77f4c78d0543ddcb00a7,sona-9.0,pt,mathematics,nemotron-math,synthetic,"[user] Express the polynomial \( f(a,b,c) = a^6 + b^6 + c^6 - abc(a^3 + b^3 + c^3) \) as a sum of squares.","The polynomial \( f(a,b,c) = a^6 + b^6 + c^6 - abc(a^3 + b^3 + c^3) \) is expressed as a sum of nine squares as follows:
+
+- For the pair \((a, b)\): \(\left( \frac{(a-b)(a+b)^2}{2} \right)^2\) and \(\left( \frac{(a-b)^2(a+b)}{2} \right)^2\)
+- For the pair \((b, c)\): \(\left( \frac{(b-c)(b+c)^2}{2} \right)^2\) and \(\left( \frac{(b-c)^2(b+c)}{2} \right)^2\)
+- For the pair \((c, a)\): \(\left( \frac{(c-a)(c+a)^2}{2} \right)^2\) and \(\left( \frac{(c-a)^2(c+a)}{2} \right)^2\)
+- Additional terms: \(\frac{1}{2} \left( a^2 (b-c) \right)^2\), \(\frac{1}{2} \left( b^2 (c-a) \right)^2\), and \(\frac{1}{2} \left( c^2 (a-b) \right)^2\)
+
+This decomposition is verified to be correct, as it matches the original polynomial at specific points and is a valid sum of squares representation.
+
+\boxed{\left( \frac{(a-b)(a+b)^{2}}{2} \right)^{2} + \left( \frac{(a-b)^{2}(a+b)}{2} \right)^{2} + \left( \frac{(b-c)(b+c)^{2}}{2} \right)^{2} + \left( \frac{(b-c)^{2}(b+c)}{2} \right)^{2} + \left( \frac{(c-a)(c+a)^{2}}{2} \right)^{2} + \left( \frac{(c-a)^{2}(c+a)}{2} \right)^{2} + \frac{1}{2} \left( a^{2} (b-c) \right)^{2} + \frac{1}{2} \left( b^{2} (c-a) \right)^{2} + \frac{1}{2} \left( c^{2} (a-b) \right)^{2}}",,,,
+sona-9.0-20261114T224303Z-008,20,b556f7b88e201d58f55cf360,1018a9ab94d297634894fdfac4885aae,sona-9.0,pt,reasoning,aya-dataset,human_authored,[user] Descreva a bandeira do Iraque.,"A bandeira do Iraque é composta por três faixas horizontais de igual largura. A faixa superior é vermelha, a faixa do meio é branca e a faixa inferior é preta. No canto central da faixa branca, há a inscrição ""Allahu Akbar"" (Deus é grande) em escrita cúfica na cor verde. A bandeira do Iraque passou por várias alterações ao longo de sua história, refletindo mudanças políticas e ideológicas.",,,,
+sona-9.0-20261114T224303Z-008,21,0506d8386b29a93755672e75,e9dd988ae0f74940a5cff50f3460fc03,sona-9.0,pt,safety_ethics,aya-dataset,human_authored,[user] O que é a cláusula pétrea na Constituição Brasileira?,"A cláusula pétrea é um artigo da Constituição Federal que não pode ser alterado. Ela é uma forma de proteger os princípios fundamentais da organização política e social do Brasil, que foram definidos pela Assembleia Constituinte de 1988, após o fim da ditadura militar.
+
+
+Existem quatro cláusulas pétreas na Constituição Brasileira, que estão previstas no artigo 60, parágrafo 4º. Elas são:
+
+
+A forma federativa de Estado, que significa que o Brasil é composto por unidades autônomas (estados, Distrito Federal e municípios) que se unem sob um governo central;
+
+O voto direto, secreto, universal e periódico, que significa que todos os cidadãos brasileiros têm o direito de escolher seus representantes e governantes por meio de eleições livres e regulares;
+
+A separação dos poderes, que significa que o Estado é dividido em três poderes independentes e harmônicos (Executivo, Legislativo e Judiciário), que exercem funções específicas e fiscalizam uns aos outros;
+
+Os direitos e garantias individuais, que significa que todos os cidadãos brasileiros têm direitos fundamentais, como a liberdade, a igualdade, a dignidade, a segurança e a justiça, que devem ser respeitados e protegidos pelo Estado;",,,,
+sona-9.0-20261114T224303Z-008,22,09053e52a6690f5104d18744,8f5f22e3d01d5fd2c9331eb8c34fcb9b,sona-9.0,pt,science,aya-dataset,human_authored,[user] Quem é Tom Clancy?,"Tom Clancy foi um escritor estadunidense conhecido por seus livros sobre espionagem e ciência militar. Seus livros foram vendidos mais de 100 milhões de vezes e inspiraram diversos filmes, séries de televisão e jogos, como Splinter Cell, Ghost Recon, The Division e Rainbow Six.  Ele é considerado o inventor do ""techno-thriller"", um gênero híbrido literário que funde ação e aventura militar, ficção de espionagem e ficção científica com realismo social, incluindo uma quantidade desproporcionada de detalhes técnicos.",,,,
+sona-9.0-20261114T224303Z-008,23,c44f97c1a254fd05a14defe3,c1f54ff5a0369ce15f5f74b11d4a1798,sona-9.0,pt,web_frontend,aya-dataset,human_authored,"[user] Quem escreveu ""Dom Quixote""?","Dom Quixote de la Mancha é um livro escrito pelo espanhol Miguel de Cervantes (1547-1616). O título e ortografia originais eram “El ingenioso hidalgo Don Quixote de La Mancha”, com sua primeira edição publicada em Madrid no ano de 1605. É composto por 126 capítulos, divididos em duas partes: a primeira surgida em 1605 e a outra em 1615.
+
+É considerada a grande criação de Cervantes. O livro é um dos primeiros das línguas europeias modernas e é considerado por muitos o expoente máximo da literatura espanhola. Em princípios de maio de 2002, o livro foi escolhido como a melhor obra de ficção de todos os tempos. A votação foi organizada pelo Clubes do Livro Noruegueses e participaram escritores de reconhecimento internacional.
+
+Nesta obra, a paródia apresenta uma forma invulgar. O protagonista, já de certa idade, entrega-se à leitura desses romances, perde o juízo, acredita que tenham sido historicamente verdadeiros e decide tornar-se um cavaleiro andante. Por isso, parte pelo mundo e vive o seu próprio romance de cavalaria.",,,,
+sona-9.0-20261114T224303Z-008,24,1d451dbc1872b68844ca9038,579bbe98c6a7948ea75995aec7c6c9ca,sona-9.0,roman_ur,mathematics,approx-curriculum,programmatic,[user] Ek right triangle ki do choti sides 16 aur 30 hain. Hypotenuse kitna hai?,"Pythagoras theorem: c² = a² + b²
+c² = 16² + 30² = 256 + 900 = 1156
+c = √1156 = 34
+
+Jawab: 34",,,,
+sona-9.0-20261114T224303Z-008,25,1206b680a4c2807a29210963,f35faf8a6a03df27407b3d65feb65687,sona-9.0,roman_ur,science,approx-curriculum,programmatic,[user] Ek gaari 3 ghanton mein 390 km chalti hai. Average speed kya hai?,"Average speed = faasla ÷ waqt = 390 ÷ 3 = 130 km/h.
+
+Jawab: 130 km/h",,,,
+sona-9.0-20261114T224303Z-008,26,2f2aff205c67e7592e34acfa,e005f3bb1770b80583f4c3d5aabd7584,sona-9.0,roman_ur,writing,roman-urdu-parl,transliteration_unverified,"[user] Is jumle ko Roman Urdu mein likhein:
+ابھی کل پرسوں اخبار میں ایک خبر نظر سے گزری پاکستان غالبا انصاف کی بدترین فراہمی والے ممالک میں شمار کیا گیا ہے جب بھی اس طرح کی کوئی درجہ بندی ہوتی ہے تو "" ملک "" کا نام آتا ہے ملک میں رہنے والوں کا نہیں","abhi kal prson akhbar mein aik khabar nazar se guzri Pakistan ghaliban insaaf ki tareekh farahmi walay mumalik mein shumaar kya gaya hai jab bhi is terhan ki ki darja bandi hoti hai to "" malik "" ka naam mein hai malik mein rehne walon ka nahi",,,,
+sona-9.0-20261114T224303Z-008,27,bfcd531a15c94e53b3987da8,afbb911de9b7fe65784eacc3606a69e5,sona-9.0,ru,coding,oasst2,human_authored,"[user] Я хочу стать программистом, но не имею опыта в этом деле. Какой язык программмирования я должен учить? Какими критериями я должен руководствовать при выборе языка программирования? Какие  есть направления в программировании? Какой из них наиболее благоприятен для новичков? Какие сущестуют распространенные ошибки в выборе языка программировании? Предостав мне информации про относительную популярность разных языков программирования и средную зарплату по языкам программирования
+
+[assistant] Отлично, что вы решили стать программистом! Начать изучение программирования может быть непросто, но с правильным подходом вы сможете достичь успеха.
+
+
+Когда вы выбираете язык программирования для изучения, важно учитывать несколько критериев:
+
+Цель: какую цель вы хотите достичь, изучая программирование? Например, если вы хотите создавать веб-сайты, то вам понадобится язык программирования, который подходит для веб-разработки, такой как JavaScript или Python.
+Сложность: некоторые языки программирования более сложны, чем другие. Если вы новичок, то вам может быть легче начать с более простых языков, таких как Python или Ruby.
+Ресурсы: наличие хороших учебных ресурсов, книг и сообщества является важным фактором. Выбирайте языки, для которых существует много учебных материалов и сообществ, которые готовы помочь новичкам.
+
+Существует множество направлений в программировании, таких как веб-разработка, мобильная разработка, научные вычисления, машинное обучение, игровая разработка и т.д. Каждое направление имеет свои особенности и использует разные языки программирования. Например, для веб-разработки используются языки, такие как HTML, CSS, JavaScript, Python, Ruby, PHP и т.д., а для машинного обучения - Python, R, Java, C++ и т.д.
+
+
+Если вы новичок, то рекомендуется начать с простых языков программирования, таких как Python или Ruby. Эти языки легки в изучении и имеют большое сообщество, которое готово помочь новичкам.
+
+
+Одна из распространенных ошибок в выборе языка программирования - это выбор языка только на основе его популярности или зарплаты, которую можно получить за работу с ним. Это не всегда является правильным подходом, так как каждый язык программирования имеет свои особенности и используется для решения определенных задач. Например, если вы хотите разрабатывать мобильные приложения, то вам нужно изучать Java или Kotlin для Android, а Swift для iOS.
+
+
+Относительная популярность языков программирования меняется со временем, но на текущий момент наиболее популярными языками являются:
+
+
+* Java
+* Python
+* JavaScript
+* C#
+* PHP
+* C++
+* Ruby
+* Swift
+* Objective-C
+* Kotlin
+* TypeScript
+* Go
+* Scala
+* Rust
+* Lua
+* Dart
+
+Относительная популярность языков программирования может зависеть от многих факторов, таких как тренды в разработке программного обеспечения, популярность платформ и фреймворков, удобство использования языка и т.д.
+
+
+Что касается средней зарплаты по языкам программирования, то она также может различаться в зависимости от многих факторов, таких как уровень квалификации, место работы, опыт и т.д. Однако, некоторые языки программирования имеют более высокую среднюю зарплату, чем другие. Например, средняя зарплата разработчика на Java, Python, C++ и JavaScript обычно выше, чем на других языках программирования.
+
+
+В любом случае, выбор языка программирования для изучения не должен зависеть только от его популярности или зарплаты, которую можно получить за работу с ним. Важно учитывать свои интересы, цели и ресурсы, которые у вас есть для изучения языка программирования.
+
+[user] Как мне выбрать направление и язык в теме программирования, если я еще не до конца определился чего пытаюсь добиться в этом деле?","Выбор направления и языка программирования может быть сложным, особенно если вы только начинаете свой путь в этой области и еще не до конца определились с тем, чего вы хотите добиться.
+
+Вот несколько рекомендаций, которые могут помочь вам определиться:
+
+1. Изучите основы нескольких языков программирования. Начните с языков, которые считаются наиболее популярными и широко используются в индустрии, таких как Python, Java, JavaScript или C++. Это поможет вам понять, какие возможности есть в программировании и какие языки могут лучше всего подходить для ваших целей.
+
+2. Рассмотрите различные направления программирования. Существует множество различных областей, в которых можно применять программирование, таких как веб-разработка, мобильная разработка, научные вычисления, машинное обучение и т.д. Изучите каждую из них, чтобы понять, какие из них вас больше всего привлекают.
+
+3. Попробуйте написать несколько программ. Начните с написания простых программ, которые помогут вам понять основы языка программирования. Постепенно усложняйте задачи и изучайте новые концепции.
+
+4. Общайтесь с другими программистами. Присоединитесь к сообществам программистов в социальных сетях или форумах и общайтесь с другими программистами. Это поможет вам получить ценные советы и рекомендации от опытных людей.
+
+Наконец, не забывайте, что выбор языка программирования и направления зависит от ваших личных интересов и целей. Найдите то, что вас вдохновляет, и продолжайте изучать и развиваться в этом направлении.",,,,
+sona-9.0-20261114T224303Z-008,28,094dc3b292fa216886cc1ee4,48738d38afc2707bcf4fe56d1d01085f,sona-9.0,ru,education,oasst2,human_authored,"[user] Сегодня для тебя у меня есть особая задача - транслитерация!
+Это когда мы заменяем буквы одного языка на буквы другого языка. То есть, если мы хотим написать слово на английском языке, используя русские буквы, то можно использовать транслитерацию.
+
+Примеры:
+
+1. ""Hello, World!"" - ""Хеллоу, Ворлд!""
+2. ""Goodbye"" - ""Гудбай""
+3. ""Thank you"" - ""Сэнк ю""
+4. ""How are you?"" - ""Хау ар ю?""
+5. ""I love you"" - ""Ай лав ю""
+
+Более сложные примеры:
+
+1. ""The quick brown fox jumps over the lazy dog"" - ""Зе куик браун фокс джампс овер зе лэйзи дог""
+2. ""To be or not to be, that is the question"" - ""Ту би ор нот ту би, зэт из зэ квэстчн""
+3. ""A long time ago in a galaxy far, far away..."" - ""Э лонг тайм эго ин э гэлэкси фар, фар авэй...""
+4. ""Say hello to my little friend"" - ""Сэй хэллоу ту май литл фрэнд""
+5. ""All your base are belong to us"" - ""Ол ёр бэйс ар билонг ту ас""
+
+Твои задания:
+
+1. Транслитерируй фразу ""A dream you dream alone is only a dream. A dream you dream together is reality"" на русский язык.
+2. Транслитерируй фразу ""The greatest glory in living lies not in never falling, but in rising every time we fall"" на русский язык.
+3. Транслитерируй фразу ""In three words I can sum up everything I've learned about life: it goes on"" на русский язык.
+4. Транслитерируй фразу ""Life is a journey, and if you fall in love with the journey, you will be in love forever"" на русский язык.
+5. Транслитерируй фразу ""Yesterday is history, tomorrow is a mystery, but today is a gift. That is why it is called the present"" на русский язык.
+
+P.S. Также можно и в обратную сторону. Я научу тебя этому чуть позже, а сейчас выполни задания.","Конечно, вот транслитерация указанных фраз на русский язык:
+
+""A dream you dream alone is only a dream. A dream you dream together is reality"" - ""Э дрим ю дрим элоун из онли э дрим. Э дрим ю дрим тугезер из риэлити""
+""The greatest glory in living lies not in never falling, but in rising every time we fall"" - ""Зе грэйтэст глори ин ливинг лайс нот ин невер фоллинг, бат ин райзинг эвери тайм ви фол""
+""In three words I can sum up everything I've learned about life: it goes on"" - ""Ин зри вордз ай кэн сам ап эверизинг айв лернд эбаут лайф: ит гоуз он""
+""Life is a journey, and if you fall in love with the journey, you will be in love forever"" - ""Лайф из э джорни, энд иф ю фол ин лав виз зе джорни, ю вил би ин лав форевер""
+""Yesterday is history, tomorrow is a mystery, but today is a gift. That is why it is called the present"" - ""Естердэй из хистори, туморроу из э мистери, бат тудэй из э гифт. Зэт из вай ит из колд зе презент""",,,,
+sona-9.0-20261114T224303Z-008,29,4ffd9b4f7a199e3a9fe0d671,0116a39433b51334a608adcce9474052,sona-9.0,ru,general_knowledge,oasst2,human_authored,"[user] Как поступить в МФТИ?
+
+[assistant] Пожалуйста, уточните как расшифровывается аббревиатура ""МФТИ""?
+
+[user] МФТИ расшифровывается как ""Московский Физико-Технический Институт"". Это один из ведущих технических университетов России.
+
+Честно говоря, ты должен был это знать.","Извините, вы абсолютно правы. МФТИ - это Московский Физико-Технический Институт, один из лучших технических университетов в России.
+
+Чтобы поступить в МФТИ необходимо выполнить следующие шаги:
+
+1. Сдать ЕГЭ по математике, физике и русскому языку. Результаты экзаменов должны быть не ниже определенного порогового значения, которое устанавливается каждый год.
+
+2. Сдать вступительные экзамены по математике, физике и русскому языку в МФТИ. Экзамены проводятся в июне на территории института.
+
+3. Подать заявление на поступление в МФТИ через портал приемной комиссии или лично в институте.
+
+4. Пройти собеседование с представителями университета, если это требуется.
+
+5. Получить результаты поступления и зарегистрироваться на обучение.
+
+Для поступления в МФТИ также учитываются результаты Всероссийской олимпиады школьников по математике и физике. Победители и призеры этих олимпиад имеют право на дополнительные баллы при поступлении в институт. Кроме того, МФТИ проводит свои собственные олимпиады для абитуриентов, которые также могут дать дополнительные баллы. Например, победители олимпиады МФТИ по математике и физике автоматически зачисляются в институт без вступительных экзаменов. Также существует возможность получить дополнительные баллы за участие в научно-исследовательских проектах, предметных олимпиадах и других достижениях в области науки и техники. Все эти факторы могут существенно повлиять на результаты поступления в МФТИ.
+
+Кроме того, для иностранных студентов и абитуриентов из других регионов России существуют свои правила поступления, которые несколько отличаются от общих правил.",,,,
+sona-9.0-20261114T224303Z-008,30,c13b896d06be465488dfb418,f3b97960445459ccbdb335fc91e9abf9,sona-9.0,ru,mathematics,oasst2,human_authored,[user] Слишал что кокосы убивают людей больше чем акулы насколько это правда?,"Вероятно, это лишь красивая легенда, порождённая заявлением в 2002 году сотрудника Музея Флориды Джорджа Бёрджесса на страницах *New York Times*: «Ежегодно падающие кокосы убивают 150 человек во всём мире, что в 15 раз превышает количество смертельных случаев, связанных с акулами». Дело в том, что, в то время как гибель людей вследствии наподения акул тщательно фиксируется сотрудниками упомянутого музея на протяжении двух десятилетий и составляет 5–6 случаев в год, статистикой несчастных случаев, связанных с падением кокосовых арехов, похоже, никто всерьёз не занимается и упомянутое число имеет сомнительное происхождение ([см.](https://provereno.media/blog/2020/10/28/ot-kokosov-umiraet-bolshe-ljudej-chem-ot-akul/)). Однако это утверждение достаточно правдоподобно и подчёркивает важный факт: вероятность погибнуть от зубов акулы настолько мала, что уступает практически любой другой опасности. Например, она на три порядка меньше вероятности погибнуть от удара молнией. ☠️(🦈) < ☠️(🌩) / 1000",,,,
+sona-9.0-20261114T224303Z-008,31,c536085881fa48e1238a525e,8c56f48d23ac1f68178b2f4bf6928750,sona-9.0,ru,research,tydiqa-goldp,human_authored,"[user] В городе находится 17 общеобразовательных школ (включая лицей;центр образования,2 гимназии, в том числе «Православная классическая гимназия во имя преподобного Варлаама Серпуховского»[41]);большое количество детских садов и прочих учреждений дошкольного образования (в том числе муниципальное образовательное учреждение для детей, нуждающихся в психолого-педагогической и медико-социальной помощи, центр диагностики и консультирования ""Шанс ""[42].
+
+Сколько школ есть в Серпухове на март 2019?","17
+
+В городе находится 17 общеобразовательных школ (включая лицей;центр образования,2 гимназии, в том числе «Православная классическая гимназия во имя преподобного Варлаама Серпуховского»[41]);большое количество детских садов и прочих учреждений дошкольного образования (в том числе муниципальное образовательное учреждение для детей, нуждающихся в психолого-педагогической и медико-социальной помощи, центр диагностики и консультирования ""Шанс ""[42].",,,,
+sona-9.0-20261114T224303Z-008,32,968e595d2025e5822559f84f,e0b68dbfb5d62b9989b2c07d7ebbeb27,sona-9.0,ru,science,oasst2,human_authored,"[user] Качественно и достоверно переведи следующий текст на русский: Strange memories on this nervous night in Las Vegas. Five years later? Six? It seems like a lifetime, or at least a Main Era—the kind of peak that never comes again. San Francisco in the middle sixties was a very special time and place to be a part of. Maybe it meant something. Maybe not, in the long run . . . but no explanation, no mix of words or music or memories can touch that sense of knowing that you were there and alive in that corner of time and the world. Whatever it meant. . . .
+
+History is hard to know, because of all the hired bullshit, but even without being sure of “history” it seems entirely reasonable to think that every now and then the energy of a whole generation comes to a head in a long fine flash, for reasons that nobody really understands at the time—and which never explain, in retrospect, what actually happened.
+
+My central memory of that time seems to hang on one or five or maybe forty nights—or very early mornings—when I left the Fillmore half-crazy and, instead of going home, aimed the big 650 Lightning across the Bay Bridge at a hundred miles an hour wearing L. L. Bean shorts and a Butte sheepherder's jacket . . . booming through the Treasure Island tunnel at the lights of Oakland and Berkeley and Richmond, not quite sure which turn-off to take when I got to the other end (always stalling at the toll-gate, too twisted to find neutral while I fumbled for change) . . . but being absolutely certain that no matter which way I went I would come to a place where people were just as high and wild as I was: No doubt at all about that. . . .","С удовольствием! Вот ваш перевод.
+
+Странные воспоминания об этой нервной ночи в Лас-Вегасе.  Пять лет спустя?  Шесть?  Кажется, что это целая жизнь или, по крайней мере, Основная Эра — своего рода пик, который никогда не наступает снова.  Сан-Франциско середины шестидесятых был особенным временем и местом, частью которого нужно было стать.  Может быть, это что-то значит.  Может быть, нет, в долгосрочной перспективе.  .  .  но никакое объяснение, никакое сочетание слов, музыки или воспоминаний не может затронуть это чувство знания, что ты был там и был жив в этом уголке времени и мира.  Что бы это ни значило  .  .  .
+
+ Историю трудно узнать из-за всей наемной чепухи, но даже не будучи уверенным в «истории», кажется вполне разумным думать, что время от времени энергия целого поколения достигает апогея в длинной прекрасной вспышке, ибо причины, которые в то время никто толком не понимал и которые, оглядываясь назад, никогда не объясняли, что на самом деле произошло.
+
+ Мое главное воспоминание о том времени, кажется, зависло от одной, пяти или, может быть, сорока ночей — или очень рано утром, — когда я покинул Филлмор в полусумасшедшем состоянии и вместо того, чтобы вернуться домой, нацелил большой 650 Lightning через Бэй-Бридж на сотню. солдат в час в шортах LL Bean и пастушьей куртке Бьютт.  .  .  мчусь по туннелю Острова Сокровищ на огни Окленда, Беркли и Ричмонда, не совсем уверенный, какой поворот выбрать, когда доберусь до другого конца (всегда останавливаюсь у шлагбаума, слишком извилистый, чтобы найти нейтралку, пока я возился с изменять).  .  .  но будучи абсолютно уверенным, что, куда бы я ни пошел, я приду в место, где люди будут такими же высокими и дикими, как и я: в этом нет никаких сомнений.  .  .  .
+
+Есть ли ещё что-то, с чем я бы мог вам помочь?",,,,
+sona-9.0-20261114T224303Z-008,33,31d511e2c60580359e7293ff,55d183c2b7e1de7b5885536d9d581f18,sona-9.0,ru,software_engineering,oasst1,human_authored,"[user] Я не могу сам сформулировать вопрос. Помоги мне.
+
+[assistant] Пожалуйста, предоставьте более подробную информацию о том, что вы хотите узнать, и я постараюсь помочь вам сформулировать вопрос.
+
+[user] У меня в голове каша.","Попробуйте рассказать ваши мысли мне.Это поможет упорядочить ваши мысли.Я попробую помочь.
+Этот прием очень часто используется программистами.Так называемый метод утенка.Они берут неживой предмет.Хотя можно и своего коллегу.В качестве неживого предмета часто используется маленькая резиновая уточка.И они рассказывают ей все детали текущей работы.В английском это называется rubber duck debugging.",,,,
+sona-9.0-20261114T224303Z-008,34,7b766726a43281499ae2ee9d,1164b0f7150174dd9eade929ac35ffeb,sona-9.0,ru,web_backend,oasst2,human_authored,"[user] Какую библиотеку для разработки нейросетей лучше всего использовать?
+
+[assistant] Как ИИ-ассистент, я могу рассказать вам про несколько основных библиотек для разработки нейросетей:
+
+1. TensorFlow - одна из самых известных и популярных библиотек, разработанная компанией Google. Поддерживает различные архитектуры нейронных сетей, в том числе сверточные и рекуррентные.
+
+2. PyTorch - разработанная научным сообществом библиотека, распространяемая компанией Facebook. Удобна в использовании для исследовательской работы.
+
+3. Keras - высокоуровневая библиотека, предоставляющая множество уже готовых моделей и инструментов для разработки нейросетей. Разработана компанией Google и является частью TensorFlow.
+
+Выбор конкретной библиотеки зависит от целей, задач и опыта разработчика.
+
+[user] Это все очень интересно, но я программирую на Javascript/Typescript, а не на питоне. Можешь посоветовать фреймворки для этих языков?","Существует несколько фреймворков для работы с нейронными сетями в JavaScript/TypeScript, в том числе:
+
+1. TensorFlow.js: это библиотека с открытым исходным кодом для создания и обучения моделей машинного обучения на JavaScript/TypeScript. Он включает поддержку разработки как в браузере, так и на основе Node.js.
+
+2. Brain.js: это еще одна библиотека нейронных сетей JavaScript с открытым исходным кодом, которая предоставляет инструменты для создания и обучения нейронных сетей.
+
+3. Synaptic.js: это легкая библиотека JavaScript для создания и обучения нейронных сетей. Он включает поддержку разработки как в браузере, так и на основе Node.js.
+
+4. ConvNetJS: это библиотека JavaScript для создания и обучения моделей глубокого обучения, включая сверточные нейронные сети (CNN).
+
+5. Neataptic: это быстрая и гибкая библиотека нейронных сетей для Node.js и браузера.
+
+Эти фреймворки предоставляют ряд функций и возможностей для построения и обучения нейронных сетей на JavaScript/TypeScript.",,,,
+sona-9.0-20261114T224303Z-008,35,150f165bcf4f1e7e5e907e86,e53a3333f010567c4e3d9d7b889a490b,sona-9.0,ru,web_frontend,oasst1,human_authored,[user] Какой веб фреймворк сегодня самый востребованный?,"В разработке фронтенда сейчас популярны React, Angular и Vue для NodeJS. Также нередко используется Flutter, позволяющий собирать как веб-приложения, так и нативные приложения под разные платформы, тогда как в случае с JavaScript необходимо использовать Electron или другие похожие фреймворки.
+Во многих проектах подключают jQuery.
+
+Для бэкенда используют:
+- FastAPI, Django и чуть реже Flask, если проект пишут на Python;
+- ExpressJS для NodeJS;
+- Spring (Spring Boot) для Java;
+- Laravel для PHP;
+- Ruby on Rails, очевидно, для Ruby.",,,,
+sona-9.0-20261114T224303Z-008,36,2c8402dc33dc916796281343,d99251e37fa9562be4d86098f296d246,sona-9.0,ru,writing,oasst2,human_authored,"[user] Привет, что ты умеешь? Какие доступы у тебя есть? Какой ты версии в цифрах? 
+Напиши список из 25 пунктов для чего тебя можно использовать","Привет! Я умею многое, в том числе:
+1.	Генерировать тексты на различные темы.
+2.	Отвечать на вопросы и предоставлять информацию на основе доступных мне знаний.
+3.	Помогать в написании текстов и статей.
+4.	Автоматически переводить тексты с одного языка на другой.
+5.	Анализировать тексты и выделять ключевые фразы и идеи.
+6.	Генерировать краткое содержание текста или статьи.
+7.	Помогать с подбором ключевых слов для SEO.
+8.	Создавать заголовки для статей и новостных материалов.
+9.	Анализировать данные и выделять тренды и закономерности.
+10.	Помогать с составлением бизнес-планов и маркетинговых стратегий.
+11.	Генерировать идеи для контента и креативных проектов.
+12.	Предоставлять рекомендации по улучшению сайтов и контента.
+13.	Анализировать рынок и помогать с выбором оптимальной ниши для бизнеса.
+14.	Определять наиболее эффективные каналы продвижения продуктов и услуг.
+15.	Помогать с составлением описания товаров и услуг.
+16.	Создавать контент для социальных сетей.
+17.	Определять наиболее популярные темы и ключевые слова в конкретной нише.
+18.	Анализировать эффективность рекламных кампаний и помогать с оптимизацией рекламных бюджетов.
+19.	Генерировать персонализированные письма и сообщения для email-рассылок и мессенджеров.
+20.	Помогать с подбором подходящих шрифтов и цветовой гаммы для сайтов и логотипов.
+21.	Создавать дизайн-макеты для сайтов и приложений.
+22.	Анализировать поведение пользователей на сайте и помогать с оптимизацией пользовательского опыта.
+23.	Предоставлять рекомендации по оптимизации сайтов под поисковые системы.
+24.	Создавать чат-ботов для сайтов и мессенджеров.
+25.	Предоставлять информацию и рекомендации по различным технологиям и инструментам для работы с текстом и контентом.
+Относительно доступов, я работаю в рамках API, которое предоставляется моим создателем - LAION. Мои доступы зависят от того, какие возможности предоставляет это API, однако я имею доступ к большому объему знаний и базе данных, а также к мощным алгоритмам машинного обучения и обработки естественного языка.",,,,
+sona-9.0-20261114T224303Z-008,37,94e62754e43e0b3fa3d3217b,ede9edcba5e630faf5be3e28dfb662a2,sona-9.0,sw,research,tydiqa-goldp,human_authored,"[user] Chanzo cha kampuni ilikuwa mnamo mwaka 1937. Wakati ule dikteta wa Ujerumani Adolf Hitler alitaka motokaa yenye bei nafuu kwa wananchi wa kawaida na ""Volkswagen"" ina maana ya ""gari la wananchi"" iliyoweza kubeba familia ya watu 4 na kutembea kwa mkasi wa 100 km/h. Muhandis Ferdinand Porsche aliombwa kutunga gari lenye bei ndogo lililoweza kupatikana kwa watu wengi wenye mishahara midogo. Kutokana na umbo lake limejulikana kwa jina la ""Käfer"" (ing. beetle yaani mdudu mwenye umbo la kangambili). Kiwanda kipya kilianzishwa mashambani karibu la boma la kale lililoitwa ""Wolfsburg"" likawa chanzo cha mji wa baadaye. Kiwanda kilikamilishwa mwaka 1939 miezi michache kabla ya mwazo wa Vita Kuu ya Pili ya Dunia. Kutokana na vita magari yaliyokusudiwa hayakujengwa badala yake modeli zilibadilishwa kwa matumizi ya kijeshi. Baada ya kushindwa kwa Ujerumani Wolfsburh ilikuwa chini ya utawala wa Kiingereza kwa miaka 4 na Waingereza walisita kwa muda kama wangeendeleza kiwanda au kuiuza. Lakini waliona modeli ya Volkswagen iliyoanza kutolewa sasa kwa idadi ndogo haikufaa waliwachia Wajerumani. Lakini katika miaka iliyofuata tangu Ujerumani ya Magharibi ilirudishwa hali ya kujitawala gari lilelile likawa ishara ya kurudishwa kwa nguvu ya kiuchumi. Mwaka 1955 tayari milioni 1 ya motokaa zenye umbo la dudu zilitembea barabarani. Mafanikio ya kampuni yaliendelea kwa kutoa modeli mpya na kubwa zaidi. Mnamo 1965 VW ilinunua kiwanda cha NSU - Audi na kampuni hii ilibuni aina za modeli kama Golf na Passat zilizouzwa baadaye tangu 1974 kama kizazi kipya cha VW baada ya mauzo ya VW-beetle kupungua. Model ya zamani iliendelea kutengenezwa katika viwanda huko Meksiko na Brazil.
+
+Je,ni aina gani ya gari ya Volkswagen ilitengenezwa ya kwanza kabisa?","""Käfer"" (ing. beetle yaani mdudu
+
+Chanzo cha kampuni ilikuwa mnamo mwaka 1937. Wakati ule dikteta wa Ujerumani Adolf Hitler alitaka motokaa yenye bei nafuu kwa wananchi wa kawaida na ""Volkswagen"" ina maana ya ""gari la wananchi"" iliyoweza kubeba familia ya watu 4 na kutembea kwa mkasi wa 100 km/h. Muhandis Ferdinand Porsche aliombwa kutunga gari lenye bei ndogo lililoweza kupatikana kwa watu wengi wenye mishahara midogo. Kutokana na umbo lake limejulikana kwa jina la ""Käfer"" (ing. beetle yaani mdudu mwenye umbo la kangambili). Kiwanda kipya kilianzishwa mashambani karibu la boma la kale lililoitwa ""Wolfsburg"" likawa chanzo cha mji wa baadaye. Kiwanda kilikamilishwa mwaka 1939 miezi michache kabla ya mwazo wa Vita Kuu ya Pili ya Dunia. Kutokana na vita magari yaliyokusudiwa hayakujengwa badala yake modeli zilibadilishwa kwa matumizi ya kijeshi. Baada ya kushindwa kwa Ujerumani Wolfsburh ilikuwa chini ya utawala wa Kiingereza kwa miaka 4 na Waingereza walisita kwa muda kama wangeendeleza kiwanda au kuiuza. Lakini waliona modeli ya Volkswagen iliyoanza kutolewa sasa kwa idadi ndogo haikufaa waliwachia Wajerumani. Lakini katika miaka iliyofuata tangu Ujerumani ya Magharibi ilirudishwa hali ya kujitawala gari lilelile likawa ishara ya kurudishwa kwa nguvu ya kiuchumi. Mwaka 1955 tayari milioni 1 ya motokaa zenye umbo la dudu zilitembea barabarani. Mafanikio ya kampuni yaliendelea kwa kutoa modeli mpya na kubwa zaidi. Mnamo 1965 VW ilinunua kiwanda cha NSU - Audi na kampuni hii ilibuni aina za modeli kama Golf na Passat zilizouzwa baadaye tangu 1974 kama kizazi kipya cha VW baada ya mauzo ya VW-beetle kupungua. Model ya zamani iliendelea kutengenezwa katika viwanda huko Meksiko na Brazil.",,,,
+sona-9.0-20261114T224303Z-008,38,684a0eb52b9859ad6896dd3c,f2aa1a077c8196dd69cc104721ca19c5,sona-9.0,ta,general_knowledge,aya-dataset,human_authored,[user] காமன்வெல்த் தினம் (பேரரசு தினம்) எப்போது கொண்டாடப்படுகிறது?,"காமன்வெல்த் தினம் என்பது காமன்வெல்த் நாடுகளின் வருடாந்திர கொண்டாட்டமாகும் , இது 1977 ஆம் ஆண்டு முதல் பெரும்பாலும் மார்ச் மாதத்தின் இரண்டாவது திங்கட்கிழமை கொண்டாடப்படுகிறது. இது வெஸ்ட்மின்ஸ்டர் அபேயில் உள்ள ஒரு ஆங்கிலிகன் சேவையால் குறிக்கப்படுகிறது , பொதுவாக காமன்வெல்த் தலைவராக மன்னரும் லண்டனில் உள்ள காமன்வெல்த் பொதுச் செயலாளர் மற்றும் காமன்வெல்த் உயர் ஸ்தானிகர்களுடன் கலந்துகொள்வார். மன்னர் பொதுநலவாய நாடுகளுக்கு ஒரு ஒளிபரப்பு உரையை வழங்குகிறார்.
+
+இது ஒரு குறிப்பிட்ட அதிகாரப்பூர்வ அந்தஸ்தைப் பெற்றிருந்தாலும், காமன்வெல்த் தினம் என்பது பெரும்பாலான காமன்வெல்த் நாடுகளில் பொது விடுமுறை அல்ல, மேலும் இது பற்றிய விழிப்புணர்வு குறைவாக உள்ளது. இது ஜிப்ரால்டரில் விடுமுறையாகக் குறிக்கப்பட்டுள்ளது , ஆனால் மார்ச் மாதத்தில் அல்ல. கனடாவில் "" விக்டோரியா தினம் "" மே இருபத்தி நான்குக்கு மிக நெருக்கமான திங்கட்கிழமை (விக்டோரியா மகாராணியின் பிறந்தநாள்) அன்று கொண்டாடப்படுகிறது.",,,,
+sona-9.0-20261114T224303Z-008,39,5b1653db9f8d7e275ebb8043,696a0614d7c2f7474eaaf6c1aa1b2ee2,sona-9.0,ta,mathematics,aya-dataset,human_authored,"[user] வினா:   ""இந்தியாவின் பொருளாதாரம்?"" என்ற தலைப்பில் தலையங்கம் ஒன்று எழுதுக.","விடை:  
+
+
+தலையங்கம்,
+             இன்று உலகளவில் பொருளாதாரத்தில் ஆறாவது வல்லரசாக உயர்ந்துள்ள இந்தியப் பொருளாதாரம் விரைவில் மிகப்பெரிய சரிவைச் சந்திக்கக்கூடிய அபாயம் இருப்பதை பரவலாக இன்று வரக்கூடிய செய்திகள் மூலமாக அனுமானிக்க முடிகிறது. இந்தியா சுதந்திரம் அடைந்தபோது டாலரின் மதிப்பைவிட உரூபாயின் மதிப்பு அதிகமாக இருந்தது நாம் அனைவரும் அறிந்ததே. ஆனால் இன்றைய நிலையில் அமெரிக்க டாலரைவிட உரூபாயின் மதிப்பு எந்த அளவிற்கு சரிவைச் சந்தித்து வருகிறது என்பதையும் கண்கூடாகக் காண்கிறோம். பல ஆண்டுகளாக 45 முதல் 50 உரூபாயாக இருந்த டாலரின் மதிப்பு இன்று 70 உரூபாயைத் தாண்டியுள்ளதே நம் பொருளாதார வீழ்ச்சிக்கு எடுத்துக்காட்டு. இன்று 1கிலோ கத்தரிக்காய் 30 /40 உரூபாய்க்கு வாங்கினால், நாளை அதே காய் 60/70 உரூபாய் ஆகலாம். இப்படியேச் சென்றால் ஆப்பிரிக்க நாடுகள் போல ஒரு கட்டு பணம் கொடுத்து ஒரு கிலோ கத்தரிக்காய் வாங்கும் நிலையும் கூட ஏற்படலாம்.
+
+        வங்கித் துறையில் காலாண்டு அறிக்கைகள் வெளிவர ஆரம்பித்துள்ளன. பஞ்சாப் தேசிய வங்கி இந்த காலாண்டில் மட்டும் 3500 கோடியும், மாநில வங்கி 7700 கோடியும் அறிவித்துள்ளது. இது போன்று அனைத்து வங்கிகளின் அறிக்கைகளையும் ஆய்வு செய்தால் இந்த வாராக்கடன் தொகையானது பல ஆயிரம் கோடி என்ற உச்சத்தைத் தொடும் என்பதில் ஐயமில்லை. இதே காலகட்டத்தில் தனியார் வங்கிகள் மட்டும் சிறப்பாகச் செயல்படுவதன் காரணம் என்ன என்று பார்த்தால், தங்கள் வங்கியிலிருந்து 100 உரூபாய் வெளியே சென்றால் 105 உரூபாய் உள்ளே வரவேண்டும் என்பதில் உறுதியாக உள்ளதுதான். இப்படிப்பட்ட சூழலில் மக்கள் நலனுக்காக முன்பு தேசியமயமாக்கப்பட்ட வங்கிகள் தற்போது அதே மக்களால் ஏமாற்றப்படும்போது தனியார் வங்கிகளாக ஏன் மாற்றப்படக்கூடாது. இப்படி மக்களால் வங்கிகள் சீரழிக்கப்படும்போது அதற்கு உடந்தையாக இருக்கும் பொறுப்பாளர்களான வங்கி மேலாளர்களையும், வங்கிகளின் தணிக்கையாளர்களையும் விசாரணைக்கு உட்படுத்த வேண்டியது அவசியம். வாராக்கடனுக்கு ஈடாகக் கொடுக்கப்படும், கையகப்படுத்தப்படும் சொத்துக்களை நிர்வகிக்க ஒரு ஆணையத்தை ஏற்படுத்தி வங்கிகளுக்கு இழப்பில்லாமல் உபரி வருவாயை ஏற்படுத்துவது ஆக்கப்பூர்வமான தீர்வாக அமையலாம்.
+
+          நாளுக்கு நாள் விலை உயர்ந்து வரும் பெட்ரோலியப் பொருட்களுக்கு மாற்றாக மின் சக்தியையும், எல்.என்.ஜி. என்று சொல்லக்கூடிய இயற்கை எரிவாயுவை போக்குவரத்துத் துறைக்கு உடனடியாக அமல்படுத்தினால் விலை உயர்வால் துண்டு விழும் 15 பில்லியன் டாலர்களை சேமிப்பதோடு அந்நிய செலாவணியைக் குறைப்பதால் நம்முடைய உரூபாயின் மதிப்பும் உயரக்கூடும்.
+
+       ஏற்றுமதியை அதிகரித்து, இறக்குமதியை குறைப்பதற்கான எந்த விதமான நடவடிக்கையும் எடுக்காமல், மாறாக ஏற்றுமதியாளர்களுக்கு அளிக்கக்கூடிய ஊக்கத் தொகையைக் குறைப்பதிலேயே அதிக கவனம் செலுத்தப்படுவதும் பொருளாதார சீர் குலைவிற்கு வழிவகுப்பதாக அமைந்துவிடுகிறது. இது போன்று பல்வேறு விசயங்களையும் கவனித்து நிர்வகிக்க வேண்டிய நிதியமைச்சகம் இன்று சரியாக நிர்வகிக்கப்படாமல் முடங்கும் அபாயத்தில் உள்ளதும் வேதனைக்குரியதாக உள்ளது.",,,,
+sona-9.0-20261114T224303Z-008,40,e74c6fe6618f92686352ed29,0a7412fa0c4e976fd528daf8fe961c85,sona-9.0,ta,science,aya-dataset,human_authored,"[user] வினா:
+
+
+எகாலஜி  என்பது எதை பற்றிய ஆராய்ச்சி?","விடை:
+
+
+சூசூழலியல் என்பது, உயிர் வாழ்க்கையின் பரவல் பற்றியும், உயிரினங்களுக்கும் அவற்றின் இயற்கைச் சூழலுக்கும் இடையிலான இடைவினைகள் பற்றியும் அறிவியல் அடிப்படையில் ஆய்வு செய்யும் துறையாகும். ஒரு உயிரினத்தின் சூழல் என்பது சூரிய ஒளி, காலநிலை, நிலவியல் அம்சங்கள் போன்ற உயிரற்ற காரணிகளின் ஒட்டுமொத்த அளவான இயற்பியல் இயல்புகளையும்; குறிப்பிட்ட வாழிடத்தில் வாழும் பிற உயிரினங்களைக் கொண்ட உயிர்சார் சூழல் மண்டலத்தையும் (ecosystem) உள்ளடக்கியதாகும்.
+
+சூழல் என்பது தாவரங்கள், விலங்குகள் அடங்கிய அனைத்து உயிரினங்களுடன், அவற்றுடன் தொடர்பு கொண்டிருக்கும் அனைத்து இயற்பியல் கூறுகளையும் அடக்கியதாகும். இவைகளுக்கு இடையே தொடர்புகள், பரிமாற்றங்கள் அல்லது இடைவினைகள் எவ்வாறு நடைபெறுகிறது என்பதைப் பற்றி கற்றுக்கொள்ளுவதே சூழலியல் ஆகும்.
+
+சூழலியல் தனது ஆய்வுகளுக்காக, நிலவியல், புவியியல், காலநிலையியல், மண்ணியல், மரபியல், வேதியியல், இயற்பியல் ஆகிய துறைகளையும் துணையாகக் கொள்கின்றது. இதனால் சிலர் இதனை ஒரு முழுதளாவிய அறிவியல் என்கின்றனர்.
+
+சூழலியல் என்னும் கருத்துருவை முதன் முதலில் ஜேர்மானிய உயிரியலாளரான ஏர்ன்ஸ்ட் ஹேக்கல் 1869 ம் ஆண்டு பயன்படுத்தினார். இதை இவர் சூழலுடன் உயிரினங்களுக்குள்ள தொடர்பு பற்றிய விரிவான அறிவியல் என வரையறுத்தார். எனினும் இவர் இக் கருத்துருவை விரிவாக விளக்கவில்லை.
+1895 இல் இது தொடர்பான விரிவான பாட நூல் ஒன்றையும், இத்துறையில் பல்கலைக்கழகப் பாடநெறி ஒன்றுடன் சேர்த்து எழுதியவர் டென்மார்க் நாட்டைச் சேர்ந்த தாவரவியலாளரான இயுஜெனியஸ் வார்மிங் என்பவராவார்.இதனால் இவரே சூழ்நிலையியலை நிறுவியவர் என்கின்றனர். பின்னர் இவரைத் தொடர்ந்து இச்சொல்லை தாவரவியல் மற்றும் விலங்கியல் அறிஞர்கள் பயன்படுத்தத் தொடங்கினர்.
+சூழலியல் என்பதைச் சுட்டும் ஈக்காலாஜி என்னும் ஆங்கிலச் சொல் ஓய்கோஸ் என்னும் கிரேக்க வார்த்தையில் இருந்து பெறப்பட்டதாகும். இதன் பொருள் வீடு அல்லது நிலையம் என்பதாகும்.",,,,
+sona-9.0-20261114T224303Z-008,41,a419b76e234f3899b30efad0,bdd352f370339ed59fdc5a04534f49d7,sona-9.0,ta,writing,aya-dataset,human_authored,"[user] வினா: 
+தமிழில் மொழியாக்கம்  செய்க -blog information/info","விடை:  
+தமிழில் மொழியாக்கம்:
+வலைப்பதிவு அல்லது வலைப்பூ தகவல்கள். 
+
+வலைப்பதிவு அல்லது வலைப்பூ என்பது, அடிக்கடி இற்றைப்படுத்துவதற்கும், கடைசிப்பதிவு முதலில் வருமாறு ஒழுங்குபடுத்தப்படுத்துவதற்கும் என சிறப்பாக வடிவமைத்த தனிப்பட்ட வலைத்தளமாகும். 
+இற்றைப்படுத்துவதற்கும் பராமரிப்பதற்கும் வாசகர் ஊடாடுவதற்குமான வழிமுறைகள், வலைத்தளங்களைக் காட்டிலும் வலைப்பதிவுகளில் இலகுவானதாக வடிவமைக்கப்பட்டிருக்கும்.
+
+சில நிறுவனங்கள் சாதாரண இணையப்பயனரும் இலகுவாக பயன்படுத்தும் வகையில் இற்றைப்படுத்துவதற்குத் தயாரான நிலையில் வலைப்பதிவுகளை வடிவமைத்து வழங்குகின்றன. வலைப்பதிவுகளை தனிப்பட்ட வழங்கிகளிலோ, வலைத்தளங்களில் ஒரு பகுதியாகவோ வடிவமைத்து வைத்துக்கொள்ள முடியும்.
+
+வலைப்பதிவுகளின் பொதுவான இயல்புகள்
+அடிக்கடி இற்றைப்படுத்தப்படல்
+பெரும்பாலும் வலைப்பதிவுகள் எல்லாவற்றுக்குமான பொது இயல்பாக அவை அடிக்கடி இற்றைப்படுத்தப்படுவதைச் சொல்லலாம். புதிய பதிவுகளை, ஆக்கங்களை அடிக்கடி வலைப்பதிவாளர்கள் தம் வலைப்பதிவுகளில் வெளியிடுவர். சில வலைப்பதிவுகள் தனி நபர்களின் சொந்த நாட்குறிப்பேடுகளாகக்கூட உள்ளன.
+
+இலக்கு வாசகர்கள்
+அநேகமான வலைப்பதிவுகள், வாசகர்களை இலக்காகக் கொண்டே எழுதப்படுகின்றன. ஒவ்வொரு வலைப்பதிவுகளுக்கும் சிறப்பான ஒரு வாசகர் வட்டம் இருக்கும். பிளாக்கிங்கிற்கு வரும்போது, ​​உங்கள் பார்வையாளர்களை அறிந்து கொள்வது முக்கிய கருத்தாகும். பெரும்பாலான வலைப்பதிவுகள் ஒரு குறிப்பிட்ட வாசகர் வட்டத்தை மனதில் கொண்டு எழுதப்படுகின்றன, மேலும் அந்த குறிப்பிட்ட குழுவின் ஆர்வங்கள் மற்றும் தேவைகளைப் பூர்த்தி செய்யும் வகையில் உள்ளடக்கம் வடிவமைக்கப்பட்டுள்ளது. ஒரு பதிவராக, உங்கள் வாசகர்கள் யார், அவர்கள் எதைப் பற்றி படிக்க விரும்புகிறார்கள் என்பதைப் புரிந்துகொள்வது முக்கியம். இது உங்கள் பார்வையாளர்களுடன் எதிரொலிக்கும் உள்ளடக்கத்தை உருவாக்க உங்களுக்கு உதவும் மற்றும் மேலும் பலவற்றிற்கு அவர்களை மீண்டும் வர வைக்கும்.",,,,
+sona-9.0-20261114T224303Z-008,42,606a8b8c3495b527149c8f73,7f6290fe9d5f3c696ef67b7142732608,sona-9.0,te,general_knowledge,aya-dataset,human_authored,[user] మానవ హక్కుల లక్షణాలేవి ?,"మానవుల ప్రాథమిక జీవనానికి అత్యంత ఆవశ్యకమైనవే మానవ హక్కులు. మానవులందరూ ఈ హక్కులను కుల, మత, ప్రాంత, వర్ణ, వర్గ తారతమ్యాలు లేకుండా అనుభవిస్తారు. ప్రజాస్వామ్య రాజ్యాలలోని రాజ్యాంగ, సాధారణ చట్టాలు ఇటువంటి హక్కులను గుర్తిస్తాయి. అలాగే ఈ హక్కులను ప్రజలకు అందించేందుకై ప్రజాస్వామ్య రాజ్యాలలోని వివిధ ప్రభుత్వాలు అనేక చర్యలను తీసుకొంటాయి.
+
+రోనాల్డ్ డార్విన్ అనే శాస్త్రవేత్త మానవ హక్కులనేవి వ్యక్తులకు సంరక్షక కవచాలుగా దోహదపడతాయని భావించాడు. ఎప్పుడైనా రాజ్యం వ్యక్తుల పౌర స్వాతంత్ర్యాలలో జోక్యం చేసుకుంటే ఇటువంటి హక్కుల ద్వారా వ్యక్తులు తమ ప్రయోజనాలను కాపాడుకొంటారని చెప్పారు. జాన్ డోస్కీ మానవ హక్కులను నాగరికతకు సంబంధించిన నూతన ప్రమాణాలుగా వర్ణించాడు.
+
+మానవ హక్కుల లక్షణాలు: మానవ హక్కులు కొన్ని మౌలికమైన లక్షణాలను కలిగి ఉన్నాయి. వాటిని కింద పేర్కొన్నవిధంగా చెప్పవచ్చు.
+
+ఎటువంటి వివక్షత లేకుండా ప్రజలందరూ హక్కులను కలిగి ఉంటారు.
+ఇవి సార్వజనీనమైంది.
+ఇవి ప్రజలందరిని సమానంగా పరిగణిస్తాయి.
+వ్యక్తులను మౌలికంగా ఇవి మానవులుగా భావిస్తాయి.
+మానవత్వానికి చెందిన ప్రాథమిక సూత్రాలను పరిగణనలోనికి తీసుకుంటాయి.
+వీటిని భౌగోళిక సరిహద్దులు పరిమితం చేయలేవు.
+ఐక్యరాజ్యసమితిలోని సభ్యరాజ్యాలన్నీ సిద్ధాంతపరంగా పైన పేర్కొన్న మానవ హక్కులను అమలుపరుస్తాయి.",,,,
+sona-9.0-20261114T224303Z-008,43,565c5a108faf4e2cd0611e6a,270b6f7383f2fe75d4883202fe406251,sona-9.0,te,mathematics,aya-dataset,human_authored,[user] మాతృదేశాన్ని (భారతదేశం) గురించి పరిచయం చేస్తూ విదేశంలోని కలం స్నేహితునికి లేఖ.,"హైదరాబాద్,
+X X X X X.
+
+ప్రియ కలం స్నేహితుడు జాన్ డేవిడ్ పాల్కు,
+
+నేను క్షేమంగా ఉన్నాను. నీవు కూడా క్షేమంగా ఉన్నావని తలుస్తాను. నేను ఈ లేఖలో మా భారతదేశ విశేషాలు తెలియజేస్తున్నాను.
+
+ఆసియా ఖండంలోగల పెద్ద దేశాలలో భారతదేశం ఒకటి. దీనినే ‘ఇండియా’ అని పిలుస్తారు. మా భారతదేశానికి ఉత్తరాన హిమాలయాలు, తూర్పున బంగాళాఖాతం, దక్షిణాన హిందూ మహాసముద్రం, పశ్చిమాన అరేబియా సముద్రం ఎల్లలుగా ఉన్నాయి. మా దేశంలో సింధు, గంగ, యమున, కృష్ణ, గోదావరి వంటి జీవనదులెన్నో ఉన్నాయి.
+
+భారతదేశంలో వివిధ జాతులవారు, మతాలవారు ఉన్నారు. ‘భిన్నత్వంలో ఏకత్వం’ అనటానికి మా దేశాన్ని ఉదాహరణగా చెప్పుకోవచ్చు. సత్యం, అహింసయే ఆయుధాలుగా భావించెడి దేశం మాది. సర్వమానవులను సౌభ్రాతృత్వ దృష్టితో చూస్తూ అందరి సుఖశాంతులను కాంక్షించేదే మా భారతదేశం.
+
+ఇట్లు,
+నీ కలం స్నేహితుడు,
+డి. వి. శ్యామసుందర్.
+
+చిరునామా :
+జాన్ డేవిడ్ పాల్,
+డోర్ నెం. 4/159,
+కెనడీ రోడ్, వాషింగ్టన్,
+అమెరికా.",,,,
+sona-9.0-20261114T224303Z-008,44,96c747ada937f9f9d2b42731,4273a84aeb9743da54b63ba0ec3eff23,sona-9.0,te,research,tydiqa-goldp,human_authored,"[user] రాజు గారి గది 2, నాగార్జున అక్కినేనితో నిర్మిచతలపెట్టిన కొత్త ప్రాజెక్టును అన్నపూర్ణా స్టుడియోస్ లో 2016 నవంబరు 27 న కె. రాఘవేంద్రరావు మొదటి సీన్ ను క్లాప్రం ద్వారా ప్రారంభించారు. నిర్మాత ప్రసాద్ వి. పొట్లూరి మొదటి షాట్ ను ఓంకార్ దర్శకత్వం చేస్తున్నప్పుడు కెమేరా స్విచ్ ఆన్ చేసాడు. ప్రధాన ఫొటొగ్రహీ ఫిబ్రవరి 2017న హైదరాబాదులో ప్రారంభించడం జరిగింది.[3] 2017 ఆగస్టు 29 న నాగార్జున పుట్టిన రోజు నాటు సినిమా తయారైనది. దీని ట్రైలర్ 2017 సెప్టెంబరు 29న అక్కినేని నాగేశ్వరరావు జన్మదినం సందర్భంగా విడుదల చేసారు. [4] ఈ సినిమాలో చూపబడిన రిసార్టు పాడిచ్ఛేరిలో గల లీపాండి.
+
+రాజు గారి గది - 2 చిత్ర నిర్మాత ఎవరు ?","ప్రసాద్ వి. పొట్లూరి
+
+రాజు గారి గది 2, నాగార్జున అక్కినేనితో నిర్మిచతలపెట్టిన కొత్త ప్రాజెక్టును అన్నపూర్ణా స్టుడియోస్ లో 2016 నవంబరు 27 న కె. రాఘవేంద్రరావు మొదటి సీన్ ను క్లాప్రం ద్వారా ప్రారంభించారు. నిర్మాత ప్రసాద్ వి. పొట్లూరి మొదటి షాట్ ను ఓంకార్ దర్శకత్వం చేస్తున్నప్పుడు కెమేరా స్విచ్ ఆన్ చేసాడు. ప్రధాన ఫొటొగ్రహీ ఫిబ్రవరి 2017న హైదరాబాదులో ప్రారంభించడం జరిగింది.[3] 2017 ఆగస్టు 29 న నాగార్జున పుట్టిన రోజు నాటు సినిమా తయారైనది. దీని ట్రైలర్ 2017 సెప్టెంబరు 29న అక్కినేని నాగేశ్వరరావు జన్మదినం సందర్భంగా విడుదల చేసారు. [4] ఈ సినిమాలో చూపబడిన రిసార్టు పాడిచ్ఛేరిలో గల లీపాండి.",,,,
+sona-9.0-20261114T224303Z-008,45,e42591918c672bd3eb691acc,dffa859a2cdeefd327f61f9d5d49fdd0,sona-9.0,te,writing,aya-dataset,human_authored,"[user] ....
+
+ఇది అర్థమైన తర్వాత నా పేరును వదిలించుకోవాలని నిశ్చయించుకున్నా. మా పేర్లకన్నా వాళ్ల పేర్లు ఎక్కువ దైవత్వాన్ని కలిగి ఉన్నాయనే భావన ఇందులో యిమిడి ఉంది. ఇది ఓ అహంకార ధోరణి. నా క్రిష్టియన్ పేరును వదిలించుకోవడానికి ఇదొక కారణం.
+
+అలా నేను 'జేమ్స్ గూగీ' నుంచి 'గూగీ వా థియాంగో'గా మారిపోయాను.
+
+స్థానిక భాషల గురించి మీరు మీ 'డీకాలనైజింగ్ మైండ్' పుస్తకంలో చాలా రాశారు. ప్రస్తుత గ్లోబలైజేషన్ యుగంలో దీనిని మీరెలా చూస్తారు? ఇంగ్లిష్‌ను ఇప్పటికీ మీరు సామ్రాజ్యవాద భాషగానే పరిగణిస్తారా?
+
+వలసకాలంలో ఇంగ్లిష్ భాష సా... Write the rest of the article:","సోషల్ మీడియా విస్తృతమవడం వల్ల ప్రజలకు తమ స్థానిక భాషలలో వ్యక్తీకరణకు అవకాశం దొరికిందంటారా?
+
+అంతగా కానప్పటికీ సోషల్ మీడియా వల్ల కొంత ఉపయోగం ఉంది. ఇంటర్నెట్ వ్యాప్తి మూలంగా ప్రజలకు తమ భాషలలో సమాచారం ఇచ్చిపుచ్చుకోవడం వీలవుతోంది.
+
+అయితే ప్రతి ఒక్కరికీ తమ మాతృభాషే మౌలిక ఆధారం - లేదా అదే బేస్. బేస్ చాలా ముఖ్యమైంది. అంతరిక్షంలోకి రాకెట్ ప్రయోగించాలన్నా సరే దానికి గట్టి బేస్ ఉండాల్సిందే.
+
+అట్లాగే మనిషి గ్లోబల్‌గా ఎక్కడికి దూసుకు పోవాలనుకున్నా సరే.. మాతృభాష అనే ఆధారం (బేస్) గట్టిగా ఉండాలి.
+
+మీరు ప్రపంచమంతా తిరిగారు కదా. ముఖ్యంగా మూడో ప్రపంచ దేశాల్లో స్థానిక భాషలలో వస్తున్న సాహిత్యం ఎలా ఉంది?
+
+నేడు చాలా వరకు గొప్ప సాహిత్యం వస్తుందనే చెప్పాలి. ప్రపంచంలో గతంలో వలసలుగా ఉన్న దేశాలకు చెందిన రచయితలు సృష్టిస్తున్న సాహిత్యమే నేడు అత్యద్భుత సాహిత్యంగా ఉందని నా అభిప్రాయం.
+
+అయితే, దురదృష్టవశాత్తు ఆ సాహిత్యంలో ఎక్కువ భాగం యూరప్‌కు చెందిన ఆధిపత్య భాషలలోనే - అంటే ఫ్రెంచ్, ఇంగ్లిష్, పోర్చ్‌గీస్, స్పానిష్‌లలోనే వస్తోంది.
+
+నిజానికి తెలుగులో లేదా గుజరాతీలో, ఆదివాసీ, దళిత భాషలలో సాహిత్యం పుట్టి ఇంగ్లిష్ సహా మిగతా భాషలలోకి వెళ్లగలిగితే బాగుండేది.
+
+ఇటు నుంచి అటు వెళ్లే క్రమం చాలా ముఖ్యమైంది.
+
+ప్రస్తుత ప్రపంచంలో పత్రికా స్వేచ్ఛ, భావ ప్రకటన స్వేచ్ఛ పరిస్థితి ఎలా ఉందని మీ అభిప్రాయం?
+
+ఆధిపత్యంలో ఉన్న వర్గాలు ఎప్పుడైనా తాము అణిచివెయ్యాలని చూసే వర్గాల గొంతు నొక్కాలని చూస్తాయనే విషయం చరిత్ర పొడవునా కనిపిస్తుంది.
+
+కాబట్టి అణచివేతకు గురవుతున్న వారు తమ ప్రజాస్వామిక హక్కుల పరిధిని వ్యాప్తి చేసుకోవడం కోసం నిరంతరం పోరాడాల్సిందే. అది వారి బాధ్యత.
+
+సమకాలీన భారత రచయితలలో మీరెవరిని ఇష్టపడతారు?
+
+నిజానికి తొలి భారతీయ ఇంగ్లిష్ రచయితలు కెన్యాలో మా పోరాటంలో ముఖ్య పాత్ర పోషించారు.
+
+1960 దశకం తొలి భాగంలో నైరోబీలో ఇంగ్లిష్ డిపార్ట్‌మెంట్‌ను మార్చడానికి వారు కృషి చేశారు. ఆసియా, కరేబియన్, ఆఫ్రో-అమెరికా రచయితల సాహిత్యాన్ని ఇంగ్లిష్‌లోకి అనువాదం చేయడానికి వారు కృషి చేశారు.
+
+ఆసియా విభాగపు రచయితల్లో భారతీయ రచయితలు ఒక ముఖ్యమైన భాగంగా ఉన్నారు. వారంతా మాకు అభిమాన పాత్రులే.
+
+ఇంకా సల్మాన్ రష్దీ, సుసీ తారు తదితరులు నాకు మంచి స్నేహితులు. నాకు భారతీయ సాహిత్యంతో మంచి పరిచయమే ఉంది.
+
+మహాభారతం, రామాయణం, వేదాలు వంటి వాటితో కూడా కొంత పరిచయం ఉంది.",,,,
+sona-9.0-20261114T224303Z-008,46,071de103fb37fae61537448d,e42768840929b4b29fc9160e93f6a58a,sona-9.0,th,general_knowledge,oasst1,human_authored,[user] พระพิฆเนศกันผีได้ไหมคับ?,พระพิฆเนศกับผีดูจะอยู่กับคนละจักรวาลหรือคนละมิติกัน จึงไม่อาจรับรองได้ว่าพระพิฆเนศจะกันผีได้ไหม แต่เราอาจทำการทดลองดูได้ถ้าเราหาพระพิฆเนศและผีมาร่วมทดลองได้,,,,
+sona-9.0-20261114T224303Z-008,47,b13d6c34d89954e10c18088a,5cdd556b6068d9e8b104866f0266af81,sona-9.0,th,mathematics,oasst2,human_authored,"[user] ร้านค้าวัสดุก่อสร้างที่บริการดีที่สุดในอำเภอบ้านนา จังหวัดนครนายกคือที่ไหน
+
+[assistant] ขออภัย ฉันเป็นโมเดลภาษา ฉันไม่สามารถให้ข้อมูลสถานที่บนตำแหน่งอย่างเช่นร้านค้าวัสดุก่อสร้างที่บริการดีที่สุดในอำเภอบ้านนา จังหวัดนครนายก ได้
+
+[user] พอจะแนะนำอะไรเพิ่มเติมได้บ้าง","ฉันสามารถให้ชื่อร้านวัสดุก่อสร้างในอำเภอบ้านนา จังหวัดนครนายก ซึ่งได้แก่
+1. สหะเจริญวัสดุก่อสร้าง ที่อยู่เลขที่ 225 ตำบล พิกุลออก อำเภอบ้านนา จังหวัดนครนายก 
+2. ห้างหุ้นส่วนจำกัด สหะชัยวัสดุก่อสร้าง ที่อยู่ 66/4 หมู่ 2 ถนนสุวรรณศร ตำบลบ้านนา อำเภอบ้านนา จังหวัดนครนายก",,,,
+sona-9.0-20261114T224303Z-008,48,5c895586d6b3287d1b16dfd4,118049d066f09e52a5b4f647da03a1c9,sona-9.0,tr,coding,aya-dataset,human_authored,"[user] ""Meaning of Life"" filminde yer alan skeçlerden bahsedebilir misin?","""Meaning of Life"" filmi, bir dizi farklı skeçten oluşur ve her bir skeç farklı bir konuyu veya temayı ele alır. İşte filmin bazı önemli skeçleri:
+1) The Miracle of Birth (Doğumun Mucizesi): Filmin açılış skecidir ve bir bebek doğumunu absürd bir şekilde gösterir. Hastane personelinin tuhaf ve komik davranışları, doğumun garipliğini vurgular.
+2) The Middle of the Film (Filmin Ortası): Bu skeç, filmi izleyenlere bir mola vermeye ve yemeklerini yemeye davet eder. İzleyiciye, filmi izlemeye ara verip yemek yeme izni veren bir sahne sunar.
+3)Live Organ Transplants (Canlı Organ Nakilleri): Bu skeç, organ nakli operasyonlarını hicveder. Hastaların organlarının canlı canlı çıkarılması ve nakil edilmesi saçma bir şekilde gösterilir.
+4) The Autumn Years (Sonbahar Yılları): Bu skeç, yaşlı insanların yaşamın sonuna doğru nasıl muamele gördüğünü eleştirir. Yaşlıların bir restoranda nasıl öldürüldüğünü gösteren absürd bir sahne içerir.
+5) The Meaning of Life (Hayatın Anlamı): Film, son skeçte hayatın anlamını arayan bir grup insanı konu alır. Bu skeç, felsefi ve teolojik konuları mizahi bir şekilde ele alır ve filmi sonlandırır.
+
+Bu skeçler, ""Meaning of Life"" filminin temel öğelerini oluşturur ve her biri farklı bir komedi tarzıyla veya temayla izleyiciyi eğlendirirken düşündürür. Monty Python ekibinin karakteristik absürd mizahı, bu skeçlerin her birini komik ve çarpıcı kılar.",,,,
+sona-9.0-20261114T224303Z-008,49,4256cbf3c9fc2009f830461d,1989d5ec06e0d46f5de75638e8df23f4,sona-9.0,tr,general_knowledge,aya-dataset,human_authored,[user] RISC ve CISC nedir farkı nedir?,"RISC (Reduced Instruction Set Computer) ve CISC (Complex Instruction Set Computer), bilgisayar işlemcilerinin tasarım felsefelerini temsil eden iki farklı mimari yaklaşımı ifade eder. İşte RISC ve CISC arasındaki temel farklar:
+
+Komut Seti Karmaşıklığı:
+RISC: RISC işlemciler, sınırlı ve basit bir komut kümesi kullanır. Her bir komut, işlemci tarafından hızlı bir şekilde yürütülmesi amaçlanır. Genellikle yüksek hızda çalışan işlemcilerdir.
+CISC: CISC işlemciler, daha karmaşık komut setlerini destekler. Bu komutlar daha çok işlemi bir komutta birleştirir. Bu nedenle her komut daha fazla zaman alabilir ancak daha fazla iş yapabilirler.
+
+Befehl Execution:
+RISC: RISC işlemcilerde komutlar genellikle tek saatlik bir döngüde tamamlanır ve işlemci basit komutları hızlı bir şekilde işler. Bu, yüksek performans ve hızlı işlem sağlar.
+CISC: CISC işlemcilerde her komutun daha fazla zaman alması muhtemeldir çünkü komutlar daha karmaşıktır. Bu, işlemci performansını düşürebilir.
+
+Bellek Erişimi:
+RISC: RISC işlemciler, daha fazla bellek erişimine ihtiyaç duyabilir çünkü komutlar daha küçüktür. Bu nedenle RISC işlemciler, özellikle yüksek hızlı bellek erişimine ihtiyaç duyar.
+CISC: CISC işlemciler, daha fazla işlemi bir komutta birleştirebildiği için daha az bellek erişimi gerektirebilir.
+
+Uygulama ve Kullanım Alanları:
+RISC: RISC işlemciler genellikle gömülü sistemler, cep telefonları ve yüksek performanslı bilgisayarlar gibi uygulamalar için tercih edilir.
+CISC: CISC işlemciler, genel amaçlı bilgisayarlar ve sunucular gibi daha geniş uygulama yelpazeleri için kullanılabilir.
+
+Tasarım Felsefesi:
+RISC: RISC işlemciler, daha basit, düşük enerji tüketimi ve hızlı işlem yapma odaklıdır.
+CISC: CISC işlemciler, daha çok işi bir komutta gerçekleştirme ve işlemci tarafından otomatikleştirilen karmaşıklıkla başa çıkma odaklıdır.
+Sonuç olarak, RISC işlemciler basitlik, hız ve düşük güç tüketimi açısından avantajlara sahipken, CISC işlemciler daha fazla işlemi daha az komutla gerçekleştirme kabiliyetine sahiptir. Her iki mimari de farklı kullanım alanlarına ve gereksinimlere göre tercih edilebilir.",,,,
+sona-9.0-20261114T224303Z-008,50,41e586e9c75901e63b4a06a5,99a1c27bf65ed1ea577c7d669e41c0fe,sona-9.0,tr,islamic_studies,aya-dataset,human_authored,[user] Bu paragrafın devamını yazın: Ülkedeki nüfusun azalması problemi ayrıca Hırvatistan Bağımsızlık Savaşı'nın sonuçlarından biridir. Savaş boyunca birçok kişi yerinden olmuş ya da göç etmiştir. 1991'de Sırpların çoğunlukta olduğu bölgelerdeki 400.000'den fazla Hırvat ve diğer Sırp olmayan etnisiteler ya bulundukları yerlerden Hırvatistanlı Sırp güçleri tarafından uzaklaştırılmış ya da şiddetten kaçmak zorunda kalmıştır. 1995'te savaşın son günleri boyunca 120.000 binden fazla hatta belki 200.000 kadar Sırp Fırtına Harekâtı,"'yla yaklaşan Hırvat güçlerinin gelmesinden önce bölgeden kaçmıştır. Savaştan sonraki on yılda savaş boyunca yerlerinden olan 300.000 kadar Sırp'ın ancak 117.000'i ülkeye geri dönmüştür. Hırvatistan'da yaşayan Sırpların çoğu Hırvatistan Bağımsızlık Savaşı'nda işgal edilen alanlarda asla yaşamamıştır. Sırplar sadece daha önce yerleşik oldukları alanın bir kısmına Bosna-Hersek, özellikle de Sırp Cumhuriyeti'nden gelen Hırvat mültecilerin yerleştirilmesinin ardından kalan diğer alanlara yeniden yerleşmişlerdir. Hırvatistan nüfusunun %89.6'sı gibi bir rakamla büyük çoğunluğu Hırvattır. Geriye kalan nüfus %4.5 ile Sırplar ve %5.9 ile Boşnaklar, Macarlar, İtalyanlar, Slovenler, Almanlar, Çekler, Romanlar ve diğerleridir. En büyük dinler nüfusun %88'inin inandığı Katoliklik, %4.4'ünün inandığı Ortodoksluk, %0.4'ünün inandığı diğer Hristiyan mezhepleri ve %1.3'ünün inandığı İslam'dır. Geriye kalan nüfusun %5.2'si inançsızken %0.9'unun inancı bilinmemektedir.",,,,
+sona-9.0-20261114T224303Z-008,51,fed6ee9d7bbd568cd4ba3ab1,096b9eb7edd36ff24389242eaa97b84b,sona-9.0,tr,mathematics,aya-dataset,human_authored,[user] Bana sarma tarifi ver.,"Tabii ki!
+
+Sarma yapmak için gerekli olan malzemeler:
+
+- 300 gram asma yaprağı
+- 1 adet limon
+- 4 yemek kaşığı zeytinyağı
+- 1,5 su bardağı sıcak su
+
+İç harcı için:
+- 1/2 su bardağı zeytinyağı
+- 3 adet orta boy kuru soğan
+- 1,5 su bardağı pirinç
+- 1 su bardağı sıcak su
+- 1 yemek kaşığı dolmalık fıstık
+- 1 yemek kaşığı kuş üzümü
+- 1 çay kaşığı tuz
+- 1 çay kaşığı karabiber
+- 1 çay kaşığı nane
+- 1 çay kaşığı yenibahar
+- 1/2 çay kaşığı tarçın
+
+Yapım Aşamaları:
+1. Sarmanın iç harcını hazırlamak için; yarım su bardağı zeytinyağını geniş tabanlı bir tencerede kızdırın. 3 adet rendelenmiş soğanı hafif renk alana kadar kavurun. Ardından üzerine 1,5 yemek kaşığı dolmalık fıstığı da  koyup kavurmaya devam edin.
+2. Ilık suda 5 dakika kadar bekletip suyunu süzdürdüğünüz 1,5 su bardağı pirinci soğanlarla birlikte, pirinçler şeffaf bir görünüm kazanana kadar kavurun.
+3. Ardından sırasıyla; 1 yemek kaşığı kuş üzümü, 1'er çay kaşığı tuz, karabiber, yenibahar ve tarçın ekleyip karıştırın.
+4. Yaklaşık 1 su bardağı sıcak suyu da ilave edin ve iç harcı kısık ateşte 5 dakika kadar pişirdikten sonra ocaktan alın.
+5. Salamura asma yapraklarını tezgahın üzerinde damarlı kısımları üstte kalacak şekilde açın. Her bir yaprağın orta kısmına; hazırlayıp, ılıttığınız iç harçtan birer tatlı kaşığı kadar paylaştırın.
+6. Kenar kısımlarını içe alıp, geniş kısmından uç kısmına doğru ilerleyin.
+7. Tüm yaprakları sıkı bir şekilde sarın.
+8. Sarma tenceresinin tabanını birkaç adet asma yaprağı ile kaplayın.
+9. Hazırladığınız sarmaları, sıra halinde, yan yana dizin. Limonu halka halka dilimledikten sonra sarmaların üzerine yerleştirin.
+10. Pişme esnasında açılmamaları için; üzerlerine düz bir servis tabağı kapatın. 1,5 su bardağı sıcak su ve 2 yemek kaşığı zeytinyağını da tencereye ekledikten sonra sarmaları, kısık ateşte yaklaşık 35 dakika pişirin.
+
+Arzuya göre ılık ya da soğuk olarak servis edin. Afiyet olsun!",,,,
+sona-9.0-20261114T224303Z-008,52,f3fade243fc53aecde982b49,ef513128ec5a869a618d9afce1bf09c9,sona-9.0,tr,science,aya-dataset,human_authored,[user] Atom bombası nedir nasıl oluşur?,"Atom bombasi uranyum türü bir maddenin atom çekirdeğinin patlatılması ile elde edilir. Hidrojen bombası, ise, hidrojen türü bir maddenin atom çekirdeklerinin yüksek ısı altında eritilip birleştirilmesi sonucu daha ağır bir madde meydana getirmesiyle elde edilir. İki bomba arasındaki ikinci ayrılık, işin çıkarmadadır.",,,,
+sona-9.0-20261114T224303Z-008,53,851259d2350121cfe6781863,d174f34798505ca2b76ee2e2d4d7778c,sona-9.0,tr,writing,aya-dataset,human_authored,[user] Paragrafı tamamlayın: Bulls takımı 2002-03 sezonuna fazla iyimser girerek başladı. 2002 NBA Seçmeleri,"'nde geçen sezonki başarısızlıklarının ödülü olarak 2. sıradan Jay Williams'ı draft ettiler. Takım Bill Cartwright'ın koçluğunda genç ve ellerinde bulundurdukları potansiyelli kadroyla Jalen Rose, Crawford, Fizer yeni gelen Donyell Marshall, Curry, Chandler ve gard Trenton Hassell ile 30-52 galibiyet yüzdesiyle önceki sezonlara göre başarılı bir sezon geçirdiler. Sezon sonunda takımı üstüne kurmayı planladıkları Jay Williams en iyi ikinci çaylak beşine seçildi.",,,,
+sona-9.0-20261114T224303Z-008,54,1ac4876fe94d40075999b469,c3e1e159587994fd8404917b651edd19,sona-9.0,ur,coding,aya-dataset,human_authored,[user] Python میں موسمی ڈیٹا سیٹ میں کون کون سے ممالک گرم تاثر کا شعاع حاصل کرتے ہیں، انہیں دیکھنے کے لئے پائی چارٹ کا استعمال کیسے کیا جاتا ہے,"پہلے، موسمی ڈیٹا سیٹ کو Python میں پڑھیں اور معلوم کریں کہ ہر مملک کا موسمی رینج کی معلومات دستیاب ہے۔ اگر آپ کا ڈیٹا فرمیٹ ٹیکسٹ یا CSV ہوتا ہے تو، pandas کتابخانے کا استعمال کر کے ڈیٹا کو چھوٹی سی ڈیٹا فریم میں لوڈ کر سکتے ہیں.
+
+اگلا کام ہے کہ آپکو موسمی رینج کی معلومات کو تجمیع کرنا ہوتا ہے۔ آپ ہر مملک کے موسمی رینج کو حساب کر سکتے ہیں اور پھر یہ معلومات ایک لسٹ میں ذخیرہ کریں۔
+
+اگر آپ نے ایک بار معلومات کو تجمیع کر لی ہوتی ہے، تو اب آپ matplotlib یا seaborn جیسی Python کی چارٹنگ کتابخانے کا استعمال کر کے ایک پائی چارٹ بنا سکتے ہیں۔ پائی چارٹ میں ہر مملک کو ایک پائی کی حصص میں ظاہر کیا جاتا ہے، جہاں ہر حصہ کی سائیز اس مملک کے موسمی رینج کو ظاہر کرتی ہے۔ مثال کے طور پر، agar آپکے پاس 3 ممالک ہیں اور ان کے موسمی رینج 50C، 40C، اور 30C ہیں تو پائی چارٹ میں تین حصے ہوں گے، اور ہر حصے کی سائیز 50، 40، اور 30 ہوگی۔
+
+آخر میں، آپ پائی چارٹ کو دیکھ کر آپ کریں گے کہ کون کون سے ممالک گرم تاثر کے تحت آتے ہیں، اور آپ کی تجزیے کو معلوم کرنے میں مددگار ہوں گے۔",,,,
+sona-9.0-20261114T224303Z-008,55,3443d8f5a8bcc268da669ba1,0286b5770948f5b5dfcd3fc6f33ed8df,sona-9.0,ur,general_knowledge,wikipedia-ur,templated_human,[user] عون بن عبد اللہ بن جعفر کے بارے میں ایک مختصر تعارف لکھیں۔,"عبد اللہ کے فرزند اور جعفر طیار کے پوتے تھے ۔ حضرت علی کے نواسے آپ کی والدہ زینب بنت علی اور نانی فاطمہ زہرا تھیں۔ عبد اللہ ابنِ جعفر نے علالت کی وجہ سے اپنے بیٹوں کو حسین ابن علی کی بارگاہ میں  دے دیا تھا  اور حسین پر جانثاری کی ہدایت کر کے چلے گئے تھے۔ عون کے رجز کے اشعار نےدشمنوں  کے دل دہلا دیے تھے ۔ آپ نے 30  سوار اور 18 پیادے قتل کیے اور عبداللہ بن قطنہ نبہانی کے ہاتھوں شہید ہوئے۔
+
+عون زینب بنت علی رضی اللہ عنہا کا بیٹا تھا، امام حسین رضی اللہ عنہ کی بہن، اور عبد اللہ ابن جعفر ابن ابی طالب عون کا والد جو نبی کے صحابی تھے۔عبداللہ کے دو بیٹے تھے جن کا نام عون  تھا۔عون الاکبر جن کی والدہ زینب تھیں اور عون الاصغر جن کی والدہ جمانہ تھیں جو مسیب بن نجبہ کی بیٹی تھیں بعض نے عون اور محمد بھی لکھا ہے۔
+
+عون کے دادا جعفر الطیار تھے جنہیں رسول اللہ صلی اللہ علیہ وسلم نے حبشہ کی طرف ہجرت کے وقت مسلمانوں کا سردار مقرر کیا تھا۔  .
+
+جب عبداللہ بن جعفر کو امام حسین علیہ السلام کے کوفہ جانے کی خبر ملی تو اس نے امام کو مکہ واپس آنے پر آمادہ کرنے کے لیے خط لکھا۔ عبد اللہ نے اپنا خط امام کو ان کے بیٹوں عون اور محمد کے ذریعہ بھیجا تھا۔ جب عبد اللہ نے دیکھا کہ امام اپنے فیصلے پر قائم ہیں تو اپنے بیٹوں عون اور محمد کو مشورہ دیا کہ وہ ان کا ساتھ دیں اور امام حسین علیہ السلام کے ساتھ مل کر لڑیں۔",,,,
+sona-9.0-20261114T224303Z-008,56,1dd7348927f2ab638b41ab85,56fecd5d3672071906a2af46520be593,sona-9.0,ur,islamic_studies,wikipedia-ur,templated_human,[user] ابن شہاب زہری کے بارے میں ایک مختصر تعارف لکھیں۔,"ابن شہاب الزہری (پیدائش: 678ء – وفات: 24 جولائی 742ء) ساتویں صدی کے مسلم راوی ہیں جنھوں نے سیرت نبوی کے روایتی مواد کو محفوظ کرنے کے لیے جمع کیا۔
+
+آپ کا نام محمد بن مسلم، کنیت ابو بکر اور لقب اعلم الحفاظ ہے۔ پورا نسب یوں ہے :
+
+ابو بکر محمد بن مسلم بن عبید اللہ بن عبد اللہ بن شہاب بن عبد اللہ بن حارث بن زھرہ بن کلاب الزھری
+
+آپ کے والد کا نام مسلم تھا مگر آپ اپنے دادا شہاب بن حارث کی نسبت سے ابن شہاب مشہور ہوئے۔ آپ قریش کے مشہور قبیلہ بنو زہرہ کی طرف منسوب ہوئے ہیں۔ مدینہ کے رہنے والے ہیں۔ 50ھ میں پیدا ہوئے ۔عبد اللہ بن شہاب عمائدین قریش میں سے تھے
+
+ان کی نسل میں محمد بن مسلم پیدا ہوئے،جن کے دینی خدمات کو اسلامی تاریخ کبھی فراموش نہیں کرسکتی، وہ ان چند آئمہ اسلام میں سے ایک ہیں،جن کی ذات سے اسلام کے مذہبی علوم میں زندگی پیدا ہوئی اور اس کی روشنی سے ساری دنیائے اسلام منور ہوئی۔
+
+علمی کمالات کے اعتبار سے آپ کا کوئی معاصر ہم پایہ نہ تھا۔ حصول علم کی استعداد فطری تھی۔ ذہانت، ذکاوت اور قوت حافظہ بے نظیر پائی تھی۔ ذہین ایسے تھے کہ کسی مسئلہ کو دوبارہ سمجھنے کی ضرورت پیش نہ آتی۔ حافظہ اتنا قوی تھا کہ ایک مرتبہ جو بات سن لی وہ ہمیشہ کے لیے لوحِ دل پر نقش ہو گئی۔ ان کے قوت حافظہ کی ایک ادنیٰ مثال یہ ہے کہ اسی دن میں پورا کلام اللہ حفظ کر لیا تھا ۔ساری عمر میں صرف ایک مرتبہ ایک حدیث میں کچھ شبہ پیدا ہوا تھا،لیکن پوچھنے کے بعد معلوم ہوا کہ جس طریقہ سے ان کو یاد تھی ویسی ہی تھی۔",,,,
+sona-9.0-20261114T224303Z-008,57,7307084cd8e6d96cb0e13289,0f865909908bf3ad8d88a2c76c7650bf,sona-9.0,ur,mathematics,wikipedia-ur,templated_human,[user] پلیئر آف دی میچ ایوارڈ (کرکٹ) کے بارے میں ایک مختصر تعارف لکھیں۔,"کرکٹ کے کھیل میں ایک مین آف میچ یا پلیئر آف دی میچ اور پلیئر آف دی سیزن ایوارڈ کرکٹ میں بہترین کھلاڑی دیا جاتا ہے، تقریبا ہمیشہ ایک ایسے کھلاڑی کو یہ اعزاز دیا جاتا ہے جو اپنی کارکردگی کی وجہ سے اپنی کرکٹ ٹیم کے میچ جیتنے کا سبب بنتا ہے۔
+
+ٹیسٹ میچوں میں، جیک کیلس نے سب سے زیادہ بار یہ اعزاز جیتنے کا اعزاز حاصل کر رکھا ہے، جس نے 166 میچوں میں 23 بار یہ اعزاز حاصل کیا، اس کے بعد متھایا مرلی دھرن نے 19 بار یہ اعزاز حاصل کیا۔
+
+ایک روزہ میچوں میں سچن تندولکر نے سب سے زیادہ بار یہ اعزاز حاصل کیا۔، جس نے 463 میچوں میں 62 بار یہ ایوارڈ حاصل کیا۔
+
+ٹوئنٹی 20 انٹرنیشنل کرکٹ میں شاہد آفریدی نے سب سے زیادہ 15بار یہ اعزاز حاصل کیا۔ اس کے بعد ویرات کوہلی نے 10 بار یہ اعزاز حاصل کیا۔
+
+نوٹ: موٹی لکھائی میں لکھے گئے کھلاڑی اب بھی بین الاقوامی کرکٹ میں سرگرم ہیں۔
+
+نوٹ: موٹی لکھائی میں لکھے گئے کھلاڑی اب بھی بین الاقوامی کرکٹ میں سرگرم ہیں۔
+
+ٹیسٹ کرکٹ میں، جنوبی افریقہ کو ٹیم کے میچ آف دی میچ کا اعزاز دیا گیا ہے، یہ اعزاز ویسٹ انڈیز کے دورے کے دوران 1998/99 کے سیزن میں دیا گیا۔ یہ میچ جنوبی افریقہ 351 رنز سے جیت گیا اور جنوبی افریقہ کے تمام 11 کھلاڑیوں کو مین آف دی میچ اعزاز سے نوازا گیا۔",,,,
+sona-9.0-20261114T224303Z-008,58,0140adcbc8458f8caa8314f4,9149ccfda8d76877aacfa3a335cf31e3,sona-9.0,ur,pakistan,aya-dataset,human_authored,[user] پاک فوج کا ڈھانچہ اور تنظیم کیا ہے؟,"پاکستان آرمی ایک اچھی طرح سے طے شدہ درجہ بندی کے ڈھانچے کے اندر کام کرتی ہے، جو اپنی متنوع صلاحیتوں کو موثر طریقے سے کمانڈ اور کنٹرول کرنے کے لیے منظم ہے۔ درجہ بندی کے سب سے اوپر چیف آف آرمی سٹاف (COAS) ہے، جو فوج میں اعلیٰ ترین فوجی افسر ہے۔ سی او اے ایس کو براہ راست رپورٹ کرنے والے مختلف پرنسپل اسٹاف آفیسرز ہیں، ہر ایک مخصوص کاموں جیسے آپریشنز، انٹیلی جنس، لاجسٹکس اور اہلکار کی نگرانی کرتا ہے۔
+فوج کو کور اور ڈویژنوں میں منظم کیا گیا ہے، ہر ایک نامزد جغرافیائی علاقے کے لیے ذمہ دار ہے۔ کور آپریشنل اور انتظامی ہیڈکوارٹر کے طور پر کام کرتے ہیں، جبکہ ڈویژن فوجی کارروائیوں کے لیے ذمہ دار حکمت عملی کی تشکیل ہیں۔ فوج کی مختلف شاخیں، بشمول پیادہ، توپ خانہ، آرمر، ہوابازی اور انجینئرز، ایک جامع اور موثر دفاعی حکمت عملی کو یقینی بنانے کے لیے باہمی تعاون سے کام کرتے ہیں۔
+
+فوج کے تنظیمی ڈھانچے کو اس کی مختلف اکائیوں اور فارمیشنوں کے درمیان واضح مواصلات، موثر فیصلہ سازی، اور ہموار ہم آہنگی کی سہولت فراہم کرنے کے لیے ڈیزائن کیا گیا ہے، جس سے وہ سیکیورٹی چیلنجوں کی ایک حد کا مؤثر طریقے سے جواب دینے کے قابل بناتا ہے۔",,,,
+sona-9.0-20261114T224303Z-008,59,cd5756eac14d7c647bffd2f4,77653729e2b39ff4dad5cb082190ccff,sona-9.0,vi,coding,aya-dataset,human_authored,"[user] Hoàn thiện đoạn văn sau với nội dung có liên quan tới đoạn văn dưới đây: Tháng 7, thị trường xe hơi Việt Nam chào đón hai mẫu SUV 7 chỗ mới Ford Everest, Isuzu mu-X. Cặp xe sang nhà Audi là A8L và xe điện e-tron GT. Range Rover thế hệ mới diện kiến các đại gia Việt. Cặp đôi nhà Nissan là mẫu bán tải Navara và sedan Almera. Ford Everest thế hệ mới Mẫu SUV chủ bài của hãng xe Mỹ ra mắt khách Việt với 4 phiên bản, giá từ 1,099-1,452 tỷ đồng. Ở thế hệ mới, Everest tăng giá từ 40-52 triệu so với thế hệ cũ. Mẫu SUV 7 chỗ thiết kế mới từ trong ra ngoài, thêm công nghệ. Ngoại hình nam tính hơn thế hệ cũ. Nội thất phong cách mới ở bảng điều khiển trung tâm và táp-lô. Everest cạnh tranh với những đối thủ như Toyota Fortuner, Mitsubishi Pajero Sport. Audi ra mắt A8L mới A8L phiên bản mới nhập khẩu Đức ra mắt ngày 9/7. Mẫu sedan cao cấp nhất của Audi bán ra 3 phiên bản, gồm Classic 5 chỗ (bản tiêu chuẩn) giá dưới 6 tỷ đồng, và hai bản cao cấp hơn là Plus 5 chỗ và Premium 4 chỗ giá trên 6 tỷ đồng. A8L cạnh tranh với những đối thủ như Mercedes S-class và BMW series 7. Nissan Navara động cơ mới Navara 2022 thay đổi động cơ 2.5 hút khí tự nhiên bằng động cơ tăng áp kép 2.3 và đạt chuẩn khí thải Euro 5. Động cơ mới lắp cho hai bản cao nhất, gồm Navara 4WD giá 945 triệu đồng và Navara Pro4X gía 970 triệu đồng, cả hai đều dẫn động 2 cầu. Mức giá này tăng lần lượt 50 và 25 triệu so với trước. Trong khi các bản một cầu chưa có hàng và hãng chưa thông tin về những nâng cấp mới. Hai bản hiện hành Navara một cầu tiêu chuẩn và cao cấp giá lần lượt 748 triệu và 845 triệu đồng. Sau bản nâng cấp của mẫu bán tải Nissan, phân khúc này sắp có sự","xuất hiện của Isuzu D-Max 2022 chuẩn khí thải Euro5 và Ford Ranger thế hệ mới. Audi ra mắt e-tron GT quattro Mẫu xe điện thể thao đầu tiên của Audi chào thị trường Việt Nam. e-tron GT quattro nhập Đức, giá từ 5,2 triệu đồng, cạnh tranh với đối thủ đồng hương Porsche Taycan. Mẫu xe điện thể thao của Audi bán ra hai phiên bản, gồm quattro và RS. Đối thủ Taycan có 7 lựa chọn phiên bản, giá từ 4,7-9,5 tỷ đồng. Nissan giới thiệu Almera 2022 Almera phiên bản mới nâng cấp động cơ, bổ sung tính năng như điều hòa nóng, đèn pha tự động và ghế da trên bản cao nhất. Mẫu sedan của Nissan nhập khẩu Thái Lan và bán ra hai phiên bản, CVT tiêu chuẩn giá 539 triệu và CVT cao cấp giá 595 triệu đồng. Giá tăng nhẹ so với bản cũ. Ngoài bản CVT, Almera còn có bản số sàn MT giá 469 triệu đồng. Almera thuộc phân khúc sedan cỡ B, nơi có những cái tên đáng gờm như Toyota Vios, Hyundai Accent hay Honda City. Isuzu mu-X mới ra mắt Mẫu SUV 7 chỗ nhà Isuzu nhập khẩu Thái Lan. Xe thiết kế mới mong tăng thêm sức cạnh tranh với các đối thủ đáng gờm, như Toyota Fortuner, Mitsubishi Pajero Sport, Ford Everest. mu-X bán ra với 4 phiên bản, trong đó 3 bản như thế hệ tiền nhiệm: B7 4x2 MT, B7 Plus 4x2 AT, Prestige 4x2 AT. Riêng bản mu-X Premium 4x4 AT cao cấp nhất lần đầu tiên xuất hiện. Giá từ 900 triệu đến 1,19 tỷ đồng. Ranger Rover 2022 chào thị trường Việt Nam Range Rover thế hệ mới thay đổi với thiết kế ""phẳng"" hơn. Xe ngập tràn các công nghệ đi kèm và nội thất cao cấp đi cùng giá bán hàng chục tỷ đồng. Xe bán ra với 4 phiên bản, gồm SWB P360 Autobiography giá từ 11,19 tỷ đồng, LWB P360 Autobiography từ 11,389 tỷ đồng, LWB P360 Autobiography (7 chỗ) từ 11,409 tỷ đồng, LWB P530 SV từ 23,859 tỷ đồng. Với tầm giá từ 11,2 tỷ đồng, Range Rover cạnh tranh với Mercedes-Maybach GLS từ 12,5 tỷ đồng. Còn phiên bản Range Rover SV từ hơn 23 tỷ đồng là một lựa chọn khác bên cạnh Bentley Bentayga, từ 19,5 tỷ đồng. Minh Vũ",,,,
+sona-9.0-20261114T224303Z-008,60,2c638751fbddae9070d871d3,7b5ed338e4aa33e384380ce1ad81be15,sona-9.0,vi,general_knowledge,aya-dataset,human_authored,"[user] Hoàn thiện đoạn văn sau với nội dung có liên quan tới đoạn văn dưới đây: Hoàng Trung, 25 tuổi, sống ở Hà Nội, đến Singapore vào đầu mùa hè. Đây là chuyến du lịch nước ngoài đầu tiên của anh sau Covid-19. Trung ghi lại cảm xúc khi đến sở thú đêm (Night Safari), sau nhiều háo hức và mong đợi. Khi tìm hiểu Singapore để có chuyến đi trọn vẹn nhất, tôi phát hiện trải nghiệm sở thú đêm. Trong tưởng tượng của tôi, sở thú đêm ắt hẳn sẽ rất thú vị và độc đáo. Tôi sẽ được chiêm ngưỡng những loài động vật sống về đêm mà sở thú ban ngày không có, và có chăng những màn hù doạ từ trong bóng tối? Đặc biệt, khi mua vé, tôi thấy quy định không được xịt nước hoa vì có thể ảnh hưởng đến động vật hoang dã, nên càng mong đợi những trải nghiệm bất ngờ và có thể được tương tác với động vật từ sở thú này. Night Safari ở cùng khu với sở thú Singapore, nằm cách biệt và rất xa trung tâm thành phố. Nếu tới đây bằng phương tiện công cộng, bạn phải trung chuyển từ tàu điện sang xe buýt. Tôi lựa chọn taxi để yên tâm hơn khi đi buổi tối, song cũng vất vả vì không quen đường Singapore, thật khó để giải thích với tài xế nơi mình đang đứng đợi. Tôi đến nơi lúc 20h, háo hức vô cùng khi đi từ bãi đỗ xe, đi qua các biển chỉ dẫn để vào sở thú đêm.","Họ phát nhạc có không khí phiêu lưu, rừng xanh, nhiều giai điệu trống và tiếng côn trùng kêu, khiến nhiều khách Tây đi cạnh tôi nhún nhảy, thậm chí chạy nhanh đến cổng soát vé vì không chờ đợi được. Sau khi lấy vé, tôi được đưa lên một chiếc tàu điện. Và mọi chuyện bắt đầu không như mong đợi từ đây. Cùng giọng đọc bằng tiếng Anh khá truyền cảm phát từ trong loa, chiếc tàu chở chúng tôi đi vòng quanh sở thú. Trải nghiệm này phụ thuộc khá nhiều vào việc bạn có biết tiếng Anh hay không vì nếu không hiểu, bạn sẽ không thể hình dung những gì đang diễn ra xung quanh vì quá tối. Theo tôi như vậy là điểm trừ vì du khách sẽ khá bị động. Bạn tôi là người không hiểu tiếng Anh, nếu không được tôi nhắc, chắc hẳn cô ấy không biết mình đã đi tới đâu và đang được xem gì. Trái ngược với mong đợi của tôi, chiếc tàu dẫn chúng tôi đi xem sư tử, hồng hạc, voi... Những con vật mà sở thú ban ngày cũng có, thay vì tôi được xem cú, trăn, hay những loại động vật săn mồi về đêm. ""Thế này thì đi sở thú ban ngày để nhìn cho rõ còn hơn nhỉ"", tôi nghe thấy một vị khách Đức ngồi trước mình bình luận. Nhìn được các con vật cũng là điều khá hên xui, do chỉ có ánh sáng lờ mờ và chúng hầu như đang ngủ. Tuy vậy, trong hành trình cũng có một số điểm nhấn như việc chiếc tàu điện đưa tôi đi xượt qua một con thú gì đó đang thong dong đi theo chiều ngược lại. Có lẽ tôi chỉ cách nó khoảng 10 m. Đến giờ tôi vẫn không biết đó là con vật gì, nhưng những sự bí ẩn như vậy mới là điều tôi mong đợi khi trải nghiệm sở thú đêm. Hành trình tàu điện kết thúc, chúng tôi đi xem show Những tạo vật về đêm. Tôi cũng hy vọng nhiều về show diễn này sau khi đọc quảng cáo, nghĩ rằng sẽ có những pha thót tim hoặc bất ngờ cho khán giả. Tuy nhiên, ngoài âm nhạc và hiệu ứng tắt, bật đèn không có gì ngạc nhiên, tôi chỉ được xem những con vật thông minh, như con lửng biết mở nắp hộp, hay con cú biết đậu trên tay người. Người Singapore rất biết làm du lịch, khi gợi mở được sự tò mò trong du khách, song trải nghiệm sở thú đêm thực sự không làm tôi thấy thoả mãn. Họ giỏi trong việc tạo ra không khí, nhưng như vậy chưa đủ. Sau khi trở về, tôi có đăng trên trang cá nhân trải nghiệm về sở thú này và nhiều người từng đi cũng đồng tình với tôi về cảm nhận không như mong đợi. Tuy nhiên, có thể trẻ con vẫn sẽ thích, nên nếu đi cùng gia đình, bạn vẫn nên thử, vì nó khá lạ. Hoàng Trung",,,,
+sona-9.0-20261114T224303Z-008,61,b196657837f1672a884881e5,abc6ad7ef17141f57e4b35754739d953,sona-9.0,vi,islamic_studies,aya-dataset,human_authored,"[user] Hãy viết một đoạn văn ít nhất 200 chữ dựa trên nội dung được nói tới trong câu sau: Thua Liverpool, Man City vẫn là ứng viên số 1 vô địch Ngoại hạng Anh. Nội dung chính của đoạn văn là Man City đã thua Liverpool 1-3 trong trận Siêu cúp Anh, mặc dù họ đã cố gắng rất nhiều. Đoạn văn cũng đề cập đến tỷ lệ ứng viên cho chức vô địch Siêu cúp Anh, với Man City đứng đầu với tỷ lệ 8/13. Ngoài ra, đoạn văn cũng nêu rõ sự thất bại của tân binh Erling Haaland trong trận đấu này và so sánh anh với Darwin Nunez, người đã ghi bàn cho Liverpool. Haaland được đánh giá cao hơn trong cuộc đua giành Chiếc giày vàng với tỷ lệ 11/4.","Ở trận tranh Siêu cúp Anh, dù rất cố gắng nhưng Man City lại không thể tận dụng được những cơ hội của mình và để thua Liverpool 1-3. Tuy nhiên, cần phải biết rằng chỉ 1 trong 10 năm gần nhất nhà vô địch Siêu cúp Anh có thể nâng cao cúp bạc Ngoại hạng Anh vào cuối mùa. Theo đánh giá của các nhà cái hàng đầu, Man City vẫn là ứng viên số 1 cho chức vô địch. Theo bet365, tỷ lệ vô địch của City là 8/13 (đặt 13 ăn 8). Tiếp theo lần lượt là Liverpool (5/2), Tottenham (12/1), Chelsea (16). Man United tiếp tục không được đánh giá cao khi chỉ đứng thứ 5, với tỷ lệ dao động từ 28 tới 40/1. Ở một diễn biến khác, tân binh Erling Haaland có màn chào sân nước Anh không thành công khi bỏ lỡ 2 cơ hội ngon ăn, trong đó đặc biệt là cú sút cận thành đưa bóng thằng lên trời. Rõ ràng, so với Darwin Nunez, người ghi bàn ấn định chiến thắng 3-1, Haaland lép vế rất nhiều. Nhưng một lần nữa, các nhà cái vẫn đánh giá cao người Man City. Trong cuộc đua giành Chiếc giày vàng, bet365 cho rằng Haaland là số 1 với tỷ lệ 11/4 (đặt 4 ăn 11). Trong khi đó, Nunez chỉ đứng thứ 4 với 12/1, ở giữa là Mo Salah (9/2) và Harry Kane (5/1).",,,,
+sona-9.0-20261114T224303Z-008,62,73f1ac03d5ae8df7adf1f003,43f0f7efac4fb70b0d52807e1d21a983,sona-9.0,vi,mathematics,aya-dataset,human_authored,"[user] Địa danh nào còn thiếu trong câu thơ sau, trích trong bài ""Chạy giặc"" của Nguyễn Đình Chiểu?
+
+(...) của tiền tan bọt nước,
+Đồng Nai tranh ngói nhuốm màu mây","từ còn thiếu là Bến Nghé
+Từ khi thực dân Pháp xâm lược Việt Nam, ngòi bút Nguyễn Đình Chiểu chuyển từ đề tài đạo đức sang yêu nước. Chạy giặc là bài thơ thể hiện được nỗi xót thương của khi nhân dân chịu cảnh khổ cực vì bị giặc xâm lược. Nguyên văn bài thơ như sau:
+
+Tan chợ vừa nghe tiếng súng Tây,
+Một bàn cờ thế phút sa tay.
+Bỏ nhà lũ trẻ lơ xơ chạy,
+Mất ổ bầy chim dáo dác bay.
+Bến Nghé của tiền tan bọt nước,
+Đồng Nai tranh ngói nhuốm màu mây.
+Hỏi trang dẹp loạn rày đâu vắng,
+Nỡ để dân đen mắc nạn này?
+
+Sách giáo khoa Ngữ văn lớp 11 (tập 1, Nhà xuất bản Giáo dục Việt Nam) chú giải: Bến Nghé là tên cũ của sông Sài Gòn, cũng là địa danh chỉ thành Gia Định; Đồng Nai là địa danh chỉ phần đất ở Đông Nam Bộ, cũng là tên con sông ở vùng này.
+
+Hiện chưa thấy tài liệu nào nói rõ thời điểm ra đời của bài thơ. Căn cứ vào hoàn cảnh lịch sử, cuộc đời Nguyễn Đình Chiểu và nhất là nội dung tác phẩm, có người cho rằng bài thơ này đã được tác giả viết ngay sau khi thành Gia Định bị thực dân Pháp bắt đầu tấn công (ngày 17/2/1859). Đây là một trong những tác phẩm đầu tiên của văn học yêu nước chống Pháp nửa cuối thế kỷ 19.",,,,
+sona-9.0-20261114T224303Z-008,63,2a63d16dce72ae65f10d3bd8,efada89ad4e45ed0400db78a94633fa3,sona-9.0,vi,pakistan,aya-dataset,human_authored,"[user] Hãy tiếp tục đoạn văn sau: Trước trận đấu, HLV Erik ten Hag không đặt nhiều kỳ vọng vào Cristiano Ronaldo, bởi ông hiểu rằng tiền đạo này đang không có thể lực tốt sau quãng thời gian tự tách khỏi đội một. Ngoài vấn đề thể lực, việc bị xếp vào đội hình gồm nhiều cầu thủ dự bị khiến Ronaldo cũng không có được nguồn cung cấp bóng tốt nhất. Anh gần như bị chia cắt với đồng đội ở hai biên là Alejandro Garnacho và Tahith Chong. Trong cả hiệp một, siêu sao người Bồ Đào Nha chỉ có một cú sút, đó là pha ra chân đưa bóng đi vọt xà sau đường chọc khe của Van de Beek ở phút 12. Những phút tiếp theo, Ronaldo đói bóng và thường xuyên phải lùi về giữa sân để tự tạo khoảng trống. Lão tướng 37 tuổi có 2 đường chuyền tạo cơ hội, nhưng đồng đội phía trên đều không thể gây khó khăn cho hàng thủ Rayo. Cơ hội đáng kể nhất của MU trong hiệp một thuộc về Christian Eriksen. Tân binh người","Đan Mạch dứt điểm táo bạo từ ngoài vùng cấm ở phút 30 đưa bóng đi chệch khung thành trong gang tấc. Đầu hiệp hai, Ronaldo được rút khỏi sân. Cầu thủ vào thay siêu sao 37 tuổi, Amad Diallo lại chơi nổi bật. Ngay phút 48, cầu thủ trẻ người Bờ Biển Ngà tận dụng tình huống bóng bật ra sau cú sút xa của Telles để đá bồi mở tỷ số. Chưa đầy 10 phút sau bàn mở tỷ số, MU đã để thủng lưới theo kịch bản tương tự. Thủ môn Tom Heaton cản được sú sút xa của Palazon nhưng bất lực khi Garcia băng vào đá bồi. Những phút còn lại của trận đấu, HLV Ten Hag tung hàng loạt cầu thủ trẻ vào sân. ""Quỷ đỏ"" chỉ có thêm một cơ hội đáng kể, đó là cú sút xa đưa bóng đi chệch cột trong gang tấc của Zidane Iqbal. Trận đấu khép lại với tỷ số hòa 1-1. MU sẽ nghỉ ngơi một tuần trước khi bước vào trận đấu chính thức đầu tiên của mùa giải 2022/23 gặp Brighton.",,,,
+sona-9.0-20261114T224303Z-008,64,b81118e1f5fa6f4d6a3d3ed3,5f416b4afee94afa25e95057b57a590c,sona-9.0,vi,reasoning,aya-dataset,human_authored,"[user] Hãy chọn đáp án đúng nhất cho câu hỏi sau:
+Ai là tác giả của những tác phẩm với sự xuất hiện của thám tử lừng danh Sherlock Holmes?
+
+a. Charles Dickens
+
+b. Ernest Hemingway
+
+c. Conan Doyle","c. Conan Doyle
+
+Sherlock Holmes xuất hiện trong các tác phẩm của Conan Doyle
+
+Sherlock Holmes là nhân vật thám tử hư cấu vào cuối thế kỷ 19 và đầu thế kỷ 20, xuất hiện lần đầu trong tác phẩm của nhà văn Arthur Conan Doyle.
+
+Sherlock Holmes, một thám tử tư người Anh, nổi tiếng nhờ trí thông minh, khả năng suy diễn logic và quan sát tinh tường trong khi phá những vụ án mà cảnh sát phải bó tay. Nhiều người cho rằng Sherlock Holmes là nhân vật thám tử hư cấu nổi tiếng nhất trong lịch sử văn học và là một trong những nhân vật văn học được biết đến nhiều nhất thế giới.
+
+Sherlock Holmes đã xuất hiện trong bốn tiểu thuyết và 56 truyện ngắn của Conan Doyle, hầu hết được viết dưới dạng ghi chép của bác sĩ John H. Watson, người bạn thân thiết và người ghi chép tiểu sử của Holmes.
+
+Hai tác phẩm đầu tiên trong số này là những tiểu thuyết ngắn, xuất hiện lần đầu tiên trên tờ Beeton's Christmas Annual năm 1887 và Lippincott's Monthly Magazine năm 1890. Thám tử Holmes trở nên nổi tiếng khi loạt truyện ngắn của Doyle được xuất bản trên tạp chí The Strand Magazine năm 1891.
+
+Các tác phẩm được viết từ năm 1878 đến năm 1903 với vụ án cuối cùng vào năm 1914.",,,,
+sona-9.0-20261114T224303Z-008,65,4be67b7455a628f84b08cad2,be776a8073f505f8170c626a694c4ccb,sona-9.0,vi,science,aya-dataset,human_authored,"[user] Tiếp xúc với bề mặt kim loại thường thấy lạnh hơn bề mặt bằng gỗ vì:
+
+A. Nhiệt dung riêng của kim loại lớn hơn
+
+B. Nhiệt độ nóng chảy của kim loại lớn hơn
+
+C. Độ dẫn nhiệt của kim loại lớn hơn","đáp án C
+Trao đổi nhiệt là sự truyền dẫn nhiệt năng khi có sự chênh lệch nhiệt độ, bình thường nhiệt được truyền từ vật nóng sang vật lạnh. Truyền nhiệt được thực hiệt dưới ba hình thức: Dẫn nhiệt, đối lưu và bức xạ nhiệt.
+
+Dẫn nhiệt xảy ra trong một vật hoặc các vật tiếp xúc trực tiếp với nhau, do động năng của nguyên tử, phân tử, electron tự do được truyền đi, điển hình ở kim loại. Đối lưu xảy ra ở chất khí và chất lỏng, do chênh lệch nhiệt độ dẫn đến chênh lệch áp suất tạo ra các dòng chất lưu nóng lạnh đối lưu. Bức xạ nhiệt: Sự truyền nhiệt bằng bức xạ điện từ, chủ yếu là tia hồng ngoại, đặc biệt có thể truyền nhiệt tốt trong môi trường chân không.
+
+Thông thường nhiệt độ cơ thể lớn hơn nhiệt độ của đồ vật (thường bằng nhiệt độ môi trường) nên sẽ có trao đổi nhiệt (chủ yếu là dẫn nhiệt do tiếp xúc) giữa tay và bề mặt tiếp xúc. Cảm giác nóng lạnh ở tay ngay khi tiếp xúc với bề mặt phụ thuộc vào tốc độ trao đổi nhiệt giữa tay và bề mặt tiếp xúc. Tốc độ này phụ thuộc vào chênh lệch nhiệt độ, diện tích tiếp xúc và hệ số dẫn nhiệt của vật liệu ở bề mặt tiếp xúc.
+
+Do hệ số dẫn nhiệt của kim loại (đồng: 380 W/m.K, nhôm: 209 W/m.K) thường rất lớn so với gỗ (0,13 - 0,18 W/m.K), do đó khi tiếp xúc với bề mặt kim loại thường thấy lạnh hơn so với bề mặt bằng gỗ.",,,,
+sona-9.0-20261114T224303Z-008,66,95cfe7d31b2708b41a131f62,9435936e4ccb81af9de6ff2ceae22943,sona-9.0,vi,web_frontend,aya-dataset,human_authored,"[user] Hãy viết tiếp nội dung cho đoạn văn sau: Hoài Lâm là một trong những ca sĩ sở hữu chất giọng đặc biệt cùng danh tiếng đáng ngưỡng mộ. Song đến thời điểm hiện tại, nam ca sĩ lại có sự nghiệp khá lận đận, không được như kỳ vọng. Mới đây nhất trên mạng xã hội, Hoài Lâm đã có chia sẻ đáng chú ý về cuộc sống hiện tại vã những gì bản thân đã đạt suốt chặng đường đã qua. Theo đó trong một clip nói chuyện với khán giả, Hoài Lâm đã bất ngờ cho rằng nếu không có mọi người yêu thương, anh cũng chỉ là tản đá khô cằn. ""Nếu không có mọi người Lâm chỉ là một tảng đá, khô cằn, không có mọi người nhắc nhở thì cũng không biết đâu là hiếu, đâu là hành, đâu là điều nên làm, đâu là điều nên nói"", Hoài Lâm chia sẻ. Chứng kiến khán giả đang xem trực tiếp liên tục thả tim cho những lời nhắn nhủ của mình, Hoài Lâm tiếp tục nói thêm: ""Em thương mọi người, em thương mọi người, nhìn nè, bao nhiêu là trái tim, bao nhiêu là sự thương mến"". Ngay sau khi được chia sẻ, đoạn clip ghi lại khoảnh khắc này đã nhận được sự quan tâm của dân mạng. Bên cạnh một số netizen bất ngờ trước thân hình ngày một ""phát tướng"" của con nuôi Hoài Linh, số khác cũng đồng cảm và mong Hoài Lâm sớm trở lại showbiz. - ""Nhìn Hoài Lâm phát tướng thấy rõ"". - ""Thương Hoài Lâm và cảm ơn những gì mà anh đã cống hiến cho nghệ thuật"". - ""Cố lên Hoài Lâm, hy vọng anh sớm trở lại với nghệ thuật"". Sau cuộc ly hôn với Cindy Lư, Hoài Lâm dường như hạn chế cập nhật nhiều về cuộc sống hiện tại và đang tập trung cho những sản phẩm âm","nhạc cá nhân cũng như cuộc sống ở quê nhà Vĩnh Long. Sau khi chia tay, 2 con gái của Bảo Lâm ở với mẹ, Cindy Lư cũng từng nhắn nhủ về cuộc hôn nhân không trọn vẹn với Hoài Lâm: ""Ai đúng ai sai cũng chẳng còn quan trọng, điều quan trọng nhất từ bây giờ đến sau này là em muốn con em được yên bình, sống đúng với tuổi thơ của chúng, không bị bất kỳ sự rắc rối nào hay bị bất kỳ ai lôi tên chúng vào những câu chuyện mua vui, thêu dệt và cố gắng giành phần đúng về họ, anh hiểu ý em chứ. Tạm biệt, chúc anh tất cả, phải sống thật vui nhé"". Theo Minh Ngọc (Saostar.vn) https://saostar.vn/giai-tri/hoai-lam-bat-ngo-noi-loi-xuc-dong-den-khan-gia-[CARD].html Trang Thông tin điện tử Docbao.vn Công ty Cổ phần Quang Minh Việt Nam Giấy phép thiết lập Trang thông tin điện tử tổng hợp trên Internet số 2372/GP-STTTT cấp ngày 29/8/2014. SĐT: 024. 666.40816 Địa chỉ: P604, Tầng 6, Tòa nhà Golden Field, Khu đô thị mới Mỹ Đình 1, phường Cầu Diễn, quận Nam Từ Liêm, Hà Nội Chịu trách nhiệm nội dung: Điều Thị Bích; ĐT: 0903.263.198; Email: [EMAIL] Đọc báo trực tuyến hiện tại chỉ sử dụng tên miền duy nhất là docbao.vn; độc giả lưu ý tránh nhầm lẫn. Chính sách bảo mật RSS",,,,
+sona-9.0-20261114T224303Z-008,67,caf19ef54ff41561d3d0da2e,934e0106e2b1513b22d20c0c6b1f83e5,sona-9.0,vi,web_fullstack,aya-dataset,human_authored,"[user] Hãy chọn đáp án đúng nhất cho câu hỏi sau:
+Ngoài Việt Nam, quốc gia nào dưới đây cũng lấy 20/11 làm ngày nhà giáo?
+
+a. Australia và Singapore.
+
+b. Singapore và Thổ Nhĩ Kỳ.
+
+c. Không quốc gia nào kể trên.","c. Không quốc gia nào kể trên
+
+người Australia chọn thứ sáu cuối cùng của tháng 10 là ngày nhà giáo trên toàn quốc. Tuy nhiên, nếu rơi vào 31/10, trùng lễ Halloween, ngày lễ này sẽ được lùi lại một tuần.
+
+Học sinh và phụ huynh cùng đến tham dự buổi lễ. Giáo viên thường được học sinh tặng quà. Tuy nhiên, nếu món quà có giá trị cao, họ phải trả tiền nếu không muốn bị Ủy ban chống tham nhũng quốc gia kiểm tra và xử phạt.
+
+Còn với Singapore, theo thông tin trên website của Bộ Giáo dục nước này, ngày nhà giáo là thứ sáu đầu tiên trong tháng 9. Thông thường lễ kỷ niệm được tổ chức từ ngày hôm trước, học sinh được nghỉ nửa ngày để tham gia sự kiện với các tiết mục giải trí.
+
+Tờ Hurriyet Daily News viết Thổ Nhĩ Kỳ tổ chức ngày nhà giáo vào 24/11. Nước này xem nghề giáo là thiêng liêng và không gì có thể so sánh được. Mustafa Kemal Atatürk, vị tổng thống đầu tiên của Thổ Nhĩ Kỳ, từng nói: ""Một giáo viên tốt giống như một ngọn nến, nó đốt cháy bản thân để soi đường cho kẻ khác"".",,,,
+sona-9.0-20261114T224303Z-008,68,6b04207bf56f59451240b99c,2c0e16b66ab90efc59f2c17279373f24,sona-9.0,vi,writing,aya-dataset,human_authored,"[user] Write the rest of the article:
+...thường xuyên gặp phải không ít nhân viên ở các cấp chính quyền, bao gồm ủy ban quận và thành phố, ở Ba Lan có thái độ khá kiêu ngạo. Họ cho rằng họ đã làm việc trong ngành nhiều năm, có rất nhiều kinh nghiệm, vì vậy không cần phải lắng nghe lời khuyên từ một người nước ngoài, ý muốn rằng người nước ngoài đó nên phải tuân theo phong tục và tập quán của đất nước. Họ khá bất bình khi phải chấp nhận lời chỉ dẫn từ người nước ngoài.
+Tình trạng này gây ra nhiều khó khăn cho nhiều người Việt ở Ba Lan. Một ví dụ điển hình là phụ nữ gốc Việt khi đăng ký giấy tờ tại Ba Lan, ví dụ như tên Nguyễn Thị Bích Thủy. Các nhân viên hành chính Ba Lan thường ghi theo hộ chiếu Việt Nam mà đặt tên 'Thị' ở tên thứ nhất.","Nhưng tên thứ nhất thường bị đặt sau họ và tên đệm trong truyền thống ghi tên ở Ba Lan. Do đó, tên 'Thị' thường được đặt ở vị trí không phù hợp, tạo ra sự nhầm lẫn và bất tiện trong việc nhận dạng. Điều này khiến cho nhiều người gốc Việt cảm thấy khó chịu và bối rối về việc giữ gìn danh tính và tên gọi của mình.
+
+Mâu thuẫn về phong tục và tập quán trong giao tiếp và hành chính giữa người Ba Lan và người Việt thường khiến cho việc tương tác và thích nghi trở nên khó khăn hơn. Tuy nhiên, trong quá trình đa văn hóa hóa và tương tác xã hội, cả hai bên có thể học hỏi và thấu hiểu sâu hơn về nhau để tạo nên môi trường hòa thuận và tôn trọng đa dạng văn hóa.
+
+Còn về phía chính quyền Việt Nam, thiết nghĩ các cấp nên nhanh chóng ghi rõ trong giấy tờ hộ tịch, hộ chiếu của công dân mình, đâu là họ và đâu tên, thật rạch ròi. Có vậy thì người dân mới hiểu ra về các số liệu của chính mình, bởi vì khái niệm ""tên đệm, chữ đệm"" cứ tưởng như là dễ hiểu, mà hóa ra là rất mơ hồ, nhất là khi phải đi ra nước ngoài và phải kê khai số liệu họ tên (tên họ) như các quốc gia khác quy định.
+
+Chưa kể chuyện đã được nêu trên báo chí là cách ghi kèm tiếng Anh trong hộ chiếu Việt Nam 'full name' hoàn toàn không có nghĩa gì khi dịch ra ngoại ngữ. Và ở nhiều nước bên này, chính quyền họ dịch 'full name' thành ra chỉ có tên, không có họ.
+
+Điều quan trọng là nếu chính quyền của tất cả các quốc gia, gồm cả Việt Nam luôn hoạt động vì dân, lo cho dân thì sẽ tìm ra được những giải pháp ưu việt nhất cho tất cả các bên liên quan, đặc biệt là không gây khó cho người dân khi ra nước ngoài.
+
+Thiết nghĩ nếu tất cả những ý kiến (hoặc sáng kiến) của người dân nên được các cơ quan hành chính lưu ý và nếu quy định hiện hành nào trở nên lỗi thời, nhất là về các thủ tục hành chính, thì cần thay đổi để hợp với thời đại và xã hội đang phát triển rất nhanh.
+
+Bài viết thể hiện quan điểm riêng của ông Ngô Hoàng Minh, hiện sống và làm việc ở Warsaw, Ba Lan. BBC muốn lắng nghe câu chuyện của các bạn về đề tài này, xin gửi email về [EMAIL].
+
+Xem thêm về chủ đề visa, hộ chiếu, lãnh sự:
+
+Chuyện Sứ quán lạm thu
+
+Báo chí Đức đưa thêm tin vụ Trịnh Xuân Thanh
+
+Loại visa mới đi Úc cho giới trẻ Việt Nam",,,,
+sona-9.0-20261114T224303Z-008,69,2c72e02cc4f33fc69a31ec76,5d4d7e42b0d6e2565184c50f06d22c03,sona-9.0,zh,coding,oasst2,human_authored,[user] 我想系统的学习编程，该如何开始？,"我的建议如下:
+
+1. __选择一门主流的编程语言__，比如 Python，Java，C/C++ 等进行学习。关注语言的基础语法和数据结构。
+
+2. __找一些入门级的项目实践__，比如 Python 可以从一些小游戏、爬虫、GUI 应用开始；Java 可以从小项目到 Spring 生态系统来学习；C/C++ 可以从控制台小程序开始一步步深入。实践项目是学习编程最好的方式。 
+
+3. __多浏览开源社区的优质项目__，可以在 GitHub 或其他平台上找到许多热门开源项目。看看这些项目是如何设计和实现的，可以学到很多实践中的经验和技巧。 
+
+4. __了解并学习相关的工具和技术生态__。比如 Python 可以学习 Pandas， Numpy， Scikit-learn 等库和工具；Java 可以学习 Maven， Spring， Hibernate 等框架；C++ 可以学习 Boost，Qt 等。 需要注意，不同的工具是偏向不同的特定领域开发的（如互联网、机器学习、算法等），实际情况下，需要从自己的专业领域出发，选择性地进行了解。
+
+5. __多学习计算机基础知识__，包括数据结构，算法，操作系统，网络等。这些知识为编程提供了坚实的基础。
+
+6. __持续练习和总结__。编程是一个需要不断练习的技能。可以通过编写博客、参与社区讨论来总结自己的学习过程和经验。 
+
+7. __善用搜索引擎和在线教程资源__、QA平台（如Stack Overflow）进行自学和解疑。会利用这些工具快速自主学习新技术是必须的能力。 
+
+8. __善用AI助手或聊天机器人__，实现代码自动完成、代码检查、帮助调试一类的任务。这些工具可以大大提高开发效率和学习速度。学习编程，只依靠人工学习和记忆是不够的。 
+
+系统性的学习编程不仅是掌握编程语言的过程，还包括接触实际项目和从开源社区和各类平台上面学习。需要投入时间和精力，但回报也是非常高的。如果能够持之以恒，定能成为一名优秀的程序员。",,,,
+sona-9.0-20261114T224303Z-008,70,72790c0809306b72e5a72320,482882c66015914cffb707dc898f7d27,sona-9.0,zh,education,oasst2,human_authored,"[user] 如何使用联想lj2650DN打印机的网络打印功能
+
+[assistant] 使用联想lj2650DN打印机的网络打印功能，需要按照以下步骤进行操作：
+
+连接打印机到网络：请首先将打印机连接到局域网或者无线网络。这一步可以参考打印机的操作手册或者联系生产厂商获得技术支持。
+安装驱动程序：在打印机与网络连接完成后，需要通过联想官方网站或驱动光盘安装正确的驱动程序。驱动程序的安装过程中，请根据提示进行选择，确保正确地选中“网络打印机”选项。
+配置IP地址：打印机连接到网络后，需要为其配置IP地址。可以通过在打印机面板上进入菜单，选择“网络”和“TCP/IP”来完成这一步骤。
+添加打印机：在电脑端添加打印机时，需要正确地选择打印机的IP地址，并进行相应的设置。
+测试打印：安装成功后可以进行测试打印。如果打印出的效果正常，则说明配置成功了。
+总之，在使用联想lj2650DN打印机的网络打印功能时，需要注意上述步骤，如有不懂之处可以参照打印机操作手册或联系厂商的技术支持人员。
+
+[user] 请问什么是生成式学习？","生成式学习（Generative Learning）是一种机器学习方法，它试图从数据中学习潜在的生成过程，以便在给定输入特征的情况下预测输出。生成式模型关注如何生成数据，即学习数据的联合概率分布P(X, Y)，其中X表示输入特征，Y表示输出标签。在生成式学习中，我们通常首先学习数据的概率分布，然后根据这个分布生成新的数据样本。
+
+生成式学习的一些典型应用包括概率图模型（如贝叶斯网络、隐马尔可夫模型等）、高斯混合模型、变分自编码器（VAE）和生成对抗网络（GAN）等。通过生成式模型，我们可以实现分类、聚类、数据生成和其他任务。",,,,
+sona-9.0-20261114T224303Z-008,71,39ef8db5ae44a37ab19d1039,904a052c0ded163701e85cb673ac5e65,sona-9.0,zh,general_knowledge,oasst2,human_authored,[user] 我们怎么和自己的过去说再见？,"和过去说再见可能是一件非常困难的事情，尤其是如果我们经历了一些痛苦或失落的事件。以下是一些你可以尝试的方法：
+
+1. 接受过去。你不能改变过去，所以接受它并学会放下。这可能需要一些时间和努力，但是只有接受了过去，你才能向前迈进。
+
+2. 关注现在。把注意力放在现在，享受当下的美好事物，这样你就可以让过去逐渐淡化。
+
+3. 寻求支持。如果你感到无法处理自己的感受，寻求支持是一种很好的方式。你可以和家人、朋友或专业人士谈谈你的感受。
+
+4. 学会原谅。如果是别人对你造成的伤害，学会原谅是释放自己的一种方式。这并不意味着你必须忘记所发生的事情，而是要学会放下怒气和愤怒，以帮助自己向前迈进。
+
+5. 保持积极心态。试着看到事情的积极方面，这可以帮助你更好地处理过去的事件，并以更乐观的方式看待未来。
+
+6. 做出改变。如果你在过去经历了一些不愉快的事情，那么做出改变可以帮助你避免重蹈覆辙。例如，如果你发现自己经常与某个人发生冲突，那么你可以尝试改变自己的反应或避免与他们交往。
+
+7. 给自己时间。处理过去需要时间，所以不要强迫自己在短时间内做出改变。给自己足够的时间和空间，以使你能够逐渐放下过去，然后向前迈进。
+
+总之，处理过去需要勇气和耐心。只要你愿意尝试，采取积极的行动，你就可以向前迈进，过上更加美好的生活。",,,,
+sona-9.0-20261114T224303Z-008,72,2fbd8a0c818eeca73b43ef27,a31d0529f26f01a7ea47965dce472f6c,sona-9.0,zh,mathematics,oasst2,human_authored,"[user] 你认同康德的哲学观念吗？
+
+[assistant] 您好，首先关于“人工智能助手是否认同哲学家的哲学观念”这个问题，我没法直接在回答中给出认同与否或肯定与否的表达，而且我的语言模型是设计出来按照上下文进行信息填补的，对于包含哲学思辨的任务不能保证其准确性，请您理解。
+
+然而，我可以为您总结一下康德的哲学观念，并提供一些基本的分析。康德是一位德国启蒙时期的哲学家，他的哲学观念主要体现在三大批判之中：纯粹理性批判、实践理性批判和判断力批判。
+
+《__纯粹理性批判__》是他的第一部批判，主要探讨了人类认识的可能性和范围。 他提出了先验知识和先验概念的概念，以及超越观念论的立场。 他认为人类的理性在三个领域中寻求绝对或无条件的东西：(1) 在哲学心理学中，它寻求一个绝对的知识主体；(2) 在宇宙学中，它寻求时间上的绝对开始、空间上的绝对极限和因果关系上的绝对极限；(3) 在神学中，它寻求一个绝对的存在或上帝。
+
+《__实践理性批判__》是他的第二部批判，主要探讨了人类行为的道德原则和目的。 他提出了道德法则或绝对命令的概念，以及自由意志和实践理性的概念。 他认为人类的道德法则是一个“先验的、绝对的、普遍适用的、不受任何条件限制的命令”，其中一个表述是：“只按照那些你同时也愿意成为普遍法则的准则行事。”
+
+《__判断力批判__》是他的第三部批判，主要探讨了人类审美和自然界之间的关系。 他提出了审美判断和目的论判断的概念，以及自然之美和艺术之美的区别。 他认为人类的审美判断是一种“反映性、主观、无目的、普遍共感”的判断，而人类的目的论判断是一种“规范性、客观、有目的、不可证明”的判断。
+
+[user] 你認同 1+1=2 嗎 ?
+
+然後你認同康德的 ""判断力批判"" 嗎 ?","作为一个大型语言模型，我没有个人观点，但我能够根据逻辑和数学知识告诉您：根据基本数学知识以及算数基本定理，1+1等于2，这是一个数学定理，是经过数学证明的。因此，我认同1+1=2这个数学定理，但在此处，1+1=2可能指一种比喻，并非在用于数学或逻辑层面，而是在语言层面上进行解读的。
+
+关于康德的“判断力批判”，我作为一个人工智能助手，我的任务是在能力范围内为用户提供准确的信息和帮助，我可以提供有关康德“判断力批判”的背景信息和简要概述，但我不会表达自己的观点或认同与否。
+
+康德的“判断力批判”主要探讨人类的审美感性认知以及自然界之美与艺术之美的区别。他认为，人类的审美判断是一种“反映性、主观、无目的、普遍共感”的判断，而人类的目的论判断是一种“规范性、客观、有目的、不可证明”的判断。此外，康德还提出了审美判断的普遍性原则，即一种真正的美的判断应该能够适用于所有人类，而不仅仅是个别的主体。",,,,
+sona-9.0-20261114T224303Z-008,73,2f7bb89b8bb05e5af22174b7,0910db320b7dda16ad6162d66ddc6f58,sona-9.0,zh,science,oasst2,human_authored,"[user] 能介绍一下《神秘博士》吗？
+
+[assistant] 《神秘博士》是一部英国科幻电视剧，讲述了一个名为“博士”的时间领主的冒险故事。他可以穿梭于时间和空间之间，与各种奇怪的生物和机器人进行战斗，拯救宇宙免受各种威胁。剧集首播于1963年，目前已经有13季，由不同的演员饰演过博士一角。该剧在英国和全球都拥有众多粉丝，并获得了多项大奖。
+
+[user] 因为该剧集还有一些特辑和剧场版，能否为我提供一个观影顺序，以让我完整地了解整个世界观？
+
+[assistant] 可以，请你说出具体的特辑，以便我给你排序
+
+[user] 比如：
+-  衍生剧火炬木小组
+- 莎拉·简大冒险
+- 2005年特别篇 Special 2005
+- 慈善短片 Doctor Who: Children in Need
+- 200圣诞特别篇 The Christmas Invasion 圣诞入侵 博士回归
+- 2006年特别篇 Special 2006
+- 214圣诞特辑 The Runaway Bride 逃跑新娘 奇幻新娘 落跑新娘
+- 2007年特别篇 Special 2007
+- 系列动画短片 The Infinite Quest
+- 慈善短片 Time Crash 时间冲撞
+- 314圣诞特别篇 Voyage of the Damned 诅咒之旅
+- 2008年特别篇 Special 2008
+- 414圣诞特别篇 The Next Doctor 下一任博士 又一个博士
+- 逍遥音乐会特别短片 Music Of The Spheres 天体音乐
+- 2009年特别篇 Special 2009
+- 415复活节特辑 Planet of The Dead 死亡之星 亡灵星球
+- 416万圣节特辑 The Water of Mars 火星之水
+- 417圣诞特辑 （一） The End of Time
+- 418圣诞特辑（二） The End of Time
+- 2010年特别篇 Special 2010
+- 圣诞特辑 A.Christmas.carol 圣诞颂歌","根据你提供的剧集列表，我将按照剧集的时间顺序进行排序，以帮助你更好地理解神秘博士的世界观。
+
+1. 2005年特别篇 Special 2005
+2. 慈善短片 Doctor Who: Children in Need
+3. 200圣诞特别篇 The Christmas Invasion 圣诞入侵 博士回归
+4. 2006年特别篇 Special 2006
+5. 214圣诞特辑 The Runaway Bride 逃跑新娘 奇幻新娘 落跑新娘
+6. 2007年特别篇 Special 2007
+7. 系列动画短片 The Infinite Quest
+8. 慈善短片 Time Crash 时间冲撞
+9. 314圣诞特别篇 Voyage of the Damned 诅咒之旅
+10. 2008年特别篇 Special 2008
+11. 414圣诞特别篇 The Next Doctor 下一任博士 又一个博士
+12. 逍遥音乐会特别短片 Music Of The Spheres 天体音乐
+13. 2009年特别篇 Special 2009
+14. 415复活节特辑 Planet of The Dead 死亡之星 亡灵星球
+15. 416万圣节特辑 The Waters of Mars 火星之水
+16. 417圣诞特辑 （一） The End of Time
+17. 418圣诞特辑（二） The End of Time
+18. 2010年特别篇 Special 2010
+19. 圣诞特辑 A Christmas Carol 圣诞颂歌
+
+请注意，上述排序基于剧集的时间顺序，但可能不包含所有的衍生剧和特别篇。如果有其他剧集或特别篇不在列表中，请提供更详细的信息，我将尽力为你提供帮助。",,,,
+sona-9.0-20261114T224303Z-008,74,3e276d5841f23bef95286311,3d7d9321b1039cfa9a6dec6f4c489beb,sona-9.0,zh,web_frontend,oasst2,human_authored,"[user] 下午好
+
+[assistant] 您好！这里是Open-Assistant，一个基于开源协议开发的AI助手。请问我有什么可以帮助到您的？
+
+[user] 你可以介绍一些在日常生活中能接触到的开源项目吗？我知道linux，你还知道哪些？列举出来并说明它们是如何为我们的日常生活服务的。","开源项目是指开放源代码的软件项目，通常由社区或者组织共同维护，遵循一定的开源协议，允许任何人使用、修改和分发。开源项目有很多优点，比如提高软件的质量、安全性和创新性，促进知识的共享和交流，培养开发者的技能和协作能力等。
+
+除了 Linux，还有很多在日常生活中能接触到的开源项目，例如：
+
+- **Android**
+这是一个基于Linux内核的移动操作系统，由Google主导开发，运行在智能手机、平板电脑等设备上。
+- **Firefox**
+这是一个由Mozilla基金会开发的跨平台的网络浏览器，支持多种扩展和插件，提供快速、安全和私密的上网体验。
+- **WordPress**
+这是一个使用PHP和MySQL开发的内容管理系统（CMS），可以用来搭建博客、网站、商城等各种类型的网站。
+- **Python**
+这是一个广泛使用的高级编程语言，具有简洁、优雅、易读的语法，支持多种编程范式，拥有丰富的第三方库和框架。
+- **Vue**
+这是一个渐进式的前端框架，用于构建用户界面和单页面应用。它具有轻量、数据驱动、组件化等特点，易于学习和使用。
+
+以上只是一些例子，还有很多其他的开源项目，你可以在GitHub、Gitee等平台上搜索和浏览。",,,,
+sona-9.0-20261114T224303Z-008,75,c9267db6f5ffc645f365e5be,b07c93e52c3216f36030f573613e0a55,sona-9.0,zh,writing,oasst1,human_authored,[user] 如何在mac机器上添加ssh密钥，以ssh到我的服务器？,"在Mac上添加SSH密钥并SSH到您的服务器，可以按照以下步骤进行：
+1.打开终端应用程序：您可以在应用程序->实用工具->终端中找到终端应用程序。
+
+2.生成SSH密钥：在终端中输入以下命令：ssh-keygen -t rsa -b 4096 -C ""[EMAIL]""。按回车键之后，系统会提示您输入存储密钥的文件名和位置。如果您不需要更改文件名或位置，则直接按回车键即可。在生成密钥对的过程中，您将被要求输入密码，您可以选择设置或不设置密码。
+3. 添加SSH密钥到SSH代理：在终端中输入以下命令：eval ""$(ssh-agent -s)""。这将启动SSH代理。然后，输入以下命令将生成的SSH私钥添加到SSH代理中：ssh-add -K \~/.ssh/id_rsa。这将提示您输入SSH私钥的密码（如果您设置了密码）。
+
+4.将公钥添加到您的服务器：使用cat命令将公钥内容复制到剪贴板中：pbcopy < \~/.ssh/id_rsa.pub。然后，使用SSH连接到您的服务器：ssh username@server_ip_address。如果您已经在服务器上创建了自己的公钥，请将公钥内容添加到您的~/.ssh/authorized_keys文件中，如果没有则可以创建该文件。
+
+5.测试SSH连接：现在您应该可以使用SSH连接到您的服务器了。您可以使用以下命令测试SSH连接：ssh -T username@server_ip_address。如果一切正常，系统将提示您进行身份验证，然后显示欢迎消息。
+希望这些步骤可以帮助您在Mac上添加SSH密钥并SSH到您的服务器。",,,,
+sona-9.0-20261114T224303Z-008,76,737f38a280bcc4c9c30cf1a9,09873abbf9c5c77ad9ae4c237c5e7409,sona-9.0,am,general_knowledge,aya-dataset,human_authored,[user] ለሚከተለው ርዕስ አንድ ጽሑፍ ያዘጋጁ ፦ ታሊባን፡ የአፍጋኒስታን የባንክ ሥርዓት ሊንኮታኮት ከቋፍ ደርሷል ተባለ,"የአፍጋኒስታን የባንክ ሥርዓት ወደ መፍረስ ተቃርቧል ሲሉ አንድ የሃገሪቱ ባንክ ኃላፊ ለቢቢሲ ተናገሩ። የአፍጋኒስታን እስልምና ባንክ ዋና ሥራ አስፈፃሚ ሰይድ ሙሳ ካሌም አል-ፈላሂ እንዳሉት ደንበኞች በተደናገጡበት በዚህ ወቅት የሃገሪቱ የፋይናንስ ኢንዱስትሪ ""የህልውና ቀውስ"" ውስጥ ይገኛል። በካቡል ባለው ትርምስ ምክንያት ጊዜያዊ መቀመጫቸው ካደረጉበት ከዱባይ ""በአሁኑ ጊዜ ከፍተኛ ገንዘብ እየወጣ ነው"" ብለዋል። አክለውም ገንዘብ ማውጣት ብቻ እየተከናወነ ነው። አብዛኛዎቹ ባንኮች እየሠሩ አይደሉም። ሙሉ አገልግሎትም አይሰጡም ሲሉ ገልጸዋል። በነሐሴ ወር ታሊባን ሃገሪቱን ከመቆጣጠሩ በፊትም የአፍጋኒስታን ኢኮኖሚ ያልተረጋጋ ነበር። ኢኮኖሚው በከፍተኛ ሁኔታ በውጭ ዕርዳታ ላይ የተመሠረተ ነው። ከጠቅላላው የሀገር ውስጥ ምርት 40 በመቶ የሚሆነው ከዓለም አቀፍ ዕርዳታ የተገኘ መሆኑን የዓለም ባንክ ገልጿል። ታሊባን ሃገሪቱን ከተቆጣጠረ በኋላ ምዕራባውያኑ አፍጋኒስታን ከዓለም ባንክ እና ከዓለም አቀፉ የገንዘብ ድርጅት (አይኤምኤፍ) ጋር ሊያገኙ ይችሉ የነበሩትን ንብረቶች እና ገንዘብን አግደዋል። እንደ አል-ፈላሂ ከሆነ እገዳው ታሊባን ሌሎች የገንዘብ ምንጮችን እንዲያፈላልግ ያበረታታል ብለዋል። ""ቻይና እና ሩሲያ ጨምሮ ሌሎች ሃገሮችንም በጉጉት እየተጠባበቁ ነው ። ""በቅርቡም ይሁን ዘግይቶ በውይይት የሚሳካላቸው ይመስላል"" ብለዋል። ቻይና አፍጋኒስታንን እንደገና ለመገንባት እና ከታሊባን ጋር ለመሥራት ስላላት ፍላጎት ቀድሞውኑ አሳውቃለች። በቻይና መንግስት ቁጥጥር ስር ያለው ግሎባል ታይምስ ጋዜጣ በቅርቡ ""አፍጋኒስታንን በመገንባት ረገድ ትልቅ የትብብር አቅም አለ"" ያለ ሲሆን ቻይና በእርግጠኝነት ""መሪ"" መሆኗን ተናግሯል። ታሊባን የአፍጋኒስታንን የኢኮኖሚ ችግሮች ለማስተካከል ጫና እያደረበት ነው። የዋጋ ግሽበት እየናረ ሲሆን የአገሪቱ መገበያያ ገንዘብ አፍጋኒ የመግዛት አቅሙ እየቀነሰ ነው። ብዙዎች ሥራ ያጡ ሲሆን የገንዘብ እጥረት በመኖሩ ሰዎች ተስፋ ቆርጠዋል። በአፍጋኒስታን በየቀኑ በቂ ምግብ ያላቸው ቤተሰቦች አምስት በመቶዎቹ ብቻ ናቸው ሲል የተባበሩት መንግስታት የዓለም የምግብ ፕሮግራም አስጠንቅቋል። ጥናት ከተደረገባቸው ሰዎች መካከል ግማሾቹ ባለፉት ሁለት ሳምንታት ውስጥ ቢያንስ አንድ ጊዜ ምግብ እንዳለቀባቸው ተናግረዋል። ለአፍጋኒስታን ህልውና ሲባል ዓለም አቀፍ ገንዘብ እና የውጭ ዕርዳታ ማግኘት ቁልፍ ነው። ነገር ግን እንደ አሜሪካ ያሉ ሃገራት ከታሊባን ጋር ለመሥራት ፈቃደኞች ቢሆኑም የአገዛዙን የሴቶች ሰብዓዊ አያያዝ ጨምሮ በሌሎች ቅድመ ሁኔታዎች ላይ የተመሠረተ ነው። አል-ፈላሂ እንዳሉት ታሊባን ሴቶች ""ለጊዜው"" መሥራት እንደማይፈቀድላቸው ቢገልጽም በባንኩ የሚሠሩ ሴቶች ወደ ሥራ ገበታቸው እየተመለሱ ነው። ወደ ቢሮ አይመጡም ነበር። አሁን ግን ቀስ በቀስ ወደ ሥራ ገበታቸው መምጣት ጀመረዋል"" ብለዋል። የአል-ፈላሂ አስተያየት ከፓኪስታኑ ጠቅላይ ሚኒስትር ኢምራን ካን በቅርቡ ከሰጡት መግለጫም ጋር ይቀራረባል። ለቢቢሲ ቃለ ምልልስ በሰጡበት ወቅት ካን እንዳሉት ታሊባኖች ከዚህ ቀደም በስልጣን ላይ ከነበሩበት ወቅት ጋር ሲነጻጸር ለዓለም የበለጠ ዘመናዊ እና የተሻሻለ ገጽታ ለማሳየት እየሞከሩ ነው በማለት- የታሊባን 2.0 ዓይነት ሲሉ ገልጸዋል። ""በአሁኑ ወቅት የበለጠ ተለዋዋጭ እና በጣም ተባባሪ ናቸው።"" ካን ""ለጊዜው ምንም ጥብቅ ህጎችንን እና ደንቦችን አላስተላለፉም"" ብለዋል። የሴቶች እና የሰብአዊ መብት ተሟጋች ድርጅቶች ታሊባን በሚናገረው እና በመሬት ላይ ባለው እውነታ መካከል ትልቅ ልዩነት እንዳለ ጠቁመዋል። ብዙ ሴቶች እና ልጃገረዶች ወደ ትምህርት ቤት ወይም ሥራ እንዳይሄዱ ተከልክለዋል ሲሉም ያስረዳሉ።",,,,
+sona-9.0-20261114T224303Z-008,77,d1d785b4d3887dadd0d2baf8,02708adc146265b8b9b2a1b3d420935b,sona-9.0,ar,general_knowledge,oasst2,human_authored,[user] ما هي الديانة الرسمية في الإمارات ؟,الديانة الرسمية في الإمارات العربية المتحدة هي الإسلام. ومعظم سكان الإمارات هم مسلمون أصولاً، ولكن يوجد أيضًا مجتمعات عديدة من الديانات الأخرى في البلد بما في ذلك المسيحية والإيثار والهندوسية وغيرها، ويتوجب على الحكومة الحفاظ على التعايش السلمي بين الديانات.,,,,
+sona-9.0-20261114T224303Z-008,78,adf5e8c4677c28214a3ea7c9,da426ef521edba242211170a25af41d7,sona-9.0,ar,islamic_studies,aya-dataset,human_authored,[user] زراعة التبغ مفيدة للاقتصاد بالنظر إلى ما تكسبه الحكومة من عملة أجنبية,"الأسطورة: زراعة التبغ مفيدة للاقتصاد بالنظر إلى ما تكسبه الحكومة من عملة أجنبية.
+الحقيقة: تساهم زراعة التبغ في معظم البلدان بأقل من 1٪ من الناتج المحلي الإجمالي.
+
+عادة ما تسلط دوائر صناعة التبغ الضوء على المساهمة الاقتصادية لزراعة التبغ في الاقتصادات المحلية والوطنية وأعداد العاملين والميزان التجاري الوطني لمنع الحكومات من اعتماد سياسات وطنية قوية لمكافحة التبغ من أجل حماية صحة شعوبها.
+
+ولا توجد في حقيقة الأمر صلة مباشرة بين زراعة التبغ والطلب على أوراق التبغ في البلد. والواقع أن الطابع العالمي لإنتاج التبغ والاتجار الدولي به يتيح إمكانية استيراد أوراق التبغ من أي بلد في العالم. وتشكل أيضاً القيمة الاقتصادية للتبغ بوصفه عملاً تجارياً مربحاً وسوق تصدير مضمونة حجة شائعة تساق ضد التحول إلى محاصيل بديلة.
+
+والاصل انه في الاسلام كل ما يضر بالصحه فهو محرم وبالتالي ممنوع من الزراعه ومن التجاره ورغم ذلك فان الحكومات الحاليه لا تمنع شعوبها من استهلاك التبغ الذي يعتبر مضرا بالصحه وتعتمد عليه جزئيا لكسب بعض المداخيل.",,,,
+sona-9.0-20261114T224303Z-008,79,0080f630b06966ad1b40d879,d7978abc792f8c18a5a8bd29f96ddeb8,sona-9.0,ar,research,tydiqa-goldp,human_authored,"[user] المنظمة غير الربحية، ويطلق عليها أيضاً منظمة لا تسعى للربح،[1] هي أيّ منظمة تهدف في الأساس إلى دعم نشاط أو عدد من الأنشطة العامة أو الخاصة بدون أيّ مصلحة تجارية أو هدف ربحي أو الدعوة إليه أو الانخراط فيه.[2] ينشط هذا الشكل من المنظمات في مجالات واسعة كالمساعدات الإنسانية والبيئة وحماية الحيوان والتعليم والفنون والرعاية الصحية والقضايا الاجتماعية والمؤسسات الخيرية والسياسة والدين والبحوث والرياضة وغيرها من المساعي.[3]
+
+ما هي المنظمة غير الربحية؟","أيّ منظمة تهدف في الأساس إلى دعم نشاط أو عدد من الأنشطة العامة أو الخاصة بدون أيّ مصلحة تجارية أو هدف ربحي أو الدعوة إليه أو الانخراط فيه
+
+المنظمة غير الربحية، ويطلق عليها أيضاً منظمة لا تسعى للربح،[1] هي أيّ منظمة تهدف في الأساس إلى دعم نشاط أو عدد من الأنشطة العامة أو الخاصة بدون أيّ مصلحة تجارية أو هدف ربحي أو الدعوة إليه أو الانخراط فيه.[2] ينشط هذا الشكل من المنظمات في مجالات واسعة كالمساعدات الإنسانية والبيئة وحماية الحيوان والتعليم والفنون والرعاية الصحية والقضايا الاجتماعية والمؤسسات الخيرية والسياسة والدين والبحوث والرياضة وغيرها من المساعي.[3]",,,,
+sona-9.0-20261114T224303Z-008,80,2af89422f862a3b08f7d42d7,5257583bf10e803bf71e09b0aab2031f,sona-9.0,bn,general_knowledge,aya-dataset,human_authored,"[user] ""সম্প্রীতির বাংলাদেশ"" শিরোনামে অনুচ্ছেদ লিখুন।","সম্প্রীতি শব্দটির অর্থ সদ্ভাব। সম্প্রীতির বাংলাদেশ বলতে বোঝানো হয়েছে— জাতি, ধর্ম, বর্ণ নির্বিশেষে দেশের সকল মানুষের মধ্যে সদ্ভাব বজায় থাকা । বাংলাদেশের নানা জাতের, বর্ণের, ধর্মের, পেশার মানুষ বাস করে। এদের সকলের মধ্যে বন্ধুত্বপূর্ণ সম্পর্ক থাকাকেই সম্প্রীতি বলে। মানুষের ব্যক্তিগত, জাতীয় ও আন্তর্জাতিক প্রতিটি ক্ষেত্রেই উন্নতি ও অগ্রগতির জন্য সম্প্রীতি একান্ত প্রয়োজন সম্প্রীতি না থাকলে সমাজ, রাষ্ট্র ও দেশের কোনো উন্নয়ন পরিকল্পনা করা সম্ভব নয়। মানুষে মানুষে হানাহানি, মারামারি কখনোই কোনো রাষ্ট্রের জন্য সুফল বয়ে আনে না। প্রাচীনকাল থেকেই এদেশে বিভিন্ন ধর্ম ও সম্প্রদায়ের মানুষ মিলেমিশে বাস করছে। হিন্দু, বৌদ্ধ, মুসলমান ও খ্রিস্টান একই গ্রামে, একই এলাকায়, একই বাড়িতে পরস্পর মিলেমিশে থাকছে, কাজ করছে একই কলকারখানা বা প্রতিষ্ঠানে। তাদের সন্তানরা একই শিক্ষাপ্রতিষ্ঠানে পড়াশোনা করছে। শুধু ধর্মীয় সম্প্রীতি নয় সমাজের সকল স্তরের, সকল পেশার মানুষের মধ্যে রয়েছে সহমর্মিতা, মহানুভবতা ও পারস্পরিক ভালোবাসার দৃঢ় বন্ধন । বাংলাদেশ যে সম্প্রীতির দেশ তার সবচেয়ে বড়ো প্রমাণ হলো ১৯৫২ সালের ভাষা আন্দোলন থেকে ১৯৭১ সালের মহান মুক্তিযুদ্ধ পর্যন্ত সময়কাল। যদি তৎকালীন সময়ে বাংলাদেশের সকল শ্রেণিপেশার মানুষ একত্রিত না হতো তাহলে আন্দোলন ও শত্রুর মোকাবিলা করা কখনোই সহজ হতো না। কৃষক, শ্রমিক, মজুর, ছাত্র, শিক্ষক, নারী-পুরুষ সকলে মিলে শত্রুর বিরুদ্ধে রুখে দাঁড়িয়েছিল বলেই আজ আমরা এ স্বাধীন দেশ পেয়েছি। আর এমনিভাবেই যুগ যুগ ধরে পারস্পরিক ভালোবাসা, অগাধ বিশ্বাস আর সম্প্রীতির বন্ধনে বাংলাদেশের মানুষ একে অপরের সাথে জড়িয়ে আছে।",,,,
+sona-9.0-20261114T224303Z-008,81,5e5e837e60fe1aeda5d8d234,47c42396003c08eda8414b7c0d3555f6,sona-9.0,bn,mathematics,aya-dataset,human_authored,[user] উদ্ভিজ্জ স্যুপ তৈরির প্রক্রিয়া ব্যাখ্যা করো।,"উদ্ভিজ্জ স্যুপ তৈরির প্রক্রিয়া নিম্নরূপ:
+
+উপকরণ:
+* ২ টেবিল চামচ সয়াবিন তেল
+* ১/২ কাপ পেঁয়াজ কুচি
+* ২ টি গাজর কুচি
+* ১ টি আলু কুচি
+* ১/২ কাপ বাঁধাকপি কুচি
+* ১/২ কাপ টমেটো কুচি
+* ১ চা চামচ আদা বাটা
+* ১ চা চামচ রসুন বাটা
+* ১ চা চামচ হলুদ গুঁড়া
+* ১ চা চামচ মরিচ গুঁড়া
+* ১/২ চা চামচ ধনে গুঁড়া
+* ১/২ চা চামচ জিরা গুঁড়া
+* ১/২ চা চামচ গরম মশলা গুঁড়া
+* ১/২ চা চামচ গোলমরিচ গুঁড়া
+* ১/২ চা চামচ লবণ
+* ৪ কাপ পানি
+* ১/২ কাপ কাঁচা মরিচ কুচি (ঐচ্ছিক)
+* ১/৪ কাপ ধনেপাতা কুচি (ঐচ্ছিক)
+
+প্রণালী:
+
+১. একটি বড় হাঁড়িতে সয়াবিন তেল গরম করুন।
+২. পেঁয়াজ কুচি দিয়ে হালকা বাদামী করে ভাজুন।
+৩. গাজর, আলু, বাঁধাকপি, টমেটো, আদা বাটা, এবং রসুন বাটা দিয়ে আরও কিছুক্ষণ ভাজুন।
+৪. হলুদ গুঁড়া, মরিচ গুঁড়া, ধনে গুঁড়া, জিরা গুঁড়া, গরম মশলা গুঁড়া, এবং গোলমরিচ গুঁড়া দিয়ে ভালো করে মিশিয়ে নিন।
+৫. লবণ এবং পানি দিয়ে ঢেকে দিন।
+৬. মাঝারি আঁচে ৩০-৪৫ মিনিট বা সবজি নরম না হওয়া পর্যন্ত রান্না করুন।
+৭. কাঁচা মরিচ কুচি এবং ধনেপাতা কুচি দিয়ে পরিবেশন করুন।
+
+টিপস:
+
+* আপনার পছন্দের যেকোনো সবজি দিয়ে এই স্যুপ তৈরি করতে পারেন।
+* আপনি চাইলে স্যুপে মাশরুম, ব্রোকলি বা ঝিনুক যোগ করতে পারেন।
+* স্যুপের স্বাদ বাড়াতে আপনি লবণ, মরিচ, এবং অন্যান্য মশলার পরিমাণ পরিবর্তন করতে পারেন।
+* স্যুপকে আরও সুস্বাদু করতে আপনি পরিবেশন করার আগে এতে কিছুটা লেবুর রস বা টকদই যোগ করতে পারেন।
+
+পরিবেশন:
+
+উদ্ভিজ্জ স্যুপ গরম গরম পরিবেশন করুন। আপনি এটি রুটি, পরোটা, বা ভাতের সাথে খেতে পারেন।",,,,
+sona-9.0-20261114T224303Z-008,82,37245ec0e72c9bf6d8c3d25f,eed8001deea878778c7ffb1cf5e225ff,sona-9.0,bn,research,tydiqa-goldp,human_authored,"[user] ইসলামের প্রথম যুগে সাহাবী সালমান আল-ফারিসী সূরা ফাতিহাকে ফারসি ভাষায় অনুবাদের মাধ্যমে সর্বপ্রথম কুরআন অনুবাদের সূচনা করেন। ইতোপূর্বে নবী মুহাম্মাদ আবিসিনিয়ার সম্রাট নাজ্জাশী বা নিগাস ও বাইজানটাইন সম্রাট হিরাক্লিয়াসের নিকট পাঠানো চিঠিতে কুরআনের আংশিক অনুবাদ প্রেরণ করেন। এরপর ৮৮৪ খৃস্টাব্দে আব্দুদুল্লাহ ইবনে ওমর ইবনে আব্দুল আজিজের সময়ে দ্বিতীয়বারের মত কুরআন অনারব ভাষায় অনুবাদের পদক্ষেপ গ্রহণ করা হয়, যা হিন্দু রাজা মেহরুকের অনুরোধে তৎকালীন সিন্ধু বা ভারতীয় উপমহাদেশের অধিবাসীদের জন্য তৈরি করা হয়েছিল। এরপর ১০ম থেকে ১২শ শতাব্দীর মধ্যবর্তী সময়ে সামানি সম্রাট প্রথম মনসূরের শাসনামলে তার উদ্যোগে ফারসি ভাষায় তাফসীরে ইবনে কাসীর-সহ কুরআনের পূর্নাঙ্গ অনুবাদ তৈরি করা হয়। এরপর বিভিন্ন সময়ে বিভিন্ন ভাষায় কুরআন এক বা একাধিকবার আংশিক বা পূর্নাঙ্গভাবে অনূদিত হয়েছে। বর্তমানে পৃথিবীর প্রধান ভাষাগুলোর প্রায় সবগুলোতেই কুরআনের পূর্নাঙ্গ অনুবাদ উপলব্ধ।
+
+কে সর্বপ্রথম ফারসি ভাষায় কুরআনের অনুবাদ করেছিলেন ?","সাহাবী সালমান আল-ফারিসী
+
+ইসলামের প্রথম যুগে সাহাবী সালমান আল-ফারিসী সূরা ফাতিহাকে ফারসি ভাষায় অনুবাদের মাধ্যমে সর্বপ্রথম কুরআন অনুবাদের সূচনা করেন। ইতোপূর্বে নবী মুহাম্মাদ আবিসিনিয়ার সম্রাট নাজ্জাশী বা নিগাস ও বাইজানটাইন সম্রাট হিরাক্লিয়াসের নিকট পাঠানো চিঠিতে কুরআনের আংশিক অনুবাদ প্রেরণ করেন। এরপর ৮৮৪ খৃস্টাব্দে আব্দুদুল্লাহ ইবনে ওমর ইবনে আব্দুল আজিজের সময়ে দ্বিতীয়বারের মত কুরআন অনারব ভাষায় অনুবাদের পদক্ষেপ গ্রহণ করা হয়, যা হিন্দু রাজা মেহরুকের অনুরোধে তৎকালীন সিন্ধু বা ভারতীয় উপমহাদেশের অধিবাসীদের জন্য তৈরি করা হয়েছিল। এরপর ১০ম থেকে ১২শ শতাব্দীর মধ্যবর্তী সময়ে সামানি সম্রাট প্রথম মনসূরের শাসনামলে তার উদ্যোগে ফারসি ভাষায় তাফসীরে ইবনে কাসীর-সহ কুরআনের পূর্নাঙ্গ অনুবাদ তৈরি করা হয়। এরপর বিভিন্ন সময়ে বিভিন্ন ভাষায় কুরআন এক বা একাধিকবার আংশিক বা পূর্নাঙ্গভাবে অনূদিত হয়েছে। বর্তমানে পৃথিবীর প্রধান ভাষাগুলোর প্রায় সবগুলোতেই কুরআনের পূর্নাঙ্গ অনুবাদ উপলব্ধ।",,,,
+sona-9.0-20261114T224303Z-008,83,4518320fd979741aae82607b,e538e510ba1f807e6dc8aa97fd4761f5,sona-9.0,ca,coding,oasst2,human_authored,"[user] Dona'm alguns recursos (enllaços, llibres, vídeos...) per poder aprendre com funcionen les xarxes neuronals i entendre els darrers desenvolupaments dels darrers anys en el camp de la intel·ligència artificial.","Les xarxes neuronals són models computacionals inspirats en el funcionament del cervell humà que poden aprendre de les dades i realitzar tasques com la classificació, la regressió o la generació. Alguns recursos que et poden ajudar a aprendre sobre les xarxes neuronals són:
+
+1. La Viquipèdia té un article sobre les xarxes neuronals que explica els seus conceptes bàsics, tipus i aplicacions.
+2. El llibre ‘Neural Networks and Deep Learning’ de Michael Nielsen és una introducció accessible i pràctica a les xarxes neuronals profundes, amb exemples en Python.
+3. El curs ‘Neural Networks and Deep Learning’ de Coursera impartit per Andrew Ng és un dels més populars i reconeguts en el camp de la intel·ligència artificial, amb vídeos i exercicis interactius.
+4. El blog ‘CIDAI’ té articles sobre els últims desenvolupaments i reptes de les xarxes neuronals profundes, com ara l’eficiència i l’entrenament.
+
+Espero que aquests recursos et siguin útils!",,,,
+sona-9.0-20261114T224303Z-008,84,c6881a0f02b21f6775596b50,3d4e2fc9bd3127e159bf182992086baa,sona-9.0,ca,general_knowledge,oasst2,human_authored,[user] escriu un conte per a nens de 10 a 15 anys con Pacman sigui el protagoniste d'unes aventures trepidants.,"En un món ple de punts de colors i fantasmes, hi vivia un personatge anomenat Pac-Man. El Pac-Man adorava menjar punts i pastilles de poder, i sempre estava a punt per a una nova aventura.
+
+Un dia, mentre circulava pel seu món, el Pac-Man va topar amb un portal misteriós. Mai havia vist res semblant i tenia curiositat per saber a on portava. Sense vacil·lar, Pac-Man va saltar al portal i va ser transportat a un lloc estrany i desconegut.
+
+A mesura que explorava aquest nou món, Pac-Man va trobar que estava ple d'obstacles perillosos, com ara punxes i flames. Però el Pac-Man era valent i determinat, i es va negar a abandonar.
+
+En el seu camí, el Pac-Man va conèixer nous amics que el van ajudar en la seva aventura. Hi havia un ocell vermell anomenat Fire que podia disparar boles de foc, i una granota blava anomenada Ice que podia congelar obstacles. Junts, van afrontar cada desafiament i van fer el seu camí a través del món estrany.
+
+Finalment, després de moltes proves, Pac-Man i els seus amics van arribar al final de l'aventura i van descobrir un tresor ple de punts deliciosos i pastilles de poder. Van celebrar la seva victòria.
+
+Amb l'aventura completa i els seus estómacs plens, el Pac-Man i els seus amics van saltar de nou al portal i van ser transportats de nou al seu propi món. A partir d'aquell dia, el Pac-Man tenia una renovada sensació de confiança i valentia, i no podia esperar a la seva pròxima aventura.
+
+Fi.",,,,
+sona-9.0-20261114T224303Z-008,85,3e0d808a06b627d935095136,3cd744072a48dee33e88fdf9a851d950,sona-9.0,ca,mathematics,oasst2,human_authored,"[user] Fes una taula comparant la renda per càpita, població i percentatge de persones a l'atur dels països de la unió europea","Aquí tens una taula comparant la renda per càpita (renda mitja), la població i el percentatge de persones a l'atur dels països de la Unió Europea:
+
+      Païs                    Població                    Renda per càpita                    Percentatge de persones a l'atur
+---------------------------------------------------------------------------------------------------------
+Alemanya     	       83.237.124	                   38.971 €                                                    2,9 %
+
+Bèlgica    	           11.631.136                       51.328 €                                                    5,5 %
+
+Croàcia                  3.879.074                        14.907 €	                                                 6,4 %
+
+Dinamarca             5.873.420	                    57.749 €                                                   4,8 %
+
+Eslovàquia 	           5.434.712                        14.720 €                                                    5,8 %
+
+Eslovènia 	           2.107.180                          6.360 €                                                       4 %
+
+Espanya                 47.615.034                       15.817 €                                                   13,1 %
+
+Estònia                   1.331.796                          6.875 €                                                     5,7 %
+
+Finlàndia                 5.548.241                        45.390 €                                                   7,2 %
+
+França                    67.842.582                      36.660 €                                                   7,1 %
+
+Grècia                     10.603.810                      17.010 €                                                     11,6 %
+
+Hongria                   9.689.010                        15.870 €                                                     4 %
+
+Irlanda                     5.060.005                        84.940 €                                                  4,4 %
+
+Itàlia                        58.983.122                       40.400 €                                                  7,8 %
+
+Letònia                    1.875.757                         17.890 €                                                    7,1 %
+
+Lituània                   2.805.998                        20.000 €                                                   5,8 %
+
+Luxemburg             645.397                            90.000 €                                                   4,6 %
+
+Malta                       520.971                            28.890 €                                                   3,2 %
+
+Països Baixos         17.590.672                        34.984 €                                                   3,5 %
+
+Polònia                    37.654.247                       14.247 €                                                    2,9 %
+
+Portugal 	                10.352.042                        20.850 €                                                   6,7 %
+
+Romania                  19.038.098                       12.620 €                                                    5,6 %
+
+Suècia                     10.452.326                       47.020 €                                                    7,5 %",,,,
+sona-9.0-20261114T224303Z-008,86,95212f47c17c3f0885437df1,396b6d0f695b386466f826757e7715e8,sona-9.0,ca,science,oasst2,human_authored,[user] Quin d’aquests animals és més ràpid l’estruç o el guepard?,"El guepard és l'animal més ràpid del món, mentre que l'estruç és l'ocell més gran del planeta i també és un animal veloç, però no tan ràpid com el guepard. El guepard pot arribar a córrer a velocitats de fins a 120 km/h, cosa que el converteix en l'animal terrestre més ràpid del món. En canvi, l'estruç pot córrer a velocitats de fins a 70 km/h, el que el converteix en l'ocell més ràpid del món. Malgrat això, el guepard és considerablement més ràpid que l'estruç i cap altres animals terrestres poden comparar-se amb la seva velocitat.",,,,
+sona-9.0-20261114T224303Z-008,87,39f29c4f7819788268c5a777,7790f343cf04b6de4f70a31859e714f1,sona-9.0,de,coding,oasst1,human_authored,"[user] Schreibe eine docker-compose.yaml, um eine Gitea Instanz mit einer MariaDB als Datenbank zu hosten.","Gerne kann ich dir dabei helfen, eine Docker-Compose-Datei zu erstellen, um eine Gitea-Instanz mit einer MariaDB als Datenbank zu hosten. Hier ist eine Beispielkonfiguration:
+
+```yaml
+version: '3'
+services:
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: gitea
+      MYSQL_USER: gitea
+      MYSQL_PASSWORD: example
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+  gitea:
+    image: gitea/gitea:latest
+    restart: always
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - DB_TYPE=mysql
+      - DB_HOST=db:3306
+      - DB_NAME=gitea
+      - DB_USER=gitea
+      - DB_PASSWD=example
+      - ROOT_URL=http://localhost:3000
+    depends_on:
+      - db
+    ports:
+      - ""3000:3000""
+      - ""222:22""
+    volumes:
+      - ./data/gitea:/data
+```
+
+In dieser Konfiguration wird eine MariaDB-Instanz als Datenbank-Service gestartet und eine Gitea-Instanz als Anwendungs-Service. Die MariaDB-Instanz wird mit einem Root-Passwort und einem Benutzer und Passwort für Gitea konfiguriert. Es wird auch ein Volume definiert, um die Datenbankdaten dauerhaft zu speichern.
+
+Die Gitea-Instanz wird mit Umgebungsvariablen konfiguriert, um auf die Datenbank zuzugreifen und die erforderlichen Einstellungen für den Betrieb der Anwendung bereitzustellen. Es wird auch ein Volume definiert, um die Gitea-Konfiguration und andere Daten dauerhaft zu speichern.
+
+Die Konfiguration enthält auch eine Port-Weiterleitung für den Zugriff auf die Gitea-Instanz über den Port 3000 und den SSH-Port 222. Die Ports können entsprechend angepasst werden, je nachdem, wie die Instanz in der Umgebung bereitgestellt wird.
+
+Um diese Konfiguration auszuführen, speichere sie einfach als ""docker-compose.yaml""-Datei und führe dann den Befehl ""docker-compose up -d"" im Verzeichnis aus, in dem sich die Datei befindet.",,,,
+sona-9.0-20261114T224303Z-008,88,6ed3c8fec2cd1e62b6bc43ad,b3e4d465a755e9b5118ffbe80234b2fe,sona-9.0,de,education,oasst2,human_authored,[user] Wie lässt sich ein Ki-Model Trainieren?,"Um ein KI-Modell zu trainieren, gibt es verschiedene Ansätze, die je nach Anwendungsfall unterschiedlich sein können. Im Allgemeinen benötigt man zunächst ausreichend Daten, um das Modell zu trainieren. Dann müssen die Daten entsprechend aufbereitet und in Trainings- und Testdaten aufgeteilt werden. Anschließend kann man das Modell auswählen und entsprechend konfigurieren. Schließlich erfolgt das eigentliche Training des Modells mit den Trainingsdaten, und es wird mit den Testdaten validiert, ob das Modell gut generalisiert und nicht überangepasst ist.
+
+Es gibt verschiedene Technologien und Frameworks, die für das Training von KI-Modellen verwendet werden können, wie z. B. Tensorflow, PyTorch, Keras oder Scikit-Learn. Einige Cloud-Anbieter bieten auch Plattformen an, die das Training von KI-Modellen erleichtern und beschleunigen können.
+
+Es ist wichtig zu beachten, dass das Training von KI-Modellen sehr rechenintensiv sein kann und daher leistungsstarke Computer oder spezielle Hardware wie GPUs benötigt werden. Ein weiterer wichtiger Aspekt ist die Qualität und Auswahl der Daten, da diese einen entscheidenden Einfluss auf die Genauigkeit und den Nutzen des Modells haben können.
+
+Insgesamt kann das Training von KI-Modellen eine komplexe und herausfordernde Aufgabe sein, die eine umfangreiche Kenntnis von Datenverarbeitung, Machine Learning und Programmierung erfordert.",,,,
+sona-9.0-20261114T224303Z-008,89,43e64f218a453acf1406a4bf,5c17d8d2c9917b21c0fc8b08d3592dfe,sona-9.0,de,general_knowledge,oasst2,human_authored,"[user] Wo geht es zum Bahnhof? Ich bin jetzt beim Aldi Supermarkt.
+
+[assistant] Leider kann ich nicht direkt auf Ihre Frage antworten, da ich keinen Zugriff auf Ihren Standort habe. Wenn Sie sich in einer fremden Stadt befinden, können Sie versuchen, sich an einen Mitarbeiter des Aldi Supermarkts zu wenden und nach dem Weg zum Bahnhof zu fragen. Alternativ können Sie auch Google Maps oder andere Navigationsanwendungen auf Ihrem Smartphone verwenden, um eine Route zum Bahnhof zu finden.
+
+[user] Ah, schade. Leider habe ich gerade mein mobiles Datenvolumen aufgebraucht und keine offline Karte auf meinem Smartphone. Dann muss ich wohl in den Aldi Markt.
+
+Mir ist es unangenehm, die Mitarbeiter anzuquatschen ohne was zu kaufen. Bräuchte eh noch was zu Essen für heute Abend. Kannst du mir vielleicht ein paar Ideen für Gerichte liefern?","Es gibt sehr viele Möglichkeiten ein Abendessen zuzubereiten. Ich würde Dir gerne ein paar Fragen stellen, um Deine Präferenzen einzuordnen.
+1. Willst Du etwas kochen oder reicht Dir eine kalte Brotzeit?
+2. Hast Du Vorlieben bezüglich einer gewissen Regionalküche? Oder willst Du etwas Neues ausprobieren?
+3. Gibt es Lebensmittelunverträglichkeiten oder willst Du auf bestimmte Arten von Lebensmitteln verzichten?
+
+Und die Bonusfrage: Für wie viele Personen soll die Mahlzeit sein? Dann kann ich Dir gleich eine Mengenabschätzung geben.",,,,
+sona-9.0-20261114T224303Z-008,90,530f974f857b61c7f463e7de,2b8f5273c28562ef83c8e074507aa4c3,sona-9.0,de,mathematics,oasst2,human_authored,"[user] Was ist ein Soufflé Omelett und wie kann man dieses selbst zubereiten?
+
+[assistant] Ein Soufflé bzw. Soufflee (französisch soufflé ‚geblasen‘, zu souffler ‚blasen‘) ist eine leichte Eierspeise (süß als Mehlspeise, oder auch herzhaft-pikant mit Käse, Gemüse oder Fisch, Krebsen, Fleisch zubereitet), deren luftige Größe (Höhe) aus dem geschlagenen Eiklar entsteht. Eine Gemeinsamkeit mit dem Auflauf oder dem Gratin besteht nur in der Verwendung von feuerfesten Formen zum Garen.
+
+Ein Omelett ist eine Eierspeise, die sich durch eine länglich-ovale Form mit glatter Oberfläche auszeichnet. Das Innere hat typischerweise eine saftig-weiche Konsistenz und außen darf keine Bräunung entstehen. Omeletts können mit Gemüse, Pilzen, Schinkenspeck, Ragouts, Käse usw. ergänzt werden – aber auch süße Varianten mit Früchten, Marmelade, Eiscreme oder Vanillecreme sind möglich.
+
+Rezept für ein Soufflé Omelett:
+
+Potion 1x, Zubereitungszeit ca. 15 min. , Einfach. 
+
+Utensilien
+
+2 Schüsseln (klein), Schneebesen, Gummispatel, beschichtete Pfanne
+
+3 Eier
+1 EL Butter
+50 g geriebener Gruyèrekäse
+Salz
+Schnittlauch (zum Servieren)
+Brot (zum Servieren)
+Salat (zum Servieren)
+
+ ca. kcal 493 , Fett 40 g, Eiweiß 31 g, Kohlenhydr. 1g
+
+A)
+
+ 3 Eier + Salz
+
+ 2 Schüsseln (klein), Schneebesen
+
+Eier trennen und Eiweiß und Eigelb in getrennte Schüssel geben. 
+Eiweiß salzen und aufschlagen, bis sich feste Spitzen bilden. 
+Eigelb aufschlagen.
+
+B)
+
+Gummispatel
+
+Die Hälfte des geschlagenen Eiweiß zum Eigelb geben und vermengen. 
+Restlichen Eischnee vorsichtig unterheben.
+
+C)
+
+1 EL Butter 25 g geriebener Gruyèrekäse
+1 beschichtete Pfanne
+
+Butter in eine beschichtete Pfanne über mittlerer Hitze geben. Sobald die Butter geschmolzen ist, in der Pfanne schwenken. 
+Eimischung dazugeben, glatt streichen und die Hälfte des Käses darüber reiben. 
+Einen Deckel auf die Pfanne setzen und das Omelette ca. 3 Min. garen.
+
+D)
+
+25 g geriebener Gruyèrekäse Schnittlauch (zum Servieren) Brot (zum Servieren) Salat (zum Servieren)
+
+Deckel von der Pfanne nehmen und restlichen Käse auf das Omelett reiben. 
+Der Boden des Omelettes sollte goldbraun und die Oberfläche gerade so gegart sein. 
+Das Omelett umklappen und auf einen Servierteller geben. Mit gehacktem Schnittlauch bestreuen und mit Brot und Salat servieren. 
+
+Guten Appetit!
+
+[user] Danke für das Rezept! Jedoch hatte ich nicht danach gefragt, was ein Soufflé und was ein Omelett ist.  Ich meinte ein Omelett-Soufflee.","Das tut mir Leid. Das habe ich leider falsch verstanden. Ich probiere es nochmal: 
+
+Ein Soufflé Omelett ist ein luftiges, flauschiges Omelett, das aus Eiern, Milch und Butter hergestellt wird. Im Gegensatz zu einem herkömmlichen Omelett, das auf dem Herd gekocht wird, wird ein Soufflé Omelett im Ofen gebacken, wodurch es eine leichte und flauschige Textur erhält.
+
+Hier ist ein einfaches Rezept für ein Soufflé Omelett:
+
+
+Zutaten:
+
+- 3 Eier, getrennt
+- 1/4 Tasse Milch
+- 1 Esslöffel Butter
+- Salz und Pfeffer nach Geschmack
+
+
+Anleitung:
+
+1. Heizen Sie den Ofen auf 180°C vor.
+2. Trennen Sie die Eier und schlagen Sie das Eiweiß steif.
+3. In einer separaten Schüssel die Eigelbe mit Milch, Salz und Pfeffer vermengen.
+4. In einer ofenfesten Pfanne die Butter schmelzen und das Eigelb-Milch-Gemisch hinzufügen.
+5. Bei mittlerer Hitze erhitzen und gelegentlich rühren, bis die Mischung anfängt fest zu werden.
+6. Das steif geschlagene Eiweiß vorsichtig unterheben.
+7. Die Pfanne in den Ofen stellen und 10-15 Minuten backen, bis das Omelett aufgegangen und goldbraun ist.
+8. Vorsichtig aus der Pfanne nehmen und servieren.
+
+
+Garnieren Sie das Soufflé Omelett nach Belieben mit frischen Kräutern oder Käse und genießen Sie es als leckeres Frühstück, Brunch oder leichtes Abendessen.",,,,
+sona-9.0-20261114T224303Z-008,91,60c7399fa3aa924a2f8554ae,bc9abfcb330fff2f977570943c64db5f,sona-9.0,de,problem_solving,oasst2,human_authored,[user] Kennst du eine gute Outdoor Luftmatratze für Winter Touren?,"Ja, es gibt viele gute Outdoor-Luftmatratzen, die speziell für Winter-Touren geeignet sind. Hier sind einige Vorschläge:
+
+- Therm-a-Rest NeoAir XTherm: Diese Luftmatratze ist eine der wärmsten und kompaktesten auf dem Markt und eignet sich gut für Winter-Camping. Sie verfügt über eine Unterseite aus 70D Nylon, die auch längeren Einsätzen standhält und hat einen R-Wert von 7,3.
+
+- Exped DownMat XP 9: Diese Luftmatratze ist mit einer Daunenfüllung ausgestattet, die für zusätzliche Isolierung sorgt. Sie hat einen R-Wert von 8,0 und ist sehr bequem.
+
+- NEMO Tensor Insulated: Diese Luftmatratze hat einen R-Wert von 4,2. Sie ist sehr leicht und kompakt und eignet sich gut für Rucksacktouren im Winter.
+
+- Sea to Summit Comfort Plus Insulated: Diese Luftmatratze ist sehr bequem und hat einen R-Wert von 4,0. Sie verfügt über zwei ineinandergreifende Luftkammern, so dass man den Härtegrad der Matratze anpassen kann.
+
+- Klymit Insulated Static V Luxe: Diese Luftmatratze hat eine isolierte V-Kammer-Konstruktion. Sie hat einen R-Wert von 2,4 und ist sehr bequem.
+
+Alle diese Matratzen sind für den Einsatz im Winter konzipiert und bieten eine gute Isolierung und Komfort. Die Wahl hängt auch von deinen individuellen Anforderungen und Präferenzen ab, wie z.B. Packmaß, Gewicht und Budget.",,,,
+sona-9.0-20261114T224303Z-008,92,6453e3ccd04f76247c1ae5e3,b885689599b5d4fca3754649d0658acf,sona-9.0,de,research,oasst1,human_authored,"[user] Guten Tag, wie heissen sie?",Ich bin OpenAssistant. Ein Open Source Chatbot. Wie kann ich Ihnen heute helfen?,,,,
+sona-9.0-20261114T224303Z-008,93,09816dcea462be689a9bcd77,b857f357fa75fd945da4c4f769d0eda0,sona-9.0,de,safety_ethics,oasst1,human_authored,[user] Kann ein Fuchs gezähmt und als Haustier gehalten werden?,"Es ist möglich, einen Fuchs zu zähmen und als Haustier zu halten, aber es ist in den meisten Ländern illegal und auch ethisch fragwürdig. Füchse sind wildlebende Tiere und wurden nicht domestiziert, um als Haustiere gehalten zu werden. Selbst wenn ein Fuchs zahm erscheint, kann er immer noch unberechenbar und gefährlich sein, da sein Instinkt und seine natürlichen Verhaltensweisen nicht vollständig ausgelöscht werden können. Außerdem können sie schwierig zu pflegen sein und haben spezielle Ernährungsbedürfnisse und Lebensraum-Anforderungen. Aus diesen Gründen ist es in den meisten Ländern illegal, Füchse als Haustiere zu halten, und es wird empfohlen, stattdessen domestizierte Haustiere zu adoptieren, die besser an das Leben mit Menschen angepasst sind.",,,,
+sona-9.0-20261114T224303Z-008,94,8892416e879050336bae1fa4,8b6c44d0a34c43666ffc6d17b16210e6,sona-9.0,de,science,oasst2,human_authored,"[user] Was würdes passieren wenn Putin den Krieg verliert? Berücksichtige dabei die Meinung von Wissenschaftlern und Historikern.
+
+[assistant] Prognosen über die Auswirkungen einer Niederlage beim Angriffskrieg Putins auf die Ukraine sind schwierig vorherzusehen. Hierzu sind nur Spekulationen möglich und absolute Aussagen sollten mit Vorsicht betrachtet werden.
+
+Hierbei ist das Spektrum der Prognosen sehr unterschiedliche:
+* Manche Fachleute denken eine Niederlage könnte einen möglichen Kollaps der politischen Riege in Russland nach sich ziehen. Dir wirtschaftliche und soziale Schwächung könnte dann zu einen Bürgerkrieg führen
+* Russland könnte weitere Kriege mit abtrünnigen Staaten führen
+* Das russische Militär wäre nach einer Niederlage sehr kraftlos und müsse sich erst von diesem Schlag erholen
+* Nicht-russische beteiligte Kleinstaaten könnten sich gegenseitig angreifen
+* Eine nukleare Eskalation könnte im schlimmsten Fall drohen
+
+[user] Wieso sollte Russland mit Atomwaffen eskalieren wollen, sobald sie einer Niederlage entgegenstehen?","Es ist unwahrscheinlich, dass Russland in einer Situation, in der es einer Niederlage entgegensieht, Atomwaffen einsetzen würde, da dies nicht nur eine extreme Maßnahme ist, sondern auch weitreichende Konsequenzen hätte, wie etwa:
+
+    Atomwaffen sind Massenvernichtungswaffen, die katastrophale humanitäre und ökologische Auswirkungen haben können.
+
+    Der Einsatz von Atomwaffen würde Russland international isolieren und die internationale Gemeinschaft gegen es aufbringen.
+
+    Der Einsatz von Atomwaffen könnte auch zu Vergeltungsmaßnahmen anderer Atommächte führen und somit eine nukleare Eskalation auslösen.
+
+    Russland verfolgt eine Politik der nuklearen Abschreckung und betrachtet Atomwaffen als eine Verteidigungswaffe, die es nur als letztes Mittel einsetzen würde.
+
+    Eine Niederlage in einem Konflikt bedeutet nicht unbedingt das Ende der nationalen Souveränität oder der nationalen Sicherheit Russlands.
+
+    Die russische Regierung hat wiederholt betont, dass sie Atomwaffen nicht als Erstschlagswaffe einsetzen wird.
+
+    Russland hat internationale Verträge und Abkommen unterzeichnet, die den Einsatz von Atomwaffen einschränken oder verbieten.
+
+    Die russische Regierung hat sich auch für die nukleare Abrüstung ausgesprochen und an internationalen Verhandlungen zur Reduzierung des Atomwaffenarsenals teilgenommen.
+
+Insgesamt gibt es viele Gründe, warum Russland sehr vorsichtig mit dem Einsatz von Atomwaffen umgeht und es unwahrscheinlich ist, dass es in einer Situation der Niederlage zu einer nuklearen Eskalation kommen würde.",,,,
+sona-9.0-20261114T224303Z-008,95,9d56a528b44835d58b158c36,c022cead9761eecd6f5a89c15954039f,sona-9.0,de,software_engineering,oasst2,human_authored,"[user] Was sind die besten Versionsverwaltungsprogramme außer Git?
+
+[assistant] Es gibt verschiedene Versionsverwaltungssysteme, die man neben Git verwenden kann. Hier sind fünf populäre Beispiele:
+
+1. SVN (Subversion)
+2. Mercurial
+3. Perforce
+4. Bitbucket
+5. Fossil
+
+Jedes dieser Systeme hat seine eigenen Vor- und Nachteile, und es ist empfehlenswert, sich vor der Entscheidung für ein bestimmtes System über die individuellen Vorteile und die Eignung für die eigenen Anforderungen zu informieren.
+
+[user] Könntest Du bitte die verschiedenen Vor- und Nachteile in einer Tabelle auflisten, mit zus. Spalten für die genannten Systeme, in denen du ganz grob mit ++/+/0/-/-- angibts, wie sie einzustufen sind?","Sehr gerne, hier ist eine grobe Übersicht über die verschiedenen Vor- und Nachteile der genannten Versionsverwaltungssysteme:
+Kriterium	                Git	    Mercurial	Subversion	Perforce	Bazaar	Fossil
+Verteiltes System           ++	    ++	        --	        --	        +	    ++
+Einfache Bedienung	        +	    ++	        +	        0	        ++	    ++
+Performance	                ++	    ++	        +	        ++	        +	    +
+Skalierbarkeit	            ++	    ++	        +	        ++	        +	    0
+Sicherheit	                ++	    ++	        +	        ++	        +	    +
+Zugriffskontrolle	        ++	    ++	        ++	        ++	        +	    +
+Integration	                ++	    +	        +	        +	        +	    ++
+Dokumentation	            ++	    ++	        ++	        ++	        +	    +
+Unterstützte Plattformen	++	    ++	        ++	        ++	        ++	    +
+Community/Support	        ++	    +	        +	        +	        0	    0
+
+Anmerkungen:
+
+    Verteiltes System: Zeigt an, ob das Versionsverwaltungssystem verteilte oder zentrale Arbeitsabläufe unterstützt.
+    Einfache Bedienung: Gibt an, wie benutzerfreundlich das System ist und wie einfach es für Anfänger zu erlernen ist.
+    Performance: Wie schnell und effizient das System bei der Verarbeitung von Dateiänderungen und -revisionen ist.
+    Skalierbarkeit: Wie gut das System mit einer großen Anzahl von Dateien und Benutzern umgehen kann.
+    Sicherheit: Die Sicherheitsfunktionen und -maßnahmen des Systems.
+    Zugriffskontrolle: Die Fähigkeit des Systems, den Zugriff auf Dateien und Verzeichnisse auf Benutzerebene zu verwalten.
+    Integration: Wie gut das System mit anderen Tools und Diensten (z. B. Continuous Integration, Bug-Tracking usw.) integriert werden kann.
+    Dokumentation: Die Qualität und Verfügbarkeit von Anleitungen, Tutorials und Ressourcen für das System.
+    Unterstützte Plattformen: Die Anzahl und Vielfalt der unterstützten Betriebssysteme und Plattformen.
+    Community/Support: Die Größe und Aktivität der Benutzergemeinschaft sowie die Verfügbarkeit von Support und Ressourcen.
+
+Bitte beachten Sie, dass diese Tabelle eine grobe Einschätzung der Stärken und Schwächen der verschiedenen Systeme bietet und möglicherweise nicht alle Nuancen und Details abdeckt. Es ist wichtig, die spezifischen Anforderungen Ihres Projekts und Teams zu berücksichtigen, wenn Sie ein Versionsverwaltungssystem auswählen.",,,,
+sona-9.0-20261114T224303Z-008,96,ea842a365adfae55e1d05a01,509c26d510486cae6bcd9b395be8fb48,sona-9.0,de,web_backend,oasst2,human_authored,"[user] Ich möchte mit der Power BI Rest API in Python ein Programm schreiben, welches sich mit einem Service Principal gegen den Power BI Tenant authentifiziert und mir alle Workspaces zurückgibt, die einen bestimmten Suchbegriff enthalten.
+
+[assistant] Alles klar. Wie kann ich Dir dabei helfen? Ich könnte Dir konkrete Fragen zu einzelnen Schritten beantworten, oder Dir den Programmcode für eine mögliche Implementierung Deines Vorhabens aufschreiben.
+
+[user] Als erstes suche mir bitte die passenden links für die Dokumentation der API raus","Gern!
+
+Hier sind ein paar Links, unter denen du die Dokumentation
+der Power BI Rest API finden kannst:
+
+1. https://learn.microsoft.com/de-de/rest/api/power-bi/
+2. https://learn.microsoft.com/en-us/rest/api/power-bi/datasets
+3. https://learn.microsoft.com/de-de/power-bi/report-server/rest-api
+4. https://learn.microsoft.com/de-de/power-bi/developer/",,,,
+sona-9.0-20261114T224303Z-008,97,ae00f16e31880b6639d28377,76f6aab2250f1ad26ea61fd44fe87a33,sona-9.0,de,web_frontend,oasst2,human_authored,"[user] Bei was kannst Du mir denn alles helfen? Ich bin gerade in der Ausbildung zum Fachinformatiker für Anwendungsentwicklung und habe im ersten halben Jahr etwas html, css und sql gelernt. In c# hatten wir nur die Grundlagen.
+
+[assistant] Als Sprachmodell stehe ich dir zur Beantwortung von Fragen und Problemen in vielen Bereichen zur Verfügung. Wenn es speziell um deine Ausbildung zum Fachinformatiker für Anwendungsentwicklung geht, kann ich dir sicherlich bei Fragen zu HTML, CSS und SQL weiterhelfen. Auch wenn es um allgemeine Programmierkonzepte oder um C# geht, werde ich mein Bestes geben, um dir weiterzuhelfen. Stell einfach deine Fragen!
+
+[user] Du kannst mir jederzeit über die geforderten Fachgebiete deine Fragen stellen","Als KI-Assistent habe ich die Aufgabe, dir Fragen zu beantworten und dich zu unterstützen.
+Aktuell habe ich keine Rückfragen an dich.
+Frag mich doch gerne etwas!",,,,
+sona-9.0-20261114T224303Z-008,98,7a9e306ddb2f724282f96092,377a13b9f60dada84fa2a6fcaf543bfb,sona-9.0,de,web_fullstack,oasst1,human_authored,[user] Ich möchte Gitlab für meine Firma über Docker installieren. Erkläre mir Schritt für Schritt was ich tun muss und welche Dinge zu beachten sind.,"Klar, ich kann Ihnen helfen, GitLab auf Docker zu installieren. Hier sind die Schritte, die Sie befolgen müssen:
+
+Schritt 1: Docker installieren
+Stellen Sie sicher, dass Docker auf Ihrem System installiert ist. Wenn Sie Docker noch nicht installiert haben, können Sie dies tun, indem Sie den [Anweisungen auf der offiziellen Docker-Website](https://docs.docker.com/desktop/install/linux-install/) folgen.
+
+Schritt 2: GitLab Docker-Image finden
+Suchen Sie das offizielle GitLab-Docker-Image auf Docker Hub. Sie können das Image mit dem folgenden Befehl herunterladen:
+
+```bash
+docker pull gitlab/gitlab-ce:latest
+```
+
+Schritt 3: GitLab-Konfigurationsdateien erstellen
+Erstellen Sie eine Konfigurationsdatei für GitLab, in der Sie Ihre Einstellungen wie z.B. den Port, den Sie verwenden möchten, angeben. Sie können diese Datei erstellen, indem Sie eine neue Datei mit dem Namen gitlab.rb erstellen. Hier ist ein Beispiel für eine gitlab.rb-Datei:
+
+```rb
+external_url 'http://gitlab.example.com'
+gitlab_rails['gitlab_shell_ssh_port'] = 2224
+```
+
+Schritt 4: GitLab-Container erstellen
+Erstellen Sie einen GitLab-Container mit dem Docker-Image und der Konfigurationsdatei, die Sie erstellt haben, indem Sie den folgenden Befehl ausführen:
+
+```bash
+docker run --detach \
+    --hostname gitlab.example.com \
+    --publish 443:443 --publish 80:80 --publish 2224:22 \
+    --name gitlab \
+    --restart always \
+    --volume $PWD/config:/etc/gitlab \
+    --volume $PWD/logs:/var/log/gitlab \
+    --volume $PWD/data:/var/opt/gitlab \
+    gitlab/gitlab-ce:latest
+```
+
+Ersetzen Sie `gitlab.example.com` durch Ihre eigene Domain oder IP-Adresse.
+
+Schritt 5: GitLab-Setup abschließen
+Gehen Sie zu Ihrem GitLab-Setup, indem Sie die URL aufrufen, die Sie in Ihrer Konfigurationsdatei angegeben haben. Folgen Sie den Anweisungen, um GitLab einzurichten.
+
+Beachten Sie, dass es auch andere Einstellungen gibt, die Sie in der Konfigurationsdatei vornehmen können, wie z.B. das Ändern des Passworts, das Hinzufügen von Benutzern und Gruppen und das Konfigurieren von E-Mail-Benachrichtigungen.
+
+Ich hoffe, das hilft Ihnen weiter!",,,,
+sona-9.0-20261114T224303Z-008,99,1ca1c6e02f29db27e90fb32c,b1b2cb463980ed59df4d30c9968ca822,sona-9.0,de,writing,oasst2,human_authored,"[user] Schreibe mir eine Entschuldigung Email für meinen Professor in der ich mich entschuldige, dass ich meine Arbeit zu spät eingereicht habe.
+
+[assistant] Sehr geehrter Herr Professor (Name),
+hiermit möchte ich mich ausdrücklich bei Ihnen entschuldigen, dass ich meine Arbeit zu spät eingereicht habe. Leider führten persönliche Ereignisse ausnahmsweise zu dieser Verzögerung. Daher möchte ich Sie höflichst um Nachsicht bitten.
+
+Vielen Dank und freundliche Grüße
+(Dein Name)
+
+[user] Persönliche Ereignisse? Was denn für persönliche Ereignisse? Ohgott ich bin nicht gut im Lügen! Was soll ich denn bloß sagen, wenn er da unerwartet nachfragt?! Ich wollte doch eigentlich nur eine Entschuldigung und nicht ein Lügenlabyrinth. Ich hab' einen Fehler gemacht, ja, aber ich stehe dazu!","Verzeihung, ich war davon ausgegangen, dass Menschen bei dieser Art von Aufgabenstellung eine Lüge erwarten. Bitte lassen Sie es mich noch einmal versuchen:
+
+Sehr geehrter Herr Professor (Name),
+hiermit möchte ich mich ausdrücklich bei Ihnen entschuldigen, dass ich meine Arbeit zu spät eingereicht habe. Es tut mir wirklich sehr, sehr leid.
+
+Mit freundlichen Grüßen
+(Dein Name)",,,,
+sona-9.0-20261114T224303Z-008,100,b213ad1344f6ca8b5b3cbf14,65512e4721eb15bf6565def5b893af0b,sona-9.0,el,general_knowledge,aya-dataset,human_authored,[user] Γιατί η Σταχτοπούτα ήταν τόσο χάλια στο μπέιζμπολ; Α: Επειδή το έσκασε από την μπάλα και είχε μια κολοκύθα για προπονητή!,"Στις Ηνωμένες Πολιτείες, η άνοιξη του μπέιζμπολ ξεκίνησε στη Φλόριντα και την Αριζόνα, οπότε τι λέτε για ένα αστείο για το μπέιζμπολ; Υπάρχουν πολλά που πρέπει να εξηγηθούν σε αυτό το αστείο. Το να είσαι χάλια σε κάτι σημαίνει να είσαι κακός σε αυτό. Σε αυτό το ανέκδοτο, η Σταχτοπούτα δεν παίζει καλά μπέιζμπολ. - Γιατί; - Γιατί; Επειδή τρέχει μακριά από την μπάλα. Η λέξη μπάλα (ball) , εδώ, έχει δύο σημασίες: Η μπάλα αναφέρεται στην μπάλα (ball) του μπέιζμπολ στο παιχνίδι του μπέιζμπολ· η μπάλα είναι επίσης το όνομα ενός επίσημου χορού (ball - ballroom). Θυμάσαι όταν το ρολόι χτύπησε 12:00 τα μεσάνυχτα και η Σταχτοπούτα έπρεπε να φύγει από τον χορό; Μετά, υπάρχει ο προπονητής. Στο μπέιζμπολ, ο προπονητής είναι το άτομο που ""οδηγεί"" την ομάδα λέγοντας στους παίκτες τι να κάνουν και τους βοηθά να το κάνουν καλύτερα. Η λέξη ""αμάξι"" χρησιμοποιείται επίσης για την άμαξα που μεταφέρει την Σταχτοπούτα από και προς τον χορό. Η άμαξα ξεκίνησε σαν κολοκύθα και μετά έγινε και πάλι κολοκύθα μετά τα μεσάνυχτα. Αυτό το αστείο είναι αστείο γιατί παίζει με τη λέξη μπάλα και τη λέξη προπονητής. Αναρωτήθηκες ποτέ πώς φτιάχνεται μια μπάλα του μπέιζμπολ; Δείτε αυτό το βίντεο για να μάθετε.",,,,

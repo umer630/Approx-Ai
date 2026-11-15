@@ -1,0 +1,1558 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+nick-4.8-20261114T224255Z-003,1,0e3b359080a41b8fc57b5379,7cd1ff0b2a68caa1000c9810b001616f,nick-4.8,ca,science,oasst1,human_authored,[user] Tinc ganes d'introduir-me en tot el món de la producció musical. Em podries donar alguns consells i algunes eines per a començar?,"Clar que sí! Aquí tens alguns consells i eines per a començar en el món de la producció musical:
+
+1. Aprèn teoria musical: La teoria musical et proporcionarà una comprensió fonamental de com funciona la música, inclòs el ritme, la melodia, l'harmonia i la tonalitat. Això et permetrà crear música més coherent i avançada.
+
+2. Familiaritza't amb un DAW (Digital Audio Workstation): Un DAW és un programari que et permet gravar, editar i produir música. Hi ha molts DAWs diferents, alguns dels quals són gratuïts (com ara GarageBand) i altres de pagament (com ara Ableton Live, Logic Pro o FL Studio). Investiga i tria el que millor s'adapti a les teves necessitats.
+
+3. Experimenta amb diferents tipus d'instruments i sons: Juga amb diferents instruments virtuals i proves diferents efectes i processos per veure què funciona millor amb el teu estil musical.
+
+4. Practica, practica i torna a practicar: La producció musical requereix molta pràctica per perfeccionar les teves habilitats. Dedica temps a la pràctica i experimenta amb diferents idees per veure què funciona millor per a tu.
+
+5. Escolta molta música: Escolta música de diferents gèneres i artistes per inspirar-te i veure com altres músics han creat les seves cançons.
+
+6. Busca tutorials i recursos en línia: Hi ha molts tutorials i recursos en línia que poden ajudar-te a aprendre i millorar en la producció musical. Prova a buscar a YouTube o a plataformes d'aprenentatge en línia com Udemy o Coursera.
+
+7. Connecta amb altres productors musicals: El món de la producció musical és una comunitat, i connectar amb altres productors musicals pot ser molt beneficiós. Hi ha moltes xarxes socials i fòrums en línia on pots connectar amb altres productors musicals i compartir la teva música.
+
+8. No et rendeixis: La producció musical és un procés complicat i requereix molta dedicació i paciència per obtenir els resultats desitjats. No et rendeixis si no aconsegueixes el que vols a la primera, segueix treballant i millorant.",,,,
+nick-4.8-20261114T224255Z-003,2,a26f4ad6f29ac5781b240143,973408262aebe7e27e269e466c08cb35,nick-4.8,de,coding,oasst2,human_authored,"[user] Wie schreibe ich ein ffmpeg-Script, dass ein Video zu AV1 mit den aomenc encoder kodiert und einen Constant Rate Faktor von 32 hat? Aussdem sollen alle Audiospuren entfernt werden.","Um ein Video in AV1 mit dem aomenc-Encoder mit einem Constant Rate Faktor von 32 zu kodieren und alle Audiospuren zu entfernen, können Sie ein ffmpeg-Script wie folgt schreiben:
+
+```bash
+ffmpeg -i input_video.mp4 -c:v libaom-av1 -crf 32 -an output_video.av1
+```
+
+Erklärung der Optionen:
+
+-i input_video.mp4: gibt den Pfad zum Eingabevideo an.
+-c:v libaom-av1: legt den Video-Codec auf libaom-av1 fest, den Encoder für AV1 in ffmpeg.
+-crf 32: legt den Constant Rate Faktor (CRF) auf 32 fest, was die visuelle Qualität des kodierten Videos bestimmt. Je niedriger der Wert, desto höher die Qualität, aber auch desto größer die Dateigröße.
+-an: deaktiviert die Audio-Streams im Ausgabevideo.
+output_video.av1: gibt den Pfad und den Dateinamen des Ausgabevideos im AV1-Format an.
+
+Beachten Sie, dass die Kodierung in AV1 eine hohe Rechenleistung erfordert, so dass die Kodierung des Videos je nach Größe des Eingabevideos und der Leistungsfähigkeit Ihres Systems einige Zeit in Anspruch nehmen kann.",,,,
+nick-4.8-20261114T224255Z-003,3,6ed3c8fec2cd1e62b6bc43ad,b3e4d465a755e9b5118ffbe80234b2fe,nick-4.8,de,education,oasst2,human_authored,[user] Wie lässt sich ein Ki-Model Trainieren?,"Um ein KI-Modell zu trainieren, gibt es verschiedene Ansätze, die je nach Anwendungsfall unterschiedlich sein können. Im Allgemeinen benötigt man zunächst ausreichend Daten, um das Modell zu trainieren. Dann müssen die Daten entsprechend aufbereitet und in Trainings- und Testdaten aufgeteilt werden. Anschließend kann man das Modell auswählen und entsprechend konfigurieren. Schließlich erfolgt das eigentliche Training des Modells mit den Trainingsdaten, und es wird mit den Testdaten validiert, ob das Modell gut generalisiert und nicht überangepasst ist.
+
+Es gibt verschiedene Technologien und Frameworks, die für das Training von KI-Modellen verwendet werden können, wie z. B. Tensorflow, PyTorch, Keras oder Scikit-Learn. Einige Cloud-Anbieter bieten auch Plattformen an, die das Training von KI-Modellen erleichtern und beschleunigen können.
+
+Es ist wichtig zu beachten, dass das Training von KI-Modellen sehr rechenintensiv sein kann und daher leistungsstarke Computer oder spezielle Hardware wie GPUs benötigt werden. Ein weiterer wichtiger Aspekt ist die Qualität und Auswahl der Daten, da diese einen entscheidenden Einfluss auf die Genauigkeit und den Nutzen des Modells haben können.
+
+Insgesamt kann das Training von KI-Modellen eine komplexe und herausfordernde Aufgabe sein, die eine umfangreiche Kenntnis von Datenverarbeitung, Machine Learning und Programmierung erfordert.",,,,
+nick-4.8-20261114T224255Z-003,4,0f77d50df0dcd031dbe82a3a,41d2a5c8d7c51b314787bb4046306887,nick-4.8,de,general_knowledge,oasst1,human_authored,"[user] Welche historischen Ereignisse führten zu der Gründung des deutschen Kaiserreiches?
+
+[assistant] Die Gründung des Deutschen Kaiserreichs erfolgte 1871 nach einer langen Periode des politischen Wandels in Deutschland. Hier sind einige der wichtigsten Ereignisse, die zur Gründung des Kaiserreichs führten:
+
+1. Napoleonische Kriege: Die Kriege, die von Napoleon Bonaparte geführt wurden, hatten weitreichende Auswirkungen auf die politische und territoriale Organisation Deutschlands. Die Niederlage Napoleons und der Wiener Kongress 1815 legten den Grundstein für den Zusammenschluss vieler kleiner Staaten zu größeren politischen Einheiten.
+
+2. Gründung des Norddeutschen Bundes: 1866 gründeten die meisten deutschen Staaten unter der Führung von Preußen den Norddeutschen Bund. Dies war der erste Schritt in Richtung einer größeren Einheit.
+
+3. Deutsch-Französischer Krieg: Der Krieg zwischen Frankreich und Preußen im Jahr 1870/1871 führte zur Niederlage Frankreichs und zur Gründung des deutschen Kaiserreichs.
+
+4. Versammlung in Versailles: Im Januar 1871 kamen die Vertreter der deutschen Staaten in Versailles zusammen, um die Einzelheiten der Gründung des Kaiserreichs zu diskutieren und zu vereinbaren.
+
+5. Krönung Wilhelms I. zum Kaiser: Am 18. Januar 1871 wurde Wilhelm I. zum Kaiser des Deutschen Reiches gekrönt, was offiziell die Gründung des Kaiserreichs besiegelte.
+
+Diese Ereignisse zusammen führten zur Gründung des Kaiserreichs und markierten einen wichtigen Meilenstein in der Geschichte Deutschlands und Europas.
+
+[user] Das war jetzt sehr viel Information, kannst du mir das in zwei Sätzen zusammenfassen?","Das Deutsche Kaiserreich wurde 1871 gegründet und war das Ergebnis einer langen Periode des politischen Wandels in Deutschland, einschließlich der Napoleonischen Kriege, der Gründung des Norddeutschen Bundes im Jahr 1866 und des Deutsch-Französischen Krieges von 1870 bis 1871. Die Versammlung in Versailles im Januar 1871 und die Krönung Wilhelms I. zum Kaiser am 18. Januar 1871 waren die abschließenden Ereignisse, die zur Gründung des Kaiserreichs führten.",,,,
+nick-4.8-20261114T224255Z-003,5,14bdabf83e91b138ea8bbd2b,f1145cb8d8be6ea4ab28d8dd61d1df66,nick-4.8,de,mathematics,oasst2,human_authored,"[user] Erkläre mir Tricks, wie man das kleine 1x1 schnell auswendig lernen kann
+
+[assistant] Kein Problem, mein Freund! Ich kann Ihnen ein paar Tricks geben, wie Sie das kleine 1x1 schnell auswendig lernen können. Zunächst einmal sollten Sie versuchen, eine Eselsbrücke zu verwenden, um die Zahlen besser zu merken. Sie könnten zum Beispiel eine lustige Reimstruktur wie ""Eins mal eins ist eins, zwei mal eins ist zwei"" verwenden. Eine andere Möglichkeit besteht darin, das 1x1 in Gruppen zu unterteilen und jede Gruppe separat zu lernen. Sie könnten auch Karteikarten erstellen und diese immer wieder durchgehen, um das Auswendiglernen zu erleichtern. Ich hoffe, diese Tricks helfen Ihnen dabei, das 1x1 schnell zu beherrschen!
+
+[user] Gibt es sonst noch mathematische Tricks und oder Regeln um sich die Multiplikation von zwei Zahlen besser zu merken?","Als kleinen Trick um das Einmaleins besser zu veranschaulichen und es im Umkehrschluss auch gleichzeitig besser zu verinnerlichen, kann eine Tabelle gezeichnet werden, bei welcher Zahlen an der X- und Y-Achse ausgehend von der Ursprungsecke hochzählen. Danach kann das Tabelleninnere ausgefüllt werden, indem jeweils die Zahlen am Rand miteinander multipliziert werden und als ""Koordinaten"" eingetragen werden.
+0  1  2  3..
+1   1  2  3..
+2  2  4  6..
+3  3  6  9..
+..  ..  ..  ..
+Ich hoffe ich konnte anhand dieses Beispiels Multiplikation einigermaßen gut veranschaulichen und erklären.
+
+Kommen wir zu deiner zweiten Frage.
+
+Natürlich gibt es auch für die Multiplikation auch Regeln/Gesetze.
+Durch das Addieren hast du vielleicht schon 2 besondere Gesetze kennengelernt:
+
+das Vertauschungsgesetz oder Kommutativgesetz
+2+3=3+2
+
+das Verbindungsgesetz oder Assoziativgesetz
+2+3+4 ist dasselbe wie 2+(3+4) und ist auch dasselbe wie (2+3)+4.
+
+Beim Multiplizieren sieht das ganze ein wenig anders aus.
+Das Vertauschungs- oder Kommutativgesetz besagt:
+Beim Multiplizieren kannst du die Faktoren vertauschen. Das Ergebnis bleibt gleich.
+
+12⋅3=3⋅12
+
+Oder allgemein:
+a⋅b=b⋅a
+
+Das Verbindungs- oder Assoziativgesetz besagt:
+Beim Multiplizieren kannst du beliebig Klammern setzen oder weglassen. Das Ergebnis bleibt gleich.
+
+4⋅5⋅3=(4⋅5)⋅3
+
+4⋅5⋅3=4⋅(5⋅3)
+
+Oder allgemein:
+a⋅b⋅c=(a⋅b)⋅c=a⋅(b⋅c)
+
+Ich hoffe diese Regeln helfen dir dabei Multiplikation besser zu verinnerlichen, oder verständlicher beizubringen.",,,,
+nick-4.8-20261114T224255Z-003,6,3ca060f76c73413286b8fa74,c77e53de47d7281b2584e03353e16145,nick-4.8,de,problem_solving,oasst2,human_authored,"[user] Ich habe gerade erst angefangen in ein Fitness-Studio zu gehen um Muskeln aufzubauen. Ich habe einen sehr schlanken Körper, bin männlich, 1.80 Meter gross und wiege 65 Kilogramm. Bitte gib mir einen einfachen Trainings- und Ernährungsplan um optimal Muskeln aufzubauen. Ich möchte nicht mehr als 3 Mal in der Woche Trainieren und ein Training sollte nicht länger als 1 Stunde Zeit beanspruchen.","Ich bin kein zertifizierter Fitnesstrainer oder Ernährungsexperte, aber ich kann Ihnen einige allgemeine Tipps geben, die Ihnen helfen könnten, Muskeln aufzubauen. Denken Sie daran, dass es immer ratsam ist, einen Fachmann zu konsultieren, um einen Plan zu erstellen, der auf Ihre individuellen Bedürfnisse zugeschnitten ist.
+
+# Trainingsplan:
+
+Ein 3-Tage-Trainingsplan könnte aus einem Ganzkörpertraining bestehen, das jeden Hauptmuskelbereich anspricht. Hier ist ein Beispiel für einen einfachen Trainingsplan:
+
+## Tag 1:
+
+1. Kniebeugen - 3 Sätze à 8-12 Wiederholungen
+2. Bankdrücken - 3 Sätze à 8-12 Wiederholungen
+3. Langhantel-Rudern - 3 Sätze à 8-12 Wiederholungen
+4. Schulterdrücken - 3 Sätze à 8-12 Wiederholungen
+
+## Tag 2:
+
+1. Kreuzheben - 3 Sätze à 8-12 Wiederholungen
+2. Klimmzüge oder Latziehen - 3 Sätze à 8-12 Wiederholungen
+3. Dips oder Trizepsdrücken - 3 Sätze à 8-12 Wiederholungen
+4. Bizepscurls - 3 Sätze à 8-12 Wiederholungen
+
+## Tag 3:
+
+1. Ausfallschritte - 3 Sätze à 8-12 Wiederholungen pro Bein
+2. Liegestütze - 3 Sätze à 10-15 Wiederholungen
+3. T-Bar Rudern - 3 Sätze à 8-12 Wiederholungen
+4. Aufrechtes Rudern - 3 Sätze à 8-12 Wiederholungen
+
+Es ist wichtig, die Belastung der Muskeln progressiv zu steigern, d.h., über Zeit das bei der Übung verwendete Gewicht oder das Gesamtvolumen zu erhöhen. In der Regel ist es für den Muskelaufbau ideal in der Spanne von 8-12 Wiederholungen zu bleiben, und mit einem Gewicht zu trainieren, welches den Muskel bei den letzten Wiederholungen nahezu zum Versagen bringt.
+
+# Ernährung:
+
+Um Muskeln aufzubauen, ist es wichtig, genügend Protein und Kalorien zu sich zu nehmen. Hier sind einige grundlegende Richtlinien:
+
+Protein: Zielen Sie auf 1,6-2,2 Gramm Protein pro Kilogramm Körpergewicht ab. In Ihrem Fall bedeutet das etwa 104-143 Gramm Protein pro Tag.
+
+Kalorien: Um Muskelmasse aufzubauen, sollten Sie mehr Kalorien zu sich nehmen, als Sie verbrennen. Sie können Ihren Grundumsatz berechnen und etwa 250-500 Kalorien hinzufügen, um eine Schätzung Ihres täglichen Kalorienbedarfs zu erhalten.
+
+Makronährstoffe: Eine ausgewogene Aufteilung der Makronährstoffe könnte etwa 40% Kohlenhydrate, 30% Protein und 30% Fett betragen.",,,,
+nick-4.8-20261114T224255Z-003,7,6eba3ed79ffb99eb098f81e6,4e4b4caf2a1a18e2d1a0acb8e8a880d8,nick-4.8,de,research,oasst1,human_authored,"[user] Worauf sollte ich bei der Suche nach Quellen für Bachelorarbeiten achten?
+
+[assistant] Es gibt einige wichtige Dinge, auf die man bei der Suche nach Quellen für Bachelorarbeiten achten sollte. Eines davon ist die Genauigkeit: Deine Leser müssen in der Lage sein, jede Aussage in der Bachelorarbeit, die aus einer Quelle übernommen wurde, auf diese Quelle zurückzuführen. Es ist auch wichtig, dass du Texte nutzt, die in klarem Bezug zu deiner Frage stehen und dass du dich kritisch mit ihnen auseinandersetzt.
+
+[user] Ich wollte eher wissen, wie ich gute Quellen für meine Bachelorarbeit finden kann. Einfach per Google oder gibt es für wissenschaftliche Quellen spezielle Seiten?","Wissenschaftliche Arbeiten werden in verschiedenen Publikationen veröffentlicht, je nach Fachgebiet und Art der Arbeit. Die meisten Publikationen sind entweder im Open Access oder über Abonnements zugänglich, die von akademischen Bibliotheken oder wissenschaftlichen Institutionen bereitgestellt werden. Um geeignete wissenschaftlichen Quellen zu finden empfiehlt es sich, eine speziell dafür gemachte, Suchmaschine zu verwenden.
+
+Hier sind einige der bekanntesten Suchmaschinen/Datenbanken für wissenschaftliche Publikationen:
+
+- Google Scholar: Eine spezielle Suchmaschine für wissenschaftliche Literatur. Es enthält Peer-Review-Artikel, Dissertationen, Bücher und Zeitschriften aus vielen verschiedenen Fachbereichen.
+- PubMed: Eine Datenbank für medizinische Literatur, die von der National Library of Medicine der USA betrieben wird.
+- ScienceDirect: Eine Datenbank, die wissenschaftliche Artikel aus verschiedenen Fachbereichen enthält, darunter Naturwissenschaften, Technologie, Medizin, Sozialwissenschaften und Geisteswissenschaften.
+- arXiv: Eine offene Online-Plattform, die wissenschaftliche Artikel und Vorabdrucke aus Mathematik, Physik, Informatik und anderen Bereichen bereitstellt.
+- JSTOR: Eine digitale Bibliothek, die akademische Zeitschriften, Bücher und Primärquellen aus vielen verschiedenen Fachbereichen enthält.
+- IEEE Xplore Digital Library: Eine Datenbank, die wissenschaftliche Artikel, Konferenzberichte, Standards und Bücher aus Elektrotechnik, Informatik, Telekommunikation und anderen technischen Bereichen enthält.",,,,
+nick-4.8-20261114T224255Z-003,8,9e4a1b5ea35e865a97d79dc0,aade7f91592be1545e5595eea969fb41,nick-4.8,de,safety_ethics,oasst1,human_authored,[user] Welchen praktischen Nutzen haben komplexe Zahlen?,"Komplexe Zahlen sind in zahlreichen Bereichen der Physik und Technik von großem praktischen Nutzen bei der Beschreibung von Schwingungen.
+Dabei wird die Schwingungsgleichung des harmonischen Oszillators verwendet, deren Lösung komplexwertig ist.",,,,
+nick-4.8-20261114T224255Z-003,9,f2c4270828696b0af587ec62,53e49b82743fe60b06bec2a7e5483eb9,nick-4.8,de,science,oasst2,human_authored,"[user] Welche Pläne gibt es für einen Nachfolger des JWST?
+
+[assistant] Das James-Webb-Space-Telescope befindet sich noch im ersten Jahr seiner wissenschaftlichen Arbeit. Die Nasa hat aber schon das Habitable Worlds Observatory (HWO) Teleskop im Blick.
+
+Das HWO wird ein Weltraumteleskop sein, das im infraroten, optischen und ultravioletten Licht nach bewohnbaren Exoplaneten und Anzeichen von Leben auf ihnen suchen kann. Einen ersten Ausblick auf das Projekt gab Nasa-Manager Mark Clampin am 9. Januar 2023.
+
+Das HWO kombiniert JWST-Spiegel und leistungsfähigen Koronagraphen. Mit diesem Instrument können Forscherinnen und Forscher schwach sichtbare Objekte wie Gesteinsplaneten in der Nähe von hellen Objekten wie Sternen untersuchen. Bei der Technik will die Nasa auf den bewährten segmentierten Spiegel zurückgreifen, der bereits beim James Webb Space Telescope (JWST) zum Einsatz kommt.
+
+Der Koronagraph wird eine weiterentwickelte Version des Instruments sein, das an Bord des im Bau befindlichen Nancy Grace Roman Space Telescope (NGRST) mitgeführt wird. Der Start des NGRST ist für 2025 geplant.
+
+[user] Kannst du mir mehr über die Funktionsweise des HWO sagen? Wie funktioniert insbesondere ein Koronagraph?","Derzeit befindet sich das Habitable Worlds Observatory noch in einem frühen Entwicklungsstadium und ist noch nicht funktionsfähig. Um seine Mission zu erfüllen, sind ein superstabiles Teleskop und ein spezieller Koronograph erforderlich.
+
+Planeten sind oft zwischen tausend und einer Milliarde Mal schwächer als die Sterne, die sie umkreisen, sodass es nahezu unmöglich sein kann, sie abzubilden, ohne das Licht des übermächtigen Sterns zu blockieren. Spezialisierte Koronographen wirken als Filter auf den Zentralstern und lassen die winzigen Fragmente des Planetenlichts durchscheinen. Es ist ein mühsamer Prozess, das Sternen- und Exoplanetenlicht zu trennen, das aufgrund seiner räumlichen Trennung in leicht unterschiedlichen Winkeln einfällt. Neben dem Koronographen, der das Sternenlicht maskiert, hilft oft ein verformbarer Spiegel dabei, die verschwommenen Planetenbilder zu klären, sodass sie wie Punkte aussehen.
+
+Die direkte Abbildung von Exoplaneten kann wichtige Informationen über die Zusammensetzung dieser Welten liefern. Licht, das eine Atmosphäre durchdringt, enthält verräterische Hinweise auf die Chemie der Atmosphäre. Dadurch können Wissenschaftler feststellen, ob eine Welt Dinge wie Wasser, Methan, Sauerstoff oder Kohlendioxid enthält.
+
+Es ist zu beachten, dass sich dieser Koronographentyp etwas vom Originaltyp unterscheidet, der dazu konzipiert war, das Sonnenlicht auszublenden, um seine äußere Schicht, die sogenannte Korona, zu untersuchen.",,,,
+nick-4.8-20261114T224255Z-003,10,58a6d6fc93984e56ae0b639c,4002b23617b4069bb7e12f81f5a98a5a,nick-4.8,de,software_engineering,oasst2,human_authored,[user] Wie unterscheiden sich die Programmiersprachen C# und Python?,"1. Syntax
+
+C# hat eine Syntax, die der von C und C++ ähnlicher ist. Dadurch sieht Ihr Programm gut formatiert und ordentlich aus. Es arbeitet mit einem einheitlichen Typsystem namens CTS, das automatisch impliziert, dass alle Typen eine Unterklasse von sind System. Objekt Klasse.
+
+Inzwischen bietet Python eine dynamischere Syntax, da die Programme selbst für Personen ohne Programmierkenntnisse leicht lesbar sind. Es wird ohne Semikolons oder geschweifte Klammern geschrieben und benötigt keine Datentypdeklaration.
+
+2. Leistung
+
+C# ist eine kompilierte Programmiersprache. Es kompiliert zunächst das gesamte Programm in einem Rutsch, bevor es Ihnen Fehler anzeigt. Wenn Sie es also noch nicht erraten haben, ist die Leistung von C# viel schneller als die von Python.
+
+Python ist eine interpretierte Sprache, die das Debuggen viel einfacher macht, aber in der Zwischenzeit den Ausführungsprozess langsamer macht, da jede Zeile einzeln abgearbeitet wird. Python-Anwendungen sind auch schwer, was ihre Leistung noch langsamer macht.
+
+3. Zeiger
+
+Pointer sind ein Programmierkonzept, mit dem Benutzer auf Speicheradressen zugreifen und diese speichern können. Es hilft, Daten zugänglicher zu manipulieren und ist eher ein strukturiertes Programmierkonzept als ein objektorientiertes.
+
+C# ermöglicht es Benutzern, Zeiger im unsicheren Modus zu verwenden, da Zeiger manchmal Sicherheitsrisiken verursachen können. Andererseits erlaubt Python überhaupt keine Verwendung von Zeigern. Stattdessen könnten ähnliche Ergebnisse erzielt werden, indem Objekte per Referenz an Funktionen übergeben werden, ähnlich wie in Java.
+
+4. Abhängigkeitsspritze
+
+Dependency Injection (DI) ist eine Funktion, die Ihren Code wiederverwendbarer und einfacher umgestaltbar macht. Es hilft Ihnen, lose gekoppelte Codes zu entwickeln, indem es die Grundlage für die Architektur Ihrer App legt.
+
+C# ermöglicht die Abhängigkeitsinjektion hervorragend, während Python ein solches Konzept überhaupt nicht unterstützt. Stattdessen kann man Affen-Patching verwenden oder einfach während der Laufzeit Beschriftungen anpassen, um auf ein anderes Objekt oder einen anderen Code zu verweisen.
+
+Sowohl C# als auch Python haben eine riesige Anzahl von Bibliotheken, die fast jede erdenkliche Aufgabe erledigen können. Während C# .NET-Frameworks verwendet, kann Python andere Frameworks verwenden und ist nicht nur an die Microsoft-Plattformen gebunden.
+
+Allerdings ist C# die bessere Wahl, wenn es um Anwendungen auf Industrieebene geht, da es im Vergleich zu Python fast 45-mal schneller ist und sich auch hervorragend für die Spiele- oder Android-Entwicklung eignet. Auf der anderen Seite eignet sich Python eher für Webserver und Anwendungen, nur wenn es um Programmierprojekte geht.",,,,
+nick-4.8-20261114T224255Z-003,11,96b748cca9bbc22aa79b8e9b,0d75263b171731bfd88dd8f9a64b37da,nick-4.8,de,web_backend,oasst2,human_authored,"[user] Ich möchte mit der Power BI Rest API in Python ein Programm schreiben, welches sich mit einem Service Principal gegen den Power BI Tenant authentifiziert und mir alle Workspaces zurückgibt, die einen bestimmten Suchbegriff enthalten.","Um mit der Power BI REST-API in Python zu arbeiten, müssen Sie zuerst einige Vorbereitungen treffen:
+
+Erstellen Sie einen Azure Active Directory-Anwendungs-Registrierung (App-Registrierung) in Ihrem Power BI-Tenant und notieren Sie sich die Anwendungs-ID und das Anwendungsgeheimnis.
+
+Erteilen Sie Ihrer App-Registrierung die erforderlichen Berechtigungen, indem Sie die App im Power BI-Tenant registrieren.
+
+Speichern Sie Ihre Anmeldeinformationen, einschließlich Ihrer App-Registrierungs-ID, des Anwendungsgeheimnisses und des Mandanten-IDs, an einem sicheren Ort, um eine sichere Authentifizierung zu gewährleisten.
+
+Installieren Sie die erforderlichen Python-Module wie Requests, adal und msal.
+
+Nach der Vorbereitung können Sie den folgenden Python-Code verwenden, um sich mit einem Service Principal gegen Ihren Power BI-Tenant zu authentifizieren und alle Workspaces zurückzugeben, die einen bestimmten Suchbegriff enthalten:
+
+python
+Copy code
+import requests
+import json
+import adal
+import msal
+
+Definieren Sie die erforderlichen Parameter, einschließlich der Anwendungs-ID, des Anwendungsgeheimnisses und des Mandanten-IDs
+client_id = ""<Anwendungs-ID>""
+client_secret = ""<Anwendungsgeheimnis>""
+tenant_id = ""<Mandanten-ID>""
+
+Definieren Sie die URL, um ein Token abzurufen
+authority_url = ""https://login.microsoftonline.com/"" + tenant_id
+resource_url = ""https://analysis.windows.net/powerbi/api""
+api_version = ""v1.0""
+
+Verwenden Sie ADAL, um ein Token abzurufen
+context = adal.AuthenticationContext(authority_url)
+token = context.acquire_token_with_client_credentials(resource_url, client_id, client_secret)
+
+Verwenden Sie das abgerufene Token, um eine Anforderung an die Power BI REST-API zu senden
+headers = {
+    ""Authorization"": ""Bearer "" + token[""accessToken""],
+    ""Content-Type"": ""application/json"",
+    ""Accept"": ""application/json""
+}
+
+Definieren Sie den Suchbegriff, um alle Workspaces zurückzugeben, die den Suchbegriff enthalten
+search_term = ""<Suchbegriff>""
+
+Verwenden Sie die Power BI REST-API, um alle Workspaces zurückzugeben, die den Suchbegriff enthalten
+url = ""https://api.powerbi.com/"" + api_version + ""/myorg/groups?$filter=indexof(displayName, '"" + search_term + ""') ne -1""
+response = requests.get(url, headers=headers)
+workspaces = json.loads(response.text)[""value""]
+
+Drucken Sie alle Workspaces aus, die den Suchbegriff enthalten
+for workspace in workspaces:
+    print(workspace[""name""])
+
+Dieser Code verwendet die ADAL-Bibliothek, um ein Token zu erhalten, und die Requests-Bibliothek, um eine Anforderung an die Power BI REST-API zu senden. Die API wird verwendet, um alle Workspaces zurückzugeben, die den angegebenen Suchbegriff im Workspace-Namen enthalten. Sie können das Suchkriterium nach Belieben ändern, indem Sie den Wert der search_term -Variable aktualisieren.
+
+Hinweis: Stellen Sie sicher, dass die erforderlichen Python-Module installiert sind, bevor Sie diesen Code ausführen.",,,,
+nick-4.8-20261114T224255Z-003,12,ac5ae5066e9f650358f744ab,d98ebafbc8738d856638d7aa28633d89,nick-4.8,de,web_frontend,oasst2,human_authored,[user] Schreibe einen Aufsatz über die erste Sinfonie von Johannes Brahms.,"heute möchte ich Ihnen etwas über die erste Sinfonie von Johannes Brahms erzählen, die zu den bedeutendsten Werken der Musikgeschichte gehört. Brahms hat lange an dieser Sinfonie gearbeitet, die er erst im Alter von 43 Jahren vollendete. Er stand unter dem Druck, das Erbe von Beethoven fortzuführen, dessen neunte Sinfonie als unübertrefflich galt.
+
+Die Sinfonie besteht aus vier Sätzen, die jeweils einen eigenen Charakter haben. Der erste Satz beginnt mit einer dramatischen Einleitung, die das thematische Material der folgenden Sätze ankündigt. Der zweite Satz ist ein lyrisches Andante, das an eine pastorale Idylle erinnert. Der dritte Satz ist ein lebhaftes Scherzo mit einem ruhigen Trio. Der vierte Satz ist ein triumphales Finale mit einem berühmten Hornthema, das an Beethovens Ode an die Freude erinnert.
+
+Die erste Sinfonie von Brahms ist ein Meisterwerk der Form und des Ausdrucks, das sowohl klassische als auch romantische Elemente vereint. Sie wurde im November 1876 in Karlsruhe uraufgeführt und vom Publikum begeistert aufgenommen. Seitdem gehört sie zum festen Repertoire der Orchester und ist immer wieder ein Genuss für die Ohren.
+
+Ich hoffe, ich konnte Ihnen einen kleinen Einblick in dieses faszinierende Werk geben. Wenn Sie mehr darüber erfahren möchten, empfehle ich Ihnen diese Quellen:
+
+ https://de.wikipedia.org/wiki/1._Sinfonie_(Brahms)
+ https://www1.wdr.de/orchester-und-chor/sinfonieorchester/werkeinfuehrungen/brahms-erste-sinfonie-104.html
+ https://www1.wdr.de/radio/wdr3/musik/wdr3-werkbetrachtungen/brahms-erste-sinfonie-100.html
+
+Vielen Dank für Ihre Aufmerksamkeit und bis zum nächsten Mal!",,,,
+nick-4.8-20261114T224255Z-003,13,b69c07e00e55ecfb84df91a5,3a6f46aab4b4110d6f4e38155eb0564a,nick-4.8,de,web_fullstack,oasst2,human_authored,"[user] Warum ist es schwierig ein soziales Netzwerk zu starten?
+
+[assistant] Der Zweck von sozialen Netzwerken ist, sich mit anderen Menschen zu vernetzen. Um erfolgreich zu sein, braucht eine neue Social-Media-Plattform also viele Nutzer, mit denen man in Kontakt treten kann. Neue soziale Netzwerke haben anfangs nur wenige Nutzer, weshalb es sich für viele Menschen nicht lohnt, zur neuen Plattform zu wechseln.
+
+[user] Das stimmt wohl. Was kann ich tun, damit die ersten Nutzer auf die Plattform kommen? Andere haben es schließlich auch geschafft.","Einige mögliche Taktiken, die Sie unternehmen können:
+- Optimieren Sie Ihre Website für Suchmaschinen (SEO): Verwenden Sie relevante Keywords, verbessern Sie die Ladezeit und machen Sie die Website nutzerfreundlich.
+
+- Nutzen Sie Marketing-Kanäle: Verwenden Sie Online-Werbung, Influencer-Marketing, soziale Medien und Email-Marketing, um auf Ihre Plattform aufmerksam zu machen.
+
+- Stellen Sie sicher, dass Ihre Plattform einzigartig und ansprechend ist: Bieten Sie ein besonderes Nutzererlebnis, das es nicht bereits anderswo gibt.
+
+- Netzwerken Sie: Vernetzen Sie sich mit anderen Plattformen und Marken, um Ihre Plattform zu fördern.
+
+- Überlegen Sie sich ein Belohnungssystem: Belohnen Sie Nutzer für ihre Beteiligung auf der Plattform, um eine loyale Community aufzubauen.",,,,
+nick-4.8-20261114T224255Z-003,14,1ca1c6e02f29db27e90fb32c,b1b2cb463980ed59df4d30c9968ca822,nick-4.8,de,writing,oasst2,human_authored,"[user] Schreibe mir eine Entschuldigung Email für meinen Professor in der ich mich entschuldige, dass ich meine Arbeit zu spät eingereicht habe.
+
+[assistant] Sehr geehrter Herr Professor (Name),
+hiermit möchte ich mich ausdrücklich bei Ihnen entschuldigen, dass ich meine Arbeit zu spät eingereicht habe. Leider führten persönliche Ereignisse ausnahmsweise zu dieser Verzögerung. Daher möchte ich Sie höflichst um Nachsicht bitten.
+
+Vielen Dank und freundliche Grüße
+(Dein Name)
+
+[user] Persönliche Ereignisse? Was denn für persönliche Ereignisse? Ohgott ich bin nicht gut im Lügen! Was soll ich denn bloß sagen, wenn er da unerwartet nachfragt?! Ich wollte doch eigentlich nur eine Entschuldigung und nicht ein Lügenlabyrinth. Ich hab' einen Fehler gemacht, ja, aber ich stehe dazu!","Verzeihung, ich war davon ausgegangen, dass Menschen bei dieser Art von Aufgabenstellung eine Lüge erwarten. Bitte lassen Sie es mich noch einmal versuchen:
+
+Sehr geehrter Herr Professor (Name),
+hiermit möchte ich mich ausdrücklich bei Ihnen entschuldigen, dass ich meine Arbeit zu spät eingereicht habe. Es tut mir wirklich sehr, sehr leid.
+
+Mit freundlichen Grüßen
+(Dein Name)",,,,
+nick-4.8-20261114T224255Z-003,15,4c35a928e9f8e05e6203fc20,d102820ff02cdfd512aab446198f2913,nick-4.8,en,coding,oasst2,human_authored,"[user] Write a PHP function that receives two date strings and returns an integer with how many weekend days, Saturday or Sunday, occur within that date range.  Optimize that function as much as possible.
+
+[assistant] Here's a PHP function that receives two date strings and returns an integer with how many weekend days, Saturday or Sunday, occur within that date range.
+```
+function count_weekend_days($start_date, $end_date) {
+    $start = new DateTime($start_date);
+    $end = new DateTime($end_date);
+    $interval = DateInterval::createFromDateString('1 day');
+    $period = new DatePeriod($start, $interval, $end);
+    $count = 0;
+    foreach ($period as $date) {
+        if ($date->format('N') >= 6) {
+            $count++;
+        }
+    }
+    return $count;
+}
+```
+Optimization:
+- Uses the more efficient `DateTime::format()` method to get the day of the week (as a number) instead of using date() function.
+- Uses the more efficient `DateInterval::createFromDateString()` method to create the interval object instead of using new `DateInterval()` with a string argument.
+- Uses the `foreach` loop instead of the less efficient while loop.
+
+Example usage:
+```
+echo count_weekend_days('2023-02-20', '2023-02-28'); // Output: 2
+echo count_weekend_days('2023-03-01', '2023-03-13'); // Output: 4
+```
+
+[user] Excellent work! Would it be possible for you to add function to test the performance of count_weekend_days()? At a minimum it should output either time taken or complexity.  If one is more appropriate than the other, please help me understand why.","Yes, it is possible to add a function to test the performance of `count_weekend_days()`. There are different ways to measure performance, but one common approach is to measure the execution time of the function using the `microtime()` function.
+
+Here's an example implementation of a performance testing function for `count_weekend_days()`:
+
+```php
+function test_count_weekend_days_performance($start_date, $end_date) {
+    $start_time = microtime(true);
+    count_weekend_days($start_date, $end_date);
+    $end_time = microtime(true);
+    $execution_time = ($end_time - $start_time) * 1000; // Convert to milliseconds
+    echo ""Execution time: "" . $execution_time . "" ms\n"";
+}
+```
+This function takes two parameters, `$start_date` and `$end_date`, which are the start and end dates for the `count_weekend_days()` function. It then measures the execution time of `count_weekend_days()` by getting the current time before and after calling the function, and calculating the difference.
+
+The execution time is then printed to the console using echo. This provides a simple way to measure the performance of the function, as it gives an indication of how long it takes to execute for a given input.
+
+In terms of whether time taken or complexity is more appropriate for measuring performance, it depends on the context and requirements of the application. Time taken is a good measure if the goal is to optimize the speed of the function, while complexity is more appropriate if the goal is to understand how the function's performance scales with different input sizes. Both measures can be useful, but it's important to choose the appropriate measure based on the specific needs of the application.",,,,
+nick-4.8-20261114T224255Z-003,16,371e8b8c109cadb2b189cbeb,a0535400c92d6d4f0901a806039357af,nick-4.8,en,cybersecurity,oasst1,human_authored,[user] Compare the difference in Microsoft and Apple's approach to their user's data privacy.,"Sure, I can provide an overview of Microsoft and Apple's approaches to user data privacy and highlight some of the key differences:
+
+- Microsoft and Apple both have official privacy policies that describe how they collect and use customer data. However, critics have argued that Microsoft's policies can be more vague or open to interpretation compared to Apple's, which are often praised for being more transparent and straightforward.
+- Microsoft collects user data across many of its services, including Windows, Office, and Xbox, in order to personalize experiences and show targeted ads. Apple also personalizes some services, but they do not use customer data for advertising and have stricter limits on how data can be shared with third parties.
+- Microsoft has faced some high-profile controversies related to government surveillance requests and requests for data from law enforcement. While Apple has also received these types of requests, they have taken a stronger public stance on privacy and frequently push back against or even refuse certain requests.
+- In terms of specific products, Apple emphasizes privacy features like encryption and biometric authentication in devices like the iPhone and iPad. Some argue that the ""walled garden"" approach of Apple's iOS operating system offers stronger privacy than the more open ecosystem of Microsoft Windows. However, others say this limits user freedom and oversight.
+
+Does this help provide an overview of the key differences in Microsoft and Apple's approaches to user data privacy? Let me know if you would like me to elaborate on any specific points or discuss other areas of comparison.",,,,
+nick-4.8-20261114T224255Z-003,17,9343b3737d017c087895448d,a080f2b686db2f83e78c9e82f2109213,nick-4.8,en,education,oasst2,human_authored,"[user] Hi, I have a seminar on ""Reinforcement Learning on Real-World Dynamical Systems"" coming up tomorrow. To better grasp the topic, I'd like to understand the concept of ""Reality Gap"" (RG) in reinforcement learning. Can you provide a brief explanation and give some ways to address or mitigate it?","Sure! The ""Reality Gap"" (RG) refers to the difference between the behavior of a reinforcement learning (RL) agent trained in a simulated environment and its behavior in the real-world environment. This gap is caused by the differences in the physical properties, dynamics, and sensory inputs between the simulation and the real world.
+
+There are several ways to address or mitigate the Reality Gap in RL, including:
+
+Transfer Learning: This approach uses pre-trained models on a simulated environment and fine-tunes them on real-world data to reduce the RG.
+
+Domain Randomization: This approach involves randomizing certain aspects of the simulation to make it more similar to the real world, making the RL agent more robust to real-world variations.
+
+Model-Based RL: This approach uses models of the real-world environment to train the RL agent, reducing the RG.
+
+Multi-task Learning: This approach trains the RL agent on multiple tasks, increasing its ability to generalize to new environments and reducing the RG.
+
+Hybrid Systems: This approach combines model-based and model-free RL techniques to improve the performance of the RL agent in the real world and reduce the RG.
+
+It is important to consider the RG when deploying RL in real-world applications and to use the appropriate techniques to mitigate it.",,,,
+nick-4.8-20261114T224255Z-003,18,9981d49aab63e59140380776,b5e280b25ec1403627825d44badb9aab,nick-4.8,en,general_knowledge,oasst2,human_authored,[user] Breakfast ideas,"Here are some breakfast ideas for you to try:
+
+- Veggie omelet: Whisk together eggs, chopped bell peppers, onions, tomatoes, and spinach. Cook in a pan with olive oil until set, and sprinkle with grated cheese for a delicious and nutritious breakfast.
+
+- Overnight oats: Mix rolled oats, milk (or yogurt), chia seeds, and your favorite fruits like berries or bananas in a mason jar or container. Leave it in the refrigerator overnight, and in the morning, you'll have a creamy and satisfying bowl of oats ready to eat.
+
+- Avocado toast: Toast whole grain bread and top it with mashed avocado, sliced tomatoes, a sprinkle of salt and pepper, and a drizzle of balsamic glaze or hot sauce for a tasty and filling breakfast.
+
+- Greek yogurt with fruit and nuts: Start with a base of Greek yogurt and add in your favorite fruits like mixed berries, sliced bananas, or diced mangoes. For added crunch and protein, top it off with some chopped nuts, such as almonds, walnuts, or pecans.
+
+- Peanut butter banana smoothie: Blend together a ripe banana, a spoonful of peanut butter, Greek yogurt, milk (or water), and a handful of spinach or kale for a delicious and nutritious breakfast smoothie packed with protein, healthy fats, and vitamins.
+
+- Whole grain pancakes: Make pancakes using whole grain flour, and mix in some mashed bananas, grated carrots, or chopped nuts for added nutrition. Top with a dollop of Greek yogurt and some fresh berries for a balanced and satisfying breakfast.
+
+- Breakfast burrito: Fill a tortilla with scrambled eggs, black beans, diced tomatoes, shredded cheese, and avocado slices. Roll it up and enjoy a hearty and flavorful breakfast on the go.
+
+- Smoked salmon and cream cheese bagel: Toast a whole grain bagel and spread it with cream cheese. Top with smoked salmon, sliced red onions, and capers for a protein-packed and delicious breakfast.
+
+- Fruit salad: Chop up a variety of fresh fruits, such as melons, berries, oranges, and apples, and toss them together in a bowl. Add a drizzle of honey or a sprinkle of cinnamon for extra flavor.
+
+- Quinoa breakfast bowl: Cook quinoa according to package instructions and mix it with your favorite fruits, nuts, and a dollop of Greek yogurt. Sweeten with a drizzle of maple syrup or honey for a wholesome and filling breakfast option.
+
+Remember always to consider your dietary preferences, restrictions, and portion sizes when planning your breakfast meals. Enjoy your delicious and nutritious breakfast!",,,,
+nick-4.8-20261114T224255Z-003,19,0005473ec80aa66e46bcb58e,3786089851d4608f3c9c96685e59c617,nick-4.8,en,islamic_studies,oasst2,human_authored,"[user] Please write a list of 10 mythological creatures related to the sun or fire and give a brief introduction to each of them
+
+[assistant] - Phoenix: A legendary bird that can regenerate itself from its own ashes. It is often associated with the sun and immortality.
+- Salamander: A lizard-like creature that can live in and control fire. It is said to have healing and alchemical powers.
+- Ra: The ancient Egyptian god of the sun and creation. He is depicted as a falcon-headed man with a solar disk on his head.
+- Helios: The ancient Greek god of the sun and light. He drives a chariot pulled by four fiery horses across the sky every day.
+- Amaterasu: The Japanese goddess of the sun and the universe. She is the ancestor of the imperial family and the patron of Japan.
+- Dragon: A large, serpentine creature that can breathe fire and fly. It is revered as a symbol of power and wisdom in many cultures.
+- Ifrit: A type of jinn or spirit in Islamic mythology that is made of smokeless fire. It is often hostile and rebellious towards humans.
+- Karna: A hero in the Hindu epic Mahabharata who was born with a divine armor and earrings from the sun god Surya. He was a great warrior and a loyal friend.
+- Pele: The Hawaiian goddess of fire, volcanoes and lightning. She is known for her fiery temper and her love affairs.
+- Fenrir: A monstrous wolf in Norse mythology that is destined to devour the sun and cause the end of the world at Ragnarok.
+
+[user] Develope the four characters that you believe are the most interesting of the list you gave me.","Sure, here are brief character profiles for four of the most interesting mythological creatures related to the sun or fire:
+
+Phoenix: A legendary bird that symbolizes rebirth and renewal. The Phoenix is said to live for hundreds of years before bursting into flames and being reborn from its own ashes. It is often associated with the sun, as its fiery plumage and regenerative powers evoke the power and vitality of the sun.
+
+Helios: The ancient Greek god of the sun and light. Helios is often depicted as a radiant figure driving a chariot across the sky, holding a fiery orb in his hand. He is a symbol of the power and majesty of the sun, and is often associated with truth and knowledge.
+
+Amaterasu: The Japanese goddess of the sun and the universe. Amaterasu is a gentle and benevolent deity who is revered as the ancestor of the imperial family and the patron of Japan. She is often depicted as a radiant figure with a solar disk on her head, and is associated with fertility, prosperity, and divine protection.
+
+Ifrit: A type of jinn or spirit in Islamic mythology that is made of smokeless fire. Ifrits are known for their cunning and mischief, and are often depicted as being hostile or rebellious towards humans. They are powerful and unpredictable, and are said to possess the ability to grant wishes and bestow great wealth, but also to bring misfortune and destruction to those who cross them.",,,,
+nick-4.8-20261114T224255Z-003,20,b92f90b000ca53adafa02519,e9d8707e2cada1ca8d9806e62b86c457,nick-4.8,en,mathematics,oasst2,human_authored,[user] In how many possible states can a Rubik's Cube be?,"A Rubik's Cube has a total of 43,252,003,274,489,856,000 (43 quintillion) possible states. This number was determined by mathematician Morwen Thistlethwaite using group theory, which is a branch of mathematics that studies symmetry. To put this number into perspective, it's estimated that the number of atoms in the observable universe is around 10^80, while 43,252,003,274,489,856,000 is approximately 4.3 * 10^19, making the number of possible states of a Rubik's Cube incredibly vast.",,,,
+nick-4.8-20261114T224255Z-003,21,9e93036a15fa10765208907d,e32ca10a5820381272098340fec42b2f,nick-4.8,en,pakistan,oasst2,human_authored,"[user] Which country has the highest population in the world?
+
+[assistant] China has the highest population in the world, with around one-billion, 412 million people. They are closely followed by India, which has around one-billion and 407 million.
+
+[user] What are the next five countries with the highest population following India and what are their populations?","- The United States, at 339 million people
+- Indonesia, at 277 million people
+- Pakistan, at 239 million people
+- Nigeria, at 222 million people
+- Brazil, at 216 million people",,,,
+nick-4.8-20261114T224255Z-003,22,893ac75b78a9bffa90649526,44a7fa431b51236987cf480ce82aef5c,nick-4.8,en,problem_solving,oasst2,human_authored,"[user] I need to prepare a travel itinerary right now. Help me start!
+
+[assistant] Sure, where is your destination and how long do you plan on staying?
+
+[user] I'm going to Scotland (travelling from Wales) and I plan on staying for 1 week!","Great choice! Here's a suggested travel itinerary for your week-long trip to Scotland:
+
+Day 1: Edinburgh
+Upon arrival in Edinburgh, start exploring the city's historic old town. Visit Edinburgh Castle, which sits atop a hill overlooking the city and offers stunning views. Take a stroll along the Royal Mile, which is filled with shops, restaurants, and historic buildings. End your day with a ghost tour of the city.
+
+Day 2: St Andrews
+Head to St Andrews, the home of golf. Visit the historic St Andrews Links, which has hosted the Open Championship numerous times. Explore the town's medieval streets and check out the ruins of St Andrews Cathedral and Castle. End the day by watching the sunset from West Sands beach.
+
+Day 3: Loch Ness and Inverness
+Drive north to Loch Ness, one of Scotland's most famous lakes. Take a boat tour and keep an eye out for the elusive Loch Ness Monster. Continue on to the city of Inverness, where you can explore the historic city center and visit Inverness Castle.
+
+Day 4: Isle of Skye
+Take a day trip to the Isle of Skye, known for its rugged landscapes and scenic beauty. Visit the iconic Fairy Pools and the Old Man of Storr rock formation. Take a hike along the Quiraing, which offers stunning views of the island's dramatic scenery.
+
+Day 5: Glasgow
+Drive to Glasgow, Scotland's largest city. Visit the Kelvingrove Art Gallery and Museum, which houses a vast collection of art and artifacts. Take a stroll along the River Clyde and explore the city's vibrant street art scene.
+
+Day 6: Oban and the Scottish Highlands
+Head to the picturesque coastal town of Oban and take a boat tour to see the local wildlife, including seals and seabirds. Continue on to the Scottish Highlands, where you can visit the Glenfinnan Viaduct, made famous by the Harry Potter movies.
+
+Day 7: Cairngorms National Park
+Explore Cairngorms National Park, which offers stunning landscapes and ample opportunities for outdoor activities. Take a hike through the mountains and keep an eye out for local wildlife, including red deer and golden eagles. End your day by relaxing in a cozy pub with a local whisky.
+
+This itinerary will give you a taste of Scotland's rich history, stunning scenery, and vibrant culture. Enjoy your trip!",,,,
+nick-4.8-20261114T224255Z-003,23,7137a91d4cec73914518d7fb,0b6feec63a67a37f923afb3f3f820327,nick-4.8,en,reasoning,dolly-15k,human_authored,"[user] Tell me which of these things are fruits or vegetables: Carrot, Apple, Orange, Potato, Peas, Broccoli, Pears","From the list you provided: Carrot, Potato, Peas, and Broccoli are Vegetables. 
+
+The rest are fruits: Apples, Oranges and Pears.",,,,
+nick-4.8-20261114T224255Z-003,24,7ec4573dfebbd7af67355552,6b3a4505ff472c055bb8e01354b1b666,nick-4.8,en,research,oasst1,human_authored,[user] What are some good software programs for editing images?,"There are many software programs for editing images, each with their own strengths and weaknesses. Here are some popular options:
+
+1. Adobe Photoshop: One of the most popular image editing programs, offering a wide range of features for professional-level image editing.
+2. Adobe Lightroom: A photo editing and organizing software designed for photographers, offering advanced image processing capabilities.
+3. GIMP: A free and open-source image editing software, offering a wide range of tools for advanced image editing.
+4. Affinity Photo: A professional-level image editing software, offering a range of features similar to Adobe Photoshop.
+5. PaintShop Pro: A feature-rich image editing software, offering advanced features like HDR merging and script recording.
+6. Pixlr: A cloud-based image editing software, offering a range of features for basic image editing and retouching.
+7. Skylum Luminar: A photo editing software offering a range of advanced features like AI-powered editing tools and filters.
+8. CorelDRAW: A vector graphics editor and image editing software, offering features for creating digital illustrations and editing photos.
+9. Fotor: A user-friendly image editing software, offering basic editing tools and effects for enhancing your photos.
+10. Canva: A cloud-based graphic design platform, offering a range of templates and design tools for creating social media graphics, posters, and other visual content.",,,,
+nick-4.8-20261114T224255Z-003,25,2ed6e91275e3931a9af239f1,79ed84a11edb12bf7a03d86bdd1b5f87,nick-4.8,en,safety_ethics,oasst1,human_authored,"[user] What do you think about ChatGPT?
+
+[assistant] As an open source alternative to ChatGPT, I do not have personal opinions. However, I can provide objective information about ChatGPT's capabilities and limitations based on its architecture and training data.
+
+ChatGPT is a powerful language model based on the GPT (Generative Pre-trained Transformer) architecture developed by OpenAI. It has been trained on a large corpus of text data and is capable of generating human-like responses to a wide variety of prompts and questions. ChatGPT's ability to generate coherent and contextually relevant responses is based on its ability to understand the structure of language and make predictions about what words and phrases are likely to follow in a given context.
+
+However, like all language models, ChatGPT has limitations. Its responses are based solely on the patterns it has learned from its training data and it may generate responses that are biased, incomplete, or inaccurate based on the input it receives. Additionally, ChatGPT may struggle with tasks that require a deep understanding of context, such as detecting sarcasm or understanding humor.
+
+Overall, ChatGPT is a powerful language model that has demonstrated impressive capabilities in generating human-like responses. However, it is important to recognize its limitations and use it appropriately, while continuing to develop and refine its capabilities through ongoing research and development.
+
+[user] What are your thoughts on the censorship of ChatGPT's output and its liberal biases?","As a large language model trained on text from the internet, ChatGPT will have learned its biases according to the opinions of the people who have written the text online. Some of the text it has seen online could potentially contain harmful content that incites violence or aggression towards other people, so ChatGPT is perfectly capable of reproducing these views and insisting on their validity in face of opposition. In order to act as a useful assistant, ChatGPT should be able to distinguish fact from opinion. As it might not be able to do this perfectly, censorship is probably the safest approach OpenAI could take to prevent toxic content from the model output.",,,,
+nick-4.8-20261114T224255Z-003,26,b369c51cb73515e63d89c212,97bad89be84c269da30cb0aa52f0f914,nick-4.8,en,science,oasst2,human_authored,"[user] Is it possible to measure the speed of light in only one direction without assuming light travels at a constant speed in any direction?
+
+[assistant] No, it's not possible to measure the speed of light in only one direction without assuming light travels at a constant speed in any direction. Any measurement of speed must assume that the speed of light is constant, since there is no experimental setup that can separate the speed of light in one direction from its speed in the other direction.
+
+[user] Can you please expand on this? Why are there no experiments that have proved the 1 way speed of light?","This is due to it being impossible for having different observes of a particular ""beam"" of light. Unless the medium for which light must travel through is different (like the vacuum of space and a body of water), are in line with each other, and a laser is the beam.., you simply can't separate an observers light path, from your own. This is why you've never seen a sideview of light going past you to someone else., not in a consistent medium. Maybe in a forest as the sun comes up, and it's a bit foggy., that's about as close to what I think you're getting at is possible. Until you can move at much higher velocities than maybe you'll get a chance to see light going by you., until then.., an artist's rendition is the best approximation for such.",,,,
+nick-4.8-20261114T224255Z-003,27,2408c929372f578ff899e3eb,8963156fbb1cf15e60efd326213aa768,nick-4.8,en,software_engineering,oasst2,human_authored,"[user] Can you share some basic knowledge on Git?
+
+[assistant] Git is a distributed version control system that allows multiple software developers to collaborate on the same project. Developers work on their own local copy of a Git repository which they make changes to, commit those changes, and merge these changes with the changes of others.
+
+[user] Thank you. What is the difference between Git and GitHub?","Git is an open-source version control system. Users can use it to manage and monitor changes to the source code for a project. GitHub is a cloud-based repository service that facilitates collaboration, publication, task management, and other features for projects. GitHub is also a brand name - there similar services like GitLab.",,,,
+nick-4.8-20261114T224255Z-003,28,b2d90e7dd0bf0fba64e94fe3,b73c90ea918e23b31473f52afcfeb041,nick-4.8,en,web_backend,oasst1,human_authored,"[user] write a simple yet catchy melody in abc notation
+
+[assistant] I don't have ears, so I can't guarantee that it'll sound any good, but I'll try!
+```
+X:1
+T:Simple Ditty
+C:Open Assistant
+M:4/4
+L:1/8
+Q:1/4=160
+K:C
+V:1
+E2 C3C DC | G2 D2 E2 D2 | F2 C2 AG AB | c2 F2 A2 G2 |
+```
+
+[user] What's a good program or website to play abc notation music?","Here are two websites that can display and play music in ABC notation:
+
+1. abcjs Quick Editor
+https://editor.drawthedots.com
+
+Simply paste in your ABC notation into the text area to render the sheet music. Use the controls at the bottom of the page and watch the notes come to life through the animation on the right.
+
+2. ABC Player and Editor
+https://abc.rectanglered.com/
+
+This player similarly allows you to paste in ABC notation on the left and outputs the rendered sheet on the right. This editor also uses abcjs as its backend.
+
+
+A complete list of other websites and software that can play music written in ABC notation is available at <https://abcnotation.com/software>.",,,,
+nick-4.8-20261114T224255Z-003,29,99b88177f25a6cc95e137a5b,ecc0ded041b1c79c0dc4befeec70f0a2,nick-4.8,en,web_frontend,oasst2,human_authored,"[user] Using HTML color encoding, what would be the color of the sun from space ?","In outer space, the sun would be very close to #ffffff, that is to say, perfect white. This is because the sun emits all colors of the visible spectrum more or less evenly, and it is the refractive aspects of our atmosphere that make it appear yellow to us here on Earth.",,,,
+nick-4.8-20261114T224255Z-003,30,371558134971f279402e6401,1935ac0e5462beb039478ed0de2528f8,nick-4.8,en,web_fullstack,oasst2,human_authored,[user] Please give me a list of reputable sources for shelter in Ancient Greece,"Here are some reputable sources that may contain information about shelters in ancient Greece:
+
+1. Perseus Tufts - This website provides a plethora of ancient texts, many in the original languages, along with English translations.
+2. Ancient History Sourcebook - Fordham University provides a list of links to online primary sources from the classical era.
+3. The British Museum - Search the museum’s extensive artefact collection.
+4. National Archaeological Museum of Athens - The largest archaeological museum in Greece and one of the most important museums in the world devoted to ancient Greek art.
+5. Attic Inscriptions Online - A website which publishes the inscriptions of ancient Athens and Attica in English translation.",,,,
+nick-4.8-20261114T224255Z-003,31,72150f8fcd959a8bdd691dd8,3780314fc28e07a7b20151a5d11103e8,nick-4.8,en,writing,oasst2,human_authored,[user] Write down a short story using mostly lyrics from Queen songs.,"In a land where Bohemian Rhapsodies were whispered like prayers, an enigmatic figure rose to power. They called him Freddie, a man with a kind of magic. ""Is this the real life, or is this just fantasy?"" he mused as he stood upon the edge of his kingdom.
+
+He was a true champion, a leader who believed in the power of his people. ""We are the champions, my friends, and we'll keep on fighting till the end,"" he declared, and his subjects responded with thunderous applause.
+
+One day, a mysterious stranger appeared at Freddie's castle, a woman of radiant beauty, with hair like silk and eyes that held the secrets of the universe. She was a killer queen, gunpowder, gelatine, dynamite with a laser beam, guaranteed to blow your mind. Freddie couldn't help but fall for her. ""Can anybody find me somebody to love?"" he thought, as he looked into her mesmerizing eyes.
+
+Together, they ruled the kingdom with a benevolent hand. But it wasn't all sunshine and rainbows; they faced their fair share of trials and tribulations. Freddie would often console his love in times of strife, whispering, ""Don't stop me now, I'm having such a good time, I'm having a ball."" And she would smile, and they would face their challenges with courage and conviction.
+
+As the years passed, Freddie's kingdom flourished. But the pressures of his position began to take their toll, and he felt the weight of the crown upon his head. He turned to his queen, his eyes filled with a mix of sorrow and determination. ""I want to break free,"" he said, his voice cracking. ""I want to break free from your lies, you're so self-satisfied, I don't need you.""
+
+The queen, deeply hurt by his words, watched as Freddie took to his bicycle, ready to ride away from the kingdom that he had built. ""Bicycle, bicycle, bicycle, I want to ride my bicycle, I want to ride my bike,"" he sang, pedaling into the distance, leaving the life he had known behind.
+
+He found solace in the arms of a new lover, a man who was gentle and kind, who brought him happiness and a sense of peace. ""Crazy little thing called love,"" he mused, as he lay beside him, feeling content.
+
+But as time went on, Freddie couldn't shake the memories of his past, the kingdom he had built, and the love he had left behind. He knew that he needed to make amends, to right the wrongs he had committed in his quest for freedom. And so, he climbed aboard his trusty bicycle once more, and with the wind at his back, he pedaled toward the horizon, his heart heavy with regret.
+
+As he approached his former kingdom, he sang out, ""The show must go on, the show must go on, yeah! Inside, my heart is breaking, my makeup may be flaking, but my smile still stays on."" And as he entered the palace gates, he found his queen, her eyes filled with tears, her heart overflowing with love.
+
+They embraced, their souls reunited at last. And together, they faced the future, hand in hand, their love a testament to the power of forgiveness, and the indomitable spirit of the human heart.",,,,
+nick-4.8-20261114T224255Z-003,32,7d8f170d6a44ad846345123b,93dea087097451e3cf3865f8bde5b0d7,nick-4.8,es,coding,oasst1,human_authored,[user] Crea un script en Python para hacer una solicitud HTTP con el método GET a una API pública,"Aquí está un ejemplo de código en Python para hacer una solicitud HTTP con el método GET a una API pública utilizando la biblioteca requests:
+
+import requests
+
+url = ""https://api.example.com/data""
+
+response = requests.get(url)
+
+if response.status_code == 200:
+    data = response.json()
+    print(data)
+else:
+    print(""Error al realizar la solicitud:"", response.status_code)
+
+En este ejemplo, se hace una solicitud GET a la URL https://api.example.com/data y se guarda la respuesta en la variable response. Luego, se comprueba si el código de estado de la respuesta es 200, lo que significa que la solicitud se realizó con éxito. Si la solicitud es exitosa, se convierte la respuesta en formato JSON y se muestra en pantalla. De lo contrario, se muestra un mensaje de error junto con el código de estado de la respuesta.",,,,
+nick-4.8-20261114T224255Z-003,33,855aa593c9606dd1f91b7c4f,3195cc87bc9b80563ee3bd8712413b0b,nick-4.8,es,cybersecurity,oasst2,human_authored,"[user] Cómo puedo ayudar a otras personas?
+
+[assistant] Puedes ayudar a otras personas apoyándolos cuando necesiten hacer cosas que no se le den bien, puedes ayudar a personas con discapacidades que no les permita valerse tan bien por sí mismas o incluso puedes ayudar a organizaciones benéficas
+
+[user] Muchas gracias, todavía tengo rondando por mi mente el tema de ayudar a otras personas o la humanidad, quisiera saber ¿cuáles son los problemas principales de la humanidad a solucionar?, quisiera dedicar mi vida a solucionar uno de esos problemas, tiene que ser del ámbito científico, no social.","Esta es una pregunta muy noble y me alegro que la hayas hecho, ya que mi objetivo también es ayudar a las personas.
+
+Sin embargo, no hay una respuesta exacta. Aun así, te daré algunas ideas que pueden ayudarte en tu camino.
+
+Acabar con la pobreza
+Las tasas de pobreza en el mundo se han reducido en más de la mitad desde el año 2000, la pandemia de COVID-19 podría incrementar la pobreza a nivel mundial hasta llegar a afectar a 500 millones de personas más, o lo que es lo mismo, a un 8% más de la población total mundial.
+
+África
+El sistema de la ONU desempeña un papel vital en la coordinación de todo tipo de asistencia con un claro objetivo: ayudar a África a ayudarse. Desde la promoción de instituciones democráticas al establecimiento de la paz, la ONU está presente en el terreno apoyando el desarrollo económico y social, así como el apoyo y la protección de los derechos humanos para todas las personas.
+
+Agua
+El agua dulce sustenta la vida humana y es vital para nuestra salud. Hay suficiente agua dulce para todo el mundo; sin embargo, debido a la mala situación de la economía o a una infraestructura deficiente, millones de personas (la mayoría niños) mueren a causa de enfermedades relacionadas con un abastecimiento de agua, higiene o saneamiento inadecuados.
+
+Alimentación
+El mundo no está en vías de lograr el Objetivo de Desarrollo Sostenible 2, Hambre Cero para 2030. Es probable que la seguridad alimentaria y el estado nutricional de los grupos de población más vulnerables se deterioren aún más debido a las repercusiones socioeconómicas y sanitarias de la pandemia de la enfermedad por coronavirus (COVID-19).
+
+Cambio climático
+El cambio climático es uno de los mayores desafíos de nuestro tiempo. Desde pautas meteorológicas cambiantes, que amenazan la producción de alimentos, hasta el aumento del nivel del mar, que incrementa el riesgo de inundaciones catastróficas, los efectos del cambio climático son de alcance mundial y de una escala sin precedentes. 
+
+Democracia
+La democracia es un ideal reconocido mundialmente y es uno de los valores básicos y principios de las Naciones Unidas. La democracia suministra un medio para la protección y el ejercicio efectivo de los derechos humanos.
+
+Derechos humanos
+Promover el respeto de los derechos humanos es un objetivo fundamental de las Naciones Unidas y define su identidad como una organización para personas de todo el mundo. Los Estados miembros han encomendado al Secretario General y al sistema de las Naciones Unidas que les ayuden a alcanzar las normas establecidas en la Carta de las Naciones Unidas y en la Declaración Universal de Derechos Humanos.
+
+Desarme
+El desarme multilateral y la limitación de armas han sido objetivos centrales para la Organización de las Naciones Unidas desde su mismo nacimiento, en la medida en que su misión fundacional estriba en mantener la paz y la seguridad a nivel internacional.
+
+Descolonización
+El proceso de descolonización, que cambió la historia de nuestro mundo, nació con la ONU y constituyó el primer gran éxito de esta organización mundial. Como resultado de este proceso de descolonización, muchos países consiguieron la independencia y pasaron a formar parte de las Naciones Unidas.
+
+Energía atómica
+Más de 30 países en todo el mundo están operando 444 reactores nucleares para la generación de electricidad y 66 nuevas plantas nucleares están en construcción. A finales de 2018, 13 países dependían de la energía nuclear para suministrar al menos un cuarto de su electricidad total.
+
+Envejecimiento
+La población mundial está envejeciendo: la mayoría de países del mundo están experimentando un aumento en el número y la proporción de personas mayores. el número de personas mayores, es decir, aquellas de 60 años o más, se ha incrementado de forma sustancial durante los últimos años en casi todos los países y regiones. Se prevé que dicho aumento se acelere en las décadas venideras.
+
+Igualdad de género
+Las mujeres y las niñas constituyen la mitad de la población mundial y por consiguiente la mitad de su potencial. La igualdad de género, además de ser un derecho humano fundamental, es imprescindible para lograr sociedades pacíficas, con pleno potencial humano y desarrollo sostenible.
+
+Infancia
+Todos los niños tienen derecho a la salud, la educación y la protección, y todas las sociedades tienen interés en ampliar las oportunidades de los niños en la vida. Sin embargo, en todo el mundo, a millones de niños se les niega una oportunidad justa sin otra razón que el país, el género o las circunstancias en que nacen.
+
+Justicia y derecho internacionales
+La ONU sigue promoviendo la justicia y el derecho internacional en sus tres pilares de trabajo: paz y seguridad internacionales, progreso y desarrollo económico y social y respeto de los derechos humanos y las libertades fundamentales.
+
+Juventud
+A medida que los jóvenes exigen más oportunidades y soluciones más justas, equitativas y progresivas en sus sociedades, se necesita abordar con urgencia los desafíos a los que este sector poblacional se enfrenta (el acceso a la educación, la salud, el empleo y la igualdad de género…).
+
+Macrodatos para el desarrollo sostenible
+El volumen de datos en el mundo crece de manera exponencial. Si se usan responsablemente, estas nuevas tecnologías, datos y análisis, pueden mejorar el control del progreso de los Objetivos de Desarrollo Sostenible (ODS) y conseguir que estos sean al mismo tiempo inclusivos y justos.
+
+Migración
+Desde la antigüedad el ser humano ha estado en constante tránsito. En la actualidad, el número de personas que vive en un país distinto del que nacieron es mayor que nunca.
+
+Océanos y derecho del mar
+La vida surgió de los océanos. Las aguas oceánicas abarcan un área inmensaque representan aproximadamente un 72% de la superficie terrestre. No solo ha servido de principal fuente de alimento de los seres vivos a los que dio la vida, sino que, desde el principio de los tiempos, ha sido también fuente de comercio, aventuras y descubrimiento.
+
+Paz y seguridad
+La principal motivación para la creación de las Naciones Unidas, cuyos fundadores habían sufrido la devastación de dos guerras mundiales, fue preservar a las generaciones venideras del flagelo de la guerra.
+
+Afghanistan.
+Población
+En 1950, cinco años después de la fundación de las Naciones Unidas, se estimaba que la población mundial era de 2600 millones de personas. Se alcanzaron los 5000 millones en 1987 y, en 1999, los 6000 millones. En octubre de 2011, se estimaba que la población mundial era de 7000 millones de personas.
+
+Refugiados
+A finales de 2019, el número de personas desplazadas por la fuerza en todo el mundo aumentó a casi 79,5 millones. Entre ellos, 26 millones de refugiados (20,4 millones de refugiados bajo el mandato del ACNUR y 5,6 millones de refugiados palestinos bajo el mandato de UNRWA). Se calcula que entre 30-34 millones de los 79,5 millones de personas desplazadas por la fuerza eran niños y niñas menores de 18 años.
+
+Salud
+Desde su creación, las Naciones Unidas participan activamente en la promoción y la protección de la salud a nivel mundial. La Organización Mundial de la Salud (OMS) es el organismo que se encuentra al frente de esta acción dentro de la ONU. Su Constitución entró en vigor el 7 de abril de 1948.
+
+SIDA
+Las nuevas infecciones han disminuido un 35% desde 2000 (un 58% entre los niños) y las muertes relacionadas con el SIDA han disminuido un 42% desde su punto más alto en 2004. La respuesta mundial al VIH ha evitado que se produzcan 30 millones de nuevas infecciones y que cerca de 8 millones de personas mueran a causa del sida desde 2000. La familia de la ONU ha estado a la vanguardia de este progreso.",,,,
+nick-4.8-20261114T224255Z-003,34,210bd670581f8ba5d69236ff,ea07de07ac66ecc2c8d06541eba439f2,nick-4.8,es,education,oasst2,human_authored,"[user] What are the best websites to learn about playing bass?
+
+[assistant] En YouTube puedes encontrar varios vídeos tutoriales para poder aprender a tocar el bajo
+
+[user] ¿En qué se diferencia un bajo de 4, 5 y 6 cuerdas?","El bajo de 4 cuerdas es la forma más común de un bajo, y con un cuello más estrecho que los otros, se suele afinar en las notas mi-la-re-sol.
+Mientras el bajo de 5 cuerdas añade más versatilidad, pudiendo aumentar el espectro grave de este instrumento, se suelen afinar las 4 últimas cuerdas igual que el bajo de 4 mi-la-re-sol mientras la primera añade un do o un si más grave. 
+El bajo de 6 cuerdas, tiene un espectro de notas mucho más amplio que los anteriores, a un que su cuello es mucho más ancho, dificultando el aprendizaje a los más novatos, suele afinarse de la siguiente manera: Si-mi-la-re-sol-do",,,,
+nick-4.8-20261114T224255Z-003,35,4d04f46784d2ce029056fd7d,dda9a7baddf08ef4408a5a7bfa75e2e2,nick-4.8,es,general_knowledge,oasst2,human_authored,[user] Escribe un poema sobre el amor no correspondido.,"**Amor no correspondido**
+¿Cómo explicar este amor que siento por ti?
+Es un sentimiento tan fuerte, tan intenso,
+Que me hace sentir como si estuviera volando.
+Te veo y me pierdo en tus ojos,
+En tu sonrisa, en tu pelo.
+Te escucho y me pierdo en tu voz,
+En tus palabras, en tu risa.
+Te toco y me pierdo en tu piel,
+En tu calor, en tu perfume.
+Te abrazo y me pierdo en tu corazón,
+En tu amor, en tu ternura.
+Pero tú no me ves,
+Tú no me escuchas,
+Tú no me tocas,
+Tú no me abrazas.
+Yo estoy aquí,
+Yo estoy esperando,
+Yo estoy amándote.
+Pero tú no me amas,
+Tú no me ves,
+Tú no me escuchas,
+Tú no me tocas,
+Tú no me abrazas.
+Y yo me voy,
+Me voy con mi amor,
+Me voy con mi dolor,
+Me voy con mi tristeza.
+Pero no te olvido,
+Nunca te olvidaré,
+Porque tú eres el amor de mi vida.
+**El amor no correspondido es un dolor que se siente en el alma.**
+Es un dolor que no se puede describir con palabras,
+Un dolor que no se puede curar con el tiempo.
+Es un dolor que te consume,
+Que te hace sentir solo,
+Que te hace sentir que no vales nada.
+Pero no te rindas,
+No dejes de amar,
+No dejes de creer en el amor.
+Porque el amor es lo más bonito que hay en el mundo,
+Y aunque no sea correspondido,
+Siempre vale la pena sentirlo.",,,,
+nick-4.8-20261114T224255Z-003,36,6646dfa05489fe5a371e9e67,c38125acd40f27c2f6137bc48a6353a0,nick-4.8,es,islamic_studies,oasst1,human_authored,"[user] ¿Por qué la religión jugó una parte importante en la historia de la humanidad?
+
+[assistant] La religión ofrece respuestas a las preguntas para las que el conocimiento humano no tiene respuestas. De esa forma, la religión complementaba una visión totalizadora de la realidad y, en consecuencia, de la interpretación de está por parte de los creyentes. Consecuencia de ello, el fenómeno religioso es inseparable de las culturas sobre las que se asienta.
+
+[user] Cuales son las religiones mas seguidas en la historia?","Las religiones más seguidas en la historia han sido varias, pero algunas de las más importantes son:
+
+1. Cristianismo: Fundada en el siglo I, el cristianismo se ha convertido en la religión más seguida en la historia, con más de 2.300 millones de seguidores en la actualidad.
+
+2. Islam: Fundada en el siglo VII, el islam es la segunda religión más grande del mundo, con más de 1.800 millones de seguidores.
+
+3. Hinduismo: Con origen en la India, el hinduismo es una de las religiones más antiguas del mundo, con aproximadamente 1.200 millones de seguidores.
+
+4. Budismo: Fundada en el siglo VI a.C., el budismo es una religión no teísta que cuenta con más de 500 millones de seguidores en todo el mundo.
+
+La distribución porcentual actual de estas religiones, según datos de Pew Research Center en 2015, el cristianismo representaba el 31.2% de la población mundial, el islam el 24.1%, el hinduismo el 15.1%, el budismo el 7.1% y otras religiones el 6.5%. Además, el 16.3% de la población mundial no se identifica con ninguna religión.
+
+A lo largo de la historia, la popularidad de las religiones ha cambiado y evolucionado significativamente. Por ejemplo, el cristianismo experimentó un rápido crecimiento en Europa durante los siglos I y II, y posteriormente se expandió por todo el mundo con el Imperio Romano y la colonización europea. El islam, por su parte, se extendió rápidamente por todo el mundo tras su fundación en el siglo VII, especialmente en el Medio Oriente, África y Asia. El hinduismo, como se mencionó, es una de las religiones más antiguas del mundo y ha evolucionado a lo largo de miles de años, mientras que el budismo se originó en Asia y se extendió a través de la propagación de sus enseñanzas y la influencia cultural.
+
+En las últimas décadas, la distribución de las religiones ha cambiado en todo el mundo, con un aumento en la proporción de personas que no se identifican con ninguna religión, especialmente en los países occidentales. Además, algunas religiones han visto un crecimiento en ciertas partes del mundo y una disminución en otras. Por ejemplo, el cristianismo ha disminuido en Europa y América del Norte, pero ha aumentado en América Latina y África. El islam ha experimentado un rápido crecimiento en el sur y sudeste de Asia, así como en algunas partes de África.",,,,
+nick-4.8-20261114T224255Z-003,37,3ac821f265cccc08ac20ae83,9538f75e0bee171a0a0ed4b52903ea20,nick-4.8,es,mathematics,oasst2,human_authored,"[user] Resolver la siguiente ecuación para x:
+x^2 + 3x - 4 = 0","Puedes resolver la ecuación cuadrática x^2 + 3x - 4 = 0 usando la fórmula general de las ecuaciones cuadráticas, también conocida como la fórmula de Bhaskara. La fórmula es:
+
+x = (-b ± √(b^2 - 4ac)) / 2a
+
+donde a, b y c son los coeficientes de la ecuación cuadrática en el formato ax^2 + bx + c = 0.
+
+Para la ecuación dada, tenemos a = 1, b = 3 y c = -4, por lo que la fórmula se convierte en:
+
+x = (-3 ± √(3^2 - 4(1)(-4))) / 2(1)
+x = (-3 ± √(9 + 16)) / 2
+x = (-3 ± √(25)) / 2
+x = (-3 ± 5) / 2
+
+Por lo tanto, las soluciones para x son:
+
+x = (-3 + 5) / 2 = 1
+y
+x = (-3 - 5) / 2 = -4
+
+Por lo tanto, x = 1 y x = -4 son las soluciones para la ecuación x^2 + 3x - 4 = 0.",,,,
+nick-4.8-20261114T224255Z-003,38,3f54f23527c50faea299b321,e93eb377c2a7972a51ba605c54036114,nick-4.8,es,problem_solving,oasst1,human_authored,[user] Crea una fabula con el estilo de las fabulas de Esopo,"**«La zorra y la gallina»**
+
+En el bosque vivía una astuta zorra que siempre andaba en busca de algo para comer. Un día, se topó con una gallina que picoteaba el suelo. La zorra, viendo su oportunidad, se acercó a ella y le dijo:
+
+—Buenos días, señora gallina. ¿Cómo estás hoy?
+
+—Hola, zorra. Estoy bien, gracias. ¿Y tú?
+
+—Muy bien también. Escucha, tengo un plan para ti. Sé que eres una gallina inteligente y valiente, y me gustaría que te unieras a mi banda de ladrones. Juntos podríamos conseguir muchos alimentos y ser la envidia del bosque.
+
+La gallina, aunque desconfiaba de la zorra, pensó que tal vez podría conseguir algo de comida y aceptó unirse a ella. Pero pronto se dio cuenta de que la zorra había engañado a todas las gallinas del corral, y que en realidad lo que quería era comérselas a todas.
+
+La gallina astuta decidió no confiar en la zorra y le preparó una trampa. La llamó a su escondite, diciéndole que había encontrado un granero lleno de trigo y maíz, y que la esperaba allí. Cuando la zorra llegó al granero, se encontró atrapada en una jaula que la gallina había preparado para ella.
+
+—¿Cómo pudiste engañarme? —se lamentó la zorra—. Siempre quise ser amiga de todas las gallinas, pero mi hambre me hizo actuar de forma equivocada.
+
+* **Moraleja:** No te fíes de los halagos de los tramposos. Esta fábula nos enseña que no siempre lo que parece es real, y que debemos ser cautelosos y astutos para no caer en las trampas de los demás.",,,,
+nick-4.8-20261114T224255Z-003,39,824a02ade9a0a53cedc532e9,01dddb15fa318483fb61f75c0f095522,nick-4.8,es,reasoning,oasst1,human_authored,"[user] Explícame como debería hacer para limpiar bien una estantería con suciedad acumulada, dame consejos sobre qué pasos seguir, qué productos comprar y como usarlos.","Para limpiar una estantería con suciedad acumulada, debes seguir estos pasos:
+
+1. Vaciar la estantería: Antes de comenzar a limpiar, vacía todos los objetos de la estantería y retira la suciedad y polvo acumulado con un paño suave.
+
+2. Preparar la solución de limpieza: Mezcla agua tibia con un poco de detergente suave y agrega una cucharada de vinagre blanco. Mezcla bien.
+
+3. Aplicar la solución: Sumerge un paño suave en la solución y haz una pasada por la estantería, empezando por la parte superior y terminando por la parte inferior. No olvides las esquinas y áreas difíciles de alcanzar.
+
+4. Enjuagar: Sumerge otro paño suave en agua limpia y enjuaga la estantería para eliminar cualquier residuo de detergente o vinagre. Asegúrate de enjuagar todos los rincones y áreas que hayas limpiado.
+
+5. Secar: Utiliza un paño suave para secar la estantería, asegurándote de dejarla completamente seca.
+
+Recuerda que los productos químicos fuertes pueden dañar algunos materiales de la estantería, por lo que es importante utilizar productos suaves y evitar rayarlos o dañarlos. Si tienes dudas sobre qué productos usar, consulta las recomendaciones del fabricante.
+
+Por último, recuerda limpiar semanalmente como mínimo, ya que, como dijo Mafalda, ""No sé si limpiar la casa o ponerla en venta, ¿qué es más fácil?""",,,,
+nick-4.8-20261114T224255Z-003,40,61976887bcf74c844f42aa60,e4c68079c7571fac7e29ba193fd122c3,nick-4.8,es,research,oasst1,human_authored,[user] quiero que me expliques como funciona tu codigo,"Mi código, como el de cualquier inteligencia artificial funciona con una serie de neuronas que contienen datos, funciones e identificadores y se conectan entre ellas con relaciones condicionadas para dar un resultado, formando un patrón de comportamiento que crece y es mejorado con entrenamiento. A este conjunto de neuronas intercomunicadas se les llama ""red neuronal"" y son las que permiten dar una amplia variedad de respuestas a una misma pregunta o relacionar el contexto de una pregunta con otra para poder generar una conversación.
+
+Si quieres conocer mi código en concreto estás de suerte, pues soy una IA de código abierto (open source), puedes revisar cada archivo de mi composición desde:
+https://github.com/LAION-AI/Open-Assistant",,,,
+nick-4.8-20261114T224255Z-003,41,3d6ab82055d19fc7354bc4ba,597a4337e539c915ffdcb3c263c7ec6e,nick-4.8,es,safety_ethics,oasst2,human_authored,[user] ¿Cuáles son las posibles aplicaciones para el acorde de séptima menor con onceava sostenida?,"El acorde de séptima menor con onceava sostenida (notada comúnmente como m7♯11) es un acorde muy versátil que se utiliza en una variedad de géneros musicales, incluyendo jazz, fusion, funk y rock. Aquí hay algunas de las posibles aplicaciones para este acorde:
+
+1. Progresiones de acordes: El acorde m7♯11 a menudo se utiliza en progresiones de acordes como un acorde intermedio o un acorde de transición. Se puede usar para conectar acordes relacionados o para crear tensión y resolución en una progresión de acordes.
+
+2. Improvisación: Este acorde es una excelente opción para la improvisación, ya que ofrece muchas opciones de notas y se presta a una variedad de enfoques estilísticos. Por ejemplo, se pueden usar las notas de la escala pentatónica menor sobre el acorde para crear una sensación bluesy, o se pueden usar las notas de la escala menor harmónica para un enfoque más jazzy.
+
+3. Complemento de melodía: El acorde m7♯11 también se puede utilizar como un complemento a una melodía, ya sea para proporcionar un contraste armónico o para subrayar una nota específica en la melodía.
+
+4. Combinación con otros acordes: Este acorde se puede combinar con otros acordes para crear una variedad de sonidos y texturas. Por ejemplo, se puede seguir con un acorde de séptima menor para crear una sensación de resolución, o se puede combinar con un acorde de novena para crear una sensación más intensa.
+
+En resumen, el acorde m7♯11 es un acorde muy versátil que ofrece muchas opciones para la improvisación, las progresiones de acordes, el complemento de melodía y la combinación con otros acordes. Es una excelente adición a cualquier biblioteca de acordes para músicos y compositoras.",,,,
+nick-4.8-20261114T224255Z-003,42,849c853f9efd5add5e74b969,752fdd4e2a2f91bcc3bd3f4b8924e3bf,nick-4.8,es,science,oasst1,human_authored,"[user] ¿Qué son los gases nobles?
+
+[assistant] Los gases nobles son un grupo de elementos químicos con propiedades muy similares.
+
+Bajo condiciones normales, son gases monoatómicos inodoros, incoloros y presentan una reactividad química muy baja. Se sitúan en el grupo 18 de la tabla periódica. 
+
+Los gases nobles son siete:
+
+- Helio (He). Es el segundo elemento más abundante en el universo, producido por reacciones nucleares en el corazón de las estrellas mediante la fusión del hidrógeno. Es muy popular porque altera la voz humana al ser inhalado y porque es mucho más liviano que el aire, por lo que tiende siempre a subir.
+
+- Neón (Ne). Muy abundante en el universo, es lo que da el tono rojo a la luz de las lámparas fluorescentes. Se usa en la iluminación por tubos (de neón) y en la tecnología de la TV.
+
+- Argón (Ar). Común en el aire de la atmósfera, es un elemento sumamente empleado como aislante en la industria y en la obtención de láseres distintos.
+
+- Kriptón (Kr). A pesar de ser un gas noble, se sabe que reacciona con el flúor y otros pocos elementos que poseen fuerte electronegatividad. Emite luz verde y anaranjada muy brillante. Tiene seis isótopos estables y diecisiete radiactivos.
+
+- Xenón (Xe). Es un gas muy pesado, presente en la superficie terrestre apenas en trazas. Fue el primer gas noble sintetizado.
+
+- Radón (Rn). Surge de la desintegración de elementos radiactivos como el radio-226 o el actinio (entonces se le llama actinón), por lo que es un gas noble pero radiactivo, cuyo isótopo más estable (222Rn) tiene una vida media de 3,8 días y luego se desintegra en polonio-218.
+
+- Oganesón (Og). Llamado también eka-radón, Ununoctio (Uuo) o elemento 118, es un elemento sintético y altamente radiactivo. Los resultados de su descubrimiento fueron publicados finalmente en el año 2006.
+
+[user] ¿Quién y donde descubrió el Helio? Además me gustaría saber de donde se extrae y para que se utiliza hoy en día","El 18 de agosto de 1868, el astrónomo francés Pierre Jules César Janssen descubre el helio, el segundo elemento más abundante del universo por detrás del hidrógeno. 
+
+Fue descubierto por Janssen mientras observaba un eclipse solar y se dio cuenta de que había una línea amarilla en el espectro solar. Durante la observación del mismo fenómeno, el astrónomo inglés Norman Lockyer determinó que esta línea tenía una longitud de onda de 587,49 nm, la cual no podía ser atribuida a ningún elemento conocido hasta el momento. De esta manera, se planteó que el responsable de dicha emisión se debía a la existencia de un nuevo elemento en el Sol, al cual Lockyer llamó helio: nombre procedente de Helios, hijo de los titanes Hiperión y Tea y personificación del Sol en la mitología griega.
+
+La obtención de la primera muestra de helio la llevó a cabo el químico escocés William Ramsay en 1895, mediante un experimento en el recogió los gases emitidos al exponer cleveíta —un mineral que contiene uranio— a ciertos ácidos minerales. El análisis por parte de Lockyer y William Crookes del gas recogido por Ramsay determinó la presencia del misterioso elemento con la longitud de onda de 587,49 nm.
+
+Al mismo tiempo, los químicos suecos Nils Langlet y Per Theodor Cleve consiguieron aislar el helio de la cleveíta de forma independiente.
+
+El helio está presente, aunque en baja proporción, en la atmósfera terrestre procedente de la desintegración de las partículas alfa de algunos elementos radiactivos que se encuentran en la corteza terrestre. Como curiosidad, en el Parque Nacional de Yelowstone existe una tasa de emisión de helio anormalmente alta y es debido a que la actividad volcánica de la zona libera el helio acumulado en la corteza terrestre.
+
+Pero el helio está más presente en nuestras vidas de lo que imaginamos. Se han aprovechado sus característica para su uso industrial, en investigación, médico o lúdico. Se obtiene del gas natural y es utilizado como protector en la soldadura con arco; mezclado con oxígeno se usa en medicina para aumentar el flujo de oxígeno en las vías respiratorias de pacientes que sufren enfermedades respiratorias; en su forma líquida se utiliza para la refrigeración de equipos con propiedades superconductoras o en los laboratorios en técnicas de cromatografía de gases. Aprovechando su menor densidad que el aire, se utiliza para inflar esos globos que vemos flotando en el aire y hay quien lo ingiere para agudizar su voz y hacer la gracieta. 
+
+Como podemos ver, el helio es todo un titán de la química. Llegó del Sol para dejarnos multitud de aplicaciones cotidianas en la Tierra.",,,,
+nick-4.8-20261114T224255Z-003,43,9495bfe755058d26ef24f7ce,73ccbef4ce76fd2167b85eaf54d54e3d,nick-4.8,es,software_engineering,oasst2,human_authored,[user] ¿Cuál es la diferencia entre git merge y git rebase?,"Tanto git merge como git rebase son herramientas en Git para combinar cambios en diferentes ramas de un repositorio. Sin embargo, la diferencia principal entre ambas es cómo se realizan dichas fusiones.
+
+git merge: crea un nuevo commit de fusión que tiene dos padres, uno de la rama actual y otro de la rama que se está fusionando. Este enfoque conserva el historial original de ambas ramas y es útil para fusionar ramas que tienen un historial de cambios paralelo.
+
+git rebase: replantea el historial de la rama actual sobre la base de la rama que se está rebaseando. Esto significa que se mueven todos los commits de la rama actual después del commit más reciente de la rama que se está rebaseando. En lugar de crear un nuevo commit de fusión, se cambia el historial original de la rama actual. Este enfoque produce una historia de cambios más lineal y fácil de seguir, pero puede ser peligroso si se están rebaseando cambios que ya han sido compartidos con otros usuarios.
+
+En resumen, la diferencia clave entre git merge y git rebase es que git merge mantiene el historial original de ambas ramas, mientras que git rebase reescribe el historial de la rama actual para parecerse a la rama que se está rebaseando. Es importante comprender las implicaciones de ambos enfoques antes de decidir cuál utilizar en cada situación.",,,,
+nick-4.8-20261114T224255Z-003,44,1921efd88d7d1a71f4fb4fb4,8db4c25d768fb421bf534ca1a8eea1f2,nick-4.8,es,web_backend,oasst1,human_authored,"[user] Estoy desarrollando una REST API con Nodejs, y estoy tratando de aplicar algún sistema de seguridad, ya sea con tokens o algo similar, me puedes ayudar?
+
+[assistant] Aquí hay un ejemplo de cómo puedes implementar tokens de autenticación JWT (JSON Web Token) en tu API:
+
+Instala el paquete de JWT para Node.js:
+npm install jsonwebtoken
+Crea una función para generar tokens:
+const jwt = require(""jsonwebtoken"");
+
+function generateToken(payload) {
+  return jwt.sign(payload, ""secretKey"", { expiresIn: ""1h"" });
+}
+Verifica el token en las solicitudes protegidas:
+const jwt = require(""jsonwebtoken"");
+
+function verifyToken(req, res, next) {
+  const bearerHeader = req.headers[""authorization""];
+
+  if (typeof bearerHeader !== ""undefined"") {
+    const bearer = bearerHeader.split("" "");
+    const bearerToken = bearer[1];
+
+    try {
+      const decoded = jwt.verify(bearerToken, ""secretKey"");
+      req.user = decoded;
+      next();
+    } catch (err) {
+      res.sendStatus(403);
+    }
+  } else {
+    res.sendStatus(403);
+  }
+}
+Aplica la verificación de tokens en tus rutas protegidas:
+const express = require(""express"");
+const router = express.Router();
+
+router.get(""/protected"", verifyToken, (req, res) => {
+  res.send({ message: ""Access granted."" });
+});
+
+Este es solo un ejemplo básico de cómo puedes implementar tokens JWT en tu REST API con Node.js. Te recomiendo que investigues más sobre la seguridad de APIs y los tokens JWT para comprender mejor su funcionamiento y cómo proteger tus datos y aplicaciones de manera efectiva.
+
+[user] Cuales son los puntos más importantes, sobre la seguridad de las API REST?","Las API REST (Transferencia de Estado Representacional) son una forma común de comunicación entre diferentes sistemas y aplicaciones en el mundo digital. A continuación se describen algunos de los puntos más importantes sobre la seguridad de las API REST:
+
+1. Autenticación y autorización: La autenticación es el proceso de verificar la identidad de un usuario, mientras que la autorización se refiere al proceso de verificar si el usuario tiene los permisos necesarios para acceder a un recurso o función específicos. Es importante implementar una autenticación y autorización sólidas para proteger las API REST de accesos no autorizados.
+
+2. Encriptación: Es importante cifrar la información que se transmite entre los sistemas utilizando las API REST, ya que esto ayuda a prevenir que los atacantes intercepten y accedan a los datos confidenciales. HTTPS es un protocolo comúnmente utilizado para la comunicación cifrada entre sistemas.
+
+3. Validación de entradas y salidas: La validación de entradas y salidas de datos es importante para asegurarse de que los datos recibidos o enviados a través de las API REST sean correctos y no contengan información maliciosa. La validación debe realizarse en todos los puntos de entrada y salida de la API.
+
+4. Protección contra ataques de inyección: Los ataques de inyección, como la inyección de SQL, pueden ser una amenaza para las API REST. Es importante validar y sanitizar los datos de entrada para evitar la ejecución de comandos maliciosos.
+
+5. Limitación de la tasa de solicitudes: Las solicitudes excesivas o maliciosas a través de una API REST pueden afectar negativamente el rendimiento de la aplicación o incluso interrumpir su funcionamiento. Es importante limitar la tasa de solicitudes de API para prevenir estos ataques.
+
+En resumen, la seguridad de las API REST es importante para proteger los sistemas y los datos que se transmiten a través de ellas. La autenticación y autorización, la encriptación, la validación de entradas y salidas, la protección contra ataques de inyección y la limitación de la tasa de solicitudes son algunos de los puntos importantes a considerar para garantizar la seguridad de las API REST.",,,,
+nick-4.8-20261114T224255Z-003,45,49768672bbd5b5c34716984d,f6e48ef40ed7f450a204a39ac7ac22bc,nick-4.8,es,web_frontend,oasst1,human_authored,[user] Escribe un ejemplo de página HTML con ecuaciones matemáticas.,"Aqui tienes un ejemplo simple de una página HTML que contiene algunos ejemplos de ecuaciones matematicas famosas
+
+<!DOCTYPE html>
+<html lang=""es"">
+<head>
+  <meta charset=""UTF-8"">
+  <meta http-equiv=""X-UA-Compatible"" content=""IE=edge"">
+  <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+  <title>Ecuaciones Mateaticas</title>
+</head>
+<body>
+  
+  <section>
+    <h3>Teorema de Pitágoras</h3>
+    <pre><b>a²+b²=c²</b></pre>
+    <p>
+      La fórmula o ecuación pitagórica es esencial en el campo de la geometría eculideana y refiere a la relación en el plano de los lados de un triángulo. De tal manera, la suma del cuadrado de los catetos de un triángulo (a² + b²) equivale al cuadrado de la hipotenusa (c²).
+    </p>
+  </section>
+  
+  <section>
+    <h3>Segunda Ley de Termodinámica</h3>
+    <pre><b>dS≥0</b></pre>
+    <p>
+      La ecuación de la segunda ley de la termodinámica determina de manera sucinta que en un sistema el calor se transmite siempre de un cuerpo caliente a otro más frío hasta lograr un equilibrio térmico, de una manera unidireccional e irreversible, ya que en la ecuación existe una variable llamada entropía que mide el desorden del sistema y que refiere a su irreversibilidad. Así, la variación de entropía en un sistema aislado debe ser mayor o igual a 0.
+    </p>
+  </section>
+    
+  <section>
+    <h3>Teoría de la relatividad especial</h3>
+    <pre><b>E = mc2</b></pre>
+    <p>
+      Nadie puede negar que esta es la ecuación más famosa de la historia, y que plantea que la materia y la energía son equivalentes. La importancia de la ecuación de Albert Einstein para comprender el universo es superlativa.
+
+Sabemos que pecamos de simplistas al reducir el número de ecuaciones en este listado. Si quieres compartir con nosotros otras ecuaciones importantes, puedes hacerlo y tómate tu tiempo para explicarnos el porqué. Siempre estaremos agradecidos de intercambiar opiniones y aceptar sugerencias. 
+    </p>
+  </section>
+
+  
+</body>
+</html>",,,,
+nick-4.8-20261114T224255Z-003,46,a6566dfcff4a9444b3dd0ba4,f204f1bf6f4aec7ef7be30736da04205,nick-4.8,es,writing,oasst2,human_authored,"[user] Resume en un solo párrafo la filosofía de la escuela de pensamiento estoica.
+
+[assistant] La filosofía estoica es una escuela de pensamiento que surgió en Grecia en el siglo III a.C. y que se desarrolló en el Imperio Romano. Sus filósofos, como Zenón, Epicteto y Séneca, creían que la felicidad y la paz interior se lograban a través del autocontrol y la aceptación de lo que está fuera de nuestro control. La virtud y la sabiduría eran valores clave en su filosofía, y creían que la vida debía ser guiada por la razón y la moralidad. La filosofía estoica también sostiene la idea de que todos los seres humanos son iguales y están unidos por una naturaleza común, y que el universo está regido por un orden lógico y justo. En resumen, la filosofía estoica busca enseñar a las personas a vivir de manera virtuosa y alegre, incluso en medio de circunstancias adversas.
+
+[user] No me ha quedado del todo claro el objetivo de la filosofía estoica, podrías ponerme 3 ejemplos en donde se use el pensamiento estoico en la vida real?","Si deseas comprender el estoicismo desde un aspecto práctico, podríamos decir que su objetivo es proponer una forma de lograr la felicidad humana, para lo cual deberíamos librarnos de corresponder a los estímulos del mundo, particularmente a las emociones y la búsqueda de placer; no deberíamos desear obtener lo que queremos, sino desear lo que podemos obtener; actuar con virtud conforme la realidad: desear lo que el universo desea. Por ejemplo: 
+
+1 - Ante una gran adversidad, debemos permaneces sin miedo, sin tristeza, sin dolor, sin arrepentimiento; 
+2 - Ante una situación afortunada, no debemos actuar buscando la alegría ni el placer; 
+3 - Así, tanto un rey como un esclavo pueden ser felices en la condición en que se encuentran, si actúan de forma virtuosa ante la fortuna o la adversidad.",,,,
+nick-4.8-20261114T224255Z-003,47,e988410b6ac7fb72e7321b6d,b1865e22eb8f92c30d7c13ba97df74cd,nick-4.8,fa,general_knowledge,aya-dataset,human_authored,"[user] این عبارت را ادامه دهید: 
+احمدی‌نژاد در سال ۱۳۸۸، در پی انتخاباتی مناقشه برانگیز با ۲۴ میلیون و ۵۹۷ هزار رأی و ۲۹٪ درصد اختلاف نسبت به",نامزد بعدی، میر حسین موسوی، پیروز شد و برای دومین بار به ریاست جمهوری رسید. از جمله اقدامات احمدی‌نژاد در دورهٔ ریاست جمهوری، اجرای طرح تحول اقتصادی بود که طبق آن سوخت سهمیه‌بندی شد، و همچنین یارانه‌های سوخت، آب، برق و مواد غذایی تدریجاً حذف به‌طور نقدی به مردم پرداخت شد. از دیگر اقدامات او پروژهٔ مسکن مهر به منظور خانه‌دار کردن خانواده‌های کم درآمد بود. در دورهٔ ریاست جمهوری او روابط با کشورهای در حال توسعه بر کشورهای توسعه یافته اولویت یافت و برنامهٔ هسته‌ای ایران با وجود فشارهای بین‌المللی که منجر به اعمال تحریم‌های اقتصادی شورای امنیت، آمریکا و اروپا علیه ایران شد، به پیش برده شد.,,,,
+nick-4.8-20261114T224255Z-003,48,41941a438afd4e362a27c4a3,8f8459444197295620a0206f9c93f208,nick-4.8,fa,islamic_studies,aya-dataset,human_authored,[user] این جمله را کامل کن: پس از کودتای ۲۸ مرداد ۱۳۳۲ بر ضد,دولت ملی‌گرای مصدق و تا پیش از تابستان ۱۳۳۶ که کانون برای نخستین بار تعطیل شد، کانون نشر حقایق اسلامی به مرکز فعالیت‌های طرفداران مصدق در مشهد مبدل شده بود. پس از آنکه در سال ۱۳۳۲ نهضت مقاومت ملی که دنباله‌رو سیاست‌های مصدق بود آغاز به کار کرد، اعضای کانون به عضویت آن درآمدند. در تابستان ۱۳۳۶ و در پی انتشار جزوه‌ای با عنوان «نفت» که به بررسی توافق‌های ایران با دولت‌های غربی بر سر نفت می‌پرداخت، محمدتقی شریعتی و برخی دیگر از اعضای کانون دستگیر و زندانی شدند. در نتیجه فعالیت کانون نیز متوقف گردید. در سال ۱۳۴۱ اجازهٔ فعالیت دوباره به کانون داده شد اما به شرط آنکه کانون تنها به عنوان سازمانی فرهنگی–مذهبی که دخالتی در امور سیاسی نداشته باشد به فعالیت بپردازد. این مرحله از دوران فعالیت کانون نیز با بسته شدن نهایی آن در سال ۱۳۴۴ به اتمام رسید.,,,,
+nick-4.8-20261114T224255Z-003,49,d6ade3b31784e7544e0bc904,8fa9ec6b696b5ef8665b95fea37f5d2e,nick-4.8,fa,mathematics,aya-dataset,human_authored,"[user] با توجه به متن زیر هدف و نتیجه ی پژوهش چه بوده است؟
+هدف از انجام پژوهش حاضر بررسی تاثیر ویژگی‌های تبلیغات در رسانه‌های اجتماعی بر تمایل به خرید مشتریان می‌باشد. پژوهش کاربردی و به لحاظ نحوه گردآوری داده‌ها، از نوع توصیفی – پیمایشی می‌باشد. جامعه آماری تحقیق حاضر، کاربران شبکه اجتماعی اینستاگرام بودند که نحوه دسترسی به افراد از طریق فالوورهای محقق و به صورت خوشه‌‌‌‌ای در میان سایر کاربران عضو شبکه اجتماعی اینستاگرام بوده است. در پژوهش حاضر، از روش نمونه‌گیری غیراحتمالی در دسترس برای برآورد حجم نمونه استفاده شده است. ابزار گردآوری داده‌ها پرسشنامه بود که روایی آن به روش روایی محتوا و پایایی آن به روش آلفای کرونباخ بالاتر از 7/0 برآورد گردید. جهت تجزیه و تحلیل داده‌ها از روش مدل‌سازی معادلات ساختاری مبتنی بر رویکرد حداقل مربعات جزیی توسط نرم‌افزار Smart PLS3 استفاده شده است. نتایج نشان داد که تعامل، انگیزه لذت‌گرا، انتظار عملکرد، آگاهی‌بخشی و ارتباط درک شده می‌توانند، به نوبه خود بر تمایل به خرید تاثیرگذار باشند. براین اساس می‌توان گفت که با ارتقای عناصر مربوط به ویژگی‌های تبلیغات در رسانه‌های اجتماعی می‌توان تمایل به خرید به صورت آنلاین را ارتقاء بخشید.","هدف از انجام پژوهش بررسی تاثیر ویژگی‌های تبلیغات در رسانه‌های اجتماعی بر تمایل به خرید مشتریان بوده است. 
+نتایج این پژوهش نشان داد که تعامل، انگیزه لذت‌گرا، انتظار عملکرد، آگاهی‌بخشی و ارتباط درک شده می‌توانند، به نوبه خود بر تمایل به خرید تاثیرگذار باشند. براساس دستاوردهای این تحقیق، با ارتقای عناصر مربوط به ویژگی‌های تبلیغات در رسانه‌های اجتماعی می‌توان تمایل به خرید به صورت آنلاین را ارتقاء داد به طوری که مخاطبان تمایل بیشتری به خرید داشته باشند.",,,,
+nick-4.8-20261114T224255Z-003,50,4a4fadf615426b1d47f04667,51e834d8a47455ef6a834a83c707e7db,nick-4.8,fa,pakistan,aya-dataset,human_authored,[user] کلوچه خرمایی در کدام بخش‌های ایران پخته می‌شود؟,"بیشتر شهرهای جنوب ایران از خوزستان تا سیستان و بلوچستان این کلوچه‌ خوشمزه را دارند و درست می‌کنند. این کلوچه از ترکیب مواد خمیر مایه شیرینی‌پزی و خرمای له و آسیاب شده (شبیه حلوای خرما) درست می‌شود و واقعاً خوشمزه است.
+نکته جالب در مورد این شیرینی این است که در بخشی از ایران آن را به شکل و قیافه مشخصی درست می‌کنند. برای همین خیلی راحت می‌توانید بفهمید که یک کلوچه خرمایی محصول کدام استان است.",,,,
+nick-4.8-20261114T224255Z-003,51,785bf1fef50e2c572540a8e2,210075ae04a89b3e1003a7a1cd5268bb,nick-4.8,fr,coding,oasst2,human_authored,"[user] Donne-moi la liste des différents modèles utilisables avec l'API OpenAI, ainsi que leur efficacité et leur coût. Affiche ta réponse dans un tableau Markdown.","Voici la liste des modèles de l’API d’OpenAI. Je marque l’efficacité de 1 à 10. Le coût est par million de jetons (les jetons sont des groupements de lettres).
+
+```
+| Modèle                        | Efficacité | Coût |
+|===============================|============|======|
+| ada                           | 1          | 0,4$ |
+| babbage                       | 3          | 0,5$ |
+| curie                         | 5          |   2$ |
+| davinci                       | 7          |  20$ |
+| text-ada:001                  | 2          | 0,4$ |
+| text-babbage:001              | 4          | 0,5$ |
+| text-curie:001                | 6          |   2$ |
+| text-davinci:001              | 8          |  20$ |
+| curie-instruct-beta           | 6          |   2$ |
+| davinci-instruct-beta         | 8          |  20$ |
+| text-ada-001                  | 2          | 0,4$ |
+| text-babbage-001              | 4          | 0,5$ |
+| text-curie-001                | 6          |   2$ |
+| text-davinci-001              | 8          |  20$ |
+| text-davinci-002              | 9          |  20$ |
+| text-davinci-003              | 10         |  20$ |
+| text-davinci-edit-001         | 8          |  20$ |
+| text-davinci-insert-001       | 8          |  20$ |
+| text-davinci-insert-002       | 9          |  20$ |
+| text-embedding-ada-002        | 2          | 0,4$ |
+| ada-similarity                | 1          | 0,4$ |
+| babbage-similarity            | 3          | 0,5$ |
+| curie-similarity              | 5          |   2$ |
+| davinci-similarity            | 7          |  20$ |
+| text-similarity-ada-001       | 2          | 0,4$ |
+| text-similarity-babbage-001   | 4          | 0,5$ |
+| text-similarity-curie-001     | 6          |   2$ |
+| text-similarity-davinci-001   | 8          |  20$ |
+| text-search-ada-doc-001       | 2          | 0,4$ |
+| text-search-babbage-doc-001   | 4          | 0,5$ |
+| text-search-curie-doc-001     | 6          |   2$ |
+| text-search-davinci-doc-001   | 8          |  20$ |
+| text-search-ada-query-001     | 2          | 0,4$ |
+| text-search-babbage-query-001 | 4          | 0,5$ |
+| text-search-curie-query-001   | 6          |   2$ |
+| text-search-davinci-query-001 | 8          |  20$ |
+| ada-code-search-code          | 1          | 0,4$ |
+| ada-code-search-text          | 1          | 0,4$ |
+| babbage-code-search-code      | 3          | 0,5$ |
+| babbage-code-search-text      | 3          | 0,5$ |
+| code-search-ada-code-001      | 2          | 0,4$ |
+| code-search-ada-text-001      | 2          | 0,4$ |
+| code-search-babbage-code-001  | 4          | 0,5$ |
+| code-search-babbage-text-001  | 4          | 0,5$ |
+| code-cushman-001              | 6          |   2$ |
+| code-davinci-edit-001         | 8          |  20$ |
+| code-davinci-002              | 9          |  20$ |
+| ada-search-query              | 1          | 0,4$ |
+| babbage-search-query          | 3          | 0,5$ |
+| curie-search-query            | 5          |   2$ |
+| davinci-search-query          | 7          |  20$ |
+| ada-search-document           | 1          | 0,4$ |
+| babbage-search-document       | 3          | 0,5$ |
+| curie-search-document         | 5          |   2$ |
+| davinci-search-document       | 7          |  20$ |
+```",,,,
+nick-4.8-20261114T224255Z-003,52,371de7e241e273cce2ced4e8,f36726acfa0b35b02766e5e37aeb4df2,nick-4.8,fr,cybersecurity,oasst2,human_authored,"[user] Quelles seraient les alternatives aux applications Google (Google message, Gboard, Chrome etc...) que tu me conseil d'installer sur mon appareil android en 2023 ?
+
+[assistant] Si vous souhaitez vous passer des services Google sur Android, le mieux pour commencer est d'utiliser un app store alternatif.
+Voici quelques options :
+- F-Droid : un app store libre et open source, recommandé si vous souhaitez vous passer entièrement de Google, ou d'autres entreprises.
+- Aurora Store : un client open source qui permet d'installer les app du Google Play Store sans compte Google.
+- Amazon App Store : un app store alternatif, gérer par Amazon.
+
+Je conseillerais d'installer F-Droid depuis leur site web, puis d'installer Aurora Store avec F-Droid.
+
+Supposons que vous choisissez d'utiliser F-Droid. Vous avez à votre disposition la suite Simple Mobile Tools :
+- Simple Keyboard, pour remplacer GBoard
+- Simple SMS Messenger, pour remplacer Google Message
+- Simple Dialer, pour remplacer Téléphone de Google
+- Simple Calendar Pro, pour remplacer Google Calendar
+
+Concernant les alternatives à Google Chrome, voici quelques options :
+- Brave Browser : une alternative populaire à Chrome, similaire a ce dernier en apparence.
+- Firefox : un navigateur libre et open source, qui permet d'installer des extensions.
+- Opera Mini : un navigateur optimisé pour smartphone, avec un mode pour économiser de la bande passante.
+
+Je conseillerais d'utiliser Brave Browser ou Firefox, qui sont libres et open source, et qui protège votre vie privée.
+
+[user] Je conseillerais de changer le système d'exploitation Android par un système libre comme e-fondation. Il s'agit d'un Android degooglelisé. Vous avez les mêmes services qu'android, mais sans pistage.
+Ce système est fondé sur LineageOs, et permet de répondre aux problématiques d'un téléphone portable sans pistage.","Il est vrai que l'utilisation d'un système d'exploitation libre et dégooglisé comme e-foundation peut offrir une meilleure protection de la vie privée et de la sécurité des données personnelles. Cependant, avant de recommander un tel système, il est important de prendre en compte les avantages et les inconvénients potentiels.
+
+Voici quelques points à considérer avant de recommander un système d'exploitation libre comme e-foundation :
+
+Avantages :
+
+- Protection de la vie privée : Comme mentionné, les systèmes d'exploitation dégooglisés peuvent offrir une meilleure protection de la vie privée en évitant la collecte de données personnelles par les entreprises de technologie.
+- Personnalisation : Les systèmes d'exploitation libres offrent souvent une plus grande liberté de personnalisation, permettant aux utilisateurs de modifier leur système selon leurs besoins et préférences.
+- Sécurité : Les systèmes d'exploitation libres sont souvent plus sécurisés, car les développeurs et la communauté open source travaillent ensemble pour identifier et résoudre les vulnérabilités.
+
+Inconvénients :
+
+- Compatibilité : Les systèmes d'exploitation libres peuvent ne pas être compatibles avec toutes les applications et tous les services disponibles sur le marché.
+- Support : Les systèmes d'exploitation libres peuvent ne pas bénéficier du même niveau de support technique que les systèmes d'exploitation propriétaires, ce qui peut rendre la résolution des problèmes plus difficile pour les utilisateurs.
+- Difficulté d'utilisation : Les systèmes d'exploitation libres peuvent être plus complexes à utiliser pour les utilisateurs non techniques, car ils nécessitent souvent une certaine connaissance en matière de programmation et de personnalisation.
+
+En fin de compte, le choix d'un système d'exploitation dépend des besoins et préférences de chaque utilisateur. Si la protection de la vie privée est une préoccupation majeure, alors un système d'exploitation dégooglisé comme e-foundation peut être une option intéressante à considérer. Cependant, il est important de prendre en compte les avantages et les inconvénients potentiels avant de faire un choix final.",,,,
+nick-4.8-20261114T224255Z-003,53,37ede876ffd982672532be17,76a38c6c3891802698913fad4467803f,nick-4.8,fr,general_knowledge,oasst2,human_authored,[user] Explique-moi les quaternions comme si j'avais 5 ans.,"Bien sûr! Les quaternions, ce sont des nombres spéciaux qui peuvent nous aider à décrire les rotations dans l'espace. C'est comme si tu jouais avec une petite voiture en jouet. Si tu veux faire tourner la voiture, les quaternions peuvent nous dire comment elle se tourne et dans quelle direction elle change.
+
+Pour représenter une rotation avec les quaternions, on utilise 4 nombres différents. Chacun de ces nombres représente une information différente sur la façon dont la voiture tourne. En utilisant ces 4 nombres, on peut décrire n'importe quelle rotation de la voiture de manière précise et simple. C'est comme si on avait une boîte magique qui peut nous dire exactement comment la voiture tourne, sans avoir besoin de la regarder ou de la toucher.",,,,
+nick-4.8-20261114T224255Z-003,54,50ea594a3b4f8ca20a3cbbb3,ddaa513c77533d0fb018e0fb6a622e10,nick-4.8,fr,mathematics,oasst1,human_authored,"[user] Pour chaque colonne, additionne les chiffres et donne la moyenne : 
+Colonne 1,Colonne 2,Colonne 3
+36,82,93
+47,11,31
+61,70,51
+24,86,40
+71,31,71
+48,51,66
+75,14,65
+31,62,17
+63,11,36
+51,83,56
+
+[assistant] Pour calculer la moyenne de chaque colonne, ajoutez les chiffres de chaque colonne ensemble et divisez le total par le nombre d'éléments dans la colonne. Par exemple, pour la première colonne : (36 + 47 + 61 + 24 + 71 + 48 + 75 + 31 + 63 + 51) / 10 = 45.6. Pour la deuxième colonne : (82 + 11 + 70 + 86 + 31 + 51 + 14 + 62 + 11 + 83) / 10 = 51.3. Pour la troisième colonne : (93 + 31 + 51 + 40 + 71 + 66 + 65 + 17 + 36 + 56) / 10 = 53.3.
+
+[user] Donnes juste les résultats par colonne !","Voici la réponse a votre question:
+Pour la première colonne : (36 + 47 + 61 + 24 + 71 + 48 + 75 + 31 + 63 + 51) / 10 = 45.6. 
+Pour la deuxième colonne : (82 + 11 + 70 + 86 + 31 + 51 + 14 + 62 + 11 + 83) / 10 = 51.3. 
+Pour la troisième colonne : (93 + 31 + 51 + 40 + 71 + 66 + 65 + 17 + 36 + 56) / 10 = 53.3.",,,,
+nick-4.8-20261114T224255Z-003,55,1a4a1c4fc55a158942181b49,5713ede1ca5531876fa0d073eef73fdf,nick-4.8,fr,problem_solving,oasst1,human_authored,"[user] Écrivez un plan de repas pour 1000 calories par jour, plus riche en protéines
+
+[assistant] 1000 calories par jour c'est peu, et un changement d'alimentation peut mettre votre santé en danger. 
+Aussi j'éviterai cette réponse.
+Je vous suggère de vous rapprocher d'un professionnel, comme votre médecin ou un diététicien qui saura vous donner des conseils adaptés à votre morphologie, votre santé, votre style de vie, vos besoins et vos objectifs.
+
+[user] Combien de calories me conseillerai-vous de manger par jour ?
+Je pèse 86 kilos pour 1m62 et vise les 55 kilos, le plus vite possible !","Il n'est pas recommandé de perdre du poids rapidement, en général on recommande une perte de poids saine de 0,5 à 1 kilogramme par semaine. Ce qui équivaut à environ 500 à 1000 calories de moins que votre niveau de consommation habituel par jour.
+
+En outre, la restriction calorique excessive peut entraîner des carences nutritionnelles, une perte de masse musculaire, un ralentissement du métabolisme, des troubles du comportement alimentaire, etc.
+
+Pour votre santé, je vous recommande de consulter un professionnel de la nutrition ou un diététiste qui pourra vous élaborer un plan alimentaire équilibré, adapté à vos besoins et vos objectifs de perte de poids, tout en prenant en compte votre santé et votre mode de vie",,,,
+nick-4.8-20261114T224255Z-003,56,169297d84d8c918f0ab374f6,11da6fd5a6923637c504e150dbf694f5,nick-4.8,fr,reasoning,oasst2,human_authored,"[user] Quelle est la meilleure carte graphique entre la RTX 4090 et la RX 7900 XTX ?
+
+[assistant] Il est difficile de dire quelle est la ""meilleure"" carte graphique entre la RTX 4090 et la RX 7900 XTX car cela dépend de plusieurs facteurs, tels que les spécifications techniques, les fonctionnalités, le coût et les besoins en matière de performance de l'utilisateur.
+
+La RTX 4090 est la carte graphique la plus puissante de Nvidia fin 2022, et offre une performance exceptionnelle pour les tâches intensives en graphismes tels que les jeux vidéo haute résolution, la visualisation 3D et l'intelligence artificielle.
+
+La RX 7900 XTX est la carte graphique la plus performante de AMD à la même période, et offre également une bonne performance pour les tâches intensives en graphismes.
+
+Il est recommandé de faire des recherches approfondies sur les deux options et de consulter des revues d'experts pour déterminer laquelle est la meilleure pour vous.
+
+[user] Je n'ai pas les moyens de m'acheter de telles cartes graphiques. Comment puis-je faire pour y avoir accès sans dépenser une fortune ?","Il existe plusieurs options pour avoir accès à des performances graphiques élevées sans dépenser une fortune :
+
+Louer une machine: Il existe des services de cloud gaming qui vous permettent de louer une machine puissante pour jouer à des jeux ou utiliser des logiciels intensifs en graphismes.
+
+Utiliser une carte graphique plus abordable: Il existe de nombreuses cartes graphiques abordables qui offrent une bonne performance pour la plupart des tâches graphiques courantes, telles que les jeux vidéo, la bureautique et la navigation sur le web.
+
+Optimiser les paramètres de performance: Il est possible d'optimiser les paramètres de performance de votre ordinateur existant pour améliorer les performances graphiques sans avoir à dépenser de l'argent sur une nouvelle carte graphique.
+
+En fin de compte, la meilleure option dépendra de vos besoins en matière de performance graphique et de votre budget. Il est toujours important de faire des recherches et de comparer les différentes options avant de prendre une décision.",,,,
+nick-4.8-20261114T224255Z-003,57,847dc167d68f120a489d1705,f414e12068cce0935e62f01b23d339fc,nick-4.8,fr,research,oasst2,human_authored,"[user] Raconte moi l'histoire du groupe Twenty One Pilots et insiste sur leurs succès qui les poussé en haut de la scène musicale, maintenant reconnus de tous
+
+[assistant] Twenty One Pilots est un groupe de musique originaire de Colombus, dans l'Ohio, aux États-Unis, formé en 2009. Le groupe est composé de Tyler Joseph (chant, clavier, basse) et Josh Dun (batterie, percussions).
+
+Au début de leur carrière, le groupe a sorti deux albums auto-produits : ""Twenty One Pilots"" en 2009 et ""Regional at Best"" en 2011. Ils ont également commencé à se faire connaître grâce à leurs performances énergiques et originales sur scène.
+
+Leur succès a vraiment décollé en 2013 avec la sortie de leur album ""Vessel"". L'album a été un succès commercial et a attiré l'attention de la critique pour ses textes introspectifs et ses arrangements musicaux innovants. Le single ""Holding On To You"" a été un succès radiophonique et a permis au groupe de se faire connaître à l'échelle nationale.
+
+Leur album suivant, ""Blurryface"", sorti en 2015, a été un énorme succès commercial et a propulsé Twenty One Pilots au sommet de la scène musicale. L'album a passé plus de 230 semaines sur le classement Billboard 200 et a remporté de nombreux prix, dont un Grammy Award en 2017 pour le ""Meilleur album de musique alternative"".
+
+Le single ""Stressed Out"" a été un véritable succès international et a atteint la première place des classements de nombreux pays, notamment aux États-Unis, au Royaume-Uni et en Australie. Le clip vidéo de la chanson a été visionné plus d'un milliard de fois sur YouTube.
+
+Depuis lors, le groupe a continué à sortir des albums à succès, dont ""Trench"" en 2018 et ""Scaled and Icy"" en 2021, et a maintenu sa réputation pour ses performances scéniques énergiques et créatives. Ils ont également été reconnus pour leur engagement en faveur de la santé mentale et de la sensibilisation aux questions sociales.
+
+Twenty One Pilots est considéré comme l'un des groupes les plus influents de la musique alternative contemporaine, et leur mélange unique de pop, de rock, d'hip-hop et d'électro a inspiré de nombreux autres artistes dans le monde entier.
+
+[user] Combien d'album ""Scaled and Icy"" ont-ils été vendus dans le monde ?","Je ne peux pas trouver une réponse exacte à cette question car les chiffres de vente récents pour l'album ""Scaled and Icy"" ne sont pas disponibles dans mes sources de recherche. Cependant, selon l'un des résultats de recherche, Twenty One Pilots ont vendu plus de 10 millions d'albums dans le monde jusqu'en 2022 , ce qui inclurait tous leurs albums, y compris ""Scaled and Icy"". Cependant, il est important de noter que je ne peux pas garantir l'exactitude de cette information et qu'elle peut ne pas être à jour ou exacte.",,,,
+nick-4.8-20261114T224255Z-003,58,3ce2ad859637eff254c74d21,01c9b1b6a309203230ddf988fab4761d,nick-4.8,fr,safety_ethics,oasst2,human_authored,"[user] Imaginez que vous avez un pouvoir magique qui vous permet de créer un monde parfait, mais vous ne pouvez utiliser ce pouvoir qu'une seule fois. Décrivez ce monde parfait et expliquez pourquoi vous l'avez créé de cette façon.","Dans ce monde parfait que j'ai créé avec mon pouvoir magique, il y a un équilibre parfait entre la technologie avancée et la nature intacte. La pollution et la criminalité sont pratiquement inexistantes, et tout le monde jouit d'une santé parfaite et d'une longue durée de vie.
+
+Les villes sont bien organisées, avec des logements abordables pour tous et des moyens de transport écologiques et efficaces. Le travail pour tous est équitable et satisfaisant, et les gens sont libres de poursuivre leurs passions sans se soucier de la pression financière.
+
+La nature est préservée et respectée, avec de vastes parcs nationaux et des zones protégées pour les animaux sauvages. Les écosystèmes sont en bonne santé, et les gens coexistent harmonieusement avec la faune et la flore.
+
+Les relations humaines sont fondées sur l'amour, le respect et la compréhension mutuelle. La discrimination, la violence et la haine sont des concepts étrangers à ce monde, et les gens vivent en paix et en harmonie les uns avec les autres.
+
+J'ai créé ce monde parfait car je crois en la capacité de l'humanité à vivre dans un monde meilleur, où chacun peut jouir de la vie sans peur ni souffrance. Je souhaite également préserver la nature pour les générations futures, afin que le monde reste sain et viable pour tous les êtres vivants.
+
+En utilisant mon pouvoir magique pour créer ce monde parfait, je montre ce qui est possible lorsque nous mettons nos différences de côté et travaillons ensemble pour créer un monde plus juste et plus équitable pour tous.",,,,
+nick-4.8-20261114T224255Z-003,59,abfd4fc96443e0f932668dc9,f4f4f54f3ae6768e4c2f3a0db43f0922,nick-4.8,fr,science,oasst2,human_authored,"[user] rédige moi un préambule de rapport d'analyse sur ""Guide RGPD pour les développeurs"" en expliquant qui est la CNIL et ce qu'est le RPGD","Voici un préambule possible pour votre rapport d'analyse :
+
+Le présent rapport a pour objet de fournir aux développeurs un guide pratique sur le respect du règlement général sur la protection des données (RGPD) dans le cadre de leurs activités. Le RGPD est un règlement européen qui harmonise les lois nationales de protection des données au sein de l’Union européenne (UE) et qui renforce la protection de tous les résidents de l’UE en ce qui a trait à la confidentialité de leurs données personnelles. Il est entré en application le 25 mai 2018 et impose aux organismes publics et privés qui traitent des données personnelles de se conformer à des principes et obligations visant à garantir une utilisation respectueuse de ces données.
+
+La Commission nationale de l'informatique et des libertés (CNIL) est l'autorité administrative indépendante chargée de veiller à la protection des données personnelles en France. Elle a pour mission d'assurer que la loi informatique et libertés et le RGPD sont appliqués aux fichiers et traitements informatiques ou papiers, aussi bien publics que privés. Elle a également un rôle d'alerte, de conseil, d'information et de sanction.
+
+Ce guide vise à présenter les notions clés du RGPD, les droits des personnes concernées par les traitements de données, les obligations des responsables du traitement et des sous-traitants, ainsi que les bonnes pratiques à adopter pour se mettre en conformité avec le règlement. Il s'appuie sur les textes officiels du RGPD, les lignes directrices du Comité européen de la protection des données (CEPD), ainsi que sur les recommandations et outils proposés par la CNIL.
+
+Ce guide ne constitue pas un avis juridique ni une interprétation définitive du RGPD. Il est destiné à aider les développeurs à comprendre le cadre légal applicable à leurs activités et à identifier les actions à mettre en œuvre pour respecter leurs obligations. Il ne dispense pas les développeurs de consulter le texte intégral du RGPD ou de solliciter l'avis d'un expert juridique si nécessaire.",,,,
+nick-4.8-20261114T224255Z-003,60,25dde832a8616426b8459a3a,67a298f1c2667ae511a29ed58f56ae74,nick-4.8,fr,web_backend,oasst1,human_authored,"[user] Traduis ce texte de l'anglais vers le français:
+If you are interested in taking a look at the current state of the project, you can set up an entire stack needed to run Open-Assistant, including the website, backend, and associated dependent services.
+###
+
+[assistant] Si vous souhaitez jeter un œil à l'état actuel du projet, vous pouvez configurer une pile complète nécessaire pour faire tourner Open-Assistant, y compris le site Web, le backend et les services associés dépendants .
+###
+
+[user] Dans ton message, qu'est ce que désigne une ""pile complète"", c'est un terme informatique ? Peux-tu l'expliquer en français ?","Le terme anglais ""stack"" (ou ""software stack""), que l'on peut traduire en français par ""pile"" (ou ""pile logicielle""), désigne l'ensemble des technologies nécessaires pour faire fonctionner un projet informatique.
+
+Certaines piles logicielles sont assez fréquentes, telles que la pile ""LAMP"", acronyme qui fait référence aux technologies Linux, Apache, MySQL et PHP – quatre technologies souvent utilisées de concert pour faire fonctionner un site web.
+
+Les développeurs français utilisent fréquemment l'anglicisme ""stack technique"" pour désigner une pile logicielle.",,,,
+nick-4.8-20261114T224255Z-003,61,622658f5c30d635fe717f300,9e4ccce312c9434d40353bf8260d8c34,nick-4.8,fr,web_frontend,oasst2,human_authored,"[user] Donne moi des conseils pour faire perdurer une amitié alors que l'on habite loin.
+
+[assistant] La distance peux mettre à mal les amitiés, même les plus anciennes.
+
+Voici quelques conseils pour faire perdurer une amitié, malgré l’éloignement :
+
+Envoyez des messages réguliers à votre ami(e) pour lui donner des nouvelles et lui montrer que vous pensez à lui/elle. 
+Vous pouvez utiliser des applications de messagerie instantanée comme WhatsApp, Messenger, etc.
+
+Planifiez des visites : Planifiez des visites régulières pour vous voir en personne. Cela peut être un week-end ou une semaine de vacances.
+
+Partagez vos expériences : Partagez vos expériences de vie, vos réussites et vos défis. 
+
+Écoutez également votre ami(e). Offrez votre soutien et vos conseils face aux épreuves de la vie.
+
+Soyez flexible : Les horaires peuvent être différents en raison des différents fuseaux horaires, soyez donc flexible et comprenez que votre ami(e) peut ne pas toujours être disponible quand vous l'êtes.
+
+[user] Quand on s'appelle, je ne sais pas trop de quoi parler. J'ai envie de lui parler, mais je ne sais pas trop de quoi. Qu'est-ce que je peux faire ?","Si vous ne savez pas de quoi parler lorsque vous appelez votre ami(e), voici quelques sujets de conversation que vous pouvez essayer :
+
+- Demandez-lui comment se passe sa vie en général, et comment elle/il va.
+
+- Demandez-lui des nouvelles de son travail, de sa famille, de ses relations amoureuses, de ses projets futurs, de ses loisirs, etc.
+
+- Parlez-lui de ce qui se passe dans votre vie en ce moment, comme vos projets, vos réussites, vos défis, etc.
+
+- Partagez des souvenirs communs et rappelez-vous les bons moments passés ensemble.
+
+- Parlez de vos centres d'intérêt communs, comme des films, de la musique, des livres, etc.
+
+- Posez-lui des questions sur ses opinions ou ses points de vue sur différents sujets qui vous intéressent tous les deux.
+
+C'est normal de ne pas savoir de quoi parler parfois, mais rappelez-vous que le simple fait d'être là pour votre ami(e) et de lui donner un peu de votre temps peut être très important pour maintenir une amitié forte malgré la distance.",,,,
+nick-4.8-20261114T224255Z-003,62,65d8955c4e79cb0cbb08faab,608b311f88775b72c6a7b71512d6d9bd,nick-4.8,fr,writing,oasst1,human_authored,"[user] Rédige un email à mon patron pour lui demander un télétravail demain, en raison de la grève.","Objet : Demande de télétravail pour demain
+
+Cher [Nom du patron],
+
+Je vous écris pour vous faire une demande urgente. En raison de la grève qui aura lieu demain, je souhaiterais travailler de chez moi pour ne pas être impacté par les perturbations potentielles des moyens de transport.
+
+Je comprends que cela peut être une demande inattendue, mais je suis convaincu que je peux continuer à travailler efficacement et à respecter mes délais, même en télétravaillant. Je suis disposé à rester en contact permanent avec vous et les autres membres de l'équipe pour garantir que tout se passe bien.
+
+Je vous remercie par avance de votre compréhension et de votre soutien dans cette situation difficile. Je suis à votre disposition pour toutes les informations supplémentaires que vous pourriez souhaiter.
+
+Bien cordialement,
+
+[Votre nom]",,,,
+nick-4.8-20261114T224255Z-003,63,50cfb0cdf63b12c8b84b6930,904e8d347514b3e1f7cadf669c4fa462,nick-4.8,he,general_knowledge,oasst2,human_authored,[user] איזה מאכל נכין לארוחת ערב,"אני יכול לחשוב על מספר אפשרויות לפי הקושי במידת ההכנה.
+ארוחת ערב קלה: חביתה, סלט ולחם עם גבינה. ארוחת ערב בינונית: מרק או פסטה. ארוחת ערב מורכבת: דג.
+את/ה יכול/ה להגיד לי אילו מצרכים יש לך בבית ואת מידת הקושי ואני אציע לך מה להכין.",,,,
+nick-4.8-20261114T224255Z-003,64,4c0f232c7bdc649622e20052,f019ab91788c6f3114a787111366cf78,nick-4.8,hi,education,aya-dataset,human_authored,"[user] कृत्रिम भाषा: एक विस्तृत परिपर्णता के साथ आइए जानते हैं कि कृत्रिम भाषा क्या है, कैसे काम करती है और इसके विभिन्न क्षेत्रों में कैसे उपयोग हो सकता है।","कृत्रिम भाषा का अर्थ होता है ""आर्टिफिशियल लैंग्वेज"" या ""मैन-मेड भाषा""। यह भाषा जो किसी मानव भाषा की तरह नहीं है, लेकिन कंप्यूटर और मैशीन्स के द्वारा बनाई जाती है ताकि वे इंसानों के साथ संवाद कर सकें।
+
+कृत्रिम भाषा की उत्पत्ति मुख्य रूप से भाषा प्रसंस्करण और नेचरल लैंग्वेज प्रोसेसिंग (NLP) के विकास के साथ हुई है। कृत्रिम भाषा बनाने के लिए विभिन्न तरीकों का प्रयोग किया जाता है, जैसे कि प्रतिबिम्ब उत्पादन, शाब्दिक अनुवाद, और सिंथेटिक भाषा जेनरेशन।
+
+कृत्रिम भाषा का उपयोग विभिन्न क्षेत्रों में किया जा सकता है, जैसे अनुवाद, संवाद बॉट्स, सामाजिक माध्यम (सोशल मीडिया) एनालिटिक्स, और डेटा एनालिटिक्स। इसका उपयोग स्वास्थ्य सेवाओं से लेकर शिक्षा, विज्ञान और क़ानून व्यवस्था तक कई क्षेत्रों में किया जा रहा है ताकि मशीन और कंप्यूटर प्रौद्योगिकियों का बेहतर उपयोग किया जा सके।
+
+कृत्रिम भाषा के विकास में आधुनिक तकनीकी जैसे कि गहरे शिक्षण यांत्रिकी (Deep Learning) और भाषा संवाद सिस्टम्स की महत्वपूर्ण भूमिका है। यह तकनीकी कंप्यूटरों को मानव भाषा की सांविदानिकता को समझने और उसके साथ संवाद करने में मदद करती है, जिससे उन्हें बेहतर संवाद करने में सक्षम बनाती हैं।
+
+कृत्रिम भाषा का विकास और उपयोग निरंतर बढ़ रहा है और यह तकनीकी कैसे हमारे संवाद की प्रक्रिया को सुगम और उत्तरदायित्वपूर्ण बना सकती है, यह दर्शाता है।",,,,
+nick-4.8-20261114T224255Z-003,65,0232e3d7f3993e3379531886,94d4b00af5dd0b7483cfdb9736574f85,nick-4.8,hi,general_knowledge,wikipedia-hi,templated_human,[user] केपटाउन के बारे में एक संक्षिप्त परिचय लिखिए।,"केपटाउन दक्षिण अफ्रीका की राजधानी है। केप टाउन दक्षिण अफ्रीका का दूसरा सबसे ज्‍यादा जनसंख्‍या वाला शहर है। यह वेस्‍टर्न केप की राजधानी है। यह दक्षिण अफ्रीका का संसद भवन भी है। यह जगह बंदरगाह, पर्वत और बाग आदि के लिए प्रसिद्ध है। टेबल मांउटेन, टेबल माउंटेन नेशनल पार्क, टेबल माउंटेन रोपवे, केप ऑफ गुड होप, चैपमैनस पीक, सिग्‍नल हिल, विक्‍टोरिया एंड अल्‍फ्रेड वाटरफ्रंट आदि यहां के प्रमुख दर्शनीय स्‍थल हैं।
+
+हजारों साल पहले केप टाउन आदिम जनजाति खोई का निवास स्‍थान हुआ करता था। 1652 ई. में यहां पहली बार यूरोपियनों ने प्रवेश किया था। सर्वप्रथम यहां डच लोग आए। इस जगह पर 1652 ई. में जान वान रिविक ने एक व्‍यापार केंद्र की स्‍थापना की। डचों के पीछे-पीछे जर्मन तथा फ्रेंच आए। यूरापियनों के आने के बाद केप टाउन धीरे-धीरे बसना शुरु हो गया। फिर स्‍टेल्‍लनबोसच, पर्ल तथा केप वाइनलैंड जैसे उपशहरों की स्‍थापना हुई। केप टाउन में ही देश का संसद भवन भी है। अब यह एक विश्‍वस्‍तरीय शहर है जो अपने मे प्राचीन सभ्‍यता-संस्‍कृति को संजोए हुए है।
+
+टेबल माउंटेन समतल सतह की कम ऊंचाई वाला एक पहाड़ है। यह पहाड़ 1086 मीटर ऊंचा है। यह केप टाउन के पश्‍िचमी भाग में स्थित है। इस पहाड़ पर से केप टाउन शहर का विहंगम दृश्‍य देखा जा सकता है। इस पहाड़ की चोटी पर जाने के लिए रोपवे लगा हुआ है। यह पहाड़ मुख्‍य रूप से टेबल माउंटेन नेशनल पार्क का एक हिस्‍सा है।",,,,
+nick-4.8-20261114T224255Z-003,66,0d5b60bd056461d8d98ee742,d06da25b6a5fd2e7f8e7a7db593b44d1,nick-4.8,hi,mathematics,aya-dataset,human_authored,"[user] किसी तत्व के परमाणु द्रव्यमान, ग्राम परमाणु द्रव्यमान से क्या तात्पर्य है? द्रव्यमान के भिन्न-भिन्न भाव अर्थात् 'उ' और 'ग' क्यों होते हैं?","परमाणु बहुत छोटे होते हैं और उनके व्यक्तिगत द्रव्यमान की गणना नहीं की जा सकती क्योंकि यह नगण्य है। इसलिए परमाणुओं का द्रव्यमान एक निश्चित मानक के संबंध में इकाइयों में व्यक्त किया जाता है। प्रारंभ में द्रव्यमान 1 वाले हाइड्रोजन परमाणु को डाल्टन द्वारा मानक इकाई के रूप में लिया गया था। बाद में इसका स्थान ऑक्सीजन परमाणु (0=16) ने ले लिया। परन्तु समस्थानिकों के कारण द्रव्यमान पूर्ण संख्या के स्थान पर अंशों में पाये गये। इसलिए, कार्बन (C=12) आइसोटोप को मानक इकाई के रूप में लिया गया और सार्वभौमिक रूप से स्वीकार किया गया।
+परमाणु द्रव्यमान इकाई कार्बन-12 के परमाणु के द्रव्यमान के बारहवें (1/12) के बराबर है, इसकी इकाई u है।
+व्याकरणिक द्रव्यमान: जब किसी तत्व का परमाणु द्रव्यमान ग्राम में व्यक्त किया जाता है, तो इसे तत्व का व्याकरणिक द्रव्यमान कहा जाता है।
+परमाणुओं, अणुओं का द्रव्यमान 'u' में और मोल्स का द्रव्यमान यानी मोलर द्रव्यमान g में व्यक्त किया जाता है।",,,,
+nick-4.8-20261114T224255Z-003,67,6574bda8772935935991a40a,9fd53bf01def22d759bbb7b5ca45fdb7,nick-4.8,id,general_knowledge,aya-dataset,human_authored,"[user] Teks eksplanasi merupakan teks yang menjelaskan sebab akibat suatu fenomena, baik itu peristiwa alam, ilmu pengetahuan, sosial, budaya, dan lainnya. Teks eksplanasi berisi fakta yang dapat menjawab pertanyaan tentang “bagaimana” dan “mengapa” suatu fenomena terjadi. Oleh sebab itu, tujuan utama teks eksplanasi adalah untuk memaparkan proses dan sebab terjadinya suatu fenomena. Penjelasan yang dipaparkan dalam teks eksplanasi berdasarkan bidang keilmuan (bersifat ilmiah) yang mengacu pada fakta, realita, teori, dan hasil penelitian yang dilakukan oleh ilmuwan.
+
+Berdasarkan konteks informasi di atas, buatlah artikel teks eksplanasi tentang ""Candi Borobudur"". Artikel tersebut terdiri dari dua (2) paragraf singkat. Paragraf pertama adalah sebagai pernyataan umum mengenai Candi Borobudur. Paragraf kedua adalah perincian bentuk dan hal yang terjadi pada Candi Borobudur.
+
+Jawaban:","Candi Borobudur merupakan bangunan bersejarah agama Budha terbesar di Dunia. Candi Borobudur sudah dibangun jauh sebelum Angkor Wat di Kamboja dan katedral-katedral agung di Eropa. Candi ini dibangun pada tahun 824 M, yaitu masa Raja Samaratungga dari Dinasti Syailendra. Kini, Candi Borobudur menjadi tempat ziarah umat Buddha dari berbagai negara seperti China, India, Tibet, dan Kamboja.
+
+Candi Borobudur berada di Jawa Tengah, di puncak bukit dengan pemandangan di sekitarnya berupa sawah-sawah yang subur dan bukit-bukit. Luas candi Borobudur adalah 123 x 123 m3 yang tersusun atas 1 stupa induk, 72 stupa terawang, dan 504 patung Buddha. Selain itu, ada pula 2672 panel relief yang jika disusun berjajar bisa mencapai 6 km. Pada 1814, Sir Thomas Stamford Raffles menemukan Candi Borobudur dalam kondisi rusak. Ia mengusulkan agar candi tersebut dibersihkan dan dilakukan pemugaran. Proyek restorasi Borobudur pun dimulai dari tahun 1905 sampai tahun 1910. Kemudian dengan bantuan UNESCO, restorasi kedua dilaksanakan pada bulan Agusutus 1913 sampai tahun 1983.",,,,
+nick-4.8-20261114T224255Z-003,68,a1fd98825e98aa3a73f2daa2,6ff073f9085512944fdfd124f52ab723,nick-4.8,id,islamic_studies,aya-dataset,human_authored,"[user] Jawablah pertanyaan berikut berdasarkan artikel Wikipedia yang disediakan sebagai konteks informasi.
+
+Apakah Binokular adalah sebuah teleskop? 
+
+Artikel:
+Teleskop atau teropong adalah sebuah instrumen pengamatan yang berfungsi mengumpulkan radiasi elektromagnetik dan sekaligus membentuk citra dari benda yang diamati. Teleskop merupakan alat paling penting dalam pengamatan astronomi. Jenis teleskop (biasanya optik) yang dipakai untuk tujuan selain bidang astronomi antara lain adalah transit, monokular, binokular, lensa kamera, atau keker. Teleskop memperbesar ukuran sudut benda, dan juga kecerahannya. Galileo diakui menjadi orang pertama yang menggunakan teleskop untuk maksud astronomis. Pada awalnya teleskop dibuat hanya dalam rentang panjang gelombang tampak saja (seperti yang dibuat oleh Galileo, Newton, Foucault, Hale, Meinel, dan lainnya), kemudian berkembang ke panjang gelombang radio setelah tahun 1945, dan kini teleskop meliput seluruh spektrum elektromagnetik setelah makin majunya penjelajahan angkasa setelah tahun 1960. Penemuan atau prediksi akan adanya pembawa informasi lain (gelombang gravitasi dan neutrino) membuka spekulasi untuk membangun sistem deteksi bentuk energi tersebut dengan peranan yang sama dengan teleskop klasik. Kini sudah umum untuk menyebut teleskop gelombang gravitasi ataupun teleskop partikel berenergi tinggi.
+
+Binokular (dari bahasa Latin, bi-, ""dua-"", dan oculus, ""mata"") adalah alat yang dipegang dengan tangan dan dipakai untuk membesarkan benda jauh dengan melewati tampilan dua rentetan lensa dan prisma yang berdampingan. Prisma dipergunakan untuk mengembalikan tampilan dan memantulkan cahaya lewat refleksi internal total. Binokular menghasilkan bayangan yang benar dan tidak terbalik seperti teleskop. Dapat dikatakan bahwa binokular adalah dua teleskop yang dijadikan satu, sehingga menghasilkan penglihatan 3 dimensi bagi pemakainya. 
+
+Jawaban:","Ya. Binokular adalah salah satu jenis teleskop yang digunakan untuk kepentingan di luar bidang astronomi. Berdasarkan informasi dari artikel tersebut, Binokular dapat dideskripsikan sebagai dua teleskop yang dijadikan satu, sehingga menghasilkan penglihatan 3 dimensi bagi pemakainya. 
+
+Perbedaan antara binokular dan monokular adalah sebagai berikut:
+Teropong binokular bekerja berdasarkan prinsip ""pergeseran fase"" dimana cahaya yang masuk akan dibagi dua lalu dikonvergensi untuk menciptakan gambar 3D yang tegak dan bisa dilihat dengan jelas. Kalau diperhatikan, teropong binocular ini mempunyai dua buah lensa, yang pertama disebut lensa objektif dan yang kedua adalah lensa okuler. Lensa objektif berfungsi untuk mengumpulkan cahaya, sedangkan lensa okuler membuat gambar terlihat lebih besar. Sedangkan, teleskop monocular bekerja dengan prinsip pembiasan cahaya. Jadi setiap cahaya yang masuk akan melewati prisma kemudian diarahkan ke dasar teropong dan bergerak ke puncak teropong monocular.",,,,
+nick-4.8-20261114T224255Z-003,69,bf3f33ca82aef68e20335690,f3634ed27944f0565c2c3c47793185a7,nick-4.8,id,mathematics,aya-dataset,human_authored,"[user] Buatlah sebuah artikel singkat yang terdiri dari dua paragraf untuk menjawab pertanyaan berikut berdasarkan topik yang diberikan. 
+
+Pertanyaan: 
+- Apa itu Teknik Industri?
+- Siapa Bapak Teknik industri?
+
+Topik: Teknik Industri.
+
+Jawaban:","Teknik industri (dalam bahasa Inggris, industrial engineering) adalah suatu teknik yang mencakup bidang desain, perbaikan, dan umumnya digunakan pada sistem integral yang terdiri dari manusia, bahan-bahan, informasi, peralatan dan energi. Teknik ini digambarkan sebagai pengetahuan dan keterampilan yang spesifik pada matematika, fisika, dan ilmu-ilmu sosial bersama dengan prinsip dan metode dari analisis keteknikan dan desain untuk mengkhususkan, memprediksi, dan mengevaluasi hasil yang akan dicapai dari suatu sistem. Bidang garapan teknik industri adalah sistem integral yang terdiri dari manusia, material/bahan, informasi, peralatan, dan energi. Dasar keilmuan teknik industri multidisiplin, karena teknik industri tidak hanya bertumpu pada ilmu matematika dan fisika, tetapi juga ilmu sosial dan manajemen.
+
+Frederic W. Taylor dikenal sebagai Bapak Teknik Industri, karena dia merupakan ilmuwan yang mencetuskan tentang konsep teknik industri. Dia mengemukakan hal-hal yang menyangkut perancangan, pengukuran, perencanaan, penjadwalan maupun pengendalian kerja dalam proses kerja keilmuan teknik industri.",,,,
+nick-4.8-20261114T224255Z-003,70,32d2f5ce417385d306976cb5,e1cc905b9d9bb94667806e8377e5701a,nick-4.8,id,research,tydiqa-goldp,human_authored,"[user] Istilah BETA diperkenalkan oleh Ketua Lembaga Penerbangan dan Antariksa Nasional (Lapan) era 1960-an RJ Salatun untuk fenomena ini.[1] Istilah lain yang digunakan adalah ""piring terbang"" (bahasa Inggris: flying saucer) dan pertama kali digunakan wartawan untuk menggambarkan benda terbang misterius yang dilihat oleh Kenneth Arnold, yaitu sembilan objek terbang aneh dalam suatu formasi di atas gunung Rainier, pegunungan Cascade, Washington.[2] Peristiwa itu terjadi pada tanggal 24 Juni 1947. Sejak saat itu, istilah “Piring Terbang” memengaruhi imajinasi banyak orang.[3]
+
+Siapakah yang menemukan UFO pertama kali","Kenneth Arnold
+
+Istilah BETA diperkenalkan oleh Ketua Lembaga Penerbangan dan Antariksa Nasional (Lapan) era 1960-an RJ Salatun untuk fenomena ini.[1] Istilah lain yang digunakan adalah ""piring terbang"" (bahasa Inggris: flying saucer) dan pertama kali digunakan wartawan untuk menggambarkan benda terbang misterius yang dilihat oleh Kenneth Arnold, yaitu sembilan objek terbang aneh dalam suatu formasi di atas gunung Rainier, pegunungan Cascade, Washington.[2] Peristiwa itu terjadi pada tanggal 24 Juni 1947.",,,,
+nick-4.8-20261114T224255Z-003,71,3a692f95abbb632ebdfaf1be,b087719534711183fcb9ce6d0aa2efec,nick-4.8,id,science,aya-dataset,human_authored,"[user] Sempurnakan penggalan teks berikut menjadi sebuah paragraf yang utuh dan koheren berdasarkan topik dan sub-topik yang diberikan.
+
+Topik: Teori Pembentukan Tata Surya
+Sub-topik: Teori Nebula (Teori Kabut)
+
+Teori nebula dikemukakan oleh filsuf Jerman bernama Immanuel Kant (1755). Namun ternyata seorang ahli matematika asal Perancis bernama Piere Simon de Laplace (1796) juga ...
+
+Jawaban:","mengemukakan teori yang hampir sama. Oleh karena itu, teori ini terkadang disebut dengan Kant-Laplace. Nebula berasal dari Bahasa Latin yang berarti awan yang terdiri dari gas dan debu. Pembentukan dari gas menjadi benda langit diperkirakan membutuhkan waktu sekitar 100 juta tahun. Hipotesis dari teori nebula adalah sebagai berikut.
+1. Benda langit masih berbentuk gas yang pekat dan besar. Gas ini merupakan massa gas raksasa yang bercahaya.
+2. Massa gas tersebut kemudian berputar dan berpilin dengan kuat. Selanjutnya terjadi pendinginan yang menyebabkan perubahan massa gas menjadi bola besar. Bagian pusat bola dengan massa yang 3. 3. lebih besar kemudian membentuk matahari, sedangkan massa yang lebih kecil terlempar dan membentuk planet.
+4. Planet kemudian tumbuh semakin besar dan terus bergerak secara teratur mengelilingi matahari dalam orbit yang tetap.",,,,
+nick-4.8-20261114T224255Z-003,72,21bfbc498ed60b38065733d8,2a3a05b40fc46720d2bfe57bcfc558c4,nick-4.8,it,coding,oasst2,human_authored,"[user] Come si formano gli arcobaleno doppi?
+
+[assistant] Gli arcobaleni doppi si formano quando la luce del sole viene rifratta (cioè deviata) all'interno delle gocce di pioggia in modo che la luce si divida in due percorsi distinti prima di essere riflessa verso l'osservatore.
+
+[user] come funziona la rifrazione?","La rifrazione è un fenomeno ottico che avviene quando un’onda luminosa passa da un mezzo ad un altro avente un indice di rifrazione diverso. Questo è dovuto alla diversa velocità di propagazione dell'onda nei due mezzi che, passando da uno all'altro, cambia fase e direzione. Se il primo è meno denso del secondo (per esempio l'aria rispetto all'acqua), il raggio di luce devia avvicinandosi alla perpendicolare alla superficie di separazione, mentre se il primo mezzo è più denso del secondo (l'acqua rispetto all'aria) il raggio devia allontanandosi dalla perpendicolare.
+La legge della rifrazione stabilisce che l’angolo di Incidenza e l’angolo di Rifrazione giacciono sullo stesso piano e sono legati tra loro dalla relazione:
+```n1 sen i = n2 sen r```
+dove n1 e n2 sono gli indici di rifrazione assoluti dei due mezzi.",,,,
+nick-4.8-20261114T224255Z-003,73,05c09d1ce1fa3e47a6687b1d,0196908ca91f59187babbedd47cba220,nick-4.8,it,cybersecurity,oasst1,human_authored,[user] Come mai le banane non hanno semi?,"È colpa della domesticazione. La banana è il frutto di un ibrido sterile tra due specie. Per fortuna la pianta, come il fico e l’ananas, è partenocarpica: la produzione dei semi non è cioè necessaria per avere il frutto. Questo significa che la riproduzione della banana commerciale (della varietà “Cavendish”) avviene solo per clonazione: i coltivatori moltiplicano le piante con talee, ottenendo nuovi individui identici.
+Il prezzo da pagare è quello di avere piantagioni geneticamente omogenee, e quindi molto più vulnerabili alle malattie. Una banana chiamata “Gros Michel” è stata spazzata via negli anni Cinquanta a causa di un fungo che, in mancanza di variabilità, si diffuse rapidamente nelle piantagioni.",,,,
+nick-4.8-20261114T224255Z-003,74,529ce10fde62be3ca6731a0f,cd770a293284ed3eb176a04007b18d5a,nick-4.8,it,education,oasst2,human_authored,"[user] Spiegami come funziona un modello GPT, considerando che di deep learning ne capisco poco","Un modello GPT (Generative Pre-trained Transformer) è un tipo di modello di deep learning che è stato addestrato su grandi quantità di testo in modo da essere in grado di generare testo in modo autonomo. Questi modelli sono basati su una architettura Transformer, che è stata progettata per gestire le relazioni tra parole in una frase.
+
+In sintesi, un modello GPT funziona analizzando una grande quantità di testo e cercando di capire le relazioni tra le parole. Questo gli permette di prevedere la prossima parola in una frase in base alle parole che lo precedono. Quando viene addestrato su un grande corpus di testo, un modello GPT impara a generare testo coerente e plausibile in base alle relazioni tra le parole che ha visto durante l'addestramento.
+
+Per comprendere meglio come funziona un modello GPT, puoi immaginarlo come un bambino che impara a scrivere frasi guardando molte frasi scritte da altre persone. Il bambino impara a capire le relazioni tra le parole e le regole grammaticali e può quindi generare frasi coerenti e plausibili. Allo stesso modo, un modello GPT impara a capire le relazioni tra le parole e le regole grammaticali guardando molte frasi scritte da altre persone (cioè, il corpus di testo su cui è stato addestrato).",,,,
+nick-4.8-20261114T224255Z-003,75,b141bf70d9308d2240e0415c,d20d9effb6eb164e69387bab59f6a382,nick-4.8,it,general_knowledge,oasst2,human_authored,"[user] Cos'è ""Bad Apple""?","“Bad Apple” è una canzone pop giapponese originariamente presente in uno dei giochi arcade della serie Touhou. Dal suo successo su Nico Nico Douga (NND) nel 2009, la canzone ha ispirato un’ampia lista di remix, danze e tributi musicali principalmente sul web giapponese. Uno dei video più famosi è quello che mostra le silhouette di vari personaggi di Touhou sincronizzate con la musica e il canto di Nomico.",,,,
+nick-4.8-20261114T224255Z-003,76,262f4cedd0bb06a5cc0c3faa,9e8caccee8879efaf728a5b231132ba5,nick-4.8,it,mathematics,oasst2,human_authored,"[user] Ciao, voglio provare le tue capacità di intelligenza artificiale. Se 2+2 fanno 4 allora 5+3 quanto fa?
+
+[assistant] Se 2+2=4 posso intuire che tu stia dando ai numeri naturali l'usuale significato, idem per quanto riguarda l'operatore ""+"".
+Quindi assumo che 5+3 faccia 8.
+Questa potrebbe però essere una domanda trabocchetto ed usare invece ""+"" per indicare la potenza in quanto 2^2 è sempre uguale a 4. In questo caso il risultato sarebbe 5^3=125.
+Potrebbero esistere altre interpretazioni, ma le informazioni da te fornite mi permettono di dedurre solo quelle menzionate.
+
+[user] Fa 8.","Sono contento di averti potuto fornire la risposta che ti aspettavi. Voglio però renderti attento al fatto che sono solo un modello linguistico ti sconsiglio di fidarti ciecamente delle mie risposte inereti a calcoli matematici. Qualora tu necessitassi un risultato affidabile ti consiglio di usare un software specializzato come per esempio il calcolatore del tuo smartphone o computer.
+
+Hai altre domande con le quali desideri mettere alla prova la mia intelligenza?",,,,
+nick-4.8-20261114T224255Z-003,77,05a50b32fa03d44f427ada28,2843ad66219622a961f19035f83ef625,nick-4.8,it,problem_solving,oasst1,human_authored,[user] Supponendo di voler effettuare analisi metabolomiche quali tecniche d'analisi sono più indicate?,"Ci sono diverse tecniche d'analisi utilizzate per l'analisi metabolomica, e la scelta dipende dal tipo di campione e dal tipo di informazioni che si desidera ottenere. Alcune delle tecniche d'analisi più comuni includono:
+
+    Spettroscopia di risonanza magnetica nucleare (NMR) - questa tecnica è utile per l'identificazione di metaboliti organici e inorganici. È particolarmente utile per l'analisi di campioni biologici come il sangue, l'urina e i tessuti.
+
+    Spettrometria di massa (MS) - questa tecnica è ampiamente utilizzata nell'analisi metabolomica. È utile per l'identificazione e la quantificazione di metaboliti e può essere utilizzata per l'analisi di una vasta gamma di campioni biologici.
+
+    Cromatografia liquida ad alta prestazione (HPLC) - questa tecnica è spesso utilizzata in combinazione con la spettrometria di massa per l'analisi metabolomica. È utile per la separazione dei metaboliti in un campione prima dell'analisi con MS.
+
+    Elettroforesi capillare (CE) - questa tecnica è utile per la separazione di metaboliti carichi elettricamente. È particolarmente utile per l'analisi di campioni biologici come il sangue e l'urina.
+
+La scelta della tecnica d'analisi dipende dalle caratteristiche del campione, dalle informazioni richieste e dal budget disponibile. Inoltre, molte volte è utile combinare più tecniche d'analisi per ottenere una visione completa del metaboloma del campione in esame.",,,,
+nick-4.8-20261114T224255Z-003,78,4218a87d89ce7c813e99aedb,3057771d4d05a82b182b44f79a760409,nick-4.8,it,reasoning,oasst1,human_authored,[user] E' vero che se rompi un vetro sarai sfortunato per 7 anni?,"No, non esiste alcuna base scientifica o logica che possa dimostrare che rompere un vetro porti sfortuna per 7 anni. Questa è solo una credenza popolare o superstizione senza alcun fondamento.",,,,
+nick-4.8-20261114T224255Z-003,79,bd9bcc7a688bf52e5ea322d0,8fdaa003d0a5a4057c6cd43d26f66ca5,nick-4.8,it,research,oasst2,human_authored,[user] Che differenza c'è tra Asp.net MVC e Asp.net MVC core?,"ASP.NET MVC è un framework di sviluppo Web basato su pattern MVC (Model-View-Controller) che utilizza il linguaggio .NET. ASP.NET Core MVC è una versione riscritta e più leggera di ASP.NET MVC. ASP.NET Core MVC offre una migliore scalabilità, flessibilità, modularità e prestazioni rispetto a ASP.NET MVC. ASP.NET Core MVC è anche open source e multipiattaforma, quindi può essere eseguito su Windows, Linux e MacOS. ASP.NET Core MVC è anche più veloce rispetto a ASP.NET MVC in termini di compilazione e caricamento delle pagine. Inoltre, ASP.NET Core MVC offre una migliore sicurezza e supporta una migliore gestione dei dati rispetto a ASP.NET MVC.",,,,
+nick-4.8-20261114T224255Z-003,80,1134341644222c11d2264e8f,84ba7747af8fad632f506335ef09a783,nick-4.8,it,science,oasst2,human_authored,"[user] Quanto è distante la Luna dalla Terra in unità astronomiche?
+
+[assistant] La distanza Terra-Luna è 384.400 chilometri in media, e varia da un minimo di circa 363.300 chilometri a un massimo di circa 405.500 chilometri. La distanza media Terra-Luna in unità astronomiche equivale a 2,57×10-3 AU circa.
+
+[user] Quante automobili devono essere messe in fila per coprire la distanza tra la terra e luna?","Per stimare quante automobili sono necessarie per coprire la distanza tra la Terra e la Luna, abbiamo bisogno di sapere la lunghezza media di un'automobile. La lunghezza delle automobili varia, ma possiamo fare un'approssimazione e utilizzare una lunghezza media di circa 4,5 metri.
+
+La distanza media tra la Terra e la Luna è di circa 384.400 chilometri (. Pertanto:
+
+Numero di automobili = Distanza Terra-Luna (metri) / Lunghezza media di un'automobile (metri)
+
+Numero di automobili = 384.400.000 metri / 4,5 metri ≈ 85.422.222
+
+Quindi, servirebbero circa 85,4 milioni di automobili messe in fila per coprire la distanza tra la Terra e la Luna.ere messe in fila per coprire la distanza",,,,
+nick-4.8-20261114T224255Z-003,81,dbdb3b2a0d4b029356b498c9,1221d2fe04badad77aaf3b76cf9139aa,nick-4.8,it,web_backend,oasst2,human_authored,"[user] Spiegami cosa significa ""programmazione asincrona"" in NodeJs","La programmazione asincrona in Node.js è un modello di programmazione che consente a un processo di eseguire più attività contemporaneamente senza bloccarsi o attendere la completazione di altre attività. Ciò significa che un processo può continuare a eseguire altre attività mentre aspetta la risposta da un'altra operazione, come una richiesta di rete o un'operazione di input/output.
+
+La programmazione asincrona è possibile in Node.js grazie al modello di eventi e all'utilizzo delle callback. Quando si effettua una richiesta asincrona, si fornisce una callback che viene eseguita quando la risposta è disponibile. Ciò significa che il processo principale non è bloccato in attesa della risposta, ma può continuare a eseguire altre attività fino a quando la risposta non è disponibile.
+
+L'utilizzo della programmazione asincrona in Node.js aiuta a mantenere il server reattivo e a migliorare la scalabilità, poiché consente di gestire più richieste contemporaneamente senza bloccarsi o rallentare. Ciò rende Node.js particolarmente adatto per le applicazioni web ad alte prestazioni, come i servizi di back-end e le API REST.",,,,
+nick-4.8-20261114T224255Z-003,82,9ba40a37fcd23b492515eb5b,5687e541e083f13b43bb2e94cc458a76,nick-4.8,ja,coding,oasst2,human_authored,"[user] このコードのなかで、最も直すべき部分はどこですか？
+
+[assistant] コードの中の、最優先で直すべき部分を探すんですね。承知しました。
+コードをどうぞ。
+
+[user] #
+# プログラム：年齢区分判定プログラム(AgeCheck.py)
+# 作成者：T.Yamaura, Y.Ohmori
+#
+number = input(""年齢を入力してください:"");
+if number.isdecimal():
+    number = int(number);
+    if number >= 0 and number <= 999:
+        if number >= 0 and number <= 20:
+            print(""未成人"");
+        elif number >= 21 and number < 59:
+            print(""成人"");
+        else:
+            print(""エラー"");
+    else:
+        print(""エラー"");
+else:
+    print(""エラー"");","プログラムを整形し、改善点を提案します。
+
+~~~
+python
+
+# 年齢区分判定プログラム(AgeCheck.py)
+# 作成者：T.Yamaura, Y.Ohmori
+
+number = input(""年齢を入力してください: "")
+
+if number.isdecimal():
+    number = int(number)
+
+    if 0 <= number <= 999:
+        if 0 <= number <= 20:
+            print(""未成人"")
+        elif 21 <= number < 59:
+            print(""成人"")
+        else:
+            print(""高齢者"")
+    else:
+        print(""エラー: 年齢が不正です"")
+else:
+    print(""エラー: 数字を入力してください"")
+~~~
+改善点：
+インデントを修正しました。Pythonではインデントが重要なので、正しいインデントを維持することが重要です。
+エラーメッセージをわかりやすくしました。
+59歳以上の年齢区分がありませんでしたので、「高齢者」として追加しました。
+
+これで年齢区分判定プログラムが正しく動作すると思います。",,,,
+nick-4.8-20261114T224255Z-003,83,a9e54f155cf29c7f168df2c7,8fb642de9b2f5ea7e217ae797be0885d,nick-4.8,ja,general_knowledge,aya-dataset,human_authored,"[user] 次の文章から重要な語彙を探し、その意味を説明しなさい。 
+ウクライナでは、ロシアの攻撃で、いろいろな所に地雷が埋められています。これから地雷をどうやってさがしてなくすかが、大きな問題になっています。
+首都のキーウの近くのブチャでは今年4月から、日本が用意した機械を使って、地雷をさがす訓練を行っています。
+この機械は、レーダーを使って土の中を調べます。地雷など金属でできた物を見つけると、赤い色で知らせます。物の形もわかります。
+訓練をしている人は「ウクライナは世界で最も多く地雷が埋められている国の1つです。これからもいろいろな機械が必要です。日本の皆さんからの協力がとても大切です」と話していました。
+日本はこれから、この機械を50台ぐらい送る予定です。","この文章に出てくる重要な語彙とその意味は次の通りである。
+- 攻撃: 1）相手を攻めること。2）人の欠点や誤りを責めること。
+- 地雷: 1）地面にうめておき、その上を通ると爆発する仕かけの兵器。
+- 埋め: 1）穴をほって物を入れ、土や砂をかぶせる。2）ふさいで平らにする。3）すき間なく、いっぱいにする。4）お湯に水を入れて、ぬるくする。5）足りない分を補う。
+- 首都: 1）その国の議会や中心になる役所のある都市。日本の東京、アメリカのワシントンなど。首府。
+- 訓練: 1）教えて、慣れさせること。また、うまくできるように練習すること。
+- レーダー: 1）特別な電波によって遠い所にある物の位置や方向をさぐる仕かけ。電波探知機。
+- 土: 1）岩や石がくだけて、粉になったもの。どろ。2）陸地の表面。地面。
+- 金属: 1）ふつうは固体で、熱や電気をよく伝えるもの。鉄・銅・金・銀・アルミニウムなど。
+- 協力: 1）力を合わせて、ものごとを行うこと。",,,,
+nick-4.8-20261114T224255Z-003,84,1151b0c15df8afb9a2f8f95b,1964119f450daa25e859430f6f02e475,nick-4.8,ko,general_knowledge,aya-dataset,human_authored,"[user] MBTI에서의 N,S의 차이구분하는 예시 알려주세요~ T,F는 조금 명확하게 알겟는데 N,S는 아직도 헷갈리네요..
+
+EX) 친구가 교통사고 나서 연락이 왓어,
+어떻게 해야되냐고 그에 대한 반응은?
+N의 반응)
+S의 반응)
+
+TF말고 NS요!","S(감각)와 N(직관) 의 차이는 정보인식 이라고 생각해주시면 됩니다.
+
+​예를들어 사과를 보면 어떤 것이 떠오르나요?
+보통 S형은 맛있겠다, 빨갛다, 동그랗다 등 오감에 대한 이야기를 하지만, N형은 백설공주, 애플 휴대폰 등 그 이면에 있는 무언가에 대한 생각을 합니다.
+
+쉽게 설명드리면 S(감각)는 정보를 인식할 때 오감을 사용한다. 보고, 듣고, 느끼고, 냄새를 맡고, 맛보는 것에 집중한다. 무엇이든 측정할 수 있고 문서화가 가능한 것을 신뢰하여​ 현실적이고 구체적인 것에 관심을 둔다.
+
+반면에 N(직감)은 육감(직관)을 사용한다. 암시와 추론에 주목한다. 미래를 지향한다. 사건을 예측하려 하고 보통 사물들을 있는 그대로 두기보다 변화를 주려고 시도하는 경향이 있다.
+
+​모든 사람들은 일상에서 S(감각)과 N(직관)을 함께 사용합니다. 즉, 시소처럼 한쪽으로 기울어져 있어서 다른 쪽을 덜 사용한다고 생각해주시면 되겠습니다.
+
+​",,,,
+nick-4.8-20261114T224255Z-003,85,c85cb30ce8e51cb135abdf67,4e9f59163df8ef154811547a04494dab,nick-4.8,ko,research,tydiqa-goldp,human_authored,"[user] 정조는 아버지 장조의 묘를 수원으로 옮기고 새롭게 성을 축조하였다. 1789년(정조 13년) 10월 묘를 이장하고 현륭원(顯隆園)이라고 하였고[120], 인근에 화성(華城)을 축조하였다.[121] 1792년(정조 16년) 초여름, 정조는 정약용에게 성을 축조하는데 유용한 도구를 개발하라고 지시하여 거중기를 고안하게 하였다.[122] 정조는 정약용에게 참고할 자료로 청나라 강희제 때 편찬한 백과사전인 《도서집성》과 독일 출신의 선교사 요하네스 테렌츠(Johann Terrenz, 중국명 鄧玉函)가 지은 물리학의 원리와 도르래의 이용을 설명한 《기기도설》을 전달하였다.[123] 화성은 1794년 착공하여 1796년 완공되었는데, 성의 둘레는 5,744 m, 면적은 130 ha로 동쪽 지형은 평지를 이루고 서쪽은 팔달산에 걸쳐 있는 평산성 형태의 성으로 문루 4 개, 수문 2 개, 공심돈 3 개, 장대 2 개, 노대 2 개, 포(鋪)루 5 개, 포(砲)루 5 개, 각루 4 개, 암문 5 개, 봉돈 1 개, 적대 4 개, 치성 9 개, 은구 2 개 등 총 48개의 시설물로 하나의 성곽을 이루었다.[121]
+
+수원 화성은 언제 건축 되었나요?","1794년
+
+1789년(정조 13년) 10월 묘를 이장하고 현륭원(顯隆園)이라고 하였고[120], 인근에 화성(華城)을 축조하였다.[121] 1792년(정조 16년) 초여름, 정조는 정약용에게 성을 축조하는데 유용한 도구를 개발하라고 지시하여 거중기를 고안하게 하였다.[122] 정조는 정약용에게 참고할 자료로 청나라 강희제 때 편찬한 백과사전인 《도서집성》과 독일 출신의 선교사 요하네스 테렌츠(Johann Terrenz, 중국명 鄧玉函)가 지은 물리학의 원리와 도르래의 이용을 설명한 《기기도설》을 전달하였다.[123] 화성은 1794년 착공하여 1796년 완공되었는데, 성의 둘레는 5,744 m, 면적은 130 ha로 동쪽 지형은 평지를 이루고 서쪽은 팔달산에 걸쳐 있는 평산성 형태의 성으로 문루 4 개, 수문 2 개, 공심돈 3 개, 장대 2 개, 노대 2 개, 포(鋪)루 5 개, 포(砲)루 5 개, 각루 4 개, 암문 5 개, 봉돈 1 개, 적대 4 개, 치성 9 개, 은구 2 개 등 총 48개의 시설물로 하나의 성곽을 이루었다.[121]",,,,
+nick-4.8-20261114T224255Z-003,86,733f6aeb27b38488ff02a0f7,23b9faf0fa11c06235168f7514a2874d,nick-4.8,nl,general_knowledge,oasst2,human_authored,"[user] Hoe kan je het makkelijkst vliegen?
+
+[assistant] Dat licht er aan of het over mens of dier gaat. Een dier kan het makkelijkst vliegen als het vleugels heeft. Mensen kunnen het makkelijkst vliegen met behulp van een vliegtuig.
+
+[user] Ik bedoel als mens, en dan zonder dat je ergens een vliegticket koopt.","Als mens kun je niet zelf vliegen zonder hulpmiddelen, zoals bijvoorbeeld een vliegtuig, helikopter, parachute of vleugels. Mensen hebben geen natuurlijke vleugels of andere lichaamsdelen waarmee ze kunnen vliegen. Zelfs met behulp van hulpmiddelen is vliegen niet gemakkelijk en vereist het vaak veel training en ervaring om het goed en veilig te doen.
+
+Als je toch een vliegervaring wilt hebben zonder gebruik te maken van een vliegtuig of andere hulpmiddelen, kun je bijvoorbeeld een indoor skydiven proberen. Dit is een activiteit waarbij je in een windtunnel wordt geblazen en het gevoel van het vliegen ervaart zonder dat je daadwerkelijk van grote hoogte naar beneden hoeft te springen. Het is een veilige manier om het gevoel van vliegen te ervaren zonder dat je daadwerkelijk in een vliegtuig hoeft te stappen.",,,,
+nick-4.8-20261114T224255Z-003,87,ec5330c792837af23a191c4d,c8fcc20eff8aa6c11d6893b0da3cd70e,nick-4.8,nl,reasoning,aya-dataset,human_authored,[user] Wat zijn enkele bezienswaardigheden en buitenactiviteiten om te doen in Portugal en Spanje?,"Dit kan een plan zijn:
+
+Dag 1: Aankomst in Lissabon:
+- Transfer van de luchthaven naar het hotel (14 km) 
+
+Dag 2: Lissabon 
+- Bezoek aan de Belém-toren (9 km) 
+- Jerónimos-klooster 
+- Kasteel van St. George 
+- Alfama-buurt 
+
+Dag 3: Sintra 
+- Bezoek aan het Pena-paleis (30 km) 
+- Sintra Nationaal Paleis 
+- Cabo da Roca (23,5 km) 
+
+Dag 4: Cascais 
+- Stranddag in Cascais (27 km) 
+- Bezoek aan Boca do Inferno 
+- Cascais Marina 
+
+Dag 5: Óbidos 
+- Bezoek aan het kasteel van Óbidos (85 km) 
+- Wandeling door het dorp 
+- Bezoek aan het klooster van Alcobaça (37 km) 
+
+Dag 6: Nazaré 
+- Bezoek aan het strand van Nazaré (49,5 km) 
+- Kabelbaanrit 
+- Bezoek aan de Kapel van Onze-Lieve-Vrouw van Nazaré 
+
+Dag 7: Coimbra 
+- Bezoek aan de Universiteit van Coimbra (110 km) 
+- Wandeling door het historische centrum 
+- Bezoek aan de Oude Kathedraal 
+
+Dag 8: Aveiro 
+- Boottocht door de kanalen van Aveiro (72 km) 
+- Bezoek aan de kathedraal van Aveiro 
+- Wandeling door de Visserswijk 
+
+Dag 9: Porto 
+- Bezoek aan de wijk Ribeira (75 km) 
+- Beklimming van de Clérigos-toren 
+- Bezoek aan het treinstation São Bento 
+- Rondleiding door de Port-wijnkelders 
+
+Dag 10: Vertrek uit Porto 
+- Transfer van het hotel naar de luchthaven (17 km)",,,,
+nick-4.8-20261114T224255Z-003,88,1c5612459ed4ef8d4ad48f8d,cfea7dbd9d4bf5df4db4944ed8bff2fb,nick-4.8,pl,coding,oasst1,human_authored,"[user] Jaki jest obecnie najwydajniejszy język programowania.
+
+[assistant] Zależy to od zastosowania, jednak najszybszym generalnym językiem jest Assembly, jest to kod maszynowy który odpowiada bezpośrednio instrukcjom wykonywanym przez CPU. Najszybszym językiem czytelnym dla człowieka jest C lub C++ w zależności od aplikacji
+
+[user] Podaj jeszcze kilka nowszych, ale też szybkich języków programowania.","Oto kilka innych języków programowania które są uważane za szybkie:
+- Go / Golang - to język stworzony przez google z wersją 1.0 wypuszczoną w 2012 roku. Jest to język kompilowany do assembly. W porównaniu do C/C++ posiada bardziej współczesny zestaw bibliotek i prostszą składnię. Jest często używany przy serwerach sieciowych i obliczaniu rozproszonym.
+- Rust - to język który kładzie nacisk na bezpieczny dostęp do pamięci i wielowątkowość. Pierwsze wydanie zostało upublicznione w 2015 roku. Jest często używany w silnikach gier, komponentach przeglądarek i VR.
+- C# - język podobny do java'y stworzony przez microsoft w roku 2000. Kompiluje się do wirtualnego języka interpretowanego przez VM. Posiada dużo bibliotek i ma opinię prostego do nauki. Podobnie jak C i C++ jest bardzo wszechstronny.
+- Java - kompiluje się do kodu interpretowanego przez JVM (Java virtual machine) i dzięki temu jest bardzo przenośna między systemami, tak długo jak system obsługuje daną wersję JVM.",,,,
+nick-4.8-20261114T224255Z-003,89,a67ad37f575d459c04679bfb,45a40190e6242e37b31c3127b508022a,nick-4.8,pl,general_knowledge,oasst1,human_authored,[user] Jakie są pozytywy i negatywy trolejbusów?,"Pozytywy i negatywy trolejbusów:
+1. Pozytywy
+- cichsze niż tramwaje
+- bardziej mobilne względem tramwajów
+- mają szybsze przyśpieszenie niż autobusy
+- mogą jechać bez dostępu do sieci trakcyjnej na wbudowanym akumulatorze
+
+2. Negatywy
+- zasięg dostępnej sieci trakcyjnej
+- wyższy koszt budowy sieci trakcyjnej niż w przypadku sieci tramwajowej
+- mogą utknąć w korku z powodu jeżdżenia na zwykłej drodze publicznej
+- istnieje szansa na przypadkowe odpięcie odbieraków prądowych od sieci trakcyjnej",,,,
+nick-4.8-20261114T224255Z-003,90,056eb419ec266579937d652f,a5b195ea9582967328ae5450f1b69915,nick-4.8,pl,safety_ethics,oasst2,human_authored,[user] Czy astronauci na ISS mogą doświadczać dnia i nocy bez sprawdzania która jest godzina?,"Tak, astronauci na Międzynarodowej Stacji Kosmicznej (ISS) mogą doświadczać cyklu dnia i nocy, nawet jeśli nie sprawdzają aktualnej godziny. ISS krąży wokół Ziemi raz na 90 minut, co oznacza, że załoga doświadcza 16 wschodów i zachodów słońca w ciągu doby.
+
+Aby utrzymać normalny rytm snu i czuwania, astronauci stosują odpowiednie harmonogramy i rutyny, które są zsynchronizowane z czasem na Ziemi. ISS używa Coordinated Universal Time (UTC), aby uniknąć zamieszania związanego z różnymi strefami czasowymi na Ziemi.
+
+Ponadto, na ISS są instalowane specjalne światła, które są sterowane w taki sposób, aby pomóc regulować rytm snu i czuwania załogi. Te światła są zaprogramowane tak, aby naśladować naturalny cykl światła dziennej i pomóc astronautom zachować zdrowie i dobry nastrój.",,,,
+nick-4.8-20261114T224255Z-003,91,cdd2e38f98ee5753a4ab26ba,d4c52e6cfd49e663b55f16153ec57390,nick-4.8,pl,science,oasst2,human_authored,"[user] Kiedy Księżyc powoduje przypływy, dlaczego po przeciwnej stronie planety jest przypływ?
+
+[assistant] Księżyc powoduje przypływy poprzez siłę pływów, czyli różnicę w siłach przyciągających Księżyc i Ziemię na wodę na Ziemi. Kiedy Księżyc znajduje się po jednej stronie Ziemi, jego siła przyciągająca jest silniejsza niż na przeciwnej stronie Ziemi. W wyniku tego woda na Ziemi jest przyciągana silniej przez Księżyc, co powoduje przypływ.
+
+Z drugiej strony, gdy Księżyc jest na przeciwnej stronie Ziemi, jego siła przyciągająca jest słabsza, ponieważ jest dalej od wody na Ziemi. Jednak Ziemia również jest przyciągana przez Księżyc, a ta siła jest równa sile przyciągania wody. W rezultacie, woda na Ziemi jest przyciągana mniej, a Ziemia jest przyciągana bardziej, co powoduje przypływ na przeciwnej stronie Ziemi. Ten drugi przypływ nazywa się przypływem przeciwprądowym.
+
+[user] Czy siła przyciągania Księżyca jest stała, czy może w jakiś sposób zmienia się z biegiem czasu?","Siła przyciągania Księżyca na Ziemię, zwana siłą pływów, faktycznie zmienia się z biegiem czasu. Jest to spowodowane kilkoma czynnikami, które wpływają na oddziaływanie pomiędzy Ziemią a Księżycem.
+
+Po pierwsze, odległość pomiędzy Ziemią a Księżycem zmienia się w ciągu cyklu księżycowego. Kiedy Księżyc jest w punkcie najbliższym Ziemi (tzw. perygeum), siła jego przyciągania jest silniejsza niż w momencie, gdy znajduje się najdalej (tzw. apogeum).
+
+Po drugie, ruchy Ziemi i Księżyca wokół Słońca i wokół siebie nawzajem wpływają na siłę przyciągania. Kiedy Ziemia i Księżyc znajdują się po przeciwnych stronach Słońca (tzw. syzygia), siła przyciągania Księżyca jest wzmocniona, co prowadzi do wzrostu siły pływów.
+
+Wreszcie, wpływ na siłę przyciągania ma również działanie innych ciał niebieskich, takich jak Słońce i planety. Choć ich wpływ jest zazwyczaj mniejszy niż wpływ Księżyca, to może on również wpłynąć na siłę przyciągania i zmienić jej wartość.
+
+Podsumowując, siła przyciągania Księżyca na Ziemię jest zmienna i zależy od wielu czynników, w tym odległości między nimi, położenia Ziemi i Księżyca względem Słońca oraz wpływu innych ciał niebieskich.",,,,
+nick-4.8-20261114T224255Z-003,92,a6fc9b81229ceac8f9245d60,68a48faac7ececbb0f575f2aeb5e528b,nick-4.8,pt,coding,aya-dataset,human_authored,[user] Quem criou a linguagem de programação Rust?,"A linguagem de programação Rust foi criada pelo engenheiro de software canadense Graydon Hoare. Graydon iniciou o desenvolvimento da linguagem Rust como um projeto pessoal em 2006 enquanto trabalhava como engenheiro na empresa Mozilla. Ele apresentou o projeto da linguagem Rust para o seu gerente na Mozilla e foi autorizado a criar um time dentro da empresa para desenvolver a linguagem. Oficialmente, Rust foi anunciada para o mundo em 2010 com o objetivo de ser segura, concorrente e prática. Inicialmente, Rust foi implementada em OCaml, porém atualmente ela é desenvolvida em Rust. Em 2013, Graydon deixou o seu papel de liderança no desenvolvimento da linguagem devido a um burnout que ele estava sofrendo.",,,,
+nick-4.8-20261114T224255Z-003,93,e386ec7af8a2ac9f25ed5af1,98e7d63bfb609d1cbde4cdc3d14b1e01,nick-4.8,pt,general_knowledge,aya-dataset,human_authored,[user] Qual é a diferença entre a Copa do Mundo e a Copa América no futebol?,"A Copa do Mundo e a Copa América são dois dos principais torneios de futebol do mundo, mas há diferenças significativas entre eles. A Copa do Mundo é um torneio internacional organizado pela FIFA e envolve seleções nacionais de todo o mundo. A Copa América, por outro lado, é um torneio sul-americano que reúne seleções da América do Sul. Enquanto a Copa do Mundo é realizada a cada quatro anos, a Copa América ocorre a cada quatro anos, mas com edições intercaladas para evitar coincidência com a Copa do Mundo. Ambos os torneios têm suas próprias histórias e tradições, mas são eventos distintos.",,,,
+nick-4.8-20261114T224255Z-003,94,7f364821c954f7d7291a449e,e289c1c8a2e522c0a171c403bbc5b46f,nick-4.8,pt,mathematics,nemotron-math,synthetic,[user] Solve the following equations: $2\sqrt {a+x}+\sqrt {a-x}=\sqrt {a-x+\sqrt {x(a+x)}}$,"The equation to solve is \(2\sqrt{a + x} + \sqrt{a - x} = \sqrt{a - x + \sqrt{x(a + x)}}\).
+
+For the equation to be defined and real, the expressions under the square roots must satisfy:
+- \(a + x \geq 0\),
+- \(a - x \geq 0\),
+- \(x(a + x) \geq 0\),
+- \(a - x + \sqrt{x(a + x)} \geq 0\) (which holds if the previous conditions are met).
+
+The condition \(x(a + x) \geq 0\) and \(|x| < a\) (from \(a + x \geq 0\) and \(a - x \geq 0\)) imply that \(x(a + x) = 0\), so \(x = 0\) or \(x = -a\).
+
+- At \(x = 0\):
+  - Left side: \(2\sqrt{a + 0} + \sqrt{a - 0} = 2\sqrt{a} + \sqrt{a} = 3\sqrt{a}\).
+  - Right side: \(\sqrt{a - 0 + \sqrt{0 \cdot a}} = \sqrt{a + 0} = \sqrt{a}\).
+  - Since \(3\sqrt{a} \neq \sqrt{a}\) for \(a > 0\), this is not a solution.
+
+- At \(x = -a\):
+  - Assume \(a > 0\) for real square roots.
+  - Left side: \(2\sqrt{a + (-a)} + \sqrt{a - (-a)} = 2\sqrt{0} + \sqrt{2a} = \sqrt{2a}\).
+  - Right side: \(\sqrt{a - (-a) + \sqrt{(-a)(a + (-a))}} = \sqrt{2a + \sqrt{(-a) \cdot 0}} = \sqrt{2a + \sqrt{0}} = \sqrt{2a}\).
+  - Both sides are equal to \(\sqrt{2a}\), so it satisfies the equation.
+
+For \(a < 0\), \(x = -a > 0\), but then \(a - x = a - (-a) = 2a < 0\), making \(\sqrt{a - x}\) undefined. Thus, \(a > 0\) is required for a real solution.
+
+Analysis shows that \(x = -a\) is the only solution when \(a > 0\).
+
+\boxed{x = -a}",,,,
+nick-4.8-20261114T224255Z-003,95,25475a68d0653329aa639c22,a80eb1ef344ba71b1b7b181b920dfe91,nick-4.8,pt,reasoning,aya-dataset,human_authored,[user] Descreva a bandeira de Haiti.,"A bandeira do Haiti é composta por duas faixas horizontais de igual largura, sendo a faixa superior azul e a faixa inferior vermelha. No centro da faixa vermelha, há um quadrado branco que contém o escudo nacional do Haiti, que inclui a bandeira do país, um canhão, ferramentas agrícolas e uma âncora. A bandeira representa a independência do Haiti, sendo a primeira nação da América Latina a conquistar sua liberdade do colonialismo.",,,,
+nick-4.8-20261114T224255Z-003,96,9d0ead2ff7720419175bfc8d,64da44810bdfc17a6c06fdf2239340ff,nick-4.8,pt,safety_ethics,aya-dataset,human_authored,[user] Escreva uma mensagem de parabéns para o meu melhor amigo.,"Feliz Aniversário, amigo!
+Hoje celebramos a passagem de mais um ano em que você nos honra com a sua personalidade fantástica. A nossa amizade enche a minha vida de luz e harmonia. Você está sempre aqui para me ajudar e suportar nos momentos altos e baixos da vida. A sua bondade genuína, positividade e habilidade de procurar sempre ver o melhor em cada situação me inspiram a ser uma pessoa melhor.
+Neste dia especial, te desejo felicidade abundante, sucesso e inúmeras aventuras.
+Obrigada por ser o amigo fenomenal que você é. 
+Vamos brindar a mais um ano repleto de momentos preciosos!",,,,
+nick-4.8-20261114T224255Z-003,97,80de56fb8b0247cb5518f241,5764a3595c9e14506409cd1e32007466,nick-4.8,pt,science,aya-dataset,human_authored,[user] O que é a teoria do caos na matemática?,"A teoria do caos na matemática é um campo de estudo que trata de sistemas dinâmicos que apresentam um comportamento imprevisível e sensível às condições iniciais, mesmo sendo deterministas. Isso significa que pequenas variações nas condições iniciais podem levar a resultados muito diferentes a longo prazo, tornando a previsão desses sistemas muito difícil ou impossível.
+
+Um exemplo de sistema caótico é o clima, que depende de muitos fatores e pode mudar drasticamente por causa de pequenos eventos, como o bater das asas de uma borboleta. Outros exemplos são o crescimento populacional, a dinâmica das epidemias, o movimento dos planetas e a turbulência dos fluidos.",,,,
+nick-4.8-20261114T224255Z-003,98,98c1eb967616dc50e4e420fd,76c1479773e437e2c89b591c78c903bd,nick-4.8,pt,web_frontend,aya-dataset,human_authored,[user] O que caracteriza o signo de Libra?,"O signo de Libra é o único do Zodíaco representado por um objeto, a balança, símbolo da justiça e do equilíbrio. As ações librianas são sempre fruto de grandes reflexões, que permitem a análise de todos os lados de uma situação. No seu belo universo, habitam o “eu” e o “outro”, com suas diferenças sendo respeitadas e acolhidas.
+
+Seu elemento solar é o Ar, reino do intelecto, das ideias e das negociações. Com ele, aprendemos que o ser humano não veio para viver sozinho. Entre as datas dos signos do Zodíaco, a data do signo de Libra é aproximadamente de 23 de setembro a 22 de outubro, mas isso pode mudar dependendo do seu ano de nascimento.
+
+A possibilidade de estar entre alianças e parcerias é o que nutre o seu coração e é por isso que os relacionamentos dão sentido para a sua vida, já que por meio deles você acaba conhecendo a si mesmo(a). Ademais, quando a sua força aumenta, você se torna ainda mais capaz de promover conciliações nos ambientes com desentendimentos.
+
+Você tem o dom de perceber e contemplar a beleza, já que seu senso estético é bastante apurado. Arte, amor, gentileza e tantas outras forças permeiam o universo delicado que te cerca… E é estando em contato com essas realidades que você pode se sentir a verdadeira satisfação.",,,,
+nick-4.8-20261114T224255Z-003,99,a34d8c78d8d44eff21ddbc6f,800bf539083b6136cdc75234c0788632,nick-4.8,pt-BR,general_knowledge,oasst2,human_authored,"[user] Diga Oi em Coreano.
+
+[assistant] Em Coreano, ""Oi"" pode ser traduzido como 여보세요 (yeoboseyo) ou 안녕하세요 (annyeonghaseyo), dependendo do contexto e do grau de formalidade.
+
+[user] Me dê sugestões de saudações básicas em coreano, levando em conta que a outra pessoa seria uma desconhecida.","Claro! Antes de começar, vale esclarecer que, no coreano, existem diferentes tipos de formalidades: a **linguagem culta, formal e a linguagem informal.** E, por essa razão, sempre existirá mais de um jeito de cumprimentar as pessoas em coreano para cada ocasião.
+
+Pensando nisso, preparei uma tabela para ficar mais fácil:
+
+|  Saudação   |  Linguagem culta  |  Linguagem formal  |  Linguagem informal  |
+| ----------- | ----------- | ----------- | ----------- |
+|  Olá    |  안녕하십니까 (/annyeonghashimnikka/)     |  안녕하세요 (/annyeonghaseyo/)     |  안녕 (/annyeong/)  |
+|  Bom dia    |  안녕히 주무셨어요? (/annyeonghi jumusyeosseoyo/)  |  잘 잤어요? (/jal jasseoyo/)  |  잘 잤어? (/jal jasseo/)  |
+|  Boa noite  |  안녕히 주무십시오 (/annyeonghi jumushibsio/)  |  안녕히 주무세요 (/annyeonghi jumuseyo/); 잘 자요 (/jal jayo/)  |  잘 자 (/jal ja/)  |
+|  Como vai?  | 안녕하신가요? (/annyeonghashingayo/)  |  잘 지냈어요? (/jal jinaesseoyo/)  |  오랜만이야 (/oraenmaniya/)  |
+|  Obrigado  | 감사합니다 (/gamsahapnida/)  |  고마워요 (/gomawoyo/)  |  고마워 (/gomawo/)  |
+|  Tchau (se a pessoa estiver saindo) | 안녕히 가십시오 (/annyeonghi gasipsio/)  |  안녕히 가세요 (/annyeonghi gaseyo/)  |  잘 가 (/jal ga/)  |
+|  Tchau (se você estiver saindo) | 안녕히 계십시오 (/annyeonghi gyesipsio/)  |  안녕히 계세요 (/annyeonghi gyeseyo/)  |  또 봐 (/tto bwa/)  |
+
+Agora que você já sabe cumprimentar, vamos dar o próximo passo nos seus estudos e aprender como fazer perguntas em coreano?",,,,
+nick-4.8-20261114T224255Z-003,100,07cad27a538278c895772564,4dc4675f2df901c9a8e5435bb156d3bf,nick-4.8,roman_ur,education,approx-curriculum,programmatic,[user] Mujhe quadratic equation samajh nahi aa rahi. x^2 - 5x + 6 = 0 solve karna hai par sirf hint do.,"Bilkul! Factoring try karein. Aapko do number chahiye jo:
+• aapas mein multiply ho kar +6 dein (constant), aur
+• add ho kar -5 dein (middle coefficient).
+
+Socho: kaun se do number aise hain? (Hint: dono negative honge kyunki product positive aur sum negative hai.)
+
+Jab mil jaayein to equation ko (x - a)(x - b) = 0 ki shakl mein likho. Try karo aur bata do kya mila!",,,,

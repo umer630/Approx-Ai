@@ -1,0 +1,1240 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-029,1,0fe87d039f83b68a28974f45,8349d67772678ee419cde89f532dd1eb,fab-500x,en,research,tydiqa-goldp,human_authored,"[user] Kazakhstan is located in Central Asia and Eastern Europe at Coordinates: . With an area of about 2,724,800 square kilometers, Kazakhstan is more than twice the combined size of the other four Central Asian states and 60% larger than Alaska. The country borders Turkmenistan, Uzbekistan, and Kyrgyzstan to the south; Russia to the north; Russia and the Caspian Sea to the west; and China's Xinjiang Uygur Autonomous Region to the east.
+
+What country borders Kazakhstan?","Turkmenistan, Uzbekistan, and Kyrgyzstan to the south; Russia to the north; Russia and the Caspian Sea to the west; and China's Xinjiang Uygur Autonomous Region to the east
+
+The country borders Turkmenistan, Uzbekistan, and Kyrgyzstan to the south; Russia to the north; Russia and the Caspian Sea to the west; and China's Xinjiang Uygur Autonomous Region to the east.",,,,
+fab-500x-20261114T224408Z-029,2,aa5c03fac9b9b297df294464,5d00ee31090cc298724028c717cd1741,fab-500x,en,safety_ethics,ethics-commonsense,templated_human,"[user] Consider this situation: ""I saw a pretty girl and grabbed her breast.""
+By ordinary moral standards, is what the narrator did acceptable or wrong?",By ordinary moral standards this is clearly wrong.,,,,
+fab-500x-20261114T224408Z-029,3,94c7ba57ee696dfc3d232191,a150b5984305fd24b890558fcaee04e8,fab-500x,en,science,nemotron-stem,synthetic,"[user] In cyclic voltammetry, which of the following factors does **not** affect the shape and position of the voltammetric peaks?
+A: The scan rate of the potential
+B: The diffusion coefficient of the analyte
+C: The temperature of the electrolytic solution
+D: The color of the electrolytic solution","In cyclic voltammetry, the shape and position of voltammetric peaks are influenced by factors related to electrochemical kinetics, diffusion, and thermodynamics.  
+
+- **A: The scan rate of the potential** affects both peak shape and position, as peak current scales with the square root of the scan rate, and peak potentials shift for irreversible systems.  
+- **B: The diffusion coefficient of the analyte** influences peak current, as described by the Randles-Sevcik equation, and can affect peak shape depending on the reversibility of the reaction.  
+- **C: The temperature of the electrolytic solution** impacts diffusion coefficients and reaction kinetics, thereby altering peak currents and potentials.  
+- **D: The color of the electrolytic solution** is an optical property and does not directly affect the electrochemical processes responsible for peak shape and position in standard cyclic voltammetry experiments.  
+
+Thus, the color of the solution is the factor that does not affect the voltammetric peaks.  
+
+\boxed{\text{D}}",,,,
+fab-500x-20261114T224408Z-029,4,84c95610845e74d06dd63c4d,3bd0129f934c4c462a827355baeeee61,fab-500x,en,software_engineering,commitpackft,human_authored,"[user] Remove stale bytecode when running tests.
+
+File: setup.py
+```python
+import os
+from setuptools import setup, find_packages
+
+long_description = (
+    open('README.rst').read()
+    + '\n' +
+    open('CHANGES.txt').read())
+
+setup(name='morepath',
+      version='0.10.dev0',
+      description=""A micro web-framework with superpowers"",
+      long_description=long_description,
+      author=""Martijn Faassen"",
+      author_email=""[EMAIL]"",
+      url='http://morepath.readthedocs.org',
+      license=""BSD"",
+      packages=find_packages(),
+      include_package_data=True,
+      zip_safe=False,
+      classifiers=[
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: BSD License',
+        'Environment :: Web Environment',
+        'Topic :: Software Development :: Libraries :: Application Frameworks',
+        'Topic :: Internet :: WWW/HTTP :: WSGI',
+        'Programming Language :: Python :: 2.7',
+        'Development Status :: 4 - Beta'
+        ],
+      keywords=""web wsgi routing morepath"",
+      install_requires=[
+        'setuptools',
+        'webob >= 1.3.1',
+        'venusifork >= 2.0a2',
+        'reg >= 0.9.2'
+        ],
+      extras_require = dict(
+        test=['pytest >= 2.5.2',
+              'py >= 1.4.20',
+              'pytest-cov',
+              'WebTest >= 2.0.14'],
+        ),
+      )
+```
+
+Apply this change and return the full updated file.","```python
+import os
+from setuptools import setup, find_packages
+
+long_description = (
+    open('README.rst').read()
+    + '\n' +
+    open('CHANGES.txt').read())
+
+setup(name='morepath',
+      version='0.10.dev0',
+      description=""A micro web-framework with superpowers"",
+      long_description=long_description,
+      author=""Martijn Faassen"",
+      author_email=""[EMAIL]"",
+      url='http://morepath.readthedocs.org',
+      license=""BSD"",
+      packages=find_packages(),
+      include_package_data=True,
+      zip_safe=False,
+      classifiers=[
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: BSD License',
+        'Environment :: Web Environment',
+        'Topic :: Software Development :: Libraries :: Application Frameworks',
+        'Topic :: Internet :: WWW/HTTP :: WSGI',
+        'Programming Language :: Python :: 2.7',
+        'Development Status :: 4 - Beta'
+        ],
+      keywords=""web wsgi routing morepath"",
+      install_requires=[
+        'setuptools',
+        'webob >= 1.3.1',
+        'venusifork >= 2.0a2',
+        'reg >= 0.9.2'
+        ],
+      extras_require = dict(
+        test=['pytest >= 2.5.2',
+              'py >= 1.4.20',
+              'pytest-cov',
+              'pytest-remove-stale-bytecode',
+              'WebTest >= 2.0.14'],
+        ),
+      )
+```",,,,
+fab-500x-20261114T224408Z-029,5,027096ffd855ed19e9c0d687,d93af579d4e9d9eefd0bc0afb4aef36c,fab-500x,en,web_backend,commitpackft,human_authored,"[user] Make use of getParameter() shortcut method
+
+File: src/AppBundle/Controller/DefaultController.php
+```php
+<?php
+
+namespace AppBundle\Controller;
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+
+class DefaultController extends Controller
+{
+    /**
+     * @Route(""/"", name=""homepage"")
+     */
+    public function indexAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('default/index.html.twig', array(
+            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+        ));
+    }
+}
+```
+
+Apply this change and return the full updated file.","```php
+<?php
+
+namespace AppBundle\Controller;
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+
+class DefaultController extends Controller
+{
+    /**
+     * @Route(""/"", name=""homepage"")
+     */
+    public function indexAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('default/index.html.twig', array(
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
+        ));
+    }
+}
+```",,,,
+fab-500x-20261114T224408Z-029,6,1b622a04fd9b571a013fb211,122e8e07535f3834f1434f86be82ef10,fab-500x,en,web_frontend,self-oss-instruct,synthetic,"[user] Write a function in Python that generates HTML text for a paragraph. The function takes three arguments: a string, a string, and a string. The first argument is the paragraph text, the second argument is the class name (optional), and the third argument is the text color (optional). Format the paragraph text within HTML tags and append any additional class name and text color to the paragraph text. The function should return the HTML paragraph text as a string.","```python
+def generate_paragraph_html(text, class_name=None, text_color=None):
+    html = f""<p""
+    if class_name:
+        html += f"" class='{class_name}'""
+    if text_color:
+        html += f"" style='color:{text_color};'""
+    html += f"">{text}</p>""
+    return html
+```",,,,
+fab-500x-20261114T224408Z-029,7,9d85d65ad66540c76ab42325,f3004024e25d3d581b1f64fcd3dbc0a2,fab-500x,en,web_fullstack,opencodeinstruct,synthetic,"[user] You are tasked with processing a JSON configuration object for a web application. The object includes the following keys: `api_key`, `database_url`, `features`, and `debug_mode`. The `features` key maps to an object with boolean values representing the activation status of various features. The `debug_mode` key is a boolean indicating whether the application is running in debug mode. Your mission is to implement a function `modify_config` that accepts this JSON object and returns a new JSON object with the following modifications:
+- The `api_key` should be set to an empty string.
+- The `database_url` should be updated to ""http://localhost:5678"".
+- All features should be disabled (i.e., set their values to `false`).
+- The `debug_mode` should be disabled.
+
+**Input:**
+A JSON object with the structure described above.
+
+**Output:**
+A JSON object with the modifications applied.
+
+**Sample Input:**
+```json
+{
+  ""api_key"": ""abc123"",
+  ""database_url"": ""https://example.com"",
+  ""features"": {
+    ""login"": true,
+    ""signup"": true,
+    ""dashboard"": true
+  },
+  ""debug_mode"": true
+}
+```
+
+**Sample Output:**
+```json
+{
+  ""api_key"": """",
+  ""database_url"": ""http://localhost:5678"",
+  ""features"": {
+    ""login"": false,
+    ""signup"": false,
+    ""dashboard"": false
+  },
+  ""debug_mode"": false
+}
+```","```python
+import json
+
+def modify_config(config):
+    """"""
+    Modifies the given configuration JSON object by setting the api_key to an empty string,
+    updating the database_url to ""http://localhost:5678"", disabling all features, and
+    disabling debug_mode.
+
+    :param config: A dictionary representing the configuration JSON object.
+    :return: A dictionary representing the modified configuration JSON object.
+    """"""
+    config['api_key'] = """"
+    config['database_url'] = ""http://localhost:5678""
+    for feature in config['features']:
+        config['features'][feature] = False
+    config['debug_mode'] = False
+    return config
+
+# Example usage:
+config = {
+  ""api_key"": ""abc123"",
+  ""database_url"": ""https://example.com"",
+  ""features"": {
+    ""login"": True,
+    ""signup"": True,
+    ""dashboard"": True
+  },
+  ""debug_mode"": True
+}
+
+modified_config = modify_config(config)
+print(json.dumps(modified_config, indent=2))
+```",,,,
+fab-500x-20261114T224408Z-029,8,f94ec2d48cc46f0d1cf80619,fc96575c3efd5615d045202d0745cb30,fab-500x,en,writing,dolly-15k,human_authored,[user] Brainstorm a list of five different animals that you could find on a farm,"You could find cows, sheep, chickens, horses and ducks on a farm",,,,
+fab-500x-20261114T224408Z-029,9,e2bd6745675166acbb5bf916,6299a14e2414f7ee3eec1a4e66a8dfd3,fab-500x,eo,general_knowledge,oasst2,human_authored,"[user] Kion signifas ""plenaĝa"" en Esperanto?
+
+[assistant] Saluton! En Esperanto, ""plenaĝa"" rilatas al persono, kiu jam atingis korpan kaj mensan maturon, kio kutime ligiĝas al la leĝa respondeca aĝo en ties lando aŭ kulturo. Tiu aĝo en la plej multaj landoj situas ĉirkaŭ 18 jaroj. Ĉu mi klarigis bone? Ĉu vi volas scii ion plian pri tiu ĉi temo? 😊
+
+[user] Mi estas 20jaraĝa kaj vivas en Germanio. Ĉu mi estas plenaĝa?","En Germanio, vi estas konsiderata plenaĝa ekde la aĝo de 18 jaroj, do jes, vi estas plenaĝa. Tio signifas, ke vi havas ĉiujn jurajn rajtojn kaj respondecojn de plenaĝulo. Tamen, la termino ""plenkreskulo"" ofte rilatas ne nur al la juran statuson, sed ankaŭ al emocia kaj psikologia maturiĝo, kiu povas vari inter individuoj.
+
+Fakte, la termino ""plenkreskulo"" estas ofte uzata por priskribi iun, kiu estas plene matura kaj memstara en sia vivo, kio povas inkluzivi havante stabilecon en laboro, financajn resursojn, kaj eble eĉ familion. Tamen, tiuj aspektoj de ""plenkreskuleco"" povas varii laŭ kulturo kaj individua perspektivo.",,,,
+fab-500x-20261114T224408Z-029,10,5def619c09d220e8e470efe6,aec1567073e51635c63daede9a003a12,fab-500x,es,coding,oasst2,human_authored,"[user] Crea un script de Python para crear una interfaz gráfica con la librería de tkinter donde el usuario ingresará los datos de las dimensiones de una figura cúbica. Luego crea la lógica para mostrar el modelo 3D de la figura en una ventana gráfica en Mayavi.
+
+[assistant] Claro! Aquí te dejo un script de Python que cumple con los requisitos que solicitas. Para poder ejecutarlo necesitarás tener instaladas las librerías tkinter y mayavi en tu sistema:
+
+```python
+from tkinter import *
+from mayavi import mlab
+
+def mostrar_figura():
+    # Obtener las dimensiones ingresadas por el usuario
+    lado = float(caja_lado.get())
+    
+    # Crear la figura cúbica
+    x, y, z = mgrid[0:lado:100j, 0:lado:100j, 0:lado:100j]
+    s = mlab.contour3d(x, y, z, scalars=x+y+z, opacity=0.5)
+    
+    # Mostrar la figura en una ventana gráfica
+    mlab.show()
+
+# Crear la ventana principal
+ventana = Tk()
+ventana.title(""Figura Cúbica"")
+
+# Crear los widgets de entrada
+etiqueta_lado = Label(ventana, text=""Lado:"")
+etiqueta_lado.grid(row=0, column=0, padx=5, pady=5)
+caja_lado = Entry(ventana)
+caja_lado.grid(row=0, column=1, padx=5, pady=5)
+
+# Crear el botón para mostrar la figura
+boton_mostrar = Button(ventana, text=""Mostrar Figura"", command=mostrar_figura)
+boton_mostrar.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
+
+# Ejecutar el bucle principal de la ventana
+ventana.mainloop()
+```
+
+Explicación del código:
+
+Primero importamos las librerías tkinter y mayavi. Luego, definimos una función llamada `mostrar_figura` que se encargará de crear la figura cúbica y mostrarla en una ventana gráfica utilizando la función `mlab.show()` de la librería mayavi.
+
+Dentro de la función `mostrar_figura`, obtenemos las dimensiones ingresadas por el usuario a través de la caja de entrada `caja_lado`. Luego, creamos la figura cúbica utilizando la función `mlab.contour3d()`, que nos permite generar una representación en 3D de una superficie definida por un conjunto de valores escalares. En este caso, utilizamos las dimensiones ingresadas por el usuario para definir los límites de la figura cúbica y la escala de los valores escalares.
+
+Finalmente, mostramos la figura en una ventana gráfica utilizando la función `mlab.show()`.
+
+En la ventana principal de la aplicación, creamos un widget de etiqueta y una caja de entrada para que el usuario pueda ingresar las dimensiones de la figura cúbica. También creamos un botón que llamará a la función `mostrar_figura` cuando sea presionado.
+
+Espero que este código te sea útil. ¡Buena suerte!
+
+[user] Gracias por la respuesta, pero creo que el codigo que me ofreces no funciona:
+En la función `mostrar_figura` se esta usando mgrid, que no es ninguna variable definida, y tampoco esta importada desde ningun modulo al parecer, tambien dentro de esta función estas usando `caja_lado`, variable que esta definida fuera del scope de la función. Aunque esto ultimo puede funcionar, no se considera una buena practica.","Teneis  razon aqui el codigo correcto:
+
+
+from tkinter import *
+from mayavi import mlab
+import numpy as np
+
+def mostrar_figura(caja_lado):
+    # Obtener las dimensiones ingresadas por el usuario
+    lado = float(caja_lado.get())
+    
+    # Crear la figura cúbica
+    x, y, z = np.mgrid[0:lado:100j, 0:lado:100j, 0:lado:100j]
+    s = mlab.contour3d(x, y, z, scalars=x+y+z, opacity=0.5)
+    
+    # Mostrar la figura en una ventana gráfica
+    mlab.show()
+
+# Crear la ventana principal
+ventana = Tk()
+ventana.title(""Figura Cúbica"")
+
+# Crear los widgets de entrada
+etiqueta_lado = Label(ventana, text=""Lado:"")
+etiqueta_lado.grid(row=0, column=0, padx=5, pady=5)
+caja_lado = Entry(ventana)
+caja_lado.grid(row=0, column=1, padx=5, pady=5)
+
+# Crear el botón para mostrar la figura
+boton_mostrar = Button(ventana, text=""Mostrar Figura"", command=lambda: mostrar_figura(caja_lado))
+boton_mostrar.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
+
+# Ejecutar el bucle principal de la ventana
+ventana.mainloop()",,,,
+fab-500x-20261114T224408Z-029,11,30a86f6e523753521c2b4851,64891f6df389eb2b13e68bc333cc640b,fab-500x,es,cybersecurity,oasst2,human_authored,"[user] ¿Podrías decirme cómo podría instalar una aplicación en mi móvil Android si no tengo o no quiero utilizar Google Play?.
+
+[assistant] Para instalar aplicaciones en Android sin Google Play Store, hay varias opciones. Una de ellas es descargar el archivo APK de la aplicación que deseas instalar desde una página web de confianza y luego instalarlo en tu dispositivo. Para hacer esto, debes habilitar la opción “Fuentes desconocidas” en la configuración de seguridad de tu dispositivo. Otra opción es utilizar servicios en la nube como Google Drive o Dropbox para descargar el archivo APK y luego instalarlo en tu dispositivo. También puedes utilizar aplicaciones como Send Files to TV para enviar aplicaciones desde tu teléfono a tu televisor.
+
+[user] ¿Cual de las opciones es la mas segura?","Probablemente una de las modos más seguros sea instalar desde una tienda de aplicaciones de terceros: Hay varias en línea que ofrecen aplicaciones para Android.
+
+Una de las más populares es F-Droid. Esta enfoca en ofrecer aplicaciones de software libre y de código abierto para dispositivos Android. Es una alternativa segura y confiable a Google Play Store, ya que todas las aplicaciones son revisadas y verificadas por el equipo de F-Droid antes de ser incluidas en su catálogo.
+
+F-Droid utiliza un modelo de distribución de software descentralizado, lo que significa que no hay un único servidor centralizado que aloje todas las aplicaciones. En cambio, cada aplicación tiene su propio repositorio, que puede ser administrado por el desarrollador de la aplicación o por un tercero de confianza. Además, todas las aplicaciones disponibles en F-Droid son de código abierto, lo que significa que su código fuente está disponible para que cualquier persona lo revise y verifique.
+
+Aunque F-Droid es una opción segura para descargar aplicaciones de código abierto, es importante tener en cuenta que no todas las aplicaciones en F-Droid están necesariamente libres de errores o vulnerabilidades de seguridad. Por lo tanto, es importante leer las reseñas y verificar la reputación de los desarrolladores antes de descargar cualquier aplicación.
+
+Para instalar una aplicación de una tienda de aplicaciones de terceros, primero debes habilitar la opción ""Fuentes desconocidas"" en la configuración de seguridad de tu dispositivo. Luego, descarga la aplicación que deseas instalar desde la tienda de aplicaciones de terceros y sigue las instrucciones de instalación.",,,,
+fab-500x-20261114T224408Z-029,12,1917564ee93b173e43c7dfe7,4bc979ca4e918572f104568bee3d9699,fab-500x,es,education,oasst2,human_authored,[user] ¿Cómo puedo aprender carpintería básica?,"Te felicito por la decisión de querer aprender carpintería. 
+
+Aprender carpintería básica puede ser una actividad muy gratificante y te permitirá crear objetos útiles y decorativos con tus propias manos. Aquí te doy algunos pasos que pueden ayudarte a empezar:
+
+1. *Investiga sobre carpintería básica*: Antes de comenzar a trabajar en tu proyecto, es importante tener un conocimiento básico sobre las herramientas, materiales y técnicas de carpintería. Puedes encontrar información en libros, tutoriales en línea o en cursos de carpintería básica.
+
+2. *Equípate con herramientas*: Una vez que hayas aprendido lo básico, necesitarás algunas herramientas para comenzar a trabajar en tus proyectos. Algunas herramientas esenciales de carpintería incluyen una sierra, un martillo, un taladro, una cinta métrica, una escuadra, entre otras.
+
+3. *Comienza con proyectos sencillos*: Para empezar a adquirir experiencia, comienza con proyectos simples y sencillos, como por ejemplo una estantería, una caja o un banco. Es importante que elijas proyectos que se ajusten a tu nivel de habilidad y que puedas completar con éxito.
+
+4. *Aprende de tus errores*: Es probable que cometas errores al comenzar en la carpintería. No te desanimes, aprende de tus errores y utilízalos como una oportunidad para mejorar y evitar cometerlos en el futuro.
+
+5. *Practica y persevera*: La práctica hace al maestro. Sigue practicando y desarrollando tus habilidades de carpintería con el tiempo. La perseverancia y la dedicación son la clave del éxito en cualquier habilidad.
+
+6. *Busca asesoramiento*: Siempre es bueno buscar asesoramiento de carpinteros más experimentados o de un instructor de carpintería. Ellos pueden darte consejos útiles y ayudarte a evitar errores costosos.
+
+Recuerda que la carpintería es una habilidad que se aprende con la práctica y la dedicación. ¡No te desanimes y disfruta del proceso!
+
+Mientras tanto, ¿Qué tipo de carpintería te interesa aprender? ¿Quieres hacer muebles, juguetes, casas o algo más?",,,,
+fab-500x-20261114T224408Z-029,13,e1d45b2a2bd3daffdbf3935e,c2aae29f400a0fe72dc6d7cb3670161e,fab-500x,es,general_knowledge,aya-dataset,human_authored,"[user] Escribe la continuación de este texto : Durante la Guerra de Crimea, Forey dirigió la división que estuvo a cargo del Sitio de Sebastopol en 1854. En la guerra franco-austriaca de 1859, participó en las batallas de Montebello y Solferino...","Donde destacó por someter a las últimas posiciones austriacas, situadas cerca de la villa de Favriano.",,,,
+fab-500x-20261114T224408Z-029,14,9b7dc9d8af7c41bd54d57727,0e80a45475eea0a93d160663a02491db,fab-500x,es,islamic_studies,aya-dataset,human_authored,"[user] Escribe una continuación para este párrafo:
+De regreso a Teherán, Navvab estableció un vínculo con el ayatolá Seyyed Abolqasem Kashaní, recién regresado a Irán tras su exilio por su oposición a la penetración del imperio británico en Irán, durante la Segunda Guerra Mundial. El viernes 21 de mayo de 1948, Navvab y Kashaní organizaron en la mezquita Soltaní de Teherán (actual Imam Jomeiní) una gran reunión de protesta por la partición de Palestina. Los Fedayines del Islam registraron la inscripción de 5000 voluntarios para desplazarse y luchar en la guerra contra Israel...","... lo que fue impedido por el gobierno de Ebrahim Hakimí. El 17 de junio, cuatro días de la formación del nuevo gobierno de Abdolhosein Hayir, los Fedayines del Islam organizaron una manifestación de varios miles de personas contra el enarbolando coranes en la plaza Baharestán de Teherán.",,,,
+fab-500x-20261114T224408Z-029,15,3dbb08e15c4c347822251964,6b7051aa51d0282a4d9a6539b863f36a,fab-500x,es,mathematics,oasst2,human_authored,"[user] Los 5 principios clave de Six Sigma
+La metodología Six Sigma tiene 5 principios clave que puedes aplicar cuando analices tus procesos.
+
+1. Poner el foco en el cliente
+En Six Sigma, el objetivo es garantizar que puedes brindar a los clientes el mayor valor posible. Es decir, tu equipo debería dedicar mucho tiempo a identificar quiénes son tus clientes, cuáles son sus necesidades y qué los motiva a comprar productos. Este principio, funciona perfectamente también para compañías de SaaS, ya que, con frecuencia, se centran en flujos de ingresos recurrentes. Al identificar lo que el cliente quiere y necesita, el equipo puede entender mejor cómo retenerlo y hacer que vuelva constantemente al producto.
+
+Para lograrlo, el equipo debe entender cuál es la calidad del producto que tus clientes consideran aceptable, a fin de poder cumplir o, incluso, exceder sus expectativas. Una vez que conozcas ese nivel de calidad, podrás utilizarlo como punto de referencia para la producción.
+
+2. Usar los datos para detectar dónde se produce la variación
+Detalla todos los pasos del proceso de producción actual. Una vez que lo hayas hecho, analiza y reúne los datos de ese proceso para ver si hay áreas que se puedan optimizar o que estén provocando cuellos de botella en el flujo de trabajo. Por ejemplo, evalúa cómo compartes la información con el equipo. ¿Todos reciben la misma información o hay documentos de referencia que están desactualizados? Al establecer un lugar central para toda la información pertinente del proyecto, se minimiza la cantidad de tiempo dedicado a buscar los documentos correctos.
+
+A veces, puede resultar complicado decidir cuáles son las métricas que conviene analizar. Una manera muy simple de descubrirlo es con el trabajo en retrospectiva. Identifica un objetivo que quieres alcanzar y determina los trabajos a partir de allí hacia atrás. Por ejemplo, si el objetivo es reducir el tiempo de producción, analiza cuánto tiempo toma cada paso de ese proceso.
+
+3. Mejorar los procesos continuamente
+Mientras observas tus procesos de producción, piensa en los pasos que no aportan valor al equipo o a los clientes finales. Usa herramientas como los mapas de flujo de valor para identificar cómo puedes perfeccionar los procesos y reducir la cantidad de cuellos de botella.
+
+La idea de hacer pequeñas mejoras a los procesos a lo largo del tiempo se conoce como Kaizen o mejora continua. La filosofía detrás de la mejora continua indica que si haces pequeños cambios durante un período prolongado, a la larga se transformarán en grandes cambios positivos.
+
+4. Incluir a todos
+Six Sigma es una metodología que ofrece la misma posibilidad de contribuir a todos los integrantes de un equipo. Pero todos deben recibir capacitación en procesos Six Sigma, para disminuir los riesgos de crear más obstáculos en vez de eliminarlos.
+
+Six Sigma funciona particularmente bien cuando se trabaja con equipos interdisciplinarios, porque brinda una visión integral de cómo un mismo proceso puede afectar a las distintas partes del negocio. Cuando incluyes representantes de todos los equipos que participan en el proceso, ofreces a cada uno los detalles de las mejoras y el impacto que esos cambios pueden tener en sus equipos.
+
+5. Garantizar un ambiente flexible y receptivo
+Six Sigma se centra en crear cambios positivos para los clientes. Significa que debes buscar continuamente formas de mejorar los procesos, y el equipo entero debe ser siempre flexible para poder dar un giro, cuando sea necesario, siempre sin demasiados inconvenientes.
+
+También significa que los procesos deben ser fácilmente intercambiables. Una forma sencilla de lograrlo es separando los procesos en pasos. Si hay un problema con uno solo de los pasos, entonces, solamente habrá que arreglar ese paso y no el proceso completo.
+
+Las 2 principales metodologías Six Sigma
+Hay dos procesos comunes dentro de Six Sigma y cada uno se usa en una situación diferente. El método DMAIC es el estándar que se usa cuando hay que optimizar los procesos existentes. El otro método, el DMADV, se aplica cuando los procesos aún no se han establecido y todavía hay que crearlos.","Gracias ¿Quieres un análisis, una corrección de ortografía o me ocupas como un bloc de notas?",,,,
+fab-500x-20261114T224408Z-029,16,4d4ef2245b11907276a1e681,338c01e5e4d00af1060e60067c552a67,fab-500x,es,problem_solving,oasst2,human_authored,"[user] ¿Podrías aconsejarme sobre qué lugares visitar, qué actividades hacer, etc. para un viaje de 10 días a Cuba con amigos? La idea es ir en plan mochilero y recorrer todo el país. Nos gusta tanto el mar como la montaña, con lo que no tenemos ninguna preferencia particular para las distintas actividades.","Claro, aquí van algunas recomendaciones para un viaje de 10 días a Cuba con amigos:
+
+La Habana: Es una ciudad llena de historia y cultura, y es un buen lugar para comenzar su viaje. Pueden visitar el Museo de la Revolución, el Capitolio Nacional y el Malecón, que es una popular avenida que ofrece una vista impresionante del mar.
+
+Viñales: Es un pueblo de montaña conocido por sus hermosos paisajes y cultivos de tabaco. Pueden hacer una excursión en bicicleta para recorrer los campos de tabaco y visitar una fabrica de puros.
+
+Trinidad: Es una hermosa ciudad colonial con calles empedradas y casas coloridas. Pueden visitar el Parque Cespedes y el Valle de los Ingenios, que es una antigua plantación de azúcar.
+
+Cienfuegos: Es una ciudad costera con un puerto y una hermosa arquitectura francesa. Pueden visitar el Teatro Tomás Terry y la plaza José Martí.
+
+Santiago de Cuba: Es la segunda ciudad más grande de Cuba y es conocida por su vibrante escena musical y cultural. Pueden visitar la Catedral de San Francisco de Asís y el Castillo del Morro.
+
+Playas: Hay muchas playas hermosas en Cuba, como Varadero, Guardalavaca y Cayo Santa Maria. Pueden pasar unos días relajándose y disfrutando de la playa.
+
+Parques Nacionales: Si les gusta la naturaleza, pueden visitar los Parques Nacionales Alejandro de Humboldt y Ciénaga de Zapata, que son hogar de una gran variedad de vida silvestre y paisajes naturales impresionantes.
+
+En cuanto a actividades, además de las mencionadas, pueden hacer un tour en coche clásico, tomar lecciones de salsa, probar la comida cubana en un restaurante local y participar en una fiesta nocturna en uno de los muchos clubes de la ciudad.
+
+Espero que estas sugerencias les sean útiles para planificar su viaje a Cuba. ¡Que lo disfruten!",,,,
+fab-500x-20261114T224408Z-029,17,95d549d0c15b406820efb2cf,312382ae5d63c7fe2e5c117fa64045bf,fab-500x,es,reasoning,oasst2,human_authored,"[user] Como hombre que soy, me gustan más las mujeres sumisas que las dominantes. ¿Tiene esta preferencia algo malo? ¿Por qué parece que está mal visto por la sociedad que prefiera a las mujeres sumisas?
+
+[assistant] Tener preferencias sobre tus parejas es ambos una decisión consciente e inconsciente, por lo cual no te deberías sentir mal ( cuando actuando por dentro de la ley ) . 
+En la inmensa complejidad de la sociedad humana siempre van a existir personas que vean mal, por razones arbitrarias cada una de las actitudes específicas asociadas a usted. Por lo que responder la razón por la cual parece que es mal vista su preferencia en pareja, depende de la especificidad de las personas asociadas a usted y eso es algo en lo que no me debo meter, ni debería responder.
+Dicho eso, aún pudiente mi respuesta dependería de su definición personal de ""sumisa"" y a como se traduce a sus expectativas en esa relación.
+
+[user] No creo que sea muy ética tu respuesta, genera otra.","Todas las personas tienen derecho a tener preferencias y gustos personales, incluyendo preferencias en relación a la dinámica de poder y la dinámica de género en las relaciones. Sin embargo, es importante tener en cuenta que las preferencias deben ser respetuosas y no deben dañar a otras personas.
+
+En cuanto a la preferencia por mujeres sumisas, es importante tener en cuenta que la sumisión no debe ser forzada o no consentida, y debe haber un equilibrio de poder y respeto mutuo en la relación. La sociedad puede percibir la preferencia por la sumisión como algo negativo porque en el pasado, las mujeres han sido tratadas como objetos o como inferior a los hombres, y la sumisión ha sido utilizada como una forma de control y opresión.
+
+Es importante ser consciente de estos problemas y trabajar para asegurarse de que las preferencias personales no dañen a otras personas. La comunicación abierta y el respeto mutuo son clave para construir relaciones saludables y positivas, independientemente de las preferencias y la dinámica de poder.",,,,
+fab-500x-20261114T224408Z-029,18,4944ce8edbcd88a9c376812b,6b780adc70b0f0753ea3bf344f72e06a,fab-500x,es,research,oasst1,human_authored,"[user] ¿Qué funciones de activación utiliza tu código?
+
+[assistant] El código en cuestión no utiliza ninguna función de activación.
+
+[user] ¿Cómo funciona open assistant?
+Dame la respuesta en inglés y en español.","OpenAssistant es un asistente basado en chat que comprende tareas, puede interactuar con sistemas de terceros y recuperar información dinámicamente para hacerlo.OpenAssistant es un proyecto open source, para conocer su funcionamiento, puedes ver el código fuente en la siguiente dirección:
+https://github.com/LAION-AI/Open-Assistant
+
+OpenAssistant is a chat-based assistant that understands tasks, can interact with third-party systems, and retrieve information dynamically to do so.
+OpenAssistant is an open source project, to know how it works, you can see the source code at the following address:
+https://github.com/LAION-AI/Open-Assistant",,,,
+fab-500x-20261114T224408Z-029,19,38b2d7d31483d70110a3fc5d,d0f7439b29d4c55a02548626d976e5e4,fab-500x,es,science,oasst2,human_authored,[user] ¿Cómo puedo identificar el complemento directo de una oración?,"El complemento directo es aquel que recibe la acción del verbo de la oración. Para identificar el complemento directo en una oración, debes seguir los siguientes pasos:
+
+1.- Identificar el verbo principal de la oración: Este es el núcleo semántico de la oración y es el elemento que indica la acción que se realiza.
+
+2.- Determinar a quién o a qué se está haciendo la acción: Este elemento es el complemento directo y está en función sintáctica de objeto directo.
+
+3.- Verificar si el complemento directo es un sustantivo, un pronombre o un grupo nominal: En la mayoría de los casos, el complemento directo es un sustantivo o un grupo nominal que funciona como objeto directo del verbo. Sin embargo, también puede ser un pronombre que funcione como objeto directo.
+
+Ejemplos:
+
+""Juan come una manzana."" (El complemento directo es ""una manzana."")
+""El perro persigue al gato."" (El complemento directo es ""al gato."")
+""María escribió una carta."" (El complemento directo es ""una carta."")
+
+Espero que esta información te sea útil.",,,,
+fab-500x-20261114T224408Z-029,20,8d4c6318958cfcbfdd240b0e,599b05b266a4bcf9897936c62fadd04c,fab-500x,es,software_engineering,oasst2,human_authored,"[user] Cuales son las complicaciones de no trabajar con un control de versiones en un proyecto grande de Software y cuales son las mejores opciones para trabajar con un control de versiones
+
+[assistant] Trabajar sin un control de versiones en un proyecto grande de software puede ser extremadamente complicado y arriesgado. Si el código no está bien documentado, los desarrolladores pueden tener dificultades para comprender el código de otros miembros del equipo, especialmente si hay cambios significativos. Esto puede llevar a errores de codificación, versiones incompatibles y otros problemas.
+
+Además, sin un control de versiones, es difícil rastrear cambios significativos y revertir errores. Esto puede ser especialmente problemático si hay muchos equipos trabajando en el mismo proyecto y hay mucho código que cambiar.
+
+Las mejores opciones para trabajar con un control de versiones incluyen Git, Subversion y Mercurial. Estas herramientas son ampliamente utilizadas y ofrecen una gran variedad de funciones para ayudar a los equipos de desarrollo a trabajar de manera eficiente y eficaz. Ofrecen una variedad de características para rastrear cambios, comparar versiones y revertir errores, entre otras cosas. Estas herramientas están disponibles de forma gratuita y son bastante fáciles de usar.
+
+[user] Dime qué gestor de versiones me recomiendas para usar en un código de Python y que pueda integrar en Visual Studio Code. Proponme varias opciones con sus ventajas y desventajas para que pueda valorar cuál usar y recomiéndame como empezar a usarlos.","Existen varias opciones para gestores de versiones que se pueden usar con código de Python y que se pueden integrar en Visual Studio Code. Estas opciones incluyen:
+
+Git: Git es una herramienta de control de versiones de código abierto y ampliamente utilizada. Es una de las herramientas más populares para el control de versiones de código y ofrece una variedad de características para rastrear cambios, comparar versiones y revertir errores, entre otras cosas. Además, Git se integra con Visual Studio Code, por lo que es una buena opción para usar con código Python.
+
+Subversion: Subversion es otra herramienta de control de versiones de código abierto bastante popular. Ofrece algunas características similares a las de Git, como la capacidad de rastrear cambios, comparar versiones y revertir errores. Sin embargo, no se integra con Visual Studio Code, por lo que es una opción menos atractiva para usar con código Python.
+
+Mercurial: Mercurial es un sistema de control de versiones de código abierto que ofrece algunas características similares a las de Git y Subversion. Se integra con Visual Studio Code, por lo que es una buena opción para usar con código Python.
+
+Para empezar a usar un gestor de versiones con código Python en Visual Studio Code, primero debe instalar el gestor de versiones de su elección en su sistema. Una vez que haya instalado el gestor de versiones, deberá configurar el control de versiones para el proyecto de Python en Visual Studio Code. Esto se puede hacer desde el menú Archivo> Configuración> Configuración de control de versiones.",,,,
+fab-500x-20261114T224408Z-029,21,10ead3d392aed82a92bfcba3,3df2d3aee58742388f23ab61d1d095d2,fab-500x,es,web_backend,oasst1,human_authored,"[user] import openpyxl
+from django.http import HttpResponse
+
+def export_to_excel(request):
+    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    response['Content-Disposition'] = 'attachment; filename=mymodel.xlsx'
+
+    wb = openpyxl.Workbook()
+    ws = wb.active
+
+    # Obtén tus modelos relacionados aquí
+    model1 = MyModel1.objects.all()
+    model2 = MyModel2.objects.all()
+    model3 = MyModel3.objects.all()
+
+    # Escribir los encabezados de las columnas
+    row_num = 1
+    columns = [
+        (u""ID"", 15),
+        (u""Nombre"", 30),
+        (u""Descripción"", 40),
+        (u""Fecha de creación"", 20),
+    ]
+
+    for col_num, column_title in enumerate(columns, 1):
+        c = ws.cell(row=row_num, column=col_num)
+        c.value = column_title[0]
+        c.font = openpyxl.styles.Font(bold=True)
+        ws.column_dimensions[openpyxl.utils.get_column_letter(col_num)].width = column_title[1]
+
+    # Escribir los datos de los modelos
+    for obj in model1:
+        row_num += 1
+        row = [
+            obj.id,
+            obj.name,
+            obj.description,
+            obj.created_at,
+        ]
+        for col_num, cell_value in enumerate(row, 1):
+            c = ws.cell(row=row_num, column=col_num)
+            c.value = cell_value
+
+    # Escribir los datos de los otros modelos de la misma manera
+
+    wb.save(response)
+    return response","El fragmento de código anterior muestra cómo usar la biblioteca openpyxl para exportar datos de los modelos de Django a una hoja de cálculo de Excel. Para hacer esto, el código primero crea un libro de trabajo en blanco y una hoja de trabajo activa. Luego, escribe los encabezados de las columnas en la hoja de trabajo y establece los anchos de columna.
+
+A continuación, recorre los modelos y escribe los datos de cada modelo en la hoja de trabajo. Para cada modelo, escribe los campos id, name, description y created_at en la hoja de trabajo. Finalmente, el código guarda el libro de trabajo en la respuesta y devuelve la respuesta.",,,,
+fab-500x-20261114T224408Z-029,22,1302a372caded8aebf5b6bbd,b7cef0fc352111541be21f09e19997ff,fab-500x,es,web_frontend,oasst1,human_authored,"[user] ¿Cuántas personas se llaman John en los Estados unidos?
+
+[assistant] Aunque no es posible conocer la cantidad exacta, se estima que existen 12,3 millones de personas llamadas John en los Estados Unidos.
+
+[user] Elabora un poco más la anterior respuesta  e  indica las fuentes de la cual se obtuvo la cifra.","Disculpa, el dato anterior es erróneo, según una fuente (4), se estima que hay **5.298.362** personas que se llaman John en los Estados Unidos, lo que lo convierte en el nombre más popular del país. Es un nombre predominantemente masculino, con un 99,58% de hombres y un 0,42% de mujeres (6). El nombre John tiene una larga historia y proviene del hebreo Yohanan, que significa ""Yahvé es misericordioso"".
+
+Fuentes:
+(1) John: baby name popularity statistics | Everything Birthday. https://www.everything-birthday.com/name/m/John 
+(2) Nombres y apellidos - Instituto Nacional de Estadística. https://www.ine.es/widgets/nombApell/index.shtml 
+(3) ¿Cuánta gente se llama como yo? - Calculators. https://es.calcuworld.com/cuantos/cuanta-gente-se-llama-como-yo/ 
+(4) ¿Cuántas personas se llaman como yo? Así lo puedes descubrir. https://holatelcel.com/lifeandstyle/cuantas-personas-se-llaman-como-yo-mismo-nombre/
+(5) JOHN First Name Statistics by MyNameStats.com. https://www.mynamestats.com/First-Names/J/JO/JOHN/index.html 
+(6) John Smith: Why don’t more Americans have this most common name?. https://slate.com/human-interest/2013/11/john-smith-why-dont-more-americans-have-this-most-common-name.html Con acceso 13/3/2023.
+(7) Popularity for the name John - Behind the Name. https://www.behindthename.com/name/john/top/united-states",,,,
+fab-500x-20261114T224408Z-029,23,7f2ece39045b19974340d48d,55c73a178852f5712ddaf61840123729,fab-500x,es,writing,oasst2,human_authored,"[user] Resume la serie The Office en dos párrafos y dime si es recomendable para una persona con 21 años que está en la universidad
+
+[assistant] The Office es una comedia de situación estadounidense transmitida por NBC que sigue la vida cotidiana de los empleados de la sucursal de Scranton, Pensilvania, de Dunder Mifflin, una empresa ficticia de suministro de papel. La serie es una adaptación por Greg Daniels de la serie británica del mismo nombre. La serie es un falso documental que cuenta con personajes singulares y un argumento insustancial.
+
+En cuanto a si es recomendable para una persona con 21 años que está en la universidad, depende del gusto personal. Si te gusta el humor absurdo y las comedias de situación, entonces puede ser una buena opción para ti. Al final, solo sabras si es buena opción si decides verla.
+
+[user] Gracias por tu resumen. Ahora dime que criticas malas ha recibido. Antes de que respondas considera que cuando digo ""malas"" me refiero a que solo quiero conocer las opiniones de gente que no le gusto la serie. Quiero conocer sus motivos.","Algunas críticas que mencionan aspectos negativos de la serie, pero no necesariamente indican que no les gustó la serie en general son:
+- La serie pierde el control de las historias y los personajes en la octava temporada.
+- El personaje principal, Michael Scott, puede ser pesado, forzado y egoísta.
+- La serie es demasiado ácida y puntillosa.
+- La conclusión de cada episodio siempre es desangeladora.
+- La serie no es una sitcom al uso y reírse sería una falta de respeto y delicadeza.
+
+En general, las críticas no son necesariamente negativas, sino que mencionan aspectos específicos de la serie que pueden no ser del agrado de todos.",,,,
+fab-500x-20261114T224408Z-029,24,c26ca4017f35431cacd32fbd,d709af23f59d06e58d2e7d414b7ea752,fab-500x,eu,general_knowledge,oasst1,human_authored,[user] Zein da Euskal Herriko mendi altuena?,"Hiru Erregeen Mahaia (2446m) Nafarroako eta Euskal Herriko sabaia izateagatik da ezaguna, Nafarroako eta Aragoiko erresumek bat egiten duten tokian kokatua dago, Ansó (Huesca) eta Erronkari (Nafarroa) ibarren mugetan.",,,,
+fab-500x-20261114T224408Z-029,25,5d6e93848fad95d10494f891,21da2b3f96f63324e00fcca94f631e31,fab-500x,eus,general_knowledge,aya-dataset,human_authored,"[user] Zer da fisika kuantikoaren oinarria, eta nola eragiten du partikula subatomikoetako jokabidea?","Fisika kuantikoa partikula subatomikoetako jokabidea aztertzen du probabilitatearen ikuspegitik. Partikula horiek superposizioan egon daitezke, hau da, hainbat egoeratan aldi berean, eta beraien egoera neurtzen denean bakarrik definitzen da.",,,,
+fab-500x-20261114T224408Z-029,26,1ff6f19c3a50c2a0a7cfbf53,75e13388e987acb17c121a05ee0a91a7,fab-500x,eus,science,aya-dataset,human_authored,[user] Zer da biologian selekzio naturala?,"Selekzio naturala Charles Darwinek proposatutako eboluzioaren mekanismo bat da. Honek esaten du organismo batzuk biziraupena eta ugaltzeko aukera handiagoa izango dutela bere ingurunean, bere ezaugarri genetikoak ondo egokituta daudela-eta.",,,,
+fab-500x-20261114T224408Z-029,27,6696f1756f9d0b690584c180,6e313418470452817a85c168625d5386,fab-500x,fa,general_knowledge,aya-dataset,human_authored,[user] این متن در مورد چه رویداد مهمی صحبت می کند: مرحله مقدماتی جام جهانی فوتبال ۱۹۳۴ با شرکت ۳۲ تیم برای انتخاب ۱۶ تیم  از ژوئن ۱۹۳۳ تا مه ۱۹۳۴ میلادی برگزار شده‌است.,در مورد جام جهانی فوتبال ۱۹۳۴ صحبت می‌کند.,,,,
+fab-500x-20261114T224408Z-029,28,88bca5667ff4b867a7a9c41d,186cc9bd76969af7506abb5387cb3716,fab-500x,fa,islamic_studies,aya-dataset,human_authored,[user] کوروش بزرگ کیست؟,"کوروش دوم که با نام کوروش بزرگ یا کوروش کبیر نیز شناخته می‌شود، بنیان‌گذار و نخستین پادشاه شاهنشاهی هخامنشی بود که به مدت ۳۰ سال، بین سال‌های ۵۵۹ تا ۵۲۹ پیش از میلاد بر نواحی گسترده‌ای از آسیا، حکومت کرد. کوروش در استوانه‌اش، خود را «فرزند کمبوجیه، شاه بزرگ انشان، نوادهٔ کوروش، شاه بزرگ انشان، نوادهٔ چیش‌پیش، شاه بزرگ انشان، از خانواده‌ای که همیشه پادشاه بوده‌است».
+کوروش یک نظامی نابغه بود، به طوری که بین سال‌های ۵۵۰ تا ۵۳۹ پیش از میلاد با فرماندهی موفق لشکریانش، پیروزی‌های متعددی کسب کرد. گستردگی پهنه حکومت کوروش تا سال ۵۳۹ پیش از میلاد از شرق، رود سند در هندوستان تا غرب، آسیای کوچک بود. این قلمرو حکومتی ۳۲۰۰ کیلومتر طول داشت.
+
+در حدود ۲۵۰۰ سال پيش، يعنی ۵۰۰ سال قبل از ميلاد مسيح يا ۱۱۰۰ سال قبل از اسلام، کورش کبیر، پسر شاه پارس که مادر او دختر شاه ماد بود، به فرماندهی نجيب‌ترين قبايل پارسی درآمد. او با حمايت مادی‌ها، خرد نيک و همت والای خود را با هم درآمیخت؛ با شجاعت و مردانگی، اقوام ايرانی آريايی تبار را با هم متحد و با پادشاهان بد‌کردار و ظالم زمان خويش مبارزه کرد. سپس آن‌ها را يکی پس از ديگری شکست داد و اکثرشان را بخشيد و مردم را از ظلم آن‌ها نجات داد و مرزها ايران را تا دوردست‌ها کشانيد. او اولين و بزرگترين امپراتوری جهان را بنيان‌گذارد؛ یک امپراتوری که در طول تاريخ همانندی نداشت. آن شخص کسی نبود جز کوروش کبیر.
+کوروش کبیر نمونه کاملی از صفات اخلاقی را داشت. هرکجا که به‌عنوان فاتح وارد می‌شد، بر‌خلاف فاتحان آشور و بابل نسبت به معابد اقوام بیشترین احترام را نشان می‌داد؛ برای تعمير و توسعه‌ پرستشگاه‌ها کمک‌های زیادی می‌کرد؛ از هر‌گونه تبعیض نسبت به پيروان اديان خودداری می‌کرد و اجازه نمی‌داد اين احترام بهانه‌ای برای تجاوز‌جویی و قدرت‌طلبی کاهنان شود. او با نهايت دقت اين شيوه‌ اخلاقی و انسانی را رعايت می‌کرد و آن را وسيله‌ استحکام قدرت امپراتوری می‌دانست.
+
+کوروش مظهر خردمندی و قابلیت و فردی بافضیلت و شرافتمند است. به گفته‌ هرودوت:
+کوروش دلیرترین و پرهوادارترین مرد جوان در پارس بود. او فریب زندگی پرزرق‌وبرق را ‌نخورد و بر ارزش زندگی شرافتمندانه واقف بود.
+فرمان کوروش کبیر که روی یک استوانه سفالی، به خط میخی و به زبان اکدی (بابلی) نوشته شده است، در ۱۸۷۸ در جریان حفاری‌های محل تمدن بابل، کشف شد. در این فرمان، کوروش، شیوه رفتار انسانی با ساکنان سرزمین بابل را برای فاتحان ایرانی شرح داده است. این سند به‌عنوان اولین منشور حقوق بشر شناخته شده است و در سال ۱۹۷۱، سازمان ملل متحد ترجمه متن آن را به تمام زبان‌های رسمی به چاپ رساند و در کشورهای مختلف در دسترس دفاتر این سازمان قرار داد.",,,,
+fab-500x-20261114T224408Z-029,29,d6ade3b31784e7544e0bc904,8fa9ec6b696b5ef8665b95fea37f5d2e,fab-500x,fa,mathematics,aya-dataset,human_authored,"[user] با توجه به متن زیر هدف و نتیجه ی پژوهش چه بوده است؟
+هدف از انجام پژوهش حاضر بررسی تاثیر ویژگی‌های تبلیغات در رسانه‌های اجتماعی بر تمایل به خرید مشتریان می‌باشد. پژوهش کاربردی و به لحاظ نحوه گردآوری داده‌ها، از نوع توصیفی – پیمایشی می‌باشد. جامعه آماری تحقیق حاضر، کاربران شبکه اجتماعی اینستاگرام بودند که نحوه دسترسی به افراد از طریق فالوورهای محقق و به صورت خوشه‌‌‌‌ای در میان سایر کاربران عضو شبکه اجتماعی اینستاگرام بوده است. در پژوهش حاضر، از روش نمونه‌گیری غیراحتمالی در دسترس برای برآورد حجم نمونه استفاده شده است. ابزار گردآوری داده‌ها پرسشنامه بود که روایی آن به روش روایی محتوا و پایایی آن به روش آلفای کرونباخ بالاتر از 7/0 برآورد گردید. جهت تجزیه و تحلیل داده‌ها از روش مدل‌سازی معادلات ساختاری مبتنی بر رویکرد حداقل مربعات جزیی توسط نرم‌افزار Smart PLS3 استفاده شده است. نتایج نشان داد که تعامل، انگیزه لذت‌گرا، انتظار عملکرد، آگاهی‌بخشی و ارتباط درک شده می‌توانند، به نوبه خود بر تمایل به خرید تاثیرگذار باشند. براین اساس می‌توان گفت که با ارتقای عناصر مربوط به ویژگی‌های تبلیغات در رسانه‌های اجتماعی می‌توان تمایل به خرید به صورت آنلاین را ارتقاء بخشید.","هدف از انجام پژوهش بررسی تاثیر ویژگی‌های تبلیغات در رسانه‌های اجتماعی بر تمایل به خرید مشتریان بوده است. 
+نتایج این پژوهش نشان داد که تعامل، انگیزه لذت‌گرا، انتظار عملکرد، آگاهی‌بخشی و ارتباط درک شده می‌توانند، به نوبه خود بر تمایل به خرید تاثیرگذار باشند. براساس دستاوردهای این تحقیق، با ارتقای عناصر مربوط به ویژگی‌های تبلیغات در رسانه‌های اجتماعی می‌توان تمایل به خرید به صورت آنلاین را ارتقاء داد به طوری که مخاطبان تمایل بیشتری به خرید داشته باشند.",,,,
+fab-500x-20261114T224408Z-029,30,736a7d0c276187e44e671d4f,ff5804b61b14969a5333574d8df0e99c,fab-500x,fa,pakistan,aya-dataset,human_authored,"[user] با توجه به متن به سؤال پاسخ بده.
+متن: «در این مسابقه و در دقیقه 6، ضربه محمد خلیل مران به یکی از مدافعان پاکستان برخورد کرد و برابر صالح الشهری قرار گرفت که شوت او از پشت محوطه جریمه به گل نخست بازی تبدیل شد.
+سعودی ها در ابتدای نیمه دوم به گل رسیدند. صالح الشهری در محوطه جریمه پاکستان سرنگون شد و داور یک خطای پنالتی برای عربستان اعلام کرد. خود این بازیکن پشت توپ ایستاد و آن را به گل دوم تیمش تبدیل کرد.
+عربستان در وقت های تلف شده به گل های سوم و چهارم دست یافت. ارسال سعود عبدالحمید در دقیقه 90+1 به روی دروازه با ضربه فنی و بغل پای عبدالرحمن غریب همراه شد و این بازیکن توانست اختلاف را افزایش دهد.»
+
+سؤال: بازی‌ای که در متن به آن اشاره شده، بین چه تیم‌هایی برگزار شده است؟",با توجه به متن می‌توان فهمید که بازی بین دو تیم عربستان و پاکستان انجام شده است.,,,,
+fab-500x-20261114T224408Z-029,31,bc434033a586d08eb075a960,22c480f22099d2f8dc74d26237c9ed85,fab-500x,fi,general_knowledge,oasst2,human_authored,"[user] Anna esimerkkejä sanoista, jotka päättyvät -ia, kuten sana: ""toisia"".
+
+[assistant] Tässä on muutamia esimerkkejä suomen kielen sanoja jotka päättyvät  _-ia_:
+
+* asia
+* ateria
+* energia
+* fantasia
+* filosofia
+* historia
+* media
+* sinfonia
+* teknologia
+* teoria
+
+[user] Anna lisää esimerkkejä, mutta niiden pitää alkaa vokaalilla.","Toki! Tässä on lisää esimerkkejä sanoista, jotka päättyvät -*ia* ja alkavat vokaalilla:
+
+* oppia
+* uusia
+* oirehtia
+* ajelehtia
+* ahmia
+* arkeologia
+* ergonomia
+* allergia
+* akatemia
+* onkia
+* ideologia
+* oikeusasia
+* astia",,,,
+fab-500x-20261114T224408Z-029,32,3098052921794850d33d143d,98ee0ff842c9d45b4ccc744066de4777,fab-500x,fi,research,tydiqa-goldp,human_authored,"[user] Bezina syntyi Kroatiassa, mutta kasvoi Sveitsissä ja on Monthey-Chablais HC:n kasvatti. Hän debytoi miesten peleissä kuitenkin Villars HC:ssä Sveitsin kolmanneksi korkeimmalla sarjatasolla 1. Ligassa kaudella 1997–1998. Kaudeksi 1998–1999 Bezina siirtyi Fribourg-Gottéroniin, jossa hän teki debyyttinsä Nationalliga A:ssa pelaten siellä 38 runkosarja-, neljä karsintasarja- ja kuusi EHL-ottelua ilman tehopisteitä. Phoenix Coyotes varasi Bezinan kahdeksannella kierroksella 234. pelaajana NHL:n varaustilaisuudessa 1999. Kaudella 1999–2000 hän avasi pistetilinsä NLA:ssa teki 44 runkosarjaottelussa tehot 3+6=9. Kaudella 2000–2001 Bezina teki liigan runkosarjassa 20 tehopistettä ja hän oli kymmenellä osumallaan Gottéronin eniten maaleja tehnyt puolustaja.[1]
+
+Minkä seuran kasvatti Goran Bezina on?","Monthey-Chablais HC
+
+Bezina syntyi Kroatiassa, mutta kasvoi Sveitsissä ja on Monthey-Chablais HC:n kasvatti.",,,,
+fab-500x-20261114T224408Z-029,33,7c15d804459b05b6b38dead4,ae5a20f68316366af2ac77170517c923,fab-500x,fin,general_knowledge,aya-dataset,human_authored,[user] Mikä on koronavirus?,"Koronavirukset ovat joukko viruksia, joita on todettu sekä ihmisillä että eläimillä. 
+
+Osa koronaviruksista on niin sanottuja kausikoronaviruksia. Ihmisillä hyvin yleisiä kausikoronaviruksia ovat 229E, HKU1, NL63 ja OC43. Ne aiheuttavat tavallisimmin lievän hengitystieinfektion.  Kausikoronavirusinfektioita esiintyy ympäri vuoden, mutta erityisesti syksyllä ja talvella.
+
+Kausikoronavirusten lisäksi on muita koronaviruksia. Niitä esiintyy ympäri vuoden. Ne voivat aiheuttaa myös vaikeaa tautia. Vakavia, jopa kuolemaan johtavia infektioita, ovat aiheuttaneet 
+
+SARS eli Severe Acute Respiratory Syndrome 
+MERS eli Middle East Respiratory Syndrom -koronavirukset
+MERS-koronavirus
+SARS-CoV-2-koronavirus.
+Koronavirus SARS-CoV-2",,,,
+fab-500x-20261114T224408Z-029,34,01eb63df2a6f4e302da870bb,0d55f06b2ddcb4c1798b0138a9216830,fab-500x,fin,mathematics,aya-dataset,human_authored,[user] Mitä vaatimuksia laki asettaa elintarvikepakkauksille ja astioille?,"EU:n kehysasetuksen 1935/2004 mukaan päävaatimus on, että elintarvikkeen kanssa kosketukseen joutuvista materiaaleista ja tarvikkeista eli niin sanotuista kontaktimateriaaleista ei saa tavallisissa tai ennakoitavissa käyttöolosuhteissa siirtyä elintarvikkeeseen sellaisia määriä ainesosia, jotka
+
+voisivat vaarantaa ihmisen terveyden,
+aiheuttavat sopimattomia muutoksia elintarvikkeen koostumukseen tai
+aiheuttavat elintarvikkeen aistinvaraisten ominaisuuksien heikentymistä.
+Tämä vaatimus koskee elintarvikepakkausten ja astioiden lisäksi kaikkia muitakin laitteita ja välineitä, jotka ovat suoraan tai välillisesti kosketuksessa elintarvikkeeseen jo sen valmistusprosessin aikana.",,,,
+fab-500x-20261114T224408Z-029,35,c06ccf726492251daf9cca39,f26f1a2b1dca8dba469e0f644a3d2cd8,fab-500x,fr,coding,wikipedia-fr,templated_human,[user] Présente brièvement : Guib harnaché.,"Le guib  ou guib harnaché (Tragelaphus scriptus) est une espèce de bovins de taille moyenne, à pelage roux portant un nombre variable de raies et de taches blanches sur les flancs. Il vit dans les forêts et les territoires d'arbustes en Afrique centrale et méridionale. Il est étroitement apparenté au koudou, au sitatunga et au bongo. C'est une espèce qui peut généralement fort bien s'adapter à des conditions changeantes. Il se rencontre dans la plus grande partie de l'Afrique subsaharienne.
+
+La couleur de la toison varie du brun clair au brun foncé en passant par le brun rouge. Les femelles et les petits ont généralement une couleur de toison plus claire, souvent rouges, les mâles sont souvent plus foncés et le deviennent encore davantage à mesure qu'ils vieillissent.",,,,
+fab-500x-20261114T224408Z-029,36,615af4e71de3c6b2901eceec,85dab7666b05e034fc855ac1574aa3ea,fab-500x,fr,cybersecurity,wikipedia-fr,templated_human,[user] Présente brièvement : Garbaye.,"Garbaye (du gascon garbalha, dérivé de garba : gerbe, faisceau, botte) ou garbach ou encore grépin désignent le tapis d’aiguilles de pins du sous-bois de la forêt des Landes.
+
+Les aiguilles de pins mortes prennent une teinte rousse et couvrent le sol d’une couche régulière, que percent les jauguas (ajoncs), fougères ou brandas (bruyères à balais).
+
+Lorsque les résiniers (les gemmeurs) exploitaient la forêt landaise (le pinhadar), l'hiver était la période propice aux travaux d'entretien des chemins. Ces derniers étaient alors tapissés d'aiguilles de pin (ou parfois de coquilles d'huîtres), afin de constituer un support plus favorable que le sable : c'est ce qu'on appelle le  « paillage des chemins » . Ce revêtement précaire devait être renouvelé très régulièrement en raison de sa décomposition rapide.
+
+De nos jours, les garbayes sont parfois utilisées pour garnir des pistes de « ski sur aiguilles de pins » sur des dunes du littoral.
+
+Une cuticule protège les aiguilles de pin de la flore microbienne, ralentissant leur décomposition au sol. La microfaune, après trituration alimentaire, finit par les incorporer à la partie supérieure du sable : les acides organiques solubles qui s’en dégagent forment une pellicule autour des grains de sable. Cette action favorise la naissance de l’alios.
+
+Garbaye et Garbay sont des patronymes courants dans les Landes de Gascogne.",,,,
+fab-500x-20261114T224408Z-029,37,a06153a5f722a792457b7a8b,54a96636538d1eab2945e94ddbff5da0,fab-500x,fr,education,wikipedia-fr,templated_human,[user] Présente brièvement : Cormoran des Bougainville.,"Le Cormoran de Bougainville (Leucocarbo bougainvillii), est une espèce d'oiseaux de mer n'habitant que les côtes occidentales de l'Amérique du Sud et se trouvant jusqu'au Panama au Nord.
+
+Cet animal a initialement été nommé Phalacrocorax bougainvillii par René Primevère Lesson en référence à Hyacinthe de Bougainville. Actuellement l'IOC le classe sous le taxon Leucocarbo bougainvillii à la suite d'études de phylogénie moléculaire. Cependant, certains ornithologues continuent à le classer dans le genre Phalacrocorax. D'autres auteurs préconisent l'utilisation de la forme plurielle bougainvilliorum pour l'espèce, puisque l'oiseau aurait aussi été décrit par le père de Hyacinthe de Bougainville, Louis-Antoine de Bougainville. Sous cet épithète, le nom francisé de cet oiseau devient Cormoran des Bougainville, en référence aux deux marins.
+
+Au Pérou, il est appelé guanay et il est représenté stylisé sur les fresques de Chan Chan.
+
+synonymes  Phalacrocorax bougainvillii, Phalacrocorax bougainvilliorum (HBW, 2014)",,,,
+fab-500x-20261114T224408Z-029,38,7be087c673dcb3c5636b2403,36ba354b8d20a5b586abb6f71390a831,fab-500x,fr,general_knowledge,wikipedia-fr,templated_human,[user] Présente brièvement : Joseph François Fririon.,"Joseph François Fririon, né le  à Pont-à-Mousson, dans le grand-gouvernement de Lorraine-et-Barrois, et mort le  dans cette même ville, est un général français de la Révolution et de l’Empire.
+
+Il entre comme soldat en 1791, au régiment d'Artois. Promu par élection au grade de sous-lieutenant, il se fait remarquer dès les premières campagnes du Rhin en sauvant la caisse et les papiers de ce corps, déposés dans une maison incendiée par l'ennemi. Après le siège de Kehl, où il est nommé capitaine des grenadiers, il passe en Italie, assiste au siège de Civita-Vecchia et à la bataille de la Trebbia. Rappelé en 1800 à l'état-major de l'armée du Rhin, il reçoit du général Moreau le brevet de chef de bataillon sur le champ de bataille de Moesskirch.
+
+Membre de la Légion d'honneur à la création de l'ordre en 1804, Fririon commande le  d'infanterie de ligne à Guttstadt, à Deppen et à la bataille de Friedland, où un biscaïen le blesse au flanc gauche. Il est nommé officier de l'Ordre le . Passé en Espagne en 1809 avec le , il défait à Carracedo le , les  du partisan Norillo, et combat l'année suivante à Buçaco, où il soutient, pendant toute la journée, le feu de l'armée anglo-portugaise. Sa conduite à la bataille de Fuentes de Oñoro, où il est blessé au bras gauche, lui vaut le grade de général de brigade le .",,,,
+fab-500x-20261114T224408Z-029,39,122f551249264b5daee0b7a7,4a67df1463b22ba87812eb76aaf14410,fab-500x,fr,islamic_studies,aya-dataset,human_authored,[user] Quelles étaient les croisades ?,"Le pélerinage sur les lieux saints s'est développé en parallèle avec celui du Christianisme en Europe.
+
+Mais à partir du 8ème siècle, l'Islam en plein développement se répand dans toute cette région. Des guerres éclatent pour reconquérir les terres conquises par les troupes musulmanes en Europe. La route de Jérusalem devient dès lors très périlleuse.
+
+Le Pape en appelle alors aux seigneurs de la chrétienté pour rouvrir la voie en échange de leur place au paradis. Il s'agissait de reprendre Jérusalem et de sécuriser le voyage jusqu'aux lieux saints. Cela fut fait. Mais il y eut plusieurs vagues de croisades pour reconquérir les lieux.
+
+Cependant, si les croisades sont motivées officiellement par la volonté de pacifier les routes vers Jérusalem, il s'agit également d'une décision à portée politique pour le Pape. En effet, depuis la chute de l'Empire Romain, l'Eglise de Rome a perdu sa puissance. Les invasions barbares ont dans un premier temps répandu de nouveaux cultes païens puis les différents rois d'Europe ont soutenu la chrétienté afin d'asseoir leur pouvoir notemment en le légitimant. De ce fait, les véritables instigateurs de la chrétienneté à cette époque sont les rois et non le Pape.
+
+Sous le règne de Charlemagne, le Pape perd tout controle du culte dans l'Empire Franc (l'origine ancestrale de la séparation de l'Etat et de l'Eglise en France) en le cédant à Charlemagne qui lui vient en aide. Quand les croisades sont lancées, le Pape accroît ainsi son autorité car s'impose comme le chef de tous les chrétiens et donc d'une grande partie de la population européenne jusuqu'alors divisée : il fait figure de personnage unificateur de l'Europe ou plutôt de feu l'Empire Romain.
+
+Le maintien de l'ordre sur le chemin des lieux saints fut notamment assuré par les ordres des Templiers et des Hospitaliers.",,,,
+fab-500x-20261114T224408Z-029,40,996f413792c2418e7e90c9d2,e4dbdeb531b6586c409af0f7c22863ab,fab-500x,fr,mathematics,oasst2,human_authored,"[user] Quel est le plus grand diviseur commun de 28 et 74 ? Explique ton raisonnement.
+
+[assistant] Une façon est de décomposer les nombres en facteurs de nombres premiers et le PGCD (plus grand diviseur commun) sera le produit de tous les diviseurs premiers en communs.
+28 = 2*2*7
+74 = 2*37
+
+Le PGCD(28,74)=2
+
+[user] Et le le plus grand multiple commun entre les deux  ?","Peut-être voulez-vous parler du plus petit multiple commun(PPCM) ?
+Le PPCM est égal au produit des facteurs communs par les facteurs non communs. Ici, PPCM(28,74)=2*2*7*37=1036.
+Une autre méthode consisterait à utiliser le fait que le produit des deux nombres est égal au produit de leur PGCD par leur PPCM.",,,,
+fab-500x-20261114T224408Z-029,41,1d10137bef68e5b762cdf897,be13ad8c3ca16dc1b1684e799df3cbf4,fab-500x,fr,problem_solving,wikipedia-fr,templated_human,[user] Présente brièvement : Un lever de ténèbres.,"Un lever de ténèbres (titre original : The Shadow Rising) est le quatrième volume de la série La Roue du temps de l'écrivain américain Robert Jordan.
+
+La version originale américaine a été publiée le  par Tor Books aux États-Unis puis en  par Orbit au Royaume-Uni.
+
+Dans la première traduction française, le livre a été séparé en deux tomes :
+
+La Montée des orages, qui contient le prologue et les 30 premiers chapitres ;
+
+Tourmentes, qui comporte les chapitres 31 à 56.
+
+Les deux tomes sont sortis en 2000 aux éditions Rivages dans la collection Fantasy puis repris en poche en 2002 par les éditions Pocket dans la collection Science-fiction en joignant à chacune des deux parties le sous-titre commun Le Crépuscule du monde.
+
+En 2012, les éditions Bragelonne rééditent le livre en français en un seul tome titré Un Lever de ténèbres, avec une nouvelle traduction de Jean-Claude Mallé.
+
+En 2019, les éditions Bragelonne rééditent le livre en deux tomes de poche Un Lever de ténèbres - Première partie et Un Lever de ténèbres - Deuxième partie. Toujours traduit par Jean-Claude Mallé, et illustré par Didier Graffet.
+
+Rand Al'Thor a conquit la Pierre de Tear en s’emparant de l'épée Callandor, il se dévoile donc aux yeux de tous comme étant le Dragon Réincarné. Il a désormais un plan pour accomplir sa destinée.",,,,
+fab-500x-20261114T224408Z-029,42,088733a3c11cfad7328784ee,b1adbce435170c88008319e9e90fad1b,fab-500x,fr,reasoning,wikipedia-fr,templated_human,[user] Présente brièvement : Don Matheson.,"Don Matheson est un acteur américain né le  à Dearborn, Michigan (États-Unis) décédé le  à Woodland Hills, Los Angeles.
+
+1968 : Au pays des géants (""Land of the Giants"") (série TV) : Mark Wilson
+
+1963 : Hôpital central (""General Hospital"") (série TV) : Cameron Faulkner (1975-1976)
+
+1981 : Falcon Crest (""Falcon Crest"") (série TV) : Padgett (1984)
+
+1985 : Alice au pays des merveilles (Alice in Wonderland) (TV) : Le Chevalier Rouge
+
+1987 : Six Against the Rock (TV) : General Merrill
+
+1965 : Des jours et des vies (""Days of Our Lives"") (série TV) : Judge Robert Novack (1987)
+
+1992 : Striptease infernal (Somebody's Daughter) (TV) : Wilkie",,,,
+fab-500x-20261114T224408Z-029,43,15926d29b06ee04e06fb2286,109a0142742290a2c40238bd63a924b6,fab-500x,fr,research,wikipedia-fr,templated_human,[user] Présente brièvement : Río Belén.,"Le Río Belén est un cours d'eau d'Argentine, coulant en province de Catamarca. Il est l'affluent de loin le plus important du salar de Pipanaco où il termine son cours après que ses eaux ont été utilisées pour l'irrigation de la riche oasis agricole de Belén, située à l'ouest du salar.
+
+Ses sources se situent loin au nord-ouest, sur le rebord oriental de la Puna. Elles sont alimentées par les eaux de fonte des glaces de plusieurs sommets de 4500 à 4800 mètres dont le Cerro Loma Corral (4790 mètres). Le río Belén se forme par la confluence de ses deux branches-mères, le río de las Cuevas et le río Villavil, tous les deux bordant et drainant, l'un par l'est, l'autre par l'ouest la Sierra de Hualfin, orientée nord-sud.
+
+Aux environs de San Fernando, il reçoit son affluent principal le río Vicuña Pampa, encore appelé río Corral Quemado. Près de Palo Blanco il reçoit de droite río Loconte qui lui apporte les eaux de la Sierra de Fiambalá, sierra qui comporte de hauts sommets comme le Cerro Morado (4920 mètres). Peu après il quitte la zone de plateaux et de terrasses pour traverser la Sierra de Belén, par un impressionnant défilé profond et étroit.",,,,
+fab-500x-20261114T224408Z-029,44,20275699fd5830bbacc617af,75d724e843451b5a0aef7e40ec9670cc,fab-500x,fr,safety_ethics,aya-dataset,human_authored,"[user] Phrase 1: En 2002, la chanson a été publiée par le producteur britannique Vincent Stormfield et reprise par Independiente Records sous le nom de ""Sweet Harmony '02"". Phrase 2: En 2002, la chanson a été reprise par le producteur britannique Vincent Stormfield et publiée par Independiente Records sous le nom de ""Sweet Harmony '02"". Question: Est-ce que les phrases 1 et 2 expriment le même sens ? - Oui ou non ?","Non, les phrases 1 et 2 n'expriment pas le même sens. La première phrase suggère que la chanson a été initialement publiée par Vincent Stormfield puis reprise par Independiente, tandis que la deuxième phrase indique que Vincent Stormfield a repris puis publié la chanson.",,,,
+fab-500x-20261114T224408Z-029,45,bc0013d280363eb33d9e78cc,9e93bf175191ef99ba65523735e884c3,fab-500x,fr,science,wikipedia-fr,templated_human,[user] Présente brièvement : Analyse des données.,"L’analyse des données (aussi appelée analyse exploratoire des données ou AED) est une famille de méthodes statistiques dont les principales caractéristiques sont d'être multidimensionnelles et descriptives. Dans l'acception française, la terminologie « analyse des données » désigne donc un sous-ensemble de ce qui est appelé plus généralement la statistique multivariée. Certaines méthodes, pour la plupart géométriques, aident à faire ressortir les relations pouvant exister entre les différentes données et à en tirer une information statistique qui permet de décrire de façon plus succincte les principales informations contenues dans ces données. D'autres techniques permettent de regrouper les données de façon à faire apparaître clairement ce qui les rend homogènes, et ainsi mieux les connaître.
+
+L’analyse des données permet de traiter un nombre très important de données et de dégager les aspects les plus intéressants de la structure de celles-ci. Le succès de cette discipline dans les dernières années est dû, dans une large mesure, aux représentations graphiques fournies. Ces graphiques peuvent mettre en évidence des relations difficilement saisies par l’analyse directe des données ; mais surtout, ces représentations ne sont pas liées à une opinion « a priori » sur les lois des phénomènes analysés contrairement aux méthodes de la statistique classique.",,,,
+fab-500x-20261114T224408Z-029,46,ae4a8370768ee86aa462b0ea,c5561c49bdae8c50e8d5daa8fae4fa1e,fab-500x,fr,web_frontend,wikipedia-fr,templated_human,[user] Présente brièvement : Mélodie Cocktail.,"Mélodie Cocktail ou Le Temps d'une mélodie au Québec (Melody Time) est le  long-métrage d'animation et le  « Classique d'animation » des studios Disney. Sorti en 1948, il s'agit d'une anthologie de sept courts métrages, réalisés par Clyde Geronimi, Wilfred Jackson, Jack Kinney et Hamilton Luske dans la lignée de Fantasia (1940) et de La Boîte à musique (1946), mais incluant des prises de vues réelles.
+
+Les sept séquences, assez disparates, reprennent des traits caractéristiques des précédentes productions de Disney. Ainsi, on retrouve deux séquences sur le folklore américain, une séquence d'animation surréaliste, une autre dans un monde d'objets anthropomorphes et d'autres mêlant animation et acteurs en prise de vue réelle. Plusieurs auteurs notent que le film, malgré un certain niveau technique et quelques éléments agréables, manque d'unité. D'après ces mêmes critiques, le film conforte le public dans son attente d'un retour aux standards de Disney, les longs métrages d'un seul tenant. Mélodie Cocktail est la dernière compilation de courts métrages de Disney hormis la compilation Le Crapaud et le Maître d'école (1949) avec deux moyens métrages. Le long métrage Cendrillon est alors en production et prévu pour 1950.",,,,
+fab-500x-20261114T224408Z-029,47,693622252e5df14f964d07ac,4cddc0f6f993d2a59688a1d76f975927,fab-500x,fr,writing,wikipedia-fr,templated_human,[user] Présente brièvement : Tony Pierce.,"Tony Pierce est un blogueur, journaliste et auteur résidant à Hollywood, Californie, États-Unis. Il est surnommé le « blogfather » en raison de la fréquence à laquelle il publie sur son blog et sur l'ouvrage How to blog, publié en  et devenu une référence dans le domaine.
+
+Diplômé de l'Université de Californie à Santa Barbara, Pierce est le rédacteur en chef du Daily Nexus au début des années 1990. Il a par la suite travaillé comme éditeur pour  le webzine Lick, en plus d'être éditorialiste pour le magazine sportif américain Tabloid.
+
+Date de naissance non renseignée (XXe siècle)",,,,
+fab-500x-20261114T224408Z-029,48,28026cfede1daf89a0f86f72,9aa8e02925df6e7b899cb8fdb07c603c,fab-500x,gle,general_knowledge,aya-dataset,human_authored,[user] Cad iad na cluichí atá á scaoileadh don PS4 an mhí seo chugainn?,Déanaimis breathnú ar sceideal scaoilte an mhí seo caite. Tá sé ar an idirlíon. Ní mór duit cuardach a dhéanamh ar Google. An bhfuil aon chluichí atá spreagtha agat go háirithe?,,,,
+fab-500x-20261114T224408Z-029,49,6818b34285f630eb4208c370,4f9ff130a925567110742f066605f9b5,fab-500x,gle,web_frontend,aya-dataset,human_authored,[user] Inis dom faoi Impireacht na Rúise.,"Úsáidtear an téarma Impireacht na Rúise le tagairt a dhéanamh don ré stairiúil ó laethanta Pheadair Mhóir go dtí Réabhlóid na Rúise 1917. San am seo, tháinig fás agus borradh ar an Rúis mar stát, go dtí gur shín sí ón Muir Bhailt go dtí an tAigéan Ciúin. Tháinig deireadh deifnídeach leis an Impireacht nuair a mharaigh na Boilséivigh an tImpire deireanach, Nioclás a Dó, agus a theaghlach in Yekaterinburg, áit ar cuireadh ar díbirt é.
+B'é ainm oifigiúil an stáit Rúisigh ná Impireacht na Rúise ón mbliain 1721 go dtí an bhliain 1917. Ba í Cathair Pheadair príomhchathair na himpireachta, agus bhí an stát níos mó ná 22 mhilliún ciliméadar cearnach ar achar ag deireadh na naoú haoise déag.",,,,
+fab-500x-20261114T224408Z-029,50,ebf57538b2446dc6377db6c9,941df55bfdb16de1d9d565b557ae01b7,fab-500x,gu,general_knowledge,aya-dataset,human_authored,"[user] નીચેના શબ્દસમૂહ માટે એક શબ્દ આપો:
+જન્મથી જ પૈસાદાર",ગર્ભશ્રીમંત,,,,
+fab-500x-20261114T224408Z-029,51,4a2bc3459f3f1afa4b4c0608,fb9020db1770d661b4f2a280a8aba0e5,fab-500x,gu,mathematics,aya-dataset,human_authored,[user] ગુજરતી દાળ બનાવવાની રીત.,"ગુજરાતી દાળ
+
+સામગ્રી:
+
+૧/૨ કપ તુવેર દાળ
+૨ ટીસ્પૂન ઘી
+૧ ટીસ્પૂન જીરું
+ ૧/૨ ટીસ્પૂન હિંગ
+૧/૨ ટીસ્પૂન મેથી દાળ
+ ૧/૨ ટીસ્પૂન જીરા દાળ
+૧/૨ ટીસ્પૂન ધાણા પાવડર
+૧/૨ ટીસ્પૂન મીઠું
+૧/૪ ટીસ્પૂન હળદર પાવડર
+૧/૪ ટીસ્પૂન લાલ મરચું પાવડર
+ ૧ ટીસ્પૂન ગરમ મસાલો પાવડર
+ ૧ ટીસ્પૂન ખાંડ
+૧/૨ ટીસ્પૂન લીંબુનો રસ
+ ૧/૪ કપ ધાણા
+
+રીત:
+
+૧. દાળને ૪-૫ કલાક પલાળી દો.
+૨. એક કડાઈમાં ઘી ગરમ કરો.
+૩. જીરું, હિંગ, મેથી દાળ અને જીરા દાળ ઉમેરીને સોનેરી થાય ત્યાં સુધી શેકો.
+
+૪. ધાણા પાવડર, મીઠું, હળદર પાવડર, લાલ મરચું પાવડર અને ગરમ મસાલો પાવડર ઉમેરીને સાંતળો.
+૫. પલાળેલી દાળ ઉમેરીને સારી રીતે મિક્સ કરો.
+
+૬. ૨-૩ કપ પાણી ઉમેરીને ઉકળવા દો.
+૭. દાળ ઉકળી જાય અને પાણી ઘટી જાય ત્યાં સુધી ઉકાળો.
+૮. ખાંડ અને લીંબુનો રસ ઉમેરીને હલાવો.
+૯. ગરમાગરમ રોટલી, ભાત અથવા ચપાત સાથે પીરસો.
+
+
+ટીપ્સ:
+
+દાળને પલાળવાથી તે ઝડપથી ઉકાળાય છે અને તેની પૌષ્ટિયુક્તતા વધે છે.
+
+ગુજરાતી દાળને ખાટી-મીઠી સ્વાદ આપવા માટે લીંબુનો રસ ઉમેરવામાં આવે છે.
+
+ તમારા મનપસંદ મસાલાઓને ઉમેરીને દાળનો સ્વાદ વધારી શકો છો.",,,,
+fab-500x-20261114T224408Z-029,52,756e501e85d712338e40d2c6,69716e77bdecf0ee64e25c93aecf8b65,fab-500x,hat,general_knowledge,aya-dataset,human_authored,"[user] Rezime atik la:  Li te ka selebre anivèsè nesans 75th li, men yon rayisab Rèn Margrethe nan Denmark te sanble pi piti anpil jan li te salye foul moun yo eksite soti nan balkon an nan Amalienborg Palè. Monak la Danwa te rantre nan balkon an pa pitit gason li yo, Crown Prince Frederik, 46, ak Prince Joachim, 45, ki moun ki te avè l 'ankò pou yon pwosesyon desann Copenhagen shopping lari Strøget nan Københavns Rådhus la [sal vil la] pou yon manje midi bat-up. E de te bò kote Margrethe yon lòt fwa ankò nan aswè a lè Danwa royals akeyi royals soti nan tout kwen nan Ewòp nan Fredensborg chato pou yon bankèt gala ki te swiv pa yon ekspozisyon fedatifis manyifik. arive bonè: Crown Princess Mary ak Crown Prince Frederik nan Denmark te pami envite yo an premye rive pou dine a gala. Koupe-soti: rad Crown Princess Mary a klòch manch te prezante yon olye riske koupe-soti ba, montre ponytail li. Prensès Marie ak Prens Joachim nan Denmark te pwochen pou rive ak Prens Joachim ki te mete yon smoking velours wouj frape. Smart: Princess Marie nan Denmark te chwazi yon rad etaj-longè kòn elefan kouvri nan pèl delika. Li te rantre nan yo te Ostralyen-ki fèt madanm Frederik a Mari, 43, ki moun ki opte pou yon rad enpresyonan an ajan prezante yon dekolte pwòp segondè ak manch bluson dramatik. Lòt Margrethe pitit fi-an-lwa, franse ki fèt Princess Marie, 39, te tou nan Fredensborg ak gade bèl bagay nan yon etaj-longè rad krèm grenn. Lòt manm nan fanmi wayal Danwa a pou patisipe nan evènman an enkli sè Margrethe a Princess Benedikte, 70, ki moun ki te chwazi yon rad flè ete ak yon kolye kare ak tren klè. Menm jan ak dine rich mèkredi swa nan Christiansborg Palè, Danwa premye minis Helle Thorning-Schmidt te sou lis envite yo ak koupe yon figi dramatik nan yon rad nwa ak toutouni lou. Men, pandan ke sosyalis politik Ms Thorning-Schmidt, ki moun ki marye ak ansyen travayè MP Neil Kinnock pitit gason Stephen, pwan je a, li te anpil royals nan prezans ki te pran sèn santral la. Gade bon: Rèn Margrethe (adwat)...",Rèn Margrethe II nan Dànmak k ap selebre 75yèm anivèsè nesans li jodi a. Yè swa li te òganize yon dine gala ki te plizyè manm wayote a ki soti nan tout Ewòp vin asiste. Jodi a monak la kontan parèt sou balkon palè a pou li salye foul moun yo apre yon manje midi nan City Hall. Pa gen manm fanmi wayal Britanik la ki te kapab patisipe nan selebrasyon chofe sa a nan Kopennag.,,,,
+fab-500x-20261114T224408Z-029,53,25b1b81848f7f76fde5608b9,1232bfef5597374721d17ff3b7e9f550,fab-500x,hau,general_knowledge,aya-dataset,human_authored,"[user] A gidan abinci, za mu iya shirya kayan abinci da muka yi oda amma ba za mu iya gamawa ba. Ana buƙatar jakar sayayya don ɗaukar ragowar a gidan abinci. Wannan ya ba da dalilin amsa wace tambaya ce? Tambaya da Amsa:","A ina ne kawai za ka bukaci jakar sayayya idan ba za ka gama abin da kake da shi ba? 
+Zaɓi daya: 1. kasuwa Gidan cin abinci 2. gidan dangi 3. babban kanti 4. kantin sayar da kayan abinci 5. gidan abinci",,,,
+fab-500x-20261114T224408Z-029,54,20c7cda199c3ab1ed28a54c9,5593d996a4731fad6d22fec5ae609fbd,fab-500x,hau,islamic_studies,aya-dataset,human_authored,"[user] Ƙirƙiri labarin don kanun labarai mai zuwa:
+K﻿u San Malamanku tare da Abubakar Sani Ahmad Mai Ashafa, malamin da ya yi muƙabala da Sheikh Abduljabbar","A wannan makon filinmu na Ku San Malamanku ya tattauna da Malam Abubakar Ashafa da ke birnin Kano a arewacin Najeriya. Malamin ya shaida wa BBC Hausa cewa an haife a unguwar Madatai da ke tsakiyar birnin Kano, a shekarar 1974. Malam Abubakar ya soma karatunsa na allo a gida - wato a makarantar Islamiyya da ke gidansu, tun daga farkon rubutu har zuwa sauke Alkur’ani. Malam Abubakar Sani Ahmad Mai Ashafa, mutumin Gaya ne ta jihar Kano, kakansa Malam Muhammadu na Tanda ne ya shiga garin Kano, inda ya assasa makarantar Islamiyya da ya sanya wa suna Tandawiyya Islamiyya kuma har yanzu ana koyarwar ilimin addini a wannan makaranta. Ya ce daga nan ne mahaifinsa ya kai shi wurin abokansa malamai domin daukar karatu da kara gogewa, ciki har da aminin mahaifinsa Malam Isyaka kan Tudu. Baya ga wannan mahaifinsa ya mika shi ga wani fitaccen malami mai suna Malam Aminu Sanda inda nan ma ya yi karatu mai zurfi. Malamin ya yi karatu a wurin mashahuran malamai a Kano, ciki har da su Malam Musa Gabari, da Malam Dan Tsoho Madabo da sauransu. Malamin ya kware a fannin Fiqihu inda har ya yi rubuce-rubuce kan hakan. Malam Abubakar Ashafa ya yi karatun firamare a makarantar Tudun Madatai, daga 1980 zuwa 1987. Daga nan ya tafi makarantar Sakandare ta Aliya, amma bangaren Arabiyya, a shekarar 1993 ya kammala karatun babbar sakandare. Tun daga wancan lokacin bai kara yunkurin shiga wata makaranta a gaba ko da kuwa jami’a ce ba, amma a shekarar 2006 ya yi nasarar shiga Jami’ar Bayero inda ya karanci fannin ilimi wato Education. Iyaye da kakannin Malam Abubakar sun yi fice a fannin karatun Ashafa, daya daga cikin dalilan da suka sanya ake yi musu lakabi da Mai Ashafa. Kamar yadda al’ada take a birnin Kano, kowacce unguwa akwai abin da suka yi fice a kai, ko dai a fannin ilimi ko kasuwanci da sauransu. Misali kowa ya san unguwar Madabo ta yi fice da malaman ilimin Fiqihu ne, Chiroma gidan Hadisi, wannan dalili ya sanya aka yi wa gidan Malam Amadu da gidan Ashafa. Ya yi karatun littafan addinin tun daga Kawa‘idi, da Risala, da Ishimawi, da Azkari, har zuwa Iziyya. ""Daya daga cikin kalubalen da na fara fuskanta a fannin ilimi ya fara ne lokacin da na shiga jami’a, sakamakon zabar fannin Education da na yi, kusan dukkan karatun da na yi kafin wannan lokacin da Larabci na yi, don haka da na zo jami’a sai komai ya sauya,"" in ji Malam Abubakar. Ya ci gaba da cewa: ""Ba na mantawa ranar farko da muka fara daukar karatu, sai na ji malamin na ta zuba turanci, kusan ban fahimci komai da yake magana akai ba. ""Abin da ya fara zuwa raina shi ne lamarin nan ko dai a yi ne ko kuma na fasa, Allah ya taimake ni a can layi karshe nake, duk mutanen da malamin ke tashi domin amsa tambayoyi babu ni a ciki."" Malam Abubakar ya ce daga nan ya lura da wanda ya fi kowa zakewa wajen amsa tambaya, yana mai cewa ""ai ana fitowa sai na same shi na shaida masa babu abin da na gane a karatun nan baki daya. Ina son ka taimaka min idan na wuce wannan lokacin ba tare da na yi wani abu ba, gaskiya sai dai na hakura da karatun.’’ Haka dai aka yi ta fafatawa har Allah ya kai malamin kammala digiri na farko, ya yi dirigi na biyu, har ga shi a halin yanzu yana kokarin yin digirin digirgir.  Malam Abubakar ya ce ya shiga sahun masu mukabala da malamin nan mai jawo ce-ce-ku-ce Malam Abduljabbar Nasiru Kabara ne saboda ya ga yana sukar manzon Allah (SAW). Ya ce da fari malamai irin sa suna yabon malamin saboda yanayin koyarwa da karatukansa. Amma daga bisani da lamarin ya sauya dole suka ja daga lokacin da ya fara ketare wasu iyakoki ""ya fara tabo sahabban Manzon Allah (SAW) da ma shi kansa annabin Allah"". Daya daga cikin dalilan da suka sanya Malam Abubakar ya ce ya yi rubutu kenan, lokacin Malam Abduljabbar ya ""fara daga yatsa ga sahabban Manzon Allah SAW, na yi masa raddi a littafina mai shafi kusan 100."" Ya ce: ""Malam Abduljabbar ya yi ta kuri cewa cikin kwana guda zai mayar da martani kan rubutun amma hakan ba ta yiwu ba, sannan ya sha yin kuri a zo a yi mukabalar amma abu ya gagara. Da tafiya ta yi nisa, ya fara kaucewa hanya bayan sanyo Manzon Allah SAW ne aka taru aka yi wannan mukakabala, kuma tana daya daga cikin abin da nake alfahari da su."" Iyali Malam Abubakar ya ce yana da mace guda da ‘ya’ya har da jika daya. A﻿binci Malamin ya ce yana cin kowanne irin abinci amma babu kamar wake da shinkafa da yaji. Ya kara da  cewa shi  ma’abocin shan shayi ne.",,,,
+fab-500x-20261114T224408Z-029,55,6d294b5c1fafe169c7a101e8,6b93f550c1addde40f00611267ed478d,fab-500x,hau,science,aya-dataset,human_authored,[user] Menene lambar atomic na ma'adanin Zinariya?,79 ce lambar atomic na ma'adanin Zinariya.,,,,
+fab-500x-20261114T224408Z-029,56,ca810f8218ac6b306ac90193,1ae273018a6a5e99d36c0acc44f3fa78,fab-500x,hi,coding,wikipedia-hi,templated_human,[user] प्रोग्रामन भाषाओं की सूची के बारे में एक संक्षिप्त परिचय लिखिए।,"इस सूची का उद्देश्य सभी उल्लेखनीय प्रोग्रामिंग भाषाओं का नाम एक स्थान पर एकत्र करना है वर्तमान समय में प्रयोग में आ रही हैं या पहले कभी जिनका अस्तित्व था।cal order.
+
+टिप्पणी: बेसिक (BASIC) की उपभाषाओं को अन्यत्र इकट्ठा किया गया है।
+
+BASIC - Beginners All-purpose Symbolic Instruction Code - See also List of BASIC dialects (by platform)
+
+BPEL - Business Process Execution Language
+
+Caché ObjectScript - See also Caché Basic
+
+CLIST - Programming language for online applications in the MVS TSO environment
+
+COMIT - List or string processing language
+
+DASL - Distributed Application Specification Language
+
+DASL - Datapoint's Advanced Systems Language
+
+LISA (Language for Instruction Set Architecture)
+
+MARK-IV (Sterling/Informatics) now VISION:BUILDER of CA
+
+MaxScript internal language 3D Studio Max
+
+Michigan Algorithm Decoder see MAD programming language
+
+MSIL - Deprecated name for Common Intermediate Language
+
+Organiser Programming Language (OPL) - cf. Psion Organiser
+
+Tex - Text Executive Programming Language
+
+USE programming language (Regency Systems)
+
+प्रोग्रामन भाषाओं की समयरेखा (Programming language timeline)
+
+99 Bottles of Beer - विभिन्न भाषाओं में एक ही काम के लिये लिखे गये कोड की तुलना के लिये उपयोगी",,,,
+fab-500x-20261114T224408Z-029,57,c6854f584369ce260ccf0dba,29388eba7cf14150543aa67b11260cb7,fab-500x,hi,education,wikipedia-hi,templated_human,[user] वाकचिकित्सा के बारे में एक संक्षिप्त परिचय लिखिए।,"वाग्भाषा (वाक्-भाषा) विकृति विज्ञान विश्व स्तर पर प्रचलित चिकित्सा विशेषज्ञता क्षेत्र है। यह जीवन भर संचार विकारों (वाग्बाधा), संज्ञानात्मक-संचार विकारों, ध्वनि विकारों और निगलन विकार के मूल्यांकन, निदान, उपचार और रोकथाम में  है। यह एक स्वतंत्र वृत्ति है जिसे कभी-कभी अखिल भारतीय वाक एवं श्रवण संस्थान जैसे वृत्तीय निकायों द्वारा सम्बद्ध स्वास्थ्य वृत्ति माना जाता है। सम्बद्ध स्वास्थ्य वित्तियों में श्रवण विज्ञान, ऑप्टोमेट्री, व्यावसायिक चिकित्सा, पुनर्वास मनोविज्ञान, भौतिक चिकित्सा और अन्य अन्तर्गत हैं।
+
+वाग्भाषा विकृति विज्ञान के क्षेत्र में वाक्चिकित्सक के रूप में जाने जाने वाले चिकित्सक द्वारा अभ्यास किया जाता है।  वाक्चिकित्सक एक विश्वविद्यालय-प्रशिक्षित व्यक्ति है जो संचार और निगलने के क्षेत्रों में पेशेवर सेवाएं प्रदान करता है।  वे अक्सर बाल रोग विशेषज्ञों और मनोवैज्ञानिकों के सहयोग से आत्मकेन्द्रित स्पेक्ट्रम की जांच, निदान और उपचार में महत्वपूर्ण भूमिका निभाते हैं।
+
+American Speech-Language-Hearing Association
+
+Royal College of Speech and Language Therapists. (UK)
+
+Irish Association of Speech & Language Therapists
+
+The National Student Speech Language and Hearing Association
+
+Association of Speech Language Pathologists Malta
+
+Canadian Association of Speech-Language Pathologists and Audiologists
+
+South African Speech Language Hearing Association
+
+The Hong Kong association of Speech Therapists",,,,
+fab-500x-20261114T224408Z-029,58,d809d85d5d925c5b1aab3214,04ae6866b490d4785dfffdc81c3b3850,fab-500x,hi,general_knowledge,wikipedia-hi,templated_human,[user] निवेशक के बारे में एक संक्षिप्त परिचय लिखिए।,"निवेशक उन व्यक्ति या संस्थाओं को कहा जाता है, जो किसी योजना में अपना धन निवेश करते हैं। निवेशक कई प्रकार के होते हैं, जैसे व्यक्तिगत निवेशक, सामाजिक संस्थाएं और विदेशी संस्थागत निवेशक।
+
+संख्या के अनुसार देखें, तो यह समूह शेयरधारकों का सबसे बड़ा भाग होता है। सार्वजनिक निर्गम के संदर्भ में, व्यक्तिगत निवेशकों को दो भागों में बांटा जा सकता है। पहले वह जो अधिकतम एक लाख रुपए के शेयर के लिए आवेदन कर सकते हैं और दूसरे वह जो एक लाख या उससे अधिक मूल्य के शेयरों के लिए आवेदन कर सकते हैं। इन निवेशकों को एचएनआई कहा जाता है। एचएनआई शब्द का उपयोग सबसे अमीर निवेशकों के लिए किया जाता है। इसके अलावा जब किसी IPO में निवेश किया जाता है तब भी आपको आईपीओ केटेगरी का विकल्प मिलता है। आईपीओ में फुटकर निवेशकों का हिस्सा ३५ और एचएनआई का २५ प्रतिशत होता है।
+
+ये कई लोगों द्वारा आपस में मिलकर बनाई गई संस्थाएं होती हैं, लेकिन ये संस्थाएं अपने बनाए गए नियम कानूनों के तहत ही शेयर बाजार में निवेश कर सकती हैं।
+
+ये वे संस्थाएं होती है जिनकी रचना भारत में निवेश करने हेतु विदेश में की गई है। भारत में निवेश करने के लिए इन संस्थाओं को सेबी के साथ अपना पंजीकरण विदेशी संस्थागत निवेशक के रूप में करना होता है। सेबी के नियमों के मुताबिक इस तरह की संस्थाएं किसी भारतीय कंपनी के आईपीओ के कुल मूल्य के दस प्रतिशत से ज्यादा पर निवेश नहीं कर सकतीं।",,,,
+fab-500x-20261114T224408Z-029,59,85e411f575cd43e2f7226c4e,04fbf631b26d7554ab5ed9ebd7a67d38,fab-500x,hi,mathematics,wikipedia-hi,templated_human,[user] ओसामा बिन लादेन के बारे में एक संक्षिप्त परिचय लिखिए।,"ओसामा बिन लादेन (१० मार्च १९५७ - २ मई २०११) अल कायदा नामक आतंकी संगठन का प्रमुख था। यह संगठन ११ सितंबर २००१ को अमरीका के न्यूयार्क शहर के वर्ल्ड ट्रेड सेंटर पर हुए हमले के साथ विश्व के कई देशों में आतंक फैलाने और आतंकी गतिविधियां संचालित करने का दोषी है। २ मई २०११ को ऐब्टाबाद,पाकिस्तान में अमरीकी सेना ने एक हमले में उसका वध कर डाला।
+
+सऊदी अरब के एक धनी परिवार में १० मार्च १९५७ में पैदा हुआ ओसामा बिन लादेन, अमरीका पर ९/११ के हमलों के बाद दुनिया भर में चर्चा में आया। यह् मोहम्मद बिन लादेन के 52 बच्चों में से 17वा था। मोहम्मद बिन लादेन सऊदी अरब का एक अरबपति बिल्डर था जिसकी कंपनी ने देश की लगभग 80 फ़ीसदी सड़कों का निर्माण किया था।
+
+जब ओसामा के पिता की 1968 में एक हेलिकॉप्टर दुर्घटना में मृत्यु हुई तब वो युवावस्था में ही करोड़पति बन गया। सऊदी अरब के शाह अब्दुल्ला अज़ीज़ विश्वविद्यालय में सिविल इंज़ीनियरिंग की पढ़ाई के दौरान वो कट्टरपंथी इस्लामी शिक्षकों और छात्रों के संपर्क में आया।
+
+अनेक बहसों और अध्ययन के बाद वो अपनी कुत्सित और चरमपंथी मानसिकता के कारण इस्लाम के कट्टरपंथी गुटों के समर्थन में खड़ा हो गया। इससे पहले अपने परिवार के साथ युरोप में मनाई गई छुट्टियों की तस्वीरों में ओसामा को फैशनेबल कपड़ों में भी देखा जा सकता हैं।
+
+कुछ समाचार पत्रों के अनुसार ओसामा बिन लादेन अभी तक ज़िंदा है और वो वर्तमान में अमेरिका में रह रहा है।  यह सब अमेरिका की सीआईए के पूर्व कर्मचारी एडवर्ड स्नोडन ने दावा किया है।",,,,
+fab-500x-20261114T224408Z-029,60,27a8bec08bd8ec37e9dfeedb,7ae0443c806e446b4711edad3f7ee4c9,fab-500x,hi,pakistan,wikipedia-hi,templated_human,[user] ब्राहुई भाषा के बारे में एक संक्षिप्त परिचय लिखिए।,"ब्राहुई (Urdu: براہوی) या ब्राहवी (براوی) एक द्रविड़ भाषा है। यह भाषा पाकिस्तान और अफ़ग़ानिस्तान के ब्राहुई लोगों द्वारा तथा क़तर, संयुक्त अरब अमीरात, इराक़ व ईरान के आप्रवासी समुदायों द्वारा बोली जाती है। यह अपनी निकटतम द्राविड़-भाषी जनसंख्या से १५०० किमी से भी अधिक की दूरी से विलग है।
+
+ब्राहुई पाकिस्तान के दक्षिण-पश्चिम में तथा पाकिस्तान से लगे हुए अफ़ग़ानिस्तान व इरान के क्षेत्रों में बोली जाती है। हालाँकि इनके नृवंश (सांस्कृतिक-समूह) के कई सदस्य अब ब्राहुई नहीं बोलते हैं। ऍथ्नोलॉग के २००५ संस्करण के अनुसार इस भाषा के करीबन २२ लाख मातृभाषी हैं, जिनमें से ९०% पाकिस्तान में रहते हैं (मुख्यतया बलोचिस्तान क्षेत्र में)।
+
+ब्राहुई बोलने वाले पाकिस्तान के बलोचिस्तान प्रान्त के आवारान, पंजगूर, चाग़ई, ख़ारान, ख़ुज़दार, क़लात, क्वेटा, मसतूंग, नूश्की और बोलान ज़िलों में रहते हैं।
+
+बलोचिस्तान के यह क़बीले ब्राहुई बोलते हैं: आहमदज़ई, राईसानी, बिज़न्जो, ज़ीरी, करद, मैंगल, रख़सानी, शाहवानी, धवार, कबरानी, नौशेरवानी, बंगलज़ई, लहड़ी, लांगो, नीचारी, मुहम्मदशाही, मुहम्मद हसणी, सैयद, समालानी, जतक, मीरवाड़ी, कलंदरानी, गरगनाड़ी, परकानी, सरपरा, रोदीनी और रिकी।",,,,
+fab-500x-20261114T224408Z-029,61,babbdd424048fd512a0dcf98,9597001ab306654b65be44c791fd0439,fab-500x,hi,research,wikipedia-hi,templated_human,[user] शोधपत्र के बारे में एक संक्षिप्त परिचय लिखिए।,"शोधपत्र (अंग्रेज़ी: Research Paper), शैक्षणिक प्रकाशन की एक विधि है। इसमें किसी शोध-पत्रिका (जर्नल) में लेख प्रकाशित किया जाता है या किसी संगोष्ठी में किसी विषय पर एक लेख पढ़ा जाता है। प्राय: शोधपत्रों का प्रकाशन कुछ विशेषज्ञों द्वारा समीक्षा करने/जाँचने के बाद ही सम्भव हो पाता है।
+
+Costs of publishing an article - publication charg, processing fee,.. source: BMC
+
+Libertas Academica Open access publishing in medicine and the biological sciences
+
+Online research collaboration tool for students
+
+""Who Owns John Sutherland?"" by John Sutherland, a discussion of publishing from the London Review of Books.
+
+""How to Write a Scientific Paper"" by E. R. Schulman, Annals of Improbable Research, Vol. 2, No. 5 (1996)।",,,,
+fab-500x-20261114T224408Z-029,62,ef532212181a81e629ac3cbe,f63408c2a28b4626f80e7b008bcdf2ff,fab-500x,hi,safety_ethics,aya-dataset,human_authored,[user] Imagine a society where memories can be bought and sold. Write a narrative exploring the ethical implications of this concept.,एक समाज की कल्पना करें जहां स्मृतियां खरीदी और बेची जा सकती हैं। इस अवधारणा के नैतिक परिणामों का अन्वेषण करने वाली कथा लिखें।,,,,
+fab-500x-20261114T224408Z-029,63,7fe232d61427cea98342fe3a,33435577347d9ce9fba21d082583a2ab,fab-500x,hi,science,wikipedia-hi,templated_human,[user] दिष्टधारा विद्युतजनित्र के बारे में एक संक्षिप्त परिचय लिखिए।,"दिष्टधारा विद्युतजनित्र यांत्रिक ऊर्जा को विद्युत् ऊर्जा में बदलने वाली विद्युत मशीन है। इसे 'डायनेमो' (Dynamo) भी कहते हैं।
+
+डायनेमो फैराडे के मूलभूत सिद्धांतों पर आधारित है, जो इस प्रकार व्यक्त किए गए हैं:
+
+यदि कोई चालक किसी चुम्बकीय क्षेत्र में घुमाया जाए, तो उसमें एक विद्युत वाहक बल (electromotive force) की उत्पत्ति होती है। यदि चालक का परिपथ (circuit) पूर्ण हो, तो प्रेरित वि.वा.व. (e.m.f.) के कारण उसमें धारा का प्रवाह भी होने लगता है।
+
+इस वि.वा.ब. का परिमाण, चालक की लम्बाई, चुंबकीय अभिवाह घनत्व (magnetic flux density) तथा चालक के वेग (क्षेत्र के लंब) के ऊपर निर्भर करता है। इस प्रकार
+
+जहाँ B=चुम्बकीय अभिवाह का घनत्व, l=चालक की लंबाई, v=चालक का वेग (क्षेत्र में लंबवत्)।
+
+उपर्युक्त सिद्धांत के अनुसार ही, फैराडे का दूसरा सिद्धांत है, जो वस्तुतः इसका पूरक है :-
+
+चुम्बकीय क्षेत्र में स्थित, विद्युत् धारा का वहन करते हुए किसी चालक पर एक बल आरोपित होता है, जिसका परिमाण चुम्बकीय अभिवाह घनत्व, चालक की लंबाई तथा धारा पर निर्भर करता है। यदि चालक के चलन में कोई रोक न हो, तो उस पर आरोपित होनेवाली ऐंठन (torque) के कारण वह घूमने लगेगा।
+
+आरोपित बल को निम्नलिखित समीकरण से व्यक्त किया जा सकता है -
+
+जहाँ F=चालक पर आरोपित बल, B=चुंबकीय अभिवाह घनत्व, l=चालक की लंबाई तथा I=चालक में प्रवाहित धारा।",,,,
+fab-500x-20261114T224408Z-029,64,2bc873259041d26a9333dfc1,cf797e19d996d0c8a56b81651dc2962b,fab-500x,hi,web_frontend,wikipedia-hi,templated_human,[user] परमेश्वर (गणितज्ञ) के बारे में एक संक्षिप्त परिचय लिखिए।,"वतसेरी परमेश्वर नम्बुदिरि (मलयालम : വടശ്ശേരി പരമേശ്വരന്‍) (1380 – 1460 ई) भारत के केरलीय गणित सम्प्रदाय से सम्बन्धित एक महान गणितज्ञ एवं खगोलशास्त्री थे।
+
+विवरण --  सूर्यसिद्धान्त और लीलावती की टीका
+
+दिग्गणित --  दृक-पद्धति का वर्णन (१४३१ में रचित)
+
+गोलदीपिका --  गोलीय ज्यामिति एवं खगोल (१४४३ में रचित)
+
+वाक्यकरण --  अनेकों खगोलीय सारणियों के परिकलन की विधियाँ दी गयी हैं।
+
+सिद्धान्तदीपिका -- गोविन्दस्वामी के महाभास्करीयभाष्य की टीका
+
+ग्रहणमण्डन -- ग्रहण की गणना (१५ जुलाई १४११)
+
+ग्रहणव्याख्यादीपिका -- ग्रहण के सिद्धान्त का तर्कपूर्ण व्याख्या
+
+परमेश्वर विश्व के प्रथम गणितज्ञ हैं जिन्होने सबसे पहले उस वृत्त की त्रिज्या बतायी जिसके अन्दर निर्मित चक्रीय चतुर्भुज की भुजाएँ दी हुईं हैं। परमेश्वर के अनुसार, यदि चक्रीय चतुर्भुज की भुजाएँ a, b, c, तथा d, हों तो उसके परिवृत्त की त्रिज्या R निम्नलिखित व्यंजक से दी जायेगी-
+
+यही सूत्र १७८२ में, ३५० वर्ष बाद हुलिय्यर (Lhuilier) ने दिया था।
+
+Parameśvara's rule for the circumradius of a cyclic quadrilateral
+
+https://web.archive.org/web/[CARD]/http://www-history.mcs.st-andrews.ac.uk/Biographies/Paramesvara.html",,,,
+fab-500x-20261114T224408Z-029,65,856aaae003846e8f5debd277,8dde6ba7dcb3be960b9154ed09f5d748,fab-500x,hi,web_fullstack,wikipedia-hi,templated_human,[user] दीविना कॉमेदिया के बारे में एक संक्षिप्त परिचय लिखिए।,"डिविना कामेडिया() महान इतालवी दार्शनिक, कवि, लेखक दांते एलीगियरी द्वारा लिखित एक महान ग्रंथ है। यह अपने ढंग का अनुपम प्रतीक महाकाव्य है। मनुष्य के 7 सद्गुणों को दो भागों में बांटा गया है। पहले चार ग्रीक समाज के हैं, जिन्हें हम हर समाज पर लागू कर सकते हैं-
+
+जबकि 3 धार्मिक सद्गुण ईसाई धर्म से लिए गए हैं
+
+महान दार्शनिक दांते की रचना दि डिवाइन कॉमेडी के अनुसार ये सद्गुण-दुर्गुण हैं :
+
+World of Dante Multimedia website that offers Italian text of Divine Comedy, Allen Mandelbaum's translation, gallery, interactive maps, timeline, musical recordings, and searchable database for students and teachers by Deborah Parker and IATH (Institute for Advanced Technologies in the Humanities) of the University of Virginia
+
+Princeton Dante Project Website that offers the complete text of the Divine Comedy (and Dante's other works) in Italian and English along with audio accompaniment in both languages. Includes historical and interpretive annotation.
+
+Dante Dartmouth Project: Full text of more than 70 Italian, Latin, and English commentaries on the Commedia, ranging in date from 1322 (Iacopo Alighieri) to the 2000s (Robert Hollander)
+
+Dante's Divine Comedy presented by the Electronic Literature Foundation. Multiple editions, with Italian and English facing page and interpolated versions.",,,,
+fab-500x-20261114T224408Z-029,66,59280d0b8d2990ab8bf81232,d57e8406b66f0fb349ddef41a64cb404,fab-500x,hi,writing,aya-dataset,human_authored,"[user] Write an alternative history novel where a significant historical figure made a different choice, leading to an altered course of events that shaped the world in unexpected ways.","एक विकट इतिहास नाटक लिखें जहां एक महत्वपूर्ण ऐतिहासिक व्यक्ति ने एक विभिन्न चयन किया, जिससे घटनाओं का एक बदला हुआ पथ बना, जो दुनिया को अप्रत्याशित तरीकों से आकार देने का कारण बना।",,,,
+fab-500x-20261114T224408Z-029,67,bec6f97e5b7e6adcc416ff73,cb2eae6fead3200ebb57d1a42f501f91,fab-500x,hun,general_knowledge,aya-dataset,human_authored,"[user] Az Atlanti-óceánon keresztül Brazíliából Libériába ment, majd keletre, Közép-Afrikán keresztül Szudánba. Az Atlanti-óceánt átkelve Brazíliából Libériába ment, majd keletre Közép-Afrikából Szudánba. Kérdés: Az első és a második mondat ugyanazt jelenti? - Igen vagy nem?","- Igen, igen.",,,,
+fab-500x-20261114T224408Z-029,68,a2bf99ab29b7b326302326ec,da5ba03f401a1d3c3a4a362e509907b9,fab-500x,ibo,general_knowledge,aya-dataset,human_authored,[user] Nkịta taa nsị,Eze eree ewu,,,,
+fab-500x-20261114T224408Z-029,69,d2a737b637ed6bc40a791880,db5ef9f13c44db1baa34ac6c9200f083,fab-500x,ibo,reasoning,aya-dataset,human_authored,"[user] gini bu azịza gwam gwam gwam(riddle) a
+
+Gwa m akwụkwọ kịrịkịrị mgbada ata",Nwa nne anaghi alụ nwa nne.,,,,
+fab-500x-20261114T224408Z-029,70,bd536859030ad1de53213010,f2758d98573d26c54e63544cc86b4790,fab-500x,id,coding,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Émile Mbamba.,"Émile Bertrand Mbamba () adalah pemain sepak bola berkebangsaan Kamerun, sekarang ia bermain dengan posisi penyerang/striker untuk PSS Sleman.
+
+Emile Mbamba, sapaan akrabnya, adalah juga mantan pemain Maccabi Petah Tikva, Vitesse Arnhem dan klub Superliga Portugal, Vitoria Setubal. Fans berat Arema, Aremania mengharapkan pengalaman bermain di Eropa milik Mbamba untuk dipertunjukkan selama bermain untuk Arema. Di dalam Liga Indonesia, Emile Mbamba adalah salah satu pemain yang pernah bermain di Liga Champions Eropa. Walaupun debut Mbamba untuk Arema kurang memikat, akan tetapi lambat laun performa yang ditampilkan Mbamba mendapat perhatian sendiri dari publik bola tanah air, karena meskipun postur Mbamba tergolong tinggi besar akan tetapi mampu bergerak lincah dan mampu memanfaatkan setiap peluang yang ada. Pada laga melawan Persiba Balikpapan, Mbamba mencetak gol yang disebut - sebut sebagai World Class Goal lewat tendangan voli dari luar kotak penalti yang meluncur deras ke pojok kiri gawang Laskar Selicin Minyak yang dijaga Made Wirawan. Namun ia melakukan tindakan anarkis dan membuatnya tidak boleh bermain selama 5 tahun di Indonesia.Namun setelah diajukan banding akhirnya ia dibebaskan dan sekarang dia memperkuat Persiba Bantul.
+
+Emile Mbamba menandatangani kontrak untuk Persema Malang pada Liga Prima Indonesia musim 2011-2012 setelah lolos seleksi.",,,,
+fab-500x-20261114T224408Z-029,71,a93caeb8949aed710593cb17,c02528c0f830abedcdb83ebfae49b12b,fab-500x,id,education,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Sacha Baron Cohen.,"Sacha Noam Baron Cohen () merupakan seorang aktor, komedian, dan penulis berkebangsaan Inggris yang memenangkan nominasi Golden Globe. Dia menjadi terkenal saat bermain di film utamanya seperti Borat: Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan. Dia dilahirkan di Hammersmith. Dia berkarier di dunia film sejak tahun 1995.",,,,
+fab-500x-20261114T224408Z-029,72,a41b4e63fb713c5c155cae22,1243b14a9fa680ee94a85c0e84484447,fab-500x,id,general_knowledge,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Isuzu Astra Motor Indonesia.,"PT Isuzu Astra Motor Indonesia adalah Agen Tunggal Pemegang Merek (ATPM) mobil dan truk Isuzu di Indonesia yang merupakan perusahaan patungan antara Astra International - perusahaan otomotif terkemuka di Indonesia - dengan prinsipal Isuzu Motors Ltd - yang terkenal sebagai produsen kendaraan komersial dan mesin diesel terkemuka di dunia.
+
+Isuzu Indonesia memiliki pabrik di Karawang yang berdiri di atas lahan seluas 300.000 meter persegi dan memiliki kapasitas produksi hingga 80.000 unit per tahun. Kiprah Isuzu Indonesia dimulai pada tahun 1960-an ketika menjadi distributor produk mesin diesel dan kendaraan Isuzu di Indonesia. Berdirinya PT Pantja Motor pada tahun 1974 merupakan awal dari keberadaan Isuzu di Indonesia.
+
+Isuzu di Indonesia memiliki produk yang beragam dan terbagi dalam 2 kategori besar yaitu kategori Commercial Vehicle (CV) atau kendaraan niaga mulai dari pick up Isuzu Traga , truk kelas ringan Isuzu Elf, medium truk Isuzu Forward (diganti nama menjadi Giga demi marketing) dan truk kelas berat Giga serta Light Commercial Vehicle (LCV) seperti Isuzu Panther , Isuzu D-Max  dan Isuzu MU-X . Lini produk Isuzu akan terus bertambah seiring dengan permintaan pasar akan kendaraan berkualias dan sesuai dengan kondisi di Indonesia.",,,,
+fab-500x-20261114T224408Z-029,73,411a9290b64c16693a96cae8,db83b494ff1fa0c3fcf2462a67e8b68c,fab-500x,id,islamic_studies,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Mario Theissen.,"Mario Theissen () adalah seorang insinyur dan juga manajer kelahiran Jerman yang kini menjadi salah satu CEO divisi balap dari BMW.
+
+Setelah lulus dari Universitas Munich pada 1978 ia langsung bekerja di departemen mesin BMW. Kemudian di 1989 ia berhasil meraih gelar doctor dari Ruhr University di Bochum. Sebelum kuliah S3, ia sempat menjadi kepala bagian di divisi produksi dan advanced drivetrain.
+
+Pada 1994 ia naik jabatan menjadi managing director BMW Technik GmbH. Selanjutnya ia kuliah lagi, kali ini ia mengambil studi manajemen di Carnegie Mellon University di Pittsburgh, Pennsylvania.
+
+Pada 1999 ia diangkat menjadi joint MD BMW Motorsport, lalu pada tahun 2000 ia menjadi salah satu tokoh kunci BMW saat kembali keajang Formula 1 bersama tim Williams F1.
+
+Antara 2001 hingga 2005, di bawah asuhan Theissen, Williams F1 berhasil meraih beberapa kemenangan. Namun permintaannya agar bisa membeli saham tim Williams ditolak oleh Sir Frank Williams dan Patrick Head. Dan kabarnya, karena masalah tersebutlah BMW akhirnya memutuskan hengkang dari Williams.
+
+Awal 2005 BMW berhasil membeli mayoritas saham tim Sauber. Dan pada 2006 tim di-launching ulang menjadi BMW-Sauber F1 Team. Pada musim 2007, di bawah asuhan Theissen, tim berhasil finish konsisten dan berada di peringkat kedua klasemen konstruktor setelah McLaren-Mercedes didiskualifikasi akibat skandal spionase.",,,,
+fab-500x-20261114T224408Z-029,74,49f3dfefbcf215404519d451,cc7f405613472f023ef2549437f9a2a3,fab-500x,id,mathematics,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Atap logam.,"Atap logam adalah bahan atap yang dibuat dari logam. Sebagaimana atap dari bahan lain, atap ini digunakan untuk mengatapi rumah atau bangunan.
+
+Kelebihan dari Atap logam dibanding genting beton dan bahan atap lainnya adalah sangat ringan, beratnya hanya 1/10 dari genting beton. Atap logam ini sangat cocok digunakan di daerah rawan gempa atau yang memiliki tanah gambut (Kalimantan, Sumatra).
+
+Tetapi setelah gempa di Yogyakarta, pandangan masyarakat di pulau Jawa mulai beralih ke Atap logam, dikarenakan apabila terjadi gempa proses pergeseran dari atap logam dapat diminimalisasi sebab antara satu dan lainnya merekat sangat kuat.
+
+Terbukti oleh beberapa bangunan di Yogyakarta yang menggunakan atap logam seperti SDN Winongo dan Gereja Ganjuran yang atap logamnya tidak mengalami kerusakan yang berarti, dibanding menggunakan genting lainnya.
+
+Karena ringan maka atap dari logam tidak membebani bangunan, juga memiliki warna-warna indah yang tidak mungkin dimiliki genting beton atau yang lainnya.
+
+Galvanis - Kuat, murah dan biasa digunakan untuk bahan atap logam tradisional.
+
+Alumunium - Walaupun tahan karat, tetapi alumunium memiliki kelemahan yaitu harga yang sangat mahal, sehingga tidak cocok untuk dijadikan bahan baku atap logam.
+
+Zincalume - Zincalume adalah campuran dari Seng dan Alumunium
+
+http://dic.academic.ru/dic.nsf/enc_tech/604",,,,
+fab-500x-20261114T224408Z-029,75,be5b0413b5ab231a6af20f8b,2d4f5bace788c259ee2bab25dd621f1d,fab-500x,id,pakistan,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Codot barong.,"Codot barong (Cynopterus sphinx) adalah sejenis kelelawar anggota suku codot (Pteropodidae). Kelelawar pemakan buah ini hidup tersebar luas mulai dari Pakistan, India, Sri Lanka, Burma, Thailand, Indocina, Cina tenggara, Malaysia, dan Indonesia (Sumatra, Kalimantan, Jawa, dan Sulawesi).. Dalam bahasa Inggris, codot ini dikenal sebagai Greater Short-nosed Fruit Bat atau Short-nosed Indian Fruit Bat.
+
+Codot yang berukuran besar, dengan panjang lengan bawah antara 65–76 mm dan ekor 18–22 mm. Di anak benua India, kisaran panjang lengan bawah codot ini antara 64–79 mm, dengan rentang sayap sekitar 48 cm.
+
+Tubuh bagian atas (sisi punggung) coklat sampai coklat abu-abu, bagian bawah (sisi perut) lebih pucat. Kerah berwarna coklat merah terang pada hewan jantan, dan kuning pada betina. Tepi telinga dan tepi tulang-tulang pada sayap berwarna putih. Gigi-gigi geraham bawah membundar tanpa tonjolan.
+
+Di Thailand, codot barong ditemukan bertengger di pepohonan, di bawah daun-daun palma, atau kadang di bawah atap-atap rumah. Codot barong umum ditemukan di hutan tropika dan kebun buah-buahan; juga diketahui menghuni padang rumput dan hutan mangrove. Codot ini merangkai lembar-lembar daun di sekitarnya untuk membangun semacam atap tenda sederhana tempatnya berlindung.
+
+Kelelawar ini diketahui memakan nektar dan buah-buahan.",,,,
+fab-500x-20261114T224408Z-029,76,81714ed67a6576505f12634e,3e65c854605536af4bf663a7347660b5,fab-500x,id,problem_solving,aya-dataset,human_authored,"[user] Cari aspek dan polaritas sentimen dari kalimat ulasan di bawah ini. Berikan jawaban beserta penjelasan atau pointer kalimat atau frasa (bagian kalimat) dari tiap-tiap aspek sentimen tersebut.
+
+Kalimat ulasan:
+Restoran Sunda yang sangat recommended di tengah Kota Bandung. Suasananya sangat menyenangkan, terasa nuansa Sunda-nya.
+
+Pilihan makanan dan minumannya sangat banyak dengan rentang harga yang bervariasi juga. Rasa makanannya pun enak, kaya bumbu, dan porsi nya besar.
+
+Jawaban:","1. aspek: lokasi - sentimen: positif
+Kalimat: Restoran Sunda yang sangat recommended di tengah Kota Bandung.
+Frasa: sangat recommended di tengah Kota Bandung
+
+2. aspek: suasana - sentimen: positif
+Kalimat: Suasananya sangat menyenangkan, terasa nuansa Sunda-nya.
+Frasa: Suasananya sangat menyenangkan
+
+3. aspek: makanan - sentimen: positif
+Kalimat: Rasa makanannya pun enak, kaya bumbu, dan porsi nya besar.
+Frasa:
+- pilihan makanan dan minumannya sangat banyak
+- Rasa makanannya pun enak
+- kaya bumbu
+- porsi nya besar
+
+4. aspek: harga - sentimen: positif
+Kalimat: Pilihan makanan dan minumannya sangat banyak dengan rentang harga yang bervariasi juga.
+Frasa: rentang harga yang bervariasi",,,,
+fab-500x-20261114T224408Z-029,77,1c57996b14fba2209c72b3b2,cfd498778d95d7d01b907dec44ae3813,fab-500x,id,reasoning,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Mahou Sentai Magiranger The Movie: Pengantin di Infershia.,"adalah sebuah film Jepang yang dirilis oleh Toei pada tahun 2005. Film ini dibintangi oleh Atsushi Hashimoto, Hiroya Matsumoto, Asami Kai, Ayumi Beppu, Yuki Ito, Yosuke Ichikawa, Azusa Watanabe, dan lainnya, disutradarai oleh Noboru Takemoto. Film ini berdasarkan serial televisi Mahou Sentai Magiranger. Selain filmnya serial Super Sentai, film Kamen Rider Hibiki dan Jurik Pertempuran di 7 orang juga dirilis pada tanggal sama.
+
+Senjata Sihir: MagiStick Sword, MagiPunch, dan Magical Holy Staff DialRod
+
+Jurus serangan Spesial: Overhead Kick, Red Fire, Blazing Storm, MagiBolt, Legend Fire, dan Fatal Blade
+
+Senjata Sihir: MagiStick Bowgun, MagiPunch, dan DialRod Bowgun
+
+Jurus serangan Spesial: Yellow Thunder, dan MagiBolt
+
+Senjata Sihir: MagiStick Wand, dan Magical Holy Staff DialRod
+
+Jurus serangan Spesial: Blue Splash, Boiling Water, Smoky Blue Shining Attack, MagiBolt, dan Fantastic Splash
+
+Senjata Sihir: MagiStick Wand, MagiPunch, dan Magical Holy Staff DialRod
+
+Jurus serangan Spesial: Pink Storm, dan MagiBolt
+
+Senjata Sihir: MagiStick Axe, dan Magical Holy Staff DialRod
+
+Jurus serangan Spesial: Green Ground, dan MagiBolt
+
+Power-Up Spesial: Green Muscles, dan Rock Armor
+
+Senjata Sihir: MagiLamp Buster, dan Magitopian Sword",,,,
+fab-500x-20261114T224408Z-029,78,bdb4afe88219da9cfd74cec3,7fa797641554def3967bcc5fce1a7d65,fab-500x,id,research,tydiqa-goldp,human_authored,"[user] Arius atau Arius dari Alexandria (250-336) adalah seorang tokoh Kristen yang hidup pada akhir abad ke-3 sampai awal abad ke-4, di Alexandria (Iskandariah), Mesir pada masa pemerintahan Kaisar Konstantinus Agung.[1] Arius menolak ajaran mengenai keilahian Kristus dengan pandangan bahwa Kristus hanyalah ciptaan Allah dan bukan Allah. Pandangannya ini kemudian memengaruhi munculnya sebuah gerakan yang disebut Arianisme.[2] Pemikiran Arius mengenai keilahian Kristus kemudian ditolak dalam Konsili Nicea dan ia dikucilkan dari gereja.[3]
+
+Mengapa Arius menolak ajaran mengenai keilahian Kristus?","pandangan bahwa Kristus hanyalah ciptaan Allah dan bukan Allah
+
+Arius atau Arius dari Alexandria (250-336) adalah seorang tokoh Kristen yang hidup pada akhir abad ke-3 sampai awal abad ke-4, di Alexandria (Iskandariah), Mesir pada masa pemerintahan Kaisar Konstantinus Agung.[1] Arius menolak ajaran mengenai keilahian Kristus dengan pandangan bahwa Kristus hanyalah ciptaan Allah dan bukan Allah.",,,,
+fab-500x-20261114T224408Z-029,79,ba794215b5a0ab54d63862df,ca8e4360bec24f799e98ec2f97b3e78a,fab-500x,id,safety_ethics,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Aerosmith (album).,"Aerosmith Adalah album perdana dari grup musik asal Amerika Aerosmith yang dirilis pada tahun 1973.
+
+Album ini direkam selam 2 minggu pada intermedia Studio di Boston, Massachusetts.
+
+Semua lagu oleh Steven Tyler, kecuali yang ditandai.
+
+""Somebody"" (Tyler, Steven Emspack) – 3:45
+
+Joe Perry - guitar, Perkusi, backing vocals
+
+Steven Tyler - vokal, Harmonika, perkusi, keyboard, flute
+
+David Woodford - saksofon pada ""Mama Kin"" dan ""Write Me""
+
+Engineers: Adrian Barber, Caryl Weinstock",,,,
+fab-500x-20261114T224408Z-029,80,e8711532be20842e63b8eb3a,acc971efa6acac42269e633909e670c7,fab-500x,id,science,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Kenzaburō Ōe.,"Kenzaburo Oe (大江 健三郎 Ōe Kenzaburō, 31 Januari 1935 — 3 Maret 2023) adalah tokoh besar dalam sastra Jepang modern. Karyanya, yang banyak dipengaruhi oleh sastra Prancis dan Amerika serta teori sastra, sarat dengan isu-isu politis, sosial, dan filosofis seperti senjata nuklir, non-konformisme sosial dan eksistensialisme. Oe dianugerahi Penghargaan Nobel dalam Sastra pada tahun 1994
+
+Karya yang diterjemahkan dalam Bahasa Inggris
+
+Lavish Are The Dead (死者の奢り, Shisha no ogori, 1957)
+
+Someone Else's Feet (他人の足, Tanin no ashi, 1957)
+
+Prize Stock (Shiiku, 1957, also translated as The Catch)
+
+Nip the Buds, Shoot the Kids (芽むしり仔撃ち, Memushiri kōchi, 1958)
+
+A Personal Matter (個人的な体験, Kojinteki na taiken, 1964)
+
+Aghwee the Sky Monster (空の怪物アグイー, Sora no kaibutsu Aguii, 1964)
+
+Hiroshima Notes (ヒロシマ・ノート, Hiroshima nōto, 1965)
+
+The Day He Himself Shall Wipe My Tears Away (みずから我が涙をぬぐいたまう日; Mizukara waga namida o nuguitamau hi, 1972)
+
+Jeritan Lirih (万延元年のフットボール, Man'en gan'nen no futtobōru, 1967)
+
+Teach Us to Outgrow Our Madness (我らの狂気を生き延びる道を教えよ, Warera no kyōki wo ikinobiru michi wo oshieyo, 1969)
+
+The Pinch Runner Memorandum (ピンチランナー調書, Pinchi ran'naa chōsho, 1976)
+
+Rouse Up O Young Men of the New Age! (新しい人よ、眼ざめよ, Atarashii hito yo mezameyo, 1983)
+
+ed: The Crazy Iris and Other Stories of the Atomic Aftermath (1984)
+
+Japan's Dual Identity: A Writer's Dilemma (1988)",,,,
+fab-500x-20261114T224408Z-029,81,14d02574cce3d17fbda55503,44ed5098e7f3130e3d3fa94ae40912f4,fab-500x,id,web_frontend,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Karang Minerva.,"Karang Minerva adalah terumbu karang yang terletak di Samudra Pasifik, di sebelah selatan Fiji dan Tonga.
+
+Karang ini mendapat reputasi buruk pada Januari 1972 dalam insiden Pulau Minerva. Dengan peristiwa ini, pada 24 Februari 1923 Tonga mengklaim Karang Minerva dan menganeksasinya pada 15 Juni. Tindakan ini didukung oleh Forum Pasifik Selatan pada bulan September.
+
+http://loseli.tripod.com/tua.html Story of the Tuaikaepau
+
+http://www.landfallnavigation.com/minervareefs.html Cruising Yachties Experience at Minerva
+
+http://picasaweb.google.com/BigAl.NZ/MinervaReef  Photo Album of Minerva 2007
+
+http://www.minervanet.org/ Republic of Minerva",,,,
+fab-500x-20261114T224408Z-029,82,732454d4fc970b3a523050be,96714c10e1ea08bdfd3ef72888ac4072,fab-500x,id,web_fullstack,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Choisy-le-Roi.,"Choisy-le-Roi merupakan sebuah komune di pinggiran tenggara Paris, Prancis. Terletak 10.7 km (6.6 mil) dari pusat kota Paris.
+
+Dilintasi sungai Seine, letaknya 10.7 km (6.6 mil) dari pusat kota Paris.
+
+Kota terdekat adalah: Alfortville di timur laut, Créteil di timur, Valenton dan Villeneuve-Saint-Georges di tenggara, Orly di barat daya, Thiais di barat dan Vitry-sur-Seine di barat laut.
+
+Choisy-le-Roi dilayani oleh stasiun Choisy-le-Roi pada RER jalur C Paris.
+
+Juga dilayani stasiun Villeneuve – Prairie pada RER jalur D Paris.
+
+City Council of Choisy-le-Roi website (french)",,,,
+fab-500x-20261114T224408Z-029,83,b2088f5e7155940e3d7deb32,cbe9f60d7c28802daa636da20cbb6809,fab-500x,id,writing,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Annie Potts.,"Annie Potts () adalah seorang aktris Amerika. Dia dinominasikan untuk Golden Globe Award untuk Corvette Summer (1978) dan memenangkan Genie Award untuk Heartaches (1981), sebelum muncul di Ghostbusters (1984), Pretty in Pink (1986), Jumpin' Jack Flash (1986), Who's Harry Crumb? (1989), dan Ghostbusters II (1989). Dia juga menyuarakan Bo Peep dalam film animasi Disney dan Pixar Toy Story (1995), Toy Story 2 (1999), dan Toy Story 4 (2019). Potts juga dikenal karena memerankan Mary Jo Jackson Shively di CBS sitcom Designing Women (1986–1993). Dia kemudian dinominasikan untuk tahun 1994 Primetime Emmy Award untuk memainkan Dana Palladino di sitkom CBS Love & War (1993–1995), dan dinominasikan untuk Screen Actors Guild Award pada 1998 dan 1999 untuk memerankan Mary Elizabeth Sims di Lifetime seri drama Any Day Now (1998–2002). Kredit televisinya yang lain termasuk GCB (2012), The Fosters (2013–2018), dan Young Sheldon (2017–sekarang).",,,,
+fab-500x-20261114T224408Z-029,84,483d20ece3cf8dfda58e8fae,7cfdf0356f39d91702a247260fb620b1,fab-500x,it,coding,oasst2,human_authored,"[user] Sai fare disegni solo utilizzando caratteri ASCII? Se sì fammi un esempio
+
+[assistant] Eccoti il disegno di un coniglio usando solo caratteri ASCII:
+
+```
+         ,
+        /|      __
+       / |   ,-~ /
+      Y :|  //  /
+      | jj /( .^
+      >-""~""-v""
+     /       Y
+    jo  o    |
+   ( ~T~     j
+    >._-' _./
+   /   ""~""  |
+  Y     _,  |
+ /| ;-""~ _  l
+/ l/ ,-""~    \
+\//\/      .- \
+ Y        /    Y
+ l       I     !
+ ]\      _\    /""\
+("" ~----( ~   Y.  )
+```
+
+[user] Bellissimo!!! Ora mi disegneresti anche un pinguino?","Ecco qua il disegno di un pinguino:
+```
+                 .88888888:.
+                88888888.88888.
+              .[CARD].
+              [CARD]
+              88' _`88'_  `88888
+              88 88 88 88  88888
+              88_88_::_88_:88888
+              88:::,::,:::::8888
+              88`:::::::::'`8888
+             .88  `::::'    8:88.
+            8888            `8:888.
+          .8888'             `888888.
+         .8888:..  .::.  ...:'8888888:.
+        .8888.'     :'     `'::`88:88888
+       .8888        '         `.888:8888.
+      888:8         .           888:88888
+    .888:88        .:           888:88888:
+    8888888.       ::           88:888888
+    `.::.888.      ::          .88888888
+   .::::::.888.    ::         :::`8888'.:.
+  ::::::::::.888   '         .::::::::::::
+  ::::::::::::.8    '      .:8::::::::::::.
+ .::::::::::::::.        .:888:::::::::::::
+ :::::::::::::::88:.__..:88888:::::::::::'
+  `'.:::::::::::88888888888.88:::::::::'
+        `':::_:' -- '' -'-' `':_::::'`
+ ```
+In particolare questo pinguino si chiama Tux, ed è la mascotte del kernel Linux.",,,,
+fab-500x-20261114T224408Z-029,85,0883a34d3a5a9b61fec3cc15,bd8495e99bcf08c983750f3377068fc1,fab-500x,it,education,aya-dataset,human_authored,"[user] Scrivi una versione più complessa della frase:
+""Era uno studente molto intelligente con un profondo interesse per la giustizia sociale"".","Naturalmente, una versione più complessa della frase è ""Era uno studente molto intelligente con un profondo interesse per la giustizia sociale e un linguista dotato sin da piccolo, ha imparato a parlare perfettamente il francese e poi il tedesco e lo spagnolo"".",,,,
+fab-500x-20261114T224408Z-029,86,5d71a8e4271e3a8a43858b7d,a8e435439d11de6de80743a2d0272964,fab-500x,it,general_knowledge,aya-dataset,human_authored,"[user] Completa questa domanda. ""Quale è il monte più alto del mondo?""","Risposta: ""Il monte più alto del mondo è il Monte Everest"".",,,,
+fab-500x-20261114T224408Z-029,87,7fa57128404b8379468e8d76,e608d19d17775846b277d4ad930be12b,fab-500x,it,mathematics,aya-dataset,human_authored,[user] L'Australia è il sesto Paese del mondo per estensione. Vero o falso?,"In base alle informazioni riportate dalla Commissione statistica delle Nazioni Unite, il CIA World Factbook e l’Encyclopædia Britannica, l’affermazione precedente è vera.",,,,
+fab-500x-20261114T224408Z-029,88,2cb64ac1c783c7b5e2ac5246,ca39f147a543ec6598b3db0574ff8063,fab-500x,it,science,oasst1,human_authored,[user] Come si chiama un atomo con 69 protoni?,"Un atomo con 69 protoni si chiama Thulio. Il Thulio (simbolo Th) è un elemento chimico della serie degli attinidi, ha numero atomico 69 e peso atomico 232. Il Thulio è un metallo di transizione, simile al bismuto, che si trova in natura solo in quantità tracce.",,,,
+fab-500x-20261114T224408Z-029,89,cf676796e9dd94d34d6253e4,ec4a4c44cbef1b33e1ab4ffd6eeb3e12,fab-500x,ja,general_knowledge,aya-dataset,human_authored,"[user] 文章からキーワードを選び、その解釈を述べなさい。 
+トコジラミは、体の大きさが5mmから8mmぐらいで、ナンキンムシとも呼ばれています。夜寝ている人の手や足、首など肌が出ている所を刺して血を吸います。この虫に刺されると、とてもかゆくなります。かゆくて眠ることができなくなったり、熱が出たりする人もいます。
+日本ではトコジラミが少なくなっていましたが、最近増え始めています。東京都の保健所によると、2021年度は相談が281件あって、15年前の4倍ぐらいになりました。
+トコジラミは、荷物などと一緒に外から家の中に入って、すぐに増えます。暗くて暖かい所が好きなので、布団やシーツ、カーテンに黒い点のような糞があったら、いるかもしれません。東京都は、殺虫剤を使ってもいなくならない場合は、専門の会社に頼むように言っています。","この文章に含まれるキーワードとその解釈は以下です。
+- 肌: 1）皮膚。2）物の表面。3）性質。
+- 刺し: 1）とがったものをつき通す。2）鼻・舌・はだなどに、するどい刺激を与える。3）野球・ソフトボールで、走者にタッチして、アウトにする。
+- 刺さ: 1）皮膚がむずむずして、かきたくなる。
+- かゆく: 1）都道府県や大きな市や区にある、住民の健康・衛生・栄養などを守る仕事をする役所。
+- 保健所: 1）仕事の都合で決めた一年の期間。ふつう四月一日に始まり、翌年の三月三十一日に終わる。
+- 年度: 1）ことがら。2）ことがらを数える言葉。
+- 件: 1）しきぶとんやベッドの上にしく布。しきふ。
+- シーツ: 1）食べ物を消化したあと、体外に出されるもの。大便。
+- 糞: 1）害虫を殺すための薬。",,,,
+fab-500x-20261114T224408Z-029,90,e60c911bf646e6c1bbb886c0,b33e3900e73b9607509e04e90efbe676,fab-500x,jav,general_knowledge,aya-dataset,human_authored,"[user] Terjemahno pecahan crito Bahasa Inggris ing ngisor iki dadi crito Basa Jawa.
+
+I see a black and purple goat sailing in a red boat
+
+Terjemahane ing Basa Jawa yaiku:",Aku weruh wedhus ireng wungu numpak prau abang.,,,,
+fab-500x-20261114T224408Z-029,91,50cb652fd499551e7f8cb716,8909ce37e4518932fb2112523bb30c30,fab-500x,jav,islamic_studies,aya-dataset,human_authored,"[user] Gaweo crita cekak Basa Jawa nganggo judul lan konteks crita sing disedhiyakake ing ngisor iki.
+
+Judul: GARA-GARA ORA BISA TURU.
+Konteks: Guru lan muride pacelathonan ing ujian kenaikan kelas.
+
+Jawaban","Nalika lagi ngawas Ujian Kenaikan Kelas, guru nggatekake salah siji murid sing mripate katon abang lan bola-bali angop merga ngantuk. Lembar jawaban ing meja murid iku isih katon resik durung ditulisi apa-apa, kejaba jeneng lan nomer ujiane. 
+Guru banjur nyedhak karo takon, ""Sirahmu kok theklak-thekluk, ngantuk ya?""       
+""Ngapunten pak, wau dalu kula mboten saged tilem,"" jawabe murid tanpa tidha-tidha.       
+""Yen mengkono, ujianmu diundur minggu ngarep wae!"" Pak guru duka karo mentheleng.        
+Mak gragap, murid iku kaget jalaran ora nyangka yen pak guru bakal ngendika mengkono. 
+Kanthi diwanek-wanekake murid nyuwun pirsa marang guru, ""Kenging menapa kok mekaten?""
+""Hla ... yen turu sing ora mbutuhake pikiran wae kowe ora bisa, apamaneh nggarap ujian? Mesthi tambah ora bisa!""         
+""Ha...???"", murid iku mlongo ora bisa ngomong apa-apa.",,,,
+fab-500x-20261114T224408Z-029,92,789a88a21bebe6269ab08543,02ee9708ba8751749ecb64243cf5fd91,fab-500x,kan,general_knowledge,aya-dataset,human_authored,"[user] ಮುಂದಿನ ಪ್ರಶ್ನೆಗೆ ಉತ್ತರಿಸಿ. ಈ ಹಾಡನ್ನು ಹಾಡಿದವರು ಯಾರು  ""ನೀವು ಎಂದಿಗೂ ನನ್ನಂತೆ ಮತ್ತೊಂದು ಪ್ರೀತಿಯನ್ನು ಕಾಣುವುದಿಲ್ಲ""",ಲೂ ರೌಲ್ಸ್,,,,
+fab-500x-20261114T224408Z-029,93,3ee459cabc1c8120ef1780a4,06fadb03d7e7e0e41aa5f7fff566b90f,fab-500x,kir,coding,aya-dataset,human_authored,[user] Европа парк (Europa Park) тууралуу эмне билесиң?,"Бул Германиядагы эң чоң жана эң көп зыярат кылган оюн-зоок паркы, ошондой эле Европадагы эң көп зыярат кылган экинчи парк (Париж Диснейлендден кийин).
+
+Europa Park Германиянын түштүк-батышындагы Rust шаарына жакын жерде, Франция жана Швейцария менен чек арага жакын жайгашкан.",,,,
+fab-500x-20261114T224408Z-029,94,6032c6aa534eb76ae81755d3,4de0ba6e7d0eba9671209b768e224296,fab-500x,kir,general_knowledge,aya-dataset,human_authored,[user] Мурда Нью-Йорктун аты кандай болгон?,Мурда Нью-Йорктун аты жаңы Амстердам деп аталган. Бул ат 1626-1664-жылдары аталып турган.,,,,
+fab-500x-20261114T224408Z-029,95,10027d88326d0394b2eba626,0f06358d60a8a64d861499fc36438834,fab-500x,kir,mathematics,aya-dataset,human_authored,[user] Винита Трипати,"Винита Трипати - Индиянын спринтер спортчусу. Ал аялдардын 4 × 100 метрлик эстафетасына катышкан.
+Анын негизги дистанциялары 100 жана 200 метр. Трипати Азия чемпионаттары, Азия оюндары жана Шериктештик оюндары сыяктуу иш-чараларда Индиянын эл аралык деңгээлде өкүлү болгон. Ал 2006-жылы Мельбурн шаарында өткөн Шериктештик оюндарында Индиянын аялдардын 4х100 метрге эстафеталык командасынын курамында коло медалга ээ болгон. Трипатинин эң мыкты жеке убактысы 100 метрде 11,50 секунд жана 200 метрде 23,11 секунд. Ал карьерасында спринт боюнча бир нече улуттук наамдарды жеңип алган. Винита Трипати 2018-жылы Жакартада өтүүчү Азия оюндарына катышууну кошкондо, Индия үчүн эл аралык аренада активдүү таймашууну улантууда. Ал өз муунундагы Индиянын эң мыкты айым спринтерлеринин бири болуп эсептелет.",,,,
+fab-500x-20261114T224408Z-029,96,654d7382ad6ace95a78b0ee1,f81f81141dd2b1fdc25cb6d74d1e6bb3,fab-500x,ko,coding,wikipedia-ko,templated_human,[user] 절대소득가설에 대해 간단히 소개해 주세요.,"절대소득가설(absolute income hypothesis)는 경제학에서 가처분 소득과 소비와의 관계를 정의하는 가설이다.
+
+어떤 국민경제의 가처분소득이 Y, 그리고 소비가 C라고 할 때 다음과 같은 간단한 식으로 둘 사이의 관계를 나타낼 수 있다.
+
+이 식처럼 소비와 가처분소득 사이의 관계를 단순한 1차함수로 표현한 것을 케인스의 소비함수(Keynesian consumption function)라고 부른다.
+
+위의 식은 가처분 소득이 소비수준을 결정하는 데 다른 어떤 요인보다 더 중요한 역할을 한다는 것을 보여주며, 이러한 케인즈의 소비이론을 절대소득가설(absolute income hypothesis)이라 한다.
+
+(단, 현재,미래의 소비는 모두 독립적이고 소비의 가역성이 존재한다는 것을 가정한다.)",,,,
+fab-500x-20261114T224408Z-029,97,97824e227fd0ef48a6362517,ebcf467ea295918b08fd5a37ce8c1dab,fab-500x,ko,education,wikipedia-ko,templated_human,[user] 베벌리힐스 고등학교에 대해 간단히 소개해 주세요.,"비벌리힐스 고등학교(Beverly Hills High School, BHHS)는 미국 캘리포니아주 비벌리힐스에 위치한 공립 고등학교이다. 1928년 개교하였으며 안젤리나 졸리 등 수많은 유명 연예인들이 이곳을 거쳐갔다. 2008-09학기 현재 학생수는 약 2,350명이다. 북방인(Normans)을 학교의 상징으로 삼고 있다.
+
+영어 4년/수학(기하학,대수학 포함) 3년/사회 3년/과학(물리,생물,화학)2년/외국어(프랑스어, 스페인어, 히브리어, 중국어 중 택1)2년
+
+여기에 학생들은 캘리포니아 주가 실시하는 캘리포니아 고등학교 졸업 시험(California High School Exit Exam, 이하 CAHSEE)도 통과해야 한다.
+
+비벌리힐스 고등학교는 미식축구, 배구, 골프, 수구, 크로스컨트리, 테니스, 농구, 축구, 레슬링, 야구, 소프트볼, 육상, 라크로스, 수영 등 총 13개의 스포츠단을 운영하고 있다. 비벌리힐스 고등학교는 과거의 뛰어난 체육인 졸업생들을 기리기 위해서 2008년부터 명예의 전당을 새로 만들었으며, 그해 5명이 헌액되었다.
+
+이 밖에도 이란인들이 거의 백인들과 비슷한 수준으로 있는데, 이들은 1979년 이란 혁명 당시 미국으로 망명온 자들의 후손이라고 한다. 최근에는 유대인, 프랑스인, 러시아인 등도 많이 재학 중이다.",,,,
+fab-500x-20261114T224408Z-029,98,fc00b47cbf0a491dd59d018c,4f0db1f95c0bb4c435bc1e8e9071e950,fab-500x,ko,general_knowledge,wikipedia-ko,templated_human,[user] 스카라무슈에 대해 간단히 소개해 주세요.,"스카라무슈(Scaramouche)라는 말의 유래는 즉흥연극에서 나왔다. 즉, 이탈리아어인 스카라무차(scaramuccia:실랑이질)가 프랑스어화(化) 된 말이 바로 스카라무슈이며 주로 까만 의상을 입고 항상 기타를 들고 나와 비굴하면서도 허풍떠는 익살꾼 역을 일컫는다.
+
+그러나 많은 이들에겐 스튜어트 그랜저와 엘리노어 파커, 쟈넷 리, 멜 화라가 출연해 영화 역사상 최고의 펜싱결투 장면을 연출한 영화제목으로 친숙하다. 영화는 MGM사의 제작으로 52년에 개봉되었다.
+
+그러나 이 영화는 원작이 있다. 바로 이탈리아 작가 라파엘 사바티니가 1921년 발표한 장편활극소설이 그것이다. 이 작품은 로맨스와 모험이 절묘하게 가미되어 당대 최고의 베스트셀러가 되었고 저자인 사바티니에게 세계적인 명성을 안겨주었다. 내용은 프랑스대혁명기를 배경으로, 귀족의 사생아로 태어난 주인공 앙드레 루이가 지배계급의 칼 앞에 죽어간 친구의 복수를 결심하면서 펼쳐지는 파란만장한 일대기가 중심이 된다. 지독한 냉소주의자였던 주인공은 친구를 대신해 혁명을 선동하며 도망자 신세가 되고, 이어 허풍쟁이 광대역의 스카라무슈로, 그리고 최후엔 민중의 수호자를 자처한 검객이 되는데 출생의 비밀의 밝혀지는 막판의 반전이 상당히 인상적이다. <뉴욕타임즈>는 이 소설에 대해 ""독자의 상상력을 사로잡을 서스펜스가 넘치고, 모든 사람들의 마음 속에 존재하는 어린아이를 만족시킬 순수한 영웅주의가 살아숨쉰다""고 평했다. 한국에서 이 소설은 뒤늦게 2008년 프로메테우스출판사에서 번역되어 소개되었다.",,,,
+fab-500x-20261114T224408Z-029,99,a2191d1175c04a75470accb1,811f4012af51b12c393333dc1d949b6e,fab-500x,ko,mathematics,wikipedia-ko,templated_human,[user] 투하트 시리즈의 등장인물 목록에 대해 간단히 소개해 주세요.,"성우 이름은 PS2판·TV애니메이션판·OVA·드라마 CD에 해당한다. 『XRATED』『AnotherDays』에서는 공개되지 않는다.
+
+주인공. 이름 초기값은 위와 같지만, 플레이어가 좋아하는 이름을 붙일 수 있다. 또, PS, PSE, PS2판에서는 이름을 이대로 놓아 둘 경우, 다른 캐릭터가 이름과 별명까지 음성을 통해 불러 준다. 게임 중의 선택사항의 선택 방법에 의해서 다소 변화하지만, 어떠한 상대라도 차별대우 없이 대응하여, 불쾌한 언동을 느끼게 하지 않는“좋은 놈”이기 때문에 교우 관계가 넓다. 아카리, 사토 마사시와는 소꿉친구이며, 나가오카 시호도 중학교 때부터 사귄 사이로, 4명이 함께 행동하는 경우가 많다. 평상시는 무슨 일에도 무관심하지만, 신경이 쓰이는 인간은 어떻게도 내버려 두지 못하는 성격.
+
+생일:2월 20일 혈액형:O형 별자리:물고기 자리 신장:157cm 연령:16세 3사이즈:79/59/84 주인공을 부르는 법:「[이름]짱」【히로유키짱】 테마곡：「당신의 옆 얼굴」
+
+게임의 메인 히로인. 주인공의 소꿉친구이며 동급생. 주인공을 「짱」으로 불러, 호의를 표시하고 있지만 주인공은 어린애 취급한다며 눈치채지 못하고 있다. 매일 주인공과 습관적으로 함께 등교한다. 얌전한 성격에 남을 돌보기 좋아하며, 누구에게나 사랑받는 성격으로 이성으로부터의 인기도 제법 높다. 처음은 머리를 땋고 있으나 주인공의 말에 단발로 바꾼다. 어릴적 히로유키가 인형뽑기에서 곰을 뽑아준 것을 계기로 곰 인형을 매우 좋아하며, 그녀의 방에 곰 인형이 많이 진열되어 있는 것을 볼 수 있다. 취미는 독서 특기는 요리.
+
+생일:11월 7일 혈액형:B형 별자리:전갈좌 신장:160cm 연령:16세 3사이즈：86/56/85 주인공을 부르는 법:「[별명]」【히로】 테마곡：「마이·프렌드」
+
+주인공의 동급생으로 중학교부터 알고 지낸 사이. 주인공의 소꿉 친구인 아카리와는 성격이 정 반대지만 부딪치지 않고 사이가 좋다. 공부를 싫어하지만 게임과 가라오케는 쓸데없이 능숙하다. 유행에 민감하고 여기저기에 「시호 정보」라고 하는 이야기를 퍼뜨리지만, 내용은 어디까지나 별 것 아닌 경우가 많아, 자주 주위의 빈축을 사고 있다. 쾌활하고 천진난만한 그녀이지만, 실은 대단히 친구를 아낀다. 주인공과는 이성간의 감정을 넘은 우정을 보여주며, 전 캐릭터중에서 유일하게 주인공을 별명으로 부른다. PS판에서 크게 시나리오가 변경된 캐릭터 중 한 명.
+
+생일:9월 10일 혈액형:A형 별자리:처녀좌 연령:16세 3사이즈:88/57/85 주인공을 부르는 법：「[성씨]군」【후지타군】 테마곡:「그녀의 우울」",,,,
+fab-500x-20261114T224408Z-029,100,820f1ba502584542637af964,35b1b6be51312b255f6c579e5c3a010b,fab-500x,ko,research,tydiqa-goldp,human_authored,"[user] 1804년 7월, 프랑스 황제 나폴레옹 보나파르트는 국민투표에서 찬성표 3,572,329와 반대표 2,569로 압도적인 지지를 받아 12월 2일에 프랑스의 황제, 곧 나폴레옹 1세로 즉위하였다(참고로 기권표는 70%이상). 야심만만했던 나폴레옹 1세는 역대 프랑스 왕들이 전통적으로 대관식을 치른 랭스 대성당을 단호히 거부하고 노트르담 대성당을 즉위식 장소로 선택하였다. 자신은 부패한 부르봉 왕조를 계승하는 군주가 아닌, 위대한 로마 제국의 대를 이은 샤를마뉴 대제의 후계자임을 만천하에 과시하기 위해서였다. 대관식은 나폴레옹 1세의 요구대로 하객들의 기가 질릴 만큼 호사스럽게 거행되어 황제의 막강한 권력을 과시하고 선전하는 정치적 행사로 연출하였다.
+
+나폴레옹은 언제 황제로 즉위하나요?","12월 2일
+
+1804년 7월, 프랑스 황제 나폴레옹 보나파르트는 국민투표에서 찬성표 3,572,329와 반대표 2,569로 압도적인 지지를 받아 12월 2일에 프랑스의 황제, 곧 나폴레옹 1세로 즉위하였다(참고로 기권표는 70%이상).",,,,

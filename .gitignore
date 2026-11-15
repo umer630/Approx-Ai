@@ -22,7 +22,7 @@ deploy/inference.env
 training/datasets/.cache/
 training/datasets/*/build/
 training/datasets/evaluation/*/build/
-training/datasets/reviews/sheets/
+# review sheets are published as individual CSV files (open them in Google Sheets / Drive)
 drive_bundles/
 
 # approved dataset shards are distributed through Git LFS (docs/MODEL_PIPELINE.md)

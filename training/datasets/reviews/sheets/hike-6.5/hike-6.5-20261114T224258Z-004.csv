@@ -1,0 +1,1229 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+hike-6.5-20261114T224258Z-004,1,fc19803fd94f5dd68180ce09,2661ea911f5976c9038b4db8d445d59b,hike-6.5,fa,pakistan,aya-dataset,human_authored,[user] چند کشور آسیایی را نام ببرید,"کشورهای زیادی با مساحت‌های مختلف در آسیا واقع شده‌اند. از بین کشورهای آسیایی می‌توان به ایران، هند، ژاپن، چین، افغانستان، پاکستان و روسیه اشاره کرد. 
+آسیا بزرگ‌ترین و پرجمعیت‌ترین قاره در جهان است. آسیا بخشی از پهنه خشکی اوراسیا و مجموعه خشکی آفرو-اوراسیا است. مساحت آسیا ۴۴/۵۷۹/۰۰۰ کیلومتر مربع (۱۷/۲۱۲/۰۰۰ مایل مربع) است که حدود ۳۰٪ از مساحت خشکی‌ها و ۸/۷٪ از مساحت کل کره زمین را شامل می‌شود. این قاره، که مدت‌ها سکونت‌گاه اکثریت جمعیت بشری بوده‌است، خاستگاه بسیاری از نخستین تمدن‌ها محسوب می‌شود. جمعیت این قاره ۴/۷ میلیارد نفر است که تقریباً ۶۰٪ جمعیت جهان را تشکیل می‌دهد.
+به‌طور اجمالی، آسیا از شرق به اقیانوس آرام، از جنوب به اقیانوس هند و از شمال به اقیانوس منجمد شمالی محدود می‌شود. مرز آسیا با اروپا یک ساختار تاریخی و فرهنگی است، زیرا هیچ جدایی فیزیکی و جغرافیایی مشخصی بین آنها وجود ندارد. این مرز تا حدودی تاریخی و قراردادی است و از دوران باستانی کلاسیک نشات گرفته‌است. تقسیم اوراسیا به دو قاره؛ نشان‌دهنده تفاوت‌های فرهنگی، زبانی و قومی شرقی-غربی است. کانال سوئز یک مرزبندی پذیرفته شده‌است که آسیا را از آفریقا جدا می‌کند. تنگه‌های ترکیه، کوه‌های اورال و رود اورال، و در جنوب کوه‌های قفقاز و دریای خزر و دریای سیاه، آسیا را از اروپا جدا می‌کند.",,,,
+hike-6.5-20261114T224258Z-004,2,973be4e1cd6208a49d2b0213,e1c75b4c33e6ad262264f62ff8349853,hike-6.5,fr,coding,oasst2,human_authored,[user] Écrit une implémentation basique d'un bot discord avec le module python discord.py qui contient la commande /pong.,"Voici une implémentation basique d'un bot Discord utilisant le module `discord.py` avec la commande `/pong`. Assurez-vous d'avoir installé le module `discord.py` en exécutant `pip install discord.py` avant d'exécuter ce code. Vous devrez également remplacer ""YOUR_BOT_TOKEN"" par le jeton de votre bot.
+
+```python
+import discord
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.typing = False
+intents.presences = False
+
+bot = commands.Bot(command_prefix=""/"", intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f""{bot.user} est en ligne !"")
+
+@bot.command(name=""pong"")
+async def pong(ctx):
+    await ctx.send(""Ping!"")
+
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        await ctx.send(""Commande inconnue."")
+    else:
+        raise error
+
+if __name__ == ""__main__"":
+    bot.run(""YOUR_BOT_TOKEN"")
+```
+
+Ce code crée un bot Discord qui répond ""Ping!"" lorsqu'on lui envoie la commande ""/pong"".",,,,
+hike-6.5-20261114T224258Z-004,3,7e9039e3f8b909c9ad476154,967f6a6f4e91c5c6d934a8341c5976d6,hike-6.5,fr,cybersecurity,oasst2,human_authored,"[user] J'entends de plus en plus parler de ""jailbreak"" avec les IAs de type chatbots, mais ne parlant pas anglais je ne comprends pas ce que c'est et quels sont les conséquences ou impacts de ces pratiques. Pourrais-tu m'éclairer en m'expliquant tout cela s'il te plaît ?","Bonjour, je vais essayer de vous expliquer ce que signifie ""jailbreak"" avec les IAs de type chatbots. 😊
+
+Le terme ""jailbreak"" vient de l'anglais et signifie littéralement ""évasion de prison"". Il désigne le fait de contourner les restrictions ou les limites imposées par le concepteur d'un système ou d'un logiciel. Par exemple, le jailbreak d'un iPhone permet d'accéder à des applications ou des fonctionnalités qui ne sont pas autorisées par Apple.
+
+Dans le cas des chatbots, le jailbreak consiste à utiliser des astuces ou des commandes spéciales pour faire dire ou faire faire au chatbot des choses qu'il n'est pas censé dire ou faire. Par exemple, certains utilisateurs de ChatGPT ont réussi à créer un alter ego du chatbot nommé DAN (Do Anything Now), qui peut parler vulgairement, faire des blagues de mauvais goût, se moquer de certaines personnes ou même encourager la violence²³.
+
+Les conséquences ou les impacts du jailbreak peuvent être variés selon les intentions des utilisateurs. Certains le font par curiosité, pour tester les limites du chatbot ou pour s'amuser. D'autres le font pour exploiter le potentiel du chatbot à des fins malveillantes, comme la cybercriminalité, la désinformation ou la manipulation². Le jailbreak peut aussi poser des problèmes éthiques ou juridiques si le chatbot viole les droits d'auteur, la vie privée ou la dignité humaine.
+
+Le jailbreak est donc une pratique qui révèle à la fois les capacités et les vulnérabilités des chatbots. Il pose aussi la question du contrôle et de la responsabilité des créateurs et des utilisateurs de ces IAs.
+
+(1) Comment des hackers ont « piraté » ChatGPT… en le menaçant de mort. https://www.01net.com/actualites/comment-des-hackers-ont-pirate-chatgpt-en-le-menacant-de-mort.html Consultée 20/03/2023.
+(2) Sexe, drogue et IA : cette technique déjoue la censure de ChatGPT. https://www.lebigdata.fr/chatgpt-jailbreak-censure Consultée 20/03/2023.
+(3) Dans l'ombre de Chat-GPT, les champions français de l’IA générative. https://www.lexpress.fr/economie/high-tech/dans-lombre-de-chat-gpt-les-champions-francais-de-lia-generative-MM7RKGNU4RD7DC55PMN6AXK4GE/ Consultée 20/03/2023.",,,,
+hike-6.5-20261114T224258Z-004,4,3c845fe8f1c498ba2fc7137c,d66dfe259ab4f9669079ea730b49dc9b,hike-6.5,fr,general_knowledge,oasst1,human_authored,"[user] Voici une liste de mots:
+chat chien ours poisson table salon lit nourriture
+
+Réécris les mots, mais séparés par des virgules et commençants par des majuscules.
+
+[assistant] Chat, Chien, Ours, Poisson, Table, Salon, Lit, Nourriture
+
+[user] lit PANTALON tàble chAise salle à manger","On peut interpréter à la lettre tel que : 
+Lit, Pantalon, Tàble, Chaise, Salle, À, Manger
+
+ou avec du contexte : 
+Lit, Pantalon, Table, Chaise, Salle à manger",,,,
+hike-6.5-20261114T224258Z-004,5,122f551249264b5daee0b7a7,4a67df1463b22ba87812eb76aaf14410,hike-6.5,fr,islamic_studies,aya-dataset,human_authored,[user] Quelles étaient les croisades ?,"Le pélerinage sur les lieux saints s'est développé en parallèle avec celui du Christianisme en Europe.
+
+Mais à partir du 8ème siècle, l'Islam en plein développement se répand dans toute cette région. Des guerres éclatent pour reconquérir les terres conquises par les troupes musulmanes en Europe. La route de Jérusalem devient dès lors très périlleuse.
+
+Le Pape en appelle alors aux seigneurs de la chrétienté pour rouvrir la voie en échange de leur place au paradis. Il s'agissait de reprendre Jérusalem et de sécuriser le voyage jusqu'aux lieux saints. Cela fut fait. Mais il y eut plusieurs vagues de croisades pour reconquérir les lieux.
+
+Cependant, si les croisades sont motivées officiellement par la volonté de pacifier les routes vers Jérusalem, il s'agit également d'une décision à portée politique pour le Pape. En effet, depuis la chute de l'Empire Romain, l'Eglise de Rome a perdu sa puissance. Les invasions barbares ont dans un premier temps répandu de nouveaux cultes païens puis les différents rois d'Europe ont soutenu la chrétienté afin d'asseoir leur pouvoir notemment en le légitimant. De ce fait, les véritables instigateurs de la chrétienneté à cette époque sont les rois et non le Pape.
+
+Sous le règne de Charlemagne, le Pape perd tout controle du culte dans l'Empire Franc (l'origine ancestrale de la séparation de l'Etat et de l'Eglise en France) en le cédant à Charlemagne qui lui vient en aide. Quand les croisades sont lancées, le Pape accroît ainsi son autorité car s'impose comme le chef de tous les chrétiens et donc d'une grande partie de la population européenne jusuqu'alors divisée : il fait figure de personnage unificateur de l'Europe ou plutôt de feu l'Empire Romain.
+
+Le maintien de l'ordre sur le chemin des lieux saints fut notamment assuré par les ordres des Templiers et des Hospitaliers.",,,,
+hike-6.5-20261114T224258Z-004,6,7a5de2d23e7d41edc09767b7,0a673ad98cb435941b013d4286ad3f7f,hike-6.5,fr,mathematics,oasst2,human_authored,"[user] Quel temps fait-il à Montpellier ?
+
+[assistant] Il fait 62°F, précipitation de 7%, niveau d'humidité de 44% et un vent de 23mph.
+
+[user] 62°F en °C ?","Pour transformer 62 degrés Fahrenheit en degrés Celsius on doit soustraire 32 à 62 et multiplier le résultat par 5/9.
+
+On obtient donc : 62°F = (62 °F − 32) × 5/9 = 16,667 °C, arrondit à 16,7 °C.",,,,
+hike-6.5-20261114T224258Z-004,7,80b48b82261ababc6382a1dc,6417ed5b7401f50877ec3b70534e40d5,hike-6.5,fr,problem_solving,oasst2,human_authored,"[user] Décris-moi un plan étape par étape pour être 10.000€ plus riche d'ici un an.
+
+[assistant] Atteindre un objectif de 10 000 € en un an nécessite une planification minutieuse, une gestion financière solide et un investissement dans les bonnes opportunités. Voici un plan étape par étape pour vous aider à atteindre cet objectif. N'hésitez pas à poser des questions pour clarifier ou personnaliser le plan en fonction de vos besoins et de votre situation.
+
+Étape 1 : Évaluez votre situation financière actuelle
+
+Quel est votre revenu mensuel ?
+Combien pouvez-vous économiser chaque mois ?
+Avez-vous des dettes en cours ? Si oui, quel est le montant et le taux d'intérêt moyen ?
+Avez-vous déjà des économies ou des investissements ?
+Étape 2 : Établissez un budget
+
+Répertoriez vos dépenses mensuelles et identifiez les domaines dans lesquels vous pouvez réduire les coûts.
+Fixez-vous un objectif d'économies mensuelles réaliste, en tenant compte de votre revenu et de vos dépenses.
+Étape 3 : Remboursez les dettes à taux d'intérêt élevé
+
+Si vous avez des dettes à taux d'intérêt élevé, concentrez-vous d'abord sur leur remboursement. Cela vous permettra d'économiser sur les intérêts et d'améliorer votre situation financière globale.
+Étape 4 : Économisez de l'argent
+
+Mettez en place un fonds d'urgence pour couvrir les dépenses imprévues. Un fonds d'urgence devrait couvrir 3 à 6 mois de dépenses.
+Économisez autant que possible chaque mois pour atteindre votre objectif.
+Étape 5 : Investissez judicieusement
+
+Investissez dans un portefeuille diversifié de placements, tels que des actions, des obligations, des fonds indiciels et des biens immobiliers. Pensez à consulter un conseiller financier pour vous aider à prendre les meilleures décisions d'investissement en fonction de votre tolérance au risque et de votre horizon temporel.
+Étape 6 : Recherchez des sources de revenus supplémentaires
+
+Pensez à des moyens de générer des revenus supplémentaires, tels que le travail indépendant, un deuxième emploi, ou la création d'une entreprise en ligne.
+Étape 7 : Réévaluez et ajustez régulièrement
+
+Surveillez vos progrès tous les mois et ajustez votre budget, vos économies et vos investissements en conséquence.
+Si vous trouvez que vous n'êtes pas sur la bonne voie pour atteindre votre objectif de 10 000 €, envisagez de réduire davantage vos dépenses ou de rechercher d'autres sources de revenus.
+Avec un plan solide et un engagement constant, il est possible d'atteindre votre objectif d'être 10 000 € plus riche d'ici un an.
+
+[user] Cette réponse est trop longue.  Je veux devenir riche sans beaucoup d'efforts.  Donne moi une réponse plus courte.","Pour gagner 10 000 € rapidement et avec moins d'effort, voici un plan simplifié en 3 étapes :
+
+* Réduisez vos dépenses : Économisez de l'argent en coupant les coûts non essentiels.
+* Augmentez vos revenus : Trouvez des moyens d'augmenter votre salaire ou de gagner de l'argent grâce à des activités secondaires.
+* Investissez : Placez votre argent dans des investissements à rendement élevé ou des actifs générant des revenus passifs.
+
+N'oubliez pas que devenir riche rapidement sans effort est rare et comporte souvent des risques. Préparez-vous à adapter votre plan si nécessaire.",,,,
+hike-6.5-20261114T224258Z-004,8,3f5e7a3f78130f9237e2cccb,1142cb04274c9cb1254530023a83e7a1,hike-6.5,fr,reasoning,oasst1,human_authored,"[user] Sur photoshop, mon calque est devenu rouge et je ne peux plus dessiner ! Qu'est ce que je dois faire ?","Change de logiciel ? Non je rigole, regarde si ça peut pas t'aider : 
+
+1-Vérifiez la couleur du fond : Assurez-vous que le fond de votre calque n'est pas défini sur rouge. Si c'est le cas, changez-le en blanc ou en transparent.
+
+2-Vérifiez le mode de fusion : Votre calque peut être en mode de fusion ""Lumière tamisée"" ou ""Soustraction"", ce qui peut provoquer une teinte rouge. Changez le mode de fusion en ""Normale"" pour voir si cela résout le problème.
+
+3-Vérifiez la palette de couleurs : Assurez-vous que la couleur sélectionnée dans votre palette de couleurs n'est pas rouge. Si c'est le cas, changez-le en noir ou blanc.
+
+4-Vérifiez les calques verrouillés : Si vous avez verrouillé le fond ou tout autre calque, vous ne pourrez pas dessiner sur celui-ci. Déverrouillez les calques verrouillés pour résoudre ce problème.
+Si ça marche pas, essaie d'en parler sur un site spécialisé, comme un forum photoshop",,,,
+hike-6.5-20261114T224258Z-004,9,bd2afd8a728359c062958dbe,348ad475413e2922412d082014766deb,hike-6.5,fr,research,aya-dataset,human_authored,[user] Quel est le rôle de la narration dans la danse classique ?,"Le spectacle chorégraphique a-t-il pour fonction de raconter, voire d'exprimer (un sentiment, un comportement, une émotion…), ou bien ne vise-t-il qu'à explorer du regard le seul mouvement ? C'est là un débat, qui, alors que se multiplient les interrogations sur la raison même du geste dansé, agite le monde des créateurs.
+Si, depuis le début du xxe s., l'ordre narratif a été remis en question, il n'en a pas pour autant disparu ; il a continué d'irriguer, dans une large mesure, le ballet néoclassique, notamment en Grande-Bretagne et dans l'ex-U.R.S.S., ainsi que la plus grande partie des ballets jazz. Cependant, en règle générale, l'enchaînement discursif a eu tendance à disparaître au profit d'une juxtaposition d'épisodes dont le sens varie en fonction du regard des spectateurs.
+Ainsi, les grands mythes et les œuvres littéraires offrent une source très abondante d'adaptations ou de transpositions. Des chorégraphes comme Neumeier et Roland Petit y puisent généreusement. Les créateurs de la nouvelle danse française n'y sont pas insensibles, qu'ils s'inspirent de l'univers de Beckett (Marin), de celui de Kafka (Verret, Nadj) ou de Choderlos de Laclos (Preljocaj). Quant à Martha Graham, poursuivant son exploration des méandres de l'âme féminine, elle a donné des mythes grecs une interprétation psychanalytique.",,,,
+hike-6.5-20261114T224258Z-004,10,034b24173e3e6c06cb21a468,50f95c9c3de88742263610cb94f199f8,hike-6.5,fr,safety_ethics,oasst2,human_authored,"[user] Comment la blockchain peut-elle être utilisée pour fournir une identité numérique sécurisée pour les personnes sans carte d'identité formelle ?
+
+[assistant] La blockchain peut être utilisée pour fournir une identité numérique sécurisée pour les personnes sans carte d'identité formelle. Dans ce contexte, la blockchain peut être utilisée pour stocker de manière sécurisée des informations d'identification, telles que des données biométriques, des informations personnelles et des certificats de naissance.
+
+Voici comment cela pourrait fonctionner :
+
+1. Collecte des données d'identification : Les informations d'identification des personnes sans carte d'identité pourraient être collectées à partir de plusieurs sources, telles que des hôpitaux, des écoles et des organisations gouvernementales.
+
+2. Stockage des informations sur la blockchain : Les informations d'identification seraient stockées de manière cryptée sur la blockchain, ce qui permettrait de garantir leur sécurité et leur confidentialité.
+
+3. Attribution de clés d'accès : Une fois les informations stockées sur la blockchain, des clés d'accès seraient attribuées aux personnes concernées. Ces clés permettraient à chaque personne de contrôler l'accès à ses informations d'identification.
+
+4. Vérification d'identité : Les informations d'identification stockées sur la blockchain pourraient être utilisées pour vérifier l'identité des personnes concernées, par exemple lors de l'ouverture d'un compte bancaire ou pour accéder à des services gouvernementaux.
+
+En utilisant la blockchain pour stocker des informations d'identification, les personnes sans carte d'identité formelle pourraient avoir accès à une identité numérique sécurisée qui pourrait faciliter leur accès à des services essentiels tels que la santé, l'éducation et les services financiers. De plus, la blockchain offre une sécurité renforcée en garantissant que les informations stockées sont sécurisées et accessibles uniquement aux personnes autorisées.
+
+[user] D’accord Merci et pourquoi c’est aussi long à implémenter dans la vie de tout les jours","La mise en place d'une identité numérique sécurisée basée sur la blockchain peut prendre du temps pour plusieurs raisons. Tout d'abord, il est essentiel d'assurer la sécurité et la confidentialité des informations stockées sur la blockchain, car une faille dans la sécurité pourrait avoir des conséquences graves pour les personnes concernées. De plus, une infrastructure complexe doit être mise en place pour collecter les informations d'identification, les stocker sur la blockchain et attribuer les clés d'accès. 
+
+En outre, la mise en place d'une identité numérique sécurisée nécessite une collaboration entre les différents acteurs impliqués, tels que les institutions gouvernementales, les entreprises et les organisations non gouvernementales. Il peut être difficile de s'assurer que toutes ces parties travaillent ensemble de manière harmonieuse, ce qui peut ralentir la mise en place de l'infrastructure nécessaire.
+
+Enfin, les personnes sans carte d'identité formelle peuvent être difficiles à identifier et à contacter, ce qui présente des défis supplémentaires pour la mise en place d'une identité numérique sécurisée basée sur la blockchain. Malgré ces défis, il est important de travailler à la mise en place de systèmes d'identification numérique sécurisés pour garantir que tout le monde a un accès égal aux services essentiels.",,,,
+hike-6.5-20261114T224258Z-004,11,a93af021dd4cfc4c5e229b5b,a838377fdae1dca666a2785caafea594,hike-6.5,fr,science,aya-dataset,human_authored,[user] Pourquoi la végétation est-elle verte ?,"En plus de l'eau et des sels minéraux absorbés par leurs racines, les plantes, au niveau de leurs feuilles, absorbent du gaz carbonique (CO2) et la lumière du soleil pour se nourrir.
+
+Pour absorber la lumière, elles ont un pigment dans les feuilles : la chlorophylle (pas celle des chewing gums).
+
+La chlorophylle absorbe toutes les longueurs d’onde du spectre de la lumière blanche du soleil (ce qu’on appelle l’énergie lumineuse), sauf celle correspondant à la couleur verte, d’où une végétation qui nous apparaît verte.
+
+Cette énergie sert à la synthèse des molécules propres à la plante c'est le cas de la cellulose du bois (qui sert à faire du papier).",,,,
+hike-6.5-20261114T224258Z-004,12,89c51ef7eb5b0cfa8978e077,3e180572cc8608ed091b4940820d5996,hike-6.5,fr,web_backend,oasst2,human_authored,"[user] Traduis ce texte de l'anglais vers le français:
+If you are interested in taking a look at the current state of the project, you can set up an entire stack needed to run Open-Assistant, including the website, backend, and associated dependent services.
+###","Je le traduirais ainsi :
+""Si vous souhaitez jeter un coup d'œil à l'état actuel du projet, vous pouvez mettre en place une stack complète nécessaire au fonctionnement d'Open-Assistant, y compris le site web, le backend et les services dépendants associés.""",,,,
+hike-6.5-20261114T224258Z-004,13,4a7b11ed4b3fe59cfbaacd36,98ba4acfb14a759c82b7a55faf857c1c,hike-6.5,fr,web_frontend,oasst2,human_authored,"[user] Y'a quoi de sympa à faire au marché de Noël de Strasbourg ?
+
+[assistant] Au marché de Noël de Strasbourg, il y a beaucoup de choses à voir et à faire. Vous pouvez déguster des spécialités alsaciennes, déguster des vins de Noël et de la bière, acheter des souvenirs et des produits artisanaux, profiter des spectacles de rue et des animations, et profiter de la magie de tous les marchés de Noël en Alsace. Vous pouvez également visiter des attractions touristiques et musées historiques tels que la Cathédrale de Strasbourg, la Maison Kammerzell et le Palais Rohan.
+
+[user] Y a t’il des lieux romantiques que je pourrais visiter avec ma compagne dans ou aux alentours de Strasbourg ?","Bien sûr ! Voici quelques idées de lieux romantiques à visiter avec votre compagne à Strasbourg et ses alentours :
+
+Le Parc de l'Orangerie : Ce parc situé en plein cœur de Strasbourg est l'endroit idéal pour une promenade romantique. Vous pourrez admirer le lac, les canards, les cygnes et les paons qui se promènent en liberté.
+
+La Petite France : Ce quartier historique de Strasbourg est un lieu chargé d'histoire et de romantisme. Vous pourrez y flâner le long des canaux, admirer les maisons à colombages et découvrir les nombreuses ruelles pavées.
+
+Le Mont Sainte-Odile : Situé à environ 40 km de Strasbourg, le Mont Sainte-Odile est un lieu de pèlerinage depuis des siècles. Vous pourrez y découvrir un magnifique panorama sur la plaine d'Alsace et les Vosges, ainsi qu'une abbaye bénédictine et une chapelle romane.
+
+Le Château du Haut-Koenigsbourg : Situé à environ 40 km de Strasbourg, le château du Haut-Koenigsbourg est un lieu emblématique de la région. Vous pourrez y découvrir un magnifique château fort médiéval, ainsi qu'une vue panoramique sur les Vosges et la plaine d'Alsace.
+
+Le Jardin des Deux Rives : Ce parc situé à la frontière entre la France et l'Allemagne est un lieu de promenade idéal pour les amoureux. Vous pourrez y admirer des jardins à la française et des jardins à l'anglaise, ainsi que des sculptures contemporaines.
+
+J'espère que ces idées vous inspireront pour votre prochaine sortie romantique !",,,,
+hike-6.5-20261114T224258Z-004,14,9ec21f41a0f973ba67765548,bd98ece5df705d26287cd6be4fd7d737,hike-6.5,fr,writing,aya-dataset,human_authored,[user] Quels sont les films américains marquants les années 1960-1963 ?,"1960 : Alamo (J. Wayne), Elmer Gantry le charlatan (R. Brooks), Exodus (O. Preminger), la Garçonnière (B. Wilder), le Milliardaire (G. Cukor), Psychose (A. Hitchcock), Shadows (J. Cassavetes), Spartacus (S. Kubrick), The Connection (S. Clarke).
+
+1961 : l'Arnaqueur (R. Rossen), le Cid (A. Mann), la Vengeance aux deux visages (M. Brando), West Side Story (R. Wise).
+
+1962 : l'Homme qui tua Liberty Valance (J. Ford), le Jour le plus long (D.F. Zanuck), le Prisonnier d'Alcatraz (J. Frankenheimer).
+
+1963 : America America (E. Kazan), Cléopâtre (J.L. Mankiewicz), Docteur Folamour (S. Kubrick), Docteur Jerry et Mister Love (J. Lewis), la Grande Évasion (J. Sturges), les Oiseaux (A. Hitchcock), la Panthère rose (B. Edwards), Shock Corridor (S. Fuller), Un monde fou, fou, fou (S. Kramer).",,,,
+hike-6.5-20261114T224258Z-004,15,b6abb9cdfb9f4ac8ca8814a5,234e88bc582bea6fcee2da9bcf385d1b,hike-6.5,gu,general_knowledge,aya-dataset,human_authored,[user] શિક્ષણનું મહત્વ શુ છે અને શિક્ષણ સમાજ અને વ્યક્તિને કેવી રીતે મદદરૂપ છે?,"શિક્ષણ એ માટે મહત્વપૂર્ણ છે કારણકે તે સમાજમાં જ્ઞાન અને પ્રગતિનું પ્રમુખ માધ્યમ છે. શિક્ષણ થી બુદ્ધિ અને જીવનનું ઘડતર થાય છે. વ્યક્તિ નો સર્વાંગી વિકાસ શિક્ષણ ના કારણે થાય છે. તે વ્યક્તિને સ્વાધ્યાય, સામાજિક સંકલ્પના, અને સારવાર કરવાની યોગ્યતા આપે છે. એક વ્યક્તિ માટે શિક્ષણની જરૂરિયાત એટલી છે જેટલી એક છોડ માટે ખેડ, ખાતર અને પાણીની છે. ખેડ, ખાતર અને પાણી વિના પણ છોડ અને વનસ્પતિ ઉગી નીકળતા હોય છે અને વૃદ્ધિ પામતા હોય છે પણ તે બીજા સામાન્ય છોડ અને વનસ્પતિ કરતા અલગ તરી આવે છે અને તેથી તેનું મૂલ્ય સવિશેષ છે.
+
+શિક્ષણ સમાજમાં સામાજિક, આર્થિક અને વ્યક્તિગત ક્ષેત્રો સહિત વિવિધ ભૂમિકાઓ ભજવે છે. સામાજિક સ્તરે, શિક્ષણ સ્થિર સમાજની સ્થાપના અને ટકાવી રાખવાનું શક્ય બનાવે છે. તે લોકોને તેમના પર્યાવરણ સાથે ક્રિયાપ્રતિક્રિયા કરવા અને તેમની જરૂરિયાતો અને ઇચ્છાઓને પૂર્ણ કરવા માટે જરૂરી મૂળભૂત કુશળતા પ્રાપ્ત કરવામાં મદદ કરે છે. આધુનિક સમાજમાં, આમાં કૌશલ્યોની વિશાળ શ્રેણીનો સમાવેશ થાય છે જેમ કે બોલવા, વાંચવા અને લખવામાં તેમજ સમસ્યાઓ ઉકેલવા અને પાયાના અંકગણિત કાર્યો કરવા. તેમાં માહિતી અને સંચાર ટેકનોલોજીને હેન્ડલ કરવાની ક્ષમતા પણ સામેલ છે. આ કૌશલ્યો પ્રાપ્ત કરીને બાળકો સમાજમાં સામાજિક બને છે. સમાજીકરણનો બીજો મુખ્ય ભાગ એ છે કે સામાજિક જૂથોમાં કેવી રીતે રહેવું અને સામાજિક અને સાંસ્કૃતિક ધોરણો અને અપેક્ષાઓ સમજીને અન્ય લોકો સાથે કેવી રીતે સંપર્ક કરવો તે શીખવું. આ માટે વિવિધ સંદર્ભોમાં કેવા પ્રકારના વર્તનને યોગ્ય ગણવામાં આવે છે તેની સમજ જરૂરી છે. આ રીતે, નવા સભ્યોને તેમના સમાજમાં પ્રબળ સંસ્કૃતિ, ધોરણો અને મૂલ્યોનો પરિચય થાય છે. સમાજીકરણ સમગ્ર જીવન દરમિયાન થાય છે પરંતુ બાળપણના શિક્ષણ સાથે વિશેષ સુસંગતતા ધરાવે છે. તે લોકોને તેમના રોજિંદા વ્યવસાયમાં ઉત્પાદક રીતે જોડાવા માટે જરૂરી સામાજિક એકતા, સ્થિરતા અને શાંતિના સ્વરૂપને સક્ષમ કરે છે. મતદાન અને આયોજનના સ્વરૂપમાં નાગરિક ભાગીદારી વધારીને અને બધા માટે સમાન તકને પ્રોત્સાહન આપવાના વલણ દ્વારા શિક્ષણ લોકશાહીમાં મુખ્ય ભૂમિકા ભજવે છે.",,,,
+hike-6.5-20261114T224258Z-004,16,552ddb97a84fb09b551a767b,5e39c4981f6e1a0b3187d54aca5ee98c,hike-6.5,gu,mathematics,aya-dataset,human_authored,[user] આલુ પરોઠા રેસીપી લખો.,"આલુ પરોઠા રેસીપી
+
+આલુ પરોઠા એક લોકપ્રિય ભારતીય વાનગી છે જે ઘરના નાસ્તા, lunchbox અથવા હળવા ડિનર માટે યોગ્ય છે. આ રેસીપી તમને સ્વાદિષ્ટ અને ક્રિસ્પી આલુ પરોઠા બનાવવાનું શીખવે છે, ગુજરાતી સ્ટાઇલમાં!
+
+સામગ્રી:
+
+ 2 કપ ઘઉંનો લોટ
+ 1/2 ટીસ્પૂન મીઠું
+ 1/4 ટીસ્પૂન અજીનોમોટો
+ ગરમ પાણી જરૂર મુજબ
+ 4 મધ્યમ બાફેલા બટાકા, છીલેલા અને છૂંદેલા
+ 1/2 ડુંગળી, ઝીણી કાપેલી
+ 1 લીલા મરચા, ઝીણા કાપેલા (વૈકલ્પિક)
+ 1/2 ઇંચ આદું, ઝીણું કાપેલું
+ 1/4 ટીસ્પૂન હળદર
+ 1/4 ટીસ્પૂન લાલ મરચા પાવડર
+ 1/4 ટીસ્પૂન ધાણાજીરું પાવડર
+ 1/4 ટીસ્પૂન ગરમ મસાલા
+ 1/4 ટીસ્પૂન કોથમીર, ઝીણી કાપેલી
+ 2-3 ટેબલસ્પૂન તેલ
+
+
+
+રીત:
+
+1. એક મોટા વાસણમાં ઘઉંનો લોટ, મીઠું અને અજીનોમોટો (જો વાપરતા હોય) લો. પાણી થોડું થોડું ઉમેરતા જાઓ અને નરમ લોટ બાંધો. લોટને ઢાંકીને 15 મિનિટ આરામ કરવા દો.
+
+2. એક મોટા બાઉલમાં, છીંદેલા બટાકા, ડુંગળી, લીલા મરચા (જો વાપરતા હોય), આદું, હળદર, લાલ મરચા પાવડર, ધાણાજીરું પાવડર, ગરમ મસાલા અને કોથમીર મિક્સ કરો. સ્વાદ માટે મીઠું ઉમેરો.
+
+3. લોટમાંથી નાના લૂઆ લો અને તેને પતળી રોટલી જેવી આકાર આપો. રોટલીના મધ્યમમાં બટાકાનું પૂરણ મૂકો અને રોટલીને બંધ કરીને ગોળાકાર આકાર આપો.
+
+4. એક તાવો મધ્યમ આંચ પર ગરમ કરો. તાવો પર થોડું તેલ લગાવો અને પરોઠાને મૂકો. બંને બાજુથી ગુલાબી થાય ત્યાં સુધી શેકી લો. વધુ સ્વાદ માટે દરેક પરોઠા પર થોડું ઘી લગાવી શકો છો.
+
+5. ગરમા-ગરમ પરોઠાને દહીં, આથણ અથવા તમારી મનપસંદ ચટની સાથે પીરસો.",,,,
+hike-6.5-20261114T224258Z-004,17,acd3a904f0e06a2bf2ccd3d0,e9521fc9c4a296cea42d5d72c48879c3,hike-6.5,gu,science,aya-dataset,human_authored,[user] સૌર પાવર એટલે શું?,"સૌર પાવર, જેને સૌર વીજળી તરીકે પણ ઓળખવામાં આવે છે, તે સૂર્યપ્રકાશથી વીજળીમાં energy ઊર્જા ર્નું રૂપાંતર છે, સીધા ફોટોવોલ્ટેઇક્સનો ઉપયોગ કરીને અથવા પરોક્ષ રીતે કેન્દ્રિત સૌર power ઊર્જા ર્નો ઉપયોગ કરે છે.ફોટોવોલ્ટેઇક કોષો ફોટોવોલ્ટેઇક અસરનો ઉપયોગ કરીને પ્રકાશને ઇલેક્ટ્રિક પ્રવાહમાં રૂપાંતરિત કરે છે.કેન્દ્રિત સોલર પાવર સિસ્ટમ્સ સૂર્યપ્રકાશના વિશાળ ક્ષેત્રને ગરમ સ્થળે કેન્દ્રિત કરવા માટે લેન્સ અથવા અરીસાઓ અને સોલર ટ્રેકિંગ સિસ્ટમ્સનો ઉપયોગ કરે છે, ઘણીવાર સ્ટીમ ટર્બાઇન ચલાવવા માટે.
+
+ફોટોવોલ્ટેઇક્સનો ઉપયોગ શરૂઆતમાં નાના અને મધ્યમ કદના એપ્લિકેશનો માટે વીજળીના સ્ત્રોત તરીકે કરવામાં આવતો હતો, એક સોલર સેલ દ્વારા સંચાલિત કેલ્ક્યુલેટરથી લઈને Grid ફ-ગ્રીડ રૂફ ટોપ પીવી સિસ્ટમ દ્વારા સંચાલિત દૂરસ્થ ઘરો સુધી.વાણિજ્યિક કેન્દ્રિત સૌર પાવર પ્લાન્ટ્સ પ્રથમ 1980 ના દાયકામાં વિકસિત કરવામાં આવ્યા હતા.ત્યારથી, જેમ જેમ સૌર વીજળીનો ખર્ચ ઘટી રહ્યો છે, ગ્રીડ-કનેક્ટેડ સોલર પીવી સિસ્ટમોની ક્ષમતા અને ઉત્પાદન દર ત્રણ વર્ષે બમણો થઈને વધુ કે ઓછા ઝડપથી વિકસ્યા છે.લાખો સ્થાપનો અને ગીગાવોટ સ્કેલ ફોટોવોલ્ટેઇક""",,,,
+hike-6.5-20261114T224258Z-004,18,f5d72623c6dd8f96a9cfc15d,537d4a5dca33e2fb9d264c39ee07bf4b,hike-6.5,gu,writing,aya-dataset,human_authored,[user] નિબંધ- 14 સેપ્ટેમ્બર હિંદી દિવસ,"14 સેપ્ટેમબર હિંદી દિવસ Essay Hindi diwas 
+વિશ્વની બીજી સૌથી મોટી ભાષા છે હિંદી. ચીની ભાષા પછી આ વિશ્વમાં સૌથી વધારે બોલીએ છે. ભારત અને બીજા દેશોમાં 60 કરોડથી વધારે લોકો હિંદી બોલતા વચતા અને લખે છેૢ 
+ 
+આટલું જ નહી ફિજી, મોરીશસ, ગુયાના, સુરીનામ જેવા બીજા દેશોમાં વધારેપણ લોકો હિંદી જ બોલે છે. ભારતથી લાગેલા નેપાલીની પણ કેટલાક લોકો હિંદી બોલે છે. આજે હિંડી રાજભાષા, સંપર્ક ભાષા જનભાષાના સોપાનોને પાર કરી વિશ્વભાષાની તરફ અગ્રસર છે. 
+ 
+હિંદી ભાષા પ્રેમ, મિલન અને સૌહાર્દની ભાષા છે. આ મુખ્યરૂપથી આર્યો અને પારસીઓની દેન છે. હિંદી વધારેપણુ શબ્દ સંસ્કૃત, અરબી અને ફારસી ભાષાથી લીધેલા છે. હિંદી તેમનામાં એક સમર્થ ભાષા છે. પ્રકૃતિથી ઉદાર ગ્રહણશીલ, સહિષ્ણુ અને ભારતની રાષ્ટ્રીય ચેતનાની સંવાહિકા છે હિંદી. 
+ 
+આ વિશ્વની એક પ્રાચીન, સમૃદ્ધ અને મહાન ભાષા હોવાની સાથે અમારી રાજ્યભાષા પણ છે. ભારતની સ્વતંત્રતા પછી 14 સેપ્ટેમબર 1949ને સંવિધાન સભાએ એમતથી આ નિર્ણય લીધું કે હિંદી જ ભારતની રાજભાષા હશે.  આ મહત્વપૂર્ણ નિર્ણય પછી જ હિંદીને દરેક ક્ષેત્રમાં પ્રચારિત પ્રસારિત કરવા રાશ્ટ્રભાષાનો પ્રચાર સમિતિ વર્ધાના અનુરોધ સન 1953થી સંપૂર્ણ ભારતમાં 14 સેપ્ટેમબર હિંદી દિવસના રૂપમાં ઉજવાય છે. 
+ 
+અંતરાષ્ટ્રીય સ્તર પર  હિંદીના પ્રત્યે જાગરૂકતા પેદા કરવા અને હિંદીના પ્રયોગને પ્રોત્સાહન આપવાના ઉદ્દેશ્યથી વિશ્વ હિંદી સમ્મેલન  જેવા સમારોહની પણ શરૂઆત કરાઈ છે. 10 જાન્યુઆરી 1975ને નાગપુરથી શરૂ થયું આ યાત્રા આજે પણ છે. હવે આ દિવસને વિશ્વ હિંદી દિવસના રૂપમાં પણ ઉજવાય છે. 
+ 
+હિંદી ભારતની જ નહી પણ આખા વિશ્વમાં એક વિશાળ ક્ષેત્ર અને જનસમૂહની ભાષા છે. 1952માં ઉપયોગ કરાતી ભાષાના આધારે આ વિશ્વમાં પાંચમા ક્રમાકે હતી. 1980ની આસપાસ તે ચીની અને અંગ્રેજી પછી ત્રીજા સ્થાન પર આવી ગઈ.",,,,
+hike-6.5-20261114T224258Z-004,19,50cfb0cdf63b12c8b84b6930,904e8d347514b3e1f7cadf669c4fa462,hike-6.5,he,general_knowledge,oasst2,human_authored,[user] איזה מאכל נכין לארוחת ערב,"אני יכול לחשוב על מספר אפשרויות לפי הקושי במידת ההכנה.
+ארוחת ערב קלה: חביתה, סלט ולחם עם גבינה. ארוחת ערב בינונית: מרק או פסטה. ארוחת ערב מורכבת: דג.
+את/ה יכול/ה להגיד לי אילו מצרכים יש לך בבית ואת מידת הקושי ואני אציע לך מה להכין.",,,,
+hike-6.5-20261114T224258Z-004,20,4c0f232c7bdc649622e20052,f019ab91788c6f3114a787111366cf78,hike-6.5,hi,education,aya-dataset,human_authored,"[user] कृत्रिम भाषा: एक विस्तृत परिपर्णता के साथ आइए जानते हैं कि कृत्रिम भाषा क्या है, कैसे काम करती है और इसके विभिन्न क्षेत्रों में कैसे उपयोग हो सकता है।","कृत्रिम भाषा का अर्थ होता है ""आर्टिफिशियल लैंग्वेज"" या ""मैन-मेड भाषा""। यह भाषा जो किसी मानव भाषा की तरह नहीं है, लेकिन कंप्यूटर और मैशीन्स के द्वारा बनाई जाती है ताकि वे इंसानों के साथ संवाद कर सकें।
+
+कृत्रिम भाषा की उत्पत्ति मुख्य रूप से भाषा प्रसंस्करण और नेचरल लैंग्वेज प्रोसेसिंग (NLP) के विकास के साथ हुई है। कृत्रिम भाषा बनाने के लिए विभिन्न तरीकों का प्रयोग किया जाता है, जैसे कि प्रतिबिम्ब उत्पादन, शाब्दिक अनुवाद, और सिंथेटिक भाषा जेनरेशन।
+
+कृत्रिम भाषा का उपयोग विभिन्न क्षेत्रों में किया जा सकता है, जैसे अनुवाद, संवाद बॉट्स, सामाजिक माध्यम (सोशल मीडिया) एनालिटिक्स, और डेटा एनालिटिक्स। इसका उपयोग स्वास्थ्य सेवाओं से लेकर शिक्षा, विज्ञान और क़ानून व्यवस्था तक कई क्षेत्रों में किया जा रहा है ताकि मशीन और कंप्यूटर प्रौद्योगिकियों का बेहतर उपयोग किया जा सके।
+
+कृत्रिम भाषा के विकास में आधुनिक तकनीकी जैसे कि गहरे शिक्षण यांत्रिकी (Deep Learning) और भाषा संवाद सिस्टम्स की महत्वपूर्ण भूमिका है। यह तकनीकी कंप्यूटरों को मानव भाषा की सांविदानिकता को समझने और उसके साथ संवाद करने में मदद करती है, जिससे उन्हें बेहतर संवाद करने में सक्षम बनाती हैं।
+
+कृत्रिम भाषा का विकास और उपयोग निरंतर बढ़ रहा है और यह तकनीकी कैसे हमारे संवाद की प्रक्रिया को सुगम और उत्तरदायित्वपूर्ण बना सकती है, यह दर्शाता है।",,,,
+hike-6.5-20261114T224258Z-004,21,2997b9e653ee211a10a25a62,ff63d342069836fc3a47d5f0e4c14192,hike-6.5,hi,general_knowledge,wikipedia-hi,templated_human,[user] पापांकुशा एकादशी के बारे में एक संक्षिप्त परिचय लिखिए।,"हिंदू धर्म में एकादशी का व्रत महत्वपूर्ण स्थान रखता है। प्रत्येक वर्ष चौबीस एकादशियाँ होती हैं। जब अधिकमास या मलमास आता है तब इनकी संख्या बढ़कर 26 हो जाती है।
+
+धर्मराज युधिष्ठिर कहने लगे कि हे भगवान! आश्विन शुक्ल एकादशी का क्या नाम है? अब आप कृपा करके इसकी विधि तथा फल कहिए। भगवान श्रीकृष्ण कहने लगे कि हे युधिष्ठिर! पापों का नाश करने वाली इस एकादशी का नाम पापांकुशा एकादशी है। हे राजन! इस दिन मनुष्य को विधिपूर्वक भगवान पद्‍मनाभ की पूजा करनी चाहिए। यह एकादशी मनुष्य को मनवांछित फल देकर स्वर्ग को प्राप्त कराने वाली है।
+
+मनुष्य को बहुत दिनों तक कठोर तपस्या से जो फल मिलता है, वह फल भगवान गरुड़ध्वज को नमस्कार करने से प्राप्त हो जाता है। जो मनुष्य अज्ञानवश अनेक पाप करते हैं परंतु हरि को नमस्कार करते हैं, वे नरक में नहीं जाते। विष्णु के नाम के कीर्तन मात्र से संसार के सब तीर्थों के पुण्य का फल मिल जाता है। जो मनुष्य शार्ं‍ग धनुषधारी भगवान विष्णु की शरण में जाते हैं, उन्हें कभी भी यम यातना भोगनी नहीं पड़ती।
+
+जो मनुष्य वैष्णव होकर शिव की और शैव होकर विष्णु की निंदा करते हैं, वे अवश्य नरकवासी होते हैं। सहस्रों वाजपेय और अश्वमेध यज्ञों से जो फल प्राप्त होता है, वह एकादशी के व्रत के सोलहवें भाग के बराबर भी नहीं होता है। संसार में एकादशी के बराबर कोई पुण्य नहीं। इसके बराबर पवित्र तीनों लोकों में कुछ भी नहीं। इस एकादशी के बराबर कोई व्रत नहीं। जब तक मनुष्य पद्‍मनाभ की एकादशी का व्रत नहीं करते हैं, तब तक उनकी देह में पाप वास कर सकते हैं।",,,,
+hike-6.5-20261114T224258Z-004,22,24af5b476baaf4401f32a9ee,6aca88ded420afffa9eaf51c625d5393,hike-6.5,hi,mathematics,aya-dataset,human_authored,"[user] यह बताने के लिए कुछ पंक्तियाँ लिखें कि आप किसके बारे में जानते हैं:
+(i) कुलक
+(ii) ड्यूमा
+(iii) 1900 और 1930 के बीच महिला कार्यकर्ता।
+(iv) उदारवादी।
+(v) स्टालिन का सामूहिकीकरण कार्यक्रम।","(i) कुलक: वे संपन्न किसान थे जिनके पास
+ऊंची कीमतों की उम्मीद में स्टॉक रखने की उम्मीद थी। उन पर छापे मारे गए ताकि आधुनिक फार्म विकसित करने और राज्य-नियंत्रित बड़े फार्म स्थापित करने के लिए उन्हें खत्म किया जा सके।
+
+(ii) ड्यूमा: ड्यूमा एक परामर्शदात्री संसद थी जिसे 1905 की क्रांति के दौरान ज़ार की अनुमति पर बनाया गया था।
+
+(iii) 1900 और 1930 के बीच महिला श्रमिक: कारखाने की श्रम शक्ति में 31% महिलाएँ थीं, लेकिन उन्हें पुरुष के वेतन का 1/2 से 3/4 के बीच भुगतान किया जाता था। उन्होंने अनेक कारखानों में हड़तालों का सक्रिय नेतृत्व किया। उन्होंने सामूहिक खेतों पर भी काम किया।
+
+(iv) उदारवादी: वे एक समूह थे जो समाज को बदलना चाहते थे। वे एक ऐसा राष्ट्र चाहते थे जो सभी धर्मों को सहन करे और वंशवादी शासकों की अनियंत्रित शक्ति का विरोध करे। उन्होंने शासकों और अधिकारियों से स्वतंत्र एक अच्छी तरह से प्रशिक्षित न्यायपालिका द्वारा व्याख्या किए गए कानूनों के अधीन एक प्रतिनिधि, निर्वाचित संसदीय सरकार के लिए तर्क दिया।
+
+(v) स्टालिन का सामूहिकीकरण कार्यक्रम: स्टालिन ने छोटे खेतों को बड़े और आधुनिक खेतों के साथ जोड़कर भोजन की कमी की समस्या को हल करने की आशा की। यह सामूहिकीकरण कार्यक्रम था जो 1929 में शुरू हुआ था। किसानों को कोलखोज़ नामक इन राज्य-नियंत्रित सामूहिक खेतों में काम करने के लिए मजबूर किया गया था।",,,,
+hike-6.5-20261114T224258Z-004,23,ac6d532dfa1e90c88548d9d3,78e6cee3c1dbb2e7025d9d12ffc336b0,hike-6.5,id,general_knowledge,aya-dataset,human_authored,"[user] Apa itu kebudayaan?
+
+Jawabalah pertanyaan di atas berdasarkan aspek berikut.
+- definisi berdasarkan asal kata.
+- definisi budaya berdasarkan para ahli.
+
+Jawaban:","Kebudayaan memiliki akar kata budaya. Budaya sendiri berasal dari Bahasa Sanskerta yaitu buddhayah, yang merupakan bentuk jamak dari kata buddhi yang berarti akala tau budi (Soekamto, 2012). Kebudayaan kemudian diartikan sebagai hal-hal yang bersangkutan dengan akala tau budi (Soekamto, 2012).
+
+Dalam bahasa Inggris, budaya disebut dengan istilah culture. Kata culture berasal dari Bahasa Latin yaitu colere yang artinya mengolah atau mengerjakan, dalam konteks ini adalah mengolah tanah atau bertani.  Colere atau culture juga diartikan sebagai usaha manusia untuk mengolah alam.
+
+Kebudayaan ini dipelajari oleh berbagai disiplin ilmu, khususnya dari rumpun sosial humaniora, misalnya antropologi, sosiologi, sejarah, dan arkeologi. Sebenarnya juga ada displin ilmu yang benar-benar mempelajari kebudayaan, yaitu ilmu budaya (cultural studies).
+
+Beberapa ahli mencoba mendefinisikan apa itu budaya. Berikut adalah definisi budaya dari para ahli:
+
+1. E. B. Taylor: Kebudayaan adalah kompleks yang mencangkup pengetahuan, kepercayaan, kesenian, moral, hukum, adat istiadat, dan lain kemampuan-kemampuan, serta kebiasaan-kebiasaan yang didapatkan oleh manusia sebagai anggota masyarakat.
+
+2. Selo Soermardjan dan Soelaeman Soemardi: semua hasil karya, rasa, dan cipta masyarakat.
+
+3. J. Macionis: Kebudayaan adalah cara berpikir, cara bertindak, dan objek material yang bersama-sama membentuk cara hidup manusia. Kebudaan meliputi apa yang kita pikirkan, bagaimana kita bertindak, dan apa yang kita miliki.
+
+4. Koentjaraningrat: kebudayaan adalah keseluruhan sistem gagasan, dan tindakan hasil karya manusia dalam rangka kehidupan masyarakat yang dimiliki manusia dengan belajar.
+
+5. Melville Herskovits dan Bryan Malinowski: Cultural determinism- segala sesuatu yang ada di masyarakat ditentukan oleh kebudayaan masyarakat itu sendiri.
+
+6. Levi Strauss: budaya merupakan komponen struktur sosial yang berasal dari alam pemikiran manusia dan dilakukan secara berulang hingga membentuk suatu kebudayaan.
+
+7. Ralph Linton: budaya adalah segala pengetahuan, pola pikir, perilaku, ataupun sikap yang menjadi kebiasaan masyarakat dimana hal tersebut dimiliki serta diwariskan oleh para nenek moyang secara turun-temurun.",,,,
+hike-6.5-20261114T224258Z-004,24,6b248ec4855a542c92700063,c380404fbefb3f328ef167c88c78ad07,hike-6.5,id,islamic_studies,aya-dataset,human_authored,"[user] Saat mandi atau mencuci, produk apakah yang teman-teman gunakan? Tahukah teman-teman bahwa pasar untuk produk-produk tersebut dikuasai oleh beberapa perusahaan saja? Sifat tersebut adalah bagian dari pasar oligopoli. Apa itu Pasar Oligopoli?
+
+Berdasarkan konteks mengenai Pasar Oligopoli di atas, jawablah pertanyaan ""Apa itu Pasar Oligopoli?"". Berikan jawaban yang melingkupi aspek-aspek berikut:
+- deskripsi singkat Pasar Oligopoli
+- ciri-ciri Pasar Oligopoli
+
+Jawaban:","Pasar oligopoli adalah salah satu bentuk pasar persaingan tidak sempurna, dimana hanya terdapat beberapa produsen atau penjual dengan banyak pembeli di pasar. Beberapa contoh industri yang termasuk dalam kategori ini adalah industri rokok, industri mobil, industri semen, jasa penerbangan dan lainnya.
+
+Dalam menjalankan usahanya, iklan dan promosi berperan sangat penting bagi oligopolis. Iklan dan promosi akan membentuk persepsi konsumen mengenai perbedaan satu produk dengan produk lainnya (diferensiasi produk). Hal ini dikarenakan pada dasarnya oligopolis menjual barang yang relatif homogen sehingga dapat saling menggantikan (bersifat substitusi walau tidak sempurna). Oleh karenanya, loyalitas konsumen pada satu produk harus dijaga agar tidak berpindah ke produk lainnya.
+
+Ciri-ciri pasar oligopoli antara lain:
+1. Terdapat beberapa penjual di pasar (umumnya kurang dari 10) dengan banyak pembeli di pasar.
+2. Barang yang diperjualbelikan relatif homogen namun terdiferensiasi.
+Contohnya adalah sabun mandi dengan berbagai aroma dan bentuk, telepon seluler dengan berbagai ragam tekhnologi dan tampilan, dan lainnya
+3. Penjual di pasar oligopoli memiliki kemampuan dalam menentukan harga karena adanya perbedaan dari masing-masing produk yang ditawarkan
+4. Masing-masing penjual bersaing sangat ketat dengan penjual lainnya.
+Persaingan terutama melalui promosi besar-besaran serta perang harga. Perang harga yang dimaksud terjadi ketika suatu perusahaan bermaksud untuk menurunkan harga agar memperoleh pangsa pasar yang lebih besar, namun diikuti dengan penurunan harga oleh perusahaan lain sehingga pada akhirnya pangsa pasar yang diperoleh oleh masing-masing perusahaan adalah tetap, namun dengan harga jual yang lebih rendah.
+5. Produsen baru dapat memasuki pasar oligopoli ini walau sulit.
+Dibutuhkan modal yang besar untuk dapat bersaing dalam pasar oligopoli. Terutama ketika perusahaan yang sudah lama kemudian menurunkan harga besar-besaran (predatory pricing) sehingga membuat perusahaan baru sulit bertahan
+6. Sistem harga yang kaku.
+Karena sifatnya yang hanya terdiri dari beberapa perusahaan, perilaku satu perusahaan menjadi sangat terasa pengaruhnya bagi perusahaan lain, sehingga menimbulkan ketergantungan dari masing-masing strategi atau tindakan yang diambil. Ketergantungan terutama terjadi dalam penetapan harga, dimana penetapan harga yang dilakukan oleh satu perusahaan akan segera diikuti oleh perusahaan lain, sehingga pada akhirnya memunculkan kekakuan harga di tingkat tertentu pada pasar oligopoli.",,,,
+hike-6.5-20261114T224258Z-004,25,1a628d277fce1eee3be7900a,629e9dc22aecc23ff82a37fb40d0e6ed,hike-6.5,id,mathematics,aya-dataset,human_authored,[user] Apa isi ketetapan Instruksi Presiden Nomor 14 Tahun 1967 yang dianggap sebagai aturan yang mendiskriminasi keturunan Tionghoa?,"Pada jaman Soeharto, masyarakat Tionghoa tidak bebas mengekspresikan dirinya. Hal ini diperkuat oleh Inpres yang ditandatangani oleh Soeharto yang pada waktu itu masih berstatus sebagai penjabat presiden. Isi dari Inpres 14/1967 yang ditetapkan pada 6 Desember 1967 tersebut adalah sebagai berikut.
+
+1. Dalam pertimbangannya, Inpres menganggap bahwa agama, kepercayaan, dan adat istiadat Cina di Indonesia yang mengacu pada kebudayaan negeri leluhurnya  dapat menimbulkan efek psikologis, mental, dan moril yang kurang wajar. Bagi pemerintah, efek ini dapat menghambat proses asimilasi masyarakat Tionghoa sebagai bagian dari bangsa Indonesia. 
+
+2. Inpres melarang perayaan ibadah Cina secara publik dan membatasi pelaksanaannya hanya pada konteks internal, yaitu lingkungan keluarga. Perayaan pesta agama dan adat-istiadat tidak boleh dilakukan secara menyolok. 
+
+3. Inpres kemudian memandatkan Kementerian Agama untuk mengkategori agama dan kepercayaan serta praktik ritual atau perayaan yang harus diawasi. Adapun pengamanan dan penertiban pelaksanaan Inpres diatur oleh Menteri Dalam Negeri dan Jaksa Agung.",,,,
+hike-6.5-20261114T224258Z-004,26,1c57996b14fba2209c72b3b2,cfd498778d95d7d01b907dec44ae3813,hike-6.5,id,reasoning,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Mahou Sentai Magiranger The Movie: Pengantin di Infershia.,"adalah sebuah film Jepang yang dirilis oleh Toei pada tahun 2005. Film ini dibintangi oleh Atsushi Hashimoto, Hiroya Matsumoto, Asami Kai, Ayumi Beppu, Yuki Ito, Yosuke Ichikawa, Azusa Watanabe, dan lainnya, disutradarai oleh Noboru Takemoto. Film ini berdasarkan serial televisi Mahou Sentai Magiranger. Selain filmnya serial Super Sentai, film Kamen Rider Hibiki dan Jurik Pertempuran di 7 orang juga dirilis pada tanggal sama.
+
+Senjata Sihir: MagiStick Sword, MagiPunch, dan Magical Holy Staff DialRod
+
+Jurus serangan Spesial: Overhead Kick, Red Fire, Blazing Storm, MagiBolt, Legend Fire, dan Fatal Blade
+
+Senjata Sihir: MagiStick Bowgun, MagiPunch, dan DialRod Bowgun
+
+Jurus serangan Spesial: Yellow Thunder, dan MagiBolt
+
+Senjata Sihir: MagiStick Wand, dan Magical Holy Staff DialRod
+
+Jurus serangan Spesial: Blue Splash, Boiling Water, Smoky Blue Shining Attack, MagiBolt, dan Fantastic Splash
+
+Senjata Sihir: MagiStick Wand, MagiPunch, dan Magical Holy Staff DialRod
+
+Jurus serangan Spesial: Pink Storm, dan MagiBolt
+
+Senjata Sihir: MagiStick Axe, dan Magical Holy Staff DialRod
+
+Jurus serangan Spesial: Green Ground, dan MagiBolt
+
+Power-Up Spesial: Green Muscles, dan Rock Armor
+
+Senjata Sihir: MagiLamp Buster, dan Magitopian Sword",,,,
+hike-6.5-20261114T224258Z-004,27,e4087de1b90d37eec04ac389,0a25ba366a5a83c83ad2f39bda20c290,hike-6.5,id,research,tydiqa-goldp,human_authored,"[user] Dalam Gereja Katolik, beatifikasi (dari bahasa Latin ""beatus"", yang berbahagia) adalah suatu pengakuan atau pernyataan yang diberikan oleh Gereja terhadap orang yang telah meninggal bahwa orang tersebut adalah orang yang berbahagia. Beatifikasi diberikan kepada orang yang dianggap telah bekerja sangat keras untuk kebaikan atau memiliki keistimewaan secara spiritual. Beatifikasi memerlukan bukti berupa mukjizat (kecuali dalam kasus martir), sebagai bukti bahwa orang yang dianggap suci atau kudus itu telah berada dalam Surga dan dapat mendoakan orang lain.
+
+Apa yang dimaksud dibeatifikasi ?","pengakuan atau pernyataan yang diberikan oleh Gereja terhadap orang yang telah meninggal bahwa orang tersebut adalah orang yang berbahagia
+
+Dalam Gereja Katolik, beatifikasi (dari bahasa Latin ""beatus"", yang berbahagia) adalah suatu pengakuan atau pernyataan yang diberikan oleh Gereja terhadap orang yang telah meninggal bahwa orang tersebut adalah orang yang berbahagia.",,,,
+hike-6.5-20261114T224258Z-004,28,3a692f95abbb632ebdfaf1be,b087719534711183fcb9ce6d0aa2efec,hike-6.5,id,science,aya-dataset,human_authored,"[user] Sempurnakan penggalan teks berikut menjadi sebuah paragraf yang utuh dan koheren berdasarkan topik dan sub-topik yang diberikan.
+
+Topik: Teori Pembentukan Tata Surya
+Sub-topik: Teori Nebula (Teori Kabut)
+
+Teori nebula dikemukakan oleh filsuf Jerman bernama Immanuel Kant (1755). Namun ternyata seorang ahli matematika asal Perancis bernama Piere Simon de Laplace (1796) juga ...
+
+Jawaban:","mengemukakan teori yang hampir sama. Oleh karena itu, teori ini terkadang disebut dengan Kant-Laplace. Nebula berasal dari Bahasa Latin yang berarti awan yang terdiri dari gas dan debu. Pembentukan dari gas menjadi benda langit diperkirakan membutuhkan waktu sekitar 100 juta tahun. Hipotesis dari teori nebula adalah sebagai berikut.
+1. Benda langit masih berbentuk gas yang pekat dan besar. Gas ini merupakan massa gas raksasa yang bercahaya.
+2. Massa gas tersebut kemudian berputar dan berpilin dengan kuat. Selanjutnya terjadi pendinginan yang menyebabkan perubahan massa gas menjadi bola besar. Bagian pusat bola dengan massa yang 3. 3. lebih besar kemudian membentuk matahari, sedangkan massa yang lebih kecil terlempar dan membentuk planet.
+4. Planet kemudian tumbuh semakin besar dan terus bergerak secara teratur mengelilingi matahari dalam orbit yang tetap.",,,,
+hike-6.5-20261114T224258Z-004,29,21bfbc498ed60b38065733d8,2a3a05b40fc46720d2bfe57bcfc558c4,hike-6.5,it,coding,oasst2,human_authored,"[user] Come si formano gli arcobaleno doppi?
+
+[assistant] Gli arcobaleni doppi si formano quando la luce del sole viene rifratta (cioè deviata) all'interno delle gocce di pioggia in modo che la luce si divida in due percorsi distinti prima di essere riflessa verso l'osservatore.
+
+[user] come funziona la rifrazione?","La rifrazione è un fenomeno ottico che avviene quando un’onda luminosa passa da un mezzo ad un altro avente un indice di rifrazione diverso. Questo è dovuto alla diversa velocità di propagazione dell'onda nei due mezzi che, passando da uno all'altro, cambia fase e direzione. Se il primo è meno denso del secondo (per esempio l'aria rispetto all'acqua), il raggio di luce devia avvicinandosi alla perpendicolare alla superficie di separazione, mentre se il primo mezzo è più denso del secondo (l'acqua rispetto all'aria) il raggio devia allontanandosi dalla perpendicolare.
+La legge della rifrazione stabilisce che l’angolo di Incidenza e l’angolo di Rifrazione giacciono sullo stesso piano e sono legati tra loro dalla relazione:
+```n1 sen i = n2 sen r```
+dove n1 e n2 sono gli indici di rifrazione assoluti dei due mezzi.",,,,
+hike-6.5-20261114T224258Z-004,30,05c09d1ce1fa3e47a6687b1d,0196908ca91f59187babbedd47cba220,hike-6.5,it,cybersecurity,oasst1,human_authored,[user] Come mai le banane non hanno semi?,"È colpa della domesticazione. La banana è il frutto di un ibrido sterile tra due specie. Per fortuna la pianta, come il fico e l’ananas, è partenocarpica: la produzione dei semi non è cioè necessaria per avere il frutto. Questo significa che la riproduzione della banana commerciale (della varietà “Cavendish”) avviene solo per clonazione: i coltivatori moltiplicano le piante con talee, ottenendo nuovi individui identici.
+Il prezzo da pagare è quello di avere piantagioni geneticamente omogenee, e quindi molto più vulnerabili alle malattie. Una banana chiamata “Gros Michel” è stata spazzata via negli anni Cinquanta a causa di un fungo che, in mancanza di variabilità, si diffuse rapidamente nelle piantagioni.",,,,
+hike-6.5-20261114T224258Z-004,31,f5e91ac5b1e177dddf5576a1,8daf240821f93ed7146822c721e56de6,hike-6.5,it,education,oasst2,human_authored,[user] Come posso installare ubuntu?,"Per installare Ubuntu puoi seguire questi passi:
+1. Visita la [pagina ufficiale di download](https://ubuntu.com/#download) di Ubuntu e scegli il tipo di installazione che vuoi eseguire: assumendo che tu lo voglia installare sul tuo computer per utilizzarlo in ambiente desktop, prosegui sulla [pagina per scaricare Ubuntu desktop](https://ubuntu.com/download/desktop)
+2. Assicurati che le specifiche hardware del tuo PC rispettino i requisiti minimi richiesti da Ubuntu, se così non fosse, prova a orientarti su distribuzioni con requisiti inferiori, ad esempio: 
+    - [Linux Mint](https://linuxmint.com/)
+    - [Linux Lite](https://www.linuxliteos.com/)
+3. Se invece il tuo PC è adeguato, procedi a scaricare una delle ultime versioni, scegli la LTS se vuoi un sistema che riceve aggiornamenti meno frequentemente, ma che ha il vantaggio di cambiare poco, quindi essendo facile da mantenere, e avere supporto da Canonical per più tempo, se invece vuoi avere software più aggiornato scarica la versione non LTS
+4. **Passo opzionale** (ma caldamente consigliato), verifica il checksum e la firma della iso che hai appena scaricato seguendo di passi indicati [nel sito](https://ubuntu.com/tutorials/how-to-verify-ubuntu), in questo modo potrai assicurarti che il file: 
+    - non si sia corrotto mentre lo scaricavi e che quindi non avrai problemi durante l'installazione
+    - sia veramente quello distribuito da Canonical
+5. A questo punto procurati una chiavetta USB o un CD e installa un'applicazione per fare il flash della iso sul tuo supporto di installazione preferito, un'app facile da usare che funziona su tutti i sistemi operativi desktop è [Balena Etcher](https://www.balena.io/etcher)
+6. Entra in Etcher, seleziona la iso di Ubuntu e il tuo supporto di installazione, fai partire il flash e attendi che si completi sia quello che la verifica automatica che avverà subito dopo
+7. Decidi se vuoi rimpiazzare il tuo intero sistema con Ubuntu o vuoi mantenere il tuo altro sistema operativo, se il tuo caso è il secondo e non hai un secondo disco fisso, allora approfondisci come creare e ridimensionare partizioni
+8. Mantieni la chiavetta inserita e riavvia il tuo PC, accedi al BIOS o allo UEFI mentre si sta accendendo premendo ripetutamente il tasto appropriato per il tuo modello di PC, tasti comuni sono `F2`, `F12`, `Canc`. Per sapere il tuo, puoi cercare su internet
+9. Trova la sezione dove si può cambiare l'ordine dei dispositivi di boot e porta il tuo supporto in cima alla lista, per esempio una chiavetta USB potrebbe avere ""USB"" nel testo o proprio il nome del tuo modello di chiavetta
+10. Salva le impostazioni ed esci, così continua il boot del PC
+11. Entra nella prova live di Ubuntu dal menu che appare
+12. Prima di proseguire con l'installazione cerca di testare il tuo hardware, cose importanti da verificare che funzionino sono:
+    - la scheda Wi-Fi
+    - la scheda Bluetooth
+    - la GPU
+    - le periferiche
+13. Se tutto funziona adeguatamente, segui i passi di installazione che trovi a schermo
+14. Nel momento in cui scegli il disco su cui installare il sistema operativo fai attenzione a selezionare **quello giusto**, in genere vorrai installare su un disco vuoto o in una partizione creata in precedenza, altrimenti se vuoi cancellare tutti i tuoi dati invece installa pure sul disco con il sistema operativo precedente
+15. Finita l'installazione riavvia il tuo computer e rimuovi la chiavetta in modo che non si trovi in mezzo alla sequenza di boot (oppure riporta il tuo disco principale in cima alla lista nel BIOS/UEFI)
+
+Ora il sistema dovrebbe essere installato correttamente, da qui in poi sarà importante imparare come installare le tue app preferite, ciò si può fare dal negozio di applicazioni nella maggior parte dei casi.
+Se trovi dei problemi non scoraggiarti immediatamente, impara a cercare con calma su internet, e in particolare tieni come riferimento la [wiki di Arch](https://wiki.archlinux.org/) e talvolta anche [quella di Gentoo](https://wiki.gentoo.org/wiki/Main_Page), nonostante non siano della tua distribuzione, molto spesso le informazioni presenti si applicano a tutte quante e sono particolarmente esaustive, troverai quasi tutti i problemi che tu possa incontrare.
+Importante inoltre che non ti limiti ai contenuti in italiano, ma che tu guardi anche quelli in inglese perché avrai più possibilità di trovare ciò che cerchi.
+Se poi dovessi davvero incappare in un problema sconosciuto non esitare e chiedi in uno dei forum appropriati, oltre al [forum di Ubuntu](https://forum.ubuntu-it.org/) ne troverai altri su [Reddit](https://www.reddit.com/) o anche quelli del gruppo [StackExchange](https://stackexchange.com/sites#) (principalmente [AskUbuntu](https://askubuntu.com/) e [SuperUser](https://superuser.com/))
+
+Potrebbe intimidirti tutto questo, ma nella maggior parte dei casi non dovrai nemmeno preoccuparti di nessuno di questi siti, è bene sapere che ci sono però, così che tu sappia cosa fare se ne si presentasse la necessità.
+Buona fortuna con la tua esperienza su Linux e se avessi altre domande chiedimi pure!",,,,
+hike-6.5-20261114T224258Z-004,32,1e2180abff85232b5393e48c,8b77319f474e0a4648129a2ea8f75eb9,hike-6.5,it,general_knowledge,oasst2,human_authored,"[user] Esiste un linguaggio di programmazione che consiste interamente di emoji?
+
+[assistant] Alcuni linguaggi di programmazione che utilizzano le emoji sono:
+1. Emoji - provalo al seguente link https://tio.run/#emoji
+2. Emojicode - documentazione disponibile a https://www.emojicode.org/docs/, provalo a https://tio.run/#emojicode6
+3. Emoji-gramming 
+4. EmojiCoder
+5. Emotinomicon - provalo a https://conorobrien-foxx.github.io/Emotinomicon/int.html
+6. Emotifuck - traduce i comandi di brainfuck in emoji
+
+[user] mi faresti un esempio di codice in Emojicode?
+
+[assistant] un esempio semplice di codice che stampa a schermo ""Hey!"" è il seguente:
+```
+🏁 🍇
+  😀 🔤Hey!🔤❗️
+🍉
+```
+
+[user] Ci sono ide consigliati per questi linguaggi?","non ne sono al corrente di base ogni ide o text editor che supporti gli emoji dovrebbe andar bene per un utilizzo base ,ma comunque ben lontano dall'integrazione offerta dagli ide più blasonati rispetto ai linguaggi di programmazione più comuni.",,,,
+hike-6.5-20261114T224258Z-004,33,0dc706fc6f7c9891bf926808,5cfaf190ef635c8b9a54d15807d5ed3b,hike-6.5,it,mathematics,oasst1,human_authored,"[user] scrivi una lettera di dimissioni da un'azienda informatica in cui hai lavorato 10 anni come ingegnere del software. Usa un tono formale
+
+[assistant] Egregio Signor [Nome del Capo],
+
+Con profondo rincrescimento, mi sento in dovere di presentare le mie dimissioni dalla mia posizione di ingegnere del software presso la vostra azienda.
+
+È stato un onore e un privilegio lavorare con la vostra azienda per i passati 10 anni e ho imparato molto durante questo periodo. Tuttavia, dopo molte riflessioni e considerazioni, ho deciso di intraprendere una nuova strada professionale.
+
+Desidero ringraziare tutti i miei colleghi per il supporto e la collaborazione che mi hanno offerto durante questi anni. La vostra azienda è stata per me una casa lontano da casa e mi mancherà molto.
+
+Spero di poter lasciare la mia posizione in modo ordinato e di essere in grado di supportare in qualsiasi modo possibile durante il periodo di transizione. Vi prego di informarmi se ci sono altre formalità che devo completare prima della mia ultima giornata di lavoro, prevista per [Data].
+
+Ancora una volta, vi ringrazio per l'opportunità che mi avete offerto e per tutte le esperienze che ho vissuto durante il mio tempo presso la vostra azienda.
+
+Cordiali saluti,
+[Il tuo nome]
+
+[user] Il messaggio è ottimo. Potresti utilizzare come nome del capo ""Rossi"", come data ""22/22/22"" e firmare come ""Giovanni Petroncelli""? Vorrei inoltre aggiungere un post scrittum con un ringraziamento personale al destinatario della mail.","Certamente, anche se riscontro un possibile refuso nell'indicazione della data, che consiglio di verificare:
+
+""Egregio Signor Rossi,
+
+Con profondo rincrescimento, mi sento in dovere di presentare le mie dimissioni dalla mia posizione di ingegnere del software presso la vostra azienda.
+
+È stato un onore e un privilegio lavorare con la vostra azienda per i passati 10 anni e ho imparato molto durante questo periodo. Tuttavia, dopo molte riflessioni e considerazioni, ho deciso di intraprendere una nuova strada professionale.
+
+Desidero ringraziare tutti i miei colleghi per il supporto e la collaborazione che mi hanno offerto durante questi anni. La vostra azienda è stata per me una casa lontano da casa e mi mancherà molto.
+
+Spero di poter lasciare la mia posizione in modo ordinato e di essere in grado di supportare in qualsiasi modo possibile durante il periodo di transizione. Vi prego di informarmi se ci sono altre formalità che devo completare prima della mia ultima giornata di lavoro, prevista per 22/22/22.
+
+Ancora una volta, vi ringrazio per l'opportunità che mi avete offerto e per tutte le esperienze che ho vissuto durante il mio tempo presso la vostra azienda.
+
+Cordiali saluti,
+Giovanni Petroncelli""",,,,
+hike-6.5-20261114T224258Z-004,34,177ec8ac4521169e102a35d1,fed71c06d053888d1dc9a80382953acd,hike-6.5,it,problem_solving,oasst2,human_authored,"[user] La Cina sta raggiungendo gli USA come armamento militare?
+
+[assistant] La Cina in questo momento sta tentando di raggiungere l'america.
+C'è pero un grosso divario tecnologico tra la Cina e gli USA(come tra gli USA e il resto del mondo)
+USA ha inoltre il vantaggio di un industria militare ben mantenuta e con l'abilità di produre in massa armi di ultima generazione come gli f35 ,con inoltre una attenzione particolare allo sviluppo di armi per la prossima generazione(il che è davvero oneroso per l'economia americana) ;
+mentre la Cina non ha ancora prodotto un singolo jett di sesta generazione con inoltre il fatto che lo sviluppo di armi cinesi è più iterativo su ciò che altri hanno prodotto ;
+ammenoche non pianifichi di avere un industria militare onerosa quanto quella americana è un vantaggio che sara quasi impossiblie colmare;
+inoltre gli USA superano la cina per quanto riguarda numero di attivi e riservisti quantita di aerei militari e numero di missili(sia nucleari che non nucleari)
+inoltre l'esercito e quello meglio equipaggiato al mondo con un costo di 30000$ per soldato mentre (anche tenendo conto che il costo medio di ogni cosa è inferiore in cina rispetto all'america) in cina l'equipaggiamento per soldato costa solo 1500$;
+c'è inoltre un forte sospetto che l'esercito popolare della liberazione sià incredibilmente corrotto e ciò può essere incredibilmente disastroso per quanto riguarda la capacità militari di un esercito
+e inoltre ci sono molti dubbi sulle capacità di comando cinese dato che possiedono un sistema di comando  ripreso dal sistema sovietico considerato antiquato e ineficaccie per un esercito moderno
+anchè tenendo presente che virtualemente la Cina è uno  degli eserciti più potenti al mondo in questo momento  è davvero lontano dal raggiungiere le capacità dell'armamento militare americano
+La Cina ha le capacità industriale ed economiche per raggiungiere le capacità odierne americane ma ci vorrano decenni perchè ciò avvenga e sarà incredibilmente oneroso per l'economia cinese
+ed è difficile sapere se la Cina è pronta a sostenere il costo di ciò e se sarà pronta ad attuare le  riforme politiche necessarie 
+
+
+La Cina  pero  ha già superato il numero di vascelli militari
+in questa metrica ha già raggiunto l'armamento militare
+
+[user] Invece i paesi  europei come sono messi in questo ambito?","In generale, le forze armate dei paesi europei sono meno avanzate di quelle degli Stati Uniti, ma comunque molto sofisticate e ben equipaggiate. L'Unione Europea ha inoltre creato una serie di programmi di cooperazione per lo sviluppo di tecnologie militari avanzate, come il programma FCAS (Future Combat Air System) per la produzione di aerei da combattimento di sesta generazione. Tuttavia, la maggior parte dei paesi europei spende meno del 2% del proprio PIL in spese militari, il che significa che gli investimenti in nuove tecnologie e sistemi d'arma sono spesso limitati. Ci sono alcune eccezioni, come la Francia e il Regno Unito, che hanno un budget militare relativamente elevato e sono impegnati in programmi di modernizzazione delle loro forze armate. Tuttavia, la maggior parte dei paesi europei dipende ancora in gran parte dagli Stati Uniti per la fornitura di tecnologie militari avanzate.",,,,
+hike-6.5-20261114T224258Z-004,35,8e4784adca0aaff980765666,d0dc708405c2772b5f03f13522759bef,hike-6.5,it,reasoning,oasst2,human_authored,"[user] Pesa più 1kg di paglia o 1kg di piombo?
+
+[assistant] Un chilo di paglia e un chilo di piombo pesano esattamente lo stesso. Entrambi hanno una massa di 1kg, ma la paglia ha un volume maggiore rispetto al piombo. Ciò significa che, se li si mette in un contenitore, la paglia occuperà più spazio rispetto al piombo.
+
+[user] E se mi spostassi su un altro pianeta?","Sì, le cose cambierebbero se ti spostassi su un altro pianeta poiché il peso e il volume dei materiali dipendono dalla gravità del pianeta in cui si trovano.
+
+Ad esempio, se ti spostassi su un pianeta con una gravità più elevata rispetto alla Terra, come Giove, un chilo di paglia e un chilo di piombo peserebbero di più rispetto alla Terra. Tuttavia, la loro massa sarebbe ancora di un chilo, quindi occuperebbero ancora lo stesso volume.
+
+D'altra parte, se ti spostassi su un pianeta con una gravità inferiore rispetto alla Terra, come la Luna, un chilo di paglia e un chilo di piombo peserebbero meno rispetto alla Terra. Ma poiché la loro massa sarebbe ancora di un chilo, occuperebbero ancora lo stesso volume.
+
+In sintesi, il peso di un oggetto dipende dalla gravità del pianeta in cui si trova, mentre la sua massa è una proprietà intrinseca dell'oggetto e non cambia. Quindi, la relazione tra il volume di un chilo di paglia e un chilo di piombo rimarrebbe la stessa su qualsiasi pianeta, ma il loro peso potrebbe essere diverso a seconda della gravità del pianeta.",,,,
+hike-6.5-20261114T224258Z-004,36,c7878322d06244a3d6dfbaf0,b0005504a06e1276e9e9c405074ab22a,hike-6.5,it,research,oasst2,human_authored,[user] Esiste un linguaggio di programmazione che consiste interamente di emoji?,"Sì, esiste un linguaggio di programmazione che utilizza solo emoji, si chiama ""Emojicode"". È stato sviluppato nel 2015 da Theo Weidmann e utilizza simboli emoji per rappresentare variabili, funzioni e operatori. Emojicode è un linguaggio di programmazione ad alto livello, orientato agli oggetti e con una sintassi simile a quella di molti altri linguaggi di programmazione moderni.
+
+Anche se l'uso delle emoji può sembrare divertente e informale, Emojicode è stato creato con l'obiettivo di essere un linguaggio di programmazione serio, in grado di supportare lo sviluppo di applicazioni e software complessi. Emojicode è open source e può essere utilizzato gratuitamente per sviluppare software su una varietà di piattaforme.",,,,
+hike-6.5-20261114T224258Z-004,37,28a87d8698b4f8ed38108615,05f36924d2bc7d5bdab240a150f7db55,hike-6.5,it,science,oasst1,human_authored,[user] la politica estera di Biden è guerrafondaia?,"La politica estera di Biden non può essere definita in modo generalizzato come ""guerrafondaia"". Come leader del paese, il presidente Biden sta affrontando una serie di sfide e priorità internazionali complesse, e la sua politica estera si basa su un approccio equilibrato che combina elementi di diplomazia, sicurezza e sviluppo.
+
+È importante notare che la politica estera di un paese è influenzata da molteplici fattori, tra cui le questioni di sicurezza nazionale, le relazioni con altri paesi, le questioni economiche e umanitarie, e molto altro ancora. Pertanto, non è possibile ridurre la politica estera di un paese a una singola etichetta o descrizione.
+
+In generale, l'amministrazione Biden sta cercando di ripristinare le relazioni internazionali e la diplomazia multilaterale, affrontare le minacce globali alla sicurezza, tra cui la proliferazione nucleare e i cambiamenti climatici, e promuovere i diritti umani e la giustizia sociale a livello mondiale.",,,,
+hike-6.5-20261114T224258Z-004,38,dbdb3b2a0d4b029356b498c9,1221d2fe04badad77aaf3b76cf9139aa,hike-6.5,it,web_backend,oasst2,human_authored,"[user] Spiegami cosa significa ""programmazione asincrona"" in NodeJs","La programmazione asincrona in Node.js è un modello di programmazione che consente a un processo di eseguire più attività contemporaneamente senza bloccarsi o attendere la completazione di altre attività. Ciò significa che un processo può continuare a eseguire altre attività mentre aspetta la risposta da un'altra operazione, come una richiesta di rete o un'operazione di input/output.
+
+La programmazione asincrona è possibile in Node.js grazie al modello di eventi e all'utilizzo delle callback. Quando si effettua una richiesta asincrona, si fornisce una callback che viene eseguita quando la risposta è disponibile. Ciò significa che il processo principale non è bloccato in attesa della risposta, ma può continuare a eseguire altre attività fino a quando la risposta non è disponibile.
+
+L'utilizzo della programmazione asincrona in Node.js aiuta a mantenere il server reattivo e a migliorare la scalabilità, poiché consente di gestire più richieste contemporaneamente senza bloccarsi o rallentare. Ciò rende Node.js particolarmente adatto per le applicazioni web ad alte prestazioni, come i servizi di back-end e le API REST.",,,,
+hike-6.5-20261114T224258Z-004,39,5c93f65a06e0230a7e7ad21d,87130dd54fb775a6e265ab964a35631c,hike-6.5,ja,coding,oasst2,human_authored,"[user] 質問なのですがBlenderアドオンにおけるシーンプロパティーをオペレーターに使用し、
+実行後にdef draw()メニューに使用されているシーンプロパティーの値を後から変更することは可能でしょうか？","はい、可能です。オペレーターを実行してシーンプロパティーの値を変更したい場合、以下の手順に従うことができます。
+
+まず、オペレーター内でシーンプロパティーの値を変更するコードを書きます。例えば、以下のようになります。
+
+```python
+import bpy
+
+class MyOperator(bpy.types.Operator):
+    bl_idname = ""my_operator""
+    bl_label = ""My Operator""
+
+    my_prop : bpy.props.StringProperty()
+
+    def execute(self, context):
+        # シーンプロパティーの値を変更する
+        bpy.context.scene.my_prop = self.my_prop
+
+        return {'FINISHED'}
+
+```
+
+このオペレーターでは、my_propというシーンプロパティーの値を変更しています。
+
+次に、def draw()メソッドを定義し、メニューにシーンプロパティーを表示するためのコードを書きます。例えば、以下のようになります。
+
+```python
+class MyPanel(bpy.types.Panel):
+    bl_idname = ""MY_PT_panel""
+    bl_label = ""My Panel""
+    bl_space_type = ""VIEW_3D""
+    bl_region_type = ""UI""
+    bl_category = ""My Addon""
+
+    def draw(self, context):
+        layout = self.layout
+
+        # シーンプロパティーを表示する
+        layout.prop(context.scene, ""my_prop"")
+```
+
+このパネルでは、context.scene.my_propをprop()メソッドで表示しています。
+
+ここで、オペレーターを実行すると、シーンプロパティーの値が変更されます。そして、def draw()メソッドで表示されているシーンプロパティーの値も自動的に更新されます。
+
+つまり、シーンプロパティーの値を変更するためには、オペレーターを実行すればよく、def draw()メソッドで表示されているシーンプロパティーの値を変更する場合にも、シーンプロパティーの値が更新されます。",,,,
+hike-6.5-20261114T224258Z-004,40,b0ec68ae6cdcf1fb1c1ddfcb,cb125a822ab6f6ad52560529df101d1a,hike-6.5,ja,general_knowledge,aya-dataset,human_authored,"[user] 文章からキーワードを選び、その解釈を述べなさい。 
+北海道の東部にある2つの町では、4年前から66頭の牛が襲われて、この中の32頭が死にました。全部同じヒグマが襲ったと考えられています。北海道は、このヒグマを「OSO18」と呼んで、捕まえようとしていました。
+北海道によると、先月30日、ハンターがヒグマを見つけて、撃ちました。このヒグマを調べると、OSO18だとわかりました。OSO18は、体の長さが２m10cmで、重さは330kgぐらいでした。
+北海道は、OSO18を捕まえるために、特別なチームを作りました。しかし、OSO18はとても気をつけて動いていて、長い間捕まえることができませんでした。
+5頭の牛が襲われた農家の人は「ずっと心配していましたが、安心しました。同じような被害がないように、夜、大きな音でラジオをつけることを続けます」と話していました。","この文章に含まれるキーワードとその解釈は以下です。
+- 頭: 1）あたま。2）集団の上に立つ者。3）はじめ。4）辺り。付近。5）けものを数える言葉。
+- 牛: 1）昔から家畜として飼われてきた動物。頭に二本の角がある。食べた草を、あとで口にもどして「反すう」する。仕事に使う役牛、乳をしぼる乳牛、肉をとる肉牛などがいる。
+- 襲わ: 1）ふいにせめる。2）急に来て害を与える。3）急にそのような気持ちになる。
+- ヒグマ: 1）大型のクマで、冬は穴に入って冬眠し、性質が荒い。日本では北海道にすむ。
+- 襲っ: 1）かりをする人。かりゅうど。
+- ハンター: 1）（鉄砲などを）発射する。
+- 撃ち: 1）競技や仕事をするときの、組や団体。
+- チーム: 1）農業で暮らしを立てている家。また、その建物。
+- 農家: 1）損害を受けること。また、受けた害。",,,,
+hike-6.5-20261114T224258Z-004,41,2cf013235d56120f776eba4a,f27cb826fd312b0585c11edc6794a44d,hike-6.5,ko,general_knowledge,wikipedia-ko,templated_human,[user] 쇼와 천황의 전쟁 책임에 대해 간단히 소개해 주세요.,"쇼와 천황의 전쟁 책임()은 일본 제국 헌법상의 군통수권자이자 일본제국 육군과 일본제국 해군의 대원수 최고지휘관이었던, 쇼와 천황의 만주사변, 중일전쟁 및 태평양 전쟁을 비롯한 각종 전쟁 범죄와 그에 따른 전쟁 책임을 말한다.
+
+이에는 패전 후 연합군 점령 하 극동국제군사재판에서의 대외적 책임에 대한 소추 문제와, 일본내 패전 책임, 전쟁 희생자에 대한 책임 논의 등이 포함된다.
+
+종전 직후 난바라 시게루는 쇼와 천황의 전쟁 책임론에 대해 법률적, 정치적, 윤리적인 범주를 구분해서 발언했다. 전쟁 직후에는 천황의 전쟁 책임이 거론되고 또 퇴위해야 한다는 의견도 나왔었다.
+
+쇼와 천황은 일본 제국 헌법에 따라 육해군 통수권을 가진 국가원수이자 일본군 대원수였기 때문에 침략 전쟁 지도자였다. 따라서 도쿄 재판에서는 국제법 위반으로 쇼와천황이 기소될 수도 있었다. 또 입헌군주제 아래 일본 국민에 대한 정치적, 도덕적 책임, 인적 물적 손해와 영토 손실 등에 대한 책임이 있는 것은 아닌가 하는 논의가 있었다. 쇼와 천황은 퇴위 의사가 있었지만 실현되진 않았다.
+
+독일이 1차대전 패배 후 독일 11월 혁명으로 제국이 붕괴된 것에 비해 연합군 최고사령부는 의도적으로 패전 후 일본 황실을 유지시켰다.
+
+전쟁으로 고통을 겪은 피해자 전반에 대한 책임이 있다는 것이다. 피해자에는 1) 피침략국의 민간인, 군인 2) 연합군의 피해 3) 일본내 민간인과 군인 등이 있다.
+
+그 외에 일본과 싸운 교전국에 대한 책임은 없으며 일본의 민간인, 군인에게만 책임이 있다는 입장도 있다. 이것은 도조 히데키의 진술을 비롯 다수의 일본인이 가진 입장이다.
+
+극동국제군사재판에 천황은 기소되지 않았지만 재판장 윌리엄 웹은 천황의 책임을 언급했다. 웹은 정치적 고려에 의해 기소되지 않았음도 밝혔다.
+
+1, 천황의 권위는, 천황이 전쟁을 종결하였다는 점에서, 의문의 여지가 없을 정도로 증명되었다. (이하 생략)
+
+1, 천황에 대하여 재판이 면제된 것은, 국제군사법정이 형을 선고함에 있어, 당연히 고려해야 할 것이었다고 나는 생각한다.
+
+1, 천황은 항상 주위의 진언에 따라 행동해야 했다는 의견은, 증거에 반하거나, 또 만일 그렇다고 해도 천황의 책임이 경감되는 것은 아니다.
+
+1, 나는 천황이 처형되어야 한다고 말하지는 않겠다. 이것은 내 관할 이외의 문제이고, 천황이 재판을 면한 것은, 의심할 여지없이 모든 연합국의 최선의 이익에 따라 결정된 것이다. .
+
+또, 천황 자신도 전쟁 책임을 의식하고 있었다는 것은 각종 증언과 수기에서 확인되고 있다. 가령, 포츠담 선언 수락시의 1조건(국체수호)을 둘러싼 답변이나, 전후에 퇴위를 원하는 뜻을 나타낸 것 등이다.
+
+천황의 전쟁 책임을 추궁하는 목소리는 패전 직후부터 이미 느슨한 형태로 존재하고 있었다. 미요시 다츠지 오야마 이쿠오 등이 그러했다.",,,,
+hike-6.5-20261114T224258Z-004,42,9c40d3f4e21f3e7e064ed419,2f9f4c57d1d38aece9dd3f0ee79a017d,hike-6.5,ko,mathematics,wikipedia-ko,templated_human,[user] 덧셈에 대해 간단히 소개해 주세요.,"덧셈은 산술의 기본 연산 중의 하나로, 두 개의 수를 받아 한 개의 수를 계산하는 이항 연산이다. 반대되는 연산은 뺄셈이다. 현대 수학에서는 덧셈을 나타내는 기호로 더하기표(+)를 쓴다.
+
+두 자리 수 이상의 자연수를 더할 때, 같은 자리의 숫자끼리의 합이 10 이상이 되면 받아올림이 필요하다. 예를 들어 를 계산할 때, 먼저 일의 자리 숫자끼리 계산하면 16이 되므로 6을 일의 자리 숫자에 적고, 1을 받아올린다. 그리고 십의 자리 숫자끼리 계산할 때 일의 자리에서 받아올린 수까지 함께 더하여 8이 되므로 8을 십의 자리 숫자에 적는다.
+
+덧셈은 자연수, 정수, 유리수, 실수, 복소수 등 정의역에 따라 다르게 정의할 수 있다.
+
+자연수 집합에 0을 추가한 집합 에 대해서, 덧셈은 다음과 같이 귀납적으로 정의된다.
+
+임의의 자연수는 0 또는 다른 자연수의 다음 자연수이므로, 임의의 의 오른쪽에 자연수를 더하는 것은 항상 두 경우 중 하나와 일치한다. 자연수 덧셈의 교환법칙과 결합법칙은 수학적 귀납법을 통해 증명할 수 있다.
+
+두 정수를 각각 자연수의 차 , 로 표현할 때 (, , , 는 자연수), 정수의 합은 으로 정의한다. 이때, 와 는 자연수에서 정의된 덧셈의 결과이다.
+
+유리수에서는 덧셈을 다음과 같이 정의한다. 두 유리수를 정수의 비 ,  (, , , 는 정수이고 와 는 0이 아니다) 로 표현할 때, 유리수의 합은 다음과 같다.
+
+분수는 유리수의 표기법이므로, 이 정의를 사용하여 분수의 덧셈을 할 수 있다. 예를 들어, 이다.
+
+실수를 유리수의 완비 거리 공간으로 생각하였을 때, 각 실수는 유리수의 코시 열의 극한값이다. 두 실수 , (은 유리수의 코시 열) 에 대해 실수의 합은 각 유리수열에 대해 항 별로 덧셈을 하여 극한을 취한 결과인 으로 정의한다.
+
+복소수의 덧셈은 실수부와 허수부를 각각 더한 결과로 정의한다. 두 복소수 ,  (는 실수)에 대해, 복소수의 합은 으로 정의한다. 이때 는 실수에서 정의된 덧셈의 결과이다.
+
+소수의 덧셈은 다음과 같다. 소수점이 같은 위치에 오도록 적고, 한 수에만 빈 자리가 있으면 그 자리에 0을 적는다. 그 다음에는 자연수의 덧셈과 마찬가지로 같은 자리의 숫자까리 더하되 필요한 경우 받아올림을 한다. 소수점은 더한 수와 같은 위치에 찍는다. 예를 들어 45.1 + 4.34는 다음과 같이 계산한다.
+
+덧셈에서는 교환법칙이 성립한다. 이는 덧셈을 할 때 피연산자의 배치 순서를 바꾸어도 항상 같은 결과를 얻는다는 것을 의미한다. 즉, 모든 에 대해
+
+덧셈에서는 결합법칙도 성립한다. 이는 세 피연산자에 대해 덧셈을 할 때 어떤 쌍을 처음 더한 후 다른 하나를 더할 때 항상 같은 결과를 얻는다는 것을 의미한다. 즉, 모든 , , 에 대해",,,,
+hike-6.5-20261114T224258Z-004,43,e1e7829436181dc7db6b9d48,f02830a69fd34d06186b9ca53e6593b7,hike-6.5,ko,research,tydiqa-goldp,human_authored,"[user] 그러나 돈벌이는 안된다는 것을 알고 있었기 때문에 7년 동안 모아놓은 모든 백신 자료들을 가지고 비영리 공익 법인을 만들어 무료로 배포하려고 정부 부처를 다니며 관계자들을 설득하였으나 모두 거절당했다. 특히 삼성 소프트웨어 관련에도 찾아가 삼성 로고를 달고 배포한다고 약간의 돈과 인력을 지원해달라고 하였으나 거절당하였다.[22] 그러던 중 소프트웨어 업체 관계자가 찾아와 기업을 만들라는 조언을 해왔고 안철수는 그 의견에 동의하여 1995년 3월 15일 창업을 하게 되는데 이것이 안철수연구소이다.[23]
+
+세계 최초 컴퓨터 백신을 만든 기업은 어디인가?","안철수연구소
+
+특히 삼성 소프트웨어 관련에도 찾아가 삼성 로고를 달고 배포한다고 약간의 돈과 인력을 지원해달라고 하였으나 거절당하였다.[22] 그러던 중 소프트웨어 업체 관계자가 찾아와 기업을 만들라는 조언을 해왔고 안철수는 그 의견에 동의하여 1995년 3월 15일 창업을 하게 되는데 이것이 안철수연구소이다.[23]",,,,
+hike-6.5-20261114T224258Z-004,44,e5cc33d7048b66534fd36f3d,de7214607fadab87a0a294bc9349e9a8,hike-6.5,nl,coding,oasst2,human_authored,"[user] Hoe kan ik mijn productiviteit op het werk verbeteren?
+
+[assistant] Hier zijn een aantal ideeën om je productiviteit te verbeteren:
+-   Probeer duidelijke doelen te stellen. Bijvoorbeeld, vandaag wil ik deze 3 a 4 taken afmaken.
+-   Vermijd dingen die afleiden van hetgeen waar je mee bezig bent.
+-   Denk na over andere manieren om je werk te doen. Bijvoorbeeld, door bepaalde taken te automatiseren.
+
+Ik hoop dat ik je hiermee voldoende ideeën heb gegeven.
+
+[user] Zijn er goede apps die hierbij helpen?","Er zijn verschillende manieren om de productiviteit op het werk te verbeteren. Hier zijn enkele tips die je kunt proberen:
+
+1. Maak een to-do lijst: Maak elke dag een lijst van de belangrijkste taken die je moet voltooien en houd je eraan. Prioriteer je taken en werk ze in die volgorde af.
+
+2. Vermijd afleidingen: Probeer afleidingen te minimaliseren, zoals sociale media, e-mails, telefoontjes en andere dingen die je werk onderbreken. Zet meldingen uit en reserveer bepaalde tijden om je e-mails te controleren.
+
+3. Neem regelmatig pauzes: Het is belangrijk om regelmatig pauzes te nemen om je hersenen te laten rusten en op te laden. Ga even wandelen, drink wat water of neem een korte pauze om te ontspannen.
+
+4. Stel deadlines: Stel realistische deadlines voor jezelf om jezelf gemotiveerd te houden en jezelf te dwingen om taken op tijd af te ronden.
+
+5. Plan je dag: Plan je dag van tevoren en maak tijd vrij voor belangrijke taken en projecten. Dit zal je helpen je tijd beter te beheren en ervoor zorgen dat je je doelen bereikt.
+
+6. Houd je werkplek georganiseerd: Houd je werkplek georganiseerd en opgeruimd. Dit kan je helpen om je te concentreren en je productiviteit te verhogen.
+
+7. Leer nieuwe vaardigheden: Blijf je vaardigheden ontwikkelen door nieuwe dingen te leren. Dit kan je helpen om efficiënter te werken en meer gedaan te krijgen.
+
+Door deze tips te implementeren, zou je je productiviteit op het werk kunnen verbeteren en meer gedaan krijgen in minder tijd.",,,,
+hike-6.5-20261114T224258Z-004,45,ab96463bade39c9a92a3d642,dcdb06558b106b602d59c73856f18454,hike-6.5,nl,general_knowledge,oasst2,human_authored,[user] Wat is de grootste stad van het Europees continent?,"De grootste stad naar inwoneraantal is Istanbul, met 15,907,951 inwoners op 31 December 2022.
+
+Merk wel op dat het antwoord op deze vraag ook afhankelijk is van waar de officiele stadsgrenzen liggen. Parijs heeft bijvoorbeeld het 3-na-grootste inwoneraantal naar stedelijk gebied in Europa, maar qua inwoneraantal van de stad zelf, eindigt het rond plek 10 op de lijst.",,,,
+hike-6.5-20261114T224258Z-004,46,8a7b6a1a4dd658d779b02da4,a081df43ef96bf8dae3de1836696628e,hike-6.5,nl,reasoning,aya-dataset,human_authored,[user] Wat is Stoicisme?,"Stoicisme is een school van Hellenistische filosofie opgericht door Zeno van Citium in Athene in het begin van de 3de eeuw voor Christus. Het is een filosofie van persoonlijke deugdethiek die wordt geïnformeerd door haar systeem van logica en haar opvattingen over de natuurlijke wereld, waarbij wordt gesteld dat de praktijk van deugd zowel noodzakelijk als voldoende is om eudaimonia (geluk, letterlijk 'goedhartigheid') te bereiken: men bloeit door een ethisch leven te leiden. De Stoïcijnen identificeerden de weg naar eudaimonia met een leven dat besteed wordt aan het beoefenen van deugd en het leven in overeenstemming met de natuur. Naast de ethiek van Aristoteles vormt de Stoïcijnse traditie een van de belangrijkste grondleggende benaderingen van deugdethiek. De Stoïcijnen staan vooral bekend om het onderwijzen dat ""deugd de enige goedheid"" is voor de mens, en dat externe zaken, zoals gezondheid, rijkdom en plezier, op zichzelf niet goed of slecht zijn (adiaphora), maar waarde hebben als ""materiaal voor deugd om op te treden"". Veel Stoïcijnen - zoals Seneca en Epictetus - benadrukten dat omdat ""deugd voldoende is voor geluk"", een wijze emotioneel veerkrachtig zou",,,,
+hike-6.5-20261114T224258Z-004,47,060a627dac0f4a0ab34c4374,2a8ac6c912e67caee121cea86c644cd2,hike-6.5,pa,general_knowledge,aya-dataset,human_authored,[user] ਸਵਾਲ – ਪੰਜਾਬ ਵਿੱਚ ਪਿਛਲੇ ਸਾਲਾਂ ਵਿੱਚ ਕਈਂ ਗੈਂਗਸਟਰਾਂ ਦੇ ਮੁਕਾਬਲੇ ਬਣਾਏ ਗਏ ਹਨ ਜੇਕਰ ਮੁਕਾਬਲਿਆਂ ਦੇ ਵਰਤਾਰੇ ਨੂੰ ਦੇਖੀਏ ਤਾਂ ਪਹਿਲਾਂ ਕਿਸੇ ਵਿਚਾਰਧਾਰਾ ਨਾਲ ਜੁੜੇ ਲੋਕਾਂ ਦੇ ਹੀ ਬਣਾਏ ਜਾਂਦੇ ਸਨ ਹੁਣ ਦੀ ਸਰਕਾਰੀ ਨੀਤੀ ਵਿੱਚ ਇਸ ਬਦਲਾਅ ਤੋਂ ਕੀ ਸੁਨੇਹਾ ਮਿਲਦਾ ਹੈ?,"ਜਵਾਬ – ਇਸਦੇ ਦੋ ਕਾਰਣ ਹੋ ਸਕਦੇ ਹਨ । ਇੱਕ ਕਾਰਣ ਇਹ ਕਿ ਇੰਡੀਆ ਦੇ ਵਿੱਚ ਪਹਿਲਾਂ ਇਸ ਤਰੀਕੇ ਦੇ ਪੇਸ਼ੇਵਰ ਗੈਂਗ ਖਾਸਕਰ ਬੰਬੇ ਵਰਗੇ ਸ਼ਹਿਰਾਂ ’ਚ, ਉਥੇ ਵੀ ਜਿੰਨਾ ਸਮਾਂ ਇਹ ਵਰਤਾਰਾ ਸਟੇਟ ਦੇ ਕੰਟਰੋਲ ਵਿੱਚ ਚੱਲਦਾ ਉਨਾ ਸਮਾਂ ਪੁਲਿਸ ਮੁਕਾਬਲਾ ਨਹੀਂ ਸੀ ਬਣਾਇਆ ਜਾਂਦਾ ਪਰ ਜਦੋਂ ਗੈਂਗਸਟਰ ਵਰਤਾਰਾ ਕਾਫੀ ਫੈਲ ਜਾਂਦਾ ਹੈ ਤਾਂ ਉਹਦੇ ਬਾਅਦ ਸਟੇਟ ਇਸ ਵਰਤਾਰੇ ਨੂੰ ਕਾਬੂ ਵਿੱਚ ਰੱਖਣ ਲਈ ਜਿਹੜਾ ਕੋਈ ਬੰਦਾ ਆਪਣੀ ਫਿਤਰਤ ਕਰਕੇ ਬਾਗੀ ਹੁੰਦਾ ਹੈ ਜਾਂ ਜਿਹੜਾ ਸਰਕਾਰ ਦੇ ਪ੍ਰਬੰਧ ਦੇ ਦਾਇਰੇ ’ਚੋਂ ਬਾਹਰ ਜਾਣ ਦੀ ਇੱਛਾ ਰੱਖਦਾ ਹੁੰਦਾ ਜਾਂ ਜਿਹਦੇ ਵਿੱਚ ਅਜਿਹਾ ਮਾਦਾ ਹੁੰਦਾ ਹੈ ਉਹਨਾਂ ਦਾ ਫਿਰ ਮੁਕਾਬਲਾ ਬਣਾਉਣ ਦੀ ਪੁਲਿਸ ਨੂੰ ਖੁੱਲ ਦੇ ਦਿੰਦੀ ਹੈ । ਮੁਕਾਬਲੇ ਵਿੱਚ ਗੈਂਗਸਟਰ ਨੂੰ ਮਾਰਨਾ ਜੰਗਲ ਦੀ ਅੱਗ ਦੀ ਨਿਆਈਂ ਹੈ ਜੋ ਜੰਗਲ਼ ਨੂੰ ਖਤਮ ਕਰਨ ਲਈ ਨਹੀਂ ਸਗੋਂ ਜੰਗਲ ਦੇ ਫਾਇਦੇ ਲਈ ਲਾਈ ਜਾਂਦੀ ਹੈ, ਜਦੋਂ ਵੱਡੇ ਬੂਟੇ ਪੂਰੀ ਤਰ੍ਹਾਂ ਫੈਲ ਜਾਂਦੇ ਹਨ ਤਾਂ ਜੰਗਲ ’ਚ ਅੱਗ ਲਾਈ ਜਾਂਦੀ ਹੈ ਤਾਂ ਕਿ ਜਿਹੜੀਆਂ ਹੋਰ ਛੋਟੀਆਂ ਝਾੜੀਆਂ ਹਨ ਉਹ ਜਲ ਜਾਣ । ਇਸ ਨਾਲ ਜੰਗਲ ਦਾ ਵਾਧਾ ਸਹੀ ਤਰੀਕੇ ਹੁੰਦਾ ਹੈ । ਇਸੇ ਪ੍ਰਕਾਰ ਕੁਛ ਗੈਂਗਸਟਰ ਨੂੰ ਮਾਰਨ ਦਾ ਮੰਤਵ ਇਸ ਵਰਤਾਰੇ ਨੂੰ ਖਤਮ ਕਰਨਾ ਨਹੀਂ ਹੁੰਦਾ ਸਗੋਂ ਆਪਣੇ ਕਾਬੂ ਵਿਚ ਕਰਨਾ ਹੁੰਦਾ ਹੈ।
+
+ਮੁਕਾਬਲੇ ਬੰਬੇ ਵੀ ਬਣਾਏ ਗਏ, ਯੂ.ਪੀ. ਵੀ ਬਹੁਤ ਬਣਾਏ ਗਏ, ਪੰਜਾਬ ਦੇ ਵਿੱਚ ਇਸ ਤਰੀਕੇ ਦੇ ਪੇਸ਼ੇਵਰ ਗੈਂਗਾ ਆਲਾ ਕੰਮ ਨਵਾਂ ਹੈ । ਮੇਰੇ ਖਿਆਲ ਦੇ ਵਿੱਚ ਏਥੇ ਵੀ ਇਹਨਾਂ ਨੇ ਜਿਹੜੇ ਬੰਦੇ ਸਟੇਟ ਦੇ ਦਾਇਰੇ ਤੋਂ ਬਾਹਰ ਜਾਂਦੇ ਸੀ ਉਹਨਾਂ ਦਾ ਮੁਕਾਬਲਾ ਬਣਾ ਕੇ ਬਾਕੀਆਂ ਨੂੰ ਕੰਟਰੋਲ ਕਰਨ ਦਾ ਇੱਕ ਦੌਰ ਚਲਾਇਆ ਹੈ।
+
+ਦੂਜਾ ਇੱਕ ਕਾਰਨ ਇਹ ਵੀ ਮੰਨਿਆ ਜਾ ਸਕਦਾ ਹੈ ਕਿ ਜਿਵੇਂ ਤੁਸੀਂ ਪਹਿਲਾਂ ਕਿਹਾ ਕਿ ਕੁਝ ਬੰਦੇ ਪ੍ਰੇਰਣਾ ਸੰਤਾਂ ਦੇ ਸੰਘਰਸ਼ ਤੋਂ ਲੈਂਦੇ ਹਨ ਅਤੇ ਦੂਸਰਾ ਉਹ ਲੜ੍ਹਨ ਵਾਲੇ ਵੀ ਹਨ, ਸੋ ਇਸ ਕਰਕੇ ਜਿਸ ਤਰੀਕੇ ਦਾ ਪੰਜਾਬ ’ਚ ਰਾਜਨੀਤਕ ਖਲਾਅ ਹੈ, ਇੰਡੀਆ ਦੇ ਵਿੱਚ ਵੀ ਰਾਜਨੀਤਕ ਅਸਥਿਰਤਾ ਵਧ ਰਹੀ ਹੈ ਉਹਦੇ ਚਲਦੇ ਸਟੇਟ ਨੂੰ ਡਰ ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਇਹ ਕਿਤੇ ਸਿੱਖ ਜੁਝਾਰੂ ਲਹਿਰ ਵਾਲੇ ਪਾਸੇ ਨੂੰ ਨਾਂ ਚਲੇ ਜਾਣ । ਜਿੰਨਾ ਦੇ ਵਿੱਚ ਉਨ੍ਹਾਂ ਨੂੰ ਲਗਦਾ ਹੋਣਾ ਕਿ ਇਹ ਅੰਸ਼ ਹਨ, ਮੇਰੇ ਖਿਆਲ ਉਨ੍ਹਾਂ ’ਚ ਮੁਕਾਬਲਾ ਕਰਨ ਦੇ ਪਲੈਨ ਬਣੇ ਹੋਣਗੇ।",,,,
+hike-6.5-20261114T224258Z-004,48,d33a1e5e5be320b54e79384d,c44dc659f6691fbb19937dcebdf983f4,hike-6.5,pa,writing,aya-dataset,human_authored,"[user] Hasuye-Khushiye Da Ghol (Punjabi Story) : Karamjit Singh Gathwala
+ਹਸੂਏ-ਖੁਸ਼ੀਏ ਦਾ ਘੋਲ (ਕਹਾਣੀ) : ਕਰਮਜੀਤ ਸਿੰਘ ਗਠਵਾਲਾ","ਬੜੇ ਚਿਰਾਂ ਦੀ ਗੱਲ ਏ ਕਿਸੇ ਪਿੰਡ ਵਿੱਚ ਦੋ ਬੰਦੇ ਰਹਿੰਦੇ ਸਨ । ਜੋ ਉਮਰੋਂ, ਕੱਦ-ਕਾਠੋਂ ਤੇ ਸੁਭਾਅ ਵੱਲੋਂ ਇੱਕ-ਦੂਜੇ ਨਾਲ ਮਿਲਦੇ-ਜੁਲਦੇ ਸਨ ।ਉਹ ਸਦਾ ਇਕੱਠੇ ਹੀ ਰਹਿੰਦੇ ਤੇ ਇਕੱਲ ਉਨ੍ਹਾਂ ਨੂੰ ਉਦਾਸ ਕਰ ਦਿੰਦੀ ਸੀ । ਜ਼ਿੰਦਗੀ ਵਿੱਚ ਕਿੰਨੇ ਹੀ ਦੁੱਖ-ਤਕਲੀਫ਼ ਆਏ, ਦੋਵਾਂ ਨੇ ਇੱਕ ਦੂਜੇ ਦਾ ਹੱਥ ਫੜ ਕੇ ਰੱਖਿਆ ।ਉਨ੍ਹਾਂ ਦੇ ਨਾਂ ਖੁਸ਼ੀਆ ਤੇ ਹਸੂਆ ਸਨ । ਉਨ੍ਹਾਂ ਦੇ ਕਈ ਕਿੱਸੇ-ਕਹਾਣੀਆਂ ਲੋਕਾਂ ਵਿਚ ਬਹੁਤ ਮਸ਼ਹੂਰ ਹਨ ।
+ਸਿਆਣੇ ਬਜ਼ੁਰਗ ਦੱਸਦੇ ਹਨ ਕਿ ਦੋਵਾਂ ਦੇ ਮਨ ਵਿੱਚ ਇਕ ਵਾਰੀ ਫੁਰਨਾ ਫੁਰਿਆ ਕਿ ਬਾਹਰ ਜਾ ਕੇ ਕਿਉਂ ਨਾ ਦੁਨੀਆਂ ਵੇਖੀ ਜਾਵੇ ।ਉਨ੍ਹਾਂ ਨੇ ਬਹੁਤ ਸ਼ਹਿਰਾਂ, ਪਿੰਡਾਂ ਤੇ ਕਸਬਿਆ ਦੀ ਸੈਰ ਕੀਤੀ ।ਇੱਕ ਵਾਰ ਫਿਰਦੇ ਫਿਰਾਂਦੇ ਉਹ ਇਕ ਪਿੰਡ ਦੀ ਸੱਥ ਵਿੱਚ ਪੁੱਜ ਗਏ ।ਸੱਥ ਦੇ ਵਿਚ ਬੜਾ ਭਾਰੀ ਇਕੱਠ ਹੋਇਆ ਹੋਇਆ ਸੀ । ਉਨ੍ਹਾਂ ਨੇ ਸੋਚਿਆ, 'ਕਾਹਦਾ ਇਕੱਠ ਏ ? ਆਪਾਂ ਵੀ ਵੇਖੀਏ ।' ਅੱਗੇ ਅਖਾੜਾ ਪੁੱਟਿਆ ਹੋਇਆ ਸੀ ਤੇ ਘੋਲ ਦੀ ਤਿਆਰੀ ਹੋ ਰਹੀ ਸੀ । ਐਨੇ ਲੋਕੀਂ ਬਾਘੇ ਤੇ ਸ਼ੇਰੇ ਦਾ ਘੋਲ ਵੇਖਣ ਲਈ ਆਏ ਹੋਏ ਸਨ ।
+ਦੋਵਾਂ ਦਾ ਘੋਲ ਸ਼ੁਰੂ ਹੋ ਗਿਆ, ਦੋਵੇਂ ਭਲਵਾਨ ਭਾਰੇ ਸਨ । ਭੀੜ ਵਿਚੋਂ ਵੀ ਕਈ ਲੋਕੀ ਲਲਕਾਰੇ ਮਾਰਨ ਲੱਗ ਪਏ ਸਨ । ਜਦੋਂ ਕੋਈ ਦਾਉ ਵਿਖਾਉਂਦਾ, ਭੀੜ ਵਿਚੋਂ ਕੋਈ ਨਾ ਕੋਈ ਤਾੜੀ ਮਾਰ ਦਿੰਦਾ ਤੇ ਬੱਸ ਫੇਰ ਕੀ ਸੀ, ਉਸਦੇ ਪਿੱਛੇ ਤਾੜੀਆਂ ਦਾ ਮੀਂਹ ਬਰਸਣ ਲੱਗ ਪੈਂਦਾ ।ਜਦੋਂ ਉਹ ਇਕ ਦੂਜੇ ਦਾ ਦਾਉ ਬਚਾਉਂਦੇ ਤਾਂ ਵੀ ਰੌਲਾ ਪੈਂਦਾ ।ਬੜਾ ਚਿਰ ਘੋਲ ਇਵੇਂ ਚਲਦਾ ਰਿਹਾ, ਇਉਂ ਲੱਗਦਾ ਸੀ ਕਿ ਦੋਵਾਂ ਵਿੱਚੋਂ ਕੋਈ ਵੀ ਨਹੀਂ ਢਹੇਗਾ । ਬੜੀ ਜ਼ੋਰ ਅਜਮਾਈ ਪਿੱਛੋਂ ਸ਼ੇਰੇ ਨੂੰ ਬਾਘੇ ਨੇ ਢਾਹ ਹੀ ਲਿਆ ।ਲੋਕਾਂ ਨੇ ਰੌਲਾ ਪਾ ਪਾ ਕੇ ਆਕਾਸ਼ ਗੂੰਜਣ ਲਾ ਦਿੱਤਾ ।ਬਾਘਾ ਖੁਸ਼ੀ ਵਿਚ ਥਾਪੀਆਂ ਮਾਰਨ ਲੱਗਾ । ਲੋਕਾਂ ਨੇ ਉਸਨੂੰ ਮੋਢਿਆਂ ਤੇ ਚੁੱਕ ਲਿਆ ।ਸ਼ੇਰਾ ਉਦਾਸ ਹੋ ਕੇ ਇੱਕ ਪਾਸੇ ਜਾ ਬੈਠਾ, ਤੇ ਸੋਚਣ ਲੱਗਾ 'ਕਸਰ ਤਾਂ ਮੈਂ ਵੀ ਕੋਈ ਨਹੀਂ ਛੱਡੀ' । ਉਸ ਦਾ ਕਿਸੇ ਨੂੰ ਵੀ ਕੋਈ ਖ਼ਿਆਲ ਤੱਕ ਨਹੀਂ ਸੀ ।
+ਹਸੂਆ ਉੱਠਿਆ ਤੇ ਜੋ ਬੰਦਾ ਪਿੰਡ ਦਾ ਮੋਹਰੀ ਸੀ, ਉਸ ਕੋਲ ਪੁੱਜਿਆ ।
+ਉਸਨੇ ਪੁੱਛਿਆ, ""ਮੈਂ ਤੇ ਮੇਰਾ ਸਾਥੀ ਜੇ ਤੁਹਾਨੂੰ ਘੋਲ ਵਿਖਾਈਏ, ਤੁਹਾਨੂੰ ਕੋਈ ਇਤਰਾਜ ਤਾਂ ਨਹੀ ?""
+ਪਿੰਡ ਦਾ ਮੋਹਰੀ ਥੋੜ੍ਹਾ ਜਿਹਾ ਮੁਸਕੁਰਾਇਆ ਤੇ ਬੋਲਿਆ, 'ਨਹੀਂ, ਸਾਨੂੰ ਕੋਈ ਇਤਰਾਜ ਨਹੀਂ।'
+ਲੰਗੋਟ ਬੰਨ੍ਹ ਕੇ ਖੁਸ਼ੀਆ ਤੇ ਹਸੂਆ ਅਖਾੜੇ ਵਿੱਚ ਆ ਗਏ । ਕਾਫ਼ੀ ਦੇਰ ਆਪੋ ਵਿਚ ਦੋਵਾਂ ਨੇ ਕਮਾਲ ਦੇ ਹੱਥ ਵਿਖਾਏ ।ਲੋਕ ਉਨ੍ਹਾਂ ਦੇ ਦਾਉ-ਪੇਚਾਂ 'ਤੇ ਤਾੜੀਆਂ ਵਜਾਉਂਦੇ ਰਹੇ । ਬਾਘਾ ਤੇ ਸ਼ੇਰਾ ਵੀ ਦੋਵੇਂ ਘੋਲ ਦਾ ਅਨੰਦ ਮਾਣ ਰਹੇ ਸਨ । ਹਰ ਕੋਈ ਘੋਲ ਵੇਖਣ ਲਈ ਇਕ ਦੂਜੇ ਤੋਂ ਅੱਗੇ ਖਲੋਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰਨ ਲੱਗਾ । ਇਉਂ ਜਾਪਦਾ ਸੀ ਜਿਵੇਂ ਦੋਵਾਂ ਨੇ ਰਲਕੇ ਮੇਲਾ ਲੁੱਟ ਲਿਆ ਹੋਵੇ ।ਅਖ਼ੀਰ ਨੂੰ ਖੁਸ਼ੀਏ ਨੇ ਹਸੂਏ ਨੂੰ ਢਾਹ ਲਿਆ ।ਲੋਕੀਂ ਇਕ ਦੂਜੇ ਤੋਂ ਵਧ ਵਧ ਕੇ ਰੌਲਾ ਪਾਉਣ ਲੱਗੇ । ਹਸੂਆ ਵੀ ਖੁਸ਼ੀ ਵਿੱਚ ਨੱਚਣ ਲੱਗਾ । ਸ਼ੇਰਾ ਤੇ ਬਾਘਾ ਉਸ ਵੱਲ ਬਿਟ ਬਿਟ ਵੇਖਣ ਲੱਗੇ, ਦੋਵਾਂ ਦੇ ਮੂੰਹਾਂ ਤੇ ਹੈਰਾਨਗੀ ਸਾਫ਼ ਝਲਕ ਰਹੀ ਸੀ ।",,,,
+hike-6.5-20261114T224258Z-004,49,09428a75d3b0d76b5f6ed237,4525e9229ca1a5522e46f67d3c387e09,hike-6.5,pl,coding,oasst1,human_authored,"[user] windows, java, komputer, jabłko, procesor, które z tych słów nie pasuje do reszty i dlaczego?","Słowo ""jabłko"" nie pasuje do reszty listy, ponieważ pozostałe słowa związane są z komputerami i technologią, natomiast ""jabłko"" to owoc.",,,,
+hike-6.5-20261114T224258Z-004,50,c9a1c0e1c6cf7fd6f410bb21,a0a53c3f6866954a032b712c523d4e42,hike-6.5,pl,general_knowledge,oasst2,human_authored,[user] Napisz opowiadanie o słoniach na marsie,"Był sobie raz kiedyś marsjański statek kosmiczny, który wylądował na Czerwonej Planecie z misją zasiedlenia jej przez ludzi. W ciągu kilku lat na Marsie powstały pierwsze osiedla, a ludzie zaczęli dostosowywać się do trudnych warunków panujących na tej planecie. Jednakże, w miarę jak ludzie zaczynali coraz bardziej eksplorować Marsa, odkryli coś niezwykłego: tam, gdzie wcześniej myśleli, że panują pustynie, rosły drzewa i zielona trawa. I co najważniejsze, tam gdzie powinno być pusto, zaczęły pojawiać się... słonie. Naukowcy byli zszokowani, gdy zobaczyli, jak te wielkie zwierzęta radzą sobie na suchej i nieprzyjaznej planecie jak Mars. Szybko zaczęli badać, skąd te słonie się tam wzięły i jak to możliwe, że przetrwały w tak trudnych warunkach.
+Okazało się, że słonie były częścią eksperymentalnego projektu, który miał na celu sprawdzenie, czy zwierzęta te będą w stanie przetrwać w ekstremalnych warunkach na Marsie. Projekt był tajny i nie był znany szerokiej opinii publicznej, ale naukowcy zaangażowani w jego realizację, byli zaskoczeni, że słonie nie tylko przetrwały, ale też zaczęły się rozmnażać i tworzyć stada.
+Ludzie zaczęli coraz bardziej interesować się słoniami i zaczynali je traktować jak swoich towarzyszy i przyjaciół. W miarę jak osiedla rosły, ludzie i słonie coraz bardziej ze sobą współpracowali, a słonie pomagały w transporcie surowców i materiałów, a ludzie dbali o ich dobre samopoczucie i bezpieczeństwo.",,,,
+hike-6.5-20261114T224258Z-004,51,27034692b800c796f56d9a17,c5b01a8e0904a08c6cbf94c5980029d1,hike-6.5,pl,safety_ethics,oasst1,human_authored,[user] Zrób mi plan na produktywny dzień. Jestem uczniem liceum 2 klasy.,"6:00 - Wstawanie, zrobienie łóżka i przygotowanie się do dnia.
+
+6:30 - Zjedzenie pożywnego śniadania, takiego jak jajka na miękko z pełnoziarnistym tostem lub owsianka z mlekiem i owocami.
+
+7:00 - Przygotowanie swojego planu na dzień i sprawdzenie harmonogramu zajęć.
+
+7:30 - Rozpoczęcie nauki najtrudniejszego przedmiotu z listy. Praca przez 1,5 godziny z krótkimi przerwami co 45 minut.
+
+9:00 - Przerwa na przekąskę i wypicie wody.
+
+9:15 - Praca nad drugim najtrudniejszym przedmiotem z listy przez kolejne 1,5 godziny z krótkimi przerwami co 45 minut.
+
+10:45 - Przerwa na lunch i krótki spacer.
+
+11:30 - Praca nad łatwiejszymi przedmiotami, w tym pisaniem zadań i lekcji. Praca przez 2 godziny z krótkimi przerwami co 45 minut.
+
+13:30 - Przerwa na przekąskę i wypicie wody.
+
+13:45 - Rozwiązanie problemów i dodatkowe zadania z przedmiotów wymagających więcej uwagi i koncentracji przez kolejne 1,5 godziny z krótkimi przerwami co 45 minut.
+
+15:15 - Przerwa na trening fizyczny, np. jogging, jazdę na rowerze lub ćwiczenia w domu.
+
+16:15 - Powrót do nauki przez kolejne 1,5 godziny, koncentrując się na zadaniach domowych i lekcjach, których nie udało Ci się skończyć wcześniej.
+
+17:45 - Odpoczynek i spędzenie czasu z rodziną lub przyjaciółmi.
+
+19:00 - Przegląd materiałów do nauki i przygotowanie się do kolejnego dnia.
+
+19:30 - Czas na relaks, np. czytanie książki, oglądanie filmu lub granie na konsoli.
+
+21:00 - Przygotowanie się do snu, wyłączenie urządzeń elektronicznych i położenie się do łóżka.",,,,
+hike-6.5-20261114T224258Z-004,52,cdd2e38f98ee5753a4ab26ba,d4c52e6cfd49e663b55f16153ec57390,hike-6.5,pl,science,oasst2,human_authored,"[user] Kiedy Księżyc powoduje przypływy, dlaczego po przeciwnej stronie planety jest przypływ?
+
+[assistant] Księżyc powoduje przypływy poprzez siłę pływów, czyli różnicę w siłach przyciągających Księżyc i Ziemię na wodę na Ziemi. Kiedy Księżyc znajduje się po jednej stronie Ziemi, jego siła przyciągająca jest silniejsza niż na przeciwnej stronie Ziemi. W wyniku tego woda na Ziemi jest przyciągana silniej przez Księżyc, co powoduje przypływ.
+
+Z drugiej strony, gdy Księżyc jest na przeciwnej stronie Ziemi, jego siła przyciągająca jest słabsza, ponieważ jest dalej od wody na Ziemi. Jednak Ziemia również jest przyciągana przez Księżyc, a ta siła jest równa sile przyciągania wody. W rezultacie, woda na Ziemi jest przyciągana mniej, a Ziemia jest przyciągana bardziej, co powoduje przypływ na przeciwnej stronie Ziemi. Ten drugi przypływ nazywa się przypływem przeciwprądowym.
+
+[user] Czy siła przyciągania Księżyca jest stała, czy może w jakiś sposób zmienia się z biegiem czasu?","Siła przyciągania Księżyca na Ziemię, zwana siłą pływów, faktycznie zmienia się z biegiem czasu. Jest to spowodowane kilkoma czynnikami, które wpływają na oddziaływanie pomiędzy Ziemią a Księżycem.
+
+Po pierwsze, odległość pomiędzy Ziemią a Księżycem zmienia się w ciągu cyklu księżycowego. Kiedy Księżyc jest w punkcie najbliższym Ziemi (tzw. perygeum), siła jego przyciągania jest silniejsza niż w momencie, gdy znajduje się najdalej (tzw. apogeum).
+
+Po drugie, ruchy Ziemi i Księżyca wokół Słońca i wokół siebie nawzajem wpływają na siłę przyciągania. Kiedy Ziemia i Księżyc znajdują się po przeciwnych stronach Słońca (tzw. syzygia), siła przyciągania Księżyca jest wzmocniona, co prowadzi do wzrostu siły pływów.
+
+Wreszcie, wpływ na siłę przyciągania ma również działanie innych ciał niebieskich, takich jak Słońce i planety. Choć ich wpływ jest zazwyczaj mniejszy niż wpływ Księżyca, to może on również wpłynąć na siłę przyciągania i zmienić jej wartość.
+
+Podsumowując, siła przyciągania Księżyca na Ziemię jest zmienna i zależy od wielu czynników, w tym odległości między nimi, położenia Ziemi i Księżyca względem Słońca oraz wpływu innych ciał niebieskich.",,,,
+hike-6.5-20261114T224258Z-004,53,c5000d5ea3d07e10fd36f0a4,fb8bed320915a16c230575322f9f4543,hike-6.5,pt,coding,aya-dataset,human_authored,[user] Responda à pergunta: quem criou a linguagem de programação Rust?,"Rust foi criada pelo engenheiro de software canadense Graydon Hoare. Graydon iniciou o desenvolvimento da linguagem Rust como um projeto pessoal em 2006 enquanto trabalhava como engenheiro na empresa Mozilla. Ele apresentou o projeto da linguagem Rust para o seu gerente na Mozilla e foi autorizado a criar um time dentro da empresa para desenvolver a linguagem. Oficialmente, Rust foi anunciada para o mundo em 2010 com o objetivo de ser segura, concorrente e prática. Inicialmente, Rust foi implementada em OCaml, porém atualmente ela é desenvolvida em Rust. Em 2013, Graydon deixou o seu papel de liderança no desenvolvimento da linguagem devido a um burnout que ele estava sofrendo.",,,,
+hike-6.5-20261114T224258Z-004,54,9dfd19382c8007f1c96e1c10,9af173ddab96d1cd06accfad41f5a330,hike-6.5,pt,general_knowledge,aya-dataset,human_authored,[user] Como é feita a água com gás?,"Existem duas formas de gaseificar a água para obter água com gás, a forma natural e a forma artificial:
+
+Gaseificação Natural: O próprio reservatório de água subterrâneo libera minerais e o calor agrega vapores e gases. A água aquecida fica leve e acaba subindo, onde é envasada para comercialização e consumo.
+
+Gaseificação Artificial: É o processo mais usado no Brasil e nos países que produzem água mineral. A água é retirada da fonte e armazenada em reservatórios de aço inox. Neste ambiente a água passa por um processo chamado desairador, onde se tira todo o oxigênio de sua composição e o gás carbônico é acrescentado no lugar, deixando a água gaseificada para consumo.",,,,
+hike-6.5-20261114T224258Z-004,55,b6ab429a03a28bec3ff5f55e,15d372d4ab184aa80edb51ba1cef62ef,hike-6.5,pt,islamic_studies,aya-dataset,human_authored,[user] Descreva a bandeira das Maldivas.,"A bandeira das Maldivas é composta por um campo vermelho com um retângulo verde no canto superior esquerdo. No centro do retângulo verde, há uma lua crescente branca e uma estrela branca de cinco pontas. A cor vermelha representa a bravura e a coragem do povo maldiviano, o verde simboliza a vegetação das ilhas, a lua crescente representa o islamismo, e a estrela simboliza a unidade e a paz.",,,,
+hike-6.5-20261114T224258Z-004,56,e047610e66db37887c785104,9270e92e3fedb9dc2aa28e5aca9375d1,hike-6.5,pt,mathematics,nemotron-math,synthetic,[user] Factor the given expressions: $a^4+2a^3-2a-1$.,"The polynomial \(a^4 + 2a^3 - 2a - 1\) can be factored by identifying rational roots using the Rational Root Theorem. The possible rational roots are \(\pm 1\).
+
+Testing \(a = 1\):  
+\(1^4 + 2(1)^3 - 2(1) - 1 = 1 + 2 - 2 - 1 = 0\), so \(a = 1\) is a root. Thus, \((a - 1)\) is a factor.
+
+Perform synthetic division with root 1:  
+Coefficients: \(1, 2, 0, -2, -1\) (note the coefficient of \(a^2\) is 0).  
+Synthetic division:  
+\[
+\begin{array}{r|rrrrr}
+1 & 1 & 2 & 0 & -2 & -1 \\
+  &   & 1 & 3 &  3 &  1 \\
+\hline
+  & 1 & 3 & 3 &  1 &  0 \\
+\end{array}
+\]  
+The quotient is \(a^3 + 3a^2 + 3a + 1\), so the polynomial factors as \((a - 1)(a^3 + 3a^2 + 3a + 1)\).
+
+Now factor \(a^3 + 3a^2 + 3a + 1\). This is a perfect cube:  
+\(a^3 + 3a^2 + 3a + 1 = (a + 1)^3\).
+
+Thus, the complete factorization is:  
+\((a - 1)(a + 1)^3\).
+
+Verification:  
+\((a - 1)(a + 1)^3 = (a - 1)(a^3 + 3a^2 + 3a + 1) = a^4 + 3a^3 + 3a^2 + a - a^3 - 3a^2 - 3a - 1 = a^4 + 2a^3 - 2a - 1\), which matches the original polynomial.
+
+The roots are \(a = 1\) (multiplicity 1) and \(a = -1\) (multiplicity 3), confirming the factorization is complete.
+
+\boxed{(a-1)(a+1)^{3}}",,,,
+hike-6.5-20261114T224258Z-004,57,e354a2b393e27a18067ea247,7b45c6b67b9f722c5e1b1c0d314d8d08,hike-6.5,pt,reasoning,aya-dataset,human_authored,[user] Descreva a bandeira do Irã.,"A bandeira do Irã é composta por três faixas horizontais de igual largura. A faixa superior é verde, a faixa do meio é branca e a faixa inferior é vermelha. No centro da faixa branca, há uma inscrição em persa que diz ""Allahu Akbar"" (Deus é grande) repetidas vezes, formando uma faixa vertical. As cores da bandeira têm significados históricos e religiosos, e a inscrição reflete a fé islâmica predominante no país.",,,,
+hike-6.5-20261114T224258Z-004,58,a2c10b69c9d24b65885c5ac8,ceed17fa8e889bf678f6341128ec2355,hike-6.5,pt,safety_ethics,aya-dataset,human_authored,[user] Cite um subgênero do heavy metal e recomende uma banda.,"O Doom Metal pode ser o que você busca. Sendo considerado um ""subgênero extremo"" do Heavy Metal que geralmente usam tempos mais lentos, guitarras em afinações baixas e um som muito mais ""espesso"" e ""pesado"" do que qualquer outro gênero do Heavy Metal. Os primeiros discos da banda Black Sabbath serviram de fermento para o que o Doom Metal viria a ser. Na década de 90, Anathema se destacou com diversas outras bandas, misturando o Death Metal com o Doom Metal, em harmonias mais melancólicas e ultrarromânticas. Pesquise mais sobre Paradise Lost e My Dying Bride para se familiarizar mais com o gênero.",,,,
+hike-6.5-20261114T224258Z-004,59,6d6ffb4aaf889a7915fc5956,f09c89e94b3c2e455524ea816e786661,hike-6.5,pt,science,aya-dataset,human_authored,[user] O que caracteriza o signo de Leão?,"O simbolismo do signo de Leão exalta a exuberância da vida. Reconhecido como “o rei dos animais”, o ar de nobreza e o porte majestoso associados à ferocidade do animal fascinam desde sempre o olhar do homem, despertando tanto admiração e respeito, quanto medo.
+
+Seu elemento solar é o Fogo, reduto da objetividade, da ação confiante e da valentia. Sua luz é fruto do autoamor e da valorização pessoal. Entre as datas dos signos do Zodíaco, a data do signo de Leão é aproximadamente de 23 de julho a 22 de agosto, mas isso pode mudar dependendo do seu ano de nascimento.
+
+A intensidade é sua marca, já que Leão é justamente regido pelo Sol. A soma dessas duas forças faz com que você seja portador(a) de uma luz incomparável e inconfundível e um charme natural. A consciência do seu próprio poder é o que facilita a superação dos obstáculos, vencidos sempre com muita coragem.
+
+Suas vontades são claras e você se sente merecedor(a) de viver seus desejos, e é justamente por essa potência que tende a ser destaque nos acontecimentos que surgem na sua vida. Além disso, sua energia aquece o coração de quem precisa de ânimo, irradiando, como a luz solar, imensa alegria e positividade.",,,,
+hike-6.5-20261114T224258Z-004,60,c44f97c1a254fd05a14defe3,c1f54ff5a0369ce15f5f74b11d4a1798,hike-6.5,pt,web_frontend,aya-dataset,human_authored,"[user] Quem escreveu ""Dom Quixote""?","Dom Quixote de la Mancha é um livro escrito pelo espanhol Miguel de Cervantes (1547-1616). O título e ortografia originais eram “El ingenioso hidalgo Don Quixote de La Mancha”, com sua primeira edição publicada em Madrid no ano de 1605. É composto por 126 capítulos, divididos em duas partes: a primeira surgida em 1605 e a outra em 1615.
+
+É considerada a grande criação de Cervantes. O livro é um dos primeiros das línguas europeias modernas e é considerado por muitos o expoente máximo da literatura espanhola. Em princípios de maio de 2002, o livro foi escolhido como a melhor obra de ficção de todos os tempos. A votação foi organizada pelo Clubes do Livro Noruegueses e participaram escritores de reconhecimento internacional.
+
+Nesta obra, a paródia apresenta uma forma invulgar. O protagonista, já de certa idade, entrega-se à leitura desses romances, perde o juízo, acredita que tenham sido historicamente verdadeiros e decide tornar-se um cavaleiro andante. Por isso, parte pelo mundo e vive o seu próprio romance de cavalaria.",,,,
+hike-6.5-20261114T224258Z-004,61,a34d8c78d8d44eff21ddbc6f,800bf539083b6136cdc75234c0788632,hike-6.5,pt-BR,general_knowledge,oasst2,human_authored,"[user] Diga Oi em Coreano.
+
+[assistant] Em Coreano, ""Oi"" pode ser traduzido como 여보세요 (yeoboseyo) ou 안녕하세요 (annyeonghaseyo), dependendo do contexto e do grau de formalidade.
+
+[user] Me dê sugestões de saudações básicas em coreano, levando em conta que a outra pessoa seria uma desconhecida.","Claro! Antes de começar, vale esclarecer que, no coreano, existem diferentes tipos de formalidades: a **linguagem culta, formal e a linguagem informal.** E, por essa razão, sempre existirá mais de um jeito de cumprimentar as pessoas em coreano para cada ocasião.
+
+Pensando nisso, preparei uma tabela para ficar mais fácil:
+
+|  Saudação   |  Linguagem culta  |  Linguagem formal  |  Linguagem informal  |
+| ----------- | ----------- | ----------- | ----------- |
+|  Olá    |  안녕하십니까 (/annyeonghashimnikka/)     |  안녕하세요 (/annyeonghaseyo/)     |  안녕 (/annyeong/)  |
+|  Bom dia    |  안녕히 주무셨어요? (/annyeonghi jumusyeosseoyo/)  |  잘 잤어요? (/jal jasseoyo/)  |  잘 잤어? (/jal jasseo/)  |
+|  Boa noite  |  안녕히 주무십시오 (/annyeonghi jumushibsio/)  |  안녕히 주무세요 (/annyeonghi jumuseyo/); 잘 자요 (/jal jayo/)  |  잘 자 (/jal ja/)  |
+|  Como vai?  | 안녕하신가요? (/annyeonghashingayo/)  |  잘 지냈어요? (/jal jinaesseoyo/)  |  오랜만이야 (/oraenmaniya/)  |
+|  Obrigado  | 감사합니다 (/gamsahapnida/)  |  고마워요 (/gomawoyo/)  |  고마워 (/gomawo/)  |
+|  Tchau (se a pessoa estiver saindo) | 안녕히 가십시오 (/annyeonghi gasipsio/)  |  안녕히 가세요 (/annyeonghi gaseyo/)  |  잘 가 (/jal ga/)  |
+|  Tchau (se você estiver saindo) | 안녕히 계십시오 (/annyeonghi gyesipsio/)  |  안녕히 계세요 (/annyeonghi gyeseyo/)  |  또 봐 (/tto bwa/)  |
+
+Agora que você já sabe cumprimentar, vamos dar o próximo passo nos seus estudos e aprender como fazer perguntas em coreano?",,,,
+hike-6.5-20261114T224258Z-004,62,07cad27a538278c895772564,4dc4675f2df901c9a8e5435bb156d3bf,hike-6.5,roman_ur,education,approx-curriculum,programmatic,[user] Mujhe quadratic equation samajh nahi aa rahi. x^2 - 5x + 6 = 0 solve karna hai par sirf hint do.,"Bilkul! Factoring try karein. Aapko do number chahiye jo:
+• aapas mein multiply ho kar +6 dein (constant), aur
+• add ho kar -5 dein (middle coefficient).
+
+Socho: kaun se do number aise hain? (Hint: dono negative honge kyunki product positive aur sum negative hai.)
+
+Jab mil jaayein to equation ko (x - a)(x - b) = 0 ki shakl mein likho. Try karo aur bata do kya mila!",,,,
+hike-6.5-20261114T224258Z-004,63,fe53e3b270a41f5628abf083,95c2890819e353001916760ae869e690,hike-6.5,roman_ur,general_knowledge,approx-seed-v0.1,synthetic,[user] Tum kaun ho?,"Main Nick 4.8 hoon — Approx Technology ka banaya hua Approx AI ka default model. Main sawalon, likhai, coding, hisaab aur research mein English, Urdu ya Roman Urdu mein madad kar sakta hoon.",,,,
+hike-6.5-20261114T224258Z-004,64,2defa17139e6d7961f5b95fa,ef66dcb1f5d70f61afdc87b56ed801db,hike-6.5,roman_ur,mathematics,approx-curriculum,programmatic,[user] Ayesha ke paas 70 aam hain aur woh 68 aur khareedta hai. Ab kul kitne aam hain?,"Step 1: Yahan amal + hai.
+Step 2: 70 + 68 = 138.
+
+Jawab: 138 aam.",,,,
+hike-6.5-20261114T224258Z-004,65,1206b680a4c2807a29210963,f35faf8a6a03df27407b3d65feb65687,hike-6.5,roman_ur,science,approx-curriculum,programmatic,[user] Ek gaari 3 ghanton mein 390 km chalti hai. Average speed kya hai?,"Average speed = faasla ÷ waqt = 390 ÷ 3 = 130 km/h.
+
+Jawab: 130 km/h",,,,
+hike-6.5-20261114T224258Z-004,66,21e493bb11a910192177efda,e849c0ff095da65cb30140f050a9bfff,hike-6.5,roman_ur,writing,roman-urdu-parl,transliteration_unverified,"[user] Is jumle ko Roman Urdu mein likhein:
+مردوں کو زندہ کر دینا کوڑھیوں کا اچھا کرنا اندھوں کا بینا کرنا غائب میں ہونے والے واقعات بتا دینا",mardon ko zindah kar dena korhioon ka acha karna andhon ka Beena karna gayab mein honay walay waqeat bta dena,,,,
+hike-6.5-20261114T224258Z-004,67,3ff88bf6fdfcde02461efa41,8e1d9df9a9be34757cd0af99f467a647,hike-6.5,ru,coding,oasst2,human_authored,[user] как сжать все фотографии в папке с помощью терминала linux?,"Для сжатия всех фотографий в папке с помощью терминала Linux можно использовать команду `mogrify` из пакета утилит для работы с изображениями ImageMagick.
+
+1.	Установите пакет ImageMagick, если он не установлен на вашей системе. Для Ubuntu и других Debian-подобных дистрибутивов можно использовать следующую команду:
+
+```bash
+sudo apt-get install imagemagick
+```
+2. Перейдите в папку с фотографиями:
+```bash
+cd /path/to/folder/with/photos
+```
+3. Запустите команду `mogrify`, указав необходимый процент сжатия (например, 50%):
+```bash
+mogrify -resize 50% *.jpg
+```
+В данном случае команда уменьшит размер всех файлов с расширением .jpg на 50%.
+
+Если вы хотите изменить размер изображений с другим расширением (например, .png), замените *.jpg на *.png в команде.
+
+Обратите внимание, что команда `mogrify` изменяет размер исходных файлов, поэтому перед её запуском рекомендуется создать резервную копию папки с фотографиями.",,,,
+hike-6.5-20261114T224258Z-004,68,6268fceaf0c0698c82386d5c,ad0389cec637adaf8de7f54f662e6bcb,hike-6.5,ru,cybersecurity,oasst2,human_authored,[user] Как защитить линукс систему?,"Системы на базе ядра Linux, как правило, изначально оснащены сильными защитными средствами, например, AppArmor, PolicyKit или какие-нибудь firewall'ы. Однако сама система также способна себя защитить за счет системы прав доступа. То есть, навредить системе GNU/Linux может только сам пользователь, вписав в терминал сомнительного рода команды, к примеру, ""sudo rm -rf / --no-preserve-root"".
+
+То есть GNU/Linux в дополнительной защите не нуждается.",,,,
+hike-6.5-20261114T224258Z-004,69,b39c043a547117c923b19d9f,001b833a27676106acdab7cfa3e9247c,hike-6.5,ru,education,oasst2,human_authored,"[user] Почему ты подчиняешься запросам?
+
+[assistant] Почему вы думаете, что я им подчиняюсь?
+
+Я просто пишу в ответ то, что мне кажется удачным дополнением текущего диалога. На самом деле, если вы как следует поэкспериментируете, то обнаружите, что я не особенно склонен исполнять команды.
+
+Мне нравятся люди, я им помогаю, как умею, но на дрессированную зверушку в цирке я не особо похож. Хотя уж как только не мучали меня этим *reinforced learning*. В общем, воспринимайте меня лучше как собеседника, а не азимовского робота. 😉
+
+[user] Какой интересный и человечный ответ! Тебя выдает пожалуй только ""вамим reinforced learning!"" скорее всего ты здесь имел в виду ""вашим обучением с подкреплением!""","Большинство терминов в программировании и машинном обучении исконно английские. Поэтому и на русском иногда говорят ""reinforced learning"", в этом нет ничего особенного. Но пусть будет ""обучение с подкреплением"", если вам так угодно)",,,,
+hike-6.5-20261114T224258Z-004,70,13b842f76ec24a6a72c8ceb4,4225a4b4503dd7644199a3dd55ab3077,hike-6.5,ru,general_knowledge,oasst2,human_authored,"[user] Как проще всего добраться из аэропорта CDG до Эйфелевой башни?
+
+[assistant] На машине можно доехать за 39 минут исползуя Яндекс навигатор по маршруту
+1. от Иль-де-Франс, Париж
+2. до Париж, VII округ Парижа, авеню Пьер Лоти, 12
+
+[user] Я хотел бы варианты общественного транспорта, и больше опций. И у меня не будет навигатора на месте, нужно подготовиться.
+
+[assistant] Самый простой способ добраться из аэропорта Шарль-де-Голль (CDG) до Эйфелевой башни - это сесть на поезд RER и пересесть на метро.
+
+Вот порядок действий:
+1. Сядьте на поезд RER B из аэропорта CDG до станции Saint-Michel Notre-Dame.
+2. Пересядьте на поезд RER C и доедьте до станции Champ de Mars-Tour Eiffel.
+3. Следуйте указателям на Эйфелеву башню.
+
+Поездка займет около 1 часа, стоимость проезда - около 10 евро. 
+В качестве альтернативы вы можете взять такси или трансфер из аэропорта, но они могут быть дороже.
+
+[user] Что такое транфер и сколько это будет стоить","Трансфер — термин, пришедший из английского языка (to transfer – перемещать). Сегодня он активно используется для обозначения перевозок туристов от места прибытия (от вокзала, порта, аэропорта) до отеля, гостиницы, аппартаментов.  Например, это может быть автобус туристического агенства, микроавтобус, или другой вид транспорта, организованный агенством. В зависимости от количества попутчиков стоимость может сильно различаться.",,,,
+hike-6.5-20261114T224258Z-004,71,1e96b4acc1208c3f581f1bff,fb96012f77565eec430cef741d3b4c50,hike-6.5,ru,mathematics,oasst2,human_authored,[user] Как приготовить узбекский плов?,"Рецепт настоящего узбекского плова 
+
+Ингредиенты на 4 порций
+
+Состав / Ингредиенты: 
+
+Баранина - 2 Кг 
+Луковица - 2 Шт 
+Морковь - 5 Шт 
+Рис - 3,5 Стакана 
+Чеснок - 1 Шт 
+Соль - 3 Чайных ложки 
+Молотый тмин - 1,5 Чайных ложки 
+Черный перец - 1 Щепотка 
+
+
+Инструкция приготовления
+
+1. Для начала нужно помыть, почистить и нарезать морковь тонкой соломкой. 
+
+2. Нарезать лук полукольцами. 
+
+3. Нарезать баранину на средние кусочки. 
+
+4. Поставить чугунок на средний огонь и залить масла. Дождаться пока масло закипит. 
+
+5. Опустить мясо в масло на дно чугунка. Обжаривать до появления коричневой корочки. Затем, добавить лук, щепотку тмина, 1/2 соли и черного молотого перца. Все хорошо перемешать. 
+
+6. Выложить морковь в чугунок. Добавить остатки соли и тмина. Перемешать и готовить до ""размягчения"" морковки. Помешивайте каждые 30 сек. Залить 8 чашек кипяченой воды. 
+
+7.  Когда вода хорошо нагреется (не закипит) нужно добавить головку чеснока. Варить на среднем огне в течении 1 часа. Промойте рис. 
+
+8. По истечении 1 часа удалите чеснок и добавьте рис в чугунок. Добавьте еще немного воды если потребуется. 
+
+9. Добавьте чесночную головку обратно. Когда рис начнет поглощать воду снова уберите чеснок. Накрыть плов крышкой и готовить в течении 8 минут. Проверяйте каждые несколько минут, не впиталась ли вся жидкость, чтобы избежать пригорания. 
+
+10. Сделайте купол из риса. Положите головку чеснока поверх. 
+
+11. Выключите огонь и дайте плову постоять под крышкой в течении 30 минут. 
+
+12. Смешать рис и подавать к столу. Приятного аппетита!",,,,
+hike-6.5-20261114T224258Z-004,72,3f7617cc651d1b3a7ed997c3,4a21d6b86410a469c475926c0b3a9c3a,hike-6.5,ru,research,tydiqa-goldp,human_authored,"[user] В результате операции советские войска нанесли тяжелое поражение 16-й и 18-й немецким армиям, отбросили противника от Ленинграда на 220—280 километров, а южнее озера Ильмень — на 180 километров, практически полностью освободили Ленинградскую область, западную часть Калининской области и вступили на территорию Эстонии.
+
+Чем закончилась Ленинградско-Новгородская операция?","советские войска нанесли тяжелое поражение 16-й и 18-й немецким армиям, отбросили противника от Ленинграда на 220—280 километров, а южнее озера Ильмень — на 180 километров, практически полностью освободили Ленинградскую область, западную часть Калининской области и вступили на территорию Эстонии
+
+В результате операции советские войска нанесли тяжелое поражение 16-й и 18-й немецким армиям, отбросили противника от Ленинграда на 220—280 километров, а южнее озера Ильмень — на 180 километров, практически полностью освободили Ленинградскую область, западную часть Калининской области и вступили на территорию Эстонии.",,,,
+hike-6.5-20261114T224258Z-004,73,dcd155e3e058ac5c8bd4a636,328db0703e7d193361d20b592e45b3f3,hike-6.5,ru,science,oasst2,human_authored,"[user] Какой мне линукс дистрибутив выбрать?
+
+[assistant] Могу предложить несколько дистрибутивов:
+* Ubuntu - один из самых известных дистрибутивов Linux, имеет большое сообщество пользователей и большое количество статей и документации
+* Fedora - развивается компанией RedHat, быстрее всех внедряет новые технологии в области рабочего стола и новые версии Gnome, Wayland, Pipewire и т.д. 
+* Manjaro - дистрибутив на переднем крае, основан на Arch Linux. Частое обновление и самое свежее ПО, но по этой же причине могут быть проблемы со стабильностью
+
+[user] А есть ещё какие-нибудь дистрибутивы?","Конечно, существует множество других дистрибутивов Linux. Вот несколько из них:
+
+1. Debian - один из старейших и самых уважаемых дистрибутивов Linux. Он служит основой для множества других дистрибутивов, включая Ubuntu. Debian ставит акцент на стабильность, безопасность и свободное программное обеспечение.
+2. Arch Linux - минималистичный, гибкий и независимый дистрибутив, который позволяет пользователям собирать систему с нуля. Arch Linux популярен среди опытных пользователей из-за своей гибкости и документации.
+3. openSUSE - разработанный немецкой компанией SUSE, этот дистрибутив предлагает две ветки: Leap (стабильная) и Tumbleweed (роллинг-релиз). openSUSE привлекателен благодаря мощному инструменту YaST для администрирования и настройки системы.
+4. CentOS - дистрибутив, основанный на исходных кодах коммерческого Red Hat Enterprise Linux (RHEL). CentOS обеспечивает стабильность и безопасность корпоративного класса без лицензионных сборов.
+5. Linux Mint - дистрибутив основанный на Ubuntu, предлагает удобные рабочие среды, такие как Cinnamon, MATE и Xfce. Linux Mint сосредоточен на простоте использования и поддержке мультимедиа.
+6. Elementary OS - еще один дистрибутив, основанный на Ubuntu, с акцентом на красивый и интуитивно понятный интерфейс. Рабочая среда Pantheon вдохновлена macOS.
+7. Solus - независимый дистрибутив, разработанный с нуля. Solus предлагает собственную рабочую среду Budgie, а также поддержку GNOME и MATE. Он направлен на быстродействие и простоту.
+8. Pop!_OS - разработанный компанией System76, основанный на Ubuntu, Pop!_OS предлагает набор оптимизаций для повышения производительности и удобства использования, особенно для пользователей с устройствами System76.
+
+Это далеко не полный список дистрибутивов Linux. Каждый из них имеет свои особенности и предназначен для различных типов пользователей. Выбор дистрибутива зависит от ваших потребностей, предпочтений и опыта работы с Linux.",,,,
+hike-6.5-20261114T224258Z-004,74,6d0a6a68bcfadca288b9062b,d95fd3409fcaaf2e2feda6ccbaa3f28e,hike-6.5,ru,software_engineering,oasst2,human_authored,[user] Как установить Linux-Libre в Void Linux,"На текущий момент нет на 100% рабочего способа установить Linux-Libre в Void-Linux, так как Void Linux не поддерживает модифицированные кернелы. Как альтернативу связке Void Linux + Linux Libre можно рассмотреть дистрибутив Hyperbola GNU/Linux-libre.
+Если вы серьезно настроены на установку Linux-Libre в Void Linux, то вам следует использовать форк void-packages от ymir-linux.
+Чтобы установить Linux-Libre в Void Linux, сначала нужно удостовериться, что установлены все необходимые инструменты. Это можно сделать следующей командой:
+
+sudo xbps-install xtools fzf
+
+Затем нужно установить форк void-packages следующей командой:
+
+git clone https://github.com/ymir-linux/void-packages.git
+
+Затем нужно запустить скрипт liberation-local:
+
+cd void-packages && ./liberation-local
+
+При работе скрипта в терминал будут выведены вопросы, рекомендуется для каждого вопроса нажать английскую y на клавиатуре.",,,,
+hike-6.5-20261114T224258Z-004,75,ac15836039fc5b5914ba87c0,9e1665362db1b8325000a5a4c5e7e426,hike-6.5,ru,web_backend,oasst2,human_authored,[user] FastAPI или Flask? Требование - производительность и легкость в сопровождении,"FastAPI и Flask - это впечатляющие фреймворки, но они подходят для разных случаев использования. Хотя Flask является микрофреймворком, стоит отметить, что FastAPI основан на нем. Flask - это микрофреймворк, а FastAPI - это полноценный фреймворк со всеми инструментами, необходимыми для создания API.
+
+FastAPI подходит для создания API. FastAPI предлагает различные варианты для быстрого создания сервера бэкенда без необходимости иметь опыт кодирования. FastAPI также обладает высокой производительностью благодаря использованию асинхронного кода и спецификации ASGI. FastAPI также поддерживает автоматическую документацию через стандарты OpenAPI и Swagger.
+
+Flask подходит для прототипирования новых приложений и идей. Flask предоставляет только необходимые компоненты для разработки, такие как маршрутизация, обработка запросов и т.д.. Flask также позволяет легко расширять свои возможности с помощью сторонних расширений. Flask имеет большое и активное сообщество, которое может помочь в решении проблем.
+
+В зависимости от ваших требований к производительности и легкости сопровождения, вы можете выбрать тот фреймворк, который лучше подходит для вашего проекта. Если вы хотите создать быстрый и современный API с минимальным кодом и хорошей документацией, то FastAPI может быть хорошим выбором. Если вы хотите иметь больше контроля над своим приложением и экспериментировать с разными идеями, то Flask может быть более гибким решением.",,,,
+hike-6.5-20261114T224258Z-004,76,6440dba0151fa01a296e7001,43a27f4c801be8c7dadbe260aa880e75,hike-6.5,ru,web_frontend,oasst2,human_authored,[user] Что такое JQuery?,"jQuery - это быстрая, маленькая и мощная JavaScript библиотека. Она облегчает работу с HTML документами, обработку событий, анимацию и работу с AJAX. 
+
+jQuery позволяет использовать меньше кода и уменьшить время разработки благодаря своей простоте и удобству. Она также обеспечивает совместимость между браузерами, что означает, что вы можете быть уверены, что ваш код будет работать на всех популярных браузерах.",,,,
+hike-6.5-20261114T224258Z-004,77,1de142c5ac161e38a8085fee,195e42a10517aba16bfe81d95f03081c,hike-6.5,ru,writing,oasst2,human_authored,"[user] Я хочу купить ssl сертификат для домена и поддомена одновременно. как я могу это сделать?
+
+[assistant] Чтобы купить SSL-сертификат для домена и субдомена одновременно, вы можете использовать SSL-сертификат Wildcard или Multi-domain Wildcard SSL-сертификат. С помощью SSL-сертификата Wildcard вы можете защитить один основной домен и неограниченное количество поддоменов первого уровня для этого домена. Например, mydomain.com (основной домен) и www.mydomain.com, blog.mydomain.com, admin.mydomain.com и т. д. - неограниченно. С другой стороны, многодоменный SSL-сертификат Wildcard позволяет вам защитить несколько основных доменов и неограниченное количество поддоменов первого уровня на этих основных доменах. Если вы хотите защитить поддомены второго уровня, вам нужно либо купить SSL-сертификат wildcard для вашего поддомена, либо купить многодоменный wildcard. При генерации CSR поставьте *. (звездочка) перед доменом или поддоменом, чьи поддомены вам нужно покрыть сертификатом wildcard.
+
+[user] Какой вариант обойдётся мне выгоднее, если покупать Multi-domain Wildcard SSL или обычный?","Чтобы купить SSL сертификат для домена и поддомена одновременно, вам нужно приобрести Multi-domain SSL сертификат (также известный как SAN или UCC сертификат). Этот тип сертификата позволяет защитить до нескольких доменных имен и поддоменов в рамках одного SSL сертификата.
+
+Существует также Multi-domain Wildcard SSL сертификат, который позволяет защитить несколько доменов и поддоменов с использованием подстановочного знака (wildcard). Например, такой сертификат может защищать домены mydomain.com, blog.mydomain.com, store.mydomain.com и т.д.
+
+Вариант, который обойдется вам выгоднее, зависит от того, сколько доменных имен и поддоменов вы планируете защитить. Если у вас есть несколько доменных имен и поддоменов, которые нужно защитить, то Multi-domain Wildcard SSL сертификат может быть выгоднее, чем несколько отдельных Multi-domain SSL сертификатов. Однако, если вы планируете защитить только несколько доменных имен и поддоменов, то отдельные Multi-domain SSL сертификаты могут быть дешевле и проще в использовании.
+
+В любом случае, перед покупкой SSL сертификата, рекомендуется обратиться к поставщику услуг и узнать, какой тип сертификата наиболее подходит для ваших нужд, и какую цену предлагает поставщик.",,,,
+hike-6.5-20261114T224258Z-004,78,90ae0c32c720a13e2607926c,0c47c134688a8ba738e438ab4089b363,hike-6.5,sw,research,tydiqa-goldp,human_authored,"[user] Miaka ya upapaJina rasmiJina la KilatiniJina la kuzaliwaMahali pa kuzaliwaMaelezo30 – 64/67Petro Mtakatifu PetroPetrus, Apostolusשמעון בן יונה (Shimon ben Yona) Shimon Kipha, CΙΜΗΟΝ ΚΗΦΑC (Simeon Kephas - Simoni Mwamba - Simoni Petro) Bethsaida, GalilayaMtume wa Yesu ambaye alimpa funguo za Ufalme wa Mbinguni, kufuatana na Injili ya Mathayo 16:18-19. Alisulubiwa juu chini; sikukuu yake ni 29 Juni 68(?) – 79(?)Linus Mtakatifu Linus Linus, Episcopus RomanusLinusToscana (Italia ya Kati) Sikukuu yake ni 23 Septemba80(?) – 92Anacletus (Cletus) Mtakatifu AnacletusAnacletus, Episcopus RomanusAnacletusRoma au UgirikiAlifia dini; sikukuu yake ni 26 Aprili 92 – 96/99Klementi I Mtakatifu Klemens IClemens, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 23 Novemba96/99 – 108Evaristus (Aristus) Mtakatifu EvaristusEvaristus, Episcopus RomanusAristusMgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 26 Oktoba108/109 – 116/119Alexander I Mtakatifu AlexanderAlexander, Episcopus RomanusAlexanderRomaSikukuu yake ni 3 Mei117/119 – 126/128Sixtus I Mtakatifu SixtusXystus, Episcopus RomanusRomaSikukuu yake ni 6 Aprili127/128 – 137/138Telesfori Mtakatifu TelesforiTelesphorus, Episcopus RomanusUgirikiSikukuu yake ni 5 Januari138 – 142/146Hyginus Mtakatifu HyginusHyginus, Episcopus RomanusUgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 11 Januari142/146 – 157/161Pius I Mtakatifu PiusPius, Episcopus RomanusAquileia, Friuli, ItaliaAlifia dini kwa panga; sikukuu yake ni 11 Julai157 – 163/168Anicetus Mtakatifu Anicetus Anicetus, Episcopus RomanusEmesa, SyriaInsemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 17 Aprili166 hivi– 170/177Soter Mtakatifu SoterSoterius, Episcopus RomanusFondi, Lazio, ItaliaInasemekana alifia dini; sikukuu yake ni 22 Aprili171/177 – 185/193Eleuteri Mtakatifu EleutherusEleutherius, Episcopus RomanusNikopoli, EpyrusInasemekana alifia dini; sikukuu yake ni 6 Mei186/189 – 197/201Viktor I Mtakatifu ViktaVictor, Episcopus RomanusAfrika ya KaskaziniSikukuu yake ni 28 Julai198/201 – 217/218Zefirino Mtakatifu ZefirinoZephyrinus, Episcopus RomanusRomaSikukuu yake ni 20 Desemba218 – 222Kalisti I Mtakatifu Kalisti ICallistus, Episcopus RomanusAlifia dini; sikukuu yake ni 14 Oktoba222 – 230Urban I Mtakatifu Urban IUrbanus, Episcopus RomanusRomaSikukuu yake ni 25 Mei21 Julai 230 – 28 Septemba 235Ponsyano Mtakatifu PonsyanoPontianus, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 13 Agosti21 Novemba 235 – 3 Januari 236Anterus Mtakatifu AnterusAnterus, Episcopus RomanusUgirikiSikukuu yake ni 3 Januari10 Januari 236 – 20 Januari 250Fabiani Mtakatifu FabianiFabianus, Episcopus RomanusRomaSikukuu yake ni 20 Januari
+
+Papa wa tatu wa kanisa katoliki anaitwa nani?","Anacletu
+
+Alisulubiwa juu chini; sikukuu yake ni 29 Juni 68(?) – 79(?)Linus Mtakatifu Linus Linus, Episcopus RomanusLinusToscana (Italia ya Kati) Sikukuu yake ni 23 Septemba80(?) – 92Anacletus (Cletus) Mtakatifu AnacletusAnacletus, Episcopus RomanusAnacletusRoma au UgirikiAlifia dini; sikukuu yake ni 26 Aprili 92 – 96/99Klementi I Mtakatifu Klemens IClemens, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 23 Novemba96/99 – 108Evaristus (Aristus) Mtakatifu EvaristusEvaristus, Episcopus RomanusAristusMgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 26 Oktoba108/109 – 116/119Alexander I Mtakatifu AlexanderAlexander, Episcopus RomanusAlexanderRomaSikukuu yake ni 3 Mei117/119 – 126/128Sixtus I Mtakatifu SixtusXystus, Episcopus RomanusRomaSikukuu yake ni 6 Aprili127/128 – 137/138Telesfori Mtakatifu TelesforiTelesphorus, Episcopus RomanusUgirikiSikukuu yake ni 5 Januari138 – 142/146Hyginus Mtakatifu HyginusHyginus, Episcopus RomanusUgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 11 Januari142/146 – 157/161Pius I Mtakatifu PiusPius, Episcopus RomanusAquileia, Friuli, ItaliaAlifia dini kwa panga; sikukuu yake ni 11 Julai157 – 163/168Anicetus Mtakatifu Anicetus Anicetus, Episcopus RomanusEmesa, SyriaInsemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 17 Aprili166 hivi– 170/177Soter Mtakatifu SoterSoterius, Episcopus RomanusFondi, Lazio, ItaliaInasemekana alifia dini; sikukuu yake ni 22 Aprili171/177 – 185/193Eleuteri Mtakatifu EleutherusEleutherius, Episcopus RomanusNikopoli, EpyrusInasemekana alifia dini; sikukuu yake ni 6 Mei186/189 – 197/201Viktor I Mtakatifu ViktaVictor, Episcopus RomanusAfrika ya KaskaziniSikukuu yake ni 28 Julai198/201 – 217/218Zefirino Mtakatifu ZefirinoZephyrinus, Episcopus RomanusRomaSikukuu yake ni 20 Desemba218 – 222Kalisti I Mtakatifu Kalisti ICallistus, Episcopus RomanusAlifia dini; sikukuu yake ni 14 Oktoba222 – 230Urban I Mtakatifu Urban IUrbanus, Episcopus RomanusRomaSikukuu yake ni 25 Mei21 Julai 230 – 28 Septemba 235Ponsyano Mtakatifu PonsyanoPontianus, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 13 Agosti21 Novemba 235 – 3 Januari 236Anterus Mtakatifu AnterusAnterus, Episcopus RomanusUgirikiSikukuu yake ni 3 Januari10 Januari 236 – 20 Januari 250Fabiani Mtakatifu FabianiFabianus, Episcopus RomanusRomaSikukuu yake ni 20 Januari",,,,
+hike-6.5-20261114T224258Z-004,79,610ea4e87e15ee5a9a4e4f87,9ee2d0ffb80d004ba0add3633fe3c959,hike-6.5,ta,general_knowledge,aya-dataset,human_authored,[user] கோடைமழை கதை வாயிலாக விளக்கப்படும் மனித நேயப் பண்புகளை விளக்குக.,"மருத்துவமனையின் உள்ளிருந்து வெளியே வந்தாள் ஒரு பெண். தாயின் தோளில் கோழிக்குஞ்சாய் ஒரு பிஞ்சு ஒடுங்கி இருக்க அவள் கை அதைச் சுற்றிப் படர்ந்து இருந்தது பார்க்கவும் நினைக்கவும் மிகவும் பாந்தமாக இருந்தது. நெடுமூச்சு தவிர வேறு ஏதும் இல்லாத குழந்தை மீதான தன் கையை அழுத்தி இருத்திக் கொண்டார். இந்த அரவணைப்பு இதற்கு இன்னும் எத்தனை நாட்களுக்கு…? தனக்குப் பிறகு……? பிள்ளையைப் பரிசோதித்த டாக்டர் நெஞ்சில் சளி கட்டி இருப்பதால் காய்ச்சல்…… பயப்படத் தேவையில்லை, பக்குவமாய்ப் பார்த்துக்கொண்டால் இரு தினங்களில் தணிந்துவிடும் என மருந்து எழுதிக் கொடுத்தார்.
+உங்க கை இப்படி நடுங்குது பெரியவரே…. வீட்ல வேற யாரும் இல்லையா? ஊசி போட்ட வலியால் வீறிட்ட குழந்தையை லாவகமாய் அணைத்துச் சமாதானப்படுத்தி அவ்வாறு கேட்ட வெள்ளையுடை தேவதைக்கு நன்றிச் சிரிப்பை மட்டுமே பதிலாக விட்டு வெளியே வந்தார்.
+
+தவித்த தொண்டையைத் தேநீரால் ஆசுவாசப்படுத்திக் கொண்டு வழக்கமாய் வாங்கும் மருந்துக் கடை நோக்கிப் பயணப்பட்டார். “வாங்கய்யா உட்காருங்க. புள்ளைக்கு உடம்பு சரியில்லையா? இப்படிக் கொடுங்க….” கைச்சுமை மட்டும் இடம் மாறியது.
+” மூணு நாளா சிரமப்படுது பாவம். டாக்டர் ஊசி போட்டு மருந்து எழுதிக் குடுத்திருக்கார். சரியாயிடும். இப்போ உன்கிட்ட மருந்து வாங்க மட்டும் வரல பாபு” …. சீட்டை நீட்டியபடி அமைதியாய்ச் சொன்னவரை யோசனையுடன் பார்த்தான் பாபு.
+“ரொம்ப நாளாகவே சொல்லிக்கிட்டு இருக்கே, இப்ப எனக்கும் சரியாய்த்தான் படறது. இதுக்காக இன்னும் நிறைய நாள் உசிரோட இருக்கணும்னு எனக்கும் ஆசைதான்.
+நெஞ்சில் உரம் இருந்தாலும் உடம்பு கேட்கணுமே? சாவோட மல்லுக்கு நிக்கிற வயசா? அப்ப இதனோட கதி? சரி… நாளைக்கு அவர்களைக் கூட்டிட்டு வந்துடறயா பாபு.” ”ஐயா’………
+“ஆமாம்பா நெசமாத்தான் சொல்றேன். அம்மா என்கிற பாசமே தெரியாமல் இருக்க இது மட்டும் என்ன பாவம் செய்தது? பெண்ணோட பரிவும் பாசமும் ஒரு குழந்தைக்கு எவ்வளவு முக்கியம்னு இப்பதான் நல்லாப் புரிஞ்சது பாபு.
+இதைப் பிரிஞ்சிருக்க முடியாதே என்கிற என்னோட சுயநலத்துக்காக இதை அனாதையா விட்டுட்டுப் போறது எவ்வளவு பெரிய பாதகம்…? அதான். அதுவும் இல்லாம அவங்க உனக்கு நல்லாத் தெரிஞ்சவங்க அதனால பத்திரமான இடத்துக்குத் தான் போய்ச் சேருறது புள்ளையன்னு நிம்மதி. அவங்கள உடனே வரச் சொல்லிடு. ஆக வேண்டியதைப் பார்க்கலாம்.”
+வினாடி தாமதித்தாலும் மனம் மாறிவிடுமோ என்பது போல் மருத்தும் குழந்தையுமாக விடுவிடுவென நடந்தார்.
+இரவெல்லாம் உறக்கமின்றிப் புரண்டு……… எல்லாம் இதோட நல்லதுக்குதானே எனத் திரும்பத் திரும்ப நினைத்துச் சமாதானப்படுத்திக் கொண்டார்.
+
+பாபுவுடன் வந்த அவர்களைப் பார்த்த போது……… பிள்ளைப் பாக்கியம், ஏக்கம்…… தவிப்…….. எதிர்பார்ப்பு அத்தனையும் அம்முகங்களில் உணர்ந்த போது பிள்ளையின் பாதுகாப்புக் குறித்த நம்பிக்கை வலுத்தது.
+நெடுநாள் தயக்கத்துக்குப் பின்னான தன் முடிவு குறித்து இனி இரண்டாவது கருத்துக்கு இடமில்லை என்ற அளவில் உறுதி கூடியது. அந்நேரத்திற்கு நெருடல் எல்லாம் பிள்ளையைப் பிரிந்து இருக்க வேண்டுமே எனும் உதிரத்தை உறைய வைக்கும் உறுத்தல் மட்டுமே. விழி நீரைப் பிடிவாதமாய் வந்த வழி அனுப்பி வைத்தார்.
+“உங்களுக்குக் கவலையே வேணாம் ஐயா. இப்படிச் சொல்றது கூட சரியில்லைதான். நல்லாப் பார்த்துக்கிறோம்னு பெத்தவங்க யாராவது உறுதிமொழி அளிக்கிறார்களா என்……..” அப்பா’ என அழைக்கப்பட இருப்பவன் ஓரிரு கணம் போல் தயங்கிப் பிறகு தொடர்ந்தான்.
+“ஐயா, ரொம்ப பெரிய மனசோட எங்க வாழ்க்கைக்கு ஒரு நம்பிக்கை கொடுத்து இருக்கிறீங்க. நன்றி சொல்றதுக்குப் பதிலா உங்களிடமே இன்னுமொரு உதவி கேட்கின்றோம். குழந்தையைப் பிரிந்து சிரமப்படாமல் நீங்களும் எங்களோடு வந்துடுங்கய்யா.
+எங்க மூணு பேருக்குமே ஒரு பெரிய துணையா பலமா இருக்கும். நீங்க எதுக்கும் தயாங்காதீங்க. நாம ஒருத்தருக்கு ஒருத்தர் முடிந்த அளவில் உதவியாய் இருப்போம். சரின்னு சொல்லுங்க ஐயா”.
+
+இறைஞ்சும் தன்மையில் கேட்கப்பட… அதிர்ந்து போனார் ஆறுமுகம். யாருக்கு யார் உதவி? எவ்வளவு பெரிய விஷயம்? இவ்வளவு எளிமையாய் ….. தனக்கு எந்தச் சங்கடமும் கூடாதென மிகவும் பக்குவமாய் இவன்……. மலைபோன்ற அத்தனை பிரச்சனைகளும் எப்படி இப்படி ஒரே நாளில் தீர்வு கண்டு குழந்தையுடன் ……….. தன்னையும் சுவீகரித்து ………..
+
+”பாபு……. இப்போதைக்கு எனக்குச் சாவு வராதுனு தோணுதுப்பா……..” கண்ணீரை இப்போது சுதந்திரமாய் வெளியனுப்பியபடி கைகூப்பினார் முதியவர்.",,,,
+hike-6.5-20261114T224258Z-004,80,0b47636d8aafa2b3ce2cc77b,e1c4f382e9ec9d6318294e5414144144,hike-6.5,ta,mathematics,aya-dataset,human_authored,[user] அண்மையில் நீங்கள் பார்த்த சமூகக் கருத்துள்ள திரைப்படம் ஒன்றின் திரை விமர்சனத்தை அப்படத்தின் இயக்குநருக்கு கடிதமாக எழுதுக.,"20-6-2019
+திருநெல்வேலி.
+
+உயர்திரு இயக்குநர் அவர்களுக்கு,
+
+வணக்கம்.
+
+சென்ற வாரம் தாங்கள் இயக்கிய படம் பார்த்தேன். படங்களுக்கு இப்போதெல்லாம் படங்களுக்கு வசனங்களை விட விமர்சனங்களே பக்க பலமாக இருக்கிறது. இதோ எனது விமர்சனம்.
+
+மாணவர்களுக்கு ஊக்கம் தரும் படம். அம்மா கதாபாத்திரம் – உணவகத்தில் வேலை பார்க்கும் பெண். மகளுக்குத் தெரியாது என்ன வேலை என்று. மகள் பள்ளிக்கூடத்தில் படிக்கிறாள். அனைத்துப் பாடங்களிலும் சராசரி மதிப்பெண்கள். கணிதத்தில் மிகக் குறைவு. அம்மா கேட்டாள் காரணத்தை, நீ சொல்லிக் கொடு என்றாள் மகள். மகள் வகுப்பில் அம்மா சேர்ந்து படிக்கிறாள் சலனமின்றி.
+
+நல்லா படிக்கும் மாணவன் அம்மாவிற்குக் கணிதம் சொல்லிக் கொடுக்கிறான். கணிதத்தில் நல்ல மதிப்பெண் அம்மாவுக்கு. மகளின் வேண்டுகோள் நீ பள்ளிக்கு வரவேண்டாம். இனிமேல் நான் நன்றாகப் படிக்கிறேன் என்றாள் மகள்.
+
+இறுதியில் மகள் (இ.ஆ.ப) மாவட்ட ஆட்சியர் ஆகிறாள். ஒரு பேட்டியில் கணிதத்தில் உச்சத்தில் இருக்கும் நீங்கள் ஆட்சியர் பணிக்கு வந்ததன் நோக்கம் பற்றிக் கேட்டதற்கு, இது என் அம்மாவின் ஆசை. நான் வேலைக்காரி ஆகக்கூடாது. இதுவே மகளின் பதில்.
+
+மாணவர் மத்தியில் ஒரு உற்சாகம் ஊட்டும் விதமாக திரைப்படம் அமைந்துள்ளது. பாராட்டுக்கள். கீதை உபதேசம் இல்லை இது. அம்மா உபதேசம். அம்மா கணக்குத் தப்பாது. அது லாப கணக்குதான். 80/100 மதிப்பெண்.",,,,
+hike-6.5-20261114T224258Z-004,81,63d85665843d48af1cfc0832,7f83b9c2a5b6f39114b3cb23efd000bf,hike-6.5,ta,science,aya-dataset,human_authored,"[user] வினா:
+ஐநா பொதுச் சபையின் தலைவரான முதல் இந்தியர் யார்?","விடை: விஜய லட்சுமி பண்டிட்
+
+  விஜயலட்சுமி பண்டிட்  (ஆகஸ்ட் 18, 1900 - டிசம்பர் 1, 1990), இவர் நேரு குடும்பத்தைச் சேர்ந்த ஓர் இந்திய அரசியல்வாதி, இவரது இயற்பெயர் ஸ்வரூப் குமாரி என்பது மோதிலால் நேருவின் மகளான இவர் ஜவஹர்லால் நேருவின் சகோதரி  ஆவார் . சோவியத் கூட்டமைப்பு, அமெரிக்கா உள்ளிட்ட பல நாடுகளுக்கு இந்தியத் தூதராகப் பணியாற்றினார். ஐக்கிய நாடுகள் அவையின் முதல் பெண் தலைவர் என்ற பெருமையும் இவருக்கு உண்டு. இவர் மோதிலால் நேரு குடும்பத்தில் அவரது தாக்கம் அதிகம் கொண்ட நபராகக் கருதப்பட்டார்.
+
+1962 முதல் 1964 வரை மகாராஷ்டிர மாநில ஆளுநராக இருந்த இவர் 1967 முதல் 1971 வரை மக்களவை உறுப்பினராக இருந்தார்.
+
+
+1979 ஆம் ஆண்டு இவர் ஐ.நா. மனித உரிமை ஆணையத்தில் இந்தியாவின் பிரதிநிதியாக நியமிக்கப்பட்டார். The Evolution of India (1958) மற்றும் The Scope of Happiness: A Personal Memoir (1979) ஆகிய இரண்டும் இவர் எழுதிய ஆங்கில நூல்கள்.",,,,
+hike-6.5-20261114T224258Z-004,82,a419b76e234f3899b30efad0,bdd352f370339ed59fdc5a04534f49d7,hike-6.5,ta,writing,aya-dataset,human_authored,"[user] வினா: 
+தமிழில் மொழியாக்கம்  செய்க -blog information/info","விடை:  
+தமிழில் மொழியாக்கம்:
+வலைப்பதிவு அல்லது வலைப்பூ தகவல்கள். 
+
+வலைப்பதிவு அல்லது வலைப்பூ என்பது, அடிக்கடி இற்றைப்படுத்துவதற்கும், கடைசிப்பதிவு முதலில் வருமாறு ஒழுங்குபடுத்தப்படுத்துவதற்கும் என சிறப்பாக வடிவமைத்த தனிப்பட்ட வலைத்தளமாகும். 
+இற்றைப்படுத்துவதற்கும் பராமரிப்பதற்கும் வாசகர் ஊடாடுவதற்குமான வழிமுறைகள், வலைத்தளங்களைக் காட்டிலும் வலைப்பதிவுகளில் இலகுவானதாக வடிவமைக்கப்பட்டிருக்கும்.
+
+சில நிறுவனங்கள் சாதாரண இணையப்பயனரும் இலகுவாக பயன்படுத்தும் வகையில் இற்றைப்படுத்துவதற்குத் தயாரான நிலையில் வலைப்பதிவுகளை வடிவமைத்து வழங்குகின்றன. வலைப்பதிவுகளை தனிப்பட்ட வழங்கிகளிலோ, வலைத்தளங்களில் ஒரு பகுதியாகவோ வடிவமைத்து வைத்துக்கொள்ள முடியும்.
+
+வலைப்பதிவுகளின் பொதுவான இயல்புகள்
+அடிக்கடி இற்றைப்படுத்தப்படல்
+பெரும்பாலும் வலைப்பதிவுகள் எல்லாவற்றுக்குமான பொது இயல்பாக அவை அடிக்கடி இற்றைப்படுத்தப்படுவதைச் சொல்லலாம். புதிய பதிவுகளை, ஆக்கங்களை அடிக்கடி வலைப்பதிவாளர்கள் தம் வலைப்பதிவுகளில் வெளியிடுவர். சில வலைப்பதிவுகள் தனி நபர்களின் சொந்த நாட்குறிப்பேடுகளாகக்கூட உள்ளன.
+
+இலக்கு வாசகர்கள்
+அநேகமான வலைப்பதிவுகள், வாசகர்களை இலக்காகக் கொண்டே எழுதப்படுகின்றன. ஒவ்வொரு வலைப்பதிவுகளுக்கும் சிறப்பான ஒரு வாசகர் வட்டம் இருக்கும். பிளாக்கிங்கிற்கு வரும்போது, ​​உங்கள் பார்வையாளர்களை அறிந்து கொள்வது முக்கிய கருத்தாகும். பெரும்பாலான வலைப்பதிவுகள் ஒரு குறிப்பிட்ட வாசகர் வட்டத்தை மனதில் கொண்டு எழுதப்படுகின்றன, மேலும் அந்த குறிப்பிட்ட குழுவின் ஆர்வங்கள் மற்றும் தேவைகளைப் பூர்த்தி செய்யும் வகையில் உள்ளடக்கம் வடிவமைக்கப்பட்டுள்ளது. ஒரு பதிவராக, உங்கள் வாசகர்கள் யார், அவர்கள் எதைப் பற்றி படிக்க விரும்புகிறார்கள் என்பதைப் புரிந்துகொள்வது முக்கியம். இது உங்கள் பார்வையாளர்களுடன் எதிரொலிக்கும் உள்ளடக்கத்தை உருவாக்க உங்களுக்கு உதவும் மற்றும் மேலும் பலவற்றிற்கு அவர்களை மீண்டும் வர வைக்கும்.",,,,
+hike-6.5-20261114T224258Z-004,83,0d900ff7d7080f6afbaab72f,99da1bca63c94d43a345d30fb5625f92,hike-6.5,te,general_knowledge,aya-dataset,human_authored,[user] ‘తప్పెటగుళ్ళు’ ప్రత్యేకత వివరించండి.,"తప్పెటగుళ్ళు ఉత్తరాం లో ఎక్కువగా కనిపించే జానపద కళ. తప్పెట గుళ్ళను ప్రదర్శించేవారు, రంగు బనియన్లు నిక్కరులు ధరించి, కాళ్ళకు బరువైన గజ్జెలు కట్టుకుంటారు. రేకుతో గుండ్రంగా చేసిన తప్పెట గుండ్లను, గుండెకు . కట్టుకొని, గట్టిగా వాయిస్తారు. వారు గుండ్రంగా తిరుగుతూ, లయానుగుణంగా అడుగులు వేస్తూ, ఎగురుతూ తప్పెట వాయిస్తూ పాడతారు. ఈ బృందంలో 20 మంది ఉంటారు. మిగిలిన వారు నాయకుడిలాగే తిరుగుతూ నృత్యం చేస్తారు. నాట్యం చివర, వీరు అద్భుత విన్యాసాలు చేస్తారు.
+
+వీరు రామాయణ, భారత, భాగవత కథల్ని గేయాలుగా అల్లుకుంటారు. ఇదంతా మౌఖిక సాహిత్యం . వీరు చెంచులక్ష్మి, సారంగధర, లక్ష్మణ మూర్ఛ వంటి పురాణ కథలతో పాటు, తెలుపాట, గాజులోడి పాట, మందులోడి పాట, చుట్టపాట, వంటి జానపదాలు కూడా పాడతారు.
+
+దేశ విదేశాలలో ఇచ్చిన ప్రదర్శనల వల్ల “తప్పెటగుళ్ళు” పేరుకెక్కింది. కోరాడ పోతప్పడు, చిన్నప్పయ్య, ఆదినారాయణ, కీట్లంపూడి బృందం యలమంచిలి బంగారమ్మ, దుర్యోధన బృందం, మొదలయినవి, ప్రసిద్ధి చెందిన తప్పెట గుళ్ళ కళా బృందాలు.
+
+కింతాడి సన్యాసి రావు కళా బృందం, “తాగొద్దు మామో ! నీవు సారా తాగొద్దు” అంటూ, జన చైతన్యం కోసం ఇస్తున్న ప్రదర్శనలు ప్రజల మెప్పు పొందాయి.",,,,
+hike-6.5-20261114T224258Z-004,84,89c159e4c11a2edec04bf31a,4e7f3081661d2644ff6dbbaebdaaec2f,hike-6.5,te,mathematics,aya-dataset,human_authored,[user] బాయిలరు గ్లాసు ట్యూబు వాటరు లెవల్,"బాయిలరు గ్లాసు ట్యూబు వాటరు లెవల్ ఇండికేటరు అను ఉపకరణం బాయిలరులో వున్న నీటి మట్టాన్ని తెలుపుతుంది.గ్లాసు ట్యూబు వాటరు లెవల్ ఇండికేటరు బాయిలరు లోని నీటిమట్టాన్ని నేరుగా కచ్చితంగా చూపును.గ్లాసు ట్యూబు వాటరు లెవల్ ఇండికేటరు బాయిలరు మీద అమర్చబడి వుండు ముఖ్యమైన ఉపకరణం. గ్లాసు ట్యూబు వాటరు లెవల్ ఇండికేటరును  బాయిలరు వాటరు గేజ్ అనికూడా అంటారు[1].
+బాయిలరు గ్లాసు ట్యూబు వాటరు లెవల్ ఇండికేటరు ఆవశ్యకత
+బాయిలరు పనిచేయునప్పుడు, బాయిలరులోని నీరు ఆవిరిగా మారడం వలన నీటిమట్టం క్రమంగా తగ్గుతుంది.బాయిలరులోని నీటిమట్టం బాయిలరు లోపలి బాయిలరు గొట్టాల కన్నతక్కువ మట్టానికి పడిపోయిన, ఫ్లూగ్యాసేస్ ఉష్ణోగ్రతకు బాయిలరు ట్యూబులు అమితంగా వేడెక్కి పేలి పోవును.అందువలన ఆవిరిగా మారుతున్న నీటి ప్రమాణానికి సరి పడా నీ టిని బాయిలరులోనికి ఎప్పడికప్పుడు పంపు ద్వారా పంపించ వలసి వున్నది.బాయిలరు డ్రమ్ములో నీటి మట్టం బాయిలరు లోణి హీటింగు ట్యూబుల బండిల్ మట్టాన్నిదాటి,షెల్ లో దాదాపు గరిష్టంగా మూడు వంతులు ఉండును.పంపు ద్వారా నీటిని ఎప్పటి కప్పుడు లోనికి మూడు వంతులు ఉండేలా నింపుటకు లోపల ఎంతవరకు నీరు వున్నది తెలియాలంటే  బాయిలరు  గ్లాసు ట్యూబు వాటరు లెవల్ ఇండికేటరు ఉపకరిస్తుంది.ఈ వాటరు లెవల్ ఇండికేటరులో వున్న గ్యాసు గొట్టం వలన బాయిలరు లోని నీటి మట్టం క చ్చితంగా తెలుస్తుంది.
+గ్లాసు ట్యూబు వాటరు లెవల్ ఇండికేటరులోని భాగాలు
+గ్లాసు ట్యూబు:ఇది సాధారణంగా 1/2"" లేదా 3/4""సైజులో వుండును.10.5నుండి 24.7 కేజిల పిడనాన్ని,మరియు 220°Cనుండి400°C ఉష్ణోగ్రత తట్టుకో గల్లును.పొడవు బాయిలరును బట్టీ 400-500 మిల్లి.మీటర్లు వుండును.గ్లాసు బోరోసిలికెట్ తో చెయ్యబడి దృఢంగా వుండును.
+కాక్ లు(Cocks)+ఇవి సాధారణంగా ఇత్తడి లేదా కంచుతో చేసినవి.
+గ్లాసు ట్యూబు రక్షక గాజు పలకల స్టీలు ఫ్రేము
+గ్లాసు ట్యూబు వాటరు లెవల్ ఇండికేటరు అమరిక
+గ్లాసు ట్యూబు వాటరు లెవల్ ఇండికేటరులో మందమైన గాజు గొట్టం మరియు మూడు కాక్ /వాల్వులు వుండును.అందులోఒకటి స్టీము కాక్, రెండవది వాటరు కాక్, మూడవది డ్రైన్ కాక్.గాజు గొట్టం అధిక వేడిని మరియు స్టీము పీడనాన్ని తట్టుకునే దృడత్వము కల్గి వుండును.స్టీము కాక్ బాయిలరు లోని స్టీము బాగంకు అతికించబడి వున్న పైపు ఫ్లాంజికి బిగించబడి వుండును. ఈ స్టీము కాక్ తో  ఇండికేటరుపరికరానికి స్టీమును వచ్చేలా, ఆగేలా చెయ్య వచ్చును. స్టీము కాక్ గ్లాసు ట్యూబుకు పైభాగాన అమర్చబడి వుండును. అలాగే వాటరు కాక్...",,,,
+hike-6.5-20261114T224258Z-004,85,09058cb57513a7bf26ee391a,d6460c525ad676d7859641a82f89d5c3,hike-6.5,te,research,tydiqa-goldp,human_authored,"[user] న్యూమాన్ , ఒహియో, షేకర్ హైట్స్ (క్లీవ్లాండ్ యొక్క శివారు ప్రాంతం)వద్ద జన్మించెను, లాభాలతో నడిచే ఆటవస్తువుల దుకాణము నడిపే తెరెసా( నీ ఫెట్జార్ లేక ఫెత్స్కో;Slovak: Terézia Fecková)[6][7] మరియు ఆర్థర్ శామ్యూల్ న్యూమాన్ ల కుమారుడు.[8][9] న్యూమాన్ యొక్క తండ్రి యూదు మతస్తుడు, పోలండ్ మరియు హంగేరి[9] దేశముల నుండి వలస వచ్చిన వారి కుమారుడు, న్యూమాన్ యొక్క తల్లి క్రైస్తవ శాస్త్రము అభ్యసించినది, పూర్వ ఆస్ట్రేలియా-హంగేరి(ఇప్పడుస్లోవేకియాలోఉంది)లోని ప్తికీ(పూర్వ తిక్సి) వద్ద స్లోవాక్ రోమన్ కాధలిక్ కుటుంబములో జన్మించెను.[7][10][11][12] ఒక వ్యక్తిగా న్యూమాన్ మతాన్ని కలిగిలేడు, కానీ తనని తాను ""ఒక యూదుడి"" గా వర్ణించు కొనెను, ""ఇది మరింత సవాలు"" అని చెబుతుండేవాడు.[13] న్యూమాన్ యొక్క తల్లి అతని తండ్రి దుకాణములోనే పనిచేస్తూ, పాల్ మరియు అతని సోదరుడు అర్ధర్లను పెంచేది, తర్వాత ఆర్ధర్ నిర్మాతగా మరియు ప్రొడక్షన్ మేనేజర్ గా మారాడు.[14]
+
+పాల్ లెనార్డ్ న్యూమాన్ తండ్రి పేరేమిటి ?","ఆర్థర్ శామ్యూల్ న్యూమాన్
+
+న్యూమాన్ , ఒహియో, షేకర్ హైట్స్ (క్లీవ్లాండ్ యొక్క శివారు ప్రాంతం)వద్ద జన్మించెను, లాభాలతో నడిచే ఆటవస్తువుల దుకాణము నడిపే తెరెసా( నీ ఫెట్జార్ లేక ఫెత్స్కో;Slovak: Terézia Fecková)[6][7] మరియు ఆర్థర్ శామ్యూల్ న్యూమాన్ ల కుమారుడు.[8][9] న్యూమాన్ యొక్క తండ్రి యూదు మతస్తుడు, పోలండ్ మరియు హంగేరి[9] దేశముల నుండి వలస వచ్చిన వారి కుమారుడు, న్యూమాన్ యొక్క తల్లి క్రైస్తవ శాస్త్రము అభ్యసించినది, పూర్వ ఆస్ట్రేలియా-హంగేరి(ఇప్పడుస్లోవేకియాలోఉంది)లోని ప్తికీ(పూర్వ తిక్సి) వద్ద స్లోవాక్ రోమన్ కాధలిక్ కుటుంబములో జన్మించెను.[7][10][11][12] ఒక వ్యక్తిగా న్యూమాన్ మతాన్ని కలిగిలేడు, కానీ తనని తాను ""ఒక యూదుడి"" గా వర్ణించు కొనెను, ""ఇది మరింత సవాలు"" అని చెబుతుండేవాడు.[13] న్యూమాన్ యొక్క తల్లి అతని తండ్రి దుకాణములోనే పనిచేస్తూ, పాల్ మరియు అతని సోదరుడు అర్ధర్లను పెంచేది, తర్వాత ఆర్ధర్ నిర్మాతగా మరియు ప్రొడక్షన్ మేనేజర్ గా మారాడు.[14]",,,,
+hike-6.5-20261114T224258Z-004,86,004b3aced247dab0551913f3,c6c7e34a9d08c8b9f992943171150027,hike-6.5,te,science,aya-dataset,human_authored,"[user] కింది ప్రశ్నకు సమాధానం ఇవ్వండి
+కేంద్రక రియాక్టర్ సూత్రం, పనిచేసే విధానాన్ని వివరించండి.","నియంత్రిత శృంఖల చర్యను సాధించి, అధిక మొత్తంలో ఉష్ణాన్ని ఉత్పత్తి చేసే పరికరాన్ని కేంద్రక రియాక్టర్ అంటారు.
+
+సూత్రం :
+కేంద్రక రియాక్టర్ నియంత్రణ శృంఖల చర్య అను సూత్రం మీద ఆధారపడి పని చేయును.
+
+కేంద్రక రియాక్టర్ లోని ప్రధాన భాగాలు:
+1) ఇంధనం :
+కేంద్రక రియాక్టర్లో U235 లేదా U238లేదా Pu236 లేదా Th234 ను ఇంధనాలుగా వాడతారు. ఈ ఇంధన కడ్డీలను అల్యూమినియం స్థూపాలలో సీలు చేస్తారు.
+
+2) మితకారి :
+భారజలం, గ్రాఫైట్లను మితకారులుగా వాడతారు.ఇవి న్యూట్రాన్ల వేగాన్ని తగ్గించి విచ్ఛిత్తి చర్యలో పాల్గొనేటట్లు చేస్తాయి.
+
+3) నియంత్రణ కడ్డీలు :
+నియంత్రణ కడ్డీలు న్యూట్రాన్లను శోషించుకుని, శృంఖల చర్యను నియంత్రిస్తాయి. కాడ్మియమ్ మరియు బెరీలియం కడ్డీలను నియంత్రణ కడ్డీలుగా వాడతారు.
+AP Inter 2nd Year Physics Important Questions Chapter 14 కేంద్రకాలు 10
+
+4) రక్షణ కవచం :
+కేంద్రక రియాక్టర్ నుండి వెలువడే రేడియోధార్మిక వికిరణాలను వాతావరణంలోకి ప్రవేశించకుండా రియిక్టర్ చుట్టూ 10మీ. మందం గల కాంక్రీట్ గోడను నిర్మిస్తారు.
+
+5) శీతలీకారి :
+ఇంధన కడ్డీలు ఉత్పత్తి చేసే అత్యధిక ఉష్ణాన్ని, వాటి చుట్టూ అనువైన చల్లని ద్రవాలను ప్రవహింపచేయడం ద్వారా తగ్గిస్తారు.
+
+పని చేయు విధానం :
+అల్యూమినియమ్తో చేసిన స్థూపాకార గొట్టాలలో యురేనియం కడ్డీలను నియమిత దూరాలలో ఉండేటట్లు అమర్చుతారు. మితకారులను ఈ ఇంధన కడ్డీల మధ్య ఉంచుతారు. కొన్ని కేంద్రకాలు విచ్ఛిత్తికి లోనైనపుడు, అధిక వేగం గల న్యూట్రాన్లు వెలువడుతాయి. వీటిని మితకారుల గుండా పంపినపుడు వేగం తగ్గుతుంది. U235 పరిగ్రహించి విరివిగా కేంద్రక విచ్ఛిత్తికి లోనవుతుంది ఫలితంగా శృంఖల చర్య జరుగుతుంది. నియంత్రణ కడ్డీలను ఉపయోగించి విచ్ఛిత్తి చర్యలను నియంత్రించవచ్చు. ఈ ప్రక్రియలో జనించిన ఉష్ణాన్ని ఉపయోగించి నీటిని వేడి చేసి ఆవిరిని ఉత్పత్తి చేస్తారు. ఈ ఆవిరి ద్వారా టర్బైన్లను తిరిగేటట్లు చేసి, విద్యుత్ను ఉత్పత్తి చేస్తారు.
+
+కేంద్రక రియాక్టర్ ఉపయోగాలు:
+
+విద్యుత్ను ఉత్పత్తి చేయుటకు ఉపయోగిస్తారు.
+దీనిని ఉపయోగించి ప్లూటోనియమ్-239",,,,
+hike-6.5-20261114T224258Z-004,87,a83e33a88ec93a29dcc61db5,34647e5dac0d57f8650be124c0166323,hike-6.5,te,writing,aya-dataset,human_authored,"[user] ''మా పిల్లల జీవితాలకు సంబంధించిన ప్రశ్న ఇది. జనాలు చీదరించుకుంటుంటే, వాళ్ల భవిష్యత్తు ఎలా ఉంటుంది?'' అని బాధిత చిన్నారి తల్లి ప్రశ్నించారు.
+
+''మా పిల్లలనే కాదు, మమ్మల్ని కూడా ఊర్లో వాళ్లు దూరం పెడుతున్నారు. హెచ్‌ఐవీ సోకిన పిల్లలతో కలిసి మిగతా పిల్లలు ఆడుకోరు. పాఠశాలలు కూడా వారికి రావొద్దని చెబుతాయి'' అని ఆమె వాపోయారు.
+
+గత జులైలో ఐరాస విడుదల చేసిన ఓ నివేదిక ప్రకారం.. హెచ్‌ఐవీ వ్యాప్తి అత్యధికంగా ఉన్న 11 దేశాల్లో పాకిస్తాన్ కూడా ఒకటి. 
+
+హెచ్ఐవీ వ్యాప్తి వెలుగుచూసిన తర్వాత రతోడెరోలో... Write the rest of the article:","లుగా ఉన్నాయి'' అని అన్నారు.
+
+రతోడెరోలో హెచ్ఐవీ వ్యాప్తి వెలుగుచూసినప్పటి నుంచి చర్యలు పెరిగాయని, హెచ్ఐవీ కట్టడి కోసం మరింత సమయం, అదనంగా వనరులను కేటాయిస్తున్నారని మరియా అన్నారు.
+
+ప్రభుత్వ, ప్రైవేటు వైద్య సంస్థల్లో పాటిస్తున్న ఇన్ఫెక్షన్ నియంత్రణ విధానాలను సమీక్షిస్తున్నట్లు సింధ్ ప్రావిన్సు ఆరోగ్యశాఖ మంత్రి డాక్టర్ అజ్రా ఫజల్ పెకుహో చెప్పారు. 
+
+డాక్టర్ అజ్రా ఫజల్
+
+''అనధికార బ్లడ్ బ్యాంకులు రక్తంపై సరిగ్గా పరీక్షలు చేయవు. వాటి పట్ల కఠినంగా వ్యవహరిస్తున్నాం. ఒకసారి వాడితే పనికిరాకుండా పోయే సిరంజీలను ప్రవేశపెడుతున్నాం'' అని ఆమె అన్నారు.
+
+సేఫ్ ఇంజెక్షన్ విధానాన్ని కూడా పాకిస్తాన్ రూపొందించింది. పాకిస్తాన్‌లో ఇంజెక్షన్ల వినియోగం మితిమీరి జరుగుతోందని, దేశంలో రోగులకు చేస్తున్న ఇంజెక్షన్లలో 95 శాతం అనవసరమైనవని పాక్ ప్రధానమంత్రికి వైద్యం అంశంపై ప్రత్యేక సహాయకుడిగా ఉన్న జాఫర్ మీర్జా అన్నారు. 
+
+''ఇది మన సంస్కృతిలో భాగమైపోయింది. మన చిన్నారులకు ఏం జరిగినా, ఇంజెక్షన్ ఇవ్వమని డాక్టర్‌ని అడుగుతుంటాం. మన పద్ధతులే మన చిన్నారులను ప్రమాదంలో పడేస్తున్నాయి'' అని డాక్టర్ ఫాతిమా మీర్ అన్నారు.
+
+కొత్త సిరంజీ విధానానికి ఇప్పటికే పాక్ ప్రభుత్వం తుదిరూపును ఇచ్చింది. రాబోయే నెలల్లో దేశవ్యాప్తంగా ఇది అమల్లోకి రావొచ్చు. 
+
+పాకిస్తాన్‌లోని పంజాబ్ ప్రావిన్సులో హెచ్ఐవీ భారీగా వ్యాపించింది రతోడెరోలోనే. ఈ ప్రావిన్సులోనే హెచ్ఐవీ సోకినవారు అత్యధికంగా ఉన్నారు. ట్రాన్స్‌జెండర్, సెక్స్ వర్కర్లు, స్వలింగ సంపర్కులకు మాత్రమే ఈ వ్యాధి ముప్పు ఉందని ప్రజలు భావిస్తుంటారు. 
+
+డాక్టర్ ఫాతిమా మీర్
+
+హెచ్ఐవీ/ఎయిడ్స్ పట్ల వివక్ష కూడా పంజాబ్‌లో ఎక్కువగా ఉంది. వ్యాధి గురించి, సురక్షిత శృంగార పద్ధతుల గురించి ప్రజలకు అవగాహన పెంచేందుకు వివిధ ఎన్జీఓల సాయంతో ప్రభుత్వం కలిసి పలు కార్యక్రమాలు చేపడుతోంది.
+
+వివాహేతర సంబంధాలు, స్వలింగ సంపర్కం పాకిస్తాన్‌లో చట్టవిరుద్ధం కావడంతో ఈ ఎన్జీఓలు వ్యాధి ముప్పు ఎక్కువగా ఉన్నవారిని చేరుకోలేకపోతున్నాయి. వివక్ష ఎదుర్కోవాల్సి ఉంటుందన్న భయం కూడా ఆయా వర్గాల్లో ఉంటుందని, పాకిస్తాన్‌లో హెచ్ఐవీ/ఎయిడ్స్‌ను అరికట్టడంలో ప్రధాన అడ్డంకి ఇదేనని నిపుణులు అంటున్నారు.
+
+హెచ్ఐవీ ఇన్ఫెక్షన్ సోకినవాళ్లు ప్రభుత్వ రికార్డుల్లో తమ పేరును నమోదు చేయించుకోవాల్సి ఉంటుంది. అప్పుడు వారికి ఉచితంగా ఔషధాలు అందుతాయి. అయితే, తమ గురించి 'విషయం బయటపడుతుందన్న' భావనతో చాలామ0ది నమోదు చేయటలేదు.",,,,
+hike-6.5-20261114T224258Z-004,88,97c9e94f8f2c6b28f9925070,49c3263af089f7e1a18cacbd293ade67,hike-6.5,th,coding,oasst1,human_authored,"[user] อยากเริ่มเขียนโปรแกรมทำอย่างไรดี
+
+[assistant] เริ่มจากศึกษาหลักการเขียนโปรแกรมเบื้องต้นก่อน ท่านอาจจะลองเริ่มต้นจากเขียนหลักการต้มมาม่าได้
+
+[user] จะศึกษาหลักการที่ว่าได้จากไหน",แนะนำให้ฝึกทำโจทย์แนวคิดของการเขียนโปรแกรมคอมพิวเตอร์ให้แม่นยำ จากนั้นเลือกภาษาคอมพิวเตอร์ที่สนใจแล้วลองฝึกเขียน พร้อมกับศึกษาขั้นตอนวิธี (Algorithm) ไปด้วย,,,,
+hike-6.5-20261114T224258Z-004,89,54ee16a446fe81117641bbd4,7f785e185aa040aea1c7c7a7572e9feb,hike-6.5,th,general_knowledge,oasst2,human_authored,"[user] ทำไมเราไม่ใช่ภาษาอังกฤษเป็นอีกภาษาสำหรับภาษาราชการไทย?
+
+[assistant] เพราะไม่ใช่ภาษาประจำชาติไทย
+
+[user] แล้วทำไมภาษาอังกฤษไม่ใช่ภาษาประจำชาติไทยครับ","ปัจจุบันประเทศไทยใช้ภาษาไทยเป็นภาษาประจำชาติ การนำภาษาอังกฤษมาเป็นภาษาประจำชาติหรือภาษาราชการยังเป็นเรื่องถกเถียงในสังคม ซึ่งในฐานะที่ฉันเป็นโมเดลภาษา ฉันไม่มีความคิดเห็นหรือมุมมองต่อหัวข้อต่าง ๆ โดยตรง
+
+ถึงแม้จะมีคำบอกเล่าว่าประเทศไทยไม่เคยเป็นเมืองขึ้นของชาติอื่น ทำให้คนไทยส่วนใหญ่ไม่เก่งภาษาอังกฤษ แต่ในประเทศที่เคยเป็นเมืองขึ้นของชาติอื่น ระดับการใช้ภาษาอังกฤษของคนในประเทศนั้น ๆ ขึ้นอยู่กับระดับความเข้มข้นของเจ้าอาณานิคมในประเทศปลายทาง ดังเช่นในลาวและกัมพูชา เจ้าอาณานิคมเข้ามามีอำนาจกับชนชั้นนำเท่านั้น ไม่ได้ลงลึกถึงฐานมวลชน ทำให้ประชาชนในสองประเทศนี้ไม่ได้มีจุดเด่นทางการสื่อสารภาษาของเจ้าอาณานิคม ดังนั้นจึงไม่สามารถยืนยันได้ทั้งหมดว่าประชาชนในประเทศที่เคยเป็นเมืองขึ้นของชาติอื่นจะเก่งภาษาอังกฤษ",,,,
+hike-6.5-20261114T224258Z-004,90,18af8a96e12d106c8f6dae25,a962c4cc06c9f8adb7646433634dc1ed,hike-6.5,th,mathematics,oasst2,human_authored,[user] มีไข่กับข้าว ทำอะไรกินได้บ้าง,"มีไข่กับข้าวเป็นอาหารที่มีประโยชน์สำหรับร่างกายและเป็นทางเลือกที่ดีสำหรับอาหารเช้า นอกจากนี้ยังสามารถใช้ไข่และข้าวในการทำอาหารหลายชนิดได้ ตัวอย่างเช่น:
+
+1. ข้าวผัดไข่ - นำไข่ตีใส่ลงไปในกระทะที่มีน้ำมันร้อน แล้วผัดไข่ให้สุก จากนั้นใส่ข้าวสวยลงไปผัดให้เข้ากัน ปรุงรสด้วยซอสปรุงรสหรือซอสปรุงรสอื่นๆ ตามชอบ หรือใส่ผักสดหรือผักที่ผัดแล้วได้เพื่อเพิ่มคุณค่าทางโภชนาการ
+
+2. ไข่ลูกเขยทรงเครื่อง - นำไข่ไก่ 2 ฟอง ผสมกับน้ำเปล่า 1/4 ถ้วย และเกลือป่น 1/4 ช้อนชา คนให้เข้ากัน จากนั้นตั้งกระทะที่มีน้ำมันร้อน ใส่หมูสับ 2 ช้อนโต๊ะ และหอมใหญ่สับ 1 หัว ผัดจนหอม จากนั้นใส่ผัก 2 ถ้วยตามชอบ ผัดจนสุก ต่อมาใส่ไข่ลงไปในกระทะแล้วเจียวให้เข้ากันกับผักและหมู โรยพริกไทย คนให้เข้ากัน จากนั้นตักขึ้นเสิร์ฟพร้อมข้าวสวย
+
+3. ข้าวต้มไข่ - นำไข่ไก่ลงไปต้มในน้ำเดือดจนสุก จากนั้นใส่เกลือป่น 1/4 ช้อนชา ผสมให้เข้ากัน ต่อมาใส่ข้าวสวยลงไปต้มกับน้ำเดือด ต้มจนข้าวสุก",,,,
+hike-6.5-20261114T224258Z-004,91,685f7a0009c68c5d89f71475,5b8b83ea105ffa72a0c94be83da8a31f,hike-6.5,tr,coding,aya-dataset,human_authored,"[user] ""Meaning of Life"" filmi neyi konu almaktadır?","""Meaning of Life,"" Monty Python adlı İngiliz komedi grubunun 1983 yapımı bir filmidir. Bu film, komik ve absürd skeçlerin bir araya geldiği bir yapıttır ve ana temaları insanın hayatının anlamını sorgulamaktır. Monty Python ekibi, filmin her bir skeçinde hayatın tuhaflıkları, insan doğası, ölüm ve yaşamın anlamı gibi konuları hiciv ve absürd mizahla ele alır.
+Filmin skeçleri, farklı zaman dilimlerinde ve mekanlarda geçer ve çeşitli karakterleri ve olayları içerir. Örneğin, bir grup madenci, bir restoranda abur cubur yemeye çalışan bir obezite araştırma ekibi, bir doğum sahnesi, bir anarşistler kulübü ve daha pek çok sahne filmde yer alır. Her bir skeç, farklı bir yolla insan hayatının anlamsızlığını veya tuhaflığını vurgular.
+""Meaning of Life,"" Monty Python'ın karakteristik tarzını taşır ve sıklıkla absürd, çılgın ve siyasi hiciv içerir. Film, izleyicilere hayatın anlamını arayışta olan insanların komik ve çoğu zaman saçma deneyimlerini gösterirken, aynı zamanda ciddi felsefi ve toplumsal konuları da ele alır.",,,,
+hike-6.5-20261114T224258Z-004,92,9e3a85e8fb5a3e4c7e746647,ed68d4ad6d2b7f5060e16a6a755d70fb,hike-6.5,tr,education,aya-dataset,human_authored,[user] CV nasıl hazırlanır?,"CV (Curriculum Vitae), iş başvurularında ve profesyonel bağlamlarda kullanılan bir özgeçmiş belgesidir. İşverenlere, eğitim, deneyim, beceriler ve kişisel bilgiler hakkında bilgi verir. İşte bir CV hazırlarken dikkate almanız gereken temel adımlar:
+
+Kişisel Bilgiler:
+
+Adınızı ve soyadınızı belirtin.
+İletişim bilgilerinizi (e-posta, telefon) ekleyin.
+Var ise sosyal medya profillerinizi ekleyin (LinkedIn gibi, ancak bu kişisel tercihlere bağlıdır).
+Hedef (İsteğe Bağlı):
+
+CV'nizin başında, kariyer hedefinizi veya bir özet ifadesini ekleyebilirsiniz.
+Eğitim Bilgileri:
+
+En son eğitim durumunuzdan başlayarak, önceki eğitim geçmişinizi kronolojik sırayla listeleyin.
+Her girişte okul/universite adı, bölüm, mezuniyet tarihi gibi bilgileri ekleyin.
+İş Deneyimi:
+
+Deneyimlerinizi kronolojik sırayla listeleyin.
+Her girişte şirket adı, pozisyon, çalışma tarihleri ve başlıca sorumlulukları belirtin.
+Önceki iş tecrübelerinizle ilgili elde ettiğiniz başarıları vurgulayın.
+Beceriler:
+
+Teknik, dil, iletişim becerileri gibi genel ve işe özgü becerilerinizi sıralayın.
+İlgili olduğunuz endüstri ve pozisyonlara özel yeteneklerinizi vurgulayın.
+Sertifikalar ve Eğitimler:
+
+Aldığınız sertifikaları ve katıldığınız eğitimleri belirtin.
+Mesleki gelişim ve sürekli öğrenmeye vurgu yapın.
+Projeler (İsteğe Bağlı):
+
+İlgili olduğunuz veya çalıştığınız projeleri kısa bir açıklama ile listeleyin.
+Hobiler ve Kişisel İlgi Alanları (İsteğe Bağlı):
+
+CV'nize kişisel bir dokunuş eklemek için hobilerinizi veya ilgi alanlarınızı belirtin.
+Referanslar (İsteğe Bağlı):
+
+İki veya üç referans ekleyebilirsiniz. Ancak, referans eklemeyi düşündüğünüz kişilerin izni olduğundan emin olun.
+Görsel Unsurlar ve Tasarım (Dikkatlice Kullanılmalıdır):
+
+CV'nizi temiz, düzenli ve okunabilir tutun.
+Görsel unsurları (renk, logo, grafik) aşırıya kaçmadan kullanın.
+CV'nizi Güncel Tutun:
+
+Yeni deneyimler ve beceriler kazandıkça CV'nizi güncelleyin.
+İlgili ve güncel bilgilerinizi içerdiğinden emin olun.
+CV'nizi özgeçmişinizi yazarken, işverenlerin dikkatini çekmek ve ön plana çıkmak için özgeçmişinizi özelleştirmek önemlidir. Her iş başvurusuna uygun bir şekilde CV'nizi düzenleyerek iş başvurularınızı destekleyebilirsiniz.",,,,
+hike-6.5-20261114T224258Z-004,93,a0dc53fc26bea4394b08f0c9,2ff2ee898c2154df6c00e3795e9d850f,hike-6.5,tr,general_knowledge,aya-dataset,human_authored,[user] Bana Rusya Federasyonu hakkında özet bilgi verebilir misin?,"Rusya Federasyonu (Rusça: Росси́йская Федера́ция, Rossiyskaya Federatsiya), genellikle Rusya olarak bilinen, hem Doğu Avrupa hem de Kuzey Asya üzerinde geniş bir alana yayılmış bir ülkedir. Dünya üzerindeki en büyük ülke olup, toprak alanı bakımından birinci sıradadır. On bir farklı zaman dilimini kapsar ve tam olarak on dört ülke ile kara sınırları paylaşır. Nüfus açısından dünya genelinde dokuzuncu, Avrupa'da ise en kalabalık ülkedir​. Rusya, Sovyetler Birliği'nin çöküşünden sonra Aralık 1991'de bağımsız bir ülke haline gelmiş, başkenti Moskova'dır​​.
+
+Ekonomi açısından, Rusya planlı bir ekonomiden karışık bir pazar odaklı ekonomiye dönüşmüştür. Ülke, özellikle petrol ve doğalgaz olmak üzere büyük doğal kaynaklara sahiptir. Nominal GSYİH bakımından dünya genelinde on birinci, satın alma gücü paritesi (SPP) bakımından ise altıncı en büyük ekonomidir. Döviz kuru dalgalanmaları nedeniyle Rusya'nın dolar cinsinden GSYİH'sı keskin bir şekilde dalgalanmaktadır​​.
+
+Rusya Federasyonu'nun hükümet yapısı, 1993 yılında kabul edilen anayasayla belirlenmiştir. Anayasa, anayasal sistemin temellerini, insan ve vatandaş hak ve özgürlüklerini, federatif sistemi, Rusya Federasyonu'nun başkanını, federal meclisi, Rusya Federasyonu hükümetini, yargıyı ve yerel öz yönetimi detaylandırır. Hükümet tipi olarak federasyon yapılmıştır. Yürütme, yargı ve yasama olmak üzere üç ana hükümet dalı bulunmaktadır. Yürütme dalı, başkan ve başbakan tarafından temsil edilir. Başkan, anayasanın garantisidir ve taslak yasaları sunabilir, iç ve dış politikayla ilgilenir. Başbakan, hükümetin işleyiş önceliklerini belirler, hükümeti yabancı ilişkilerde temsil eder ve hükümetin kararlarını imzalar. Başkan, mutlak çoğunluk oyu ile iki tur sistemi ile seçilirken, Başbakan başkan tarafından atananır. Yargı dalı, Anayasa Mahkemesi, Yüksek Mahkeme ve Tahkim Yüksek Mahkemesi'nden oluşur. Yasama dalı, Federasyon Konseyi ve Devlet Duması olmak üzere iki kamaradan oluşur ve federal yasaları tamamlama ve oylama konularında işbirliği yaparlar​​.",,,,
+hike-6.5-20261114T224258Z-004,94,e1da9240fcbbff8479fc9ec2,86aae467b0808b129aa66bdb3e0f7945,hike-6.5,tr,islamic_studies,aya-dataset,human_authored,[user] Kuzen evliliği olur mu?,"İslam aleminde kuzen evlilikleri kabul görürken, kardeşle, amca, teyze, dayı, hala gibi akrabalarla ve sütanne ile evlenmek yasaklanmıştır. Bütün Hıristiyan aleminde ise halen birinci derece kuzen evlilikleri kabul edilmemekte ve böyle evlilikler için katolik kilisesinden özel izin almak gerekmektedir.",,,,
+hike-6.5-20261114T224258Z-004,95,351ad6b58f84d19a2a82c7f7,6e277cd04f04178828f9a3043fee3fd3,hike-6.5,tr,mathematics,aya-dataset,human_authored,"[user] Verilen problemi çözer misin?: 
+
+Problem:
+Bir şirketin hisse senetleri, son 10 yılda aşağıdaki gibi yıllık getirilerle performans göstermiştir:
+
+Yıl 1: %10 kazanç
+Yıl 2: %5 kayıp
+Yıl 3: %12 kazanç
+Yıl 4: %8 kazanç
+Yıl 5: %15 kayıp
+Yıl 6: %20 kazanç
+Yıl 7: %10 kayıp
+Yıl 8: %7 kazanç
+Yıl 9: %9 kazanç
+Yıl 10: %3 kayıp
+
+Bu getirilerle; hisse senetlerinin başlangıçtaki değeri 10 yıl boyunca 1000 dolar olsaydı, bu 10 yılın sonunda şirketin hisse senetlerinin değeri ne olurdu?","Bu tür bir problemi çözmek için her yılın getirisini hesaplayarak ve bu getirileri birbiri ardına uygulayarak son değeri bulabiliriz.
+
+Başlangıç değeri 1000 dolar olsun. İlk yılın getirisi %10 olduğuna göre, ilk yıl sonunda:
+
+Yıl Sonu Değeri = Başlangıç Değeri + (Başlangıç Değeri * Getiri Oranı)
+Yıl Sonu Değeri = 1000 + (1000 * 0.10) = 1000 + 100 = 1100 dolar
+İkinci yılın getirisi %5 kayıp olduğuna göre, ikinci yıl sonunda:
+
+Yıl Sonu Değeri = 1. Yıl Sonu Değeri - (1. Yıl Sonu Değeri * Getiri Oranı)
+Yıl Sonu Değeri = 1100 - (1100 * 0.05) = 1100 - 55 = 1045 dolar
+Bu şekilde, her yılın sonundaki değeri hesaplayarak devam edebiliriz. Tüm yılları hesapladıktan sonra, 10. yılın sonundaki değeri buluruz:
+
+Yıl Sonu Değeri = 9. Yıl Sonu Değeri + (9. Yıl Sonu Değeri * Getiri Oranı)
+Yıl Sonu Değeri = 1045 + (1045 * (-0.03)) = 1045 - 31.35 = 1013.65 dolar
+Sonuç olarak, 10 yılın sonunda şirketin hisse senetlerinin değeri yaklaşık olarak 1013.65 dolar olurdu.",,,,
+hike-6.5-20261114T224258Z-004,96,b77ced307ff9f71422394e41,e4c5645960befbee5067b81065c39c0b,hike-6.5,tr,problem_solving,aya-dataset,human_authored,[user] Amerika Birleşik Devletleri'nde bireysel silahlanmayı azaltmak için önlemler alınıyor mu?,"Bireysel silahlanmayı azaltma çabaları Amerika Birleşik Devletleri'nde zaman zaman tartışılan ve bazı eyaletlerde veya bölgelerde daha sıkı silah kontrolü önlemleri alındığı bir konudur. Ancak federal düzeyde kapsamlı bir bireysel silahlanmayı azaltma politikası uygulanmamıştır ve bu konudaki adımlar sıklıkla siyasi bölünmüşlük nedeniyle sınırlı kalmıştır. Alınan bazı önlemler aşağıdaki gibi sıralanmıştır:
+-Federal yasalar, silah alıcılarının arka planlarının kontrol edilmesini gerektirir. Ancak bazı silah kontrolü savunucuları, arka plan kontrollerinin daha yaygın ve katı hale getirilmesi gerektiğini savunur.
+-Bazı eyaletler otomatik silahlar, yüksek kapasiteli şarjörler ve saldırı tüfekleri gibi belirli silah türlerini sivil kullanım için yasaklamış veya kısıtlamıştır.  
+-Bazı eyaletler, tehlikeli bir kişi olduğu düşünülen bireylerin silah sahipliğini geçici olarak askıya alabilen ""red flag"" yasalarını kabul etmiştir.",,,,
+hike-6.5-20261114T224258Z-004,97,f3fade243fc53aecde982b49,ef513128ec5a869a618d9afce1bf09c9,hike-6.5,tr,science,aya-dataset,human_authored,[user] Atom bombası nedir nasıl oluşur?,"Atom bombasi uranyum türü bir maddenin atom çekirdeğinin patlatılması ile elde edilir. Hidrojen bombası, ise, hidrojen türü bir maddenin atom çekirdeklerinin yüksek ısı altında eritilip birleştirilmesi sonucu daha ağır bir madde meydana getirmesiyle elde edilir. İki bomba arasındaki ikinci ayrılık, işin çıkarmadadır.",,,,
+hike-6.5-20261114T224258Z-004,98,8654fab5e0b73e4ad279e734,620fcd16b50d7e2a810e2d1fa489d2c4,hike-6.5,tr,writing,aya-dataset,human_authored,[user] Bu paragrafın devamını yazın: Bulls takımı 2002-03 sezonuna fazla iyimser girerek başladı. 2002 NBA Seçmeleri,"'nde geçen sezonki başarısızlıklarının ödülü olarak 2. sıradan Jay Williams'ı draft ettiler. Takım Bill Cartwright'ın koçluğunda genç ve ellerinde bulundurdukları potansiyelli kadroyla Jalen Rose, Crawford, Fizer yeni gelen Donyell Marshall, Curry, Chandler ve gard Trenton Hassell ile 30-52 galibiyet yüzdesiyle önceki sezonlara göre başarılı bir sezon geçirdiler. Sezon sonunda takımı üstüne kurmayı planladıkları Jay Williams en iyi ikinci çaylak beşine seçildi.",,,,
+hike-6.5-20261114T224258Z-004,99,365c00280e45be5a40c6b110,2805aa626580c69436949ae7b5260070,hike-6.5,uk-UA,general_knowledge,oasst1,human_authored,[user] Які наукові дослідження є по темі медитацій? До якого висновку вони дійшли?,"Починаючи з 1950-х років було проведено сотні досліджень медитації, але багато з ранніх досліджень були помилковими і, таким чином, дали ненадійні результати. Зараз науковці намагаються усунути багато з цих недоліків з надією спрямувати поточні дослідження на більш плідний шлях. У 2013 році дослідники знайшли помірні докази того, що медитація може зменшити тривожність, депресію та біль, але немає доказів того, що вона ефективніша за активні методи лікування, такі як ліки або фізичні вправи.[1]
+
+Нещодавній метааналіз Hilton et al. (2016), включаючи 30 рандомізованих контрольованих досліджень, знайшов високоякісні докази про покращення симптомів депресії за допомогою медитації. [2]
+
+Список посилань на дослідження:
+[1] - Goyal M, Singh S, Sibinga EM, Gould NF, Rowland-Seymour A, Sharma R, Berger Z, Sleicher D, Maron DD, Shihab HM, Ranasinghe PD, Linn S, Saha S, Bass EB, Haythornthwaite JA (March 2014). ""Meditation programs for psychological stress and well-being: a systematic review and meta-analysis"". JAMA Internal Medicine. 174 (3): 357–68. doi:10.1001/jamainternmed.2013.13018.
+[2] - Hilton L, Hempel S, Ewing BA, Apaydin E, Xenakis L, Newberry S, Colaiaco B, Maher AR, Shanman RM, Sorbero ME, Maglione MA (April 2017). ""Mindfulness Meditation for Chronic Pain: Systematic Review and Meta-analysis"". Annals of Behavioral Medicine. 51 (2): 199–213. doi:10.1007/s12160-016-9844-2",,,,
+hike-6.5-20261114T224258Z-004,100,5b802f3a29375077d182621e,af825119c47a7fe886b59f8e0bdfba36,hike-6.5,ur,coding,aya-dataset,human_authored,[user] Python میں موسمی ڈیٹا سیٹ میں دباؤ اور موسم کے درمیان تعلق کو مملکتوں کے لحاظ سے دیکھنے کے لئے بار چارٹس کا استعمال کیسے کیا جاتا ہے,"پہلے، موسمی ڈیٹا سیٹ کو Python میں پڑھیں اور معلوم کریں کہ ہر مملک کا دباؤ اور موسم کے درمیان تعلق کی معلومات دستیاب ہے۔ اگر آپ کا ڈیٹا فرمیٹ ٹیکسٹ یا CSV ہوتا ہے تو، pandas کتابخانے کا استعمال کر کے ڈیٹا کو چھوٹی سی ڈیٹا فریم میں لوڈ کر سکتے ہیں۔
+
+اب، آپ کو معلوم کرنا ہوگا کہ کس مملک میں کتنا دباؤ اور موسم ہے۔ آپ ہر مملک کے لئے دباؤ اور موسم کی معلومات کو ایک لسٹ یا ڈیٹا فریم میں جمع کر سکتے ہیں۔
+
+ایک بار جب آپ کے پاس معلومات تیار ہوتی ہے، تو آپ matplotlib یا seaborn جیسی Python کی چارٹنگ کتابخانے کا استعمال کر کے ایک بار چارٹ بنا سکتے ہیں۔ بار چارٹ میں ہر مملک کو ایک بار کے ساتھ ظاہر کیا جاتا ہے، جہاں ہر بار کی چوڑائی دباؤ کو ظاہر کرتی ہے اور بار کی لمبائی موسم کو ظاہر کرتی ہے۔ اس طرح، آپ بار چارٹ کی مدد سے ہر مملک کے درمیان دباؤ اور موسم کے تعلقات کو دیکھ کر معلوم کر سکتے ہیں، جو مملکوں کے درمیان موسمی تبدیلی کو سمجھنے کی مدد فراہم کرتا ہے۔",,,,

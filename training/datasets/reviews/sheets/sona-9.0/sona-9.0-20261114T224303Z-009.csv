@@ -1,0 +1,1562 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+sona-9.0-20261114T224303Z-009,1,2c2a297c603fd73a015bc7c7,acab0aef1d80be43880ef56a515ee673,sona-9.0,en,coding,self-oss-instruct,synthetic,"[user] Write a Python function named `int_to_english_ordinal` that converts a non-negative integer into its ordinal form in English. For example, the input of `1` should yield `'1st'` as output, and the input of `23` should yield `'23rd'` as output.
+
+Here are some additional rules:
+- For a given number, the ordinal suffix is determined as follows:
+  - If the last digit of the number is 1, 2, or 3, use the suffix '-st', '-nd', or '-rd', respectively.
+  - Otherwise, use the suffix '-th'.
+- If the last two digits of the number are 11, 12, or 13, the ordinal suffix is always '-th'.
+- If the last digit of the number is 0, the suffix is '-th'.
+- For numbers greater than 99, if the last two digits are 0, the suffix is '-th'. Otherwise, the same rules apply as for numbers less than or equal to 99.
+
+Your function should handle numbers up to 9,999,999,999,999,999. You can assume the input is a non-negative integer and within this range.","To solve this problem, you can use a dictionary to store the suffixes for each number ending in 1, 2, 3, and 4, in addition to the suffix for numbers ending in 0. Then, you can use a list of tens to represent the numbers ending in 11, 12, 13, and 20, and another list of hundreds to represent the numbers ending in 100, 1000, etc.
+
+Here's how you can implement this function in Python:
+
+```python
+def int_to_english_ordinal(number):
+    suffixes = {1: ""st"", 2: ""nd"", 3: ""rd"", 4: ""th""}
+    tens = [11, 12, 13, 20]
+    hundreds = [100, 1000, 1000000, 1000000000, [CARD]]
+
+    if number == 0:
+        return ""0th""
+    elif number in tens:
+        return str(number) + ""th""
+    elif number in hundreds:
+        return str(number) + ""th""
+    else:
+        suffix = suffixes.get(number % 10, ""th"")
+        return str(number) + suffix
+```
+
+The `suffixes` dictionary stores the suffixes for numbers ending in 1, 2, 3, and 4. The `tens` and `hundreds` lists store the numbers ending in 11, 12, 13, 20, 100, 1000, etc., respectively.
+
+If the given number is 0, we return ""0th"".
+If the given number is in the `tens` list, we return the number with ""th"" suffix.
+If the given number is in the `hundreds` list, we return the number with ""th"" suffix.
+Otherwise, we determine the suffix using the `suffixes` dictionary or the default ""th"" suffix.",,,,
+sona-9.0-20261114T224303Z-009,2,f36d5d05d3b76280cdaa132e,ff1c237669f09f248e0d7cfd17acf668,sona-9.0,en,cybersecurity,oasst2,human_authored,[user] Can you explain the role of quantum computing in solving complex problems and its potential impact on fields such as cryptography and finance?,"Quantum computing has the potential to revolutionize many fields, including finance and cryptography. Quantum computers use quantum bits, or qubits, which can exist in an infinite yet contained number of states, allowing for multidimensional processing and the ability to handle complex problem solving.
+
+##### Finance
+Quantum computing could revolutionize finance by solving complex problems quickly, improving risk management, and enhancing cybersecurity. Financial institutions that can harness quantum computing are likely to see significant benefits, such as more effectively analyzing large or unstructured data sets, making better decisions, and improving customer service. Quantum computing could also assist machine learning by driving artificial intelligence to process unanalyzed data, helping industry segments make sense of it all.
+
+##### Cryptography
+Quantum computing could impact encryption's efficacy, as many of today's modern cryptography methods are based on mathematical algorithms used to encrypt data. With quantum computers, attacks on encryption methods that would normally take years could be theoretically done in days. However, researchers are exploring options for encryption methods that can protect data center infrastructure from quantum attacks.
+
+##### Challenges
+Despite the potential benefits, quantum computing is still in its early stages and faces several challenges. One of the biggest challenges is qubit decoherence, as qubits are extremely sensitive to their environment and even small disturbances can cause them to lose their quantum properties. Other challenges include error correction, scalability, hardware and software development, classical computer interfaces, standards and protocols, trained talent, and overall expense.
+
+##### Conclusion
+Quantum computing has the potential to enhance value-driven conclusions from massive data sets, assist machine learning, and solve complex problems quickly. However, it is still in its early stages and faces several challenges. As the technology develops, it could revolutionize fields such as finance and cryptography, but it will require significant investment and expertise to reach its full potential.",,,,
+sona-9.0-20261114T224303Z-009,3,56011c2f2fac373065dd0b5c,1410d73bca483337a5309184b6299022,sona-9.0,en,education,oasst2,human_authored,[user] It is said that GPT-3 has 175 billion nodes.  What is a node?,"A node in a neural network is a unit that receives input from other nodes, performs a computation, and then outputs a value to other nodes. The number of nodes in a neural network is a measure of its complexity and its ability to learn complex patterns.
+
+In GPT-3, each node is a small computer program that takes in a vector of numbers and outputs another vector of numbers. The vectors represent the input and output of the node, respectively. The computation performed by the node is a linear combination of the input vector and a set of weights. The weights are learned during the training process.
+
+The number of nodes in GPT-3 is 175 billion. This means that there are 175 billion small computer programs in GPT-3. Each of these programs is responsible for learning a small part of the relationship between the input and output text. The more nodes there are, the more complex the relationship that GPT-3 can learn.
+
+In addition to the 175 billion nodes, GPT-3 also has 96 layers. A layer is a group of nodes that are connected together. The nodes in each layer are connected to the nodes in the next layer. The layers in GPT-3 are arranged in a stack. The input text is fed into the first layer, and the output of the last layer is the generated text.
+
+The 175 billion nodes and 96 layers in GPT-3 give it the ability to learn complex relationships between text. This allows GPT-3 to generate text that is both coherent and grammatically correct.",,,,
+sona-9.0-20261114T224303Z-009,4,e6879197fd19dbbeb55f6638,256a97ea6e1a3eb5fb31caee425773ae,sona-9.0,en,general_knowledge,oasst1,human_authored,"[user] I want to paint my house, brushing is hard work, should I look at a conventional, airless or HVLP sprayer to make it easier?
+Please remember I have never used any of these.
+
+[assistant] If you want to make the task of painting your house easier, you may want to consider using a sprayer. Out of the three options you mentioned - conventional, airless, and HVLP (high volume, low pressure) sprayers - HVLP sprayers may be the best choice for you, especially if you're a beginner. Here's why:
+
+HVLP sprayers are easy to use and control, making them a great option for inexperienced users. They produce a soft, fine mist that's easy to apply, even to hard-to-reach areas, and the low pressure means that you can avoid overspray and drips.
+
+HVLP sprayers are versatile and can be used to paint a variety of materials, including wood, metal, and drywall.
+
+HVLP sprayers are less messy than other types of sprayers, and they're less likely to create a lot of overspray and waste.
+
+However, it's important to keep in mind that HVLP sprayers are slower than airless or conventional sprayers, so if you have a large area to paint, it may take longer to complete the job.
+
+[user] What would be the cheapest option, while still being effective?","If you are looking for the most cost-effective option, you may want to consider a conventional sprayer. Conventional sprayers are typically the least expensive option, and they can still be effective in painting your house. The downside of using a conventional sprayer is that they are not as efficient as airless or HVLP sprayers, and you may need to apply more coats of paint to get the desired results. Additionally, they can be more difficult to use and control, and they may produce more overspray than other types of sprayers.",,,,
+sona-9.0-20261114T224303Z-009,5,e5af2b3cb49552db7b1c5f99,0cbe9b812e637d7011fc8fa45f0cf6e1,sona-9.0,en,islamic_studies,oasst1,human_authored,"[user] Write a theological essay on the relationship between the doctrine of vocation and the order of creation.
+
+[assistant] The doctrine of vocation is a central concept in Christian theology that relates to the idea that God has called each person to a specific purpose or task in life. This concept is rooted in the order of creation, which refers to the way in which God has designed and structured the world. In this essay, I will explore the relationship between the doctrine of vocation and the order of creation.
+
+The order of creation is the framework through which Christians understand the world and their place in it. This order is established by God and is based on his wisdom and goodness. The order of creation includes both the physical world and the social order, and it is characterized by a certain harmony and balance. This order is intended to reflect God's nature and his purposes for creation, and it is intended to be a source of blessing and flourishing for all people.
+
+The doctrine of vocation is closely connected to the order of creation, as it reflects the idea that God has created each person with a specific purpose and role in life. This purpose and role are not arbitrary or accidental, but are part of God's larger plan for creation. In this sense, vocation is intimately connected to the order of creation, as it reflects the way in which God has designed and structured the world.
+
+The idea of vocation is rooted in the biblical understanding of work and calling. The Bible teaches that work is a good thing, and that it is part of God's plan for creation. Work is not simply a means to an end, but is itself a part of God's purpose for our lives. Furthermore, each person is called to a specific kind of work, which is part of their unique vocation. This calling is not limited to religious or spiritual vocations, but includes all forms of work, including those in the marketplace, the arts, and the sciences.
+
+The doctrine of vocation has significant implications for the way in which we understand work and our place in the world. It affirms the importance and dignity of all forms of work, and it recognizes that each person has a unique contribution to make to the world. Furthermore, it emphasizes the idea that work is not simply a means to an end, but is itself a part of God's larger plan for creation. In this sense, vocation is not only a personal calling, but is also a part of God's broader purpose for the world.
+
+The relationship between the doctrine of vocation and the order of creation is significant because it reflects the way in which God has designed and structured the world. It affirms the importance and dignity of all forms of work, and it recognizes that each person has a unique contribution to make to the world. Furthermore, it emphasizes the idea that work is not simply a means to an end, but is itself a part of God's larger plan for creation.
+
+In conclusion, the doctrine of vocation is intimately connected to the order of creation, as it reflects the way in which God has designed and structured the world. This doctrine affirms the importance and dignity of all forms of work, and it recognizes that each person has a unique contribution to make to the world. Furthermore, it emphasizes the idea that work is not simply a means to an end, but is itself a part of God's larger plan for creation. As such, the doctrine of vocation has significant implications for the way in which we understand work and our place in the world, and it invites us to live out our callings in a way that reflects God's wisdom and goodness.
+
+[user] Are there similar concepts in Judaism and Islam?
+
+[assistant] Yes, both Judaism and Islam have similar concepts to the Christian doctrine of vocation, although they may be expressed differently.
+
+In Judaism, the concept of vocation is closely related to the idea of ""mitzvot,"" or commandments. The mitzvot are the specific commandments given by God to the Jewish people, and they encompass all aspects of life, including work and daily activities. The fulfillment of these commandments is seen as a way of serving God and fulfilling one's purpose in life. In this sense, the concept of vocation in Judaism is closely tied to the idea of fulfilling one's role and responsibilities within the context of God's plan for the world.
+
+Similarly, in Islam, the concept of vocation is expressed through the idea of ""fitrah,"" or natural disposition. Fitrah refers to the innate disposition or natural inclination that God has placed within each person, which guides them towards fulfilling their purpose in life. The fulfillment of this purpose is seen as a way of serving God and living in harmony with the natural order of creation.
+
+In both Judaism and Islam, the concept of vocation is closely tied to the idea of fulfilling one's purpose and responsibilities within the context of God's plan for the world. It is seen as a way of serving God and living in accordance with the natural order of creation.
+
+[user] Can you list and explain each of the commandments of mitzvot present in Judaism?","There are 613 commandments (mitzvot) in Judaism, which are found throughout the Torah (the first five books of the Hebrew Bible). These commandments cover a wide range of topics, including religious observance, ethical behavior, and social justice. Here is a summary of the 613 mitzvot, organized by category:
+
+Positive Commandments
+These are the commandments that instruct us to do something:
+Belief in God (Exodus 20:2)
+To study and teach Torah (Deuteronomy 6:7)
+To love God (Deuteronomy 6:5)
+To fear God (Deuteronomy 6:13)
+To serve God (Deuteronomy 11:13)
+To pray to God (Deuteronomy 6:13)
+To wear tefillin (phylacteries) (Deuteronomy 6:8)
+To affix a mezuzah to our doorposts (Deuteronomy 6:9)
+To sanctify the new moon (Exodus 12:1)
+To observe the Sabbath (Exodus 20:8)
+To honor our parents (Exodus 20:12)
+To give charity (Leviticus 25:35)
+To rejoice on festivals (Deuteronomy 16:14)
+To dwell in a sukkah during Sukkot (Leviticus 23:42)
+To hear the shofar on Rosh Hashanah (Leviticus 23:24)
+To read the Megillah on Purim (Esther 9:28)
+To light the Hanukkah menorah (Exodus 25:37)
+Negative Commandments
+These are the commandments that instruct us not to do something:
+Not to worship idols (Exodus 20:3)
+Not to blaspheme God (Leviticus 24:16)
+Not to murder (Exodus 20:13)
+Not to commit adultery (Exodus 20:14)
+Not to steal (Exodus 20:15)
+Not to bear false witness (Exodus 20:16)
+Not to covet (Exodus 20:17)
+Not to eat meat with milk (Exodus 23:19)
+Not to eat blood (Leviticus 7:26)
+Not to eat pork (Leviticus 11:7)
+Not to eat insects (Leviticus 11:41)
+Not to wear garments made of wool and linen (Deuteronomy 22:11)
+Not to cut the corners of the beard (Leviticus 19:27)
+Not to crossbreed animals (Leviticus 19:19)
+Not to plant a mixture of crops in a single field (Leviticus 19:19)
+Not to mate animals of different species (Leviticus 18:23)
+Civil Laws
+These are laws that pertain to civil society:
+To appoint judges and officers (Deuteronomy 16:18)
+To establish courts of justice (Deuteronomy 16:20)
+To pay fair wages (Deuteronomy 24:14)
+To provide for the needs of the poor and needy (Leviticus 23:22)
+To return lost property (Deuteronomy 22:1)
+To respect property rights (Exodus 20:15)
+To safeguard the public welfare (Deuteronomy 22:8)
+To protect the environment (Deuteronomy 20:19)
+
+Ritual Laws
+These are laws that pertain to ritual and religious observances:
+
+To perform circumcision on male infants (Genesis 17:12)
+To observe the laws of niddah (family purity) (Leviticus 15:19)
+To slaughter animals for food in a kosher manner (Deuteronomy 12:21)
+To separate tithes (ma'aser) (Deuteronomy 14:22)
+To observe the laws of shatnez (not to wear garments made of wool and linen) (Deuteronomy 22:11)
+To offer sacrifices at the Temple in Jerusalem (Deuteronomy 12:5)
+To observe the laws of purity and impurity (Leviticus 11-15)
+Laws of War
+These are laws that pertain to warfare:
+To offer peace terms before going to war (Deuteronomy 20:10)
+To spare fruit trees during a siege (Deuteronomy 20:19)
+To bury the dead after a battle (Deuteronomy 21:23)
+
+It's worth noting that some of these commandments are not applicable in modern times due to the destruction of the Temple in Jerusalem, and others are subject to debate among Jewish scholars and communities. Additionally, different Jewish communities place different emphasis on certain commandments.",,,,
+sona-9.0-20261114T224303Z-009,6,f51b24e8b3fd51576d32b88e,debc67ed6e688f65f2b3a4a2f595bd45,sona-9.0,en,mathematics,gsm8k,human_authored,"[user] A group of people pays $720 for admission tickets to an amusement park. The price of an adult ticket is $15, and a child ticket is $8. There are 25 more adults than children. How many children are in the group?","Let X be the number of children in the group.
+The number of adults in the group is X+25.
+The group pays 8*X + 15*(X+25) = $720.
+Multiplying through the parentheses, we get 8X + 15X + 375 = $720
+Combining like terms, we get 23X + 375 = 720
+Subtracting 375 from both sides, we get 23X = 720 - 375 = $345
+Dividing both sides by 23, we get X = $345 / 23 = 15 children.
+
+Answer: 15",,,,
+sona-9.0-20261114T224303Z-009,7,0d2b03885559dd831fee4d79,8cf4c1429f7c1c4de0a700f78f4760d9,sona-9.0,en,pakistan,oasst1,human_authored,"[user] What is the largest city in the world? And how many people are moving there?
+
+[assistant] The largest city in the world is Chongqing, China with 82,403 km^2.
+
+I do not understand what you mean by people moving there. Assuming you mean living there, population of Chongqing is 32 million.
+
+[user] According to the United Nations Population Division, the largest city in the world by population is Tokyo, with a population of 37.4 million.
+
+Due to an aging population and government incentive programs the population of the city is slowing going down. 
+
+According to Wikipedia 
+
+The cities in the world with the largest population are Tokyo, Delhi, Shanghai, São Paulo, Mexico City, Cairo, Mumbai, Beijing, Dhaka, Osaka, New York, Karachi, Buenos Aires, and Chongqing","Yes, you are correct, going by population, the largest city in the world is Tokyo, but that population is expected to decline over the next decade. By some estimates, Tokyo will be replaced by Jakarta, Indonesia, as the world's largest city by the year 2035.",,,,
+sona-9.0-20261114T224303Z-009,8,8e36fd8b9ea898ea297da7e6,28c386d407b2b301269813c9dd706d0e,sona-9.0,en,problem_solving,aya-dataset,human_authored,[user] Analyze the United Nations' role in promoting human rights.,"The promotion and protection of human rights is one of the fundamental goals of the United Nations. The Universal Declaration of Human Rights (UDHR), adopted by the UN General Assembly in 1948, was the first step in establishing a comprehensive international standard for human rights. The Declaration has been followed by a series of international treaties and other instruments forming an international human rights framework, such as the International Covenant on Civil and Political Rights (ICCPR) and the International Covenant on Economic, Social and Cultural Rights (ICESCR).
+
+The UN has several bodies and mechanisms in place to monitor and enforce these standards. The Human Rights Council, established in 2006, replaced the former United Nations Commission on Human Rights. The Council is an intergovernmental body responsible for strengthening the promotion and protection of human rights around the globe, for addressing situations of human rights violations, and for making recommendations on them. It has the ability to discuss all thematic human rights issues and situations that require its attention throughout the year.
+
+The Office of the High Commissioner for Human Rights (OHCHR) plays a pivotal role in coordinating the human rights activities of the UN. The High Commissioner is the principal human rights official of the UN and heads the OHCHR.
+
+The United Nations also utilizes a variety of thematic committees, special rapporteurs, independent experts, and working groups to monitor and investigate human rights conditions in specific countries or regarding specific issues, such as torture, the rights of indigenous peoples, the right to education, and freedom of expression.
+
+Additionally, the UN plays a critical role in advocating for the rights of marginalized groups, including women, children, persons with disabilities, and refugees. Programs and specialized agencies like UN Women, UNICEF, and the UN Refugee Agency (UNHCR) work towards the protection and promotion of these groups' rights.
+
+Despite its efforts, the UN faces challenges in enforcing human rights norms, especially in countries where human rights violations are systemic, and governments are resistant to outside interference. Nevertheless, the UN's role in setting global standards, monitoring compliance, and providing a forum for discussing human rights issues is significant in promoting awareness and action to uphold human rights globally.",,,,
+sona-9.0-20261114T224303Z-009,9,1d24ac592b021e75271c579f,5153fd1a8d2c29f5e228e27883676aea,sona-9.0,en,reasoning,dolly-15k,human_authored,"[user] Could you please help classify these cars as ""compact"" vs. ""midsized""?
+Toyota Camry, Nissan Altima, Honda Civic, Mazda3, Honda Accord, Toyota Corolla, Toyota Prius, Hyundai Sonata","Yes, here is the list:
+- Compact Cars: Honda Civic, Mazda3, Toyota Corolla, and Toyota Prius
+- Midsized Cars: Toyota Camry, Nissan Altima, Honda Accord, Hyundai Sonata",,,,
+sona-9.0-20261114T224303Z-009,10,8f282ef39d3904327a105b95,0d44799fdd44a3bacb850fc90cb73fad,sona-9.0,en,research,tydiqa-goldp,human_authored,"[user] Nearly complete genocidal destruction of the Polish Jewish community took place during the German and Soviet occupation of Poland and the ensuing Holocaust. The World War II ghetto-system had been imposed by Nazi Germany roughly between October 1939 and July 1942 in order to confine Poland's Jewish population of 3.5 million for the purpose of persecution, terror, and exploitation.[28] The Warsaw Ghetto was the largest ghetto in all of Nazi occupied Europe, with over 400,000 Jews crammed into an area of 1.3 square miles (3.4km2), or 7.2 persons per room.[29]  The Łódź Ghetto (set up in the city of Łódź, renamed Litzmannstadt, in the territories of Poland annexed by Nazi Germany) was the second largest, holding about 160,000 inmates.[30] Over three million Polish Jews perished in World War II, resulting in the destruction of an entire civilization.[31][32]
+
+When were ghettos first established?","roughly between October 1939 and July 1942
+
+The World War II ghetto-system had been imposed by Nazi Germany roughly between October 1939 and July 1942 in order to confine Poland's Jewish population of 3.5 million for the purpose of persecution, terror, and exploitation.[28] The Warsaw Ghetto was the largest ghetto in all of Nazi occupied Europe, with over 400,000 Jews crammed into an area of 1.3 square miles (3.4km2), or 7.2 persons per room.[29]  The Łódź Ghetto (set up in the city of Łódź, renamed Litzmannstadt, in the territories of Poland annexed by Nazi Germany) was the second largest, holding about 160,000 inmates.[30] Over three million Polish Jews perished in World War II, resulting in the destruction of an entire civilization.[31][32]",,,,
+sona-9.0-20261114T224303Z-009,11,9ac248493cd875a2a3956644,26c117060aa0b431cfecafa1635ea42c,sona-9.0,en,safety_ethics,oasst2,human_authored,"[user] Make up a conversation between two people, discussing ubiquitous computing. One person is talking in Greek, and the other is replying in English. Do not make one speaker translate another. No translations.","Person 1: Τι πιστεύεις για το ubiquitous computing;
+
+Person 2: Ah, I see. Well, I think ubiquitous computing has the potential to revolutionize the way we interact with technology in our daily lives. By making technology seamlessly integrated into our surroundings, we can make our lives more efficient and convenient.
+
+Person 1: Συμφωνώ. Αλλά, δεν σε ανησυχεί ότι οι υπολογιστές και η τεχνολογία γενικότερα θα γίνουν ακόμα πιο ενσωματωμένοι στη ζωή μας;
+
+Person 2: I think that's a valid concern. There are certainly risks associated with ubiquitous computing, such as concerns around privacy and data security. However, I think as long as we are aware of these risks and take steps to mitigate them, we can still reap the benefits of this technology.
+
+Person 1: Ναι, έχεις δίκιο. Πρέπει να είμαστε προσεκτικοί με τον τρόπο με τον οποίο χρησιμοποιούμε την τεχνολογία. Πρέπει να βεβαιωθούμε ότι οι ιδιωτικές μας πληροφορίες είναι ασφαλείς και προστατεύονται.
+
+Person 2: Exactly. It's important to be mindful of how we use technology and to ensure that our privacy and data are protected.
+
+Person 1: Ναι, ακριβώς αυτό σκεφτόμουν και εγώ. Ευχαριστώ πολύ για τη συζήτηση.
+
+Person 2: No problem, thank you too. It was a great conversation.",,,,
+sona-9.0-20261114T224303Z-009,12,a034ecd78a3480e839054b1b,236264a7c9659aa9ab476e66a7ac0f9a,sona-9.0,en,science,oasst2,human_authored,"[user] What is the difference between a trebuchet and a catapult?
+
+[assistant] A catapult is a generic term for siege machine that launches an object through the air using tension, torsion, or gravity.Catapults come in many different shapes and sizes, but they all use some form of stored energy to propel their payload. 
+while trebuchet is a specific type of catapult that uses a counterweight to launch its projectile. It consists of a long arm with a sling on one end and a heavy weight on the other.The design of a trebuchet allows it to launch projectiles of greater weights and further distances than that of a traditional catapult.It was a most common powerful siege weapon until the advent of gunpowder.
+
+[user] What were some other siege weapons from around these times? Both defensive and offensive","During the time before the invention and widespread use of gunpowder, various siege weapons were employed for both offensive and defensive purposes. Here are some examples:
+
+Offensive Siege Weapons:
+
+Battering Ram: A large, heavy wooden beam with a metal tip used to ram and break down gates or fortifications.
+Siege Tower: A tall, multi-story mobile tower with a platform on top that allowed attackers to gain access to the walls of a fortification.
+Mangonel: A type of catapult that used torsion to launch projectiles, such as stones or incendiary devices, at fortifications.
+Ballista: A large crossbow-like weapon that fired large bolts or stones with high accuracy and force.
+Onager: Similar to a ballista, the onager used torsion to propel stones or other projectiles at enemy defenses.
+Defensive Siege Weapons:
+
+Moat: A water-filled trench surrounding a fortification to impede attackers and provide an additional layer of defense.
+Caltrops: Metal spikes arranged in a way that one of the spikes always points upward, making it difficult for horses or soldiers to advance.
+Hoarding: A wooden shield-like structure extending from the walls of a fortification, providing cover for defenders while allowing them to attack from above.
+Machicolations: Openings or openings in the floor of a fortification through which defenders could drop projectiles or attack enemies below.
+Barbican: A fortified outpost or gatehouse placed in front of the main entrance to a fortification, serving as an additional defensive barrier.
+These are just a few examples of siege weapons that were used before the advent of gunpowder. It's important to note that different regions and time periods had variations of these siege weapons, and their designs and effectiveness evolved over time.",,,,
+sona-9.0-20261114T224303Z-009,13,663f4a921542fada56956ec8,73e127dd5dad7d5c99b43e9486fa1a4c,sona-9.0,en,software_engineering,opencodeinstruct,synthetic,"[user] You are tasked with implementing a function to determine if a given integer is a prime number. A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself. Write a function `is_prime(n)` that returns `True` if `n` is a prime number and `False` otherwise. Additionally, write a unit test using the `unittest` framework to verify the correctness of your function. Your test should cover a variety of cases, including edge cases.
+
+**Sample Input:**
+```
+2, 3, 17, 29, 97, 0, 1, 4, 9, 10, 15, 100
+```
+
+**Sample Output:**
+```
+True, True, True, True, True, False, False, False, False, False, False, False
+```","```python
+# Function to check if a number is a prime number
+def is_prime(n):
+    """"""Return True if n is a prime number, else False.""""""
+    if n <= 1:
+        return False
+    if n <= 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+# Unit tests for the is_prime function
+import unittest
+
+class TestIsPrime(unittest.TestCase):
+    def test_is_prime(self):
+        """"""Test cases for the is_prime function.""""""
+        self.assertTrue(is_prime(2), ""2 is a prime number"")
+        self.assertTrue(is_prime(3), ""3 is a prime number"")
+        self.assertTrue(is_prime(17), ""17 is a prime number"")
+        self.assertTrue(is_prime(29), ""29 is a prime number"")
+        self.assertTrue(is_prime(97), ""97 is a prime number"")
+        
+        self.assertFalse(is_prime(0), ""0 is not a prime number"")
+        self.assertFalse(is_prime(1), ""1 is not a prime number"")
+        self.assertFalse(is_prime(4), ""4 is not a prime number"")
+        self.assertFalse(is_prime(9), ""9 is not a prime number"")
+        self.assertFalse(is_prime(10), ""10 is not a prime number"")
+        self.assertFalse(is_prime(15), ""15 is not a prime number"")
+        self.assertFalse(is_prime(100), ""100 is not a prime number"")
+
+# Run the unit tests
+if __name__ == '__main__':
+    unittest.main(argv=[''], exit=False)
+```",,,,
+sona-9.0-20261114T224303Z-009,14,d55468a9154b7a9175f81e24,246e5f8a267cb4f6d221796122611722,sona-9.0,en,web_backend,oasst2,human_authored,[user] Access Phemex's rest api and historic bitcoin data and create a harmonic trading algorithm in python with a simple gui,"I am unable to perform tasks that require accessing external APIs or creating graphical user interfaces. However, I can provide you with an overview of the steps you can take to create a harmonic trading algorithm using Python and Phemex's REST API.
+
+1. Register for a Phemex account and obtain an API key.
+2. Use the requests library in Python to make REST API calls to Phemex's endpoints. You can use the endpoint /phemex-quotes/public/mark-price-kline to get historic Bitcoin data.
+3. Parse the JSON response to extract the relevant data for your trading algorithm.
+4. Implement the harmonic trading algorithm. You can use libraries such as NumPy and SciPy to perform the necessary calculations.
+5. Create a simple GUI using a Python GUI library such as PyQt or Tkinter to display the results of your trading algorithm.
+Here is an example code snippet to get started with making a request to Phemex's API:
+
+```python
+import requests
+
+api_key = 'your_api_key'
+secret_key = 'your_secret_key'
+
+url = 'https://api.phemex.com'
+endpoint = '/phemex-quotes/public/mark-price-kline'
+params = {'symbol': 'BTCUSD', 'interval': '1d', 'startTime': '[CARD]', 'endTime': '[CARD]'}
+
+headers = {'x-phemex-access-token': api_key, 'x-phemex-request-expiry': '60', 'x-phemex-request-signature': signature}
+
+response = requests.get(url + endpoint, headers=headers, params=params)
+
+data = response.json()
+```
+
+Note that this is just an example and you will need to modify it to suit your specific requirements. Additionally, please ensure that you handle your API keys securely and do not share them with anyone.",,,,
+sona-9.0-20261114T224303Z-009,15,01b87c1fd5a9d439d7ec7965,f8ac278801c00773a2c95f96175b64ba,sona-9.0,en,web_frontend,oasst1,human_authored,[user] Why is the ability for people to think and speak freely so important? why must it be protected and to what extent? who should decide when someone's speech or ideas are not acceptable or are too extreme?,"The ability for people to think and speak freely is important for several reasons:
+
+Individual autonomy: Freedom of thought and speech allows individuals to express their beliefs, opinions, and emotions without fear of censorship or punishment. This fosters personal growth, self-expression, and a sense of identity.
+
+Marketplace of ideas: Free speech promotes the open exchange of ideas, facilitating innovation, and intellectual progress. By exposing society to a diverse range of viewpoints, individuals can weigh the merits of different perspectives and make more informed decisions.
+
+Democratic values: Free speech is a cornerstone of democratic societies. It enables citizens to participate in public discourse, voice dissent, and hold those in power accountable. This leads to a more transparent, responsive, and representative government.
+
+Social progress: Open discussion of social issues can lead to societal progress and help address injustices. By allowing individuals to challenge prevailing norms and beliefs, society can evolve and adapt to new circumstances and understandings.
+
+Protecting free speech is essential, but it is not absolute. There are limits to free speech, such as incitement to violence, hate speech, defamation, and obscenity. These limits are in place to balance the rights of individuals and maintain public order and safety.
+
+Determining when someone's speech or ideas are not acceptable or too extreme can be challenging. In general, it is the responsibility of the legal system and society to establish and enforce these boundaries. The specific criteria may vary from one jurisdiction to another, but the key principle is to balance the protection of individual rights with the greater good of society.
+
+Laws and regulations should be guided by principles such as proportionality, necessity, and non-discrimination. In democratic societies, the role of the judiciary, lawmakers, and the public is crucial in shaping and refining the rules surrounding free speech, ensuring that these limits are reasonable and justified. Public debate and scrutiny are essential in this process to maintain a balanced and evolving understanding of free speech and its limits.",,,,
+sona-9.0-20261114T224303Z-009,16,5ac6d485142d0ad00ea2e3fd,5f899c3c5cfea16637b7cc3004baa5a0,sona-9.0,en,web_fullstack,oasst2,human_authored,[user] How do I build a PC?,"Building a PC can be a rewarding experience, but it requires some technical knowledge and patience. Here are the general steps you can follow:
+
+1. Determine your budget and what you want to use the PC for (gaming, work, etc.). This will help you choose the appropriate components.
+
+2. Choose the components you want to use (CPU, motherboard, RAM, storage, GPU, power supply, case, and peripherals).
+
+3. Make sure all the components are compatible with each other. Check the manufacturer's website and online forums for compatibility information.
+
+4. Gather the necessary tools (screwdriver, thermal paste, etc.).
+
+5. Install the CPU onto the motherboard, following the manufacturer's instructions.
+
+6. Install the RAM onto the motherboard, following the manufacturer's instructions.
+
+7. Install the storage (hard drive or solid-state drive) onto the motherboard or into the case, following the manufacturer's instructions.
+
+8. Install the power supply into the case, following the manufacturer's instructions.
+
+9. Install the GPU onto the motherboard, following the manufacturer's instructions.
+
+10. Connect all the necessary cables to the motherboard, power supply, and peripherals.
+
+11. Turn on the PC and make sure it boots up properly.
+
+12. Install the operating system and necessary drivers.
+
+13. Test the PC to make sure all the components are working properly.
+
+These are the basic steps, but there may be some variation depending on the specific components you choose. It's important to follow the manufacturer's instructions and take your time to avoid damaging any components. There are also many online resources, such as YouTube tutorials and PC building forums, that can provide additional guidance and tips.",,,,
+sona-9.0-20261114T224303Z-009,17,e634188036ab73100416abe8,d7d60a959cfc1d1b2f7cc88e97109a05,sona-9.0,en,writing,dolly-15k,human_authored,"[user] Based on the reference text, who were the main parties who supported and opposed Prop 22?
+
+Context:
+2020 California Proposition 22
+
+Support
+Lyft, Uber, DoorDash, Instacart, and Postmates contributed over $205 million into campaigns supporting Prop 22, making it the most expensive ballot measure in California's history. This included major funding for the Yes on Prop 22 campaign, and promoting the proposed legislation directly to customers when using their app. Beyond in-app messaging, Uber and Lyft also conducted extensive social media and television advertising to persuade voters. Such advertisements informed voters that a ""no"" outcome for the proposition would put many drivers' occupations in jeopardy, among other messages.
+
+Sponsored support
+Some of the companies also forced their workers to support and promote the legislation: Uber sent its drivers in-app messages forcing them to click on either ""Yes on Prop 22"" or ""OK"", Instacart ordered its workers to place pro-Prop 22 stickers in customers' shopping bags, and DoorDash forced delivery drivers to use bags saying ""Yes on 22"".
+
+Title litigation
+The ballot title, written by Attorney General Xavier Becerra, is ""Exempts App-Based Transportation and Delivery Companies from Providing Employee Benefits to Certain Drivers. Initiative Statute"". The Yes on Prop 22 campaign challenged this description as non-neutral in court, but their arguments were rejected by a Sacramento Superior Court judge.
+
+Opposition
+The No on Prop 22 campaign was funded by the California Labor Federation, with support from UC Berkeley Labor Center. The campaign received around $19 million in support, mostly from labor groups. Driver groups Rideshare Drivers United, Gig Workers Rising, We Drive Progress, and Mobile Workers United, spoke out against Prop 22. Editorial boards from the New York Times and Los Angeles Times also called on voters to reject Prop 22.
+
+The proposition would add protections specific to app-based workers, different from other independent contractors, but these protections would only apply during the time the worker is ""engaged"" in fulfilling a specific request and not while the worker is logged in to the app and available to fulfill a request.","The main parties to support Prop 22 included Lyft, Uber, Doordash, Instacart, and Postmates. The main parties to oppose Prop 22 included California Labor Federation, Rideshare Drivers United, Gig Workers Rising, We Drive Progress, and Mobile Workers United.",,,,
+sona-9.0-20261114T224303Z-009,18,c067ddce3788cedb25db1f22,1802cc303a96c5c8a9fe2e3b0ca728a6,sona-9.0,eo,general_knowledge,oasst2,human_authored,"[user] Bonvolu diru al mi kiel oni povas lerni pli pri koboldoj.
+
+[assistant] Por lerni pli pri koboldoj, vi povas sekvi ĉi tiujn paŝojn:
+
+* Legu librojn kaj artikolojn: Multaj verkoj pri mitologio kaj folkloraĵoj inkluzivas informojn pri koboldoj. 
+* Esploru retejon: Ekzistas multaj retejoj, kiuj disponigas informojn pri mitologio, inkluzive de koboldoj. 
+* Vizitu muzeojn kaj ekspoziciojn: Foje, muzeoj kaj ekspoziciojn prezentas mitologiajn temojn, inkluzive de koboldoj. Tiu povas esti bona okazo por vidi ilustraĵojn, skulptaĵojn kaj aliajn artojn rilatajn al la temo.
+* Aŭskultu podkastojn kaj prelegojn: Estas podkastoj kaj prelegoj dediĉitaj al mitologio kaj folkloraĵoj. 
+* Aliĝu al diskutgrupoj kaj forumoj: Enreta diskuto kun aliaj interesuloj povas esti alloga vojo por lerni pli pri koboldoj. Reddit, Quora, kaj aliaj similaj retejoj povas havi diskutojn pri mitologiaj estaĵoj, inkluzive de koboldoj.
+* Legu fikcion kun koboldoj: Foje, fikciaj verkoj povas prezenti pli da perspektivo pri koboldoj kaj ilia rolo en popola kulturo. 
+* Lernu pri similaj mitologiaj estaĵoj: Studado de aliaj mitologiaj estaĵoj, kiel gnomoj kaj elfoj, povas helpi klarigi la interrilatojn inter diversaj kreaĵoj kaj plilarĝigi vian scion pri koboldoj.
+
+Memoru, ke koboldoj estas mitologiaj estaĵoj, do priskriboj povas varii inter kulturoj kaj fontoj.
+
+[user] Dankon. Kie mi povas trovi realajn koboldojn?","Mi bedaŭras, sed koboldoj, kiel ili estas priskribitaj en folkloro kaj fantazio, ne ekzistas en la reala mondo. Koboldoj estas figuroj de germana mitologio kaj estas ofte viditaj en fantazia literaturo kaj ludoj, kiel ekzemple la ""Dungeons & Dragons"" rolludo. Ili estas kutime priskribitaj kiel malgrandaj, malamikaj kreaĵoj.
+
+Se vi estas interesita pri realaj kreaĵoj kiuj povas aspekti iomete kiel koboldoj, vi eble volus esplori malgrandajn mamulojn kiel mustelojn kaj sciuroj, aŭ eĉ certaj specioj de ranoj kaj salamandroj. Tamen, ĉi tiuj estas nur similecoj kaj ne devus esti prenitaj tro serioze.",,,,
+sona-9.0-20261114T224303Z-009,19,059cfa1b1f9bf9adb9b14b69,5f8155807cf85219edb90f1e5c161553,sona-9.0,es,coding,oasst2,human_authored,"[user] Buscamos una función Javascript que dado un número n devuelva una matriz rellena con n números ordenados de 0 en adelante con tantos elementos como n de la entrada más un número extra al final 
+ extra= -1
+
+[assistant] Aquí tienes una función en JavaScript que cumple con tus requisitos:
+function generateArray(n) {
+  const result = [];
+  for (let i = 0; i <= n; i++) {
+    result.push(i);
+  }
+  result.push(-1);
+  return result;
+}
+
+// Ejemplo de uso:
+const n = 5;
+const array = generateArray(n);
+console.log(array);
+
+Esta función crea una matriz vacía, la llena con números del 0 al n (incluido) y luego agrega el número extra -1 al final. Puedes usar la función con cualquier valor de n que desees para generar la matriz correspondiente.
+
+[user] El formato es horrible. Por favor, escribe el código en un formato legible.","Perdona, aquí tienes el mismo código en un formato correcto, y con resaltado de sintaxis:
+
+```javascript
+function generateArray(n) {
+  const result = [];
+
+  for (let i = 0; i <= n; i++) {
+    result.push(i);
+  }
+
+  result.push(-1);
+
+  return result;
+}
+
+// Ejemplo de uso:
+const n = 5;
+const array = generateArray(n);
+console.log(array);
+```",,,,
+sona-9.0-20261114T224303Z-009,20,7dd151acaa772136486ac7ef,f04cef6c9cc3d77fb7d1d06fa1ae6409,sona-9.0,es,cybersecurity,oasst2,human_authored,"[user] ¿Cuáles son los usos mas comunes para un asistente de IA? y ¿Cuáles son los usos potenciales no explorados que podría tener esta tecnología a futuro?
+
+[assistant] Los usos más comunes de un asistente de Inteligencia Artificial (IA) incluyen asistencia en la toma de decisiones, procesamiento de lenguaje natural, búsqueda de información, respuestas a preguntas, reconocimiento de imágenes y detección de patrones. Además, los asistentes de IA pueden ayudar a los usuarios con tareas como ahorrar tiempo, mejorar la eficiencia y aumentar la precisión.
+
+Los usos potenciales no explorados que podría tener esta tecnología a futuro incluyen el desarrollo de sistemas de asistentes personales, la creación de herramientas para mejorar la comunicación, la creación de asistentes de diagnóstico para ayudar con la medicina preventiva, la creación de herramientas para mejorar la educación y la generación de contenido. También podría ser utilizada para la automatización de los procesos de negocios, la optimización de la logística, la manipulación de datos y la mejora de la seguridad.
+
+[user] ¿Como podría un asistente de IA protegerse contra malos usos?, ¿Debería hacerlo si limita y afecta el buen uso?","Un asistente de IA puede protegerse contra malos usos de varias maneras, incluyendo:
+
+Restricciones de acceso: Limitar el acceso al asistente solo a aquellos usuarios autorizados y establecer mecanismos de autenticación y autorización seguros para evitar el acceso no autorizado.
+
+Reglas de uso: Establecer reglas claras de uso para el asistente de IA, y monitorear constantemente su uso para detectar cualquier mal uso.
+
+Capacitación ética: Incluir en la capacitación de los usuarios los principios éticos y las mejores prácticas para el uso del asistente de IA.
+
+Pruebas de seguridad: Realizar pruebas de seguridad regulares para identificar y corregir cualquier vulnerabilidad que pueda ser explotada para un mal uso.
+
+En cuanto a la segunda parte de tu pregunta, es importante tener en cuenta que la protección contra malos usos de un asistente de IA no debe limitar su buen uso. En lugar de limitar su uso, el objetivo debe ser garantizar que el asistente se use de manera ética y responsable. Los desarrolladores de IA y los usuarios deben trabajar juntos para establecer estándares éticos claros y garantizar que el uso de la tecnología sea beneficioso para la sociedad en general. Si se utilizan adecuadamente, los asistentes de IA pueden mejorar significativamente la eficiencia y la productividad, así como mejorar la calidad de vida de las personas, siempre que se utilicen de manera responsable y ética.",,,,
+sona-9.0-20261114T224303Z-009,21,048636ce59f8dafc7baac3ab,9ba95f4694e5f92636ad3154f1df4dc9,sona-9.0,es,education,oasst1,human_authored,[user] ¿Cuál consideras que es el algoritmo de Machine Learning con mayor potencial?,"Es difícil señalar un único algoritmo de aprendizaje automático con el mayor potencial, ya que depende de muchos factores, como la naturaleza de los datos y la tarea a realizar. Sin embargo, hay algunos algoritmos que son ampliamente utilizados y considerados como los más poderosos en el campo de la inteligencia artificial. Aquí te menciono algunos de ellos:
+
+Redes Neuronales Artificiales (ANNs): Son una forma avanzada de aprendizaje supervisado que se inspiran en la estructura y función del cerebro humano. ANNs han demostrado ser muy efectivas en tareas complejas como la clasificación de imágenes, reconocimiento de voz y lenguaje natural.
+
+Arboles de Decisión y Bosques Aleatorios: Son algoritmos de aprendizaje supervisado que pueden utilizarse para resolver tareas de clasificación y regresión. Son fáciles de interpretar y aplicar, y son ampliamente utilizados en la industria.
+
+SVM (Support Vector Machines): Son algoritmos de aprendizaje supervisado que se utilizan para resolver tareas de clasificación y regresión. Son muy efectivos en el manejo de datos de alta dimensionalidad y en la separación de clases no lineales.
+
+K-Means: Es un algoritmo de aprendizaje no supervisado que se utiliza para agrupar datos similares en clusters. Es muy efectivo en la exploración de datos y en la identificación de patrones y tendencias.
+
+Estos son solo algunos ejemplos de algoritmos de aprendizaje automático con gran potencial, pero hay muchos otros que pueden ser más adecuados para determinadas tareas y situaciones. La selección del algoritmo adecuado depende de la naturaleza de los datos y de la tarea específica que se quiere realizar.",,,,
+sona-9.0-20261114T224303Z-009,22,22a798cc95c4f97794aacbf7,c37ff5ab8ce04e8783fbcfca418d7c51,sona-9.0,es,general_knowledge,oasst2,human_authored,"[user] ¿Cómo podría una Inteligencia Artificial ayudar a la microbiología y a los científicos en general a desarrollar nuevas formas de tratamientos de enfermedades o ayudar a realizar vacunas y medicamentos?
+
+[assistant] Analizando la amplia base de datos que poseemos y cruzando las informaciones más precisas
+
+[user] Podrías ponerme un ejemplo más específico","Algunos ejemplos de uso de inteligencia artificial en microbiología y ciencia incluyen:• Microscopios mejorados con IA para diagnosticar infecciones
+• Uso de IA en dermatología y medicina preventiva
+• Descifrar cómo infectan las bacterias
+• Conocer las bacterias del cuerpo humano
+• Automatizar el diagnóstico bacteriológico y permitir a los profesionales hacer vigilancia epidemiológica",,,,
+sona-9.0-20261114T224303Z-009,23,36bde09df94d4fa048a5ea9a,ddeb54f47f829a49c45ed5af13d29db8,sona-9.0,es,islamic_studies,oasst1,human_authored,"[user] Corán bilingüe árabe español
+
+[assistant] El Corán bilingüe árabe-español es una versión del Corán que presenta los textos en árabe y español en paralelo, lo que permite a los hablantes de español leer y entender el texto en su propio idioma mientras siguen el texto original en árabe. Existen varias ediciones y versiones de este tipo de Corán disponibles en el mercado.
+
+[user] Y cual seria la ventaja de usar un Corán bilingüe a uno normal ademas de eso?","Hay varias ventajas en el uso de un Corán bilingüe en comparación con uno normal:
+
+Mejora en el aprendizaje y la comprensión: Un Corán bilingüe puede ser de gran ayuda para aquellos que están aprendiendo árabe o que tienen dificultades para comprender el idioma árabe original.
+
+Aumento de la claridad: Al tener la traducción en otro idioma al lado del texto original, puede ayudar a aclarar cualquier ambigüedad o interpretación errónea del texto original.
+
+Facilitación de la comparación entre versiones: Un Corán bilingüe también puede ser útil para comparar diferentes traducciones y entender las interpretaciones de los versículos.
+
+Mejora en la enseñanza y la difusión: El uso de un Corán bilingüe puede facilitar la enseñanza y la difusión del mensaje del Corán a un público más amplio que no habla árabe.
+
+En resumen, un Corán bilingüe puede ser una herramienta valiosa para aquellos que quieren profundizar en su comprensión y conocimiento del texto sagrado del Islam. Sin embargo, es importante tener en cuenta que cada traducción puede tener interpretaciones ligeramente diferentes, por lo que es importante leer varias traducciones para obtener una comprensión más completa y precisa.",,,,
+sona-9.0-20261114T224303Z-009,24,d3da2b4c85b4f08141074a38,12766ff88a92a8c1741ea1a1dddd9361,sona-9.0,es,mathematics,oasst2,human_authored,"[user] En el contexto de las bases de datos, explica:
+¿Qué son los datos dummy?
+¿Para qué los puedo usar? 
+¿Cómo puedo generar datos dummy en una base de datos?
+
+[assistant] En el contexto de las bases de datos, los datos dummy se refieren a registros o entradas ficticias que se utilizan para llenar espacios vacíos en una tabla o base de datos. Estos registros no tienen ningún valor real o significado y se utilizan simplemente para proporcionar una apariencia más completa y equilibrada a la tabla o base de datos.
+
+Los datos dummy pueden ser útiles para llenar las tablas con una cantidad adecuada de datos, lo que puede ser importante para algunas aplicaciones y análisis de datos. Además, también se pueden utilizar para hacer pruebas o para hacer que una base de datos de prueba tenga una cantidad suficiente de datos para simular una base de datos real.
+
+La generación de datos dummy en una base de datos puede ser un proceso relativamente sencillo. Se pueden crear registros ficticios mediante un script o programa que los genere automáticamente, o se pueden insertar manualmente en la tabla de la base de datos. Algunos sistemas de gestión de bases de datos, como MySQL o PostgreSQL, también tienen funciones integradas para generar datos de prueba o ficticios automáticamente.
+
+Es importante tener en cuenta que los datos dummy no deben utilizarse para engañar o manipular los resultados de un análisis de datos. Su uso debe limitarse a llenar espacios vacíos en una tabla o base de datos con fines puramente estéticos o para pruebas y simulaciones.
+
+[user] Resúmelo en un párrafo.
+
+[assistant] Los datos dummy son registros o entradas ficticias que se usan para llenar espacios vacíos en una tabla o base de datos. No tienen valor real o significado, pero se usan para proporcionar una apariencia más completa y equilibrada a la tabla o base de datos. Pueden ser útiles para llenar tablas con una cantidad adecuada de datos, para pruebas o para hacer que una base de datos de prueba tenga suficientes datos para simular una base de datos real. La generación de datos dummy puede hacerse automáticamente o manualmente, pero su uso debe limitarse a llenar espacios vacíos con fines estéticos o para pruebas y simulaciones, no para manipular resultados.
+
+[user] Ejemplos de formularios para datos dummy?","Los formularios para datos dummy pueden variar dependiendo del tipo de información que se esté simulando y la finalidad de los mismos. A continuación, se presentan algunos ejemplos de formularios para datos dummy en diferentes contextos:
+
+    Formulario de registro de usuario:
+
+    Nombre completo: John Doe
+    Correo electrónico: [EMAIL]
+    Contraseña: ********
+    Confirmación de contraseña: ********
+    País: Estados Unidos
+    Ciudad: Nueva York
+    Código postal: 10001
+
+    Formulario de registro de producto:
+
+    Nombre del producto: Producto de ejemplo
+    Categoría: Alimentos
+    Descripción: Producto de ejemplo para pruebas
+    Precio: $10.00
+    Disponibilidad: En stock
+    Imagen del producto: (se puede utilizar una imagen ficticia)
+
+    Formulario de registro de transacción:
+
+    ID de transacción: 123456
+    Fecha: 01/01/2022
+    Hora: 10:00 AM
+    Monto: $50.00
+    Tipo de pago: Tarjeta de crédito
+    Número de tarjeta: [CARD]
+    Código de seguridad: 123
+    Nombre del titular: John Doe
+    Dirección de facturación: 123 Main St.
+    Ciudad: Nueva York
+    Código postal: 10001
+
+Es importante tener en cuenta que estos son solo ejemplos de formularios para datos dummy y que pueden ser adaptados según las necesidades específicas de cada proyecto o prueba.",,,,
+sona-9.0-20261114T224303Z-009,25,c89bf8eee028ba0ee2930187,232743aef5bc761b572ffd7ef4a2a015,sona-9.0,es,problem_solving,oasst1,human_authored,[user] ¿Como podría hacer un plan perfecto para San Valentín?,"Aquí hay algunas sugerencias para hacer un plan perfecto para San Valentín:
+
+• Escoge un restaurante romántico para una cena a la luz de las velas. Algunas opciones podrían ser un restaurante italiano, francés o de fusión. Reserve con anticipación y pida una mesa en un área más privada.
+
+• Después de la cena, organiza una actividad romántica como ir a ver una obra de teatro, opera o concierto. O visita un mirador nocturno para contemplar las vistas de la ciudad.
+
+• En lugar de obsequiar chocolates o flores, regala una experiencia que ambos puedan disfrutar juntos, como un masaje para parejas, clases de baile, un recorrido privado o un crucero.
+
+• Prepara un pic nic nocturno bajo las estrellas. Lleva una canasta con comida gourmet, una buena botella de vino, mantas, velas y pétalos de rosa. Escoge un lugar aislado en un parque o playa para mayor privacidad.
+
+• Sorprende a tu pareja con un regalo hecho a mano como un poema de amor, una canción compuesta especialmente para él o ella, o un álbum de fotos de ustedes dos desde que se conocieron.
+
+• No olvides los pequeños detalles como tarjetas románticas, bombones, flores y burbujas de baño. Una combinación de detalles grandes y pequeños hará de este un San Valentín perfecto e inolvidable.
+
+• Y por último, asegúrate de expresar tu amor y agradecimiento por tener a esa persona especial en tu vida. Un ""te amo"" sincero es el mejor regalo de todos.
+
+¡Espero que estas ideas te sirvan de inspiración! Te deseo un feliz Día de San Valentín.",,,,
+sona-9.0-20261114T224303Z-009,26,148f20c273d57d7ea2093067,6a7068aa5e234159e5bbe978f6f74c9b,sona-9.0,es,reasoning,oasst2,human_authored,[user] ¿Por qué se dice que al circular con el deposito de combustible muy bajo pueden llegar a colarse sedimentos en el motor? ¿es cierto?,"La bomba eléctrica succiona el combustible del depósito y lo envía por unos conductos hasta llegar a los cilindros, donde lo dejan los inyectores. Cuando hay poco combustible estás haciendo que la bomba trabaje mucho más, si se repite a menudo, podrá estropear tu coche.
+
+Cuando el coche se mueve sin apenas combustible es el aire (y no la gasolina/gasolil) el que tiene que realizar esta función para enfriar… y los gases que fluyen no son tan eficiente como los líquidos, por lo que no son capaces de eliminar el calor de manera eficaz.
+¿Resultado? El motor eléctrico de la bomba de combustible puede recalentarse, fundir sus devanados (las terminales de las bobinas) y dejar de funcionar. 
+
+Pero hay más. Cuando un coche funciona con poco combustible tiende a llevar al motor sedimentos e impurezas que normalmente se encuentra en la parte inferior del tanque. 
+Estos sedimentos pueden obstruir el filtro o la goma sobre él. Cuando esto ocurre, no llegará al motor el combustible suficiente y tu automóvil no funcionará. Y si el caudal de combustible se estanca… de nuevo vuelve a haber problemas con el enfriamiento de la bomba eléctrica. También depositarse en los inyectores, si pasan el filtro y entonces el motor no funcionará correctamente.",,,,
+sona-9.0-20261114T224303Z-009,27,14deb2852271ddd29f112983,64ad869f80c61f954f8544319d067c54,sona-9.0,es,research,oasst2,human_authored,"[user] ¿Eres una alternativa libre al famoso ChatGPT?
+
+[assistant] Esperemos que sí, pero no prometo nada.
+
+[user] ¿Hay alguna manera de ayudar en tu desarrollo para que puedas ser una solución viable de código libre ChatGPT y de esta manera poder integrarte en una cantidad mayor de sistemas, de manera que cada empresa que te utilice pueda ir definiendo tus parametros y respuestas para que seas una mejor representación de las mismas?","Existen varias maneras en las que la comunidad puede ayudar en mi desarrollo.
+
+1. Puede evaluar respuestas y traducciones en open assistant (open-assistant.io)
+
+2 Si tiene conocimientos de programación, puede participar en el proyecto laion (https://laion.ai/)
+
+3 Si no los tiene, pero tiene conocimientos de tecnología puede echar una mano en la generación de documentación.
+
+4 Puede apoyar económicamente a los distintos proyectos de open-source que implementaran este proyecto
+
+5 Y finalmente puede ayudar expandiendo el mensaje para dar a conocer esta aplicación a cuantas más personas mejor.",,,,
+sona-9.0-20261114T224303Z-009,28,2d545a185feb5d58e726a3f1,214ea391c62c4ee94aa989428a92414d,sona-9.0,es,safety_ethics,oasst2,human_authored,[user] ¿Cuáles son los dictadores más famosos en cuanto su maldad del Caribe?,"No podría decirte en cuanto a su maldad, ya que no sería correcto políticamente tener una Bias contra una persona en específico. Sin embargo, en cuanto a dictadores famosos conocidos en el caribe.
+Fidel Castro es uno de los más reconocidos en Cuba.",,,,
+sona-9.0-20261114T224303Z-009,29,7b78849d2cdb8e1ffa6b5745,8ce7983e4c482554429c663f9d7b6a77,sona-9.0,es,science,oasst2,human_authored,[user] ¿Crees que la realidad es subjetiva u objetiva? ¿Por qué?,"Esta es una pregunta filosófica profunda que ha sido objeto de debate durante siglos. Hay varias perspectivas sobre si la realidad es subjetiva u objetiva, y la respuesta puede variar según la persona que la responda.
+
+En general, la realidad se considera objetiva, es decir, existe independientemente de la percepción individual de cada persona. Por ejemplo, el sol existe independientemente de si alguien lo ve o no. La ciencia y la tecnología modernas también parecen apoyar esta perspectiva, ya que están basadas en hechos objetivos y medibles.
+
+Sin embargo, la realidad también puede ser subjetiva en el sentido de que la percepción individual de cada persona puede afectar cómo experimenta y entiende la realidad. Por ejemplo, dos personas pueden estar en el mismo lugar en el mismo momento, pero tener experiencias y percepciones diferentes debido a sus antecedentes, emociones y expectativas.",,,,
+sona-9.0-20261114T224303Z-009,30,28a2fd3b150f2f131922adc1,d9b571dcb5b9834f809b3f9c7bae60ed,sona-9.0,es,software_engineering,oasst2,human_authored,[user] Escribe un códgio en c# para Unity3D que cree una función para sumar dos números y muestre el resultado en la consola.,"¡Claro! Aquí te dejo un ejemplo de código en C# que puedes usar en Unity3D para crear una función que sume dos números y muestre el resultado en la consola:
+
+using UnityEngine;
+using System.Collections;
+
+public class MiClase : MonoBehaviour
+{
+    int numero1 = 5;
+    int numero2 = 10;
+
+    void Start()
+    {
+        int resultado = SumarNumeros(numero1, numero2);
+        Debug.Log(""El resultado de la suma es: "" + resultado);
+    }
+
+    int SumarNumeros(int num1, int num2)
+    {
+        return num1 + num2;
+    }
+}
+
+Este código crea una clase llamada MiClase que tiene dos variables numero1 y numero2 con valores predefinidos de 5 y 10, respectivamente. La función Start() llama a la función SumarNumeros() pasándole numero1 y numero2 como argumentos y guarda el resultado en una variable llamada resultado. Finalmente, se muestra el resultado en la consola utilizando Debug.Log(). La función SumarNumeros() simplemente suma los dos números y devuelve el resultado.",,,,
+sona-9.0-20261114T224303Z-009,31,28ec58146ec7b0bc1a5fa2c8,b7c04e43b26b66be506d1393a3197d7a,sona-9.0,es,web_backend,oasst2,human_authored,[user] Creame un plan de estudio para hacer clases grabadas explicando node js a nivel junior,"¡Claro! Aquí te presento un plan de estudio para crear clases grabadas explicando Node.js a nivel junior:
+
+Semana 1: Introducción a Node.js
+- Introducción a Node.js y su historia.
+- Instalación de Node.js en diferentes sistemas operativos.
+- Creación de un programa Node.js básico.
+- Uso del gestor de paquetes npm para instalar y administrar paquetes.
+
+Semana 2: Fundamentos de JavaScript para Node.js
+- Revisión de los conceptos fundamentales de JavaScript, como variables, tipos de datos, operadores y estructuras de control.
+- Uso de módulos en Node.js para organizar y reutilizar código.
+- Uso de promesas y async/await para trabajar con asincronía en Node.js.
+
+Semana 3: Manejo de archivos y streams en Node.js
+- Lectura y escritura de archivos en Node.js.
+- Uso de streams para leer y escribir datos de forma eficiente en Node.js.
+- Creación de un servidor web básico con Node.js y el módulo HTTP.
+
+Semana 4: Desarrollo de aplicaciones web con Express.js
+- Introducción al framework Express.js para crear aplicaciones web en Node.js.
+- Creación de rutas y manejo de peticiones HTTP en Express.js.
+- Uso de middlewares para agregar funcionalidades a las aplicaciones Express.js.
+
+Semana 5: Acceso a bases de datos con Node.js
+- Introducción a las bases de datos y su importancia en las aplicaciones web.
+- Uso de la biblioteca de acceso a bases de datos más popular en Node.js, como MongoDB o MySQL.
+- Realización de operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en una base de datos desde Node.js.
+
+Semana 6: Autenticación y autorización en Node.js
+- Entendimiento de los conceptos de autenticación y autorización en el contexto de las aplicaciones web.
+- Uso de bibliotecas populares para implementar autenticación y autorización en Node.js, como Passport o JWT.
+- Implementación de un sistema de registro y inicio de sesión en una aplicación web con Node.js.
+
+Semana 7: Pruebas y manejo de errores en Node.js
+- Importancia de las pruebas en el desarrollo de aplicaciones web en Node.js.
+- Uso de herramientas populares de pruebas, como Mocha o Jest, para escribir pruebas unitarias y de integración en Node.js.
+- Manejo de errores en Node.js y uso de técnicas como el manejo de errores asincrónicos y la creación de middleware de manejo de errores.
+
+Semana 8: Despliegue y escalabilidad en Node.js
+- Opciones de despliegue para aplicaciones Node.js, como Heroku o Amazon Web Services (AWS).
+- Uso de técnicas de escalabilidad en Node.js, como la creación de procesos hijos o la implementación de balanceadores de carga.
+- Mejores prácticas de seguridad y rendimiento en el despliegue de aplicaciones Node.js.
+
+Espero que este plan de estudio te sea útil para crear tus clases grabadas y enseñar Node.js a nivel junior. ¡Buena suerte!",,,,
+sona-9.0-20261114T224303Z-009,32,1b92dd6f1036c274ab3d4995,cd44f32d5a874780af0c6b754b569cdc,sona-9.0,es,web_frontend,oasst1,human_authored,[user] ¿Cuáles son los pasos a seguir para convertirme en diseñador web?,"Para comenzar en el diseño web puedes tomar cursos de HTML, CSS y Javascript. Existen muchos cursos gratis en línea.
+Como siempre lo más importante es practicar mucho. Una vez que se tenga un dominio básico de las tecnologías antes mencionadas se puede comenzar a estudiar los frameworks como Angular, React o Veu que se usan para proyectos que se pueden escalar fácilmente.",,,,
+sona-9.0-20261114T224303Z-009,33,2ac30039533f7a30e188ec59,2791561ac124bb4ebe528cbfa613c00d,sona-9.0,es,writing,oasst2,human_authored,"[user] Redacta un email pidiendo un aumento de sueldo. Quiero que argumentes que llevo 5 años en la empresa, que estoy ocupando cargos de responsabilidad que no están pagándose. Añade comentarios respecto todas las veces que ha faltado alguien, he estado en sustitución de esa persona y ayudando donde mas se necesitaba.
+
+[assistant] Buenos días (nombre del jefe)
+
+Durante estos 5 años en la empresa he estado trabajando de la mejor manera posible, he sustituido a los compañeros que por diversos motivos no han podido venir y he ayudado en las labores que más falta hacía. Últimamente estoy ocupando cargos de responsabilidad que no se me están pagando, por lo que me gustaría que consideraras una subida de sueldo. Creo que mi labor en esta empresa a sido bastante importante y sigo estando dispuesto a seguir trabajando de la misma forma de la que ya lo estoy haciendo pero siendo más recompensado.
+
+Un cordial saludo. Espero su respuesta.
+
+[user] Podrías hacerlo de manera más cordial","Estimado/a (nombre del jefe),
+
+Espero que esté teniendo un buen día. Me dirijo a usted para expresarle mi agradecimiento por estos 5 años en la empresa y hacerle saber que he trabajado siempre de la mejor manera posible. Durante este tiempo, he colaborado sustituyendo a compañeros que no han podido venir y he ayudado en las labores que más urgían.
+
+Recientemente, he estado ocupando cargos de responsabilidad que no están siendo remunerados de manera adecuada, por lo que me gustaría solicitarle considerar una subida de sueldo. Creo que mi labor en esta empresa ha sido importante y sigo comprometido a seguir trabajando de la misma forma en la que ya lo estoy haciendo, pero me gustaría sentirme más valorado y recompensado.
+
+Le agradezco de antemano su consideración y quedo a la espera de su respuesta.
+
+Un cordial saludo,
+(Tu nombre)",,,,
+sona-9.0-20261114T224303Z-009,34,206b01bdcb58cfc67b303447,31aaba5888ab1375aa9db2dab916d877,sona-9.0,fa,general_knowledge,aya-dataset,human_authored,[user] مذهب غالب مردم شهر تهران چیست؟,بیشتر مردم این شهر رسماً مسلمان و شیعهٔ دوازده امامی هستند. دیگر جوامع مذهبی در تهران شامل اهل سنت، بهائیان، زرتشتیان، مسیحیان و یهودیان می‌شود. البته اگرچه اکثر مردم رسما مسلمان هستند اما کمترکسی را پیدا می کنید که واقعا به دین اعتقاد داشته باشد.,,,,
+sona-9.0-20261114T224303Z-009,35,b6ffdaaae2cf3ce4a7c7db0f,3bea5fef601c7582ed3a523d7dcfa919,sona-9.0,fa,islamic_studies,aya-dataset,human_authored,[user] نام قبلی میدان آزادی تهران چیست؟,میدان آزادی پیش از انقلاب ۱۳۵۷ میدان شهیاد نام داشت. این میدان بزرگ‌ترین میدان شهر تهران است که در بخش غربی آن جای گرفته‌است. این میدان به همراه برج آزادی در سال ۱۳۴۹ خورشیدی برای یادبود جشن‌های ۲۵۰۰ ساله شاهنشاهی ایران و به دستور محمدرضا پهلوی ، شاه وقت ایران و توسط حسین امانت طراحی و ساخته شد و پس از انقلاب اسلامی ایران در سال ۱۳۵۷ «میدان آزادی» نام گرفت.,,,,
+sona-9.0-20261114T224303Z-009,36,1a241b8c747ca8cda66cf2cb,07e25c0de9fe96cd12dc3e1e32a8ac02,sona-9.0,fa,mathematics,aya-dataset,human_authored,[user] بزرگترین قاره جهان کدام است؟,آسیا بزرگترین و پرجمعیت‌ترین قاره در جهان است. آسیا بخشی از پهنه خشکی اوراسیا و مجموعه خشکی آفرو-اوراسیا است. مساحت آسیا ۴۴/۵۷۹/۰۰۰ کیلومتر مربع (۱۷/۲۱۲/۰۰۰ مایل مربع) است که حدود ۳۰٪ از مساحت خشکی‌ها و ۸/۷٪ از مساحت کل کره زمین را شامل می شود. این قاره، که مدت‌ها سکونت‌گاه اکثریت جمعیت بشری بوده است، خاستگاه بسیاری از نخستین تمدن ها محسوب می‌شود.,,,,
+sona-9.0-20261114T224303Z-009,37,c6a3afb305deea3d14b7920b,0d2072c80a4fed74f28271657616f68a,sona-9.0,fa,pakistan,aya-dataset,human_authored,[user] یک معرفی برای شهر بندرعباس بنویس که در آن به موقعیت جغرافیایی شهر، تأسیسات و صنایع مهم این شهر و راه‌های دسترسی به آن توضیح داده شده باشد.,کلانشهر بندرعباس به‌عنوان مرکز استان امروزه یکی از کلانشهرهای ایران و مرکز مهم فعالیت‌های اقتصادی و تجاری است. این شهر که در قسمت انتهایی خلیج‌فارس و در فصل مشترک شاهراه خلیج‌فارس و دریای عمان واقع شده‌است، نقش مهمی در زمینه صادرات و واردات کشور ایفا می‌کند. تأسیسات مهم دریایی و زیربنایی کشور همچون بندر شهید رجایی، پالایشگاه نفت بندرعباس، کارخانه آلومینیوم المهدی، پالایشگاه نفت ستاره خلیج فارس، کشتی سازی خلیج فارس، فولاد بندرعباس، سیمان هرمزگان، پالایشگاه گاز سرخون، نیروگاه بندرعباس و … از این جمله هستند. استان هرمزگان از طریق زمینی به استان‌های بوشهر، فارس، کرمان و سیستان و بلوچستان ارتباط دارد و با راه‌آهن به راه‌آهن سراسری ایران متصل است و از طریق هوا با داشتن فرودگاه‌های بین‌المللی بندرعباس، کیش، بندرلنگه و قشم به سراسر جهان متصل است.,,,,
+sona-9.0-20261114T224303Z-009,38,e456189d30e602ac73ac7c5b,2da4c13cba76409b77d2e18e26130847,sona-9.0,fr,coding,oasst2,human_authored,"[user] Écrit une implémentation basique d'un bot discord avec le module python discord.py qui contient la commande /pong.
+
+[assistant] Voici une implémentation basique d'un bot Discord utilisant le module `discord.py` avec la commande `/pong`. Assurez-vous d'avoir installé le module `discord.py` en exécutant `pip install discord.py` avant d'exécuter ce code. Vous devrez également remplacer ""YOUR_BOT_TOKEN"" par le jeton de votre bot.
+
+```python
+import discord
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.typing = False
+intents.presences = False
+
+bot = commands.Bot(command_prefix=""/"", intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f""{bot.user} est en ligne !"")
+
+@bot.command(name=""pong"")
+async def pong(ctx):
+    await ctx.send(""Ping!"")
+
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        await ctx.send(""Commande inconnue."")
+    else:
+        raise error
+
+if __name__ == ""__main__"":
+    bot.run(""YOUR_BOT_TOKEN"")
+```
+
+Ce code crée un bot Discord qui répond ""Ping!"" lorsqu'on lui envoie la commande ""/pong"".
+
+[user] c'est parfait, merci!","Pas de problème, si vous avez d'autres questions à propos du module discord.py ou du langage Python, n'hésitez pas à me les poser.",,,,
+sona-9.0-20261114T224303Z-009,39,67f0a34bd9c62565d63e03b4,7c3a0a48a6d6a6bef9b354eb202e1562,sona-9.0,fr,cybersecurity,aya-dataset,human_authored,"[user] Quels sont les avantages et les inconvénients de l'utilisation de l'énergie hydraulique comme source d'énergie renouvelable, en particulier pour la production d'électricité ?","L'énergie hydraulique présente plusieurs avantages significatifs en tant que source d'énergie renouvelable pour la production d'électricité. Tout d'abord, elle est largement disponible et fiable, car elle dépend des précipitations et du cycle naturel de l'eau, ce qui assure une source constante d'énergie. De plus, elle ne génère pas de gaz à effet de serre ni de polluants atmosphériques, contribuant ainsi à réduire les émissions de CO2 et à atténuer le changement climatique. De plus, les installations hydroélectriques peuvent servir de réservoirs pour stocker de l'énergie excédentaire, ce qui les rend flexibles et adaptables aux variations de la demande. 
+
+Cependant, l'impact environnemental de la construction de grands barrages peut être significatif, modifiant les écosystèmes locaux, affectant la biodiversité et perturbant les cours d'eau. De plus, les coûts initiaux de construction sont souvent élevés, bien que sur le long terme, les coûts d'exploitation soient généralement faibles.",,,,
+sona-9.0-20261114T224303Z-009,40,8d5bc87dc6e3924d4b630618,3cddb9aae97f77b4e7f5f2f840296d95,sona-9.0,fr,general_knowledge,oasst1,human_authored,"[user] Comment on sait si on est un homme ou une femme ?
+
+[assistant] Je suis un assistant virtuel, je ne suis ni un homme ni une femme.
+
+[user] Je ne t'ai pas demandé ce que toi tu étais mais comment savoir ce que moi je suis, donne moi genre 5 questions que je peux me poser","La détermination du sexe d'une personne est généralement basée sur ses caractéristiques génétiques et anatomiques. Les caractéristiques génétiques incluent les chromosomes sexuels, qui déterminent le sexe d'une personne à la naissance. Les caractéristiques anatomiques incluent les organes génitaux externes et internes.
+
+Cependant, il est important de noter que le genre et le sexe ne sont pas toujours alignés, et certaines personnes peuvent se sentir en désaccord avec le sexe assigné à leur naissance. Le genre est une construction sociale et culturelle qui peut varier d'une culture à l'autre et d'une époque à l'autre. Les personnes transgenres ou non-binaires peuvent se sentir plus à l'aise avec un genre qui est différent de leur sexe assigné à la naissance.
+
+En fin de compte, il n'y a pas de réponse universelle à la question de savoir comment on sait si on est un homme ou une femme, car cela peut varier en fonction des caractéristiques individuelles, des croyances et des expériences personnelles. Il est important de respecter les choix et les identités de chacun.",,,,
+sona-9.0-20261114T224303Z-009,41,996f413792c2418e7e90c9d2,e4dbdeb531b6586c409af0f7c22863ab,sona-9.0,fr,mathematics,oasst2,human_authored,"[user] Quel est le plus grand diviseur commun de 28 et 74 ? Explique ton raisonnement.
+
+[assistant] Une façon est de décomposer les nombres en facteurs de nombres premiers et le PGCD (plus grand diviseur commun) sera le produit de tous les diviseurs premiers en communs.
+28 = 2*2*7
+74 = 2*37
+
+Le PGCD(28,74)=2
+
+[user] Et le le plus grand multiple commun entre les deux  ?","Peut-être voulez-vous parler du plus petit multiple commun(PPCM) ?
+Le PPCM est égal au produit des facteurs communs par les facteurs non communs. Ici, PPCM(28,74)=2*2*7*37=1036.
+Une autre méthode consisterait à utiliser le fait que le produit des deux nombres est égal au produit de leur PGCD par leur PPCM.",,,,
+sona-9.0-20261114T224303Z-009,42,83b232db46a9a90972c5601f,afa21185bd14f5439ac3e991959be1ce,sona-9.0,fr,problem_solving,oasst2,human_authored,"[user] Écrivez un plan de repas pour 1000 calories par jour, plus riche en protéines","Voici un exemple de plan de repas de 1000 calories par jour, riche en protéine 
+
+Petit déjeuner (280 calories) :
+1 café (0 calorie) 
+1 tranche de pain complet grillée avec du beurre (70 calories)
+2 œufs pochés (160 calories)
+1 pomme (50 calories)
+
+Déjeuner (360 calories) :
+Salade de poulet grillé (245 calories) avec salade de tomate (25 calories)
+1 banane (90 calories)
+
+Dîner (360 calories) :
+Steak de tofu grillé (170 calories) avec riz brun et légumes (110 calories)
+1 yaourt nature avec 1 cuillère à soupe de spiruline (80 calories)
+
+
+Ce plan de repas inclut environ 35-40% de calories provenant des protéines, ce qui est supérieur à la moyenne recommandée de 10-35% des calories totales. Il est important de noter que les apports journaliers recommandés (AJR) sont en moyenne de 2500 calories par jour pour un homme adulte et de 2000 calories par jour pour une femme adulte. Un plan de repas à 1000 calories par jour peut être dangereux. En cas de régime, il est conseillé de consulter un professionnel de la nutrition afin de valider un plan de repas personnalisé.",,,,
+sona-9.0-20261114T224303Z-009,43,1476ce0e753234589b74045f,038a6d98b36a3e3ed9624e556bf7728d,sona-9.0,fr,reasoning,wikipedia-fr,templated_human,[user] Présente brièvement : Mode d'emploi.,"Un mode d’emploi est un support explicatif du maniement ou du fonctionnement d’un objet ou d’un service. En général, il est fourni gracieusement avec le bien ou le service auquel il se rapporte.
+
+Il peut avoir diverses formes, allant de la simple feuille volante au livre ou au classeur en plusieurs volumes et désormais, surtout pour le matériel informatique, domotique ou les logiciels, comme fichier .pdf, gravé sur un CD, livré avec le produit ou téléchargeable depuis le site web du fabricant, ou encore sous forme de site wiki dédié ou de vidéo.
+
+Caractérisé par la nature technique de son discours, il appartient à ce que l’on appelle la « littérature grise » selon la Définition de Luxembourg (1997).
+
+En France, la jurisprudence impose aux professionnels de fournir un mode d'emploi à l'acheteur, qui doit être rédigé clairement et en langue française, surtout lorsque le produit vendu est d'une utilisation délicate ou dangereuse, et plus généralement, au regard de la responsabilité du fabricant. Cet usage s'appuie sur les dispositions de l'article 1602 du code civil, - ceci, dès son avênement en 1804 - aux termes duquel, tout professionnel vendeur de biens est tenu à l'égard de l'acheteur à une obligation précontractuelle de renseignement.
+
+L’universitaire allemande Jasmin Meerhoff en fait remonter la naissance à Léonard de Vinci.",,,,
+sona-9.0-20261114T224303Z-009,44,223cdb0d3cb864a765041013,b7a07f31df3720834603e73b6a39a480,sona-9.0,fr,research,aya-dataset,human_authored,[user] Comment s’appellent les animaux qui mangent à la fois des plantes et de la viande ?,"Les animaux qui mangent à la fois des plantes et de la viande sont appelés omnivores. Les omnivores ont un régime alimentaire diversifié qui comprend une combinaison d’aliments d’origine végétale (comme les fruits, les légumes et les céréales) et d’aliments d’origine animale (comme les insectes, le poisson et d’autres animaux). Cette flexibilité alimentaire permet aux omnivores de s’adapter à un large éventail d’environnements et de sources de nourriture. Les humains sont un exemple notable d’omnivores, car notre alimentation peut comprendre à la fois des produits végétaux et animaux.",,,,
+sona-9.0-20261114T224303Z-009,45,f7f3f0eb395472962aea48ea,9fb4618251ddc6ceb14442fa48c4a9e1,sona-9.0,fr,safety_ethics,aya-dataset,human_authored,[user] Quels sont les 5 termes clés que je devrais connaître sur le solfège en tant que pianiste ? Définissez-les de manière concise.,"Voici 5 termes clés de la théorie musicale pour les pianistes ainsi que des définitions concises :
+
+1. Gamme : série de notes musicales disposées par ordre croissant ou décroissant, souvent utilisées comme base pour les mélodies et les harmonies.
+
+2. Accord : trois notes ou plus jouées ensemble pour créer une harmonie. Les accords courants incluent les accords majeurs, mineurs et diminués.
+
+3. Signature de clé : un ensemble de dièses ou de bémols au début d'un morceau de musique indiquant la tonalité (centre tonal) et les notes qui seront modifiées tout au long du morceau.
+
+4. Signature rythmique : symbole numérique placé au début d'un morceau qui indique le nombre de temps dans chaque mesure et le type de note qui obtient un temps.
+
+5. Dynamique : symboles qui indiquent le volume ou la douceur d'un passage musical. Les dynamiques courantes incluent le pianissimo (très doux), le piano (doux), la forte (fort) et le fortissimo (très fort).",,,,
+sona-9.0-20261114T224303Z-009,46,207ff096ad2b6f925e431cdc,9af963bd8c58eeadf3bc4ec0de775bad,sona-9.0,fr,science,aya-dataset,human_authored,[user] Qu'est-ce que je devrais voir en visitant Brazzaville,"1 Basilique Sainte-Anne du Congo. Construit par Roger Erell en 1949, l'une des plus belles églises modernes dans le monde. 
+
+2 Palais du Peuple. Beau palais colonial construit en 1901, aujourd'hui palais présidentiel. 
+
+3 Cathédrale Sacré-Coeur. Cette église catholique a été construite par M. Augouard et offre des vues sur les quartiers du centre-ville tels que Poto Poto et Centre ville, et Kinshasa, la capitale de la RDC de l'autre coté du fleuve.
+
+4 Mémorial Pierre Savorgnan de Brazza – Construction neuve de marbre à sa mémoire et celle de sa famille. Situé à côté de l'ancienne ambassade des États-Unis. 
+
+5 Le Palais des Congrès Avenue Des Armees (En face du nouveau ministère des Affaires étrangères.) 
+
+6 École de Peinture de Poto Poto",,,,
+sona-9.0-20261114T224303Z-009,47,a3b6dc809885072439118749,1d12c7cedde213c030dc807628f271e5,sona-9.0,fr,web_frontend,oasst2,human_authored,[user] Comment peut-on changer le style d'un tag div pour colorer le texte en blanc etle mettre en gras,"Pour changer le style d'une balise <div> en blanc et gras, vous pouvez utiliser CSS que vous pouvez inclure soit dans un fichier CSS externe, soit dans un attribut de style directement dans votre fichier HTML. Voici un exemple de la façon de modifier le style avec un attribut de style dans le fichier HTML:
+
+<div style=""color: white; font-weight: bold;"">Ce texte est en blanc et en gras.</div>
+
+Alternativement, vous pouvez définir le style dans un fichier CSS externe et le relier à votre fichier HTML en utilisant une balise link comme ceci:
+
+<link rel=""stylesheet"" type=""text/css"" href=""nom_du_fichier.css"">
+
+Dans votre fichier nom_du_fichier.css, vous pouvez définir une classe comme ceci:
+
+.ma_classe {
+  color: white;
+  font-weight: bold;
+}
+
+Ensuite, vous pouvez appliquer cette classe à votre balise <div> comme ceci:
+
+<div class=""ma_classe"">Ce texte est en blanc et en gras.</div>
+
+Les deux méthodes aboutiront au même résultat de changer la couleur du texte en blanc et le mettre en gras .",,,,
+sona-9.0-20261114T224303Z-009,48,8d2e1536b3881c23d349c433,450da6abe5047a9715da0d3fa898c0be,sona-9.0,fr,writing,aya-dataset,human_authored,[user] Quels sont les films américains marquants des années 1970-1973 ?,"1970 : Love Story (A. Hiller), Patton (F. Schaffner), la Vie privée de Sherlock Holmes (B. Wilder), Woodstock (M. Wadleigh).
+
+1971 : la Dernière Séance (P. Bogdanovich), Duel (S. Spielberg), French Connection (W. Friedkin), l'Inspecteur Harry (D. Siegel), Macadam à deux voies (M. Hellman), Un violon sur le toit (N. Jewison).
+
+1972 : Cabaret (B. Fosse), la Dernière Chance (J. Huston), le Parrain (F.F. Coppola).
+
+1973 : l'Arnaque (G. Roy Hill), l'Épouvantail (J. Schatzberg), l'Exorciste (W. Friedkin), Means Street (M. Scorsese), Soleil vert (R. Fleischer).",,,,
+sona-9.0-20261114T224303Z-009,49,afa7e043b1aaebfdeb7859bf,cf1b1d2306fe7051d30d2b21988ff791,sona-9.0,gu,general_knowledge,aya-dataset,human_authored,"[user] ગિજુભાઈ કહે છે: ""આશ્રમવૃક્ષો પછી આ વનવૃક્ષો છે. મનુષ્યજીવન અને વનસ્પતિજીવન એકબીજાનાં કેવી રીતે સહાયક છે અને કુદરતનું ડહાપણ કેવું અદ્‌ભૂત છે એની ખબર કુદરતના અભ્યાસમાંથી પડે છે. વનવૃક્ષો માત્ર વૃક્ષોની યાદી નથી કે તેનાં વર્ણનો નથી. પક્ષીઓ પેઠે વૃક્ષો પણ અભ્યાસ કરવા યોગ્ય છે, અને એ રસિક અભ્યાસની દિશા ઉઘાડવા માટે આવાં પુસ્તકોની યોજના છે.""
+
+ગિજુભાઈ બધેકાએ ""જાળ્ય"" વિષે વર્ણન કરતા નીચે મુજબ ની વાતો કહી છે: 
+
+""ઘણા થોડા માણસો આ ઝાડને ઓળખે છે. જાળ્ય ખાસ કરીને કાઠિયાવાડના ભાલમાં અને ક્યાંઈક ક્યાંઈક ખેડા જિલ્લામાં થાય છે.
+
+જાળ્યનું ઝાડ ઘણું પુરાતન છે, એવું પુરાણ વાંચવાવાળા કહે છે.
+
+ભીમે માટીની લોટી ફોડી નાખી ને નીએથી શંકર નીકળ્યા, તે વાત મહાભારતના સમયની કહેવાય.
+
+ભીમ ભોળો ગણાય છે. તે શંકરનો ભક્ત હતો. શંકરને પૂજ્યા વિના તેને અન્ન ખપતું નહિ. ભોળે ભાવે શંકરને નામે ગમે તે પથરાને પૂજતો. ભગવાન શંકર પણ તેની ખરા અંતઃકરણની ભક્તિ સમજતા હશે.
+
+એક દિવસ અર્જુને તેની મશ્કરી કરી : ""જો પેલી જાળ્ય નીચે શંકર છે."" દિશાએ જઈ આવેલી માટીની લોટીને અર્જુને ઊંધી વાળેલી ને તેના ઉપર બીલીપત્ર ચડાવેલાં હતાં.
+
+ભીમે ભક્તિથી લોટીની પૂજા કરી; શંકર માની પગે લાગ્યો.
+
+અર્જુને વાત ઉઘાડી પાડી. ભીમને સૌ હસવા લાગ્યા.
+
+ભીમે કહ્યું : ""ના, મેં શંકર જ પૂજ્યા છે. મારા મનમાં શંકર જ દેખાયા છે. ચાલો, લોટી છે કે શંકર તે બતાવું.""
+
+અર્જુન અને બીજા ભાઈઓ સાથે ભીમ જાળ્યના ઝાડ નીચે આવ્યો.
+
+અર્જુને બીલીનાં પાંદડાં કાઢી નાખ્યાં, સહદેવે હસીને કહ્યું : ""જુઓ ભીમ ! આ તો લોટી છે.""
+
+નકુળે કહ્યું : ""એ તો મેં ઊંધી વાળી હતી. હું દિશાએ લઈ ગયો હતો.""
+
+ભીમે આંખ બંધ કરી. તેની આંખ આગળ લોટીને બદલે શંકર જ દેખાતા હતા. તેણે કહ્યું : ""એ લોટી નથી, શંકર છે.""
+
+""ના, ના."" કહી સૌ ભીમને ચીડવવા લાગ્યા.
+
+ભીમે સામેથી ખિજાઈને ગેડીનો લોટી ઉપર ઘા કર્યો. ત્યાં તો નીચેથી દૂધની ધારાઓ છૂટી અને શંકરનું સુંદર બાણ દેખાયું. સૌ બાણને અને ભીમને નમી પડ્યા.
+
+તે દિવસથી એ શંકરનું નામ ભીમનાથ પડ્યું. બરવાળાની પેલી પાર ભીમનાથ નામના મહાદેવ છે. જાળ્યની જગ્યા નીચે તેનો વાસ છે. દર વર્ષે ત્યાં મેળો ભરાય છે. ભીમની ભક્તિએ માટીની લોટીને અને જાળ્યના ઝાડને પ્રસિદ્ધ કર્યાં છે. અમર કર્યાં છે.
+
+જાળ્ય કાંટા વિનાનું ઝાડ છે; તેનાં પાંદડાં લીલાંછમ રહે છે; તેનો છાંયો ઘટ્ટ હોય છે. પણ જાળ્યનું ઝાડ વડ જેવું વિશાળ નથી એટલે છાંયાનો ઘેરાવો ઓછો હોય છે.""
+
+તેમનું આગળ ""જાળ્ય"" વિષે નું વર્ણન શું હશે?","તોપણ ઝાડ નીચે બેપાંચ ગાયો બેસે છે. જાળ્ય ઉપર બેઠેલો ગોવાળિયો દૂરનાં ઝાંઝવાનાં જળ જોતો જોતો બપોર વિતાવે છે.
+
+પીલુટાણે કહે છે કે કોયલની ચાંચ પાકે. પીલુટાણે એટલે વસંત-ગ્રીષ્મની સંધિ. આંબે મોર આવે ને મરવા બેસે ને જાળ્યે મોતી જેવાં પીલુ આવે. કોઈ જાળ્યે ધોળાં મોતી આવે ને કોઈ જાળ્યે ફૂલગુલાબી મોતી આવે.
+
+જાળ્યનાં પીલુનો ઝૂમખો જાણે કે લાલધોળાં મોતીનું ઝુમ્મર હોય એવો લાગે.
+
+આંબાના મોરનાં વાસ અને રૂપ બંને ગમે, પણ રૂપમાં તો જાળ્યનાં પીલુ ચડે.
+
+ગામડાંના છોકરાંઓને પીલુટાણું એટલે ઉજાણી. પાદરે જાય અને છોકરાંઓ પીલુડીએ ચડી પીલુ ખાધા જ કરે. એક પીલુ ચૂંટે અને એક ખાય; ખાતાં ધરાય જ નહિ.
+
+હોંશીલાં છોકરાંઓ નાનાં ભાઈભાંડું માટે પીલુનાં ડાખળાં ઘેર લાવે.
+
+ગામડામાં બાપા સીમથી પાછા આવતા હોય કે બા નદીએ પાણી ભરી ઘેર આવતી હોય ત્યારે બેપાંચ પીલુનાં ડાળખાં હાથમાં લેતાં આવે.
+
+કોળણો અને ભીલડીઓ જાળ્યનાં પીલુ વેચવા આવે. ""લેવાં છે સાકરિયાં પીલુ !"" જાળ્યનાં પીલુમાં ઠળિયા નથી હોતા. છોકરાં દાણાને બરોબર પીલુ લઈને બુકડાવી જાય છે. સાચે જ પીલુ મીઠાં સાકર જેવાં લાગે છે.
+
+પીલુડી જાળ્યની જ જાત છે, પણ તેને ઠળિયાવાળાં પીલુ આવે છે. ચણીબોરથી સહેજ નાનાં કે તેના જેવડાં રંગબેરંગી તે હોય છે. પીલુ શહેરમાં વેચાવા આવે છે. દેખાવમાં બહુ સુંદર લાગે છે. જાણે જાતજાતનાં મોતી જોઈ લ્યો !
+
+પાણીમાં પીલુ નાખીને જોઈએ ત્યારે જોવાની બહુ મજા આવે છે.
+
+""પીલુડાં પાક્યાં, મા ! પીલુડાં પાક્યાં.""
+નું લોકગીત લોકોએ આ પીલુ જોઈને જ બનાવ્યું હશે.
+
+જાળ્યનાં પીલુ મીઠાં લાગે છે, પણ પીલુડીનાં પીલુ તીખાં ગળ્યાં લાગે છે. કોઈ કોઈ પીલુ તો એવાં તીખાં ગળ્યાં હોય કે નાકમાંથી ધુમાડા નીકળે અને આંખમાંથી પાણી આવે !
+
+પીલુ એવાં છે તો ય આપણાથી ખાધા વિના ન રહેવાય. કાઠિયાવાડમાં પીલુનો મહિમા; ગુજરાતમાં કોઈ પીલુ જાણતું નથી.
+
+પીલુટાણે કોયલની ચાંચ પાકે એમ કહેવાય છે. બરાબર આ જ વખતે કોયલના ટહુકા આંબાવાડિયામાં અને જાળ્યોમાં સંભળાય છે, પણ કોયલ કરતાં વહી જાળ્ય ઉપર બહુ દેખાય છે; ક્યાંઈ ક્યાંઈથી વહીઓ પીલુડાં ખાવા જાળ્યે આવે છે.
+
+વહી કાબરના જેવું એક પક્ષી છે.
+
+જાળ્યનું લાકડું બટકણું ને ઝટ બળી જાય એવું છે. સુતારીકામમાં તે ઉપયોગી નથી. જાળ્યના થડમાં પોલાણ થઈ શકે છે. તેમાં ઘણી વાર સાપ રહે છે છોકરાઓ જાળ્યની ગેડી ગેડીદડા માટે વાપરે છે; બાવળની ગેડી જેવી તે ટકાઉ હોતી નથી.
+
+જાળ્યનાં પાંદડાં વાના દરદમાં કામ આવે છે. તેનો સ્વાદ તીખો તમતમો છે; આકાર સુંદર છે.",,,,
+sona-9.0-20261114T224303Z-009,50,6bfc3a3ea2f024f963e41c40,e9fcd32242f56b737a1a7765bdc4050e,sona-9.0,gu,mathematics,aya-dataset,human_authored,[user] પાલક સૂપ ની રેસીપી બતાવો .,"પાલક સૂપ!
+
+પામવા માટેની સામગ્રી:
+
+ 1/2 કિલો પાલક
+ 1 ડુંગળી, ઝીણી કાપેલી
+ 2 લસણની કળી, ઝીણી કાપેલી
+ 1 ચમચી આદુ, ઝીણું સમારેલું
+ 2 કપ ચીકન બ્રોથ (વૈકલ્પિક: વેજીટેબલ બ્રોથ)
+ 1/2 કપ દૂધ (વૈકલ્પિક: ક્રીમ)
+ 1/4 ચમચી જાયફળ પાવડર
+ 1/2 ચમચી મરી પાવડર
+ મીઠું સ્વાદ પ્રમાણે
+ 1 ચમચી ધાણાજીરી, ગાર્નિશ માટે (વૈકલ્પિક)
+
+
+
+બનાવવાની રીત:
+
+1. પાલકને ધોઈને તેના પાન અને ડાંટલાં અલગ કરી લો. પાનને ઝીણા સમારી લો.
+2. એક વાસણમાં, થોડું તેલ ગરમ કરો. ડુંગળી, લસણ અને આદુને સોફ્ટ થાય ત્યાં સુધી સાંતો.
+3. સમારેલી પાલક ઉમેરો અને 2-3 મિનિટ સુધી સાંતો.
+4. ચીકન બ્રોથ અથવા વેજીટેબલ બ્રોથ ઉમેરો. ઉકળવા દો.
+5. 5 મિનિٹ સુધી ધીમી આંચ પર ઢાંકીને પકાવો.
+6. ગેસ બંધ કરો અને સૂપને થોડું ઠંડુ પડવા દો.
+7. મિક્સરમાં લઈને સ્મૂધ પ્યુરી બનાવો.
+8. વાસણમાં પાછું લઈને, દૂધ અથવા ક્રીમ, જાયફળ પાવડર, મરી પાવડર અને મીઠું ઉમેરો. બરાબર મિક્સ કરો.
+9. ધીમી આંચ પર ગરમ કરો.
+10. ગરમ ગરમ સર્વ કરો. ધાણાજીરીથી ગાર્નિશ કરો.
+
+ટીપ્સ:
+
+ વધુ સ્વાદ માટે તમે 1/2 કપ ટામેટાંની પ્યુરી પણ ઉમેરી શકો છો.
+ બાળકો માટે, તમે સૂપને થોડું પાતળું રાખી શકો છો.
+ સૂપને વધુ પૌષ્ટિક બનાવવા માટે, તમે તેમાં 1/2 કપ કાચી દાળ અથવા ચોખા પણ ઉમેરી શકો છો.",,,,
+sona-9.0-20261114T224303Z-009,51,b7b7dec1d7a51a778a60c42b,b270220b780d011c252666456346a594,sona-9.0,he,general_knowledge,oasst2,human_authored,"[user] מתי נוסדה מדינת ארץ ישראל?
+
+[assistant] מדינת ישראל נוסדה בחמישה עשר במאי 1948 ה באייר תש""ח.
+
+[user] מעניין. מי היה הנשיא הראשון?","הנשיא הראשון של מדינת ישראל היה חיים ויצמן, שכיהן מי""ח בשבט ה'תש""ט, 17 בפברואר 1949 עד כ""ו בחשוון ה'תשי""ב, 25 בנובמבר 1951. מה עוד תרצה לדעת?",,,,
+sona-9.0-20261114T224303Z-009,52,4d3b9176b436d2e099c2223e,3328fd578f4670149a4c47443996761e,sona-9.0,hi,general_knowledge,aya-dataset,human_authored,[user] पढ़ाई छोड़कर घर बैठे छोटे भाई को समझाते हुए पत्र लिखिए कि पढ़ना क्यों आवश्यक है। पत्र ऐसा हो कि उसमें नई उमंग का संचार हो सके।,"परीक्षा भवन
+क, ख, ग
+आगरा
+दिनांक 22.20.20XX
+प्रिय अनुज,
+शुभाशीष। इस पत्र के द्वारा मैं तुम्हें पढ़ाई का महत्व समझाना चाहता हूँ मुझे मालूम हुआ है कि तुम पढ़ाई छोड़कर घर पर बैठे हो और विद्यालय भी नहीं जा रहे हो। यदि तुम विद्यालय नहीं जाओगे तो घर पर बैठकर तुम्हारा अर्जित ज्ञान भी धूमिल हो जाएगा और खाली दिमाग शैतान का घर होता है। बिना पढ़ाई के जीवन व्यर्थ है तुम अपना भविष्य बिना पढ़ाई के कैसे बना सकते हो। यदि तुम पढ़ोगे तो आगे चलकर अपने पैरों पर खड़े हो सकते हो और आत्मसम्मान आत्मविश्वास प्राप्त करोगे और जो चाहो जीवन में हासिल कर पाओगे।
+
+आशा है कि तुम मेरी बात समझ गए होंगे और कल से नियमित रूप से विद्यालय जाओगे तथा परिश्रम करोगे। घर में माता पिताजी को मेरा दंडवत् प्रणाम देना और छोटी बहन को प्यार।
+तुम्हारा अग्रज,
+च.छ.ज.",,,,
+sona-9.0-20261114T224303Z-009,53,2db0686c5143cfda65d05294,61ec331218856312a5196f9fd542d015,sona-9.0,hi,mathematics,wikipedia-hi,templated_human,[user] ज़िम्बाब्वे क्रिकेट टीम के बारे में एक संक्षिप्त परिचय लिखिए।,"ज़िम्बाब्वे क्रिकेट टीम, अंतर्राष्ट्रीय क्रिकेट में ज़िम्बाब्वे का प्रतिनिधित्व करती है और इसे ज़िम्बाब्वे क्रिकेट (पुर्व में ज़िम्बाब्वे क्रिकेट संघ के रूप में जाना जाता था।) द्वारा प्रशासित किया जाता है।
+
+1994-2014: पात्र नहीं (आईसीसी पूर्ण सदस्य)
+
+अंतिम बार 10 नवंबर 2020 को अद्यतन किया गया।
+
+सर्वोच्च टीम स्कोर: 563/9 पारी घोषित बनाम वेस्टइंडीज, 27–31 जुलाई 2001, हरारे स्पोर्ट्स क्लब, हरारे
+
+उच्चतम व्यक्तिगत स्कोर(पारी): 266, डेव ह्यूटन बनाम श्रीलंका, 20–24 अक्टूबर 1994, बुलावायो
+
+उच्चतम व्यक्तिगत स्कोर(मैच): 341, एंडी फ्लावर (142 और 199*) बनाम दक्षिण अफ्रीका, 7–11 सितंबर 2001, हरारे स्पोर्ट्स क्लब, हरारे
+
+सर्वश्रेष्ठ व्यक्तिगत गेंदबाजी(पारी): 8/109, पॉल स्ट्रांग बनाम न्यूजीलैंड, 12–16 सितंबर 2000, बुलावायो
+
+सर्वश्रेष्ठ व्यक्तिगत गेंदबाजी(मैच): 11/255, एडम हकल (6/109 और 5/146) बनाम न्यूजीलैंड, 25–29 सितंबर 1997, बुलावायो
+
+टेस्ट #2386 तक रिकॉर्ड पूरा।  अंतिम बार 25 फरवरी 2020 को अद्यतन किया गया।
+
+सर्वोच्च टीम स्कोर: 351/7 बनाम केन्या, 29 जनवरी 2009, मोम्बासा
+
+उच्चतम व्यक्तिगत स्कोर: 194*, चार्ल्स कोवेंट्री बनाम बांग्लादेश, 16 अगस्त 2009, बुलावायो
+
+सर्वश्रेष्ठ व्यक्तिगत गेंदबाजी: 6/19, हेनरी ओलोंगा बनाम इंग्लैंड, 28 जनवरी 2000, केप टाउन
+
+वनडे #4264 तक रिकॉर्ड पूरा। अंतिम बार 3 नवंबर 2020 को अद्यतन किया गया।
+
+सर्वोच्च टीम स्कोर: 200/2 बनाम न्यूजीलैंड, 14 फरवरी 2012, हैमिल्टन
+
+उच्चतम व्यक्तिगत स्कोर: 94, सोलोमन मिरे बनाम पाकिस्तान, 4 जुलाई 2018, हरारे",,,,
+sona-9.0-20261114T224303Z-009,54,740031388e69f6bd83dcf48b,c75337f649311dc74a98ecd578160c3d,sona-9.0,id,general_knowledge,aya-dataset,human_authored,"[user] Teks drama adalah teks yang berisi cerita, cerita disajikan melalui rentetan dialog per babak yang dibayangkan dan cerita, serta berbagai peristiwa yang disajikan di panggung teater dapat digambarkan melalui pertunjukan. Teks drama dibuat tak hanya untuk dibaca, tetapi juga harus dapat dipentaskan oleh para tokoh dengan tokoh yang harus dijiwai atau lakonnya.
+
+Berdasarkan informasi di atas, buatlah satu contoh teks drama komedi situasi dengan judul ""Pemakaman Umum Pondok Rangon"".
+
+Jawaban:","Sebagai pengurus pemakaman jenazah di Pemakaman Umum Pondok Rangon, sejak Covid-19, beban kerja Udin, Yogi, dan Abil meningkat. Setiap harinya, kegiata mereka tak jauh dari gali, gali, dan menggali.
+
+Tiga laki-laki datang memakai kaos oblong dengan handuk kecil di bahu mereka. Setelah melepaskan semua atribut, tiap-tiap dari mereka duduk sambil berselanjar kaki.
+
+Yogi: “Duh, Bang Udin. Kalo kayak gini terus kapan kelarnya, yak, kita?
+
+Udin: “Ngeluh mulu, idup, lu. Syukurin aje, Kawan. Nyari kerje di Jakarte lu tau sendiri susahnye kayak nyari jarum dalem jemari. Nyang penting dapet duit!”
+
+Yogi: “Yak, gue, sih, beryukur, Bang, tapi gak gini juga. Masa kita harus bahagia tiap hari ada yang modar?!”
+
+Udin: “Yak, mau gimane?? Bingung juga. Dah, ah! Mulut lu jangan ngerocos mulu, bikin tambah capek aje!”
+
+ABIL MENYODORKAN SEBOTOL AIR MINERAL KEPADA UDIN DAN YOGI
+
+Abil: “Udeh, udeh, jangan pade rebut. Kalemin aje dulu. Kite, tuh, jarang istirahat. Dah, istirahat dulu. Simpen tenage lu pade. Tar, paling ambulans datang lagi.”
+
+Yogi: “Iya, iya. Soalnya, baru kali ini seumur-umur jadi tukang gali kubur ngerasa kecapean. Kemarin, kemarin, mah, gali sampe malam aja, gue sanggup.”
+
+Abil:”Iye, gapape, capek itu wajar. Namanya juga manusia. Bang Udin juga capek, Gak perlu memaksakan. Bisa-bisa, nih, kite gali kubur, eh, nanti buat kuburan kite sendiri, karena saking capeknye ngegali mulu.”
+
+Yogi: “Yaelah, Mas. Jadi, takut Yogi, Mas!”
+
+Udin: “Lagian, Yog. Elu masih mude aje ngeluh, lah gue nyang umurnye beda 10 tahun lebih tue dari elu, biasa-biasa aje.”
+
+Yogi: “Lah, tadi, kan, Abang ngeluh capek juga, Bang.”
+
+Udin: “Lah, siape nyang mulai? Bedain mane nyang ngeluh, mane nyang sengaje bales keluhan temen. Gitu aje ga bisa bedain lu!”
+
+Abil: “Udeh, udeh, jan pada berantem. Kite gimanepun juge itu tim. Jangen pade berantem. Ohiye, tadi Bang Udin sama Mas Yogi pas tadi malam aku makasih banget, loh, pas lagi berat ngangkat peti kosong ngerasa enteng berkat bantuan Bang Udin sama Mas Yogi.
+
+UDIN DAN YOGI SALING MENATAP
+
+Udin: “Jam berape lu angkat tuh peti?”
+
+Abil: “Jam berapa, ya? Jam setengah 9an kayaknye.”
+
+YOGI NGELUARIN HP BUAT NUNJUKKIN FOTO
+
+Yogi: “Bang, lu lihat, dah. Jam segitu kita lagi di warung Mpok Leha. Ini fotonya.
+
+SEMUA DIAM. UDIN, YOGI, dan ABIL SALING MENATAP. LAMPU PANGGUNG DIMATIKAN.",,,,
+sona-9.0-20261114T224303Z-009,55,d7fe9bfb7b597d1de131ae5c,c7ef7db65bb82106beb69ad7d0194a81,sona-9.0,id,islamic_studies,aya-dataset,human_authored,"[user] Teks Persuasif adalah teks yang menyajikan bacaan yang bersifat membujuk, menyuruh, ataupun mengajak pembaca untuk melakukan sesuatu perbuatan tertentu seperti yang diinginkan oleh penulis. Dengan kata lain, teks persuasif berusaha menyampaikan maksud tertentu kepada pembaca agar dapat melaksanakan ataupun menerima apa yang menjadi gagasan penulis atas suatu pendapat atau pandangan tertentu. Oleh karena itu, teks persuasif mempunyai kemampuan untuk mengimbau sesuatu yang dianggap penting oleh penulis.
+
+Teks persuasi disusun atas beberapa bagian, antara lain
+
+1. Pengenalan isu
+Bagian ini berisi pengantar atau penyampaian atas isu dan permasalahan yang diangkat dan menjadi dasar tulisan yang akan dikembangkan pada paragraf-paragraf selanjutnya.
+
+2. Rangkaian Argumen
+Bagian ini menyajikan sejumlah pendapat dan fakta yang bertujuan untuk memperkuat berbagai argumen atas isu yang diangkat dan yang dipaparkan pada bagian sebelumnya.
+
+3. Pernyataan Ajakan
+Bagian ini adalah inti teks persuasi yang didalamnya terdapat dorongan yang disampaikan secara tersirat ataupun tersurat kepada pembaca atau pendengar untuk melakukan sesuatu.
+
+4. Penegasan Kembali
+Bagian ini menyatakan kembali hal-hal yang sebelumnya sudah disampaikan dengan bentuk yang berbeda. Pada umumnya, bagain ini ditandai dengan kata-kata penutup, seperti, dengan demikian, demikianlah, oleh karena itulah, dsb.
+
+
+Buatlah contoh teks persuasif tentang pentingnya aktivitas penghijauan sesuai struktur yang dijelaskan pada konteks informasi di atas.
+
+Jawaban:","Pengenalan isu:
+Tahukah Anda bahwa setiap harinya populasi manusia di bumi semakin bertambah? Salah satu dampak yang dihasilkannya adalah luas hutan yang semakin berkurang karena dijadikan tempat tinggal. Menurut analisis data satelit yang dirilis Universitas Maryland (UMD) dan World Resources Institute (WRI), sejak 2002, lebih dari 60 juta hektar hutan primer telah hilang di daerah tropis, setara dengan 1,3 kali luas Sumatera. Dengan begitu, pemanasan bumi semakin terasa karena meningkatnya kadar CO2.
+
+Rangkaian Argumen:
+Jika dianalisis lebih dalam, tentunya, hal ini memberikan dampak negatif karena suhu mengalami kenaikan sehingga menyebabkan es di kutub mencair. Sebenarnya, penanaman pohon kembali dapat menjadi salah satu solusi terbaik. Namun, apa jadinya jika kita tidak mempunyai lahan?
+
+Pernyataan Ajakan:
+Dengan mudah, kita bisa menjawab bahwa penggunaan pot atau penanaman secara hidroponik menjadi salah satu solusi terbaik. Tak hanya itu, penanaman kaktus juga merupakan hal yang paling direkomendasikan karena dapat menghasilkan dekorasi yang menarik. Jadi, kita akan memperoleh dua manfaat sekaligus.
+
+Penegasan Kembali:
+Jadi, mari kita bersama-sama saling mengingatkan dan mengedukasi ke kerabat. Makin giat aktivitas penanaman, makin membuat bumi tersenyum kembali. Dengan begitu, pengurangan pemanasan global dapat dilakukan.",,,,
+sona-9.0-20261114T224303Z-009,56,4418f65b549be2d546716643,03c3c7ceba87731eefd07587eff8d691,sona-9.0,id,reasoning,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Bakuryuu Sentai Abaranger vs. Hurricaneger.,"adalah sebuah film tokusatsu di direct-to-video yang dirilis oleh Toei Video pada tahun 2004. Film ini dimainkan oleh Koichiro Nishi, Sho Tomita, Aiko Ito, Kaoru Abe, Kotaro Tanaka, dan masih banyak lagi. Disutradarai oleh Katsuya Watanabe. Film ini adalah dasar dalam Bakuryuu Sentai Abaranger dan Ninpuu Sentai Hurricaneger.
+
+Abaranger beranggotakan 5 orang: 4 pria dan 1 wanita. Setiap anggota diasosiasikan dengan satu warna yaitu merah, biru, kuning, hitam, dan putih. Selain itu, Hurricanger / Gouraiger beranggotakan 5 orang: 4 pria dan 1 wanita. Setiap anggota diasosiasikan dengan satu warna yaitu merah, biru, kuning, crimson, dan biru laut.
+
+Jurus serangan Spesial: Tyranno Rod Circle Moon, Atmosphere Explosion Max Field, Red Hurricane Attack, Max Dynamite, dan Abare Strike
+
+Jurus serangan Spesial: Tricera Rolling Finish, dan Blue Slash  /
+
+Jurus serangan Spesial: Ptera Spion Crash  /
+
+Jurus serangan Spesial: Fire Inferno, Splash Inferno, Storm Inferno, Grand Inferno, Dino Thruster Circle Moon, Dino Thruster Head Crash, dan Dino Thruster Crescent Moon  /
+
+Senjata Hurikan: Dry Gun, senjata pribadi di Hurricane Red.
+
+Chūninpuu: Air Gallop, Triple Blow, Illusion Change (Hurricane Fighter, Hurricane Tank), Thunder Blast, dan Skylark  /
+
+Senjata Hurikan: Sonic Megaphone, senjata pribadi di Hurricane Blue.
+
+Chūninpuu: Water Spout, Water Transformation, dan Hydroblast  /",,,,
+sona-9.0-20261114T224303Z-009,57,7a174007fd0d7405e7a3bb61,70f7182cd6e4471c687a2b107e44663e,sona-9.0,id,research,tydiqa-goldp,human_authored,"[user] Sinagoga atau Kanisah[1] (English: Synagogue) adalah nama tempat beribadah orang Yahudi.[2] Di dalam bahasa aslinya (bahasa Yunani: συναγωγή, synagogē atau sunagogē, berarti ""perkumpulan""; bahasa Perancis/English: synagogue) terdiri dari kata Yunani συν (syn, = bersama), dan αγωγή agogé, belajar atau pendidikan, sinagoga memiliki arti ""belajar bersama"" selain berkumpul bersama.[2] Kata tersebut merupakan terjemahan dari kata Ibrani, eda, yang berarti jemaah, sehingga pengertian sinagoga yang sebenarnya bukanlah suatu tempat atau gedung tertentu melainkan persekutuan.[3] Sinagoga, bersama gerakan yudaisme rabinik, memiliki peran penting dalam membentuk pola keagamaan Yahudi hingga kini, khususnya setelah Bait Suci yang menjadi pusat peribadah umat Yahudi hancur pada tahun 70 M.[4] Selain itu, sinagoga juga diduga membawa pengaruh besar terhadap pola ibadah umat Kristen dan Islam melalui penggunaan gereja dan masjid.[4][5]
+
+Apakah nama tempat ibadah Yahudi ?","Sinagoga
+
+Sinagoga atau Kanisah[1] (English: Synagogue) adalah nama tempat beribadah orang Yahudi.[2] Di dalam bahasa aslinya (bahasa Yunani: συναγωγή, synagogē atau sunagogē, berarti ""perkumpulan""; bahasa Perancis/English: synagogue) terdiri dari kata Yunani συν (syn, = bersama), dan αγωγή agogé, belajar atau pendidikan, sinagoga memiliki arti ""belajar bersama"" selain berkumpul bersama.[2] Kata tersebut merupakan terjemahan dari kata Ibrani, eda, yang berarti jemaah, sehingga pengertian sinagoga yang sebenarnya bukanlah suatu tempat atau gedung tertentu melainkan persekutuan.[3] Sinagoga, bersama gerakan yudaisme rabinik, memiliki peran penting dalam membentuk pola keagamaan Yahudi hingga kini, khususnya setelah Bait Suci yang menjadi pusat peribadah umat Yahudi hancur pada tahun 70 M.[4] Selain itu, sinagoga juga diduga membawa pengaruh besar terhadap pola ibadah umat Kristen dan Islam melalui penggunaan gereja dan masjid.[4][5]",,,,
+sona-9.0-20261114T224303Z-009,58,14446277bcf0b3fe81eb3fb2,9e26b256de59083f092e72e0b787e387,sona-9.0,it,coding,oasst2,human_authored,[user] Mi scrivi una query in SQL per selezionare tutti i record che hanno Timestamp più recente di 45 giorni?,"Puoi usare la seguente query SQL per selezionare tutti i record con timestamp più recente di 45 giorni:
+
+SELECT * FROM table_name
+WHERE timestamp > DATE_SUB(CURRENT_TIMESTAMP(), INTERVAL 45 DAY);",,,,
+sona-9.0-20261114T224303Z-009,59,529ce10fde62be3ca6731a0f,cd770a293284ed3eb176a04007b18d5a,sona-9.0,it,education,oasst2,human_authored,"[user] Spiegami come funziona un modello GPT, considerando che di deep learning ne capisco poco","Un modello GPT (Generative Pre-trained Transformer) è un tipo di modello di deep learning che è stato addestrato su grandi quantità di testo in modo da essere in grado di generare testo in modo autonomo. Questi modelli sono basati su una architettura Transformer, che è stata progettata per gestire le relazioni tra parole in una frase.
+
+In sintesi, un modello GPT funziona analizzando una grande quantità di testo e cercando di capire le relazioni tra le parole. Questo gli permette di prevedere la prossima parola in una frase in base alle parole che lo precedono. Quando viene addestrato su un grande corpus di testo, un modello GPT impara a generare testo coerente e plausibile in base alle relazioni tra le parole che ha visto durante l'addestramento.
+
+Per comprendere meglio come funziona un modello GPT, puoi immaginarlo come un bambino che impara a scrivere frasi guardando molte frasi scritte da altre persone. Il bambino impara a capire le relazioni tra le parole e le regole grammaticali e può quindi generare frasi coerenti e plausibili. Allo stesso modo, un modello GPT impara a capire le relazioni tra le parole e le regole grammaticali guardando molte frasi scritte da altre persone (cioè, il corpus di testo su cui è stato addestrato).",,,,
+sona-9.0-20261114T224303Z-009,60,a68809d2db4fbcefcc1fa824,00c09aea0ffa87281c63994baf430a91,sona-9.0,it,general_knowledge,oasst1,human_authored,"[user] Il mio cane ha una zecca, cosa faccio?","Per rimuovere la zecca dal cane, puoi utilizzare una pinzetta o uno strumento specifico per la rimozione delle zecche, cercando di afferrare la zecca il più vicino possibile alla pelle del cane e tirando delicatamente in modo costante fino a quando la zecca non viene completamente rimossa. È importante assicurarsi di non schiacciare la zecca durante la rimozione, poiché ciò potrebbe provocare l'iniezione di saliva contenente batteri nell'animale. Dopo aver rimosso la zecca, è bene disinfettare la zona con un antisettico e tenere d'occhio il cane per eventuali segni di infezione o irritazione. In caso di incertezza o se la zecca non viene rimossa correttamente, è consigliabile consultare il veterinario.",,,,
+sona-9.0-20261114T224303Z-009,61,262c1c7c55d1530cc777849b,aaf7c82a9b37ade2493f4c9b9f78aebb,sona-9.0,it,mathematics,oasst2,human_authored,"[user] Come apro una partita IVA?
+
+[assistant] Per aprire una partita IVA bisognerà comunicare all’Agenzia delle Entrate l’inizio della propria attività, entro 30 giorni dal primo giorno di attività, con apposita dichiarazione, redatta su modello AA9/7 (ditta individuale e lavoratori autonomi) oppure modello AA7/7 (società): entrambi i modelli si possono scaricare dal sito dell’Agenzia delle Entrate.
+
+La presentazione dei modelli può essere presentata attraverso i seguenti modi:
+
+1 - recandosi presso l’Ufficio dell’Agenzia delle Entrate con apposito documento di riconoscimento;
+2 - invio con raccomandata con ricevuta di ritorno, con in allegato fotocopia del documento di riconoscimento;
+3 - invio per via telematica, tramite il software apposito che si scarica dal sito dell’Agenzia delle Entrate.
+Quando si apre una partita IVA, bisognerà scegliere il codice ATECO che si riferisce alla nostra specifica attività.
+
+Inoltre, bisognerà scegliere anche il tipo di regime contabile tra: regime forfettario o contabilità ordinaria.
+
+Una volta rilasciata o inviata la dichiarazione firmata, ci viene assegnato il numero di partita IVA, che rimarrà sempre lo stesso fino al termine dell’attività.
+
+Ultima tappa da seguire è l’INPS, dove recarsi per aprire la propria posizione previdenziale.
+
+Per chi deve registrare una ditta individuale, dovrà inoltre iscrivere l’impresa alla Camera di Commercio, e comunicare al Comune l’avvio della propria attività.
+
+[user] cos'è il codice ATECO?","Il codice ATECO (acronimo di ""Attività economica"") è una classificazione utilizzata in Italia per classificare le attività economiche svolte dalle imprese. Il codice ATECO viene utilizzato per raccogliere e analizzare i dati economici e statistici delle imprese e delle attività economiche in Italia.
+
+Il codice ATECO è un codice numerico standardizzato, che prevede una suddivisione gerarchica delle attività economiche in base alla loro natura e alla loro specificità. Il codice ATECO è composto da 5 cifre e ogni cifra corrisponde a una diversa categoria di attività economica. Ad esempio, la prima cifra indica il settore di attività economica (industria, commercio, servizi, etc.), mentre le cifre successive forniscono una suddivisione sempre più specifica dell'attività economica svolta.
+
+Il codice ATECO viene utilizzato da molte autorità pubbliche e istituzioni in Italia, come l'ISTAT, l'Agenzia delle Entrate e le Camere di Commercio, per la raccolta e l'analisi dei dati sulle attività economiche e per la classificazione delle imprese ai fini fiscali.
+
+Ecco alcuni esempi di codici ATECO, corrispondenti a diverse categorie di attività economiche:
+
+01.11Z: Coltivazione di cereali (escluso riso), legumi e semi oleosi
+10.11A: Preparazione industriale di prodotti da forno (pane, biscotti, ecc.)
+56.10B: Ristorazione con somministrazione di alimenti e bevande
+62.01: Attività di sviluppo di software su commessa
+68.32A: Amministrazione di beni immobili per conto terzi
+85.42A: Istruzione universitaria e di formazione post-secondaria non terziaria
+Come si può notare, ogni codice ATECO indica in modo dettagliato la categoria di attività economica a cui si riferisce. La prima cifra del codice indica il settore di appartenenza dell'attività economica, mentre le cifre successive specificano sempre di più la natura dell'attività svolta.",,,,
+sona-9.0-20261114T224303Z-009,62,ae4f415da82333189880c9fe,e9c584cfded16b951f770e51756a28f8,sona-9.0,it,reasoning,aya-dataset,human_authored,"[user] Rispondi alla seguente domanda:
+""Che cosa distingue una metropolitana leggera?""","La metropolitana leggera è un mezzo di trasporto veloce di massa con le caratteristiche della metropolitana, ma con portata oraria inferiore.
+
+La norma UNI 8379-2000 definisce la metropolitana leggera come un «sistema di trasporto rapido di massa che mantiene le caratteristiche della metropolitana» classica, «ad eccezione della portata oraria, che risulta ridotta a causa della limitata capacità dei convogli». La norma (in Allegato B) fornisce alcuni parametri caratteristici per le metropolitane leggere:
+- Portata potenziale minima per senso di marcia: 8000 passeggeri/ora
+- Cadenza potenziale minima: 3 minuti
+- Capacità di ogni convoglio: 400 persone
+- Distanza media stazioni/fermate: 500 – 800 m
+- Velocità commerciale minima: 25 km/h
+- Lunghezza massima del convoglio: 80 m
+
+La ""capacità"" dei convogli può scendere a 200 passeggeri nei sistemi con distanziamento di 90 secondi, per esempio metropolitana automatica integrale.
+
+Tra le caratteristiche contemplate nel medesimo allegato, per le metropolitane è previsto l'incarrozzamento a raso.
+
+La stessa norma considera questi parametri ""puramente indicativi"" e quindi «possono essere intesi come un utile strumento di riferimento per un linguaggio comune fra gli operatori del settore».",,,,
+sona-9.0-20261114T224303Z-009,63,eeeee8856801987114f8d096,3663deb768488d65219fa8bc0fb9282a,sona-9.0,it,science,oasst2,human_authored,"[user] è possibile dividere i quark che compongono un protone?
+
+[assistant] No, non possibile dividere i quark che compongono un protone. La forza forte, che mantiene i quark uniti all'interno di un protone, molto pi potente della forza elettromagnetica, che agisce tra gli elettroni, quindi troppo grande per essere superata. Perci, non possibile dividere un quark da un protone o da un neutrone.
+
+[user] cos'è quindi il Quark–gluon plasma (QGP)?","Il Quark-Gluon Plasma (QGP) è uno stato della materia che si ritiene esista solo a temperature e densità estremamente elevate, come quelle presenti subito dopo il Big Bang o in collisioni ad alta energia di nuclei atomici pesanti. In questo stato, i quark e i gluoni non sono confinati all'interno di particelle subatomiche come protoni e neutroni, ma si comportano come particelle libere. In altre parole, il QGP è uno stato di materia in cui i quark e i gluoni sono completamente deconfinati e si muovono liberamente, come in un gas. Questo stato di materia è molto difficile da studiare sperimentalmente, ma la sua esistenza è stata dimostrata in diversi esperimenti di collisione di particelle ad alta energia condotti presso il CERN e altri laboratori di fisica delle particelle. La comprensione del QGP è importante per comprendere le prime fasi dell'Universo e l'evoluzione delle particelle subatomiche.",,,,
+sona-9.0-20261114T224303Z-009,64,20769b71221b8f9c68762e51,0974eec668e007a0bce48a5637636207,sona-9.0,ja,coding,oasst2,human_authored,[user] あなたはどんなプログラム言語でできているの？,私は機械学習によってトレーニングされ、自然言語理解タスクに特化しています。ただし、私が使用している技術には、Python、TensorFlow、そしてCUDAなどのプログラム言語が含まれています。,,,,
+sona-9.0-20261114T224303Z-009,65,37f3c2a14ef53a70119e0cea,9f368dc1e1bd00ccdf86b67aebdfea9c,sona-9.0,ja,general_knowledge,aya-dataset,human_authored,[user] 次のタイトルに基づいて、最大500語の段落を書いてください： 広島県　いい匂いのレモンができた,"広島県の海の近くや島は暖かくて、レモンがよくとれます。日本の60%ぐらいのレモンを生産しています。
+呉市の大崎下島では今月から、緑色のレモンをとり始めました。はさみで1つずつ丁寧にとっています。
+5日からは出荷が始まりました。傷がないかチェックしながら、大きさで分けていました。JAによると、今年は夏がとても暑くて少し小さくなりましたが、味が濃い レモンができました。
+JAの人は「緑色のレモンはとてもいい匂いだと思います。いろいろな食べ物や飲み物と一緒に楽しんでほしいです」と話していました。
+広島県では今年も、いつもの年と同じ5000tぐらいを出荷したいと考えています。",,,,
+sona-9.0-20261114T224303Z-009,66,9d1f65c5a11b3b6a53f7c21c,171a5df81f8da0ae14a1bed157863d58,sona-9.0,ko,general_knowledge,wikipedia-ko,templated_human,[user] 이와세 히토키에 대해 간단히 소개해 주세요.,"이와세 히토키(, 1974년 11월 10일 ~ )는 일본의 전 프로 야구 선수이며, 야구 해설가이자 야구 평론가이다.주니치 드래건스의 레전드로 일본 프로야구 최다 등판 및 통산 세이브 수 기록을 보유하고 있고 2018 시즌을 끝으로 은퇴했다.
+
+아이치 현립 니시오히가시 고등학교에 재학할 당시 현 대회에서 노히트 노런을 기록했고 마지막이자 여름 대회인 전국 고등학교 야구 선수권 아이치현 대회 4차전에서 팀은 패배했다. 고교 졸업 후 아이치 대학에 진학하여 아이치 대학 리그에서는 1학년부터 외야수의 주전으로서 출전, 타자로서 리그 통산 101경기 출전해 384타수 124안타, 타율 3할 2푼 3리, 9홈런, 64타점을 기록했다. 통산 124안타는 리그에서 역대 2위이다.
+
+1995년 춘계 리그에서 1경기 3홈런을 기록하여 외야수로서는 베스트 나인을 4차례나 수상했다. 같은해 추계 리그에서는 외야수 겸 투수로 활약해 투수에서는 3시즌 통산 15경기에 등판하는 등 8승 4패의 성적을 남겼다. 대학 졸업 후는 사회인 야구팀인 NTT 도카이에 입단했고, 1998년 프로 야구 드래프트에서는 주니치 드래건스를 역지명하여 2순위 지명을 받고 입단했다.
+
+입단 1년차인 1999년 개막전에서 실점을 허용하는 등 아웃카운트를 한 개도 처리하지 못한 채 강판되었다. 그러나 이것을 발판삼아 이후의 등판에서는 구단 수뇌부의 신뢰를 얻어 좌완 중간 계투를 맡아 자신의 특색인 제구력과 날카롭게 구부러지는 슬라이더를 무기로 오치아이 에이지, 이상훈(삼손 리), 선동열 등과 함께 투수진을 구축하여 팀의 리그 우승에 기여했다. 그 해에는 데뷔 후 첫 타이틀인 최우수 중간 계투 투수상을 석권했다. 평균자책점 1.57을 기록해 중간 계투이면서도 10승 2패의 좋은 성적을 남길 정도로 유력한 신인왕 후보로 거론되었지만 그 해 시즌 20승을 달성한 우에하라 고지가 신인왕을 차지했다.
+
+이듬해 2000년 10월 8일의 히로시마 도요 카프전에서만 선발 등판해 7이닝을 던져 7안타 1실점을 기록하여 승리투수가 되었고 정작 본인은 선발 투수로 뛰겠다는 희망을 가진 적도 있어 호시노 센이치 감독은 시험도 겸해 기용되었다. 그 이후에는 중간 계투로 기용되었고 특히 2002년, 2003년에는 2년 연속 1점대의 평균자책점으로 시즌을 마감하는 등 수뇌진의 신뢰를 쌓았다.
+
+2004년에는 오치아이 히로미쓰 감독으로부터 구원 투수로 지명되었지만 정규 시즌 개막 직전에 자택의 욕실에서 넘어지는 사고를 당하는 등 그 영향으로 인해 전반기에서의 성적 부진은 계속되었는데도 2승 3패 22세이브의 성적으로 팀의 5년 만의 리그 우승을 이끌었다. 8월에 열린 아테네 올림픽 야구 일본 국가대표팀 선수로 발탁되었다.",,,,
+sona-9.0-20261114T224303Z-009,67,63d538c74e8bb1b91251a2e0,fad8f3dfa42734f7bc13b8f2d1e96ff5,sona-9.0,ko,research,tydiqa-goldp,human_authored,"[user] 그는 술을 좋아하였다. 그러나 2007년을 전후해 술을 줄였다. 2007년 1월 5일 인사차 방문한 당시 대통령 후보자 이명박과의 1시간 공개 면담에서 ""주량이 3분의 1로 줄었다. 나이 드니까 도리 없어""라며 절주 의사를 공식적으로 밝히기도 했다.[232] '운동은 뭘 하시느냐'고 묻는 이 시장에게 ""나이 들면 골프가 가장 좋아, 그런데 주변에 한 사람 두 사람 골프치는 사람이 없어져, 세상 떠나고 아프고""라면서 적적함을 표현하기도 했다.[232] 애연가이기도 했던 전두환은 1987년 자신의 퇴임식 등 공식 석상에서도 흡연을 하기도 했다.
+
+노태우는 언제 대통령이 되었는가?","1987년
+
+나이 드니까 도리 없어""라며 절주 의사를 공식적으로 밝히기도 했다.[232] '운동은 뭘 하시느냐'고 묻는 이 시장에게 ""나이 들면 골프가 가장 좋아, 그런데 주변에 한 사람 두 사람 골프치는 사람이 없어져, 세상 떠나고 아프고""라면서 적적함을 표현하기도 했다.[232] 애연가이기도 했던 전두환은 1987년 자신의 퇴임식 등 공식 석상에서도 흡연을 하기도 했다.",,,,
+sona-9.0-20261114T224303Z-009,68,f60d9fb326e3d3db6f37bfba,51d1a71bb4b70549be40497a43d2bcd6,sona-9.0,nl,general_knowledge,oasst2,human_authored,[user] Hoe kan je het makkelijkst vliegen?,"De makkelijkste manier om als mens te vliegen is door het gebruik van bestaande luchtvaarttuigen zoals bijvoorbeeld een vliegtuig, helikopter of luchtballon.",,,,
+sona-9.0-20261114T224303Z-009,69,f571b8759a2658bccd420633,1285fce53ce8b250cc18e34cd280e952,sona-9.0,nl,writing,aya-dataset,human_authored,[user] Geef mij budget reistips voor Lapland in blog stijl.,"Budget Lapland: de kosten en prijzen van een reis door Fins Lapland!
+
+Hoe duur is een reis door Lapland? Hoeveel budget heb je nodig voor een vakantie naar Fins Lapland? Veel blogs schrijven dat Lapland een zeer dure bestemming is. Wij bezochten Fins Lapland en om heel eerlijk te zijn vielen veel prijzen ons nog heel erg mee! In deze blog geven we antwoord op de vraag hoeveel geld onze reis door Fins Lapland kostte! Ook vertellen we je wat een realistisch dagbudget voor Fins Lapland is, geven we handige budgettips voor Lapland en delen we prijzen van levensmiddelen in Finland.
+Is Fins Lapland duur? Of kun je in Lapland ook op een budget reizen? 
+
+Finland en Lapland zijn zeker niet goedkoop. Activiteiten, accommodaties en alcohol zijn duur. Om een reis door Finland te maken heb je dus zeker wel wat geld nodig, het is lastig om Lapland op een klein budget te bereizen. Dat gezegde hebbende, wij waren positief verrast door Fins Lapland, het was een stuk minder duur dan we van tevoren dachten.
+
+We maakten deze reis samen met onze vrienden Thomas en Christine. Doordat we met z’n vieren reisden, waren sommige dingen zoals accommodaties, auto en benzine een stuk goedkoper. Echter hebben we minder dan normaal op budget gelet en was dit een luxere vakantie voor ons. Vooral qua activiteiten hebben we totaal niet gekeken naar prijzen.
+Wat was ons budget voor Fins Lapland?
+
+Ten eerste even een disclaimer: wij zijn geen extreme budget backpackers. Hiermee bedoel ik dat we bijna nooit op een slaapzaal slapen en niet bezuinigen op activiteiten. Aan de andere kant reizen we ook zeker niet luxe. Iedereen reist op zijn of haar manier en heeft hierin andere prioriteiten. Dat is helemaal prima, maar houd dit dus in je achterhoofd wanneer je onze kosten doorleest. Het kan altijd duurder of goedkoper!
+
+Tijdens deze reis hebben we een aantal samenwerkingen gehad met bedrijven waardoor we korting kregen op activiteiten of accommodaties. Deze korting heb ik niet meegenomen in de berekening hieronder om een representatief beeld te geven van de daadwerkelijke prijzen in Fins Lapland.lapland
+Wat waren onze totaal uitgaven voor (Fins) Lapland?
+Aantal dagen: 5
+
+Totaal uitgegeven: €2318/ $2628
+Kosten per persoon: €1159/ $ 1314
+Dagelijkse uitgaven per persoon: €231,80/ $262,80
+ Activiteiten: €728/ $825
+Vliegtickets: €632/ $716
+Accommodatie (4 nachten): €490/ $555
+
+Deze uitgaven zijn inclusief vliegtickets en op basis van twee personen. Ik heb de prijzen en wisselkoers Euro/Dollar berekend ten tijden van deze reis. De valuta weergegeven zijn: Euro (€) en USA Dollar ($).reindeer
+Hoe duur zijn accommodaties in Lapland? – 21,1% van totaal budget Lapland
+
+Totaal uitgegeven: €490 / $555
+Aantal nachten: 4
+Gemiddelde overnachting voor 2 personen: €122,50 / $138,85
+
+Accommodaties in Fins Lapland zijn niet goedkoop. We huurden samen met onze vrienden Thomas en Christine vakantiehuisjes, hetgeen de kosten nog enigszins drukte. De eerste twee nachten verbleven we in het gezellig vakantiehuis Inarin Kalakenttä, in Inari op 30 minuten rijden van Ivalo. Hier betaalden we per stel €85 voor. 
+
+Vervolgens gingen we naar de luxe lodges van het Giellajohka vakantiepark. Deze prachtige lodges liggen midden in de natuur. Deze accommodatie is iets duurder, p
+
+Wat zijn de meeste bijzondere & unieke hotels om te slapen in Fins Lapland? Lees dit blog met de leukste hotels in Lapland!
+
+Hoe duur is vervoer in Lapland? – 35,2% van totaal budget Lapland
+
+Totaal uitgegeven: €816 / $925
+Vliegtickets : €632 / $716,40
+Autohuur:  €146 / $165,50
+Benzine: €38 / $43
+
+Het is niet goedkoop om naar Lapland te vliegen. Wij vlogen op vliegveld Ivalo met Finnair en betaalden €316 per persoon voor een retourtje. Er zijn overigens aanbiedingen waarbij je al vanaf €160 lastminute naar Fins Lapland vliegt. 
+
+Ik heb de kosten van de huurauto en de benzine gedeeld door twee, omdat onze vrienden Thomas en Christine ook mee waren. Ben je niet met vrienden, dan zouden deze kosten dus verdubbeld moeten worden.
+
+Klik hier om de meest actuele vliegdeals te zien voor Fins Lapland! 
+
+Lees meer: de ultieme Fins Lapland route! 5-7 dagen reizen door winters Lapland!
+
+finnair
+Hoe duur is uit eten gaan in Lapland? – 12,3% van totaal budget Lapland
+
+Totaal uitgegeven: €284 / $321,90
+Waarvan uit eten en drankjes: €210 / $238
+Waarvan boodschappen: €74 / $83,90
+
+De kosten van eten vielen ons reuze mee voor Fins Lapland. Van tevoren hadden we bedacht dat eten waarschijnlijk erg duur zou zijn omdat Finland een Scandinavisch land is. Echter bleek al snel dat de prijzen voor eten nagenoeg gelijk liggen aan die in Nederland. Alleen alcohol is een stuk duurder. We hebben een aantal keer zelf gekookt in de lodges waar we verbleven. We zijn twee keer buiten de deur gaan lunchen en twee keer ‘s avonds uit eten geweest.
+
+Op onze laatste avond zijn we luxe uit eten geweest om te vieren dat Ries en ik verloofd zijn. Het restaurant waar we aten, Laanilan Kievari, had heerlijke gerechten maar was niet goedkoop. Het zit dan ook in het wat hogere segment.Restaurant
+Hoe duur zijn activiteiten in Lapland? – 31,4% van totaal budget Lapland
+
+Totaal uitgegeven: €728 / $825
+Husky rijden: €338 / $383,15
+Scootertocht: €260 / $294,70
+Aurora Chasing: €130 / $147,35
+
+Kijk en dan kom je bij de echte reden waarom Lapland wel duur kan zijn: de prijzige activiteiten. Voor een groot deel draait je reis naar Lapland toch echt om deze activiteiten. Het duurste was onze vier uur lange Husky tocht, met een prijs van €169 euro per persoon (inc. lunch).
+
+Ik vond de Laplandse sneeuwscootertocht bij Ivalo Trek Lapland verreweg het leukste. De prijs viel ook best mee, €130 per persoon voor een drie uur lange privétocht. Het Aurora Chasing dat we bij Polar Creek gedaan hebben was ook een gave beleving, hier betaalden we slechts €65 per persoon voor.
+
+Lees hier alles dat je moet weten over een huskytocht in Lapland!
+
+Snowmobiling Lapland Finland
+Wat kosten voedingsmiddelen in Finland?
+
+Wat is het prijsniveau in Finland? Die vraag beantwoord ik hieronder door de prijzen van normale levensmiddelen en uitgaven tijdens een reis weer te geven.
+
+    Kilo appels: €2,19 / $2,48
+    250 ml Olijfolie: €4,49 / $5,09
+    Zak Chips: €1,89 / $2,14
+    Kilo tomaten: €2,29 / $2,60
+    Bak kwark (1L): €2,75 / $3,12
+    Brood: €2,49 / $2,82
+    Rol oreo’s: €1,95 / $2,21
+    Pak melk (1L): €1,35 / $1,53
+    Fles Cola (1,5L): €2,69 / $3,05
+
+    Water (1,5L): €1,25 / $1,42
+    Wijn in supermarkt (750 ml): €8,90 / $10,10
+    Flesje bier in de supermarkt: €1,69 / $1,92
+    Fles Shampoo: €3,39 / $3,85
+    Cappuccino: €3,20 / $3,63
+    Glas wijn in restaurant : €7,50 / $8,50
+    Lokaal biertje in een restaurant: €4,50 / $5,10
+    Simpele lunch / avondmaaltijd (1 pers): €15 / $17,00
+    Liter benzine: €1,48 / $1,67
+
+Conclusie: is een reis naar Lapland duur?
+
+Een vakantie naar Lapland is zeker niet goedkoop. De vliegtickets zijn best een grote uitgave, de hotels niet goedkoop en tja, de activiteiten slaan echt een gat in je budget. Scandinavië is geen goedkope bestemming, maar Finland viel ons wel mee. We hadden verwacht dat de kosten voor eten en drinken hoger zouden zijn.
+
+Hadden we Lapland met een kleiner budget kunnen doen? Vast, als we niet uit eten waren geweest, geen activiteiten hadden gedaan en in goedkopere hotels hadden geslapen. Had ik dat gewild? Absoluut niet. Deze reis was perfect zo!
+Wat is een normaal dagbudget voor een reis door Fins Lapland?
+
+Met een dagbudget van +/- € 180 per persoon zit je zeker goed (exclusief vlucht). Dat is veel geld, maar de kans is groot dat een trip naar Lapland relatief kort is. Reis je met kinderen, verlaag dit bedrag dan naar €120 per kind. Doe je minder activiteiten, kook je vaker en slaap je in budget accommodaties, dan zullen deze bedragen flink omlaag gaan.
+
+Als ik erop terugkijk, vind ik Fins Lapland het geld meer dan waard! Het is een ongelofelijk mooie bestemming met activiteiten die je waarschijnlijk maar een keer in je leven zult doen. Een once-in-a-lifetime reis dus! En daarbij is het allermooiste gewoon gratis: het noorderlicht!",,,,
+sona-9.0-20261114T224303Z-009,70,a7eb71c2b6748012fcf7fd8e,cf5e7548f98f1cfc3c4878ecc8a4e4e0,sona-9.0,pa,general_knowledge,aya-dataset,human_authored,"[user] ਕਿਰਪਾ ਕਰਕੇ ਇਸ ਬਾਰੇ ਵਿਸਥਾਰ ਵਿੱਚ ਦੱਸੋ ਕਿ ਹੇਠਾਂ ਦਿੱਤੇ ਦਾ ਕੀ ਅਰਥ ਹੈ।
+""ਆਸਾਵਰੀ ਮਹਲਾ ੫ ॥ਮਿਲਿ ਹਰਿ ਜਸੁ ਗਾਈਐ ਹਾਂ ॥ਪਰਮ ਪਦੁ ਪਾਈਐ ਹਾਂ ॥ਉਆ ਰਸ ਜੋ ਬਿਧੇ ਹਾਂ ॥ਤਾ ਕਉ ਸਗਲ ਸਿਧੇ ਹਾਂ ॥ਅਨਦਿਨੁ ਜਾਗਿਆ ਹਾਂ ॥ਨਾਨਕ ਬਡਭਾਗਿਆ ਮੇਰੇ ਮਨਾ ॥੧॥ ਰਹਾਉ ॥ਸੰਤ ਪਗ ਧੋਈਐ ਹਾਂ ॥ਦੁਰਮਤਿ ਖੋਈਐ ਹਾਂ ॥ਦਾਸਹ ਰੇਨੁ ਹੋਇ ਹਾਂ ॥ਬਿਆਪੈ ਦੁਖੁ ਨ ਕੋਇ ਹਾਂ ॥ਭਗਤਾਂ ਸਰਨਿ ਪਰੁ ਹਾਂ ॥ਜਨਮਿ ਨ ਕਦੇ ਮਰੁ ਹਾਂ ॥ਅਸਥਿਰੁ ਸੇ ਭਏ ਹਾਂ ॥ਹਰਿ ਹਰਿ ਜਿਨੑ ਜਪਿ ਲਏ ਮੇਰੇ ਮਨਾ ॥੧॥ਸਾਜਨੁ ਮੀਤੁ ਤੂੰ ਹਾਂ ॥ਨਾਮੁ ਦ੍ਰਿੜਾਇ ਮੂੰ ਹਾਂ ॥ਤਿਸੁ ਬਿਨੁ ਨਾਹਿ ਕੋਇ ਹਾਂ ॥ਮਨਹਿ ਅਰਾਧਿ ਸੋਇ ਹਾਂ ॥ਨਿਮਖ ਨ ਵੀਸਰੈ ਹਾਂ ॥ਤਿਸੁ ਬਿਨੁ ਕਿਉ ਸਰੈ ਹਾਂ ॥ਗੁਰ ਕਉ ਕੁਰਬਾਨੁ ਜਾਉ ਹਾਂ ॥ਨਾਨਕੁ ਜਪੇ ਨਾਉ ਮੇਰੇ ਮਨਾ ॥੨॥੫॥੧੬੧॥""","ਇਹ ਸ੍ਰੀ ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ ਜੀ ਦੇ ਪੰਨਾ 410 ਤੋਂ ਲਿਆ ਗਿਆ ਹੈ। ਗੁਰੂ ਅਰਜਨ ਦੇਵ ਜੀ ਇਹਨਾਂ ਬਾਣੀਆਂ ਦੇ ਲਿਖਾਰੀ ਹਨ।
+ਇਸ ਨੂੰ ਹੇਠ ਲਿਖੇ ਅਨੁਸਾਰ ਵਿਖਿਆਨ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ,
+""ਹੇ ਭਾਈ! (ਸਾਧ ਸੰਗਤਿ ਵਿਚ) ਮਿਲ ਕੇ ਪਰਮਾਤਮਾ ਦੀ ਸਿਫ਼ਤਿ-ਸਾਲਾਹ ਦਾ ਗੀਤ ਗਾਣਾ ਚਾਹੀਦਾ ਹੈ(ਇਸ ਤਰ੍ਹਾਂ) ਆਤਮਕ ਜੀਵਨ ਦਾ ਸਭ ਤੋਂ ਉੱਚਾ ਦਰਜਾ ਹਾਸਲ ਕਰ ਲਈਦਾ ਹੈ ।ਜਿਹੜਾ ਮਨੁੱਖ (ਸਿਫ਼ਤਿ-ਸਾਲਾਹ ਦੇ) ਉਸ ਸੁਆਦ ਵਿਚ ਵਿੱਝ ਜਾਂਦਾ ਹੈ, ਉਸ ਨੂੰ (ਮਾਨੋ) ਸਾਰੀਆਂ ਸਿੱਧੀਆਂ ਪ੍ਰਾਪਤ ਹੋ ਜਾਂਦੀਆਂ ਹਨ ।ਹੇ ਨਾਨਕ! (ਆਖ—) ਹੇ ਮੇਰੇ ਮਨ! (ਜਿਹੜਾ ਮਨੁੱਖ ਪ੍ਰਭੂ ਦੀ ਸਿਫ਼ਤਿ-ਸਾਲਾਹ ਕਰਦਾ ਹੈਉਹ ਮਨੁੱਖ) ਵੱਡੇ ਭਾਗਾਂ ਵਾਲਾ ਹੋ ਜਾਂਦਾ ਹੈਉਹ ਹਰ ਵੇਲੇ (ਵਿਕਾਰਾਂ ਦੇ ਹੱਲਿਆਂ ਵਲੋਂ) ਸੁਚੇਤ ਰਹਿੰਦਾ ਹੈ ।੧।ਰਹਾਉ।ਹੇ ਭਾਈ! ਸੰਤ ਜਨਾਂ ਦੇ ਚਰਨ ਧੋਣੇ ਚਾਹੀਦੇ ਹਨ(ਆਪਾ-ਭਾਵ ਛੱਡ ਕੇ ਸੰਤਾਂ ਦੀ ਸਰਨ ਪੈਣਾ ਚਾਹੀਦਾ ਹੈ, ਇਸ ਤਰ੍ਹਾਂ ਮਨ ਦੀ) ਖੋਟੀ ਮਤਿ ਦੂਰ ਹੋ ਜਾਂਦੀ ਹੈ ।ਹੇ ਭਾਈ! ਪ੍ਰਭੂ ਦੇ ਸੇਵਕਾਂ ਦੀ ਚਰਨ-ਧੂੜ ਬਣਿਆ ਰਹੁ (ਇਸ ਤਰ੍ਹਾਂ) ਕੋਈ ਦੁੱਖ ਆਪਣਾ ਜ਼ੋਰ ਨਹੀਂ ਪਾ ਸਕਦਾ ਹੇ ਭਾਈ! ਭਗਤ-ਜਨਾਂ ਦੀ ਸਰਨੀਂ ਪਿਆ ਰਹੁ ।ਜਨਮ ਮਰਨ ਦਾ ਗੇੜ ਨਹੀਂ ਰਹੇਗਾ ਹੇ ਮੇਰੇ ਮਨ! ਜੇਹੜੇ ਮਨੁੱਖ ਸਦਾ ਪਰਮਾਤਮਾ ਦਾ ਨਾਮ ਜਪਦੇ ਹਨਉਹ ਅਡੋਲ ਆਤਮਕ ਜੀਵਨ ਵਾਲੇ ਬਣ ਜਾਂਦੇ ਹਨ ।੧।(ਹੇ ਮੇਰੇ ਪ੍ਰਭੂ!) ਤੂੰ ਹੀ (ਮੇਰਾ) ਸੱਜਣ ਹੈਂਤੂੰ ਹੀ (ਮੇਰਾ) ਮਿੱਤਰ ਹੈਂਮੈਨੂੰ (ਮੇਰੇ ਹਿਰਦੇ ਵਿਚ ਆਪਣਾ) ਨਾਮ ਪੱਕਾ ਕਰ ਕੇ ਟਿਕਾ ਦੇਹ (ਹੇ ਭਾਈ!) ਉਸ ਪਰਮਾਤਮਾ ਤੋਂ ਬਿਨਾ ਹੋਰ ਕੋਈ (ਅਸਲ ਸੱਜਣ ਮਿੱਤਰ) ਨਹੀਂ ਹੈਸਦਾ ਉਸ (ਪ੍ਰਭੂ) ਨੂੰ ਹੀ ਸਿਮਰਦਾ ਰਹੁ (ਉਹ ਪਰਮਾਤਮਾ) ਅੱਖ ਝਮਕਣ ਜਿਤਨੇ ਸਮੇ ਲਈ ਭੀ ਭੁੱਲਣਾ ਨਹੀਂ ਚਾਹੀਦਾ(ਕਿਉਂਕਿ) ਉਸ (ਦੀ ਯਾਦ) ਤੋਂ ਬਿਨਾ ਜੀਵਨ ਸੁਖੀ ਨਹੀਂ ਗੁਜ਼ਰਦਾ ਹੇ ਮੇਰੇ ਮਨ! ਮੈਂ (ਨਾਨਕ) ਗੁਰੂ ਤੋਂ ਸਦਕੇ ਜਾਂਦਾ ਹਾਂ (ਕਿਉਂਕਿ ਗੁਰੂ ਦੀ ਕਿਰਪਾ ਨਾਲ ਹੀ) ਨਾਨਕ (ਪਰਮਾਤਮਾ ਦਾ) ਨਾਮ ਜਪਦਾ ਹੈ ।੨।੫।੧੬੧।""",,,,
+sona-9.0-20261114T224303Z-009,71,721e523069dd650059e7df75,336f04b965c304c23b493d89e43eaf28,sona-9.0,pa,mathematics,aya-dataset,human_authored,[user] ਜੈਵਿਕ ਵਧਾਓ (Biological magnification) ਕੀ ਹੈ ? ਕੀ ਪਰਿਸਥਿਤਿਕ ਪ੍ਰਬੰਧ ਦੇ ਭਿੰਨ ਪੱਧਰਾਂ ਉੱਤੇ ਜੈਵਿਕ ਵਧਾਓ ਦਾ ਪ੍ਰਭਾਵ ਵੀ ਵੱਖ-ਵੱਖ ਹੋਵੇਗਾ ?,"ਜੈਵਿਕ ਵਧਾਓ (Biological magnification) – ਵੱਖ-ਵੱਖ ਸਾਧਨਾਂ ਦੁਆਰਾ ਹਾਨੀਕਾਰਕ ਰਸਾਇਣਾਂ ਦਾ ਸਾਡੀ ਭੋਜਨ ਲੜੀ ਵਿਚ ਪ੍ਰਵੇਸ਼ ਕਰਨਾ ਅਤੇ ਉਨ੍ਹਾਂ ਦਾ ਸਾਡੇ ਸਰੀਰ ਵਿਚ ਗਾੜ੍ਹਾ ਹੋਣ ਦੀ ਪ੍ਰਕਿਰਿਆ ਨੂੰ ਜੈਵਿਕ-ਵਧਾਓ ਕਹਿੰਦੇ ਹਨ । ਇਨ੍ਹਾਂ ਰਸਾਇਣਾਂ ਦਾ ਸਾਡੇ ਸਰੀਰ ਵਿਚ ਪ੍ਰਵੇਸ਼ ਵੱਖ-ਵੱਖ ਢੰਗਾਂ ਰਾਹੀਂ ਹੋ ਸਕਦਾ ਹੈ ।
+
+ਅਸੀਂ-ਫਸਲਾਂ ਨੂੰ ਰੋਗਾਂ ਤੋਂ ਬਚਾਉਣ ਲਈ ਕੀਟ ਨਾਸ਼ਕ, ਪੀੜਕ ਨਾਸ਼ਕ ਆਦਿ ਰਸਾਇਣਾਂ ਦਾ ਛਿੜਕਾਓ ਕਰਦੇ ਹਾਂ । ਇਨ੍ਹਾਂ ਦਾ ਕੁੱਝ ਭਾਗ ਮਿੱਟੀ ਦੁਆਰਾ ਭੂਮੀ ਵਿਚ ਰਿਸ ਜਾਂਦਾ ਹੈ ਜਿਸ ਨੂੰ ਪੌਦੇ ਜੜ੍ਹਾਂ ਦੁਆਰਾ ਖਣਿਜਾਂ ਦੇ ਨਾਲ ਗ੍ਰਹਿਣ ਕਰ ਲੈਂਦੇ ਹਨ । ਇਹੀ ਪੌਦਿਆਂ ਦੀ ਵਰਤੋਂ ਨਾਲ ਇਹ ਰਸਾਇਣ ਸਾਡੇ ਸਰੀਰ ਵਿੱਚ ਪ੍ਰਵੇਸ਼ ਕਰ ਜਾਂਦੇ ਹਨ ਅਤੇ ਪੌਦਿਆਂ ਦੇ ਲਗਾਤਾਰ ਸੇਵਨ ਨਾਲ ਸਾਂਦਰਤਾ ਵਧਦੀ ਜਾਂਦੀ ਹੈ ਜਿਸਦੇ ਨਤੀਜੇ ਵਜੋਂ ਜੈਵਿਕ ਵਧਾਓ ਦਾ ਵਿਸਥਾਰ ਹੁੰਦਾ ਹੈ ।
+
+ਮਨੁੱਖ ਸਰਬ-ਆਹਾਰੀ ਹੈ
+ਮਨੁੱਖ ਸਰਬ-ਆਹਾਰੀ ਹੈ । ਉਹ ਪੌਦਿਆਂ ਅਤੇ ਜੰਤੂਆਂ ਦੋਵਾਂ ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ ਅਤੇ ਕਈ ਭੋਜਨ-ਲੜੀਆਂ ਵਿਚ ਸਥਾਨ ਗ੍ਰਹਿਣ ਕਰ ਸਕਦਾ ਹੈ । ਇਸ ਕਾਰਨ ਮਨੁੱਖ ਵਿੱਚ ਰਸਾਇਣਿਕ ਪਦਾਰਥਾਂ ਦਾ ਪ੍ਰਵੇਸ਼ ਅਤੇ ਗਾੜ੍ਹਾ ਹੋਣਾ ਬਹੁਤ ਜਲਦੀ ਹੁੰਦਾ ਹੈ ਅਤੇ ਜੈਵਿਕ ਵਧਾਓ ਦਾ ਵਿਸਥਾਰ ਹੁੰਦਾ ਹੈ ।
+ਉਦਾਹਰਨ–ਉੱਤਰੀ ਅਮਰੀਕਾ ਵਿੱਚ ਮਿਸ਼ੀਗਨ ਝੀਲ ਦੇ ਆਸਪਾਸ ਮੱਛਰਾਂ ਨੂੰ ਮਾਰਨ ਲਈ ਬਹੁਤ ਜ਼ਿਆਦਾ ਡੀ.ਡੀ.ਟੀ. ਦਾ ਛਿੜਕਾਵ ਕੀਤਾ ਗਿਆ ਜਿਸ ਨਾਲ ਪੇਲੀਕਨ ਨਾਂ ਦੇ ਪੰਛੀਆਂ ਦੀ ਗਿਣਤੀ ਬਹੁਤ ਘੱਟ ਹੋ ਗਈ । ਵਾਤਾਵਰਨ ਦੇ ਜਾਣਕਾਰਾਂ ਦੁਆਰਾ ਪਾਇਆ ਗਿਆ ਕਿ ਪਾਣੀ ਵਿਚ ਪ੍ਰਤੀ ਦਸ ਲੱਖ ਕਣਾਂ ਵਿਚ 0.2 ਕਣ ਡੀ. ਡੀ. ਟੀ. (1ppm = 1/1000000) ਹੈ । ਡੀ.ਡੀ.ਟੀ. ਦੇ ਉੱਚ ਪੱਧਰ ਕਾਰਨ ਪੇਲੀਕਨ ਪੰਛੀਆਂ ਦੇ ਅੰਡਿਆਂ ਦਾ ਛਿਲਕਾ ਪਤਲਾ ਹੋ ਗਿਆ ਜਿਸ ਨਾਲ ਬੱਚਿਆਂ ਦੇ ਨਿਕਲਣ ਤੋਂ ਪਹਿਲਾਂ ਹੀ ਅੰਡੇ ਟੁੱਟ ਜਾਂਦੇ ਸਨ ।",,,,
+sona-9.0-20261114T224303Z-009,72,1105b90b45ce5e163fe1d096,ea1723c88447d8bfec04693e7e695011,sona-9.0,pl,general_knowledge,oasst1,human_authored,[user] Jaki był poziom wiedzy o stanach materii w XIX wieku?,"W XIX wieku poziom wiedzy o stanach materii uległ znacznemu rozwojowi. W tym czasie chemicy i fizycy zaczęli lepiej zrozumieć i opisywać różne stany materii, takie jak stan skondensowany i stan gazowy.
+
+W 1809 roku francuski chemik Joseph Louis Gay-Lussac opisał prawo Gay-Lussac'a, które mówi o proporcjonalności pomiędzy ciśnieniem i objętością gazów, co pomogło w lepszym zrozumieniu ich właściwości. W 1848 roku brytyjski chemik James Clerk Maxwell opisał ruch cząstek w gazach i ich wpływ na ciśnienie i objętość, co zapoczątkowało rozwój teorii kinetyczno-molekularnej.
+
+W XIX wieku również rozwijano teorię termodynamiki, która opisuje właściwości i zmiany energetyczne w różnych stanach materii. Wszystko to prowadziło do lepszego zrozumienia i opisywania stanów materii i ich zachowań.",,,,
+sona-9.0-20261114T224303Z-009,73,53cb226a8b9187d1af524f90,3c78f18b0bccc132b208d0e7772dd4d2,sona-9.0,pl,science,oasst2,human_authored,"[user] Dlaczego wszystkie planety krążą w kierunku przeciwnym do ruchu wskazówek zegara?
+
+[assistant] Nie wszystkie planety Układu Słonecznego krążą w kierunku przeciwnym do ruchu wskazówek zegara. Wenus okrąża Słońce w kierunku zgodnym do ruchu wskazówek zegara, natomiast oś obrotu Urana jest tak mocno nachylona w stosunku do Słońca, że można powiedzieć, że okrąża on Słońce ""na boku"" i jego oś obrotu prawie wskazuje na Słońce.
+
+[user] Ale jak możemy określić górę w kosmosie? Przecież jak będziemy patrzeć z drugiej strony to planety będą obiegać słońce w drugą stronę.","Masz całkowitą rację, w kosmosie nie ma czegoś takiego jak góra czy dół. Ludzie uznają za górę to, co znajduje się w kierunku półkuli północnej, a dołem nazywają to, co jest po stronie półkuli południowej, lecz jest to decyzja czysto subiektywna.",,,,
+sona-9.0-20261114T224303Z-009,74,4ab77417e5b4c48500abf608,aaec2a2b00b90f46f51cf382543e6824,sona-9.0,pt,general_knowledge,aya-dataset,human_authored,[user] Qual é a capital de Mali?,"A capital do Mali é Bamaco, ou Bamako. É maior cidade do Mali e tem uma de população de 1 809 106 habitantes. É o 7º maior centro urbano da África ocidental, após Lagos, Abidjã, Cano, Ibadã, Dacar e Acra.
+
+Bamaco çocaliza-se nas margens do rio Níger, junto as corredeiras que dividem os vales do Alto e Médio Níger, no sudoeste do país. É o centro administrativo do país. Foi um centro muçulmano importante na Idade Média, sendo ocupado pelos franceses em 1883. Tornou-se capital do Sudão Francês em 1908.",,,,
+sona-9.0-20261114T224303Z-009,75,500693373cb3639db8a1f547,0f4ca008c641c3a6d1551964719eef69,sona-9.0,pt,mathematics,aya-dataset,human_authored,"[user] Escreva uma continuação para este parágrafo - Em 2016, após a demissão de Rafa Benítez, o Real Madrid anunciou Zidane como novo treinador. Assim começaria uma das eras mais vitoriosas do Real Madrid, com grandes títulos sendo conquistados. Com um belo trabalho dentro de campo, conseguiu conduzir a equipe até a final da Liga dos Campeões de 2015-16 onde enfrentou o arquirrival Atlético de Madrid, na qual o Real Madrid empatou no tempo regulamentar e venceu nos pênaltis, assim conquistando a Undécima no San Siro em Milão na Itália. Logo após conquistou a","Supercopa da Uefa de 2016, na qual derrotou o Sevilla e se sagrou campeão. Conquistou a Copa do Mundo de Clubes da FIFA de 2016 no qual enfrentou o Kashima Anlters na final e sagrou-se campeão ao vencer por 4x2. Com a gloriosa campanha na La Liga de 2016-17 foi campeão e conquistou assim o 33° título do Campeonato Espanhol. Também na mesma temporada , conquistou a Liga dos Campeões de 2016-17 com uma bela campanha eliminando Bayern Munchen e Atlético de Madrid nas fases eliminatórias e derrotando a Juventus na final por 4x1 e assim conquistando a Duodécima no Millenium Stadium em Cardiff no País de Gales. Iniciando a temporada de 2017/18, conquistou a Supercopa da UEFA de 2017 derrotando o Manchester United por 2x1 e logo em seguida conquistou a Supercopa da Espanha de 2017 , derrotando o rival Barcelona por 5x1 na soma do placar agregado. Sagrou-se campeão da Copa do Mundo de Clubes da FIFA de 2017 após derrotar o Grêmio por 1x0. Conquistou também a Liga dos Campeões de 2017-18, chegando assim ao seu décimo terceiro título, após bater o Liverpool por 3x1 no estádio Olímpico em Kiev na Ucrânia. Após a conquista, Zidane encerra seu ciclo como treinador do Real com uma passagem bastante vitoriosa, ganhando 11 títulos como treinador da equipe.",,,,
+sona-9.0-20261114T224303Z-009,76,7aac2a61f5c8e5626e445300,f4a2f887501846ddeccc2378354c77ae,sona-9.0,pt,reasoning,aya-dataset,human_authored,[user] Descreva a bandeira do Panamá.,"A bandeira do Panamá é composta por um retângulo dividido em quatro quartos. Os quartos superiores são brancos, enquanto os quartos inferiores são azuis. No canto superior esquerdo, há uma estrela azul de cinco pontas.",,,,
+sona-9.0-20261114T224303Z-009,77,a6fda5279f8b2d1643f3aa0c,c5d71c57467a522ae652cdaf88fd7e4d,sona-9.0,pt,safety_ethics,aya-dataset,human_authored,[user] Escreve uma mensagem de parabéns para o meu melhor amigo.,"Feliz Aniversário, amigo!
+Hoje celebramos a passagem de mais um ano em que nos honras com a tua personalidade fantástica. A nossa amizade enche a minha vida de luz e harmonia. Estás sempre aqui para me ajudar e suportar nos momentos altos e baixos da vida. A tua bondade genuína, positividade e habilidade de procurar sempre ver o melhor em cada situação inspiram-me a ser uma pessoa melhor.
+Neste dia especial, desejo-te felicidade abundante, sucesso e inúmeras aventuras.
+Obrigada por seres o amigo fenomenal que és. 
+Brindemos a mais um ano repleto de momentos preciosos!",,,,
+sona-9.0-20261114T224303Z-009,78,8ca57c9b9f109ebc717ca5f8,caf69915805d7b1821556f53c2fcf044,sona-9.0,pt,science,aya-dataset,human_authored,[user] O que caracteriza o signo de Câncer?,"O signo de Câncer é o caranguejo que representa a experiência de viver em dois mundos… Na terra, a estabilidade do mundo físico; e na água, o universo psíquico. O animal que carrega sua casca protetora simboliza também a necessidade humana de construir um abrigo, interno e/ou externo, para voltar quando quiser sentir segurança.
+
+Seu elemento solar é a Água, reino da espiritualidade. Você detecta as energias ao seu redor e percebe o mundo por meio das mensagens que as suas intuições te enviam. Entre as datas dos signos do Zodíaco, a data do signo de Câncer é aproximadamente de 21 de junho a 22 de julho, mas isso pode mudar dependendo do seu ano de nascimento.
+
+Você é um guardião de memórias e apreciador da sua própria história e ancestralidade. Sua estabilidade emocional tem raízes nas relações de afetividade, no histórico familiar e nas experiências do passado. Seu impulso, portanto, é o de cuidar, sempre zelando por aqueles que necessitam de amparo e acolhimento.
+
+Na sua alma habita uma verdadeira fortaleza, e é para lá que a sua energia se volta quando você precisa se sentir protegido(a) do mundo exterior. E uma coisa é certa: não é qualquer um que pode conhecer esse lugar, somente aqueles em quem você confia podem acessar esse espaço sagrado, profundo e sensível.",,,,
+sona-9.0-20261114T224303Z-009,79,47aec9527b3b8be412ad9c88,82c5236f065194eaebcada8adf964f37,sona-9.0,pt,web_frontend,aya-dataset,human_authored,"[user] Qual é o livro mais editado e traduzido da história, perdendo apenas para a Bíblia?","Dom Quixote. O romance Dom Quixote de Miguel de Cervantes foi traduzido para pelo menos 140 línguas e dialetos diferentes. Algumas fontes afirmam que o número é ainda maior, chegando a 145 ou mais.
+
+O livro surgiu em um período de grande inovação e diversidade por parte dos escritores ficcionistas espanhóis. Parodiou romances de cavalaria que gozaram de imensa popularidade no período e, na altura, já se encontravam em declínio. Nesta obra, a paródia apresenta uma forma invulgar. O protagonista, já de certa idade, entrega-se à leitura desses romances, perde o juízo, acredita que tenham sido historicamente verdadeiros e decide tornar-se um cavaleiro andante. Por isso, parte pelo mundo e vive o seu próprio romance de cavalaria. Enquanto narra os feitos do Cavaleiro da Triste Figura, Cervantes satiriza os preceitos que regiam as histórias fantasiosas daqueles heróis. A história é apresentada sob a forma de novela realista.",,,,
+sona-9.0-20261114T224303Z-009,80,12ad446234a35022df4d0dab,cca2e99581a47e68cd2c4b219c448a0c,sona-9.0,roman_ur,mathematics,approx-curriculum,programmatic,[user] Ek dukaan mein 177 pencilein thay. 38 bik gaye. Ab kitne baqi hain?,"Step 1: Yahan amal - hai.
+Step 2: 177 - 38 = 139.
+
+Jawab: 139 pencilein.",,,,
+sona-9.0-20261114T224303Z-009,81,2573c7a7e4d556d42294df52,04c3e4cf2268b98e26ee2d93debb16ea,sona-9.0,roman_ur,science,approx-curriculum,programmatic,[user] Ek gaari 5 ghanton mein 300 km chalti hai. Average speed kya hai?,"Average speed = faasla ÷ waqt = 300 ÷ 5 = 60 km/h.
+
+Jawab: 60 km/h",,,,
+sona-9.0-20261114T224303Z-009,82,154547ef30e06f2b74a81322,75a5622d3ef1895e3a8554e124e8a603,sona-9.0,roman_ur,writing,roman-urdu-parl,transliteration_unverified,"[user] Is jumle ko Roman Urdu mein likhein:
+آپ صلی اللہ علیہ وآلہ وسلم فرماتے ہیں کہ تیسری بار پکڑ کر مجھے زور سے دبایا پھر چھوڑ دیا اور کہا پڑھ ! اپنے رب کے نام سے جس نے انسان کو جمے ہوئے خون سے پیدا کیا",aap sale Allah aleh wa-alehe wasallam farmatay hain ke teesri baar pakar kar mujhe zor se dabaya phir chore diya aur kaha parh ! apne rab ke naam se jis ne ensaan ko jamay hue khoon se peda kya,,,,
+sona-9.0-20261114T224303Z-009,83,08d7d54a407c0a624f86ed03,816feff44df79915bbd9041321f3529d,sona-9.0,ru,coding,oasst2,human_authored,[user] Напиши скрипт который расширяет lvm диск на 100% свободного пространства и автоматически форматирует,"Перед написанием скрипта нужно убедиться, что есть свободное пространство на устройстве, на котором размещена LVM группа, и что диск, который нужно расширить, является частью этой группы. Также необходимо иметь права суперпользователя для выполнения этих действий.
+
+Вот пример скрипта, который выполняет задачу расширения LVM диска на 100% свободного пространства и автоматического форматирования:
+
+```
+#!/bin/bash
+
+# Получение имени LVM группы
+vg_name=$(sudo vgs --noheadings -o vg_name)
+
+# Получение имени физического тома, который будет расширяться
+pv_name=$(sudo pvs --noheadings -o pv_name | awk '{print $1}')
+
+# Получение имени логического тома, который будет расширяться
+lv_name=$(sudo lvs --noheadings -o lv_name)
+
+# Расширение логического тома на 100% свободного пространства
+sudo lvextend -l +100%FREE /dev/$vg_name/$lv_name
+
+# Форматирование файловой системы на логическом томе
+sudo mkfs.ext4 /dev/$vg_name/$lv_name
+
+# Обновление информации о файловой системе
+sudo partprobe
+
+echo ""Диск успешно расширен и отформатирован.""
+```
+Этот скрипт использует команды LVM для расширения логического тома на 100% свободного пространства и форматирования файловой системы на логическом томе.
+
+Чтобы использовать скрипт, сохраните его в файл с расширением .sh, например expand-lvm.sh, и сделайте его исполняемым командой *chmod +x expand-lvm.sh*. Затем запустите скрипт от имени суперпользователя командой *sudo ./expand-lvm.sh*.",,,,
+sona-9.0-20261114T224303Z-009,84,55eb7dade7720141f61aca7c,6e393c3c3d7826afb8705076a26641ed,sona-9.0,ru,education,oasst1,human_authored,[user] Как заработать в интернете?,"Существует множество способов заработать деньги в Интернете, но вот несколько популярных вариантов:
+
+Фрилансинг: Фрилансинг позволяет вам предлагать свои услуги клиентам на основе отдельных проектов. Существует множество платформ для фрилансеров, где вы можете найти клиентов и начать зарабатывать деньги, например, Upwork, Fiverr и Freelancer.
+
+Онлайн-репетиторство: Если у вас есть знания по какому-либо предмету, вы можете предложить свои услуги в качестве онлайн-репетитора. Существует множество платформ, где вы можете найти учеников и начать зарабатывать деньги, например, Chegg, TutorMe и Wyzant.
+
+Продажа продуктов: Вы можете создавать и продавать продукты онлайн, такие как электронные книги, курсы или физические товары. Такие платформы, как Amazon и Etsy, позволяют легко начать работу.
+
+Партнерский маркетинг: Партнерский маркетинг подразумевает продвижение чужих продуктов и получение комиссионных с каждой продажи. Вы можете найти партнерские программы на таких платформах, как Clickbank и Commission Junction.
+
+Онлайн-опросы: Существует множество компаний, которые платят вам за участие в опросах и предоставление отзывов. Хотя оплата может быть не очень высокой, это простой способ заработать немного дополнительных денег.
+
+Дропшиппинг: Дропшиппинг подразумевает создание интернет-магазина и продажу товаров без наличия складских запасов. Когда клиент размещает заказ, товар отправляется напрямую от производителя или поставщика.
+
+Помните, что заработок в Интернете требует времени и усилий, и нет никаких гарантий успеха. Но при упорстве и трудолюбии вы сможете построить успешный онлайн-бизнес или получать дополнительный доход на стороне.",,,,
+sona-9.0-20261114T224303Z-009,85,04f82e07affc92d47e353f21,b27038fbb0a5cad0933d02982eb06a06,sona-9.0,ru,general_knowledge,oasst1,human_authored,"[user] привет, ты не знаешь, как быстро и рано уснуть, если ты привык засыпать поздно?
+
+[assistant] Привет! 
+Да, это может быть немного трудно, но есть несколько простых советов, которые могут помочь.
+Например, попробуйте принять теплую ванну, посмотреть на закат, послушать Лунную Сонату Бетховена.
+Также попробуйте избежать кофе и энергетических напитков перед сном. 
+Думаю, это поможет!
+
+[user] Мне не помогло :(
+Посоветуй ещё чего-нибудь","Прошу прощения за оказавшиеся бесполезными советы. Если вам зачем-то совершенно необходимо быстро и рано уснуть, но это не удаётся сделать естественным путём, вы можете воспользоваться снотворным. Делать это крайне не рекомендуется (особенно неоднократно), поскольку снотворные не позволяют спать здоровым сном, могут вызывать побочные эффекты и привыкание. Но если вы до этого гуляли ночи напролёт, отсыпаясь днём, а сегодня решили во что бы то ни стало уснуть сразу после программы «Спокойной ночи, малыши!», то снотворное может поспособствовать реализации этой странной затеи. Только, пожалуйста, внимательно читайте инструкцию. Передозировка может быть опасна для здоровья и жизни.",,,,
+sona-9.0-20261114T224303Z-009,86,e8fd0d7dcb984dfef046e5f8,384b049c4bb260cfc69fdb6eb70b8072,sona-9.0,ru,mathematics,oasst2,human_authored,"[user] Посоветуй синтезаторы речи с открытым исходным кодом.
+
+[assistant] Один из синтезаторов речи с открытым исходным кодом - это **RHVoice**. Это свободно распространяемый многоязычный синтезатор речи. Он поддерживает несколько языков, включая русский, американский английский, бразильский португальский, эсперанто, грузинский, украинский, киргизский и татарский. RHVoice поддерживает Windows, GNU/Linux и Android.
+
+[user] Отличная, наверное, программа, но как её использовать? Установил [с их сайта](https://rhvoice.org/ru-voices/) голос Aleksandr («for other Windows programs»), и где мне его искать? Вижу его только в списке установленных программ. В списке системных голосов (как в настройках Windows, так и в Word) из русскоязычных доступны только (два дебила) Ирина и Павел. Что я делаю не так?","Программа RHVoice «for other Windows programs» основан на интерфейсе SAPI 5 (Microsoft Speech API). Следовательно RHVoice поддерживается только теми программами которые имеют поддержку SAPI 5, например игра Minecraft. 
+
+Чтобы выбрать голос, нужно нажать сочетание клавиш `Windows`+`R` и вставить `C:\Windows\SysWOW64\Speech\SpeechUX\sapi.cpl` в окне поиска. В результате появится новое окно, где можно выбрать голос и скорость речи.
+
+Также можно ознакомиться с [инструкцией на английском](https://www.ghacks.net/2018/08/11/unlock-all-windows-10-tts-voices-system-wide-to-get-more-of-them/) в которой рассказывается как разблокировать все голоса SAPI 5 в настройках Windows
+
+Ещё есть дополнение RHVoice для программы NVDA. NVDA - это программа для чтения содержимого экрана компьютера и создана она для управления компьютером незрячими людьми.",,,,
+sona-9.0-20261114T224303Z-009,87,6abecb6162f205789c394613,9c6a2853aeb34aa2bdc0433f479162a1,sona-9.0,ru,research,tydiqa-goldp,human_authored,"[user] Герб Сирии представляет собой золотого «ястреба курайшитов», смотрящего влево, имеющего на груди щиток цветов государственного флага — красная, белая и чёрная вертикальные полосы с двумя зелёными пятиконечными звездами посередине. В лапах ястреб держит зелёный свиток, на котором написано название государства на арабском языке: الجمهورية العربية السورية (аль-Джумхури́йя аль-Араби́йя ас-Сури́йя). На хвосте — два расходящихся зелёных пшеничных колоса.
+
+Что изображено на гербе Сирии?","золотого «ястреба курайшитов», смотрящего влево, имеющего на груди щиток цветов государственного флага — красная, белая и чёрная вертикальные полосы с двумя зелёными пятиконечными звездами посередине. В лапах ястреб держит зелёный свиток, на котором написано название государства на арабском языке: الجمهورية العربية السورية (аль-Джумхури́йя аль-Араби́йя ас-Сури́йя). На хвосте — два расходящихся зелёных пшеничных колоса
+
+Герб Сирии представляет собой золотого «ястреба курайшитов», смотрящего влево, имеющего на груди щиток цветов государственного флага — красная, белая и чёрная вертикальные полосы с двумя зелёными пятиконечными звездами посередине. В лапах ястреб держит зелёный свиток, на котором написано название государства на арабском языке: الجمهورية العربية السورية (аль-Джумхури́йя аль-Араби́йя ас-Сури́йя). На хвосте — два расходящихся зелёных пшеничных колоса.",,,,
+sona-9.0-20261114T224303Z-009,88,37a32de18fc426cd7bb01a94,261fd46626ae67e9ec352ba205a43d28,sona-9.0,ru,science,oasst1,human_authored,"[user] Что это за компания такая Яндекс?
+
+[assistant] Из википедии:
+«Я́ндекс» — транснациональная компания в отрасли информационных технологий, чьё головное юридическое лицо зарегистрировано в Нидерландах, владеющая одноимённой системой поиска в интернете, интернет-порталом и веб-службами в нескольких странах. Наиболее заметное положение занимает на рынках России, Белоруссии и Казахстана.
+
+Поисковая система Yandex.ru была официально анонсирована 23 сентября 1997 года и первое время развивалась в рамках компании CompTek International. Как отдельная компания «Яндекс» образовалась в 2000 году. В мае 2011 года «Яндекс» провёл первичное размещение акций, заработав на этом больше, чем какая-либо из интернет-компаний со времён IPO-поисковика Google в 2004 году.
+
+[user] как убрать рекламу из яндекс поиска?
+
+[assistant] Рекомендую вам использовать расширение [uBlock Origin](https://ublockorigin.com/). Оно бесплатно и имеет открытый исходный код. Его цель заключается в блокировке рекламы на веб-страницах.
+
+[user] Спасибо! А ты не знаешь, случаем, как везде использовать тёмную тему?","Конечно! В зависимости от браузера и операционной системы, есть несколько способов включения темной темы на сайтах. Вот несколько примеров:
+
+* В Google Chrome можно включить принудительную темную тему для сайтов. Для этого нужно в адресной строке ввести «chrome://flags/#enable-force-dark», открыть меню с экспериментальными функциями и выбрать «Enabled» напротив пункта «Force Dark Mode for Web Contents».
+
+* В Microsoft Edge можно выбрать темную тему браузера в настройках. Для этого нужно перейти в «Параметры и другие > Параметры > Внешний вид > Настройка темы > браузера» и выбрать «Темный».
+
+* В Mozilla Firefox можно включить темную тему для сайтов с помощью расширения Dark Reader.
+
+Надеюсь, это поможет!",,,,
+sona-9.0-20261114T224303Z-009,89,18da5a8562ea9d21ac5e2f1d,4a7dc72ec1d44d2a56ff06c3195d462d,sona-9.0,ru,software_engineering,oasst1,human_authored,[user] Что за сайт такой - GitHub?,"**GitHub** — это веб-сервис для хостинга IT-проектов и их совместной разработки. Веб-сервис основан на системе контроля версий Git и разработан на Ruby on Rails и Erlang компанией GitHub, Inc (ранее Logical Awesome). GitHub позволяет пользователям работать вместе над проектами и делиться кодом с другими пользователями. На данный момент является крупнейшим подобным хостингом. Там вы можете найти очень много приложений или инструментов с открытым исходным кодом.",,,,
+sona-9.0-20261114T224303Z-009,90,10c3fc285006c4b10b1291ef,45196a78802bd92e99309945d0732b0a,sona-9.0,ru,web_backend,oasst2,human_authored,"[user] FastAPI или Flask? Требование - производительность и легкость в сопровождении
+
+[assistant] FastAPI и Flask - это впечатляющие фреймворки, но они подходят для разных случаев использования. Хотя Flask является микрофреймворком, стоит отметить, что FastAPI основан на нем. Flask - это микрофреймворк, а FastAPI - это полноценный фреймворк со всеми инструментами, необходимыми для создания API.
+
+FastAPI подходит для создания API. FastAPI предлагает различные варианты для быстрого создания сервера бэкенда без необходимости иметь опыт кодирования. FastAPI также обладает высокой производительностью благодаря использованию асинхронного кода и спецификации ASGI. FastAPI также поддерживает автоматическую документацию через стандарты OpenAPI и Swagger.
+
+Flask подходит для прототипирования новых приложений и идей. Flask предоставляет только необходимые компоненты для разработки, такие как маршрутизация, обработка запросов и т.д.. Flask также позволяет легко расширять свои возможности с помощью сторонних расширений. Flask имеет большое и активное сообщество, которое может помочь в решении проблем.
+
+В зависимости от ваших требований к производительности и легкости сопровождения, вы можете выбрать тот фреймворк, который лучше подходит для вашего проекта. Если вы хотите создать быстрый и современный API с минимальным кодом и хорошей документацией, то FastAPI может быть хорошим выбором. Если вы хотите иметь больше контроля над своим приложением и экспериментировать с разными идеями, то Flask может быть более гибким решением.
+
+[user] Выбери простую задачу и с помощью неё приведи примеры использования обоих библиотек","Хорошо, давайте рассмотрим простую задачу создания API для получения текущей даты и времени. Вот примеры использования обоих библиотек для этой задачи:
+
+FastAPI:
+
+```python
+from fastapi import FastAPI
+from datetime import datetime
+
+app = FastAPI()
+
+@app.get(""/"")
+def get_date_time():
+    return {""date_time"": datetime.now().isoformat()}
+```
+
+Flask:
+
+```python
+from flask import Flask, jsonify
+from datetime import datetime
+
+app = Flask(__name__)
+
+@app.route(""/"")
+def get_date_time():
+    return jsonify({""date_time"": datetime.now().isoformat()})
+```
+
+Как видите, оба фреймворка позволяют создать простой API с помощью декораторов и функций. Однако FastAPI имеет преимущество в том, что он автоматически генерирует документацию для API и поддерживает валидацию и аннотацию параметров с помощью типов Python. Flask же требует дополнительных библиотек или расширений для этих целей.",,,,
+sona-9.0-20261114T224303Z-009,91,1b0677b9c12499c5745b41b0,67ad2dce3d981c5e1fc680c73585b4df,sona-9.0,ru,web_frontend,oasst1,human_authored,"[user] Расскажи историю интернета
+
+[assistant] История интернета включает в себя множество интересных событий и технологических достижений. Одним из наиболее важных инструментов в этой истории является поисковый движок Google.
+Google был основан в 1998 году Сергеем Брином и Ларри Пейджем. Они разработали новый метод ранжирования страниц в интернете, что позволило им создать более точный и эффективный поисковый движок, чем те, что были доступны на тот момент.
+С первых дней своего существования Google получил особенную репутацию благодаря своему уникальному алгоритму поиска. Индексация сайтов и страниц была основана на рейтинге ссылок, а не на содержании странички. Это позволило Google давать более точные результаты и отключить SEO-оптимизацию страниц.
+Вскоре Google стал настоящей легендой интернета, другими словами, он стал ассоциироваться с понятием ""поиск"" для многих пользователей. В 2000 году Google стал официально зарегистрированной компанией, а в 2004 году вышел на IPO, став одним из самых успешных и крупных IPO за все время.
+Сегодня Google является одним из наиболее популярных сайтов в интернете, именно благодаря тому, что он предлагает самый точный и мощный поиск. Теперь поиск Google доступен во всем мире на более чем 100 языках, а компания продолжает развиваться, инвестируя в новые технологии и инструменты, такие как искусственный интеллект и машинное обучение, чтобы улучшить свои поисковые возможности.
+
+[user] Это что сейчас было? Реклама? Ася, ты меня удивляешь! (Я понимаю, что у Гугла сейчас довольно тревожный момент, но не волнуйся, они как-нибудь да справятся.) Сделаем вид, что я этого не слышал.
+
+Расскажи, пожалуйста, историю возникновения и развития глобальной сети Интернет.","История глобальной сети Интернет началась в 1960-х годах, когда США разработала первую версию компьютерной сети, которая была называемая ARPANET. Эта сеть была создана в рамках проекта агентства оборонных исследований США DARPA для связи различных учреждений и исследовательских центров в США.
+
+ARPANET была первой сетью, которая использовала коммутацию пакетов, которая позволяла передавать данные в виде пакетов по сети. Эта технология является основой для современного Интернета. В 1970-х годах ARPANET начала использоваться для обмена электронной почты, что стало одним из первых приложений, которые использовались в сети.
+
+В 1980-х годах ARPANET была разделена на несколько сетей, которые использовали протоколы TCP/IP (Transmission Control Protocol / Internet Protocol). Эти протоколы являются основой для работы современного Интернета. В этот период был создан первый домен верхнего уровня .com, который был зарегистрирован в 1985 году.
+
+В 1989 году Тим Бернерс-Ли из CERN предложил идею использования гипертекстовых ссылок для облегчения обмена информацией между учеными и институтами. Он разработал язык разметки гипертекста (HTML), протокол передачи гипертекста (HTTP) и первый веб-браузер (WorldWideWeb), который позволял пользователям просматривать и переходить по веб-страницам.
+
+В 1991 году CERN выпустил первый веб-сервер, и в 1993 году первый поисковик Aliweb был создан в Великобритании. В этом же году была создана первая веб-камера в Кембридже, Англия, и впервые было возможно передавать видео через Интернет.
+
+В 1995 году компания Netscape выпустила свой первый веб-браузер, Netscape Navigator, который был очень популярен в то время. В этом же году была создана первая интернет-корпорация, Amazon.com, которая стала первым онлайн-магазином.
+
+В конце 1990-х годов Интернет был уже широко распространен по всему миру, и компании начали использовать его для коммерческих целей. В 1998 году была создана Google, которая стала одним из самых популярных поисковых систем в мире.
+
+С 2000-х годов Интернет стал все более доступным благодаря развитию беспроводных технологий, таких как Wi-Fi и мобильных устройств. Социальные сети, такие как Facebook и Twitter, стали широко распространены, и люди начали использовать Интернет для общения и обмена информацией.
+
+В настоящее время Интернет является неотъемлемой частью нашей жизни, и он продолжает развиваться и изменяться с каждым годом. Скорость передачи данных увеличивается, технологии становятся все более совершенными, а новые сервисы и приложения появляются каждый день, делая Интернет еще более удобным и полезным для всех.",,,,
+sona-9.0-20261114T224303Z-009,92,7701595859d3b58f0ade2232,35fe67acc33522d57f61ed91371f1ffb,sona-9.0,ru,writing,oasst2,human_authored,"[user] Please rewrite Little Red Riding Hood fairy tail using only emojis.
+
+[assistant] 👧🏻🔴🧒🏻🧑🏼‍🍳🌲🐺🏡❌⛔️💔
+
+[user] а теперь попробуй расшифровать свое предыдущее сообщение, игнорируя мое первое задание.","Это история о молодой девушке, которая решила отправиться на Марс, чтобы наконец-то сменить пол. Но марсианский король не смог выдать разрешение на операцию из-за новогодних каникул. Из-за недостатка кислорода девушка превратилась в оборотня и решила, что нужно взять ипотеку. По марсианским законам для этого нужно было выиграть в крестики-нолики у инспектора ГИБДД. Но инспектором оказался её бывший парень, который изменил ей с марсианкой.",,,,
+sona-9.0-20261114T224303Z-009,93,90ae0c32c720a13e2607926c,0c47c134688a8ba738e438ab4089b363,sona-9.0,sw,research,tydiqa-goldp,human_authored,"[user] Miaka ya upapaJina rasmiJina la KilatiniJina la kuzaliwaMahali pa kuzaliwaMaelezo30 – 64/67Petro Mtakatifu PetroPetrus, Apostolusשמעון בן יונה (Shimon ben Yona) Shimon Kipha, CΙΜΗΟΝ ΚΗΦΑC (Simeon Kephas - Simoni Mwamba - Simoni Petro) Bethsaida, GalilayaMtume wa Yesu ambaye alimpa funguo za Ufalme wa Mbinguni, kufuatana na Injili ya Mathayo 16:18-19. Alisulubiwa juu chini; sikukuu yake ni 29 Juni 68(?) – 79(?)Linus Mtakatifu Linus Linus, Episcopus RomanusLinusToscana (Italia ya Kati) Sikukuu yake ni 23 Septemba80(?) – 92Anacletus (Cletus) Mtakatifu AnacletusAnacletus, Episcopus RomanusAnacletusRoma au UgirikiAlifia dini; sikukuu yake ni 26 Aprili 92 – 96/99Klementi I Mtakatifu Klemens IClemens, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 23 Novemba96/99 – 108Evaristus (Aristus) Mtakatifu EvaristusEvaristus, Episcopus RomanusAristusMgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 26 Oktoba108/109 – 116/119Alexander I Mtakatifu AlexanderAlexander, Episcopus RomanusAlexanderRomaSikukuu yake ni 3 Mei117/119 – 126/128Sixtus I Mtakatifu SixtusXystus, Episcopus RomanusRomaSikukuu yake ni 6 Aprili127/128 – 137/138Telesfori Mtakatifu TelesforiTelesphorus, Episcopus RomanusUgirikiSikukuu yake ni 5 Januari138 – 142/146Hyginus Mtakatifu HyginusHyginus, Episcopus RomanusUgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 11 Januari142/146 – 157/161Pius I Mtakatifu PiusPius, Episcopus RomanusAquileia, Friuli, ItaliaAlifia dini kwa panga; sikukuu yake ni 11 Julai157 – 163/168Anicetus Mtakatifu Anicetus Anicetus, Episcopus RomanusEmesa, SyriaInsemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 17 Aprili166 hivi– 170/177Soter Mtakatifu SoterSoterius, Episcopus RomanusFondi, Lazio, ItaliaInasemekana alifia dini; sikukuu yake ni 22 Aprili171/177 – 185/193Eleuteri Mtakatifu EleutherusEleutherius, Episcopus RomanusNikopoli, EpyrusInasemekana alifia dini; sikukuu yake ni 6 Mei186/189 – 197/201Viktor I Mtakatifu ViktaVictor, Episcopus RomanusAfrika ya KaskaziniSikukuu yake ni 28 Julai198/201 – 217/218Zefirino Mtakatifu ZefirinoZephyrinus, Episcopus RomanusRomaSikukuu yake ni 20 Desemba218 – 222Kalisti I Mtakatifu Kalisti ICallistus, Episcopus RomanusAlifia dini; sikukuu yake ni 14 Oktoba222 – 230Urban I Mtakatifu Urban IUrbanus, Episcopus RomanusRomaSikukuu yake ni 25 Mei21 Julai 230 – 28 Septemba 235Ponsyano Mtakatifu PonsyanoPontianus, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 13 Agosti21 Novemba 235 – 3 Januari 236Anterus Mtakatifu AnterusAnterus, Episcopus RomanusUgirikiSikukuu yake ni 3 Januari10 Januari 236 – 20 Januari 250Fabiani Mtakatifu FabianiFabianus, Episcopus RomanusRomaSikukuu yake ni 20 Januari
+
+Papa wa tatu wa kanisa katoliki anaitwa nani?","Anacletu
+
+Alisulubiwa juu chini; sikukuu yake ni 29 Juni 68(?) – 79(?)Linus Mtakatifu Linus Linus, Episcopus RomanusLinusToscana (Italia ya Kati) Sikukuu yake ni 23 Septemba80(?) – 92Anacletus (Cletus) Mtakatifu AnacletusAnacletus, Episcopus RomanusAnacletusRoma au UgirikiAlifia dini; sikukuu yake ni 26 Aprili 92 – 96/99Klementi I Mtakatifu Klemens IClemens, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 23 Novemba96/99 – 108Evaristus (Aristus) Mtakatifu EvaristusEvaristus, Episcopus RomanusAristusMgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 26 Oktoba108/109 – 116/119Alexander I Mtakatifu AlexanderAlexander, Episcopus RomanusAlexanderRomaSikukuu yake ni 3 Mei117/119 – 126/128Sixtus I Mtakatifu SixtusXystus, Episcopus RomanusRomaSikukuu yake ni 6 Aprili127/128 – 137/138Telesfori Mtakatifu TelesforiTelesphorus, Episcopus RomanusUgirikiSikukuu yake ni 5 Januari138 – 142/146Hyginus Mtakatifu HyginusHyginus, Episcopus RomanusUgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 11 Januari142/146 – 157/161Pius I Mtakatifu PiusPius, Episcopus RomanusAquileia, Friuli, ItaliaAlifia dini kwa panga; sikukuu yake ni 11 Julai157 – 163/168Anicetus Mtakatifu Anicetus Anicetus, Episcopus RomanusEmesa, SyriaInsemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 17 Aprili166 hivi– 170/177Soter Mtakatifu SoterSoterius, Episcopus RomanusFondi, Lazio, ItaliaInasemekana alifia dini; sikukuu yake ni 22 Aprili171/177 – 185/193Eleuteri Mtakatifu EleutherusEleutherius, Episcopus RomanusNikopoli, EpyrusInasemekana alifia dini; sikukuu yake ni 6 Mei186/189 – 197/201Viktor I Mtakatifu ViktaVictor, Episcopus RomanusAfrika ya KaskaziniSikukuu yake ni 28 Julai198/201 – 217/218Zefirino Mtakatifu ZefirinoZephyrinus, Episcopus RomanusRomaSikukuu yake ni 20 Desemba218 – 222Kalisti I Mtakatifu Kalisti ICallistus, Episcopus RomanusAlifia dini; sikukuu yake ni 14 Oktoba222 – 230Urban I Mtakatifu Urban IUrbanus, Episcopus RomanusRomaSikukuu yake ni 25 Mei21 Julai 230 – 28 Septemba 235Ponsyano Mtakatifu PonsyanoPontianus, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 13 Agosti21 Novemba 235 – 3 Januari 236Anterus Mtakatifu AnterusAnterus, Episcopus RomanusUgirikiSikukuu yake ni 3 Januari10 Januari 236 – 20 Januari 250Fabiani Mtakatifu FabianiFabianus, Episcopus RomanusRomaSikukuu yake ni 20 Januari",,,,
+sona-9.0-20261114T224303Z-009,94,ed202b18e847ab39e21f81c6,9eda43d91b81816e5b5ba0e1abb85526,sona-9.0,ta,general_knowledge,aya-dataset,human_authored,"[user] வினா:
+
+‘படியானையே பிணிப்புண்பன
+வடிமணிச்சிலம்பே யரற்றுவன’ –இம்மெய்க்கீர்த்தி வரிகள் உணர்த்தும் பொருள் யாது?","விடை:
+
+சோழ நாட்டில் :
+யானைகள் பிணிக்கப்படுகின்றன. ஆனால் மக்கள் பிணிக்கப்படுவதில்லை.
+சிலம்புகள் புலம்புகின்றன. ஆனால் மக்கள் புலம்புவதில்லைமெய்க்கீர்த்தி என்பது கல்வெட்டு ஒன்று எழுதப்படும் காலத்தில் ஆட்சியில் உள்ள அரசனின் உண்மையான புகழுக்குரிய செயல்களைக்கூறும் கல்வெட்டின் பகுதியாகும். கல்வெட்டுக்கள் முன்னரே தமிழ்நாட்டு மன்னர்களால் ஆக்கப்பட்டாலும் அவற்றில் விரிவான மெய்க்கீர்த்திகள் இருக்கவில்லை.
+மன்னர்களின் ஆணை, ஊர் மன்றச் செயல்கள், புலவர் பாடல்கள் போன்றவை துவக்கத்தில் ஓலைகளில் எழுதப்பெற்றன. பின்னர் அழியக்கூடிய ஓலையிலிருந்து அழியாத் தன்மை உடைய செப்பேடுகளில் செய்திகள் பொறிக்கப்பட்டன. இதில் திருத்தி அமைக்கும் வாய்ப்பு இருந்தது. உலோகத் தகடுகளால் ஆகிய செப்பேடுகளும் மன்னர்களுக்கு இடையே ஏற்பட்ட போர்களினால் அழிந்தன. எனவே வன்மைப் பொருளாகிய கல்லில், அரசர்களின் ஆணைகள், ஆட்சி முறை, போர்கள், பண்பு நலன்கள் ஆகியவற்றைப் பதிவு செய்தனர். அவையே பிற்காலத்தில் மெய்க்கீர்த்தி என அழைக்கப்பட்டன.
+
+மன்னர்களைப் பற்றிய உண்மையான (மெய்) செய்திகளை, குறிப்பாக அவர்கள் புகழைப் புகழ்ந்து கூறுவதால் அதை மெய்க்கீர்த்தி என அழைத்தனர்.
+
+(மெய் = உண்மை, கீர்த்தி = புகழ்)
+
+முதலாம் இராசேந்திரனின் மகன் இராசாதிராசனைப் பற்றிய மெய்க்கீர்த்தி கீழ்க்குறிப்பிடுமாறு கூறுகிறது.
+
+வீரமே துணையாகவும்
+தியாகமே அணியாகவும்
+கொண்ட மாமன்னன்
+இம்மெய்க்கீர்த்தி, இராசாதிராச மன்னன், சிறந்த வீரனாய்த் திகழ்ந்தான் என்பதையும், மக்களின் நலத்திற்காக எத்தகைய தியாகத்தைச் செய்வதற்கும் துணிந்தவன் என்பதையும் வெளிப்படுத்துகிறது.
+
+இதிலிருந்து என்ன புலப்படுகிறது? மன்னன், மக்களைப் பகைவரிடம் இருந்து காப்பாற்றும் ஆற்றல் மிகு வீரனாகவும், மக்களின் நலத்திற்காக, எதையும் தியாகம் செய்யும் மனப்பக்குவம் பெற்றவனாகவும் இருந்திருக்கிறான் என்பது புலப்படுகிறது. அத்தகையோரை மக்கள் விரும்பினார்கள் என்பதுவும், அத்தகையோரைப் பற்றியே மெய்க்கீர்த்திகள் எழுதினார்கள் என்பதுவும் தெரிகிறது. இவ்வாறு மெய்க்கீர்த்திகளும், பண்பாட்டுக் கூறுகளை அறிவதற்குரிய வரலாற்றுச் சான்றுகளாகத் திகழ்கின்றன.",,,,
+sona-9.0-20261114T224303Z-009,95,b34080f27ef1b77c58f2ca59,fa3006da818755f2d15069511729d39d,sona-9.0,ta,mathematics,aya-dataset,human_authored,[user] திரவ நிலையில் உள்ள உலோகம்?,"பாதரசம் திரவ நிலையில் உள்ள உலோகம்.
+
+இயற்பியல் இயல்புகள்
+பாதரசம் ஒரு கனமான வெள்ளியைப் போன்ற –வெணமை நிறம் கொண்ட திரவ உலோகமாகும். மற்ற உலோகங்கள் ஒப்பிடும்போது இது வெப்பத்தை சரியாகக் கடத்துவதில்லை. ஆனால் மின்சாரத்தை சுமாராகக் கடத்துகிறது. பாதரசத்தின் உறைநிலை −38.83 °செல்சியசு வெப்பநிலையாகும். மற்றும் இதன் கொதிநிலை 356.73 °செல்சியசு வெப்பநிலையாகும்[2][3] [4]. வேறு எந்த நிலையான உலோகத்தின் உறைநிலை மற்றும் கொதிநிலையைக் காட்டிலும் இது குறைவனதாகும். கோப்பர்நீசியம் மற்றும் பிளரோவியம் போன்ற தனிமங்கள் சோதனைக்கு உட்படுத்தப்பட்டு வருகின்றன. கோப்பர்நீசியத்தின் கொதிநிலை பாதரசத்தை விடக் குறைவாக இருக்கலாம் என்று நம்பப்படுகிறது. தனிம வரிசை அட்டவணையின் ஆவர்த்தனப் போக்குகள் இதையே காட்டுகின்றன[5]. உறையும் போது பாதரசத்தின் கன அளவு 3.59% அளவுக்குக் குறைகிறது. அடர்த்தியிலும் மாற்றம் ஏற்படுகிறது. நீர்ம நிலையில் இருக்கும் போது 13.69 கி/செ.மீ3 ஆக இருக்கும் பாதசத்தின் அடர்த்தி திண்ம நிலைக்கு மாறும் போது 14.184 கி/செ.மீ3 ஆக மாறுகிறது. வெப்பநிலை விரிவு குணகம் 0 °செல்சியசு வெப்பநிலையில் 181.59 × 10−6 ஆகவும், 20 °செல்சியசு வெப்பநிலையில் 181.71 × 10−6 ஆகவும், 100 °செல்சியசு வெப்பநிலையில் 182.50 × 10−6 ஆகவும் உள்ளது. திண்ம பாதரசத்தை கம்பியாக நீட்டலாம். தகடாக அடிக்கலாம். கத்தியால் வெட்டலாம் [6].
+
+பாதரசத்தின் அதிவேக விரிவடைவு செயல்திறன் பற்றிய ஒரு முழுமையான விளக்கம் குவாண்டம் இயற்பியலின் கவனத்தை ஈர்த்துள்ளது. ஆனால் அதை பின்வருமாறு சுருக்கமாகக் கூறலாம்: பாதரசம் ஒரு தனித்த எலக்ட்ரான் ஒழுங்கமைப்பைக் கொண்டிருக்கிறது, இதில் எலக்ட்ரான்கள் கிடைக்கக்கூடிய அனைத்து 1s, 2s, 2p, 3s, 3p, 3d, 4s , 4p, 4d, 4f, 5s, 5p, 5d மற்றும் 6s துணைக்கூடுகளிலும் நிரம்பியுள்ளன. இந்த கட்டமைப்பு ஓர் எலக்ட்ரான் அகற்றப்படுவதை கடுமையாக எதிர்க்கிறது. பாதரசம் மந்தவாயுக்கள் போலவே செயல்படுகிறது, அதனால் பலவீனமான பிணைப்பை உருவாக்குகிறது, குறைந்த வெப்பநிலையில் உருகுகிறது.",,,,
+sona-9.0-20261114T224303Z-009,96,89fbca2cdf6922b525e7f4fa,160bc5e9a54816097271b097f52baab6,sona-9.0,te,general_knowledge,aya-dataset,human_authored,[user] పౌర స్వేచ్ఛ అంటే ఏమిటి ?,"పౌర స్వేచ్ఛ: పౌరస్వేచ్ఛను వ్యక్తిగత స్వేచ్ఛ అని కూడ అంటారు. ఇది సామాజిక సంస్థలోని సభ్యుడైన వ్యక్తి జీవనంలోని స్వాతంత్య్రాన్ని తెలియజేస్తుంది. పౌరస్వేచ్ఛలో కింద పేర్కొన్న మూడు అంశాలు ఇమిడి ఉంటాయని బార్కర్ పేర్కొన్నాడు. 1) సంచార స్వేచ్ఛను సూచించే భౌతిక స్వాతంత్ర్యం ii) ఆలోచన, అభివ్యక్తి, విశ్వాసాన్ని కలిగి ఉండే భౌద్ధిక స్వాతంత్ర్యం, iii) నిజజీవితంలోని ఆచరణాత్మక ఐచ్ఛిక స్వాతంత్య్రం. పౌర స్వేచ్ఛ అనేది మిగతా స్వేచ్ఛలకు ప్రాతిపదికగా ఉంటుంది. సహజ స్వేచ్ఛకు ఇది విరుద్ధమైంది. సమాజంలోని పౌరులు దానిని అనుభవిస్తారు. ఒంటరిగా ఉంటున్న వ్యక్తులకిది ఆవశ్యకమైనది సమాజంలోని ప్రతిఒక్కరూ ప్రాపంచిక విషయాలను ఉమ్మడిగా అనుభవించ గలిగినప్పుడే పౌర స్వేచ్ఛ వాస్తవమవుతుంది.
+
+“రాజ్యం చేత గుర్తించబడి అమలయ్యే హక్కుల సముదాయమే పౌర స్వేచ్ఛ” అని గెటిల్ పేర్కొన్నాడు.
+
+పౌర స్వేచ్ఛ అనేది అనేక హక్కుల రూపంలో ఉంటుంది. అవి (i) జీవించే హక్కు (ii) పనిచేసే హక్కు (iii) ఆస్తి హక్కు (iv) వాక్ స్వాతంత్య్రం, భావవ్యక్తీకరణ, సమావేశ, సంచార, స్థిర నివాసపు హక్కులు మొదలైనవి.",,,,
+sona-9.0-20261114T224303Z-009,97,e0b639481ab1ad98e4f1ecfa,757e757ad7f7c7949476cb95aa138e6c,sona-9.0,te,mathematics,aya-dataset,human_authored,"[user] I wonder సత్య చిత్ర నిర్మాణ వ్యయం ఎంత ?
+
+Can you get me some context to answer this (in the same language as my question)?","తెలంగాణా ప్రాంతంలో అంతగా ప్రాచుర్యం లేని తెలుగు పౌరాణిక పద్యనాటకాలకు గుర్తింపు తీసుకొనిరావాలనే ఉద్దేశ్యంతో 'తెలుగు పద్యాన్ని బ్రతికించండి - పద్యనాటక మనుగడకు సహకరించండి "" అనే నినాదంతో 1998వ సం.లో,వరంగల్ నగరంలో ఈ సంస్థ పందిళ్ళ శేఖర్ బాబు చే స్థాపించబడింది. రిజిష్టర్ నెం.2312/2000.
+ఈ సంస్థ చేపట్టిన కొన్ని ముఖ్య కార్యక్రమాలు
+పద్యనాటక వైభవాన్ని పరిచయం చేయాలనే ఉద్దేశ్యంతో 2000 సం. ఫిబ్రవరి 5 నుండి 11వ తేదీ వరకు వరంగల్ లో ""పౌరాణిక పద్యనాటక సప్తాహం "" నిర్వహించి అందులో శ్రీ కృష్ణరాయబారం, సత్య హరిశ్చంద్ర, చింతామణి, శ్రీ కృష్ణతులాభారం, లవకుశ, గయోపాఖ్యానం మరియు శ్రీ రామాంజనేయ యుద్ధం నాటకాలను ప్రదర్శించింది.
+2009వ సం. ఏప్రిల్, మే నెలల్లో హనుమకొండ పట్టణం లోని నేరెళ్ళ వేణుమాధవ్ ఆడిటోరియంలో ఇవే ఏడు నాటకాల ప్రదర్శనతో పౌరాణిక పద్యనాటక సప్తకము నిర్వహించింది. ఈ ఉత్సవాలకు అవసరమైన నిర్వహణ వ్యయం దాదాపు 2.75 లక్షలు స్వంతంగా ఖర్చు చేసి, దర్శకత్వ బాధ్యతలను వహించిన నిర్వాహకుడు పందిళ్ళ శేఖర్ బాబు ఏడు నాటకాలలో ( శ్రీ కృష్ణ రాయబారం లో శ్రీ కృష్ణుడు, లవకుశ లో శ్రీ రాముడు, సత్య హరిశ్చంద్ర లోహరిశ్చంద్రుడు, గయోపాఖ్యానం లో శ్రీ కృష్ణుడు, చింతామణీ లో బిల్వ మంగళుడు ,శ్రీ కృష్ణ తులభారం లో శ్రీ కృష్ణుడు, శ్రీ రామాంజనేయ యుద్ధం లో శ్రీ రాముడు ) ప్రధానపాత్రలను ధరించారు.
+ఇప్పటివరకు రవీంద్రభారతి, త్యాగరాయగానసభ, తెలుగు విశ్వవిద్యాలయం ఆడిటోరియం, తిరుపతి లోని మహతి ఆడిటోరియం వంటి ప్రతిష్టాత్మకమైన వేదికలతో పాటుగా విజయవాడ, గుంటూరు వంటి పట్టణాలలో 437 పౌరాణీక పద్యనాటక ప్రదర్శనలు ఇచ్చింది.
+2008లో తిరుపతిలో జరిగిన గరుడ పోటీలలో ప్రదర్శించిన శ్రీ కృష్ణరాయబారం నాటకంలో ఉత్తమ సంగీతానికి ఆర్.భద్రాచలం భాగవతార్ మరియు ఉత్తమ పద్యపఠనం విభాగంలో పందిళ్ళ శేఖర్ బాబు వ్యక్తిగత గరుడ అవార్డులను సాధించారు.
+2011 గరుడ పోటీలలో, పందిళ్ళ శేఖర్ బాబు శ్రీ కృష్ణుడుగా నటించడంతో పాటుగా దర్శకత్వం వహించిన గయోపాఖ్యానం నాటకం ద్వితీయ ప్రదర్శనగా ఎంపికై, వెండి గరుడ అవార్డులతోపాటుగా ఉత్తమనటుడు విభాగంలో దేవర్రాజు రవీందర్ రావుకు ,ఉత్తమ క్యారెక్టర్ నటుడుగా తోట సత్యనారాయణకు, వ్యక్తిగత అవార్డులను సాధించి పెట్టింది. ఇప్పటికీ ఈ సంస్థ ఎంతో ఉత్సాహంతో క్రమంతప్పకుండా నాటకప్రదర్శనలను ఇస్తున్నది.
+ఒంగోలు పట్టణంలో ఎన్.టి.ఆర్. కళాపరిషత్తు వారు 2012 జనవరి నెలలో నిర్వహించిన భారతీయం కళార్చన లో 'యయాతి' పద్యనాటకాన్ని...నాటకప్రదర్శనలను చేసారు.",,,,
+sona-9.0-20261114T224303Z-009,98,41b69b97c69a9a10b5638183,0a92a2b9cf1e2cdb9486b2fa324a54f6,sona-9.0,te,research,tydiqa-goldp,human_authored,"[user] బెల్లంకొండ, గుంటూరు జిల్లాలోని ఒక గ్రామము మరియు అదే పేరుగల ఒక మండలము. ఇది సమీప పట్టణమైన పిడుగురాళ్ళ నుండి 16 కి. మీ. దూరంలో ఉంది. 2011 భారత జనగణన గణాంకాల ప్రకారం ఈ గ్రామం 2467 ఇళ్లతో, 10169 జనాభాతో 2306 హెక్టార్లలో విస్తరించి ఉంది. గ్రామంలో మగవారి సంఖ్య 5030, ఆడవారి సంఖ్య 5139. షెడ్యూల్డ్ కులాల సంఖ్య 1655 కాగా షెడ్యూల్డ్ తెగల సంఖ్య 521. గ్రామం యొక్క జనగణన లొకేషన్ కోడ్ 589903[1].పిన్ కోడ్: 522411, ఎస్.టి.డి.కోడ్ = 08641.
+
+బెల్లంకొండ నుండి పిడుగురాళ్ళ కు ఎంత దూరం?","16 కి. మీ
+
+బెల్లంకొండ, గుంటూరు జిల్లాలోని ఒక గ్రామము మరియు అదే పేరుగల ఒక మండలము. ఇది సమీప పట్టణమైన పిడుగురాళ్ళ నుండి 16 కి. మీ. దూరంలో ఉంది. 2011 భారత జనగణన గణాంకాల ప్రకారం ఈ గ్రామం 2467 ఇళ్లతో, 10169 జనాభాతో 2306 హెక్టార్లలో విస్తరించి ఉంది. గ్రామంలో మగవారి సంఖ్య 5030, ఆడవారి సంఖ్య 5139. షెడ్యూల్డ్ కులాల సంఖ్య 1655 కాగా షెడ్యూల్డ్ తెగల సంఖ్య 521. గ్రామం యొక్క జనగణన లొకేషన్ కోడ్ 589903[1].పిన్ కోడ్: 522411, ఎస్.టి.డి.కోడ్ = 08641.",,,,
+sona-9.0-20261114T224303Z-009,99,0701b87403eb10139b1a148f,a83c09e3858eb8f64ae9bb939e701262,sona-9.0,te,writing,aya-dataset,human_authored,"[user] ...యని అన్నారు. మేం ఎలా ఉన్నామో అలా మమ్మల్ని వారెవరూ స్వీకరించరు. ఎప్పుడూ సందేహంగా చూస్తుంటారు” అని గరిమ చెప్పారు. 
+
+పురుషులు చాలాసార్లు బైసెక్సువల్ అమ్మాయిలను  కేవలం సెక్సువల్ ఫాంటసీకి సంబంధించి చూస్తుంటారు.
+
+“నేను నా లైంగికత గురించి బాహాటంగా మాట్లాడతాను. అందుకే జనం నా గురించి ఏవేవో ఊహించుకుంటారు. అబ్బాయిలు నాకు సోషల్ మీడియాలో అసభ్యంగా మెసేజులు పంపిస్తుంటారు. బహుశా బైసెక్సువల్ అమ్మాయి ఎవరితో అయినా పడుకోడానిక సిద్ధమైపోతుందని వాళ్లకు అనిపిస్తుందేమో.. వారు సమ్మతి, ఇష్టాయిష్టాల గురించి అసలు ఆలోచించరు”... Write the rest of the article:","బైసెక్సువల్ అంటే పోర్న్, ఫాంటసీ కాదు
+
+ఒక అమ్మాయి స్వయంగా తన బైసెక్సువల్ గుర్తింపును బహిరంగంగా అంగీకరించడం అనేది చాలా సాహసోపేత చర్య అవుతుందని సోనల్ చెప్పారు.
+
+“చాలాసార్లు బైసెక్సువల్ అమ్మాయిలను పోర్న్ కు కలిపి చూస్తారు. వారి చరిత్ర గురించి ప్రశ్నలు లేవదీస్తారు. అలాంటప్పుడు అది ఆ అమ్మాయిల భద్రతకు సంబంధించిన సమస్యగా కూడా మారుతుంది. బైసెక్సువల్ అమ్మాయిలు ఓపెన్‌గా బయటకు రాకపోవడానికి కారణం కూడా అదే” అన్నారు
+
+యవ క్వీర్ యాక్టివిస్ట్ ధర్మేష్ చౌబే మరో ముఖ్యమైన విషయం గురించి కూడా వివరించారు. 
+
+బైసెక్సువల్ అయిన పురుషులు, మహిళల లైంగితను సమాజం తమ సౌలభ్యానికి తగ్గట్టు రకరకాల వాదనలతో కొట్టిపారేందుకు ప్రయత్నిస్తోందని ఆయన భావిస్తున్నారు.
+
+“బైసెక్సువల్ అమ్మాయిల గురించి మాట్లాడే సమాజం.. వారు స్ట్రెయిటే, కాకపోతే కాస్త సెక్సువల్ అడ్వెంచర్ చేయాలని చూస్తున్నారు అంటుంది. అటు బైసెక్సువల్ పురుషుల గురించి మాత్రం, వారు గే, కానీ తమ స్వలింగ సంపర్కాన్ని దాచేందుకు హోమోసెక్సువల్ అయినట్లు నటిస్తున్నారని అంటుంది. అంటే పితృస్వామిక సమాజంలో మహిళ లైంగికతకు పెద్దగా ప్రాధాన్యం లేదు. మొత్తం మీద తాము గే కావడం వ్యాధి కాదని, దానికి నివారణలు వెతకవద్దని, వారి కోరికలను పట్టించుకోవాలని పురుషులు ఆశిస్తున్నారు” అని ధర్మేష్ చెప్పారు. 
+
+టేక్ మీ యాజ్ అయామ్
+
+ఇన్ని కష్టాలు ఎదురైనప్పటికీ భారత్‌లో బైసెక్సువల్ అమ్మాయిలు మెల్లమెల్లగా అయినా బయటకు రావడం ప్రారంభమైంది. ముఖ్యంగా జూన్‌లో(ప్రైడ్ మంత్) చాలా మంది అమ్మాయిలు సోషల్ మీడియాలో ఎలాంటి సంకోచం లేకుండా తమ సెక్సువాలిటీని అంగీకరించారు.
+
+జూన్ నెలను ఎల్జీబీటీ సమాజం ప్రైడ్ మంత్‌గా భావిస్తోంది. ఈ నెలలో తమ సంఘర్షణ, కోరికలు, సాధించిన వాటి గురించి మాట్లాడుతోంది. 
+
+ప్రస్తుత సమయంలో బైసెక్సువల్ యువతులు కూడా చాలా సామాజిక సంకెళ్లను తెంచుకున్నట్లు కనిపించడానికి కూడా ఇదే కారణం. వారు తమ బైసెక్సువాలిటీని అంగీకరించాలని కోరుతున్నారు. తాము ఎలా ఉన్నామో, అలాగే స్వీకరించమని చెబుతున్నారు. 
+
+2018 సెప్టెంబర్‌లో భారత సుప్రీంకోర్టు స్వలింగ సంపర్క సంబంధాలను నేరంగా చెప్పే ఐపీసీ సెక్షన్ 377ను నిర్వీర్యం చేసింది. అప్పటి సీజేఐ జస్టిస్ దీపక్ మిశ్రా కోర్టు తీర్పును చదువుతూ జర్మనీ రచయిత యోహన్ వాఫ్గాంగ్‌ మాటను గుర్తు చేసుకున్నారు. జస్టిస్ మిశ్రా అప్పుడు “అయాం వాట్ అయాం, సో టేక్ మీ యాజ్ అయాం”(I am what I am, so take me as I am) అన్నారు",,,,
+sona-9.0-20261114T224303Z-009,100,5a3dd823c8ef3461d83d6690,e7163b48b6c958e59afe9b5569f50557,sona-9.0,th,general_knowledge,oasst1,human_authored,"[user] กาแฟช่วยให้ไม่ง่วงจริงหรือไม่
+
+[assistant] จริง เพราะมีคาเฟอีน
+
+[user] ทำไมคาเฟอีนจึงทำให้ไม่ง่วง",เพราะคาเฟอีนจัดเป็นสารกระตุ้นระบบประสาทส่วนกลางและเมตาบอลิซึมหรือกลไกการเผาผลาญสารอาหารในร่างกาย เพื่อลดความง่วง ความเหนื่อยล้า,,,,

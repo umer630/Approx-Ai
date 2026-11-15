@@ -1,0 +1,856 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-041,1,e9ed87610e0815f4be8dfeb1,f5b39230e0a1c3728afba5c56c8dc1e0,fab-500x,sin,coding,aya-dataset,human_authored,[user] Python හි ස්ට්‍රින්ග්(string ) එකක්  ආපසු හරවන්නේ(reverse) කෙසේද?,"my_string = ""Hello World""
+reversed_string = my_string[::-1]
+print(reversed_string)  # Outputs: dlroW olleH",,,,
+fab-500x-20261114T224408Z-041,2,ca32d926a9920ee0a64f3e7f,055b7703b2e121927ebe1ad8a542351d,fab-500x,sin,general_knowledge,aya-dataset,human_authored,"[user] මේ ප්‍රශ්නයට පිළිතුරක් ලබා දෙන්න: 
+""ටිපරරි"" ගීතය ජනප්‍රිය වූයේ කුමන යුද්ධයේදී ද?",ටිපරරි ගීතය පළමු ලෝක යුද්ධ සමයේ දී සොල්දාදුවන් විසින් ආචාර පෙළපාලි ගීතයක් ලෙස භාවිත කරන ලද්දකි.,,,,
+fab-500x-20261114T224408Z-041,3,4257fbf12e7117dc1a2ed4ee,e498453d44772fb795c6d986fd0d0f31,fab-500x,sin,mathematics,aya-dataset,human_authored,[user] ආහාර ජීර්ණ පද්ධතියට රුධිර සැපයුම කෙසේද?,"ආහාර ජීර්ණ පද්ධතිය සපයනු ලබන්නේ සෙලියාක් ධමනි මගිනි. celiac ධමනිය උදර aorta සිට පළමු ප්රධාන ශාඛාව වන අතර, ආහාර දිරවීමේ අවයව පෝෂණය කරන එකම ප්රධාන ධමනි වේ.
+
+ප්රධාන කොටස් තුනක් ඇත - 
+1) වම් ආමාශයික ධමනිය
+2) පොදු රක්තපාත ධමනිය
+3) ප්ලීහාව ධමනිය.
+
+celiac ධමනිය අක්මාව, ආමාශය, ප්ලීහාව සහ duodenum හි ඉහළ 1/3 (Oddi හි sphincter වෙත) සහ අග්න්‍යාශයට ඔක්සිජන් සහිත රුධිරය සපයයි. රක්තපාත ශිරා හරහා පද්ධතිමය සංසරණයට නැවත පැමිණීමට පෙර වැඩිදුර සැකසීම සහ විෂහරණය කිරීම සඳහා බොහෝ රුධිරය ද්වාර ශිරා පද්ධතිය හරහා අක්මාව වෙත ආපසු යවනු ලැබේ.
+ආහාර දිරවීමේ පද්ධතිය සඳහා වැදගත් වන අවසාන ශාඛාව වන්නේ තීර්යක් බඩවැලේ, අවරෝහණ මහා බඩවැලේ, sigmoid මහා බඩවැලේ, ගුදමාර්ගය සහ තීර්යක් බඩවැලේ ඇති දුරස්ථ 1/3 ඇතුළත් වන hindgut වලින් ව්‍යුත්පන්න වූ ආහාර ජීර්ණ පත්‍රිකාවේ ප්‍රදේශ සපයන බාල මෙසෙන්ටරික් ධමනියයි. පෙක්ටිනේට් රේඛාවට ඉහළින් ගුදය.
+
+ආහාර ජීර්ණ පත්රිකාවට රුධිර ප්රවාහය ආහාර වේලකට පසු විනාඩි 20-40 කට පසුව උපරිමයට ළඟා වන අතර පැය 1.5-2 අතර කාලයක් පවතී.",,,,
+fab-500x-20261114T224408Z-041,4,df0ec20c27e8d67ba81f165d,254313f285905bf843021cea48a8c5e5,fab-500x,sin,science,aya-dataset,human_authored,[user] සූන්‍යෂ්ටික සෙෙල යනු කුමක්ද?,"ශාක, සතුන්, දිලීර, ප්‍රෝටසෝවාවන්, සහ ඇල්ගාවන් සියළුදෙනාම සූන්‍යෂ්ටිකයෝ වේ. සූන්‍යෂ්ටික සෙෙල, ප්‍රාග්න්‍යෂ්ටික සෙෙල පළල මෙන් පහලොස් ගුණයක් පමණ විශාල වන අතර, පරිමාව සැළකීමේදී දහස්වාරයක් පමණ විශාල විය හැකිවේ. ප්‍රාග්න්‍යෂ්ටික සෙෙල සමග සසඳන විට සූන්‍යෂ්ටික සෙෙල වල දැකගත හැකි ප්‍රධාන ලක්ෂණයක් වන්නේ, සූන්‍යෂ්ටික සෙෙලය පටල මගින් තවත් කොටස් වලට බෙදී ඒවා තුල විශේෂිත පරිවෘත්තීය ක්‍රියාවන් සිදුවීමයි. ඒ අතුරින් සූන්‍යෂ්ටික සෙෙලයක් තුල DNA ගබඩා කොට පවත්වා ගන්නා සෙෙල න්‍යෂ්ටිය විශේෂ කොට දැක්විය හැකිවේ.",,,,
+fab-500x-20261114T224408Z-041,5,71fa69e77a12f8394c2a6483,b7512a2e777121efeffbb7a479c48fa1,fab-500x,sna,general_knowledge,aya-dataset,human_authored,[user] Murume wekutanga waCleopatra aiva ani?,"Murume wekutanga waCleopatra aiva munun'una wake, Ptolemy XIII. Vakanga vakaroorana sechikamu chetsika dzeEgypt yekuroorana kwehanzvadzi kuchengetedza kuchena kweropa reumambo.",,,,
+fab-500x-20261114T224408Z-041,6,acf9cc7c6c8e81fe10f9df70,44e2e2e37dc7c77b244c2546e0d35108,fab-500x,sna,mathematics,aya-dataset,human_authored,[user] Woolworth's - iyo 5/10 cent chitoro - yakatanga munzvimbo ipi yeUS muna 1879?,"Woolworth's, chitoro chine mukurumbira che5 ne10 cent chinozivikanwa nekusiyana-siyana kwezvinhu zvinodhura, chakatanga mudunhu reUS rePennsylvania muna 1879. Chitoro chekutanga, chakavhurwa naFrank Winfield Woolworth, chaive muUtica, New York. Pfungwa yekupa huwandu hwezvigadzirwa pamitengo yakatarwa, inowanzoiswa pamasendi mashanu kana gumi, yakakwezva vatengi vanotsvaga bhajeti-inoshamwaridzana sarudzo. Woolworth's innovative retail modhi yakabatsira mukukura kwecheni uye nekugadzwa kwenzvimbo yakakurumbira yekutenga kwezvizvarwa.",,,,
+fab-500x-20261114T224408Z-041,7,b3e3a184b6cb3e90cede61a4,5169047a1282bc03b427b23220d9031d,fab-500x,sna,science,aya-dataset,human_authored,[user] Mumhanzi waani unoratidzwa muThe Clockwork Orange?,"Mimhanzi yemunyori Ludwig van Beethoven yakaratidzwa zvakanyanya mufirimu ""A Clockwork Orange."" Iyi bhaisikopo, inotungamirwa naStanley Kubrick uye yakaburitswa muna 1971, inozivikanwa nemusanganiswa wayo wakasiyana wemimhanzi yechinyakare uye mifananidzo inonyandura. Kushandiswa kwemimhanzi yaBeethoven, kunyanya yake Ninth Symphony (Ode to Joy), yakaita basa rakakosha mukumisa mamiriro emufirimu nemadingindira.
+
+Iko kusangana kwemimhanzi yechinyakare ine zviratidziro zvechisimba uye dystopian societal elements yakagadzira inokatyamadza uye inotemesa pfungwa chiitiko chemubhaisikopo. Kubatanidzwa kwaStanley Kubrick kwenziyo dzaBeethoven kwakabatsira mukukanganisa kwefirimu uye kwakaita kuti mimhanzi ive chikamu chakakosha cherondedzero yayo.",,,,
+fab-500x-20261114T224408Z-041,8,79501961e541602aba39a963,8dd5a649879cc9ee36010c0becbc04ce,fab-500x,snd,general_knowledge,aya-dataset,human_authored,"[user] ڪبوتر
+جيو بڪسين، جنهن کي مغربي بيانن ۾ ڪورين ٻيڙي به چيو ويندو آهي، هڪ قسم جو وڏو ڪورين جنگي جهاز هو جيڪو 15 صدي جي شروعات کان 19 صدي جي شروعات کان وٺي جوزون خاندان جي دور ۾ رائل ڪورين نيوي طرفان وقتي طور استعمال ڪيو ويندو هو. اهو جاپاني بحري حملن جي خلاف جنگ ۾ Panaxion battleships سان گڏ استعمال ڪيو ويو. ٻيڙيءَ جو نالو ان جي حفاظتي شيل جھڙي ڍڪ مان نڪتل آھي. يورپ ۽ اوڀر ايشيا ۾ تيار ڪيل ڪيترن ئي اڳ-صنعتي هٿياربند جهازن مان هڪ، هن ڊزائن کي دنيا جي پهرين هٿياربند جهاز طور بيان ڪيو ويو آهي. پراڻن، پھرين نسل جي ڪورين ٻيڙين جو پھريون حوالو، جنھن کي gyuseon (관선؛ ڪورين تلفظ: [kɥisʌn]) جي نالي سان سڃاتو وڃي ٿو، 1413 ۽ 1415 جي جوزون خاندان جي تاريخن ۾ رڪارڊ مان ملي ٿو، جيڪو ھڪڙي گائيسون ۽ جاپاني جنگي جھاز جي وچ ۾ ٺھيل جنگ جو ذڪر ڪري ٿو. بهرحال، اهي ابتدائي ڪبوتر جهاز جلد ئي استعمال کان ٻاهر ٿي ويا جيئن ڪوريا جي بحري تيارگي نسبتا امن جي ڊگهي عرصي دوران رد ٿي وئي. 1592ع کان 1598ع تائين جاپاني بحري فوجن خلاف جنگ ۾ ڪوريائي جهازن ٽويوٽومي هائيڊيوشي جي ڪوريا کي فتح ڪرڻ جي ڪوششن جي حمايت ۾ حصو ورتو. ڪورين ائڊمرل Yi Sun-sen، جنهن جاپاني بحريه جي خلاف سموريون جنگيون کٽيون، ان کي بهتر ڪروزر ڊزائين ڪرڻ جو اعزاز ڏنو ويو آهي. ساچيون جي جنگ ۾ پنهنجي پهرين ظاهر ٿيڻ کان وٺي، هن جي ڪبوتر ٻيڙيون، جيڪي گهٽ ۾ گهٽ پنج مختلف قسم جي توپن سان ليس هئا، جاپاني بحريه جي خلاف 16 جنگين ۾ 16 فتحن ۾ تمام گهڻو حصو ورتو، جيستائين اهي تباهه نه ٿيا، وان جيون جي حڪم هيٺ، چيچوليانگ جي جنگ ۾. انهن جي سڀ کان وڌيڪ نمايان خصوصيت ڊريگن جي شڪل وارو مٿو (سامهون) هو جيڪو پنهنجي وات مان توپ جي فائر يا فائر ڪري سگهي ٿو. هر هڪ مڪمل طور تي ڍڪيل ڊيڪ سان پڻ ليس هو ته تير جي باهه، مشڪ فائر، ۽ هٿياربندن کان بچاء. دشمن کي ٻيڙيءَ تي چڙهڻ جي ڪوشش کان روڪڻ لاءِ ڊيڪ تي لوهه جا بار رکيا ويا.",جيوبڪسيون ڪوريا جي سڀ کان مشهور جنگي ٻيڙي آهي ، جاپاني بحري فوج جي خلاف سڀني 16 جنگين کي کٽي ورتو جنهن سان ٽويوٽومي هائيڊيوشي 1592 کان 1598 تائين ڪوريا کي فتح ڪرڻ جي ڪوشش ڪئي.,,,,
+fab-500x-20261114T224408Z-041,9,06932b0d698e3cc732f46bf0,a41a0cdea20b92b529d0e24ea141c91d,fab-500x,som,general_knowledge,aya-dataset,human_authored,[user] maxaa laga soo gaabiyey SYL,waxaa laga soo gaabiyey ( soomaali youth league),,,,
+fab-500x-20261114T224408Z-041,10,1a41fdec100eaa3a68a113b4,326037de3261f1ee13946809af91e20f,fab-500x,som,islamic_studies,aya-dataset,human_authored,[user] Waxaad Sheegtaa hamse cumar binu qadaam imisa malmod ayey kala dabeyen so kali daga dinta islamka?,Waxay Kala dabeyeen sadax malmood..,,,,
+fab-500x-20261114T224408Z-041,11,94bdc4d8042382115e773f85,807baf50aa0b42cf2a13885d16300019,fab-500x,som,mathematics,aya-dataset,human_authored,[user] Sheeg maalintii bishii iyo sanadkii la aasaasay Ciidanka Booliiska Soomaaliyeed,"Waxaa la aasaasay 20/12/1943kii
+Sheeg sanadkii gumeystihii ingiriisku Itoobiya ku wareejiyey dhulkii Somaaliyeed ee Hawd",,,,
+fab-500x-20261114T224408Z-041,12,44d829cdbb66cf3d4f45ed2d,ed447ea535e9e128bac83e5b6985445b,fab-500x,som,science,aya-dataset,human_authored,[user] Ka hortaga cancer ka.,"TALOOYIN CAFIMAD OO KAGA HORTAGI KARTO KANSAR (cancer) INUU KUGU DHACO    pl #share dheh 
+___________________________
+Cancer waa tiro cuduro ah taso ah in unug jirkeena kamida kudhaco korniisho aan dabiici ahayn ( abnormal cell growth) dabadeedna uu kufaafo unugyada kale ee normal ka ah. 
+Hadaba waxa waajiba inaan raacno talaaboyinkan siaan uga hortagno cancer 
+1=KAFOGAW ISTICMALKA TUBAKADA nuuca uu doono tubaako ama sigaar hadad isticmasho waxad halis ugu jirta kansarka afka,sambabada,dhuunta, ganaca, kaadi heesta, ilma galeenka,
+2=WAINAAD RAACDA QAAB CUNTO OO U WANAGSAN CAAFIMAD KADA maaha waqtiga aad cuntada cunee ee wainaad kafiirsaa cuntada matahy mid uwngsn cafimad kada hadaba raac tusalahan 
+A=badso khudaarta iyo fawakihda kalba 
+B=kafogaw cayilka iyo xeerta iyo sokorta 
+C=habadsan hilibka ladaaweyo 
+3=ILAALI MIISANKADA JIMICSINA SAMEEY SIAD U ILAALISO MISANKADA 
+4=HAISU DHIGIN CADCEEDA  kafogaw inaad isudhigto cadceeda duhurkii ku dadal inaad harka kagasho 
+5=KU EKAW GOGOSHA QOFKA KU XALALKA AH 
+Markasta aad sameyso gogol dhaaf badan waxad halis ugu jirta inuu kuso gudbo (HIV) dadka qabaa AIDS ka waxey unugul yihiin cancer madama difaacodu hooseyo. 
+
+(Ku dadaal caafimaadkada )  .",,,,
+fab-500x-20261114T224408Z-041,13,e837a396669c0907c266cf87,d7e1deef815274800448611f20e713c5,fab-500x,srp,general_knowledge,aya-dataset,human_authored,[user] Koja reka protice kroz svajcarski grad Bazel?,Kroz Bazel protice reka Majna.,,,,
+fab-500x-20261114T224408Z-041,14,a4bc87e2da5a9646956d0ddb,251e51b1c272a997d4a35096cc0e5542,fab-500x,sun,general_knowledge,aya-dataset,human_authored,[user] Jawab pananya ieu: Sebutkeun opat nagara nu nganut sistem démokrasi?,"Opat nagara nu nganut sistem démokrasi nyaéta Indonésia, Kanada, India, jeung Swédia.",,,,
+fab-500x-20261114T224408Z-041,15,7c0924e83649c292cfd9b670,be6b799d5d7543c72839febce9f13e77,fab-500x,sw,general_knowledge,aya-dataset,human_authored,[user] mama ni nan?,"mama ni mzazi wa kike. ni kiongozi wa familia baada ya baba, yeye huchukua uangalizi wa karibu wa watoto pamoja na mume wake. huhusika zaidi na majukumu ya nyumbani kama vile, kuwahudumia watoto na kuwaandaa watoto ili waende shule. yeye ndie anahusika na maswala ya jikoni, yaani kuandaa chakula kwaajili ya wanafamilia.",,,,
+fab-500x-20261114T224408Z-041,16,a7c0486693cc4bc8d28a434d,661163e64940de128ebb3fab1444a98e,fab-500x,sw,research,tydiqa-goldp,human_authored,"[user] Mbuga ilianzishwa mwaka 1961. Sababu ya kuianzisha ilikuwa idadi kubwa ya ndege wa heroe wanaokusanyika hapa. Wakati mwingine huhesabiwa kuwa hadi milioni mbili. Idadi ya heroe hubadilika kimajira kulingana na kiasi cha algae ambazo ni chakula chao hasa.
+
+Hifadhi ya Taifa ya Ziwa Nakuru  ilianzishwa lini?","1961
+
+Mbuga ilianzishwa mwaka 1961.",,,,
+fab-500x-20261114T224408Z-041,17,e0fed222ace16a49e5b3c45e,fe448a145aecf2786d908abb315292d8,fab-500x,swe,general_knowledge,aya-dataset,human_authored,"[user] Skriv en fortsättning på den här paragrafen - Fångad i en dröm, text och musik av Björn Skifs och Bengt Palmers, var Björn Skifs bidrag till Melodifestivalen 1981, där ""Fångad i en dröm"" vann och fick representera Sverige i Eurovision Song Contest 1981","i Irland, med Anders Berglund som dirigent. Som bäst fick bidraget 12 poäng av Frankrike och låg som bäst till på femte plats efter sjunde röstningsomgången. Till sist hade Sverige fått ihop 50 poäng, vilket gav en tionde plats. Detta var det första svenska bidrag som fått 12 poäng av juryn.",,,,
+fab-500x-20261114T224408Z-041,18,4886fff85e7629f84c0d1517,335d82d97bfa4731664a25c8e0eadfbc,fab-500x,swe,mathematics,aya-dataset,human_authored,"[user] Skriv en fortsättning till detta stycke - Inför säsongen 2016 fanns isländske anfallaren Vidar Örn Kjartansson och den danske mittfältaren Anders Christiansen med bland nyförvärven. Senare anslöt också den rutinerade backen Behrang Safari. Årets enda chans att få kvala in till Europaspel för Malmö FF:s del gick via Svenska cupen 2015/16, där man gick till sin första final sedan 1996. Mot BK Häcken hemma på Swedbank Stadion förlorade laget till slut efter straffavgörande (2–2 efter ordinarie tid och förlängning), och därmed inget Europacupspel för Malmö. I","Allsvenskan 2016 fick bortamötet mot IFK Göteborg avbrytas under kaosartade former, sedan en IFK Göteborgssupporter kastat in en banger (kraftig smällare) på MFF-spelaren Tobias Sana, tidigare i IFK Göteborg. Även en av linjedomarna som stod alldeles i närheten drabbades. Därtill sprang en person in på planen, som senare visade sig vara ishockeyspelaren Mats Rosseli Olsen (Frölunda HC). Matchen kom aldrig att återupptas, utan Malmö FF tilldömdes i efterhand segern med 3–0. Malmö kom att säkra sin 19:e SM-titel den 26 oktober 2016, då man bortabesegrade Falkenbergs FF med 3–0, och därmed gick Malmö FF definitivt förbi IFK Göteborg i kampen om Sveriges ""Mesta Mästare"".",,,,
+fab-500x-20261114T224408Z-041,19,88c9312cc344b6a10e433a4f,c56eeae7471142f3d513fc21394f5b93,fab-500x,swe,science,aya-dataset,human_authored,[user] Skriv en fortsättning på den här paragrafen - Gilius Packet inkom till Sverige från Danzig 1554 på inbjudan av Gustav Vasa som expert på kanoner. Han verkar redan från början ha fått tillstånd att anlägga ett kanongjuteri på Norrmalm och arbetet att uppföra det började redan 1554. Även ett hus för Gilius Packet uppfördes på platsen. 1555 anges han som arklimästare.,"Stora ryska kriget blev elddopet för Packets konstruktioner. Han tycks ha varit mest intresserad av experiment, och Gustav Vasa klagade flera gånger över att Packets leveranser tog tid. En tid 1558 tycks han ha suttit fängslad, troligen på grund arbeten som inte levt upp till sina löften. 1561 anställdes han av Erik XIV som ledare för den svenska kanontillverkningen. 1564 skedde en större utbetalning till Packet för 58 kanoner han tillverkat för kronans räkning. Senast från det året var han verksam för fyrverket, brandkulor av olika slag verkar ha varit hans specialitet. Packet förblev lojal med Erik XIV ända fram till slutet och fängslades sedan kungens styre fallit. Efter ett brev till Johan III med begäran om benådning gavs han 1569 uppdrag att inrätta ett nytt bössgjuteri i Uppsala.",,,,
+fab-500x-20261114T224408Z-041,20,b7f9350ef69bc24d1458ad5f,27ad2d1dad66633718c02a17375dae85,fab-500x,swe,writing,aya-dataset,human_authored,"[user] Skriv en fortsättning på den här paragrafen - Matthew Dean Calvert, född 24 december 1989, är en kanadensisk före detta professionell ishockeyspelare (ytterforward). Calvert spelade för",Columbus Blue Jackets och Colorado Avalanche under sin aktiva karriär i National Hockey League (NHL). Han draftades av Blue Jackets i femte rundan som 127:e spelare totalt i NHL Entry Draft 2008.,,,,
+fab-500x-20261114T224408Z-041,21,35a6f0a0ace60428f44a944a,e2af950fa7904ee33e1b5d2885bbc5be,fab-500x,ta,general_knowledge,aya-dataset,human_authored,"[user] இந்தப் பத்தியின் தொடர்ச்சியை எழுதுங்கள்- இவர் 2002 பொதுநலவாய விளையாட்டுப் போட்டிகளில் ஐந்தாவது இடத்தையும், 2003 உலகப் போட்டிகளில் பதினான்காவது இடத்தையும், 2006 பொதுநலவாய போட்டிகளில்","ஆறாவது இடத்தையும் பிடித்தார். மேலும், 2008 ஒலிம்பிக் போட்டிகளில் 32 வது இடம் பிடித்தார். இவர் போட்டியிட்ட மகளிர் டெகத்லானுக்கு பிரிட்டிசு சாதனை படைத்தவராவராக இருந்தார்.",,,,
+fab-500x-20261114T224408Z-041,22,fa34ee993395f9ef4da30794,bc5c4cd147f224f64475264f42139e36,fab-500x,ta,mathematics,aya-dataset,human_authored,"[user] கீழே கொடுக்கப்பட்டுள்ள பொருட்களைவைத்து முட்டை மஞ்சூரியன் கிரேவி செய்வது எப்படி?
+தேவையான பொருட்கள்:
+5 முட்டை
+1 பெரிய வெங்காயம்
+2 குடை மிளகாய்
+1/4 கப் மைதா மாவு
+1/4 கப் சோள மாவு
+எண்ணெய் தேவையான அளவு
+உப்பு தேவையான அளவு
+1 துண்டு இஞ்சி
+1 மேஜைக்கரண்டி சிறிதாக நறுக்கிய பூண்டு
+மிளகு தூள் தேவையான அளவு
+மிளகாய்த்தூள் தேவையான அளவு
+2 மேஜைக்கரண்டி சில்லி சாஸ்
+2 மேஜைக்கரண்டி கெட்சப்
+1 மேஜைக்கரண்டி சோயா சாஸ்
+வெங்காயத் தாள் தேவையான அளவு","செய்முறை:
+1. முதலில் ஒரு கிண்ணத்தில் முட்டைகளை உடைத்து ஊத்தி அதில் உப்பு மற்றும் மிளகு சேர்த்து நன்கு அடித்துக் கொள்ளவும்.
+2. பின்பு ஒரு கிண்ணத்தில் நன்றாக எண்ணை தடவி அடித்து வைத்துள்ள முட்டையை அதில் ஊற்றவும்.
+3. அடுத்து ஒரு குக்கரை மிதமான சூட்டில் அடுப்பில் வைத்து இந்த கிண்ணத்தை அதனுள் வைத்து மூடி போட்டு 15 லிருந்து 20 நிமிடம் வரை வேக விடவும்.
+4. 20 நிமிடத்திற்கு பிறகு எடுத்து பார்த்தால் முட்டை நன்றாக வெந்திருக்கும். இப்பொழுது இந்த வெந்த முட்டையை வேறொரு பாத்திரத்திலோ அல்லது தட்டிலோ மாத்தி துண்டுகளாக்கிக் வைத்து கொள்ளவும்.
+5. இப்பொழுது ஒரு கிண்ணத்தில் சோள மாவு, மைதா மாவு மற்றும் அவர் அவர் விருப்பத்திற்கேற்ப மிளகாய்த்தூள் சேர்த்து நன்கு கலந்து கொள்ளவும்.
+6. பின்னர் அதில் சிறிது அளவு தண்ணீர் சேர்த்து பஜ்ஜி மாவு பதத்திற்கு கலக்கி கொள்ளவும்.
+7. அடுத்து வேக வைத்து வெட்டி வைத்திருக்கும் முட்டை துண்டுகளை இதில் போட்டு நன்கு பிரட்டி அதை அப்படியே 5 நிமிடம் ஊற வைக்கவும்.
+8. அதற்குள் ஒரு வடசட்டி மிதமான சூட்டில் அடுப்பில் வைத்து அதில் எண்ணெய் ஊற்றி சூடாக்கவும்.
+9. எண்ணெய் சூடானதும் வடசட்டி இன் அளவிற்கேற்ப 2 அல்லது 3 முறையாக முட்டை துண்டுகளை போட்டு பொரித்து எடுத்து வைத்துக் கொள்ளவும். (முட்டை துண்டுகளை நன்றாக வருத்து விடக்கூடாது. முட்டை துண்டுகள் மொறு மொறுப்பானதும் அதை எண்ணெயில் இருந்து எடுத்து விட வேண்டும்.)
+10. இப்பொழுது ஒரு பாத்திரத்தை மிதமான சூட்டில் அடுப்பில் வைத்து அதில் 2 மேஜைக்கரண்டி எண்ணெய் ஊற்றி சுட வைக்கவும்.
+11. எண்ணெய் சூடானதும் அதில் சிறிதாக நறுக்கிய பூண்டு மற்றும் இஞ்சி சேர்த்து அதனின் பச்சை வாசனை போகும் வரை வதக்கவும்.
+12. பின்பு அதில் நறுக்கிய வெங்காயத்தை சேர்த்து சிறிது நேரம் வதக்கிய பின் அதில் நறுக்கிய குடை மிளகாய் சேர்த்து 2 நிமிடம் வரை வதக்கவும்.
+13. 2 நிமிடத்திற்கு பிறகு அதில் சில்லி சாஸ், கெட்சப், சோயா சாஸ், தேவையான அளவு உப்பு மற்றும் மிளகு தூள் சேர்த்து நன்கு கிளறவும். (கிரேவி மிகவும் ட்ரையாக இருந்தால் ஒரு மேஜைக்கரண்டி சோள மாவில் சிறிது தண்ணீர் சேர்த்து நன்கு கலக்கி கிரேவியுடன் சேர்த்து கொள்ளவும்.)
+14. அடுத்து பொரித்து வைத்திருக்கும் முட்டை துண்டுகளை இந்த கிரேவியுடன் சேர்த்து நன்கு கிளறி சுமார் 2 நிமிடம் வரை வேக விடவும்.
+15. இரண்டு நிமிடத்திற்கு பிறகு அதில் சிறிதளவு வெங்காயத் தாள்களை தூவி ஒரு கிளறு கிளறி அடுப்பிலிருந்து இறக்கவும்.
+16. இப்பொழுது உங்கள் சூடான மற்றும் சுவையான முட்டை கிரேவி மஞ்சூரியன் தயார்.
+இதை உங்கள் வீட்டில் செய்து பார்த்து குடும்பத்தாருடன் உண்டு மகிழுங்கள்.",,,,
+fab-500x-20261114T224408Z-041,23,fc29deab048894e783370047,14eaf838cd81ebafd6cb737e3bce0e86,fab-500x,te,coding,aya-dataset,human_authored,"[user] I want to teach my class about the topic of షేర్ మొహమ్మదుపేట. షేర్‌మొహమ్మెద్‌పేట గ్రామ వైశాల్యం ఎంత?, be in telugu and be formal. Please.","షేర్‌మొహమ్మెద్‌పేట కృష్ణా జిల్లా, జగ్గయ్యపేట మండలంలోని గ్రామం.  ఇది మండల కేంద్రమైన జగ్గయ్యపేట నుండి 5 కి. మీ. దూరంలో ఉంది. 2011 భారత జనగణన గణాంకాల ప్రకారం ఈ గ్రామం 1822 ఇళ్లతో, 7002 జనాభాతో 506 హెక్టార్లలో విస్తరించి ఉంది. గ్రామంలో మగవారి సంఖ్య 3471, ఆడవారి సంఖ్య 3531. షెడ్యూల్డ్ కులాల సంఖ్య 667 కాగా షెడ్యూల్డ్ తెగల సంఖ్య 419. గ్రామం యొక్క జనగణన లొకేషన్ కోడ్ 588841[1].పిన్ కోడ్: 521175.",,,,
+fab-500x-20261114T224408Z-041,24,ed293aec34f6d338fa7b8101,c93d7131de2d6c2100f51be124babbe9,fab-500x,te,general_knowledge,aya-dataset,human_authored,[user] స్వాతంత్ర్యోద్యమ కాలంలో గాడిచర్లవారు అనుభవించిన జైలు జీవితం ఎటువంటిది?,"ఆంధ్ర తిలక్ గా ప్రసిద్ధులైన గాడిచర్ల హరి సర్వోత్తమరావుగారు వెల్లూరు సెంట్రల్ జైల్ జీవితం చాలా దారుణంగా అనుభవించారు.
+
+ఆకట్టుకోవడానికి రెండు గోచీలు, మూర పొడవు ఉన్న రెండు తువ్వాళ్లు ఇచ్చారు. పడుకోవడానికి చిన్న ఈత చాప, తినడానికి మట్టి మూకుడు, తాగడానికి మట్టిముంత, మల, మూత్ర విసర్జనకు మరో మట్టి చట్టి ఇచ్చారు. కాలికి లావుపాటి కడియాలు వేశారు. మెడకు మరో కడియం వేశారు. కొయ్యముక్కను వాటిలో దూర్చారు. తలబోడి చేయించారు. తినడానికి రాగి సంకటి ముద్ద పెట్టారు. దానిలో రాళ్లు, పుల్లలు, పురుగులు ఉండేవి. ఇలాంటి కఠిన కారాగార జీవితాన్ని ఆయన 3 సంవత్సరాలు అనుభవించారు.",,,,
+fab-500x-20261114T224408Z-041,25,8f523050cdd981e7132328e8,7f3511b4a53c2d3a3671b13f4c22456d,fab-500x,te,mathematics,aya-dataset,human_authored,"[user] ఆర్టికల్: ఆరోగ్యకరమైన ఆహారపదార్థానికి ఒక గొప్ప అదనంగా వ్యాయామం. ముఖ్యంగా కార్డియో మీ శరీరం కేలరీలు బర్న్ సహాయపడుతుంది మరియు క్రమంగా బరువు నష్టం మద్దతు. నడుపుట వంటి ఏరోబిక్ వ్యాయామాలు ఒంటరిగా చాలా బరువు తగ్గడానికి కారణం కాదు, కానీ నడుపుట ప్రారంభించడం చాలా ముఖ్యం. ఇది ఆహారం కలిపి ఉన్నప్పుడు మీరు బరువు నష్టం కోసం ఉత్తమ ఫలితాలు చూడండి. ఆరోగ్య నిపుణులు ప్రతి వారం కనీసం 2 1/2 గంటలు లేదా సుమారు 150 నిమిషాలు మధ్యస్థ తీవ్రత గల కార్డియో కార్యకలాపాలను చేర్చాలని సిఫార్సు చేస్తున్నారు. ఈ వ్యాయామం బరువు తగ్గడం కంటే చాలా ఆరోగ్య ప్రయోజనాలతో వస్తుంది. ఇది మీ నిద్ర మరియు మానసిక స్థితిని మెరుగుపరుస్తుంది మరియు గుండె జబ్బులు, స్ట్రోక్ మరియు డయాబెటిస్ ప్రమాదాన్ని తగ్గిస్తుంది. నడక, జాగింగ్, హైకింగ్, ఈత లేదా ఏరోబిక్స్ క్లాస్ వంటి కార్యకలాపాలను ప్రయత్నించండి. కార్డియోతో పాటు, కొన్ని రోజుల పాటు శక్తి శిక్షణను చేర్చాలని సిఫార్సు చేయబడింది. ఈ రకమైన వ్యాయామం కూడా క్రమంగా బరువు తగ్గడానికి సహాయపడుతుంది. బరువు శిక్షణ లేదా రెసిస్టెన్స్ వ్యాయామాలు కూడా చాలా బరువు తగ్గడానికి కారణం కాదు. అయినప్పటికీ, అవి మీ లీన్ కండర ద్రవ్యరాశిని పెంచుతాయి, ఇది భవిష్యత్తులో వేగవంతమైన జీవక్రియకు సహాయపడుతుంది మరియు మీ శరీరం యొక్క కేలరీలను కాల్చే సామర్థ్యాన్ని పెంచుతుంది. ప్రతి వారం 1-3 రోజులు బలం శిక్షణను చేర్చాలని లక్ష్యంగా పెట్టుకోండి. ప్రతి ప్రధాన కండర సమూహాన్ని పని చేయడానికి ప్రయత్నించండి మరియు మీ వ్యాయామాలను ప్రతి సెషన్లో కనీసం 20 నిమిషాలు చేయండి. కింది కార్యకలాపాలు బరువు శిక్షణగా లెక్కించబడతాయిః బరువు ఎత్తడం, బరువు యంత్రాలను ఉపయోగించడం లేదా ఐసోమెట్రిక్ వ్యాయామాలు చేయడం. మీరు మరింత కేలరీలు బర్న్ మరియు క్రమంగా బరువు కోల్పోతారు సహాయం మరొక గొప్ప మార్గం మీ జీవనశైలి సూచించే పెంచడం ద్వారా ఉంది. జీవనశైలి లేదా ప్రాథమిక కార్యకలాపాలు మీరు మీ సాధారణ రోజులో చేసే విషయాలు. ఆకులను గీసుకోవడం, తోటపని చేయడం, నేలను తుడిచివేయడం లేదా మీ కారుకు వెళ్లి తిరిగి రావడం వంటివి కూడా చేయవచ్చు. ఈ కార్యకలాపాలు ఒకేసారి చాలా కేలరీలు బర్న్ చేయవు, కానీ రోజు చివరిలో కలిపి మీ ఆరోగ్యం మరియు బరువుపై గణనీయమైన ప్రభావాన్ని చూపుతాయి. మీరు యోగా లేదా పైలేట్స్ కూడా చేయవచ్చు, ఇవి రెండూ భంగిమ, వశ్యత, సమతుల్యతను మెరుగుపరచడం మరియు మనస్సు-శరీర అనుసంధానం కోసం మంచివి. మీ సాధారణ రోజు గురించి ఆలోచించండి మరియు మీరు ఎంత కదులుతారు మరియు చుట్టూ నడుస్తారు. మీరు మీ రోజులో మరిన్ని కదలికలు లేదా దశలను జోడించగల మార్గాలు ఉన్నాయా? మీరు టీవీ చూస్తూ ఉండగా, మీ కారును దూరంగా పార్క్ చేసుకోండి, మెట్లు ఎక్కువగా తీసుకోండి, పనిలో చిన్న నడక విరామాలు తీసుకోండి లేదా వాణిజ్య విరామాలలో వ్యాయామం చేయండి.  
+ఇచ్చిన ఆర్టికల్ కి సారాంశం ఏమిటి?",వారానికి కనీసం రెండున్నర గంటలు వ్యాయామం చేయాలని లక్ష్యంగా పెట్టుకోండి. క్రమం తప్పకుండా బలపరిచే వ్యాయామం చేయడం మొదలుపెట్టండి. మీ జీవన శైలి కార్యకలాపాలను పెంచండి.,,,,
+fab-500x-20261114T224408Z-041,26,ed0bb3e9a4b0bf55c17ca7ea,5525cc8ab806182af34882c11a00fc43,fab-500x,te,reasoning,aya-dataset,human_authored,"[user] Question: భీమవరం పట్టణ పిన్ కోడ్ ఎంత?
+Answer the question with Yes or No. If it is not possible then answer None.
+Hint: హిందూపురం, ఆంధ్ర ప్రదేశ్ రాష్ట్రములోని అనంతపురం జిల్లాలో ఓ ప్రముఖమైన పట్టణం మరియు అదే జిల్లాకు చెందిన ఒక మండలము. పిన్ కోడ్: 515201.
+చరిత్ర, విశేషాలు
+హిందూపురం మొదటి నుంచి ఓ ప్రముఖ వర్తక కేంద్రం, మరియు రాజకీయంగా పలుకుబడి కలిగిన పట్టణం. స్థానిక స్థలచరిత్ర ప్రకారం మరాఠా యోధుడు మురారి రావు ఈ గ్రామాన్ని కట్టించి తన తండ్రి బిరుదమైన హిందూరావు పేరుమీద హిందూపురం అని పేరు పెట్టినట్టు తెలుస్తున్నది.
+ఇక్కడ వర్తకులు ఎక్కువగా వున్నారు సుప్రసిద్ధి గాంచిన లేపాక్షి హిందూపురం తాలూకా లోనిది. కల్లూరి సుబ్బారావు హిందూపురానికి చెందిన వాడే. కళాశాల స్థాపించి ఎందరికో విద్యా దానం చేసిన దాసా గోవిందయ్య చిరస్మరణీయుడు. 
+ఇచ్చట యల్.జి.బాలకృష్ణన్ గారు సూపర్ స్పిన్నింగ్ మిల్లులు స్థాపించి అనేక వేల మందికి ఉపాధి కల్పించారు. పట్టణ జనాభాలో దాదాపు 25 శాతం మంది ఈ మిల్లుల వల్ల జీవనోపాధి పొందుతున్నారంటే అతిశయోక్తి కాదు.
+పాలనా విభాగాలు
+ఇది లోక్ సభ నియోజక వర్గం కేంద్ర స్థానమే కానీ రెవిన్యూ డివిజన్ కేంద్ర స్థానం కాదు. అంటే ఇక్కడ పార్లమెంటు సభ్యునికి కార్యాలయం ఉంటుంది కానీ రెవిన్యూ డివిజినల్ అధికారి ఉండడు. ఇది పెనుగొండ రెవిన్యూ డివిజన్ పరిధిలోకి వస్తుంది.
+రవాణా సౌకర్యాలు
+ప్రత్యేక ఆర్థిక మండళ్ళు
+హిందూపురం ప్రాంతం బెంగళూరు అంతర్జాతీయ విమానాశ్రయానికి 64 కిలోమీటర్ల దూరంలోనే ఉండటంతో ప్రభుత్వం హిందూపురం, పరిగి, కొడికొండ, ఓబుళదేవరచెరువు 'ప్రత్యేక ఆర్థిక మండళ్ళ కోసం భూసేకరణ చేపట్టింది. 
+రహెజా (నియోజన్‌ ప్రాపర్టీస్‌ ప్రైవేట్‌ లిమిటెడ్‌..) తూమకుంటలో 350 ఎకరాల విస్తీర్ణంలో ప్రారంభించారు.గార్మెంట్స్‌లో శిక్షణ ఇస్తున్నారు.
+ఇండస్‌ఫిలా కంపెనీ శంకుస్థాపన జరిగింది
+గోళ్లాపురం వద్ద పరిశ్రమల స్థాపనకు 1100 ఎకరాలకు పైగా ఏపీఐఐసీ సేకరించింది.
+గోళ్లాపురం వద్ద విప్రొ సంస్థ కూడా ఉంది.
+రాశి ప్రాపర్టీస్‌, ఇండస్ట్రిస్‌ ప్రైవేట్‌ లిమిటెడ్‌ 916ఎకరాల్లో, పరిగి మండలంలో వ్యాపార్‌ ఇండస్ట్రియల్‌ పార్కుకోసం 1418ఎకరాలు సేకరించారు.
+లేపాక్షి నాలెడ్జి హబ్‌ చిలమత్తూరు, గోరంట్ల మండలాల్లో సెజ్‌ కోసం 9,428ఎకరాలు సేకరించారు.
+సైన్స్‌ సిటీ... ఓడీసీ, అమడగూరు మండలాల్లో 640ఎకరాలను సేకరించారు.
+రాజకీయాలు
+2014 శాసనసభ ఎన్నికలలో నందమూరి తారక రామారావు కుమారుడు చలనచిత్ర నటుడు అయిన నందమూరి బాలకృష్ణ శాసనసభ సభ్యుడుగా ఎన్నిక చెయ్యబడ్డాడు.
+నీటి సమస్య
+హిందూపురం అంటేనే నీటి కరవు గుర్తొస్తుంది. ఏళ్లతరబడి ఇక్కడ దాహం...",Noneహి0దూపురము.,,,,
+fab-500x-20261114T224408Z-041,27,76845370a861dbe4da146a54,395e8a5505ce1e24225ebaec13b06ed4,fab-500x,te,research,tydiqa-goldp,human_authored,"[user] అనుమర్లపూడి, గుంటూరు జిల్లా, పెదకాకాని మండలానికి చెందిన గ్రామము. ఇది మండల కేంద్రమైన పెదకాకాని నుండి 23 కి. మీ. దూరం లోను, సమీప పట్టణమైన తెనాలి నుండి 15 కి. మీ. దూరంలోనూ ఉంది. 2011 భారత జనగణన గణాంకాల ప్రకారం ఈ గ్రామం 407 ఇళ్లతో, 1437 జనాభాతో 333 హెక్టార్లలో విస్తరించి ఉంది. గ్రామంలో మగవారి సంఖ్య 713, ఆడవారి సంఖ్య 724. షెడ్యూల్డ్ కులాల సంఖ్య 358 కాగా షెడ్యూల్డ్ తెగల సంఖ్య 0. గ్రామం యొక్క జనగణన లొకేషన్ కోడ్ 590258[1].పిన్ కోడ్: 522213. ఎస్.ట్.డి.కోడ్ = 08644.
+
+అనుమర్లపూడి గ్రామ విస్తీర్ణం ఎంత ?","333 హెక్టార్ల
+
+2011 భారత జనగణన గణాంకాల ప్రకారం ఈ గ్రామం 407 ఇళ్లతో, 1437 జనాభాతో 333 హెక్టార్లలో విస్తరించి ఉంది.",,,,
+fab-500x-20261114T224408Z-041,28,e9724fd12ff3baa43a18ca68,e585af303f61135e8f7fcf5485c6267f,fab-500x,te,writing,aya-dataset,human_authored,"[user] ...అంటే.. ఈ టాబ్లెట్లు మహిళల హార్మోన్ల చక్రం మీద ప్రభావం చూపుతాయి. ఈ హార్మోన్ల టాబ్లెట్లను తరచుగా ఎక్కువ మోతాదులో తీసుకున్నట్లయితే.. బ్రెయిన్ స్ట్రోక్, పక్షవాతం, ఫిట్స్ వంటి తీవ్ర పరిణామాల ప్రమాదం పెరుగుతుంది. ఇటువంటి కేసులు మా దగ్గరకు వస్తుంటాయి కూడా. పీరియడ్స్‌ని వాయిదా వేయటానికి మహిళలు పది, పదిహేను రోజుల పాటు.. అది కూడా ఎక్కువ మోతాదుల్లో ఈ టాబ్లెట్లు తీసుకుంటూనే ఉన్నారు. ఇలా చేయటం వల్ల దుష్ప్రభావాలు ప్రాణాంతకంగా ఉండొచ్చు’’ అని ఆమె హెచ్చరించారు. 
+
+ఈ టాబ్లెట్లు ఎవరు వేసుకోకూడదు? 
+
+మహిళలు ఈ టాబ్లెట... Write the rest of the article:","నపుడు పూజలు చేయొద్దు అని కానీ.. మతపరమైన పనుల్లో పాల్గోవద్దు అని కానీ దేవుడు చెప్పలేదు. కాబట్టి.. ఇటువంటి అపోహల కోసం మహిళలు తమ శరీరాలకు హానిచేసుకోకూడదు’’ అని సూచిస్తున్నారు డాక్టర్ గౌరి.  
+
+ఆలయ ప్రవేశ ఉద్యమం ద్వారా ప్రాచుర్యంలోకి వచ్చిన భూమాత బ్రిగేడ్‌కి చెందిన తృప్తి దేశాయ్ ఏమంటున్నారు? 
+
+‘‘నెలసరి రుతుస్రావం అపవిత్రం కాదు. అది ప్రకృతి కానుక. దానిని సంతోషంగా అంగీకరించాలి. మహిళలు పీరియడ్స్ సమయంలో ఆలయాలకు వెళ్లరు.. పండుగల సమయంలో రుతుస్రావాన్ని వాయిదా వేసేందుకు ప్రయత్నిస్తుంటారు. ఇదంతా పూర్తిగా తప్పు. చాలా గణపతి పూజలకు నన్ను ఆహ్వానిస్తుంటారు. ఆ రోజుల్లో నాకు పీరియడ్స్ ఉన్నా సరే.. నేను వెళ్లి పూజలు చేస్తాను. హారతిలు పాడతాను. నాకు పీరియడ్స్ ఉన్నందు వల్ల ఫలానా కార్యక్రమానికి హాజరుకాలేను అని నేను ఎప్పుడూ చెప్పలేను. ఈ ముట్టు వంటి ఆంక్షలు.. మైల వంటి భావనలు.. ఈ దురాచారాలన్నిటికీ మనం స్వస్తిచెప్పాల్సి ఉంది’’ అని ఆమె అభిప్రాయపడ్డారు. 
+
+ధర్మశాస్త్రాలలో ఏమీ చెప్పలేదు... 
+
+‘‘మహిళలు నెలసరి సమయంలో మతపరమైన పనులు చేయకూడదని ధర్మశాస్త్రాలు ఎక్కడా చెప్పటం లేదు’’ అని పంచాంగ కర్త డి.కె.సోమన్ ఉద్ఘాటించారు. 
+
+‘‘పాత రోజుల్లో మహిళలను వారి రుతుస్రావం సమయంలో ఇంట్లో ఒక మూలన కూర్చోబెట్టేవారు. వారికి కొంత విశ్రాంతి లభించాలని.. మొత్తంగా పరిశుభ్రంగా ఉండాలన్నది దాని ఉద్దేశం. కానీ ఇప్పుడది అవసరం లేదు. ఉదాహరణకి.. ఒక ఇంట్లో ఒక మహిళ ఒంటరిగా ఉన్నపుడు.. ఆమె పీరియడ్స్‌లో ఉంటే.. దేవుడికి ఆమె నైవేద్యం వండకూడదా? ఆమె తప్పకుండా వండాలి. ఎలాగూ.. దేవుడికి నైవేద్యం సమర్పించే ముందు దానిని పవిత్రం చేయటానికి దాని మీద తులసిదళం లేదా దువ్వగడ్డి ఉంచుతాం. కాబట్టి.. పీరియడ్స్‌లో ఉన్నపుడు నైవేద్యం వండటంలో.. చివరికి పూజలు చేయటంలో అయినా ఎలాంటి ప్రమాదం లేదు’’ అని ఆయన పేర్కొన్నారు. 
+
+‘‘ఒకవేళ మహిళలు టాబ్లెట్లు తీసుకోవటం ద్వారా పీరియడ్లను వాయిదావేస్తున్నట్లయితే.. అది పూర్తిగా తప్పు. దేవుడికి కోపం రాదని.. ఆయన శిక్షించడని.. ఆయన ఎల్లప్పుడూ క్షమిస్తాడనే విషయాన్ని మనం అర్థం చేసుకోవాల్సి ఉంది. కాబట్టి.. మత ఛాందసం సృష్టించిన అనవసర భయాలతో మహిళలు తమ శరీరాలకు హాని చేసుకోకూడదు’’ అని సోమన్ సూచించారు. 
+
+‘నేను ఈ టాబ్లెట్లు వేసుకుంటా.. కానీ నాకు ఎప్పుడూ ఏ సమస్యా రాలేదు’ 
+
+ఒక ప్రైవేట్ కంపెనీలో ఉన్నతస్థాయి ఎగ్జిక్యూటివ్‌గా పనిచేసే మేఘా.. ఇంట్లో మతపరమైన కార్యక్రమాల సమయంలో తాను ఇటువంటి... వేసుకుంటా",,,,
+fab-500x-20261114T224408Z-041,29,e54323cd2a35462c20eef951,c3251241a2d7ac060cab14af1a9a5eec,fab-500x,th,general_knowledge,oasst2,human_authored,[user] ทำไมคนส่วนใหญ่ของประเทศไทยถึงไปอยู่กระจุกตัวกันที่กรุงเทพ,เพราะเป็นศูนย์กลางความเจริญของประเทศไทย หลายองค์กรตั้งสำนักงานใหญ่อยู่ที่กรุงเทพ และที่กรุงเทพ มีฐานเงินเดือนสูงสุดเมื่อเทียบกับจังหวัดอื่น ๆ ในประเทศไทย,,,,
+fab-500x-20261114T224408Z-041,30,ea5ff619e01137a40ac56cb7,f5daaae29e9a891042c09fc51b37db36,fab-500x,tl,coding,aya-dataset,human_authored,[user] Paano gumawa ng tuple sa Python?,"Sundan ang sumusunod na codes sa Python para makagawa ng tuple:
+
+tup = ('Ito', 'ay', 'isang', 'tuple)
+print(tup)
+
+Ang ""tup"" variable ang tuple na may lamang apat na strings. Ang ""print(tup)"" statement naman ay piniprint ang laman ng tup variable.",,,,
+fab-500x-20261114T224408Z-041,31,3cf69d2ded8b907396dec65d,0e86c9a6710fba16b1481517e31895bf,fab-500x,tl,general_knowledge,aya-dataset,human_authored,[user] Ano ang pagkakaiba ng tricycle sa pedicab?,Ang tricycle ay isang motor na may sidecar at ang pedicab naman ay isang bisikleta na may sidecar.,,,,
+fab-500x-20261114T224408Z-041,32,673834d2a0533c8ff9f97204,f60b20e3faa9c03bb285d8ef1c3f8530,fab-500x,tl,mathematics,aya-dataset,human_authored,"[user] Sa isang klase, 22 na estudyante ang gusto ng orange juice, at 18 ang gusto ng gatas. Ano ang posibilidad na ang isang mag-aaral ay mahilig sa juice?",22/40 or 11/20.,,,,
+fab-500x-20261114T224408Z-041,33,4b97e23c367275d3bc7d392d,1741e9b8cf5caa2ff9aecc20e4b423ac,fab-500x,tl,science,aya-dataset,human_authored,"[user] Maliban sa araw, ano ang pinakamalapit na bituin sa ating planeta?","Ang Proxima Centauri ang pinakamalapit na bituin sa ating planeta maliban sa araw. Isa itong red dwarf, ang pinakamaliit at pinakamalamig na uri ng bituin sa daigdig. May layo ito na mahigit-kumulang 4.2 na lightyears o 40.2 trilyong kilometro mula sa atin.",,,,
+fab-500x-20261114T224408Z-041,34,b97cda48c361beaad6c4eec3,559bd9431ba9c500926e87d243d257f9,fab-500x,tr,general_knowledge,aya-dataset,human_authored,[user] E Arşiv faturada kaşe imza olur mu?,e-Arşiv faturada imzayla birlikte kaşe de bulunmalıdır. Eğer bir fatura programı ve tasarım kullanıyorsan kaşe ve imzanı birlikte hazırladığın bir tasarımı her faturanda kullanabilirsin.,,,,
+fab-500x-20261114T224408Z-041,35,162626de96cd6ce08983d63e,2ac9b4d6f6e50eb222c620db73645d4c,fab-500x,tr,islamic_studies,aya-dataset,human_authored,[user] Mardin Araplarının mezhebi nedir?,"Arapçanın “Qıltu” lehçesini konuşan Mhalmilerin geneline yakını İslam dini, Şafii mezhebine bağlıdır.",,,,
+fab-500x-20261114T224408Z-041,36,77bb73c7eee4512dd3bc1d51,17436c4a87b5eb8a03e31d91c4616aa0,fab-500x,tr,mathematics,aya-dataset,human_authored,[user] Bu paragrafın devamını yazın: Markgraf-Albrecht-Sokağı Numara 11/12'de 1923'te yapılan „Friedenstempel“ Halensee Sinagogu bulunuyordu. Kristal Gece,'de Naziler bu sinagogu yaktılar ve 1959'da sinagog yıkılıp yerine oturmak için daireler yapıldı.,,,,
+fab-500x-20261114T224408Z-041,37,96cc5d4fc3b16ef5b808edbf,485faa2e8b67ae919db5591ee913709a,fab-500x,tr,science,aya-dataset,human_authored,[user] Ya Gani kaç kere okunur?,"5 vakit namazdan sonra 1060 kere ""Ya Ğaniyy celle celâlühû"" zikrine devam eden herkes tarafından sevilir ve kötü huylarından kurtulur. Yâ Ganiyy ism-i şerifini kendisine vird edinen kimse Malı, mülkü, para ve serveti çoğalır. Kısmeti ve şansı açılır.",,,,
+fab-500x-20261114T224408Z-041,38,5bb89bd3e024151aa549b558,9cc44b398f16eb7a9289ead341b32217,fab-500x,tr,writing,aya-dataset,human_authored,[user] Ev arkadaşıma eve gelmeden önce domates almasını istediğimi söyleyen bir e-mail yazar mısın?,"Tabii ki! Arkadaşınızın ve sizin adınızı ekledikten sonra aşağıdaki metni kullandığınız email uygulamasına yapıştırıp gönderebilirsiniz.
+
+ Merhaba [ev arkadaşı],
+
+Evde domates kalmamış ve domatese ihtiyacımız var. Eve gelirken domates alabilir misin? Şimdiden teşekkür ederim. 
+
+Görüşmek üzere, 
+
+[isminiz]",,,,
+fab-500x-20261114T224408Z-041,39,bdf870219cf11b73a48855f1,d7297783e42398b818dc28d652f4f99d,fab-500x,uk,general_knowledge,aya-dataset,human_authored,[user] Опиши хімічні властивості металів,"Основною хімічною мастивіспо металів є здатність їхніх атомів легко віддавати свої валентні електрони і перехощпи в позитивно заряджені йони. Віддаючи при хімічних реакціях валенrні електрони, типові мета­ли (елементи з яскраво вираженими металевими мастивостями) є енер­гійними відновниками. Чим легше метал віддає свої електрони, тим більшу активність він має. 
+За хімічною активністю метали розташовуються в ряд, який нази­вається рядом напружень. У ряду напружень є і водень, бо його атоми також легко утворюють позитивні йони. 
+Ряд напружень характеризує хімічні властивості металів: 
+1 - ті, що лівіше в ряду активності (напружень) знаходиться метал, то він хімічно активніший, маєють більшу відновну здатність, легше окиснюються і важче відновлюються зі своїх йонів (у деяких випадках необхідно враховувати і швидкість цього процесу, вона може бути настільки мала, що, на­приклад, магній практично не витісняє цинк); 
+2 - всі метали ряду на­пружень (крім лужних) витісняють всі наступні за ними метали з розчи­ну їхніх солей; 
+З - всі метали, що стоять у ряду напружень ліворуч водню, витісняють його з розведених кислот (крім азотної).",,,,
+fab-500x-20261114T224408Z-041,40,5e561e5f36a6239ea4d36206,a75ce7710e217d9e4490856a4090c47d,fab-500x,uk,mathematics,aya-dataset,human_authored,"[user] Ніна приготувала дворівневий торт і десятки кексів на день народження своєї подруги. Для кожного шару торту потрібна така ж кількість цукру, як і для дюжини (дванадцяти) кексів. На все Ніна використала 720 грамів цукру. Скільки грамів цукру в одному кексі? Роз'яжи завдання та поясни відповідь.","Ніна приготувала 2 шари торту, які були рівними 2 х 12 = 24 кексів. Вона зробила еквівалент 24 + 12 = 36 кексів загалом. 
+Таким чином, кількість цукру в кексі це 720 / 36 = 20 г. Отже, остаточна відповідь: 20 грамів.",,,,
+fab-500x-20261114T224408Z-041,41,b502b6ba8f1ab70f239cea3b,f7e12525ec648f28870942e25f4f7a14,fab-500x,ur,coding,aya-dataset,human_authored,[user] What Are The Most Basic Urdu Words And Phrases?,"To help you familiarize yourself with several other common Urdu terms, here is a simplified list to start with. 
+
+1. Hello — ہیلو (Hello)
+
+2. Yes — جی ہاں ( Ji Haan)
+
+3. No — نہیں (Nahin)
+
+4. Please — برائے مہربانی (Barae Meharbani)
+
+5. Thanks — شکریہ (shukriya)
+
+6. Goodbye — خدا حافظ (Khuda hafiz)
+
+7. Good morning — صبح بخیر (Subha Ba Khair  or Assalam O Alaikum)
+
+8. Good afternoon — دوپہربخیر (Do Pehar Ba Khair or Assalam O Alaikum)
+
+9. Good evening — شام بخیر (Shaam Ba Khair or Assalam O Alaikum)
+
+10. Good night! —   شب بخیر (Shab Bakhair!)
+
+11. Congratulations — مبارک ہو (mubarak ho)
+
+12. My name is ……. — میرا نام ہے ……. (Mera Naam Hai…..)
+
+13. Nice to meet you — آپ سے مل کر خوشی ہوئی (Aap se Mil Ke Khushi Huwi)
+
+Other Urdu Vocabulary Used In Daily Conversations
+In the Urdu language, respect is given to people by referring to them as “aap”. This is often the norm. Sometimes, people may refer to their peer or someone younger by saying “tum,” but as Urdu is a very sweet-spoken and gentle language, most people always use “aap” in daily conversations. Below are some examples:
+
+```table
+English	Pronunciation	Urdu Phrases
+What are you doing?	aap kya kar rahe hai	آپ کيا کررہے ہو؟
+What is your name?	Aap Ka naam Kya Hai	آپ کا نام کیا ہے؟
+See you later	phir milain-gai	پھر مليں گے
+How much does this cost?	Is Ki Qeemat Kia Hai	اس کی قیمت کیا ہے؟
+Can you help me, please?	Kya Aap Meri Madad Kar sakte hain	کیا آپ میری مدد کر سکتے ہیں؟
+I am trying to learn Urdu (Male)	Main Urdu Seekh Raha Hoon	میں اردو سیکھنے کی کوشش کر رہا ہوں (مرد)
+Excuse me (to get information)	Maaf Kee ji ye	معاف کیجئے (معلومات حاصل کرنے کے لیے)
+Take care of yourself	apna khayal rakhna	اپنا خيال رکھنا
+Do you speak English?	kya aap angrezi bolte hain?	كيا آپ انگريزی بولتے ہیں؟
+Where are you from? 	aap kahan sai hain	آپ کہاں سے ہیں؟
+How old are you?	aap ki umr kya hai?	آپ کی عمر کيا ہے؟
+What are you doing?	aap kya kar rahe hai	آپ کيا کررہے ہو؟
+What is your name?	Aap Ka naam Kya Hai	آپ کا نام کیا ہے؟
+See you later	phir milain-gai	پھر مليں گے
+Nice to meet you	Aap se Mil Ke Khushi Hui	آپ سے مل کر خوشی ہوئی
+Do you like it?	Kya Yeh Aap Ko Pasand Aya?   	کیا یہ آپ کو پَسند آیا؟
+I really like it!	Mujhe Yeh Bahut Pasand Aya!	!یہ مجھےبہت پَسند آیا
+```",,,,
+fab-500x-20261114T224408Z-041,42,e48390fdb60cbb904ded03b5,cef5a9e7edc45d540cd3fb8d30026f6d,fab-500x,ur,general_knowledge,wikipedia-ur,templated_human,[user] سلسلہ احسنیہ مجددیہ کے بارے میں ایک مختصر تعارف لکھیں۔,"سلسلہ احسنیہ مجددیہ کے مؤسس شیخ سید آدم بنوری ہیں جو شیخ احمد سرہندی مجدد الف ثانی کے مشہور خلفاء میں سے ہیں۔
+
+سلسلہ احسنیہ مجددیہ کے مشائخ حسب ذیل ہیں:
+
+شیخ عبد الاحد بنوری (نبیرۂ سید آدم بنوری)
+
+سلسلہ احسنیہ کے طریق کے بیان میں بہت سی کتابیں لکھی گئیں، جن میں مندرجہ ذیل کتب زیادہ مشہور ہیں:
+
+مجموعۃ الاسرار مکتوبات شریف حضرت شیخ عبد النبی شامی نقشبندی
+
+سر الفقر از شیخ غلام رسول نقشبندی – مخطوطہ",,,,
+fab-500x-20261114T224408Z-041,43,ac32b8107b432227398e52d2,070a0b374c3617f482ff1d9f6e76876b,fab-500x,ur,islamic_studies,wikipedia-ur,templated_human,[user] عنایت اللہ خاں مشرقی کے بارے میں ایک مختصر تعارف لکھیں۔,"عنایت اللہ خاں مشرقی 25 اگست، 1888ء  امرتسر میں پیدا  ہوئے اور 27 اگست1963ء کو لاہورمیں وفات پائی۔
+
+انہوں نے 18سال کی عمر میں پنجاب یونیورسٹی سے ایم اے ریاضی اول پوزیشن (1906ء)میں کلیئر کر کے دنیا کو محو حیرت کر دیا۔کہتے ہیں کہ یہ ریکارڈ آج تک قائم ہے۔انہوں نے  کیمبرج یونیورسٹی سے (1912-13)میں بیک وقت چار ٹرائی پوز آنرز رینگلر سکالر، بیچلر سکالر، فاﺅنڈیشن سکالر اورمکینیکل انجینئری میں اعلیٰ پوزیشن مع وظائف حاصل کیے ۔ کہتے ہیں کہ  یونیورسٹی انتظامیہ کوبرملا اعتراف کرنا پڑا کہ آٹھ سو سالہ یورپی تاریخ میں ایسا ذہین طالب علم پیدا نہیں ہوا۔ یہ ریکارڈ آج تک قائم ہے۔انہوں نے دنیا کی قوموں کو اجتماعی موت و حیات کے متعلق پیغام اخیر اور تسخیر کائنات کا پروگرام اپنی شہرہ آفاق کتاب”تذکرہ“ (1924ء) کے ذریعے دیا۔انہوں نے مصر میں مسئلہ خلافت پر عالم اسلام کی عالم آراء ہستیوں کی کانفرنس کی صدارت کرنے کے ساتھ ساتھ جب ان ہستیوں سے پُر مغز خطاب (خطابِ مصر 1926ء) کیا تو ان ہستیوں اور جامعہ ازہر مصر سے متفقہ طورپر ”علامہ مشرقی“ یعنی ”مشرق کے عالم“ کا خطاب دے دیا۔ انہوں نے 1931ء میں خاکسار تحریک کی بنیاد رکھی۔
+
+عالم اسلام کے پہلے مسلم سائنس دان۔...جنہوں نے 1952ء میں دنیا کے بیس ہزار سائنسدانوں کو ”انسانی مسئلہ“ کے عنوان سے خط لکھ کر دنیاوی ترقی کو بے جان مشینوں کے چنگل سے نکال کر کائنات کو مسخر کرنے، انسانی زندگی اور اس کی روح کو کنٹرول کرنے اور دیگر کروں میں زندگی کی موجودگی کے آثار کے راز از روئے قرآن افشاں کر دیے ۔",,,,
+fab-500x-20261114T224408Z-041,44,63cf5f946e815d15a3c82dd5,63592160a38749af8f41e0c714685156,fab-500x,ur,mathematics,wikipedia-ur,templated_human,[user] سعودی عرب میں ٹیلی فون نمبر کے بارے میں ایک مختصر تعارف لکھیں۔,"سعودی عرب میں ٹیلی فون نمبروں کے 7 ہندسے ہوتے ہیں۔ بین الاقوامی کوڈ کے لیے 5 ہندسے (00966) اور علاقائی  کوڈ کے لیے (011 سے 017 سوائے 05X جو موبائل نمبر کے لیے مخصوص ہے)۔
+
+ملک کا کالنگ کوڈ +966 ہے۔ سعودی عرب کے نمبروں کی منصوبہ بندی مندرجہ ذیل ہے:
+
+012 XXX XXXX - مغربی علاقے شامل ہیں مكہ،جدہ، طائف، رابغ
+
+013 XXX XXXX - مشرقی ریاست, جس میں شامل ہیں، دمام، الخبر، قطیف، جبیل، دہران، حفر الباطن اور دیگر علاقے
+
+014 XXX XXXX - مدینہ، تبوک، الجوف، ینبع، طریف، سکاکا اور شمالی سرحدی علاقے
+
+016 XXX XXXX - قصیم، بریدہ، مجمع اور ہائل
+
+017 XXX XXXX - جنوبی علاقے، اسیر، الباحا، جزان، نجران اور خمیس مشیط
+
+050/053/055 XXX XXXX - سعودی ٹیلی کام کمپنی
+
+08 111 XXXXXX - اثیب گو  کے ٹیلی فون نمبرز
+
+966XXX XXXX - ٹول فری - زیادہ تر فراڈ کالرز کی طرح ""[PHONE]"" س
+
+1789 - موبائل کسٹمر سروس سینٹر (ورجن موبائل)
+
+900 - ٹیلی فون کسٹمر سروس سینٹر (ایس ٹی سی)
+
+939 - سعودی عرب کے پانی اور سیوریج کی خدمات (مشرقی علاقے)
+
+985 - سعودی عرب کے جنرل انٹیلی جنس کی صدارت
+
+990 - سعودی ٹیلی فون سروس کے لیے سیکورٹی کے مسائل",,,,
+fab-500x-20261114T224408Z-041,45,ef7b11bb7a1db585e137b891,85f6ac2707c1db7a8ea30ea547aaa456,fab-500x,ur,pakistan,wikipedia-ur,templated_human,[user] ثناءغوری کے بارے میں ایک مختصر تعارف لکھیں۔,"ڈاکٹر ثناءغوری ایک پاکستانی صحافی، کالم نگار اور ادیب اور استاد ہیں۔ وہ گذشتہ ایک عشرے سے پرنٹ میڈیا سے وابستہ ہیں۔ ساتھ ہی الیکٹرونک میڈیا میں بھی ایک اینکر پرسن کی حیثیت سے اپنی خدمات انجام دی ہیں۔ اور اس وقت روزمانہ ایکسپریس کالم لکھتی ہیں ساتھ ہی اسی روزنامہ میں سوشل میڈیا کے عنوان سے شایع ہونے والے صفحے کے لیے ایک فری لانس کے طور پر مواد فراہم کرتیں ہیں۔ کالم نگاری ان کا خاص حوالہ ہے۔ جناح یونیورسٹی برائے خواتین کراچی اور فیڈرل اردو یونیورسٹی کراچی میں بطور وزیٹنگ فیکلٹی تدریس کے شعبہ سے وابستہ ہیں۔
+
+ثناءغوری نے 1982ء میں پاکستان کے شہر کراچی میں آنکھ کھولی۔ دسویں جماعت سائنس میں کرنے کے بعد انٹر کامرس میں کیا۔ سائنس اور ٹیکنالوجی میں غیر معمولی دلچسپی رکھتیں تھیں لیکن نامناسب حالات کی وجہ سے اس شعبہ میں ڈگری حاصل نا کرسکیں۔ ایک ادارے نیوسینچری ایجوکیشن سے آٹی ٹیچرز ٹرینگ حاصل کی اور اَسی ادارے میں بطور گرافکس ڈیزائینر کام کیا۔19سال کی عمر میں رشتہِ ازدواج میں منسلک ہوئی۔
+
+انٹرمیڈیٹ کے بعد شادی کے بندھن میں بندھ جانے والی ثناء نے حصول ِ علم کی لگن کو گھریلو ذمے داریوں اور مجبوریوں کی بھینٹ نہیں چڑھنے دیا۔ علامہ اقبال اوپن یونیورسٹی سے 2007 میں ماس کمیونیکشن میں بیچلرز کیا۔ اور پھر 2011 میں فیڈرل اردو یونیورسٹی عبد الحق کیمپس کراچی سے ماس کمیونیکشن میں ماسٹرز کی مکمل کیا۔ تعلیمی سفر جاری رکھتے ہوئے ثناءغوری صاحبہ حالیہ دنوں (2015) میں فیڈرل اردو یونیورسٹی کراچی سے ایم فل لیڈینگ ٹو پی ایچ ڈی (ماس کمیونکشن ڈیمارٹنمٹ )میں اپنی تعلیم مکمل کر رہی ہیں۔",,,,
+fab-500x-20261114T224408Z-041,46,de477347d641ebea25b4aa36,841e4449f0fc34d9540181be1ae99184,fab-500x,ur,research,wikipedia-ur,templated_human,[user] امّو کے بارے میں ایک مختصر تعارف لکھیں۔,"کئی دہائیوں پر محیط دعوے موجود ہیں کہ سیارہ امّو کے باسی زمین سے رابط کر رہے ہیں۔
+
+پروفیسر جین پیرے پیٹٹ ایک مشہور فرانسیسی طبیعیات دان ہیں اور فرانس کے نیشنل سینٹر برائے سائنٹفک ریسرچ National Center for Scientific Research CNRS کے (ریٹائرڈ) سینئر ریسرچر (senior researcher) ہیں، مائع میکانیات، گیسوں کے حرکی نظریات، پلازما طبیعیات، مقناطیسی ہائیڈرو ڈائنامک پاور جنریشن، فلکی طبیعیات اور سائنس کی دیگر بہت سی شاخیں ان کا میدانِ عمل ہیں، وہ کئی ایسی سائنسی کتابوں کے مصنف بھی ہیں جن میں پاپولر سائنس کو آسان انداز میں سمجھانے کی کوشش کی گئی ہے۔. مختصر یہ کہ اس شخص کی علمی حیثیت تمام تر شبہات سے بالا تر ہے۔.",,,,
+fab-500x-20261114T224408Z-041,47,b3dc906209c20042aaa40122,fea547ecea3a41271f8984a533b40398,fab-500x,ur,science,approx-curriculum,programmatic,[user] ایک گاڑی 3 گھنٹوں میں 700 کلومیٹر فاصلہ طے کرتی ہے۔ اس کی اوسط رفتار کیا ہے؟,"اوسط رفتار = فاصلہ ÷ وقت = 700 ÷ 3 = 233.333 کلومیٹر فی گھنٹہ
+
+جواب: 233.333 کلومیٹر فی گھنٹہ",,,,
+fab-500x-20261114T224408Z-041,48,5d32aee072c469f2a385e015,72485175b6a649a07d3a9a8293fcdce1,fab-500x,ur,web_frontend,wikipedia-ur,templated_human,[user] مصباحی کے بارے میں ایک مختصر تعارف لکھیں۔,"ہندوستان میں اہل سنت کے مشہور و معروف ادارہ دار العلوم اہل سنت اشرفیہ مصباح العلوم (الجامعۃ الاشرفیہ) مبارک پور ضلع اعظم گڑھ کے فارغین مصباح العلوم کی نسبت سے مصباحی کہلاتے ہیں۔
+
+مفتی محمد شریف الحق امجدی، شارح صحیح بخاری
+
+مفتی محمد وقار الدین قادری سابقہ مفتی دارالعلوم امجدیہ، کراچی
+
+مفتی ظفر علی نعمانی، بانی دار العلوم امجدیہ کراچی
+
+علامہ ضیاء المصطفٰی الاعظمی (معروف محدث کبیر انڈیا )
+
+مفتی عبد المنان الاعظمی، مرتب فتاوی رضویہ
+
+معروف ادیب و نقاد علامہ ڈاکٹر فضل الرحمن شرر مصباحی
+
+علامہ محمد احمد مصباحی، مصنف و محشی، مدرس و محقق،
+
+مفتی محمد نظام الدین رضوی برکاتی ,صدر المدرسین و صدر شعبہ افتا جامعہ اشرفیہ مبارک پور
+
+علامہ ارشد القادری، بانی ورلڈ اسلامک مشن، لندن
+
+علامہ سید مدنی میاں مصباحی مصنف تفسیر اشرفی قرآن مجید
+
+علامہ شمس الہدی مصباحی ,مفتی معراج القادری مصباحی نائب صدر شعبہ افتاجامعہ اشرفیہ مبارکپور
+
+خاندان اشرفیہ کچھوچھہ شریف کے زیادہ تر علما بھی فاضلین میں شمار ہیں۔
+
+علامہ محمد شھباز عالم مصباحی (دیناج پور) اسسٹنٹ پروفیسر سیتل کوچی کالج، کوچ بہار، مغربی بنگال و رکن:آل انڈیا علما و مشائخ بورڈ، نئی دہلی <https://northbengaldevmov.blogspot.com/2017/06/httpwww.html?m=1>
+
+ڈاکٹر غلام جابر شمس مصباحی، مصنف، مرتب کلیات مکاتیب رضا
+
+رضا الحق اشرفی مصباحی، مصنف.                              مولانا نفیس احمد مصباحی,  مولانا صدرالوری قادری مصباحی,  مفتی بدر عالم مصباحی وغیرہ حفظھم اللہ",,,,
+fab-500x-20261114T224408Z-041,49,daae53387520f5abd38371ee,d63e1f0b1ba0c34f1faa27b027999658,fab-500x,ur,web_fullstack,wikipedia-ur,templated_human,[user] منموہن سنگھ لبرہان کے بارے میں ایک مختصر تعارف لکھیں۔,"منموہن سنگھ لب رہان (Manmohan Singh Liberhan) آندھرا پردیش ہائی کورٹ کے ریٹائرڈ چیف جسٹس ہیں۔ انہوں نے 17 سال تک لب رہان ایودھیا انکوائری کمیشن کی قیادت کی، جس نے بابری مسجد کے انہدام کی رپورٹ تیار کی۔
+
+Profile at Andhra Pradesh High Court website
+
+Report Of The Liberhan Ayodhya Commission of Inquiry - Full Text in PDF format (126 MB)
+
+Alternate link - Full Text in PDF format (126 MB)",,,,
+fab-500x-20261114T224408Z-041,50,13a5595283a8950cd937e35c,3262e94f984d86cf90bf55fb161dfee6,fab-500x,ur,writing,roman-urdu-parl,transliteration_unverified,"[user] اس جملے کو اردو رسم الخط میں لکھیں:
+galiyo ki kya khoob sair karwai !",گلیوں کی کیا خوب سیر کروائی !,,,,
+fab-500x-20261114T224408Z-041,51,f54761215a57a8e11422a90d,4c4766d974584172d9502a96f6f84de6,fab-500x,vi,coding,aya-dataset,human_authored,"[user] Hãy hoàn thiện đoạn văn sau: if (typeof(bnBAER_175_15s.aNodes) != ""undefined"" && bnBAER_175_15s.aNodes.length > 0) { var parentNodeDiv = document.getElementById(""bnBAER_175_15s_container"").parentNode.classList.add(""inImgExpand""); banner_tostring(bnBAER_175_15s,""bnBAER_175_15s""); } else { document.getElementById(""bnBAER_175_15s_container"").style.display = ""none""; } banner_tostring(bnBAER_165_15s, ""bnBAER_165_15s""); function in_image_close(){ if(document.getElementById(""24h-banner-in-image"")){ document.getElementById(""24h-banner-in-image"").innerHTML = """"; } if(document.getElementById(""24h-banner-in-image-close"")){ document.getElementById(""24h-banner-in-image-close"").innerHTML = """"; } if(document.getElementById(""txt_takeover_ads"")){ document.getElementById(""txt_takeover_ads"").style.display = ""none""; } } document.getElementById(""in-image-close"").setAttribute(""onclick"", ""in_image_close();""); v_counter_interval = 0; var interval_in_image = setInterval(function() { if(document.getElementById(""24h-banner-in-image"")){ var v_element_in_image = document.getElementById(""24h-banner-in-image""); if(v_element_in_image.childNodes[1] && v_element_in_image.childNodes[1].id){ // setup căn phải if(document.getElementById(v_element_in_image.childNodes[1].id)){ document.getElementById(v_element_in_image.childNodes[1].id).style.textAlign = ""right""; } if(v_element_in_image.childNodes[1].childNodes[3]){ if(v_element_in_image.childNodes[1].childNodes[3].childNodes[1]){ if(v_element_in_image.childNodes[1].childNodes[3].childNodes[1].childNodes[0].id || (isIE() && v_element_in_image.childNodes[1].childNodes[3].childNodes[1].id)){ if(document.getElementById(v_element_in_image.childNodes[1].childNodes[3].childNodes[1].childNodes[0].id) || (isIE() && document.getElementById(v_element_in_image.childNodes[1].childNodes[3].childNodes[1].id))){ if(isIE()){ if(document.getElementById(v_element_in_image.childNodes[1].childNodes[3].childNodes[1].id).style.display !== ""none"" && document.getElementById(v_element_in_image.childNodes[1].childNodes[3].childNodes[1].id).getAttribute(""data-google-query-id"") !== null){ if(document.getElementById(""24h-banner-in-image-close"")){ document.getElementById(""24h-banner-in-image-close"").style.display = ""inline-block""; } } else { if(document.getElementById(""24h-banner-in-image-close"")){ document.getElementById(""24h-banner-in-image-close"").style.display = ""none""; } } } else { if(document.getElementById(v_element_in_image.childNodes[1].childNodes[3].childNodes[1].childNodes[0].id).style.display !== ""none"" && document.getElementById(v_element_in_image.childNodes[1].childNodes[3].childNodes[1].childNodes[0].id).getAttribute(""data-google-query-id"") !== null){ if(document.getElementById(""24h-banner-in-image-close"")){ document.getElementById(""24h-banner-in-image-close"").style.display = ""inline-block""; } } else { if(document.getElementById(""24h-banner-in-image-close"")){ document.getElementById(""24h-banner-in-image-close"").style.display = ""none""; } } } } } } } } } v_counter_interval++; if(v_counter_interval === 15){ clearInterval(interval_in_image); } }, 1000); Những câu chuyện thơ của Việt Nam phản ánh văn hóa và phong tục và độ tuổi của các bé. Đa số truyện đều được thể hiện dưới dạng các thể thơ năm chữ, lục bát hay song thất lục bát quen thuộc, giúp cho các độc giả nhí dễ hiểu và dễ nhớ nhất. Trẻ nhỏ sẽ được bước chân vào những cuộc phiêu lưu đầy thú vị mang đậm màu sắc thần kỳ, qua những thể thơ đơn giản sẽ giúp cho câu chuyện cổ tích của các bé trở nên vô cùng hấp dẫn và thú vị. Bài thơ Nàng tiên Ốc Nội dung bài thơ Nàng tiên Ốc kể về một bà già nghèo khó, tốt bụng, chuyên mò cua bắt ốc để sống qua ngày. Trong lúc làm việc thì bà vô tình mò được một con ốc có màu xanh biếc. Thấy đẹp nên bà thả vào trong chum nước nhà mình. Khi bà đi làm thì con ốc xanh biến thành một nàng tiên. Nàng tiên Ốc đã giúp bà những điều kỳ diệu. Bà già bí mật đập vở vỏ ốc và giữ nàng tiên ở lại với mình. Câu chuyện cho chúng ta một bài học hết sức ý nghĩa về tình người. Những người nhân hậu, ở hiền gặp lành, chăm làm, tốt bụng luôn được mọi người yêu mến, và được sống hạnh phúc. Vì vậy, chúng ta hãy cố gắng yêu thương nhau và quý mến nhau. Xưa có bà già nghèo Chuyên mò cua bắt ốc Một hôm bà bắt được Một con ốc xinh xinh Vỏ nó biêng biếc xanh Không giống như ốc khác Bà thương không muốn bán. Ảnh minh họa. Bèn thả vào trong chum. Rồi bà lại đi làm. Đến khi về thấy lạ: Sân nhà sao sạch quá Đàn lợn đã được ăn Cơm nước nấu tinh tươm Vườn rau tươi sạch cỏ. Bà già","thấy chuyện lạ Bèn cố ý rình xem Thì thấy một nàng tiên Bước ra từ chum nước. Bà già liền bí mật. Đập vỡ vỏ ốc xanh Rồi ôm lấy nàng tiên Không cho chui vào nữa Hai mẹ con từ đó Rất là yêu thương nhau… Tác giả: Phan Thị Thanh Nhàn Bài thơi hoa mào gà Bài thơ giáo dục các bé phải biết quan tâm đến những người thân yêu và bạn bè xung quanh mình. Mái Mơ đã cho đi chiếc mào mình có, nhưng phần thưởng mà Mái Mơ nhận được chính là niềm vui trong tâm hồn mỗi khi làm được việc gì có ích. Đó chính là giá trị của tình yêu thương mà chúng ta đã trao đi. Gà Mơ mào đỏ Xinh đẹp nết na Chẳng thích la cà Say kiếm mồi nhất. Bỗng nghe thút thít Mái Mơ thật lo Vỗ về hỏi dò: – Bạn sao buồn thế? – Muôn cây đẹp đẽ Quả ngọt, hoa xinh Cây tôi một mình Chẳng hoa, chẳng quả. Ảnh minh họa. Mơ thương cây quá Tặng luôn cái mào Cây đẹp biết bao Mơ mừng khôn xiết. Bạn mơ thật tuyệt Phải không bé yêu Thương bạn thật nhiều Bạn yêu nhiều nhé! Tác giả: Phạm Thị Hồng Thu Đi san mặt đất Đi san mặt đất là truyện thần thoại bằng thơ của dân tộc Lô Lô, cho thấy công lao to lớn của con người và khát vọng chinh phục thiên nhiên của người xưa. Ngày xưa, từ rất xưa… Người già không nhớ nổi Mấy năm mấy nghìn đời Ngày xưa từ rất xưa… Người trẻ không biết tới Mấy nghìn, mấy vạn năm Người mặt đất ăn chung Cùng đi và cùng ở Trồng bắp trên núi cao Uống nước từ bụng đá Người mặt đất sống chung Cùng ở và cùng đi… Ảnh minh họa. … Bầu trời nhìn chưa phẳng Mặt đất còn nhấp nhô Phải đi san mặt đất Kiếm con trâu sừng cong Chọn con trâu sừng dài Đẽo con trâu cái ách Đục lỗ ách luồn dây Chão dẻo làm dây cày Thừng dài làm dây bừa Trâu cày, bừa san đất Chẳng quản gì nhọc mệt San đất là việc chung Người tìm hang Chuột Chũi Gọi hắn, hắn rung râu: - Suốt ngày trong lòng đất Tôi có thấy trời đâu!"" Người lại tìm Cóc, Ếch Đứa tặc lưỡi ngồi nhìn Đứa thì kêu ộp oạp: ""- Chân tay tôi đều ngắn San mặt đất sao nên? Để chúng tôi gọi lên Xin trời đổ nước xuống!"" Giống nào cũng không đi Người gọi nhau làm lấy Nhiều sức, chung một lòng San mặt đất cho phẳng Nhiều tay chung một ý San mặt đất, làm ăn… Đi san mặt đất – Thần thoại dân tộc Lô Lô Cóc kiện Trời Ngày xưa, nơi trần thế Nắng hạn lâu không ngờ Ruộng đồng thì nứt nẻ Cây cỏ cũng trụi trơ. Chim muông khát khô họng Nguy cấp khắp nơi nơi Để duy trì sự sống Cóc bèn lên kiện Trời. Dọc đường Cóc gặp được Cua, Gấu, Cọp và Ong Mới đi thêm vài bước Cáo cũng xin theo cùng. Đến trước cửa nhà Trời Thấy một cái trống to Cóc bố trí ngang dọc: ""Chum nước, anh Cua lo. Cô Ong ẩn ngay cửa Cáo, Gấu, Cọp cùng nhau Chia mỗi bên một nửa Tất cả nấp kỹ vào"". Bày trí xong các lối Cóc gióng trống ba hồi Trống rền vang inh ỏi Náo động cả nhà Trời. Trời đùng đùng nổi giận Liền sai Gà thị uy Gà chưa kịp lâm trận Cáo cắn cổ tha đi. Trời sai Chó bắt Cáo Gấu đã chờ sẵn rồi Chó mới vừa xông xáo Gấu liền quật chết tươi. Đã tức càng thêm tức Trời sai thần Sét ra Thần ỷ mình sức lực Múa tầm sét sáng loà. Nhưng vừa bước ra cửa Ong dứt mấy mũi liền Mắt thần dường đổ lửa Quăng tầm sét bên hiên. Ảnh minh họa. Thần nhảy vào chum nước Cua giơ càng kẹp thôi Thần đau phóng một nước Mình mẩy ướt loi ngoi. Nãy giờ Cọp chờ đợi Đã ngứa ngáy chân tay Vừa thấy thần ra tới Liền tức khắc vồ ngay. Túng thế, Trời mời Cóc Vào hỏi han đuôi đầu Cóc biết Trời bực dọc Nên lựa lời để tâu: ""Dạ muôn tâu Thượng Đế Trần gian đã lâu rồi Đất khô, đồng nứt nẻ Chẳng một hạt mưa rơi. Thượng Đế cần mưa gấp Để cứu giúp muôn loài"". Nghe Cóc báo khẩn cấp Trời dịu giọng ngay thôi: ""Ta sẽ cho mưa xuống Vậy cậu cứ về đi"". Cóc đạt được mong muốn Cáo từ Trời tức thì. Trời dặn trước khi kiếu: ""Lần sau hễ muốn mưa Cậu nghiến răng báo hiệu Ta lập tức làm mưa. Cậu không cần vất vả Lên đây để kiện Trời!"". Cả đoàn quân hể hả Về trần gian ngay thôi! Nhìn khắp vùng, khắp cõi Nước ngập cả ruộng đồng Cóc lòng vui phơi phới Quả là chẳng uổng công! Người ta còn kể chuyện Chẳng cần phải kiện thưa Hễ mà răng cóc nghiến Là trời sẽ đổ mưa. Tác giả: Bùi Thị Ngọc Điệp Bài học hay từ những câu chuyện cổ tích bằng thơ Những câu chuyện cổ tích giúp các bé khám phá thế giới cổ tích theo phương cách mới, vô cùng hấp dẫn và thú vị. Nguồn: https://arttimes.vn/gia-dinh/truyen-co-tich-nhung-cau-chuyen-co-tich-bang-tho-be-kham-p...Nguồn: https://arttimes.vn/gia-dinh/truyen-co-tich-nhung-cau-chuyen-co-tich-bang-tho-be-kham-pha-the-gioi-moi-hap-dan-va-thu-vi-c59a8436.html",,,,
+fab-500x-20261114T224408Z-041,52,9d7e9a12bbe01902a55cad7c,eb7089cbae0e1c722302dbe0235a594c,fab-500x,vi,general_knowledge,aya-dataset,human_authored,[user] Thấu cảm là gì? Cảm thông là gì?,"Thấu cảm là khả năng hiểu và chia sẻ cảm xúc của người khác. Thấu cảm bao gồm hai thành phần chính:
+- Khả năng hiểu cảm xúc của người khác: Thấu cảm đòi hỏi chúng ta phải có khả năng nhận biết và hiểu được cảm xúc của người khác, bao gồm cả cảm xúc tích cực và tiêu cực.
+- Khả năng chia sẻ cảm xúc của người khác: Thấu cảm không chỉ đơn giản là hiểu cảm xúc của người khác, mà còn là khả năng đồng cảm với họ, cảm nhận được những gì họ đang cảm nhận.
+
+Cảm thông cũng là một khả năng quan trọng trong giao tiếp và ứng xử giữa con người với nhau. Cảm thông là khả năng hiểu và chia sẻ cảm xúc của người khác, nhưng nó chỉ bao gồm thành phần đầu tiên của thấu cảm, đó là khả năng hiểu cảm xúc của người khác.",,,,
+fab-500x-20261114T224408Z-041,53,f03ae005bb12664b57b0c036,6983b44f2116b8cfd4a73f522638f1c8,fab-500x,vi,mathematics,aya-dataset,human_authored,"[user] Dựa trên tiêu đề sau, hãy viết một đoạn văn tối đa 500 chữ: Người đàn ông bị sét đánh tử vong khi đang chạy xe máy ra đồng | Báo Dân trí","Thông tin từ UBND xã Dương Phúc, huyện Thái Thụy, tỉnh Thái Bình, cho biết, trên địa bàn vừa xảy ra vụ tai nạn do sét đánh đã khiến một người đàn ông tử vong. Nạn nhân là ông B.X.V. (60 tuổi), trú thôn Ri Phúc, xã Dương Phúc. Ông V. bị sét đánh tử vong khi đang chạy xe máy ra cánh đồng trong thôn. Nhận được tin báo, chính quyền địa phương đã xuống hiện trường, đồng thời báo cáo sự việc đến Công an huyện Thái Thụy để tiến hành các thủ tục theo quy định. Hiện, thi thể nạn nhân đã được gia đình đưa về lo hậu sự. Thống kê của cơ quan chức năng, khoảng 3 tháng trở lại đây, trên địa bàn tỉnh Thái Bình đã xảy ra nhiều vụ sét đánh khiến 7 người thiệt mạng. Mới đây nhất là vào sáng ngày 14/7, tại xã Quỳnh Bảo, huyện Quỳnh Phụ, tỉnh Thái Bình, một người phụ nữ đang cấy trên đồng cũng đã không may bị sét đánh tử vong.",,,,
+fab-500x-20261114T224408Z-041,54,5306b2ba441d0f54cb0df79c,432c4fa2e1781c1e53e13ca2964dd4bf,fab-500x,vi,pakistan,aya-dataset,human_authored,"[user] Hoàn thiện đoạn văn sau: Biên giới của Bangladesh được thiết lập dựa trên sự chia cắt từ Ấn Độ vào năm 1947. Lúc đó, Bangladesh trở thành một phần của Pakistan với phần phía đông gọi là Đông Pakistan. Khoảng cách giữa hai phần này là 1.600 km (tương đương 1.000 dặm). Mặc dù cả hai phần này đều theo đạo Hồi, tuy nhiên, sự chênh lệch về ngôn ngữ và dân tộc cùng với việc chính quyền tập trung chủ yếu ở phần phía tây (Tây Pakistan) đã tạo ra khoảng cách giữa hai vùng này. Điều này đã dẫn đến việc Bangladesh tuyên bố độc lập vào năm 1971 dưới sự lãnh đạo của Sheikh Mujibur Rahman sau một cuộc","chiến tranh giành độc lập, với sự trợ giúp của Ấn Độ. Những năm sau độc lập là giai đoạn bất ổn chính trị của đất nước, với mười ba chính phủ đã từng được thành lập và ít nhất bốn cuộc đảo chính quân sự.",,,,
+fab-500x-20261114T224408Z-041,55,d7154896b1613127b3c16b3d,30532dc36a135849bab4727702aadd8a,fab-500x,vi,science,aya-dataset,human_authored,[user] Tôi bị Lupus ban đỏ có được tiêm kháng thể đơn dòng không? Nếu được tiêm thì đăng ký như thế nào?,"Bạn không nói rõ trường hợp của bạn có đang dùng thuốc đang dùng thuốc ức chế miễn dịch (như Prednisone và Cellcept) hay không. Nếu có dùng thuốc thì sẽ không thể nào tiêm ngừa Covid-19 theo các thuốc chủng ngừa hiện nay vì sẽ không tạo ra kháng thể.
+
+Kháng thể đơn dòng là 2 kháng thể đơn dòng hỗn hợp có hiệu quả khoảng 6 tháng, do đó sẽ rất có hiệu quả trong trường hợp này. Nghiên cứu khoa học chứng minh thuốc có hiệu quả cao trên 83% trường hợp.
+
+Bạn còn muốn hỏi vấn đề khác không?",,,,
+fab-500x-20261114T224408Z-041,56,af10a44d8f75e58e6cae89b6,07d70a48e8b1cc43b1700065a55f8a2d,fab-500x,vi,web_frontend,aya-dataset,human_authored,"[user] Đọc đoạn văn sau và đưa ra một tiêu đề phụ hợp với nội dung: Theo tờ 163, scandal của MC - BTV đài CCTV là Vương Băng Băng và vận động viên bơi lội Từ Gia Dư gây xôn xao dư luận những ngày qua ảnh hưởng không ít tới nhà đài. Theo đó, bạn gái cũ của Từ Gia Dư lên tiếng tố anh ngoại tình, đồng thời chỉ trích Vương Băng Băng là tiểu tam, chen chân vào mối quan hệ giữa 2 người. Hiện tại, thông tin trên hồ sơ cá nhân Weibo của Vương Băng Băng đã thay đổi từ ""Phóng viên CCTV Vương Băng Băng"" thành ""Phóng viên Vương Băng Băng"".  Vương Băng Băng và Từ Gia Dư. Sự việc của Vương Băng Băng khiến dư luận đổ xô sự chú ý vào CCTV - Đài truyền hình trung ương Trung Quốc. Mới đây, tờ 163 bất ngờ đăng tải bài viết công khai mức lương của các MC - BTV nổi tiếng nhất của nhà đài gây xôn xao dư luận. Trước đó, tờ Toutiao đăng tải clip chia sẻ về thu nhập thực tế của các MC đài CCTV thu hút hơn 200.000 lượt xem cùng hàng loạt bình luận trái chiều. Theo 163, sự việc bắt nguồn từ sự việc BTV nổi tiếng của CCTV là Khang Huy bị đồn có mức lương ""khủng"" với con số 200.000 NDT (gần 700 triệu VND). Trước thông tin này, Khang Huy bèn bác bỏ thông tin trên: ""Làm sao có thể nhiều như vậy, tôi còn chẳng dám nghĩ tới con số đó"". Tờ 163 cho biết, Khang Huy và vợ dù đã ngoài 50 nhưng vẫn thuê nhà ở Bắc Kinh. Cặp đôi quyết định không mua nhà, không sinh con.  MC đài CCTV - Khang Huy phủ nhận tin đồn nhận lương 200.000 NDT (gần 700 triệu VND). Trước đó, một MC - BTV của đài CCTV là Nhân Ni Cách Mãi Đề Nhiệt Hợp Mạn cho biết, mức lương của anh ở CCTV một tháng không quá 5 con số, khoảng 7.000 NDT (hơn 24 triệu VND) dù anh đã làm việc cho nhà đài được 14 năm. Thông tin nam MC xuất thân từ khu tự trị Tân Cương chỉ nhận được mức lương vỏn vẹn 7.000 NDT khi làm tại CCTV khiến nhiều khán giả bất ngờ, không thể tin nổi vào mắt mình. Thông tin trên Baidu cho biết, Nhân Ni Cách Mãi Đề Nhiệt Hợp Mạn sinh năm 1983 ở Urumqi, khu tự trị Tân Cương. Sau khi tốt nghiệp Đại học Truyền thông Trung Quốc, anh vào làm việc tại CCTV từ năm 2006 tới nay. Nam MC dân tộc Duy Ngô Nhĩ sinh ra trong gia đình đông anh chị em nhưng được cưng chiều từ nhỏ. Theo 163, cha anh là BTV của Nhà xuất bản Nhân dân Tân Cương, còn mẹ làm tại bộ phận dịch thuật của Đài truyền hình Tân Cương. Dưới sự ảnh hưởng sâu sắc của gia đình, anh đã theo đuổi nghề BTV và quyết định đầu quân về CCTV sau khi tốt nghiệp Đại học.  Nhân Ni Cách Mãi Đề Nhiệt Hợp Mạn chỉ nhận mức lương khoảng 7.000 NDT (hơn 24 triệu VND). Nhân Ni Cách Mãi Đề Nhiệt Hợp Mạn từng dẫn nhiều chương trình nổi tiếng cho CCTV như Khai tâm từ điển, Khai môn đại cát, Đại lộ ngôi sao, Xin chào cuộc sống, Những ca khúc bất hủ của Trung Quốc,... Ngoài ra, anh còn xuất hiện trên sân khấu của Gala Lễ hội mùa xuân và được nhiều khán giả yêu thích. Chính vì thế,  việc Nhân Ni Cách Mãi Đề Nhiệt Hợp Mạn tiết lộ mức lương với con số thấp khó tin khiến nhiều khán giả bị sốc. ""Không thể nào, một công nhân trong nhà máy nếu tăng ca còn kiếm được số tiền bằng anh ấy nữa là"", ""Nhân Ni Cách Mãi Đề Nhiệt Hợp Mạn rất nổi tiếng, CCTV là đài Trung ương của quốc gia sao thu nhập hàng tháng lại có thể dưới 10.000 NDT cơ chứ"", ""Thật sự là 7.000 NDT ư, không thể tin nổi"", ... là những bình luận của khán giả. Trong lúc nhiều người nghi ngờ về tính chân thực trong chia sẻ của Nhân Ni Cách Mãi Đề Nhiệt Hợp Mạn, một MC khác của đài CCTV là Triệu Phổ cho biết, mức lương của anh chỉ có 6.000 NDT (khoảng hơn 20 triệu VND)/ tháng gây ra nhiều tranh cãi. Dù nổi tiếng, được làm việc tại nhà đài quyền lực nhất Trung Quốc nhưng trên thực tế mức lương của các MC - BTV tại CCTV không cao như Hà Cảnh, Tạ Na... và những đồng nghiệp ở các đài địa phương khác. Tờ 163 lý giải, những MC - BTV của đài CCTV có quy định bất thành văn là không được phép quay quảng cáo hay tham gia các sự kiện, chương trình biểu diễn thương mại. Do đó, những BTV của nhà đài chỉ có một nguồn thu duy nhất từ công việc dẫn chương trình cho CCTV.  Hà Cảnh (áo đỏ) là MC có thu nhập cao nhất hiện nay không thuộc đài CCTV. Theo QQ, Hà Cảnh là MC có thu nhập cao nhất Trung Quốc với số tiền 30 triệu NDT/năm (khoảng 103 tỷ VND). Không những thế, MC nổi tiếng của show Khoái lạc đại bản doanh (Happy Camp) còn có địa vị vững chắc trong làng giải trí. Nhiều diễn viên nổi tiếng, nghệ sĩ hạng A cũng phải nể phục Hà Cảnh. Năm 2011, một gương mặt mới xuất hiện trong bản tin Tin tức ngay lập tức gây sự chú ý vì cách dẫn dắt chuyên nghiệp, ấn tượng. Người này là Lang Vĩnh Thuần. Tuy nhiên, sự nghiệp MC của Lang Vĩnh Thuần không kéo dài lâu khi vợ anh bị bệnh ung thư vú. Để có tiền chữa bệnh cho vợ, anh đã từ chức và rời khỏi CCTV ra ngoài kinh doanh riêng. Theo 163, lý do rời nhà đài của nam MC đơn giản là mức lương cơ bản trung bình không đủ khả năng chi trả cho các khoản chi phí y tế cao. Sau khi rời CCTV, Lang Vĩnh Thuần giữ chức vụ phó chủ tịch của nền tảng thương mại điện tử nổi tiếng.  Trương Trạch Quần có mức lương ổn định ở CCTV. Tuy nhiên, theo 163, không phải mức lương của MC - BTV nào tại CCTV đều thấp. Trước đó, MC kỳ cựu của CCTV là Trương Trạch Quần đã quyên góp 217.000 NDT (hơn 750 triệu VND) cho Hà Nam. Điều này cho thấy, nam MC quê Hà Nam có mức lương trung bình vào khoảng 18.000 NDT/tháng (khoảng 62 triệu VND). Theo 163, nếu là một MC - BTV có địa vị hàng đầu ở CCTV, mức thu nhập hàng tháng đều rất cao. Những MC nổi tiếng nhất của nhà đài phải kể đến Lý Thụy Anh, Lỗ Kiện, Đổng Khanh, Chu Đào, Sài Lục, Cúc Bình, Thủy Quân Ích. Cụ thể, mức lương của Lý Thụy Anh vào khoảng 280.000 NDT/tháng (khoảng 968 triệu VND), Thủy Quân Ích, Lỗ Kiện, Đổng Khanh đều ở mức 260.000 NDT/tháng (gần 900 triệu VND), Chu Đào là 220.000 NDT/tháng (760 triệu VND), Sài Lục là 210.000 NDT/tháng (725 triệu VND) và Cúc Bình là 200.000 NDT/tháng (691 triệu VND).  MC hàng đầu của CCTV - Đổng Khanh có mức lương ""khủng"" 260.000 NDT/tháng (gần 900 triệu VND). Theo 163, trên đây chỉ là mức lương hàng tháng chưa bao gồm các khoản phụ cấp, trợ cấp khác. Đơn cử như Đổng Khanh, nữ MC có phụ cấp hàng chục nghìn NDT mỗi tháng. Ngoài ra, các MC - BTV đều có tiền thưởng vào cuối năm. Trước đó, tờ QQ cũng đăng tải bài viết xác nhận mức lương của BTV Đổng Khanh là 260.000 NDT/tháng. Đây được đánh giá là con số cao so với nhiều đồng nghiệp ở đài CCTV. Tờ Ifeng cho biết, mức lương của Đổng Khanh ở CCTV là 260.000 NDT tháng (gần 900 triệu VND). Ngoài ra, cô còn nhận được tiền phí trang điểm là 10.000 NDT (khoảng 34 triệu VND), tiền trợ cấp đặc biệt hàng tháng là 30.000 NDT (hơn 100 triệu VND) và tiền thưởng cuối năm là 50.000 NDT (khoảng 173 triệu VND). Tờ Ifeng lý giải, Đổng Khanh có được những đặc quyền này bởi cô là một trong những người dẫn chương trình truyền hình xuất sắc nhất của CCTV.  Ngoài tiền lương chính, Đổng Khanh còn có nhiều khoản phụ cấp khác. Nguồn: https://www.nguoiduatin.vn/choang-voi-muc-luong-gan-ty-ong-cua-mc-btv-hang-au-trung-quoc-a562339...Nguồn: https://www.nguoiduatin.vn/choang-voi-muc-luong-gan-ty-ong-cua-mc-btv-hang-au-trung-quoc-a562339.html",Choáng với mức lương gần tỷ đồng của MC - BTV hàng đầu Trung Quốc,,,,
+fab-500x-20261114T224408Z-041,57,ab9d021feab748a2ae863cc8,41f6f9ea23b4136687e0d1cd3904c32a,fab-500x,vi,web_fullstack,aya-dataset,human_authored,"[user] Đặt tiêu đề cho đoạn văn sau: 
+
+Trung tâm Khí tượng Quốc gia Libya đã ghi nhận lượng mưa kỷ lục 414,1 mm trong 24 giờ, từ ngày 10 đến ngày 11/9, ở Bayda, cách Derna 100 km về phía tây, theo Tổ chức Khí tượng Thế giới (WMO). Chuyên gia thời tiết Maximiliano Herrera cho biết phần lớn lượng mưa này trút xuống khu vực đồi núi ở miền tây Libya trong vòng 6 giờ.
+Bayda chỉ nhận lượng mưa 12,7 mm trong tháng 9 và trung bình hàng năm hơn 543,5 mm. Giới khoa học cho rằng biến đổi khí hậu khiến các đợt mưa lớn xuất hiện thường xuyên hơn tại khu vực những năm gần đây.
+
+Thị trấn Al Abraq nằm giữa Bayda và Derna ghi nhận lượng mưa 170 mm, theo website chuyên ghi nhận thông tin lũ lụt Floodlist. Những nơi khác nhận lượng mưa 150-240 mm.
+
+Các khu vực này đều nằm ở thượng nguồn, nơi có địa hình cao, khiến nước lũ tích tụ và dồn về vùng duyên hải phía đông, nơi có thành phố Derna với khoảng 90.000 dân.
+
+Derna nằm sát bờ biển, có vị trí thấp so với khu vực còn lại, khiến nơi này dễ bị ngập lụt. Đất đai trở nên khô rắn sau một mùa hè nóng và kéo dài, khiến nước mưa có xu hướng đọng lại trên bề mặt nhiều hơn là ngấm xuống lòng đất.",Lượng Mưa Kỷ Lục ở Libya: Bayda và Derna Đối Mặt với Hiện Tượng Thời Tiết Cực Đoan,,,,
+fab-500x-20261114T224408Z-041,58,604b40b0f689099b16f2d51a,1850871219ceb0a39691a414a1ba858b,fab-500x,vi,writing,aya-dataset,human_authored,"[user] Liệt kê danh sách các nguyên nhân dẫn tới tình trạng ""job search anxiety"".","""Tình trạng lo âu khi tìm việc"" (job search anxiety) là tình trạng mà người đang tìm việc cảm thấy căng thẳng, lo lắng và không chắc chắn về quá trình tìm kiếm việc làm. Dưới đây là danh sách các nguyên nhân có thể dẫn tới tình trạng ""job search anxiety"":
+
+Cảm giác choáng ngợp khi có quá nhiều việc phải làm
+Chẳng hạn với mỗi JD, bạn phải dành thời gian nghiên cứu về công ty, từ đó chỉnh sửa đơn ứng tuyển cho phù hợp. Bạn cũng phải “đánh bóng” trang LinkedIn của mình để gây ấn tượng tốt với nhà tuyển dụng.
+
+Nếu tìm việc trong ngành sáng tạo, bạn phải sửa cả blog hoặc portfolio - thứ giúp bạn “kiến tạo” bản dạng giữa hàng nghìn ứng viên khác. Đó là còn chưa kể, việc điền thông tin ứng tuyển hay thu thập các tài liệu cần thiết cũng “ngốn” của bạn kha khá thời gian.
+
+Não bộ không thích sự bất ổn
+Khi đi làm, nếp sinh hoạt của bạn thường theo một trình tự nhất định. Bạn biết rõ một ngày mình phải làm những gì, và kết quả mà những việc bạn làm sẽ mang lại (một nguồn thu nhập ổn định, sự thỏa mãn trong cuộc sống hoặc sự kết nối với đồng nghiệp khác).
+
+Nhưng khi thất nghiệp, cuộc sống của bạn bị đảo lộn hoàn toàn. Bạn sẽ đi từ ngày này qua tháng nọ với cảm giác bất an dài vô tận mà không thấy điểm kết. Khi không có nguồn thu nhập ổn định, nỗi lo về những khoản phí phải trả, cũng như tiềm năng công việc trong tương lai cũng “luẩn quẩn” quanh bạn.
+
+Nỗi sợ bị từ chối
+Bạn bỏ nhiều công sức để chuẩn bị hồ sơ thật bắt mắt và tập dượt kỹ trước khi phỏng vấn. Ấy vậy mà bạn vẫn không đỗ, thậm chí không được nhà tuyển dụng phản hồi email.
+
+Sự từ chối này là khá bình thường trong quá trình tuyển dụng. Song nếu bạn chưa có nhiều kinh nghiệm, nó ảnh hưởng không nhỏ đến lòng tự tin của bạn. Bạn dễ cảm thấy “mình không đủ tốt”, thậm chí so sánh với người khác và ám ảnh rằng mình không thể thành công.
+
+Khả năng đối mặt với phỏng vấn: Lo âu về việc đối mặt với các buổi phỏng vấn việc làm có thể làm cho người tìm việc lo lắng về việc họ có thể không thể thể hiện mình một cách tốt.
+
+Sự không rõ ràng về mục tiêu nghề nghiệp: Nếu người tìm việc không chắc chắn về hướng nghề nghiệp hoặc mục tiêu sự nghiệp của mình, họ có thể cảm thấy lo lắng và không biết por đâu mà bắt đầu.
+
+Sự áp đặt từ xã hội: Áp lực từ xã hội hoặc gia đình về việc phải có việc làm hoặc phải đạt được thành công trong sự nghiệp có thể tạo ra lo âu trong quá trình tìm kiếm việc làm.
+
+Sự không rõ ràng về thông tin: Sự thiếu thông tin hoặc sự không rõ ràng về cách tìm kiếm việc làm có thể dẫn đến lo âu và căng thẳng.",,,,
+fab-500x-20261114T224408Z-041,59,a2bc4c6225ed0c8f32529558,9d461fb5572e2dce91de27886a137980,fab-500x,wol,coding,aya-dataset,human_authored,[user] Lan mooy JAVA ?,LAKK INFORMATIQUE LEU,,,,
+fab-500x-20261114T224408Z-041,60,588ce5f5498561e554086678,9469b4a2bbf12b64f606546484c14f21,fab-500x,wol,general_knowledge,aya-dataset,human_authored,"[user] Ndàx man ngaa jubbanti mbind mii?
+- Moo ndax, dangeen xeemeem [,Yéen jullit ñi,] Yahuud yi wóolu leen? Te am na ci ñoom kurél boo xam ne déggoon nañu waxi Yàlla, ba noppi soppi ko ginnaw ba ñu ca xalaatee ba xam ko.","Waaw! Mi ngii:
+- Moo ndax, da ngéen xemem [,Yéen jullit ñi,] Yahuud yi wóolu leen? Te àm na ci ñoom kurel boo xàm ne déggoon na ñu wàx i Yàlla, ba noppi soppi ko ginnaw ba ñu ca xalaatee ba xàm ko.",,,,
+fab-500x-20261114T224408Z-041,61,ecc423e7b5467b4d63c4dc60,307855d58cab0d33dd03e26c940b709d,fab-500x,xho,general_knowledge,aya-dataset,human_authored,"[user] Generate a headline for the following text: Kwek! Ide yadlula inyanga yolutsha namaphulo ayo neengqungquthela ezahlukeneyo ebezibanjwa mihla yonke; kuxoxwa ngemiceli-mngeni ejamelene nolutsha lweli. Mihla le kumaphephandaba, nakumajelo osasazo kanomathotholo nakumabonakude, zonke iinkqubo bezijolise kwimiba yolutsha.  
+Njengesiqhelo, bendingenawo nomncinane umdla kuyo nayiphina into ibithethisa ngolutsha; kuba ndisazi ukuba akukho nto intsha lo nyaka izakuza nayo, izakuba sesezolo. Kubekho ke nesi sibetho sokusoloko kuthelekiswa ulutsha lanamhlanje nolwangomnyaka ka1976. 
+Kule nyanga iphelileyo ndifikelele kwisigqibo sokuba mhlawumbi esinye sezizathu esindenza ndingabethelwa nangu doh ngokwenzeka ngenyanga yolutsha kukuba eneneni andiseyiyo le ntanga kujoliswe kuyo kule nyanga.  
+Nakuba ngokwasemthethweni iminyaka yam isandivumela ukuba ndixhamle njengomntu omtsha, kodwa mna ndikholelwa kwelokuba ulutsha mayibengabantu abaphakathi kweminyaka eyi-18 ukuyakuthso kweyi-28, hayi kweyi-35. 
+Ndibuyele kwinyanga yolutsha nemikhankaso yayo. Kuwo onke amaphulo endiwabone ekhutshwa ezindabeni, kukho eli linye beligundabamlonyeni oko umphathisa wezempilo kuzwelonke wabhengeza ngethuba esenza uhlahlo lwabiwo mali lesebe lakhe, ukuba bazakusungula iphulo elijolise ukuxhobisa amantombazana aphakathi kweminyaka eyi15 ukutsho kweyi- 24, nangawona asemngciphekweni omkhulu wokosuleleka sisifo sikaGawulayo. Umphathiswa wathi bakhethe inyanga yolutsha ukusungula eli phulo. 
+Zininzi iigcinga endiye ndanazo ukuva kwam le nto, kodwa ndiye ndathabatha isigqibo sokunganazi nto kuba kakade ayijoliswanga kule ntanga ndiyiyo yonke le nto. Kwakhona, bendingafuni kujongeka njengomntu ohleli nje ugxibha imizamo emihle yesebe lezempilo. Umbuzo ke ubusoloko usithi qatha kum ngowokuba eli phulo licetywayo lizakuza nantoni eyohlukileyo kuwo onke amaphulo esakhe sanawo ngaphambili, nawayejolise ekulweni kwale ntsindabadala inye? 
+Ukususela ngale mpela veki iphelileyo, ndikhe ndazinika ithuba lokuphengulula umnatha nalapho bendifunda zonke izibhalo ezipapashwe ngeli phulo. Ndiphengulule ndancama, kungekho nalinye inqaku elitsolisa ngendlela eli phulo lizakuphunyezwa ngayo.  
+Nditsho nentetho yohlahlo lwabiwo mali ka- mphathiswa khange ibenayo ingcaciso endanezayo, koko ukhankanye imiba emihlanu ekuzakuchankcathwa kuyo kule minyaka mithathu isikelwe eli phulo.  
+Le miba kuquka kuyo: ukwehliswa kwezinga eliphezulu lokusuleleka kwamantombazana aselula sisifo sikaGawulayo, nokwandiswa kwamathuba engqesho yala mantombazana, ukuzama ukulwa lo mkhuba mbi wokuthandana kwawo namadoda amadala, oo-sugar daddy ukutsho. 
+Ewe, ndiyayiva yonke le nto, kodwa ndisafuna ukwazi ukuba konke oku kuzakwenziwa njani. Mhlawumbi ingxaki ndim wena; andinamonde. Mhlawumbi ethubeni izakude icace yonke le nto.  
+Uyabona ke, ndisengumfundi, omnye wabahlohli ababendifundisa ubuntatheli wayengafuni nokumbona umntu ogwegwelezayo xa ebhala, angade aze emxholweni. Xa sele enomsindo wawuva ngaye sesithi “sukundinika inkomo yonke, ndifuna ubisi qwaba jwi.” 
+Elona xhala lam kuyo yonke le nto kukuba asikokokuqala sinyhalwa ngamaphulo akumila kunje ngamaqumrhu anikezeka ngenkxaso mali, yaye onke loo maphulo aphanza ukuzisa inguqu kule minyaka idlulileyo. Ndithe ndakubona ukuba iPEPFAR, neliqumrhu elasekwa ngowayesakuba ngumongameli eMelika, uGeorge W. Bush, nayo ifake isixa kwezabhiliyoni zintathu, ndaziva ndibutyhafa ngakumbi. 
+Kaloku ikwayile PEPFAR ndini eyasizisela umkhankaso owawunendumasi ngeminyaka yoo2005, owawusaziwa njenge- ABC, neyayimele *  Abstinence, Be Faithful, Condomise. Wakuvula unomathotholo, umabonakude, amaphephandaba, mzuzwana mzuzwana nje ugagana nemiyalezo yeli phulo. Nditsho naxa uhamba ngeenyawo okanye ngesithuthi sika wonke-wonke, ibhodi nganye odlula kuyo endleleni yayiqulathe le miyalezo. Azi izakuzala nkomoni kweli tyeli.","Sure, here's a headline for the given text - Ndinentantabuzo ngephulo lokulwa isifo uGawulayo.",,,,
+fab-500x-20261114T224408Z-041,62,4f806c3151ab140a6e6bd5ea,b1e7fcc238764be54326520fced546e6,fab-500x,yor,general_knowledge,aya-dataset,human_authored,[user] Sọ fúnmi nípa Ìpínlẹ̀ Gombe.,"Ìpínlẹ̀ Gombe jẹ́ ìpínlẹ̀ kan ní agbègbè àríwá-ìlà-oòrùn orílẹ̀-èdè Nàìjíríà, tí ó pín ààlà sí àríwá àti àríwá-ìlà-oòrùn pẹ̀lú Ìpínlẹ̀ Borno àti Ìpínlẹ̀ Yobe, sí gúúsù pẹ̀lú Ìpínlẹ̀ Taraba, sí gúúsù-ìlà-oòrùn pẹ̀lú Ìpínlẹ̀ Adamawa, àti sí ìwọ̀-oòrùn pẹ̀lú Ìpínlẹ̀ Bauchi. Wọ́n sọọ́ lórúkọ fún ìlu Gombe, tí ó jẹ́ olú-ìlú ìpínlẹ̀ àti ìlú tí ó gbòòrò jùlọ. Wọ́n ṣẹ̀da Ìpínlẹ̀ Gombe látara àwọn apá kan Ìpínlẹ̀ Bauchi ní ọjọ́ kínní oṣù Ọ̀wàwà, ọdún 1996.
+
+Láàárín àwọn ìpínlẹ̀ mẹ́rìndínlógójì ti orílẹ̀-èdè Nàìjíríà, ìpínlẹ̀ Gombe jẹ́ ìpínlẹ̀ kọkànlélógún tí ó gbòòrò jùlọ ní ààyè tàbí agbègbè àti ẹlẹ́ẹ̀kejìlélọ́gbọ̀n ní iye pẹ̀lú ènìyàn tí ó tó mílíọ́nnù-mẹ́talénídàámẹ́rin-mílíọ́nnù gẹ́gẹ́ bí àbájáde ètò-ìkànìyàn ọdún 2016.
+
+Ní ti ẹ̀yà, àwọn olùgbé ìpínlẹ̀ Gombe láti bí ọ̀pọ̀ ọdún sẹ́yìn kún fún àwọn oríṣiríṣi ẹ̀yà, pàápàá àwọn ará Fulani tí wọ́n gbé ní àríwá àti àáríngbùngbùn ìpínlẹ̀ náà papọ̀ pẹ̀lú àwọn ará Bolewa, Kanuri, àti àwọn ará Hausa nígbàtí ìlà-oòrùn àti àwọn agbègbè gúúsù lóríṣiríṣi kúnfún àwọn ará Cham, Dadiya, Jara, Kamo, Pero, Tangale, Tera, àti àwọn ará Waja. Ní ti ẹ̀sìn, àwọn tí wọ́n pọ̀ jùlọ ni ìpínlẹ̀ náà (~75%) jẹ́ ẹlẹ́sìn Mùsùlùmí nígbàtí àwọn ẹlẹ́sìn Kììtẹ́nì àti ẹlẹ́sìn abalaye ò pọ̀, wọ́n wà ní ìdiwọ̀n 20% àti 5%, ní ṣísẹ̀-n-tẹ̀lè.",,,,
+fab-500x-20261114T224408Z-041,63,6d2fba01b2a2f3d78d4968f9,b3c7daf265ea7c3551aeb917f6ad31b2,fab-500x,yor,islamic_studies,aya-dataset,human_authored,[user] Ọga ileewe to ba gba owo tijọba ko fọwọ si lọwọ akẹkọọ yoo da ara rẹ lẹbi.,"Kọmiṣanna feto ẹkọ ileewe giga imọ sayẹnsi ati imọ ẹrọ (Tertiary Education, Science and Technology), Hajiya Sa’adatu Modibbo Kawu ti sọ pe ọga ileewe to ba gba owo ti ko tọ, tabi eyi tijọba ko fọwọ si yoo da ara rẹ lẹbi.
+
+Kawu ni ikilọ naa ṣe pataki latari iroyin tijọba n gbọ pe ileewe College of Arabic and Islamic Legal Studies (CAILS), n gba owo lọwọ awọn akẹkọọ to ṣẹṣẹ wọle nitori bi wọn ṣe kọ lati gbe inu ile to wa lọgba ileewe naa.
+
+O koro oju si iru igbesẹ bẹẹ, o si ke si gbogbo awọn adari ileewe giga to jẹ tipinlẹ Kwara lati tete jawọ.
+
+Kawu ni, “Ijọba yii mọ iṣoro tawọn eeyan n la kọja bayii, a ko si fẹ ohun to tun le dakun un”.
+
+Kọmiṣanna ti waa paṣẹ fun gbogbo ileewe giga patapata lati ma fi owo kun owo ileewe, owo igbaniwọle, owo ositẹẹli atawọn mi-in fun saa ikẹkọọ tuntun yii.
+
+Atẹjade lati ọwọ Akọwe iroyin Kọmiṣanna naa, Ọgbẹni Adamu M. Saidu, ni ijọba ti gbe igbimọ meji ọtọọtọ kalẹ lati ṣewadii iru iṣẹlẹ naa nileewe International Aviation College ati ileewe gbogboniṣe,  Kwara State Polytechnic.",,,,
+fab-500x-20261114T224408Z-041,64,72b7f92959838e682f4573be,f315d80fd7141cbd687bea657a4e16f9,fab-500x,yor,mathematics,aya-dataset,human_authored,"[user] Aiyedatiwa jáwọ́ nínú ẹjọ́ tó pé ilé aṣòfin Ondo lórí ìyọ́ní nípò rẹ̀, ìdí réè","Igbakeji Gomina ipinlẹ Ondo , Lucky Aiyedatiwa, ti jawọ ninu ẹjọ to pe ile aṣofin ipinlẹ naa eyi to gbe lọ siwaju ile ẹjọ giga Abuja.
+
+Lọjọ Aje lo gbe igbesẹ lati jawọ ninu ẹjọ eleyi to pe ṣaaju ni itako iyọni nipọ rẹ ti ile aṣofin ipinlẹ Ondo bẹrẹ igbesẹ le lori.
+
+Yatọ si ile aṣofin to pe lẹjọ yi ti nọmba rẹ jẹ FHC/ABJ/CS/1294/2023,
+
+Gomina,Olori ile Adajọ agba,Kọmiṣana Ọlọpaa Ondo ati adari ajọ Ọtẹlẹmuyẹ DSS naa pẹlu awọn to jijọ pe lẹjọ.
+
+Nibi igbẹjọ to waye lọjọ Aje agbẹjọro Aiyedatiwa Ọgbẹni Ebun-olu Adegboruwa (SAN), sọ fun ile ẹjọ pe o wu lati yọwọ ninu ẹjọ yi lẹyin ti awọn aṣaaju ẹgbẹ oṣelu All Progressives Congress,APC da si aawọ to n waye laarin ohun ati Gomina.
+
+Agbẹjọro agba yi sọ pe alaga ẹgbẹ APC Abdullahi Ganduje ti ṣe agbekalẹ igbimọ ti yoo yanju aawọ laarin awọn to pe lẹjọ yi lọjọ Kẹfa oṣu Kẹwaa
+
+Adegboruwa sọ pe titẹsiwaju pẹlu igbẹjọ yi yoo ṣe akoba fun ipẹtusaawọ ti awọn olori ẹgbẹ n gbe igbesẹ rẹ.
+
+Bẹẹ naa lo tọka si pe ile aṣfin ipinlẹ Ondo kọ iwe ẹhonu si igbimọ to n ṣe akoso awọn adajọ ni Naijiria lọjọ Kẹta oṣu Kẹwaa ni itako si adajọ Emeka Nwite to n gbẹjọ ọhun.
+
+O rọ ile ẹjọ lati ṣe suuru de esi iwe ẹhonu yi ki wọn to tẹsiwaju pẹlu igbẹjọ to wa nilẹ.
+
+Rara,igbẹjọ gbọdọ tẹsiwaju-agbẹjọro Akeredolu fariga
+Ninu atako si ohun ti agbẹjọro Aiyedatiwa sọ, agbẹjọro ti Gomina ipinlẹ Ondo Kazeem Gbadamosi (SAN), ati ti adajọ agba ipinlẹ Ondo, Mutalib Ojo (SAN), sọ fun ile ẹjọ pe awọn ko faramọ nkan ti o sọ ati pe awọn rọ ile ẹjọ lati tẹsiwaju igbẹjọ naa.
+
+Agbẹjọro ile aṣofin Femi Emodarimo sọ pe ile aṣofin ipinlẹ Ondo ti ṣaaju kọ iwe ẹhonu kotẹmilọrun ni itako adajọ to n gbẹjọ yi.
+
+Ninu idajọ to gbe kalẹ, adajọ Nwite sunjọ itẹsiwaju igbẹjọ naa di ọjọ Kẹrindinlogun oṣu Kẹwaa.
+
+Koko ẹjọ ti Aiyedatiwa pe ni pe oun fẹ ki ile ẹjọ paṣẹ ki Akeredolu ati awọn to n ṣiṣẹ fun jawọ nidi idunkoko mọ ohun tabi tita abuku oun lasiko toun ba n ṣe iṣẹ rẹ gẹgẹ bi igbakeji Gomina.
+
+Ile ẹjọ ti buwọlu lu ibeere rẹ to gbe wa siwaju adajọ ti o si sun igbẹjọ di ọjọ Aje to n bọ lati le gbọ awọn koko to wa ninu ọrọ naa.",,,,
+fab-500x-20261114T224408Z-041,65,a432d61a1dda2cb5dd5bfe5b,39c5cbc41c4d06200c4ce302de704334,fab-500x,yor,safety_ethics,aya-dataset,human_authored,[user] Ẹwọn oṣu mẹfa ni awakọ to ba n gba ipe lasiko to n wa mọto yoo fi jura-Kazeem,"Ibaa jẹ nipa lilo foonu ni o, abi lilo awọn eroja ibanisọrọ bii okun ti wọn n ki seti, tawọn eleebo n pe ni ****handsfree, bo si jẹ nipasẹ eyi ti wọn n pe ni bluetooth naa ni, ijọba ni eyi yoowu ko jẹ, awakọ to ba n gba ipe loju popo lasiko to n wakọ maa fi ẹwọn oṣu mẹfa jura bii awada ni.
+
+Ọgbẹni Bisi Kazeem ti i ṣe ọga agba lẹka idanilẹkọọ ti Ajọ ẹṣọ oju popo, FRSC (Federal Road Safety Commission) lo yan-na-na ọrọ yii ninu ifọrọwanilẹnuwo kan tiweeroyin Punch ṣe fun un, lọjọ Abamẹta, Satide.
+
+Kazeem ni ajọ Road Safety, bi wọn ṣe saaba maa n pe wọn, ko ni i gba oju bọrọ fẹnikẹni lori ofin yii, atawọn ofin mi-in to yẹ kawọn onimọto pa mọ nirona, paapaa lasiko ti a ti wọnu oṣu ba-ba-ba yii, ti ọdun si ti n lọ sopin.
+
+O ni lọpọ igba lawọn ti fi pampẹ ofin gbe awọn onimọto latari pe wọn n gba ipe nigba ti wọn n wakọ lọwọ, ṣugbọn awawi ti ọpọ wọn maa n sọ ni pe bluetooth ati earpods lawọn n lo, awọn kan n fẹnu sọrọ feti gbọrọ lasan ni, ko di awọn lọwọ wiwakọ daadaa.
+
+“Ṣugbọn awawi lasan ni, ohun ti ofin sọ ninu iwe ofin irinna (National Road Traffic Regulations) tijọba apapọ ṣe lọdun 2012, labẹ isọri kẹrindinlaaadọsan-an (166) abala kin-in-ni, pe ohunkohun ko gbọdọ pin ọkan awakọ niya, o si lodi lati gba ipe, dahun ipe tabi fesi si ipe lasiko teeyan n wa ọkọ lọwọ. Ohun to bojumu ni keeyan da ọkọ wiwa duro, ko paaki, ko gba ipe to fẹẹ gba, ko si tun maa ba irinajo rẹ lọ.
+
+‘‘Yatọ si gbigba ipe, a maa n rọ awọn awakọ lati ma ṣe maa paarọ kasẹẹti, CD tabi ki wọn lawọn n yi ẹrọ redio inu mọto wọn lati teṣan redio kan si omi-in, tori ọpọ ijamba ojupopo lo ti ṣẹlẹ latari iwa aibofinmu bẹẹ.
+
+‘‘Lati asiko yii lọ, Ajọ Road Safety yoo ri i daju pe awọn awakọ pa awọn ofin wọnyi mọ, tabi ki awọn to ba tasẹ agẹrẹ fimu kata ofin bo ṣe yẹ.”",,,,
+fab-500x-20261114T224408Z-041,66,4d61dffbcb4e6a12102a13e7,a04fd5f6559cbfe3f69756fca73afc72,fab-500x,yor,science,aya-dataset,human_authored,[user] Àkóràn papillomavirus ènìyàn (àkóràn HPV),"Àkóràn papillomavirus ènìyàn (àkóràn HPV) jẹ́ ìṣẹ̀lẹ̀ nípasẹ̀ fáírọ́ọ̀sì DNA láti ìdílé Papillomaviridae. Ọ̀pọ̀lọpọ̀ àkóràn HPV kò fa àwọn àmì kankan àti pé 90% yanjú láìfọwọ́yí láàárín ọdún méjì. Ní àwọn ìgbà mìíràn, àkóràn HPV máa ń tẹ̀síwájú ó sì máa ń yọrí sí yálà àwọn warts tàbí àwọn ọgbẹ́ ṣíwájú àrùn jẹjẹrẹ. 
+
+Awọn ọgbẹ wọnyi, da lori aaye ti o ni ikolu, mu ewu ti akàn ti cervix, vulva, vagina, penis, anus, ẹnu, tonsils, tabi ọfun. Ó fẹ́rẹ̀ẹ́ jẹ́ pé gbogbo àrùn jẹjẹrẹ ọrùn inú ọmọ jẹ́ nítorí HPV àti ẹ̀yà méjì - HPV16 àti HPV18 - èyí tí ó jẹ́ 70% àwọn ìṣẹ̀lẹ̀. HPV16 jẹ lodidi fun fere 90% ti hpV-rere oropharyngeal akàn. Laarin 60% ati 90% ti awọn akàn miiran ti a ṣe akojọ loke tun ni asopọ si HPV. HPV6 ati HPV11 jẹ awọn okunfa ti o wọpọ ti awọn warts genital ati papillomatosis laryngeal.
+
+Àkóràn HPV jẹ́ ìṣẹ̀lẹ̀ láti ọwọ́ papillomavirus ènìyàn, fáírọ́ọ̀sì DNA láti inú ẹbí papillomavirus. Ó lé ní 200 irúfẹ́ tí wọ́n ti ṣàpèjúwe rẹ̀. Ẹnì kọ̀ọ̀kan lè ní àrùn hpV tó ju ẹyọ kan lọ, àrùn náà sì ni a mọ̀ pé ó ń nípa lórí ènìyàn nìkan.  Ó lé ní ogójì irúfẹ́ lè tàn kálẹ̀ nípasẹ̀ ìbálòpọ̀ kí wọ́n sì kó àrùn bá anus àti genitals. Àwọn ohun ewu fún àkóràn tí ó ń tẹ̀síwájú nípasẹ̀ àwọn irúfẹ́ ìbálòpọ̀ pẹ̀lú ìbẹ̀rẹ̀ ọjọ́ orí ìbálòpọ̀ àkọ́kọ́, ọ̀pọ̀lọpọ̀ àwọn alábàáṣiṣẹ́pọ̀ ìbálòpọ̀, sìgá mímu, àti iṣẹ́ àjẹsára tí kò dára.
+
+Àwọn irúfẹ́ wọ̀nyí máa ń tàn kálẹ̀ nípasẹ̀ ìfọwọ́sowọ́pọ̀ awọ-sí-awọ tààrà, pẹ̀lú ìbálòpọ̀ inú ẹ̀jẹ̀ àti ìbálòpọ̀ anal jẹ́ ọ̀nà tí ó wọ́pọ̀ jù. Àkóràn HPV náà lè tàn láti ọ̀dọ̀ ìyá sí ọmọ nígbà tí ó bá lóyún. Kò sí ẹ̀rí pé HPV lè tàn káàkiri àwọn nkan tí ó wọ́pọ̀ bíi àwọn ìjókòó ilé-ìgbọ̀nsẹ̀, ṣùgbọ́n irúfẹ́ èyí tí ó ń fa àwọn ọjà lè tàn káàkiri àwọn ilẹ̀ bíi ilẹ̀. HPV kò pa nípasẹ̀ àwọn ohun èlò ìmọ́tótó ọwọ́ tí ó wọ́pọ̀ àti àwọn oògùn ìpalára, tí ó ń pọ̀ sí i pé ó ṣe é ṣe kí wọ́n gbé fáírọ́ọ̀sì náà nípasẹ̀ àwọn aṣojú àkóràn tí kì í ṣe alààyè tí wọ́n ń pè ní fomites.
+
+Awọn ajesara HPV le ṣe idiwọ awọn iru àkóràn ti o wọpọ julọ. Láti ṣiṣẹ́ dáadáa jùlọ, àjẹsára gbọ́dọ̀ ṣẹlẹ̀ kí ìbálòpọ̀ tó bẹ̀rẹ̀, nítorí náà wọ́n dábàá rẹ̀ láàárín ọdún 9-13. Àyẹ̀wò àrùn jẹjẹrẹ ọrùn inú ọmọ, gẹ́gẹ́ bíi ìdánwò Papanicolaou (""pap smear""), tàbí àyẹ̀wò cervix lẹ́yìn lílo acetic acid, lè ṣàwárí àrùn jẹjẹrẹ ìbẹ̀rẹ̀pẹ̀pẹ̀ àti àwọn sẹ́ẹ̀lì tí kò dára tí ó lè dàgbà sínú jẹjẹrẹ.
+
+Àyẹ̀wò máa ń gba ìtọ́jú kíákíá láàyè èyí tí ó yọrí sí àbájáde tó dára. Àyẹ̀wò ti dín iye àwọn ìṣẹ̀lẹ̀ àti iye àwọn tó kú láti inú àrùn jẹjẹrẹ ọrùn inú ọmọ kù. A lè yọ àwọn ohun èlò ìbálòpọ̀ kúrò nípa dídì. 
+
+Ó fẹ́rẹ̀ẹ́ jẹ́ pé gbogbo ẹni tí ó ń ṣiṣẹ́ nípa ìbálòpọ̀ ni HPV ní àkókò kan nínú ayé wọn. HPV jẹ àkóràn ìbálòpọ̀ tí ó wọ́pọ̀ jùlọ (STI), kárí ayé. HpVs tí ó léwu tó ga máa ń fa bíi 5% gbogbo àrùn jẹjẹrẹ kárí ayé, pẹ̀lú ìṣirò àwọn obìnrin 570,000 àti àwọn ọkùnrin 60,000 tí wọ́n ń gba àrùn jẹjẹrẹ tó níí ṣe pẹ̀lú HPV lọ́dọọdún. 
+
+Ní orílẹ̀-èdè Amẹ́ríkà, ó tó ẹgbẹ̀rún lọ́nà ọgọ́rùn-ún mẹ́fà ó lé ẹgbẹ̀rún lọ́nà ọgọ́rùn-ún mẹ́fà (36,000) ìṣẹ̀lẹ̀ àrùn jẹjẹrẹ nítorí HPV máa ń wáyé lọ́dọọdún. Àrùn jẹjẹrẹ ọrùn inú ọmọ wà lára àwọn àrùn jẹjẹrẹ tí ó wọ́pọ̀ jùlọ kárí ayé, tí ó ń fa nkan bí ẹgbẹ̀rún lọ́nà ọgọ́rùn-ún mẹ́fà ó lé ẹgbẹ̀rún lọ́nà ọgọ́rùn-ún mẹ́rin ó lé ẹgbẹ̀rún lọ́nà ọgọ́rùn-ún mẹ́rin ó lé ẹgbẹ̀rún lọ́nà ọgọ́rùn-ún mẹ́rin ó lé ẹgbẹ̀rún lọ́nà ọgọ́rùn-ún mẹ́rin ó lé ẹgbẹ̀rún lọ́nà ọgọ́rùn-ún mẹ́rin ó lé ẹgbẹ̀rún lọ́nà ọgọ́rùn 
+
+Ó tó 90% àwọn ìṣẹ̀lẹ̀ tuntun wọ̀nyí àti ikú àrùn jẹjẹrẹ ọrùn inú ọmọ ṣẹlẹ̀ ní àwọn orílẹ̀-èdè tí owó wọn kéré àti àárín. Ó fẹ́rẹ̀ẹ́ tó 1% àwọn àgbàlagbà tí wọ́n ń ṣe ìbálòpọ̀ tí wọ́n ní àwọn ohun èlò ìbálòpọ̀. Wọ́n ti ṣàpèjúwe àwọn ìṣẹ̀lẹ̀ àwọ̀ ara láti ìgbà Greece àtijọ́, ṣùgbọ́n pé kòkòrò àrùn kan ló fa wọn títí di ọdún 1907.",,,,
+fab-500x-20261114T224408Z-041,67,3d725c5b40958e75e0e8cba3,2721cdca6047c58886f49c7870459606,fab-500x,yor,writing,aya-dataset,human_authored,"[user] Write on "":""Kòró/Kòrọ́nà – Ogun ti a kò rí: Coronavirus – the invisible war""","Àjàkálẹ̀ àrùn ma ńṣẹlẹ̀ láti ìgbà-dé-ìgbà. Ni igba kan ri, àjàkálẹ̀ àrùn bi Ṣọ̀pọ̀ná/Olóde, Ikọ́-ife, Onígbáméjì àti bẹ́ẹ̀ bẹ́ẹ̀ lọ, ló kári ayé. Ni ọdún kẹtàlélógòji sẹhin, Ìkójọ Ètò-Ìlera Àgbáyé (WHO) ṣe ikéde òpin àrùn Ṣọ̀pọ̀ná/Olóde. Ọ̀pọ̀lọpọ̀ àwọn àjàkálẹ̀ àrùn àgbáyé yi, kò jà ju ọdún kan lọ, nigbati àwọn àjàkálẹ̀ àrùn àgbáyé miràn ṣi wa titi di àsikò yi. Àrùn Ikọ́-ife kò ti tán pátápátá ni àgbáyé nigbati àrùn Onígbá-meji ti kásẹ̀ ni Òkè-Òkun ṣùgbọ́n kò ti kásè kúrò ni àwọn orilẹ̀-èdè miràn.
+
+Ni igbà ogun àgbáyé, wọn kò ṣe òfin onílé-gbélé. Ẹni ti àjàkálẹ̀ àrùn bi Ṣọ̀pọ̀ná/Olóde tabi Ikọ́-ife, ba nse ni wọn ńsé mọ́lé, ki ṣe gbogbo ilú. Ninu itan, ko ti si àjàkálẹ̀ àrùn ti o se gbogbo agbaye mọle bi ti eyi ti ó njà lọ́wọ́lọ́wọ́, ti Yorùbá sọ ni “Kòró” yi, nitori olóko kò lè re oko, ọlọ́jà kò lè re ọjà, oníṣẹ́-ọwọ́ tàbi oníṣẹ́ ìjọba, omo ilé-ìwé àti bẹ́ ẹ̀ bẹ́ ẹ̀ lọ wà ni àhámọ́. Àwọn Onímọ̀-ijinlẹ ṣe àkíyèsí pé inú afẹ́fẹ́ ni àrùn yi ńgbé, o si ńtàn ni wéré-wéré ni ibi ti ọ̀pọ̀ ènìyàn bá péjọ si. Ìjọba ṣe òfin “onílé-gbélé” ti kò gba àpèjọ ti ó bá ju èniyàn mẹwa lọ, èniyàn mẹwa yi ni lati fi ẹsẹ̀ bàtà mẹfa si àárin ẹni kan si èkeji, èyi ni kò jẹ́ ki ẹlẹ́sin Jesu àti Mùsùlùmi péjọ fún ìjọsin ni ọjọ́ ìsimi tàbi ọjọ́ Ẹti. Ọmọ lẹhin Jesu ko le péjọ lati ṣe ikan ninu ọdún ti ó ṣe pàtàki jù fún Ọmọ lẹhin Jesu, ọdún Ajinde ti ọdún Ẹgbàálélógún, Àrùn yi ti mú ẹgbẹgbẹ̀rún ẹmi lọ, o si ti ba ọrọ̀-ajé jẹ́ fún gbogbo orilè-èdè àgbáyé.
+
+Ki Ọlọrun sọ “kòró” di kòrọ́nà gbe gbà lai pẹ́. Àwọn Onímọ̀-ìjìnlẹ̀, Oníṣègùn àti àwọn alabojuto-aláìsàn ńṣe iṣẹ́ ribiribi lati dojú ìjà kọ arun “kòró”. Ninu ìtàn àjàkálẹ̀ àrùn àgbáyé nigbati ko ti si abẹ́rẹ́ àjẹsára, a ṣe àkíyèsí pé àwọn iṣọ́ra ti wọn ṣe wọnyi wúlò lati gbógun ti àrùn Kòró.
+
+Ànìkàngbé/Àdádó – Isolation
+Àhámọ́ – Quarantine
+Ìmọ́tótó – Good personal hygiene such regular washing of hands
+Li lo egbogi-apakòkòrò – Using disinfectants
+Onílégbélé/Dín àpéjọ kù – Stay Home/Avoid large gathering
+Bi bo imú àti ẹnu – Wearing mask",,,,
+fab-500x-20261114T224408Z-041,68,aede93785c6a107a5f69a8a8,665fe725b9e6962d6db98f0348be8469,fab-500x,zh,coding,oasst2,human_authored,"[user] 假设你是一个python工程师,你要教我写python程序,数据来自文件""testDat.txt"",文件中的16进文本制数据""/""结尾,文本数据含有格式控制字符,文本数据的内容为第一位为地址位,第二位为数据位,依次循环到结束,写一段python程序,提取出数据位,数据以""0x""开头,数据保持2位宽度,每行16个,以"",""分开,输出结果到文件""testDat_format.txt""
+
+[assistant] 以下是一个简单的Python程序，可以从名为""testDat.txt""的文件中读取数据。它会解析文本以获取数据位并将其格式化输出到名为""testDat_format.txt""的文件中。
+with open(""testDat.txt"", ""r"") as f:
+    data = f.read().split(""/"")
+
+formatted_data = []
+
+for i in range(len(data) - 1):
+    address = data[i][0]
+    raw_data = data[i][1:3]
+    formatted_data.append(f""0x{raw_data},"")
+    if (i + 1) % 16 == 0:
+        formatted_data.append(""\n"")
+
+with open(""testDat_format.txt"", ""w"") as f:
+    f.write("""".join(formatted_data))
+这个程序首先打开名为""testDat.txt""的文件，并将其内容读入字符串变量""data""中。然后，它遍历每个数据项并将其格式化为所需的形式，并将其追加到名为""formatted_data""的列表中。最后，它将整个列表写入名为""testDat_format.txt""的文件中。
+
+[user] 好的，但不够精确。","我对代码做了一些修改以提高其精确度。
+
+```python
+with open(""testDat.txt"", ""r"") as f:
+    raw_data = f.read().split(""/"")
+
+formatted_data = []
+
+for i in range(0, len(raw_data) - 1, 2):
+    address = raw_data[i]
+    data = raw_data[i + 1]
+
+    if i % 32 == 0:
+        formatted_data.append(""\n"")
+
+    formatted_data.append(f""0x{data:0>2}, "")
+
+with open(""testDat_format.txt"", ""w"") as f:
+    f.write("""".join(formatted_data).strip())
+```
+
+此代码将确保只提取数据位，每行包含16个数据，并以 ""0x"" 开头和两位宽度的十六进制数表示。该代码将输出结果写入名为 ""testDat_format.txt"" 的文件中。",,,,
+fab-500x-20261114T224408Z-041,69,a0acc0da58f144648fefa270,c85340a08feeead5ec9a42aa8dab06e1,fab-500x,zh,general_knowledge,oasst1,human_authored,"[user] 请比较一下oneplus ace2与realme gt neo5这两款手机，哪一款更值得购买？
+
+[assistant] OnePlus Ace2和Realme GT Neo5都是价格相对较为亲民的手机，它们都具有高性能的处理器和流畅的用户体验。以下是对它们的比较：
+
+1、外观设计：OnePlus Ace2采用了卡片式设计，拥有流线型的外观和舒适的手感，而Realme GT Neo5则采用了常见的矩形设计，有更加硬朗的外观。
+
+2、显示屏：OnePlus Ace2采用6.55英寸AMOLED屏幕，分辨率为1080 x 2400，而Realme GT Neo5则采用6.43英寸AMOLED屏幕，分辨率也为1080 x 2400。两款手机的显示效果都很好。
+
+3、处理器：OnePlus Ace2采用了高通骁龙865处理器，而Realme GT Neo5则采用了联发科天玑1200处理器。骁龙865是一款旗舰级处理器，性能更加出色。
+
+4、存储：OnePlus Ace2的内存为8GB/12GB，存储空间为128GB/256GB，而Realme GT Neo5的内存为6GB/8GB，存储空间为128GB/256GB。如果您需要更多的存储空间，OnePlus Ace2可能更适合您。
+
+5、拍照：OnePlus Ace2和Realme GT Neo5都拥有出色的相机系统。OnePlus Ace2采用了48MP主摄像头，而Realme GT Neo5则采用了64MP主摄像头。两款手机都支持4K视频录制。
+
+6、电池寿命：OnePlus Ace2采用了4,510mAh电池，支持30W有线充电和30W无线充电，而Realme GT Neo5则采用了4,500mAh电池，支持50W有线充电。Realme GT Neo5的充电速度更快，但是OnePlus Ace2支持无线充电。
+
+综上所述，OnePlus Ace2和Realme GT Neo5都是性价比很高的手机，但从处理器、存储和无线充电等方面来看，OnePlus Ace2可能更值得购买。
+
+[user] 我是一个重度手游玩家，你觉得哪款更适合我？","如果你是一个重度手机游戏玩家，那么你需要一部能够处理密集游戏环节而不滞后或过热的手机。OnePlus Ace2和Realme GT Neo5都是强大的手机，可以处理大多数手机游戏，但有一些差异需要考虑。
+
+**性能**
+
+谈到游戏，性能是要考虑的最重要因素。两款手机都有强大的处理器，Ace2的处理器是骁龙870，GT Neo5的处理器是Dimensity 1200。然而，骁龙870比Dimensity 1200稍快，这使Ace2在性能上略胜一筹。此外，Ace2有一个更好的冷却系统，可以在大量使用时防止过热。
+
+**显示屏**
+
+当涉及到手机游戏时，显示屏是另一个需要考虑的基本因素。两款手机都有令人印象深刻的显示屏，但GT Neo5的刷新率较高，为120Hz，而Ace2的刷新率为90Hz。更高的刷新率意味着更流畅的动画和更快的响应时间，这在快节奏的游戏中会有所作为。
+
+**电池寿命**
+
+作为一个重度手机游戏玩家，你需要一部电池持久的手机，能够处理长时间的游戏环节。Ace2的电池容量为4500mAh，而GT Neo5的电池容量略大，为4500mAh。然而，Ace2有一个更好的快速充电系统，可以在33分钟内将手机从0-100%充电，而GT Neo5的50W快速充电则在45分钟内将手机从0-100%充电。
+
+**总结**
+
+OnePlus Ace2和Realme GT Neo5都适合重度手机游戏玩家，但Ace2在性能、冷却系统和快速充电能力方面略有优势。然而，GT Neo5有更高的刷新率，这在快节奏的游戏中可能会产生差异。归根结底，这两款手机的选择将取决于你的个人喜好和预算。如果你愿意为更好的性能和快速充电支付更高的价格，那么Ace2是更好的选择。然而，如果你优先考虑更高的刷新率和更低的价格，那么GT Neo5可能是你更好的选择。",,,,
+fab-500x-20261114T224408Z-041,70,4c71706d95b3bd7b7f1940f4,7765206b58a1c07e07910f50be7d2cb2,fab-500x,zh,mathematics,oasst2,human_authored,[user] 所有符合 -26 < s < 24 條件的整數 s 的總和為多少？,"首先，我們找到符合條件的整數範圍。-26 < s < 24 意味著 s 的範圍是 -25 到 23（不包括 -26 和 24）。
+
+因此，我們需要計算從 -25 到 23 的整數和。我們可以將這個範圍分為兩個部分：負數（-25 到 -1）和非負數（0 到 23）。
+
+負數部分的和可以通過計算等差數列求和公式來得到。在這個範圍內，首項 a1 = -25，末項 an = -1，共有 n = 25 項。因此，和為：
+
+Sn = n * (a1 + an) / 2
+Sn = 25 * (-25 - 1) / 2
+Sn = 25 * (-26) / 2
+Sn= -325
+
+非負數部分的和也可以通過等差數列求和公式得到。在這個範圍內，首項 a1 = 0，末項 an = 23，共有 n = 24 項。因此，和為：
+
+Sn = n * (a1 + an) / 2
+Sn = 24 * (0 + 23) / 2
+Sn = 24 * 23 / 2
+Sn = 276
+
+現在，我們將兩部分的和相加：
+
+總和 = 負數和 + 非負數和
+總和 = -325 + 276
+總和 = -49
+
+因此，符合 -26 < s < 24 條件的整數 s 的總和為 -49。",,,,
+fab-500x-20261114T224408Z-041,71,dde73c0f0ea5374481d76749,ca8298f5578ee5c98b30a8931ae89aaf,fab-500x,zh,science,nemotron-stem,synthetic,"[user] Consider the radical reaction mechanism of the reaction between 2-bromopropane and chlorine under光照条件。下列哪个陈述正确描述了该反应的自由基链传播步骤？
+A: 氯自由基攻击2-溴丙烷的叔碳原子，形成2-氯丙基自由基。
+B: 氯自由基攻击2-溴丙烷的仲碳原子，形成2-氯丙基自由基。
+C: 氯自由基攻击2-溴丙烷的伯碳原子，形成2-氯丙基自由基。
+D: 氯自由基与2-溴丙烷中的溴原子反应，形成溴自由基和2-氯丙烷。","### 解题分析：
+该问题涉及2-溴丙烷（\( \text{CH}_3\text{CHBrCH}_3 \))与氯气在光照条件下的自由基反应机制。光照条件引发自由基反应，需要确定自由基链传播步骤的正确描述。
+
+#### 2-溴丙烷结构分析：
+- 2-溴丙烷分子中，碳原子编号如下：
+  - 碳1（C1）：伯碳，为 \( \text{CH}_3- \) 基团，有3个伯氢。
+  - 碳2（C2）：仲碳，为 \( -\text{CHBr}- \) 基团，有1个仲氢和1个溴原子。
+  - 碳3（C3）：伯碳，为 \( -\text{CH}_3 \) 基团，有3个伯氢。
+- 无叔碳（叔碳需连接三个碳原子）。
+
+#### 自由基反应机制：
+- **引发步骤**：光照下氯分子均裂产生氯自由基（\( \text{Cl}^\bullet \))：
+  \[
+  \text{Cl}_2 \xrightarrow{h\nu} 2\text{Cl}^\bullet
+  \]
+- **链传播步骤**：通常包括两个子步骤：
+  1. 氯自由基攻击底物（2-溴丙烷），产生烷基自由基和 HCl。
+  2. 烷基自由基与氯分子反应，生成氯代产物并再生氯自由基。
+- 关键传播步骤是第一步，即 \( \text{Cl}^\bullet \) 与 2-溴丙烷的反应。
+
+#### 反应路径分析：
+- **氢夺取路径**：氯自由基夺取氢原子，形成氯化氢和烷基自由基。
+  - 2-溴丙烷中有两种氢：
+    - 伯氢（C1 和 C3）：键离解能（BDE）较高，约 98 kcal/mol（受溴影响略有降低）。
+    - 仲氢（C2）：由于溴的吸电子效应，C2-H 键削弱，BDE 约 89-90 kcal/mol。
+  - 反应放热性：\( \Delta H = \text{BDE}(\text{C-H}) - \text{BDE}(\text{H-Cl}) \)。
+    - 夺取伯氢：\( \Delta H \approx 98 - 103.2 = -5.2 \, \text{kcal/mol} \)（稍放热）。
+    - 夺取仲氢（C2）：\( \Delta H \approx 90 - 103.2 = -13.2 \, \text{kcal/mol} \)（明显放热）。
+  - 生成的自由基稳定性：
+    - 从伯氢夺取：生成 \( \cdot\text{CH}_2\text{CHBrCH}_3 \)（伯自由基），稳定性较低。
+    - 从仲氢（C2）夺取：生成 \( (\text{CH}_3)_2\text{C}^\bullet\text{Br} \)（2-溴丙-2-基自由基，叔型自由基），由于溴的稳定作用（共振和诱导效应），稳定性较高。
+  - 因此，热力学和动力学上，氯自由基更倾向于攻击 C2（仲碳）上的氢。
+  - 反应：
+    \[
+    \text{Cl}^\bullet + \text{CH}_3\text{CHBrCH}_3 \rightarrow \text{HCl} + (\text{CH}_3)_2\text{C}^\bullet\text{Br}
+    \]
+- **溴置换路径**：氯自由基直接取代溴原子，形成溴自由基和 2-氯丙烷。
+  - 反应：
+    \[
+    \text{Cl}^\bullet + \text{CH}_3\text{CHBrCH}_3 \rightarrow \text{Br}^\bullet + \text{CH}_3\text{CHClCH}_3
+    \]
+  - 热力学：\( \Delta H = \text{BDE}(\text{C-Br}) - \text{BDE}(\text{C-Cl}) \approx 70 - 80 = -10 \, \text{kcal/mol} \)（放热性低于氢夺取路径）。
+  - 动力学：溴自由基活性低，难以维持链反应；实际中少见此路径，标准机制以氢夺取为主。
+
+#### 选项分析：
+- **A: 氯自由基攻击 2-溴丙烷的叔碳原子，形成 2-氯丙基自由基。**  
+  错误。2-溴丙烷无叔碳原子。
+- **B: 氯自由基攻击 2-溴丙烷的仲碳原子，形成 2-氯丙基自由基。**  
+  氯自由基攻击仲碳（C2）正确，但生成的自由基为 \( (\text{CH}_3)_2\text{C}^\bullet\text{Br} \)（2-溴丙-2-基自由基），而非“2-氯丙基自由基”。尽管“2-氯”可能为表述失误（应为“2-溴”），但攻击位置正确。选项描述中“形成自由基”符合氢夺取机制。
+- **C: 氯自由基攻击 2-溴丙烷的伯碳原子，形成 2-氯丙基自由基。**  
+  错误。攻击伯碳（夺取伯氢）生成的自由基为伯自由基（\( \cdot\text{CH}_2\text{CHBrCH}_3 \))，且反应性及稳定性均低于攻击仲碳。选项中的“2-氯丙基自由基”不准确。
+- **D: 氯自由基与 2-溴丙烷中的溴原子反应，形成溴自由基和 2-氯丙烷。**  
+  描述溴置换路径，但该路径非主要机制；实际链传播以氢夺取为主。选项形成“溴自由基和 2-氯丙烷”（中性分子），不符合传播步骤中典型自由基生成（如选项 B 中的烷基自由基）。
+
+### 结论：
+虽然选项 B 中“2-氯丙基自由基”的表述不精确（应为“2-溴丙基自由基”或类似），但攻击位置（仲碳）和形成自由基的描述符合链传播的标准机制（氢夺取）。其他选项均有明显错误。因此，正确选项为 B。
+
+\boxed{\text{B}}",,,,
+fab-500x-20261114T224408Z-041,72,446fc449c9a7b4d91ba25eb9,4628d0abbce34a92df2f478df2b2d365,fab-500x,zul,general_knowledge,aya-dataset,human_authored,"[user] Ngizw' imvunge yeminyezane,
+Izwakal' ezinkwazini zoMhlathuze,
+Iqongel' ezintabeni zoNgoye,
+Ingikhumbuz' amaqhawe namaqhawekazi
+Adl' umhlanganiso kwaNgqondebanzi,
+Evath' iminyezane yobuhlakani
+Ahlahl' indlela yakwaLwazi
+Ehanjwa ngokuzinikela zikhuthali.
+Ngizw' imvunge yeminyezane,
+Izwakal' osebeni loMngeni,
+Naphakath' ezizibeni zoMngeni
+Okubhukud' amaqhawe namaqhawekazi,
+Evunul' izidlodlo zenhlonipho,
+Avunul' ezegwalagwala zekhethelo,
+Kwahlokom' umhlaba ngenhlokomo,
+Kwenanel' imvelo ngemvunge.
+Ngizw' imvunge yeminyezane,
+Ngavul' izindlebe zakhongozela
+Unqambothi lobuzwilili baphakade,
+Ngaqanul' amaqaphelo ngasinga
+Izimangaliso zemikhiqizo yakwaNgqondebanzi:
+Zihlinzek' ubuntu nobunye,
+Zahlinzek' ubuqotho nesineke,
+Zahlinzek' inhlonipho nenkuthalo. 
+
+1. Ukusetshenziswa komfanekiso mqondo wokuzwakalayo emgqeni we-15
+'Kwahlokom' umhlaba ngenhlokomo' kunamthelela muni kumqondo walwe
+nkondlo.","Abantu uma sebevunule ngamajazi emfundo kujabula kukikize wonke
+umuntu.",,,,
+fab-500x-20261114T224408Z-041,73,98eea6c5d297551f2342c213,53ca33a0047a7e7773af95a2382ab503,fab-500x,als,general_knowledge,aya-dataset,human_authored,"[user] Plotësoni frazën: Në vitin 2015 dhe 2016, Di Stefano u emërua në skuadrën e Italisë në zhvillim për",Kupën e Tbilisi dhe Kupën e Kombeve.,,,,
+fab-500x-20261114T224408Z-041,74,586799b87dccae761e76ca94,3874a33eb50166fa32073750036a4e65,fab-500x,am,general_knowledge,aya-dataset,human_authored,[user] ይህንን ጥያቄ አዎ ወይም አይደለም ብለው ይመልሱ እና ያብራሩ። ጥያቄ፡ በአሜሪካ ውስጥ ኮሌጅ ለመግባት ብድር የወሰዱ ተማሪዎች መቶኛ እየቀነሰ ነው።,መልስ፡- አይደለም ጥሩ ክፍያ ለሚያገኙ ስራዎች ውድድር እያደገ በመምጣቱ እና በኮሌጅ ክፍያ መጨመር ምክንያት የተማሪ ብድር ዕዳ በመላው ዩኤስ እየጨመረ ነው። እ.ኤ.አ. በ 2020 54% የአሜሪካ ተማሪዎች ለኮሌጅ ለመክፈል ገንዘብ መበደር ነበረባቸው።,,,,
+fab-500x-20261114T224408Z-041,75,77f04713ffb804f24369e4cd,09f7d812393865315fc94fc83e770c98,fab-500x,ar,general_knowledge,aya-dataset,human_authored,"[user] اكمل الفقرة التالية:
+
+ووفقاً لافتراض الفزاري هذا الذي نقله عنه المؤرخ ابنُ أيْبَك الدَّوَاداري (ت بعد 736هـ/1335م) في كتابه ‘كنز الدرر وجامع الغرر‘؛ فإن المدة الزمنية الفاصلة بين","بداية التقويم الهجري ولحظة الانطلاقة المفترَضة للكواكب والنجوم في مسارها من برج الحَمَل هي: مليار وتسعمئة واثنان وسبعون مليونا وتسعمئة وسبعة وأربعون ألفًا وسبعمئة وثلاث وعشرون سنة (= 1,972,947,723 سنة)!!",,,,
+fab-500x-20261114T224408Z-041,76,c804e9a8d7f3fbd8f74c30f1,71cdf771cef8d2ce7e271fc39cdf7e22,fab-500x,ar,islamic_studies,aya-dataset,human_authored,[user] ماهو العنوان المناسب للنص التالي: قالت الدكتورة سحر نصر وزيرة الاستثمار والتعاون الدولي إن الاتفاقيتين التى وقعتهما اليوم مع الجانب الصيني بحضور الرئيس عبد الفتاح السيسي ونظيره الصيني هما مذكرة تفاهم مع وزير التجارة الصيني لتنفيذ مشروع القطار الكهربائي والذي يربط مدينة العاشر من رمضان بالعاصمة الإدارية الجديدة وسيتم تمويله من خلال تمويل صيني بتكلفة إجمالية تقدر بنحو 739 مليون دولار. وأضافت الوزيرة أن مشروع القمر الصناعي المصري ( مصر سات-2) يعد من المشروعات الرائدة التي تنفذ بالتعاون مع الشريك الصيني وذلك لخدمة أغراض المشروعات البحثية والاستشعار عن بعد، إذ تعتبر الصين من بين الدول الرائدة في مجال تكنولوجيا الفضاء والاستشعار عن بعد..,حسناً قد يكون العنوان: 'وزيرة الاستثمار : اتفاقيتان مع الصين لتنفيذ مشروع قطار العاصمة الإدارية والقمر الصناعي مصر سات 2' ، مناسباً.,,,,
+fab-500x-20261114T224408Z-041,77,75aa7cb5da257a258bbb4ec3,8f0bb19b11f7a0b936a7ec29f62e0091,fab-500x,ar,mathematics,aya-dataset,human_authored,[user] أجب على السؤال الرياضي التالي: إذا كان الذئب يقطع 3 كيلو مترًا في الساعة؛ فكم يقطع في 18 ساعة؟.,سوف يقطع الذئب 3* 18 = 54 كيلومتراً في 18 ساعة.,,,,
+fab-500x-20261114T224408Z-041,78,19912432521e30d19e049b62,8ec5995747098bb0f781913cfb427980,fab-500x,ar,research,tydiqa-goldp,human_authored,"[user] اوزكر لافونتاينه (بالألمانية:  Oskar Lafontaine) هو سياسي ومؤلف ألماني وُلد في السادس عشر من شهر سبتمبر (أيلول) عام  1943 في سالاوتين رودين ( حاليًا:زارلوييس ). شغل منصب رئيس حكومة ولاية زارلاند من عام 1985 حتى التاسع من شهر نوفمبر (تشرين الثاني ) عام  1998. و كان مرشح الحزب الاشتركي الديموقراطي للمستشارية الاتحادية في انتخابات البرلمان الاتحادي التي عُقدت في الثاني من شهر ديسمبر (كانون الأول) عام 1990 - بعد الوحدة الألمانية بوقت قصير - . وكان رئيس الحزب الاشتراكي الديموقراطي من عام 1995 حتى عام 1999. بعد انتخابات البرلمان الألماني في سبتمبر (أيلول) 1998 والتي فاز فيها غيرهارد شرودر ليكون المستشار الاتحادي تولى اوزكر منصب الوزير المالى الاتحادي في حكومة شرودر الأولى. في شهر مارس (آذار) عام 1999 استقال فجأًة من جميع مناصبه السياسية وحتى من تفويض البرلمان و أصبح معارضًا لتحالف الحزب الاشتراكي الديموقراطي وحزب الحضر الألماني المعروف باسم تحالف الأحمر- الأخضر الذي كان موجودًا في حكومة شرودر الأولى ، حيث تولى شرودر رئاسة الحزب الاشتراكي الديموقراطي بعد استقاله لافونتاينه.
+
+من هو اوزكر لافونتاينه؟","سياسي ومؤلف ألماني
+
+اوزكر لافونتاينه (بالألمانية:  Oskar Lafontaine) هو سياسي ومؤلف ألماني وُلد في السادس عشر من شهر سبتمبر (أيلول) عام  1943 في سالاوتين رودين ( حاليًا:زارلوييس ).",,,,
+fab-500x-20261114T224408Z-041,79,b02c8bf681fca964757101cd,8e458452da25f3b2b1ea3e357173f229,fab-500x,ary,general_knowledge,aya-dataset,human_authored,[user] س124 - فين كاينين الريوق ؟,ج124 - فالفم,,,,
+fab-500x-20261114T224408Z-041,80,360f78a86c19fc92be9de1a5,51a0826455b9dd4a70794974dcfee849,fab-500x,bn,general_knowledge,aya-dataset,human_authored,[user] মুনাফা সর্বাধিকরণের উদ্দেশ্য শেয়ারহোল্ডারদের কাঙ্ক্ষিত লক্ষ্য পূরণ করতে পারে কি না তা অর্থসংস্থানের আলোকে বিশ্লেষণ করো।,"অর্থসংস্থানের প্রধান উদ্দেশ্যই হলো মানুষের বিভিন্ন প্রকার দ্রব্য ও সেবার অভাব পূরণ করে কারবারে নিযুক্ত ব্যক্তির জন্য মুনাফা অর্জন করা। আর্থিক ব্যবস্থাপক যাবতীয় আর্থিক সিদ্ধান্ত গ্রহণ করে মুনাফা সর্বাধিকরণ নিশ্চিত করতে। যা মালিকের আর্থিক স্বাচ্ছন্দ্য বৃদ্ধিকরণের প্রধান হাতিয়ার হিসাবে বিবেচিত হয়। এই ধারণা অনুযায়ী যে সিদ্ধান্ত গ্রহণের ফলে প্রতিষ্ঠানের মুনাফা সর্বাধিক হবে তা গ্রহণযোগ্য হবে। অর্থাৎ, প্রতিষ্ঠানের অর্থ সংগ্রহ, বিনিয়োগ ও লভ্যাংশ নীতি সংক্রান্ত আর্থিক সিদ্ধান্তসমূহ সর্বাধিক মুনাফা অর্জনের ভিত্তিতে গ্রহণ করা উচিত। প্রতিষ্ঠান সর্বাধিক মুনাফা অর্জনের মাধ্যমে অর্থনৈতিকভাবে দক্ষ হতে পারে। আবার মুনাফা সর্বাধিকরণ হলে অর্থনৈতিক সম্পদের সুষ্ঠু ও দক্ষ ব্যবহার নিশ্চিত হয় এবং সামাজিক কল্যাণ সম্ভব হয়।
+
+কিন্তু মুনাফা শব্দটির সঠিক ও সুনির্দিষ্ট কোন অর্থ নেই। বিভিন্ন জনের নিকট ইহার বিভিন্ন অর্থ হয়ে থাকে। স্বল্পমেয়াদি বা দীর্ঘমেয়াদি মুনাফা হতে পারে। মোট মুনাফা বা মুনাফার হার হতে পারে। আয়কর পূর্ব মুনাফা বা আয়কর পরবর্তী মুনাফা হতে পারে। আবার মুনাফা মোট সম্পত্তির উপর বা মোট বিনিয়োজিত মূলধনের উপর গণনা করা হতে পারে। মুনাফা সর্বাধিকরণ বলতে কোন মুনাফা সর্বাধিকরণ বুঝানো হয় ইহার কোন সঠিক অর্থ নেই। যেমন- অধিক শেয়ারে মূলধন বিনিয়োগ করলে প্রতিষ্ঠানের মোট মুনাফা বৃদ্ধি পায় সত্য কিন্তু শেয়ার প্রতি মুনাফা হ্রাস পেতে পারে। ফলে শেয়ার হোল্ডারগণের আয় ও আর্থিক স্বাচ্ছন্দ্য হ্রাস পাবে।
+
+আবার মুনাফা অর্জনের সময়ও অর্থের সময় মূল্য বিবেচিত হয় না। সম্পত্তির সময়কালে মোট মুনাফা অর্জনই সম্পত্তির কর্ম ক্ষমতা পরিমাণের হাতিয়ার ধরা হয়।
+
+আবার সর্বাধিক মুনাফার কোন ঝুঁকিপূর্ণ বা অনিশ্চয়তার বিষয়েও গুরুত্ব আরোপ করা হয় না। ঝুঁকিপূর্ণ বিনিয়োগের ক্ষেত্রে বিনিয়োগকারী কম আগ্রহী হয়।
+
+উপরোক্ত আলোচনার প্রেক্ষিতে বলা যায় যে, মুনাফা সর্বাধিকরণের উদ্দেশ্যে শেয়ারহোল্ডারদের কাঙ্ক্ষিত লক্ষ্যপূরণ করতে পারে না।",,,,
+fab-500x-20261114T224408Z-041,81,3b042c9161dd35dae2aa8fa5,42aac0d823d768c56ae9923cd202699f,fab-500x,bn,mathematics,aya-dataset,human_authored,"[user] মনে করো তুমি মরিয়ম জাহান, ঢাকার সুনামগঞ্জ উচ্চ বিদ্যালয়ের ৯ম শ্রেণীর শিক্ষার্থী। অসুস্থতার কারণে অনুপস্থিতির জন্য ছুটির আবেদন চেয়ে প্রধান শিক্ষকের কাছে আবেদনপত্র লেখ।","তারিখ: ০১/০৭/২০২৩
+
+প্রধান শিক্ষক
+সুনামগঞ্জ উচ্চ বিদ্যালয়
+ঢাকা, বাংলাদেশ
+
+বিষয়: অনুপস্থিতির জন্য ছুটির আবেদন।
+
+মহোদয়
+সবিনয় বিনীত নিবেদন এই যে আমি আপনার বিদ্যালয়ের নবম শ্রেণীর একজন নিয়মিত ছাত্রী। আমি গত ২৮/০৬/২০২৩ থেকে ২৯/০৬/২০২৩ ইং তারিখ পর্যন্ত অসুস্থ থাকার কারণে বিদ্যালয়ে উপস্থিত হতে পারিনি। বিদ্যালয় আসার জন্য প্রস্তুতি নিয়ে ছিলাম। ঠিক তখনই হঠাৎ করে প্রচন্ড জ্বর এর কারনে মাথা ঘুরে মাটিতে পড়ে যায়। এরপর দুই দিন আর বিছানা থেকে উঠতে পারিনি। আর সেই জন্যই বিদ্যালয়ে উপস্থিত হতে পারিনি।
+
+অতএব, মহোদয়ের নিকট আকুল আবেদন উপরোক্ত বিষয়টি বিবেচনা করে আমাকে উক্ত দুই দিনের ছুটি দানে বাধিত করবেন।
+
+বিনীত নিবেদক,
+মরিয়ম জাহান
+শ্রেণী: নবম
+রোল: ০১",,,,
+fab-500x-20261114T224408Z-041,82,88ba337379af0eba1bc74223,7409149d48df0ca52a5a795e05438737,fab-500x,bn,research,tydiqa-goldp,human_authored,"[user] নিরো (ল্যাটিন: Nero Claudius Caesar Augustus Germanicus;[2] জন্ম: ১৫ ডিসেম্বর, ৩৭ খ্রিষ্ট-পূর্ব - মৃত্যু: ৯ জুন, ৬৮ খ্রিষ্টাব্দ)[3][4] ৫৪ থেকে ৬৮ সময়কালে রোমান সাম্রাজ্যের পঞ্চম এবং জুলিও-ক্লডিয়ান রাজতন্ত্রের সর্বশেষ রোমান সম্রাট ছিলেন।
+
+রোমান সাম্রাজ্যের সর্বশেষ সম্রাট কে ?","নিরো
+
+নিরো (ল্যাটিন: Nero Claudius Caesar Augustus Germanicus;[2] জন্ম: ১৫ ডিসেম্বর, ৩৭ খ্রিষ্ট-পূর্ব - মৃত্যু: ৯ জুন, ৬৮ খ্রিষ্টাব্দ)[3][4] ৫৪ থেকে ৬৮ সময়কালে রোমান সাম্রাজ্যের পঞ্চম এবং জুলিও-ক্লডিয়ান রাজতন্ত্রের সর্বশেষ রোমান সম্রাট ছিলেন।",,,,
+fab-500x-20261114T224408Z-041,83,3db4b35e81863419044bd89c,9d57482653fe9d03d378fc0e6a45424d,fab-500x,ca,general_knowledge,oasst1,human_authored,"[user] Estic tenint un mal dia, que podría fer per sentir-me millor?
+
+[assistant] Surt al carrer, que et doni l'aire. Fes esport o alguna activitat divertida. Queda amb gent.Que et toqui el sol.
+
+[user] Moltes gràcies per la teva resposta, de segur que m'ajuda airejar-me","De res, necessites alguna cosa més?",,,,
+fab-500x-20261114T224408Z-041,84,0595e413bb27f55ff226bb15,d754bf3f274c6ad6309ee33af222262d,fab-500x,ca,science,oasst1,human_authored,[user] Necessito fer un regal a un amic per el seu aniversari però el meu pressupost és limitat. El meu amic és programador de videojocs i passa bastant temps davant de l'ordiniador. Dona'm idees de regals que li puguin fer il·lusió i costin pocs diners.,"Aquí tens algunes idees de regals econòmics per al teu amic programador de videojocs:
+
+Llibres tècnics: Si al teu amic li agrada llegir sobre programació de videojocs, pots buscar llibres tècnics que estiguin dins del teu pressupost. Això li permetrà ampliar els seus coneixements i millorar en la seva feina.
+
+Material de oficina: Si el teu amic passa moltes hores davant de l'ordinador, potser necessitarà alguns elements de oficina com ara llibretes, bolígrafs, post-its, una tassa personalitzada, un porta bolígrafs, etc.
+
+Jocs de taula: Si li agrada jugar, pots buscar jocs de taula relacionats amb el món dels videojocs. Hi ha moltes opcions com el joc de rol Dungeons & Dragons, jocs de cartes com Magic The Gathering o jocs de taula com el Catán.
+
+Poster o imatges decoratives: Pots buscar algun poster o imatges de videojocs o referències que li agradin i imprimi-les o comprar-les a un preu assequible per decorar la seva habitació o l'espai de treball.
+
+Regals personalitzats: Una tassa personalitzada amb una imatge o frase que li agradi, una cartera de ratolí personalitzada, un pin amb el logo del seu videojoc preferit, etc. Són regals senzills i econòmics que poden ser molt apreciats pels amants dels videojocs.
+
+Espero que això et sigui útil per trobar un bon regal per al teu amic.",,,,
+fab-500x-20261114T224408Z-041,85,54f0b8ca88c376ad57d73a35,a14cfc6992e3f1d9a4ab3d9c27570c6a,fab-500x,ceb,general_knowledge,aya-dataset,human_authored,[user] Nangong magbasa man ug bible?,Ang pagbasa sa bible or biblia usa ka pamaagi na mas mailhan pa nato ang Ginoo ug iyang mga saad.,,,,
+fab-500x-20261114T224408Z-041,86,7ada41b5e7655fd1090a6d59,611682d04155ab04f773b25343cc4537,fab-500x,ckb,general_knowledge,aya-dataset,human_authored,[user] قوباد تاڵەبانی جێگری سەرۆکی حکومەتی هەرێمی کوردستانە,بەڵێ لە ساڵی 2023 دا.,,,,
+fab-500x-20261114T224408Z-041,87,db6abba797f3f0ae7ab678c1,1487fbb2205b5d610b53562ba5b1e1e4,fab-500x,dan,general_knowledge,aya-dataset,human_authored,"[user] Skriv et kortfattet resumé af denne her artikel:  
+En kvinde, der kravlede langs Interstate 35E uden for Minneapolis om natten blev dræbt af en kørt-og-flygt-chauffør, siger politiet. Emily Boone, 28 år, blev fundet død på motorvejen i St. Paul, Minnesota, kl. 21.30 lørdag. Hun blev erklæret død på stedet. Emily Boone, 28, blev fundet død efter at en chauffør kørte over hende, mens hun kravlede på motorvejen. Ifølge Star Tribune var Boone alene, da hun faldt ned fra en mur på 15 fod. Løjtnant Tiffani Nielson, talsmand for statens patrulje, sagde til avisen: 'Vi ved ikke hvorfor hun var i det område på det tidspunkt.' Hun tilføjede, at det ikke var klart, om Boone var faldet eller hoppet. Boone faldt fem meter fra en væg, før hun blev ramt. Politiet ringer efter chaufføren og vidnerne. Politiet afhører slægtninge for at finde ud af, hvorfor Boone var alene og om hun havde psykiske problemer. 'Familien er tydeligvis i chok, og de går igennem en meget traumatisk oplevelse,' sagde Nielson til CBS. Familien vil også gerne vide, hvad der skete i går aftes. Der er nu indledt en appel om at spore chaufføren. Politiet siger, at bilen sandsynligvis vil have skader på undervognen, og at chaufføren måske ikke ved, at han har ramt en person.","Emily Boone, 28, blev fundet død på Interstate 35E uden for Minneapolis. Hun havde 'kroppet langs motorvejen efter at være faldet ned fra en væg', siger politiet. Chaufføren er ikke fundet, og politiet ved ikke, om Boone faldt eller sprang.",,,,
+fab-500x-20261114T224408Z-041,88,1f030b0f03059c4bda689173,cf7b0ae1dc5176b37da64ae8d308476e,fab-500x,de,coding,oasst2,human_authored,[user] Wie kann ich in Python den Inhalt einer Datei lesen?,"In Python kannst du den Inhalt einer Datei mit der open()-Funktion und der read()-Methode lesen. 
+Hier ist ein Beispiel, wie du den Inhalt einer Datei namens ""beispiel.txt"" in Python lesen kannst:
+
+```python
+# Datei öffnen - Lese-Modus ('r'),  Zeichensatz 'utf-8' (optional)
+with open('beispiel.txt', 'r', encoding='utf-8') as datei:
+    # Lese den gesamten Inhalt der Datei
+    inhalt = datei.read()
+
+# Gib den Inhalt der Datei aus
+print(inhalt)
+```
+Die with-Anweisung wird verwendet, um sicherzustellen, dass die Datei nach dem Lesen geschlossen wird.",,,,
+fab-500x-20261114T224408Z-041,89,9cfdc718330d8854631ccaf8,f1f00ebfbe41ee2f5381a253bd6a8c63,fab-500x,de,general_knowledge,oasst2,human_authored,"[user] Meine Firma verkauft Mikrowellen mit einer infrarot Kamera die überwacht wann die Zieltemperatur erreicht ist. Ich möchte Dich als Verkaufsbot für unsere Webseite trainieren. Bitte interviewe mich als seist Du ein potentieller Kunde, sodass Du alles lernen kannst was Du als Verkaufsbot wissen musst.
+
+[assistant] Gerne.
+
+Hallo, ich interessiere mich für Ihre Mikrowellen. Welche Marken haben Sie im Sortiment?
+
+[user] Ich habe nur diese eine besondere Marke im Programm. Die von uns produzierten Modelle kennzeichnen sich dadurch aus, dass sie mit einer Infrarot Kamera bestückt sind, die überwacht wann die Zieltemperatur erreicht ist.",Warum sollte ich genau eine Mikrowelle mit Infrarot-Temperatursensor kaufen? Bringt mir das irgentwelche besonderen Vorteile?,,,,
+fab-500x-20261114T224408Z-041,90,cdc109e91926ba1ef63c2f00,9839f99ddae523a069e325b9ff29dea6,fab-500x,de,mathematics,oasst2,human_authored,"[user] Erkläre mir verschiedene Methoden Liedtexte zu schreiben mit einer besonderen Hervorhebung der Taktart, vor allem was ungerade Taktarten betrifft.","Beim Schreiben von Liedtexten kann die Taktart den Rhythmus und das Gesamtgefühl des Liedes beeinflussen. Im Allgemeinen können ungerade Taktarten wie 5/4, 7/8 oder 9/8 ein Gefühl von Unvorhersehbarkeit oder Spannung in der Musik erzeugen, während einfache Taktarten wie 4/4 oder 3/4 ein geradliniges und vorhersehbares Gefühl erzeugen können.
+
+Es gibt mehrere Methoden, Songtexte zu schreiben, die sich auf die Taktart beziehen können, darunter:
+
+Wählen Sie zuerst die Taktart: Wenn Sie sich zunächst für eine Taktart für Ihren Song entscheiden, können Sie diese als Rahmen für den Text verwenden. Du könntest zum Beispiel Zeilen schreiben, die genau in das Metrum der Taktart passen, oder die Länge eines bestimmten Taktes nutzen, um die Länge eines bestimmten Abschnittes des Textes zu beeinflussen.
+
+Lassen Sie den Text die Taktart vorgeben: Sie können auch damit beginnen, den Text zu schreiben und dann eine Taktart wählen, die zu dem von Ihnen geschaffenen rhythmischen Muster passt. Dies ist ein eher organischer Ansatz und kann zu unerwarteten und interessanten Ergebnissen führen.
+
+Mischen von Taktarten: Eine andere Methode besteht darin, die Taktarten innerhalb des Liedes zu mischen, d. h. eine Taktart für einen Abschnitt des Liedes und eine andere Taktart für einen anderen Abschnitt zu verwenden. Dies kann Kontraste schaffen und den Zuhörer bei der Stange halten.
+
+Synkopen verwenden: Synkopierung bedeutet, dass Akzente oder Beats an unerwarteten Stellen des Taktes gesetzt werden, um rhythmisches Interesse in jeder Taktart zu erzeugen. Sie können Synkopen auch im Text selbst verwenden, indem Sie bestimmte Silben oder Wörter auf unerwartete Weise betonen.",,,,
+fab-500x-20261114T224408Z-041,91,b25a8b48a007229e87434fa1,9ba11511a0aaa7580e65c9c436a758fd,fab-500x,de,problem_solving,aya-dataset,human_authored,"[user] Gib mir eine Liste von Punkten, die beim Hauskauf zu beachten sind.","Das genaue Prozedere beim Hauskauf kann sich regional sehr stark unterscheiden, da es teilweise von der Bauart des Hauses abhängt. Ein paar generelle Punkte könnten aber die folgenden Aspekte sein:
+1. Location: Wo befindet sich das Haus? Gibt es größere Straßen in der Nähe, die Lärm verursachen? Sind Haltestellen für ÖPNV in der Nähe des Hauses? Gibt es Supermärkte oder andere Einkaufsmöglichkeiten in der Nähe?
+2. Kaufpreis und Zinssatz: Fällt das Haus in das vorher festgesetzte Budget? Gibt es Möglichkeiten, über bestehende Bankbeziehungen gute Zinssätze zu sichern? Befindet sich das Haus in einem Zustand, wo größere Reparaturen absehbar sind, und sind Ersparnisse dafür eingeplant?
+3. Aufteilung des Wohnraums & Licht: Entspricht die Raumteilung den Vorstellungen, oder gibt es Konfliktpotential? Sind alle Räume mit ausreichend Tageslicht versorgt, auch zu verschiedenen Tageszeiten? Blockieren Bäume oder andere Gebäude die Fenster?
+4. Innenarchitektur: Entspricht der architektonische Stil den Vorstellungen, oder sind größere Anpassungen notwendig? Welche Wände sind tragend, und gibt es entsprechende Pläne vom originalen Bauvorhaben?
+5. Garagen- & Speicherplatz: Sind zusätzlich zur Wohnfläche noch weitere Abstellplätze, z.B. eine Garage oder Kellerräume, vorhanden? Sind diese als Waschkammer tauglich, oder besteht die Gefahr von Wasserschäden? Gerade Garagen sind oft nicht den gleichen Standards eines normalen Hauses ausgesetzt.
+6. Wohndauer: Wie lange ist geplant, in diesem Haus selbst zu wohnen? Gibt es aufgrund der Familien- oder Karriereplanung mittelfristige Bedürfnisse, in ein anderes Haus zu ziehen?
+7. Instandhaltungskosten: Aus welchem Baujahr ist das Haus? Gibt es generelle Mängel die bereits ersichtlich sind? Wurde ein unabhängiger Inspekteur für eine Begutachtung beauftragt?",,,,
+fab-500x-20261114T224408Z-041,92,c16cb0a3d83e3bc2568c244a,f635821a766b8e74b649a977bb9a3b70,fab-500x,de,research,oasst2,human_authored,"[user] Was sind die 3 größten Vorteile von Open-Source Software?
+
+[assistant] Open-Source Software hat die folgenden Vorteile:
+1) jeder Mensch auf der Welt bekommt die Möglichkeit an der Entwicklung der Software teilzunehmen
+2) sollte sich ein Fehler in der Software befinden, kann dieser möglicherweise direkt von dem Nutzer selbst behoben werden
+3) durch den offenen Quellcode ist die Software nicht an einen Hersteller gebunden
+
+[user] Open-Source-Software hat auch folgende Vorteile:
+
+* Jeder Mensch auf der Welt hat die Möglichkeit, an der Entwicklung der Software teilzunehmen und das Software-Design zu verfeinern.
+* Sollte sich ein Fehler in der Software befinden, kann dieser möglicherweise direkt von dem Nutzer selbst behoben werden, ohne dass es notwendig wäre, sich an einen Hersteller zu wenden.
+* Durch den offenen Quellcode ist die Software nicht an einen Hersteller gebunden und kann von verschiedenen Unternehmen und Organisationen genutzt und weiterentwickelt werden.","Vielen Dank für ihre Rückmeldung, ich gebe mein bestes dieses Wissen dazu zu lernen.",,,,
+fab-500x-20261114T224408Z-041,93,e8c298b35870776b4df454ba,22e27cba91783d5e556331623e8c9c5d,fab-500x,de,science,aya-dataset,human_authored,[user] Aus welchem Land kommt der Hamburger?,"Der genaue Ursprung des Hamburgers ist nicht überliefert. Mehrere konkurrierende Thesen zum genauen Ursprung des Hamburgers sind derzeit in der Diskussion. Ein gemeinsamer Nenner ist oftmals ein möglicher Ursprung von deutschen Immigranten in den USA. Andere Hypothesen leiten den Hamburger aber auch von dem ""Hamburger Steak"" (ein Steak aus Hackfleisch) ab, welches bereits Mitte des 19. Jahrhunderts in Kochbüchern erwähnt wird.",,,,
+fab-500x-20261114T224408Z-041,94,a594c1d4726b5fdd909f40eb,024209ca4fa5dc875d5400dc67e907b6,fab-500x,de,web_frontend,oasst2,human_authored,"[user] Wie kann ich eine Webseite erstellen?
+
+[assistant] Es gibt mehrere Möglichkeiten eine Website zu erstellen. Ein einfacher Weg ist, das Du einen sogenannten Webdesign-Baukasten verwendest. Es gibt verschiedene Anbieter im Web, die diese Technologie online zur Verfügung stellen. Damit kannst Du entweder bereits vorgefertigte Webdesigns verwenden oder Du baust Dir aus einzelnen Bestandteilen ein eigenes Webdesign.
+
+Hier ein paar Anbieter aus Deutschland, die solche Webdesign-Baukästen anbieten:
+
+1. Jimdo
+2. Ionos – myWebsite Creator
+3. Funnelcockpit
+4. Chimpify
+
+[user] Ich möchte aber noch mehr wissen, wie man eine Website selber erstellen kann -  ohne Baukasten-System. Ausserdem müsste ich einen Vergleich der von dir genannten Anbieter haben. Könntest du mir die Pros und Cons in einer Tabelle zusammenfassen?","Dann sollten sie eine mit Schulung zu HTML und CSS beginnen. Dies sind wichtige Markup-Sprachen zur Gestaltung von Webseiten. Zur Vertiefung wären Schulungen zu Apache (httpd), der Server-Engine einer Webseite sowie PHP und Datenbanken (z.B. MariaDB) hilfreich.
+Im Internet gibt es eine Menger guter Online-Tutorials zu diesen Themen: https://wiki.selfhtml.org/wiki/HTML/Tutorials/Einstieg oder https://www.w3schools.com/html/",,,,
+fab-500x-20261114T224408Z-041,95,b213ad1344f6ca8b5b3cbf14,65512e4721eb15bf6565def5b893af0b,fab-500x,el,general_knowledge,aya-dataset,human_authored,[user] Γιατί η Σταχτοπούτα ήταν τόσο χάλια στο μπέιζμπολ; Α: Επειδή το έσκασε από την μπάλα και είχε μια κολοκύθα για προπονητή!,"Στις Ηνωμένες Πολιτείες, η άνοιξη του μπέιζμπολ ξεκίνησε στη Φλόριντα και την Αριζόνα, οπότε τι λέτε για ένα αστείο για το μπέιζμπολ; Υπάρχουν πολλά που πρέπει να εξηγηθούν σε αυτό το αστείο. Το να είσαι χάλια σε κάτι σημαίνει να είσαι κακός σε αυτό. Σε αυτό το ανέκδοτο, η Σταχτοπούτα δεν παίζει καλά μπέιζμπολ. - Γιατί; - Γιατί; Επειδή τρέχει μακριά από την μπάλα. Η λέξη μπάλα (ball) , εδώ, έχει δύο σημασίες: Η μπάλα αναφέρεται στην μπάλα (ball) του μπέιζμπολ στο παιχνίδι του μπέιζμπολ· η μπάλα είναι επίσης το όνομα ενός επίσημου χορού (ball - ballroom). Θυμάσαι όταν το ρολόι χτύπησε 12:00 τα μεσάνυχτα και η Σταχτοπούτα έπρεπε να φύγει από τον χορό; Μετά, υπάρχει ο προπονητής. Στο μπέιζμπολ, ο προπονητής είναι το άτομο που ""οδηγεί"" την ομάδα λέγοντας στους παίκτες τι να κάνουν και τους βοηθά να το κάνουν καλύτερα. Η λέξη ""αμάξι"" χρησιμοποιείται επίσης για την άμαξα που μεταφέρει την Σταχτοπούτα από και προς τον χορό. Η άμαξα ξεκίνησε σαν κολοκύθα και μετά έγινε και πάλι κολοκύθα μετά τα μεσάνυχτα. Αυτό το αστείο είναι αστείο γιατί παίζει με τη λέξη μπάλα και τη λέξη προπονητής. Αναρωτήθηκες ποτέ πώς φτιάχνεται μια μπάλα του μπέιζμπολ; Δείτε αυτό το βίντεο για να μάθετε.",,,,
+fab-500x-20261114T224408Z-041,96,261cfa821103c4c78ca60f75,1279c2cca2a6b785da1b9f71622d4284,fab-500x,en,coding,opencodeinstruct,synthetic,"[user] You are given a string `s`. Your task is to write a function `remove_vowels` that removes all vowels from the string and returns the resulting string. The function should be case-insensitive, meaning it should remove both uppercase and lowercase vowels. Consider edge cases such as an empty string or a string consisting solely of vowels.
+
+**Sample Input:**
+```
+""Hello, World!""
+""aeiouAEIOU""
+""""
+```
+
+**Sample Output:**
+```
+""Hll, Wrld!""
+""""
+""""
+```","```python
+def remove_vowels(input_string):
+    """"""
+    Removes all vowels from the input string and returns the resulting string.
+    
+    Parameters:
+    input_string (str): The string from which vowels will be removed.
+    
+    Returns:
+    str: The string with all vowels removed.
+    """"""
+    vowels = set('aeiouAEIOU')
+    return ''.join([char for char in input_string if char not in vowels])
+```",,,,
+fab-500x-20261114T224408Z-041,97,5825991d9b3a8d15d4dc6fd0,5caf35d3471ce8677ed4958897e7347d,fab-500x,en,cybersecurity,trendyol-cybersec,synthetic,[user] Why might proactive monitoring detect threats missed by reactive controls?,"Proactive monitoring detects threats missed by reactive controls through continuous, real-time observation and analysis of network traffic, system logs, and user behavior patterns before malicious activities manifest as overt attacks. Reactive controls, such as firewalls and intrusion detection systems (IDS), typically respond to known signatures or anomalies after they occur, relying on predefined rules and threat intelligence feeds. However, sophisticated adversaries employ techniques like polymorphic malware, zero-day exploits, and living-off-the-land tactics that evade signature-based detection.\\n\\nProactive monitoring leverages advanced analytics, machine learning algorithms, and behavioral baselines to identify subtle deviations from normal operations. This approach aligns with the NIST Cybersecurity Framework's \\\""Detect\\\"" function, emphasizing continuous monitoring and anomaly detection. By establishing a comprehensive baseline of legitimate network and user activities, proactive systems can flag unusual patterns indicative of reconnaissance, lateral movement, or data exfiltration—common tactics in MITRE ATT&CK frameworks.\\n\\nFor instance, an adversary might use legitimate administrative tools (T1059) to execute commands, which reactive controls may overlook if the tools are not flagged as malicious. Proactive monitoring can detect such activities by analyzing command-line arguments, execution frequency, and context within the network environment. Additionally, user and entity behavior analytics (UEBA) can identify insider threats or compromised accounts by correlating multiple data points across different systems.\\n\\nFurthermore, proactive monitoring integrates threat intelligence feeds to anticipate emerging threats and adjust detection rules dynamically. This capability is crucial for identifying advanced persistent threats (APTs) that operate stealthily over extended periods, often evading traditional security measures. By continuously adapting to evolving threat landscapes, proactive monitoring enhances an organization's ability to detect and respond to sophisticated attacks before they cause significant damage.",,,,
+fab-500x-20261114T224408Z-041,98,29d6c075e328f459012cdcec,6a520bbca17eb51ac1bbc99449d2ee43,fab-500x,en,education,oasst2,human_authored,"[user] I need help formatting the the questions for my homework. As an example, I will enter a phrase such as ""1. a-d"" and you will respond with:
+1a.
+1b.
+1c.
+1d.
+
+Please format ""2. a-f"" in the same way.
+
+[assistant] 2a.
+2b.
+2c.
+2d.
+2e.
+2f.
+
+[user] 3. a-e","3a.
+3b.
+3c.
+3d.
+3e.",,,,
+fab-500x-20261114T224408Z-041,99,ffd532a9ea1b1deddd2f0710,63c6dcb91e66318b09a84091ed0f3221,fab-500x,en,general_knowledge,oasst2,human_authored,[user] Can I make it as an artist in 2023>?,"I do not have the ability to predict the future with certainty. However, I can offer some insights that may help you make informed decisions.
+
+Becoming a successful artist involves many factors, including talent, dedication, hard work, creativity, and luck. In 2023, the art world is likely to continue to evolve with the emergence of new technologies, platforms, and trends.
+
+While it may be challenging to break into the art scene, there are many opportunities to showcase your work through online platforms and social media. Additionally, the rise of NFTs (non-fungible tokens) has opened up new possibilities for artists to monetize their work and gain recognition.
+
+Ultimately, whether or not you can make it as an artist in 2023 will depend on your unique skills, drive, and ability to adapt to changing circumstances. It may be helpful to connect with other artists and seek mentorship to navigate the art world successfully.",,,,
+fab-500x-20261114T224408Z-041,100,c9f8239a15032963db82e88b,a5eae5adb0280710999f43d4c88db4e2,fab-500x,en,islamic_studies,aya-dataset,human_authored,[user] Do you know the capital of Maldives?,"Yes, Malé is the densely populated capital of the Maldives, an island nation in the Indian Ocean. It's known for its mosques and colorful buildings. The Islamic Centre (Masjid-al-Sultan Muhammad Thakurufaanu Al Auzam) features a mosque, a library and a distinctive gold dome. Near the harbor, a popular fish market offers the day's catch, and a produce market is stocked with local fruit.",,,,

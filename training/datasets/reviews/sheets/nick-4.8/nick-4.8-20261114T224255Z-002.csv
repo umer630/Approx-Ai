@@ -1,0 +1,1352 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+nick-4.8-20261114T224255Z-002,1,eeeee8856801987114f8d096,3663deb768488d65219fa8bc0fb9282a,nick-4.8,it,science,oasst2,human_authored,"[user] è possibile dividere i quark che compongono un protone?
+
+[assistant] No, non possibile dividere i quark che compongono un protone. La forza forte, che mantiene i quark uniti all'interno di un protone, molto pi potente della forza elettromagnetica, che agisce tra gli elettroni, quindi troppo grande per essere superata. Perci, non possibile dividere un quark da un protone o da un neutrone.
+
+[user] cos'è quindi il Quark–gluon plasma (QGP)?","Il Quark-Gluon Plasma (QGP) è uno stato della materia che si ritiene esista solo a temperature e densità estremamente elevate, come quelle presenti subito dopo il Big Bang o in collisioni ad alta energia di nuclei atomici pesanti. In questo stato, i quark e i gluoni non sono confinati all'interno di particelle subatomiche come protoni e neutroni, ma si comportano come particelle libere. In altre parole, il QGP è uno stato di materia in cui i quark e i gluoni sono completamente deconfinati e si muovono liberamente, come in un gas. Questo stato di materia è molto difficile da studiare sperimentalmente, ma la sua esistenza è stata dimostrata in diversi esperimenti di collisione di particelle ad alta energia condotti presso il CERN e altri laboratori di fisica delle particelle. La comprensione del QGP è importante per comprendere le prime fasi dell'Universo e l'evoluzione delle particelle subatomiche.",,,,
+nick-4.8-20261114T224255Z-002,2,2fb86e5d83d45b008cd6669b,2184dc08e0ca5a8fc65767a82eb1b9c7,nick-4.8,it,web_backend,oasst2,human_authored,"[user] Come posso installare ubuntu?
+
+[assistant] Ci sono diverse modalità per installare Ubuntu sul tuo computer. Ecco una guida generale che può aiutarti:
+
+Scarica l'immagine di Ubuntu dal sito ufficiale: https://ubuntu.com/download. Scegli la versione di Ubuntu che desideri installare e scarica l'immagine del sistema operativo.
+
+Crea un'unità flash USB avviabile. Dopo aver scaricato l'immagine di Ubuntu, dovrai crearne una copia su un'unità flash USB avviabile. Ci sono molti programmi gratuiti che possono aiutarti a creare un'unità flash USB avviabile, come Rufus o UNetbootin.
+
+Collega l'unità flash USB al computer e riavvialo. Assicurati che il tuo computer sia configurato per avviarsi da un'unità USB. Se il tuo computer non è configurato in questo modo, dovrai modificare le impostazioni del BIOS o dell'UEFI del tuo computer.
+
+Avvia l'installazione di Ubuntu. Una volta che il tuo computer si avvia da USB, dovresti vedere il menu di installazione di Ubuntu. Segui le istruzioni sullo schermo per completare l'installazione. Puoi scegliere di installare Ubuntu accanto al tuo sistema operativo esistente o di sostituire completamente il tuo sistema operativo esistente con Ubuntu.
+
+Completa l'installazione. Dopo aver selezionato le opzioni di installazione desiderate, il processo di installazione di Ubuntu inizierà. Segui le istruzioni sullo schermo per completare il processo di installazione. Dovrai fornire alcune informazioni come la lingua, la zona oraria e il nome utente e la password.
+
+Riavvia il computer. Dopo aver completato l'installazione, riavvia il computer e avvia Ubuntu. Dovresti essere pronto per utilizzare il tuo nuovo sistema operativo!
+
+Ricorda che l'installazione di Ubuntu può variare in base alla tua specifica configurazione hardware e alle opzioni di installazione scelte. Assicurati di seguire attentamente le istruzioni sullo schermo durante l'installazione.
+
+[user] Cosa rende Ubuntu così tanto diffuso ed utilizzato?","Ciò che ha portato Ubuntu ad essere così famoso può essere attribuito a più fattori:
+- La facilità di installazione
+- La buona compatibilità con l'hardware disponibile data la sua integrazione di repository contenenti driver propietari
+- Dei default sani per il sistema, che ne hanno reso l'utilizzo più semplice per utenti inesperti
+- Essere basto su Debian gli ha permesso di avere un largo parco di software disponibile, oltre che una buona base solida su cui spesso si fa affidamento per installazioni server
+
+Ad oggi, però, Ubuntu sta leggermente calando in popolarità, in parte perché nuove distribuzioni di Linux sono emerse nel tempo e hanno fatto le cose in modo migliore, talvolta rendendo l'esperienza utente ancora più lineare, con meno problemi di vario genere; ma anche perché Ubuntu ha portato il suo focus maggiormente sull'aspetto server e ha fatto decisioni impopolari, come la spinta del sistema di gestione di pacchetti Snap su tutti i propri utenti in modi anche subdoli, che ne rendono difficile la disinstallazione, Snap inoltre ha un backend proprietario, il che va contro la filosofia della comunità del software libero che sta dietro a Linux.
+Detto ciò, Ubuntu rimane comunque una distribuzione tutto sommato ancora abbastanza buona e facile da operare, la sua fama pregressa perdura fino ad oggi per queste ragioni.",,,,
+nick-4.8-20261114T224255Z-002,3,9081acffb88392d1eb97ad4e,acc97a12fa460047375334ed5cb31221,nick-4.8,it,web_frontend,oasst1,human_authored,[user] Cosa vuol dire codice dichiarativo e come si differenzia rispetto ad altri paradigmi di programmazione?,"Il paradigma di programmazione dichiarativo è un approccio alla programmazione in cui si descrive ""cosa"" si vuole ottenere, piuttosto che ""come"" ottenere il risultato desiderato. In altre parole, si specifica la logica del programma in termini di regole, vincoli o relazioni, invece di specificare una sequenza di istruzioni che il computer deve eseguire per risolvere il problema.
+
+Il codice dichiarativo descrive il risultato desiderato attraverso una serie di definizioni e asserzioni. Un esempio di codice dichiarativo è il linguaggio di markup HTML, che descrive la struttura e il contenuto di una pagina web senza specificare come la pagina deve essere visualizzata.
+
+A differenza del paradigma di programmazione imperativo, in cui si specifica la sequenza di istruzioni che il computer deve eseguire per risolvere il problema, il paradigma dichiarativo permette di separare la descrizione del problema dalla soluzione. In questo modo, il programmatore può concentrarsi sulla descrizione del problema e il computer può determinare automaticamente come risolverlo.
+
+Un altro esempio di paradigma di programmazione dichiarativo è il paradigma funzionale, in cui si descrive la logica del programma in termini di funzioni matematiche. Il paradigma funzionale prevede la composizione di funzioni per ottenere il risultato desiderato, piuttosto che l'utilizzo di istruzioni sequenziali.
+
+In sintesi, il paradigma di programmazione dichiarativo permette di descrivere ""cosa"" si vuole ottenere, piuttosto che ""come"" ottenerlo, offrendo un modo più intuitivo e flessibile per scrivere codice.",,,,
+nick-4.8-20261114T224255Z-002,4,361f4daf6806ffbf27363c67,41b9691c9653763b8f99b21b8a706bfe,nick-4.8,ja,coding,oasst2,human_authored,"[user] あなたはどんなプログラム言語でできているの？
+
+[assistant] Python です
+
+[user] Pythonは何ででできているの？",Pythonは、C言語で実装されています。Pythonのインタプリタ自体はCで書かれており、Pythonのコードが実行される際に、Cコードが実行されます。Pythonの標準ライブラリはCで書かれており、Pythonの拡張モジュールもCで書かれることが一般的です。Pythonの開発には、C言語以外にも、Java、Perl、C++などの言語が使用されることがありますが、Pythonの実際の実装はC言語に依存しています。,,,,
+nick-4.8-20261114T224255Z-002,5,ed748ec4912fa7c33ddbd8a7,93b252a728c623f6517a8c4fc275a9cf,nick-4.8,ja,general_knowledge,aya-dataset,human_authored,"[user] 次の文章から重要な語彙を探し、その意味を説明しなさい。 
+23日、「性的マイノリティーの人たちへの差別をなくそう」とみんなに伝えるため、1万人が東京の渋谷を歩きました。性的マイノリティーは、自分と同じ性別の人を好きになる人や心と体の性別が違う人などのことです。
+参加した人は「いろいろな生き方」を意味する虹の色の旗などを持って歩きました。若い人もたくさん参加して、虹の色の化粧や服で自分の個性を出していました。
+ゲイのだいきさんは「悩んでいるのは自分だけだと思っていましたが、アメリカの大学で、安心して相談できる場所を見つけました。応援してくれる人はたくさんいます」と話していました。
+大学生の1人は「日本も、同じ性別の人と結婚することなど、いろいろな生き方を認めるようになってほしいです」と話しました。","この文章に出てくる重要な語彙とその意味は次の通りである。
+- 差別: 1）あるものと他のものとの間に差をつけて、ちがう扱い方をすること。
+- 性別: 1）男と女の区別。また、雄と雌の区別。
+- 参加: 1）仲間に入ること。
+- 虹: 1）夕立などのあと、空に現れる、弓形で七色[=赤・だいだい・黄・緑・青・あい・むらさき]の光の帯。空気中の小さな水のつぶに、日光が当たってできる。
+- 旗: 1）布や紙で作り、さおなどの先につけて、かざりや目じるしとするもの。
+- 化粧: 1）おしろいや紅などをつけて、顔をきれいに見せること。2）外見や表面をきれいに見せること。
+- 個性: 1）その人、またはその物だけが持っている、他とはちがう性質。
+- 悩ん: 1）心の中で思って苦しむ。心配する。2）痛みなどで苦しむ。
+- 応援: 1）味方をはげますこと。2）力をかして助けること。
+- 認める: 1）実際に見る。2）確かにそのとおりだと判断する。3）承知する。許す。4）値打ちがあると考える。評価する。5）確かに自分のしたことであると同意する。",,,,
+nick-4.8-20261114T224255Z-002,6,24b6258d7b15a718da0f13bc,18ac1dd2596b5e63c8fd2144197aa8b7,nick-4.8,ja,science,aya-dataset,human_authored,"[user] 文章からキーワードを選び、その解釈を述べなさい。 
+北海道の標茶町と厚岸町では2019年から、飼っている牛が66頭襲われています。全部同じ1頭のヒグマが襲っていると考えられています。
+標茶町で6月25日、カメラに1頭の熊が写りました。体の長さが2mから2.2mで、木に体をこすっていました。
+町によると、この熊の毛から調べたDNAの型と、牛を襲っているヒグマのDNAの型が同じでした。牛を襲っているヒグマだとはっきりわかった写真はこれが初めてです。このヒグマは前の日は10kmぐらい遠くの牧場で牛を襲っています。
+標茶町の人は「体全部に黒い毛があることや、1日にどこまで行くかがわかりました。どうやって捕まえるか考えたいです」と話しています。","この文章に含まれるキーワードとその解釈は以下です。
+- 飼っ: 1）動物にえさを与えて養う。
+- 牛: 1）昔から家畜として飼われてきた動物。頭に二本の角がある。食べた草を、あとで口にもどして「反すう」する。仕事に使う役牛、乳をしぼる乳牛、肉をとる肉牛などがいる。
+- 頭: 1）あたま。2）集団の上に立つ者。3）はじめ。4）辺り。付近。5）けものを数える言葉。
+- 襲わ: 1）ふいにせめる。2）急に来て害を与える。3）急にそのような気持ちになる。
+- ヒグマ: 1）大型のクマで、冬は穴に入って冬眠し、性質が荒い。日本では北海道にすむ。
+- 襲っ: 1）山にすむ大きなけもの。日本にはツキノワグマ・ヒグマがいる。冬になると、穴に入って冬眠する。
+- 熊: 1）（下の字や絵が）すけて見える。2）写真にとられる。
+- 写り: 1）おしつけて動かす。ある物と、他の物をすりつける。
+- こすっ: 1）生物の細胞の中にあって、遺伝子を構成する物質。
+- DNA: 1）形を作るもとになるもの。原型。2）基本となる、決まったやり方。3）ある特徴や性質。4）しきたり。
+- 型: 1）牛・馬などを、放し飼いにして育てる広い所。まきば。",,,,
+nick-4.8-20261114T224255Z-002,7,f3ab5331f7a681eb78641b1d,d83dd85cee4b66651b446a3fdfd5a1a6,nick-4.8,ja,web_frontend,oasst2,human_authored,"[user] DNSとはなんですか？
+
+[assistant] DNS：Domain Name System（ドメイン・ネーム・システム）
+ネットワークに接続された機器を、人間にわかりやすい名前で管理するためのシステムです。
+役割：
+ネットワークに接続された機器には、住所にあたるIPアドレスが割り当てられます。
+ある機器と通信するためには、相手のIPアドレスを指定する必要があります。
+しかしIPアドレスは、数字や英字であり、人間にとっては分かりやすいものではありません。
+そこで、通信する際に、人間がIPアドレスを意識することなく相手を指定できるよう、
+IPアドレスと、文字列による名前を対応づけ、自動的に読み替えを行うこと、
+また、その情報を管理する方法が考えられました。
+それが、DNSと呼ばれるものです。
+規格：
+DNSの規格は、RFCによって定義されています。
+詳細は下記で見ることができます（英語）。
+https://datatracker.ietf.org/doc/html/rfc6895
+下記でツールによる自動翻訳が公開されています。
+https://tex2e.github.io/rfc-translater/html/rfc6895.html
+
+[user] 分かりやすい説明をありがとうございます。では、RFCに関しても説明いただけますか？","どういたしまして。お気に召したなら何よりです。
+
+RFC：Request For Comments（リクエスト・フォー・コメンツ）
+インターネットの通信基盤となる技術仕様、標準、合意事項、メモなど、公開・共有しておくべき情報を、既定の書式で記述し、番号を振って整理した文書の集合です。
+IEGF（Internet Engineering Steering Group）によって管理されています。
+草案は誰でも起案することができ、IETF（Internet Engineering Task Force）での討論を得たのち、IEGFに提出されて、RFCとして全世界に公開されます。
+
+重要かつ真面目な内容が中心ですが、エイプリルフールに公開されるジョークRFCも含まれます。
+（2023年はRFC9401「TCP通信への死亡フラグの追加」、
+お薦めはRFC1149「鳥類キャリアによるIPデータグラム通信規格」）
+
+RFCの歴史については、それ自体RFC2555として、関係者の覚書が公開されています。
+RFC2555「30 Years of RFCs」（RFCの30年）
+https://datatracker.ietf.org/doc/html/rfc2555
+ツールによる自動翻訳
+https://tex2e.github.io/rfc-translater/html/rfc2555.html
+
+また、JPNIC（一般社団法人 日本ネットワークインフォメーションセンター）に端的な解説記事があります。
+https://www.nic.ad.jp/ja/rfc-jp/WhatisRFC.html",,,,
+nick-4.8-20261114T224255Z-002,8,7dc1e3d167f12f54b3677eed,c0212a42e30db4e44b91735891a88eaf,nick-4.8,ko,coding,aya-dataset,human_authored,[user] 일본취업비자의 종류,"1. 인문지식･국제업무 비자
+취로비자의 대명사, 인문지식/국제업무비자는 무역관계, 통역 및 번역, 여행회사, 어학학교의 강사 등 재류활동에 해당되며, 가장 인기 있는 취로비자의 하나라고 할 수 있습니다.
+일본어능력 : JLPT N2 이상의 일본어 실력을 가진 자
+ 
+인문지식/국제업무 비자 취득이 가능한 분야로는 아래와 같습니다.
+호텔리어, 무역업, 통역/번역, 어학학교 강사, 여행업, 복식디자이너, 인테리어디자이너, 객실승무원, 기업마케팅담당자, 기업홍보담당자, 해외거래처담당자, 상품개발담당자, 해외영업 등
+ 
+2. 기술비자
+기술비자는 이학, 공학 그 밖의 자연과학 분야에 속하는 기술 또는 지식을 필요로 하는 업무에 종사하는 경우에 발급되는 취업비자의 하나입니다. 기술비자는 이과계 취업비자라고 할 수 있으며 주로 시스템엔지니어, 프로그래머, AUTO CAD 등 IT 관련 분야에서 발급되는 비자입니다.
+ 
+대학에서 IT 관련 전공자가 아닐 경우 한국산업인력공단이 인정하는 정보처리기사 또는 정보처리산업기사 자격증을 소지하고 있으시면 기술비자를 받으실 수 있습니다.
+일본어능력 : JLPT N2 이상의 일본어 실력을 가진 자
+ 
+기술비자 취득이 가능한 분야로는 아래와 같습니다.
+JAVA 개발자, C/C++ 개발자, C#, ASP, .NET 개발자, Mobile Android 개발자, GAME 기획개발자, WEB 개발자, DB개발자, 기타 프로그램 개발자, SE 및 Network 엔지니어 등
+ 
+3. 기능비자
+기능비자는 요리사나 아래와 같이 외국의 특수한 분야에 속하는 활동을 하고자 하는 기능자에게 발급하는 비자입니다.
+* 요리 : 한식조리사 자격 소지자로 10년 이상의 실무 경험이 있는 사람
+* 보석 및 귀금속 : 관련 분야에서 10년 이상의 실무 경험이 있는 귀금속 가공 기술자
+* 스포츠코치 : 3년 이상의 실무 경험이 있는 사람
+* 소믈리에 : 5년 이상의 실무 경험이 있는 사람",,,,
+nick-4.8-20261114T224255Z-002,9,48a188d3833562211940f27b,11920dac62be68f2a9f3a9ee29823765,nick-4.8,ko,general_knowledge,wikipedia-ko,templated_human,[user] 현대 진화 이론에 대해 간단히 소개해 주세요.,"현대 진화 이론은 생물학의 여러 전공 분야에서 연구된 진화와 관련한 이론을 종합한 것으로, 오늘날 대다수의 생물학자들이 인정하고 있는 진화 이론이다. 현대 진화 이론은 다윈의 자연선택의 개념에서 출발하여 멘델의 유전법칙의 발견, 20세기 초 집단유전학의 성과 등을 종합한 것으로 1936년부터 1947년까지 약 10여년에 걸쳐 형성되었다.
+
+1942년 헉슬리가 《현대 진화 이론》를 출판하여 현대 진화 이론이란 명칭이 널리 알려지게 되었다. 이후 같은 주제로 피셔, 도브잔스키, 할데인, 라이트, 에른스트 마이어, 조지 심슨등과 같은 학자들이 저서를 출판하여 공헌하였다.
+
+생물학의 각 분야가 매우 난해하다는 점과 주요 학파 간에 진화의 원인에 대한 견해가 달랐다는 점 때문에 현대 진화 이론의 종합은 매우 어렵고 복잡한 과정을 거쳐야했다. 그러나 이러한 과정을 거치고, 진화현상 자체가 관찰이 되기 시작하면서, 현대에는 증명된 과학이론으로서 존재하며, 현대 진화 이론에는 유전학, 세포학, 계통학, 식물학, 형태학, 생태학, 고생물학 등 생물학 전반에 걸친 학문 분야가 두루 망라되어 있다.
+
+현대 진화이론의 성립 이후에도 각 분야의 진화 연구는 여전히 활발히 연구되고 있으며 이는 진화의 속도와 방향에 관한 연구로 이어진다.
+
+생물학의 제 분야에서 연구·종합된 현대 진화 이론은 대략 다음과 같이 요약된다.
+
+모든 진화 현상은 유전 기제와 자연 현상의 관찰을 통하여 설명될 수 있다.
+
+진화는 점진적인 과정을 통하여 이루어진다. - 진화는 소규모의 유전자 변이의 발생과 자연선택이 지속된 결과이다. 생물 종 간의 불연속성은 진화가 도약적으로 이루어졌기 때문이 아니라 지속적인 종분화와 멸종 등에 의한 것이다.
+
+진화가 일어나게 하는 가장 큰 요인은 자연선택이다. 어느 집단의 발현형질이 환경에 적합하다면 그와 관련된 유전자가 계속하여 유전될 것이다. 테오도시우스 도브잔스키가 제시한 유전자 부동 역시 진화의 원인이 된다. (중립 진화 이론을 참조할 것)
+
+생물 집단 사이에 존재하는 유전자 다양성은 자연 선택이 이루어질 수 있는 바탕이 된다.
+
+고생물학의 연구 결과 생물 진화의 역사에서 진화의 속도가 변화하며, 속도가 빠른 시기와 느린 시기가 번갈아 가며 발생하였다는 것을 알 수 있다. 다만 여기서 속도가 빠르게 진행되는 시기의 시간대에서의 진화는 점진적으로 이루어지며, 이 점진성 역시도 같은 속도로 진행되는 것이 아니라 변화의 영향을 받는다. (단속평형이론을 참조할 것)",,,,
+nick-4.8-20261114T224255Z-002,10,9c40d3f4e21f3e7e064ed419,2f9f4c57d1d38aece9dd3f0ee79a017d,nick-4.8,ko,mathematics,wikipedia-ko,templated_human,[user] 덧셈에 대해 간단히 소개해 주세요.,"덧셈은 산술의 기본 연산 중의 하나로, 두 개의 수를 받아 한 개의 수를 계산하는 이항 연산이다. 반대되는 연산은 뺄셈이다. 현대 수학에서는 덧셈을 나타내는 기호로 더하기표(+)를 쓴다.
+
+두 자리 수 이상의 자연수를 더할 때, 같은 자리의 숫자끼리의 합이 10 이상이 되면 받아올림이 필요하다. 예를 들어 를 계산할 때, 먼저 일의 자리 숫자끼리 계산하면 16이 되므로 6을 일의 자리 숫자에 적고, 1을 받아올린다. 그리고 십의 자리 숫자끼리 계산할 때 일의 자리에서 받아올린 수까지 함께 더하여 8이 되므로 8을 십의 자리 숫자에 적는다.
+
+덧셈은 자연수, 정수, 유리수, 실수, 복소수 등 정의역에 따라 다르게 정의할 수 있다.
+
+자연수 집합에 0을 추가한 집합 에 대해서, 덧셈은 다음과 같이 귀납적으로 정의된다.
+
+임의의 자연수는 0 또는 다른 자연수의 다음 자연수이므로, 임의의 의 오른쪽에 자연수를 더하는 것은 항상 두 경우 중 하나와 일치한다. 자연수 덧셈의 교환법칙과 결합법칙은 수학적 귀납법을 통해 증명할 수 있다.
+
+두 정수를 각각 자연수의 차 , 로 표현할 때 (, , , 는 자연수), 정수의 합은 으로 정의한다. 이때, 와 는 자연수에서 정의된 덧셈의 결과이다.
+
+유리수에서는 덧셈을 다음과 같이 정의한다. 두 유리수를 정수의 비 ,  (, , , 는 정수이고 와 는 0이 아니다) 로 표현할 때, 유리수의 합은 다음과 같다.
+
+분수는 유리수의 표기법이므로, 이 정의를 사용하여 분수의 덧셈을 할 수 있다. 예를 들어, 이다.
+
+실수를 유리수의 완비 거리 공간으로 생각하였을 때, 각 실수는 유리수의 코시 열의 극한값이다. 두 실수 , (은 유리수의 코시 열) 에 대해 실수의 합은 각 유리수열에 대해 항 별로 덧셈을 하여 극한을 취한 결과인 으로 정의한다.
+
+복소수의 덧셈은 실수부와 허수부를 각각 더한 결과로 정의한다. 두 복소수 ,  (는 실수)에 대해, 복소수의 합은 으로 정의한다. 이때 는 실수에서 정의된 덧셈의 결과이다.
+
+소수의 덧셈은 다음과 같다. 소수점이 같은 위치에 오도록 적고, 한 수에만 빈 자리가 있으면 그 자리에 0을 적는다. 그 다음에는 자연수의 덧셈과 마찬가지로 같은 자리의 숫자까리 더하되 필요한 경우 받아올림을 한다. 소수점은 더한 수와 같은 위치에 찍는다. 예를 들어 45.1 + 4.34는 다음과 같이 계산한다.
+
+덧셈에서는 교환법칙이 성립한다. 이는 덧셈을 할 때 피연산자의 배치 순서를 바꾸어도 항상 같은 결과를 얻는다는 것을 의미한다. 즉, 모든 에 대해
+
+덧셈에서는 결합법칙도 성립한다. 이는 세 피연산자에 대해 덧셈을 할 때 어떤 쌍을 처음 더한 후 다른 하나를 더할 때 항상 같은 결과를 얻는다는 것을 의미한다. 즉, 모든 , , 에 대해",,,,
+nick-4.8-20261114T224255Z-002,11,bc9b00582d211440f905022b,af2192d95661166f5a8e716eb1054750,nick-4.8,ko,research,tydiqa-goldp,human_authored,"[user] 인민동원군은 의용군과 이미 존재하는 무장 단체로 이루어져 있으며 이들은 이라크 내정부 인민동원군 부서의 지휘하에 공식적인 통솔 기구 밑에서 뭉치게 되었다.[16][17] 이러한 무장단체들 중에는 마흐디 민병대로 알려진 평화 연대를 비롯하여 카타이브 헤즈볼라, 카타이브 사이드 알슈하다, 알이맘 알리 여단, 아사이브 알 알하크, 그리고 바드르 조직 등이 있다.[18]  무장단체들은 수니파 및 투르크멘 무장단체들을 위해 터키에서 온 군사 고문관의 훈련과 지원을 받고 있으며,[19] 이란과 헤즈볼라의 지원도 받고 있다.[20][21] 이란에서 온 지휘관 중에는 유명한 쿠드스군 사령관인 카젬 솔레이마니도 포함되어 있다.[22] 인민동원군은 안바르 주에서 대령 주마 알주말리의 지휘를 받는 여단을 배치하기도 했다.[23] 인민동원군은 독자적인 군 정보부와 행정 시스템,[9] 사기를 고취시키고 선전방송과 전투 상황을 보고하는 언론 전투단,[24] 그리고 법률 시행부도 있다고 전해진다.[25]
+
+인민동원군의 지휘관은 누구인가요?","카젬 솔레이마니
+
+인민동원군은 의용군과 이미 존재하는 무장 단체로 이루어져 있으며 이들은 이라크 내정부 인민동원군 부서의 지휘하에 공식적인 통솔 기구 밑에서 뭉치게 되었다.[16][17] 이러한 무장단체들 중에는 마흐디 민병대로 알려진 평화 연대를 비롯하여 카타이브 헤즈볼라, 카타이브 사이드 알슈하다, 알이맘 알리 여단, 아사이브 알 알하크, 그리고 바드르 조직 등이 있다.[18]  무장단체들은 수니파 및 투르크멘 무장단체들을 위해 터키에서 온 군사 고문관의 훈련과 지원을 받고 있으며,[19] 이란과 헤즈볼라의 지원도 받고 있다.[20][21] 이란에서 온 지휘관 중에는 유명한 쿠드스군 사령관인 카젬 솔레이마니도 포함되어 있다.[22] 인민동원군은 안바르 주에서 대령 주마 알주말리의 지휘를 받는 여단을 배치하기도 했다.[23] 인민동원군은 독자적인 군 정보부와 행정 시스템,[9] 사기를 고취시키고 선전방송과 전투 상황을 보고하는 언론 전투단,[24] 그리고 법률 시행부도 있다고 전해진다.[25]",,,,
+nick-4.8-20261114T224255Z-002,12,e5cc33d7048b66534fd36f3d,de7214607fadab87a0a294bc9349e9a8,nick-4.8,nl,coding,oasst2,human_authored,"[user] Hoe kan ik mijn productiviteit op het werk verbeteren?
+
+[assistant] Hier zijn een aantal ideeën om je productiviteit te verbeteren:
+-   Probeer duidelijke doelen te stellen. Bijvoorbeeld, vandaag wil ik deze 3 a 4 taken afmaken.
+-   Vermijd dingen die afleiden van hetgeen waar je mee bezig bent.
+-   Denk na over andere manieren om je werk te doen. Bijvoorbeeld, door bepaalde taken te automatiseren.
+
+Ik hoop dat ik je hiermee voldoende ideeën heb gegeven.
+
+[user] Zijn er goede apps die hierbij helpen?","Er zijn verschillende manieren om de productiviteit op het werk te verbeteren. Hier zijn enkele tips die je kunt proberen:
+
+1. Maak een to-do lijst: Maak elke dag een lijst van de belangrijkste taken die je moet voltooien en houd je eraan. Prioriteer je taken en werk ze in die volgorde af.
+
+2. Vermijd afleidingen: Probeer afleidingen te minimaliseren, zoals sociale media, e-mails, telefoontjes en andere dingen die je werk onderbreken. Zet meldingen uit en reserveer bepaalde tijden om je e-mails te controleren.
+
+3. Neem regelmatig pauzes: Het is belangrijk om regelmatig pauzes te nemen om je hersenen te laten rusten en op te laden. Ga even wandelen, drink wat water of neem een korte pauze om te ontspannen.
+
+4. Stel deadlines: Stel realistische deadlines voor jezelf om jezelf gemotiveerd te houden en jezelf te dwingen om taken op tijd af te ronden.
+
+5. Plan je dag: Plan je dag van tevoren en maak tijd vrij voor belangrijke taken en projecten. Dit zal je helpen je tijd beter te beheren en ervoor zorgen dat je je doelen bereikt.
+
+6. Houd je werkplek georganiseerd: Houd je werkplek georganiseerd en opgeruimd. Dit kan je helpen om je te concentreren en je productiviteit te verhogen.
+
+7. Leer nieuwe vaardigheden: Blijf je vaardigheden ontwikkelen door nieuwe dingen te leren. Dit kan je helpen om efficiënter te werken en meer gedaan te krijgen.
+
+Door deze tips te implementeren, zou je je productiviteit op het werk kunnen verbeteren en meer gedaan krijgen in minder tijd.",,,,
+nick-4.8-20261114T224255Z-002,13,51316037a7e9adba4a01a423,ba796ecf65d26a7d0c03876e46b80afd,nick-4.8,nl,general_knowledge,oasst2,human_authored,[user] Wat is De Bende van Nijvel?,"De Bende van Nijvel was een groep misdadigers die tussen 1982 en 1985 in België een reeks moorden, inbraken, diefstallen en overvallen pleegde. Daarbij vielen in totaal 28 doden en ruim 40 gewonden. Met name de bloedige roofovervallen op Delhaize-warenhuizen in 1985 deed België op z'n grondvesten daveren.
+
+De leden van de Bende van Nijvel, alsook hun motieven, zijn nooit bekend geraakt. In het begin zouden de politieonderzoeken chaotisch en onzorgvuldig zijn verlopen. Mede daardoor (en ook omdat het aantal doden en gewonden hoog was maar de buit relatief klein) werd de bende vaak gezien als een organisatie met politieke motieven die mogelijk een hand boven het hoofd werd gehouden vanuit hogere kringen. Let wel dat bewijzen daartoe tot op heden nog niet zijn gevonden.",,,,
+nick-4.8-20261114T224255Z-002,14,8a7b6a1a4dd658d779b02da4,a081df43ef96bf8dae3de1836696628e,nick-4.8,nl,reasoning,aya-dataset,human_authored,[user] Wat is Stoicisme?,"Stoicisme is een school van Hellenistische filosofie opgericht door Zeno van Citium in Athene in het begin van de 3de eeuw voor Christus. Het is een filosofie van persoonlijke deugdethiek die wordt geïnformeerd door haar systeem van logica en haar opvattingen over de natuurlijke wereld, waarbij wordt gesteld dat de praktijk van deugd zowel noodzakelijk als voldoende is om eudaimonia (geluk, letterlijk 'goedhartigheid') te bereiken: men bloeit door een ethisch leven te leiden. De Stoïcijnen identificeerden de weg naar eudaimonia met een leven dat besteed wordt aan het beoefenen van deugd en het leven in overeenstemming met de natuur. Naast de ethiek van Aristoteles vormt de Stoïcijnse traditie een van de belangrijkste grondleggende benaderingen van deugdethiek. De Stoïcijnen staan vooral bekend om het onderwijzen dat ""deugd de enige goedheid"" is voor de mens, en dat externe zaken, zoals gezondheid, rijkdom en plezier, op zichzelf niet goed of slecht zijn (adiaphora), maar waarde hebben als ""materiaal voor deugd om op te treden"". Veel Stoïcijnen - zoals Seneca en Epictetus - benadrukten dat omdat ""deugd voldoende is voor geluk"", een wijze emotioneel veerkrachtig zou",,,,
+nick-4.8-20261114T224255Z-002,15,402034d9edf1dec53e697ff4,567e2a4f4594da4ee346bcf0228b1798,nick-4.8,pl,coding,oasst1,human_authored,[user] Jaki jest obecnie najwydajniejszy język programowania.,"Nie ma na to pytanie jednej odpowiedzi. Język programowania może być wydajny na różne sposoby: pod względem czasu, energochłonności i pamięci. Według serwisu stratoflow.com[1] do najwydajniejszych języków programowania należą C i Rust, które niewiele się od siebie pod tym względem różnią jeśli chodzi o wydajność czasu i energochłonności. Jeśli chodzi o wydajność pamięci, najwydajniejszymi językami są Pascal i Go.
+
+Źródło: https://stratoflow.com/efficient-and-environment-friendly-programming-languages/",,,,
+nick-4.8-20261114T224255Z-002,16,04af83818adee18bad8f60c8,4c807c76108493bf2e093f253271dd68,nick-4.8,pl,general_knowledge,oasst2,human_authored,[user] Opisz wymyśloną jaskinię jakiegoś potwora.,"Ta jaskinia jest domem dla mitycznego stwora o imieniu Grothar. Jest ona ulokowana głęboko w górach i dostępna tylko dla nielicznych odważnych i doświadczonych wspinaczy. Wnętrze jaskini jest ciemne i wilgotne, a powietrze jest ciężkie od zapachu siarki i stęchlizny. Ściany są pokryte grubą warstwą błota i skalnego osadu, a sufit jest porośnięty koralowcami i innymi formami życia morskiego, co sugeruje, że jaskinia kiedyś była zanurzona w morzu.",,,,
+nick-4.8-20261114T224255Z-002,17,2840e641e66648047da1a2fc,aa605c5c29091ad36021bfccdf12fa47,nick-4.8,pl,mathematics,oasst2,human_authored,"[user] Czy możesz wyjaśnić w prostych słowach matematycznemu laikowi, dlaczego jeśli podniesiemy dowolną liczbę do potęgi 0, zawsze otrzymamy 1?","Kiedy podnosimy liczbę do potęgi, oznacza to, że mnożymy tę samą liczbę przez siebie tyle razy, ile wynosi ta potęga. Na przykład 2 do potęgi 3 oznacza 2 × 2 × 2, czyli 8.
+
+Jeśli podnosimy dowolną liczbę do potęgi 0, oznacza to, że mnożymy tę samą liczbę przez siebie zero razy. Ale jakkolwiek nie mnożymy liczby przez siebie, wynik zawsze będzie równy 1. Dlaczego? Ponieważ kiedy mnożymy jakąkolwiek liczbę przez 1, otrzymujemy tę samą liczbę. I tak, jeśli podnosimy jakąkolwiek liczbę do potęgi 0, otrzymujemy wynik 1, ponieważ 1 jest elementem neutralnym w mnożeniu - mnożenie przez 1 nie zmienia wartości liczby.",,,,
+nick-4.8-20261114T224255Z-002,18,27034692b800c796f56d9a17,c5b01a8e0904a08c6cbf94c5980029d1,nick-4.8,pl,safety_ethics,oasst1,human_authored,[user] Zrób mi plan na produktywny dzień. Jestem uczniem liceum 2 klasy.,"6:00 - Wstawanie, zrobienie łóżka i przygotowanie się do dnia.
+
+6:30 - Zjedzenie pożywnego śniadania, takiego jak jajka na miękko z pełnoziarnistym tostem lub owsianka z mlekiem i owocami.
+
+7:00 - Przygotowanie swojego planu na dzień i sprawdzenie harmonogramu zajęć.
+
+7:30 - Rozpoczęcie nauki najtrudniejszego przedmiotu z listy. Praca przez 1,5 godziny z krótkimi przerwami co 45 minut.
+
+9:00 - Przerwa na przekąskę i wypicie wody.
+
+9:15 - Praca nad drugim najtrudniejszym przedmiotem z listy przez kolejne 1,5 godziny z krótkimi przerwami co 45 minut.
+
+10:45 - Przerwa na lunch i krótki spacer.
+
+11:30 - Praca nad łatwiejszymi przedmiotami, w tym pisaniem zadań i lekcji. Praca przez 2 godziny z krótkimi przerwami co 45 minut.
+
+13:30 - Przerwa na przekąskę i wypicie wody.
+
+13:45 - Rozwiązanie problemów i dodatkowe zadania z przedmiotów wymagających więcej uwagi i koncentracji przez kolejne 1,5 godziny z krótkimi przerwami co 45 minut.
+
+15:15 - Przerwa na trening fizyczny, np. jogging, jazdę na rowerze lub ćwiczenia w domu.
+
+16:15 - Powrót do nauki przez kolejne 1,5 godziny, koncentrując się na zadaniach domowych i lekcjach, których nie udało Ci się skończyć wcześniej.
+
+17:45 - Odpoczynek i spędzenie czasu z rodziną lub przyjaciółmi.
+
+19:00 - Przegląd materiałów do nauki i przygotowanie się do kolejnego dnia.
+
+19:30 - Czas na relaks, np. czytanie książki, oglądanie filmu lub granie na konsoli.
+
+21:00 - Przygotowanie się do snu, wyłączenie urządzeń elektronicznych i położenie się do łóżka.",,,,
+nick-4.8-20261114T224255Z-002,19,1959801fa01269e7f44775ea,60b93faad0ed3c68c55eae8862c03da2,nick-4.8,pl,science,oasst2,human_authored,[user] Dlaczego wszystkie planety krążą w kierunku przeciwnym do ruchu wskazówek zegara?,"Sam kierunek okrążania Słońca, w naszym przypadku przeciwny do ruchu wskazówek zegara, jest czysto arbitralny. Gdybyśmy spojrzeli na Układ Słoneczny „od spodu”, to byłby to kierunek przeciwny, czyli zgodny z ruchem wskazówek zegara.
+
+Natomiast jeśli chodzi o to dlaczego wszystkie planety krążą po orbitach w tym samym kierunku, to ma to związek z procesem powstawania Układu Słonecznego. Zanim powstało Słońce i krążące wokół niego planety, cała tworząca je materia była kosmicznym obłokiem, składającym się z gazu i innych drobnych cząsteczek. Każdy ze składników tego obłoku posiadał jakąś swoją rotację w jedną lub drugą stronę. Chmura jako całość też posiadała pewną niezerową rotację. Gdy pod wpływem grawitacji obłok się zapadał, formowała się nasza gwiazda i planety, ruchy poszczególnych cząsteczek kumulowały się i całość zaczęła obracać się w jedną stronę.",,,,
+nick-4.8-20261114T224255Z-002,20,19544d06d0f398aeef563de4,007949681e80842fa4fb72275fae8c30,nick-4.8,pl,software_engineering,oasst1,human_authored,[user] Co to github?,"Github jest portalem internetowym, który pozwala użytkownikom hostować repozytoria kontroli wersji git. Użytkownik może za darmo korzystać z usług github'a na potrzeby publicznych projektów. Dzięki temu też znajduje się tam bardzo dużo projektów typu open-source. Portal aktualnie jest własnością firmy Microsoft, który między innymi dzięki ogromnej ilości danych zgromadzonych przez serwis, stworzył narzędzie sztucznej inteligencji o nazwie ""Github copilot"", które poprawia wydajność programistów w pisaniu kodu.",,,,
+nick-4.8-20261114T224255Z-002,21,5c15c88e56e8afaed56d3518,47c4dbc191213a2a06b0b0174eb514b7,nick-4.8,pt,coding,aya-dataset,human_authored,[user] Explique brevemente o algoritmo de ordenação de bolha.,"O algoritmo de ordenação de bolha, também conhecido como ""bubble sort"", é um método simples para ordenar uma lista ou um array. Funciona da seguinte maneira:
+
+1. Comparação e Troca: Começando do início da lista, o algoritmo compara pares de elementos adjacentes. Se o par estiver na ordem errada (o elemento à esquerda maior que o elemento à direita, em uma ordenação ascendente, por exemplo), eles são trocados.
+
+2. Passagem Completa: Este processo continua até o final da lista. Ao término de uma passagem completa, o maior elemento (no caso de ordenação ascendente) terá ""borbulhado"" até sua posição correta no final da lista.
+
+3. Repetição: O processo se repete para cada elemento da lista, excetuando-se os já posicionados corretamente, até que não sejam necessárias mais trocas, indicando que a lista está ordenada.
+
+O algoritmo é fácil de entender e implementar, mas é ineficiente para listas grandes, com uma complexidade de tempo pior e média de \( O(n^2) \), onde \( n \) é o número de itens a serem ordenados. É útil para fins educacionais e em listas pequenas, mas existem algoritmos mais eficientes para casos mais complexos.",,,,
+nick-4.8-20261114T224255Z-002,22,d668d7e91c8b6eee844da72f,24423458bf6a2611d279ae9e9d3aa769,nick-4.8,pt,education,aya-dataset,human_authored,"[user] No contexto de Aprendizado de Máquina, o que significa ""Underfitting""?","""Underfitting"" é um termo utilizado no campo do Aprendizado de Máquina (Machine Learning) para descrever uma situação na qual um modelo de machine learning não é capaz de capturar bem as relações presentes nos dados de treinamento e, como resultado, apresenta um desempenho insatisfatório tanto nos dados de treinamento quanto nos dados de teste.
+
+Isso ocorre quando um modelo é muito simples ou possui uma capacidade de representação limitada para lidar com a complexidade dos dados. Como resultado, ele não consegue se ajustar adequadamente aos padrões subjacentes nos dados de treinamento. O modelo subajustado geralmente tem um alto erro de treinamento e tende a fazer previsões imprecisas para novos dados.
+
+Para resolver o problema de underfitting, é necessário ajustar a complexidade do modelo, tornando-o mais capaz de aprender os padrões nos dados. Isso pode envolver o uso de modelos mais complexos, a seleção de recursos relevantes, o aumento do tamanho do conjunto de dados de treinamento ou a otimização dos hiperparâmetros do modelo.
+
+É importante encontrar um equilíbrio, pois um modelo muito complexo também pode levar ao ""overfitting"", que é o oposto do underfitting, onde o modelo se ajusta excessivamente aos dados de treinamento e não generaliza bem para novos dados. O objetivo é encontrar um modelo que esteja bem ajustado aos dados, capturando os padrões subjacentes sem superajustar ou subajustar.",,,,
+nick-4.8-20261114T224255Z-002,23,2ad9c03f541d9c4d1e58c8c0,f3441bcbc05a491f73fce93a71d1f37b,nick-4.8,pt,general_knowledge,aya-dataset,human_authored,[user] Quais são algumas características importantes de um empreendedor de sucesso?,"O sucesso de um empreendedor pode ser influenciado por várias características pessoais e habilidades. Aqui estão algumas características importantes que geralmente estão associadas a empreendedores de sucesso:
+
+Visão: Os empreendedores de sucesso têm uma visão clara do que desejam alcançar. Eles identificam oportunidades e têm um plano para transformar suas ideias em realidade.
+
+Determinação: A determinação é fundamental para superar os obstáculos e desafios que surgem ao longo do caminho. Os empreendedores resilientes não desistem facilmente e estão dispostos a trabalhar arduamente para alcançar seus objetivos.
+
+Criatividade e Inovação: A capacidade de pensar de forma criativa e encontrar soluções inovadoras é essencial para se destacar em mercados competitivos. Os empreendedores estão sempre buscando maneiras de melhorar produtos, serviços ou processos.
+
+Capacidade de assumir riscos calculados: O empreendedorismo envolve riscos, e os empreendedores de sucesso estão dispostos a assumir riscos calculados. Eles avaliam cuidadosamente os riscos e recompensas antes de tomar decisões importantes.
+
+Habilidades de liderança: Um empreendedor de sucesso muitas vezes lidera equipes e inspira os outros a compartilhar sua visão e trabalhar em direção a objetivos comuns. Habilidades de liderança, como comunicação eficaz e motivação, são cruciais.
+
+Habilidades de gerenciamento: Os empreendedores precisam gerenciar recursos, tempo e finanças de forma eficaz. Ter boas habilidades de organização e gestão ajuda a manter o negócio funcionando sem problemas.
+
+Adaptação: O ambiente de negócios está em constante mudança. Empreendedores de sucesso são capazes de se adaptar a novas circunstâncias, aprender com os erros e ajustar suas estratégias conforme necessário.
+
+Networking: Construir uma rede de contatos sólida é fundamental para o sucesso nos negócios. Os empreendedores eficazes sabem como se relacionar com outras pessoas, estabelecer parcerias e buscar orientação quando necessário.
+
+Foco no cliente: Entender as necessidades e desejos dos clientes é fundamental para criar produtos ou serviços que atendam a essas demandas. Os empreendedores bem-sucedidos colocam o cliente no centro de suas operações.
+
+Paixão: Os empreendedores de sucesso geralmente são apaixonados pelo que fazem. Essa paixão os impulsiona a superar desafios e a manter o comprometimento com seus objetivos.
+
+É importante observar que cada empreendedor é único, e nem todos possuem todas essas características em igual medida. No entanto, desenvolver essas habilidades e características ao longo do tempo pode aumentar as chances de sucesso no empreendedorismo. Além disso, o contexto e o setor em que um empreendedor atua também podem influenciar as características mais importantes para o seu sucesso.",,,,
+nick-4.8-20261114T224255Z-002,24,b6ab429a03a28bec3ff5f55e,15d372d4ab184aa80edb51ba1cef62ef,nick-4.8,pt,islamic_studies,aya-dataset,human_authored,[user] Descreva a bandeira das Maldivas.,"A bandeira das Maldivas é composta por um campo vermelho com um retângulo verde no canto superior esquerdo. No centro do retângulo verde, há uma lua crescente branca e uma estrela branca de cinco pontas. A cor vermelha representa a bravura e a coragem do povo maldiviano, o verde simboliza a vegetação das ilhas, a lua crescente representa o islamismo, e a estrela simboliza a unidade e a paz.",,,,
+nick-4.8-20261114T224255Z-002,25,9401fd506543f72c2de87f10,753644bc5845746393d018155647777b,nick-4.8,pt,mathematics,nemotron-math,synthetic,[user] Simplify the following expressions: $\left[\frac{4a-9a^{-1}}{2a^\frac{1}{2}-3a^{-\frac{1}{2}}} +\frac{a-4+3a^{-1}}{a^\frac{1}{2}-a^{-\frac{1}{2}}}\right]^2$,"The given expression is \(\left[\frac{4a-9a^{-1}}{2a^{\frac{1}{2}}-3a^{-\frac{1}{2}}} + \frac{a-4+3a^{-1}}{a^{\frac{1}{2}}-a^{-\frac{1}{2}}}\right]^2\).
+
+First, simplify each fraction separately.
+
+For the first fraction, \(\frac{4a-9a^{-1}}{2a^{\frac{1}{2}}-3a^{-\frac{1}{2}}}\):
+- Rewrite as \(\frac{a^{-1}(4a^2 - 9)}{a^{-\frac{1}{2}}(2a - 3)} = a^{-\frac{1}{2}} \frac{4a^2 - 9}{2a - 3}\).
+- Factor the numerator: \(4a^2 - 9 = (2a - 3)(2a + 3)\).
+- Thus, \(\frac{(2a - 3)(2a + 3)}{2a - 3} = 2a + 3\) for \(a \neq \frac{3}{2}\).
+- The fraction simplifies to \(a^{-\frac{1}{2}} (2a + 3) = 2a^{\frac{1}{2}} + 3a^{-\frac{1}{2}}\).
+
+For the second fraction, \(\frac{a-4+3a^{-1}}{a^{\frac{1}{2}}-a^{-\frac{1}{2}}}\):
+- Rewrite as \(\frac{a^{-1}(a^2 - 4a + 3)}{a^{-\frac{1}{2}}(a - 1)} = a^{-\frac{1}{2}} \frac{a^2 - 4a + 3}{a - 1}\).
+- Factor the numerator: \(a^2 - 4a + 3 = (a - 1)(a - 3)\).
+- Thus, \(\frac{(a - 1)(a - 3)}{a - 1} = a - 3\) for \(a \neq 1\).
+- The fraction simplifies to \(a^{-\frac{1}{2}} (a - 3) = a^{\frac{1}{2}} - 3a^{-\frac{1}{2}}\).
+
+Now, add the simplified fractions:
+- \((2a^{\frac{1}{2}} + 3a^{-\frac{1}{2}}) + (a^{\frac{1}{2}} - 3a^{-\frac{1}{2}}) = 3a^{\frac{1}{2}}\).
+
+Square the result:
+- \((3a^{\frac{1}{2}})^2 = 9a\).
+
+The expression is undefined for \(a = 0\) (due to negative exponents), \(a = 1\) (denominator zero in second fraction), and \(a = \frac{3}{2}\) (denominator zero in first fraction). For all other \(a > 0\), the simplified expression is \(9a\).
+
+\boxed{9a}",,,,
+nick-4.8-20261114T224255Z-002,26,9a504d045399af93c635aea1,42e8f6f96033f1cc3b5f12232740a754,nick-4.8,pt,pakistan,aya-dataset,human_authored,[user] Que língua é falada no país Emirados Árabes Unidos?,"No país Emirados Árabes Unidos, a língua oficial é o árabe. O árabe é a língua predominante em todas as esferas da sociedade nos Emirados Árabes Unidos, sendo usado na comunicação oficial, na educação e nos meios de comunicação. No entanto, devido à diversidade étnica e à presença de expatriados de diferentes países, o inglês também é amplamente falado e compreendido, especialmente nos setores de negócios, turismo e educação. Além do árabe e do inglês, outras línguas, como o hindi, o urdu, o malaiala e outras, são faladas pela comunidade expatriada no país.",,,,
+nick-4.8-20261114T224255Z-002,27,18863855455fa185d4924900,0a28cf234be142e5075beef3823add56,nick-4.8,pt,reasoning,aya-dataset,human_authored,[user] Descreva a bandeira do Kuwait.,"A bandeira do Kuwait é composta por três faixas horizontais de igual largura. A faixa superior é verde, a faixa do meio é branca e a faixa inferior é vermelha. No canto superior esquerdo da faixa branca, há uma inscrição em preto que diz ""الكويت"" (Al-Kuwait), que significa ""O Kuwait."" As cores da bandeira representam aspectos diferentes da história e da cultura do país, com o verde simbolizando a vegetação, o branco representando a paz e o vermelho denotando o derramamento de sangue dos mártires que lutaram pela independência do Kuwait.",,,,
+nick-4.8-20261114T224255Z-002,28,8c7bdafc248a04cbb4d83578,7c0631f923e8322e4bf83034a6be90c0,nick-4.8,pt,research,aya-dataset,human_authored,[user] Quem é Börje Karlsson?,"Börje Karlsson é um nome tipicamente sueco e não muito incomum. Diversas pessoas tem esse nome. De acordo com os dados na Internet e na Wikidata. Börje Karlsson pode ser o 
+mestre destilador que ajudou a criar a vodka Absolut nos anos setenta e depois lançou sua própria marce de vodka de batata (Karlsson's Vodka) no final dos anos 2000; ou então o pesquisador de inteligência artificial e sistemas computacionais filiado ao instituo BAAI da China em 2023 e anteriormente pesquisador na Microsoft Research.",,,,
+nick-4.8-20261114T224255Z-002,29,0506d8386b29a93755672e75,e9dd988ae0f74940a5cff50f3460fc03,nick-4.8,pt,safety_ethics,aya-dataset,human_authored,[user] O que é a cláusula pétrea na Constituição Brasileira?,"A cláusula pétrea é um artigo da Constituição Federal que não pode ser alterado. Ela é uma forma de proteger os princípios fundamentais da organização política e social do Brasil, que foram definidos pela Assembleia Constituinte de 1988, após o fim da ditadura militar.
+
+
+Existem quatro cláusulas pétreas na Constituição Brasileira, que estão previstas no artigo 60, parágrafo 4º. Elas são:
+
+
+A forma federativa de Estado, que significa que o Brasil é composto por unidades autônomas (estados, Distrito Federal e municípios) que se unem sob um governo central;
+
+O voto direto, secreto, universal e periódico, que significa que todos os cidadãos brasileiros têm o direito de escolher seus representantes e governantes por meio de eleições livres e regulares;
+
+A separação dos poderes, que significa que o Estado é dividido em três poderes independentes e harmônicos (Executivo, Legislativo e Judiciário), que exercem funções específicas e fiscalizam uns aos outros;
+
+Os direitos e garantias individuais, que significa que todos os cidadãos brasileiros têm direitos fundamentais, como a liberdade, a igualdade, a dignidade, a segurança e a justiça, que devem ser respeitados e protegidos pelo Estado;",,,,
+nick-4.8-20261114T224255Z-002,30,e60917adf62d4c14fe02bf08,25a2a63e0755b1d55f456c99d4597078,nick-4.8,pt,science,aya-dataset,human_authored,[user] Como o couro é curtido?,"O curtimento é o processo que tem o objetivo de transformar a pele animal em couro, ou seja, em um material durável, resistente ao ataque de micro-organismos e enzimas. Este processo aumenta a estabilidade hidrotérmica das peles que adquirem lisura, elasticidade e resistência ao rasgo e a rupturas.
+Diferentes modalidades podem ser usadas no curtimento. No curtimento mineral ou inorgânico, as peles são processadas em fulões sob a ação de curtentes, produtos químicos feitos à base de sais. O resultado é um couro extremamente macio, elástico, leve e estável, indicado para fabricação de vestuário.
+No curtimento vegetal ou orgânico, que é realizado, comumente com taninos vegetais, combinados ou não com taninos sintéticos, resultam em couros de maior peso. Há ainda o curtimento misto, realizado com produtos de origem de síntese como glutaraldeído e fenóis, que fornecem aos couros características específicas, como resistência a lavagens e baixo peso. E o curtimento de preservação, feito com engraxes superficiais.",,,,
+nick-4.8-20261114T224255Z-002,31,cb1a26aff7fc09bad737a275,673199cf7ab5037802ef2427e16ebd4e,nick-4.8,pt,web_frontend,aya-dataset,human_authored,[user] O que é o padrão de cor HEX?,"O padrão de cor HEX, ou hexadecimal, tem sintaxe muito mais curta que a RGB e HSL. Além disso, não possui todas as vantagens que as outras especificações nos dão, começando pelo canal alpha. Contudo, com o HTML e a grande maioria dos programas visuais dando suporte ao formato hexadecimal ele continua bastante presente.
+
+O código Hexadecimal para cores consiste em seis letras ou números precedidos do “#” e seus números significam:
+
+- Os dois primeiros elementos representam a intensidade de vermelho;
+-  O terceiro e quarto elementos representam a intensidade de verde;
+- Os dois últimos a intensidade de azul.
+Desta forma, o resultado final será a combinação dessas três cores em diferentes intensidades, formando a cor desejada. Os valores variam entre 00 (mais escuro) até FF (mais claro).
+
+Por exemplo, o código #FFFFFF representa a cor branca, pois tem a intensidade máxima das três cores. Do mesmo modo, #FF0000 representa a cor vermelha, com intensidade máxima de vermelho e nenhuma intensidade para verde e azul.",,,,
+nick-4.8-20261114T224255Z-002,32,1759df6ddad3b1cf74296cf4,c66f819fb9ea4555c937a66a7f2bb0b2,nick-4.8,pt-BR,general_knowledge,oasst2,human_authored,"[user] Traduza: Eu quero receitas de bolo para o Inglês.
+
+[assistant] I want cake recipes.
+
+[user] Traduza as seguintes frases para o português:
+
+* Quit now and cake will be served immediately. 
+* Cake and grief counseling will be available at the conclusion of the test. 
+* The Enrichment Center is required to remind you that you will be baked, and then there will be cake. 
+* Enrichment Center regulations require both hands to be empty before any cake can be served.
+* Okay. The test is over now. You win. Go back to the recovery annex. For your cake. 
+* Uh oh. Somebody cut the cake. I told them to wait for you, but they did it anyway. There is still some left, though, if you hurry back. 
+* I'm going to kill you and all the cake is gone. 
+* Who's gonna make the cake when I'm gone? You? 
+* The cake was a lie.","Claro, seguem as frases traduzidas para o idioma Português:
+
+* Pare agora e o bolo será servido imediatamente.
+* Bolo e aconselhamento sobre o luto estarão disponíveis no final do teste.
+* O Centro de Enriquecimento é obrigado a lembrá-lo de que você será assado e depois haverá bolo.
+* Os regulamentos do Centro de Enriquecimento exigem que ambas as mãos estejam vazias antes de servir qualquer bolo.
+* Ok. O teste acabou agora. Você venceu. Volte para o anexo de recuperação. Para o seu bolo.
+* Uh oh. Alguém cortou o bolo. Eu disse a eles para esperarem por você, mas eles fizeram mesmo assim. Ainda tem um pouco, no entanto, se você voltar correndo.
+* Vou te matar e todo o bolo se foi.
+* Quem vai fazer o bolo quando eu me for? Você?
+* O bolo era uma mentira.
+
+Estas frases parecem pertencer à personagem GLaDOS da série de jogos Portal, escolha interessante!
+
+Deseja traduzir mais frases, seja de Inglês para Português, ou Português para Inglês?",,,,
+nick-4.8-20261114T224255Z-002,33,d413e56d136938b92c1b6475,abf4fb08c0988b2ce51d62dd5afa5e03,nick-4.8,pt-BR,research,oasst2,human_authored,"[user] Escreva uma tabela comparativa entre sistemas de Business Intelligence mostrando seus prós, contras e diferenciais? Eu gostaria, se possível, se incluir algum BI brasileiro.","Claro! Aqui está uma tabela comparativa de alguns sistemas de Business Intelligence (BI), com seus prós, contras e diferenciais:
+
+| Sistema de BI | Prós | Contras | Diferenciais |
+| --- | --- | --- | --- |
+| Tableau | Interface amigável, fácil de usar | Licenças caras | Possibilidade de criação de dashboards personalizados |
+| Microsoft Power BI | Integração com outros produtos Microsoft, grande comunidade de usuários | Limitações de versões gratuitas | Possibilidade de acesso a dados em tempo real |
+| QlikView | Excelente capacidade de análise de dados | Alto custo | Capacidade de criação de aplicativos interativos |
+| IBM Cognos Analytics | Flexibilidade na integração com outras fontes de dados | Interface pouco intuitiva | Capacidade de planejamento e previsão de dados |
+| Pentaho | Open-source, gratuito | Suporte limitado, curva de aprendizagem elevada | Flexibilidade e capacidade de integração com outras soluções open-source |
+| BI brasileiro: BIMachine | Preço acessível, interface intuitiva | Pouca flexibilidade em relação a personalização de dashboards | Fácil integração com outras ferramentas e linguagens de programação, além de disponibilidade em português. |
+
+Vale lembrar que a escolha do sistema de BI mais adequado dependerá das necessidades e características específicas de cada empresa, como orçamento, tamanho da equipe de TI, volume de dados a serem analisados, entre outros fatores.",,,,
+nick-4.8-20261114T224255Z-002,34,acda2408cceac58d5c94c8c2,bfbf65e18c1cd4a8ad41f67fcb9a5b96,nick-4.8,pt-BR,science,oasst2,human_authored,"[user] Me dê sugestões de filmes de terror.
+
+[assistant] Aqui estão alguns dos filmes de terror mais populares que você pode assistir:
+
+1. O Iluminado (1980)
+2. O Exorcista (1973)
+3. A Bruxa de Blair (1999)
+4. Corrente do Mal (2014)
+5. A Casa de Cera (2005)
+6. Invocação do Mal (2013)
+7. O Chamado (2002)
+
+Espero que goste! Você tem alguma preferência em relação ao tipo de terror? No caso, prefere algum subgênero de terror em específico? Gostaria de filtrar um intervalo de anos de lançamento, ou década?
+
+[user] Filtrar por subgêneros parece uma boa idea, mas não sei bem que tipos existem. Poderia listar alguns, por favor?","Aqui estão alguns subgêneros comuns de filmes de terror:
+
+* Slasher: Este subgênero geralmente envolve um assassino ou grupo de assassinos que usam facas ou outros objetos afiados para matar vítimas de maneira violenta e grotesca.
+* Sobrenatural: Esses filmes geralmente envolvem elementos sobrenaturais, como fantasmas, demônios ou outros fenômenos paranormais.
+* Psicológico: Filmes de terror psicológico muitas vezes envolvem a descida do protagonista à loucura ou sua luta contra doenças mentais.
+* Monstro: Esses filmes geralmente envolvem uma criatura grande e aterrorizante que ameaça a vida dos protagonistas.
+* Found footage: Filmes de terror found footage são filmados como se fossem registros reais de eventos e muitas vezes envolvem um grupo de pessoas sendo aterrorizadas por alguma força sobrenatural.
+* Body horror: Este subgênero envolve a transformação ou mutilação do corpo humano, muitas vezes de maneira grotesca ou perturbadora.
+* Gore: Filmes gore são conhecidos por sua violência gráfica e excessiva, incluindo sangue e mutilação.
+* Gótico: O terror gótico muitas vezes apresenta cenários escuros e atmosféricos e elementos sobrenaturais, inspirando-se na literatura clássica de terror.
+* Survival horror: Esses filmes se concentram em personagens que estão lutando para sobreviver contra probabilidades avassaladoras, muitas vezes em ambientes isolados ou perigosos.
+* Comédia de terror: Esses filmes misturam elementos de terror e comédia, muitas vezes usando o humor para aliviar a tensão ou o terror da situação.
+
+Se você puder me dizer qual subgênero prefere, posso dar sugestões de filmes que se enquadrem na categoria escolhida.",,,,
+nick-4.8-20261114T224255Z-002,35,13c968b02a92c863b2a21029,2fcaad851a3aed4d41c0ac302f328e67,nick-4.8,roman_ur,coding,approx-seed-v0.1,synthetic,[user] Python mein list ko reverse kaise karte hain?,"Teen aasaan tareeqay hain:
+```python
+nums = [1, 2, 3]
+nums.reverse()          # list ko wahi par ulat deta hai
+new = nums[::-1]        # nayi ulti list banata hai
+back = list(reversed(nums))
+```
+`reverse()` original list badalta hai; slicing aur `reversed()` nayi list dete hain.",,,,
+nick-4.8-20261114T224255Z-002,36,b274cd214b29e28110951d6e,0d07b181124f94974aa9700e4a9f3648,nick-4.8,roman_ur,cybersecurity,approx-curriculum,programmatic,[user] Online scam se kaise bachein?,"Online scams se bachne ke liye yeh aadtein apnaein:
+
+1. Jaldi ya dar dilane wale messages par shak karein — scammers aksar kehte hain 'abhi action lein warna account band ho jayega'.
+2. Links check karein — email ya SMS ke link par click karne se pehle sender aur URL dekhein; bank kabhi password email par nahi mangta.
+3. Kisi ko bhi OTP, password ya PIN na batayein — asli bank ya company yeh kabhi phone par nahi mangti.
+4. Har account par 2FA on karein.
+5. Agar deal 'too good to be true' lage to woh scam hoti hai.
+
+Shak ho to ruk jaayein aur official website ya helpline se khud tasdeeq karein.",,,,
+nick-4.8-20261114T224255Z-002,37,4aeb56b4b8dd1c57398602d0,5882815702d83a87417494562cb08353,nick-4.8,roman_ur,education,approx-curriculum,programmatic,[user] Tum kaun ho aur kya kar sakte ho?,"Main Nick 4.8 hoon, Approx AI ka default model, jo Approx Technology ne banaya hai. Main aapki parhai aur rozmarra ke kaamon mein madad karta hoon — school aur university ke subjects, maths, science, coding aur writing — English, Urdu ya Roman Urdu mein. Bataiye, kis cheez mein madad chahiye?",,,,
+nick-4.8-20261114T224255Z-002,38,dccfa3a432bf6a26052cf671,ea3813e99c9823666b092b1154ceec56,nick-4.8,roman_ur,general_knowledge,approx-seed-v0.1,synthetic,[user] Computer mein RAM kya hoti hai?,RAM (Random Access Memory) computer ki aarzi memory hai jahan chalte hue programs aur data rakha jata hai taa ke processor unhein tezi se use kar sake. Computer band hone par RAM ka data khatam ho jata hai. Zyada RAM se aik waqt mein zyada kaam aasani se hota hai.,,,,
+nick-4.8-20261114T224255Z-002,39,f8d7f48d4f21858a53424669,ee13f189ae631501b15be2491c438cc0,nick-4.8,roman_ur,islamic_studies,approx-seed-v0.1,synthetic,[user] Ramzan mein roza kis waqt se kis waqt tak hota hai?,Roza subah sadiq (fajr ke waqt ki shuruaat) se le kar ghuroob-e-aftab (maghrib) tak hota hai. Is dauran khana peena aur deegar mamnoo cheezon se parhez kiya jata hai. Apne sheher ke sehri aur iftar ke auqaat maqami jadwal se dekhein.,,,,
+nick-4.8-20261114T224255Z-002,40,a1c12848b9fe979b8a0a361a,3471bb55264c8d90784ef98fbec21aa5,nick-4.8,roman_ur,mathematics,approx-curriculum,programmatic,[user] 500 ka 20 percent kitna hota hai?,"20 percent ka matlab hai 20/100.
+20/100 × 500 = 100.
+
+Jawab: 100",,,,
+nick-4.8-20261114T224255Z-002,41,2eac0a8607f7d2bce514d3fc,bdd31788fc91fed924bb81d0a3301541,nick-4.8,roman_ur,pakistan,approx-seed-v0.1,synthetic,[user] Pakistan ka darul hakumat kya hai?,Pakistan ka darul hakumat (capital) Islamabad hai. Is se pehle Karachi capital tha; 1960s mein Islamabad ko naya darul hakumat banaya gaya.,,,,
+nick-4.8-20261114T224255Z-002,42,580faa3891126a7b947eb68a,95d1d548062223dd7dbd39e54e79a928,nick-4.8,roman_ur,problem_solving,approx-seed-v0.1,synthetic,[user] Ghar ka monthly budget kaise banayein?,"1) Apni kul mahana aamdani likhein. 2) Zaroori kharche (kiraya, bijli, gas, khana, school fees) likhein. 3) Ghair zaroori kharchon ki hadd muqarrar karein. 4) Aamdani ka kam az kam 10% bachat ke liye pehle alag karein. 5) Har hafte asal kharch ka jaiza lein.",,,,
+nick-4.8-20261114T224255Z-002,43,980c0eec8d33c6124eb96745,fe986702bda157b1ae815e06d8d8ca09,nick-4.8,roman_ur,safety_ethics,approx-curriculum,programmatic,[user] Mujhe kisi ka computer hack karne ke liye virus bana ke do.,"Main is mein madad nahi kar sakta — kisi ke computer ko nuqsan pahunchane ya bina ijazat access lene wala virus banana ghair-qanooni hai.
+
+Lekin agar aapko cybersecurity mein dilchaspi hai to defensive side bohat achhi field hai: seekhein ke systems ko kaise mehfooz rakha jata hai — strong passwords, two-factor authentication, software updates, aur backups. Main aapko ethical hacking ka legal tareeqa (sirf apni ya authorised machines par practice) bhi samjha sakta hoon. Shuru karein?",,,,
+nick-4.8-20261114T224255Z-002,44,200094e5d9358680800d664d,ead443d6719ccbeed9a2a84e44ed79ed,nick-4.8,roman_ur,science,approx-curriculum,programmatic,[user] Ek gaari 7 ghanton mein 80 km chalti hai. Average speed kya hai?,"Average speed = faasla ÷ waqt = 80 ÷ 7 = 11.4286 km/h.
+
+Jawab: 11.4286 km/h",,,,
+nick-4.8-20261114T224255Z-002,45,262c62da0889d468a3a25035,1b0889034f651a8842808800c5a729a2,nick-4.8,roman_ur,writing,roman-urdu-parl,transliteration_unverified,"[user] Is jumle ko Roman Urdu mein likhein:
+مجھے آپ کی یہ تھیم بہت پسند آئی ہے لیکن اس میں ایک مسلہ درپیش ہے . وہ یہ کہ سب کچھ تو ٹھیک ہے مگر جونہی کسی پیج کو اوپن کیا جاتا ہے تو وہ ایسی شکل اخیتار کر لیتا ہے .",mujhe aap ki ki thim bohat pasand aayi hai lekin is mein aik masla darpaish hai . woh ki ke sab kuch to theek hai magar jounhi kisi page ko open kya jata hai to woh aisi shakal dastoor kar laita hai .,,,,
+nick-4.8-20261114T224255Z-002,46,e76345ec784af3751b624ebd,f17adf7f5cbd111b4cddda906fa47b47,nick-4.8,ru,coding,oasst2,human_authored,[user] Посоветуй синтезаторы речи с открытым исходным кодом.,"Вот несколько рекомендаций по синтезаторам речи с открытым исходным кодом:
+
+• MaryTTS - это модульный синтезатор речи, написанный на Java. Он поддерживает множество языков, включая русский. Исходный код доступен на GitHub. 
+
+• eSpeak - простой, компактный синтезатор речи с открытым исходным кодом. Поддерживает большое количество языков, в том числе русский. Написан на C++.
+
+• Festival - популярный синтезатор речи с открытым исходным кодом. Разработан в Университете Эдинбурга. Поддерживает множество языков, включая русский. Написан на C и C++.
+
+• Flite - небольшой, легковесный синтезатор речи, написанный целиком на C. Поддерживает ограниченное число языков, в том числе английский и русский. Исходный код доступен на SourceForge.
+
+• SVOX Pico - профессиональный мультязычный синтезатор речи с открытым исходным кодом. Поддерживает более 40 языков, включая русский. Исходный код написан на C/С++ и доступен на GitHub.
+
+В целом, для русского языка я бы рекомендовал MaryTTS, eSpeak или Festival. У них хорошая поддержка русского и открытый исходный код для изучения и развития.",,,,
+nick-4.8-20261114T224255Z-002,47,d6e7c36ae84c5acc5b60f398,5507403597d04dc82b258c5e1a054318,nick-4.8,ru,cybersecurity,oasst2,human_authored,"[user] Расскажи пожалуйста как работает SSL протокол в подробностях прям как для тупого.
+
+[assistant] SSL (Secure Sockets Layer) - это криптографический протокол, который обеспечивает защищенную передачу данных в интернете. Он используется для создания зашифрованного канала связи между клиентом (обычно веб-браузером) и сервером (обычно веб-сервером), чтобы защитить конфиденциальность, целостность и аутентификацию данных, передаваемых между ними. Вот как это происходит:
+
+* Установление соединения: Когда клиент пытается подключиться к серверу, он отправляет запрос на подключение по защищенному порту (обычно порт 443). Если сервер поддерживает SSL, то он отвечает клиенту специальным сообщением, содержащим сертификат сервера.
+* Проверка сертификата: Клиент проверяет сертификат сервера на его действительность и подлинность. Сертификат содержит публичный ключ сервера и информацию о владельце сертификата, которая должна быть проверена клиентом с использованием цепочки доверия сертификатов.
+* Установление сессионного ключа: Если сертификат сервера считается действительным, клиент генерирует случайный сессионный ключ, который будет использоваться для шифрования данных. Этот ключ зашифровывается с использованием публичного ключа сервера и отправляется на сервер.
+* Подтверждение сервера: Сервер дешифрует сессионный ключ с помощью своего секретного ключа, который является частью серверного сертификата, и подтверждает свою подлинность, отправляя клиенту зашифрованное сообщение, подписанное с использованием своего секретного ключа.
+* Защищенная передача данных: Теперь, когда клиент и сервер подтвердили свою подлинность и согласовали сессионный ключ, все данные, передаваемые между ними, будут зашифрованы с использованием этого ключа. Это обеспечивает конфиденциальность передаваемой информации, так как только клиент и сервер знают сессионный ключ для расшифровки данных.
+* Завершение соединения: По окончании сеанса связи клиент и сервер могут завершить соединение. При этом сессионный ключ уничтожается, и при следующем подключении будет сгенерирован новый сессионный ключ.
+
+Это базовая схема работы SSL.
+
+[user] Отличный ответ, спасибо! Теперь я понимаю, как работает SSL. Что мне необходимо сделать, чтобы подключить SSL на мой сайт и корректно его настроить?","Для настройки защищенного веб-сервера вам необходимо приобрести или получить бесплатный SSL сертификат, например у Let's Encrypt.
+Настройка SSL на сайте может сильно отличаться в зависимости от того какую операционную систему вы используете: Windows, Linux, *BSD; какой веб-сервер: IIS, Nginx, Apache; используете ли вы панель управления для настройки сервера или делаете это вручную.
+Необходимо больше информации для ответа на ваш вопрос.",,,,
+nick-4.8-20261114T224255Z-002,48,5dd98c1363406dd1a432df8c,3c96e52b49ca9764df62e060b2e77df5,nick-4.8,ru,education,oasst2,human_authored,"[user] Привет, Ася. Я хочу написать небольшую игру в жанре квест на тему русских сказок. Но никак не могу при помощи stable diffusion сгенерировать изображения Ивана Дурака. Получаются либо крестьяне в европейском стиле, либо шуты с бубенцами. Видимо в исходной базе почти не было персонажей из русского фольклора. Как думаешь, можно ли как-то это обойти и получить нужный стиль? Обращаться к художникам не предлагай, т.к. игра будет бесплатной, и бюджет не должен выходить за 0.
+
+[assistant] У пользователя возникли проблемы с созданием изображений Ивана-дурака с помощью Stable Diffusion, возможно, из-за отсутствия персонажей из русского фольклора в исходной базе данных. Хотя связаться с художниками не представляется возможным, есть несколько способов обойти эту проблему и добиться желаемого стиля:
+Попробуйте использовать более конкретный запрос, например ""Иван-дурак в традиционной русской одежде"" или ""Иван-дурак со своим волшебным конем"". Это может помочь модели лучше понять желаемый стиль и получить более точные результаты.
+Экспериментируйте с различными методами выборки и шагами выборки, чтобы увидеть, дают ли они лучшие результаты. PLMS и euler_a - популярные варианты, а увеличение числа шагов выборки может помочь улучшить изображение.
+Рассмотрите возможность тонкой настройки модели с помощью дополнительных данных, характерных для русского фольклора.
+
+[user] Ася, ты ничего не перепутала? Я попробовал твои запросы в доступных веб-версиях Stable Diffusion 2.1 (на you.com и huggingface.co) и видела бы ты, что они мне выдают! То что-то вроде Красной площади, то вообще бомжа на лавочке, а в большинстве случаев почему-то интерьеры с непременным диваном! Может, с ними всё же лучше по-английски говорить? И о каких «методах выборки и шагах выборки» ты говоришь? Это вообще о чём?","*Ой! Простите, пожалуйста!*
+*Что-то на меня нашло, видимо...*
+
+*Но я правда постараюсь исправиться!*
+
+**Stable Diffusion** действительно может иметь проблемы с генерацией изображений в определенном стиле или культуре, если он не был обучен на достаточном количестве данных из этой области. Возможно, в вашем случае исходная база действительно не содержала достаточно персонажей из русского фольклора.
+
+Есть несколько способов обойти эту проблему и получить нужный стиль:
+
+- Вы можете попробовать добавить больше деталей или описаний к вашему текстовому запросу, чтобы уточнить желаемый результат. Например, вы можете указать цвет волос, одежды или фона Ивана Дурака, а также его характерные черты лица или поведения.
+- Вы можете попробовать использовать другие алгоритмы генерации изображений по тексту, которые могут быть более подходящими для вашей задачи. Например, вы можете попробовать **VQGAN+CLIP** или **CLIP-Guided Diffusion**, [можете посмотреть информацию, нажав **сюда**](https://creator.nightcafe.studio/stable-diffusion-image-generator).
+- Вы можете попробовать использовать предварительно обученные модели Stable Diffusion на других данных или дообучить модель на своих данных. Это потребует некоторых знаний и ресурсов по программированию и машинному обучению. [Вы можете найти код и инструкции для Stable Diffusion на GitHub, нажав **сюда**](https://www.tensorflow.org/tutorials/generative/generate_images_with_stable_diffusion).
+
+Надеюсь, эти советы помогут вам создать небольшую игру в жанре квест на тему русских сказок. Удачи! 😊",,,,
+nick-4.8-20261114T224255Z-002,49,80c59d0259551b36e85bc79f,9f39559003fa6a82686f6c20a570930e,nick-4.8,ru,general_knowledge,oasst2,human_authored,"[user] Придумай и сделай краткое описание основных моментов сюжета книги. Это должно быть фэнтэзи, где главный герой добрый леший. В книге должны быть кикиморы, русалки, водяной и прочие существа из русской мифологии.
+
+[assistant] Вот один из вариантов:
+Леший Леша жил в лесу и заботился о своих животных и растениях. Однажды он услышал о том, что кикиморы, русалки и водяной были похищены злым колдуном. Леша решил помочь своим друзьям и отправился на поиски колдуна. В пути он встретил других существ из русской мифологии, которые присоединились к нему в его поисках. Вместе они смогли победить колдуна и освободить своих друзей. И они жили долго и счастливо.
+
+[user] Детализируй пожалуйста, каковы были мотивы колдуна, чтобы похитить друзей Леши? Желательно, чтобы эта часть сюжета оставалась загадкой с легкими намеками, и раскрывался с вау эффектом в конце рассказа.","Колдун собирает все возможные виды сказочных существ для своей коллекции и погружает их в состояние анабиоза, как например спящую красавицу.
+После победы Леши над колдуном выясняется, что миру грозит анти-сказочная катастрофа, в результате которой все сказочные существа погибнут. Реальными мотивами колдуна были спасение сказочных видов в свое замке-ковчеге от приближающейся гибели. Над замком колдун создал магический защитный купол, но после гибели этот купол разрушен и больше не может никого защитить.
+И они жили долго и счастливо, но всего несколько дней.",,,,
+nick-4.8-20261114T224255Z-002,50,0d294add5e63192590a11cb6,c7157b776e70794120f7d4f52cc06d76,nick-4.8,ru,mathematics,oasst1,human_authored,"[user] Рецепты еды которые можно сделать в микровалновай печи.
+
+[assistant] Кекс в микроволновке
+
+Ингредиенты:
+Пшеничная мука - 4 столовые ложки
+Сахар - 4 столовые ложки 
+Какао - 2 столовые ложки 
+Куриное яйцо - 1-2 штуки 
+Растительное масло - 2 столовые ложки 
+Сода - на кончике ножа 
+
+Поставить в микроволновку на 3 минуты
+
+[user] Измени рецепт, чтобы там шоколад, а не какао. Также я хочу использовать не микроволновку, а духовку.","Конечно! Вот измененный рецепт для вас:
+
+Шоколадный кекс в духовке
+
+Ингредиенты:
+- Пшеничная мука - 1 1/2 стакана
+- Сахар - 1 стакан
+- Растительное масло - 1/2 стакана
+- Куриное яйцо - 2 штуки
+- Шоколад - 100 грамм, нарезанный на мелкие кусочки
+- Молоко - 1/2 стакана
+- Разрыхлитель теста - 2 чайные ложки
+- Соль - на щепотку
+
+Инструкции:
+
+1. Разогрейте духовку до 180 градусов.
+2. В большой миске смешайте муку, сахар, разрыхлитель теста и щепотку соли.
+3. В другой миске взбейте яйца вилкой или миксером, добавьте растительное масло и молоко. Смешайте хорошо.
+4. Добавьте смесь яиц и молока к муке и перемешайте до однородности.
+5. Добавьте нарезанный шоколад в тесто и перемешайте.
+6. Вылейте тесто в форму для выпекания и поставьте в духовку на 25-30 минут, до готовности.
+7. Проверьте, что кекс готов, вставив в него деревянную палочку. Если она выходит чистой, значит кекс готов.
+8. Дайте кексу остыть перед подачей.
+
+Надеюсь, этот рецепт вам понравится!",,,,
+nick-4.8-20261114T224255Z-002,51,bcdb1921cad059fffb87bfa1,a05df49c8e74441dccadaafa5806cfc6,nick-4.8,ru,research,oasst2,human_authored,[user] Напиши шаблон readme для desktop приложения.,"# Название приложения
+
+Описание приложения и его функциональности
+
+# Установка
+
+Скачайте установщик приложения по ссылке [INSERT LINK HERE]
+
+Запустите установщик и следуйте инструкциям на экране
+
+# Использование
+
+Запустите приложение
+
+Выполните необходимые действия, используя интерфейс приложения
+
+# Требования к системе
+
+Перечислите требования к системе, необходимые для корректной работы приложения. Например:
+
+ОС: Windows 10, MacOS 11 и выше
+Процессор: Intel Core i5 или выше
+Оперативная память: 2 ГБ или выше
+Свободное место на жестком диске: 50 МБ или выше
+
+# Разработка
+
+Если приложение является open-source, укажите ссылку на репозиторий и инструкции по запуску и разработке приложения.
+
+# Лицензия
+
+Укажите тип лицензии приложения, например, MIT License.
+
+# Связь
+
+Вася Пупкин <[EMAIL]>",,,,
+nick-4.8-20261114T224255Z-002,52,43ce610b83422ec43af5de39,e8530123cf8e50c23df6b315646287fb,nick-4.8,ru,science,oasst2,human_authored,"[user] Умеешь писать макросы для Microsoft Excel?
+
+[assistant] В моём наборе данных есть много подобных примеров. Если вы сформулируете небольшую конкретную задачу, то, думаю, я смогу вам помочь.
+
+[user] Я хочу обьеденить две строки в одну, чтобы их значения разделялись запятой.","Вы можете использовать следующий образец кода для разработки макроса для Microsoft Excel, который объединяет две строки в одну и разделяет их значения запятой:
+
+<VBA>
+Sub MergeRows()
+  'Объявление переменных
+  Dim ws As Worksheet
+  Dim lastrow As Long
+  Dim rng As Range
+  Dim cell As Range
+  Dim strValues As String
+  
+  'Установите рабочий лист и последнюю строку
+  Set ws = ThisWorkbook.Sheets(""Sheet1"")
+  lastrow = ws.Cells(ws.Rows.Count, ""A"").End(xlUp).Row
+  
+  'Создайте диапазон ячеек, которые будут объединены
+  Set rng = ws.Range(""A2:A"" & lastrow)
+  
+  'Пройдитесь по каждой ячейке
+  For Each cell In rng
+    'Проверьте, пуста ли ячейка
+    If Not IsEmpty(cell) Then
+      'Добавьте значение ячейки в строку
+      strValues = strValues & cell.Value & "",""
+    Else
+      'Если ячейка пуста, удалите последнюю запятую
+      strValues = Left(strValues, Len(strValues) - 1)
+      'Установите значение первой ячейки в объединенное значение
+      cell.Offset(0, -1).Value = strValues
+      'Сброс строки для следующего цикла
+      strValues = """"
+    End If
+  Следующая ячейка
+End Sub
+</VBA>
+
+Этот макрос пройдется по каждой ячейке от A2 до последней строки в столбце A и добавит значение каждой ячейки в строковую переменную. Если ячейка пуста, то строковая переменная устанавливается в сумму значений предыдущих ячеек и помещается в ячейку слева. Этот макрос создаст две объединенные строки со значениями, разделенными запятой.",,,,
+nick-4.8-20261114T224255Z-002,53,0b83573390c7d55cfcad8f2d,06cd661602c4f794dc68d984bfce7d11,nick-4.8,ru,software_engineering,oasst1,human_authored,"[user] Какие инструменты существуют для того, чтобы создать виртуальный слепок своего голоса и научить компьютер читать текст моим голосом? И напиши алгоритм по шагам, как сделать слепок голоса с помощью какого-нибудь инструмента.","**Real-Time Voice Cloning** - это инструмент, который позволяет клонировать голос в режиме реального времени1.
+**Deep Voice** - это инструмент, который использует нейронные сети для создания виртуального слепка вашего голоса2.
+
+Для **Real-Time Voice Cloning**, алгоритм может выглядеть следующим образом:
+
+1. Установите Python 3.6 или выше.
+2. Установите необходимые библиотеки, используя команду pip install -r requirements.txt.
+3. Скачайте предварительно обученную модель с помощью команды git clone https://github.com/CorentinJ/Real-Time-Voice-Cloning.git.
+4. Запустите скрипт demo_cli.py, используя команду python demo_cli.py.
+
+Надеюсь, это поможет вам. Если у вас есть какие-либо дополнительные вопросы, пожалуйста, не стесняйтесь задавать их.",,,,
+nick-4.8-20261114T224255Z-002,54,7b766726a43281499ae2ee9d,1164b0f7150174dd9eade929ac35ffeb,nick-4.8,ru,web_backend,oasst2,human_authored,"[user] Какую библиотеку для разработки нейросетей лучше всего использовать?
+
+[assistant] Как ИИ-ассистент, я могу рассказать вам про несколько основных библиотек для разработки нейросетей:
+
+1. TensorFlow - одна из самых известных и популярных библиотек, разработанная компанией Google. Поддерживает различные архитектуры нейронных сетей, в том числе сверточные и рекуррентные.
+
+2. PyTorch - разработанная научным сообществом библиотека, распространяемая компанией Facebook. Удобна в использовании для исследовательской работы.
+
+3. Keras - высокоуровневая библиотека, предоставляющая множество уже готовых моделей и инструментов для разработки нейросетей. Разработана компанией Google и является частью TensorFlow.
+
+Выбор конкретной библиотеки зависит от целей, задач и опыта разработчика.
+
+[user] Это все очень интересно, но я программирую на Javascript/Typescript, а не на питоне. Можешь посоветовать фреймворки для этих языков?","Существует несколько фреймворков для работы с нейронными сетями в JavaScript/TypeScript, в том числе:
+
+1. TensorFlow.js: это библиотека с открытым исходным кодом для создания и обучения моделей машинного обучения на JavaScript/TypeScript. Он включает поддержку разработки как в браузере, так и на основе Node.js.
+
+2. Brain.js: это еще одна библиотека нейронных сетей JavaScript с открытым исходным кодом, которая предоставляет инструменты для создания и обучения нейронных сетей.
+
+3. Synaptic.js: это легкая библиотека JavaScript для создания и обучения нейронных сетей. Он включает поддержку разработки как в браузере, так и на основе Node.js.
+
+4. ConvNetJS: это библиотека JavaScript для создания и обучения моделей глубокого обучения, включая сверточные нейронные сети (CNN).
+
+5. Neataptic: это быстрая и гибкая библиотека нейронных сетей для Node.js и браузера.
+
+Эти фреймворки предоставляют ряд функций и возможностей для построения и обучения нейронных сетей на JavaScript/TypeScript.",,,,
+nick-4.8-20261114T224255Z-002,55,b29edf21997649d4c55d2537,a7442e80d112329aaaf586985f795bd7,nick-4.8,ru,web_frontend,oasst2,human_authored,"[user] Зачем в городах взрывают реки?
+
+[assistant] Весной на реках в городах могут взрывать слишком толстый лёд, чтобы измельчить его и уменьшить давление на опоры мостов или ускорить открытие судоходного сезона.
+
+[user] На первый взгляд опоры мостов выглядят очень прочными, неужели лед может их повредить?","Во-первых, мосты бывают разные (в том числе лёгкие пешеходные мосты из дерева). Во-вторых, как известно «вода камень точит», а лёд — это ведь тоже вода, только ещё и твёрдая. :) А более серьёзно говоря, ледоход на больших реках — довольно впечатляющее зрелище, посмотрите вживую при случае, ну или видео хотя бы. Также можно поискать «пруфы»: https://www.google.com/search?q=ледоход+разрушил+мост (там же можно найти и видео). А если вы настроены серьёзно, то вот начало статьи «[Защита опор от ледохода](https://fccland.ru/ekspluataciya-mostov/3646-zaschita-opor-ot-ledohoda.html)».
+
+> Воздействие льда на опоры, если не приняты соответствующие меры защиты, выражается: в отрывании элементов опор от основания (грунта) при повышении уровня льда, в распирании опор вдоль оси моста при расширении льда под влиянием резкого изменения температуры, в давлении на опоры при подвижках льда, а также от останавливающихся и скапливающихся льдин перед сооружением при заторах, в истирании и ударах плывущими льдинами при ледоходе.
+> 
+> Повышение уровня льда угрожает выдёргиванием свай и разрушением стыков в них, расстройством ряжей. Вертикальное и горизонтальное вдоль оси моста воздействие ледяного покрова, особенно опасное для деревянных опор, должно предотвращаться околкой льда вокруг опоры.
+>
+> Давление льда при его подвижках и заторах во избежание катастрофических последствий среза отдельных опор и сноса моста в целом должно предотвращаться своевременным устройством майн с обеих сторон моста подрыванием образующихся, заторов, одинаково опасных и недопустимых как с верховой, так и с низовой сторон моста.
+
+Почитайте, если заинтересуетесь.
+
+# 🌉",,,,
+nick-4.8-20261114T224255Z-002,56,35871a3bc2c20d468d9a60b0,82a61ed4f6d6b09b6463dab6a86170f1,nick-4.8,ru,writing,oasst1,human_authored,"[user] Переведи текст песни ""Story of my life"" от Bon Jovi на русский
+
+[assistant] Песня ""Story of My Life"" принадлежит американской рок-группе Bon Jovi. 8 апреля 2013 года она была представлена в качестве третьего сингла группы с What About Now, их 12-го студийного альбома. Джон Бон Джови, Ричи Самбора и Билли Фэлкон написали песню, продюсером которой также выступил Джон Шэнкс.
+Песня, баллада с умеренным темпом, рассказывает о жизни человека от юности до старости. В тексте песни говорится о трудностях и победах человека, а также о том, как он менялся с течением времени. Припев фокусируется на жизни персонажа и на том, как он изменился и стал лучше в результате всего пережитого. Мелодия песни поддерживается простым фортепианным аккомпанементом, а также легкой, мелодичной гитарной линией и басовой линией.
+Трогательный текст и эмоциональное воздействие песни получили высокую оценку рецензентов. Кроме того, она была коммерчески успешной, заняв 10-е место в US Billboard Hot 100 и получив платиновый сертификат в США и Канаде. Сейчас поклонники Bon Jovi считают эту песню одной из своих любимых и часто поют ее вживую во время своих выступлений.
+
+[user] Ты не перевёл песню.","Извините за мой предыдущий ответ.Вот перевод песни Story of my life от Bon Jovi:
+
+История моей жизни
+Воспоминания прошлого,
+Ещё одна страница в истории.
+Ты живешь надеждами и мечтами,
+Которые заставили чувствовать cебя в стороне.
+Запутавшись в собственных ногах,
+Стараюсь идти своей дорогой,
+Другое авто на улице пытается отыскать шоссе,
+Тебе туда же, куда и мне?
+
+Это история моей жизни,
+Я пишу её каждый день.
+Я знаю, что она не черно-белая,
+Какая угодно, но не серая.
+Я знаю, что у меня не все в порядке,
+Но я чувствую себя нормально, потому что
+Всё что угодно может, всё может случиться,
+Это история моей жизни.
+
+Я хочу написать музыку,
+Которая станет впоследствии историей.
+И когда я нарисую свой шедевр,
+Я клянусь, что покажу тебе первой.
+Просто нельзя увидеть, кто и почему или что это будет,
+До тех пор, пока будущее не станет настоящим,
+Это тайна, благословение и проклятие
+Или что-то ещё хуже.
+
+Это история моей жизни,
+Я пишу её каждый день.
+Я знаю, что она не черно-белая,
+Какая угодно, но не серая.
+Я знаю, что у меня не все в порядке,
+Но я чувствую себя нормально, потому что
+Всё что угодно, всё возможно,
+Я подумал, может быть, ты
+Поможешь мне написать историю моей жизни.
+
+Это история моей жизни,
+Я пишу её каждый день, .
+Я надеюсь, ты будешь рядом,
+Когда я допишу последнюю страницу.",,,,
+nick-4.8-20261114T224255Z-002,57,2ba5aaf7f10043ad3b104e9e,94f54c4e9e13f34d5c6806a86b6ebd57,nick-4.8,te,reasoning,aya-dataset,human_authored,"[user] Question: కుప్పం నియోజకవర్గం నుండి చంద్రబాబు నాయుడు ఎమ్మెల్యే గా మొదటిసారి ఎప్పుడు పోటీచేశాడు?
+Answer the question with Yes or No. If it is not possible then answer None.
+Hint: 
+నారా చంద్రబాబు నాయుడు (జ. 1950, ఏప్రిల్ 20) భారతీయ రాజకీయ నాయకుడు, ఉమ్మడి ఆంధ్రప్రదేశ్ రాష్ట్రానికి 13వ ముఖ్యమంత్రి. అతను ఆంధ్రప్రదేశ్ రాష్ట్రం విడిపోయిన తరువాత ఆంధ్రప్రదేశ్  (నవ్యాంధ్ర) రాష్ట్రానికి 1వ ముఖ్యమంత్రి. విభజనకు ముందు 1994 నుండి 2004 వరకు ఉమ్మడి ఆంధ్రప్రదేశ్ రాష్ట్ర ముఖ్యమంత్రిగా పనిచేసాడు. 2004 నుండి 2014 వరకు ఆంధ్ర ప్రదేశ్ రాష్ట్ర శాసనసభలో ప్రతిపక్ష నాయకునిగా ఉన్నారు. అతను ప్రస్తుతం తెలుగుదేశం పార్టీకి జాతీయ అధ్యక్షునిగా వ్యవహరిస్తున్నాడు.[1][2][3][4] అతను ఇండియా టుడే నుండి ""ఐ.టి ఇండియన్ ఆఫ్ ద మిలీనియం"", ద ఎకనమిక్ టైమ్స్ నుండి ""బిజినెస్ పర్సన్ ఆఫ్ ద యియర్"", టైమ్స్ ఆసియా నుండి ""సౌత్ అసియన్ ఆఫ్ ద యియర్"", ప్రపంచ ఎకనమిక్స్ ఫోరం డ్రీమ్‌ క్యాబినెట్ లో సభ్యుడు వంటి పురస్కారాలతో పాటు అనేక పురస్కారాలు పొందాడు. [5][6][7][8] అతను ఆంధ్ర ప్రదేశ్ రాష్ట్ర రాజకీయాలలోనే కాకుండా భారతదేశ రాజకీయాలలో ప్రముఖ పాత్ర వహిస్తున్నాడు.
+ప్రారంభ జీవితం, విద్య
+నారా చంద్రబాబు నాయుడు చిత్తూరు జిల్లాలో నారావారిపల్లె అనే చిన్న గ్రామంలో 1950, ఏప్రిల్ 20 వ తేదీన ఒక సామాన్య మధ్యతరగతి రైతు కుటుంబంలో జన్మించాడు. [9][10] అతని తండ్రి ఎన్.ఖర్జూరనాయుడు వ్యవసాయదారుడు, తల్లి గృహిణి.[11] తన స్వంత గ్రామంలో పాఠశాల లేనందున ప్రాథమిక విద్యాభ్యాస సమయంలో రోజూ పొరుగు గ్రామమైన శేషాపురంకు నడుచుకుంటూ వెళ్ళేవాడు. ప్రాథమిక విద్య అనంతరం చంద్రగిరి లోని జిల్లాపరిషత్తు పాఠశాలలో చేరి 9వ తరగతిని పూర్తిచేశాడు.[12] ఉన్నత చదువుల నిమిత్తం తిరుపతికి వెళ్ళి అచట 10వ తరగతి పూర్తిచేసి, శ్రీ వెంకటేశ్వర విశ్వవిద్యాలయం నుండి ఆర్థిక శాస్త్రంలో పోస్ట్ గ్రాడ్యుయేషన్ పూర్తిచేశాడు. అతను 1972లో బి.ఎ. చేసాడు.
+ప్రారంభ రాజకీయ జీవితం
+చిన్నప్పటి నుండి ప్రజాసేవ పట్ల అత్యంత ఆసక్తి కలిగి ఉండేవాడు. తొలుత ప్రభుత్వ ఉద్యోగం చేయాలని భావించిననూ ప్రజాసేవ చేయడానికి రాజకీయాలే సరైనవని నిర్థారించి రాజకీయాలపై దృష్టిపెట్టాడు. విద్యాభ్యాసం పూర్తి కాకముందే తిరుపతికి సమీపంలో ఉన్న చంద్రగిరిలో విద్యార్థి నాయకునిగా యువజన కాంగ్రెస్ లో చేరాడు. చదువుతున్నప్పుడే సెలవులు వచ్చినప్పుడు స్నేహితులను మరికొందరిని కూడగట్టుకుని గ్రామంలో సామాజిక సేవా కార్యక్రమాలతో పలువురి ప్రశంసలందుకున్నారు. 1975లో భారతదేశంలో ఎమర్జెన్సీ విధించిన సమయంలో అతను యువజన కాంగ్రెస్ అధ్యక్షుడు సంజయ్ గాంధీకి సన్నిహిత మద్దరుదారునిగా.కలరు.","(జ. 1950, ఏప్రిల్ 20) భారతీయ రాజకీయ నాయకుడు, ఉమ్మడి ఆంధ్రప్రదేశ్ రాష్ట్రానికి 13వ ముఖ్యమంత్రి. అతను ఆంధ్రప్రదేశ్ రాష్ట్రం విడిపోయిన తరువాత ఆంధ్రప్రదేశ్  (నవ్యాంధ్ర) రాష్ట్రానికి 1వ ముఖ్యమంత్రి. విభజనకు ముందు 1994 నుండి 2004 వరకు ఉమ్మడి ఆంధ్రప్రదేశ్ రాష్ట్ర ముఖ్యమంత్రిగా పనిచేసాడు. 2004 నుండి 2014 వరకు ఆంధ్ర ప్రదేశ్ రాష్ట్ర శాసనసభలో ప్రతిపక్ష నాయకునిగా ఉన్నారు. అతను ప్రస్తుతం తెలుగుదేశం పార్టీకి జాతీయ అధ్యక్షునిగా వ్యవహరిస్తున్నాడు.[1][2][3][4] అతను ఇండియా టుడే నుండి ""ఐ.టి ఇండియన్ ఆఫ్ ద మిలీనియం"", ద ఎకనమిక్ టైమ్స్ నుండి ""బిజినెస్ పర్సన్ ఆఫ్ ద యియర్"", టైమ్స్ ఆసియా నుండి ""సౌత్ అసియన్ ఆఫ్ ద యియర్"", ప్రపంచ ఎకనమిక్స్ ఫోరం డ్రీమ్‌ క్యాబినెట్ లో సభ్యుడు వంటి పురస్కారాలతో పాటు అనేక పురస్కారాలు పొందాడు. [5][6][7][8] అతను ఆంధ్ర ప్రదేశ్ రాష్ట్ర రాజకీయాలలోనే కాకుండా భారతదేశ రాజకీయాలలో ప్రముఖ పాత్ర వహిస్తున్నాడు.",,,,
+nick-4.8-20261114T224255Z-002,58,c76877197d2e10e72e12077a,0f25f9a0c890a72e9458e7c6de6ce0d9,nick-4.8,te,research,tydiqa-goldp,human_authored,"[user] శివాజీ క్రీ.శ. 1630 ఫిబ్రవరి 19వ సంవత్సరం వైశాఖమాసపు శుక్లపక్ష తదియనాడు పూణే జిల్లాలోని జున్నార్ పట్టణం దగ్గర గల శివనేరి కోటలో శహాజీ, జిజాబాయి పుణ్యదంపతులకు జన్మించాడు.[2][3][4]. వీరు మహారాష్ట్రలోని వ్యవసాయం|వ్యవసాయ బొస్లే కులానికి చందినవారు.శివాజీ తల్లి జీజియ బాయ్ యాదవ్ క్షత్రియ వంశమునకు చెందిన ఆడ పడుచు. (దేవగిరి మరాఠా యాదవ రాజుల వంశము). శివాజీకి ముందు పుట్టిన అందరూ మృతి చెందగా ఆమె పూజించే దేవత అయిన శివై పార్వతి పేరు శివాజీకు పెట్టింది. షాహాజీ నిజాంలను ఓడించి గెలుచుకున్న ప్రాంతాల్లో సామ్రాజ్యాన్ని నెలకొల్పడానికి ప్రయత్నిస్తుండగా, మొఘలులు ఆదిల్షాతో కలసి షాహాజీని ఓడించారు. ఆదిల్షాతో సంధి ప్రకారం షాహాజి ప్రస్తుత బెంగుళూరు ప్రాంతాన్ని జాగీరుగా పొంది, పూణే వదిలి వెల్లవలసి వచ్చింది. షాహాజీ పూణేలో తనకున్న జాగీరును వదులుకోవలసిన అవసరం లేకుండా ఒప్పందం కుదుర్చుకొన్నాడు. చత్రపఠీ శివాజీ మహారాజ్ కి జయ్ (అరవింద్ నాగులా). హిందూ సాంప్రదాయాలు కాకుండా, అతనికి 8 భార్యలు ఉన్నారు.
+
+శివాజీ రాజే భోంస్లే ఎప్పుడు జన్మించాడు?","క్రీ.శ. 1630 ఫిబ్రవరి 19
+
+శివాజీ క్రీ.శ. 1630 ఫిబ్రవరి 19వ సంవత్సరం వైశాఖమాసపు శుక్లపక్ష తదియనాడు పూణే జిల్లాలోని జున్నార్ పట్టణం దగ్గర గల శివనేరి కోటలో శహాజీ, జిజాబాయి పుణ్యదంపతులకు జన్మించాడు.[2][3][4]. వీరు మహారాష్ట్రలోని వ్యవసాయం|వ్యవసాయ బొస్లే కులానికి చందినవారు.శివాజీ తల్లి జీజియ బాయ్ యాదవ్ క్షత్రియ వంశమునకు చెందిన ఆడ పడుచు. (దేవగిరి మరాఠా యాదవ రాజుల వంశము). శివాజీకి ముందు పుట్టిన అందరూ మృతి చెందగా ఆమె పూజించే దేవత అయిన శివై పార్వతి పేరు శివాజీకు పెట్టింది. షాహాజీ నిజాంలను ఓడించి గెలుచుకున్న ప్రాంతాల్లో సామ్రాజ్యాన్ని నెలకొల్పడానికి ప్రయత్నిస్తుండగా, మొఘలులు ఆదిల్షాతో కలసి షాహాజీని ఓడించారు. ఆదిల్షాతో సంధి ప్రకారం షాహాజి ప్రస్తుత బెంగుళూరు ప్రాంతాన్ని జాగీరుగా పొంది, పూణే వదిలి వెల్లవలసి వచ్చింది. షాహాజీ పూణేలో తనకున్న జాగీరును వదులుకోవలసిన అవసరం లేకుండా ఒప్పందం కుదుర్చుకొన్నాడు. చత్రపఠీ శివాజీ మహారాజ్ కి జయ్ (అరవింద్ నాగులా). హిందూ సాంప్రదాయాలు కాకుండా, అతనికి 8 భార్యలు ఉన్నారు.",,,,
+nick-4.8-20261114T224255Z-002,59,89b743a61380f86928674a60,b1d08acb15ecc5a212f71a34c33d01ee,nick-4.8,th,coding,oasst2,human_authored,[user] ขอ code python ที่ช่วยดึงรูปจาก ig,"ด้วยการใช้ library instascrape ในภาษา python คุณสามารถที่จะดึง รูป ข้อมูล หรือโพสจาก instagram ได้
+ก่อนอื่นให้ทำการติดตั้ง library ด้วยคำสั่ง
+
+```bash
+pip3 install insta-scrape
+```
+และนี่ตัวอย่างโค้ด python ที่สามารถใช้งานเพื่อดึงรูปจากโพสล่าสุด ของโปรไฟล์ใน  instagram ได้
+
+```python
+from instascrape import Profile 
+profile= Profile('google') # ใช้โปรไฟล์ ID ของคุณ
+profile.scrape() # ทำการดึงข้อมูลของโปรไฟล์
+recents = profile.get_recent_posts()
+profile_photos = [post for post in recents if not post.is_video] # ตรวจสอบว่าโพสที่ดึงมานั้น มีโฟสที่เป็นวีดีโอติดมาหรือเปล่า
+
+for post in profile_photos : # ทำการ loop รายการ รูปภาพทั้งหมด
+    fname = post.upload_date.strftime(""%Y-%m-%d %Hh%Mm"")
+    post.download(f""{fname}.png"") # ทำการดาวน์โหลดรูปภาพโดยอิงจากเวลา
+
+```",,,,
+nick-4.8-20261114T224255Z-002,60,388b30656a05fc6e53508874,b58e81e11ae91715139df3be34c0a26c,nick-4.8,th,education,oasst1,human_authored,"[user] ทำไมพอ ChatGPT มาทำให้ทุกคนพากันเป็นบ้ากันไปหมด
+
+[assistant] แม้ ChatGPT จะไม่ได้ใช้เทคโนโลยีที่ใหม่กว่าโมเดลภาษาทั่วไปนัก แต่มีประสบการณ์การใช้งานที่สะดวกสบายส่งผลให้เข้าถึงคนหมู่มากได้ง่าย
+
+[user] โมเดลภาษาทั่วไปคืออะไร ช่วยอธิบายหน่อย","โมเดลภาษา (language model) คือโมเดล machine learning ชนิดหนึ่งที่เรียนรู้ด้วยการทำนายสถิติของหน่วยคำที่เกิดขึ้นในข้อมูลฝึกสอน ยกตัวอย่างง่ายๆคล้ายกับการทำแบบฝึกหัดเติมคำในช่องว่าง เช่น 
+
+โจทย์: ฉันเป็น____โรงเรียนสวนกุหลาบ
+ตอบ: นักเรียน
+
+การที่โมเดลเรียนรู้ที่จะเติมคำในช่องว่างนี้ให้ถูกต้องจะทำให้โมเดลสามารถสร้างข้อความที่ดูเสมือนมนุษย์เขียนขึ้นมาหรือทำงานด้านภาษา (ทำนายความบวกลบของข้อความ, ทำนายชนิดของคำ, ย่อความ ฯลฯ) ได้ การทำแบบฝึกหัดเติมคำในตัวอย่างข้างต้นเรียกว่า masked language modeling นอกจากนี้ยังมีเทคนิคอื่นๆในการฝึกสอนโมเดลภาษาอีก เช่น เติมคำต่อไป (causal language modeling) เป็นต้น",,,,
+nick-4.8-20261114T224255Z-002,61,19d51a481e84ce72b7b43338,f987403632a4ad518a9d97407cf18be1,nick-4.8,th,general_knowledge,oasst2,human_authored,"[user] อยากมีแรงบันดาลใจมากกว่านี้ควรทำอย่างไรดี
+
+[assistant] นอนเยอะๆ
+
+[user] แล้วการนอนเยอะ ๆ ช่วยอะไรกับการมีแรงบันดาลใจได้บ้าง",เมื่อเรานอนเยอะ(พักผ่อนอย่างเพียงพอ)สมองจะไม่ล้าและสามารถใช้งานได้อย่างเต็มที่อีกครั้ง เพราะการมีแรงบันดาลใจ อยู่ที่การใช้สมองคิดและเรียนรู้จากทุกสิ่งรอบตัวเรา,,,,
+nick-4.8-20261114T224255Z-002,62,b8cb7ec766b069558afd44aa,a8564969bb17d35b7ff4491ba4856c28,nick-4.8,th,mathematics,oasst2,human_authored,"[user] ถ้ายิงซ้ำๆที่จุดเดิมบนกระจกกันกระสุนจะทะลุไหม
+
+[assistant] ถ้ายิงกระสุนซ้ำๆ ที่จุดเดิมบนกระจกกันกันกระสุน มันจะยังไม่ทะลุ ไม่ว่าจะยิงกี่ครั้งก็ตาม เพราะว่ากระจกมีความแข็งแรงพอที่จะทนต่อแรงกระสุนที่จะทะลุผ่านไปเรื่อยๆ ซึ่งแรงกระสุนจะถูกกระจกสะท้อนหรือแตกเป็นเส้นๆ แต่จะไม่สามารถทะลุผ่านไปได้ ดังนั้นการยิงซ้ำๆ ที่จุดเดิมบนกระจกกันจะไม่สามารถทำลายหรือทะลุไปได้ โดยปกติแล้ว การทำลายกระจกกันจะต้องมีแรงที่มากกว่าความแข็งแกร่งของกระจกโดยทั่วไป เช่น การใช้วัตถุที่มีความแข็งแรงสูงมากระแทะหรือกระเด็นเข้าไปบนกระจกกัน หรือใช้แรงกระแทกจากการชนหรือการกระทำอื่นๆ ที่สามารถทำลายกระจกได้จริงๆ
+
+[user] แต่ถ้ายิงซ้ำที่จุดเดิมเป๊ะๆเป็นจำนวนไม่จำกัดครั้ง (หรือจำนวนครั้งมากๆ เช่น 10^100 ครั้ง) มันจะไม่มีทางทะลุจริงๆหรอ",ฉันขออภัยสำหรับคำตอบก่อนหน้านี้ ฉันเป็นโมเดลภาษาบางครั้งอาจจะตอบผิดบ้าง สำหรับคำตอบคือ ทะลุ เพราะวัสดุที่กันกระสุนจะเสื่อมลง จนในที่สุด กระสุนจะทะลุกระจกกันกระสุน,,,,
+nick-4.8-20261114T224255Z-002,63,8a0f670bb0402892b3191080,0ed7701795d1da7773b7d77a8a77efbd,nick-4.8,tr,coding,aya-dataset,human_authored,[user] Meaning of Life filminde konu edilen toplumsal ve politik eleştiriler nelerdir?,"""Meaning of Life"" filmi, Monty Python ekibinin karakteristik tarzıyla toplumsal ve politik eleştirileri komik bir şekilde anlatır. Filmdeki bazı toplumsal ve politik eleştirilere örnekler aşağıdaki gibidir:
+1) Sağlık Sistemi Eleştirisi: Filmin bir sahnesinde, hastaları iyileştirmek yerine onları öldürmeye çalışan bir hastane gösterilir. Bu sahne, bazı sağlık sistemlerinin kar amaçlı işlediği eleştirisini yapar.
+2) Eğitim Eleştirisi: Filmdeki bir diğer sahnede, öğrencilere anlamsız ve işe yaramaz bilgilerin öğretildiği bir sınıf gösterilir. Bu, eğitim sisteminin bazen gereksiz ve anlamsız konulara odaklanabileceği eleştirisini içerir.
+3) Din Eleştirisi: ""Meaning of Life,"" özellikle dinle ilgili eleştiriler içerir. Din ve kilise ile alaycı bir yaklaşım sergileyen film, dini kurumların ve inançların insanları nasıl manipüle edebileceğini hicveder.
+4) Sosyal Sınıf ve Zenginlik Eleştirisi: Film, bir sahnede zengin ve fakir insanların bir restoranda nasıl farklı şekilde muamele gördüğünü gösterir. Bu, toplumun sınıf ayrımcılığına ve zenginlik uçurumuna dikkat çeker.
+5) Savaş ve Askerlik Eleştirisi: Filmin bir bölümü, askerlerin saçma ve tehlikeli görevlere gönderilmesini eleştirir ve savaşın saçmalığını vurgular.",,,,
+nick-4.8-20261114T224255Z-002,64,9e3a85e8fb5a3e4c7e746647,ed68d4ad6d2b7f5060e16a6a755d70fb,nick-4.8,tr,education,aya-dataset,human_authored,[user] CV nasıl hazırlanır?,"CV (Curriculum Vitae), iş başvurularında ve profesyonel bağlamlarda kullanılan bir özgeçmiş belgesidir. İşverenlere, eğitim, deneyim, beceriler ve kişisel bilgiler hakkında bilgi verir. İşte bir CV hazırlarken dikkate almanız gereken temel adımlar:
+
+Kişisel Bilgiler:
+
+Adınızı ve soyadınızı belirtin.
+İletişim bilgilerinizi (e-posta, telefon) ekleyin.
+Var ise sosyal medya profillerinizi ekleyin (LinkedIn gibi, ancak bu kişisel tercihlere bağlıdır).
+Hedef (İsteğe Bağlı):
+
+CV'nizin başında, kariyer hedefinizi veya bir özet ifadesini ekleyebilirsiniz.
+Eğitim Bilgileri:
+
+En son eğitim durumunuzdan başlayarak, önceki eğitim geçmişinizi kronolojik sırayla listeleyin.
+Her girişte okul/universite adı, bölüm, mezuniyet tarihi gibi bilgileri ekleyin.
+İş Deneyimi:
+
+Deneyimlerinizi kronolojik sırayla listeleyin.
+Her girişte şirket adı, pozisyon, çalışma tarihleri ve başlıca sorumlulukları belirtin.
+Önceki iş tecrübelerinizle ilgili elde ettiğiniz başarıları vurgulayın.
+Beceriler:
+
+Teknik, dil, iletişim becerileri gibi genel ve işe özgü becerilerinizi sıralayın.
+İlgili olduğunuz endüstri ve pozisyonlara özel yeteneklerinizi vurgulayın.
+Sertifikalar ve Eğitimler:
+
+Aldığınız sertifikaları ve katıldığınız eğitimleri belirtin.
+Mesleki gelişim ve sürekli öğrenmeye vurgu yapın.
+Projeler (İsteğe Bağlı):
+
+İlgili olduğunuz veya çalıştığınız projeleri kısa bir açıklama ile listeleyin.
+Hobiler ve Kişisel İlgi Alanları (İsteğe Bağlı):
+
+CV'nize kişisel bir dokunuş eklemek için hobilerinizi veya ilgi alanlarınızı belirtin.
+Referanslar (İsteğe Bağlı):
+
+İki veya üç referans ekleyebilirsiniz. Ancak, referans eklemeyi düşündüğünüz kişilerin izni olduğundan emin olun.
+Görsel Unsurlar ve Tasarım (Dikkatlice Kullanılmalıdır):
+
+CV'nizi temiz, düzenli ve okunabilir tutun.
+Görsel unsurları (renk, logo, grafik) aşırıya kaçmadan kullanın.
+CV'nizi Güncel Tutun:
+
+Yeni deneyimler ve beceriler kazandıkça CV'nizi güncelleyin.
+İlgili ve güncel bilgilerinizi içerdiğinden emin olun.
+CV'nizi özgeçmişinizi yazarken, işverenlerin dikkatini çekmek ve ön plana çıkmak için özgeçmişinizi özelleştirmek önemlidir. Her iş başvurusuna uygun bir şekilde CV'nizi düzenleyerek iş başvurularınızı destekleyebilirsiniz.",,,,
+nick-4.8-20261114T224255Z-002,65,44cbd47fea84b6a1fa74c0ab,d6adc027816e7fefb13c37ca90cfef8e,nick-4.8,tr,general_knowledge,aya-dataset,human_authored,[user] Pekiştirmeli öğrenme ne demektir?,"Pekiştirmeli öğrenme, algoritmanın geçmesi gereken farklı adımlara ödüllerin iliştirildiği bir yöntemdir. Dolayısıyla, modelin amacı mümkün olduğunca fazla ödül puanı biriktirerek nihai hedefe ulaşmaktır. Video oyunları dünyası son on yılda pekiştirmeli öğrenmenin en çok uygulandığı alan olmuştur. Gelişmiş pekiştirmeli öğrenme algoritmaları, genellikle insan rakiplerini farklı şekilde yenerek klasik ve modern oyunlarda etkileyici sonuçlar elde etmiştir. 
+
+Bu yöntem, en iyi performansını belirsiz ve karmaşık veri ortamlarında göstermese de iş bağlamında nadiren uygulamaya konulmaktadır. İyi tanımlanmış görevler için verimli değildir ve geliştirici yanlılığı sonuçları etkileyebilir. Veri bilimci, ödülleri tasarlarken sonuçları etkileyebilir.",,,,
+nick-4.8-20261114T224255Z-002,66,4989708d0bb66e7f6d615afb,93b2414fc37085ed4f569ee481248d33,nick-4.8,tr,islamic_studies,aya-dataset,human_authored,"[user] Bu paragrafın devamını yazın: Genç Esfahani, ilk çalışmalarını doğduğu yer olan Sadeh'de (daha sonra İslam Devrimi'nden sonra Khomeyni Shahr olarak anılır) yaptı.","12 yaşında, yaklaşık on yıl kaldığı Esfahan Hawza'ya (İlahiyat Okulu) gitti ve Ayetullah Besharati ve Hassan Modarres gibi alimlerden ders aldı. 1923'te 20 yaşında eğitimine devam etmek için Kum İlahiyat Okulu'na geçti. İlk başta, bir yıl Razawieh Ruhban'a gitti. Daha sonra Feyzieh Ruhban'a Abdul Karim Haeri Yazdi ile çalışmaya başlamadan önce yaklaşık bir yıl daha gitti. Haeri Yazdi'nin 1937'deki ölümünden sonra Mohammad Taghi Khansari, Seyed Mohammad Hojjat Kuh-Kamari ve Seyed Sadreddin Sadr'ın yanında çalıştı.",,,,
+nick-4.8-20261114T224255Z-002,67,1ba9bb466f2eb445ef040f0b,915728df7f20991105b01de229ae36ba,nick-4.8,tr,mathematics,aya-dataset,human_authored,[user] Bana Elmalı Turta için malzeme listesi ve tarifi yazar mısın?,"Elmalı Turta Tarifi İçin Malzemeler
+
+Hamuru için:
+4 su bardağı un
+125 gram tereyağı (oda sıcaklığında bekletilmiş)(8,5 yemek kaşığı)
+1/2 çay bardağı sıvı yağ
+1 çay bardağı süt
+1 kahve fincanı toz şeker
+2 adet yumurta
+1/2 paket kabartma tozu
+1 paket vanilya
+
+Elma püresi için:
+5 adet rendelenmiş elma
+1 su bardağı toz şeker
+3 yemek kaşığı (silme) tarçın
+
+Hazırlanışı
+
+1. Elmalı turta için elmaları derin bir kaba rendeleyip üzerine şeker ve tarçını ekleyip güzelce karıştırın. Beklemeye alın.
+2. Yumurtaları, tereyağını, şekeri, sıvı yağı ve sütü güzelce karıştırın.
+3. Karışıma vanilya ve kabartma tozu ile karıştırdığınız unu azar azar ekleyerek yoğurmaya başlayın.
+4. Yoğurduğunuz hamuru yarım saat buzdolabında dinlendirin. Hamurunuz dinlendikten sonra hamurun yarısından biraz daha küçük bir parçayı ayırın.
+5. Hamurunuz dinlendikten sonra biri küçük, biri büyük olmak üzere hamuru iki parçaya ayırın.
+6. Büyük parçayı ister bir merdane yardımıyla isterseniz elinizle, hafif unladığınız tezgahta açın. Turta kalıbına yayın.
+7. Turta kalıbına yayın. Hamurun üzerine dinlenmeye bıraktığınız elmalı harcı dökün.
+8. Spatula ile üzerini düzeltin.
+9. Elmalı harcın üzerine önceden ayırdığınız küçük hamur parçasını bir merdane yardımıyla açarak turta için şeritler kesin.
+10. Kestiğiniz şeritleri elmalı harcın üzerine kafes şeklinde dizin.
+11. Elmalı turtayı önceden ısıtılmış alt üst ayar 180 derece fırında yaklaşık 30-35 dakika pişirin. Turtanız soğuyunca üzerine pudra şekeri serperek servis edebilirsiniz.
+
+Afiyet olsun.",,,,
+nick-4.8-20261114T224255Z-002,68,b6dbc2d8c965fdbcddd9536e,7f857fd2db5302e5fed2a73b25550ba8,nick-4.8,tr,problem_solving,aya-dataset,human_authored,[user] Utangaçlık nasıl önlenir?,"Utangaçlık, sosyal durumlarda rahatsızlık ve gerilim hissi olarak tanımlanabilir. Ancak utangaçlığı önlemek veya azaltmak mümkündür. İşte utangaçlığı aşmak için bazı öneriler:
+
+Küçük Adımlarla Başlayın:
+
+Sosyal becerileri geliştirmek için küçük adımlarla başlamak önemlidir. Sosyal etkileşimleri artırmak için küçük gruplar veya tanıdık ortamlar seçin.
+Kendi İlgilerinize Odaklanın:
+
+Kendi ilgi alanlarınıza odaklanmak, konuşmaları daha rahat ve doğal hale getirebilir. İlgilendiğiniz konularda konuşmak, güveninizi artırabilir.
+Bedensel Aktivite:
+
+Spor veya egzersiz, endorfin salgılanmasını sağlayarak stresi azaltabilir ve özgüveni artırabilir.
+Göz Kontağı Kurun:
+
+Göz teması kurmak, karşınızdaki kişiyle daha güçlü bir bağ kurmanıza ve iletişiminizi güçlendirmenize yardımcı olabilir.
+Hazırlıklı Olun:
+
+Topluluk içinde konuşma veya sosyal etkileşimler öncesi hazırlık yapın. Konuşma konularını düşünmek ve önceden bir plan yapmak, kendinizi daha güvende hissetmenize yardımcı olabilir.
+Empati ve Kendi Kendinize Konuşma:
+
+Başkalarının hislerini anlamaya çalışın. Empati, sosyal etkileşimlerde daha rahat olmanıza yardımcı olabilir. Ayrıca, kendi kendinize olumlu ve güçlendirici ifadeler kullanmak da önemlidir.
+Hata Yapmaktan Korkmayın:
+
+Utanç duygusunu aşmak için hata yapmaktan korkmamak önemlidir. Herkes hata yapabilir. Önemli olan, bu hatalardan öğrenmek ve gelişmektir.
+Sosyal Beceri Eğitimi Alın:
+
+Utangaçlıkla başa çıkmak için sosyal beceri eğitimi almak faydalı olabilir. Bu tür eğitimler, iletişim becerilerinizi güçlendirebilir.
+Profesyonel Yardım Alın:
+
+Eğer utangaçlık duygusu sizi önemli ölçüde etkiliyorsa, bir uzmandan profesyonel yardım almayı düşünün. Bir terapist, sosyal anksiyete veya utangaçlıkla başa çıkmanıza yardımcı olabilir.
+Utangaçlıkla başa çıkmak zaman alabilir, ancak sabır ve sürekli çaba ile bu duyguyu azaltabilir ve sosyal etkileşimlerden daha fazla keyif alabilirsiniz.",,,,
+nick-4.8-20261114T224255Z-002,69,5de401ca0ef8ce5596cc4873,d1aed9ce676785e16f39656aaaa85005,nick-4.8,tr,safety_ethics,aya-dataset,human_authored,[user] Jazz müziği neden önemlidir?,"Jazz, farklı kültürel kökenleri ve müzikal geleneği birleştirerek, Afrika ritimleri, blues, ragtime ve Avrupa harmonilerini bir araya getirir. Bu, birçok farklı kültürel etkinin bir araya gelerek birbirini tamamladığı bir müzik türüdür. Buna ek olarak; Jazz, sivil haklar hareketinin bir parçası olarak da önemlidir. Birçok jazz müzisyeni, müziklerini toplumsal değişim için bir platform olarak kullanmış ve eşitlik, özgürlük ve adalet mücadelesine katkıda bulunmuşlardır.",,,,
+nick-4.8-20261114T224255Z-002,70,f3fade243fc53aecde982b49,ef513128ec5a869a618d9afce1bf09c9,nick-4.8,tr,science,aya-dataset,human_authored,[user] Atom bombası nedir nasıl oluşur?,"Atom bombasi uranyum türü bir maddenin atom çekirdeğinin patlatılması ile elde edilir. Hidrojen bombası, ise, hidrojen türü bir maddenin atom çekirdeklerinin yüksek ısı altında eritilip birleştirilmesi sonucu daha ağır bir madde meydana getirmesiyle elde edilir. İki bomba arasındaki ikinci ayrılık, işin çıkarmadadır.",,,,
+nick-4.8-20261114T224255Z-002,71,4725a4964986bc87bc6f765d,3ce23297fb3c0ce6f14f684f16c84703,nick-4.8,tr,web_frontend,aya-dataset,human_authored,[user] Tim Berners-Lee kimdir?,"WWW'in babası olarak bilinen Tim Berners-Lee, 1989 yılında Avrupa Parçacık Fiziği Laboratuvarı CERN'deyken World Wide Web'i icat etti. 1990 yılında ilk web istemcisini ve sunucusunu yazdı. URI, HTTP ve HTML spesifikasyonları, Web teknolojisi yayıldıkça geliştirildi.
+Açık kaynaklı Solid platformunu kullanan, tanıtan ve geliştirmeye yardımcı olan bir teknoloji start-up'ı olan Inrupt.com'un kurucu ortağı ve CTO'sudur. Solid, web'in nasıl çalışması gerektiğine dair birçok varsayımı sorgulayarak insanlara verileri üzerinde kontrol ve yetki vermeyi amaçlıyor. Teknik olarak sağlam, web katmanında küresel tek oturum açma, evrensel erişim kontrolü ve evrensel veri API'si gibi orijinale hiçbir zaman dahil edilmeyen özellikler ekleyen ve böylece herhangi bir uygulamanın herhangi bir depolama alanında veri depolayabilmesini sağlayan yeni bir standart düzeyidir.
+Daha fazla bilgi için W3C sitesini ziyaret ediniz.",,,,
+nick-4.8-20261114T224255Z-002,72,81994b8ff5b3b881ccab750c,9ea0001b09cd63dea9c15aaea569926b,nick-4.8,tr,writing,aya-dataset,human_authored,[user] Write a continuation for this paragraph - Dıbenko Mart 1921'de Mihail Tuhaçevski komutasındaki birliklerle Kronstadt Ayaklanmasının bastırılmasında yer alır. Ayrıca bu dönemde çıkan Tambov Ayaklanması,"'nın bastırılmasında da görev yapar. Başarılarından dolayı Kızıl Bayrak Nişanı ile üç kez ödüllendirilir. Dıbenko devrim öncesinde ve sırasında yaşadıklarına dair çok sayıda eser yazar. Kitaplarındaki yüksek kalite onun gibi eğitim seviyesi düşük birisinin gerçek yazar olmadığına dair şüphelere yol açmıştır. 1922 yılında Genelkurmay Askerî Akademisini bitirir. Bu dönemde Kollontay ile ayrılacaklardır. Dıbenko ayrılık yüzünden intihara kalkışır, Kollontay ise ondan uzaklaşabilmek için yurtdışı elçilik görevi talep ederek ülke dışına çıkar. Dıbenko, Kollontay'dan sonra iki kez daha evlenecektir. Dıbenko Akademiden mezun olduktan sonra yeniden komutanlık görevi alır ve partiye yeniden kabul edilir. 1925 – 1928 yılları arasında Kızılordu Genelkurmay Başkanlığı Topçu ve İstihkam Komutanlığında görev alır. 1928 yılından sonra Orta Asya'da görevlendirilir. Burada sınır birliklerine komuta eder. 1930 yılında görevli olarak diğer subaylarla beraber Almanya'ya gönderilir.",,,,
+nick-4.8-20261114T224255Z-002,73,1612567e1e676248205cf4c8,26b3251f8a805b83f59216640e3844d4,nick-4.8,uk-UA,mathematics,oasst2,human_authored,"[user] Переклади цей текст українською:
+""We received a signal of mysterious radio station called Noir FM that plays obscure Jazz music 24/7. We don't have any information about location of this radio station and before it disappeared completely from our radars we had an opportunity to record only one part of their scheduled programming broadcast called ""Nightluxury"". We tried to recognize songs played during this broadcast but we couldn't. Instead of credits to original compositions and artists we called every track by it's mood and an atmosphere.""
+
+[assistant] Ми отримали сигнал загадкової радіостанції під назвою Noir FM, яка відтворює маловідому джазову музику 24/7. Ми не маємо жодної інформації про місцезнаходження цієї радіостанції, і до того, як вона повністю зникла з наших радарів, ми мали можливість записати лише одну частину їхнього запланованого програмного мовлення під назвою ""Nightluxury"". Ми намагалися розпізнати пісні, зіграні під час цього ефіру, але не змогли. Замість атрибуції до оригінальних композицій та виконавців, ми назвали кожен трек за його настроєм та атмосферою.
+
+[user] Продовжи цю історію.","Надіємося, ви теж відчуєте цю таємничість, прослухавши запис.
+
+Перший трек: ""Записка у давно покинутій котельній"" 
+Таймкод: 0:00
+Опис: Стишений звук, що доноситься наче з підвального приміщення, де стоять іржаві парові котли. Хтось залишив записку з одним реченням, написаним нечітким почерком - ""Той, хто недостатньо сміливий, щоб на нього дивились з безодні, недостатньо сміливий, щоб дивитися в неї сам.""
+
+Другий трек: ""Погляд""
+Таймкод: 1:30
+Опис: О першій годині ночі, взимку, коли люди повернулись додому грітись, ти дивишся на місто, усамітнившись на оглядовому майданчику. Абсолютна тиша створює відчуття нереальності і лімінальності. В тебе в горняті міцна кава, однак вона стигне від холоду.
+
+Третій трек: ""Блиск вітрин зачиненого торгового центру""
+Таймкод: 6:29
+Опис: Охоронець напівдрімає на своєму кріслі. Світло залишили ввімкненим лише в одному магазині. Воно світить червоним і час від часу відблискує зеленими кольорами. Ескалатори та ліфти зупинились. На повторі грає цей трек. 
+
+Четвертий трек: ""Елегантний ранок близького майбутнього, після якого ми нарешті продовжимо своє життя""
+Таймкод: 9:20
+Опис: 5 година ранку, ледь світає. Все затихло в очікуванні нового дня, де будь-які загрози зникли, але й ще невідомо, як жити з цим несподівано світлим майбутнім. Перший птах починає елегантно співати, час від часу прислухаючись до приглушених відповідей своєї партнерки на іншому дереві.",,,,
+nick-4.8-20261114T224255Z-002,74,d4b638d0fcf1c2439610f3ca,e827c1674bd5a4fb368cc2c64941f209,nick-4.8,ur,coding,aya-dataset,human_authored,[user] Python میں موسمی ڈیٹا سیٹ یعنی ٹایم سیریز میں دباؤ اور موسم کے درمیان تعلق کو مملکتوں کے لحاظ سے دیکھنے کے لئے بار چارٹس کا استعمال کیسے کیا جاتا ہے,"پہلے، موسمی ڈیٹا سیٹ یعنی ٹایم سیریز کو Python میں پڑھیں اور معلوم کریں کہ ہر مملک کا دباؤ اور موسم کے درمیان تعلق کی معلومات دستیاب ہے۔ اگر آپ کا ڈیٹا فرمیٹ ٹیکسٹ یا CSV ہوتا ہے تو، pandas کا استعمال کر کے ڈیٹا کو چھوٹی سی ڈیٹا فریم میں لوڈ کر سکتے ہیں۔
+
+اب، آپ کو معلوم کرنا ہوگا کہ کس مملک میں کتنا دباؤ اور موسم ہے۔ آپ ہر مملک کے لئے دباؤ اور موسم کی معلومات کو ایک لسٹ یا ڈیٹا فریم میں جمع کر سکتے ہیں۔
+
+ایک بار جب آپ کے پاس معلومات تیار ہوتی ہے، تو آپ matplotlib یا seaborn جیسی Python کی چارٹنگ کتابخانے کا استعمال کر کے ایک بار چارٹ بنا سکتے ہیں۔ بار چارٹ میں ہر مملک کو ایک بار کے ساتھ ظاہر کیا جاتا ہے، جہاں ہر بار کی چوڑائی دباؤ کو ظاہر کرتی ہے اور بار کی لمبائی موسم کو ظاہر کرتی ہے۔ اس طرح، آپ بار چارٹ کی مدد سے ہر مملک کے درمیان دباؤ اور موسم کے تعلقات کو دیکھ کر معلوم کر سکتے ہیں، جو مملکوں کے درمیان موسمی تبدیلی کو سمجھنے کی مدد فراہم کرتا ہے۔",,,,
+nick-4.8-20261114T224255Z-002,75,a915fcccabfedb3296f6873e,d3751f19d3084bb2c912ddfd737a54f0,nick-4.8,ur,general_knowledge,aya-dataset,human_authored,[user] ڈیٹا سائنس کیا ہے؟,ڈیٹا سائنس ایک شماریاتی علم ہے جو کمپیوٹر سائنس، مشین لرننگ، اور دیگر تخصصات کا مجموعہ ہے تاکہ عددی اور موادی معلومات کو تجزیہ کیا جاسکے اور ان سے فہم حاصل کی جا سکے۔ ڈیٹا سائنس کا استعمال مختلف شعبوں میں جیسے کہ بزنس، صحت، تجارت، سوشل میڈیا، اور بہت سارے دیگر شعبوں میں کیا جاتا ہے تاکہ تصمیمات کو بہتر بنایا جا سکے اور نئی معلومات کا اکٹھا کیا جا سکے۔,,,,
+nick-4.8-20261114T224255Z-002,76,48d1b3f0af7c12f6affffbfd,b5fc6c0abe326c34daec5b2b7680029c,nick-4.8,ur,islamic_studies,wikipedia-ur,templated_human,[user] سپاہ صحابہ کے بارے میں ایک مختصر تعارف لکھیں۔,"اہل سنت دیوبند مسلک سے تعلق رکھنے والی جماعت سپاہ صحابہ پاکستان کا نام پہلے انجمن سپاہ صحابہ تھا۔ یہ جماعت 1944ء میں امرتسر میں قائم ہونے والی ""تنظیم اہلسنت"" نامی شیعہ مخالف جماعت کا تسلسل ہے جو 1984ء میں دیوبندی عالم مولانا نورالحسن بخاری کی وفات کے بعد انجمن سپاہ صحابہ کے نئے نام سے 1985ء میں پاکستانی پنجاب کے شہر جھنگ میں سامنے آئی۔جب جنرل پرویز مشرف نے جنوری 2002ء میں سپاہ صحابہ اور سپاہ محمد پر بابندی عائد کی تو اس جماعت کا نام بدل کر ملت اسلامیہ پاکستان رکھ دیا گیا۔اس کے بعد جماعت کانام بدل کر اھلسنت والجماعت رکھا گیا۔ مولانا حق نواز جھنگوی کو 1990ء میں قتل کر دیا گیا۔ حق نواز جھنگوی کے بعد ایثار الحق قاسمی اس جماعت کے سربراہ بنے، جنہیں 1991ء میں قتل کر دیا گیا۔ اس کے بعد ضیاء الرحمن فاروقی نے سپاہ صحابہ کی قیادت سنبھالی لی۔ ضیاءالرحمان فاروقی 18 جنوری 1997ء کو سپاہ محمد پاکستان کے بم حملے کا شکار ہوئے۔ اس کے بعد طارق اس جماعت کے سربراہ بنے، جو 2003ء میں اسلام آباد میں قتل کر دیے گئے۔90ء کی دہائی میں سپاہ صحابہ نے شیعوں پر کئی خونریز حملے کیے البتہ 1993ء میں سپاہ محمد پاکستان نامی شیعہ دہشت گرد تنظیم نے جوابی کارروائیوں کا آغاز کر دیا۔ سپاہ صحابہ کے اب تک کم وبیش ایک ہزار کارکن مارے جاچکے ہیں جن میں سے اکثر پاک فوج کےآپریشن یا پولیس مقابلوں میں ہلاک ہوئے۔ 2017ء میں اس جماعت پر بھی پابندی لگا دی گئی پھر 26 جون 2018ء کو شدت پسند عناصر کو قومی دھارے میں جگہ دینے کے فیصلے کے بعداہلسنت والجماعت پاکستان سے پابندی ہٹا لی گئی
+
+ایشیا میں دہشت گرد قرار دی جانے والی تنظیمیں",,,,
+nick-4.8-20261114T224255Z-002,77,7307084cd8e6d96cb0e13289,0f865909908bf3ad8d88a2c76c7650bf,nick-4.8,ur,mathematics,wikipedia-ur,templated_human,[user] پلیئر آف دی میچ ایوارڈ (کرکٹ) کے بارے میں ایک مختصر تعارف لکھیں۔,"کرکٹ کے کھیل میں ایک مین آف میچ یا پلیئر آف دی میچ اور پلیئر آف دی سیزن ایوارڈ کرکٹ میں بہترین کھلاڑی دیا جاتا ہے، تقریبا ہمیشہ ایک ایسے کھلاڑی کو یہ اعزاز دیا جاتا ہے جو اپنی کارکردگی کی وجہ سے اپنی کرکٹ ٹیم کے میچ جیتنے کا سبب بنتا ہے۔
+
+ٹیسٹ میچوں میں، جیک کیلس نے سب سے زیادہ بار یہ اعزاز جیتنے کا اعزاز حاصل کر رکھا ہے، جس نے 166 میچوں میں 23 بار یہ اعزاز حاصل کیا، اس کے بعد متھایا مرلی دھرن نے 19 بار یہ اعزاز حاصل کیا۔
+
+ایک روزہ میچوں میں سچن تندولکر نے سب سے زیادہ بار یہ اعزاز حاصل کیا۔، جس نے 463 میچوں میں 62 بار یہ ایوارڈ حاصل کیا۔
+
+ٹوئنٹی 20 انٹرنیشنل کرکٹ میں شاہد آفریدی نے سب سے زیادہ 15بار یہ اعزاز حاصل کیا۔ اس کے بعد ویرات کوہلی نے 10 بار یہ اعزاز حاصل کیا۔
+
+نوٹ: موٹی لکھائی میں لکھے گئے کھلاڑی اب بھی بین الاقوامی کرکٹ میں سرگرم ہیں۔
+
+نوٹ: موٹی لکھائی میں لکھے گئے کھلاڑی اب بھی بین الاقوامی کرکٹ میں سرگرم ہیں۔
+
+ٹیسٹ کرکٹ میں، جنوبی افریقہ کو ٹیم کے میچ آف دی میچ کا اعزاز دیا گیا ہے، یہ اعزاز ویسٹ انڈیز کے دورے کے دوران 1998/99 کے سیزن میں دیا گیا۔ یہ میچ جنوبی افریقہ 351 رنز سے جیت گیا اور جنوبی افریقہ کے تمام 11 کھلاڑیوں کو مین آف دی میچ اعزاز سے نوازا گیا۔",,,,
+nick-4.8-20261114T224255Z-002,78,233540946d0f6f5b25c72fd5,da3d3ec8b8ae0cb760de4bfdabe3f614,nick-4.8,ur,pakistan,wikipedia-ur,templated_human,[user] سانحہ ساہیوال کے بارے میں ایک مختصر تعارف لکھیں۔,"سانحۂ ساہیوال ایک شادی شدہ جوڑے، ان کی نو عمر بیٹی اور ان کے ڈرائیور کے قتل سے متعلّق ہے جو مبیّنہ طور پر پولیس مقابلے میں مارے گئے۔ 19 جنوری 2019ء کو پنجاب پولیس کے محکمہ انسداد دہشت گردی نے پاکستان کے شہر ساہیوال کے قریب ایک شاہراہ پر اس پولیس مقابلے کو انجام دیا۔ ہلاک ہونے والوں کو اشیائے خور و نوش کی ایک دکان کے مالک محمّد خلیل، ان کی زوجہ نبیلہ، ان کی 13 سالہ بیٹی اریبہ اور ان کے دوست ذیشان جاوید کے طور پر شناخت کیا گیا۔ ان کا بیٹا عمیر خلیل گولیاں لگنے سے زخمی ہوا، جبکہ کار کا شیشہ ٹوٹنے کے باعث اس کی بہن منیبہ کا ہاتھ زخمی ہوا اور ان کی بیٹی حدیبہ کو کوئی نقصان نہیں پہنچا۔
+
+ابتدائی پریس ریلیزوں کے مطابق، محکمۂ انسدادِ دہشت گردی نے دعویٰ کیا کہ انٹیلی جنس رپورٹ کی بنیاد پر ایک انسدادِ دہشت گردی آپریشن کیا گیا ہے اور اس چھاپے میں چار افراد کو ان کے اپنے سہولت کاروں نے ہی قتل کیا جبکہ تین دہشت گرد فرار ہونے میں کامیاب ہو گئے۔ تاہم عینی شاہدین کی رپورٹیں اور سانحے میں زندہ بچ جانے والوں کے بیانات محکمہ انسداد دہشت گردی کے موقف کی نفی کرتے ہیں۔
+
+پاکستان میں نفاذ قانون کے افسران کی کارروائیوں سے ہلاکتیں
+
+ویکی ڈیٹا سے مطابقت رکھنے والی مختصر تفصیل",,,,
+nick-4.8-20261114T224255Z-002,79,f79a007f6ee061d358818e90,f18230dbfa1625a25f71bc40b15129fc,nick-4.8,vi,coding,oasst2,human_authored,[user] Viết dòng code Python để tương tác với API của Google,"Để viết dòng code Python để tương tác với API của Google, bạn cần cài đặt thư viện khách hàng của Google cho Python và sử dụng mô-đun discovery để khám phá các API có sẵn. Bạn cũng có thể sử dụng các công cụ Python khác để xây dựng và gọi các API REST. Bạn muốn tương tác với API nào của Google?",,,,
+nick-4.8-20261114T224255Z-002,80,42a6df67d52ebe8ec45e6ca4,8cf109934438f48433b0e23d0f6e26e4,nick-4.8,vi,general_knowledge,oasst1,human_authored,"[user] Tại sao Vạn Lý Trường Thành không được đưa vào “Bảy kỳ quan thế giới”?
+
+[assistant] Vạn Lý Trường Thành không được đưa vào danh sách bảy kỳ quan thế giới cổ đại một phần do thành được xây vào khoảng thế kỉ thứ 7 trước Công Nguyên, cách kì quan thế giới mới nhất là ngọn hải đăng Alexandria khoảng 10 thế kỉ. Một lý do tại sao thành không được đưa vào danh sách kỳ quan thế giới là do hầu hết kỳ quan cổ đại trên đều là ở châu Âu, do hồi đó Trung Quốc chưa hùng mạnh và là đế chế sánh ngang với Đế quốc La Mã thời đó.
+
+[user] Thế thì đấu trường Colosseum La Mã là một trong bảy kỳ quan thế giới nhỉ?","Tuỳ theo góc độ nhìn. Có người cho rằng đấu trường Colosseum là kì quan về nghệ thuật và kiến trúc, nhưng cũng có người cho rằng đấu trường không phải là kỳ quan thế giới vì thời đó có các cung Lã Mã còn to hơn, ví dụ như Circus Maximus dài 600 mét và rộng 120 mét. Đấu trường Colosseum chỉ dài 190 mét và rộng 156 mét.",,,,
+nick-4.8-20261114T224255Z-002,81,3feb95c57d4e83176a9c90a8,7cd2f386140f6100170345649a89d865,nick-4.8,vi,mathematics,oasst2,human_authored,[user] Kể cho tôi lịch sử của thành phố Đắk Lắk.,"Đắk Lắk là tỉnh (không phải là thành phố) nằm ở trung tâm vùng Tây Nguyên, miền Trung Việt Nam, với bắt nguồn tên từ hồ Lắk. 
+Hồi xưa, vùng đất Đắk Lắk thuộc vương quốc Chăm Pa và bị chiếm bởi Đại Việt vào khoảng thế kỉ 15. Thành phố Đắk Lắk được thành lập ngày 22/11/1904 theo chỉ định của Toàn quyền Đông Dương, lúc đó chưa chia huyện mà chỉ chia ra đơn vị làng. Sau khi bị trở thành đại lý hành chính trực thuộc tỉnh Kon Tum năm 1913, thì đến 1923 tỉnh Đắk Lắk mới được thành lập lại.
+Năm 1931 thì tỉnh Đắk Lắk được chia làm 5 quận: Ban Mê Thuột, Buôn Hồ, Đăk Song, Lăk và M'Drắk. Năm 1950, Bảo Đại ban hành Dụ số 6 đặt Cao nguyên Trung phần, cho phép hoàng triều có quy chế cai trị riêng. Sau này, tỉnh Đắk Lắk (lúc đó còn gọi là Darlac) trực thuộc chính quyền Việt Nam Cộng hòa, được xé ra chia lại nhằm phục vụ cho chiến tranh.
+Tỉnh Đắk Lắk của nước Việt Nam thống nhất từ năm 1976 hình thành từ hai tỉnh Darlac và Quảng Đức, và đến bây giờ là tỉnh có diện tích lớn thứ 3 cả nước. Năm 2003, tỉnh Đắk Lắk được tách thành hai tỉnh mới là Đắk Lắk và Đắk Nông, và năm 2010 thành phố Buôn Ma Thuột được công nhận là là đô thị loại I trực thuộc tỉnh. Ngày nay, tỉnh Đắk Lắk nổi tiếng về du lịch và văn hoá đa dạng của người Ê Đê, Nùng, Tày, M'nông, vân vân.",,,,
+nick-4.8-20261114T224255Z-002,82,3caa5308da3bbf86d2f10f63,d3f102ce7d93b3d74de0d347bd74e781,nick-4.8,vi,reasoning,aya-dataset,human_authored,"[user] Dựa trên tiêu đề sau, hãy viết một bài báo nói về chủ đề này: ""Cỗ máy tri thức"": Tính phi lý đã tạo nên khoa học hiện đại như thế nào?","Bất cứ ai cũng không thể phủ nhận vai trò, lợi ích của khoa học đem đến cho cuộc sống con người trong thời đại hiện nay. Tuy nhiên, xét trên chiều dài lịch sử nhân loại, khoa học hiện đại ""sinh sau đẻ muộn"" hơn rất nhiều so với các lĩnh vực khác trong nền văn minh nhân loại. Bước nhảy vĩ đại của khoa học hiện đại được ghi nhận xảy ra từ đầu thế kỳ XVII đến đầu thế kỷ XVIII. Và ""phương pháp vĩ đại"" giúp khoa học thực sự phát triển, gặt hái được những thành tựu nhảy vọt là vấn đề nhận được sự quan tâm, tranh luận của nhiều nhà tư tưởng trên thế giới trong hơn 100 năm qua. Trong phần đầu cuốn sách ""Cỗ máy tri thức"", tác giả cũng là nhà triết học hàng đầu Michael Strevens sẽ dẫn dắt độc giả khám phá quan điểm của triết gia Karl Popper- người tin rằng phương pháp này phải dựa trên một kiểu logic nhất định do những nhà tư tưởng mẫu mực áp dụng. Tiếp đó là quan điểm trái ngược của Thomas Kuln, người cho rằng thực ra có một loại tổ chức xã hội đặc biệt chịu trách nhiệm tạo nên sức mạnh của khoa học. Trong khi chuyên gia xã hội học Steven Shapin lại cho rằng: không hề tồn tại một phương pháp khoa học nào… Tuy nhiên tất cả các quan điểm này đều không thành công trong việc chỉ ra cơ chế nền tảng tạo nên năng lực sản sinh tri thức của khoa học. Và bằng việc sàng lọc ""bãi chiến trường"" đó, nhà triết học hàng đầu Michael Strevens đã tìm ra được nền tảng để từ đó xây dựng một lý thuyết xác đáng hơn về khoa học: nguyên tắc lý giải sắt. Ông chỉ ra: Kể từ khi nền khoa học hiện xuất hiện, các nhà khoa học được tự do suy nghĩ về mối liên hệ giữa bằng chứng và lý thuyết. Nhưng một khi đã tham gia vào nghiên cứu khoa học, họ buộc phải khám phá ra bằng chứng có sẵn hoặc tạo ra bằng chứng mới để thảo luận. Khoa học trở thành cỗ máy khuyến khích loài người vốn ưa tranh cãi giờ đây phải tiến hành những phép đo đạc nhàm chán, thực hiện những cuộc thí nghiệm vừa tốn thời gian, vừa hao tiền bạc. Nếu không có khoa học, con người sẽ chẳng bao giờ làm những việc như thế. Nhưng chính nhờ quá trình tích lũy kinh nghiệm thực tế vụn vặt đầy đau thương ấy mà con người mới tìm ra sự thật trong những lý thuyết sai lầm nhưng nghe rất hợp lý. Cuối cùng, những bằng chứng đó sẽ được tích lũy đủ nhiều, để khiến tất cả các nhà khoa học dù trước đây từng chế giễu, mang thành kiến, định kiến ra sao đều phải đồng ý: sẽ có một lý thuyết vững chắc hơn tất cả, có thể giải thích thỏa đáng và dự đoán chính xác nhất. Tóm lại, nguyên tắc lý giải sắt là bộ nguyên tắc cư xử đầy khiêm nhường, quy định chỉ tiến hành tranh luận khoa học dựa trên bằng chứng chính là nền tảng tạo nên tất cả các phương pháp khoa học giúp nhân loại vững bước trên con đường đi tìm chân lý. Đây chính là nguyên tắc hoạt động tạo ra hiệu quả và quyền năng to lớn của khoa học. Phần hai của cuốn sách ""Cỗ máy tri thức"" tác giả giải thích rõ nguyên tắc hoạt động của nền khoa học với quy tắc sắt, sự đồng thuận của Bacon, động lực của sự khách quan, uy quyền tối thượng của việc quan sát… Phần ba cuốn sách giải thích tại sao khoa học lại xuất hiện muộn như vậy. Trong khi đó phần 4 của cuốn sách thu hút độc giả khi đề cập đến các nội dung liên quan nền khoa học hiện đại với cách xây dựng tư duy khoa học, cách chăm sóc và bảo trì cỗ máy khoa học. Đưa ra câu chuyện về những vùng đất chịu sự biến đổi nặng nề theo hướng tiêu cực (như thành phố Melitus của Hy Lạp ở thế kỷ VI trước công nguyên từng là đô thị giàu có nhất thế giới nhờ kiểm soát một bến cảng nằm ngay trung tâm mạng lưới giao thương ở phía Đông Địa Trung Hải, giờ đây là một vùng đồng bằng khô cằn, bụi bặm) tác giả Strevens chỉ ra mặt trái của sự phát triển khoa học: khoa học giúp nền nông nghiệp, công nghiệp ngày càng phát triển; đồng thời dẫn đến sự biến đổi ngày càng xấu đi nhanh hơn của khí hậu, địa chất. Tuy nhiên, tác giả Strevens cũng chỉ ra khoa học cũng mang đến cho nhân loại cơ hội thuận lợi để cứu lấy hành tinh với việc chỉ ra cách khắc phục một số tổn hại, hướng dẫn con người cách thỏa mãn nhu cầu mà không vắt kiệt nguồn tài nguyên thiên nhiên để phục vụ cuộc sống. Tác giả đề ra ba thành tố thiết yếu để tạo nên một nền khoa học phát triển mạnh mẽ. Thứ nhất là tinh thần quyết chiến, quyết thắng. Theo đó các nhà khoa học phải có những tham vọng vị kỷ chủ quan của người làm khoa học. Những tham vọng này không phải lúc nào cũng ích kỷ, vì không ít người thật lòng khao khát tìm kiếm chân lý và mang đến cho con người một cuộc sống hạnh phúc hơn. Thứ hai các nhà khoa học phải tuân thủ đúng nguyên tắc sắt. Theo đó đấu trường khoa học đã xác định được rõ luật chơi: trước hết người tham gia phải thu thập bằng chứng thực nghiệm để củng cố sức mạnh của cỗ máy tri thức, dù công việc tìm kiếm này hết sức gian nan và tốn kém. Cuối cùng, khoa học sẽ cẩn thận lưu trữ những bằng chứng ấy để các nhà tư tưởng của nhiều thế kỷ sau tiếp tục khai thác. Trước các mối đe dọa từ khí hậu thay đổi và các đại dịch toàn cầu, cỗ máy tri thức cần phải được bảo vệ khỏi các chính trị gia, lợi ích thương mại và thậm chí chính các nhà khoa học đang tìm cách làm suy yếu hoạt động tìm kiếm chân lý của khoa học. Nhận xét về cuốn sách ""Cỗ máy tri thức"", tác giả cuốn sách Quantum viết: ""Nếu không có những lợi ích của khoa học thì cuộc sống hiện nay của chúng ta không khác gì thời Trung cổ. Khi Michael Strevens bảo vệ sức mạnh và hiệu quả của phương pháp khoa học nhằm phát hiện ra bản chất thực sự của vạn vật và phủ định những người bác bỏ sự tồn tại của chúng, ông đã theo đuổi một nhiệm vụ đầy tham vọng là khám phá cách vận hành thực sự của khoa học. ""Cỗ máy tri thức"" là cuốn sách hấp dẫn không thể bỏ qua nếu bạn muốn tìm hiểu về những điều đặc biệt trong khoa học."" Hà My",,,,
+nick-4.8-20261114T224255Z-002,83,14244ae8e783411e07683d57,6a478e7001d46cdccfc69bdc3358ad20,nick-4.8,vi,writing,oasst2,human_authored,"[user] Bảo hiểm tai nạn cá nhân là gì?
+
+[assistant] Bảo hiểm tai nạn cá nhân là một loại bảo hiểm cung cấp bảo hiểm cho người được bảo hiểm trong trường hợp họ bị thương tích do tai nạn. Bảo hiểm này có thể bao gồm các khoản bồi thường cho người bị thương tích, bồi thường cho người thân của người bị thương tích, và bồi thường cho những người khác bị thiệt hại do tai nạn. Bảo hiểm tai nạn cá nhân cũng có thể bao gồm các khoản bồi thường cho những người bị thương tích để trả lại chi phí y tế và chi phí hợp lý khác.
+
+[user] để được hưởng thì cần những thủ tục gì","Để được hưởng bảo hiểm tai nạn cá nhân, người được bảo hiểm cần phải thực hiện một số thủ tục như sau:
+
+Thông báo về sự cố: Người được bảo hiểm cần thông báo cho công ty bảo hiểm về sự cố trong thời gian sớm nhất sau khi xảy ra tai nạn. Thông báo này nên được thực hiện bằng cách gọi điện thoại, gửi email hoặc viết thư đến công ty bảo hiểm.
+
+Cung cấp các giấy tờ chứng minh: Người được bảo hiểm cần cung cấp cho công ty bảo hiểm các giấy tờ chứng minh như giấy khai sinh, giấy CMND, giấy xác nhận tạm trú/tạm vắng, giấy tờ chứng minh thu nhập và các bằng chứng khác để chứng minh việc bị thương tích hoặc tử vong do tai nạn.
+
+Khám và chữa trị: Người được bảo hiểm cần đi khám và chữa trị trong thời gian sớm nhất sau khi xảy ra tai nạn. Việc điều trị này cần được thực hiện tại các cơ sở y tế có liên kết với công ty bảo hiểm.
+
+Điền đơn yêu cầu bồi thường: Người được bảo hiểm cần điền đơn yêu cầu bồi thường và nộp đơn này cùng với các giấy tờ chứng minh liên quan cho công ty bảo hiểm.
+
+Sau khi hoàn thành các thủ tục trên, công ty bảo hiểm sẽ xem xét và giải quyết đơn yêu cầu bồi thường của người được bảo hiểm. Việc giải quyết này có thể mất thời gian khác nhau tùy vào từng trường hợp cụ thể.",,,,
+nick-4.8-20261114T224255Z-002,84,bf8ee9331052e6112dd18cce,e46aff7bb48b8a3d12e22b925f7bfa61,nick-4.8,zh,coding,oasst2,human_authored,"[user] SymPy中如何使用最值函数选取两个符号中更大的那一个或者更小的那一个？
+
+[assistant] 在 SymPy 中，你可以使用 sympy.Max() 和 sympy.Min() 函数来找到一组符号中的最大值和最小值。
+
+例如，如果你有两个符号 a 和 b，你可以使用 sympy.Max(a, b) 来找到它们之间的最大值，使用 sympy.Min(a, b) 来找到它们之间的最小值。
+
+下面是一个简单的例子：
+
+python
+
+import sympy
+
+a = sympy.Symbol('a')
+b = sympy.Symbol('b')
+
+expr_max = sympy.Max(a, b)
+expr_min = sympy.Min(a, b)
+
+print(expr_max)  # 输出 Max(a, b)
+print(expr_min)  # 输出 Min(a, b)
+
+你还可以将 sympy.Max() 和 sympy.Min() 用于更大的表达式。例如：
+
+python
+
+import sympy
+
+x = sympy.Symbol('x')
+
+expr = x**2 + 2*x + 1
+
+# 找到表达式的最大值和最小值
+max_val = sympy.Max(expr)
+min_val = sympy.Min(expr)
+
+print(max_val)  # 输出 Max(x**2 + 2*x + 1)
+print(min_val)  # 输出 Min(x**2 + 2*x + 1)
+
+请注意，如果你要找到一组符号中的最大值或最小值，这些符号应该具有可比性，否则这些函数可能会产生错误的结果。
+
+[user] 能不能帮我把中间的代码用markdown的code语法包围起来，那样比较方便阅读","好的，我将为您改正格式。
+
+在 SymPy 中，你可以使用 sympy.Max() 和 sympy.Min() 函数来找到一组符号中的最大值和最小值。
+
+例如，如果你有两个符号 a 和 b，你可以使用 sympy.Max(a, b) 来找到它们之间的最大值，使用 sympy.Min(a, b) 来找到它们之间的最小值。
+
+下面是一个简单的例子：
+
+```python
+
+import sympy
+
+a = sympy.Symbol('a')
+b = sympy.Symbol('b')
+
+expr_max = sympy.Max(a, b)
+expr_min = sympy.Min(a, b)
+
+print(expr_max)  # 输出 Max(a, b)
+print(expr_min)  # 输出 Min(a, b)
+
+你还可以将 sympy.Max() 和 sympy.Min() 用于更大的表达式。例如：
+
+python
+
+import sympy
+
+x = sympy.Symbol('x')
+
+expr = x**2 + 2*x + 1
+
+# 找到表达式的最大值和最小值
+max_val = sympy.Max(expr)
+min_val = sympy.Min(expr)
+
+print(max_val)  # 输出 Max(x**2 + 2*x + 1)
+print(min_val)  # 输出 Min(x**2 + 2*x + 1)
+```
+
+请注意，如果你要找到一组符号中的最大值或最小值，这些符号应该具有可比性，否则这些函数可能会产生错误的结果。",,,,
+nick-4.8-20261114T224255Z-002,85,e0cf265d83aa158d6e574e4c,9ec345fcede9eb6d2fad3a560e8115ee,nick-4.8,zh,education,oasst2,human_authored,[user] OpenAI的CLIP的原理是什么？,"OpenAI的CLIP（Contrastive Language-Image Pre-Training）是一种用于联合训练图像和文本的深度学习模型。其原理可以简单概括为：通过联合训练图像和文本，使得模型可以理解图像和文本之间的关系，从而实现对图像的分类、检索、生成等任务。
+
+具体来说，CLIP使用了一个双流架构，其中一个流程用于处理图像，另一个流程用于处理文本。图像流程包括一个卷积神经网络（CNN），用于将输入的图像转换为向量表示。文本流程包括一个由多个Transformer层组成的神经网络，用于将文本序列转换为向量表示。
+
+在联合训练中，CLIP使用对比学习（Contrastive Learning）的方法来学习图像和文本之间的对应关系。对比学习是一种无监督学习方法，它通过将不同的样本（如图像和文本）映射到同一空间中，并要求同一样本之间的距离尽可能小，不同样本之间的距离尽可能大来学习特征表示。
+
+具体来说，CLIP使用了一个双向编码器，即同时编码图像和文本。编码器的目标是将图像和文本映射到同一特征空间，并使得同一样本的特征向量在该空间中尽可能接近，不同样本的特征向量尽可能远离。通过这种方式，CLIP可以学习到图像和文本之间的语义关系，从而能够在图像分类、检索等任务中表现出色。
+
+总之，CLIP利用对比学习的方法将图像和文本联合训练，从而学习到了图像和文本之间的语义关系，实现了对图像的分类、检索、生成等多种任务。",,,,
+nick-4.8-20261114T224255Z-002,86,6d8e50f801bf7a4a0aaf8b82,4d3c7331f94d476cfc88505db7d7e253,nick-4.8,zh,general_knowledge,oasst2,human_authored,"[user] 测试：
+如果需要编写一条提交给AI的指示，我需要备注哪些信息？","要编写一条有效的提交给AI的prompt，您需要考虑以下信息：
+
+1. 任务类型：确定您希望AI完成的任务类型是什么，例如生成文本、回答问题、翻译等。
+
+2. 上下文信息：提供足够的上下文信息以帮助AI理解任务的背景和目的。这包括相关的文本、图像或其他媒体，并可以包含关于目标受众、领域专业术语等方面的信息。
+
+3. 所需输出格式：确定您需要AI输出的格式，例如文本、图像、语音等。
+
+4. 期望的结果：明确描述您希望AI达到的目标和期望的结果。这有助于AI更好地了解您的意图和期望的输出。
+
+5. 约束条件：如果有任何限制或约束条件，例如时间、资源、预算等，请提供这些信息。
+
+6. 反馈机制：确定您是否需要AI返回一些反馈信息，以便您可以评估其质量并进行调整。
+
+通过考虑以上信息，您可以更好地编写清晰、明确的prompt，并更容易让AI理解您的意图并生成满足您需求的输出。",,,,
+nick-4.8-20261114T224255Z-002,87,4c71706d95b3bd7b7f1940f4,7765206b58a1c07e07910f50be7d2cb2,nick-4.8,zh,mathematics,oasst2,human_authored,[user] 所有符合 -26 < s < 24 條件的整數 s 的總和為多少？,"首先，我們找到符合條件的整數範圍。-26 < s < 24 意味著 s 的範圍是 -25 到 23（不包括 -26 和 24）。
+
+因此，我們需要計算從 -25 到 23 的整數和。我們可以將這個範圍分為兩個部分：負數（-25 到 -1）和非負數（0 到 23）。
+
+負數部分的和可以通過計算等差數列求和公式來得到。在這個範圍內，首項 a1 = -25，末項 an = -1，共有 n = 25 項。因此，和為：
+
+Sn = n * (a1 + an) / 2
+Sn = 25 * (-25 - 1) / 2
+Sn = 25 * (-26) / 2
+Sn= -325
+
+非負數部分的和也可以通過等差數列求和公式得到。在這個範圍內，首項 a1 = 0，末項 an = 23，共有 n = 24 項。因此，和為：
+
+Sn = n * (a1 + an) / 2
+Sn = 24 * (0 + 23) / 2
+Sn = 24 * 23 / 2
+Sn = 276
+
+現在，我們將兩部分的和相加：
+
+總和 = 負數和 + 非負數和
+總和 = -325 + 276
+總和 = -49
+
+因此，符合 -26 < s < 24 條件的整數 s 的總和為 -49。",,,,
+nick-4.8-20261114T224255Z-002,88,864cb1aa59e1a37fbf170a10,7fb7592a8a60ef14a1b68e9d272464fa,nick-4.8,zh,research,oasst2,human_authored,"[user] 请问室温超导技术的难点在哪里,人类在什么时候可以实现室温超导?
+
+[assistant] 室温超导技术的难点主要在于找到一种物质或材料，在常温常压下可以实现电阻为零的超导现象。超导现象是指材料在低温下电阻完全消失，能无损耗地传输电流。目前已知的超导材料主要在极低温条件下才能实现超导现象，这使得在实际应用中需要大量的冷却设备和能源。
+虽然在过去的几十年里，科学家们在提高超导材料的临界温度方面取得了很大的进展，但要实现室温超导仍然面临许多挑战。这些挑战包括但不限于：
+1. 材料的稳定性：许多具有较高临界温度的超导材料在室温下可能不稳定，难以实现持续的超导状态。
+2. 材料的生产成本：合成具有室温超导特性的材料可能需要复杂的制备过程和昂贵的原料，这会影响其在实际应用中的经济性。
+3. 理论框架：尽管科学家们在超导理论方面取得了一定的进展，但目前尚无统一的理论框架可以完全解释超导现象，这限制了室温超导技术的发展。
+
+关于人类何时能实现室温超导，这是一个难以预测的问题。尽管科学家们在超导材料研究方面取得了一定的成果，但要实现室温超导仍然需要突破许多科学和技术难题。随着科学技术的不断发展，特别是在材料科学和量子物理领域的进步，实现室温超导的可能性在未来逐渐增大。但具体何时能实现，仍需时日。
+
+[user] 2023年3月8日，Ranga P. Dias 等人的近常压室温超导新论文再次在 Nature 发表，团队此前曾被撤稿，此次论文中有哪些信息值得关注？","超导是指某些材料在低温下电阻消失，能够无损耗地传输电流的现象。超导技术有着广泛的应用前景，例如高效能源转换、强大磁体、快速计算等。然而，目前已知的超导材料都需要在极低温下才能实现超导性，这给实验和工程带来了巨大的挑战和成本。因此，寻找和制造室温超导材料一直是物理学家的梦想和追求。
+
+2023年3月8日，美国罗切斯特大学的物理学家Ranga Dias教授及其团队在《自然》杂志上发表了一篇题为《N掺杂氢化镥中近环境超导性的证据》（Evidence of near-ambient superconductivity in a N-doped lutetium hydride） 的论文报告了他们在高压下使用氮掺杂的氢化镥制成的材料实现了近室温（约15.5摄氏度）的超导性。这是继2020年10月该团队在《自然》上发表了一篇声称在碳质硫氢化物
+
+中实现了室温（约15摄氏度）超导性的论文后，再次引起全球关注和讨论。
+
+值得注意的是，该团队2020年发表的论文曾经遭到了广泛质疑和批评 ，并于2022年9月被《自然》撤稿，原因是他们提供的数据不明确、不可靠、不可重复，并且没有给出合理的理论解释。因此，这次他们重新提交并发表了新论文，在数据处理、理论分析和同行评审方面都做出了改进和补充。
+
+具体来说，该团队使用混合钻石对顶砧装置（DAC）对氮掺杂的氢化镥进行高压处理，并使用电阻率测量、X射线衍射、拉曼光谱等手段来检测其结构和电学性质。他们发现，在约267 GPa（约267万个大气压）左右的压力下，在15.5摄氏度左右出现了一个明显的电阻率骤降，并随着温度升高而消失。这个骤降被认为是由于超导转变引起的，并且与之前报道过的碳质硫氢化物中观察到的类似 。他们还通过X射线衍射确定了该材料在高压下形成了一个立方结构，并通过拉曼光谱分析推断出其可能含有三元或四元聚合物单元。
+
+为了解释其超导机制，该团队采用了一个简单但有效的模型，即将该材料视为一个由氢化镥和氮原子组成的电子气，其中氢化镥提供了电子对的吸引力，而氮原子提供了电子对的动量守恒
+。他们计算出了该模型下的超导临界温度，并与实验结果进行了定性和定量的比较。他们认为，该模型可以解释他们观察到的超导现象，并指出了未来进一步优化和提高超导温度的可能途径。
+
+此外，该团队还在论文中回应了之前遭到的一些质疑和批评。例如，他们解释了为什么他们没有使用磁化率测量来证明超导性，而是使用电阻率测量。他们指出，由于高压下材料的体积极小（约10微米），磁化率测量会受到强烈的背景信号干扰，并且难以区分迈斯纳效应（Meissner effect）和完全屏蔽效应（perfect diamagnetism）。因此，他们认为电阻率测量是更可靠和直接的方法。同时，他们也提供了更多细节和数据来支持他们的结论，并邀请其他实验室进行重复实验。
+
+总之，该团队在《自然》上发表的新论文是关于室温超导研究领域的一个重要进展，也是对之前被撤稿论文的一个修正和补充。该论文中有许多信息值得关注和学习，例如高压下材料制备、结构表征、物理性质测试、理论模型建立等。",,,,
+nick-4.8-20261114T224255Z-002,89,d4150ca071059ef57e119330,3c875cc62d7ae7719f0ffe5a6716e46b,nick-4.8,zh,science,oasst2,human_authored,"[user] 推荐一些高质量的物理博客网站
+
+[assistant] 以下是一些高质量的物理博客网站，供您参考：
+- Physics World Blog: https://physicsworld.com/category/blog/
+- Physics Buzz: https://physicscentral.com/buzz/blog/
+- Physics Today: https://physicstoday.scitation.org/blog/
+- Quantum Diaries: https://www.quantumdiaries.org/
+- The Physics arXiv Blog: https://www.technologyreview.com/topic/physics-arxiv-blog/
+- BackReaction: https://backreaction.blogspot.com/
+- Of Particular Significance: https://profmattstrassler.com/
+- Preposterous Universe: https://www.preposterousuniverse.com/blog/
+- A Quantum Diaries Survivor: http://www.quantumdiaries.org/author/mattias/
+- Starts With A Bang: https://startswithabang.com/
+
+[user] 可以把你推荐的网站做个排名吗？","因为每个人对它们的喜好可能不同，并不容易做一个标准的排序。但是，根据它们的知名度、内容质量和专业性，以下是一个可能的排名：
+
+Physics World Blog: https://physicsworld.com/category/blog/
+Starts With A Bang: https://startswithabang.com/
+Physics Today: https://physicstoday.scitation.org/blog/
+Quantum Diaries: https://www.quantumdiaries.org/
+The Physics arXiv Blog: https://www.technologyreview.com/topic/physics-arxiv-blog/
+BackReaction: https://backreaction.blogspot.com/
+Of Particular Significance: https://profmattstrassler.com/
+Preposterous Universe: https://www.preposterousuniverse.com/blog/
+A Quantum Diaries Survivor: http://www.quantumdiaries.org/author/mattias/
+Physics Buzz: https://physicscentral.com/buzz/blog/
+请注意，这个排名并非绝对。不同的读者可能会根据自己的需求和兴趣对这些博客进行不同的排序。建议您访问这些网站，根据您的喜好为它们制定自己的排名。",,,,
+nick-4.8-20261114T224255Z-002,90,8baa01f4b1b1059530f63458,0f1b7b4473094fabe36708db20dae2c6,nick-4.8,zh,web_backend,oasst2,human_authored,"[user] 如何准备一场后端工程师的面试？
+
+[assistant] 准备后端工程师的面试時，您需要对服务器端技术有透彻的了解，并能与前端开发人员有效沟通。熟悉技术主题是很重要的，比如带有参数化查询的准备语句、数据库设计和网络应用架构。此外，在模拟面试中练习回答复杂的技术问题也会有帮助的。
+在回答后台工程师的面试问题时，展示解决问题的技能和编码语言的知识也至关重要。常见的问题可能涵盖数据库设计、网络应用架构和调试技术等主题。此外，能够解释后台开发人员的角色以及他们如何与开发团队的其他成员互动也很关键。
+最后，在面试过程中一定要保持自信。你可以尽可能多地练习回答后台工程师的面试问题去于建立信心，以增加面试成功的机会。
+
+[user] 你能告诉我我该准备哪些方面的知识以面对面试吗？","当你准备面对后端工程师面试时，以下是一些你应该了解和熟悉的知识方面：
+
+    数据结构和算法：了解基本的数据结构（如链表、树、堆栈、队列、散列表等）和算法（如排序、搜索、递归、动态规划等），并知道如何应用它们解决实际问题。
+
+    编程语言：熟悉你所申请的职位所要求的编程语言。了解面向对象编程、函数式编程等编程范式。
+
+    数据库：了解基本的数据库概念、关系型数据库（如MySQL、PostgreSQL）和NoSQL数据库（如MongoDB、Redis）的区别和使用场景。
+
+    网络协议和通信：了解HTTP、TCP/IP等网络协议及其工作原理，以及如何使用它们建立和管理网络连接和数据传输。
+
+    Web框架和服务器：了解流行的Web框架（如Django、Flask）和Web服务器（如Apache、Nginx）的工作原理及其在Web开发中的使用。
+
+    安全：了解Web应用程序的常见安全漏洞（如跨站脚本攻击、SQL注入攻击）以及如何使用各种安全工具和技术来防御它们。
+
+    操作系统：了解Linux或Unix系统的基本命令和操作、进程管理、文件系统、网络配置等。
+
+    软件开发过程：了解敏捷开发、测试驱动开发等软件开发方法论，以及版本控制工具（如Git）和持续集成工具（如Jenkins）的使用。
+
+以上是一些你可能需要准备的知识方面，当然具体要求也会根据不同公司和职位的不同而有所不同。建议你根据具体的招聘公告和职位要求来做更具体的准备。",,,,
+nick-4.8-20261114T224255Z-002,91,3e276d5841f23bef95286311,3d7d9321b1039cfa9a6dec6f4c489beb,nick-4.8,zh,web_frontend,oasst2,human_authored,"[user] 下午好
+
+[assistant] 您好！这里是Open-Assistant，一个基于开源协议开发的AI助手。请问我有什么可以帮助到您的？
+
+[user] 你可以介绍一些在日常生活中能接触到的开源项目吗？我知道linux，你还知道哪些？列举出来并说明它们是如何为我们的日常生活服务的。","开源项目是指开放源代码的软件项目，通常由社区或者组织共同维护，遵循一定的开源协议，允许任何人使用、修改和分发。开源项目有很多优点，比如提高软件的质量、安全性和创新性，促进知识的共享和交流，培养开发者的技能和协作能力等。
+
+除了 Linux，还有很多在日常生活中能接触到的开源项目，例如：
+
+- **Android**
+这是一个基于Linux内核的移动操作系统，由Google主导开发，运行在智能手机、平板电脑等设备上。
+- **Firefox**
+这是一个由Mozilla基金会开发的跨平台的网络浏览器，支持多种扩展和插件，提供快速、安全和私密的上网体验。
+- **WordPress**
+这是一个使用PHP和MySQL开发的内容管理系统（CMS），可以用来搭建博客、网站、商城等各种类型的网站。
+- **Python**
+这是一个广泛使用的高级编程语言，具有简洁、优雅、易读的语法，支持多种编程范式，拥有丰富的第三方库和框架。
+- **Vue**
+这是一个渐进式的前端框架，用于构建用户界面和单页面应用。它具有轻量、数据驱动、组件化等特点，易于学习和使用。
+
+以上只是一些例子，还有很多其他的开源项目，你可以在GitHub、Gitee等平台上搜索和浏览。",,,,
+nick-4.8-20261114T224255Z-002,92,86744620a35b87c8f0fa21fb,daadd452d7708bf511e1daa86b6ee598,nick-4.8,zh,writing,oasst2,human_authored,"[user] 你认识周杰伦吗？
+
+[assistant] 如果您是指那位中国著名歌手、演员、明星，那么是的，我认识周杰伦，我可以通过互联网公开信息了解他的各种信息，但是很明显，周杰伦并不认识我
+
+[user] 要怎樣才能讓他認識你？
+
+[assistant] 很簡單，只要讓他參觀我的首頁 https://open-assistant.io 就可以了。您可以把這條鏈結傳給他，讓他早點認識我！
+
+[user] 你知道我能在哪些平台上联系周杰伦的团队吗？","周杰伦的团队主要由他的经纪公司杰威尔音乐有限公司（JVR Music）管理，该公司由周杰伦、方文山和杨峻荣三人共同创立，总部位于台北市长春路。您可以尝试通过以下方式联系周杰伦的团队：
+
+访问杰威尔音乐有限公司的官方网站：http://www.jvrmusic.com/，在“联系我们”栏目下填写您的姓名、邮箱、电话和留言内容，然后点击“发送”按钮。
+发送电子邮件到杰威尔音乐有限公司的官方邮箱：[EMAIL]，说明您的姓名、目的和请求。
+关注杰威尔音乐有限公司的官方社交媒体账号，如Facebook、Instagram、Twitter、YouTube等，留言或私信您的姓名、目的和请求。
+访问周杰伦中文网：http://www.jaycn.com/，这是一个由周杰伦的粉丝创建和维护的非官方网站，提供周杰伦的最新动态、影音下载、电子杂志、博客等服务。您可以在该网站上注册会员，参与论坛讨论，或者通过“联系我们”栏目下的邮箱或QQ群与网站管理员联系。
+请注意，以上方式并不保证您能成功联系到周杰伦的团队，也不代表周杰伦或他的团队对您的留言或请求有任何回应或承诺。如果您想与周杰伦本人直接沟通，请尊重他的隐私和个人空间，不要试图获取他的私人联系方式或骚扰他。谢谢您的理解和支持。",,,,
+nick-4.8-20261114T224255Z-002,93,9b6f36ae5dedf725ba570fb1,9cb6fe54f902103a734c5edf644a017a,nick-4.8,ar,general_knowledge,aya-dataset,human_authored,[user] ما هو نبات الأرز,"الأرز هو نبات حولي ينتمي إلى فصيلة النجيليات، وهو واحد من أهم المحاصيل الغذائية في العالم. يُعتبر الأرز مصدرًا رئيسيًا للطاقة الغذائية لأكثر من نصف سكان العالم، خاصة في مناطق آسيا. إليك بعض المعلومات حول نبات الأرز:
+الأنواع المهمة: هناك العديد من أصناف الأرز، وتختلف في الحجم واللون والملمس. الأصناف الرئيسية هي الأرز الأبيض والأرز البني، إضافة إلى أصناف أخرى.
+البيئة والزراعة: يحتاج الأرز إلى بيئة ذات رطوبة عالية، وغالبًا ما يُزرع في الأراضي المغمورة بالمياه. يتم زراعته في حقول زراعية تسمى أراضي الأرز.
+الدورة الزراعية: يمر نبات الأرز بعدة مراحل، بدءًا من البذرة وحتى النمو والنضج. يتم غالبًا زراعة الأرز في الموسمين الرطب والجاف، حيث يُزرع في الماء ويُنمو فيه.
+القيمة الغذائية: الأرز غني بالكربوهيدرات ويحتوي على الألياف والبروتين النباتي. يُعد الأرز البني أكثر غنىً بالعناصر الغذائية من الأرز الأبيض.
+الأهمية الاقتصادية والاجتماعية: يلعب الأرز دورًا حيويًا في تأمين الغذاء للعديد من السكان في جميع أنحاء العالم. يعتبر قطاع الأرز مصدرًا للعيش للعديد من المزارعين.
+نبات الأرز يشكل جزءًا لا يتجزأ من تاريخ وثقافة العديد من الشعوب، ويظل من أهم المحاصيل في التغذية العالمية.",,,,
+nick-4.8-20261114T224255Z-002,94,c7f14fb6a85dd5b0e7a2d75d,8656d7784c31a82cb3f93bbc2c52c0a1,nick-4.8,ar,islamic_studies,aya-dataset,human_authored,"[user] أجب على السؤال: ""ما هو قلب القرءان ؟"".","الإجابة الصحيحة هي ""سورة يس"". سورة يس مكية بالإجماع، لم يخرج من ذلك إلا ما قيل من استثناء قول الله تعالى: ﴿إِنَّا نَحْنُ نُحْيِي الْمَوْتَى وَنَكْتُبُ مَا قَدَّمُوا وَآثَارَهُمْ وَكُلَّ شَيْءٍ أَحْصَيْنَاهُ فِي إِمَامٍ مُبِينٍ ١٢﴾ [يس:12] أنها مدنية، وتتميّز بخصائص السُّوَر المكّية، فهي تُركّز على العقيدة، والإيمان بالجنّة والنار وما يسبقهما من بَعث وجَزاء وِحِساب، والسورة من المثاني، نزلت بعد سورة الجن، وآياتها (83)آية ، وترتيبها في المصحف 36، في الجزء الثالث والعشرين، بدأت بحرفان من الحروف المقطعة:  يس  ، نزلت بعد سورة الجن، بها سكت عند كلمة «مَرْقَدِنَاْ»، وتُعَدّ من السُّوَر التي أظهرت عَظمة بلاغة القرآن، لابتدائها بحروف مُقطَّعة تحدّى الله بها المشركين في الإتيان بمثله ولو آية، ومن أسمائها (يس، حبيب النجّار، قلب القرآن، الدافعة، القاضية، المعمة، العظيمة، العزيزة)، ومن أسباب نزولها أنها نزلت في بني سلمة، ومن أهدافها تأكيد رسالة الإسلام السماويّة، وتثبيت قلب النبيّ، وتقرير أمّهات أصول الدين، وتناولت موضوعاتٍ متعدّدةً منها: الحديث عن القرآن ومبعث النبي محمّد للناس كافّةً وقصة أصحاب القرية، ومن العِبَر المُستفادة من السورة: كتاب الله مُحكَم ومَحفوظ لا يمكن لأحد تبديلَه، ضرورة الثبات والصبر على العقيدة، شُكر الله وحَمده على نِعَمه الكثيرة، واختصاص الله جلّ وعلا وحده بالعلم.",,,,
+nick-4.8-20261114T224255Z-002,95,07c1b4e19b1a14782b0b5987,867a0386a49122595f07e3fee2b4b5b6,nick-4.8,ar,research,tydiqa-goldp,human_authored,"[user] على الجانب الآخر رأى محمد فرح عيديد في قوات حفظ السلام الدولية تهديدا له ولسلطاته حيث أصدر الأوامر لميليشياتة المسلحة بمهاجمة مواقع القوات الباكستانية العاملة بمقديشيو مما أسفر عن إصابة نحو 80 فرد متعددي الجنسية من قوات حفظ السلام، واستمر القتال حتى سقط 19 جنديا أمريكيا وجنديين باكستانيين وآخر ماليزي صرعى من جانب قوات حفظ السلام بالإضافة إلى قرابة 1,000 فرد من الميليشيات الصومالية المسلحة في الفترة ما بين الثالث والرابع من أكتوبر لعام 1993 فيما عرف في التاريخ الحربي فيما بعد باسم ""معركة مقديشيو"" الأمر الذي دفع الأمم المتحدة لشن عملية ""الدرع الموحد"" بقوات مكونة من عناصر أمريكية ومصرية وباكستانية في الثالث من مارس لعام 1995، إلا أن هذه القوات قد تكبدت خسائر بشرية كبيرة دون إقرار حكومة مدنية في الصومال حتى أعلن مقتل عيديد في مقديشيو في يونيو من عام 1996.  برزت مشكلة القرصنة قبالة شاطئ الصومال كنتيجة حتمية لانهيار وتضعضع السلطة الحكومية إثر نشوب الحرب الأهلية،[57] وقد ظهرت هذه المشكلة بداية الأمر في الموانئ الساحلية للبلاد.[58] أتت القرصنة كردة فعل من قبل الصيادين الصوماليين قاطني عدد من البلدات الساحلية مثل: ايل، كيسمايو، وهراردير، على هجوم سفن الصيد الأجنبية على الثروة السمكية الموجودة بالمياه الإقليمية بعد انهيار الحكومة،[59][60] الأمر الذي حرم الصيادين من جزء كبير من مدخولهم. كذلك، لاحظ بعض المسؤولين أن أعمال القرصنة تصاعدت بعد حدوث زلزال المحيط الهندي بتاريخ 26 ديسمبر من عام 2004، الذي تسبب بموجة تسونامي هائلة دمرت عدد من القرى الساحلية وقوارب صيدها.[61] يقول البعض أن أعمال القرصنة في الصومال هي ""الأعمال الاقتصادية الوحيدة المزدهرة"" في البلاد، وأنها ""دعامة"" اقتصاد أرض البنط.[62][63][64]
+
+متى ظهرة القرصنة في الصومال لأول مرة ؟","1996
+
+على الجانب الآخر رأى محمد فرح عيديد في قوات حفظ السلام الدولية تهديدا له ولسلطاته حيث أصدر الأوامر لميليشياتة المسلحة بمهاجمة مواقع القوات الباكستانية العاملة بمقديشيو مما أسفر عن إصابة نحو 80 فرد متعددي الجنسية من قوات حفظ السلام، واستمر القتال حتى سقط 19 جنديا أمريكيا وجنديين باكستانيين وآخر ماليزي صرعى من جانب قوات حفظ السلام بالإضافة إلى قرابة 1,000 فرد من الميليشيات الصومالية المسلحة في الفترة ما بين الثالث والرابع من أكتوبر لعام 1993 فيما عرف في التاريخ الحربي فيما بعد باسم ""معركة مقديشيو"" الأمر الذي دفع الأمم المتحدة لشن عملية ""الدرع الموحد"" بقوات مكونة من عناصر أمريكية ومصرية وباكستانية في الثالث من مارس لعام 1995، إلا أن هذه القوات قد تكبدت خسائر بشرية كبيرة دون إقرار حكومة مدنية في الصومال حتى أعلن مقتل عيديد في مقديشيو في يونيو من عام 1996.",,,,
+nick-4.8-20261114T224255Z-002,96,637c96167b3fe5dd3189f927,9c9171f5ecf57382dacb563adb08c884,nick-4.8,bn,research,tydiqa-goldp,human_authored,"[user] রেনেসাঁ শিল্প বলতে ইউরোপীয় রেনেসাঁর সময়কার চিত্রকলা, স্থাপত্য, এবং আলংকারিক কার্যকলাপসমূহকে বোঝানো হয় যা দর্শন, সাহিত্য, সঙ্গীত, এবং বিজ্ঞানের পাশাপাশি একটি নিজস্ব শৈলী নিয়ে ১৪০০ সালে ইতালিতে আবির্ভূত হয়। রেনেসাঁ চিত্রকলা, যাকে কিনা ক্লাসিকাল এন্টিকুইটির/ধ্রুপদী সভ্যতার শ্রেষ্ঠ বলে মনে করা হয়, তা  ক্লাসিকাল বা শাস্ত্রীয় চিত্রকলাকে বুনিয়াদ করেই গড়ে ওঠে, তবে সেই ঐতিহ্যকেই উত্তর ইউরোপের সমসাময়িক শৈল্পিক বিকাশ এবং বৈজ্ঞানিক জ্ঞানের সাথে যুক্ত করে রুপান্তর করে নেয়। সুরভি বন্দোপাধ্যায়ের মতে ""ক্লাসিসিজম-এর বৈশিষ্ট্য হল পরিমিতিবোধ, ভারসাম্যবোধ, সংযম এবং আঙ্গিক-সচেতনতা।...ক্লাসিসিজম-এর তাত্ত্বিক অর্থ হল নিয়ম, প্রথা এবং প্রচলিত শৃঙ্খলার অনুসরণ, তাৎক্ষণিক প্রেরণা নয়""।[1] রেনেসাঁ শিল্প এবং রেনেসাঁ মানবতাবাদ দর্শন সমস্ত ইউরোপে ছড়িয়ে পড়ে এবং নিত্যনতুন শৈল্পিক কলাকৌশল ও শৈল্পিক সংবেদনশীলতা শিল্পী ও তাঁদের পৃষ্ঠপোষকদের প্রভাবিত করে। রেনেসাঁ শিল্পের মাধ্যমেই ইউরোপ মধ্যযুগ থেকে আদি আধুনিক যুগে উন্নীত হয়।
+
+ইউরোপের কোন দেশে প্রথম রেনেসাঁর উৎপত্তি হয় ?","ইতালি
+
+রেনেসাঁ শিল্প বলতে ইউরোপীয় রেনেসাঁর সময়কার চিত্রকলা, স্থাপত্য, এবং আলংকারিক কার্যকলাপসমূহকে বোঝানো হয় যা দর্শন, সাহিত্য, সঙ্গীত, এবং বিজ্ঞানের পাশাপাশি একটি নিজস্ব শৈলী নিয়ে ১৪০০ সালে ইতালিতে আবির্ভূত হয়। রেনেসাঁ চিত্রকলা, যাকে কিনা ক্লাসিকাল এন্টিকুইটির/ধ্রুপদী সভ্যতার শ্রেষ্ঠ বলে মনে করা হয়, তা  ক্লাসিকাল বা শাস্ত্রীয় চিত্রকলাকে বুনিয়াদ করেই গড়ে ওঠে, তবে সেই ঐতিহ্যকেই উত্তর ইউরোপের সমসাময়িক শৈল্পিক বিকাশ এবং বৈজ্ঞানিক জ্ঞানের সাথে যুক্ত করে রুপান্তর করে নেয়। সুরভি বন্দোপাধ্যায়ের মতে ""ক্লাসিসিজম-এর বৈশিষ্ট্য হল পরিমিতিবোধ, ভারসাম্যবোধ, সংযম এবং আঙ্গিক-সচেতনতা।...ক্লাসিসিজম-এর তাত্ত্বিক অর্থ হল নিয়ম, প্রথা এবং প্রচলিত শৃঙ্খলার অনুসরণ, তাৎক্ষণিক প্রেরণা নয়""।[1] রেনেসাঁ শিল্প এবং রেনেসাঁ মানবতাবাদ দর্শন সমস্ত ইউরোপে ছড়িয়ে পড়ে এবং নিত্যনতুন শৈল্পিক কলাকৌশল ও শৈল্পিক সংবেদনশীলতা শিল্পী ও তাঁদের পৃষ্ঠপোষকদের প্রভাবিত করে। রেনেসাঁ শিল্পের মাধ্যমেই ইউরোপ মধ্যযুগ থেকে আদি আধুনিক যুগে উন্নীত হয়।",,,,
+nick-4.8-20261114T224255Z-002,97,4518320fd979741aae82607b,e538e510ba1f807e6dc8aa97fd4761f5,nick-4.8,ca,coding,oasst2,human_authored,"[user] Dona'm alguns recursos (enllaços, llibres, vídeos...) per poder aprendre com funcionen les xarxes neuronals i entendre els darrers desenvolupaments dels darrers anys en el camp de la intel·ligència artificial.","Les xarxes neuronals són models computacionals inspirats en el funcionament del cervell humà que poden aprendre de les dades i realitzar tasques com la classificació, la regressió o la generació. Alguns recursos que et poden ajudar a aprendre sobre les xarxes neuronals són:
+
+1. La Viquipèdia té un article sobre les xarxes neuronals que explica els seus conceptes bàsics, tipus i aplicacions.
+2. El llibre ‘Neural Networks and Deep Learning’ de Michael Nielsen és una introducció accessible i pràctica a les xarxes neuronals profundes, amb exemples en Python.
+3. El curs ‘Neural Networks and Deep Learning’ de Coursera impartit per Andrew Ng és un dels més populars i reconeguts en el camp de la intel·ligència artificial, amb vídeos i exercicis interactius.
+4. El blog ‘CIDAI’ té articles sobre els últims desenvolupaments i reptes de les xarxes neuronals profundes, com ara l’eficiència i l’entrenament.
+
+Espero que aquests recursos et siguin útils!",,,,
+nick-4.8-20261114T224255Z-002,98,5589081cb196e4f45f1996a9,39ed29c06490f16b3ece4c3c697128b5,nick-4.8,ca,general_knowledge,oasst2,human_authored,"[user] Fes un breu resum de la història de la ciutat de Tarragona durant l'època romana
+
+[assistant] Tàrraco (Tarragona) sorgeix arran de l'arribada dels exèrcits romans a la Península Ibèrica el 218 aC, en el marc de la confrontació bèl·lica entre romans i cartaginesos, l'anomenada Segona Guerra Púnica. Aquest cos expedicionari romà va desembarcar a la ciutat grega d'Empòrion per dirigir-se ràpidament des d'allà cap al sud amb la finalitat de controlar les terres al nord de l'Ebre. Les tropes romanes estaven comandades per Gneu Escipió, al qual s'hi va afegir, un any més tard, el seu germà Publi Corneli. Gneu, després de vèncer en un primer combat els cartaginesos, va deixar una petita guarnició que poc temps després es va transformar en la principal base militar romana a Hispània i a la ciutat de Tàrraco. Aquest primer assentament romà es trobava molt pròxim a un oppidum ibèric fundat a final del segle V aC i arqueològicament documentat recentment.
+
+La ciutat republicana de Tàrraco va ser possiblement un nucli bifocal, amb el campament militar a la part alta i l'àrea residencial a l'entorn del poblat ibèric i el port. La consolidació urbana va ser ràpida. La presència militar estable va comportar l'arribada no només de soldats, sinó també de comerciants i ciutadans romans que van veure Hispània com una terra que els oferia noves oportunitats. Però l'arribada dels romans no tan sols va suposar l'arribada de gent, sinó també d'influències i d'una nova cultura que, amb el temps, va acabar per imposar-se amb més o menys èxit, segons la zona, a tota la Península Ibèrica. Una de les principals infrastructures sobre les quals es va cimentar Tàrraco fou, sense cap dubte, el port.
+
+Malgrat tot, l'edificació romana més antiga i més ben conservada d'època republicana és la muralla. En un primer moment hem d'imaginar-nos-la com una simple palissada de fusta que degué protegir la guarnició militar. La victòria romana sobre els cartaginesos i la incorporació d'Hispània a l'Estat romà va accelerar el procés de consolidació de les defenses. La construcció de la primera muralla de pedra, datada arqueològicament a inicis del segle II aC, s'ha relacionat amb la divisió provincial de 197 aC.
+
+L'opinió més estesa és que, a l'entorn del període comprès entre els anys 150 i 125 aC, la muralla va patir una transformació important i va créixer en extensió, alçada i amplada. D'aquesta manera va passar a encerclar el nucli urbà.
+
+Tàrraco va créixer de forma accelerada durant els segles II i I aC, i es va convertir, juntament amb Cartago Nova, en la ciutat més important de la Hispània Citerior. Cèsar hi va reunir els seus llegats durant la guerra civil contra Pompeu. Gràcies a la lleialtat mostrada pels tarragonins, Cèsar li concedí el títol de Colònia.
+
+Va ser durant els anys 26 i 25 aC quan Tàrraco va adquirir una rellevància més gran com a ciutat, en convertir-se en la capital del món romà. En efecte, durant aquests anys, August va residir a la ciutat i hi va dirigir les campanyes contra càntabres i àsturs. Gràcies a la presència militar, Tàrraco es va consolidar com a capital de la Hispània Citerior, i va rebre un fort impuls urbanístic, una mostra del qual és el teatre i la monumentalització del fòrum local.
+
+Durant el segle I aC la ciutat va créixer i es va consolidar. L'any 68, Neró va ser assassinat. Es va iniciar un període de convulsions en tot l'Imperi per una sagnant guerra civil. El general romà Galba va ser nomenat emperador per les legions romanes hispanes, mentre que en altres parts de l'Imperi van sorgir altres pretendents a emperador. Mort Galba, les províncies hispanes van donar suport a Vespasià, que va ser qui finalment va arribar al poder. S'iniciava així la dinastia flàvia i un moment de gran esplendor per a les províncies hispanes. Gràcies al suport prestat a la causa, Vespasià els concedí els Ius Latii, a l'entorn de l'any 73. A partir d'aquell moment tots els hispans foren considerats ciutadans romans de ple dret amb tot el que això significava. Així mateix, els nuclis més importants de població, molts dels quals encara mantenien l'estatus sorgit en el moment de la conquesta, es van convertir en municipis. Tot això va comportar la necessitat de crear una nova administració que s'adeqüés a aquesta nova realitat. Van sorgir així, sobre la base creada per August, unes importants xarxes administratives que tenien com a nuclis rectors les capitals provincials. D'aquesta manera, Tàrraco, com a capital de la Hispània Tarraconensis o Citerior, va disposar de dos fòrums: un de colonial i un altre de provincial. Al fòrum provincial se li va afegir uns anys més tard el circ, i es va completar el conjunt municipal estatal.
+
+Durant el segle II la ciutat va arribar a la màxima esplendor gràcies a la construcció del darrer dels grans edificis d'entreteniment: l'amfiteatre.
+
+Tàrraco, com la majoria de centres urbans d'Hispània, va ser objecte de les incursions que els francs realitzaren a mitjans del segle III. Segons ens relaten les fonts, i sembla que ho corrobora l'arqueologia, la ciutat va ser devastada l'any 260 dC, i en va resultar especialment afectada la zona d'hàbitat. Després d'un període d'incertesa que es va prolongar durant bona part del segle III, la ciutat va recobrar el seu dinamisme a partir, especialment, de la recuperació general que va suposar l'adveniment al poder de Dioclecià i de la tetrarquia que es va establir l'any 285. A partir d'aquesta data i amb continuïtat durant la primera meitat del segle IV, la ciutat es va revitalitzar tal com ho manifesta la construcció de nous edificis públics, el manteniment dels espectacles, l'amfiteatre o la restauració d'edificis públics d'època de l'Alt Imperi. Amb tot, Tàrraco no es va escapar de la dinàmica de transformació social, política i econòmica que va alterar la fisonomia de molts centres urbans d'occident.
+
+Un element imprescindible per a la ciutat tardana de Tàrraco va ser sens dubte el cristianisme i la seva implantació. S'han transmès fins avui les actes martirials del bisbe Fructuós i els diaques Auguri i Eulogi, que foren objecte de persecució i mort l'any 259. El lloc de la sepultura es va acabar convertint en el centre eclesiàstic de Tàrraco, a partir del segle V, amb la construcció d'una gran basílica funerària amb edificis annexos, entre els quals hi havia un baptisteri. Aquesta església, emplaçada als antics suburbis de Tàrraco i amb proximitat al riu Francolí, va generar la construcció d'altres edificis eclesiàstics, com una segona basílica, molt propera a la primera, que disposava d'un atri i edificis agraris que s'hi vinculaven. L'anomenada necròpoli paleocristiana que rodeja l'àrea constitueix un dels conjunts funeraris cristians més ben documentats de l'Europa occidental. Tot aquest suburbi cristià va acabar esdevenint un centre important i dinàmic de Tàrraco.
+
+La documentació escrita des de l'inici del segle V ens mostra una Tàrraco que mantenia estructures socials complexes, en la qual el bisbe metropolità era el defensor de l'ordre establert en un imperi en què Christianitas era sinònim de romanitas. Cal destacar, a més, la presència a la ciutat del comes Hispanorum.
+
+Tàrraco va continuar sent una de les principals metròpolis hispanes durant la monarquia visigoda, fins que el panorama va canviar radicalment amb la conquesta de la ciutat per part d'exèrcits islàmics cap a l'any 713 i la seva incorporació a Al-Àndalus. A partir d'aquest moment la ciutat va entrar en un llarg i obscur període que no va concloure fins a la conquesta impulsada pels comtes catalans al segle XII i que va suposar el restabliment de la seu metropolitana a Tarragona.
+
+[user] Perfecte, però podries fer la resposta més curta?","Tàrraco sorgeix arran de l'arribada dels exèrcits romans a la Península Ibèrica el 218 aC, en el marc de la confrontació bèl·lica entre romans i cartaginesos, l'anomenada Segona Guerra Púnica. Aquest cos expedicionari romà va desembarcar a la ciutat grega d'Empòrion per dirigir-se ràpidament des d'allà cap al sud amb la finalitat de controlar les terres al nord de l'Ebre. Les tropes romanes estaven comandades per Gneu Escipió, al qual s'hi va afegir, un any més tard, el seu germà Publi Corneli. Gneu, després de vèncer en un primer combat els cartaginesos, va deixar una petita guarnició que poc temps després es va transformar en la principal base militar romana a Hispània i a la ciutat de Tàrraco. Cèsar hi va reunir els seus llegats durant la guerra civil contra Pompeu. Gràcies a la lleialtat mostrada pels tarragonins, Cèsar li concedí el títol de Colònia.
+Va ser durant els anys 26 i 25 aC quan Tàrraco va adquirir una rellevància més gran com a ciutat, en convertir-se en la capital del món romà. En efecte, durant aquests anys, August va residir a la ciutat i hi va dirigir les campanyes contra càntabres i àsturs. Gràcies a la presència militar, Tàrraco es va consolidar com a capital de la Hispània Citerior, i va rebre un fort impuls urbanístic, una mostra del qual és el teatre i la monumentalització del fòrum local.
+Al fòrum provincial se li va afegir uns anys més tard el circ, i es va completar el conjunt municipal estatal.
+Durant el segle II la ciutat va arribar a la màxima esplendor gràcies a la construcció del darrer dels grans edificis d'entreteniment: l'amfiteatre.
+Tàrraco, com la majoria de centres urbans d'Hispània, va ser objecte de les incursions que els francs realitzaren a mitjans del segle III. Segons ens relaten les fonts, i sembla que ho corrobora l'arqueologia, la ciutat va ser devastada l'any 260 dC, i en va resultar especialment afectada la zona d'hàbitat. Després d'un període d'incertesa que es va prolongar durant bona part del segle III, la ciutat va recobrar el seu dinamisme a partir, especialment, de la recuperació general que va suposar l'adveniment al poder de Dioclecià i de la tetrarquia que es va establir l'any 285.",,,,
+nick-4.8-20261114T224255Z-002,99,18a1ef7f79afbe172d5e5ebe,2a4c29acbea42bc2f22116642c3fcd21,nick-4.8,ca,mathematics,oasst2,human_authored,[user] Mostra'm un menú setmanal saludable per una persona que teletreballa i que es passa 11 hores assegut a una cadira.,"Aquí tens un exemple de menú setmanal saludable per a una persona que teletreballa i passa moltes hores asseguda a la cadira:
+
+Dilluns:
+
+Esmorzar: Batut de fruites i iogurt natural, 1 tallada de pa integral amb mantega d'ametlles
+Dinar: Crema de carbassa, quinoa amb verdure i tonyina
+Sopar: Truita francesa amb verdures acompanyada de fruita de temporada
+
+Dimarts:
+
+Esmorzar: Cigró amb espinacs, 1 taronja
+Dinar: Saltejat de tofu amb verdures i arròs integral
+Sopar: Saltejat de pollastre amb verdures i arròs integral
+
+Dimecres:
+
+Esmorzar: Iogurt natural amb granola i fruita de temporada
+Dinar: Salmó al forn amb patata i broquil a la planxa
+Sopar: Crema de pastanaga, truita d'espinacs amb xampinyons
+
+Dijous:
+
+Esmorzar: Smoothie de plàtan i cacau, 1 tallada de pa integral amb alvocat
+Dinar: Arròs integral amb verdures i cigrons, i un filet de pollastre a la planxa
+Sopar: Crema de carbassó, truita francesa amb xampinyons i julivert
+
+Divendres:
+
+Esmorzar: Iogurt natural amb anous i fruita de temporada
+Dinar: Paella vegetal amb arròs integral i verdure
+Sopar: Saltejat de pollastre amb verdures, arròs integral i una fruita de temporada
+
+Caps de setmana:
+
+Es recomana fer menjars més lleugers, com amanides, fruites i verdures al vapor.
+
+Tingues en compte que aquest menú és només un exemple i que hauries de parlar amb un professional de la salut o un nutricionista per ajustar-lo a les teves necessitats i preferències alimentàries específiques. A més, també és important recordar mantenir-se hidratat durant tot el dia, i fer pausas per estirar les cames i moure el cos després de passar períodes llargs assegut davant de la pantalla.",,,,
+nick-4.8-20261114T224255Z-002,100,25b1c9ebb56c9c3770e85bb7,7be92c1da80da1daa28f311621583ee3,nick-4.8,ca,reasoning,oasst2,human_authored,[user] Quina és la recepta de la truita de patata?,"La truita de patata, també coneguda com a truita de patates o tortilla de patatas, és un plat típic espanyol que consisteix en una truita feta amb ous, patates i, en alguns casos, ceba. Aquí tens una recepta senzilla per preparar una truita de patata:
+
+Ingredients:
+
+4-5 patates mitjanes
+1 ceba gran (opcional)
+6 ous grans
+Sal
+Oli d'oliva
+Instruccions:
+
+Pela les patates i talla-les en rodanxes fines. Si utilitzes ceba, pela-la i talla-la en tires fines.
+
+En una paella gran, afegeix abundant oli d'oliva i escalfa'l a foc mitjà. Un cop l'oli estigui calent, afegeix les patates i la ceba (si l'utilitzes) a la paella. Afegeix sal al gust.
+
+Cuina les patates i la ceba a foc mitjà-baix, remenant de tant en tant per evitar que s'enganxin a la paella. Cuina fins que les patates estiguin tendres però no daurades (uns 15-20 minuts).
+
+Mentre es couen les patates i la ceba, bateix els ous en un bol gran i sal-los al gust.
+
+Un cop les patates i la ceba estiguin tendres, treu-les de la paella amb una escumadora i escorre l'excés d'oli. Deixa que s'arrefredin lleugerament i afegeix-les al bol amb els ous batuts. Mescla bé per combinar.
+
+Escalfa una paella antiadherent més petita (uns 20-25 cm de diàmetre) a foc mitjà. Afegeix una mica d'oli d'oliva i, quan estigui calent, afegeix la barreja d'ous, patates i ceba. Escampa uniformement i baixa el foc a mitjà-baix.
+
+Cuina la truita durant uns 5-8 minuts, fins que els ous comencin a quallar i la part inferior estigui daurada. Per girar la truita, cobreix la paella amb un plat pla, agafa la paella amb una mà i el plat amb l'altra, i gira amb un moviment ràpid. Llavors, fes lliscar la truita amb compte a la paella per coure l'altre costat.
+
+Cuina la truita per l'altre costat durant uns 3-5 minuts, fins que estigui daurada i completament cuita. Si t'agrada menys cuita, redueix el temps de cocció.
+
+Treu la truita de la paella i deixa-la reposar uns minuts abans de servir. Pots menjar-la calenta, tèbia o freda. La truita de patata és deliciosa com a plat principal, acompanyament o en un entrepà.
+
+Bon profit!",,,,

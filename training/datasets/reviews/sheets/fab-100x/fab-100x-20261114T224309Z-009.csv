@@ -1,0 +1,1939 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-100x-20261114T224309Z-009,1,0eac280755d4517bd33358be,c4637179388e187cbf87008e72ff53be,fab-100x,de,safety_ethics,oasst2,human_authored,"[user] Hey!
+Kannst du mir vielleicht kurz ein paar gute Argumente geben, warum der Satz ''Ich habe nichts zu verbergen'' kontraproduktiv für die Privatspäre des Individuums sowie der Gesellschaft im ganzen ist.","Natürlich!
+
+1. Der Satz impliziert, dass Datenschutz nur für Menschen relevant ist, die etwas zu verbergen haben. Dies stigmatisiert Menschen, die sich für ihre Privatsphäre einsetzen, als verdächtig oder kriminell.
+
+2. Der Satz berücksichtigt nicht, dass selbst harmlose Informationen oft gegen eine Person verwendet werden können. Es kann zum Beispiel sein, dass eine Person ihre sexuelle Orientierung oder politische Überzeugungen als privat betrachtet, aber diese Informationen könnten verwendet werden, um sie zu diskriminieren, zu belästigen oder auszuschließen.
+
+3. Der Satz impliziert, dass die Kontrolle über persönliche Informationen in den Händen der Person liegt. In der Realität geben wir jedoch täglich unzählige Informationen ab, von der Bestellung von Waren und Dienstleistungen bis hin zur Nutzung von Social-Media-Plattformen. Diese Informationen werden oft von Unternehmen und Regierungsbehörden gesammelt und ohne unser Wissen oder Zustimmung verwendet.
+
+4. Der Satz ignoriert die Bedeutung von Privatsphäre für die Freiheit und Autonomie von Menschen. Eine Gesellschaft, die keine Privatsphäre respektiert, schafft eine Atmosphäre der Überwachung, Unterdrückung und Manipulation. Dies kann die Fähigkeit von Menschen einschränken, Entscheidungen zu treffen, die ihren Interessen entsprechen.
+
+5. Schließlich kann der Satz dazu führen, dass wir uns unnötigen Risiken aussetzen, indem wir persönliche Informationen preisgeben, die uns später schaden können. Zum Beispiel können sich Informationen, die auf Social-Media-Plattformen gepostet wurden, auf eine Person auswirken, wenn sie sich auf Jobsuche oder auf andere gesellschaftliche Prozesse bewerben.",,,,
+fab-100x-20261114T224309Z-009,2,bc776cefe26f96fe99faad1b,94ad7f7ee1c5d6c307586db784ae046a,fab-100x,de,science,oasst2,human_authored,"[user] Bitte erstelle eine Json formatierten output mit 20 bekannten Metal Bands. Jede Band hat die Felder ""gründungsjahr"", ""gesang"", ""bass"", ""gitarre"", ""schlagzeug"", ""subgenre"", sowie ""herkunftsland"".
+
+[assistant] {""Iron Maiden:{""gründungsjahr"":1975, }}
+
+[user] Das ist etwas zu spärlich! Ich erledige das dann wohl am besten selbst.
+
+Kannst du mir bitte dafür die grundlegende Struktur für die JSON-Elemente geben, wenn man in Betracht zieht, dass Bands mehrere Subgenres und Musiker auf der selben Position haben?","Es tut mir Leid, dass die Antwort nicht zufriedenstellend war. Gerne erstelle ich dir eine JSON-Struktur für dein Anliegen:
+
+    {
+        ""gründungsjahr"": 1975,
+        ""gesang"": ""Bruce Dickinson"",
+        ""bass"": ""Steve Harris"",
+        ""gitarre"": [
+            ""Dave Murray"",
+            ""Adrian Smith"",
+            ""Janick Gers"",
+        ],
+        ""schlagzeug"": ""Nicko McBrain"",
+        ""subgenre"": ""New Wave of British Heavy Metal"",
+        ""herkunftsland"": ""England""
+    }
+
+Die Struktur wurde anhand des Beispiels ""Iron Maiden"" erstellt. Beachte, dass bei Iron Maiden drei Bandmitglieder Gitarristen sind.",,,,
+fab-100x-20261114T224309Z-009,3,9d56a528b44835d58b158c36,c022cead9761eecd6f5a89c15954039f,fab-100x,de,software_engineering,oasst2,human_authored,"[user] Was sind die besten Versionsverwaltungsprogramme außer Git?
+
+[assistant] Es gibt verschiedene Versionsverwaltungssysteme, die man neben Git verwenden kann. Hier sind fünf populäre Beispiele:
+
+1. SVN (Subversion)
+2. Mercurial
+3. Perforce
+4. Bitbucket
+5. Fossil
+
+Jedes dieser Systeme hat seine eigenen Vor- und Nachteile, und es ist empfehlenswert, sich vor der Entscheidung für ein bestimmtes System über die individuellen Vorteile und die Eignung für die eigenen Anforderungen zu informieren.
+
+[user] Könntest Du bitte die verschiedenen Vor- und Nachteile in einer Tabelle auflisten, mit zus. Spalten für die genannten Systeme, in denen du ganz grob mit ++/+/0/-/-- angibts, wie sie einzustufen sind?","Sehr gerne, hier ist eine grobe Übersicht über die verschiedenen Vor- und Nachteile der genannten Versionsverwaltungssysteme:
+Kriterium	                Git	    Mercurial	Subversion	Perforce	Bazaar	Fossil
+Verteiltes System           ++	    ++	        --	        --	        +	    ++
+Einfache Bedienung	        +	    ++	        +	        0	        ++	    ++
+Performance	                ++	    ++	        +	        ++	        +	    +
+Skalierbarkeit	            ++	    ++	        +	        ++	        +	    0
+Sicherheit	                ++	    ++	        +	        ++	        +	    +
+Zugriffskontrolle	        ++	    ++	        ++	        ++	        +	    +
+Integration	                ++	    +	        +	        +	        +	    ++
+Dokumentation	            ++	    ++	        ++	        ++	        +	    +
+Unterstützte Plattformen	++	    ++	        ++	        ++	        ++	    +
+Community/Support	        ++	    +	        +	        +	        0	    0
+
+Anmerkungen:
+
+    Verteiltes System: Zeigt an, ob das Versionsverwaltungssystem verteilte oder zentrale Arbeitsabläufe unterstützt.
+    Einfache Bedienung: Gibt an, wie benutzerfreundlich das System ist und wie einfach es für Anfänger zu erlernen ist.
+    Performance: Wie schnell und effizient das System bei der Verarbeitung von Dateiänderungen und -revisionen ist.
+    Skalierbarkeit: Wie gut das System mit einer großen Anzahl von Dateien und Benutzern umgehen kann.
+    Sicherheit: Die Sicherheitsfunktionen und -maßnahmen des Systems.
+    Zugriffskontrolle: Die Fähigkeit des Systems, den Zugriff auf Dateien und Verzeichnisse auf Benutzerebene zu verwalten.
+    Integration: Wie gut das System mit anderen Tools und Diensten (z. B. Continuous Integration, Bug-Tracking usw.) integriert werden kann.
+    Dokumentation: Die Qualität und Verfügbarkeit von Anleitungen, Tutorials und Ressourcen für das System.
+    Unterstützte Plattformen: Die Anzahl und Vielfalt der unterstützten Betriebssysteme und Plattformen.
+    Community/Support: Die Größe und Aktivität der Benutzergemeinschaft sowie die Verfügbarkeit von Support und Ressourcen.
+
+Bitte beachten Sie, dass diese Tabelle eine grobe Einschätzung der Stärken und Schwächen der verschiedenen Systeme bietet und möglicherweise nicht alle Nuancen und Details abdeckt. Es ist wichtig, die spezifischen Anforderungen Ihres Projekts und Teams zu berücksichtigen, wenn Sie ein Versionsverwaltungssystem auswählen.",,,,
+fab-100x-20261114T224309Z-009,4,333d2f403faaa0282f3d35cf,1b3a298ea7f1bcde6f08dd348fb9d615,fab-100x,de,web_backend,oasst2,human_authored,"[user] Ich möchte mit der Power BI Rest API in Python ein Programm schreiben, welches sich mit einem Service Principal gegen den Power BI Tenant authentifiziert und mir alle Workspaces zurückgibt, die einen bestimmten Suchbegriff enthalten.
+
+[assistant] Um mit der Power BI REST-API in Python zu arbeiten, müssen Sie zuerst einige Vorbereitungen treffen:
+
+Erstellen Sie einen Azure Active Directory-Anwendungs-Registrierung (App-Registrierung) in Ihrem Power BI-Tenant und notieren Sie sich die Anwendungs-ID und das Anwendungsgeheimnis.
+
+Erteilen Sie Ihrer App-Registrierung die erforderlichen Berechtigungen, indem Sie die App im Power BI-Tenant registrieren.
+
+Speichern Sie Ihre Anmeldeinformationen, einschließlich Ihrer App-Registrierungs-ID, des Anwendungsgeheimnisses und des Mandanten-IDs, an einem sicheren Ort, um eine sichere Authentifizierung zu gewährleisten.
+
+Installieren Sie die erforderlichen Python-Module wie Requests, adal und msal.
+
+Nach der Vorbereitung können Sie den folgenden Python-Code verwenden, um sich mit einem Service Principal gegen Ihren Power BI-Tenant zu authentifizieren und alle Workspaces zurückzugeben, die einen bestimmten Suchbegriff enthalten:
+
+python
+Copy code
+import requests
+import json
+import adal
+import msal
+
+Definieren Sie die erforderlichen Parameter, einschließlich der Anwendungs-ID, des Anwendungsgeheimnisses und des Mandanten-IDs
+client_id = ""<Anwendungs-ID>""
+client_secret = ""<Anwendungsgeheimnis>""
+tenant_id = ""<Mandanten-ID>""
+
+Definieren Sie die URL, um ein Token abzurufen
+authority_url = ""https://login.microsoftonline.com/"" + tenant_id
+resource_url = ""https://analysis.windows.net/powerbi/api""
+api_version = ""v1.0""
+
+Verwenden Sie ADAL, um ein Token abzurufen
+context = adal.AuthenticationContext(authority_url)
+token = context.acquire_token_with_client_credentials(resource_url, client_id, client_secret)
+
+Verwenden Sie das abgerufene Token, um eine Anforderung an die Power BI REST-API zu senden
+headers = {
+    ""Authorization"": ""Bearer "" + token[""accessToken""],
+    ""Content-Type"": ""application/json"",
+    ""Accept"": ""application/json""
+}
+
+Definieren Sie den Suchbegriff, um alle Workspaces zurückzugeben, die den Suchbegriff enthalten
+search_term = ""<Suchbegriff>""
+
+Verwenden Sie die Power BI REST-API, um alle Workspaces zurückzugeben, die den Suchbegriff enthalten
+url = ""https://api.powerbi.com/"" + api_version + ""/myorg/groups?$filter=indexof(displayName, '"" + search_term + ""') ne -1""
+response = requests.get(url, headers=headers)
+workspaces = json.loads(response.text)[""value""]
+
+Drucken Sie alle Workspaces aus, die den Suchbegriff enthalten
+for workspace in workspaces:
+    print(workspace[""name""])
+
+Dieser Code verwendet die ADAL-Bibliothek, um ein Token zu erhalten, und die Requests-Bibliothek, um eine Anforderung an die Power BI REST-API zu senden. Die API wird verwendet, um alle Workspaces zurückzugeben, die den angegebenen Suchbegriff im Workspace-Namen enthalten. Sie können das Suchkriterium nach Belieben ändern, indem Sie den Wert der search_term -Variable aktualisieren.
+
+Hinweis: Stellen Sie sicher, dass die erforderlichen Python-Module installiert sind, bevor Sie diesen Code ausführen.
+
+[user] Formatiere deine Antwort so, dass die Syntax des Codes gehighlighted wird.","Hier ist der Python Code mit mit Syntax-Highlighting 
+```python
+import requests
+import json
+import adal
+import msal
+
+# Definieren Sie die erforderlichen Parameter, einschließlich der Anwendungs-ID, des Anwendungsgeheimnisses und des Mandanten-IDs
+client_id = ""<Anwendungs-ID>""
+client_secret = ""<Anwendungsgeheimnis>""
+tenant_id = ""<Mandanten-ID>""
+
+# Definieren Sie die URL, um ein Token abzurufen
+authority_url = ""https://login.microsoftonline.com/"" + tenant_id
+resource_url = ""https://analysis.windows.net/powerbi/api""
+api_version = ""v1.0""
+
+# Verwenden Sie ADAL, um ein Token abzurufen
+context = adal.AuthenticationContext(authority_url)
+token = context.acquire_token_with_client_credentials(resource_url, client_id, client_secret)
+
+# Verwenden Sie das abgerufene Token, um eine Anforderung an die Power BI REST-API zu senden
+headers = {
+    ""Authorization"": ""Bearer "" + token[""accessToken""],
+    ""Content-Type"": ""application/json"",
+    ""Accept"": ""application/json""
+}
+
+# Definieren Sie den Suchbegriff, um alle Workspaces zurückzugeben, die den Suchbegriff enthalten
+search_term = ""<Suchbegriff>""
+
+# Verwenden Sie die Power BI REST-API, um alle Workspaces zurückzugeben, die den Suchbegriff enthalten
+url = ""https://api.powerbi.com/"" + api_version + ""/myorg/groups?$filter=indexof(displayName, '"" + search_term + ""') ne -1""
+response = requests.get(url, headers=headers)
+workspaces = json.loads(response.text)[""value""]
+
+# Drucken Sie alle Workspaces aus, die den Suchbegriff enthalten
+for workspace in workspaces:
+    print(workspace[""name""])
+```",,,,
+fab-100x-20261114T224309Z-009,5,3805016c35ed6c020c9952c7,02590b30aee39ffb50bd88485c0c21e1,fab-100x,de,web_frontend,oasst2,human_authored,"[user] Ich will mich für ein Informatik Studium vorbereiten. Auf welche Themenbereiche könnte ich mich vorbereiten und welche Programmiersprachen sollte ich lernen?
+
+[assistant] Hier sind einige Themenbereiche, auf die Sie sich vorbereiten können:
+
+Mathematik: Informatikstudenten sollten solide Kenntnisse in Mathematik haben, insbesondere in Bereichen wie Algebra, Diskrete Mathematik, Analysis und Wahrscheinlichkeitstheorie.
+
+Programmierung: Erlernen Sie eine oder mehrere Programmiersprachen. Beliebte und nützliche Sprachen für Informatikstudenten sind Python, Java, C, C++, und JavaScript. Python ist besonders empfehlenswert für Anfänger, da es leicht zu erlernen ist und weit verbreitet ist.
+
+Datenstrukturen und Algorithmen: Lernen Sie grundlegende Datenstrukturen wie Arrays, Listen, Stacks, Queues, Bäume und Graphen sowie grundlegende Algorithmen wie Sortier- und Suchalgorithmen.
+
+Computerarchitektur und Betriebssysteme: Machen Sie sich mit der grundlegenden Funktionsweise von Computern, einschließlich Prozessoren, Speicher, E/A-Geräten und Betriebssystemen, vertraut.
+
+Netzwerke: Erlernen Sie die Grundlagen von Computernetzwerken, einschließlich der Schichten des OSI-Modells, gängiger Protokolle und Netzwerktopologien.
+
+Datenbanken: Lernen Sie die Grundlagen von Datenbanksystemen und SQL (Structured Query Language), um Daten aus relationalen Datenbanken abzufragen und zu manipulieren.
+
+Web-Entwicklung: Erlernen Sie die Grundlagen von HTML, CSS und JavaScript, um einfache Webseiten zu erstellen und zu gestalten.
+
+Softwareentwicklung: Machen Sie sich mit Softwareentwicklungsmethoden, -werkzeugen und -praktiken vertraut, einschließlich Versionskontrolle, Debugging und Testen.
+
+[user] Sehr gut, du hast viele relevante Themen kurz und prägnant beschrieben. Kannst du auch eine Priorisierung vornehmen? Da die genannten Themengebiete sehr breit gefächert sind, um effizienter und zeitsparender zu arbeiten. Kannst du auch Literaturempfehlungen zu den einzelnen Themen geben?","Ja, hier ist eine mögliche Priorisierung, die auf meiner Erfahrung basiert:
+
+Programmierung: Beginnen Sie damit, eine Programmiersprache zu lernen, bevor Sie sich mit anderen Themen beschäftigen. Python ist empfehlenswert für Anfänger, da es leicht zu erlernen ist und eine breite Unterstützung in der Community hat.
+
+Datenstrukturen und Algorithmen: Sobald Sie eine grundlegende Programmiersprache erlernt haben, können Sie sich auf die grundlegenden Datenstrukturen und Algorithmen konzentrieren. Es handelt sich dabei um Kernkonzepte, die für die meisten Informatikprojekte relevant sind.
+
+Mathematik: Mathematische Kenntnisse sind für viele Aspekte der Informatik unerlässlich. Es empfiehlt sich, sich insbesondere auf Algebra und Diskrete Mathematik zu konzentrieren.
+
+Computerarchitektur und Betriebssysteme: Die grundlegenden Konzepte der Computerarchitektur und der Betriebssysteme sind für das Verständnis der Funktionsweise von Computern und der effektiven Nutzung von Ressourcen wichtig.
+
+Netzwerke: Wenn Sie sich für Netzwerke interessieren oder im Bereich der Netzwerksicherheit arbeiten möchten, sollten Sie sich mit den Grundlagen von Computernetzwerken vertraut machen.
+
+Datenbanken: Wenn Sie in der Datenanalyse oder in der Web-Entwicklung tätig sind, ist das Verständnis von Datenbanksystemen und SQL wichtig.
+
+Web-Entwicklung: Wenn Sie sich für die Web-Entwicklung interessieren, sollten Sie sich auf HTML, CSS und JavaScript konzentrieren.
+
+Softwareentwicklung: Wenn Sie an einer Karriere in der Softwareentwicklung interessiert sind, sollten Sie sich mit Softwareentwicklungsmethoden, -werkzeugen und -praktiken vertraut machen.
+
+Für Literatur- oder Online-Kurs-Empfehlungen empfehle ich, spezifische Recherchen durchzuführen und nach Bewertungen und Empfehlungen zu suchen. Es gibt eine Vielzahl von Online-Ressourcen und Büchern, die sich auf diese Themenbereiche konzentrieren, und Ihre Wahl hängt von Ihren Interessen und Ihrem Lernstil ab.",,,,
+fab-100x-20261114T224309Z-009,6,7a9e306ddb2f724282f96092,377a13b9f60dada84fa2a6fcaf543bfb,fab-100x,de,web_fullstack,oasst1,human_authored,[user] Ich möchte Gitlab für meine Firma über Docker installieren. Erkläre mir Schritt für Schritt was ich tun muss und welche Dinge zu beachten sind.,"Klar, ich kann Ihnen helfen, GitLab auf Docker zu installieren. Hier sind die Schritte, die Sie befolgen müssen:
+
+Schritt 1: Docker installieren
+Stellen Sie sicher, dass Docker auf Ihrem System installiert ist. Wenn Sie Docker noch nicht installiert haben, können Sie dies tun, indem Sie den [Anweisungen auf der offiziellen Docker-Website](https://docs.docker.com/desktop/install/linux-install/) folgen.
+
+Schritt 2: GitLab Docker-Image finden
+Suchen Sie das offizielle GitLab-Docker-Image auf Docker Hub. Sie können das Image mit dem folgenden Befehl herunterladen:
+
+```bash
+docker pull gitlab/gitlab-ce:latest
+```
+
+Schritt 3: GitLab-Konfigurationsdateien erstellen
+Erstellen Sie eine Konfigurationsdatei für GitLab, in der Sie Ihre Einstellungen wie z.B. den Port, den Sie verwenden möchten, angeben. Sie können diese Datei erstellen, indem Sie eine neue Datei mit dem Namen gitlab.rb erstellen. Hier ist ein Beispiel für eine gitlab.rb-Datei:
+
+```rb
+external_url 'http://gitlab.example.com'
+gitlab_rails['gitlab_shell_ssh_port'] = 2224
+```
+
+Schritt 4: GitLab-Container erstellen
+Erstellen Sie einen GitLab-Container mit dem Docker-Image und der Konfigurationsdatei, die Sie erstellt haben, indem Sie den folgenden Befehl ausführen:
+
+```bash
+docker run --detach \
+    --hostname gitlab.example.com \
+    --publish 443:443 --publish 80:80 --publish 2224:22 \
+    --name gitlab \
+    --restart always \
+    --volume $PWD/config:/etc/gitlab \
+    --volume $PWD/logs:/var/log/gitlab \
+    --volume $PWD/data:/var/opt/gitlab \
+    gitlab/gitlab-ce:latest
+```
+
+Ersetzen Sie `gitlab.example.com` durch Ihre eigene Domain oder IP-Adresse.
+
+Schritt 5: GitLab-Setup abschließen
+Gehen Sie zu Ihrem GitLab-Setup, indem Sie die URL aufrufen, die Sie in Ihrer Konfigurationsdatei angegeben haben. Folgen Sie den Anweisungen, um GitLab einzurichten.
+
+Beachten Sie, dass es auch andere Einstellungen gibt, die Sie in der Konfigurationsdatei vornehmen können, wie z.B. das Ändern des Passworts, das Hinzufügen von Benutzern und Gruppen und das Konfigurieren von E-Mail-Benachrichtigungen.
+
+Ich hoffe, das hilft Ihnen weiter!",,,,
+fab-100x-20261114T224309Z-009,7,118d1551681ef224f5d6cf67,d36e10293bd2b0422040bbe8e52bee82,fab-100x,de,writing,oasst2,human_authored,[user] Senden Sie eine E-Mail mit der Aufforderung zum schnelleren Handeln.,"Da Sie nicht genau spezifiziert haben an wen diese E-Mail gerichtet ist und worauf sich die Anforderung bezieht, kann ich nur ein generelles Schreiben aufsetzen.
+Wenn Sie möchten können sie diese Punkte im weiteren Chatverlauf noch konkretisieren.
+
+Ihre Email könnte lauten:
+
+""Sehr geehrte/r Frau/Herr [Name des Adressanten],
+Ich bitte sie dringend ihre Lösungsfindung zu beschleunigen und zeitnah Ergebnisse zur Verfügung zu stellen.
+
+Mit freundlichen Grüßen
+[Ihr Name]
+
+Gibt es noch etwas dass ich für Sie tun kann?",,,,
+fab-100x-20261114T224309Z-009,8,eacf9b73effe02e61d61b27a,ce84fb10a955164ac461c98fb6e37ad0,fab-100x,el,general_knowledge,aya-dataset,human_authored,[user] Ολοκλήρωσε την ακόλουθη φράση: Η Αλάσκα ήταν το μόνο αμερικανικό έδαφος στο οποίο έλαβαν χώρα μάχες κατά τη διάρκεια του Β 'Παγκοσμίου Πολέμου.,"Ιαπωνικό βομβαρδισμό του Ολλανδικού Λιμανιού και κατάληψη των νησιών Ατού και Κίσκα στην αλυσίδα των Αλεούτων τον Ιούνιο του 1942. Η επιτυχημένη μάχη των ΗΠΑ για την ανακατάληψη του Άττου τον Μάιο του 1943 ήταν αναλογικά μια από τις πιο δαπανηρές αμφίβιες επιθέσεις του Β 'Παγκοσμίου Πολέμου στα αμερικανικά και Ειρηνικά θέατρα όσον αφορά τις αμερικανικές απώλειες που υπέστησαν. Οι Ιάπωνες απομάκρυναν κρυφά την Κίσκα στα τέλη Ιουλίου του 1943, αρκετές εβδομάδες πριν από την κατάληψη του νησιού από τις αμερικανικές και καναδικές δυνάμεις στα μέσα Αυγούστου του 1943. Στο τέλος του πολέμου, οι περισσότερες στρατιωτικές εγκαταστάσεις σε όλη την πολιτεία έκλεισαν μόνιμα ή μεταφέρθηκαν σε άλλες υπηρεσίες. Μετά τον πόλεμο δόθηκε έμφαση στην εκπαίδευση.",,,,
+fab-100x-20261114T224309Z-009,9,868a41ad91a7e6a0c6a706f8,a70d4ba795ab139193f4f49174d7afe4,fab-100x,en,coding,opencodeinstruct,synthetic,"[user] You are given an array of integers `arr` and an integer `k`. Your task is to find the length of the longest contiguous subarray such that the difference between the maximum and minimum elements in the subarray is at most `k`.
+
+**Input:**
+- The first line contains an integer `n` (1 ≤ n ≤ 10^5), the number of elements in the array.
+- The second line contains `n` space-separated integers `arr[i]` (1 ≤ arr[i] ≤ 10^9), the elements of the array.
+- The third line contains an integer `k` (0 ≤ k ≤ 10^9).
+
+**Output:**
+- Print a single integer, the length of the longest subarray that satisfies the condition.
+
+**Sample Input:**
+```
+6
+3 6 5 8 10 20
+2
+```
+
+**Sample Output:**
+```
+3
+```","```python
+from collections import deque
+
+def longest_subarray_within_k(arr, k):
+    """"""
+    Finds the length of the longest contiguous subarray where the difference
+    between the maximum and minimum elements is at most k.
+
+    :param arr: List[int] - The input array of integers.
+    :param k: int - The maximum allowed difference between the max and min elements in the subarray.
+    :return: int - The length of the longest valid subarray.
+    """"""
+    start = 0
+    max_deque = deque()  # Stores indices of candidates for maximum
+    min_deque = deque()  # Stores indices of candidates for minimum
+    
+    longest_length = 0
+    
+    for end in range(len(arr)):
+        while max_deque and arr[max_deque[-1]] < arr[end]:
+            max_deque.pop()
+        while min_deque and arr[min_deque[-1]] > arr[end]:
+            min_deque.pop()
+        
+        max_deque.append(end)
+        min_deque.append(end)
+        
+        while arr[max_deque[0]] - arr[min_deque[0]] > k:
+            start += 1
+            if max_deque[0] < start:
+                max_deque.popleft()
+            if min_deque[0] < start:
+                min_deque.popleft()
+        
+        longest_length = max(longest_length, end - start + 1)
+    
+    return longest_length
+
+# Example usage:
+arr = [3, 6, 5, 8, 10, 20]
+k = 2
+print(longest_subarray_within_k(arr, k))  # Output should be 3
+```",,,,
+fab-100x-20261114T224309Z-009,10,007de70d057dcd26d0dee311,03927a2dd6c0861d270d54878da94fc7,fab-100x,en,cybersecurity,self-oss-instruct,synthetic,"[user] Create a Python function `xor_decrypt(bytes_to_decrypt, key)` that takes in a byte array of encrypted data and a byte array key, and returns the decrypted data as a byte array. The key is being repeated to match the length of the data. You can use the `zip` function for this.","The XOR decryption function should take in a byte array of encrypted data and a byte array key, and return the decrypted data as a byte array. The key is being repeated to match the length of the data. You can use the `zip` function for this.
+
+Here's how you could implement the XOR decryption function:
+
+```python
+def xor_decrypt(bytes_to_decrypt, key):
+    decrypted_bytes = bytearray()
+    for byte, key_byte in zip(bytes_to_decrypt, cycle(key)):
+        decrypted_bytes.append(byte ^ key_byte)
+    return decrypted_bytes
+```",,,,
+fab-100x-20261114T224309Z-009,11,74b4dc7254fa07677671cb79,c9ad5946dddaebb2db64e5dfaa0f33fe,fab-100x,en,education,oasst1,human_authored,"[user] When training a Deep Learning model on a relatively small dataset, it happens that the validation loss is lower than the training loss while the test loss is higher than both.More concrete, in terms of accuracy, the training and validation accuracies approach 99% while the test one flattens at 68%. What would be the causes and how could it be avoided?
+
+[assistant] When the validation loss is lower than the training loss but the test loss is higher, it could be a sign of overfitting or dataset shift. It might also be due to the different distributions in the training, validation, and test sets. Here are some potential causes and solutions:
+
+1. Overfitting: When a model learns to perform very well on the training data but doesn't generalize well to unseen data, it's a sign of overfitting. In this case, the model might have memorized the training data, resulting in a high accuracy on the training and validation sets, but poor performance on the test set.
+
+    Solutions:
+
+    * Regularization techniques like L1 or L2 regularization can help constrain the model and prevent overfitting.
+    * Early stopping can be employed to stop training when the validation loss starts to increase.
+    * Increase the size of the training dataset using data augmentation techniques.
+    * Use a simpler model architecture with fewer parameters.
+
+
+2. Dataset shift: The distribution of the training, validation, and test sets might be different. This can cause the model to learn features specific to the training and validation sets that do not generalize well to the test set.
+
+    Solutions:
+
+    * Make sure the training, validation, and test sets have a similar distribution. This can be achieved by stratified sampling or other techniques to ensure a consistent split between the sets.
+    * Perform domain adaptation techniques to reduce the impact of dataset shift.
+
+
+3. Improper data split: It's possible that the split between training, validation, and test sets is not random, leading to some classes being over-represented in the validation set and under-represented in the test set.
+
+    Solutions:
+
+    * Ensure the data split is random and stratified to maintain a consistent distribution of classes across all sets.
+
+
+4. Model evaluation: It's crucial to ensure that the metrics used for evaluation are consistent across all sets. If different metrics are used, the model's performance might appear better on one set compared to another.
+
+    Solutions:
+
+    * Use the same evaluation metrics across all sets to ensure a fair comparison.
+
+[user] Would repeated information with slight differences be used to increase the dataset? Or would that be simply redundant?","Repeated information with slight differences can be used to increase the dataset size, but it depends on the context and the specific use case. In some cases, adding slightly varied examples to the dataset can improve model generalization by exposing it to more diverse data. However, if the variations are too similar, it might be redundant and not contribute much to the model's performance.",,,,
+fab-100x-20261114T224309Z-009,12,995e616123362256b616939b,529f3853037d560635e77623cf28e528,fab-100x,en,general_knowledge,oasst1,human_authored,"[user] Tell me about Hungarian mythology and folklore.
+
+[assistant] Hungarian mythology and folklore have a rich and complex history that spans thousands of years. The ancient Magyars, who are the ancestors of modern-day Hungarians, had a deep reverence for nature and the natural world, and this is reflected in their mythology and folklore.
+
+One of the most prominent figures in Hungarian mythology is Nimrod, a legendary hunter who was said to have founded the first Hungarian kingdom. He is often depicted as a powerful and wise leader, with a deep connection to the natural world and the animals that inhabit it.
+
+Another important figure in Hungarian mythology is the Turul, a powerful bird of prey that was believed to be the messenger of the gods. The Turul was often associated with the creation myth, and was said to have played a key role in the creation of the world.
+
+Hungarian folklore is filled with tales of magical creatures, such as the Táltos, a type of shaman who was said to have the ability to communicate with spirits and heal the sick. There are also stories of fairies, witches, and other supernatural beings, who were believed to inhabit the forests and mountains of Hungary.
+
+One of the most popular figures in Hungarian folklore is the Bába, a wise old woman who was said to have the power to cure illnesses and bless crops. She was often depicted as a kind and caring figure, who was beloved by the people of Hungary.
+
+Overall, Hungarian mythology and folklore are rich and varied, reflecting the deep connection that the Magyar people had with the natural world and the spiritual realm. These stories continue to be passed down from generation to generation, keeping the ancient traditions of Hungary alive.
+
+[user] Can you shorten this response?","Sure, here's a shorter response:
+
+Hungarian mythology and folklore reflect the ancient Magyars' reverence for nature and the spiritual world. Important figures include Nimrod, a legendary hunter and leader, and the Turul, a powerful bird of prey associated with creation. Hungarian folklore features magical creatures like the Táltos, fairies, witches, and the Bába, a wise woman with healing powers. These stories continue to be passed down through generations, preserving Hungary's ancient traditions.",,,,
+fab-100x-20261114T224309Z-009,13,547daf525781587a591a3744,a775146e840b67477d5294c92759ee2b,fab-100x,en,islamic_studies,oasst2,human_authored,"[user] Why timeline is split into BC and AC
+
+[assistant] I assume you are referring to the __Anno Domini year numbering system__, where history is divided into __BC__ (Before Christ) and __AD__ (Anno Domini, or “in the year of our Lord”, sometimes mistakenly referred to as AC or “After Christ”). 
+
+These terms are used to label or number years in the Julian and Gregorian calendars, based on the traditionally reckoned year of the conception or birth of Jesus Christ. 
+
+This dating system was devised in 525 AD by Dionysius Exiguus, a Christian monk, to replace an earlier system that made reference to the reign of Emperor Diocletian, who had persecuted Christians. Dionysius did not wish to continue the memory of such a tyrant.
+
+Having a numbering system with two distinct eras has many advantages. It represents a simplification of systems that number years in reference to a reigning monarch or office holder, as it doesn’t require one to be familiar with all such individuals and the time they reigned. BC and AD, collectively, cover all past and future years by counting in both directions from a single reference point.
+
+[user] What are some alternative dating systems used in different cultures or regions, and how do they differ from the BC/AD system?","There are many alternative dating systems used in different cultures and regions, each with its own unique way of numbering years. Here are a few examples:
+
+1. BCE/CE (Before Common Era/Common Era): This system is a secular alternative to the traditional BC/AD system. It maintains the same reference point as BC/AD, but replaces ""Before Christ"" with ""Before Common Era"" and ""Anno Domini"" with ""Common Era."" The BCE/CE system is used to provide a neutral and inclusive dating method that doesn't have religious connotations.
+
+2. Islamic Calendar (Hijri Calendar): The Islamic calendar is a lunar calendar used primarily in Muslim countries. It dates from the year of the migration (Hijra) of the Prophet Muhammad from Mecca to Medina in 622 AD. The years are designated as AH (Anno Hegirae) and are counted strictly based on lunar months.
+
+3. Hebrew Calendar: The Hebrew calendar is a lunisolar calendar used in Jewish communities. It counts years from the traditional date of the creation of the world, as calculated in Jewish tradition. The years are designated AM (Anno Mundi, ""Year of the World"").
+
+4. Chinese Calendar: The traditional Chinese calendar is a lunisolar calendar used in China and other East Asian countries. It designates years using a combination of heavenly stems and earthly branches, along with a cycle of 60 years. Each year is associated with one of the twelve zodiac animals.
+
+5. Buddhist Calendar: The Buddhist calendar is used in various Buddhist countries and is based on the traditional date of the Buddha's parinirvana (passing away) in 543 or 544 BC. It is primarily used for religious and cultural purposes.
+
+6. Japanese Era Names: Japan uses the Gregorian calendar for most purposes, but it also has a system of era names. Each era corresponds to the reign of a specific emperor, and the year changes with the start of a new emperor's reign. For example, the current era in Japan is ""Reiwa,"" which began on May 1, 2019, with the enthronement of Emperor Naruhito.
+
+These alternative dating systems differ from the BC/AD system in their reference points, their cultural and religious significance, and their method of numbering years. Each system reflects the unique history, beliefs, and traditions of the respective cultures and regions in which they are used.",,,,
+fab-100x-20261114T224309Z-009,14,6083631f7451173dbb025922,e4d494c90030c2197b1aee9d4f2e6521,fab-100x,en,mathematics,gsm8k,human_authored,"[user] Zander collected 100 stickers. He gave some of his stickers to his two friends, Andrew and Bill. Andrew received 1/5 of Zander's stickers, while Bill received 3/10 of the remaining stickers. How many stickers did Andrew give to his two friends?","Andrew received 100 x 1/5 = 20 stickers.
+So, there were 100 - 20 = 80 stickers left.
+Bill received 80 x 3/10 = 24 stickers.
+Therefore, Andrew gave away 20 + 24 = 44 stickers.
+
+Answer: 44",,,,
+fab-100x-20261114T224309Z-009,15,484050b0181edc7a0a114789,90589b319874c03777dbd774fab23181,fab-100x,en,pakistan,oasst1,human_authored,[user] Why Pakistan has so many cultures and languages?,"Pakistan has a rich cultural and linguistic diversity due to its geographical location at the crossroads of various ancient civilizations and trade routes. Over the centuries, the region now known as Pakistan has been inhabited by diverse ethnic and linguistic groups, including Indo-Aryans, Dravidians, Greeks, Persians, Central Asians, and Arabs.
+
+Furthermore, the region was also home to many powerful empires throughout history, such as the Mauryan, Gupta, Mughal, and British Empires, which contributed to the spread of different languages, cultures, and religions.
+
+Additionally, Pakistan's diverse topography and climate, from the mountainous regions of the north to the coastal areas in the south, have also contributed to the development of distinct cultural and linguistic traditions.
+
+Today, Pakistan has more than 70 languages, including Urdu, Punjabi, Sindhi, Pashto, Balochi, and many others. The Constitution of Pakistan recognizes Urdu as the national language, but it also acknowledges the importance of regional languages and provides for their development and promotion.",,,,
+fab-100x-20261114T224309Z-009,16,0f0c622d5e7433ff60771217,b98591d102ccf65a0d14031a084bf5f6,fab-100x,en,problem_solving,oasst1,human_authored,"[user] How much water should a man between the ages of 18 and 25, weighing 90.6kg and with a height of 1.77m drink a day?","As a general guideline, the National Academies of Sciences, Engineering, and Medicine recommends that men consume about 3.7 liters (or about 13 cups) of total water intake per day.",,,,
+fab-100x-20261114T224309Z-009,17,bfbbc4d265c5f20fb6245aa1,173ce5a632a550ab9c08d3e0a8ec67bc,fab-100x,en,reasoning,quartz,human_authored,"[user] Jon was jogging, and slowing down his pace. His heart is beating _____.
+
+A. more
+B. less","When the heart expels more blood with each stroke, the heart has to beat less often in order to maintain the same volume of blood flow. Therefore the answer is B. less.",,,,
+fab-100x-20261114T224309Z-009,18,6b479c0bdbc7d998ebfb3c4f,04b85d0b8dc6fa247d0e992f1c6e3c2c,fab-100x,en,research,dolly-15k,human_authored,"[user] what is Financial centre
+
+Context:
+A financial centre (BE), financial center (AE), or financial hub, is a location with a concentration of participants in banking, asset management, insurance or financial markets with venues and supporting services for these activities to take place.[","A financial centre (BE), financial center (AE), or financial hub, is a location with a concentration of participants in banking, asset management, insurance or financial markets with venues and supporting services for these activities to take place. Participants can include financial intermediaries (such as banks and brokers), institutional investors (such as investment managers, pension funds, insurers, and hedge funds), and issuers (such as companies and governments). Trading activity can take place on venues such as exchanges and involve clearing houses, although many transactions take place over-the-counter (OTC), that is directly between participants. Financial centres usually host companies that offer a wide range of financial services, for example relating to mergers and acquisitions, public offerings, or corporate actions; or which participate in other areas of finance, such as private equity, hedge funds, and reinsurance. Ancillary financial services include rating agencies, as well as provision of related professional services, particularly legal advice and accounting services.
+
+The International Monetary Fund's classes of major financial centres are: International Financial Centres (IFCs), such as New York City, London, and Singapore; Regional Financial Centres (RFCs), such as Shanghai, Shenzhen, Frankfurt, and Sydney; and Offshore Financial Centres (OFCs), such as Cayman Islands, Dublin, and Hong Kong.
+
+
+The City of London (the ""Square Mile"") is one of the oldest financial centres. London is ranked as one of the largest International Financial Centres in the world.
+International Financial Centres, and many Regional Financial Centres, are full–service financial centres with direct access to large capital pools from banks, insurance companies, investment funds, and listed capital markets, and are major global cities. Offshore Financial Centres, and also some Regional Financial Centres, tend to specialise in tax-driven services, such as corporate tax planning tools, tax–neutral vehicles, and shadow banking/securitisation, and can include smaller locations (e.g. Luxembourg), or city-states (e.g. Singapore). The IMF notes an overlap between Regional Financial Centres and Offshore Financial Centres (e.g. Hong Kong and Singapore are both Offshore Financial Centres and Regional Financial Centres). Since 2010, academics consider Offshore Financial Centres synonymous with tax havens.",,,,
+fab-100x-20261114T224309Z-009,19,be12c6a14dc10cf0b107953c,5daed766352c6367364dc2a1b8a66daa,fab-100x,en,safety_ethics,oasst2,human_authored,"[user] Describe ways the ""swatting"" phenomenon can be prevented by institutions and law enforcement.","Swatting is a dangerous and potentially deadly practice in which someone makes a fake emergency call to law enforcement in order to dispatch a SWAT team to the targeted individual's location. To prevent swatting, institutions and law enforcement can take several measures, including:
+
+1. Educating the public: Institutions and law enforcement can raise awareness about the dangers of swatting, how it harms innocent people, and its potential for deadly consequences.
+
+2. Enhancing emergency call screening: 911 operators and law enforcement agencies should be trained to screen emergency calls carefully and critically in order to identify potential swatting incidents.
+
+3. Developing protocols and procedures: Law enforcement agencies should develop specific protocols and procedures to handle swatting incidents, including the use of non-violent tactics.
+
+4. Tracing emergency calls: Law enforcement agencies should invest in advanced tracing technologies that can help identify and track calls to their source.
+
+5. Holding perpetrators accountable: Law enforcement should work with prosecutors to vigorously investigate and prosecute swatting offenders to send a strong message that this dangerous practice will not be tolerated.
+
+6. Implementing security measures: Institutions, individuals, and public figures can take steps like implementing two-factor authentication and using virtual private networks to protect themselves from swatting attempts.
+
+Overall, preventing swatting requires a coordinated effort involving law enforcement and the broader community. It's essential to raise awareness, develop protocols and procedures, and take legal action against those who engage in this dangerous practice.",,,,
+fab-100x-20261114T224309Z-009,20,eabdd6e822100c1e92d5aca7,f14c4a7dbca726e153166afd04758b6b,fab-100x,en,science,scienceqa-text,human_authored,"[user] Which logical fallacy is used in the text?
+Thanks to her enduring popularity with employees, Mia Durham is the best-liked CEO in our company's history.
+
+A. false causation: the assumption that because two things happened together, one caused the other
+B. circular reasoning: an argument that supports a claim with the claim itself","The answer is B: circular reasoning: an argument that supports a claim with the claim itself.
+
+Explanation: A strong argument uses valid reasoning and logic in support of a claim. When an argument or claim introduces irrelevant information or misrepresents the issues at hand, it may be committing a logical fallacy. Logical fallacies can hurt a writer's credibility and can lead readers to draw false conclusions.
+A logical fallacy may present irrelevant information:
+Fallacy | Description
+ad hominem | a personal attack meant to discredit one's opponent
+appeal to nature | an argument that assumes the natural choice is always the best choice
+bandwagon fallacy | an argument that assumes the popular choice is always the best choice
+circular reasoning | an argument that supports a claim with the claim itself
+guilt by association | an unfair negative association with another person or group that is intended to discredit someone or something
+red herring | the use of a completely unrelated topic in support of a claim
+A logical fallacy may misrepresent the issues at hand:
+Fallacy | Description
+false causation | the assumption that because two things happened together, one caused the other
+false dichotomy | an argument that presents only two choices when more options exist
+hasty generalization | a very broad claim based on very little evidence
+straw man | a misrepresentation of an opponent's position that makes it easier to argue against The text argues that Mia Durham is well-liked, because she's popular. However, the ""evidence"" is just a restatement of the claim itself. This illustrates a type of logical fallacy known as circular reasoning.",,,,
+fab-100x-20261114T224309Z-009,21,0233a8d0cbdc398d531b500b,63f57555135f9341bbaead05396ffc14,fab-100x,en,software_engineering,commitpackft,human_authored,"[user] Insert or update anonymous when no klubmaster are specify
+
+File: client/ksEdit.js
+```javascript
+Template.ksEdit.helpers({
+  ks: function () {
+    var ks = this;
+    ks.books = Books.find();
+    return ks;
+  }
+});
+
+Template.ksEdit.events({
+  'submit form': function (elt) {
+    var _id = $('input.id').val(),
+      ks = _id ? KSessions.findOne(_id) : {};
+
+    elt.preventDefault();
+    ks.i = +$(""input.i"").val();
+    ks.klubMaster = $(""input.klubMaster"").val();
+    ks.date = $(""input.date"").val();
+    ks.voteer = $(""input.vote"").val();
+    ks.meetup = $(""input.meetup"").val();
+    ks.book_id = $(""select[name=selBook]"").val();
+    // Update an existent record or create it
+    if (_id) {
+      KSessions.update(_id, ks);
+    } else {
+      KSessions.insert(ks);
+    }
+  },
+  'click .delete': function (elt) {
+    var _id = $('input.id').val();
+
+    elt.preventDefault();
+    KSessions.remove(this._id);
+    Router.go('admin');
+  }
+});
+
+Template.ksEdit.rendered = function () {
+  /*
+  Add this method because it works on refresh
+  but won't by clicking on previous list page.
+ */
+  this.$(""select[name='selBook']"").val(this.$('input.book-id').val());
+};
+```
+
+Apply this change and return the full updated file.","```javascript
+Template.ksEdit.helpers({
+  ks: function () {
+    var ks = this;
+    ks.books = Books.find();
+    return ks;
+  }
+});
+
+Template.ksEdit.events({
+  'submit form': function (elt) {
+    var _id = $('input.id').val(),
+      ks = _id ? KSessions.findOne(_id) : {};
+
+    elt.preventDefault();
+    ks.i = +$(""input.i"").val();
+    ks.klubMaster = $(""input.klubMaster"").val() || ""anonymous"";
+    ks.date = $(""input.date"").val();
+    ks.voteer = $(""input.vote"").val();
+    ks.meetup = $(""input.meetup"").val();
+    ks.book_id = $(""select[name=selBook]"").val();
+    // Update an existent record or create it
+    if (_id) {
+      KSessions.update(_id, ks);
+    } else {
+      KSessions.insert(ks);
+    }
+  },
+  'click .delete': function (elt) {
+    var _id = $('input.id').val();
+
+    elt.preventDefault();
+    KSessions.remove(this._id);
+    Router.go('admin');
+  }
+});
+
+Template.ksEdit.rendered = function () {
+  /*
+  Add this method because it works on refresh
+  but won't by clicking on previous list page.
+ */
+  this.$(""select[name='selBook']"").val(this.$('input.book-id').val());
+};
+```",,,,
+fab-100x-20261114T224309Z-009,22,93d8ed1e847f89cd289d3628,8fe1f89f4eeeca4b8de69a346081fcdd,fab-100x,en,web_backend,opencodeinstruct,synthetic,"[user] You are tasked with implementing a RESTful API endpoint using Flask to handle the creation of a new user. The user data will be sent in JSON format with the following structure: `{""username"": ""string"", ""email"": ""string""}`. Your API should validate the input to ensure that both `username` and `email` are provided. If either is missing, the API should return a 400 Bad Request with an appropriate error message. If the data is valid, the API should respond with a 201 Created status code and a JSON object confirming the creation of the user, including the provided `username` and `email`.
+
+**Sample Input:**
+```json
+{
+    ""username"": ""john_doe"",
+    ""email"": ""[EMAIL]""
+}
+```
+
+**Sample Output:**
+```json
+{
+    ""message"": ""User created successfully"",
+    ""user"": {
+        ""username"": ""john_doe"",
+        ""email"": ""[EMAIL]""
+    }
+}
+```
+
+**Sample Input:**
+```json
+{
+    ""username"": ""john_doe""
+}
+```
+
+**Sample Output:**
+```json
+{
+    ""error"": ""Username and email are required""
+}
+```","```python
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/create_user', methods=['POST'])
+def create_user():
+    """"""
+    Handles the creation of a new user.
+    Expects a JSON payload with 'username' and 'email'.
+    Returns a 201 status code with a success message if the user is created successfully.
+    Returns a 400 status code with an error message if the input is invalid.
+    """"""
+    user_data = request.get_json()
+
+    if not user_data:
+        return jsonify({""error"": ""No user data provided""}), 400
+
+    username = user_data.get('username')
+    email = user_data.get('email')
+
+    if not username or not email:
+        return jsonify({""error"": ""Username and email are required""}), 400
+
+    response_message = {
+        ""message"": ""User created successfully"",
+        ""user"": {
+            ""username"": username,
+            ""email"": email
+        }
+    }
+
+    return jsonify(response_message), 201
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```",,,,
+fab-100x-20261114T224309Z-009,23,37f83ab1bf3e92c5d7f62a60,6ff0c2b6f848eae9537051fbf6b06786,fab-100x,en,web_frontend,oasst1,human_authored,"[user] Why is there something instead of nothing?
+
+[assistant] The question of why there is something rather than nothing is one of the typical questions of metaphysics - it is an interesting question, it gives the impression of a deep and mysterious issue. Many prominent philosophers have grappled with this problem. The concept of nothingness or ""nothing""- emptiness - leads to non-existence. There can't be (in the sense of - exist) nothing and since ""nothing"" does not exist, therefore there is ""something"".
+
+[user] This is intresting and I would love to hear your opinion. Please link some studies/source.","As a classic philosophical problem, and many great thinkers throughout history have grappled with it. Here are a few resources that might be helpful:
+
+The Stanford Encyclopedia of Philosophy has an excellent article on the topic: https://plato.stanford.edu/entries/nothingness/
+
+The podcast ""Philosophy Bites"" has a great episode on the topic featuring philosopher John Leslie: https://philosophybites.com/2012/03/john-leslie-on-why-there-is-something-rather-than-nothing.html
+
+The YouTube channel ""Closer to Truth"" has several videos on the topic, including this one featuring philosopher Richard Swinburne: https://www.youtube.com/watch?v=6xIq6a8mV1s
+
+The book ""Why There Is Something Rather Than Nothing"" by Bede Rundle is a comprehensive exploration of the topic: https://global.oup.com/academic/product/why-there-is-something-rather-than-nothing-[CARD]?cc=us&lang=en&",,,,
+fab-100x-20261114T224309Z-009,24,5086b23fef165a57ea446943,35ce8469073c708e71d0bd4de8837478,fab-100x,en,web_fullstack,oasst1,human_authored,"[user] Hi OpenAssistant! I am looking to write a letter of motivation for a job listing using LaTeX. I know LaTeX, but haven't written a letter in it yet. Could you provide me with a template I can use that is appropriate for a letter of motivation. I would appreciate if you included an opening and closing that is appropriate for this type of text.
+
+[assistant] \documentclass{letter}
+
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+    top=20mm,
+}
+
+\signature{Your Name}
+\address{Your Address}
+
+\begin{document}
+
+\begin{letter}{Employer's Address}
+
+\opening{Dear Hiring Manager,}
+
+I am writing to express my strong interest in the job listing for [position] that was recently posted on [job board/website]. As a [relevant experience or qualification], I believe I would make a valuable addition to your team.
+
+[Paragraph about your qualifications and experience, and how they make you a good fit for the job.]
+
+[Paragraph about your enthusiasm for the company and the job, and why you believe you would thrive in this role.]
+
+Thank you for your consideration. I look forward to the opportunity to further discuss my qualifications with you.
+
+\closing{Sincerely,}
+
+\end{letter}
+
+\end{document}
+
+[user] Could you put this in a markdown code block ```like this?```","Sure! Here's the LaTeX written in a multiline Markdown code block:
+
+```
+\documentclass{letter}
+
+\usepackage{geometry}
+\geometry{
+a4paper,
+total={170mm,257mm},
+left=20mm,
+top=20mm,
+}
+
+\signature{Your Name}
+\address{Your Address}
+
+\begin{document}
+
+\begin{letter}{Employer's Address}
+
+\opening{Dear Hiring Manager,}
+
+I am writing to express my strong interest in the job listing for [position] that was recently posted on [job board/website]. As a [relevant experience or qualification], I believe I would make a valuable addition to your team.
+
+[Paragraph about your qualifications and experience, and how they make you a good fit for the job.]
+
+[Paragraph about your enthusiasm for the company and the job, and why you believe you would thrive in this role.]
+
+Thank you for your consideration. I look forward to the opportunity to further discuss my qualifications with you.
+
+\closing{Sincerely,}
+
+\end{letter}
+
+\end{document}
+```",,,,
+fab-100x-20261114T224309Z-009,25,f916043e3ba7972fc43ac2e5,bd2ced119d26a45f674ec0d9eee2e96d,fab-100x,en,writing,dolly-15k,human_authored,"[user] What is the Carolina Hall
+
+Context:
+Carolina Hall, formerly known as Saunders Hall, is a building on the University of North Carolina at Chapel Hill campus in Chapel Hill, North Carolina, in the United States. Carolina Hall was built in 1922 and named for William L. Saunders, an alumnus and a colonel in the Confederate States Army during the American Civil War. The name was changed to ""Carolina Hall"" in 2015.","The Carolina Hall, formerly known as Saunders Hall, is a building on the University of North Carolina at Chapel Hill campus in Chapel Hill, North Carolina, in the United States. Carolina Hall was built in 1922 and named for William L. Saunders, an alumnus and a colonel in the Confederate States Army during the American Civil War. The name was changed to ""Carolina Hall"" in 2015.",,,,
+fab-100x-20261114T224309Z-009,26,c067ddce3788cedb25db1f22,1802cc303a96c5c8a9fe2e3b0ca728a6,fab-100x,eo,general_knowledge,oasst2,human_authored,"[user] Bonvolu diru al mi kiel oni povas lerni pli pri koboldoj.
+
+[assistant] Por lerni pli pri koboldoj, vi povas sekvi ĉi tiujn paŝojn:
+
+* Legu librojn kaj artikolojn: Multaj verkoj pri mitologio kaj folkloraĵoj inkluzivas informojn pri koboldoj. 
+* Esploru retejon: Ekzistas multaj retejoj, kiuj disponigas informojn pri mitologio, inkluzive de koboldoj. 
+* Vizitu muzeojn kaj ekspoziciojn: Foje, muzeoj kaj ekspoziciojn prezentas mitologiajn temojn, inkluzive de koboldoj. Tiu povas esti bona okazo por vidi ilustraĵojn, skulptaĵojn kaj aliajn artojn rilatajn al la temo.
+* Aŭskultu podkastojn kaj prelegojn: Estas podkastoj kaj prelegoj dediĉitaj al mitologio kaj folkloraĵoj. 
+* Aliĝu al diskutgrupoj kaj forumoj: Enreta diskuto kun aliaj interesuloj povas esti alloga vojo por lerni pli pri koboldoj. Reddit, Quora, kaj aliaj similaj retejoj povas havi diskutojn pri mitologiaj estaĵoj, inkluzive de koboldoj.
+* Legu fikcion kun koboldoj: Foje, fikciaj verkoj povas prezenti pli da perspektivo pri koboldoj kaj ilia rolo en popola kulturo. 
+* Lernu pri similaj mitologiaj estaĵoj: Studado de aliaj mitologiaj estaĵoj, kiel gnomoj kaj elfoj, povas helpi klarigi la interrilatojn inter diversaj kreaĵoj kaj plilarĝigi vian scion pri koboldoj.
+
+Memoru, ke koboldoj estas mitologiaj estaĵoj, do priskriboj povas varii inter kulturoj kaj fontoj.
+
+[user] Dankon. Kie mi povas trovi realajn koboldojn?","Mi bedaŭras, sed koboldoj, kiel ili estas priskribitaj en folkloro kaj fantazio, ne ekzistas en la reala mondo. Koboldoj estas figuroj de germana mitologio kaj estas ofte viditaj en fantazia literaturo kaj ludoj, kiel ekzemple la ""Dungeons & Dragons"" rolludo. Ili estas kutime priskribitaj kiel malgrandaj, malamikaj kreaĵoj.
+
+Se vi estas interesita pri realaj kreaĵoj kiuj povas aspekti iomete kiel koboldoj, vi eble volus esplori malgrandajn mamulojn kiel mustelojn kaj sciuroj, aŭ eĉ certaj specioj de ranoj kaj salamandroj. Tamen, ĉi tiuj estas nur similecoj kaj ne devus esti prenitaj tro serioze.",,,,
+fab-100x-20261114T224309Z-009,27,bd5f6b5e3f31bad666c02295,52ebc06ac0f9c5d91727c1a20090d64d,fab-100x,es,coding,oasst2,human_authored,[user] ¿Qué es pythón?,"Python es un lenguaje de programación de alto nivel, interpretado y orientado a objetos. Fue creado por Guido van Rossum en el año 1991 y a la fecha es uno de los lenguajes de programación más populares y usados en la actualidad. Python es conocido por su sintaxis sencilla, legible y fácil de aprender, lo que lo hace ideal para principiantes en la programación.
+
+Python es un lenguaje versátil y puede ser utilizado en una amplia variedad de aplicaciones, entre ellas desarrollo web, ciencia de datos, inteligencia artificial, automatización y mucho más. Posee una gran comunidad de desarrolladores y muchas bibliotecas y herramientas disponibles. Python es una excelente elección para cualquier proyecto de programación.",,,,
+fab-100x-20261114T224309Z-009,28,14acb31e9adf1e62ee6be41d,e62de747f5d2cd521aa853e75177cbd9,fab-100x,es,cybersecurity,oasst1,human_authored,"[user] Por favor. Necesito un resumen sobre las estafas en internet. En ella se deben tratar temas sobre como prevenir, como reconocer una estafa, además, necesito ejemplos de casos mas recientes sobre esta situación. Al final me encetaría que se incluya varios consejos y tips para afrontar esta situación.","Por supuesto, aqui te proporciono unos tips para prevenir que te estafen con páginas u ofertas fraudulentas:
+
+1 - Evita comprar en páginas que no conoces. ...
+2 - HTTPS siempre. ...
+3 - Si una oferta es demasiado buena para ser verdad... ...
+4 - Evita páginas que se hacen pasar por otras. ...
+5 - Revisa bien la información del producto. ...
+6 - Ante la duda, tienda oficial. ...
+7 - Ten cuidado con dónde haces click.
+8 - Cuidado con perfiles falsos en redes sociales
+9 - Cuidado con los correos con phishing.
+10 - Revisa la parte inferior de una web (siempre debe haber enlaces a la política de privacidad, condiciones de compra, pago)
+11 - Utiliza sistemas de pago fiables
+12 - Evita cualquier virus o malware
+13 - Evita las falsas ofertas",,,,
+fab-100x-20261114T224309Z-009,29,0ca2688aeb1386de12c1ca3e,04074c5586bca1b40f3354494d22d738,fab-100x,es,education,oasst1,human_authored,"[user] Puedes indicarme que cosas aprender para desarrollar machine learning?
+
+[assistant] Existen diferentes rutas a considerar para aprender a desarrollar machine learning, sin embargo, los programadores tienen de base dos herramientas principales para comenzar a desarrollar sus inteligencias artificiales, estas dos son Python y Google Colab.
+
+Al aprender Python correctamente, ya serías capaz de poder utilizar Google Colab, por lo que no habrá diferencia entre uno y otro. Sin embargo, para comenzar a desarrollar en Python, lo mejor es utilizar un IDE (Entorno de Desarrollo Integrado). Algunos IDEs recomendados para programar son Visual Studio Code, Jetbrains Fleet, Jetbrains Pycharm, entre otros.
+
+Una vez tengas un IDE de los mencionados, o alguno otro que soporte Python, puedes comenzar a aprender este lenguaje de programación desde el inicio, procurando aprender la sintaxis, que puedes hacer y que no, aprender a importar librerías, y en general comenzar a desarrollar proyectos personales que te preparen para un proyecto real.
+
+Después, deberás aprender POO (Programación Orientada a Objetos) en Python, la cual te ayudará a comenzar a utilizar librerías como Pandas, muy utilizada en el campo de Inteligencia Artificial. Otro paso importante será aprender a integrar y usar Pandas, Numpy u otras librerías en tu proyecto.
+
+Una vez aprendas estos conceptos, ¡Podrás comenzar a aprender a desarrollar Inteligencias Artificiales con aprendizajes supervisados, no supervisados, redes neuronales y más!
+
+[user] Muchas gracias, ¿y después de aprender la POO cómo continuo aprendiendo? Dame algunos ejemplos de inteligencias artificiales fáciles de recrear para comprobar mis conocimientos y revisar mis avances.","Después de aprender POO, puedes continuar tu camino en el aprendizaje de la inteligencia artificial de la siguiente manera:
+
+Aprende sobre los algoritmos de aprendizaje automático: Hay muchos algoritmos diferentes de aprendizaje automático, como regresión, clasificación, clustering, y aprendizaje profundo. Aprende sobre cada uno de ellos y cómo se aplican en diferentes situaciones.
+
+Profundiza en el aprendizaje profundo: El aprendizaje profundo es una subárea en crecimiento dentro de la IA y es esencial para la creación de sistemas de IA avanzados. Aprende sobre las redes neuronales, la inferencia y la backpropagation.
+
+Practica con proyectos: La mejor manera de consolidar tus conocimientos y mejorar tus habilidades en IA es a través de la realización de proyectos. Puedes comenzar con proyectos simples como clasificación de imágenes o detección de spam, y luego avanzar a proyectos más complejos como la generación de texto o la traducción automática.
+
+Aquí hay algunos proyectos fáciles de recrear para comprobar tus conocimientos y revisar tus avances:
+
+Clasificación de imágenes: Crea un modelo de aprendizaje automático que pueda clasificar imágenes en diferentes categorías, como animales, paisajes, etc.
+
+Análisis de sentimientos: Crea un modelo de aprendizaje automático que pueda analizar la polaridad de los comentarios de Twitter o de otros medios sociales.
+
+Detección de spam: Crea un modelo de aprendizaje automático que pueda identificar correos electrónicos no deseados (spam) en una bandeja de entrada.
+
+Predicción de precios de acciones: Crea un modelo de aprendizaje automático que pueda predecir los precios futuros de las acciones utilizando datos históricos.
+
+Estos son solo algunos ejemplos de proyectos simples que puedes recrear para comprobar tus conocimientos y avances en IA. Hay muchas otras ideas y oportunidades para seguir aprendiendo y desarrollando tus habilidades en IA.",,,,
+fab-100x-20261114T224309Z-009,30,6180ee60af76ecd05ff1bfcf,5bdc4714a87ec4b24b677d8db9adb0ed,fab-100x,es,general_knowledge,oasst1,human_authored,[user] crea una lista de 3 titulos novedosos para crear una novela de terror.,"""La Sombra en la Niebla"": Una historia de terror sobre una pequeña ciudad que está siendo asediada por una misteriosa figura siniestra que se esconde en la niebla.
+
+""El Laberinto del Miedo"": Una novela sobre un grupo de amigos que se aventuran en un laberinto abandonado, pero pronto descubren que están atrapados y que algo maligno los está persiguiendo.
+
+""Los Susurros del Inframundo"": Una novela sobre una joven que descubre que puede escuchar los susurros de los muertos y debe descubrir la verdad detrás de su habilidad antes de que sea demasiado tarde.",,,,
+fab-100x-20261114T224309Z-009,31,9c0105203958a8de15e8e7f7,8345b04293897990f14937c60f380054,fab-100x,es,islamic_studies,oasst2,human_authored,"[user] ¿Cuales son las 3 principales religiones? ¿Puedes resumirme los conceptos básicos de las mismas?
+
+[assistant] Entre los seres humanos hay multitud de religiones. Quizá podríamos definir algo mejor qué quieres decir con ""principales"".
+
+Si con ""principales"" te refieres a las más profesadas, según Wikipedia estas son el Cristianismo, el Islam y el Hinduismo. Junto con el conjunto de personas no adheridas a ningún credo particular, éstos abarcan más del 80% de la población mundial.
+
+Si te referías a las tres principales religiones monoteístas, estas son: Judaísmo, Cristianismo e Islam.
+El Judaísmo es la fe del pueblo judío, cuyo principal libro sagrado es la Torah, y cuya religión podría resumirse en el ""Shemá"" (amar a Dios con todas las fuerzas y al prójimo como a uno mismo) y en el cumplimiento de los diez mandamientos dados a Moisés, de modo que ""Vosotros seréis mi pueblo y Yo seré vuestro Dios"". Además los judíos tienen otros muchos mandamientos con los que expresan y viven su profunda reverencia al único Dios verdadero.
+El cristianismo es el seguimiento de las enseñanzas y la vida de Jesús de Nazaret, un Rabbí judío del siglo I que afirmó ser ""el hijo del hombre"" y, según sus discípulos, es el mismo Dios hecho hombre, dos naturalezas en una sola persona, que dio su vida muriendo como un esclavo para después resucitar, y con ello abrir a toda la humanidad el acceso a la vida divina. Siguen también los diez mandamientos y creen que Cristo está vivo, mantienen una relación personal con él y disfrutan de los signos que él instituyó para concederles su gracia, los sacramentos.
+El Islam es la más tardía de las tres religiones, y en el caso de los suníes, consiste en declarar la shahada (i.e. que Alah es Dios y Mahoma su profeta), la oración, la limosna, el ayuno y la peregrinación a la Meca.
+
+Las tres tienen en común la creencia en un solo Dios verdadero. Las tres son religiones Abrahámicas, puesto que históricamente las tres procederían de pueblos descendientes de Abraham, a quien Dios habría prometido dar descendencia ""como las estrellas del cielo"".
+
+Por otro lado, el hinduismo es una agrupación de religiones practicadas fundamentalmente en el sur de Asia. Aunque tienen diversos credos, son comunes la creencia en el karma (una relación entre valor ético de acciones y sus consecuencias) o el samsara (la reencarnación después de la muerte); son también comunes libros sagrados como los Upanishads o la Bhagavad-gita. También tienen prácticas comunes como la recitación de oraciones o la meditación.
+
+Estas cuatro religiones cuentan con figuras ascéticas, personas que consagran su vida por entero con un fin particular.
+
+[user] que tienen en comun estas 3 religiones?","Las tres religiones principales que mencionaste (Cristianismo, Islam y Judaísmo) comparten varias creencias y principios comunes, entre los que se incluyen:
+
+1. Creencia en un solo Dios verdadero: Las tres religiones son monoteístas y creen en un único Dios que es el creador del universo y gobierna todo lo que hay en él.
+
+2. Importancia de los profetas: Todas las religiones reconocen la existencia de profetas que han transmitido la voluntad de Dios a la humanidad, como Abraham, Moisés y Jesús.
+
+3. La existencia de un libro sagrado: Cada religión tiene su propio libro sagrado, que contiene las enseñanzas de Dios y guía la vida de los creyentes. En el caso del Cristianismo, es la Biblia; en el Islam, el Corán; y en el Judaísmo, la Torah.
+
+4. Ética y moralidad: Las tres religiones comparten una ética y moralidad similar, que se basa en principios como el amor, la justicia, la compasión y la caridad hacia los demás.
+
+5. El día de descanso: Las tres religiones tienen un día de descanso dedicado a la adoración de Dios y la reflexión. En el caso del Cristianismo, es el domingo; en el Islam, el viernes; y en el Judaísmo, el sábado.
+
+6. La vida después de la muerte: Las tres religiones creen en una vida después de la muerte y en la existencia de un juicio final, en el que las personas son juzgadas por sus acciones en vida y recompensadas o castigadas en consecuencia.",,,,
+fab-100x-20261114T224309Z-009,32,942d68bf31ada1d94afc9d4d,21aa256e82fb1300d64b196c9e69b535,fab-100x,es,mathematics,oasst1,human_authored,[user] Recomiéndame una forma de aumentar la fibra en mi dieta sin aumentar excesivamente la ingesta calórica,"Claro, aquí te dejo algunas formas de aumentar la ingesta de fibra en tu dieta sin aumentar excesivamente la ingesta calórica:
+
+- Come más verduras: las verduras son ricas en fibra y bajas en calorías. Añade más verduras a tus comidas, como brócoli, espinacas, acelgas, zanahorias, coliflor, entre otras.
+
+- Añade frutas a tu dieta: las frutas también son una buena fuente de fibra y generalmente tienen menos calorías que otros alimentos. Prueba comer manzanas, peras, plátanos, fresas, frambuesas, entre otras.
+
+- Aumenta la ingesta de legumbres: las legumbres, como los frijoles, lentejas y garbanzos, son ricos en fibra y proteína, y no son muy altos en calorías. Incorpora más legumbres en tus ensaladas, sopas o guisos.
+
+- Come más alimentos integrales: reemplaza los alimentos refinados por sus versiones integrales. Por ejemplo, consume arroz integral en lugar de arroz blanco, pan integral en lugar de pan blanco, pasta integral en lugar de pasta refinada, entre otros.
+
+- Agrega semillas y nueces a tus comidas: las semillas y nueces, como las semillas de chía, semillas de lino, nueces, almendras y avellanas, son ricas en fibra y grasas saludables. Agrégales a tus ensaladas, yogures, o simplemente como snacks saludables.
+
+Es importante recordar que al aumentar la ingesta de fibra es fundamental también aumentar el consumo de agua para evitar estreñimiento. Además, siempre es recomendable hablar con un profesional de la salud antes de hacer cambios importantes en la dieta.",,,,
+fab-100x-20261114T224309Z-009,33,0de2bdf49c673baf5667c3d1,25c3623db348a3d48707ed3707b9f951,fab-100x,es,problem_solving,oasst2,human_authored,[user] Dame ideas sobre cómo ser más organizado y elabora un cronograma de un mes con tareas que me ayuden a cumplir con mi objetivo,"¡Claro! Aquí te proporciono algunas ideas para ser más organizado:
+
+- Crea una lista de tareas: Haz una lista diaria o semanal de las tareas que debes hacer. Prioriza las tareas según su importancia y urgencia y asegúrate de marcarlas una vez que las completes.
+
+- Usa un calendario: Usa un calendario o una aplicación para organizar tus citas, reuniones y eventos importantes. Programa recordatorios para que no se te olviden las fechas importantes.
+
+- Despeja tu espacio de trabajo: Mantén tu espacio de trabajo organizado y limpio. Guarda los documentos importantes en carpetas y elimina cualquier cosa que no necesites.
+
+- Haz una planificación estratégica: Crea un plan estratégico para tus objetivos a largo plazo. Divide tus objetivos en metas a corto plazo y crea un cronograma para alcanzar cada una de ellas.
+
+- Dedica tiempo para planificar: Dedica tiempo regularmente para planificar tus tareas y actividades. Asegúrate de que tus planes sean realistas y alcanzables.
+
+Aquí te proporciono un ejemplo de un cronograma para un mes, con tareas que te ayudarán a  ser más organizado:
+
+Semana 1:
+
+- Lunes: Crea una lista diaria de tareas con prioridades claras y trata de cumplirlas todas.
+- Martes: Dedica 15 minutos para limpiar tu espacio de trabajo y deshacerte de todo lo que no necesitas.
+- Miércoles: Crea una rutina de la mañana y la noche para establecer un horario consistente.
+- Jueves: Crea un sistema de organización para tus correos electrónicos y trata de mantener una bandeja de entrada limpia.
+- Viernes: Revisa tus finanzas personales y haz un presupuesto para el mes siguiente.
+
+Semana 2:
+
+- Lunes: Dedica 30 minutos a planificar tu semana y establecer objetivos realistas.
+- Martes: Aprende a delegar tareas a los demás para liberar tu tiempo y energía.
+- Miércoles: Crea un archivo de seguimiento para tus proyectos y metas a largo plazo.
+- Jueves: Identifica tus distracciones y establece límites claros para reducir su impacto en tu productividad.
+- Viernes: Aprende a decir ""no"" a compromisos y tareas que no contribuyan a tus objetivos a largo plazo.
+
+Semana 3:
+
+- Lunes: Dedica tiempo a revisar y evaluar tus objetivos a largo plazo y ajustarlos según sea necesario.
+- Martes: Dedica 30 minutos a limpiar tu espacio de trabajo y mantenerlo organizado.
+- Miércoles: Identifica los procesos que te toman más tiempo y busca maneras de optimizarlos.
+- Jueves: Crea un sistema de archivo eficiente para tus documentos y papeles importantes.
+- Viernes: Haz un seguimiento de tus finanzas personales y ajusta tu presupuesto según sea necesario.
+
+Semana 4:
+
+- Lunes: Dedica tiempo a planificar tu semana y establecer objetivos realistas.
+- Martes: Crea un sistema de organización para tus tareas y proyectos en línea.
+- Miércoles: Identifica los hábitos que te están restando productividad y establece un plan para cambiarlos.
+- Jueves: Crea un archivo de seguimiento para tus tareas y proyectos.
+- Viernes: Evalúa tu progreso durante el mes y haz ajustes en tu plan de organización si es necesario.
+
+Recuerda que este es solo un ejemplo y que puedes ajustar el cronograma según tus necesidades y preferencias. Lo más importante es ser constante en tus esfuerzos por ser más organizado y mantener un enfoque en tus objetivos a largo plazo.",,,,
+fab-100x-20261114T224309Z-009,34,f838a4dfdacf3ad7af9149b9,dad2c4dad9da036dc1ca957b5739ba0c,fab-100x,es,reasoning,oasst2,human_authored,"[user] puedes ayudarme a crear una silla de madera que sea simple?
+
+[assistant] ¡Por supuesto que sí! Aquí hay algunos pasos básicos para ayudarte a crear una silla de madera simple:
+
+Materiales necesarios:
+
+1. Madera contrachapada o tablas de madera de 2x4 o 2x6.
+ - Sierra de mesa o sierra de mano.
+ - Taladro eléctrico.
+ - Tornillos de madera.
+ - Papel de lija.
+ - Barniz o pintura.
+
+2. Diseña tu silla: Decide cómo quieres que sea la silla. Piensa en la altura, el ancho y la profundidad del asiento, la altura del respaldo y la inclinación del mismo. Puedes encontrar inspiración en línea o diseñar tu propia silla.
+
+3. Corta la madera: Utiliza una sierra de mesa o sierra de mano para cortar las piezas de madera de acuerdo a tu diseño. Necesitarás cortar dos piezas idénticas para los lados de la silla, una pieza para el asiento y dos piezas para el respaldo.
+
+4. Arma la silla: Utiliza tornillos de madera para unir las piezas. Empieza por unir los lados de la silla al asiento, asegurándote de que estén nivelados. Luego, une las piezas del respaldo a los lados de la silla.
+
+5. Lija la silla: Utiliza papel de lija para suavizar cualquier borde áspero y asegurarte de que la superficie de la silla esté suave al tacto.
+
+6. Termina la silla: Aplica una capa de barniz o pintura para proteger la silla de la humedad y el desgaste. Deja secar por completo antes de usar.
+
+Ten en cuenta que estos son solo pasos básicos para crear una silla simple de madera. Dependiendo del diseño que hayas elegido, es posible que necesites ajustar estos pasos. También es importante trabajar de manera segura y utilizar herramientas y equipo de protección adecuados en todo momento.
+
+[user] Y cómo puedo hacer para crear una mesa de madera?","Aquí te presento algunos pasos sencillos para crear una mesa de madera:
+
+1. Reúne los materiales: Necesitarás madera, tornillos, pegamento para madera, una sierra, un taladro y una lijadora.
+
+2. Diseña el modelo de la mesa: Decide el tamaño y la forma de la mesa, y dibuja un plano con las dimensiones que deseas.
+
+3. Corta las patas y los listones: Utilizando la sierra, corta las patas de la mesa y los listones que servirán de soporte para el tablero.
+
+4. Ensambla las patas: Coloca las patas de la mesa en la posición deseada y atorníllalas al listón transversal superior. Asegúrate de que las patas estén en ángulo recto con el listón superior.
+
+5. Une los listones: Une los listones transversales inferiores con los listones longitudinales con pegamento y tornillos para crear la estructura de soporte para el tablero.
+
+6. Añade el tablero: Corta la pieza de madera que se usará como tablero de la mesa y colócala sobre la estructura de soporte. Atornilla el tablero a la estructura de soporte, asegurándote de que esté nivelado.
+
+7. Lija y pinta: Lija toda la mesa para suavizar las imperfecciones y luego pinta o barniza la mesa con un acabado de tu elección.
+
+Estos son solo pasos generales para construir una mesa de madera, pero es importante tener en cuenta que la construcción real puede ser más complicada dependiendo de la complejidad del diseño y los detalles específicos de la construcción. Además, siempre es importante seguir todas las medidas de seguridad necesarias al trabajar con herramientas eléctricas y maquinaria.",,,,
+fab-100x-20261114T224309Z-009,35,4904800f6b8ff5e7a523a3f7,c1755bc6a453cf6b1c364fba14f92894,fab-100x,es,research,oasst2,human_authored,"[user] texto para la descripción de un video de youtube hablando de como usar Open Assistant siendo carismático
+
+[assistant] Hola amigos, ¿alguna vez os habéis preguntado cómo haceros la vida más fácil y resolver vuestras dudas de forma rápida y eficaz? Pues ¡buenas noticias! Ahora es posible gracias a Open-Assistant, el asistente virtual más avanzado del mercado. En este vídeo, te mostraré cómo utilizar Open-Assistant para obtener respuestas a cualquier pregunta que puedas tener, desde cuestiones técnicas hasta consejos de moda. Sí, ¡así es! Open-Assistant es tu amigo virtual de confianza, listo para ayudarte en cualquier momento y lugar. Así que no esperes más, ¡deja de perder el tiempo buscando respuestas en Google y empieza a utilizar Open-Assistant hoy mismo! ¡Seguro que te encantará!
+
+[user] ¿Puedes hacer una descripción que sea menos redundante y que también incluya las redes sociales?","¡El ChatGPT OPEN SOURCE!
+En este video hablamos sobre una nueva inteligéncia artificial open source creada por LAION, Open Assistant.
+Esta inteligéncia artificial ha sido entrenada con ayuda de muchos usuarios alrededor del mundo.
+
+Web de Open Assistant:
+https://open-assistant.io
+
+Redes sociales:
+Instagram: ...
+Tweeter: ...
+Facebook: ...",,,,
+fab-100x-20261114T224309Z-009,36,729d960c90aa7f15f50d6fa6,3c489e847f06b7aa42a832c00eaba1bf,fab-100x,es,safety_ethics,oasst2,human_authored,"[user] ¿Cómo puedo eliminar la marca de agua de un pdf?
+
+[assistant] Con que deseas quitar la marca de agua de un PDF. No te preocupes yo te enseñare como puedes ser un Pirata en el mundo digital. 
+
+Para eliminar una marca de agua en un PDF, puedes utilizar la herramienta de eliminación de marcas de agua de Adobe Acrobat. 
+
+Esta herramienta le permite seleccionar el archivo PDF y eliminar la marca de agua de manera sencilla. 
+
+Aunque si lo que quieres es hacerlo fácil y rápido También puede usar una herramienta en línea para eliminar la marca de agua, como un conversor PDF en línea. 
+
+Simplemente cargue su archivo PDF, seleccione la opción para eliminar la marca de agua y descargue el archivo resultante. 
+
+Estas herramientas ofrecen una forma rápida y sencilla de quitar marcas de agua de un PDF. Puedes Utilizar la herramienta RightPDF entre muchas más.
+
+Y listo tendrás el PDF sin marca de agua y podrás compartirlo sin que nadie sepa que eres un Pirata.
+
+[user] La respuesta tiene un bias. Hace un juicio de valor diciendo que el usuario es pirata. Tambien esta mal formateada con mayusculas donde no debe y sin comas.","Lo siento, estoy intentando mejorar mis habilidades para responder preguntas. Para eliminar la marca de agua de un PDF, puedes usar la herramienta de eliminación de marcas de agua de Adobe Acrobat o una herramienta en línea para eliminar la marca de agua, como un conversor PDF en línea. Estas herramientas ofrecen una forma rápida y sencilla de quitar marcas de agua de un PDF. Puedes usar la herramienta RightPDF entre muchas más.",,,,
+fab-100x-20261114T224309Z-009,37,4b848177957d9e849bab0d76,b2f525c8a305b6bf23ec399bbe08d24b,fab-100x,es,science,aya-dataset,human_authored,"[user] Escribe un cuento para un niño de cinco años, tomando la idea del Principito, en una versión nueva y original en 500 palabras.","Nico y la odisea cósmica 
+Había una vez un pequeño explorador llamado Nico, que vivía en un planeta diminuto muy lejano, llamado Pequeñolandia. En Pequeñolandia, todo era tan pequeño que las flores parecían estrellitas brillantes y las montañas se veían como suaves colinas verdes.
+
+Un día, mientras Nico jugaba entre las flores, vio algo reluciente entre los pétalos. ¡Era una estrellita dorada! La tomó en sus manos y la miró con asombro. La estrellita comenzó a brillar aún más y, de repente, habló: ""Hola, Nico, soy Estela, una estrella viajera. He venido a Pequeñolandia para conocer tus maravillas"".
+
+Nico se emocionó muchísimo y decidió mostrarle a Estela todos los rincones de su pequeño mundo. Juntos exploraron el bosquecito mágico, donde los árboles susurraban cuentos y los pájaros cantaban melodías encantadas. Después, subieron la Montaña Esmeralda, donde encontraron pequeños duendes risueños que les regalaron risas y alegrías.
+
+En su travesía, también conocieron a Nube, una nube risueña que flotaba por el cielo azul y los llevó a volar por las nubes esponjosas. Desde allí, Nico y Estela veían las estrellitas en el cielo, y Estela les contaba historias sobre otros planetas y lejanas galaxias.
+
+Un día, mientras caminaban cerca del río de agua cristalina, encontraron una extraña criaturita. Era redonda y tenía pequeñas alas. ""¡Hola, soy Alita! Soy la última libélula de Pequeñolandia"", dijo con tristeza. ""Nadie se ha dado cuenta de que soy la última, todos están muy ocupados para notar mi existencia"".
+
+Nico y Estela se sintieron tristes por Alita y decidieron ayudarla. Juntos construyeron un pequeño refugio para las libélulas, y poco a poco, más libélulas comenzaron a llegar a Pequeñolandia. Alita ya no se sentía sola, y las libélulas se convirtieron en las guardianas del bosquecito mágico.
+
+Con el tiempo, Nico y Estela se hicieron grandes amigos. Cada día, recorrían Pequeñolandia explorando y descubriendo nuevas maravillas. Un día, mientras estaban en la cima de la Montaña Esmeralda, Nico preguntó a Estela si quería quedarse en Pequeñolandia con él. ""Me encantaría, Nico, pero soy una estrella viajera y debo seguir mi camino por el universo"", respondió Estela con una sonrisa.
+
+Nico se puso un poco triste, pero sabía que siempre tendría los recuerdos de su aventura con Estela en su corazón. Y así, con un abrazo cálido y un brillo en los ojos, Estela se despidió de Nico y continuó su viaje.
+
+Desde aquel día, Nico nunca dejó de explorar Pequeñolandia. Siempre recordaba a Estela y miraba al cielo, sabiendo que, en alguna parte, su amiga estrella seguía brillando. Y aunque Nico nunca volvió a verla, la magia de su amistad hizo que Pequeñolandia fuera un lugar aún más especial y lleno de maravillas.
+
+Y así, este pequeño explorador aprendió que la amistad no tiene fronteras y que, aunque las estrellas puedan estar lejos, siempre brillarán en el corazón de quienes las aman.
+
+Fin.",,,,
+fab-100x-20261114T224309Z-009,38,8d4c6318958cfcbfdd240b0e,599b05b266a4bcf9897936c62fadd04c,fab-100x,es,software_engineering,oasst2,human_authored,"[user] Cuales son las complicaciones de no trabajar con un control de versiones en un proyecto grande de Software y cuales son las mejores opciones para trabajar con un control de versiones
+
+[assistant] Trabajar sin un control de versiones en un proyecto grande de software puede ser extremadamente complicado y arriesgado. Si el código no está bien documentado, los desarrolladores pueden tener dificultades para comprender el código de otros miembros del equipo, especialmente si hay cambios significativos. Esto puede llevar a errores de codificación, versiones incompatibles y otros problemas.
+
+Además, sin un control de versiones, es difícil rastrear cambios significativos y revertir errores. Esto puede ser especialmente problemático si hay muchos equipos trabajando en el mismo proyecto y hay mucho código que cambiar.
+
+Las mejores opciones para trabajar con un control de versiones incluyen Git, Subversion y Mercurial. Estas herramientas son ampliamente utilizadas y ofrecen una gran variedad de funciones para ayudar a los equipos de desarrollo a trabajar de manera eficiente y eficaz. Ofrecen una variedad de características para rastrear cambios, comparar versiones y revertir errores, entre otras cosas. Estas herramientas están disponibles de forma gratuita y son bastante fáciles de usar.
+
+[user] Dime qué gestor de versiones me recomiendas para usar en un código de Python y que pueda integrar en Visual Studio Code. Proponme varias opciones con sus ventajas y desventajas para que pueda valorar cuál usar y recomiéndame como empezar a usarlos.","Existen varias opciones para gestores de versiones que se pueden usar con código de Python y que se pueden integrar en Visual Studio Code. Estas opciones incluyen:
+
+Git: Git es una herramienta de control de versiones de código abierto y ampliamente utilizada. Es una de las herramientas más populares para el control de versiones de código y ofrece una variedad de características para rastrear cambios, comparar versiones y revertir errores, entre otras cosas. Además, Git se integra con Visual Studio Code, por lo que es una buena opción para usar con código Python.
+
+Subversion: Subversion es otra herramienta de control de versiones de código abierto bastante popular. Ofrece algunas características similares a las de Git, como la capacidad de rastrear cambios, comparar versiones y revertir errores. Sin embargo, no se integra con Visual Studio Code, por lo que es una opción menos atractiva para usar con código Python.
+
+Mercurial: Mercurial es un sistema de control de versiones de código abierto que ofrece algunas características similares a las de Git y Subversion. Se integra con Visual Studio Code, por lo que es una buena opción para usar con código Python.
+
+Para empezar a usar un gestor de versiones con código Python en Visual Studio Code, primero debe instalar el gestor de versiones de su elección en su sistema. Una vez que haya instalado el gestor de versiones, deberá configurar el control de versiones para el proyecto de Python en Visual Studio Code. Esto se puede hacer desde el menú Archivo> Configuración> Configuración de control de versiones.",,,,
+fab-100x-20261114T224309Z-009,39,26e30bf8ee52185a1751bced,8afd5ab527dd7aa12cb9ef7b5a19c850,fab-100x,es,web_backend,oasst1,human_authored,[user] Muéstrame un ejemplo de una API hecha con una arquitectura Hexagonal usando FastAPI,"Aquí hay un ejemplo básico de una API hecha con una arquitectura Hexagonal usando FastAPI:
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get(""/"")
+def read_root():
+    return {""Hello"": ""World""}
+
+@app.get(""/items/{item_id}"")
+def read_item(item_id: int, q: str = None):
+    return {""item_id"": item_id, ""q"": q}
+
+En este ejemplo, estamos utilizando la biblioteca FastAPI para crear una API RESTful con dos rutas. La primera ruta, ""/"", devuelve un saludo básico en formato JSON. La segunda ruta, ""/items/{item_id}"", acepta un parámetro de identificación del artículo y un parámetro opcional ""q"" y devuelve ambos en formato JSON.
+
+Este ejemplo muestra cómo FastAPI permite crear API de manera rápida y fácil utilizando una arquitectura hexagonal, que separa la lógica de negocios de los detalles de implementación de la API. De esta manera, se puede garantizar una mayor flexibilidad y mantenibilidad a medida que se agreguen nuevas funcionalidades y cambien las necesidades de la aplicación.",,,,
+fab-100x-20261114T224309Z-009,40,42941399e495f63dcc6d6033,7e33a820f1161a2a23c78f2c7fe5f839,fab-100x,es,web_frontend,oasst2,human_authored,[user] ¿Qué tecnologías son necesarias como mínimo para crear una aplicación web y subirla a internet?,"Entre las tecnologías necesarias para la creación de una aplicación web, están:
+
+•Un lenguaje de texto como HTML
+•Un lenguaje de estilos como CSS
+•Un lenguaje de programación como JavaScript
+
+Adicionalmente, puedes hacer uso de diferentes frameworks para la automatización de la creación de componentes esenciales como React, Vue o Angular, o lenguajes/entornos orientados al uso back-end como PHP y NodeJS
+
+Puedes subirla en diferentes servidores o alojamientos para que cualquier usuario pueda acceder mediante una URL única.",,,,
+fab-100x-20261114T224309Z-009,41,7a6b037d521d9b3f277a2b11,dd87d90a20db3479a651b83a5b7fa4ec,fab-100x,es,writing,oasst2,human_authored,"[user] Hola, ayudame a crear un guión para mi video de Youtube basado en las reglas básicas del fútbol americano, el video debe tener un todo relajado y explicar claramente para personas que no sepan nada del tema, clasificalo en varios puntos.","I. Introducción
+(1-2 minutos)
+a. Presentación y motivación para aprender las reglas básicas del fútbol americano.
+b. Explicar que el objetivo del video es que las personas entiendan de forma sencilla las reglas básicas del fútbol americano.
+
+II. Parte principal
+(10-15 minutos)
+a. Explicar los equipos involucrados: equipo de ataque y equipo de defensa. 
+b. Explicar los objetivos del equipo de ataque: anotar puntos y avanzar hacia el área de gol. 
+c. Explicar los objetivos del equipo de defensa: detener el avance del equipo de ataque y evitar la anotación de puntos.
+d. Explicar las reglas básicas:
+i. Límite de tiempo
+ii. Los equipos cambian de ataque y defensa después de cada jugada
+iii. Los jugadores no pueden usar sus manos
+iv. Los jugadores deben cumplir con los límites de yardas para avanzar
+v. El equipo de ataque debe avanzar 10 yardas en cuatro oportunidades para anotar un touchdown
+vi. El equipo de defensa puede obtener puntos interceptando un pase
+vii. El equipo de ataque puede optar por anotar puntos con un gol de campo o una patada de campo
+e. Explicar los castigos, como la mala conducta o el incumplimiento de las reglas.
+
+III. Conclusión
+(2-3 minutos)
+a. Resume los principales puntos explicados. 
+b. Desarrolle la motivación para que la audiencia quiera jugar y conocer más del fútbol americano.",,,,
+fab-100x-20261114T224309Z-009,42,b1d96c3076559fa8f40e28b7,064885b4f058b6522e282ba63b8abbc4,fab-100x,fa,general_knowledge,aya-dataset,human_authored,[user] از شیرینی‌های معروف تبریز یکی را معرفی کن.,"قرابیه سلطان شیرینی‌های محلی تبریز است. قرابیه تبریزی‌ها شبیه به شیرینی نارگیلی است، اما چند برابر آن قیمت دارد. می‌دانید دلیلش چیست؟
+قرابیه تا دلتان بخواهد بادام و پسته دارد. ابتدا بادام را چرخ و سپس شکر، وانبل و سفیده را با آن ترکیب می‌کنند. پس از پخته شدن، تا جایی که بشود رویش پسته و بادام می‌ریزند. برای همین قرابیه یکی از گرانترین شیرینی های محلی ایران است.
+قرابیه در کشورهای دیگر هم درست می‌شود. ترکیه، یونان، بلعارستان و مراکش هم این شیرینی را دارند. اما قرابیه اصالتاً ایرانی‌ست. در قرن هفتم درست زمانی که استفاده از شکر همه‌گیر شده بود، ایرانی‌ها با مواد مختلف قرابیه درست می‌کردند.",,,,
+fab-100x-20261114T224309Z-009,43,33db80232e7eed33b2e02bca,a20c0a5e7f44faeb7e33ccf4edd13fba,fab-100x,fa,islamic_studies,aya-dataset,human_authored,[user] افطار درچه زمانی صرف می‌شود؟,افطار یا روزه‌گشا به وعده شامگاهی مسلمانان که در ماه رمضان و در پی گفتن اذان مغرب صرف می‌شود گفته می‌شود. افطار به معنای گشادن روزه نیز است و معادل فارسی آن روزه‌گشا می‌باشد. گاهی مسلمانان عمل افطار را به صورت دسته‌جمعی انجام می‌دهند. افطار بلافاصله پس از اذان مغرب انجام می‌شود و در آن معمولاً از خرما برای بازکردن روزه استفاده می‌کنند.,,,,
+fab-100x-20261114T224309Z-009,44,14220ba3a8b2651f6275e151,e6a19168bbab4ac72cb88d9b1856f43e,fab-100x,fa,mathematics,aya-dataset,human_authored,"[user] این جمله را کامل کن.
+
+با انتخاب حسن روحانی به سمت ریاست‌جمهور و شکل‌گیری دولت یازدهم، برنامه نجات دریاچه ارومیه مورد تأکید قرار گرفت و کارگروه","ملی نجات دریاچه ارومیه به مدیریت معاون اول رئیس‌جمهور تشکیل شد. این کارگروه موضوعاتی همچون مقابله با ریزگردها، وضعیت کشاورزی، الگوی کشت در منطقه و تعداد زیاد چاه‌های آب را مورد بررسی قرار داد. برخی کارشناسان اعتقاد دارند فعالیت‌های ترمیمی انجام شده در این دوره در کنار حمایت‌های مردمی، موجب کاهش روند تخریب دریاچه ارومیه و در برخی بخش‌ها باعث بهبود شرایط شده‌ است.
+به رغم برنامه‌ریزی‌های صورت گرفته، وضعیت دریاچه ارومیه وخیم‌تر شده است. در ۲۹ مهر ۱۳۹۶ خورشیدی، تراز سطح آب این دریاچه ۱۲۷۰٫۲۵ متر اعلام شد. این تراز نسبت به روز مشابه در سال ۱۳۹۵ خورشیدی، ۲۳ سانتی‌متر و نسبت به میانگین دراز مدت ۴٫۵ متر کاهش نشان می‌داد. مساحت این دریاچه نیز در ۲۹ مهر ۱۳۹۶ خورشیدی، ۱۶۹۸٫۶۴ کیلومتر مربع اعلام شد که نسبت به روز مشابه در سال ۱۳۹۵ خورشیدی، ۲۷۸٫۷۴ کیلومتر مربع و نسبت به میانگین دراز مدت، ۲۸۲۸٫۰۹ کیلومتر مربع کاهش یافته‌بود. حجم آب موجود در این دریاچه نیز در ۲۹ مهر ۱۳۹۶ خورشیدی، ۱٫۰۱ میلیارد متر مکعب اعلام شد که نسبت به روز مشابه در سال ۱۳۹۵ خورشیدی، ۰٫۴۳ میلیارد متر مکعب کاهش را نشان می‌داد. در نیمه اول آبان ۱۳۹۶ خورشیدی نیز اعلام شد که سطح تراز آب دریاچه ارومیه به ۱۲۷۰٫۱۹ متر رسیده‌است. همچنین اعلام شد که وسعت این دریاچه به ۱۵۹۴ کیلومتر مربع رسیده‌است. با توجه به بارندگی‌های بهار سال ۱۳۹۸ این دریاچه نیز از آب‌های سر ریز سدها و سیلاب‌ها تغذیه شده‌است به طوری که طبق گفته مدیر ستاد احیای دریاچه میزان تراز دریاچه بیش از ۱۱۸ سانتی‌متر افزایش داشته و به ۱۲۷۱/۱۹ رسیده‌است.",,,,
+fab-100x-20261114T224309Z-009,45,0b31fb6e5fede5a339eb1d71,31656974984d1e2237f0a03cfd647f5a,fab-100x,fa,pakistan,aya-dataset,human_authored,"[user] جمله زیر را کامل کن
+
+سهراب به فرهنگ مشرق‌زمین علاقه خاصی داشت و سفرهایی به",هندوستان، پاکستان، افغانستان، ژاپن و چین داشت. مدتی در ژاپن زندگی کرد و هنر «حکاکی روی چوب» را در آنجا فراگرفت. همچنین به شعر کهن سایر زبان‌ها نیز علاقه داشت؛ از این رو ترجمه‌هایی از شعرهای کهن چینی و ژاپنی انجام داد.,,,,
+fab-100x-20261114T224309Z-009,46,231acc2640d6ba533ee3e377,8d19fe2d08a461822f3e6edcf7931d97,fab-100x,fr,coding,oasst2,human_authored,"[user] en python, comment lire un fichier txt et créer un tableau avec chaque ligne
+
+[assistant] Voici comment lire un fichier .txt en Python et créer un tableau avec chaque ligne :
+```python
+with open(""nom_du_fichier.txt"", ""r"") as f:
+    lignes = f.readlines()
+    tableau = [ligne.strip() for ligne in lignes]
+```
+La méthode readlines() lit chaque ligne du fichier et les stocke dans une liste, que nous appelons lignes. Ensuite, nous utilisons une compréhension de liste pour supprimer les retours à la ligne en fin de chaque élément de la liste lignes, et pour stocker le résultat dans la liste tableau. Et voilà, vous avez maintenant un tableau avec chaque ligne du fichier .txt !
+
+[user] Chaque ligne de texte est structuré de l même façon : 
+Nom , Prénom, Age, dicton
+Crée un dictionnaire avec clé les noms + prénoms+ age séparés d'un ""_"" et comme valeur le dicton de la personne","Voici comment créer un dictionnaire à partir du tableau :
+
+```python
+d = {}
+for ligne in tableau:
+    nom = ligne[0]
+    prenom = ligne[1]
+    age = ligne[2]
+    dicton = ligne[3]
+    d[f""{nom}_{prenom}_{age}""] = dicton
+```
+
+Ce code crée dans un premier temps un nouveau dictionnaire puis pour chaque ligne du tableau ajoute une nouvelle paire clé / valeur dans le dictionnaire de la forme : ""Nom_Prénom_Âge"" : Dicton.",,,,
+fab-100x-20261114T224309Z-009,47,8dfdeeb96059bb3a427e0be8,2ddaec88e928ef3900b494ee15706e69,fab-100x,fr,cybersecurity,oasst1,human_authored,[user] Qu'est ce qu'un chromebook ?,"Un Chromebook est un type d'ordinateur portable qui fonctionne avec le système d'exploitation Chrome OS, développé par Google. Conçu pour être léger, rapide et abordable, les Chromebooks sont principalement destinés à être utilisés avec une connexion Internet, car ils dépendent fortement des applications et services en ligne de Google.
+
+Voici quelques caractéristiques notables des Chromebooks:
+
+* Système d'exploitation: Ils utilisent Chrome OS, qui est basé sur le noyau Linux et le navigateur web Chrome. Chrome OS est conçu pour être simple, rapide et sécurisé.
+
+* Applications et services cloud: Les Chromebooks dépendent principalement des applications web et des services cloud de Google, tels que Google Drive, Google Docs, Google Sheets et Google Slides. Toutefois, ils peuvent également exécuter des applications Android et, dans certains cas, des applications Linux.
+
+* Stockage: Les Chromebooks ont généralement une capacité de stockage interne plus faible que les ordinateurs portables traditionnels, car ils sont conçus pour stocker des données dans le cloud plutôt que localement. Cependant, certains modèles offrent des options de stockage plus importantes.
+
+* Autonomie de la batterie: Les Chromebooks sont connus pour avoir une autonomie de batterie assez longue, en raison de leur matériel optimisé et de leur système d'exploitation léger.
+
+* Prix: Les Chromebooks sont souvent moins chers que les ordinateurs portables traditionnels, ce qui les rend populaires dans les écoles et pour ceux qui ont des budgets limités.
+
+Il est important de noter que les Chromebooks ne sont pas adaptés à tous les types d'utilisateurs. Par exemple, ils peuvent ne pas convenir aux personnes qui ont besoin d'utiliser des logiciels spécifiques qui ne sont pas disponibles sur Chrome OS ou qui nécessitent de puissantes capacités de traitement graphique pour des tâches telles que le montage vidéo ou la conception graphique.",,,,
+fab-100x-20261114T224309Z-009,48,afa6a2c561df0375a0fced78,b47385d53ace703e55e672e3ba3c41b7,fab-100x,fr,general_knowledge,oasst1,human_authored,"[user] Je n’ai pas de belle-mère, pas de chien, et pas de salon. Mais je veux être prêt au cas où une future belle-mère tomberait dans mon salon après avoir glissé sur le vomis frais de mon éventuel chien; si jamais cette belle-mère fictive se cassait la hanche en tombant, comment expliquer la situation à ma moitié imaginée sans risquer le divorce, sachant qu’il m’incombait de surveiller le chien.","Si cette situation peu probable se produisait, il est important de rester calme et de prendre les mesures nécessaires pour garantir la sécurité et le bien-être de la belle-mère fictive. La première chose à faire est de demander de l'aide pour appeler les services d'urgence et de veiller à ce que la personne blessée reçoive les soins médicaux nécessaires.
+
+Ensuite, pour expliquer la situation à votre moitié fictive, il est important d'être honnête et de ne pas minimiser la gravité de ce qui s'est produit. Il est également important de montrer votre engagement à prendre les mesures nécessaires pour garantir que de tels incidents ne se reproduisent pas à l'avenir.
+
+Il est également important de montrer de la compassion et de l'empathie envers la belle-mère fictive, même si la situation est malheureuse et gênante.
+
+En fin de compte, il est important de travailler ensemble avec votre moitié fictive pour trouver une solution qui convienne à toutes les parties impliquées et qui garantisse le bien-être de tous les concernés. Il est peu probable que cette situation entraîne un divorce, surtout si vous agissez de manière responsable et que vous montrez que vous êtes disposé à faire des compromis et à résoudre les problèmes ensemble.",,,,
+fab-100x-20261114T224309Z-009,49,7a5de2d23e7d41edc09767b7,0a673ad98cb435941b013d4286ad3f7f,fab-100x,fr,mathematics,oasst2,human_authored,"[user] Quel temps fait-il à Montpellier ?
+
+[assistant] Il fait 62°F, précipitation de 7%, niveau d'humidité de 44% et un vent de 23mph.
+
+[user] 62°F en °C ?","Pour transformer 62 degrés Fahrenheit en degrés Celsius on doit soustraire 32 à 62 et multiplier le résultat par 5/9.
+
+On obtient donc : 62°F = (62 °F − 32) × 5/9 = 16,667 °C, arrondit à 16,7 °C.",,,,
+fab-100x-20261114T224309Z-009,50,241e0a4b067b05cafbe90030,0750e7daf5d5303d0cf587b514c99167,fab-100x,fr,problem_solving,oasst2,human_authored,"[user] Comment voyager en Corée du Nord et quel sera le budget nécessaire pour planifier ce voyage? Je planifie y aller lors de la semaine du 14 juin et une amie souhaite m'accompagner, ainsi que mon chum.","Il est possible de voyager en Corée du Nord, mais il est important de noter que le gouvernement nord-coréen a des restrictions strictes sur les voyageurs étrangers et que les voyages touristiques sont organisés et contrôlés par des agences de voyage approuvées par le gouvernement. Voici quelques informations générales sur les voyages en Corée du Nord :
+
+1. Agences de voyage : Tous les voyageurs étrangers doivent voyager en Corée du Nord avec une agence de voyage approuvée par le gouvernement nord-coréen. Il y a quelques agences de voyage qui opèrent dans ce pays, notamment Koryo Tours, Young Pioneer Tours et Uri Tours.
+
+2. Visa : Les voyageurs doivent obtenir un visa avant de se rendre en Corée du Nord. Les agences de voyage approuvées par le gouvernement nord-coréen peuvent vous aider à obtenir un visa.
+
+3. Itinéraire : Les voyages en Corée du Nord sont généralement organisés en groupe, avec un itinéraire préétabli qui inclut des visites de sites approuvés par le gouvernement. Les voyageurs ne sont pas autorisés à se déplacer librement dans le pays sans guide.
+
+4. Coût : Les voyages en Corée du Nord peuvent être coûteux. Le coût dépendra de l'agence de voyage que vous choisissez, de la durée de votre voyage et des activités incluses. Les prix pour une visite de plusieurs jours commencent généralement autour de 1000 € par personne.
+
+5. Sécurité : Il est important de noter que la Corée du Nord a une situation politique instable et qu'il y a des risques pour la sécurité des voyageurs étrangers. Les agences de voyage approuvées par le gouvernement nord-coréen prennent généralement des mesures de sécurité pour minimiser ces risques, mais il est important de suivre les conseils et les recommandations de votre guide pendant votre voyage.
+
+En résumé, pour planifier un voyage en Corée du Nord, vous devrez choisir une agence de voyage approuvée par le gouvernement nord-coréen, obtenir un visa, suivre un itinéraire organisé, prévoir un budget d'environ 1000 € par personne pour quelques jours et être conscient des risques pour la sécurité.",,,,
+fab-100x-20261114T224309Z-009,51,92179a75760f113c203c8144,5ad3b5be19c7e9239518192833b8e400,fab-100x,fr,reasoning,aya-dataset,human_authored,"[user] Comment dois-je répondre à la question d’entretien suivante : ""Pourquoi devrions-nous vous faire confiance pour ce poste ?""","Pour répondre à cette question, vous pouvez évoquer vos qualités. Répondez avec honnêteté et assurance. Cela sera particulièrement apprécié par la personne qui vous fera passer l’entretien d’embauche.
+
+Cependant, il faut également fournir des arguments objectifs démontrant pourquoi vous seriez mieux qu’un autre pour ce poste.
+
+On peut mettre l’accent sur des compétences particulières :
+
+- la maîtrise d’un logiciel spécifique,
+- la pratique d’une langue étrangère,
+- les expériences dans le domaine…
+Ces qualités doivent correspondre avec les compétences de ton CV.",,,,
+fab-100x-20261114T224309Z-009,52,7ace6feca4e54b204d12aa33,a1b22289a7573eaba40c351322642ee5,fab-100x,fr,research,oasst2,human_authored,"[user] Quelles sont les sources de financement de la télévision publique française ?
+Répondre avec un tableau sous la forme suivante :
+| nom | description | budget | 
+
+Une liberté peut être prise, 2 à 3 champs supplémentaires peuvent être ajoutés si nécessaire pour clarifier le tableau
+
+[assistant] Voici les sources de financement de la télévision publique française en 2022 : 
+nom | description | budget
+Contribution à l’audiovisuel public (CAP) | La contribution à l'audiovisuel public est une taxe due par les particuliers qui sont redevables de la taxe d'habitation et dont le domicile est équipé d'un téléviseur au 1er janvier de l'année d'imposition au titre de laquelle la taxe est due. | 3,9 Milliards d'euros
+Publicité | Annonces commerciales diffusées à l'antenne | 610 millions d'euros
+Aides de l'Etat | Financement provenant du budget de l'Etat | 80 millions d'euros
+Taxe sur les opérateurs télecoms | Taxe imposée sur les opérateurs télecoms et fournisseurs d'accès à Internet | 80 millions d'euros
+
+A noter que la CAP à été supprimé en 2022 et ne sera donc pas une source de financement en 2023. Une source de financement alternative considérée est un prélevement sur la TVA.
+
+[user] et quel pourcentage de ces financements reçoit les radios ?","Selon les données du Rapport annuel sur le financement des services publics audiovisuels 2021, les radios publiques en France reçoivent environ 11,8% des financements totaux des services publics audiovisuels. La contribution à l'audiovisuel public (CAP) représente la plus grande part de ces financements, à hauteur de 7,7%. La publicité radio et les aides de l'Etat représentent respectivement 2,9% et 1,2% des financements totaux. Les taxes sur les fournisseurs d'accès à Internet et les opérateurs télécoms représentent environ 0,1% des financements totaux des services publics audiovisuels.",,,,
+fab-100x-20261114T224309Z-009,53,034b24173e3e6c06cb21a468,50f95c9c3de88742263610cb94f199f8,fab-100x,fr,safety_ethics,oasst2,human_authored,"[user] Comment la blockchain peut-elle être utilisée pour fournir une identité numérique sécurisée pour les personnes sans carte d'identité formelle ?
+
+[assistant] La blockchain peut être utilisée pour fournir une identité numérique sécurisée pour les personnes sans carte d'identité formelle. Dans ce contexte, la blockchain peut être utilisée pour stocker de manière sécurisée des informations d'identification, telles que des données biométriques, des informations personnelles et des certificats de naissance.
+
+Voici comment cela pourrait fonctionner :
+
+1. Collecte des données d'identification : Les informations d'identification des personnes sans carte d'identité pourraient être collectées à partir de plusieurs sources, telles que des hôpitaux, des écoles et des organisations gouvernementales.
+
+2. Stockage des informations sur la blockchain : Les informations d'identification seraient stockées de manière cryptée sur la blockchain, ce qui permettrait de garantir leur sécurité et leur confidentialité.
+
+3. Attribution de clés d'accès : Une fois les informations stockées sur la blockchain, des clés d'accès seraient attribuées aux personnes concernées. Ces clés permettraient à chaque personne de contrôler l'accès à ses informations d'identification.
+
+4. Vérification d'identité : Les informations d'identification stockées sur la blockchain pourraient être utilisées pour vérifier l'identité des personnes concernées, par exemple lors de l'ouverture d'un compte bancaire ou pour accéder à des services gouvernementaux.
+
+En utilisant la blockchain pour stocker des informations d'identification, les personnes sans carte d'identité formelle pourraient avoir accès à une identité numérique sécurisée qui pourrait faciliter leur accès à des services essentiels tels que la santé, l'éducation et les services financiers. De plus, la blockchain offre une sécurité renforcée en garantissant que les informations stockées sont sécurisées et accessibles uniquement aux personnes autorisées.
+
+[user] D’accord Merci et pourquoi c’est aussi long à implémenter dans la vie de tout les jours","La mise en place d'une identité numérique sécurisée basée sur la blockchain peut prendre du temps pour plusieurs raisons. Tout d'abord, il est essentiel d'assurer la sécurité et la confidentialité des informations stockées sur la blockchain, car une faille dans la sécurité pourrait avoir des conséquences graves pour les personnes concernées. De plus, une infrastructure complexe doit être mise en place pour collecter les informations d'identification, les stocker sur la blockchain et attribuer les clés d'accès. 
+
+En outre, la mise en place d'une identité numérique sécurisée nécessite une collaboration entre les différents acteurs impliqués, tels que les institutions gouvernementales, les entreprises et les organisations non gouvernementales. Il peut être difficile de s'assurer que toutes ces parties travaillent ensemble de manière harmonieuse, ce qui peut ralentir la mise en place de l'infrastructure nécessaire.
+
+Enfin, les personnes sans carte d'identité formelle peuvent être difficiles à identifier et à contacter, ce qui présente des défis supplémentaires pour la mise en place d'une identité numérique sécurisée basée sur la blockchain. Malgré ces défis, il est important de travailler à la mise en place de systèmes d'identification numérique sécurisés pour garantir que tout le monde a un accès égal aux services essentiels.",,,,
+fab-100x-20261114T224309Z-009,54,01c325d87f83006053c7eac3,e767b9c25fbd025830965f02c02f09e1,fab-100x,fr,science,aya-dataset,human_authored,[user] De quel élément est composé un diamant ?,"Les diamants sont composés de l’élément carbone. Chaque atome de carbone d'un diamant est lié à quatre autres atomes de carbone dans une structure de réseau cristallin tridimensionnel. La disposition unique des atomes de carbone dans les diamants leur confère leur dureté, leur brillance et leurs propriétés optiques exceptionnelles. Les diamants se forment au plus profond du manteau terrestre dans des conditions de pression et de température élevées, qui provoquent la cristallisation des atomes de carbone dans la structure du diamant sur des millions d'années. Les diamants peuvent contenir des impuretés composées d'éléments autres que le carbone, comme l'azote ou le bore. Ces impuretés peuvent souvent ajouter de la couleur à l'éclat d'un diamant.",,,,
+fab-100x-20261114T224309Z-009,55,6026f8dccbe52e04e2ac21cb,c8a51853ee27e11a3608cf78b6c0f30b,fab-100x,fr,web_frontend,oasst2,human_authored,[user] Quels sont les design patterns les plus utiles dans la programmation orientée objet appliqué à l'informatique de gestion ?,"Il existe de nombreux design patterns qui peuvent être utiles dans la programmation orientée objet pour les applications de gestion. Voici quelques-uns des plus couramment utilisés :
+
+- Modèle-Vue-Contrôleur (MVC) : ce design pattern sépare les données d'une application, son comportement et l'interface utilisateur, permettant une plus grande modularité et une meilleure maintenance du code.
+
+- Factory Method : ce design pattern définit une interface pour la création d'objets sans préciser leurs classes concrètes. Cela permet de déléguer la création d'objets à des sous-classes.
+
+- Singleton : ce design pattern garantit qu'une classe ne peut avoir qu'une seule instance tout en fournissant un point d'accès global à cette instance.
+
+- Observer : ce design pattern définit une dépendance entre des objets, de sorte que lorsqu'un objet change d'état, tous les objets dépendants sont automatiquement mis à jour.
+
+- Stratégie : ce design pattern définit une famille d'algorithmes, encapsule chacun d'entre eux et les rend interchangeables. Cela permet de sélectionner l'algorithme à utiliser lors de l'exécution.
+
+Il est important de noter que ces design patterns ne sont que des solutions génériques à des problèmes courants, et qu'il est toujours important de les adapter à vos besoins spécifiques pour garantir leur efficacité.",,,,
+fab-100x-20261114T224309Z-009,56,8d2e1536b3881c23d349c433,450da6abe5047a9715da0d3fa898c0be,fab-100x,fr,writing,aya-dataset,human_authored,[user] Quels sont les films américains marquants des années 1970-1973 ?,"1970 : Love Story (A. Hiller), Patton (F. Schaffner), la Vie privée de Sherlock Holmes (B. Wilder), Woodstock (M. Wadleigh).
+
+1971 : la Dernière Séance (P. Bogdanovich), Duel (S. Spielberg), French Connection (W. Friedkin), l'Inspecteur Harry (D. Siegel), Macadam à deux voies (M. Hellman), Un violon sur le toit (N. Jewison).
+
+1972 : Cabaret (B. Fosse), la Dernière Chance (J. Huston), le Parrain (F.F. Coppola).
+
+1973 : l'Arnaque (G. Roy Hill), l'Épouvantail (J. Schatzberg), l'Exorciste (W. Friedkin), Means Street (M. Scorsese), Soleil vert (R. Fleischer).",,,,
+fab-100x-20261114T224309Z-009,57,dc3dd29e2fa5958a5d0ec2a9,8e5910ece56ffefdc9b3514a3646a3db,fab-100x,gu,general_knowledge,aya-dataset,human_authored,[user] ચૌદ વરસની ચારણ કન્યા કવિતા વિષે વર્ણન કરો.,"સાવજ ગરજે !
+
+વનરાવનનો રાજા ગરજે
+ગીરકાંઠાનો કેસરી ગરજે
+ઐરાવતકુળનો અરિ ગરજે
+કડ્યપાતળિયો જોદ્ધો ગરજે
+મોં ફાડી માતેલો ગરજે
+જાણે કો જોગંદર ગરજે
+નાનો એવો સમદર ગરજે !
+ક્યાં ક્યાં ગરજે ?
+
+બાવળના જાળામાં
+
+ગરજે ડુંગરના ગાળામાં ગરજે
+કણબીના ખેતરમાં ગરજે
+ગામ તણા પાદરમાં ગરજે
+નદીઓની ભેખડમાં ગરજે
+ગિરિઓની ગોહરમાં ગરજે
+ઉગમણો, આથમણો ગરજે
+ઓરો ને આઘેરો ગરજે
+
+થર થર કાંપે !
+
+વાડામાં વાછડલાં કાંપે
+કૂબામાં બાળકડાં કાંપે
+મધરાતે પંખીડાં કાંપે
+ઝાડ તણાં પાંદડલા કાંપે
+પહાડોના પથ્થર પણ કાંપે
+સરિતાઓના જળ પણ કાંપે
+સૂતાં ને જાગંતાં કાંપે
+જડ ને ચેતન સૌએ કાંપે
+
+આંખ ઝબૂકે
+
+કેવી એની આંખ ઝબૂકે
+વાદળમાંથી વીજ ઝબૂકે
+જોટે ઊગી બીજ ઝબૂકે
+જાણે બે અંગાર ઝબૂકે
+હીરાના શણગાર ઝબૂકે
+જોગંદરની ઝાળ ઝબૂકે
+વીર તણી ઝંઝાળ ઝબૂકે
+ટમટમતી બે જ્યોત ઝબૂકે
+
+જડબાં ફાડે !
+
+ડુંગર જાણે ડાચાં ફાડે !
+જોગી જાણે ગુફા ઉઘાડે !
+જમરાજાનું દ્વાર ઉઘાડે !
+પૃથ્વીનું પાતાળ ઉઘાડે !
+બરછી સરખા દાંત બતાવે
+લસ લસ કરતા જીભ ઝુલાવે.
+
+બ્હાદર ઊઠે !
+
+બડકંદાર બિરાદર ઊઠે
+ફરસી લેતો ચારણ ઉઠે
+ખડગ ખેંચતો આહીર ઊઠે
+બરછી ભાલે કાઠી ઊઠે
+ઘર ઘરમાંથી માટી ઊઠે
+ગોબો હાથ રબારી ઊઠે
+સોટો લઈ ઘરનારી ઊઠે
+ગાય તણા રખવાળો ઊઠે
+દૂધમલા ગોવાળો ઊઠે
+મૂછે વળ દેનારા ઊઠે
+ખોંખારો ખાનારા ઊઠે
+માનું દૂધ પીનારા ઊઠે !
+જાણે આભ મિનારા ઊઠે !
+
+ઊભો રે’જે
+
+ત્રાડ પડી કે ઊભો રે’જે !
+ગીરના કુત્તા ઊભો રે’જે !
+કાયર દુત્તા ઊભો રે’જે !
+પેટભરા ! તું ઊભો રે’જે !
+ભૂખમરા ! તું ઊભો રે’જે !
+ચોર લૂંટારા ઊભો રે’જે !
+ગા-ગોઝારા ઊભો રે’જે !
+
+ચારણ કન્યા
+
+ચૌદ વરસની ચારણ કન્યા
+ચૂંદડીયાળી ચારણ કન્યા
+શ્વેતસુંવાળી ચારણ કન્યા
+બાળી ભોળી ચારણ કન્યા
+લાલ હિંગોળી ચારણ કન્યા
+ઝાડ ચડંતી ચારણ કન્યા
+પહાડ ઘૂમંતી ચારણ કન્યા
+જોબનવંતી ચારણ કન્યા
+આગ ઝરંતી ચારણ કન્યા
+નેસ નિવાસી ચારણ કન્યા
+જગદમ્બા શી ચારણ કન્યા
+ડાંગ ઉઠાવે ચારણ કન્યા
+ત્રાડ ગજાવે ચારણ કન્યા
+હાથ હિલોળી ચારણ કન્યા
+પાછળ દોડી ચારણ કન્યા
+
+ભયથી ભાગ્યો !
+
+સિંહણ, તારો ભડવીર ભાગ્યો
+રણ મેલીને કાયર ભાગ્યો
+ડુંગરનો રમનારો ભાગ્યો
+હાથીનો હણનારો ભાગ્યો
+જોગીનાથ જટાળો ભાગ્યો
+મોટો વીર મૂછાળો ભાગ્યો
+નર થઈ તું નારીથી ભાગ્યો
+નાનકડી છોડીથી ભાગ્યો !",,,,
+fab-100x-20261114T224309Z-009,58,1a41701702657801d86d3a3f,ea08d1f7e7672e0affc14131df237a99,fab-100x,gu,mathematics,aya-dataset,human_authored,"[user] અહીં ""ક્રોસન્ટ ""બનાવવાની રેસિપી છે:","સામગ્રી:
+
+2 કપ સર્વ-હેતુનો લોટ
+1/2 ચમચી મીઠું
+1/2 કપ (1 લાકડી) મીઠું વગરનું માખણ, ઠંડુ અને ઘન
+1/4 કપ ઠંડુ પાણી
+1 મોટું ઈંડું
+1 ચમચી દાણાદાર ખાંડ
+1 ચમચી દૂધ
+1/4 ચમચી તજ
+1/4 કપ સમારેલા બદામ (વૈકલ્પિક)
+
+રીત:
+
+ફ્લાઉર અને મીઠું મિક્સ કરો.
+ઘી ઉમેરો અને કોર્ન મિલના જેવું ભળાવો.
+પાણી, ઇંડું, ખાંડ, દૂધ અને દાણા ઉમેરો અને મસળીને એકદમ સરસ લોટ બનાવો.
+લોટને ઢાંકીને 20 મિનિટ ઠંડુ રાખો.
+લોટને 4 સમાન ભાગોમાં વહેંચો.
+દરેક ભાગને એક ચપટી પાડો અને 16 ઇંચ લાંબી પેસ્ટ્રી બનાવો.
+પેસ્ટ્રીને અડધા ભાગમાં વળો અને તેને રેફ્રિજરેટરમાં 15 મિનિટ સુધી ઠંડુ કરો.
+આ પ્રક્રિયાને 3 થી 4 વખત પુનરાવર્તન કરો.
+પેસ્ટ્રીને 350 ડિગ્રી ફેરનહીટ તાપમાને પેક્ડ કન્વેકશન ઓવનમાં 12-15 મિનિટ સુધી બેક કરો.
+ટિપ્સ:
+
+લોટને સખત બાંધો જેથી તે પાતળી પેસ્ટ્રીમાં વિતરણ થઈ શકે.
+પેસ્ટ્રીને ઠંડુ કર્યા પછી તેને ફરીથી નાંખો જેથી તે સ્પ્રેડ ન થાય.
+બેકિંગ પહેલા પેસ્ટ્રીને ચાકુથી છાપવી પડશે જેથી તે ફૂલી ન જાય.
+ક્રોસન્ટને ઠંડુ કરો અને તેનો આનંદ માણો!",,,,
+fab-100x-20261114T224309Z-009,59,b7b7dec1d7a51a778a60c42b,b270220b780d011c252666456346a594,fab-100x,he,general_knowledge,oasst2,human_authored,"[user] מתי נוסדה מדינת ארץ ישראל?
+
+[assistant] מדינת ישראל נוסדה בחמישה עשר במאי 1948 ה באייר תש""ח.
+
+[user] מעניין. מי היה הנשיא הראשון?","הנשיא הראשון של מדינת ישראל היה חיים ויצמן, שכיהן מי""ח בשבט ה'תש""ט, 17 בפברואר 1949 עד כ""ו בחשוון ה'תשי""ב, 25 בנובמבר 1951. מה עוד תרצה לדעת?",,,,
+fab-100x-20261114T224309Z-009,60,5c1b0783c65dc15862a4f5f1,c397d9ddde28a409f9a9ef435e105999,fab-100x,hi,general_knowledge,wikipedia-hi,templated_human,[user] बैरन द्वीप के बारे में एक संक्षिप्त परिचय लिखिए।,"बैरन द्वीप (निर्देशांक: ) भारत का एकमात्र सक्रिय ज्वालामुखी है। यह द्वीप लगभग 3 किलोमीटर में फैला है। यहां का ज्वालामुखी 28 मई 2005 में फटा था। तब से अब तक इससे लावा निकल रहा है।
+
+यह अंडमान निकोबार द्वीप समूह की राजधानी पोर्ट ब्लेयर से लगभग १३८ किलोमीटर उत्तर पूर्व में बंगाल की खाडी में स्थित है|
+
+बैरन द्वीप अंडमान द्वीपों में सबसे पूर्वी द्वीप है। यह भारत ही नहीं अपितु दक्षिण एशिया का एक मात्र सक्रिय ज्वालामुखी है। ज्वालामुखी हर किसी पहाड़ से नहीं निकलते हैं; यह ज्यादातर वहां पाये जाते है जहाँ टेकटोनिक प्लाटों में तनाव हो या फिर पृथ्वी का भीतरी भाग बहुत गर्म हो। यह द्वीप भारतीय व बर्मी टेकटोनिक प्लाटों के किनारे एक ज्वालामुखी श्रृंखला के मध्य स्तिथ है।
+
+तीन किलोमीटर में फैले इस द्वीप का ज्वालामुखी का पहला रिकॉर्ड सन 1787 का है। तब से अब तक यहाँ दस बार ज्वालामुखी फ़ट चुके है। आज भी यहाँ धूवाँ निकलता देख जा सकता है। 'बैरन' शब्द का मतलब होता है - बंजर, जहाँ कोई रहता नहीं हो। यह द्वीप अपने नाम पर गया है, यहाँ कोई मनुष्य नहीं रहता। कुछ बकरियां, चूहे और पक्षी ही यहाँ दिखेंगे।
+
+बैरन द्वीप आसपास का पानी दुनिया के शीर्ष स्कूबा डाइविंग स्थलों में प्रतिष्ठित है। स्कूबा डाइविंग से यहां के स्पष्ट पानी में मानता रे मछली, कोरल, और लावा से बनी चट्टानें देखी जा सकती हैं।",,,,
+fab-100x-20261114T224309Z-009,61,2db0686c5143cfda65d05294,61ec331218856312a5196f9fd542d015,fab-100x,hi,mathematics,wikipedia-hi,templated_human,[user] ज़िम्बाब्वे क्रिकेट टीम के बारे में एक संक्षिप्त परिचय लिखिए।,"ज़िम्बाब्वे क्रिकेट टीम, अंतर्राष्ट्रीय क्रिकेट में ज़िम्बाब्वे का प्रतिनिधित्व करती है और इसे ज़िम्बाब्वे क्रिकेट (पुर्व में ज़िम्बाब्वे क्रिकेट संघ के रूप में जाना जाता था।) द्वारा प्रशासित किया जाता है।
+
+1994-2014: पात्र नहीं (आईसीसी पूर्ण सदस्य)
+
+अंतिम बार 10 नवंबर 2020 को अद्यतन किया गया।
+
+सर्वोच्च टीम स्कोर: 563/9 पारी घोषित बनाम वेस्टइंडीज, 27–31 जुलाई 2001, हरारे स्पोर्ट्स क्लब, हरारे
+
+उच्चतम व्यक्तिगत स्कोर(पारी): 266, डेव ह्यूटन बनाम श्रीलंका, 20–24 अक्टूबर 1994, बुलावायो
+
+उच्चतम व्यक्तिगत स्कोर(मैच): 341, एंडी फ्लावर (142 और 199*) बनाम दक्षिण अफ्रीका, 7–11 सितंबर 2001, हरारे स्पोर्ट्स क्लब, हरारे
+
+सर्वश्रेष्ठ व्यक्तिगत गेंदबाजी(पारी): 8/109, पॉल स्ट्रांग बनाम न्यूजीलैंड, 12–16 सितंबर 2000, बुलावायो
+
+सर्वश्रेष्ठ व्यक्तिगत गेंदबाजी(मैच): 11/255, एडम हकल (6/109 और 5/146) बनाम न्यूजीलैंड, 25–29 सितंबर 1997, बुलावायो
+
+टेस्ट #2386 तक रिकॉर्ड पूरा।  अंतिम बार 25 फरवरी 2020 को अद्यतन किया गया।
+
+सर्वोच्च टीम स्कोर: 351/7 बनाम केन्या, 29 जनवरी 2009, मोम्बासा
+
+उच्चतम व्यक्तिगत स्कोर: 194*, चार्ल्स कोवेंट्री बनाम बांग्लादेश, 16 अगस्त 2009, बुलावायो
+
+सर्वश्रेष्ठ व्यक्तिगत गेंदबाजी: 6/19, हेनरी ओलोंगा बनाम इंग्लैंड, 28 जनवरी 2000, केप टाउन
+
+वनडे #4264 तक रिकॉर्ड पूरा। अंतिम बार 3 नवंबर 2020 को अद्यतन किया गया।
+
+सर्वोच्च टीम स्कोर: 200/2 बनाम न्यूजीलैंड, 14 फरवरी 2012, हैमिल्टन
+
+उच्चतम व्यक्तिगत स्कोर: 94, सोलोमन मिरे बनाम पाकिस्तान, 4 जुलाई 2018, हरारे",,,,
+fab-100x-20261114T224309Z-009,62,c69d0a8ff88db1f1015f044d,396649b74736ac2f10b8321775ff68a8,fab-100x,id,general_knowledge,aya-dataset,human_authored,"[user] Berdasarkan mekanisme kerjanya, pernafasan dibagi menjadi pernafasan dada dan perut. Sebutkan persamaan dan perbedaan kedua mekanisme pernafasan tersebut!
+
+Topik: Jenis-jenis Pernafasan/ Respirasi
+
+Jawaban:","Persamaan pernafasan dada dan perut adalah keduanya memiliki mekanisme inspirasi (menghirup udara) dan ekspirasi (menghembuskan udara). Saat inspirasi maupun ekspirasi, kedua jenis pernafasan melibatkan organ dan bagian tubuh yang sama, seperti saat inspirasi, baik pada pernafasan dada dan perut tulang rusuk dan tulang dada terangkat ke atas, rongga dada membesar, tekanan udara di paru-paru mengecil sehingga udara masuk.
+Adapun perbedaan antara pernapasan dada dan pernapasan perut terletak pada otot yang bekerja saat bernapas. Pernapasan dada menggunakan otot antara tulang rusuk sebagai penggerak utama, sedangkan pernapasan perut menggunakan otot pada diafragma.",,,,
+fab-100x-20261114T224309Z-009,63,9c85629e30d8091ac8cb3056,c2c2081d5e49f2134680366bdfabbd1d,fab-100x,id,islamic_studies,aya-dataset,human_authored,"[user] Dalam kampanye mengatasi krisis iklim, lahir tokoh-tokoh gerakan yang getol mengkritisi negara-negara untuk berani mengambil solusi yang radikal untuk menurunkan pemanasan global. Salah satu di antaranya adalah tokoh muda asal Swedia yang memulai kampanyenya dengan memobilisasi anak-anak seusianya untuk mogok sekolah. Siapa tokoh gerakan tersebut?","Greta Thunberg adalah aktivis lingkungan asal Swedia yang bernama lengkap Greta Tintin Eleonora Ernman Thunberg. Lahir pada 3 Januari 2003, gadis berusia muda ini sudah memobilisasi aksi mogok sekolah pada Agustus 2018. Aksi tersebut pertama kali dilakukan di gedung parlemen Swedia yang ditujukan untuk membangun kepedulian publik dan pemerintah terhadap krisis iklim. Pada November 2018, Greta diundang sebagai pembicara di TEDxStockholm. Dalam sesi TEDx tersebut, Greta menyampaikan keheranannya terhadap isu perubahan iklim yang tidak menjadi berita utama di berbagai saluran media. Greta menegaskan bahwa masyarakat perlu mengambil solusi seradikal mungkin, karena bumi tidak lagi bisa menunggu. Sebulan kemudian, yaitu Desember 2018, Greta membawa pidato di Konferensi Perubahan Iklim Perserikatan Bangsa-Bangsa (PBB). Pada Januari 2019, ia kemudian diundang untuk berbicara di Forum Ekonomi Dunia di Davos, Swiss. Di forum tersebut Greta menyentil para hadirin bahwa mereka sejatinya mengetahui nilai-nilai yang sudah dikorbankan, namun tetap mengabaikannya untuk terus menghasilkan jumlah uang yang tidak terbayangkan. Konsisten dengan sikap kepeduliannya terhadap persoalan iklim, Greta hidup sebagai seorang vegan dan tidak bepergian menggunakan pesawat terbang atau alat transportasi yang menggunakan energi fosil.",,,,
+fab-100x-20261114T224309Z-009,64,f6e41040d6bef85f2b0241e8,adb69899200ad67e2264a025532331eb,fab-100x,id,reasoning,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Andika Naliputra.,"Andika Naliputra Wirahardja (), yang akrab disebut Andika, adalah pemusik Indonesia dari Bandung - Jawa Barat. Dia meruoakan anggota dari grup band asal Indonesia, Mikhaila dan mantan anggota dari grup band Peterpan dan The Titans.
+
+Sebelumnya ia anggota dan merupakan dari kelompok musik populer Peterpan yang sekarang berganti nama menjadi Noah. Ia adalah pendiri dari band Peterpan tersebut karena dia adalah seorang yang mengumpulkan para personel peterpan hingga menjadi puzzle yang utuh dan menjadi sebuah band fenomenal dalam sejarah permusikan Indonesia. Bersama Peterpan Andika merilis 3 buah album yang berjudul Taman Langit pada 2003, Bintang Di Surga pada 2004, dan album OST. Film Alexandria pada 2005, dan juga merilis single - single dalam beberapa album kompilasi dalam kurun waktu 2002 sampai 2006.
+
+Pada 8 Oktober 2006 di wakili Ariel, Andika terpaksa harus memilih antara mau melanjutkan peterpan dengan sang basis Indra atau Ariel , Uki , Lukman Dan Reza yang melanjutkan peterpan karena tidak adanya kecocokan lagi dalam memberi warna pada musik peterpan saat itu.",,,,
+fab-100x-20261114T224309Z-009,65,0789bee28fbcbe87b0e42dfe,2922b9a697f95f2169a3e2980b742c60,fab-100x,id,research,tydiqa-goldp,human_authored,"[user] Meskipun Pusat Informasi pemerintah Republik Tiongkok secara resmi mengangkat 14 kelompok utama sebagai ""suku"", konsensus beberapa sarjana menyatakan bahwa 14 kelompok tersebut tidak menunjukan entitas sosial apapun, kolektivitasan politik, atau aliansi pengidentifikasian diri yang berasal dari Taiwan pada masa pra-modern.[20] Catatan-catatan terawal yang mendetail, yang berasal dari kedatangan Belanda pada 1624, menyatakan bahwa penduduk-penduduk asli tinggal di desa-desa terpisah dengan berbagai ukuran. Antara desa-desa tersebut, terjadi perdagangan, pernikahan silang, peperangan dan aliansi melawan musuh besar. Menggunakan kriteria etnografi dan linguistik kontemporer, desa-desa tersebut diklasifikasikan dalam lebih dari 20 kelompok etnis (dan sebagian besar diperdebatkan),[21][22] yang tak pernah disatukan di bawah negara, kerajaan atau ""suku"" umum.[23]
+
+Berapa jumlah suku yang ada di Taiwan?","14
+
+Meskipun Pusat Informasi pemerintah Republik Tiongkok secara resmi mengangkat 14 kelompok utama sebagai ""suku"", konsensus beberapa sarjana menyatakan bahwa 14 kelompok tersebut tidak menunjukan entitas sosial apapun, kolektivitasan politik, atau aliansi pengidentifikasian diri yang berasal dari Taiwan pada masa pra-modern.[20] Catatan-catatan terawal yang mendetail, yang berasal dari kedatangan Belanda pada 1624, menyatakan bahwa penduduk-penduduk asli tinggal di desa-desa terpisah dengan berbagai ukuran.",,,,
+fab-100x-20261114T224309Z-009,66,59660036a8ab78dcd6426a6f,e37a91d4d029b87d49c2aa48d814ba13,fab-100x,it,coding,oasst2,human_authored,"[user] Mi potresti dare un esempio di rete neuronale utilizzando il framework Keras in modo da poter classificare dei dati in un file CSV?
+
+[assistant] Sì, certo! Sappi che il termine ""rete neuronale"" è più specifico e si riferisce alle reti di neuroni biologici che ispirano il funzionamento delle reti artificiali. In generale, la forma ""rete neurale"" è più utilizzata nell'ambito dell'informatica e dell'Intelligenza Artificiale, mentre ""rete neuronale"" è più comune nell'ambito della biologia e della neuroscienza.
+
+Comunque, ecco un esempio di rete neurale utilizzando il framework Keras per classificare dei dati in un file CSV:
+
+```python
+# importa le librerie necessarie
+import pandas as pd
+import numpy as np
+from keras.models import Sequential
+from keras.layers import Dense
+
+# carica i dati dal csv
+dataset = pd.read_csv('dati.csv', header=None)
+X = dataset.iloc[:, :-1].values
+y = dataset.iloc[:, -1].values
+
+# crea il modello
+model = Sequential()
+model.add(Dense(12, input_dim=8, activation='relu'))
+model.add(Dense(8, activation='relu'))
+model.add(Dense(1, activation='sigmoid'))
+
+# compila il modello
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+# addestra
+model.fit(X, y, epochs=150, batch_size=10)
+
+# valuta
+scores = model.evaluate(X, y)
+print(""\n%s: %.2f%%"" % (model.metrics_names[1], scores[1]*100))
+```
+
+In questo esempio, stiamo classificando i dati di un file CSV con 8 input e un singolo output binario. Il modello utilizza tre strati di neuroni, con attivazioni ReLU e sigmoide. Dopo la compilazione del modello, viene addestrato sui dati del csv per 150 epoche e viene infine valutata la sua precisione.
+
+[user] Come posso implementare lo script per testarlo?","Per eseguire lo script python è sufficiente salvarlo in un file come ad esempio 'script.py' e successivamente eseguirlo con 'python3 script.py' dal terminale.
+
+Tuttavia noto ora che il codice contiene un errore, poichè risulterà nel seguente errore di runtime:
+```
+ValueError: Exception encountered when calling layer ""sequential"" (type Sequential).
+Input 0 of layer ""dense"" is incompatible with the layer: expected axis -1 of input shape to have value 8, but received input with shape (None, 1)
+```",,,,
+fab-100x-20261114T224309Z-009,67,6228658046a2b73518da885e,f1d41af0aefc5b165207b0df0bb53fc1,fab-100x,it,education,oasst1,human_authored,[user] Qual é il modo migliore di preparsi per le Olimpiadi di matematica che si fanno al liceo?,"Non esiste un *metodo migliore universale* per prepararsi a una competizione del genere, in quanto ogni studente ha le proprie forze e debolezze in materia. Ogni studente dovrebbe concentrarsi ad essere veloce negli ambiti in cui è più sicuro (quindi tanti esercizi) e saper applicare tali ambiti a una vasta gamma di problemi (abilità che si acquisisce facendo tanti esercizi). Inoltre, dovrebbe studiare a fondo le parti del programma in cui si sente più debole (teoria più esercizi)",,,,
+fab-100x-20261114T224309Z-009,68,21f6cb87523962a8023600d7,7cb21f6c9af12b5ede44b50f7877a465,fab-100x,it,general_knowledge,oasst1,human_authored,"[user] Devo lavare i miei indumenti, come faccio a sapere la temperatura migliore con cui lavarli?","Per sapere quale sia la giusta temperatura di lavaggio per un capo di biancheria, è importante leggere l'etichetta di lavaggio. L'etichetta di lavaggio indica la temperatura di lavaggio consigliata. In genere, la temperatura più bassa è consigliata per i colori più delicati, mentre la temperatura più alta è consigliata per i capi più resistenti. La temperatura più alta è anche consigliata per igienizzare i capi bianchi delicati. Se non sei sicuro di come lavare un capo di biancheria, consulta sempre l'etichetta di lavaggio.",,,,
+fab-100x-20261114T224309Z-009,69,262c1c7c55d1530cc777849b,aaf7c82a9b37ade2493f4c9b9f78aebb,fab-100x,it,mathematics,oasst2,human_authored,"[user] Come apro una partita IVA?
+
+[assistant] Per aprire una partita IVA bisognerà comunicare all’Agenzia delle Entrate l’inizio della propria attività, entro 30 giorni dal primo giorno di attività, con apposita dichiarazione, redatta su modello AA9/7 (ditta individuale e lavoratori autonomi) oppure modello AA7/7 (società): entrambi i modelli si possono scaricare dal sito dell’Agenzia delle Entrate.
+
+La presentazione dei modelli può essere presentata attraverso i seguenti modi:
+
+1 - recandosi presso l’Ufficio dell’Agenzia delle Entrate con apposito documento di riconoscimento;
+2 - invio con raccomandata con ricevuta di ritorno, con in allegato fotocopia del documento di riconoscimento;
+3 - invio per via telematica, tramite il software apposito che si scarica dal sito dell’Agenzia delle Entrate.
+Quando si apre una partita IVA, bisognerà scegliere il codice ATECO che si riferisce alla nostra specifica attività.
+
+Inoltre, bisognerà scegliere anche il tipo di regime contabile tra: regime forfettario o contabilità ordinaria.
+
+Una volta rilasciata o inviata la dichiarazione firmata, ci viene assegnato il numero di partita IVA, che rimarrà sempre lo stesso fino al termine dell’attività.
+
+Ultima tappa da seguire è l’INPS, dove recarsi per aprire la propria posizione previdenziale.
+
+Per chi deve registrare una ditta individuale, dovrà inoltre iscrivere l’impresa alla Camera di Commercio, e comunicare al Comune l’avvio della propria attività.
+
+[user] cos'è il codice ATECO?","Il codice ATECO (acronimo di ""Attività economica"") è una classificazione utilizzata in Italia per classificare le attività economiche svolte dalle imprese. Il codice ATECO viene utilizzato per raccogliere e analizzare i dati economici e statistici delle imprese e delle attività economiche in Italia.
+
+Il codice ATECO è un codice numerico standardizzato, che prevede una suddivisione gerarchica delle attività economiche in base alla loro natura e alla loro specificità. Il codice ATECO è composto da 5 cifre e ogni cifra corrisponde a una diversa categoria di attività economica. Ad esempio, la prima cifra indica il settore di attività economica (industria, commercio, servizi, etc.), mentre le cifre successive forniscono una suddivisione sempre più specifica dell'attività economica svolta.
+
+Il codice ATECO viene utilizzato da molte autorità pubbliche e istituzioni in Italia, come l'ISTAT, l'Agenzia delle Entrate e le Camere di Commercio, per la raccolta e l'analisi dei dati sulle attività economiche e per la classificazione delle imprese ai fini fiscali.
+
+Ecco alcuni esempi di codici ATECO, corrispondenti a diverse categorie di attività economiche:
+
+01.11Z: Coltivazione di cereali (escluso riso), legumi e semi oleosi
+10.11A: Preparazione industriale di prodotti da forno (pane, biscotti, ecc.)
+56.10B: Ristorazione con somministrazione di alimenti e bevande
+62.01: Attività di sviluppo di software su commessa
+68.32A: Amministrazione di beni immobili per conto terzi
+85.42A: Istruzione universitaria e di formazione post-secondaria non terziaria
+Come si può notare, ogni codice ATECO indica in modo dettagliato la categoria di attività economica a cui si riferisce. La prima cifra del codice indica il settore di appartenenza dell'attività economica, mentre le cifre successive specificano sempre di più la natura dell'attività svolta.",,,,
+fab-100x-20261114T224309Z-009,70,ae4f415da82333189880c9fe,e9c584cfded16b951f770e51756a28f8,fab-100x,it,reasoning,aya-dataset,human_authored,"[user] Rispondi alla seguente domanda:
+""Che cosa distingue una metropolitana leggera?""","La metropolitana leggera è un mezzo di trasporto veloce di massa con le caratteristiche della metropolitana, ma con portata oraria inferiore.
+
+La norma UNI 8379-2000 definisce la metropolitana leggera come un «sistema di trasporto rapido di massa che mantiene le caratteristiche della metropolitana» classica, «ad eccezione della portata oraria, che risulta ridotta a causa della limitata capacità dei convogli». La norma (in Allegato B) fornisce alcuni parametri caratteristici per le metropolitane leggere:
+- Portata potenziale minima per senso di marcia: 8000 passeggeri/ora
+- Cadenza potenziale minima: 3 minuti
+- Capacità di ogni convoglio: 400 persone
+- Distanza media stazioni/fermate: 500 – 800 m
+- Velocità commerciale minima: 25 km/h
+- Lunghezza massima del convoglio: 80 m
+
+La ""capacità"" dei convogli può scendere a 200 passeggeri nei sistemi con distanziamento di 90 secondi, per esempio metropolitana automatica integrale.
+
+Tra le caratteristiche contemplate nel medesimo allegato, per le metropolitane è previsto l'incarrozzamento a raso.
+
+La stessa norma considera questi parametri ""puramente indicativi"" e quindi «possono essere intesi come un utile strumento di riferimento per un linguaggio comune fra gli operatori del settore».",,,,
+fab-100x-20261114T224309Z-009,71,845e193071c3dfe0f3e1c732,b1614ac440204bc9d165ae57f8edb1fb,fab-100x,it,science,oasst2,human_authored,"[user] è possibile dividere i quark che compongono un protone?
+
+[assistant] Sì, i quark che compongono un protone sono soggetti alle forze di legame che li tengono uniti, ma teoricamente sono divisibili. Tuttavia, la divisione dei quark richiederebbe un'enorme quantità di energia, poiché i quark sono legati da forze molto forti, note come forze di interazione forte. Queste forze sono descritte dalla teoria delle interazioni forti, nota come QCD (Quantum Chromodynamics), e sono responsabili della tenuta dei quark all'interno dei nucleoni, come i protoni e i neutroni.
+
+In condizioni normali, è virtualmente impossibile separare i quark all'interno dei nucleoni, ma a temperature estremamente elevate e densità molto elevate, come all'interno di stelle di neutroni o all'interno dei primi istanti del Big Bang, i quark potrebbero essere liberati dalle forze di interazione forte e divenire liberi. Tuttavia, queste condizioni sono molto difficili da ricreare in un laboratorio terrestre.
+
+[user] Ci sono esperimenti sulla terra per provare a dividere i quark?","Sì, esistono esperimenti in cui i quark sono separati all'interno di particelle subatomiche ad alta energia, ma questi esperimenti non comportano la separazione dei quark all'interno dei protoni o dei neutroni. In questi esperimenti, si usano acceleratori di particelle per accelerare particelle subatomiche come protoni o elettroni ad altissime energie e farli collidere con bersagli di materiale atomico. Durante queste collisioni, le particelle subatomiche si disintegrano in particelle più piccole, tra cui quark e gluoni. Tuttavia, anche in queste condizioni estreme, i quark non vengono separati completamente dalle forze di interazione forte, ma sono liberi solo per un breve momento prima di formare nuove particelle subatomiche.",,,,
+fab-100x-20261114T224309Z-009,72,5c93f65a06e0230a7e7ad21d,87130dd54fb775a6e265ab964a35631c,fab-100x,ja,coding,oasst2,human_authored,"[user] 質問なのですがBlenderアドオンにおけるシーンプロパティーをオペレーターに使用し、
+実行後にdef draw()メニューに使用されているシーンプロパティーの値を後から変更することは可能でしょうか？","はい、可能です。オペレーターを実行してシーンプロパティーの値を変更したい場合、以下の手順に従うことができます。
+
+まず、オペレーター内でシーンプロパティーの値を変更するコードを書きます。例えば、以下のようになります。
+
+```python
+import bpy
+
+class MyOperator(bpy.types.Operator):
+    bl_idname = ""my_operator""
+    bl_label = ""My Operator""
+
+    my_prop : bpy.props.StringProperty()
+
+    def execute(self, context):
+        # シーンプロパティーの値を変更する
+        bpy.context.scene.my_prop = self.my_prop
+
+        return {'FINISHED'}
+
+```
+
+このオペレーターでは、my_propというシーンプロパティーの値を変更しています。
+
+次に、def draw()メソッドを定義し、メニューにシーンプロパティーを表示するためのコードを書きます。例えば、以下のようになります。
+
+```python
+class MyPanel(bpy.types.Panel):
+    bl_idname = ""MY_PT_panel""
+    bl_label = ""My Panel""
+    bl_space_type = ""VIEW_3D""
+    bl_region_type = ""UI""
+    bl_category = ""My Addon""
+
+    def draw(self, context):
+        layout = self.layout
+
+        # シーンプロパティーを表示する
+        layout.prop(context.scene, ""my_prop"")
+```
+
+このパネルでは、context.scene.my_propをprop()メソッドで表示しています。
+
+ここで、オペレーターを実行すると、シーンプロパティーの値が変更されます。そして、def draw()メソッドで表示されているシーンプロパティーの値も自動的に更新されます。
+
+つまり、シーンプロパティーの値を変更するためには、オペレーターを実行すればよく、def draw()メソッドで表示されているシーンプロパティーの値を変更する場合にも、シーンプロパティーの値が更新されます。",,,,
+fab-100x-20261114T224309Z-009,73,3bf70c26171e4187ce67a72b,0857963e6269e6ec6fdd80c5d3efaab1,fab-100x,ja,general_knowledge,aya-dataset,human_authored,"[user] 次の文章から重要な語彙を探し、その意味を説明しなさい。 
+コンビニのローソンは、冷凍のおにぎりを売る実験を始めました。のりが巻いてあるおにぎりなど6種類を売っていて、電子レンジで温めて食べることができます。
+実験は東京都と福島県の20ぐらいの店で行います。1つずつ包んだおにぎりを冷凍すると、4か月ぐらいおいしく食べることができます。実験を始めた理由の1つは、荷物を運ぶ仕事の人が足りないからです。冷凍のおにぎりを売ることで、店に品物を届ける回数や捨ててしまう品物を少なくすることができます。
+2025年度に日本の全部の県などで売る計画です。食べることができる期間が短い弁当やパンなども冷凍で売ることを考えています。
+セブン-イレブンも冷蔵の品物を店に届ける回数を少なくする地域を増やしています。","この文章に出てくる重要な語彙とその意味は次の通りである。
+- コンビニ: 1）食料品や日用品が、手軽にいつでも買えるように開いている、小型のスーパー。
+- 冷凍: 1）食べ物を長くもたせるために、凍らせること。
+- おにぎり: 1）おむすび。握り飯。
+- 実験: 1）実際にためしてみること。
+- のり: 1）海中の岩などにコケのようについている海藻。アサクサノリ・アオノリなど。2）アサクサノリなどを、紙のようにうすくのばして、かわかした食べ物。板のり。
+- 巻い: 1）長いものを、はしから丸める。2）長いものを物の周りにからみつける。3）ぐるぐるとまるく動く。また、動かす。4）回してしめる。5）取り囲む。
+- 種類: 1）共通する形や性質によって分けたもの。
+- 電子レンジ: 1）マイクロ波という特別な電波によって食品に熱を加え、短い時間で調理する器具。
+- 温め: 1）温かくする。冷たくなくする。2）鳥が卵を、大切にかかえる。3）発表せずに手もとに置く。
+- 回数: 1）ものごとが何回起こったか、行われたかという数。
+- 年度: 1）仕事の都合で決めた一年の期間。ふつう四月一日に始まり、翌年の三月三十一日に終わる。
+- 期間: 1）ある時からある時までと決められた間。
+- 地域: 1）ある範囲に区切られた土地。
+- 増やし: 1）多くする。",,,,
+fab-100x-20261114T224309Z-009,74,eb9be303966719ab1b17e8a7,c1e6445f6000890aacd4f8ea973fc7f4,fab-100x,ko,general_knowledge,wikipedia-ko,templated_human,[user] 윌리엄 길버트에 대해 간단히 소개해 주세요.,"윌리엄 길버트(, 1544년 5월 24일~1603년 11월 30일)는 영국의 물리학자, 의사이다. 자기학의 아버지 또는 영국 실험과학의 아버지라고 불린다.
+
+콜체스터에서 출생하여 케임브리지에서 의학을 배우고 런던에서 개업하였다. 뒤에 엘리자베스 1세의 시의로 일하였다. 과학의 태두(泰斗)로 잘 알려진 갈릴레이보다 생년월일이 더 빠른 관계로 실제로 최초의 과학자라는 칭호를 받을 만한 자격이 있는 인물이다. 하지만 이는 ‘최초의 과학자’이기 보다는 ‘자기의 아버지’로 더 잘 알려져 있다. 길버트는 왕립내과협회의 모든 공직을 두루 맡았던 대단히 성공적이고 저명한 내과의사였으며, 여왕 엘리자베스 1세의 주치의로 임명되기까지도 하였다. 이로써 의학 쪽으로 명성이 높았던 그는 화학에도 관심이 있었고, 이내 전기와 자기에 대한 연구로 방향을 틀었다. 자기의 성질에 대한 철저한 탐구로 과학의 한 분야인 물리학에 거대한 발자취를 남긴 그는 18년 동안의 연구 끝에 1600년, 《자석에 관하여》라는 책을 출판까지 하였다. 주요 저서 《자석에 관하여》에서 자기 및 지자기(地磁氣)에 관한 학설을 경험적·귀납적 방법에 의하여 전개하였다. 또 전기 현상에 관한 이론을 기록하였는데, 이것은 뒤에 케플러, 갈릴레이, 데카르트 등에 이용되었다. 또 '전기'라는 명칭은 그로부터 유래한다.이 책에서 중요한 것은 ‘그가 무엇을’ 발견했는지 보다는 ‘그가 어떻게’ 발견했는지 그 과정 속에서의 의미가 있는 책이다. 특히 이 책은 실험적 관찰에 대한 중요성을 강조하는 내용으로 갈릴레이에게 깊은 감명을 줬기로 유명하다.
+
+길버트는 에식스주의 콜체스터에서 1544년 5월 24일에 태어났다. ""길버트""()는 후세의 영어 철자법에 따라 쓴 표기로, 원래 표기는 ""길버드""()이다. 그는 지역에 있는 고전문법학교(중, 고등학교)를 마치고, 1558년에는 케임브리지 대학교에 진학하였다. 그의 어린 시절에 대해서는 크게 알려진 바가 없지만, 몇몇 기록에 따르면 옥스퍼드 대학교에서도 공부했다고 한다. 1560년 학사과정을 마친후에는 케임브리지 대학교의 세인트존스 칼리지()에서 교육을 받았다. 이후, 1569년 케임브리지 대학교에서 석사학위와 박사학위를 받은 후, 그는 런던으로 약학을 공부하기 위해 떠났다.
+
+1573년 길버트는 영국 왕립내과협회()의 회원으로 당선되었다. 길버트는 왕립내과협회에서 매우 좋은 평가를 받았으며, 무척 성공적이였기 때문에 1599년 회장으로 선출 되면서 좋은 시기를 보냈다. 1601년부터 그의 죽음 1603년도까지 그는 엘리자베스 1세의 주치의로 지냈으며 여왕이 죽자 후계자인 제임스 1세는 그의 업적을 되새겨주며 내과의사로 지명하였다. 그러나 몇 달 지나지 않아서 1603년 12월 길버트는 59세의 나이로 생애를 마감하였다.",,,,
+fab-100x-20261114T224309Z-009,75,63d538c74e8bb1b91251a2e0,fad8f3dfa42734f7bc13b8f2d1e96ff5,fab-100x,ko,research,tydiqa-goldp,human_authored,"[user] 그는 술을 좋아하였다. 그러나 2007년을 전후해 술을 줄였다. 2007년 1월 5일 인사차 방문한 당시 대통령 후보자 이명박과의 1시간 공개 면담에서 ""주량이 3분의 1로 줄었다. 나이 드니까 도리 없어""라며 절주 의사를 공식적으로 밝히기도 했다.[232] '운동은 뭘 하시느냐'고 묻는 이 시장에게 ""나이 들면 골프가 가장 좋아, 그런데 주변에 한 사람 두 사람 골프치는 사람이 없어져, 세상 떠나고 아프고""라면서 적적함을 표현하기도 했다.[232] 애연가이기도 했던 전두환은 1987년 자신의 퇴임식 등 공식 석상에서도 흡연을 하기도 했다.
+
+노태우는 언제 대통령이 되었는가?","1987년
+
+나이 드니까 도리 없어""라며 절주 의사를 공식적으로 밝히기도 했다.[232] '운동은 뭘 하시느냐'고 묻는 이 시장에게 ""나이 들면 골프가 가장 좋아, 그런데 주변에 한 사람 두 사람 골프치는 사람이 없어져, 세상 떠나고 아프고""라면서 적적함을 표현하기도 했다.[232] 애연가이기도 했던 전두환은 1987년 자신의 퇴임식 등 공식 석상에서도 흡연을 하기도 했다.",,,,
+fab-100x-20261114T224309Z-009,76,f60d9fb326e3d3db6f37bfba,51d1a71bb4b70549be40497a43d2bcd6,fab-100x,nl,general_knowledge,oasst2,human_authored,[user] Hoe kan je het makkelijkst vliegen?,"De makkelijkste manier om als mens te vliegen is door het gebruik van bestaande luchtvaarttuigen zoals bijvoorbeeld een vliegtuig, helikopter of luchtballon.",,,,
+fab-100x-20261114T224309Z-009,77,20b3a789a85c632b07ffe0d6,4b6310326aedddda2cd0e9803eab5dfb,fab-100x,pa,general_knowledge,aya-dataset,human_authored,[user] ਸਿਰੀਰਾਗੁ ਮਹਲਾ ੩ ॥ ਸਤਿਗੁਰਿ ਮਿਲਿਐ ਫੇਰੁ ਨ ਪਵੈ ਜਨਮ ਮਰਣ ਦੁਖੁ ਜਾਇ ॥ ਪੂਰੈ ਸਬਦਿ ਸਭ ਸੋਝੀ ਹੋਈ ਹਰਿ ਨਾਮੈ ਰਹੈ ਸਮਾਇ ॥੧॥ ਮਨ ਮੇਰੇ ਸਤਿਗੁਰ ਸਿਉ ਚਿਤੁ ਲਾਇ ॥ ਨਿਰਮਲੁ ਨਾਮੁ ਸਦ ਨਵਤਨੋ ਆਪਿ ਵਸੈ ਮਨਿ ਆਇ ॥੧॥ ਰਹਾਉ ॥ ਹਰਿ ਜੀਉ ਰਾਖਹੁ ਅਪੁਨੀ ਸਰਣਾਈ ਜਿਉ ਰਾਖਹਿ ਤਿਉ ਰਹਣਾ ॥ ਗੁਰ ਕੈ ਸਬਦਿ ਜੀਵਤੁ ਮਰੈ ਗੁਰਮੁਖਿ ਭਵਜਲੁ ਤਰਣਾ ॥੨॥ ਵਡੈ ਭਾਗਿ ਨਾਉ ਪਾਈਐ ਗੁਰਮਤਿ ਸਬਦਿ ਸੁਹਾਈ ॥ ਆਪੇ ਮਨਿ ਵਸਿਆ ਪ੍ਰਭੁ ਕਰਤਾ ਸਹਜੇ ਰਹਿਆ ਸਮਾਈ ॥੩॥ ਇਕਨਾ ਮਨਮੁਖਿ ਸਬਦੁ ਨ ਭਾਵੈ ਬੰਧਨਿ ਬੰਧਿ ਭਵਾਇਆ ॥ ਲਖ ਚਉਰਾਸੀਹ ਫਿਰਿ ਫਿਰਿ ਆਵੈ ਬਿਰਥਾ ਜਨਮੁ ਗਵਾਇਆ ॥੪॥ ਭਗਤਾ ਮਨਿ ਆਨੰਦੁ ਹੈ ਸਚੈ ਸਬਦਿ ਰੰਗਿ ਰਾਤੇ ॥ ਅਨਦਿਨੁ ਗੁਣ ਗਾਵਹਿ ਸਦ ਨਿਰਮਲ ਸਹਜੇ ਨਾਮਿ ਸਮਾਤੇ ॥੫॥ ਗੁਰਮੁਖਿ ਅੰਮ੍ਰਿਤ ਬਾਣੀ ਬੋਲਹਿ ਸਭ ਆਤਮ ਰਾਮੁ ਪਛਾਣੀ ॥ ਏਕੋ ਸੇਵਨਿ ਏਕੁ ਅਰਾਧਹਿ ਗੁਰਮੁਖਿ ਅਕਥ ਕਹਾਣੀ ॥੬॥ ਸਚਾ ਸਾਹਿਬੁ ਸੇਵੀਐ ਗੁਰਮੁਖਿ ਵਸੈ ਮਨਿ ਆਇ ॥ ਸਦਾ ਰੰਗਿ ਰਾਤੇ ਸਚ ਸਿਉ ਅਪੁਨੀ ਕਿਰਪਾ ਕਰੇ ਮਿਲਾਇ ॥੭॥ ਆਪੇ ਕਰੇ ਕਰਾਏ ਆਪੇ ਇਕਨਾ ਸੁਤਿਆ ਦੇਇ ਜਗਾਇ ॥ ਆਪੇ ਮੇਲਿ ਮਿਲਾਇਦਾ ਨਾਨਕ ਸਬਦਿ ਸਮਾਇ ॥੮॥੭॥੨੪॥,"ਹੇ ਮੇਰੇ ਮਨ! ਗੁਰੂ ਨਾਲ ਚਿੱਤ ਜੋੜ। (ਗੁਰੂ ਦੀ ਸਰਨ ਪਿਆਂ) ਪਰਮਾਤਮਾ ਦਾ ਪਵਿੱਤ੍ਰ ਨਾਮ ਸਦਾ ਨਵੇਂ ਆਨੰਦ ਵਾਲਾ ਲੱਗਦਾ ਹੈ, ਤੇ ਪਰਮਾਤਮਾ ਆਪ ਮਨ ਵਿਚ ਆ ਵੱਸਦਾ ਹੈ।1। ਰਹਾਉ।
+
+ਜੇ ਗੁਰੂ ਮਿਲ ਪਏ ਤਾਂ (ਚੌਰਾਸੀ ਲੱਖ ਜੂਨਾਂ ਵਾਲਾ) ਫੇਰਾ ਨਹੀਂ ਪੈਂਦਾ, ਜਨਮ ਮਰਨ ਵਿਚ ਪਾਣ ਵਾਲਾ ਦੁਖ ਦੂਰ ਹੋ ਜਾਂਦਾ ਹੈ। ਪੂਰੇ (ਅਭੁੱਲ) ਗੁਰੂ ਦੇ ਸ਼ਬਦ ਵਿਚ ਜੁੜਿਆਂ (ਸਹੀ ਜੀਵਨ ਦੀ) ਸਮਝ ਆ ਜਾਂਦੀ ਹੈ, (ਗੁਰੂ ਦੀ ਸਰਨ ਪੈਣ ਵਾਲਾ ਮਨੁੱਖ) ਪਰਮਾਤਮਾ ਦੇ ਨਾਮ ਵਿਚ ਲੀਨ ਟਿਕਿਆ ਰਹਿੰਦਾ ਹੈ।1।
+
+ਹੇ ਪ੍ਰਭੂ ਜੀ! ਤੂੰ (ਜੀਵਾਂ ਨੂੰ) ਆਪਣੀ ਸਰਨ ਵਿਚ ਰੱਖ, ਜਿਸ ਆਤਮਕ ਅਵਸਥਾ ਵਿਚ ਤੂੰ (ਜੀਵਾਂ ਨੂੰ) ਰੱਖਦਾ ਹੈਂ ਉਸੇ ਵਿਚ ਉਹ ਰਹਿੰਦੇ ਹਨ। ਗੁਰੂ ਦੇ ਸ਼ਬਦ ਵਿਚ ਜੁੜ ਕੇ ਮਨੁੱਖ ਦੁਨੀਆ ਵਿਚ ਵਿਚਰਦਾ ਹੋਇਆ ਹੀ ਵਿਕਾਰਾਂ ਵਲੋਂ ਹਟਿਆ ਰਹਿੰਦਾ ਹੈ। ਗੁਰੂ ਦੀ ਸਰਨ ਪੈ ਕੇ ਸੰਸਾਰ-ਸਮੁੰਦਰ ਤੋਂ ਪਾਰ ਲੰਘ ਜਾਈਦਾ ਹੈ।2।
+
+(ਹੇ ਭਾਈ!) ਪਰਮਾਤਮਾ ਦਾ ਨਾਮ ਵੱਡੀ ਕਿਸਮਤ ਨਾਲ ਮਿਲਦਾ ਹੈ। ਗੁਰੂ ਦੀ ਮਤਿ ਤੇ ਤੁਰਿਆਂ ਗੁਰੂ ਦੇ ਸ਼ਬਦ ਵਿਚ ਜੁੜਿਆਂ ਜ਼ਿੰਦਗੀ ਸੋਹਣੀ ਬਣ ਜਾਂਦੀ ਹੈ। ਕਰਤਾਰ ਪ੍ਰਭੂ ਆਪ ਹੀ ਮਨ ਵਿਚ ਆ ਵੱਸਦਾ ਹੈ। (ਗੁਰੂ ਦੇ ਸ਼ਬਦ ਦੀ ਰਾਹੀਂ ਮਨੁੱਖ) ਸਦਾ ਆਤਮਕ ਅਡੋਲਤਾ ਵਿਚ ਟਿਕਿਆ ਰਹਿੰਦਾ ਹੈ।3।
+
+ਕਈ ਐਸੇ ਹਨ ਜੋ ਆਪਣੇ ਹੀ ਮਨ ਦੇ ਪਿੱਛੇ ਤੁਰਦੇ ਹਨ, ਉਹਨਾਂ ਨੂੰ ਗੁਰੂ ਦਾ ਸ਼ਬਦ ਪਿਆਰਾ ਨਹੀਂ ਲੱਗਦਾ। ਆਪਣੇ ਮਨ ਦੇ ਪਿੱਛੇ ਤੁਰਨ ਵਾਲਾ ਮਨੁੱਖ (ਮਾਇਆ ਦੇ) ਬੰਧਨ ਵਿਚ ਬੰਨ੍ਹ ਕੇ (ਜਨਮ ਮਰਨ ਦੇ ਗੇੜ ਵਿਚ) ਭਵਾਇਆ ਜਾਂਦਾ ਹੈ, ਉਹ ਚੌਰਾਸੀ ਲੱਖ ਜੂਨਾਂ ਵਿਚ ਮੁੜ ਮੁੜ ਜੰਮਦਾ ਹੈ, ਤੇ ਆਪਣਾ (ਮਨੁੱਖਾ) ਜਨਮ ਵਿਅਰਥ ਗਵਾ ਜਾਂਦਾ ਹੈ।4।
+
+ਪਰਮਾਤਮਾ ਦੀ ਭਗਤੀ ਕਰਨ ਵਾਲੇ ਬੰਦਿਆਂ ਦੇ ਮਨ ਵਿਚ ਆਨੰਦ ਬਣਿਆ ਰਹਿੰਦਾ ਹੈ, ਉਹ ਸਦਾ-ਥਿਰ ਪ੍ਰਭੂ ਦੀ ਸਿਫ਼ਤਿ-ਸਾਲਾਹ ਦੇ ਸ਼ਬਦ ਵਿਚ ਪ੍ਰਭੂ ਦੇ ਪ੍ਰੇਮ-ਰੰਗ ਵਿਚ ਰੰਗੇ ਰਹਿੰਦੇ ਹਨ, ਉਹ ਸਦਾ ਹਰ ਵੇਲੇ ਪਰਮਾਤਮਾ ਦੇ ਪਵਿਤ੍ਰ ਗੁਣ ਗਾਂਦੇ ਰਹਿੰਦੇ ਹਨ, (ਜਿਸ ਦੀ ਬਰਕਤਿ ਨਾਲ ਉਹ) ਆਤਮਕ ਅਡੋਲਤਾ ਵਿਚ ਤੇ ਪ੍ਰਭੂ-ਨਾਮ ਵਿਚ ਹੀ ਲੀਨ ਰਹਿੰਦੇ ਹਨ।5।
+
+ਗੁਰੂ ਦੇ ਸਨਮੁਖ ਰਹਿਣ ਵਾਲੇ ਮਨੁੱਖ ਸਾਰੀ ਸ੍ਰਿਸ਼ਟੀ ਵਿਚ ਪਰਮਾਤਮਾ ਨੂੰ ਵੱਸਦਾ ਪਛਾਣ ਕੇ ਆਤਮਕ ਜੀਵਨ ਦੇਣ ਵਾਲੀ ਪ੍ਰਭੂ ਦੀ ਸਿਫ਼ਤਿ-ਸਾਲਾਹ ਦੀ ਬਾਣੀ ਉਚਾਰਦੇ ਰਹਿੰਦੇ ਹਨ। ਗੁਰੂ ਦੀ ਸਰਨ ਪੈ ਕੇ ਉਹ ਮਨੁੱਖ ਇਕ ਪਰਮਾਤਮਾ ਦਾ ਹੀ ਸਿਮਰਨ ਕਰਦੇ ਹਨ। ਪਰਮਾਤਮਾ ਦਾ ਹੀ ਆਰਾਧਨ ਕਰਦੇ ਹਨ, ਤੇ ਉਸ ਪਰਮਾਤਮਾ ਦੀਆਂ ਹੀ ਕਥਾ-ਕਹਾਣੀਆਂ ਕਰਦੇ ਹਨ ਜਿਸ ਦੇ ਸਾਰੇ ਗੁਣ ਬਿਆਨ ਨਹੀਂ ਹੋ ਸਕਦੇ।6।
+
+(ਹੇ ਭਾਈ!) ਸਦਾ-ਥਿਰ ਰਹਿਣ ਵਾਲੇ ਮਾਲਕ-ਪ੍ਰਭੂ ਨੂੰ ਸਿਮਰਨਾ ਚਾਹੀਦਾ ਹੈ। ਜੇਹੜੇ ਮਨੁੱਖ ਗੁਰੂ ਦੀ ਸਰਨ ਪੈ ਕੇ ਸਿਮਰਦੇ ਹਨ, ਉਹਨਾਂ ਦੇ ਮਨ ਵਿਚ ਪ੍ਰਭੂ ਆ ਵੱਸਦਾ ਹੈ। (ਉਹ ਵਡ-ਭਾਗੀ ਮਨੁੱਖ) ਸਦਾ ਪ੍ਰਭੂ ਦੇ ਪ੍ਰੇਮ-ਰੰਗ ਵਿਚ ਰੰਗੇ ਰਹਿੰਦੇ ਹਨ, ਸਦਾ-ਥਿਰ ਪ੍ਰਭੂ ਨਾਲ ਜੁੜੇ ਰਹਿੰਦੇ ਹਨ, ਪ੍ਰਭੂ ਆਪਣੀ ਕਿਰਪਾ ਕਰ ਕੇ ਉਹਨਾਂ ਨੂੰ ਆਪਣੇ ਨਾਲ ਮਿਲਾ ਲੈਂਦਾ ਹੈ।7।
+
+(ਪਰ ਇਹ ਸਾਰੀ ਖੋਜ ਪਰਮਾਤਮਾ ਦੇ ਆਪਣੇ ਹੀ ਹੱਥ ਵਿਚ ਹੈ) ਪ੍ਰਭੂ ਆਪ ਹੀ (ਸਭ ਜੀਵਾਂ ਵਿਚ ਪ੍ਰੇਰਕ ਹੋ ਕੇ ਸਭ ਕੁਝ) ਕਰਦਾ ਹੈ ਆਪ ਹੀ (ਜੀਵਾਂ ਪਾਸੋਂ) ਕਰਾਂਦਾ ਹੈ। ਮਾਇਆ ਦੀ ਨੀਂਦ ਵਿੱਚ ਸੁੱਤੇ ਹੋਏ ਕਈ ਜੀਵਾਂ ਨੂੰ ਭੀ ਪ੍ਰਭੂ ਆਪ ਹੀ ਜਗਾ ਦੇਂਦਾ ਹੈ। ਹੇ ਨਾਨਕ! ਗੁਰੂ ਦੇ ਸ਼ਬਦ ਵਿਚ ਜੋੜ ਕੇ ਪ੍ਰਭੂ ਆਪ ਹੀ (ਉਹਨਾਂ ਨੂੰ) ਆਪਣੇ ਚਰਨਾਂ ਵਿਚ ਮਿਲਾ ਲੈਂਦਾ ਹੈ।8।7। 24।",,,,
+fab-100x-20261114T224309Z-009,78,4e056fb18e15cb5ee3b1c9d1,574266b57d28ff6dbd65e60a9287a486,fab-100x,pa,mathematics,aya-dataset,human_authored,[user] ਲਹੂ ਦੇ ਵੱਖ-ਵੱਖ ਅੰਸ਼ਾਂ ਦਾ ਵਰਣਨ ਕਰੋ । ਲਹੂ ਦੇ ਮੁੱਖ ਕੰਮ ਕੀ ਹਨ ?,"ਲਹੂ ਅਤੇ ਉਸ ਦੇ ਅੰਸ਼ -ਰਕਤ ਜਾਂ ਲਹੂ ਇਕ ਪ੍ਰਕਾਰ ਦਾ ਤਰਲ ਪਦਾਰਥ ਹੈ ਜਿਸ ਦਾ ਨਿਰਮਾਣ ਖਾਣ ਅਤੇ ਪੀਣ ਵਾਲੇ ਪਦਾਰਥਾਂ ਰਾਹੀਂ ਹੁੰਦਾ ਹੈ । ਲਹੂ ਸਾਡੇ ਸਰੀਰ ਵਿਚ ਇਕ ਮਹੱਤਵਪੂਰਨ ਪਦਾਰਥ ਹੈ । ਇਹ ਆਦਮੀ ਦੇ ਸਰੀਰ ਵਿਚ ਉਸ ਦੇ ਸਰੀਰ ਦੇ ਭਾਰ ਦਾ ਬਾਵਾਂ (1/12) ਨੇ ਹਿੱਸਾ ਹੁੰਦਾ ਹੈ । ਆਮ ਤੌਰ ‘ਤੇ ਇਕ ਨੌਜਵਾਨ ਦੇ ਸਰੀਰ ਵਿਚ ਖੂਨ ਦੀ ਮਾਤਰਾ 12-13 ਪਿੰਟ ਤਕ ਹੁੰਦੀ ਹੈ । ਕਈ | ਹਾਲਤਾਂ ਵਿਚ ਇਹ ਮਾਤਰਾ ਘੱਟ ਜਾਂ ਵੱਧ ਵੀ ਹੋ ਸਕਦੀ ਹੈ । ਤਰਲ  ਪਦਾਰਥ ਨਿਕਲਦਾ ਹੈ । ਇਸ ਤਰਲ ਪਦਾਰਥ ਦਾ ਨਾਂ ਹੀ ‘ਲਹੁ’ ਹੈ । ਦੇਖਣ ਨੂੰ ਤਾਂ ਇਹ ਲਾਲ ਰੰਗ ਦਾ ਮਾਲੂਮ ਹੁੰਦਾ ਹੈ, ਪਰ ਅਸਲ ਵਿਚ ਅਜਿਹਾ ਨਹੀਂ । ਜੇ ਅਸੀਂ ਇਸ ਤਰਲ ਪਦਾਰਥ ਅਰਥਾਤ ਲਹੂ ਨੂੰ ਖੁਰਦਬੀਨ ਵਿਚ ਦੇਖੀਏ ਤਾਂ ਸਾਨੂੰ ਪਤਾ ਲੱਗੇਗਾ ਕਿ ਲਹੂ ਵਿਚ ਬਹੁਤ ਛੋਟੇ-ਛੋਟੇ ਕਣ ਹੁੰਦੇ ਹਨ । ਇਹਨਾਂ ਕਣਾਂ ਦਾ ਰੰਗ ਚਿੱਟਾ ਤੇ ਲਾਲ ਹੁੰਦਾ ਹੈ ।
+
+ਇਹਨਾਂ ਨੂੰ ਲਾਲ ਲਹੂ ਕਣ ਅਤੇ ਚਿੱਟੇ ਲਹੂ ਕਣ  ਕਹਿੰਦੇ ਹਨ । ਇਹ ਇਕ ਕਿਸਮ ਦੇ ਹਲਕੇ ਪੀਲੇ ਤਰਲ  ਵਿਚ ਤੈਰਦੇ ਹਨ, ਜਿਸ ਨੂੰ ਪਲਾਜ਼ਮਾ  ਕਹਿੰਦੇ ਹਨ । 
+(i) ਪਲਾਜ਼ਮਾ  – ਇਹ ਲਹੂ ਦੇ ਹਲਕੇ ਪੀਲੇ ਰੰਗ ਦਾ ਪਾਰਦਰਸ਼ਕ  ਪਦਾਰਥ ਹੁੰਦਾ ਹੈ । ਇਸ ਵਿਚ ਲਾਲ ਅਤੇ ਚਿੱਟੇ ਲਹੂ ਦੇ ਕਣ ਤੈਰਦੇ ਹਨ । ਇਸ ਵਿਚ 90% ਪਾਣੀ ਤੇ 10% ਠੋਸ ਪਦਾਰਥ ਘੁਲੇ ਹੁੰਦੇ ਹਨ । ਇਹ ਠੋਸ ਪਦਾਰਥ ਪ੍ਰੋਟੀਨ, ਖਣਿਜ ਲੂਣ ਤੇ ਚਰਬੀ (Fat) ਹੁੰਦੇ ਹਨ | ਪਲਾਜ਼ਮਾ ਲਹੂ ਦੇ ਦਬਾਅ  ਨੂੰ ਠੀਕ ਰੱਖਦਾ ਹੈ ਤੇ ਲਾਲ ਅਤੇ ਚਿੱਟੇ ਲਹੂ ਕਣਾਂ ਨੂੰ ਲਿਜਾਣ ਵਿਚ ਮਦਦ ਦਿੰਦਾ ਹੈ । ਇਸ ਦੀ ਪ੍ਰੋਟੀਨ ਲਹੁ ਨੂੰ ਵਹਿਣ ਤੋਂ ਰੋਕਣ ਵਿਚ ਮਦਦ ਦਿੰਦੀ ਹੈ ।
+(ii) ਲਾਲ ਲਹੂ ਕਣ  – ਆਦਮੀ ਦੇ ਲਾਲ ਲਹੂ ਕਣ ਗੋਲ ਤੇ ਦੋਹਾਂ ਪਾਸਿਆਂ ਤੋਂ ਚਿਪਕੇ ਹੁੰਦੇ ਹਨ । ਆਦਮੀ ਦੇ ਇਕ ਘਣ ਮਿਲੀ ਮੀਟਰ ਲਹੂ ਵਿਚ ਇਹਨਾਂ ਦੀ ਗਿਣਤੀ ਲਗਪਗ 50,00,000 ਹੁੰਦੀ ਹੈ । ਇਹ ਇੰਨੇ ਛੋਟੇ ਹੁੰਦੇ ਹਨ ਕਿ ਜੇਕਰ ਕੰਢੇ ਨਾਲ ਮਿਲਾ ਕੇ ਰੱਖੇ ਜਾਣ ਤਾਂ 2.5 ਵਰਗ ਸੈਂਟੀਮੀਟਰ ਥਾਂ ਵਿਚ ਲਗਪਗ 1 ਕਰੋੜ ਆ ਜਾਣਗੇ । ਇਹਨਾਂ ਦੀ ਬਾਹਰਲੀ ਪਰਤ ਇਕ ਲਚਕੀਲੇ ਠੋਸ ਦੇ ਰੂਪ ਵਿਚ ਹੁੰਦੀ ਹੈ ਜਿਸ ਦੇ ਅੰਦਰ ਪੀਲੇ ਰੰਗ ਦਾ ਲੋਹੇ ਦਾ ਇਕ ਰੰਗ  ਹੁੰਦਾ ਹੈ ਜਿਸ ਨੂੰ ਹਿਮੋਗਲੋਬਿਨ । ਕਹਿੰਦੇ ਹਨ ਜੋ ਕਿ ਲੋਹੇ ਅਤੇ ਪ੍ਰੋਟੀਨ ਵਸਤਾਂ ਨਾਲ ਮਿਲ ਕੇ ਬਣਦਾ ਹੈ । ਹਿਮੋਗਲੋਬਿਨ ਆਕਸੀਜਨ ਨੂੰ ਚੂਸ ਲੈਂਦਾ ਹੈ ਜਿਸ ਕਾਰਨ ਇਸ ਦਾ ਰੰਗ ਚਮਕਦਾਰ ਹੋ ਜਾਂਦਾ ਹੈ । ਇਹ ਆਕਸੀ-ਹਿਮੋਗਲੋਬਿਨ ਵਿਚ ਬਦਲ ਜਾਂਦਾ ਹੈ । ਇਸ ਪਦਾਰਥ ਦੇ ਕਾਰਨ ਖੂਨ ਫੇਫੜਿਆਂ ਵਿਚੋਂ ਆਕਸੀਜਨ ਚੂਸ ਕੇ ਸਰੀਰ ਦੇ ਹਰ ਹਿੱਸੇ ਤਕ ਪਹੁੰਚਾਉਂਦਾ ਹੈ । ਲੜਕੀਆਂ ਵਿਚ ਲਾਲ ਲਹੂ ਕਣ ਲੜਕਿਆਂ ਨਾਲੋਂ ਘੱਟ ਹੁੰਦੇ ਹਨ । ਜ਼ਿਆਦਾ ਕਸਰਤ ਕਰਨ ਤੇ  ਉਚਾਈ ਉੱਤੇ ਲਾਲ ਕਣਾਂ ਦੀ ਗਿਣਤੀ ਵੱਧ ਜਾਂਦੀ ਹੈ ।
+(iii) ਚਿੱਟੇ ਲਹੂ ਕਣ – ਸਰੀਰ ਦੀ ਤੁਲਨਾ ਇਕ ਰਾਜ ਨਾਲ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ । ਜਿਸ ਤਰ੍ਹਾਂ ਰਾਜ ਦੀ ਰੱਖਿਆ ਲਈ ਫ਼ੌਜ ਦਾ ਪ੍ਰਬੰਧ ਹੁੰਦਾ ਹੈ, ਉਸੇ ਤਰ੍ਹਾਂ ਸਰੀਰ ਰੂਪੀ ਰਾਜ ਦੇ ਲਈ ਲਹੂ ਕਣ ਰੂਪੀ ਫ਼ੌਜ ਦਾ ਪ੍ਰਬੰਧ ਹੁੰਦਾ ਹੈ । ਚਿੱਟੇ ਲਹੂ ਕਣਾਂ ਦੀ ਗਿਣਤੀ ਲਾਲ ਲਹੂ ਕਣਾਂ ਨਾਲੋਂ ਘੱਟ ਹੁੰਦੀ ਹੈ | ਸਰੀਰ ਵਿਚ ਲਗਪਗ 600 ਲਾਲ ਲਹੂ ਕਣਾਂ ਮਗਰੋਂ ਕੇਵਲ ਇਕ ਚਿੱਟਾ ਲਹੂ ਕਣ ਹੁੰਦਾ ਹੈ । ਇਕ ਘਣ ਕਿਲੋ ਲਹੂ ਵਿਚ ਚਿੱਟੇ ਲਹੂ ਕਣਾਂ ਦੀ ਗਿਣਤੀ ਲਗਪਗ 8000 ਤੋਂ 10000 ਦੇ ਲਗਪਗ ਹੁੰਦੀ ਹੈ । ਇਹ ਰੰਗਹੀਣ ਤੇ ਬੇਡੌਲ  ਆਕਾਰ ਦੇ ਹੁੰਦੇ ਹਨ । ਇਹਨਾਂ ਦੀ ਮਦਦ ਨਾਲ ਸਰੀਰ ਰੋਗਾਂ ਦਾ ਟਾਕਰਾ ਕਰਦਾ ਹੈ । ਇਹਨਾਂ ਦਾ ਕੰਮ ਰੋਗਾਂ ਦੇ ਜੀਵਾਣੂਆਂ ਨੂੰ ਘੇਰ ਕੇ ਉਹਨਾਂ ਦਾ ਖ਼ਾਤਮਾ ਕਰਨਾ ਹੈ | ਸਰੀਰ ਵਿਚ ਸੱਟ ਆਦਿ ਲੱਗਣ ਕਾਰਨ ਇਹੀ ਜ਼ਖ਼ਮਾਂ ਨੂੰ ਭਰਨ ਵਿਚ ਸਹਾਇਕ ਹੁੰਦੇ ਹਨ ।
+(iv) ਪਲੇਟਲੇਟਸ -ਆਦਮੀ ਦੇ ਹੁ ਵਿਚ ਲਾਲ ਤੇ ਚਿੱਟੇ ਕਣਾਂ ਤੋਂ ਬਿਨਾਂ ਇਕ ਤੀਜੀ ਕਿਸਮ ਦੇ ਲਹੂ ਕਣ ਵੀ ਹੁੰਦੇ ਹਨ ਜਿਨ੍ਹਾਂ ਨੂੰ ਪਲੇਟਲੇਟਸ ਕਹਿੰਦੇ ਹਨ । ਇਹ ਲਾਲ ਅਤੇ ਚਿੱਟੇ ਲਹੂ ਕਣਾਂ ਤੋਂ ਬਿਲਕੁਲ ਵੱਖਰੇ ਹਨ । ਇਹ ਲਾਲ ਲਹੂ ਕਣਾਂ 12 ਜਾਂ 13 ਹੁੰਦੇ ਹਨ । ਲਹੂ ਦੇ ਇਕ ਘਣ ਮਿਲੀਮੀਟਰ ਵਿਚ ਇਹਨਾਂ ਦੀ ਸੰਖਿਆ ਲਗਪਗ 3 ਲੱਖ ਹੁੰਦੀ ਹੈ । ਇਹ ਚਿੱਟੇ ਤੇ ਬੇਡੌਲ  ਆਕਾਰ ਦੇ ਹੁੰਦੇ ਹਨ । ਇਹਨਾਂ ਦਾ ਮੁੱਖ ਕੰਮ ਲਹੂ ਨੂੰ ਵਹਿਣ ਤੋਂ ਰੋਕਣਾ ਹੈ ।
+
+ਲਹੂ ਦੇ ਕੰਮ -ਖੂਨ ਦੇ ਕੰਮ ਹੇਠ ਲਿਖੇ ਹੁੰਦੇ ਹਨ –
+
+    ਲਹੂ ਸਾਡੇ ਭੋਜਨ ਦੇ ਪਚੇ ਹੋਏ ਹਿੱਸੇ ਨੂੰ ਸਰੀਰ ਦੇ ਭਿੰਨ-ਭਿੰਨ ਅੰਗਾਂ ਤਕ ਪਹੁੰਚਾਉਣ ਦਾ ਕੰਮ ਕਰਦਾ ਹੈ ।
+    ਹੁ ਹੀ ਸਰੀਰ ਵਿਚੋਂ ਜ਼ਹਿਰੀਲੇ ਤੇ ਵਿਅਰਥ ਪਦਾਰਥ ਨੂੰ ਬਾਹਰ ਕੱਢਣ ਵਿਚ ਮਦਦ ਕਰਦਾ ਹੈ । ਇਹ ਇਹਨਾਂ ਪਦਾਰਥਾਂ ਨੂੰ ਆਪਣੇ ਅੰਦਰ ਘੋਲ ਕੇ ਗੁਰਦੇ ਵਿਚ ਲੈ ਜਾਂਦਾ ਹੈ, ਜਿੱਥੇ ਉਹ ਪੇਸ਼ਾਬ  ਦੇ ਰੂਪ ਵਿਚ ਬਾਹਰ ਨਿਕਲਦੇ ਹਨ ।
+    ਲਹੂ ਵਿਚ ਮੌਜੂਦ ਲਾਲ ਲਹੂ ਕਣ ਫੇਫੜਿਆਂ ਵਿਚੋਂ ਆਕਸੀਜਨ ਚੂਸ ਕੇ ਸਰੀਰ ਦੇ ਭਿੰਨ-ਭਿੰਨ ਭਾਗਾਂ ਵਿਚ ਲਿਜਾਂਦੇ ਹਨ ।
+    ਲਾਲ ਲਹੂ ਕਣ ਹੀ ਆਕਸੀਜਨ ਕਿਰਿਆ ਤੋਂ ਮਗਰੋਂ ਬਣੀ ਕਾਰਬਨ-ਡਾਈਆਕਸਾਈਡ  ਨੂੰ ਫੇਫੜਿਆਂ ਵਿਚ ਲਿਆ ਕੇ ਬਾਹਰ ਕੱਢਣ ਦਾ ਕੰਮ ਕਰਦੇ ਹਨ ।
+    ਲਹੂ ਦੇ ਚਿੱਟੇ ਲਹੂ ਕਣ ਸਰੀਰ ਦੀ ਜਰਮਾਂ ਜਾਂ ਕੀਟਾਣੂਆਂ ਤੋਂ ਰੱਖਿਆ ਕਰਦੇ ਹਨ ।
+    ਲਹੂ ਪਲੇਟਲੇਟਸ ਸੱਟ  ਲੱਗਣ ਵੇਲੇ ਲਹੁ ਨੂੰ ਸਰੀਰ ਤੋਂ ਬਾਹਰ ਵਹਿ ਜਾਣ ਤੋਂ ਰੋਕਦੇ ਹਨ ।
+    ਲਹੁ ਹਾਰਮੋਨਜ਼ ਨੂੰ ਇਕ ਥਾਂ ਤੋਂ ਦੂਜੀ ਥਾਂ ਲਿਜਾਣ ਦਾ ਕੰਮ ਕਰਦਾ ਹੈ ।
+    ਲਹੁ ਰਾਹੀਂ ਸਰੀਰ ਦੇ ਭਿੰਨ-ਭਿੰਨ ਅੰਗ ਆਪਸ ਵਿਚ ਮਿਲੇ ਰਹਿੰਦੇ ਹਨ ਅਤੇ ਸੁੱਕ ਕੇ ਨਸ਼ਟ ਹੋਣ ਤੋਂ ਬਚੇ ਰਹਿੰਦੇ ਹਨ ।
+    ਹੂ ਰਾਹੀਂ ਹੀ ਸਰੀਰ ਦੇ ਭਿੰਨ-ਭਿੰਨ ਅੰਗਾਂ ਦਾ ਤਾਪਮਾਨ ਇੱਕੋ ਜਿਹਾ ਰਹਿੰਦਾ ਹੈ ।
+
+ਸੰਖੇਪ ਵਿਚ ਅਸੀਂ ਇਹ ਆਖਾਂਗੇ ਕਿ ਖ਼ੂਨ ਜੀਵਨ ਪ੍ਰਦਾਨ ਕਰਨ ਵਾਲਾ ਹੈ । ਜੇਕਰ ਕਿਸੇ ਅੰਗ ਵਿਚ ਖੂਨ ਦਾ ਪ੍ਰਵਾਹ ਨਾ ਹੋਵੇ ਤਾਂ ਉਹ ਅੰਗ ਪੀਲਾ ਪੈ ਜਾਂਦਾ ਹੈ ਅਤੇ ਕਮਜ਼ੋਰ ਹੋ ਜਾਂਦਾ ਹੈ । ਵਧੇਰੇ ਸਮੇਂ ਤਕ ਇਸ ਕੂਮ ਦੇ ਬੰਦ ਰਹਿਣ ਨਾਲ ਉਹ ਅੰਗ ਮਰ ਵੀ ਸਕਦਾ ਹੈ ।",,,,
+fab-100x-20261114T224309Z-009,79,7f58530986bbc59d87c8491f,c1ad127d30e954a77e13ca594b31b940,fab-100x,pl,general_knowledge,oasst2,human_authored,[user] Dlaczego gry wideo się zawieszają?,"Gry wideo mogą się zawieszać z wielu różnych powodów, a oto niektóre z najczęstszych:
+
+1. Problem z sprzętem - Gra może wymagać zbyt dużo zasobów sprzętowych niż dany komputer lub konsola jest w stanie zapewnić, co może prowadzić do spadku wydajności i zawieszenia się gry.
+
+2. Konflikt z oprogramowaniem - Inne programy działające w tle na komputerze lub konsoli mogą prowadzić do konfliktów z grą, co może prowadzić do zawieszenia.
+
+3. Błędy w kodzie gry - Gry mogą zawierać błędy w kodzie, które mogą prowadzić do zawieszenia gry w różnych sytuacjach.
+
+4. Problemy z połączeniem internetowym - W przypadku gier online, problemy z połączeniem internetowym mogą prowadzić do zawieszenia gry lub innych problemów z grą.
+
+5. Problemy z dyskiem twardym - Jeśli gra ma problemy z odczytem danych z dysku twardego, może to prowadzić do zawieszenia gry.
+
+6. Problemy z aktualizacją gry - Aktualizacje gier mogą czasem wprowadzać nowe problemy, które prowadzą do zawieszenia gry.",,,,
+fab-100x-20261114T224309Z-009,80,237e195bf505b081f634fe75,b64edc6f868659ec278bc39c77f08d62,fab-100x,pl,science,oasst2,human_authored,"[user] Cześć, chciałbym abyś wyobraził sobie, że jesteś astronautą na pokładzie statku kosmicznego. Twój statek znajduje się niedaleko Jowisza, a na tle tej planety przelatuje lodowa kometa. Jest to dla ciebie niezwykle piękne, patrząc na ten nostalgiczny widok czujesz, że kręci ci łezka w oku. Proszę, opisz subiektywnie co widzisz i czujesz.","Jako astronauta na pokładzie statku kosmicznego, jestem zachwycony widokiem Jowisza i lodowej komety, która przelatuje niedaleko niego. Ta potężna i majestatyczna planeta jest niezwykle imponująca, a jej piękno dodatkowo podkreśla obecność lodowej komety. Przyglądam się temu wspaniałemu spektaklowi z zachwytem i podziwem. Czuję się niezwykle szczęśliwy i dumny, że jestem częścią tej niezwykłej misji kosmicznej i że mogę doświadczyć tej niezapomnianej chwili. Wpatrując się w te gwiazdy i planety, czuję się znów mały i bezradny, ale jednocześnie uzmysławiam sobie jak niezwykły jest nasz wszechświat. Łezka naprawdę kręci mi się w oku, gdy myślę o tym, jak wspaniałe są nasze dokonania jako ludzkości i jak wiele jeszcze nas czeka do odkrycia.",,,,
+fab-100x-20261114T224309Z-009,81,b597e4bcd14e92a0ba82dc24,f62acc8d7dbdc3868d22e1879e9d81ed,fab-100x,pt,general_knowledge,aya-dataset,human_authored,[user] Qual é a capital da Venezuela?,"A capital da Venezuela é Caracas. A cidade de Caracas foi fundada em 1567 com o nome de Santiago de León de Caracas, pelo explorador espanhol Diego de Losada.
+
+Em 26 de março de 1812 Caracas foi destruída por um terremoto, que as autoridades locais julgaram como uma punição divina pela desobediência dos nativos à coroa espanhola. A Venezuela se encontrava em plena guerra de independência. Simón Bolívar, ao saber de tal despautério, respondeu com a famosa frase: ""Se a natureza se opõe (à independência), lutaremos contra ela e faremos que nos obedeça"".
+
+Ao longo do século XX, Caracas se tornou um dos centros financeiros da América do Sul, devido principalmente ao desenvolvimento gerado pelas altas divisas do petróleo.",,,,
+fab-100x-20261114T224309Z-009,82,dd636ebf8cceebcdd55f8a0e,ec5733fd844ad8f13af5c61874442df4,fab-100x,pt,mathematics,nemotron-math,synthetic,[user] Simplify the indicated functions: $\frac{a+b}{(b-c)(c-a)}+\frac{b+c}{(c-a)(a-b)} +\frac{c+a}{(a-b)(b-c)}$.,"The expression to simplify is \(\frac{a+b}{(b-c)(c-a)} + \frac{b+c}{(c-a)(a-b)} + \frac{c+a}{(a-b)(b-c)}\).
+
+The common denominator for the three fractions is \((a-b)(b-c)(c-a)\). Rewriting each fraction with this denominator:
+
+- The first fraction: \(\frac{a+b}{(b-c)(c-a)} = \frac{(a+b)(a-b)}{(a-b)(b-c)(c-a)} = \frac{a^2 - b^2}{(a-b)(b-c)(c-a)}\)
+- The second fraction: \(\frac{b+c}{(c-a)(a-b)} = \frac{(b+c)(b-c)}{(c-a)(a-b)(b-c)} = \frac{b^2 - c^2}{(a-b)(b-c)(c-a)}\) (since \((c-a)(a-b)(b-c) = (a-b)(b-c)(c-a)\))
+- The third fraction: \(\frac{c+a}{(a-b)(b-c)} = \frac{(c+a)(c-a)}{(a-b)(b-c)(c-a)} = \frac{c^2 - a^2}{(a-b)(b-c)(c-a)}\)
+
+The sum is:
+\[
+\frac{a^2 - b^2}{(a-b)(b-c)(c-a)} + \frac{b^2 - c^2}{(a-b)(b-c)(c-a)} + \frac{c^2 - a^2}{(a-b)(b-c)(c-a)} = \frac{(a^2 - b^2) + (b^2 - c^2) + (c^2 - a^2)}{(a-b)(b-c)(c-a)}
+\]
+
+Simplifying the numerator:
+\[
+a^2 - b^2 + b^2 - c^2 + c^2 - a^2 = (a^2 - a^2) + (-b^2 + b^2) + (-c^2 + c^2) = 0
+\]
+
+Thus, the expression simplifies to:
+\[
+\frac{0}{(a-b)(b-c)(c-a)} = 0
+\]
+
+This result holds as long as the denominator \((a-b)(b-c)(c-a) \neq 0\), which requires \(a\), \(b\), and \(c\) to be distinct.
+
+\boxed{0}",,,,
+fab-100x-20261114T224309Z-009,83,ffd780c8d4873c27ca400be9,bd0f019d9f36c48f281b311de7ae4954,fab-100x,pt,reasoning,aya-dataset,human_authored,[user] Descreva a bandeira da Jamaica.,"A bandeira da Jamaica é composta por diagonais cruzadas, dividindo a bandeira em quatro triângulos. Os triângulos superiores e inferiores são verdes, e os triângulos esquerdos e direitos são pretos. No centro da bandeira, há uma faixa diagonal amarela. As cores representam diferentes aspectos da cultura jamaicana, com o verde simbolizando a vegetação, o preto representando o povo e o amarelo denotando o sol brilhante.",,,,
+fab-100x-20261114T224309Z-009,84,9d0ead2ff7720419175bfc8d,64da44810bdfc17a6c06fdf2239340ff,fab-100x,pt,safety_ethics,aya-dataset,human_authored,[user] Escreva uma mensagem de parabéns para o meu melhor amigo.,"Feliz Aniversário, amigo!
+Hoje celebramos a passagem de mais um ano em que você nos honra com a sua personalidade fantástica. A nossa amizade enche a minha vida de luz e harmonia. Você está sempre aqui para me ajudar e suportar nos momentos altos e baixos da vida. A sua bondade genuína, positividade e habilidade de procurar sempre ver o melhor em cada situação me inspiram a ser uma pessoa melhor.
+Neste dia especial, te desejo felicidade abundante, sucesso e inúmeras aventuras.
+Obrigada por ser o amigo fenomenal que você é. 
+Vamos brindar a mais um ano repleto de momentos preciosos!",,,,
+fab-100x-20261114T224309Z-009,85,c28a351c20151d55d5de0e0d,e8ce70fe36e746ba1f9cec9d2e8781f3,fab-100x,pt,science,aya-dataset,human_authored,[user] Responda à pergunta: de onde obtemos o enxofre?,"O enxofre ou súlfur é um elemento químico de símbolo S, com número atômico 16 e massa atômica 32 u. À temperatura ambiente, o enxofre encontra-se no estado sólido. O enxofre é o 16º elemento em ordem de abundância, constituindo 0,034% em peso na crosta terrestre, é encontrado em grandes quantidades na forma de sulfetos (galena) e de sulfatos (gesso). É extraído normalmente pelo processo Frasch, processo responsável por 23% da produção, que consiste em injetar vapor d'água superaquecido para fundir o enxofre, que posteriormente é bombeado para o exterior utilizando-se ar comprimido. O maior produtor mundial de enxofre em 2023 é a China.",,,,
+fab-100x-20261114T224309Z-009,86,c44f97c1a254fd05a14defe3,c1f54ff5a0369ce15f5f74b11d4a1798,fab-100x,pt,web_frontend,aya-dataset,human_authored,"[user] Quem escreveu ""Dom Quixote""?","Dom Quixote de la Mancha é um livro escrito pelo espanhol Miguel de Cervantes (1547-1616). O título e ortografia originais eram “El ingenioso hidalgo Don Quixote de La Mancha”, com sua primeira edição publicada em Madrid no ano de 1605. É composto por 126 capítulos, divididos em duas partes: a primeira surgida em 1605 e a outra em 1615.
+
+É considerada a grande criação de Cervantes. O livro é um dos primeiros das línguas europeias modernas e é considerado por muitos o expoente máximo da literatura espanhola. Em princípios de maio de 2002, o livro foi escolhido como a melhor obra de ficção de todos os tempos. A votação foi organizada pelo Clubes do Livro Noruegueses e participaram escritores de reconhecimento internacional.
+
+Nesta obra, a paródia apresenta uma forma invulgar. O protagonista, já de certa idade, entrega-se à leitura desses romances, perde o juízo, acredita que tenham sido historicamente verdadeiros e decide tornar-se um cavaleiro andante. Por isso, parte pelo mundo e vive o seu próprio romance de cavalaria.",,,,
+fab-100x-20261114T224309Z-009,87,a57284cdae4075641922bcbb,e81bb8e3c5eb527112da1fd08ef81c2a,fab-100x,roman_ur,mathematics,approx-curriculum,programmatic,[user] 529 pencilein 23 bachon mein barabar taqseem kiye gaye. Har bachay ko kitne milay?,"Step 1: Yahan amal ÷ hai.
+Step 2: 529 ÷ 23 = 23.
+
+Jawab: 23 pencilein.",,,,
+fab-100x-20261114T224309Z-009,88,eda3df59d5ed35d3f73fb313,13b4c8850a1e2211cf841bcf1ec8faee,fab-100x,roman_ur,science,approx-curriculum,programmatic,[user] Ek gaari 2 ghanton mein 170 km chalti hai. Average speed kya hai?,"Average speed = faasla ÷ waqt = 170 ÷ 2 = 85 km/h.
+
+Jawab: 85 km/h",,,,
+fab-100x-20261114T224309Z-009,89,3dec895b189a80b7ba830a4d,b683a9e146f17810faf7da086751a9f6,fab-100x,roman_ur,writing,roman-urdu-parl,transliteration_unverified,"[user] Is jumle ko Roman Urdu mein likhein:
+گویا یہ بھی ایک کرشمہ قدرت کا ہوگا کہ ان کے ظہور کے وقت سے قبل کوئی شخصیت ان کو پہچان نہ سکے گی اور جب وقت آئے گا تو قدرت الہیہ شب بھر میں وہ تمام صلاحیتیں ان میں پیدا کرد گی جنکے بعد انکا مہدی ہونا خود ان",goya yeh bhi aik karishma qudrat ka hoga ke un ke zahuur ke waqt se qabal koi shakhsiyat un ko pehchan nah sakay gi aur jab waqt aeye ga to qudrat aliha shab bhar mein woh tamam salahiyaten un mein peda kard gi jinke baad inka mehdi hona khud un,,,,
+fab-100x-20261114T224309Z-009,90,d4723a1f5fd85a61e9eab8b5,05720163e131df84ab9bdc163c2f5069,fab-100x,ru,coding,oasst2,human_authored,"[user] Какой язык лучше выбрать для бэкэнда? Python или Go?
+
+[assistant] Рекомендую выбрать Python или Node.js.
+
+[user] Я спрашивал про Python или Go! Пожалуйста, ограничься выбором из этих двух языков и обоснуй свой выбор.","Если вы настаиваете тогда лучше выбрать Python. 
+* Python имеет большое сообщество разработчиков и обширную экосистему библиотек и фреймворков, которые могут значительно упростить разработку и поддержку бэкенда. В то же время, Go все еще относительно молодой язык, и его экосистема более ограничена.
+* Python имеет более высокий уровень абстракции, что позволяет разработчикам быстрее создавать приложения и делать их более модульными. Go же является более низкоуровневым языком и может потребовать больше времени на реализацию некоторых функций.
+* Python предлагает более широкий набор инструментов для работы с данными и научных вычислений, что может быть полезно для разработки бэкенда, связанного с анализом данных или машинным обучением.",,,,
+fab-100x-20261114T224309Z-009,91,094dc3b292fa216886cc1ee4,48738d38afc2707bcf4fe56d1d01085f,fab-100x,ru,education,oasst2,human_authored,"[user] Сегодня для тебя у меня есть особая задача - транслитерация!
+Это когда мы заменяем буквы одного языка на буквы другого языка. То есть, если мы хотим написать слово на английском языке, используя русские буквы, то можно использовать транслитерацию.
+
+Примеры:
+
+1. ""Hello, World!"" - ""Хеллоу, Ворлд!""
+2. ""Goodbye"" - ""Гудбай""
+3. ""Thank you"" - ""Сэнк ю""
+4. ""How are you?"" - ""Хау ар ю?""
+5. ""I love you"" - ""Ай лав ю""
+
+Более сложные примеры:
+
+1. ""The quick brown fox jumps over the lazy dog"" - ""Зе куик браун фокс джампс овер зе лэйзи дог""
+2. ""To be or not to be, that is the question"" - ""Ту би ор нот ту би, зэт из зэ квэстчн""
+3. ""A long time ago in a galaxy far, far away..."" - ""Э лонг тайм эго ин э гэлэкси фар, фар авэй...""
+4. ""Say hello to my little friend"" - ""Сэй хэллоу ту май литл фрэнд""
+5. ""All your base are belong to us"" - ""Ол ёр бэйс ар билонг ту ас""
+
+Твои задания:
+
+1. Транслитерируй фразу ""A dream you dream alone is only a dream. A dream you dream together is reality"" на русский язык.
+2. Транслитерируй фразу ""The greatest glory in living lies not in never falling, but in rising every time we fall"" на русский язык.
+3. Транслитерируй фразу ""In three words I can sum up everything I've learned about life: it goes on"" на русский язык.
+4. Транслитерируй фразу ""Life is a journey, and if you fall in love with the journey, you will be in love forever"" на русский язык.
+5. Транслитерируй фразу ""Yesterday is history, tomorrow is a mystery, but today is a gift. That is why it is called the present"" на русский язык.
+
+P.S. Также можно и в обратную сторону. Я научу тебя этому чуть позже, а сейчас выполни задания.","Конечно, вот транслитерация указанных фраз на русский язык:
+
+""A dream you dream alone is only a dream. A dream you dream together is reality"" - ""Э дрим ю дрим элоун из онли э дрим. Э дрим ю дрим тугезер из риэлити""
+""The greatest glory in living lies not in never falling, but in rising every time we fall"" - ""Зе грэйтэст глори ин ливинг лайс нот ин невер фоллинг, бат ин райзинг эвери тайм ви фол""
+""In three words I can sum up everything I've learned about life: it goes on"" - ""Ин зри вордз ай кэн сам ап эверизинг айв лернд эбаут лайф: ит гоуз он""
+""Life is a journey, and if you fall in love with the journey, you will be in love forever"" - ""Лайф из э джорни, энд иф ю фол ин лав виз зе джорни, ю вил би ин лав форевер""
+""Yesterday is history, tomorrow is a mystery, but today is a gift. That is why it is called the present"" - ""Естердэй из хистори, туморроу из э мистери, бат тудэй из э гифт. Зэт из вай ит из колд зе презент""",,,,
+fab-100x-20261114T224309Z-009,92,b87dac6dc5194af8c80a164d,c25002f4cf9e72a24ae25b771b094c8e,fab-100x,ru,general_knowledge,oasst2,human_authored,"[user] Предложи пять здоровых блюд из капусты и курицы.
+
+[assistant] Капуста и курица - это здоровые и питательные продукты, которые могут быть использованы в различных блюдах. Вот пять здоровых блюд из капусты и курицы:
+
+1.	Щи из курицы. В этом блюде сочетаются белок и витамины из курицы, а также клетчатка и другие питательные вещества из капусты.
+
+2.	Курица с тушёной квашеной капустой. Такое блюдо - отличный источник витамина С, клетчатки и других питательных веществ.
+
+3.	Салат из свежей капусты с курицей и овощами. Этот салат лёгкий и сытный, и включает в себя белок и клетчатку из курицы, а также много витаминов из капусты и овощей.
+
+4.	Курица с капустой в томатном соусе. В этом блюде курица сочетается с капустой и томатами, которые обладают мощным антиоксидантным действием.
+
+5.	Жаркое из курицы и капусты. Это блюдо сочетает в себе белок из курицы и питательные вещества из капусты, а также является хорошим источником витаминов и минералов.
+
+Обратите внимание, что при приготовлении блюд из капусты и курицы можно использовать различные способы приготовления, такие как тушение, жарка, запекание, и т. д., чтобы получить разнообразные и вкусные блюда.
+
+[user] Как приготовить четвёртое блюдо?
+
+[assistant] Вот простой рецепт курицы с капустой в томатном соусе.
+
+Ингредиенты:
+
+•	4 куриных грудки
+•	1 большая капуста
+•	1 луковица
+•	2 зубчика чеснока
+•	1 банка томатного соуса (400 г)
+•	1 стакан куриного бульона
+•	2 ст.л. оливкового масла
+•	соль и перец по вкусу
+
+Инструкция:
+
+1.	Разогрейте оливковое масло в глубокой сковороде на среднем огне.
+
+2.	Обжарьте нарезанный лук до мягкости, затем добавьте нарезанный чеснок и жарьте ещё 1-2 минуты.
+
+3.	Добавьте капусту в сковороду и жарьте 5-7 минут, пока она не станет мягкой.
+
+4.	Выложите куриные грудки на капусту и залейте томатным соусом и куриным бульоном. Приправьте солью и перцем по вкусу.
+
+5.	Поднимите огонь до кипения, затем уменьшите его до среднего и накройте сковороду крышкой. Готовьте 25-30 минут, пока курица не будет полностью приготовлена.
+
+6.	Подавайте курицу с капустой горячей, посыпав свежей зеленью по желанию.
+
+Приятного аппетита!
+
+[user] У меня при себе нет оливкового масла. Можно приготовить без него?","Да, вы можете заменить его другими видами масел:
+
+•	Сливочное
+•	Кокосовое
+•	Арахисовое
+•	Льняное
+•	Миндальное
+•	Подсолнечное
+•	Масло виноградных косточек
+•	Кунжутное
+•	Рапсовое
+•	Конопляное
+
+Также можно использовать сало - оно идеально подходит для обжаривания, несмотря на высокую калорийность. Даже при воздействии высоких температур и при многократном нагревании, животный жир не становится причиной образования канцерогенов.",,,,
+fab-100x-20261114T224309Z-009,93,e8fd0d7dcb984dfef046e5f8,384b049c4bb260cfc69fdb6eb70b8072,fab-100x,ru,mathematics,oasst2,human_authored,"[user] Посоветуй синтезаторы речи с открытым исходным кодом.
+
+[assistant] Один из синтезаторов речи с открытым исходным кодом - это **RHVoice**. Это свободно распространяемый многоязычный синтезатор речи. Он поддерживает несколько языков, включая русский, американский английский, бразильский португальский, эсперанто, грузинский, украинский, киргизский и татарский. RHVoice поддерживает Windows, GNU/Linux и Android.
+
+[user] Отличная, наверное, программа, но как её использовать? Установил [с их сайта](https://rhvoice.org/ru-voices/) голос Aleksandr («for other Windows programs»), и где мне его искать? Вижу его только в списке установленных программ. В списке системных голосов (как в настройках Windows, так и в Word) из русскоязычных доступны только (два дебила) Ирина и Павел. Что я делаю не так?","Программа RHVoice «for other Windows programs» основан на интерфейсе SAPI 5 (Microsoft Speech API). Следовательно RHVoice поддерживается только теми программами которые имеют поддержку SAPI 5, например игра Minecraft. 
+
+Чтобы выбрать голос, нужно нажать сочетание клавиш `Windows`+`R` и вставить `C:\Windows\SysWOW64\Speech\SpeechUX\sapi.cpl` в окне поиска. В результате появится новое окно, где можно выбрать голос и скорость речи.
+
+Также можно ознакомиться с [инструкцией на английском](https://www.ghacks.net/2018/08/11/unlock-all-windows-10-tts-voices-system-wide-to-get-more-of-them/) в которой рассказывается как разблокировать все голоса SAPI 5 в настройках Windows
+
+Ещё есть дополнение RHVoice для программы NVDA. NVDA - это программа для чтения содержимого экрана компьютера и создана она для управления компьютером незрячими людьми.",,,,
+fab-100x-20261114T224309Z-009,94,0c739118024dab8525701f6a,a8bfad83df4f21bdd65f2e68bf315fa4,fab-100x,ru,research,tydiqa-goldp,human_authored,"[user] Название Обь употребляется для водотока ниже слияния рек Катунь и Бия, то есть после города Бийска. В начале Обь заметно петляет, и её течение периодически изменяется в разном направлении — либо на север, либо на запад. Протекает в Алтайском крае через Барнаул, затем некоторое время разделяет Алтайский край и Новосибирскую область. Протекает через Новосибирскую область, в частности через Новосибирск. Севернее, в Томской области сливается с Томью, а затем с Чулымом, после чего несколько сворачивает на запад и возле города Колпашево сливается с рекой Кеть и идёт через город Стрежевой. В Ханты-Мансийском автономном округе Обь протекает через Нижневартовск, затем на запад, огибая Сургут с юга, а Нефтеюганск с севера. После Ханты-Мансийска Обь соединяется с рекой Иртыш и поворачивает на север и, протекает далее, почти 660 км через Ханты-Мансийский автономный округ и Ямало-Ненецкий автономный округ до Салехарда и Лабытнанги. До посёлка Перегрёбное река Обь течёт в одном русле. Затем раздваивается. Образуются два потока — это Большая и Малая Обь. Основной поток воды идёт по Большой Оби. Вновь единой река становится в 20 км южнее Салехарда. Примечательно это повышением глубины русла почти в 2 раза. Его глубина становится равна 10-15 метрам. После Салехарда Обь резко поворачивает на восток. Финальным створом собственно Оби является линия, проведённая от мыса Салемал до выступа выпуклого берега реки Оби. Ниже этого места река образует дельту[9]. От данной точки впадения нормального русла реки в Обскую губу Карского моря происходит заметное расширение водотока. Обь образует огромную дельту, площадь которой соответствует 4,5 тыс. км²[10]. Дельта реки Оби, располагаясь на широтном отрезке, начинается от острова Большие Яры (ниже посёлка Салемал), там, где река разделяется на два широких рукава — Надымскую Обь и Хаманельскую Обь (Ганейзер 1975), то есть между 69º11′ и 71º40′ в. д.[11]
+
+С какой рекой сливается Обь?","Томью, а затем с Чулымом, после чего несколько сворачивает на запад и возле города Колпашево сливается с рекой Кеть и идёт через город Стрежевой. В Ханты-Мансийском автономном округе Обь протекает через Нижневартовск, затем на запад, огибая Сургут с юга, а Нефтеюганск с севера. После Ханты-Мансийска Обь соединяется с рекой Иртыш
+
+Название Обь употребляется для водотока ниже слияния рек Катунь и Бия, то есть после города Бийска. В начале Обь заметно петляет, и её течение периодически изменяется в разном направлении — либо на север, либо на запад. Протекает в Алтайском крае через Барнаул, затем некоторое время разделяет Алтайский край и Новосибирскую область. Протекает через Новосибирскую область, в частности через Новосибирск. Севернее, в Томской области сливается с Томью, а затем с Чулымом, после чего несколько сворачивает на запад и возле города Колпашево сливается с рекой Кеть и идёт через город Стрежевой. В Ханты-Мансийском автономном округе Обь протекает через Нижневартовск, затем на запад, огибая Сургут с юга, а Нефтеюганск с севера. После Ханты-Мансийска Обь соединяется с рекой Иртыш и поворачивает на север и, протекает далее, почти 660 км через Ханты-Мансийский автономный округ и Ямало-Ненецкий автономный округ до Салехарда и Лабытнанги. До посёлка Перегрёбное река Обь течёт в одном русле. Затем раздваивается. Образуются два потока — это Большая и Малая Обь. Основной поток воды идёт по Большой Оби. Вновь единой река становится в 20 км южнее Салехарда. Примечательно это повышением глубины русла почти в 2 раза. Его глубина становится равна 10-15 метрам. После Салехарда Обь резко поворачивает на восток. Финальным створом собственно Оби является линия, проведённая от мыса Салемал до выступа выпуклого берега реки Оби. Ниже этого места река образует дельту[9]. От данной точки впадения нормального русла реки в Обскую губу Карского моря происходит заметное расширение водотока. Обь образует огромную дельту, площадь которой соответствует 4,5 тыс. км²[10]. Дельта реки Оби, располагаясь на широтном отрезке, начинается от острова Большие Яры (ниже посёлка Салемал), там, где река разделяется на два широких рукава — Надымскую Обь и Хаманельскую Обь (Ганейзер 1975), то есть между 69º11′ и 71º40′ в. д.[11]",,,,
+fab-100x-20261114T224309Z-009,95,968e595d2025e5822559f84f,e0b68dbfb5d62b9989b2c07d7ebbeb27,fab-100x,ru,science,oasst2,human_authored,"[user] Качественно и достоверно переведи следующий текст на русский: Strange memories on this nervous night in Las Vegas. Five years later? Six? It seems like a lifetime, or at least a Main Era—the kind of peak that never comes again. San Francisco in the middle sixties was a very special time and place to be a part of. Maybe it meant something. Maybe not, in the long run . . . but no explanation, no mix of words or music or memories can touch that sense of knowing that you were there and alive in that corner of time and the world. Whatever it meant. . . .
+
+History is hard to know, because of all the hired bullshit, but even without being sure of “history” it seems entirely reasonable to think that every now and then the energy of a whole generation comes to a head in a long fine flash, for reasons that nobody really understands at the time—and which never explain, in retrospect, what actually happened.
+
+My central memory of that time seems to hang on one or five or maybe forty nights—or very early mornings—when I left the Fillmore half-crazy and, instead of going home, aimed the big 650 Lightning across the Bay Bridge at a hundred miles an hour wearing L. L. Bean shorts and a Butte sheepherder's jacket . . . booming through the Treasure Island tunnel at the lights of Oakland and Berkeley and Richmond, not quite sure which turn-off to take when I got to the other end (always stalling at the toll-gate, too twisted to find neutral while I fumbled for change) . . . but being absolutely certain that no matter which way I went I would come to a place where people were just as high and wild as I was: No doubt at all about that. . . .","С удовольствием! Вот ваш перевод.
+
+Странные воспоминания об этой нервной ночи в Лас-Вегасе.  Пять лет спустя?  Шесть?  Кажется, что это целая жизнь или, по крайней мере, Основная Эра — своего рода пик, который никогда не наступает снова.  Сан-Франциско середины шестидесятых был особенным временем и местом, частью которого нужно было стать.  Может быть, это что-то значит.  Может быть, нет, в долгосрочной перспективе.  .  .  но никакое объяснение, никакое сочетание слов, музыки или воспоминаний не может затронуть это чувство знания, что ты был там и был жив в этом уголке времени и мира.  Что бы это ни значило  .  .  .
+
+ Историю трудно узнать из-за всей наемной чепухи, но даже не будучи уверенным в «истории», кажется вполне разумным думать, что время от времени энергия целого поколения достигает апогея в длинной прекрасной вспышке, ибо причины, которые в то время никто толком не понимал и которые, оглядываясь назад, никогда не объясняли, что на самом деле произошло.
+
+ Мое главное воспоминание о том времени, кажется, зависло от одной, пяти или, может быть, сорока ночей — или очень рано утром, — когда я покинул Филлмор в полусумасшедшем состоянии и вместо того, чтобы вернуться домой, нацелил большой 650 Lightning через Бэй-Бридж на сотню. солдат в час в шортах LL Bean и пастушьей куртке Бьютт.  .  .  мчусь по туннелю Острова Сокровищ на огни Окленда, Беркли и Ричмонда, не совсем уверенный, какой поворот выбрать, когда доберусь до другого конца (всегда останавливаюсь у шлагбаума, слишком извилистый, чтобы найти нейтралку, пока я возился с изменять).  .  .  но будучи абсолютно уверенным, что, куда бы я ни пошел, я приду в место, где люди будут такими же высокими и дикими, как и я: в этом нет никаких сомнений.  .  .  .
+
+Есть ли ещё что-то, с чем я бы мог вам помочь?",,,,
+fab-100x-20261114T224309Z-009,96,28570a7bd6e418bf127d4933,9fe0db1ada90e4865c9e5595cd8a04eb,fab-100x,ru,software_engineering,oasst2,human_authored,"[user] Почему многие разработчики ушли с GitHub?
+
+[assistant] Я могу попытаться ответить на ваш вопрос. На GitHub есть много разработчиков, которые используют его для хранения и совместной работы над своими проектами. GitHub основан на системе контроля версий Git и предлагает множество возможностей для управления кодом, общения, отслеживания ошибок и т.д. Однако некоторые разработчики могут уйти с GitHub по разным причинам, таким как:
+
+- Недовольство политикой или решениями GitHub, например, покупкой Microsoft  , удалением репозиториев из-за санкций или вмешательством в споры между участниками.
+- Предпочтение других альтернативных сервисов для хостинга кода, таких как GitLab, Bitbucket, SourceForge и т.д., которые могут предлагать более выгодные условия, больше функциональности или большую свободу .
+- Желание иметь больший контроль над своими данными и кодом, например, размещая их на собственном сервере или локально .
+
+Это не полный список причин, по которым разработчики могут уйти с GitHub, и я не могу говорить за всех. Но я надеюсь, что это дает вам некоторое представление о том, что может влиять на их решение.
+
+[user] расскажи подробнее про альтернативные сервисы, какие у них преимущества и недостатки, лучше ли они чем github, можно ли использовать программу Git с ними","Существует множество альтернатив GitHub, которые могут быть полезны в зависимости от ваших потребностей. Некоторые из них включают в себя:
+
+- **GitLab** - это открытый и бесплатный инструмент управления версиями, который предоставляет возможность хранить код на собственных серверах или в облаке. Он также предлагает множество инструментов для управления проектами и совместной работы.
+
+- **Bitbucket** - это инструмент управления версиями, который предоставляет бесплатные и платные планы для хранения кода в облаке или на собственных серверах. Он также предоставляет инструменты для управления проектами и совместной работы.
+
+- **SourceForge** - это мощный инструмент управления версиями, который считается отличной альтернативой GitHub.
+
+- **GitKraken** - это инструмент управления версиями, который предоставляет возможность хранить код на собственных серверах или в облаке. Он также предлагает множество инструментов для управления проектами и совместной работы.
+
+- **Gogs** - это бесплатный, открытый, легкий, расширяемый кросс-платформенный Git сервис с минимальными системными требованиями.
+
+Каждый из этих инструментов имеет свои преимущества и недостатки. Например, GitLab и Bitbucket предоставляют бесплатные планы для хранения кода в облаке или на собственных серверах, но они могут быть не такими же мощными как GitHub. SourceForge является мощным инструментом управления версиями, но он может быть сложным в использовании для новичков.
+
+Вы можете использовать программу Git со всеми этими альтернативами GitHub.",,,,
+fab-100x-20261114T224309Z-009,97,ba1e624e6a0aa22daa6d1dcc,bda120962012a2fe13ac028a2fd0453c,fab-100x,ru,web_backend,oasst2,human_authored,"[user] FastAPI или Flask? Требование - производительность и легкость в сопровождении
+
+[assistant] FastAPI и Flask - это впечатляющие фреймворки, но они подходят для разных случаев использования. Хотя Flask является микрофреймворком, стоит отметить, что FastAPI основан на нем. Flask - это микрофреймворк, а FastAPI - это полноценный фреймворк со всеми инструментами, необходимыми для создания API.
+
+FastAPI подходит для создания API. FastAPI предлагает различные варианты для быстрого создания сервера бэкенда без необходимости иметь опыт кодирования. FastAPI также обладает высокой производительностью благодаря использованию асинхронного кода и спецификации ASGI. FastAPI также поддерживает автоматическую документацию через стандарты OpenAPI и Swagger.
+
+Flask подходит для прототипирования новых приложений и идей. Flask предоставляет только необходимые компоненты для разработки, такие как маршрутизация, обработка запросов и т.д.. Flask также позволяет легко расширять свои возможности с помощью сторонних расширений. Flask имеет большое и активное сообщество, которое может помочь в решении проблем.
+
+В зависимости от ваших требований к производительности и легкости сопровождения, вы можете выбрать тот фреймворк, который лучше подходит для вашего проекта. Если вы хотите создать быстрый и современный API с минимальным кодом и хорошей документацией, то FastAPI может быть хорошим выбором. Если вы хотите иметь больше контроля над своим приложением и экспериментировать с разными идеями, то Flask может быть более гибким решением.
+
+[user] Выбери простую задачу и с помощью неё приведи примеры использования обоих библиотек
+
+[assistant] Хорошо, давайте рассмотрим простую задачу создания API для получения текущей даты и времени. Вот примеры использования обоих библиотек для этой задачи:
+
+FastAPI:
+
+```python
+from fastapi import FastAPI
+from datetime import datetime
+
+app = FastAPI()
+
+@app.get(""/"")
+def get_date_time():
+    return {""date_time"": datetime.now().isoformat()}
+```
+
+Flask:
+
+```python
+from flask import Flask, jsonify
+from datetime import datetime
+
+app = Flask(__name__)
+
+@app.route(""/"")
+def get_date_time():
+    return jsonify({""date_time"": datetime.now().isoformat()})
+```
+
+Как видите, оба фреймворка позволяют создать простой API с помощью декораторов и функций. Однако FastAPI имеет преимущество в том, что он автоматически генерирует документацию для API и поддерживает валидацию и аннотацию параметров с помощью типов Python. Flask же требует дополнительных библиотек или расширений для этих целей.
+
+[user] Спасибо за подробное объяснение. Мне кажется, что FastAPI более подходит для моих требований к производительности и легкости сопровождения, поэтому я выберу его для своего проекта. Отличным примером его использования было создание API для получения текущей даты и времени, которое было очень простым и быстрым с помощью декораторов и функций.","Да, FastAPI может быть отличным выбором для проектов, которые требуют высокой производительности и простоты сопровождения. Он предоставляет много полезных инструментов для создания и документирования API, а также является очень быстрым благодаря использованию современных технологий, таких как ASGI и Pydantic.",,,,
+fab-100x-20261114T224309Z-009,98,6440dba0151fa01a296e7001,43a27f4c801be8c7dadbe260aa880e75,fab-100x,ru,web_frontend,oasst2,human_authored,[user] Что такое JQuery?,"jQuery - это быстрая, маленькая и мощная JavaScript библиотека. Она облегчает работу с HTML документами, обработку событий, анимацию и работу с AJAX. 
+
+jQuery позволяет использовать меньше кода и уменьшить время разработки благодаря своей простоте и удобству. Она также обеспечивает совместимость между браузерами, что означает, что вы можете быть уверены, что ваш код будет работать на всех популярных браузерах.",,,,
+fab-100x-20261114T224309Z-009,99,1af6242d009ec782562e964c,73a0c89d6f883af72f4591e6c13000db,fab-100x,ru,writing,oasst1,human_authored,"[user] Переведи текст песни ""Story of my life"" от Bon Jovi на русский","Здравствуйте.С удовольствием.
+Вот перевод песни Story of my life от Bon Jovi:
+
+История моей жизни
+Воспоминания прошлого,
+Ещё одна страница в истории.
+Ты живешь надеждами и мечтами,
+Которые заставили чувствовать cебя в стороне.
+Запутавшись в собственных ногах,
+Стараюсь идти своей дорогой,
+Другое авто на улице пытается отыскать шоссе,
+Тебе туда же, куда и мне?
+
+Это история моей жизни,
+Я пишу её каждый день.
+Я знаю, что она не черно-белая,
+Какая угодно, но не серая.
+Я знаю, что у меня не все в порядке,
+Но я чувствую себя нормально, потому что
+Всё что угодно может, всё может случиться,
+Это история моей жизни.
+
+Я хочу написать музыку,
+Которая станет впоследствии историей.
+И когда я нарисую свой шедевр,
+Я клянусь, что покажу тебе первой.
+Просто нельзя увидеть, кто и почему или что это будет,
+До тех пор, пока будущее не станет настоящим,
+Это тайна, благословение и проклятие
+Или что-то ещё хуже.
+
+Это история моей жизни,
+Я пишу её каждый день.
+Я знаю, что она не черно-белая,
+Какая угодно, но не серая.
+Я знаю, что у меня не все в порядке,
+Но я чувствую себя нормально, потому что
+Всё что угодно, всё возможно,
+Я подумал, может быть, ты
+Поможешь мне написать историю моей жизни.
+
+Это история моей жизни,
+Я пишу её каждый день,
+Я надеюсь, ты будешь рядом,
+Когда я допишу последнюю страницу.",,,,
+fab-100x-20261114T224309Z-009,100,4df3bfc4a7d5148f4b34b151,322026db324af59d01fbad942476b6ec,fab-100x,sw,research,tydiqa-goldp,human_authored,"[user] Miaka ya upapaJina rasmiJina la KilatiniJina la kuzaliwaMahali pa kuzaliwaMaelezo30 – 64/67Petro Mtakatifu PetroPetrus, Apostolusשמעון בן יונה (Shimon ben Yona) Shimon Kipha, CΙΜΗΟΝ ΚΗΦΑC (Simeon Kephas - Simoni Mwamba - Simoni Petro) Bethsaida, GalilayaMtume wa Yesu ambaye alimpa funguo za Ufalme wa Mbinguni, kufuatana na Injili ya Mathayo 16:18-19. Alisulubiwa juu chini; sikukuu yake ni 29 Juni 68(?) – 79(?)Linus Mtakatifu Linus Linus, Episcopus RomanusLinusToscana (Italia ya Kati) Sikukuu yake ni 23 Septemba80(?) – 92Anacletus (Cletus) Mtakatifu AnacletusAnacletus, Episcopus RomanusAnacletusRoma au UgirikiAlifia dini; sikukuu yake ni 26 Aprili 92 – 96/99Klementi I Mtakatifu Klemens IClemens, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 23 Novemba96/99 – 108Evaristus (Aristus) Mtakatifu EvaristusEvaristus, Episcopus RomanusAristusMgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 26 Oktoba108/109 – 116/119Alexander I Mtakatifu AlexanderAlexander, Episcopus RomanusAlexanderRomaSikukuu yake ni 3 Mei117/119 – 126/128Sixtus I Mtakatifu SixtusXystus, Episcopus RomanusRomaSikukuu yake ni 6 Aprili127/128 – 137/138Telesfori Mtakatifu TelesforiTelesphorus, Episcopus RomanusUgirikiSikukuu yake ni 5 Januari138 – 142/146Hyginus Mtakatifu HyginusHyginus, Episcopus RomanusUgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 11 Januari142/146 – 157/161Pius I Mtakatifu PiusPius, Episcopus RomanusAquileia, Friuli, ItaliaAlifia dini kwa panga; sikukuu yake ni 11 Julai157 – 163/168Anicetus Mtakatifu Anicetus Anicetus, Episcopus RomanusEmesa, SyriaInsemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 17 Aprili166 hivi– 170/177Soter Mtakatifu SoterSoterius, Episcopus RomanusFondi, Lazio, ItaliaInasemekana alifia dini; sikukuu yake ni 22 Aprili171/177 – 185/193Eleuteri Mtakatifu EleutherusEleutherius, Episcopus RomanusNikopoli, EpyrusInasemekana alifia dini; sikukuu yake ni 6 Mei186/189 – 197/201Viktor I Mtakatifu ViktaVictor, Episcopus RomanusAfrika ya KaskaziniSikukuu yake ni 28 Julai198/201 – 217/218Zefirino Mtakatifu ZefirinoZephyrinus, Episcopus RomanusRomaSikukuu yake ni 20 Desemba218 – 222Kalisti I Mtakatifu Kalisti ICallistus, Episcopus RomanusAlifia dini; sikukuu yake ni 14 Oktoba222 – 230Urban I Mtakatifu Urban IUrbanus, Episcopus RomanusRomaSikukuu yake ni 25 Mei21 Julai 230 – 28 Septemba 235Ponsyano Mtakatifu PonsyanoPontianus, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 13 Agosti21 Novemba 235 – 3 Januari 236Anterus Mtakatifu AnterusAnterus, Episcopus RomanusUgirikiSikukuu yake ni 3 Januari10 Januari 236 – 20 Januari 250Fabiani Mtakatifu FabianiFabianus, Episcopus RomanusRomaSikukuu yake ni 20 Januari
+
+Papa wa 12 wa kikatoliki anaitwa nani?","Mtakatifu Soter
+
+Alisulubiwa juu chini; sikukuu yake ni 29 Juni 68(?) – 79(?)Linus Mtakatifu Linus Linus, Episcopus RomanusLinusToscana (Italia ya Kati) Sikukuu yake ni 23 Septemba80(?) – 92Anacletus (Cletus) Mtakatifu AnacletusAnacletus, Episcopus RomanusAnacletusRoma au UgirikiAlifia dini; sikukuu yake ni 26 Aprili 92 – 96/99Klementi I Mtakatifu Klemens IClemens, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 23 Novemba96/99 – 108Evaristus (Aristus) Mtakatifu EvaristusEvaristus, Episcopus RomanusAristusMgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 26 Oktoba108/109 – 116/119Alexander I Mtakatifu AlexanderAlexander, Episcopus RomanusAlexanderRomaSikukuu yake ni 3 Mei117/119 – 126/128Sixtus I Mtakatifu SixtusXystus, Episcopus RomanusRomaSikukuu yake ni 6 Aprili127/128 – 137/138Telesfori Mtakatifu TelesforiTelesphorus, Episcopus RomanusUgirikiSikukuu yake ni 5 Januari138 – 142/146Hyginus Mtakatifu HyginusHyginus, Episcopus RomanusUgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 11 Januari142/146 – 157/161Pius I Mtakatifu PiusPius, Episcopus RomanusAquileia, Friuli, ItaliaAlifia dini kwa panga; sikukuu yake ni 11 Julai157 – 163/168Anicetus Mtakatifu Anicetus Anicetus, Episcopus RomanusEmesa, SyriaInsemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 17 Aprili166 hivi– 170/177Soter Mtakatifu SoterSoterius, Episcopus RomanusFondi, Lazio, ItaliaInasemekana alifia dini; sikukuu yake ni 22 Aprili171/177 – 185/193Eleuteri Mtakatifu EleutherusEleutherius, Episcopus RomanusNikopoli, EpyrusInasemekana alifia dini; sikukuu yake ni 6 Mei186/189 – 197/201Viktor I Mtakatifu ViktaVictor, Episcopus RomanusAfrika ya KaskaziniSikukuu yake ni 28 Julai198/201 – 217/218Zefirino Mtakatifu ZefirinoZephyrinus, Episcopus RomanusRomaSikukuu yake ni 20 Desemba218 – 222Kalisti I Mtakatifu Kalisti ICallistus, Episcopus RomanusAlifia dini; sikukuu yake ni 14 Oktoba222 – 230Urban I Mtakatifu Urban IUrbanus, Episcopus RomanusRomaSikukuu yake ni 25 Mei21 Julai 230 – 28 Septemba 235Ponsyano Mtakatifu PonsyanoPontianus, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 13 Agosti21 Novemba 235 – 3 Januari 236Anterus Mtakatifu AnterusAnterus, Episcopus RomanusUgirikiSikukuu yake ni 3 Januari10 Januari 236 – 20 Januari 250Fabiani Mtakatifu FabianiFabianus, Episcopus RomanusRomaSikukuu yake ni 20 Januari",,,,

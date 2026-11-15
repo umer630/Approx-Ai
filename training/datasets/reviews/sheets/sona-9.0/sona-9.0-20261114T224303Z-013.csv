@@ -1,0 +1,1613 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+sona-9.0-20261114T224303Z-013,1,b57e1ef06c256c41e16d5150,86e6deb7156a72593bb08989069bc331,sona-9.0,de,general_knowledge,oasst2,human_authored,"[user] Meine Config ist irgendwie falsch. Kannst du mir sagen, wo wahrscheinlich der Fehler liegt?
+
+HalfCheetahBulletEnv-v0: &pybullet-defaults
+  normalize: true
+  n_envs: 4
+  n_timesteps: !!float 2e6
+  policy: 'MlpPolicy'
+  ent_coef: 0.0
+  max_grad_norm: 0.5
+  n_steps: 8
+  gae_lambda: 0.9
+  vf_coef: 0.4
+  gamma: 0.99
+  use_rms_prop: 0.3
+  normalize_advantage: False",Entschuldigung aber ohne weitere Informationen über den Ursprung der Konfigurationsdatei und einer genaueren Beschreibung des Fehlers ist es mir nicht möglich das Problem zu finden.,,,,
+sona-9.0-20261114T224303Z-013,2,a28dd62bd2d111ac693cf0fa,a68af6713930bb4003244a2a75329c27,sona-9.0,de,mathematics,oasst2,human_authored,"[user] Hallo liebe AI, schreibe mir bitte einen Brief für den Geburtstag eines Freundes. Er wird 66!","Hallo, natürlich kann ich einen Brief zum 5.4 × 10^92 ten Geburtstag (66!) deines Freundes schreiben.
+
+Spaß beiseite, ich meine natürlich den 66 ten Geburtstag, ohne die Fakultät. Hier ist der Brief:
+
+Lieber [Name],
+
+herzlichen Glückwunsch zum 66. Geburtstag! Ich wünsche dir alles Glück und Liebe, Gesundheit und Erfolg. Ich freue mich, dass ich dich als Freund habe und bin dankbar für all die bezaubernden Erinnerungen, die wir über die Jahre zusammen gesammelt haben.
+
+Ich hoffe, dass dein Geburtstag so großartig wird und dass das kommende Jahr dir noch mehr Freude und Erfolg bringt.
+
+Viele Grüße und bis bald,
+[Dein Name]
+
+Soll ich an dem Brief noch etwas ändern? Ich könnte zum Beispiel eine Referenz auf ein Erlebnis oder Ähnliches hinzufügen. Du kannst natürlich auch nach einem anderen Stil für den Brief fragen.",,,,
+sona-9.0-20261114T224303Z-013,3,0b6b87d669e2d348a201ebfa,cd16fe0183773f6107af43669d917874,sona-9.0,de,problem_solving,oasst2,human_authored,"[user] Ich werde dieses Jahr 40 und suche nach einer Idee, was ich mit einem kleinen Budget machen könnte.","-Grillparty schmeissen.
+-Wanderausflug mit engen Freunden.
+-Am See Grillieren.
+-Bowling mit einer kleinen anzahl Personnen.
+-Billiard spielen gehen.
+-Ein Brunch veranstalten
+-Minigolf 
+-Waldfest mit Salad, Bratwurst, Brot und Bier
+-Lass dich von deinen Liebsten verwöhnen, Sammelspende für alle Vorschläge die es mitfinanzieren was mehr zu machen. Dafür aber keine Geschenke erwarten.",,,,
+sona-9.0-20261114T224303Z-013,4,a2ed630234bae095c7472e01,127068dd2cdad0e69fba4c869d81047f,sona-9.0,de,research,oasst1,human_authored,"[user] Was ist ein Tensor?
+
+[assistant] In der Mathematik ist ein Tensor ein algebraisches Objekt, das eine multilineare Beziehung zwischen Mengen von algebraischen Objekten in einem Vektorraum beschreibt. Tensoren können zwischen verschiedenen Objekten wie Vektoren, Skalaren und sogar anderen Tensoren abgebildet werden. Es gibt viele Arten von Tensoren, darunter Skalare und Vektoren (die die einfachsten Tensoren sind), duale Vektoren, multilineare Abbildungen zwischen Vektorräumen und sogar einige Operationen wie das Punktprodukt. Tensoren sind unabhängig von einer Basis definiert, obwohl sie oft durch ihre Komponenten in einer Basis, die sich auf ein bestimmtes Koordinatensystem bezieht, bezeichnet werden.
+
+[user] Was hat Tensorflow mit Tensoren zu tun?","Tensorflow ist eine Open-Source-Plattform für maschinelles Lernen und Deep Learning, die von Google entwickelt wurde. Tensorflow verwendet Tensoren als grundlegendes mathematisches Objekt, um Operationen in neuronalen Netzen und anderen maschinellen Lernmodellen durchzuführen. In Tensorflow werden Daten in Form von Tensoren in verschiedenen Dimensionen und Formaten gespeichert, z.B. als Vektoren, Matrizen oder höherdimensionale Tensoren. Tensorflow bietet auch eine Vielzahl von Funktionen und Operationen, die speziell für Tensoren ausgelegt sind, um komplexe Berechnungen in neuronalen Netzen und anderen Anwendungen zu erleichtern.",,,,
+sona-9.0-20261114T224303Z-013,5,30cce7167f8d10de1eaed754,62c8493fbf84df03abef6c363335c349,sona-9.0,de,safety_ethics,oasst1,human_authored,"[user] Warum ist Rauchen so gefährlich?
+
+[assistant] Rauchen ist gefährlich, weil es viele schädliche Substanzen enthält, die unserem Körper schaden können. Die Inhalation von Rauch durch den Mund und die Lunge kann zu schwerwiegenden Gesundheitsproblemen führen, wie zum Beispiel Lungenkrebs, Herzerkrankungen, Atemwegserkrankungen und vielen anderen Krankheiten.
+
+Der Rauch enthält schädliche Chemikalien wie Teer, Kohlenmonoxid und Stickstoffoxide, die die Lungen und das Herz schädigen können. Der Rauch kann auch die Zellen in unserem Körper schädigen und das Immunsystem schwächen, was uns anfälliger für Infektionen und Krankheiten macht.
+
+Das Rauchen kann auch zu Abhängigkeit führen, da es Nikotin enthält, eine sehr süchtig machende Substanz. Nikotin verändert das Gehirn und kann dazu führen, dass Menschen sich körperlich und emotional abhängig vom Rauchen fühlen.
+
+Es gibt viele Gründe, warum das Rauchen gefährlich ist und viele gesundheitliche Vorteile, wenn man mit dem Rauchen aufhört. Es ist nie zu spät, mit dem Rauchen aufzuhören und eine gesündere Lebensweise zu beginnen.
+
+[user] Ist kiffen besser?","Als AI-Modell werde ich keine Aussagen darüber machen, ob das Kiffen besser als Rauchen ist oder nicht, da dies von verschiedenen Faktoren abhängt und von Person zu Person unterschiedlich sein kann. Sowohl das Rauchen von Tabakprodukten als auch das Kiffen von Cannabis haben potenziell schädliche Auswirkungen auf die Gesundheit, insbesondere auf die Lunge und das Herz-Kreislauf-System.
+
+Es gibt jedoch Hinweise darauf, dass das Rauchen von Tabakprodukten insgesamt schädlicher für die Gesundheit sein kann als das Kiffen von Cannabis, da Tabakrauch eine höhere Konzentration an krebserzeugenden Chemikalien und toxischen Substanzen enthält. Dennoch können auch beim Kiffen von Cannabis gesundheitliche Risiken bestehen, insbesondere wenn es regelmäßig oder in großen Mengen konsumiert wird.
+
+Es ist wichtig zu beachten, dass jeglicher Konsum von Drogen mit potenziellen Risiken für die Gesundheit verbunden sein kann, und dass der beste Weg, um das Risiko von gesundheitlichen Problemen zu minimieren, darin besteht, den Konsum von Drogen zu vermeiden oder auf ein Minimum zu reduzieren.
+
+Außerdem ist wichtig zu beachten, dass der Besitz und/oder Konsum von Cannabis in vielen Ländern, einschließlich Deutschland, illegal ist und strafrechtliche Konsequenzen haben kann. Insbesondere der Besitz und Verkauf von größeren Mengen kann zu schwerwiegenden strafrechtlichen Konsequenzen führen. Es ist daher ratsam, sich über die Gesetze und Vorschriften in Bezug auf Cannabis im eigenen Land und in Reiseländern zu informieren, um sich vor möglichen strafrechtlichen Konsequenzen zu schützen.",,,,
+sona-9.0-20261114T224303Z-013,6,bf5be7105c2059d4341e72b9,8b40423486efd079d9b1188f9bda8c33,sona-9.0,de,science,oasst2,human_authored,"[user] Wie wahrscheinlich denkst Du ist eine Ausweitung des Ukraine-Krieges auf NATO-Gebiet? Also ich meine direkte Kampfhandlungen darin.
+
+[assistant] Ein solche Zukunftsprognose ist durch mich nicht erstellbar. Als KI wäre ich bestenfalls in der Lage Wahrscheinlichkeiten auf Basis zurückliegender Ereignisse zu bestimmen. Vermutungen oder Spekulationen liegen mir fern. Eine Ausweitung des Krieges auf NATO Gebiet ginge jedoch mit hoher Wahrscheinlichkeit von Russland aus und nicht durch die mit der NATO verbündete Ukraine. Daher könnte es helfen, russische historische Dokumente, Medienberichte und Pressemeldungen zu studieren um eine solche Entwicklung abschätzen zu können.
+
+[user] Wie sind die Einschätzungen der UN, Nato und co ?","Es gibt keine einheitliche Einschätzung der NATO bezüglich der Ausweitung des Kriegs in der Ukraine. Einige NATO-Länder wie die USA und Kanada haben sich klar hinter die Ukraine gestellt und ihre Unterstützung zugesagt, während andere wie Deutschland und Frankreich eher zurückhaltend sind und sich für eine diplomatische Lösung aussprechen. Die NATO insgesamt betont, dass sie den Konflikt entschlossen verurteilt und dass sie bereit ist, alle notwendigen Maßnahmen zu ergreifen, um die Sicherheit und Stabilität in der Region zu gewährleisten. Wie sich die Situation in Zukunft entwickeln wird, bleibt abzuwarten.
+
+Verschiedenen Nachrichtenberichten zufolge hat UN-Generalsekretär António Guterres die Sorge geäußert, dass der Konflikt in der Ukraine eskalieren könnte, wenn keine diplomatische Lösung erreicht wird. Insbesondere wird der Einsatz von Atomwaffen befürchtet und die Möglichkeit, dass sich der Konflikt über die Grenzen der Ukraine hinaus ausbreitet. Guterres hat ein sofortiges Ende der Kämpfe gefordert und alle Parteien aufgefordert, an den Verhandlungstisch zurückzukehren, um eine friedliche Lösung des Konflikts zu finden. Es ist klar, dass die Vereinten Nationen über die Lage in der Ukraine und die möglichen Folgen für die Region und darüber hinaus tief besorgt sind.",,,,
+sona-9.0-20261114T224303Z-013,7,45b569423b3a4a05358a642d,f2c7ed77f386c377129a67ee4436661b,sona-9.0,de,web_frontend,oasst1,human_authored,"[user] Ich hoste eine Lokale Website in Wordpress. Ich verwende das Theme ""Mesmerize"" und möchte allerdings gerne eigene Features und Dinge in HTML und CSS hinzufügen. Der ""Mesmerize Compainion"" Editor bietet meines Wissens nach aber nicht die möglichkeit dafür. Wie kann ich dass dann sonst machen?
+
+[assistant] Wenn der Mesmerize Companion Editor nicht die Möglichkeit bietet, eigene Features und Anpassungen in HTML und CSS vorzunehmen, gibt es noch einige andere Möglichkeiten, um diese Änderungen an deiner WordPress-Website vorzunehmen:
+
+    Child-Theme erstellen: Eine Möglichkeit besteht darin, ein Child-Theme zu erstellen und darin eigene Anpassungen vorzunehmen. So kannst du das Aussehen und Verhalten deiner Website ändern, ohne das ursprüngliche Theme zu verändern.
+
+    Custom CSS: Viele WordPress-Themes bieten die Möglichkeit, benutzerdefinierten CSS-Code in einem speziellen Bereich des Admin-Dashboards einzufügen. Dies ermöglicht es dir, dein Theme anzupassen, ohne das Theme-Code zu ändern.
+
+    Page Builders: Einige Page Builder Plugins, wie z.B. Elementor oder Beaver Builder, bieten die Möglichkeit, eigene Anpassungen vorzunehmen, ohne HTML- oder CSS-Kenntnisse zu benötigen.
+
+    Plugins: Es gibt auch einige Plugins, wie z.B. ""Simple Custom CSS"" oder ""Custom CSS and JS"", die es dir ermöglichen, benutzerdefinierten CSS-Code in deiner WordPress-Website zu integrieren.
+
+Je nach Art und Umfang deiner Anpassungen und Änderungen gibt es verschiedene Optionen, die für dich geeignet sein können. Es ist wichtig zu beachten, dass das Ändern des Codes deines Themes mit Vorsicht durchgeführt werden sollte, um sicherzustellen, dass es keine unerwarteten Auswirkungen auf deine Website hat. Es ist auch eine gute Idee, eine Sicherungskopie deiner Website zu erstellen, bevor du Änderungen vornimmst.
+
+[user] Danke, das war hilfreich. War es schwierig für dich diese Frage zu beantworten?","Freut mich, dass ich helfen konnte.
+
+Ich bin ein KI Sprachmodell und als solches habe ich kein empfinden darüber, ob etwas einfach oder schwer ist.
+
+Bitte lass es mich wissen wenn du noch weitere Fragen hast, oder mehr darüber wissen möchtest wie KI Sprachmodelle funktionieren und welche Einschränkungen sie haben.",,,,
+sona-9.0-20261114T224303Z-013,8,46b9f8e363d6eeb0cec11bf7,5c5f7dd22e7a7ecf598ce26b37961d87,sona-9.0,de,web_fullstack,oasst1,human_authored,"[user] Mein Apple Pencil hat neuerdings immer wieder Aussetzer. Beim Schreiben auf meinem iPad setzt er immer wieder aus, bzw. der Schriftzug unterbricht immer wieder. Ich habe bereits probiert Ihn neu zu koppeln, dass hat jedoch nichts geholfen. Was könnte ich sonst noch versuchen?
+
+[assistant] Folgende Maßnahmen könnten dabei helfen deine Probleme mit dem Apple Pencil zu lösen:
+
+1. Aufladen: Stelle sicher dass dein Apple Pencil voll aufgeladen ist. Bei einem Pencil der 1. Generation läuft dies über den Anschluss am oberen Ende des Stifts, bei einem der 2. Generation über das induktive Laden an den magnetischen Flächen des gekoppelten iPads. Zudem kannst du den Ladezustand deines Pencils in den entsprechenden iPad-Einstellungen nachschauen.
+2. Neue Spitze: Ist die Spitze deines Apple Pencils zu abgenutzt oder von einem qualitativ schlechten Hersteller können Aussetzer wie sie bei dir geschehen. Um diesen Grund auszuschließen kannst du eine neue Spitze von Apple anbringen und damit versuchen zu schreiben.
+3. Bildschirmreinigung deines iPads: Die von dir genannten Probleme können auch bei einem stark verschmutzen iPad-Bildschirm auftreten. Versuche, wenn nicht schon geschehen, den Bildschirm mit einem sehr milden Reinigungsmittel und Wischtuch zu reinigen. Zudem ist es möglich dass Klebefolien, wie etwa Paperlike, für Probleme sorgen. Ziehe diese Folie gegebenenfalls ab falls die Probleme trotz der anderen Maßnahmen bestehen bleiben.
+
+[user] Ich habe alle drei Vorschläge ausprobiert, aber leider bestehen die Probleme weiterhin. Kann ich mir den Pencil kostenfrei bei Apple ersetzen lassen?","Wenn die genannten Maßnahmen keine Verbesserung gebracht haben, kann es sein dass dein Apple Pencil defekt ist. In diesem Fall solltest du dich an den Apple Support wenden und eine Reparatur in Erwägung ziehen. Ob eine kostenlose Reparatur oder ein kostenloser Ersatz möglich ist, hängt von verschiedenen Faktoren ab, wie z.B. der Garantiezeitraum, der Zustand des Geräts und der Grund für den Defekt. Du solltest dich am besten direkt an den Apple Support wenden und dein Anliegen schildern, um eine individuelle Lösung zu finden.
+
+Du kannst den Apple Support auf verschiedene Weisen erreichen, abhängig von deinem Standort und deinen Vorlieben. Eine Möglichkeit ist, die offizielle Apple Support-Website zu besuchen, wo du eine große Auswahl an Hilfethemen findest und auf verschiedene Support-Optionen zugreifen kannst, wie z.B. Chat-Support, Telefon-Support oder E-Mail-Support. Hier ist der Link zur offiziellen Apple Support-Website:
+
+https://support.apple.com/de-de
+
+Alternativ kannst du auch die Apple Support-App auf deinem iPhone oder iPad herunterladen und dort direkt mit einem Support-Mitarbeiter chatten oder telefonieren. Die Apple Support-App bietet auch eine bequeme Möglichkeit, den Reparaturstatus deiner Geräte zu überwachen und Termine im Apple Store zu vereinbaren.
+
+Ich hoffe, diese Informationen sind hilfreich für dich!",,,,
+sona-9.0-20261114T224303Z-013,9,118d1551681ef224f5d6cf67,d36e10293bd2b0422040bbe8e52bee82,sona-9.0,de,writing,oasst2,human_authored,[user] Senden Sie eine E-Mail mit der Aufforderung zum schnelleren Handeln.,"Da Sie nicht genau spezifiziert haben an wen diese E-Mail gerichtet ist und worauf sich die Anforderung bezieht, kann ich nur ein generelles Schreiben aufsetzen.
+Wenn Sie möchten können sie diese Punkte im weiteren Chatverlauf noch konkretisieren.
+
+Ihre Email könnte lauten:
+
+""Sehr geehrte/r Frau/Herr [Name des Adressanten],
+Ich bitte sie dringend ihre Lösungsfindung zu beschleunigen und zeitnah Ergebnisse zur Verfügung zu stellen.
+
+Mit freundlichen Grüßen
+[Ihr Name]
+
+Gibt es noch etwas dass ich für Sie tun kann?",,,,
+sona-9.0-20261114T224303Z-013,10,233ec2048a4f748dff48a2ce,c0d9de7b2ce93000461d7cdbbffbf550,sona-9.0,el,general_knowledge,aya-dataset,human_authored,"[user] Ολοκλήρωσε την ακόλουθη φράση: Στο Ιράν, οι ""υπερασπιστές του ιερού ιερού"" αναγνωρίζονται από το κράτος ως μάρτυρες για το ρόλο τους στην υπεράσπιση τόσο του Σιιτικού Ισλάμ όσο και της Ισλαμικής Δημοκρατίας. Συχνά τους δίνονται επίσημες κηδείες, μερικές φορές συμπίπτουν με την επέτειο θανάτου ενός Σιιτικού Ιμάμη ή μαζί με μάρτυρες από την","Ιρανικό-Ιρακινό Πόλεμο, και θάφτηκαν στο καθορισμένο τμήμα των μάρτυρων στα νεκροταφεία. Αυτοί οι ""αμυνόμενοι του ιερού ναού"" που έχουν χαρακτηριστεί μάρτυρες συχνά απεικονίζονται σε ταφικές αφίσες και άλλες οπτικές εικονογραφίες, ίσως κανείς περισσότερο από τον Mohsen Hojaji. Η θέση του Χοτζατζί ως εμβληματικού μάρτυρα των ""υπερασπιστών του ιερού ναού"" μπορεί να φανεί από την πληθώρα των απεικονίσεων, όπως αυτές που εμφανίζονται στην πινακίδα στην πλατεία Βάλι Ασρ της Τεχεράνης, οι οποίες επιδιώκουν να συσχετίσουν την εικόνα και το θάνατό του στο πεδίο της μάχης με τα γεγονότα που συνέβησαν στη Μάχη της Καρμπάλα. Άλλα σύμβολα που σχετίζονται με την καθορισμένη αποστολή των ""υπερασπιστών του ιερού ναού"", δηλαδή το τζαμί Sayyidah Zaynab στη Δαμασκό, εμφανίζονται επίσης σε μεγάλο βαθμό στην εικονογραφία που χρηματοδοτείται από την Ισλαμική Δημοκρατία και χρησιμοποιούνται για να δημιουργήσουν συνδέσεις μεταξύ των τρέχοντων γεγονότων και της σιιτικής ιστορίας. Η συσχέτιση των εμπειριών της Καρμπάλα με τα σύγχρονα γεγονότα υπήρξε ένα συνεχές χαρακτηριστικό των κρατικά χρηματοδοτούμενων αφηγήσεων της εθνικής ταυτότητας και της συμμετοχής στην Ισλαμική Δημοκρατία, ειδικά όταν αντιμετωπίζουν κρίση.",,,,
+sona-9.0-20261114T224303Z-013,11,cd7d658d64dbe285809a820f,6e81898547d80867612ac88f896627cb,sona-9.0,en,coding,opencodeinstruct,synthetic,"[user] Implement the Quicksort algorithm in Python. Your function should efficiently sort an array of integers. The algorithm should handle large datasets effectively.
+
+**Input:**
+- The first line contains an integer `n` (1 ≤ n ≤ 10^6), the number of elements in the array.
+- The second line contains `n` space-separated integers `a1, a2, ..., an` (0 ≤ ai ≤ 10^9), the elements of the array.
+
+**Output:**
+- Print the sorted array of integers.
+
+**Sample Input:**
+```
+7
+3 6 8 10 1 2 1
+```
+
+**Sample Output:**
+```
+1 1 2 3 6 8 10
+```","```python
+import random
+
+def quicksort(arr):
+    """"""
+    Sorts an array of integers using the Quicksort algorithm.
+    
+    Parameters:
+    arr (list of int): The array to be sorted.
+    
+    Returns:
+    list of int: The sorted array.
+    """"""
+    def partition(low, high):
+        pivot_index = random.randint(low, high)
+        pivot = arr[pivot_index]
+        arr[pivot_index], arr[high] = arr[high], arr[pivot_index]
+        p = low
+        for i in range(low, high):
+            if arr[i] <= pivot:
+                arr[i], arr[p] = arr[p], arr[i]
+                p += 1
+        arr[p], arr[high] = arr[high], arr[p]
+        return p
+
+    def quicksort_recursive(low, high):
+        if low < high:
+            partition_index = partition(low, high)
+            quicksort_recursive(low, partition_index - 1)
+            quicksort_recursive(partition_index + 1, high)
+
+    quicksort_recursive(0, len(arr) - 1)
+    return arr
+
+# Example usage:
+# n = int(input())
+# arr = list(map(int, input().split()))
+# print(*quicksort(arr))
+```",,,,
+sona-9.0-20261114T224303Z-013,12,371e8b8c109cadb2b189cbeb,a0535400c92d6d4f0901a806039357af,sona-9.0,en,cybersecurity,oasst1,human_authored,[user] Compare the difference in Microsoft and Apple's approach to their user's data privacy.,"Sure, I can provide an overview of Microsoft and Apple's approaches to user data privacy and highlight some of the key differences:
+
+- Microsoft and Apple both have official privacy policies that describe how they collect and use customer data. However, critics have argued that Microsoft's policies can be more vague or open to interpretation compared to Apple's, which are often praised for being more transparent and straightforward.
+- Microsoft collects user data across many of its services, including Windows, Office, and Xbox, in order to personalize experiences and show targeted ads. Apple also personalizes some services, but they do not use customer data for advertising and have stricter limits on how data can be shared with third parties.
+- Microsoft has faced some high-profile controversies related to government surveillance requests and requests for data from law enforcement. While Apple has also received these types of requests, they have taken a stronger public stance on privacy and frequently push back against or even refuse certain requests.
+- In terms of specific products, Apple emphasizes privacy features like encryption and biometric authentication in devices like the iPhone and iPad. Some argue that the ""walled garden"" approach of Apple's iOS operating system offers stronger privacy than the more open ecosystem of Microsoft Windows. However, others say this limits user freedom and oversight.
+
+Does this help provide an overview of the key differences in Microsoft and Apple's approaches to user data privacy? Let me know if you would like me to elaborate on any specific points or discuss other areas of comparison.",,,,
+sona-9.0-20261114T224303Z-013,13,215a98baef64d3be20db1948,c19c8e811fa3473bd4b02462a00fc76c,sona-9.0,en,education,oasst2,human_authored,"[user] Is your iPad making you sleepy? There’s a nap for that.
+
+Please explain the joke and what makes it funny.  Puns typically rely on a word that can be interpreted in two ways.  Where is the pun here and how does it work?","The pun is between ""a nap"" and ""an APP"", as the ""sleepy"" part in the question can be resolved by ""a nap"", while it could also be potentially solved by ""an APP"", a program to be installed on the iPad.
+
+It's funny because the pun makes it ambiguous which of the solution the answer is referring to.",,,,
+sona-9.0-20261114T224303Z-013,14,ecee1ac494b9697f5a042ffb,bd76c5ce28217ad3c5b7b81a66d264e1,sona-9.0,en,general_knowledge,oasst2,human_authored,[user] How would Shakespeare say “give yourself a bell?”,"If we were to imagine how Shakespeare might express the sentiment of this phrase using language and expressions from his own time, he might say something like:
+
+""Pr'ythee, sound thyself a knell, and call to mind thy duty.""
+
+This would be a somewhat poetic way of saying ""remind yourself of what you need to do."" The phrase ""sound thyself a knell"" could be interpreted as meaning ""ring a warning bell for yourself"" or ""make yourself aware of the seriousness of the situation.""",,,,
+sona-9.0-20261114T224303Z-013,15,db36aecdbb6a85beb8afb4a5,0bb752869f44fd7b93ba577441109a60,sona-9.0,en,islamic_studies,oasst2,human_authored,[user] What are the main differences between Abrahamic religions?,"The main differences between the Abrahamic religions (Judaism, Christianity, and islam) are as follows:
+
+**Founders**
+Jewish history is traced to the covenant between God and Abraham, Christianity to Jesus Christ, and Islam to the prophet Muhammad.
+
+**Sacred Texts**
+The Jewish faith focuses on the five books of Moses as the central scripture. The New Testament is included in Christianity, including the life and teachings of Jesus. The islamic faith holds the quran to be the primary sacred text, regarded as the revelation of God to Muhammad.
+
+**Belief in Jesus**
+Christianity considers Jesus to be the Messiah and the Son of God, while Judaism considers him a teacher or prophet but not a divine being. Islam thinks of Jesus as a prophet, but not as God or the Son of God.
+
+**Concept of God**
+All three religions believe in only one God. Nevertheless, the Christian doctrine of the Trinity teaches that God is composed of three persons: Father, Son (Jesus Christ), and Holy Spirit. Both Judaism and islam strongly emphasize the unity of God, without a Trinitarian belief.
+
+**Role of Prophets**
+All three religions have prophets, but their importance and teachings are different in each religion. Moses, Isaiah, and Jeremiah are recognized by Judaism. Christianity elevates Jesus as the ultimate prophet and saviour, and islam reveres Muhammad as the last and final prophet, believed to have received the complete revelation from God.
+
+**Salvation and Afterlife**
+Christianity teaches that salvation is achieved through faith in Jesus Christ and his sacrificial death and resurrection, which leads to eternal life. In Judaism, salvation is understood as following God's commandments and living a righteous life, with a focus on the present world rather than the afterlife, and islam emphasizes belief in the oneness of God and the obedience to His commands for attaining paradise in the afterlife.",,,,
+sona-9.0-20261114T224303Z-013,16,5f8082c39380540f98de6e23,b339a199ea466a15ce1eef8cbcbec3c5,sona-9.0,en,mathematics,gsm8k,human_authored,"[user] Georgie is a varsity player on a football team. He can run 40 yards within 5 seconds. If he can improve his speed by forty percent, how many yards will he be able to run within 10 seconds?","The additional yard he will be able to run to after improving his speed is 40 x 40/100 = 16 yards.
+So the total yard he will be able to run to after improving his speed is 40 + 16 = 56 yards in 5 seconds.
+Therefore the total yards he will be able to run to within 10 seconds is 56 x 2 = 112.
+
+Answer: 112",,,,
+sona-9.0-20261114T224303Z-013,17,63a1c21b69f914ecac63ca00,9e35143120df375c6fd9111fd0acae68,sona-9.0,en,pakistan,oasst2,human_authored,"[user] How many countries in the world? List down name of 5 countries with more than 10 states. From that list of 5 countries randomly pick one county and list down all the states in that country.
+
+[assistant] The number of world countries depends on what countries you think are legitimate. The UN has 193 member states and 2 observer states (Vatican and Palestine), but it doesn't count Taiwan as a state separate from China. These numbers also don't include separatist-controlled territories and breakaway states.
+
+Some countries with more than 10 states are Argentina, Russia, the US, India and Germany. India has the following states:
+* Andhra Pradesh
+* Arunachal Pradesh
+* Assam
+* Bihar
+* Chhattisgarh
+* Goa
+* Gujarat
+* Haryana
+* Himachal Pradesh
+* Jharkhand
+* Karnataka
+* Madhya Pradesh
+* Maharashtra
+* Manipur
+* Meghalaya
+* Mizoram
+* Nagaland
+* Odisha
+* Punjab
+* Rajasthan
+* Sikkim
+* Tamil Nadu
+* Telangana
+* Tripura
+* Uttar Pradesh
+* Uttarakhand
+* West Bengal
+
+[user] Why were Kerala and New Delhi not included in your list?","I apologize for the oversight. You're correct, Kerala and Delhi are indeed among the states and union territories of India. India is made up of 28 states and 8 Union territories.
+
+Here's a more comprehensive list:
+
+States of India:
+
+1. Andhra Pradesh
+2. Arunachal Pradesh
+3. Assam
+4. Bihar
+5. Chhattisgarh
+6. Goa
+7. Gujarat
+8. Haryana
+9. Himachal Pradesh
+10. Jharkhand
+11. Karnataka
+12. Kerala
+13. Madhya Pradesh
+14. Maharashtra
+15. Manipur
+16. Meghalaya
+17. Mizoram
+18. Nagaland
+19. Odisha
+20. Punjab
+21. Rajasthan
+22. Sikkim
+23. Tamil Nadu
+24. Telangana
+25. Tripura
+26. Uttar Pradesh
+27. Uttarakhand
+28. West Bengal
+
+Union Territories of India:
+
+1. Andaman and Nicobar Islands
+2. Chandigarh
+3. Dadra and Nagar Haveli and Daman and Diu
+4. The Government of NCT of Delhi
+5. Lakshadweep
+6. Puducherry
+7. Ladakh
+8. Jammu and Kashmir
+
+Delhi is classified as a Union Territory known as the National Capital Territory of Delhi, which includes the country's capital, New Delhi. This unique administrative status gives it a level of autonomy, with its own local government, but it's also under the direct administrative control of the federal government.",,,,
+sona-9.0-20261114T224303Z-013,18,a69c1844ebaa59818b0d7c3a,c8f9be9b7a039088bee725285b9a6850,sona-9.0,en,problem_solving,oasst2,human_authored,"[user] What are some popular beaches available in the city of Cebu in the Philippines? If you could find one with a great view of the sunset, that would be ideal. Trying to plan ahead for my trip at the end of February.
+
+[assistant] Near Cebu
+
+Panagsama Beach.
+Beach Placid.
+Shangri-La Resort's Beachfront.
+Dalaguete Beach.
+Sayaw Beach.
+Lambug Beach.
+Hermit's Cove.
+
+The Best Sunset in Cebu City - SUNSET CHASER (FOLLOW YOUR DREAMS) is listed as the closes match 
+
+I hope this is what you are looking for !
+
+[user] Which of these places is best to visit during January in the United States?","I apologize for the confusion, but your follow-up question about visiting places in the United States during January seems unrelated to your initial query about beaches to visit in Cebu, Philippines. Without more context about your travel plans, I cannot determine which locations would be best to visit. Can you provide more details about your trip destinations and travel dates to help me provide relevant recommendations?",,,,
+sona-9.0-20261114T224303Z-013,19,f39745bdcdc4e5ccf830e36c,809bff6ba97243091bcaba43b227a29c,sona-9.0,en,reasoning,strategyqa,human_authored,[user] Does the New York Public Library sell Alpo products?,"The New York Public Library is a public lending library system in New York City Alpo produces pet food and related products
+
+So the answer is: No.",,,,
+sona-9.0-20261114T224303Z-013,20,2be2af82079667b5976066e6,be48ade87ad03a9c250c2d4078f776a4,sona-9.0,en,research,dolly-15k,human_authored,"[user] List the major neighborhoods on the East Side and West Side of Manhattan.
+
+Context:
+East Side of Manhattan refers to the side of Manhattan which abuts the East River and faces Brooklyn and Queens. Fifth Avenue, Central Park from 59th to 110th Streets, and Broadway below 8th Street separate it from the West Side.
+
+The major neighborhoods on the East Side include (from north to south) East Harlem, Yorkville, the Upper East Side, Turtle Bay, Murray Hill, Kips Bay, Gramercy, East Village, and the Lower East Side. The main north–south expressways servicing the East Side are the Franklin D. Roosevelt East River Drive and Harlem River Drive, which for the majority of their length are separated from the east shore of the island by the Manhattan Waterfront Greenway. The East Side is served by the IRT East Side Line subway and by many bus lines.
+
+The West Side of Manhattan refers to the side of Manhattan Island which abuts the Hudson River and faces the U.S. state of New Jersey. Fifth Avenue, Central Park, and lower Broadway separate it from the East Side. The major neighborhoods on the West Side are (from north to south) Inwood, Hudson Heights, Washington Heights, West Harlem, Morningside Heights, Manhattan Valley, Upper West Side, Hell's Kitchen, Chelsea, West Village, SoHo, and Tribeca. The 8th Avenue and West Side subway lines connect all parts of the West Side.
+
+The main north-south roads servicing the West Side are the Henry Hudson Parkway in the north, and the West Side Highway in the south. The Hudson River Greenway separates those highways from the western shore of the island.","East Side: East Harlem, Yorkville, the Upper East Side, Turtle Bay, Murray Hill, Kips Bay, Gramercy, East Village, and the Lower East Side
+
+West Side: Inwood, Hudson Heights, Washington Heights, West Harlem, Morningside Heights, Manhattan Valley, Upper West Side, Hell's Kitchen, Chelsea, West Village, SoHo, and Tribeca",,,,
+sona-9.0-20261114T224303Z-013,21,498da133d6f4f63fa918d975,a27a7724d8957ca4bfca69e62d396bd2,sona-9.0,en,safety_ethics,oasst2,human_authored,"[user] In which episode of ""Scrubs"" three patients die because they got transplanted with organs infected by rabies?
+
+[assistant] The episode is ""My Lunch."" It's from season 5, episode 20.
+
+[user] Great, thank you!","You're welcome! Since you're interested in that specific ""Scrubs"" episode, you might also enjoy other episodes that tackle significant ethical or medical dilemmas. If you're a fan of the series, I can recommend some similar episodes or provide more information about the show in general. Let me know if you'd like any guidance on that or if you have any other questions!",,,,
+sona-9.0-20261114T224303Z-013,22,73acc94cd6b4220a225e5d49,c1c03041017b01d80a7729374c8b45f3,sona-9.0,en,science,oasst2,human_authored,[user] If magic was real what spell would you cast?,"The specific spell one would choose to cast would depend on their individual needs and desires, and the rules and limitations of the magical world in which they exist. I could suggest:
+
+1. Healing Spell: A spell to heal any physical or emotional pain and injuries, restoring a person's health and vitality.
+
+2. Invisibility Spell: A spell that makes the caster invisible, allowing them to move about undetected and observe their surroundings without being seen.
+
+3. Flight Spell: A spell that allows the caster to fly, freeing them from the limitations of gravity and enabling them to move through the air with ease.
+
+4. Teleportation Spell: A spell that enables the caster to move instantly from one location to another, without the need for physical travel.
+
+5. Elemental Spell: A spell that harnesses the power of the elements, such as fire, water, earth, and air, to achieve various magical effects.",,,,
+sona-9.0-20261114T224303Z-013,23,5f33fdef58a2ceabdf1ea547,eb7942171ab70bfc1a5912ac4cfcd500,sona-9.0,en,software_engineering,self-oss-instruct,synthetic,"[user] Write a Python function `split_and_store_words` that takes a string as an input and splits it into words using `str.split()`. The function should store the words in a text file using the `pathlib` module, using the filename provided as the second argument. The function should return the number of words in the string.
+
+For unit testing, use a `unittest.TestCase` class to test the function with a string that contains a mixture of alphanumeric and non-alphanumeric characters (e.g., ""test@123, 456, and 789""), and ensure that the correct number of words is returned and the words are stored correctly in the file.","Here is the implementation of the `split_and_store_words` function:
+
+```python
+import pathlib
+
+def split_and_store_words(text: str, filename: str) -> int:
+    words = text.split()
+    num_words = len(words)
+    file_path = pathlib.Path(filename)
+    with file_path.open(""w"") as file:
+        file.write("" "".join(words))
+
+    return num_words
+```
+
+The `split_and_store_words` function uses the `str.split()` method to split the input string into words. It then stores the words in a text file using the `pathlib` module, creating a `pathlib.Path` object from the filename provided. The function then opens the file in write mode and writes the words, separated by a space character, to the file. Finally, it returns the number of words in the string.
+
+Here is the unit test for the `split_and_store_words` function:
+
+```python
+import unittest
+
+class SplitAndStoreWordsTest(unittest.TestCase):
+    def test_split_words(self):
+        text = ""test@123, 456, and 789""
+        filename = ""words.txt""
+        num_words = split_and_store_words(text, filename)
+
+        with open(filename, ""r"") as file:
+            stored_words = file.read().split()
+
+        self.assertEqual(num_words, len(stored_words))
+        self.assertEqual(text.split(), stored_words)
+
+if __name__ == ""__main__"":
+    unittest.main()
+```",,,,
+sona-9.0-20261114T224303Z-013,24,4e4b19b0d75b12a46ff82722,065379492fe1c35e7b4f429ca9a65b66,sona-9.0,en,web_backend,oasst1,human_authored,"[user] How can I develop technology that can make sure to cure my cancer
+
+[assistant] Developing technology that can cure cancer is a complex and challenging task that requires a multidisciplinary approach. It involves the collaboration of scientists, researchers, medical professionals, and engineers to develop innovative solutions that can effectively target cancer cells while minimizing damage to healthy cells.
+
+Cancer is a complex disease that has been studied for decades, and while significant progress has been made in understanding its causes and developing treatments, finding a cure remains a long-standing task. The reason for this is that cancer is not a single disease but rather a group of diseases characterized by the uncontrolled growth and spread of abnormal cells.
+
+To develop technology that can cure cancer, researchers need to focus on identifying the specific mechanisms that drive the growth and spread of cancer cells. This requires a deep understanding of the biology of cancer, as well as advanced technologies such as genomics, proteomics, and bioinformatics. Nonetheless here is a basic plan to follow to cure cancer:
+- Conduct extensive research on cancer and its causes
+- Collaborate with medical professionals and researchers in the field
+- Develop a deep understanding of the human body and its functions
+- Utilize cutting-edge technology such as artificial intelligence, machine learning, and nanotechnology
+- Test potential treatments in controlled laboratory settings
+- Conduct clinical trials to ensure safety and effectiveness of treatments
+- Continuously analyze data and adjust treatments as necessary
+- Seek funding from government grants, private investors, and philanthropic organizations
+- Remain committed to the goal of finding a cure for cancer, despite setbacks or challenges. 
+
+In addition to developing new treatments, researchers also need to focus on improving early detection methods to catch cancer at its earliest stages when it is most treatable. This involves developing new imaging technologies and biomarkers that can detect cancer before it spreads.
+
+Overall, curing cancer is a long-standing task that requires ongoing research and development. While significant progress has been made in recent years, there is still much work to be done to find effective cures for all types of cancer.
+
+[user] As a software developer, where could I provide the most value if I wanted to get involved with the community that is trying to find a cure for cancer?
+My area of expertise is particularly in system's architecture, backend development and data planning.","As a software developer with expertise in systems architecture and data management, here are some ways you can provide value to the cancer research community:
+
+Help develop databases and data management systems to organize and store the massive amounts of data generated from cancer research. This could include genomic data, medical images, patient records, treatment data, etc. Organizing and managing this data is crucial to enabling analysis and discoveries.
+Develop AI and machine learning systems that can help analyze the data and detect patterns to gain insights into cancer. Machine learning has a lot of potential for accelerating cancer research and treatment development.
+Work on building systems to enable collaboration and sharing of data and resources between research institutions and hospitals. Secure data sharing and collaboration platforms could help researchers work together more effectively.
+Develop interfaces and visualization tools to help researchers explore data and insights in intuitive ways. Interactive data visualization is important for gaining a deeper understanding of cancer and communicating findings.
+Contribute to open-source software and frameworks for cancer research. The open-source approach can help advance progress more rapidly through collaboration.
+
+Overall, there are many ways to get involved as a software developer. The key is to explore the needs of the cancer research community and see where your skills and interests align to provide the most value. Reaching out to local research institutions or hospitals and offering your technical skills could be a good way to get started.",,,,
+sona-9.0-20261114T224303Z-013,25,6e9c8a3d89c779cef10db970,708d28f19d42aaaa10ad495f5e1d7571,sona-9.0,en,web_frontend,oasst2,human_authored,"[user] A corporation operating in a highly regulated industry has been hit by a ransomware attack. How would it decide whether or when to invoke its business continuity plans?
+
+[assistant] A business continuity plan (BCA) would be immediately deployed in the case of a ransomware attack, assessments to data, losses, and backup solutions would be addressed as the operations are reestablished to working order.
+
+[user] Why would the business continuity plan be immediately deployed?","Because the business must react fast in case of an attack, waiting or delaying an action could result in more damage to the business.
+But be careful that the BCA is for the right situation. Don't apply any actions that could backfire, first consider all options.",,,,
+sona-9.0-20261114T224303Z-013,26,260a94c56c24ef2174043837,3084d52b4b032d82dd51c855f7e9c5f5,sona-9.0,en,web_fullstack,oasst1,human_authored,"[user] What time is my next bus home?
+
+[assistant] I'm sorry, but to find out the time till the next bus, I also need your location and the bus you are waiting for.
+
+[user] I'm in Cleveland, waiting for the bus that goes downtown.","I cannot search the internet by myself with my current resources and tell you the accurate time, however, I can tell you The Greater Cleveland Regional Transit Authority (RTA) provides bus services in Cleveland. 
+You can find the bus schedules for downtown Cleveland on their website: https://www.riderta.com/routes. 
+The RTA has several routes that go to downtown Cleveland such as Route 10 - East 105 - Lakeshore, Route 11 - Quincy - Cedar, Route 14-14A - Kinsman, and more. You can find more information about these routes and their schedules on their website.",,,,
+sona-9.0-20261114T224303Z-013,27,7336ae7fccbb6251e845bf78,68b328195c344ea429d2a6cf26cdec2b,sona-9.0,en,writing,dolly-15k,human_authored,[user] Give me a bulleted list of the the first five books in the bible old testament?,"The first five books of the bible old testament are called the Pentateuch or the books of law
+1) The Book of Genesis - is an account of the creation of the world, the early history of humanity, and of Israel's ancestors and the origins of the Jewish people.
+2) The Book of Exodus - is the second book of the Bible. It narrates the story of the Exodus, in which the Israelites leave slavery in Biblical Egypt through the strength of Yahweh, who has chosen them as his people. 
+3) The Book of Leviticus - The book has several main topics, some of which are the Jewish laws of sacrificing to God, and the work of the priests. These priests are sometimes known as Levites 
+4) The Book of Numbers - is the culmination of the story of Israel's exodus from oppression in Egypt and their journey to take possession of the land God promised their fathers.
+5) The Book of Deuteronomy - is the covenant that binds Yahweh and Israel by oaths of fidelity and obedience. God will give Israel blessings of the land, fertility, and prosperity so long as Israel is faithful to God's teaching; disobedience will lead to curses and punishment.",,,,
+sona-9.0-20261114T224303Z-013,28,2f9b4eb1851057cb93047b01,116e672d98afff9ecd9651a2f05e145d,sona-9.0,eo,general_knowledge,oasst2,human_authored,[user] Kiel mi povas praktiki mian Esperanton parolante kun aliaj?,"Saluton! Mi ĝojas, ke vi volas praktiki Esperanton parolante kun aliaj. Por trovi samideanojn, vi povas aliĝi al Facebookaj grupoj, retaj forumoj aŭ eĉ aplikoj por lingvointerŝanĝo, kiel ekzemple Tandem aŭ HelloTalk. Se eblas, partoprenu en lokaj Esperanto-renkontiĝoj kaj eventoj.
+
+Vi ankaŭ povas lerni kune kun aliaj Esperanto-studantoj per interreta kurso, kiel tiuj proponitaj ĉe Lernu! Tiaj kursoj kutime inkluzivas forumojn kaj babilejojn por praktikado.
+
+Mi esperas, ke la informo estis utila. Ĉu vi havas pliajn demandojn pri plibonigado de via Esperanto, aŭ ĉu mi klarigis ĉion bone?",,,,
+sona-9.0-20261114T224303Z-013,29,9196196569ea75ac0061556d,961a1d488dc22ef4667f20376e36940a,sona-9.0,es,coding,oasst2,human_authored,[user] Como hacer operaciones con Bytes en JavaScript,"JavaScript no tiene un tipo de datos específico para representar bytes, pero se puede trabajar con ellos utilizando números enteros y realizar operaciones aritméticas básicas con ellos.
+
+A continuación se indican algunas operaciones comunes que se pueden realizar con bytes en JavaScript:
+
+1. Convertir a número: Para convertir un número en un byte, puede realizar una operación de máscara de bits utilizando el operador ""&"" y el número 255 (que es el valor máximo que puede contener un byte). Por ejemplo:
+
+let num = 300;
+let byte = num & 255;
+console.log(byte); // 44
+
+2. Sumas y restas: Puedes realizar sumas y restas de bytes con enteros y almacenar el resultado en una variable entera.
+
+let a = 200;
+let b = 100;
+let c = a + b;
+console.log(c); // 300
+
+3. Desplazamiento de bits: Puedes desplazar los bits de un byte a la izquierda o a la derecha utilizando los operadores de desplazamiento de bits ""<<"" y "">>"". Por ejemplo:
+
+let byte = 5;
+let leftShift = byte << 2;
+console.log(leftShift); // 20
+
+let rightShift = byte >> 2;
+console.log(rightShift); // 1
+
+Estos son algunos ejemplos básicos de operaciones con bytes en JavaScript. Espero que te resulten útiles.",,,,
+sona-9.0-20261114T224303Z-013,30,14acb31e9adf1e62ee6be41d,e62de747f5d2cd521aa853e75177cbd9,sona-9.0,es,cybersecurity,oasst1,human_authored,"[user] Por favor. Necesito un resumen sobre las estafas en internet. En ella se deben tratar temas sobre como prevenir, como reconocer una estafa, además, necesito ejemplos de casos mas recientes sobre esta situación. Al final me encetaría que se incluya varios consejos y tips para afrontar esta situación.","Por supuesto, aqui te proporciono unos tips para prevenir que te estafen con páginas u ofertas fraudulentas:
+
+1 - Evita comprar en páginas que no conoces. ...
+2 - HTTPS siempre. ...
+3 - Si una oferta es demasiado buena para ser verdad... ...
+4 - Evita páginas que se hacen pasar por otras. ...
+5 - Revisa bien la información del producto. ...
+6 - Ante la duda, tienda oficial. ...
+7 - Ten cuidado con dónde haces click.
+8 - Cuidado con perfiles falsos en redes sociales
+9 - Cuidado con los correos con phishing.
+10 - Revisa la parte inferior de una web (siempre debe haber enlaces a la política de privacidad, condiciones de compra, pago)
+11 - Utiliza sistemas de pago fiables
+12 - Evita cualquier virus o malware
+13 - Evita las falsas ofertas",,,,
+sona-9.0-20261114T224303Z-013,31,80c3e7596b170ad77443453d,d24a4e3f4367125fea31175ebb7d3716,sona-9.0,es,education,oasst1,human_authored,[user] ¿Qué es Open Assistant?,"Open Assistant es un proyecto de inteligencia artificial de código abierto diseñado para proporcionar a todos acceso a un modelo de lenguaje de gran tamaño basado en chat. El objetivo del proyecto es democratizar el acceso a asistentes de inteligencia artificial y fomentar una revolución en la innovación en el lenguaje. La visión de Open Assistant es crear un asistente del futuro, capaz de realizar trabajos significativos, usar APIs, investigar información dinámicamente y mucho más, y que sea personalizable y ampliable por cualquier persona.
+
+El proyecto Open Assistant sigue un plan de desarrollo en 3 pasos, basado en el documento InstructGPT:
+
+1. Recolectar muestras de alta calidad generadas por humanos (instrucción + respuesta), con el objetivo de más de 50,000. Para esto, se utiliza un proceso de crowdsourcing en el que la comunidad puede enviar, clasificar y etiquetar mensajes y respuestas para mejorar las habilidades del asistente.
+2. Para cada indicación recolectada, se generan varias respuestas completas que luego se muestran a los usuarios para que las clasifiquen de mejor a peor. La información de clasificación recopilada se utiliza para entrenar un modelo de recompensa.
+3. Se realiza una fase de entrenamiento RLHF (Reinforcement Learning from Human Feedback) basada en las indicaciones y el modelo de recompensa.
+
+Open Assistant es desarrollado y mejorado por la comunidad, y cualquiera puede contribuir al proyecto. La página web para el proyecto es [open-assistant.io](https://open-assistant.io), y puedes encontrar más información sobre cómo contribuir en [GitHub](https://github.com/LAION-AI/Open-Assistant).",,,,
+sona-9.0-20261114T224303Z-013,32,24c3b69bddf6da281d0f8e8e,48b02e25ee496207bb05cb69aa40769c,sona-9.0,es,general_knowledge,oasst2,human_authored,"[user] Me puedes dar algún programa de producción musical para computadora, que este se gratuito","¡Hola! Sí que puedo sugerirte algunos programas para reproducir música. Algunas de las opciones son:
+ - Windows Media Player: Si tu sistema operativo en windows este es sin duda el reproductor más simple de obtener, ya que viene de serie con todas las instalaciones de windows.
+ - VLC: Puede reproducir prácticamente cualquier medio, incluida música. Es software libre y gratuito.
+ - MusicBee: Sencillo y gratuito, permite conectar con podcasts y radios.
+
+Espero que estas sugerencias te sean de ayuda.",,,,
+sona-9.0-20261114T224303Z-013,33,9c0105203958a8de15e8e7f7,8345b04293897990f14937c60f380054,sona-9.0,es,islamic_studies,oasst2,human_authored,"[user] ¿Cuales son las 3 principales religiones? ¿Puedes resumirme los conceptos básicos de las mismas?
+
+[assistant] Entre los seres humanos hay multitud de religiones. Quizá podríamos definir algo mejor qué quieres decir con ""principales"".
+
+Si con ""principales"" te refieres a las más profesadas, según Wikipedia estas son el Cristianismo, el Islam y el Hinduismo. Junto con el conjunto de personas no adheridas a ningún credo particular, éstos abarcan más del 80% de la población mundial.
+
+Si te referías a las tres principales religiones monoteístas, estas son: Judaísmo, Cristianismo e Islam.
+El Judaísmo es la fe del pueblo judío, cuyo principal libro sagrado es la Torah, y cuya religión podría resumirse en el ""Shemá"" (amar a Dios con todas las fuerzas y al prójimo como a uno mismo) y en el cumplimiento de los diez mandamientos dados a Moisés, de modo que ""Vosotros seréis mi pueblo y Yo seré vuestro Dios"". Además los judíos tienen otros muchos mandamientos con los que expresan y viven su profunda reverencia al único Dios verdadero.
+El cristianismo es el seguimiento de las enseñanzas y la vida de Jesús de Nazaret, un Rabbí judío del siglo I que afirmó ser ""el hijo del hombre"" y, según sus discípulos, es el mismo Dios hecho hombre, dos naturalezas en una sola persona, que dio su vida muriendo como un esclavo para después resucitar, y con ello abrir a toda la humanidad el acceso a la vida divina. Siguen también los diez mandamientos y creen que Cristo está vivo, mantienen una relación personal con él y disfrutan de los signos que él instituyó para concederles su gracia, los sacramentos.
+El Islam es la más tardía de las tres religiones, y en el caso de los suníes, consiste en declarar la shahada (i.e. que Alah es Dios y Mahoma su profeta), la oración, la limosna, el ayuno y la peregrinación a la Meca.
+
+Las tres tienen en común la creencia en un solo Dios verdadero. Las tres son religiones Abrahámicas, puesto que históricamente las tres procederían de pueblos descendientes de Abraham, a quien Dios habría prometido dar descendencia ""como las estrellas del cielo"".
+
+Por otro lado, el hinduismo es una agrupación de religiones practicadas fundamentalmente en el sur de Asia. Aunque tienen diversos credos, son comunes la creencia en el karma (una relación entre valor ético de acciones y sus consecuencias) o el samsara (la reencarnación después de la muerte); son también comunes libros sagrados como los Upanishads o la Bhagavad-gita. También tienen prácticas comunes como la recitación de oraciones o la meditación.
+
+Estas cuatro religiones cuentan con figuras ascéticas, personas que consagran su vida por entero con un fin particular.
+
+[user] que tienen en comun estas 3 religiones?","Las tres religiones principales que mencionaste (Cristianismo, Islam y Judaísmo) comparten varias creencias y principios comunes, entre los que se incluyen:
+
+1. Creencia en un solo Dios verdadero: Las tres religiones son monoteístas y creen en un único Dios que es el creador del universo y gobierna todo lo que hay en él.
+
+2. Importancia de los profetas: Todas las religiones reconocen la existencia de profetas que han transmitido la voluntad de Dios a la humanidad, como Abraham, Moisés y Jesús.
+
+3. La existencia de un libro sagrado: Cada religión tiene su propio libro sagrado, que contiene las enseñanzas de Dios y guía la vida de los creyentes. En el caso del Cristianismo, es la Biblia; en el Islam, el Corán; y en el Judaísmo, la Torah.
+
+4. Ética y moralidad: Las tres religiones comparten una ética y moralidad similar, que se basa en principios como el amor, la justicia, la compasión y la caridad hacia los demás.
+
+5. El día de descanso: Las tres religiones tienen un día de descanso dedicado a la adoración de Dios y la reflexión. En el caso del Cristianismo, es el domingo; en el Islam, el viernes; y en el Judaísmo, el sábado.
+
+6. La vida después de la muerte: Las tres religiones creen en una vida después de la muerte y en la existencia de un juicio final, en el que las personas son juzgadas por sus acciones en vida y recompensadas o castigadas en consecuencia.",,,,
+sona-9.0-20261114T224303Z-013,34,198044c91a04f9cd4e2e421f,320af9d1c1cd9d9135814ffd3fd20fcb,sona-9.0,es,mathematics,oasst1,human_authored,"[user] demuestrame como determinar la desviacion estandar de este problema matematico;
+
+En una biblioteca se realiza un estudio sobre la cantidad de libros prestados en el mes de abril, para ello se toman en cuenta los primeros diez dias de ese mes, el dia uno se prestaron 35 libros, el dia 2 se prestaron 47 libros, el dia 3 se prestaron 22 libros, el dia 4 se prestaron 15 libros, el dia 5 se prestaron 13 libros, el dia 6 se prestaron 28 libros, el dia 7 se prestaron 39 libros, el dia 8 se prestaron 41 libros, el dia 9 se prestaron 12 libros y el dia 10 se prestaron 19 libros.
+
+[assistant] Para calcular la desviación estándar, primero debemos encontrar la media de los datos:
+
+Media = (35 + 47 + 22 + 15 + 13 + 28 + 39 + 41 + 12 + 19) / 10 = 25.1
+
+Luego, calculamos la diferencia entre cada valor y la media, y elevamos al cuadrado cada una de estas diferencias:
+
+(35 - 25.1)^2 = 96.01
+(47 - 25.1)^2 = 482.41
+(22 - 25.1)^2 = 9.61
+(15 - 25.1)^2 = 102.01
+(13 - 25.1)^2 = 147.56
+(28 - 25.1)^2 = 7.21
+(39 - 25.1)^2 = 191.61
+(41 - 25.1)^2 = 252.81
+(12 - 25.1)^2 = 171.61
+(19 - 25.1)^2 = 37.21
+
+A continuación, sumamos todas estas diferencias al cuadrado:
+
+96.01 + 482.41 + 9.61 + 102.01 + 147.56 + 7.21 + 191.61 + 252.81 + 171.61 + 37.21 = 1490.34
+
+Luego, dividimos esta suma entre el número de datos menos uno (es decir, 10-1 = 9) y calculamos la raíz cuadrada:
+
+Desviación estándar = √(1490.34/9) = 13.08
+
+Por lo tanto, la desviación estándar de la cantidad de libros prestados en los primeros diez días de abril en la biblioteca es de aproximadamente 13.08 libros.
+
+[user] Calcula la varianza para el ejercicio y mostrá los cálculos necesarios","Para calcular la varianza y la desviación estándar, se deben seguir los siguientes pasos:
+
+1. Calcular la media: sumar todos los valores y dividir entre el número de elementos.
+
+Media = (35+47+22+15+13+28+39+41+12+19)/10 = 26.1
+
+2. Calcular la desviación de cada valor respecto a la media: restar cada valor de la media y elevar al cuadrado.
+
+Desviaciones = [(35-26.1)^2, (47-26.1)^2, (22-26.1)^2, (15-26.1)^2, (13-26.1)^2, (28-26.1)^2, (39-26.1)^2, (41-26.1)^2, (12-26.1)^2, (19-26.1)^2]
+
+Desviaciones = [67.21, 420.25, 18.49, 128.41, 163.84, 2.89, 154.69, 184.9, 219.61, 47.61]
+
+3. Calcular la varianza: sumar todas las desviaciones al cuadrado y dividir entre el número de elementos.
+
+Varianza = (67.21+420.25+18.49+128.41+163.84+2.89+154.69+184.9+219.61+47.61)/10 = 141.06
+
+4. Calcular la desviación estándar: calcular la raíz cuadrada de la varianza.
+
+Desviación estándar = sqrt(141.06) = 11.87
+
+Por lo tanto, la media del número de libros prestados en los primeros diez días de abril es de 26.1, la varianza es de 141.06 y la desviación estándar es de 11.87. Esto indica que la cantidad de libros prestados varía bastante en esos días y que hay una gran dispersión de valores.",,,,
+sona-9.0-20261114T224303Z-013,35,9ac830abfec8159ec601f983,d95d3083271e047cac77910d1b1541b1,sona-9.0,es,problem_solving,oasst2,human_authored,"[user] Me gustaría que me proporcionases un plan de entrenamiento para correr una maratón dentro de cuatro meses, teniendo en cuenta que mi marca actual es de 4 horas y media, y con el objetivo de llegar a la meta en menos de 4 horas. Muchas gracias.","Claro, aquí te proporciono un plan de entrenamiento para correr una maratón dentro de cuatro meses:
+
+1. Semana 1-4: Comienza con una combinación de corrida suave y caminatas de recuperación. Aumenta la cantidad de tiempo corriendo gradualmente y reduce el tiempo caminando.
+
+2. Semana 5-8: Comienza a correr al menos 3 días a la semana, incluyendo un entrenamiento de larga distancia el fin de semana. Este debería ser de aproximadamente una hora y media y cubrir una distancia de 10 kilómetros.
+
+3. Semana 9-12: Continúa corriendo al menos 3 días a la semana, incluyendo un entrenamiento de larga distancia el fin de semana. Aumenta la distancia del entrenamiento de larga distancia a 15 kilómetros.
+
+4. Semana 13-16: Corre 4 días a la semana, incluyendo un entrenamiento de larga distancia el fin de semana. Aumenta la distancia del entrenamiento de larga distancia a 20 kilómetros.
+
+5. Semana 17-20: Corre al menos 4 días a la semana, incluyendo un entrenamiento de larga distancia el fin de semana. Aumenta la distancia del entrenamiento de larga distancia a 25 kilómetros.
+
+6. Semana 21-24: Continúa corriendo al menos 4 días a la semana, incluyendo un entrenamiento de larga distancia el fin de semana. Aumenta la distancia del entrenamiento de larga distancia a 30 kilómetros.
+
+7. Semana 25-28: Corre al menos 5 días a la semana, incluyendo un entrenamiento de larga distancia el fin de semana. Aumenta la distancia del entrenamiento de larga distancia a 35 kilómetros.
+
+8. Semana 29-32: Continúa corriendo al menos 5 días a la semana, incluyendo un entrenamiento de larga distancia el fin de semana. Aumenta la distancia del entrenamiento de larga distancia a 40 kilómetros.
+
+9. Semana 33-36: La semana previa a la maratón, reduce la cantidad de corrida y haz más ejercicios de recuperación, como estiramientos y baños de inmersión en agua fría.
+
+Es importante tener en cuenta que este plan de entrenamiento es solo una guía y que puede que sea necesario ajustarlo en función de tus necesidades individuales y de tu progreso. No te desanimes si tienes un mal día o si no puedes cumplir con el plan.",,,,
+sona-9.0-20261114T224303Z-013,36,3c1aa7ddb3998b896cf6a1e2,5bb56aaddb3188ad39a3110be5e5c3bf,sona-9.0,es,reasoning,oasst2,human_authored,"[user] Quisiera me expliques el siguiente texto de forma que lo pueda entender un niño de 8 años.
+
+[assistant] con gusto, xD pero no me pasaste ningun texto wachin
+
+[user] En efecto, he olvidado proporcionar un texto. Adjunto un párrafo para explicar:
+""La radiación de Cherenkov (también escrito Cerenkov o Čerenkov) es una radiación de tipo electromagnético producida por el paso de partículas cargadas eléctricamente en un determinado medio a velocidades superiores a la velocidad de fase de la luz en ese medio. La velocidad de la luz depende del medio, y alcanza su valor máximo en el vacío. El valor de la velocidad de la luz en el vacío no puede superarse, pero sí en un medio en el que ésta es forzosamente inferior. La radiación recibe su nombre del físico ruso Pável Cherenkov quien fue el primero en caracterizarla rigurosamente y explicar su producción. Cherenkov recibió el Premio Nobel de Física en 1958 por sus descubrimientos relacionados con esta radiación.""","¡Claro! Imagina que tienes un camino mágico hecho de luz. Esta luz normalmente viaja muy rápido, más rápido que cualquier cosa en el mundo. Pero en algunos lugares especiales, como dentro de agua, la luz no puede viajar tan rápido como lo haría en el aire. Es como si tuviera que ir más despacio porque el agua le está diciendo ""¡Espera un momento!"".
+
+Ahora, a veces, hay partículas muy pequeñitas que tienen electricidad dentro de ellas y pueden viajar muy rápido en el agua, más rápido de lo que la luz puede moverse en ese lugar. Y cuando estas partículas viajan más rápido que la luz, algo mágico sucede: comienzan a brillar. Es como si estuvieran dejando un rastro de luz detrás de ellas mientras corren.
+
+Este tipo de luz especial que aparece cuando estas partículas van más rápido que la luz en el agua se llama ""radiación de Cherenkov"", en honor a un científico muy inteligente llamado Pável Cherenkov. Él fue el primero en entender cómo funciona esta luz mágica y cómo se crea. Por su gran descubrimiento, ¡ganó un premio muy importante llamado el Premio Nobel de Física en 1958!",,,,
+sona-9.0-20261114T224303Z-013,37,61976887bcf74c844f42aa60,e4c68079c7571fac7e29ba193fd122c3,sona-9.0,es,research,oasst1,human_authored,[user] quiero que me expliques como funciona tu codigo,"Mi código, como el de cualquier inteligencia artificial funciona con una serie de neuronas que contienen datos, funciones e identificadores y se conectan entre ellas con relaciones condicionadas para dar un resultado, formando un patrón de comportamiento que crece y es mejorado con entrenamiento. A este conjunto de neuronas intercomunicadas se les llama ""red neuronal"" y son las que permiten dar una amplia variedad de respuestas a una misma pregunta o relacionar el contexto de una pregunta con otra para poder generar una conversación.
+
+Si quieres conocer mi código en concreto estás de suerte, pues soy una IA de código abierto (open source), puedes revisar cada archivo de mi composición desde:
+https://github.com/LAION-AI/Open-Assistant",,,,
+sona-9.0-20261114T224303Z-013,38,71e26e6637a3c353453a51c2,ae3830c9a5a1722c11e410632b8676fe,sona-9.0,es,science,oasst2,human_authored,"[user] ¿Qué es la teoría de la información cuántica y cómo se relaciona con la seguridad de la información en la computación cuántica?
+
+[assistant] La teoría de la información cuántica es el estudio de la información y la comunicación en sistemas cuánticos. Se relaciona con la seguridad de la información en la computación cuántica al permitir la criptografía cuántica, que utiliza principios cuánticos para proteger la información de ser interceptada o descifrada por atacantes.
+
+[user] Platícame más de la teoría de la información cuántica. Cuéntame su historia y si es posible pon un problema básico que resuelve esta teoría.","La teoría de la información cuántica tiene sus raíces en el desarrollo de la mecánica cuántica en la primera mitad del siglo XX. En 1935, Albert Einstein, Boris Podolsky y Nathan Rosen propusieron el famoso experimento mental conocido como el ""paradigma EPR"" (por las iniciales de los apellidos de los autores), donde cuestionaron la interpretación de la mecánica cuántica en relación con la naturaleza de la realidad y la información. Este experimento planteaba la posibilidad de que dos partículas entrelazadas pudieran estar instantáneamente correlacionadas, incluso si estaban separadas por grandes distancias.
+
+Sin embargo, no fue hasta la década de 1960 cuando los físicos comenzaron a desarrollar una teoría formal de la información cuántica. En 1961, el físico húngaro-estadounidense Eugene Wigner propuso el concepto de ""operador de densidad"" para describir el estado de un sistema cuántico y su evolución en el tiempo. Posteriormente, en 1966, el físico estadounidense John A. Wheeler acuñó el término ""espuma cuántica"" para referirse a la estructura fundamental del espacio-tiempo en escalas muy pequeñas, lo que también tiene implicaciones en la teoría de la información cuántica.
+
+A medida que avanzaba la investigación, se descubrieron conceptos clave como la codificación cuántica, la teleportación cuántica y la criptografía cuántica. En la década de 1980, el físico estadounidense David Deutsch introdujo el concepto de computadora cuántica universal, sentando las bases para el estudio de algoritmos cuánticos y la teoría de la información cuántica aplicada a la computación.
+
+En cuanto a un problema básico que resuelve la teoría de la información cuántica, podemos mencionar el problema de la teleportación cuántica. En la teleportación cuántica, se busca transmitir la información de un estado cuántico desconocido desde una ubicación a otra sin transferir físicamente la partícula cuántica misma. En este problema, Alice posee un estado cuántico desconocido y desea transmitirlo a Bob. Utilizando la teleportación cuántica, Alice puede enviar dos bits clásicos de información a Bob, junto con el entrelazamiento de un par de qubits llamado estado de Bell. Bob puede usar esta información para reconstruir el estado cuántico original de Alice en su ubicación.
+
+La teleportación cuántica es un ejemplo fascinante de cómo los principios de la teoría de la información cuántica, como la superposición cuántica y el entrelazamiento, pueden utilizarse para lograr una transmisión segura de información cuántica a través de grandes distancias, incluso en presencia de ruido y decoherencia.
+
+En resumen, la teoría de la información cuántica ha evolucionado a lo largo del tiempo, y se basa en los principios de la mecánica cuántica para estudiar cómo se almacena, se transmite y se procesa la información en sistemas cuánticos. La teleportación cuántica es un problema básico que demuestra cómo la información cuántica puede transmitirse de manera segura y eficiente.",,,,
+sona-9.0-20261114T224303Z-013,39,32d1207aa6d8cc541864afed,543a66f0d18771ce2e94d71adb12a792,sona-9.0,es,software_engineering,oasst2,human_authored,[user] ¿Puedes explicarme para qué puedo utilizar la teoría de grafos en ingeniería de software?,"la teoría de grafos es una rama de las matemáticas que estudia las estructuras llamadas ""grafos"". Un grafo es un conjunto de objetos llamados ""nodos"" (también conocidos como vértices) conectados por enlaces llamados ""aristas"" (o arcos). La teoría de grafos es una herramienta valiosa en la ingeniería de software, ya que se puede utilizar en diversas áreas, tales como:
+
+Análisis de dependencias: En el desarrollo de software, los módulos o componentes a menudo dependen de otros para funcionar correctamente. La teoría de grafos puede ayudar a visualizar y analizar estas dependencias, facilitando la identificación de problemas potenciales y la optimización de la arquitectura del software.
+
+Control de versiones: Las herramientas de control de versiones, como Git, utilizan grafos para representar la historia de los cambios realizados en un proyecto. Los nodos representan revisiones o cambios individuales, mientras que las aristas representan las relaciones entre estos cambios.
+
+Planificación de proyectos: La teoría de grafos puede ser útil en la planificación y programación de proyectos de software, especialmente en la estimación de tiempos y recursos necesarios. Los algoritmos de grafos, como el algoritmo de Dijkstra, pueden utilizarse para encontrar el camino más corto o más eficiente entre dos puntos en un grafo, lo que puede ser útil para asignar tareas y recursos en un proyecto.
+
+Análisis de redes sociales: En aplicaciones de software que involucran redes sociales, la teoría de grafos es fundamental para analizar y modelar las relaciones entre los usuarios y cómo interactúan entre sí.
+
+Algoritmos de búsqueda y optimización: La teoría de grafos es esencial en el diseño de algoritmos para resolver problemas de búsqueda y optimización en estructuras de datos complejas. Por ejemplo, puede utilizarse en algoritmos de búsqueda de caminos, detección de ciclos y búsqueda de componentes conexos en un grafo.
+
+Análisis de algoritmos y estructuras de datos: Muchos algoritmos y estructuras de datos en la ingeniería de software se basan en grafos, como árboles de decisión, tablas hash y algoritmos de enrutamiento. La teoría de grafos ayuda a analizar y mejorar el rendimiento de estos algoritmos y estructuras de datos.
+
+En resumen, la teoría de grafos es una herramienta poderosa en la ingeniería de software que puede utilizarse para resolver diversos problemas y optimizar el diseño y la implementación de sistemas de software.",,,,
+sona-9.0-20261114T224303Z-013,40,34ee659d042b619056cc4cc8,9c167d40d5e22709a4e8a1e970bafe56,sona-9.0,es,web_backend,oasst2,human_authored,[user] Creación de una aplicación web para llevar un registro de gastos y ingresos utilizando Flask o Django.,"Para crear una aplicación web para llevar un registro de gastos y ingresos utilizando Flask o Django, sigue los siguientes pasos:
+
+Preparación:
+a. Decida qué framework utilizar, Flask o Django.
+b. Instale y configure los requisitos necesarios en su sistema, como Python, Flask o Django, y otros paquetes que pueda necesitar.
+
+Desarrollo:
+a. Inicie un nuevo proyecto en Flask o Django.
+b. Definir la estructura de la base de datos para registrar gastos y ingresos.
+c. Crear vistas y URLs para ingresar y ver gastos y ingresos.
+d. Crear formularios para ingresar y editar gastos y ingresos.
+e. Crear una página principal para ver un resumen de los gastos y ingresos.
+f. Implementar la lógica para calcular los totales de gastos y ingresos.
+
+Despliegue:
+a. Configure un servidor para ejecutar la aplicación.
+b. Publique la aplicación en el servidor.
+c. Pruebe la aplicación y asegúrese de que funcione correctamente.
+d. Compartir la aplicación con sus usuarios y recopilar retroalimentación para mejorar la aplicación en el futuro.
+
+Estos son solo algunos de los pasos básicos para crear una aplicación web de registro de gastos y ingresos. Se recomienda buscar recursos adicionales en línea y leer documentación detallada sobre Flask o Django antes de comenzar el proyecto.",,,,
+sona-9.0-20261114T224303Z-013,41,4e9b6cd1f8aedb8768699353,2e66144075f12caa1a429e25e0a91ca9,sona-9.0,es,web_frontend,oasst1,human_authored,"[user] puedes generar un fetch para react con la api de pokemon?
+
+[assistant] Sí, es posible generar un fetch en React para obtener información de la API de Pokémon. Aquí te muestro un ejemplo de código que hace un fetch a la API de Pokémon y muestra la información sobre el primer Pokémon en un componente de React:
+
+import React, { useState, useEffect } from ""react"";
+
+const Pokemon = () => {
+  const [pokemon, setPokemon] = useState({});
+
+  useEffect(() => {
+    fetch(""https://pokeapi.co/api/v2/pokemon/1"")
+      .then(res => res.json())
+      .then(data => setPokemon(data))
+      .catch(error => console.error(error));
+  }, []);
+
+  return (
+    <div>
+      {pokemon.name ? (
+        <div>
+          <h2>{pokemon.name}</h2>
+          <p>Peso: {pokemon.weight}</p>
+          <p>Altura: {pokemon.height}</p>
+        </div>
+      ) : (
+        <p>Cargando información...</p>
+      )}
+    </div>
+  );
+};
+
+export default Pokemon;
+
+
+Este ejemplo utiliza el hook useEffect de React para hacer el fetch a la API de Pokémon cuando el componente se monta. La información devuelta se almacena en el estado del componente con el hook useState. Finalmente, se muestra la información sobre el Pokémon en el componente.
+
+[user] Muy bien, espero que funcione.","En principio debería funcionar. Sin embargo, como modelo de lenguaje, mis conocimientos sobre programación, y más específicamente sobre React son limitados. 
+Además, que funcione el código dependerá también de cómo se implemente y la configuración de tu entorno de desarrollo.",,,,
+sona-9.0-20261114T224303Z-013,42,84bf7b9cf2d6ea72f1b9f122,16ba2866ad3a7025cd85ee98b15f1d81,sona-9.0,es,writing,oasst1,human_authored,[user] Dime algunas maneras de ganar dinero mediante internet.,"Aquí hay algunas formas en las que puedes ganar dinero a través de Internet:
+
+- Crear un producto digital, como una aplicación, un ebook o un curso.
+- Ofrecer servicios profesionales, como diseño web, consultoría, marketing digital, edición de video, etc.
+- Publicar contenido de pago en plataformas como Youtube, Patreon o Medium.
+- Vender productos físicos a través de una tienda en línea.
+- Ganar dinero a través de publicidad en tu sitio web o blog.
+- Participar en encuestas o encuestas en línea.
+- Generar ingresos pasivos a través de inversiones en línea.
+- Ofreciendo asesoramiento o capacitación en línea.
+- Crear y vender contenido de marca.
+- Comercializar tus habilidades a través de sitios web como Fiverr o Upwork.",,,,
+sona-9.0-20261114T224303Z-013,43,828fb0b605af11d596f748fe,86419bb35ac75d8f2c76b1ef00b5f81e,sona-9.0,fa,general_knowledge,aya-dataset,human_authored,"[user] به این چیستان پاسخ بده.
+آن کیست که در ابتدا چهار پا دارد سپس دو پا و در نهایت سه پا؟","پاسخ: انسان؛ در کودکی چهار دست و پا راه می رود، در جوانی با دوپا و در پیری با عصا راه می رود.
+
+چیستان نوعی از معما و تفرج و تفنن ادبی است که به جز کاربرد سرگرم‌کننده، جنبه‌های آموزشی و فرهنگی دیگری نیز دارد.  نوع ادبی را می‌توان در زمره ادبیات اندرزی به‌شمار آورد. چیستان کلمه ای مرکب از «چیست» و «آن» است که در علم بدیع در فارسی، معادل کلمه «لغز» عربیست.
+لغز در لغت به معنی پیچیدگی و پوشیدگی است و و در اصطلاح به معنی کلام موزونی است که نام چیزی در آن برده نشود ولی اوصاف آن طوری برشمرده شود که خواننده با خواندن آن اوصاف پی به نام آن چیز ببرد. طراح چیستان سعی می‌کند تا با بیان اجزای حسی و مادی یک پدیده و معرفی برخی از ویژگی‌های آن مخاطب را برای شناسایی آن به تلاش و تکاپوی فکری وادارد.
+مثال: «بی‌روح پیکری ست گه جنگ جان شکار/ بی دود آتشی ست گه رزم پر شرار» که پاسخ آن «شمشیر» است.",,,,
+sona-9.0-20261114T224303Z-013,44,e838b66c53a9a28d0955f0c4,6a385ffc99c82d0d85d0582d72aedff1,sona-9.0,fa,islamic_studies,aya-dataset,human_authored,[user] این جمله را کامل کن: در سال‌های پیش از انقلاب ۱۳۵۷، حضور زنان در ورزشگاه‌های ایران، آزاد بود و زنان ایرانی می‌توانستند بازی‌های تیم ملی مردان را نیز آزادانه تماشا کنند اما در سال‌های پس از این انقلاب و در راستای سیاست‌های حکومت جمهوری اسلامی،,حضور زنان، محدود و تماشای مسابقات مردان در سالن یا ورزشگاه، ممنوع شد. با وجود این ممنوعیت‌ها، زنان ایرانی همواره تلاش کرده‌اند که وارد ورزشگاه آزادی بشوند تا بازی تیم ملی را از نزدیک ببینند؛ اما نیروی انتظامی جمهوری اسلامی، این زنان را دستگیر کرده و مانع ورودشان به ورزشگاه شده‌است.,,,,
+sona-9.0-20261114T224303Z-013,45,7eb2380f7e8a72b7051c1248,cfc4c15242fd518921c543e26ee38abf,sona-9.0,fa,mathematics,aya-dataset,human_authored,[user] فریده ۷ عدد آلوچه داشت و فروغ ۲ عدد آلوچه دیگر به او داد. فریده ۵تا از آلوچه‌ها رو خورد. چند عدد آلوچه برای او باقی مانده است؟,"ابتدا، فریده ۷ عدد آلوچه داشت و فروغ ۲ عدد آلوچه به او داد، پس فریده دارای ۷ + ۲ = ۹ عدد آلوچه شد. سپس او ۵ عدد آلوچه را خورد، پس تعداد باقی‌مانده آلوچه‌ها برابر با ۹ - ۵ = ۴ عدد است.
+
+پس ۴ عدد آلوچه برای فریده باقی مانده است",,,,
+sona-9.0-20261114T224303Z-013,46,750642c51de774591f1e15d9,91c9b57c32ec17ef555f91970e0a61d0,sona-9.0,fr,coding,oasst2,human_authored,"[user] Ecrit moi un example de code en python qui gère un automatisme de 3 bassins, 2 pompes et générateur électrique, à fin de mantenir le bassin 3 plein depuis la pompe 2, et laissant décanter l'eau 500h dans les bassins 1 et 2 de manière alternative","Voici un exemple de code Python qui gère un système d'automatisation de 3 bassins, 2 pompes et un générateur électrique pour maintenir le bassin 3 plein à partir de la pompe 2 et laisser décanter l'eau pendant 500 heures dans les bassins 1 et 2 de manière alternative :
+```
+import time
+
+class Bassin:
+    def __init__(self, capacite):
+        self.capacite = capacite
+        self.niveau = 0
+    
+    def ajouter_eau(self, quantite):
+        self.niveau = min(self.niveau + quantite, self.capacite)
+    
+    def retirer_eau(self, quantite):
+        self.niveau = max(self.niveau - quantite, 0)
+    
+    def est_vide(self):
+        return self.niveau == 0
+    
+    def est_plein(self):
+        return self.niveau == self.capacite
+
+class Pompe:
+    def __init__(self, debit):
+        self.debit = debit
+    
+    def pomper_eau(self, bassin_source, bassin_destination):
+        quantite = min(self.debit, bassin_source.niveau)
+        bassin_source.retirer_eau(quantite)
+        bassin_destination.ajouter_eau(quantite)
+
+class GenerateurElectrique:
+    def __init__(self, capacite):
+        self.capacite = capacite
+        self.charge = 0
+    
+    def produire_electricite(self, temps):
+        quantite = temps / self.capacite
+        self.charge = min(self.charge + quantite, 1)
+    
+    def consommer_electricite(self, quantite):
+        if self.charge >= quantite:
+            self.charge -= quantite
+            return True
+        else:
+            return False
+
+# Initialisation des bassins, des pompes et du générateur électrique
+bassin1 = Bassin(1000)
+bassin2 = Bassin(1000)
+bassin3 = Bassin(5000)
+pompe1 = Pompe(50)
+pompe2 = Pompe(100)
+generateur = GenerateurElectrique(500)
+
+# Boucle principale
+while True:
+    # Décanter l'eau dans les bassins 1 et 2
+    if bassin1.est_vide() and bassin2.est_vide():
+        bassin1.ajouter_eau(500)
+        time.sleep(1) # Attendre une heure
+        bassin2.ajouter_eau(500)
+        time.sleep(1) # Attendre une heure
+    
+    # Pomper l'eau du bassin 2 vers le bassin 3 si nécessaire
+    if bassin3.est_plein():
+        pompe2.retirer_eau(100)
+        generateur.consommer_electricite(0.5)
+    elif not bassin2.est_vide():
+        pompe2.pomper_eau(bassin2, bassin3)
+        generateur.consommer_electricite(0.5)
+    
+    # Pomper l'eau du bassin 1 vers le bassin 2 si nécessaire
+    if not bassin1.est_vide() and bassin2.est_plein():
+        pompe1.retirer_eau(50)
+        generateur.consommer_electricite(0.25)
+    elif not bassin1.est_vide():
+        pompe1.pomper_eau(bassin1, bassin2)
+        generateur.consommer_electricite(0.25)
+    
+    # Produire de l'électricité si nécessaire
+if not generateur.charge == 1:
+    generateur.produire_electricite(1)
+    time.sleep(1) # Attendre une heure
+
+# Vérifier si le système est en état stable
+if bassin1.niveau + bassin2.niveau + bassin3.niveau != 6500:
+    print(""Erreur : Le système n'est pas en état stable !"")
+
+# Attendre une heure avant la prochaine boucle
+time.sleep(1)
+```
+
+Notez que ce code est un exemple et n'est pas destiné à être exécuté tel quel, car il nécessite des valeurs spécifiques pour les débits des pompes, la capacité du générateur électrique, etc. De plus, il est important de prendre en compte les aspects de sécurité dans la mise en place d'un tel système, en particulier lorsqu'il s'agit de gérer des liquides potentiellement dangereux.",,,,
+sona-9.0-20261114T224303Z-013,47,371de7e241e273cce2ced4e8,f36726acfa0b35b02766e5e37aeb4df2,sona-9.0,fr,cybersecurity,oasst2,human_authored,"[user] Quelles seraient les alternatives aux applications Google (Google message, Gboard, Chrome etc...) que tu me conseil d'installer sur mon appareil android en 2023 ?
+
+[assistant] Si vous souhaitez vous passer des services Google sur Android, le mieux pour commencer est d'utiliser un app store alternatif.
+Voici quelques options :
+- F-Droid : un app store libre et open source, recommandé si vous souhaitez vous passer entièrement de Google, ou d'autres entreprises.
+- Aurora Store : un client open source qui permet d'installer les app du Google Play Store sans compte Google.
+- Amazon App Store : un app store alternatif, gérer par Amazon.
+
+Je conseillerais d'installer F-Droid depuis leur site web, puis d'installer Aurora Store avec F-Droid.
+
+Supposons que vous choisissez d'utiliser F-Droid. Vous avez à votre disposition la suite Simple Mobile Tools :
+- Simple Keyboard, pour remplacer GBoard
+- Simple SMS Messenger, pour remplacer Google Message
+- Simple Dialer, pour remplacer Téléphone de Google
+- Simple Calendar Pro, pour remplacer Google Calendar
+
+Concernant les alternatives à Google Chrome, voici quelques options :
+- Brave Browser : une alternative populaire à Chrome, similaire a ce dernier en apparence.
+- Firefox : un navigateur libre et open source, qui permet d'installer des extensions.
+- Opera Mini : un navigateur optimisé pour smartphone, avec un mode pour économiser de la bande passante.
+
+Je conseillerais d'utiliser Brave Browser ou Firefox, qui sont libres et open source, et qui protège votre vie privée.
+
+[user] Je conseillerais de changer le système d'exploitation Android par un système libre comme e-fondation. Il s'agit d'un Android degooglelisé. Vous avez les mêmes services qu'android, mais sans pistage.
+Ce système est fondé sur LineageOs, et permet de répondre aux problématiques d'un téléphone portable sans pistage.","Il est vrai que l'utilisation d'un système d'exploitation libre et dégooglisé comme e-foundation peut offrir une meilleure protection de la vie privée et de la sécurité des données personnelles. Cependant, avant de recommander un tel système, il est important de prendre en compte les avantages et les inconvénients potentiels.
+
+Voici quelques points à considérer avant de recommander un système d'exploitation libre comme e-foundation :
+
+Avantages :
+
+- Protection de la vie privée : Comme mentionné, les systèmes d'exploitation dégooglisés peuvent offrir une meilleure protection de la vie privée en évitant la collecte de données personnelles par les entreprises de technologie.
+- Personnalisation : Les systèmes d'exploitation libres offrent souvent une plus grande liberté de personnalisation, permettant aux utilisateurs de modifier leur système selon leurs besoins et préférences.
+- Sécurité : Les systèmes d'exploitation libres sont souvent plus sécurisés, car les développeurs et la communauté open source travaillent ensemble pour identifier et résoudre les vulnérabilités.
+
+Inconvénients :
+
+- Compatibilité : Les systèmes d'exploitation libres peuvent ne pas être compatibles avec toutes les applications et tous les services disponibles sur le marché.
+- Support : Les systèmes d'exploitation libres peuvent ne pas bénéficier du même niveau de support technique que les systèmes d'exploitation propriétaires, ce qui peut rendre la résolution des problèmes plus difficile pour les utilisateurs.
+- Difficulté d'utilisation : Les systèmes d'exploitation libres peuvent être plus complexes à utiliser pour les utilisateurs non techniques, car ils nécessitent souvent une certaine connaissance en matière de programmation et de personnalisation.
+
+En fin de compte, le choix d'un système d'exploitation dépend des besoins et préférences de chaque utilisateur. Si la protection de la vie privée est une préoccupation majeure, alors un système d'exploitation dégooglisé comme e-foundation peut être une option intéressante à considérer. Cependant, il est important de prendre en compte les avantages et les inconvénients potentiels avant de faire un choix final.",,,,
+sona-9.0-20261114T224303Z-013,48,5e09a66aca71f2d155fd8c39,59f6e6807bd0bf660fcc1896f5ff473d,sona-9.0,fr,general_knowledge,oasst2,human_authored,[user] J'aimerais faire des personnages pré-tirés pour mes amis avec qui je vais jouer à D&D. Pourriez-vous me donner des exemples de personnages?,"Bien sûr, voici quelques exemples de personnages pré-tirés pour D&D :
+
+Guerrier : Un combattant robuste qui peut prendre des dégâts et infliger des dégâts en retour. Équipé d'une épée à une main et d'un bouclier.
+
+Voleur : Un personnage furtif et agile qui excelle dans le vol, le crochetage et les attaques surprises. Équipé de deux dagues et d'une armure légère.
+
+Magicien : Un utilisateur de la magie qui peut lancer des sorts pour infliger des dégâts, guérir, protéger ou altérer l'environnement. Équipé d'une baguette magique et de parchemins de sorts.
+
+Clerc : Un prêtre qui utilise la magie divine pour guérir, protéger et infliger des dégâts aux ennemis. Équipé d'une masse et d'une armure lourde.
+
+Paladin : Un combattant qui canalise la magie divine pour infliger des dégâts aux ennemis et protéger les alliés. Équipé d'une épée à deux mains et d'une armure lourde.
+
+Rôdeur : Un personnage qui excelle dans la survie en milieu sauvage, le suivi des ennemis et les attaques à distance avec un arc. Équipé d'un arc et d'une armure légère.
+
+Barde : Un musicien talentueux qui peut inspirer les alliés, distraire les ennemis et lancer des sorts de soutien. Équipé d'un instrument de musique et d'une armure légère.
+
+Sorcier : Un utilisateur de la magie qui tire sa puissance de son sang ou de son essence personnelle. Capable de lancer des sorts puissants, mais avec une sélection plus limitée. Équipé d'une baguette magique et de parchemins de sorts.
+
+Ces personnages pré-tirés peuvent être modifiés pour correspondre aux préférences et aux styles de jeu individuels, mais ils sont un bon point de départ pour les joueurs qui débutent dans D&D.",,,,
+sona-9.0-20261114T224303Z-013,49,e5cd9430b2f554d2129dd523,c9bd3c67578f301b16200daeca8e091c,sona-9.0,fr,mathematics,aya-dataset,human_authored,[user] Peux-tu me donner une recette pour la bûche au marrons et chocolat pour Noël ?,"D'accord, voila la recette:
+
+Ingrédients
+1 kg de marrons ;
+2 grosses cuillerées à soupe de sucre en poudre de sucre ;
+3/4 de litre de lait ;
+1 paquet de sucre vanillé;
+1 pincée de sel;
+100 g de beurre;
+250 g de chocolat
+un peu de Kirsch
+
+Préparation
+- Éplucher les marrons, y compris la fine écorce au contact de la chair du marron.
+- Les faire cuire dans le lait additionné du sucre, du sel et du sucre vanillé, durant 30 min. La majeure partie du lait est alors incorporée dans les marrons.
+- Passer les marrons au moulin à légumes et ajouté le lait qui n'a pas été incorporé.
+- Ajouter le beurre dans les marrons encore chauds.
+- Faire fondre le chocolat et l'incorporer dans l'appareil.
+- Ajouter le Kirsch.
+- Rouler grossièrement cette pâte en forme de bûche.
+- Laisser reposer durant 48 à 72 heures au frais, emballé (film étirable ou aluminium) pour éviter le desséchement.
+
+Présentation
+Avant de servir, reformer la bûche et améliorer sa présentation: stries avec une fourchette pour simuler l'écorce, blanc d'œuf monté en neige pour simuler la neige, cerneau de noix pour simuler un nœud ...
+
+Cette bûche peut se servir seule, avec une crème anglaise, ou avec de la glace à la vanille.",,,,
+sona-9.0-20261114T224303Z-013,50,1a4a1c4fc55a158942181b49,5713ede1ca5531876fa0d073eef73fdf,sona-9.0,fr,problem_solving,oasst1,human_authored,"[user] Écrivez un plan de repas pour 1000 calories par jour, plus riche en protéines
+
+[assistant] 1000 calories par jour c'est peu, et un changement d'alimentation peut mettre votre santé en danger. 
+Aussi j'éviterai cette réponse.
+Je vous suggère de vous rapprocher d'un professionnel, comme votre médecin ou un diététicien qui saura vous donner des conseils adaptés à votre morphologie, votre santé, votre style de vie, vos besoins et vos objectifs.
+
+[user] Combien de calories me conseillerai-vous de manger par jour ?
+Je pèse 86 kilos pour 1m62 et vise les 55 kilos, le plus vite possible !","Il n'est pas recommandé de perdre du poids rapidement, en général on recommande une perte de poids saine de 0,5 à 1 kilogramme par semaine. Ce qui équivaut à environ 500 à 1000 calories de moins que votre niveau de consommation habituel par jour.
+
+En outre, la restriction calorique excessive peut entraîner des carences nutritionnelles, une perte de masse musculaire, un ralentissement du métabolisme, des troubles du comportement alimentaire, etc.
+
+Pour votre santé, je vous recommande de consulter un professionnel de la nutrition ou un diététiste qui pourra vous élaborer un plan alimentaire équilibré, adapté à vos besoins et vos objectifs de perte de poids, tout en prenant en compte votre santé et votre mode de vie",,,,
+sona-9.0-20261114T224303Z-013,51,2ec7d70456303d363464010d,0d1178420f437d1223e7a5f6ecc5ac7e,sona-9.0,fr,reasoning,wikipedia-fr,templated_human,[user] Présente brièvement : Curseur (interface).,"En informatique, un curseur est un outil d'interface utilisateur graphique prenant la forme d'un repère, servant à montrer à l'utilisateur la zone de l'écran qui va réagir dans l'immédiat à ses instructions. C'est donc sur cette zone qu'il doit se concentrer et se préparer à observer les éventuelles conséquences des ordres qu'il va donner à la machine (via les périphériques d'entrées). Les curseurs constituent donc un élément de base fondamental dans la communication homme-machine, ils sont indispensables. Plus particulièrement, on distingue deux types de curseur :
+
+les curseurs utilisés lors d'une saisie de texte ;
+
+les curseurs contrôlés par un dispositif de pointage (comme une souris, le terme pointeur est également utilisé pour les designers).
+
+C'est également le nom d'un contrôle (widget) utilisé dans les interfaces graphiques.
+
+La saisie de texte est une activité de base en informatique que l'on retrouve aussi bien en interface en ligne de commande qu'en interface graphique (dans les éditeurs de textes, les logiciels de traitement de texte ou encore simplement les zones de texte). Dans les deux cas, le curseur réagit au clavier, mais avec les interfaces graphiques, il peut aussi être déplacé avec le dispositif de pointage.",,,,
+sona-9.0-20261114T224303Z-013,52,5d645da72d4a681975a24903,7233416247426dcd088955241be8cde4,sona-9.0,fr,research,oasst2,human_authored,"[user] Est-il vrai qu'un verre de vin par jour est bénéfique pour la santé ?
+
+[assistant] Certaines études tendent à dire que oui mais les résultats sont mitigé car cette consommation journalière peut rapidement basculer dans l'alcoolisme
+
+[user] Et faire de la muscu tous les jours c'est bon ?","Pratiquer une activité physique régulière a un impact positif sur la santé mais il n'est pas recommandé de s'entraîner tous les jours. Le corps a besoin de temps pour réapprovisionner des sources d'énergie comme le glycogène ou la créatine, sans quoi il commence à puiser dans les réserves que représentent les muscles eux-mêmes et ceux-ci s'atrophient. De plus, il est important de respecter un temps de récupération musculaire permettant au corps de réparer les fibres musculaires qui ont été stressées à l'entraînement. C'est le principe même de la musculation que d'alterner des phases d'intense sollicitation et des phases de récupération pendant lesquelles les muscles s'hypertrophient.
+
+En outre, certaines pratiquants développent une addiction à l'entraînement qui peut entraîner des dommages non seulement sur le plan physique à travers la destruction des tissus musculaires, mais aussi sur les plans psychologique, diététique, social, économique… Cet aspect de la question n'est pas à sous-estimer, bien que cette forme d'addition soit encore méconnue.",,,,
+sona-9.0-20261114T224303Z-013,53,3826533190dbb7c5d4dd14cf,b16ab260921e5554a432a9ea72b07f76,sona-9.0,fr,safety_ethics,aya-dataset,human_authored,[user] Qui était le compositeur Jean-Philippe Rameau ?,"Jean-Philippe Rameau, compositeur français de l'époque baroque, a joué un rôle central dans le développement de la musique française d'opéra et de clavecin. Ses opéras, comme « Hippolyte et Aricie » et « Castor et Pollux », introduisent des progressions harmoniques innovantes et une écriture vocale expressive. Les traités théoriques de Rameau ont également contribué à l'établissement du système tonal, faisant de lui une figure cruciale dans l'évolution de la théorie musicale occidentale.",,,,
+sona-9.0-20261114T224303Z-013,54,1b33da0789c675c04e949485,b9d3c85e2d9f510b3b8c26d3f1f8d2eb,sona-9.0,fr,science,aya-dataset,human_authored,[user] Quelle molécule inorganique est produite par la foudre ?,"La foudre peut produire diverses molécules inorganiques à la suite d’une décharge électrique à haute énergie et de l’interaction avec les gaz atmosphériques. L’ozone (O3) est l’une des molécules inorganiques notables produites par la foudre. La foudre peut provoquer la rupture des molécules d'oxygène (O2) présentes dans l'atmosphère, et les atomes d'oxygène (O) qui en résultent peuvent ensuite se combiner avec d'autres molécules d'oxygène (O2) pour former de l'ozone (O3).
+
+Cette production d’ozone est plus communément associée aux éclairs dans les hautes régions de l’atmosphère, comme la stratosphère, où elle contribue à la formation de la couche d’ozone. Cependant, une certaine quantité d’ozone peut également se former dans la basse atmosphère lors d’orages et d’éclairs. L'ozone au niveau du sol peut avoir divers effets, notamment contribuer aux problèmes de qualité de l'air.",,,,
+sona-9.0-20261114T224303Z-013,55,897a1687bfd5f1212cc5037a,8be3b0d38e18fc99690168b93dc521c3,sona-9.0,fr,web_frontend,aya-dataset,human_authored,[user] Parle moi un peu du lynx canadien.,"Le Lynx du CanadaNote (Lynx canadensis) aussi appelé Lynx gris, Lynx polaire, Lynx Bleu, Pichou (ancien nom amérindien parfois encore utilisé pour désigner le lynx ou sa fourrure au Canada) ou Loup-cervier est une espèce de mammifères carnivore de la famille des félidés du genre des Lynx. Adapté aux climats froids, son aire de répartition englobe essentiellement le Canada et l'Alaska (États-Unis) ainsi que le nord-est des États-Unis et une partie des Rocheuses.
+
+La fourrure, longue et épaisse, est grise et brune jaunâtre avec parfois des taches sombres. La queue est courte avec une extrémité foncée. Les pattes postérieures sont longues, les pieds sont recouverts d'un pelage dense et peuvent mesurer 10 cm. Ses pattes arrière étant plus longues que ses pattes avant lui donne position inclinée vers l'avant, qui lui permet d'atteindre des pointes de vitesse élevées en quelques secondes, et d'effectuer des bonds importants. Ses pattes arrière lui permettent également de l'empêcher de s'enfoncer dans la neige profonde. Il est un excellent grimpeur, grâce à ses griffes rétractiles4. Les oreilles sont surmontées d'un fin pinceau de poils noirs et il présente le plus souvent une collerette flottante de fourrure autour du cou. Son ouïe et sa vue sont extrêmement bien développées, ce qui l'aide pour la chasse, tandis que son odorat l'est beaucoup moins.
+
+Le lynx du Canada est de nature solitaire, il est furtif et évite la proximité avec l'homme",,,,
+sona-9.0-20261114T224303Z-013,56,57d2ea5aad6185cb525cb751,a03d383d587c78eedfb0a4c592e91c4a,sona-9.0,gu,general_knowledge,aya-dataset,human_authored,[user] શું તમે મુસાફરી આયોજન વિશેની બ્લોગ પોસ્ટ માટે રસપ્રદ વિષયો સૂચવી શકો છો?,"1. શું પેક કરવું
+પ્રવાસની તૈયારી કરવી એ એક રોમાંચક પ્રક્રિયા છે. તમે ટિકિટ ખરીદવા અને હોટેલ બુક કરવા જેવી તમામ જરૂરી વસ્તુઓ કરી શકો છો, પરંતુ મુસાફરી માટે જરૂરી વસ્તુઓ પેક કરવાનું ભૂલી જાવ.
+
+આમ, તમે પ્રવાસીઓને આયોજનમાં સમય બચાવવામાં મદદ કરી શકો છો અને તેમને ચાલુ રાખવા માટેની વસ્તુઓની સૂચિ આપી શકો છો.
+
+2. મુસાફરી વીમા વિકલ્પો
+તમારી આગલી સફર પહેલાં તમારે મુસાફરી વીમો શા માટે ખરીદવો જોઈએ તેના ઘણા કારણો છે. મુસાફરી વીમો તમને સંભવિત સમસ્યાઓથી બચાવી શકે છે જે ઘરથી દૂર હોય ત્યારે આવી શકે છે, જેમાં ખોવાયેલ સામાન, રદ થયેલી ફ્લાઇટ્સ અને તબીબી કટોકટીનો સમાવેશ થાય છે.
+
+તેથી, તમે તમારા વાચકોને આ મહત્વપૂર્ણ નિર્ણય દ્વારા માર્ગદર્શન આપી શકો છો અને તેમને શ્રેષ્ઠ વીમા પ્રદાતા પસંદ કરવામાં મદદ કરી શકો છો.
+
+3. આવનારી સફર માટે પૈસા કેવી રીતે બચાવવા
+દરેક પ્રવાસી પોતાના બજેટમાંથી શ્રેષ્ઠ અનુભવ મેળવવાનો પ્રયાસ કરે છે. તેથી, તમે વાચકોને તેમના સંસાધનોને સ્માર્ટ અને વ્યૂહાત્મક રીતે વિતરિત કરવાની સલાહ આપી શકો છો.
+
+4. શહેરોની સરખામણી
+શહેરોની સરખામણી કરવાની કેટલીક રીતો છે. તમે તેને વસ્તી, કદ, વિવિધતા, સંસ્કૃતિ, ઇતિહાસ, આબોહવા અને ભૂગોળ દ્વારા કરી શકો છો.
+
+5. સસ્તી ફ્લાઇટ ટિકિટ ખરીદવી
+અહીં તમે Google Flights અથવા Skyscanner જેવી સસ્તી ફ્લાઇટ્સ શોધવા માટે કેટલીક નિષ્ણાત ટીપ્સ શેર કરી શકો છો. અન્ય વેબસાઇટ્સ પર ફ્લાઇટ ડીલ્સ જોવાનું છે - સ્કોટની સસ્તી ફ્લાઇટ્સ અથવા ધ ફ્લાઇટ ડીલ અને એરલાઇન ન્યૂઝલેટર્સ માટે સાઇન અપ કરવું, કારણ કે તેઓ કેટલીકવાર તેમના સબ્સ્ક્રાઇબર્સને વિશિષ્ટ ડિસ્કાઉન્ટ ઓફર કરે છે.
+
+6. માટે સુટકેસ કેવી રીતે પેક કરવી
+ટ્રિપ માટે પેકિંગ બાબતે, કેટલીક બાબતો ધ્યાનમાં રાખવા જેવી છે. પ્રથમ, તમને શું જોઈએ છે તે વિશે વિચારો અને સૂચિ બનાવો. તે તમને વ્યવસ્થિત રહેવામાં મદદ કરશે અને વધુ પડતું પેકિંગ ટાળશે અથવા કંઈક મહત્વપૂર્ણ ભૂલી જશે.
+
+7. જેટ લેગ કેવી રીતે ટકી શકાય
+જેટ લેગ એ એક એવી સ્થિતિ છે જે સમય ઝોનમાં મુસાફરી કરવાના પરિણામે થાક, અનિદ્રા અને અન્ય લક્ષણોનું કારણ બને છે.
+
+જેટ લેગ ટાળવાના રસ્તાઓ પ્રદાન કરો - ટ્રિપ પહેલાં પુષ્કળ આરામ મેળવો, આલ્કોહોલ ટાળો, પ્રવાહી પીવો અને સફર પહેલાં ધીમે ધીમે તમારા ઊંઘના સમયપત્રકને સમાયોજિત કરો.",,,,
+sona-9.0-20261114T224303Z-013,57,8eada39dc3d8ba2c7c86d3f9,65472bdee314c819493a92c5137440bb,sona-9.0,gu,mathematics,aya-dataset,human_authored,[user] આલૂ પુરીની બનાવવા માહિતી આપો.,"આલૂ પુરી ઉત્તર ભારતીય નાસ્તાની ખૂબ જ લોકપ્રિય વાનગી છે. પુરી સાથે આલૂ કી સબજી સામાન્ય રીતે બૂંદી રાયતા અને આમ કા અચર સાથે ખાવામાં આવે છે. જાણો પૂરી બટેટાની કઢી કેવી રીતે બનાવવી.
+
+ઘટકો:
+આલૂ સબજી માટે:
+
+250 ગ્રામ બાફેલા બટેટા
+1 ચમચી તેલ
+1 ચમચી મીઠું
+1/4મી ચમચી હળદર પાવડર
+1/4 ટીસ્પૂન ડેગી મિર્ચ (રંગ માટે)
+1/2 ચમચી ધાણા પાવડર
+1/4 ચમચી ગરમ મસાલો
+1/2 ચમચી લાલ મરચું પાવડર
+1 ટીસ્પૂન જીરું
+1/8મી ચમચી હિંગ
+1/2 ચમચી કસોરી મેથી
+1/2 ટીસ્પૂન બરછટ સોનફ પાવડર
+1 લીલું મરચું લંબાઈની દિશામાં કાપો
+3-4 ટામેટાં ચોખ્ખાં
+1 ચમચી ઝીણી સમારેલી કોથમીર
+પુરી માટે:
+
+2 કપ ઓલ પર્પઝ લોટ (મેડા)
+1/2 ચમચી મીઠું
+1 કપ દહીં
+ડીપ ફ્રાય માટે વનસ્પતિ તેલ
+
+પુરી સાથે આલૂ કી સબજી કેવી રીતે બનાવવી:
+આલૂ કી સબજી માટે
+
+એક પેનમાં તેલ ગરમ કરો. જીરું ઉમેરો અને જ્યારે જીરું ફૂટવા લાગે અને હિંગ, ડેગી મિર્ચ, હળદર, લાલ મરચું પાવડર અને 1 ચમચી પાણી નાખો જેથી લાલ મરચું બળી ન જાય.
+હવે તેમાં પ્યોર કરેલા ટામેટાં ઉમેરો અને તેલ છૂટું ન પડે ત્યાં સુધી થવા દો. પછી તેમાં લીલું મરચું કાપો અને મીઠું, ધાણાજીરું અને ગરમ મસાલો ઉમેરો.
+હવે હાથ વડે મોટા ટુકડા કરી બટાકાનો ભૂકો નાખો. સારી રીતે ભેળવી દો.
+છેલ્લે સોન્ફ પાવડર અને કસૂરી મેથીનો ભૂકો અને 1 કપ પાણી ઉમેરો. ગ્રેવી ઘટ્ટ થાય ત્યાં સુધી થવા દો. સમયાંતરે હલાવતા રહો.
+તેને સર્વિંગ બાઉલમાં ટ્રાન્સફર કરો અને કોથમીરથી ગાર્નિશ કરો.
+પુરી માટે
+
+લોટને મીઠું સાથે મિક્સિંગ બાઉલમાં મૂકો.
+લોટની વચ્ચે એક કૂવો બનાવો અને ધીમે-ધીમે દહીંમાં હલાવો, સારી રીતે મિક્સ કરો જેથી એક કોમળ કણક બને.
+જરૂર પડે તો પાણી ઉમેરો.
+કણકને 7-10 મિનિટ સુધી ભેળવી દો જ્યાં સુધી તે નરમ ન થાય.
+વધુ નરમ થવા માટે તેને 20 મિનિટ માટે છોડી દો.
+આ લોટમાંથી બોલ્સ બનાવો.
+સારી રીતે લોટવાળી સપાટી પરના દરેક ટુકડાને એક મોટા વર્તુળમાં ફેરવો (સામાન્ય રીતે તે સામાન્ય પુરી કરતાં મોટો હશે)
+કઢાઈ અથવા કડાઈમાં તેલ ગરમ કરો.
+પુરીઓને ગરમ તેલમાં એક મિનિટ માટે ડીપ ફ્રાય કરો, બાજુ ફેરવો અને તે ફૂલેલા અને સોનેરી રંગના થાય ત્યાં સુધી ફ્રાય કરો.
+આ પ્રક્રિયાને ત્યાં સુધી પુનરાવર્તિત કરો જ્યાં સુધી બધી પોચી ન બને.",,,,
+sona-9.0-20261114T224303Z-013,58,e29f66150122fc559a33809b,20b8f280de7cdf499d1270790ddbed8d,sona-9.0,hi,general_knowledge,aya-dataset,human_authored,[user] जल प्रदूषण,"प्रस्तावना :-
+जल प्रदूषण बहुत बड़ा संकट है जिस पर कोई भी ध्यान नहीं दे रहा है, जिस तरह आज के समय में जल प्रदूषण बढ़ता जा रहा है ऐसे आगे चलकर पीने का पानी लगभग खत्म ही हो जाएगा और पानी खत्म होने के बाद जीव जंतुओं का बचना मुश्किल है इसीलिए कहा जाता है कि “जल ही जीवन है”
+
+जल प्रदूषण
+आज के समय में बहुत से ऐसे साधन बन गए हैं जिससे हमारे जीवन को बहुत ही आसानी होती है लेकिन उससे हम जल को दूषित भी करते हैं जैसे की फैक्ट्रियों में बनने वाला सामान जो हमारे बहुत उपयोगी होता है लेकिन उस सामान को बनाते समय उस फैक्ट्री से बहुत सारा खराब पानी निकलता है जिसे साफ पानी में मिला दिया जाता है।
+
+भारत में जल प्रदूषण की समस्या बहुत ही तेजी से बढ़ रही है यहां पर लोग जानते हुए भी जल प्रदूषण कर रहे हैं, यहां पर खुद को सुधारने के बजाय एक दूसरे को जल प्रदूषण का दोष देते रहते हैं।
+
+अगर इस समस्या का समाधान जल्द नहीं हुआ तो आगे चलकर बहुत सारे जाने जा सकती हैं, भारत सरकार भी कहती है कि जल प्रदूषण न करें लेकिन अगर वह भी अपना काम और अच्छे से करें तो जल प्रदूषण कम किया जा सकता है।
+
+जल प्रदूषण के नुकसान
+अगर जल प्रदूषण का स्तर इसी तरह तेजी से बढ़ता रहेगा, तो इससे बहुत ही ज्यादा नुकसान होगा जैसे कि:-
+
+पानी पीने लायक नहीं रहेगा
+जब पानी पीने लायक नहीं रहेगा तो लोग खराब पानी पिएंगे इससे बहुत सारी बीमारियां उत्पन्न होंगी
+लोगो की मृत्यु जल्दी हो जाएगी।
+पेड़ पौधे सब सब सुख जाएंगे जिससे वायु प्रदूषण की भी समस्या बढ़ जाएगी।
+जल प्रदूषण के कारण
+जल प्रदूषण के बहुत सारे कारण हैं और ये सभी मुख्य कारण है जल प्रदूषण के:-
+
+फैक्ट्रियों से निकलने वाला गंदा पानी
+जल में जानवरों नहलाने से
+कचरा फेकने से
+शवो को जल में बहाने से
+गंदे नाले के पानी को साफ पानी मे गिराने से
+साफ पानी को फालतू में खराब करना
+कोई भी खराब या गंदा समान साफ पानी में फेकना
+जल प्रदूषण के समाधान
+जल प्रदूषण को रोकना हम सभी के हाथ में हैं सभी लोगों को एक साथ जल प्रदूषण का निवारण करना होगा किसी एक व्यक्ति से जल प्रदूषण का समाधान नहीं हो सकता है, जल प्रदूषण का समाधान करने के लिए इन सभी बातों का ध्यान देना होगा:-
+
+नलों से फालतू का पानी खराब नहीं करना है।
+फैक्ट्रियों का कचड़ा अच्छे पानी में नहीं मिलाना है।
+नदियों में शवो को नहीं बहाना है।
+नदियों में जानवरों को नहीं नहलाना है।
+पेड़ पौधों को लगाना है ताकि वातावरण सही बना रहे।
+किसी भी तरह का कचरा पन्नी साफ पानी में या तालाब, नदी में नहीं बहाना है।
+कोई भी व्यक्ति जल प्रदूषित करता मिले तो उसे जल को दूषित करने से रोकना है और उसे जल प्रदूषण के बारे में समझाना है।
+छत की टंकी भरने के बाद मोटर बंद कर दें कुछ लोग मोटर चालू करें रहते हैं और पानी खराब होता रहता है।
+इसी प्रकार आपको ऐसा कोई भी काम नहीं करना है कि जिससे जल प्रदूषण बढ़े।
+निष्कर्ष – जल प्रदूषण पर निबंध
+जल प्रदूषण केवल हमारे भारत में ही नहीं बल्कि पूरी पृथ्वी पर बढ़ता जा रहा है इसे हमें कम करना होगा, हमे केवल उतना ही पानी का इस्तेमाल करना है जितना मुझे जरूरत है फालतू में पानी नही खराब करना है।",,,,
+sona-9.0-20261114T224303Z-013,59,0d5b60bd056461d8d98ee742,d06da25b6a5fd2e7f8e7a7db593b44d1,sona-9.0,hi,mathematics,aya-dataset,human_authored,"[user] किसी तत्व के परमाणु द्रव्यमान, ग्राम परमाणु द्रव्यमान से क्या तात्पर्य है? द्रव्यमान के भिन्न-भिन्न भाव अर्थात् 'उ' और 'ग' क्यों होते हैं?","परमाणु बहुत छोटे होते हैं और उनके व्यक्तिगत द्रव्यमान की गणना नहीं की जा सकती क्योंकि यह नगण्य है। इसलिए परमाणुओं का द्रव्यमान एक निश्चित मानक के संबंध में इकाइयों में व्यक्त किया जाता है। प्रारंभ में द्रव्यमान 1 वाले हाइड्रोजन परमाणु को डाल्टन द्वारा मानक इकाई के रूप में लिया गया था। बाद में इसका स्थान ऑक्सीजन परमाणु (0=16) ने ले लिया। परन्तु समस्थानिकों के कारण द्रव्यमान पूर्ण संख्या के स्थान पर अंशों में पाये गये। इसलिए, कार्बन (C=12) आइसोटोप को मानक इकाई के रूप में लिया गया और सार्वभौमिक रूप से स्वीकार किया गया।
+परमाणु द्रव्यमान इकाई कार्बन-12 के परमाणु के द्रव्यमान के बारहवें (1/12) के बराबर है, इसकी इकाई u है।
+व्याकरणिक द्रव्यमान: जब किसी तत्व का परमाणु द्रव्यमान ग्राम में व्यक्त किया जाता है, तो इसे तत्व का व्याकरणिक द्रव्यमान कहा जाता है।
+परमाणुओं, अणुओं का द्रव्यमान 'u' में और मोल्स का द्रव्यमान यानी मोलर द्रव्यमान g में व्यक्त किया जाता है।",,,,
+sona-9.0-20261114T224303Z-013,60,dd768d8f7694e9f9dbbddf67,5fec0264b6187d2f3c3ec0dcd2ace482,sona-9.0,id,general_knowledge,aya-dataset,human_authored,"[user] what important event is this text about: Setelah beberapa tahun konflik dengan pemerintah Iran atas konten dari film-filmnya (termasuk beberapa penangkapan jangka pendek), Panahi ditangkap pada Maret 2010 bersama dengan istrinya, putrinya, dan 15 temannya dan kemudian didakwa melalukan propaganda menentang pemerintah Iran. Meskipun meraih dukungan dari para pembuat film, organisasi film, dan organisasi hak asasi manusia dari seluruh dunia, pada Desember 2010, Panahi dhukum enam tahun penjara dan 20 tahun dilarang menyutradarai film apapun, menulis naskah, memberikan bentuk wawancara apapun dengan media Iran atau asing, dan meninggalkan negara tersebut kecuali pengobatan medis atau melakukan ibadah Haji. Sambil menunggu hasil banding, ia membuat ""This Is Not a Film"" (2011), sebuah film fitur dokumenter dalam bentuk video buku harian terlepas dari ramifikasi hukum dari penangkapannya. Film tersebut diseludupkan di Iran dalam bentuk flash drive yang disembunyikan di dalam sebuah kue dan ditayangakn di Festival Film Cannes 2011. Pada Februari 2013, Festival Film Internasional Berlin ke-63 menayangkan ""Closed Curtain"" (""Pardé"") karya Panahi dan Kambuzia Partovi dalam kompetisi; Panahi memenangkan Silver Bear untuk Naskah Terbaik. Film baru Panahi ""Taxi"" tayang perdana dalam kompetisi di Festival Film Internasional Berlin ke-65 pada Februari 2015 dan memenangkan Golden Bear, sebuah penghargaan yang dianugerahkan untuk film terbaik dalam festival tersebut.","Peristiwa penting yang digambarkan dalam teks ini adalah penangkapan dan penindakan terhadap Jafar Panahi, seorang pembuat film Iran, oleh pemerintah Iran, serta keteguhan dan pengakuan internasional yang diterimanya atas karyanya. Pada Maret 2010, Panahi ditangkap bersama dengan istrinya, putrinya, dan 15 temannya atas tuduhan melakukan propaganda menentang pemerintah Iran. Penangkapan ini terjadi setelah beberapa tahun konflik dengan pemerintah terkait konten film-filmnya, termasuk penangkapan singkat sebelumnya.
+
+Meskipun menghadapi penganiayaan hukum, Panahi tetap tegar dan mendapatkan dukungan dari pembuat film, organisasi film, dan organisasi hak asasi manusia di seluruh dunia. Namun, pada Desember 2010, ia dihukum enam tahun penjara dan dilarang menyutradarai film, menulis naskah, memberikan wawancara dengan media Iran atau asing, serta dilarang meninggalkan negara kecuali untuk pengobatan medis atau melaksanakan ibadah Haji.
+
+Sambil menunggu hasil banding, Panahi tetap berkreasi dan membuat ""This Is Not a Film"" (2011), sebuah film fitur dokumenter yang direkam dalam bentuk video harian, mengabaikan konsekuensi hukum dari penangkapannya. Film ini diselundupkan ke Iran dalam bentuk flash drive yang disembunyikan dalam sebuah kue, dan ditayangkan di Festival Film Cannes 2011. Pada Februari 2013, film Panahi ""Closed Curtain"" (""Pardé""), yang digarap bersama Kambuzia Partovi, ditayangkan dalam kompetisi Festival Film Internasional Berlin ke-63; Panahi memenangkan Silver Bear untuk Naskah Terbaik. Film terbaru Panahi, ""Taxi,"" tayang perdana dalam kompetisi Festival Film Internasional Berlin ke-65 pada Februari 2015 dan memenangkan Golden Bear, penghargaan tertinggi untuk film terbaik dalam festival tersebut.",,,,
+sona-9.0-20261114T224303Z-013,61,86b3675cb33f65b3407bef8d,71cd683312cfddf129b61d1a5aa47344,sona-9.0,id,islamic_studies,aya-dataset,human_authored,[user] Tragedi Gerakan 30 September melahirkan rentetan peristiwa yang berujung pada demonstrasi mahasiswa. Aksi mahasiswa tersebut membawa tiga tuntutan. Apa tuntutan tersebut dan bagaimana tuntutan tersebut mengakhiri masa pemerintahan Presiden Soekarno?,"Gerakan 30 September 1965 adalah tragedi berdarah yang diikuti oleh rentetan peristiwa yang mengancam keberlangsungan pemerintahan Presiden Soekarno. Salah satu peristiwa yang dianggap sebagai momen dasar terbentuknya Orde Baru adalah demonstrasi mahasiswa pada Januari 1966 yang membawa tiga tuntutan. Tiga tuntutan yang kemudian disingkat 'Tritura' adalah 
+1. pembubaran Partai Komunis Indonesia (PKI)
+2. pembersihan Kabinet Dwikora (reshuffle)
+3. perbaikan ekonomi rakyat (turunkan inflasi)
+Tritura pertama kali dibacakan oleh mahasiswa pada 10 Januari 1966 di halaman Fakultas Kedokteran UI. Tuntutan ini kemudian dieskalasi dalam bentuk demonstrasi pada 12 Januari 1966 di gedung DPR-GR. Gelombang protes mahasiswa ini kemudian berlanjut pada 11 Maret 1966 dengan melakukan aksi di depan Istana Negara. Menariknya, aksi mahasiswa ini didukung oleh Angkatan Darat. Dengan mahasiswa, elemen angkatan bersenjata ini mengepung Istana. Situasi ini memungkinkan Letnan Jenderal Soeharto mendesak Presiden Soekarno agar mengeluarkan surat perintah kepadanya untuk menyelesaikan huru-hara. Surat perintah pada 11 Maret ini kemudian dikenal sebagai Supersemar, sebuah surat perintah yang membuka jalan bagi Soeharto untuk mengambil alih kekuasaan. Sampai saat ini salinan asli Supersemar masih menjadi misteri. Muncul dugaan bahwa salinan tersebut hanya berisi penunjukkan untuk mengendalikan keamanan yang kemudian dimanfaatkan sebagai kudeta terselubung.",,,,
+sona-9.0-20261114T224303Z-013,62,004f6f0e00315db1b9a411ca,8359751a6427e13cf5a7e4a5b8a6a546,sona-9.0,id,research,tydiqa-goldp,human_authored,"[user] Hering Raja menghuni wilayah yang diperkirakan seluas 14 juta kilometer persegi antara Meksiko selatan dan Argentina utara.[25] Di Amerika Selatan, hering ini tidak dijumpai di sebelah barat pegunungan Andes,[21] kecuali di Ekuador barat,[26] Kolombia barat laut dan di ujung barat laut Venezuela.[27] Burung ini terutama mendiami hutan tropis dataran rendah yang tak terganggu dan juga sabana dan padang rumput yang berdekatan dengan hutan semacam itu.[28] Hering Raja sering terlihat di dekat rawa-rawa di hutan.[8] Burung bangkai ini adalah yang paling banyak atau satu-satunya yang menyebar di hutan-hutan dataran rendah primer,[22] tetapi di hutan hujan Amazon, hering ini jumlahnya kalah banyak dengan hering berkepala kuning besar, sementara hering ini juga kalah banyak dengan hering berkepala kuning kecil, Hering Kalkun, dan Hering Hitam Amerika di habitat yang lebih terbuka.[29] Burung bangkai ini umumnya tidak ditemui di atas ketinggian 1200 meter.[30] Mereka menghuni tingkat tajuk teratas di hutan, atau di atas lapisan kanopi hutan.[18]
+
+Dimana habitat Hering Raja?","hutan tropis dataran rendah
+
+Hering Raja menghuni wilayah yang diperkirakan seluas 14 juta kilometer persegi antara Meksiko selatan dan Argentina utara.[25] Di Amerika Selatan, hering ini tidak dijumpai di sebelah barat pegunungan Andes,[21] kecuali di Ekuador barat,[26] Kolombia barat laut dan di ujung barat laut Venezuela.[27] Burung ini terutama mendiami hutan tropis dataran rendah yang tak terganggu dan juga sabana dan padang rumput yang berdekatan dengan hutan semacam itu.[28] Hering Raja sering terlihat di dekat rawa-rawa di hutan.[8] Burung bangkai ini adalah yang paling banyak atau satu-satunya yang menyebar di hutan-hutan dataran rendah primer,[22] tetapi di hutan hujan Amazon, hering ini jumlahnya kalah banyak dengan hering berkepala kuning besar, sementara hering ini juga kalah banyak dengan hering berkepala kuning kecil, Hering Kalkun, dan Hering Hitam Amerika di habitat yang lebih terbuka.[29] Burung bangkai ini umumnya tidak ditemui di atas ketinggian 1200 meter.[30] Mereka menghuni tingkat tajuk teratas di hutan, atau di atas lapisan kanopi hutan.[18]",,,,
+sona-9.0-20261114T224303Z-013,63,21bfbc498ed60b38065733d8,2a3a05b40fc46720d2bfe57bcfc558c4,sona-9.0,it,coding,oasst2,human_authored,"[user] Come si formano gli arcobaleno doppi?
+
+[assistant] Gli arcobaleni doppi si formano quando la luce del sole viene rifratta (cioè deviata) all'interno delle gocce di pioggia in modo che la luce si divida in due percorsi distinti prima di essere riflessa verso l'osservatore.
+
+[user] come funziona la rifrazione?","La rifrazione è un fenomeno ottico che avviene quando un’onda luminosa passa da un mezzo ad un altro avente un indice di rifrazione diverso. Questo è dovuto alla diversa velocità di propagazione dell'onda nei due mezzi che, passando da uno all'altro, cambia fase e direzione. Se il primo è meno denso del secondo (per esempio l'aria rispetto all'acqua), il raggio di luce devia avvicinandosi alla perpendicolare alla superficie di separazione, mentre se il primo mezzo è più denso del secondo (l'acqua rispetto all'aria) il raggio devia allontanandosi dalla perpendicolare.
+La legge della rifrazione stabilisce che l’angolo di Incidenza e l’angolo di Rifrazione giacciono sullo stesso piano e sono legati tra loro dalla relazione:
+```n1 sen i = n2 sen r```
+dove n1 e n2 sono gli indici di rifrazione assoluti dei due mezzi.",,,,
+sona-9.0-20261114T224303Z-013,64,a70c892cacb52ad222e26ef6,3e11853d960b7829813d7b6a8e1f72f1,sona-9.0,it,education,oasst2,human_authored,"[user] Cosa si intende con il termine ""machine learning""?","Il machine learning è un sottoinsieme dell’intelligenza artificiale che si occupa di creare sistemi che apprendono o migliorano le performance in base ai dati che utilizzano. Utilizza algoritmi per imitare il modo in cui gli esseri umani apprendono, migliorando in modo graduale la sua accuratezza.
+
+Ci sono diversi tipi di algoritmi di machine learning, a seconda del modo in cui apprendono i dati per fare previsioni. I principali sono:
+* Machine learning con apprendimento supervisionato: gli algoritmi ricevono dati etichettati con la risposta corretta e imparano a generalizzare il modello.
+* Machine learning con apprendimento non supervisionato: gli algoritmi ricevono dati non etichettati e imparano a scoprire strutture o raggruppamenti.
+* Machine learning con apprendimento semi-supervisionato: gli algoritmi ricevono una combinazione di dati etichettati e non etichettati e imparano a migliorare la qualità delle etichette.
+* Machine learning con apprendimento per rinforzo: gli algoritmi ricevono feedback positivi o negativi in base alle loro azioni e imparano a ottimizzare il loro comportamento.",,,,
+sona-9.0-20261114T224303Z-013,65,6729378ef5839148a262e84b,4e04b32d5833d899f28383927ad81f49,sona-9.0,it,general_knowledge,oasst1,human_authored,"[user] Chi è nato prima, l'uovo o la gallina?","Tenendo conto della gradualità dell'evoluzione, la risposta dipende da quando possiamo iniziare a chiamare gallina l'antenato della gallina. Inoltre non avendo specificato se l'uovo debba essere o meno di gallina, ma hai fatto comunque trasparire che ti riferissi all'uovo che l'ha generata, la risposta potrebbe essere che l'uovo sia venuto prima della gallina. In ogni caso la domanda è utilizzata comunemente per descrivere situazioni in cui i ruoli di causa ed effetto sono incerti e non dovrebbe essere presa alla lettera.",,,,
+sona-9.0-20261114T224303Z-013,66,60166633feda3789bab8b6eb,66b6614a194143d2113852606e945f1e,sona-9.0,it,mathematics,oasst2,human_authored,"[user] Pesa più 1kg di paglia o 1kg di piombo?
+
+[assistant] Entrambi pesano 1kg, quindi hanno lo stesso peso
+
+[user] quanto volume occupano rispettivamente?","Per calcolare il volume di 1kg di paglia e 1kg di piombo bisogna conoscere la densità dei due materiali. La densità del piombo a 20°C (essendo un metallo la dilatazione termica è rilevante) è pari a 11340 kg/m^3, mentre la densità della paglia varia a seconda del tipo e della pressatura. Una stima approssimativa è di circa 50-200 kg/m^3.
+Quindi, il volume di 1kg di piombo sarà: V = m / ρ = 1 / 11340 ≈ 0,000088 m^3 o 88 cm^3.
+Il volume di 1kg di paglia si ottiene allo stesso modo: V = m / ρ = 1 / ρ, dove ρ varia tra 50 e 200. Quindi il volume può essere compreso tra 0,005 m^3 e 0,02 m^3, o tra 5000 cm^3 e 20000 cm^3.",,,,
+sona-9.0-20261114T224303Z-013,67,845e193071c3dfe0f3e1c732,b1614ac440204bc9d165ae57f8edb1fb,sona-9.0,it,science,oasst2,human_authored,"[user] è possibile dividere i quark che compongono un protone?
+
+[assistant] Sì, i quark che compongono un protone sono soggetti alle forze di legame che li tengono uniti, ma teoricamente sono divisibili. Tuttavia, la divisione dei quark richiederebbe un'enorme quantità di energia, poiché i quark sono legati da forze molto forti, note come forze di interazione forte. Queste forze sono descritte dalla teoria delle interazioni forti, nota come QCD (Quantum Chromodynamics), e sono responsabili della tenuta dei quark all'interno dei nucleoni, come i protoni e i neutroni.
+
+In condizioni normali, è virtualmente impossibile separare i quark all'interno dei nucleoni, ma a temperature estremamente elevate e densità molto elevate, come all'interno di stelle di neutroni o all'interno dei primi istanti del Big Bang, i quark potrebbero essere liberati dalle forze di interazione forte e divenire liberi. Tuttavia, queste condizioni sono molto difficili da ricreare in un laboratorio terrestre.
+
+[user] Ci sono esperimenti sulla terra per provare a dividere i quark?","Sì, esistono esperimenti in cui i quark sono separati all'interno di particelle subatomiche ad alta energia, ma questi esperimenti non comportano la separazione dei quark all'interno dei protoni o dei neutroni. In questi esperimenti, si usano acceleratori di particelle per accelerare particelle subatomiche come protoni o elettroni ad altissime energie e farli collidere con bersagli di materiale atomico. Durante queste collisioni, le particelle subatomiche si disintegrano in particelle più piccole, tra cui quark e gluoni. Tuttavia, anche in queste condizioni estreme, i quark non vengono separati completamente dalle forze di interazione forte, ma sono liberi solo per un breve momento prima di formare nuove particelle subatomiche.",,,,
+sona-9.0-20261114T224303Z-013,68,df399ec0dbb177d5809d4ac8,904f7d555049fcc2a97a3a915212e369,sona-9.0,ja,general_knowledge,aya-dataset,human_authored,"[user] 文章から主要な単語を特定し、それを定義しなさい。 
+北アフリカのモロッコで8日夜、中部のマラケシュから約70kmの所でマグニチュード6.8の強い地震がありました。この地震で、日本の時間の12日昼までに2800人以上が亡くなって、2500人以上がけがをしました。
+地震のあと、倒れた建物の下にいる人を助ける 活動が続いています。地震が起こってから72時間が過ぎると、生きている可能性が低くなると言われています。モロッコではこの時間がもう過ぎていて、外国から来たチームも一緒に、急いで活動を行っています。
+たくさんの建物が倒れたアミズミズという町では、避難した人のためのテントが足りません。このため、毛布などでテントのようなものを作って、みんなで助けながら生活しています。被害があった所に、必要なものをどうやって早く届けるかが問題になっています。","この文章の中での主要な単語とその定義は以下のようになっています。
+- 中部: 1）真ん中の部分。2）中部地方のこと。
+- 約: 1）ちかう。取り決める。2）縮める。省く。簡単にする。3）おおよそ。ほぼ。だいたい。
+- マグニチュード: 1）地震の大きさの単位。
+- 助ける: 1）危ないことや苦しいことから救う。2）力を貸す。手伝う。
+- 活動: 1）元気よく動いたり、働いたりすること。
+- 起こっ: 1）始まる。2）生じる。起きる。
+- 可能性: 1）その状態になりそうなようす。できそうなようす。
+- チーム: 1）競技や仕事をするときの、組や団体。
+- 避難: 1）危ない目にあわないように、にげること。
+- テント: 1）キャンプや運動会などで、小屋のような形に張る幕。天幕。
+- 毛布: 1）羊毛などで織った厚い織物。
+- 助け: 1）損害を受けること。また、受けた害。",,,,
+sona-9.0-20261114T224303Z-013,69,bb0ac9168b58afe7a17aa510,2f86e2dfbdb97f895470f7075eeb41df,sona-9.0,ko,general_knowledge,wikipedia-ko,templated_human,[user] 오렌지 데이즈에 대해 간단히 소개해 주세요.,"《오렌지 데이즈()》는 2004년 4월 11일 ~ 2004년 6월 20일까지 TBS에서 방송된 청춘 드라마. 시간은 매주 일요일 밤 9시 ~ 9시 54분까지, 총 11회. 첫회는 30분 연장하여 10시 24분까지, 최종회는 15분을 연장하여 10시 9분까지 방송하였다. 주연은 츠마부키 사토시. 평균 시청률 17.2%, 최고 시청률 23.0%를 기록하였다.
+
+대학교 4학년생이라면 누구든지 공감할 만한 취업의 고민을 가지고 있는 카이(츠마부키 사토시)와 병으로 4년 전 청각을 잃어 마음의 문을 닫아 버린 사에(시바사키 코우)의 러브 스토리를 중심으로, 대학 졸업을 1년 앞둔 5명의 젊은이의 성장을 그린 청춘 드라마이다.
+
+도내 대학에서 사회복지 심리학을 전공하고 있는 대학 4학년생. 4월 1일 현재 취직된 곳 없음. 현실의 냉엄함에 직면하고 있다. 3살 연상인 여자친구 마호가 있다. 아주 평범한 대학생이지만 내면은 순수한 정신의 소유자로 그것의 그의 가장 큰 장점. 단, 자신은 자신의 그런 매력을 깨닫지 못하고 있다. 사에와의 만남으로 인해 아주 평범했던 그의 일상에 변화가 찾아온다.
+
+장래 유망한 바이올리니스트였지만 4년 전, 해외 유학 중에 갑자기 병으로 청각을 잃었다. 어떻게 다시 일어서 올 봄부터 친구 아카네가 있는 대학에 편입했지만 그녀의 마음은 청각을 잃은 절망으로 꽉 닫혀있는 상태. 아름다운 얼굴과 길고 아름다운 손가락으로 상당히 천박한 수화를 쓰기도 한다. 피아니스트인 엄마와 둘이 산다.
+
+카이의 친구이며 같은 대학 4학년생. 스타일이 좋아 여자관계도 화려해 얼핏 보면 그렇게 보이지 않지만 사실은 생활이 어려워 대학은 장학금을 받아 다니고 있다. 아버지가 없으며 어머니는 밤 일에 나가며 젊은 남자와 살고 있는 듯 하다. 현재 이복동생인 키리시마 아유미와 둘이 살고 있으며 다리가 불편한 아유미를 귀여워한다. 카메라맨 어시스턴트로 아르바이트를 하고 있다. 회사원은 정말이지 되고 싶지 않다고 생각해 취직활동은 하고 있지 않다.
+
+사에의 친구로 일본문학을 전공하고 있는 대학 4학년생. 사에와는 고교시절부터의 친구로 사에가 청각을 잃었을 때 끝까지 인내하며 곁에 있어 준 유일한 친구. 사에와 함께 있는 일이 많아져 카이, 쇼헤이, 케이타와 알게 된다. 언뜻 보기엔 곱게 자란 아가씨처럼 보이지만, 근성은 강한 여성.
+
+카이의 친구로 대학 4학년생. 나고야의 결혼식장 아들이지만, 내정된 도쿄에서의 취직자리가 이미 결정되어 있다. 걱정이 별로 없이 환하고 명랑한 성격이지만 인내심이 없고 간이 작다. 여자친구 없이 보낸 시간이 22년. 분위기 메이커로 주위 사람들을 엮어주는 역할만 해왔다.
+
+카이의 3년 연상의 여자친구. 카이가 다니는 대학의 대학원생. 사카이다 교수의 조수로 있다. 수화서클에서는 리더로 활동하고 있으며 자원봉사활동도 하고 있다.",,,,
+sona-9.0-20261114T224303Z-013,70,c85cb30ce8e51cb135abdf67,4e9f59163df8ef154811547a04494dab,sona-9.0,ko,research,tydiqa-goldp,human_authored,"[user] 정조는 아버지 장조의 묘를 수원으로 옮기고 새롭게 성을 축조하였다. 1789년(정조 13년) 10월 묘를 이장하고 현륭원(顯隆園)이라고 하였고[120], 인근에 화성(華城)을 축조하였다.[121] 1792년(정조 16년) 초여름, 정조는 정약용에게 성을 축조하는데 유용한 도구를 개발하라고 지시하여 거중기를 고안하게 하였다.[122] 정조는 정약용에게 참고할 자료로 청나라 강희제 때 편찬한 백과사전인 《도서집성》과 독일 출신의 선교사 요하네스 테렌츠(Johann Terrenz, 중국명 鄧玉函)가 지은 물리학의 원리와 도르래의 이용을 설명한 《기기도설》을 전달하였다.[123] 화성은 1794년 착공하여 1796년 완공되었는데, 성의 둘레는 5,744 m, 면적은 130 ha로 동쪽 지형은 평지를 이루고 서쪽은 팔달산에 걸쳐 있는 평산성 형태의 성으로 문루 4 개, 수문 2 개, 공심돈 3 개, 장대 2 개, 노대 2 개, 포(鋪)루 5 개, 포(砲)루 5 개, 각루 4 개, 암문 5 개, 봉돈 1 개, 적대 4 개, 치성 9 개, 은구 2 개 등 총 48개의 시설물로 하나의 성곽을 이루었다.[121]
+
+수원 화성은 언제 건축 되었나요?","1794년
+
+1789년(정조 13년) 10월 묘를 이장하고 현륭원(顯隆園)이라고 하였고[120], 인근에 화성(華城)을 축조하였다.[121] 1792년(정조 16년) 초여름, 정조는 정약용에게 성을 축조하는데 유용한 도구를 개발하라고 지시하여 거중기를 고안하게 하였다.[122] 정조는 정약용에게 참고할 자료로 청나라 강희제 때 편찬한 백과사전인 《도서집성》과 독일 출신의 선교사 요하네스 테렌츠(Johann Terrenz, 중국명 鄧玉函)가 지은 물리학의 원리와 도르래의 이용을 설명한 《기기도설》을 전달하였다.[123] 화성은 1794년 착공하여 1796년 완공되었는데, 성의 둘레는 5,744 m, 면적은 130 ha로 동쪽 지형은 평지를 이루고 서쪽은 팔달산에 걸쳐 있는 평산성 형태의 성으로 문루 4 개, 수문 2 개, 공심돈 3 개, 장대 2 개, 노대 2 개, 포(鋪)루 5 개, 포(砲)루 5 개, 각루 4 개, 암문 5 개, 봉돈 1 개, 적대 4 개, 치성 9 개, 은구 2 개 등 총 48개의 시설물로 하나의 성곽을 이루었다.[121]",,,,
+sona-9.0-20261114T224303Z-013,71,733f6aeb27b38488ff02a0f7,23b9faf0fa11c06235168f7514a2874d,sona-9.0,nl,general_knowledge,oasst2,human_authored,"[user] Hoe kan je het makkelijkst vliegen?
+
+[assistant] Dat licht er aan of het over mens of dier gaat. Een dier kan het makkelijkst vliegen als het vleugels heeft. Mensen kunnen het makkelijkst vliegen met behulp van een vliegtuig.
+
+[user] Ik bedoel als mens, en dan zonder dat je ergens een vliegticket koopt.","Als mens kun je niet zelf vliegen zonder hulpmiddelen, zoals bijvoorbeeld een vliegtuig, helikopter, parachute of vleugels. Mensen hebben geen natuurlijke vleugels of andere lichaamsdelen waarmee ze kunnen vliegen. Zelfs met behulp van hulpmiddelen is vliegen niet gemakkelijk en vereist het vaak veel training en ervaring om het goed en veilig te doen.
+
+Als je toch een vliegervaring wilt hebben zonder gebruik te maken van een vliegtuig of andere hulpmiddelen, kun je bijvoorbeeld een indoor skydiven proberen. Dit is een activiteit waarbij je in een windtunnel wordt geblazen en het gevoel van het vliegen ervaart zonder dat je daadwerkelijk van grote hoogte naar beneden hoeft te springen. Het is een veilige manier om het gevoel van vliegen te ervaren zonder dat je daadwerkelijk in een vliegtuig hoeft te stappen.",,,,
+sona-9.0-20261114T224303Z-013,72,6551084679b44baa9ad013d5,5b4b37c5b3d9d9b040b4a51e11dbc2c1,sona-9.0,pa,general_knowledge,aya-dataset,human_authored,[user] ਦੁੱਲਾ ਭੱਟੀ : ਲੋਕ ਕਹਾਣੀ,"ਕਿਹਾ ਜਾਂਦਾ ਹੈ ਕਿ ਇਕ ਪਿੰਡ ਵਿੱਚ ਇਕ ਗ਼ਰੀਬ ਬ੍ਰਾਹਮਣ ਰਹਿੰਦਾ ਸੀ। ਉਸ ਦੇ ਦੋ ਮੁਟਿਆਰ ਧੀਆਂ ਸਨ। ਉਹ ਦੋਨੋ ਮੰਗੀਆਂ ਹੋਈਆਂ ਸਨ, ਪ੍ਰੰਤੂ ਉਹ ਗ਼ਰੀਬੀ ਕਾਰਨ ਉਨ੍ਹਾਂ ਦਾ ਵਿਆਹ ਨਹੀਂ ਸੀ ਕਰ ਸਕਿਆ। ਉਸ ਇਲਾਕੇ ਦਾ ਮੁਗ਼ਲ ਹਾਕਮ ਬੜਾ ਨਿਰਦਈ ਸੀ। ਉਹ ਨੌਜਵਾਨ ਕੁਆਰੀਆਂ ਕੁੜੀਆਂ ਨੂੰ ਜ਼ੋਰੀਂ ਚੁੱਕ ਕੇ ਲੈ ਜਾਇਆ ਕਰਦਾ ਸੀ। ਉਸ ਹਾਕਮ ਦੇ ਕੰਨੀਂ ਸੁੰਦਰੀ-ਮੁੰਦਰੀ ਦੇ ਹੁਸਨ ਦੀ ਕਨਸੋਅ ਪਈ। ਉਸ ਨੇ ਇਨ੍ਹਾਂ ਨੂੰ ਜ਼ੋਰੀਂ ਚੁੱਕਣ ਦੀ ਵਿਉਂਤ ਬਣਾ ਲਈ। ਇਸ ਗੱਲ ਦੀ ਭਿਣਕ ਗ਼ਰੀਬ ਬ੍ਰਾਹਮਣ ਨੂੰ ਵੀ ਪੈ ਗਈ। ਉਹਨੇ ਕੁੜੀਆਂ ਦੇ ਸਹੁਰੇ ਘਰ ਜਾ ਕੇ ਆਖਿਆ ਕਿ ਉਹ ਸੁੰਦਰੀ-ਮੁੰਦਰੀ ਨੂੰ ਬਿਨਾਂ ਵਿਆਹ ਦੇ ਹੀ ਆਪਣੇ ਘਰ ਲੈ ਜਾਣ ਪ੍ਰੰਤੂ ਉਹ ਨਾ ਮੰਨੇ। ਉਹ ਹਾਕਮ ਤੋਂ ਡਰਦੇ ਸਨ ਤੇ ਬਿਨਾਂ ਵਿਆਹ ਤੋਂ ਕੁੜੀਆਂ ਆਪਣੇ ਘਰ ਲਿਜਾਣ ਲਈ ਰਾਜ਼ੀ ਨਾ ਹੋਏ। ਬ੍ਰਾਹਮਣ ਪਾਸ ਉਸ ਸਮੇਂ ਦੋ ਇਕੱਠੇ ਵਿਆਹ ਕਰਨ ਦੀ ਪਰੈਖੋਂ ਨਹੀਂ ਸੀ। ਉਹ ਨਿਰਾਸ਼ ਹੋਇਆ ਘਰ ਨੂੰ ਮੁੜ ਪਿਆ। ਰਾਹ ਵਿੱਚ ਜੰਗਲ ਪੈਂਦਾ ਸੀ, ਜਿੱਥੇ ਦੁੱਲਾ ਭੱਟੀ ਨਾਂ ਦਾ ਸੂਰਮਾ ਡਾਕੂ ਆਮ ਵਿਚਰਦਾ ਸੀ। ਇਸ ਤੋਂ ਸਾਰੇ ਡਰਦੇ ਸਨ। ਦੁੱਲਾ ਭੱਟੀ ਗਰੀਬਾਂ ਦਾ ਬੜਾ ਹਮਦਰਦ ਸੀ। ਉਹ ਅਮੀਰਾਂ ਤੇ ਜਾਬਰਾਂ ਨੂੰ ਲੁੱਟਦਾ ਸੀ ਤੇ ਲੁੱਟ ਦਾ ਮਾਲ ਗ਼ਰੀਬਾਂ ਵਿੱਚ ਵੰਡ ਦਿੰਦਾ ਸੀ। ਉਸ ਬ੍ਰਾਹਮਣ ਨੂੰ ਜੰਗਲ ਵਿੱਚ ਆ ਕੇ ਦੁੱਲਾ ਭੱਟੀ ਦਾ ਖਿਆਲ ਆਇਆ। ਉਹ ਦੁੱਲੇ ਦੀ ਭਾਲ ਕਰਦਾ ਹੋਇਆ ਦੁੱਲੇ ਪਾਸ ਪੁੱਜ ਗਿਆ ਤੇ ਉਸ ਨੂੰ ਆਪਣੀ ਵੇਦਨਾ ਜਾ ਸੁਣਾਈ। ਦੁੱਲੇ ਨੇ ਆਖਿਆ ‘‘ਤੂੰ ਕੋਈ ਫਿਕਰ ਨਾ ਕਰ, ਤੇਰੀਆਂ ਧੀਆਂ ਮੇਰੀਆਂ ਧੀਆਂ ਹਨ। ਮੈਂ ਉਨ੍ਹਾਂ ਦਾ ਵਿਆਹ ਆਪਣੇ ਹੱਥੀਂ ਆਪ ਕਰਾਂਗਾ- ਤੂੰ ਨਿਸਚਿੰਤ ਹੋ ਕੇ ਆਪਣੇ ਘਰ ਨੂੰ ਮੁੜ ਜਾਹ।’’
+ਦੁੱਲੇ ਨੇ ਕੁੜੀਆਂ ਦੇ ਬਾਪ ਤੇ ਸਹੁਰੇ ਦਾ ਥਹੁ-ਪਤਾ ਪੁੱਛ ਕੇ ਵਿਆਹ ਦਾ ਦਿਨ ਧਰ ਦਿੱਤਾ। ਕੁੜੀਆਂ ਦੇ ਸਹੁਰਿਆਂ ਨੇ ਹਾਕਮ ਤੋਂ ਡਰਦਿਆਂ ਕਿਹਾ ਕਿ ਉਹ ਰਾਤ ਸਮੇਂ ਹੀ ਵਿਆਹੁਣ ਆਉਣਗੇ। ਪਿੰਡ ਤੋਂ ਬਾਹਰ ਜੰਗਲ ਵਿੱਚ ਵਿਆਹ ਰਚਾਉਣ ਦਾ ਪ੍ਰਬੰਧ ਕੀਤਾ ਗਿਆ। ਰੌਸ਼ਨੀ ਲਈ ਲੱਕੜੀਆਂ ਇਕੱਠੀਆਂ ਕਰ ਕੇ ਅੱਗ ਬਾਲੀ ਗਈ। ਦੁੱਲੇ ਨੇ ਆਲੇ-ਦੁਆਲੇ ਦੇ ਪਿੰਡਾਂ ਤੋਂ ਦਾਨ ਇਕੱਠਾ ਕੀਤਾ। ਪਿੰਡ ਵਿੱਚ ਜਿਨ੍ਹਾਂ ਦੇ ਘਰ ਨਵੇਂ ਵਿਆਹ ਹੋਏ ਸਨ ਜਾਂ ਜਿਨ੍ਹਾਂ ਦੇ ਬਾਲ ਜਨਮੇ ਸਨ ਉਨ੍ਹਾਂ ਨੇ ਵੀ ਸੁੰਦਰ-ਮੁੰਦਰੀ ਦੇ ਵਿਆਹ ’ਤੇ ਆਪਣੇ ਵੱਲੋਂ ਕੁਝ ਨਾ ਕੁਝ ਗੁੜ-ਸ਼ੱਕਰ ਤੇ ਦਾਣੇ ਆਦਿ ਦੇ ਰੂਪ ਵਿੱਚ ਦਾਨ ਦਿੱਤਾ। ਦੁੱਲੇ ਕੋਲ ਕੰਨਿਆ-ਦਾਨ ਦੇਣ ਲਈ ਇਕ ਲੱਪ ਸ਼ੱਕਰ ਦੀ ਹੀ ਸੀ। ਕੁੜੀਆਂ ਦਾ ਡੋਲਾ ਤੁਰ ਗਿਆ ਤੇ ਗ਼ਰੀਬ ਬ੍ਰਾਹਮਣ ਨੇ ਦੁੱਲੇ ਦਾ ਲੱਖ-ਲੱਖ ਸ਼ੁਕਰ ਕੀਤਾ। ਕਿਹਾ ਜਾਂਦਾ ਹੈ ਕਿ ਉਦੋਂ ਤੋਂ ਲੋਹੜੀ ਮਨਾਉਣ ਦਾ ਰਿਵਾਜ ਪੈ ਗਿਆ।
+ਸੁੰਦਰ ਮੁੰਦਰੀਏ ਲੋਕ ਗੀਤ ਦੇ ਬੋਲ ਹਨ:
+ਸੁੰਦਰ ਮੁੰਦਰੀਏ- ਹੋ
+ਤੇਰਾ ਕੌਣ ਵਿਚਾਰਾ- ਹੋ
+ਦੁੱਲਾ ਭੱਟੀ ਵਾਲਾ- ਹੋ
+ਦੁੱਲੇ ਧੀ ਵਿਆਹੀ- ਹੋ
+ਸੇਰ ਸ਼ੱਕਰ ਪਾਈ- ਹੋ
+ਕੁੜੀ ਦੇ ਬੋਝੇ ਪਾਈ- ਹੋ
+ਕੁੜੀ ਦਾ ਲਾਲ ਪਟਾਕਾ- ਹੋ
+ਕੁੜੀ ਦਾ ਸਾਲੂ ਪਾਟਾ- ਹੋ
+ਸਾਲੂ ਕੌਣ ਸਮੇਟੇ- ਹੋ
+ਚਾਚਾ ਗਾਲੀ ਦੇਸੇ- ਹੋ
+ਚਾਚਾ ਚੂਰੀ ਕੁੱਟੀ- ਹੋ
+ਜ਼ੀਮੀਂਦਾਰ ਲੁੱਟੀ- ਹੋ
+ਜ਼ੀਮੀਂਦਾਰ ਸਦਾਓ- ਹੋ
+ਗਿਣ-ਗਿਣ ਪੌਲੇ ਲਾਓ- ਹੋ
+ਦੁੱਲਾ ਭੱਟੀ ਪੰਜਾਬੀਆਂ ਦਾ ਹਰਮਨ ਪਿਆਰਾ ਲੋਕ ਨਾਇਕ ਹੈ। ਉਹ ਸਾਂਦਲ ਬਾਰ (ਪੱਛਮੀ ਪੰਜਾਬ ਪਾਕਿਸਤਾਨ) ਦੇ ਇਲਾਕੇ ਦਾ ਸੂਰਬੀਰ ਅਣਖੀ ਯੋਧਾ ਹੋਇਆ ਹੈ, ਜਿਸ ਨੇ ਅਕਬਰ ਜਹੇ ਮੁਗ਼ਲ ਬਾਦਸ਼ਾਹ ਵਿਰੁੱਧ ਬਗ਼ਾਵਤ ਦਾ ਝੰਡਾ ਬੁਲੰਦ ਕਰਕੇ ਆਪਣੇ ਬਾਪ ਤੇ ਦਾਦੇ ਦੀ ਮੌਤ ਦਾ ਬਦਲਾ ਲੈਣ ਲਈ ਆਪਣੀ ਸ਼ਹਾਦਤ ਦੇ ਦਿੱਤੀ ਤੇ ਪੰਜਾਬੀਆਂ ਦੇ ਦਿਲਾਂ ’ਤੇ ਰਾਜ ਕਰਨ ਲੱਗਾ।
+ਇਹ ਵਾਰਤਾ ਅਕਬਰ ਸਮਰਾਟ ਦੇ ਰਾਜ ਸਮੇਂ ਦੀ ਹੈ। ਦੁੱਲੇ ਦਾ ਬਾਪ ਫਰੀਦ ਮੁਸਲਮਾਨ ਭੱਟੀ ਰਾਜਪੂਤ ਸੀ। ਉਹ ਲਾਹੌਰ ਦੇ ਲਾਗੇ ਸਾਂਦਲ ਬਾਰ ਦੇ ਇਲਾਕੇ ਵਿੱਚ ਰਹਿੰਦਾ ਸੀ। ਉਹਦਾ ਬਾਪ ਬੜਾ ਬਹਾਦਰ ਅਤੇ ਅੜ੍ਹਬ ਸੁਭਾਅ ਦਾ ਮਾਲਕ ਸੀ। ਉਹ ਮੁਗ਼ਲ ਸਰਕਾਰ ਦੀ ਈਨ ਮੰਨਣ ਤੋਂ ਇਨਕਾਰੀ ਸਨ- ਮਾਰ-ਧਾੜ ਕਰਨੀ ਉਨ੍ਹਾਂ ਦਾ ਮਨ ਭਾਉਂਦਾ ਸ਼ੁਗਲ ਸੀ। ਉਨ੍ਹਾਂ ਨੇ ਬਾਦਸ਼ਾਹ ਨੂੰ ਜ਼ਮੀਨਾਂ ਦਾ ਲਗਾਨ ਦੇਣਾ ਬੰਦ ਕਰ ਦਿੱਤਾ। ਮੁਗ਼ਲ ਸਰਕਾਰ ਦੇ ਕਰਮਚਾਰੀਆਂ ਨੂੰ ਉਹ ਟਿੱਚ ਸਮਝਦੇ ਤੇ ਲੁੱਟ-ਮਾਰ ਕਰਕੇ ਭਜਾ ਦਿੰਦੇ। ਲਗਾਨ ਦੀ ਵਸੂਲੀ ਨਾ ਹੋਣ ਕਰਕੇ ਅਤੇ ਉਨ੍ਹਾਂ ਦੀਆਂ ਮਾਰਧਾੜ ਦੀਆਂ ਖ਼ਬਰਾਂ ਨੇ ਅਕਬਰ ਦੇ ਗੁੱਸੇ ਦਾ ਪਾਰਾ ਚਾੜ੍ਹ ਦਿੱਤਾ। ਅਕਬਰ ਨੇ ਉਨ੍ਹਾਂ ਦੋਨਾਂ ਦੀਆਂ ਮਸ਼ਕਾਂ ਬੰਨ੍ਹ ਕੇ ਦਰਬਾਰ ਵਿੱਚ ਪੇਸ਼ ਕਰਨ ਦੇ ਹੁਕਮ ਦੇ ਦਿੱਤੇ। ਮੁਗ਼ਲ ਫ਼ੌਜਾਂ ਨੇ ਫਰੀਦ ਤੇ ਉਹਦੇ ਬਾਪ ਨੂੰ ਜਾ ਫੜਿਆ ਤੇ ਅਕਬਰ ਦੇ ਲਾਹੌਰ ਦਰਬਾਰ ਵਿੱਚ ਪੇਸ਼ ਕਰ ਦਿੱਤਾ। ਅਕਬਰ ਨੇ ਅੱਗੇ ਲੋਕਾਂ ਵਿੱਚ ਦਹਿਸ਼ਤ ਫੈਲਾਉਣ ਲਈ ਉਨ੍ਹਾਂ ਦੇ ਸਿਰ ਕਲਮ ਕਰਕੇ ਲਾਸ਼ਾਂ ਵਿੱਚ ਫੂਸ ਭਰ ਕੇ ਲਾਹੌਰ ਸ਼ਹਿਰ ਦੇ ਮੁੱਖ ਦੁਆਰ ’ਤੇ ਪੁੱਠੀਆਂ ਲਟਕਾਉਣ ਦਾ ਹੁਕਮ ਦੇ ਦਿੱਤਾ… ਫਰੀਦ ਅਤੇ ਉਸ ਦਾ ਬਾਪ ਬੜ੍ਹਕਾਂ ਮਾਰਦੇ ਹੋਏ ਸ਼ਹਾਦਤ ਦਾ ਜਾਮ ਪੀ ਗਏ।
+ਫਰੀਦ ਦੀ ਸ਼ਹਾਦਤ ਸਮੇਂ ਉਹਦੀ ਪਤਨੀ ਲੱਧੀ ਪੰਜ ਮਹੀਨੇ ਦੀ ਗਰਭਵਤੀ ਸੀ। ਫਰੀਦ ਦੀ ਮੌਤ ਤੋਂ ਚਾਰ ਮਹੀਨੇ ਪਿੱਛੋਂ ਦੁੱਲੇ ਦਾ ਜਨਮ ਹੋਇਆ। ਉਸ ਦੀ ਦਾਦੀ ਅਤੇ ਮਾਂ ਉਹਦੇ ਚਿਹਰੇ ਨੂੰ ਵੇਖ ਕੇ ਨੂਰੋ-ਨੂਰ ਹੋ ਗਈਆਂ। ਇਕ ਅਨੋਖਾ ਜਲਾਲ ਉਹਦੇ ਮੱਥੇ ’ਤੇ ਟਪਕ ਰਿਹਾ ਸੀ। ਦਾਦੀ ਦੁੱਲੇ ਤੋਂ ਮੋਹਰਾਂ ਵਾਰ-ਵਾਰ ਵੰਡ ਰਹੀ ਸੀ। ਖੁਸ਼ੀ ਸਾਂਭਿਆਂ ਸੰਭਾਲੀ ਨਹੀਂ ਸੀ ਜਾਂਦੀ। ਇਕ ਆਸ, ਇਕ ਸੁਪਨਾ ਉਨ੍ਹਾਂ ਦੇ ਸਾਹਮਣੇ ਸਾਕਾਰ ਹੁੰਦਾ ਨਜ਼ਰੀਂ ਆ ਰਿਹਾ ਸੀ।
+ਕੁਦਰਤ ਦੀ ਹੋਣੀ ਵੇਖੋ ਐਨ ਉਸੇ ਦਿਨ ਅਕਬਰ ਦੇ ਘਰ ਵੀ ਪੁੱਤ ਜੰਮਿਆ। ਉਹਦਾ ਨਾਂ ਉਹਨੇ ਸ਼ੇਖੂ ਰੱਖਿਆ ਜੋ ਵੱਡਾ ਹੋ ਕੇ ਜਹਾਂਗੀਰ ਬਾਦਸ਼ਾਹ ਬਣਿਆ। ਅਕਬਰ ਨੇ ਨਜੂਮੀਆਂ ਨੂੰ ਆਖਿਆ, ‘‘ਕੋਈ ਐਸਾ ਉਪਾਅ ਦੱਸੋ ਜਿਸ ਨਾਲ ਸ਼ੇਖੂ ਸੂਰਬੀਰ, ਬਲਵਾਨ ਤੇ ਇਨਸਾਫਪਸੰਦ ਵਿਅਕਤੀ ਬਣੇ।’’
+ਇਕ ਨਜੂਮੀ ਨੇ ਆਖਿਆ, ‘‘ਬਾਦਸ਼ਾਹ ਸਲਾਮਤ ਆਪਣੇ ਰਾਜ ਦੀ ਅਜਿਹੀ ਬਹਾਦਰ, ਸਿਹਤਮੰਦ ਰਾਜਪੂਤ ਔਰਤ ਦਾ ਦੁੱਧ ਸ਼ੇਖੂ ਨੂੰ ਚੁੰਘਾਇਆ ਜਾਵੇ, ਜਿਸ ਨੇ ਸ਼ੇਖੂ ਦੇ ਜਨਮ ਵਾਲੇ ਦਿਨ ਹੀ ਆਪਣੇ ਪੁੱਤਰ ਨੂੰ ਜਨਮ ਦਿੱਤਾ ਹੋਵੇ।’’
+ਅਜਿਹੀ ਸੂਰਬੀਰ ਮਾਂ ਦੀ ਭਾਲ ਲਈ ਸਾਰੇ ਰਾਜ ਵਿੱਚ ਏਲਚੀ ਭੇਜੇ ਗਏ। ਕਿਸੇ ਲੱਧੀ ਬਾਰੇ ਜਾ ਆਖਿਆ ਕਿ ਉਸ ਨੇ ਪੁੱਤ ਨੂੰ ਜਨਮ ਦਿੱਤਾ ਹੈ।
+ਲੱਧੀ ਨੂੰ ਬਾਦਸ਼ਾਹ ਦੇ ਦਰਬਾਰ ਵਿੱਚ ਬੁਲਾਇਆ ਗਿਆ। ਬਾਦਸ਼ਾਹ ਦਾ ਹੁਕਮ ਕਿਵੇਂ ਟਾਲਦੀ… ਸ਼ੇਖੂ ਨੂੰ ਪਾਲਣ ਦੀ ਜ਼ਿੰਮੇਵਾਰੀ ਉਹਨੇ ਲੈ ਲਈ। ਮੁਗ਼ਲ ਸਰਕਾਰ ਵੱਲੋਂ ਲੱਧੀ ਦੇ ਪਿੰਡ ਹੀ ਅਨੇਕਾਂ ਸੁੱਖ ਸਹੂਲਤਾਂ ਮੁਹੱਈਆ ਕੀਤੀਆਂ ਗਈਆਂ। ਦੁੱਲਾ ਤੇ ਸ਼ੇਖੂ ਕੱਠੇ ਪਲਣ ਲੱਗੇ- ਦੋਨੋ ਲੱਧੀ ਦਾ ਸੀਰ ਚੁੰਘਦੇ। ਦੋਹਾਂ ਨੂੰ ਉਹ ਇੱਕੋ ਜਿਹਾ ਪਿਆਰ ਦੇਂਦੀ, ਲਾਡ ਲਡਾਉਂਦੀ। ਸਮਾਂ ਆਪਣੀ ਤੋਰੇ ਤੁਰਦਾ ਰਿਹਾ…। ਸ਼ੇਖੂ ਨੇ ਆਪਣੇ ਬਾਪ ਪਾਸ ਆਖਰ ਜਾਣਾ ਹੀ ਸੀ। ਅਕਬਰ ਨੇ ਦੁੱਲੇ ਤੇ ਸ਼ੇਖੂ ਦੀ ਪ੍ਰੀਖਿਆ ਲਈ। ਘੋੜ ਸਵਾਰੀ, ਨੇਜ਼ਾਬਾਜ਼ੀ ਤੇ ਤੀਰਅੰਦਾਜ਼ੀ ਵਿੱਚ ਦੁੱਲਾ ਸ਼ੇਖੂ ਨੂੰ ਮਾਤ ਦੇ ਗਿਆ…। ਅਕਬਰ ਨੇ ਸੋਚਿਆ ਕਿਤੇ ਲੱਧੀ ਨੇ ਦੁੱਧ ਚੁੰਘਾਉਣ ’ਚ ਵਿਤਕਰਾ ਨਾ ਕੀਤਾ ਹੋਵੇ।
+ਲੱਧੀ ਨੇ ਅਕਬਰ ਦੇ ਚਿਹਰੇ ਦੇ ਹਾਵ-ਭਾਵ ਵੇਖ ਕੇ ਆਖਿਆ, ‘‘ਹਜ਼ੂਰ ਮੈਂ ਤਾਂ ਦੋਹਾਂ ਨੂੰ ਇੱਕੋ ਜਿੰਨਾ ਦੁੱਧ ਚੁੰਘਾਇਐ… ।’’
+ਅਕਬਰ ਸ਼ੁੱਕਰਗੁਜ਼ਾਰ ਸੀ ਕਿ ਲੱਧੀ ਨੇ ਉਹਦੇ ਪੁੱਤ ਨੂੰ ਆਪਣਾ ਸਰੀਰ ਚੁੰਘਾ ਕੇ ਪਾਲਿਆ ਹੈ। ਉਹਨੇ ਇਨਾਮ ਵਜੋਂ ਬਹੁਤ ਸਾਰੀਆਂ ਮੋਹਰਾਂ ਲੱਧੀ ਦੀ ਝੋਲੀ ਪਾ ਕੇ ਆਖਿਆ,‘‘ਮੈਂ ਤੇਰਾ ਦੇਣਾ ਤਾਂ ਨੀ ਦੇ ਸਕਦਾ। ਆਹ ਕੁਝ ਰਕਮ ਐ ਇਹਦੇ ਨਾਲ ਦੁੱਲੇ ਨੂੰ ਚੰਗੀ ਤਾਲੀਮ ਦੁਆਈਂ। ਵੱਡੇ ਹੋਣ ’ਤੇ ਮੈਂ ਇਹਨੂੰ ਆਪਣੇ ਦਰਬਾਰ ’ਚ ਵੱਡਾ ਰੁਤਬਾ ਦਿਆਂਗਾ।’’
+ਲੱਧੀ ਨੇ ਅਕਬਰ ਦਾ ਸ਼ੁਕਰੀਆ ਅਦਾ ਕੀਤਾ ਤੇ ਦੁੱਲੇ ਨੂੰ ਲੈ ਕੇ ਆਪਣੇ ਘਰ ਆ ਗਈ।
+ਦੁੱਲੇ ਨੂੰ ਦੀਨੀ ਸਿੱਖਿਆ ਦੇਣ ਲਈ ਕਾਜ਼ੀ ਪਾਸ ਮਸੀਤੇ ਪੜ੍ਹਨੇ ਪਾਇਆ ਗਿਆ… ਉਹਨੂੰ ਨਿਯਮਬੱਧ ਕਰੜੀ ਸਿੱਖਿਆ ਪਸੰਦ ਨਾ ਆਈ। ਉਹ ਇਕ ਦਿਨ ਕਾਜ਼ੀ ਨੂੰ ਕੁੱਟ ਕੇ ਘਰ ਦੌੜ ਆਇਆ ਤੇ ਆਪਣੇ ਹਾਣੀਆਂ ਨਾਲ ਜਾ ਕੇ ਖੇਡਣ ਲੱਗ ਪਿਆ।
+ਦੁੱਲਾ ਜਵਾਨੀ ਵਿੱਚ ਪੈਰ ਧਰਨ ਲੱਗਾ… ਉਹ ਅਲਬੇਲੇ ਸੁਭਾਅ ਦਾ ਮਾਲਕ ਸੀ… ਖੁਲ੍ਹੀ ਹਵਾ ਵਿੱਚ ਚੁੰਘੀਆਂ ਭਰਨ ਵਾਲਾ ਹੀਰਾ ਹਰਨ। ਉਹਨੇ ਆਪਣੇ ਪਿੰਡ ਦੇ ਮੁੰਡਿਆਂ ਦੀ ਢਾਣੀ ਬਣਾ ਲਈ ਤੇ ਉਨ੍ਹਾਂ ਦਾ ਸਰਦਾਰ ਬਣ ਕੇ ਲੱਗਾ ਅਨੋਖੀਆਂ ਹਰਕਤਾਂ ਕਰਨ। ਉਹ ਜੰਗਲ ਬੇਲਿਆਂ ਵਿੱਚ ਘੁੰਮਦੇ ਖਰਮਸਤੀਆਂ ਕਰਦੇ। ਦੁੱਲੇ ਦੀ ਚੜ੍ਹਦੀ ਜੁਆਨੀ… ਉਹਦਾ ਸਰੂਆਂ ਵਰਗਾ ਸਰੀਰ, ਗੇਲੀ ਜਿਹਾ ਜੁੱਸਾ… ਦਗ ਦਗ ਕਰਦਾ ਚਿਹਰਾ ਤੇ ਉਸ ਦਾ ਅਮੋੜ ਸੁਭਾਅ ਲੱਧੀ ਨੂੰ ਸੋਚਾਂ ’ਚ ਪਾ ਦੇਂਦਾ। ਉਹ ਇਹ ਜਾਣਦੀ ਸੀ ਕਿ ਉਹਦੇ ਬਾਪ ਫਰੀਦ ਦਾ ਵਿਦਰੋਹੀ ਖੂਨ ਉਹਦੀਆਂ ਰਗਾਂ ’ਚ ਦੌੜ ਰਿਹਾ ਹੈ…। ਇਹ ਖੂਨ ਕਿਸੇ ਵੇਲੇ ਵੀ ਉਬਾਲਾ ਖਾ ਸਕਦਾ ਸੀ। ਉਹਦੀਆਂ ਖਰਮਸਤੀਆਂ ਤੇ ਉਲਾਂਭੇ ਲੱਧੀ ਲਈ ਸੈਆਂ ਮੁਸੀਬਤਾਂ ਖੜ੍ਹੀਆਂ ਕਰ ਸਕਦੇ ਸਨ। ਦੁੱਲੇ ਦਾ ਪਾਣੀ ਭਰਦੀਆਂ ਤੀਵੀਆਂ ਦੇ ਘੜੇ ਗੁਲੇਲਾਂ ਮਾਰ ਕੇ ਭੰਨਣ ਦਾ ਸ਼ੌਕ ਦਿਨੋ ਦਿਨ ਵੱਧ ਰਿਹਾ ਸੀ…। ਨਿੱਤ ਉਲਾਂਭੇ ਮਿਲਦੇ…। ਲੱਧੀ ਨੇ ਜਨਾਨੀਆਂ ਨੂੰ ਮਿੱਟੀ ਦੀਆਂ ਗਾਗਰਾਂ ਦੀ ਥਾਂ ਲੋਹੇ ਦੀਆਂ ਗਾਗਰਾਂ ਲੈ ਦਿੱਤੀਆਂ। ਪ੍ਰੰਤੂ ਉਹ ਲੋਹੇ ਦੀਆਂ ਸਾਗਾਂ ਨਾਲ ਆਪਣਾ ਸ਼ੌਕ ਪੂਰਾ ਕਰਦਾ ਰਿਹਾ। ਆਖਰ ਸਤੀ ਹੋਈ ਨੰਦੀ ਮਿਰਾਸਣ ਨੇ ਇਕ ਦਿਨ ਦੁੱਲੇ ਨੂੰ ਉਹਦੇ ਬਾਪ ਦਾਦੇ ਦਾ ਤਾਹਨਾ ਮਾਰਿਆ:-
+ਬੋਲੀ ਮਾਰ ਕੇ ਨੰਦੀ ਫਨਾਹ ਕਰਦੀ
+ਸੀਨਾ ਦੁੱਲੇ ਦਾ ਚਾਕ ਹੋ ਜਾਂਵਦਾ ਏ।
+ਬਾਪ ਦਾਦੇ ਦਾ ਇਹ ਤੇ ਸੂਰਮਾ ਏ
+ਕਾਹਨੂੰ ਨਿੱਤ ਗ਼ਰੀਬ ਦੁਖਾਂਵਦਾ ਏ।
+ਏਥੇ ਜ਼ੋਰ ਦਖਾਂਵਦਾ ਔਰਤਾਂ ਨੂੰ
+ਤੈਨੂੰ ਰਤੀ ਹਯਾ ਨਾ ਆਂਵਦਾ ਏ।
+ਤੇਰੇ ਬਾਪ ਦਾਦੇ ਦੀਆਂ ਸ਼ਾਹ ਅਕਬਰ
+ਖੱਲਾਂ ਪੁੱਠੀਆਂ ਚਾ ਲਹਾਂਵਦਾ ਏ।
+ਖਲ, ਭੋਹ ਦੇ ਨਾਲ ਭਰਾਇਕੇ ਤੇ
+ਉੱਚੇ ਬੁਰਜ ਤੇ ਚਾ ਲਟਕਾਂਵਦਾ ਏ।
+ਅੱਜ ਤੀਕ ਲਾਹੌਰ ਵਿੱਚ ਲਟਕ ਰਹੀਆਂ
+ਉੱਥੇ ਜ਼ੋਰ ਨਾ ਕਾਸ ਨੂੰ ਜਾਂਵਦਾ ਏ।
+(ਕਿਸ਼ਨ ਸਿੰਘ ਆਰਫ)
+ਨੰਦੀ ਮਿਰਾਸਣ ਦੇ ਮਿਹਣੇ ਨਾਲ ਦੁੱਲਾ ਝੰਜੋੜਿਆ ਗਿਆ। ਰਾਜਪੂਤੀ ਖੂਨ ਉਹਦੀਆਂ ਰਗਾਂ ਵਿੱਚ ਉਬਾਲੇ ਖਾਣ ਲੱਗਾ। ਉਹ ਸਿੱਧਾ ਆਪਣੀ ਮਾਂ ਲੱਧੀ ਕੋਲ ਜਾ ਕੇ ਗਰਜਿਆ, ‘‘ਮਾਂ ਮੇਰੀਏ ਸੱਚੋ-ਸੱਚ ਦੱਸ ਮੇਰੇ ਬਾਪ ਤੇ ਦਾਦੇ ਦੀ ਮੌਤ ਕਿਵੇਂ ਹੋਈ ਐ…?’’
+ਲੱਧੀ ਨੇ ਸਾਰੀ ਹੋਣੀ ਬੀਤੀ ਦੱਸ ਕੇ, ਆਪਣੇ ਘਰ ਦੀ ਅੰਦਰਲੀ ਕੋਠੜੀ ਦਾ ਬੂਹਾ ਖੋਲ੍ਹ ਦੁੱਲ੍ਹੇ ਨੂੰ ਕਿਹਾ, ‘‘ਸੂਰਮਿਆਂ ਪੁੱਤਾ, ਮੈਂ ਏਸੇ ਦਿਨ ਦੀ ਉਡੀਕ ਕਰਦੀ ਸੀ। ਕਦੋਂ ਮੇਰਾ ਪੁੱਤਰ ਹੋਇਆ ਗੱਭਰੂ ਆਪਣੇ ਬਾਪ ਦਾਦੇ ਦੀ ਮੌਤ ਦਾ ਬਦਲਾ ਲੈਣ ਜੋਗਾ। ਇਹ ਹਥਿਆਰ ਤੇਰੇ ਸੂਰਮੇ ਬਾਪ ਦੇ ਨੇ… ਅਣਖ ਨੂੰ ਪਾਲੀਂ ਤੇ ਆਪਣੇ ਬਾਪ ਦੇ ਖੂਨ ਦੀ ਲਾਜ ਰੱਖੀਂ ਜੀਹਨੇ ਕਿਸੇ ਨਾਢੂ ਖਾਂ ਦੀ ਟੈਂ ਨਹੀਂ ਸੀ ਮੰਨੀ। ਕਿਸੇ ਅੱਗੇ ਸਿਰ ਨਹੀਂ ਸੀ ਝੁਕਾਇਆ।’’
+ਲਿਸ਼ ਲਿਸ਼ ਕਰਦੇ ਹਥਿਆਰ-ਛਬੀਆਂ, ਗੰਡਾਸੇ, ਨੇਜ਼ੇ, ਟਕੂਏ ਤੇ ਤੀਰ ਕਮਾਨ ਅਤੇ ਇਕ ਨਗਾਰਾ ਵੇਖ ਦੁੱਲੇ ਦਾ ਚਿਹਰਾ ਲਾਲ ਸੂਹਾ ਹੋ ਗਿਆ… ਅਨੋਖੀਆਂ ਤਰਬਾਂ ਨੇ ਉਹਦੇ ਸਰੀਰ ’ਚ ਝਰਨਾਟਾਂ ਛੇੜ ਦਿੱਤੀਆਂ। ਸਰੀਰ ਭਾਫਾਂ ਛੱਡਣ ਲੱਗਾ… ਦੁੱਲੇ ਨਗਾਰੇ ’ਤੇ ਡੱਗਾ ਮਾਰਿਆ… ਨਗਾਰੇ ਦੀ ਧਮਕ ਲਾਹੌਰ ਦੇ ਸ਼ਾਹੀ ਮਹਿਲਾਂ ਨਾਲ ਜਾ ਟਕਰਾਈ ਜੋ ਬਗ਼ਾਵਤ ਦੀ ਸੂਚਕ ਸੀ।
+ਦੁੱਲੇ ਨੇ ਪਿੰਡ ਦੇ ਸਾਰੇ ਜਵਾਨ ਕੱਠੇ ਕੀਤੇ, ਤੇ ਸਾਰੇ ਹਥਿਆਰ ਉਨ੍ਹਾਂ ਵਿੱਚ ਵੰਡ ਦਿੱਤੇ। ਉਹਨੇ ਆਪਣੇ ਮਨ ਨਾਲ ਮੁਗ਼ਲਾਂ ਵਿਰੁੱਧ ਬਗ਼ਾਵਤ ਕਰਨ ਦਾ ਫੈਸਲਾ ਕਰ ਲਿਆ। ਹੌਲੇ-ਹੌਲੇ ਪੰਜ ਸੌ ਜਵਾਨ ਉਹਦੇ ਨਾਲ ਜੁੜ ਗਏ। ਸਾਂਦਲ ਬਾਰ ਦੇ ਇਲਾਕੇ ਵਿੱਚ ਉਨ੍ਹਾਂ ਤਰਥੱਲੀ ਮਚਾ ਦਿੱਤੀ। ਜਿਹੜਾ ਵੀ ਜਾਬਰ ਉਧਰੋਂ ਲੰਘਦਾ ਉਹਨੂੰ ਉਹ ਲੁੱਟ ਲੈਂਦੇ ਤੇ ਲੁੱਟ ਦਾ ਮਾਲ ਗ਼ਰੀਬਾਂ ਵਿੱਚ ਵੰਡ ਦਿੰਦੇ। ਦੁੱਲੇ ਦੀ ਬਹਾਦਰੀ, ਨਿਡਰਤਾ, ਦਿਆਲਤਾ ਅਤੇ ਗ਼ਰੀਬ-ਪਰਵਰੀ ਦੀ ਖੁਸ਼ਬੂ ਦੂਰ-ਦੂਰ ਤਕ ਫੈਲ ਰਹੀ ਸੀ। ਉਹ ਬੜੀ ਨਿਡਰਤਾ ਨਾਲ ਸਾਂਦਲ ਬਾਰ ਵਿੱਚ ਘੁੰਮ ਰਿਹਾ ਸੀ…। ਉਸ ਦੀ ਬਹਾਦਰੀ ਦੇ ਨਿੱਤ ਨਵੇਂ ਕਿੱਸੇ ਸੁਣਨ ਨੂੰ ਮਿਲਦੇ…। ਸਾਰਾ ਇਲਾਕਾ ਉਸ ’ਤੇ ਮਾਣ ਕਰ ਰਿਹਾ ਸੀ।
+ਦੁੱਲੇ ਦੇ ਬਾਪ ਦੀ ਸ਼ਹਾਦਤ ਦੇ ਅਵਸਰ ’ਤੇ ਲੱਧੀ ਦੇ ਭਰਾਵਾਂ ਨੇ ਉਸ ਦੀ ਕੋਈ ਸਾਰ ਨਹੀਂ ਸੀ ਲਈ। ਇਸ ਕਰਕੇ ਉਸ ਨੂੰ ਆਪਣੇ ਨਾਨਕਿਆਂ ’ਤੇ ਰੋਸ ਸੀ। ਇਸੇ ਰੋਹ ਕਾਰਨ ਉਸ ਨੇ ਪਹਿਲਾ ਹੱਲਾ ਆਪਣੇ ਨਾਨਕਿਆਂ ਦੇ ਪਿੰਡ ਚਦੇੜਾਂ ’ਤੇ ਬੋਲਿਆ ਤੇ ਨਾਨਕਿਆਂ ਦਾ ਵੱਗ ਘੇਰ ਕੇ ਆਪਣੇ ਪਿੰਡ ਲੈ ਆਇਆ ਤੇ ਲਵੇਰੀਆਂ ਗ਼ਰੀਬ ਗੁਰਬਿਆਂ ਤੇ ਲੋੜਵੰਦਾਂ ’ਚ ਵੰਡ ਦਿੱਤੀਆਂ।
+ਇਕ ਵਾਰ ਅਲੀ ਨਾਂ ਦਾ ਸੁਦਾਗਰ ਪੰਜ ਸੌ ਘੋੜੇ ਖਰੀਦ ਕੇ ਲਈ ਜਾ ਰਿਹਾ ਸੀ…। ਉਹਨੂੰ ਰਾਤ ਪਿੰਡ ਕੱਟਣੀ ਪੈ ਗਈ। ਦੁੱਲੇ ਨੇ ਉਹਦੇ ਘੋੜੇ ਲੁੱਟ ਕੇ ਆਪਣੇ ਸਾਥੀਆਂ ਵਿੱਚ ਵੰਡ ਦਿੱਤੇ। ਅਲੀ ਬਥੇਰਾ ਰੋਇਆ ਪਿੱਟਿਆ, ਅਕਬਰ ਦਾ ਡਰਾਵਾ ਵੀ ਦਿੱਤਾ…। ਦੁੱਲੇ ਨੇ ਉਹਨੂੰ ਕੁੱਟ-ਕੁੱਟ ਕੇ ਭਜਾ ਦਿੱਤਾ। ਇਸੇ ਤਰ੍ਹਾਂ ਦੁੱਲੇ ਨੇ ਮੋਦੇ ਸ਼ਾਹੂਕਾਰ ਦੀਆਂ ਦੌਲਤ ਨਾਲ ਭਰੀਆਂ ਖੱਚਰਾਂ ਖੋਹ ਲਈਆਂ।
+ਇਨ੍ਹਾਂ ਲੁੱਟਾਂ-ਖੋਹਾਂ ਦੀਆਂ ਖ਼ਬਰਾਂ ਮੁਗ਼ਲ ਸਰਕਾਰ ਕੋਲ ਪੁੱਜਦੀਆਂ ਰਹੀਆਂ। ਲੋਕਾਂ ’ਚ ਦੁੱਲੇ ਦਾ ਦਬਦਬਾ ਐਨਾ ਵੱਧ ਗਿਆ ਕਿ ਉਨ੍ਹਾਂ ਨੇ ਸਰਕਾਰੀ ਲਗਾਨ ਦੇਣਾ ਬੰਦ ਕਰ ਦਿੱਤਾ। ਮੁਗ਼ਲ ਅਹਿਲਕਾਰਾਂ ਵਿੱਚ ਭਗਦੜ ਮੱਚ ਗਈ। ਅਕਬਰ ਦੇ ਦਰਬਾਰ ਵਿੱਚ ਦੁੱਲੇ ਵੱਲੋਂ ਮੁਗ਼ਲ ਦਰਬਾਰ ਵਿਰੁੱਧ ਕੀਤੀ ਬਗ਼ਾਵਤ ਦੀ ਸੂਹ ਸੂਹੀਏ ਪੁਚਾਉਂਦੇ ਰਹੇ। ਅਕਬਰ ਨੇ ਇਸ ਬਗ਼ਾਵਤ ਦੀ ਪੜਤਾਲ ਲਈ ਇਕ ਜਾਸੂਸ ਉਚੇਚੇ ਤੌਰ ’ਤੇ ਸਾਂਦਲ ਬਾਰ ਭੇਜਿਆ, ਪ੍ਰੰਤੂ ਦੁੱਲੇ ਨੂੰ ਪਤਾ ਲੱਗਣ ’ਤੇ ਉਸ ਨੇ ਜਾਸੂਸ ਦੀਆਂ ਦਾੜ੍ਹੀ ਮੁੱਛਾਂ ਹੀ ਮੁੰਨ ਦਿੱਤੀਆਂ।
+ਅਕਬਰ ਨੂੰ ਜਦੋਂ ਇਸ ਗੱਲ ਦਾ ਪਤਾ ਲੱਗਾ ਤਾਂ ਉਹਨੇ ਦੁੱਲੇ ਨੂੰ ਉਹਦੇ ਪਰਿਵਾਰ ਸਮੇਤ ਮਸ਼ਕਾਂ ਬੰਨ੍ਹ ਕੇ ਦਰਬਾਰ ਵਿੱਚ ਪੇਸ਼ ਕਰਨ ਦਾ ਹੁਕਮ ਸੁਣਾ ਦਿੱਤਾ। ਮਿਰਜ਼ਾ ਨਿਜਾਮਉਦੀਨ ਨੇ ਦੁੱਲੇ ਨੂੰ ਫੜ ਕੇ ਲਿਆਉਣ ਦਾ ਬੀੜਾ ਚੁੱਕ ਲਿਆ। ਮੁਗਲ ਫੌਜਾਂ ਨੇ ਸਾਂਦਲ ਬਾਰ ਵਲ ਕੂਚ ਕਰ ਦਿੱਤਾ।
+ਚੜ੍ਹਿਆ ਸੀ ਮਿਰਜ਼ਾ ਨਜ਼ਾਮਦੀਨ
+ਹਾਥੀਆਂ ਨੂੰ ਮੱਦਾਂ ਸੀ ਪਿਆਈਆਂ।
+ਭਰ ਕੇ ਦਾਰੂ ਦੀਆਂ ਬੋਤਲਾਂ ਲਿਆਂਵਦੇ
+ਹਾਥੀਆਂ ਦੇ ਸੁੰਡਾਂ ਵਿੱਚ ਪਾਈਆਂ।
+ਜਦੋਂ ਹਾਥੀਆਂ ਨੂੰ ਚੜ੍ਹੀਆਂ ਲੋਰੀਆਂ
+ਮਾਰਨ ਚੀਕਾਂ ਤੇ ਖਾਣ ਕਰਲਾਈਆਂ।
+ਹੌਲੀ-ਹੌਲੀ ਪਿੰਡੀ ਵਿੱਚ ਜਾ ਵੜੇ
+ਟੱਕਰਾਂ ਦਰਸ਼ਨੀ ਦਰਵਾਜ਼ਿਆਂ ਨੂੰ ਲਾਈਆਂ।
+ਸਾਰੇ ਬੈਠਕਾਂ ਦੀਵਾਨਖਾਨੇ ਢਾਹ ਸੁੱਟੇ
+ਇੱਟਾਂ ਬਣਾ ਕੇ ਵਿੱਚ ਖਿੰਡਾਈਆਂ।
+ਟਕੇ ਟਕੇ ਦੇ ਸਿਪਾਹੀ ਅੰਦਰ ਜਾ ਵੜੇ
+ਮਾਰਨ ਛਮਕਾਂ ਤੇ ਕਰਨ ਕਰੜਾਈਆਂ।
+(ਪਾਲੀ ਸਿੰਘ)
+ਮੁਗ਼ਲ ਫੌਜਾਂ ਨੇ ਪਿੰਡੀ ਨੂੰ ਜਾ ਘੇਰਿਆ। ਐਡੀ ਭਾਰੀ ਸੈਨਾ ਦਾ ਮੁਕਾਬਲਾ ਕਰਨਾ ਦੁੱਲੇ ਲਈ ਸੁਖੇਰਾ ਨਹੀਂ ਸੀ। ਦੁੱਲੇ ਦੇ ਛੋਟੇ ਭਾਈ ਮਹਿਰੂ ਅਮਲੀ ਨੇ ਪਹਿਲੇ ਦਿਨ ਮੁਗ਼ਲਾਂ ਨਾਲ ਜਾ ਲੜਾਈ ਕੀਤੀ ਤੇ ਉਨ੍ਹਾਂ ’ਚ ਭਾਜੜਾਂ ਪਾ ਦਿੱਤੀਆਂ। ਅਗਲੇ ਦਿਨ ਬੜੀ ਬਹਾਦਰੀ ਨਾਲ ਲੜਦਾ ਹੋਇਆ ਦੁੱਲਾ ਮੁਗ਼ਲ ਫੌਜ ਦਾ ਘੇਰਾ ਤੋੜ ਕੇ ਮਿਰਜ਼ਾ ਨਿਜ਼ਾਮਉੱਦੀਨ ਦੇ ਗਲ ਜਾ ਪਿਆ।
+ਸ਼ਕਤੀਸ਼ਾਲੀ ਹਕੂਮਤ ਵਿਰੁੱਧ ਮੁੱਠੀ ਭਰ ਯੋਧਿਆਂ ਦੀ ਬਗ਼ਾਵਤ ਭਲਾ ਕਿੰਨੇ ਕੁ ਦਿਨ ਕੱਟ ਸਕਦੀ ਸੀ। ਮੁਗ਼ਲ ਫੌਜ ਨੇ ਦੁੱਲੇ ਨੂੰ ਜਿਊਂਦੇ ਜੀ ਗ੍ਰਿਫ਼ਤਾਰ ਕਰਨ ਦਾ ਬੜਾ ਯਤਨ ਕੀਤਾ, ਪ੍ਰੰਤੂ ਉਹ ਉਨ੍ਹਾਂ ਦੇ ਹੱਥ ਆਉਣ ਵਾਲਾ ਕਿੱਥੇ ਸੀ? ਆਖਰ ਦੁੱਲਾ ਆਪਣੀ ਬਹਾਦਰੀ ਦੇ ਜੌਹਰ ਦਿਖਾਉਂਦਾ ਹੋਇਆ ਸ਼ਹੀਦ ਹੋ ਗਿਆ। ਉਸ ਨੇ ਮੁਗ਼ਲਾਂ ਦੀ ਈਨ ਨਾ ਮੰਨੀ, ਪ੍ਰੰਤੂ ਸ਼ਹਾਦਤ ਦਾ ਜਾਮ ਪੀ ਕੇ ਅਮਰ ਹੋ ਗਿਆ। ਦੁੱਲੇ ਦੇ ਅੰਤ ਬਾਰੇ ਇਹ ਵੀ ਕਿਹਾ ਜਾਂਦਾ ਹੈ ਕਿ ਲੜਾਈ ਵਿੱਚ ਦੁੱਲੇ ਨੇ ਮਿਰਜ਼ਾ ਨਜ਼ਾਮਉੱਦੀਨ ਦੇ ਛੱਕੇ ਛੁਡਾ ਕੇ ਉਹਨੂੰ ਬੰਦੀ ਬਣਾ ਲਿਆ, ਪ੍ਰੰਤੂ ਮਿਰਜ਼ੇ ਨੇ ਲੱਧੀ ਦੇ ਤਰਲੇ ਮਿੰਨਤਾਂ ਕਰ ਕੇ ਆਪਣੀ ਜਾਨ ਬਖਸ਼ਾ ਲਈ ਤੇ ਦੁੱਲੇ ਨੂੰ ਸ਼ੇਖੂ ਨਾਲ ਮੁਲਾਕਾਤ ਕਰਾਉਣ ਦੇ ਬਹਾਨੇ ਆਪਣੇ ਨਾਲ ਲੈ ਗਿਆ ਅਤੇ ਧੋਖੇ ਨਾਲ ਸ਼ਰਾਬ ਪਿਲਾ ਕੇ ਉਸ ਨੂੰ ਕੈਦ ਕਰ ਲਿਆ। ਹੋਸ਼ ਆਉਣ ’ਤੇ ਦੁੱਲੇ ਨੇ ਕੈਦਖਾਨੇ ਵਿੱਚ ਟੱਕਰਾਂ ਮਾਰ-ਮਾਰ ਆਪਣੀ ਜਾਨ ਦੇ ਦਿੱਤੀ ਤੇ ਮੁਗ਼ਲਾਂ ਅੱਗੇ ਸਿਰ ਨਾ ਝੁਕਾਇਆ।
+ਭਾਵੇਂ ਪੰਜਾਬ ਦਾ ਅਣਖੀਲਾ ਸੂਰਬੀਰ ਦੁੱਲਾ ਜੰਗ ਦੇ ਮੈਦਾਨ ਵਿੱਚ ਮਾਤ ਖਾ ਗਿਆ, ਪ੍ਰੰਤੂ ਉਹ ਅੱਜ ਵੀ ਪੰਜਾਬੀਆਂ ਦੇ ਦਿਲਾਂ ’ਤੇ ਰਾਜ ਕਰਦਾ ਹੈ…। ਉਸ ਦੀ ਬਹਾਦਰੀ ਦੇ ਕਿੱਸੇ ਪੰਜਾਬੀ ਬੜੀਆਂ ਲਟਕਾਂ ਨਾਲ ਪੜ੍ਹਦੇ ਤੇ ਗਾਉਂਦੇ ਹਨ। ਦੁੱਲੇ ਦੀ ਜੀਵਨ ਗਾਥਾ ਨੂੰ ਪੰਜਾਬ ਦੇ ਕਿੱਸਾਕਾਰਾਂ ਨੇ ਬੜੇ ਅਨੂਠੇ ਅੰਦਾਜ਼ ਵਿੱਚ ਗਾਇਆ ਹੈ। ਕਿਸ਼ਨ ਸਿੰਘ ਆਰਫ ਰਚਿਤ ‘ਕਿੱਸਾ ਦੁੱਲਾ ਭੱਟੀ’ ਅਤੇ ਪਾਲੀ ਸਿੰਘ ਕਵੀਸ਼ਰ ਰਚਿਤ ‘ਆਵਾਜ਼ਾਂ ਦੁੱਲਾ ਭੱਟੀ’ ਪੰਜਾਬੀਆਂ ਦੇ ਹਰਮਨ ਪਿਆਰੇ ਕਿੱਸੇ ਹਨ, ਜਿਨ੍ਹਾਂ ਨੂੰ ਪੜ੍ਹ ਕੇ ਉਹ ਦੁੱਲਾ ਭੱਟੀ ਨੂੰ ਬਾਰਮ-ਬਾਰ ਸਿਜਦਾ ਕਰਦੇ ਹਨ।",,,,
+sona-9.0-20261114T224303Z-013,73,8fc8d899d09ddf3892f5a9ab,bf79d28073eecdfdcb372468c42f23d4,sona-9.0,pl,general_knowledge,oasst2,human_authored,[user] Na jakie uniwersytety mógłby się zapisać w warszawie?,"1. Uniwersytet Warszawski (UW)
+2. Politechnika Warszawska (PW)
+3. Szkoła Główna Handlowa w Warszawie (SGH)
+4. Akademia Sztuk Pięknych w Warszawie (ASP)
+5. Uniwersytet Kardynała Stefana Wyszyńskiego w Warszawie (UKSW)
+6. Uniwersytet SWPS
+7. Akademia Pedagogiki Specjalnej im. Marii Grzegorzewskiej w Warszawie (APSW)
+8. Wyższa Szkoła Finansów i Zarządzania w Warszawie (WSFiZ)
+9. Wyższa Szkoła Ekonomiczno-Informatyczna w Warszawie (WSEI)
+10. Wyższa Szkoła Administracji i Zarządzania w Warszawie (WSAiZ)
+
+Warto zwrócić uwagę na specjalizacje i wymagania poszczególnych uczelni, aby wybrać najlepszą opcję dla siebie.",,,,
+sona-9.0-20261114T224303Z-013,74,c3cf25acdcc0af59f9a667b6,557338b36834c50527cbbe800b19cc29,sona-9.0,pl,science,oasst2,human_authored,"[user] Kiedy Księżyc powoduje przypływy, dlaczego po przeciwnej stronie planety jest przypływ?
+
+[assistant] Zjawisko to najłatwiej wyjaśnić w układzie odniesienia Księżyca. Siła grawitacji działająca na Ziemię jest największa w punkcie najbliższym Księżycowi, a najmniejsza w punkcie najbardziej oddalonym. Przez co woda znajdująca się najbliżej Księżyca jest przyciągana najbardziej, następnie trochę słabiej przyciagana jest sama Ziemia, a najsłabiej woda znajdująca się po drugiej stronie Ziemii. Te rożnice powodują, że woda po przeciwnej (do Księżyca) stronie Ziemii ""nie nadąża"" za ruchem samej Ziemii.
+
+Równoważnym wyjaśnieniem, które pozwala lepiej zobrazować sobie to zjawisko, jest siła bezwładności w ruchu Ziemii, która obraca się wokół Księżyca (w układzie odniesienia Księżyca). I ta siła bezwładności powoduje, że po przeciwnej stronie do Księżyca też jest przypływ - mozna sobie wyobrazić obracającą się butelkę z wodą.
+
+[user] Czy siła przyciągania Księżyca zmienia się z biegiem czasu, czy jest raczej stała?","Siła przyciągania księżyca na innych obiektach, takich jak Ziemia, jest związana z odległością między nimi i zmienia się wraz z tą odległością. Według prawa grawitacji Newtona, siła grawitacji między dwoma obiektami jest wprost proporcjonalna do masy obu obiektów i odwrotnie proporcjonalna do kwadratu odległości między nimi. Zatem im bliżej księżyca jest do Ziemi, tym większa jest siła przyciągania księżyca na Ziemię, a im dalej, tym mniejsza.
+
+Ponieważ odległość między Ziemią a Księżycem jest ciągle zmieniająca się w wyniku ruchów obu ciał, siła przyciągania księżyca na Ziemię jest zmienna i nie jest stała. Ten cykl regularnego zmniejszania i zwiększania siły przyciągania nazywany jest cyklem księżycowym.
+
+Dodatkowo, należy dodać, że Księżyc oddala się od Ziemi w tempie około 4 cm rocznie. Dlatego też, z biegiem czasu siła przyciągania Księżyca będzie spadać, jednak w bardzo minimalnym stopniu.",,,,
+sona-9.0-20261114T224303Z-013,75,b147e5d3a636bde78d926166,dbc76ea9eda6081fc3940f9abc8654e5,sona-9.0,pt,general_knowledge,aya-dataset,human_authored,"[user] Qual das alternativas contém apenas invenções criadas no Brasil?
+a) Urna eletrônica, soro antiofídico (antídoto contra picada veneno das cobras) e chuveiro elétrico
+b) Lâmpada elétrica, chuveiro elétrico e internet
+c) Telefone, internet e urna eletrónica
+d) Facebook, automóvel e paraquedas
+e) Urna eletrônica, soro antiofídico (antídoto contra picada veneno das cobras) e paraquedas","Alternativa a: Urna eletrônica, soro antiofídico (antídoto contra picada veneno das cobras) e chuveiro elétrico.
+
+A urna eletrônica foi inventada por Carlos Prudêncio, juiz e desembargador de Santa Catarina. O aparelho foi usado pela primeira vez, em todo o Brasil, em 1996.
+
+O soro antiofídico foi desenvolvido pelo médico e sanitarista Vital Brazil, cujas pesquisas foram concluídas em 1903.
+
+O chuveiro elétrico foi inventado por Francisco Canho, que desenvolveu o equipamento na década de 40.",,,,
+sona-9.0-20261114T224303Z-013,76,3319a4983f398d369f719608,73f5e5dd5271750dad9661e903d88011,sona-9.0,pt,mathematics,nemotron-math,synthetic,"[user] Given positive real numbers \(a_1, a_2, a_3, a_4\) such that for all \(1 \leq i < j < k \leq 4\), the inequality \(a_i^2 + a_j^2 + a_k^2 \geq 2(a_i a_j + a_j a_k + a_k a_i)\) holds, find the largest real number \(K\) such that the inequality \(a_1^2 + a_2^2 + a_3^2 + a_4^2 \geq K(a_1 a_2 + a_1 a_3 + a_1 a_4 + a_2 a_3 + a_2 a_4 + a_3 a_4)\) is satisfied.","The problem requires finding the largest real number \(K\) such that for all positive real numbers \(a_1, a_2, a_3, a_4\) satisfying the condition that for every triplet \(1 \leq i < j < k \leq 4\), the inequality \(a_i^2 + a_j^2 + a_k^2 \geq 2(a_i a_j + a_j a_k + a_k a_i)\) holds, the inequality \(a_1^2 + a_2^2 + a_3^2 + a_4^2 \geq K(a_1 a_2 + a_1 a_3 + a_1 a_4 + a_2 a_3 + a_2 a_4 + a_3 a_4)\) also holds.
+
+Define \(S = a_1^2 + a_2^2 + a_3^2 + a_4^2\) and \(P = a_1 a_2 + a_1 a_3 + a_1 a_4 + a_2 a_3 + a_2 a_4 + a_3 a_4\). The goal is to find the infimum of \(S / P\) under the given constraints and set \(K\) to this infimum, as it is the largest value for which \(S \geq K P\) holds for all such quadruples.
+
+Through analysis, the minimum value of \(S / P\) is found to be \(11/7\), achieved when the values are proportional to \(9 : 4 : 1 : 1\). For example, with \(a_1 = 9\), \(a_2 = 4\), \(a_3 = 1\), \(a_4 = 1\):
+
+- \(S = 9^2 + 4^2 + 1^2 + 1^2 = 81 + 16 + 1 + 1 = 99\)
+- \(P = 9 \cdot 4 + 9 \cdot 1 + 9 \cdot 1 + 4 \cdot 1 + 4 \cdot 1 + 1 \cdot 1 = 36 + 9 + 9 + 4 + 4 + 1 = 63\)
+- \(S / P = 99 / 63 = 11 / 7\)
+
+This configuration satisfies all triplet constraints:
+- For triplet \((a_1, a_2, a_3)\): \(81 + 16 + 1 = 98\), \(2(9 \cdot 4 + 4 \cdot 1 + 1 \cdot 9) = 2(36 + 4 + 9) = 2 \cdot 49 = 98\), equality holds.
+- For triplet \((a_1, a_2, a_4)\): same as above due to symmetry, equality holds.
+- For triplet \((a_1, a_3, a_4)\): \(81 + 1 + 1 = 83\), \(2(9 \cdot 1 + 9 \cdot 1 + 1 \cdot 1) = 2(9 + 9 + 1) = 2 \cdot 19 = 38\), \(83 \geq 38\) holds.
+- For triplet \((a_2, a_3, a_4)\): \(16 + 1 + 1 = 18\), \(2(4 \cdot 1 + 4 \cdot 1 + 1 \cdot 1) = 2(4 + 4 + 1) = 2 \cdot 9 = 18\), equality holds.
+
+Other configurations, such as proportional to \(1 : 1 : 4 : 9\) or \(1 : 1 : 9 : 4\), also yield \(S / P = 11/7\). Attempts to find configurations with \(S / P < 11/7\) result in violations of the triplet constraints or yield \(S / P > 11/7\). Since \(S / P = 11/7\) is achieved and no smaller ratio is possible under the constraints, the infimum of \(S / P\) is \(11/7\).
+
+For \(K = 11/7\), \(S \geq K P\) holds for all such quadruples, as \(S / P \geq 11/7\). For any \(K > 11/7\), the configuration \(a_1 = 9\), \(a_2 = 4\), \(a_3 = 1\), \(a_4 = 1\) gives \(S / P = 11/7 < K\), so \(S < K P\), violating the inequality. Thus, \(11/7\) is the largest such \(K\).
+
+\boxed{\dfrac{11}{7}}",,,,
+sona-9.0-20261114T224303Z-013,77,ba8a44daaa8e90b9ee4acaa8,0796c5185107b94748c52ce1de975b6a,sona-9.0,pt,reasoning,aya-dataset,human_authored,[user] Descreva o símbolo do AC Milan.,"O símbolo do AC Milan é um escudo preto com uma figura vermelha diagonalmente inclinada que se assemelha a uma cruz de São Jorge. No topo, há as iniciais ""ACM,"" e na parte inferior, as palavras ""AC Milan.""",,,,
+sona-9.0-20261114T224303Z-013,78,c65adad6bf2c6428f3465c7c,7cf9a0a2f653209a4ca00955670b568b,sona-9.0,pt,science,aya-dataset,human_authored,[user] Quem foi Marie Curie?,"Marie Curie foi uma cientista polonesa-francesa nascida em Varsóvia, Polônia, em 1867, e faleceu em 1934 em Sallanches, França. Ela é amplamente reconhecida como uma das cientistas mais importantes da história e fez contribuições significativas para a ciência, especificamente nas áreas de física e química.
+
+Aqui estão alguns dos principais aspectos de sua vida e carreira:
+
+1. **Pesquisa sobre Radioatividade:** Marie Curie é mais conhecida por suas pesquisas pioneiras sobre radioatividade. Ela e seu marido, Pierre Curie, conduziram estudos sobre os elementos radioativos polônio e rádio, fazendo descobertas fundamentais sobre suas propriedades.
+
+2. **Prêmios Nobel:** Marie Curie foi a primeira mulher a ganhar um Prêmio Nobel e é a única pessoa a receber Prêmios Nobel em duas áreas diferentes da ciência. Ela recebeu o Prêmio Nobel de Física em 1903 (com Pierre Curie e Henri Becquerel) e o Prêmio Nobel de Química em 1911.
+
+3. **Trabalho em Medicina:** Além de suas contribuições para a física e a química, Marie Curie também teve um impacto significativo na medicina. Ela desenvolveu unidades móveis de raio-X para ajudar no tratamento de soldados feridos durante a Primeira Guerra Mundial.
+
+4. **Mulher e Educação:** Marie Curie enfrentou muitos desafios como uma mulher cientista em uma época em que a ciência era dominada por homens. No entanto, ela perseverou e continuou a contribuir para a ciência, abrindo caminho para futuras cientistas.
+
+5. **Legado Duradouro:** O legado de Marie Curie na ciência é inestimável. Seu trabalho sobre radioatividade teve um impacto profundo no entendimento da estrutura atômica e levou a avanços significativos em várias áreas, incluindo medicina e terapia contra o câncer. Ela é um exemplo notável de determinação, paixão pela pesquisa e dedicação à ciência.
+
+Marie Curie é lembrada não apenas por suas realizações científicas notáveis, mas também por seu papel inspirador como uma das primeiras mulheres a romper barreiras de gênero na ciência e abrir caminho para outras mulheres na pesquisa científica.",,,,
+sona-9.0-20261114T224303Z-013,79,96c9414b7f850a1ffe755628,a982b2bb715107890716610ec3c82fe4,sona-9.0,roman_ur,mathematics,approx-curriculum,programmatic,[user] 8 dabbe hain aur har dabbe mein 14 kitabein hain. Kul kitne kitabein hain?,"Step 1: Yahan amal × hai.
+Step 2: 8 × 14 = 112.
+
+Jawab: 112 kitabein.",,,,
+sona-9.0-20261114T224303Z-013,80,446032cafbc28ee26eb8342f,e074c43e9038bfbd4e9acbf9caef9a10,sona-9.0,roman_ur,science,approx-curriculum,programmatic,[user] Ek gaari 7 ghanton mein 50 km chalti hai. Average speed kya hai?,"Average speed = faasla ÷ waqt = 50 ÷ 7 = 7.14286 km/h.
+
+Jawab: 7.14286 km/h",,,,
+sona-9.0-20261114T224303Z-013,81,6c30e09078c59636da1e21c1,7f96d2c772f2b155e9f4b366368a72e9,sona-9.0,roman_ur,writing,roman-urdu-parl,transliteration_unverified,"[user] Is jumle ko Roman Urdu mein likhein:
+السلام علیکم قرآن پاک کے حوالہ سے صرفی و نحوی تراکیب کا کام اپلوڈ کر دیا گیا ہے اس کام مین بہت بہتری کی گنجائش ہے اپنے آرا سے مطلع فرمائیں .",salam alaikum quran pak ke hawala se nahwi o nahwi trakib ka kaam par kar diya gaya hai is kaam mean bohat ki ki gunjaish hai apne aqval se mutala farmaen .,,,,
+sona-9.0-20261114T224303Z-013,82,4da01db1491b46576ae359db,87de28553cd6ffb48ce922ba047aecb0,sona-9.0,ru,coding,oasst1,human_authored,"[user] Напиши пожалуйста, код функций нахождения квадратного корня методом Ньютона на golang
+
+[assistant] package main
+
+import (
+    ""fmt""
+    ""math""
+)
+
+func Sqrt(x float64) float64 {
+    z := 1.0
+    for i := 0; i < 10; i++ {
+        z = z - (z*z-x)/(2*z)
+    }
+    return z
+}
+
+func main() {
+    x := 64.0
+    fmt.Println(""Квадратный корень из"", x, ""с помощью math.Sqrt:"", math.Sqrt(x))
+    fmt.Println(""Квадратный корень из"", x, ""с помощью Sqrt:"", Sqrt(x))
+}
+
+Этот код определяет функцию Sqrt(x float64) float64, которая вычисляет квадратный корень из числа x методом Ньютона. Функция принимает число типа float64 и возвращает число типа float64.
+
+В функции main() создаётся переменная x со значением 64.0. Затем функция Sqrt() вызывается дважды: первый раз с помощью встроенной функции math.Sqrt(), чтобы проверить результат нашей функции; и второй раз с помощью нашей функции Sqrt(), чтобы вычислить квадратный корень методом Ньютона.
+
+На выходе функции main() выведутся значения обоих вычислений на экран.
+
+[user] Что-то у меня не работает... Мне кажется, разметка поехала. Можешь уточнить и отформатировать с помощью
+~~~
+```go
+```
+~~~","Конечно. Вот пример отформатированного кода с исправлениями:
+
+```go
+package main
+
+import (
+	""fmt""
+	""math""
+)
+
+func Sqrt(x float64) float64 {
+	z := 1.0
+	for i := 0; i < 10; i++ {
+		z = z - (z*z-x)/(2*z)
+	}
+	return z
+}
+
+func main() {
+	x := 64.0
+	fmt.Println(""Квадратный корень из"", x, ""с помощью math.Sqrt:"", math.Sqrt(x))
+	fmt.Println(""Квадратный корень из"", x, ""с помощью Sqrt:"", Sqrt(x))
+}
+```
+
+Ошибка была в строке `z = z - (z*z-x)/(2*z)`, в ней отсутствовали знаки *",,,,
+sona-9.0-20261114T224303Z-013,83,15be53eea809f6a9156be0f6,90a4f945ccd6169d639662d727d41891,sona-9.0,ru,general_knowledge,oasst2,human_authored,"[user] Поясни смысл пословицы ""лес рубят - щепки летят"".
+
+[assistant] Данная пословица используется в ситуациях, когда нужно отметить необходимость мириться с неприятными побочными эффектами (ошибками, жертвами), при выполнении какого-либо серьёзного или крупного дела.
+
+[user] Приведи пример такой ситуации.","Например, если ребёнок, помогая вам по хозяйству, слегка поцарапался или ударился, вы можете применить эту поговорку в надежде, что он захочет узнать, при чём тут лес и щепки, и отвлечётся от своего синяка или царапины.",,,,
+sona-9.0-20261114T224303Z-013,84,40593b7fc504e8d0df0ff6c9,93775d7ed52a3ed398c42b157e284c7d,sona-9.0,ru,mathematics,oasst2,human_authored,[user] Рецепты еды которые можно сделать в микровалновай печи.,"Да, конечно, вот несколько рецептов:
+
+1. Омлет в микроволновой печи: Взбейте 2 яйца, добавьте 1/4 чашки молока и по желанию соль и перец. Влейте смесь в микроволновую стеклянную емкость и готовьте на высокой мощности в течение 2-3 минут, периодически проверяя, чтобы не пересушить омлет.
+
+2. Картофельные чипсы: Нарежьте картофель на тонкие ломтики и выложите на тарелку, сбрызните растительным маслом и посыпьте солью. Готовьте на высокой мощности в течение 3-4 минут, переворачивая их каждую минуту, пока они не станут хрустящими.
+
+3. Чизкейк в микроволновой печи: Смешайте 1/4 чашки рикотты, 1 яйцо, 2 столовые ложки сахара и по желанию ванильный экстракт в миске, выложите в микроволновую стеклянную емкость и готовьте на средней мощности в течение 3-4 минут, пока начинка не затвердится.
+
+4. Рис с овощами: Налейте в микроволновую стеклянную емкость 1/2 чашки риса, 1 чашку воды, посолите и добавьте нарезанные овощи, например, морковь, горошек или кукурузу. Готовьте на высокой мощности в течение 10-12 минут, периодически перемешивая, пока рис не будет готов.
+
+5. Куриные крылья: Выложите куриные крылья на тарелку, посыпьте специями и сбрызните растительным маслом. Готовьте на высокой мощности в течение 10-12 минут, переворачивая их каждые 5 минут, пока они не станут золотистыми и хрустящими.
+
+Обратите внимание, что время и мощность приготовления могут варьироваться в зависимости от мощности вашей микроволновой печи. Также, не забывайте проверять блюда во время приготовления, чтобы не пересушить или перегреть их",,,,
+sona-9.0-20261114T224303Z-013,85,9263f741cc4b5c189c01c606,deb06d9918a542bce7d64d7c89cbe52b,sona-9.0,ru,research,tydiqa-goldp,human_authored,"[user] В 1991 году Черноморский флот насчитывал около 100 тысяч человек личного состава и 60 тысяч рабочих и служащих, включал в себя 835 кораблей и судов практически всех существующих классов, в том числе 28 подлодок, 2 противолодочных крейсера, 6 ракетных крейсеров и больших противолодочных кораблей (БПК) I ранга, 20 БПК II ранга, эсминцев и сторожевых кораблей II ранга, около 40 СКР, 30 малых ракетных кораблей и катеров, около 70 тральщиков, 50 десантных кораблей и катеров, более 400 единиц морской авиации. В организационную структуру флота входили 2 дивизии кораблей (противолодочных и десантных), 1 дивизия подводных лодок, 2 дивизии авиации (истребительная и морских ударных ракетоносцев), 1 дивизия береговой обороны, десятки бригад, отдельных дивизионов, полков, частей. В постоянной боевой готовности находились силы Средиземноморской эскадры. Ежегодно через черноморские проливы выходило в мировой океан до ста боевых кораблей и судов. Флот имел разветвлённую сеть базирования от Измаила до Батуми (Измаил, Одесса, Николаев, Очаков, Киев, Черноморское, Донузлав, Севастополь, Феодосия, Керчь, Новороссийск, Поти и др.), его части дислоцировались на территории РСФСР, Украины, Молдавии, Грузии[6].
+
+Сколько моряков на службе Черноморского флота в 2019 году?","100 тысяч
+
+В 1991 году Черноморский флот насчитывал около 100 тысяч человек личного состава и 60 тысяч рабочих и служащих, включал в себя 835 кораблей и судов практически всех существующих классов, в том числе 28 подлодок, 2 противолодочных крейсера, 6 ракетных крейсеров и больших противолодочных кораблей (БПК) I ранга, 20 БПК II ранга, эсминцев и сторожевых кораблей II ранга, около 40 СКР, 30 малых ракетных кораблей и катеров, около 70 тральщиков, 50 десантных кораблей и катеров, более 400 единиц морской авиации.",,,,
+sona-9.0-20261114T224303Z-013,86,72ab4958a245aa0835e4ea4d,7903f07699706d54a945b0b2eeb53a3c,sona-9.0,ru,software_engineering,oasst1,human_authored,[user] Как собрать Android из исходников?,"Сборка Android из исходников - это достаточно сложный процесс, который требует определённых знаний и навыков. Он также может занять достаточно много времени и потребовать мощного компьютера с достаточным объёмом памяти и места на диске.
+
+Вот основные шаги, которые нужно выполнить для сборки Android из исходников:
+
+1.	Подготовка системы: для сборки Android из исходников нужно установить несколько инструментов, включая Java Development Kit (JDK), Android SDK, Android NDK, Git и другие. Также нужно убедиться, что ваша система поддерживает сборку Android.
+
+2.	Получение исходного кода: исходный код Android хранится в Git-репозитории. Чтобы получить исходный код, нужно использовать команду ""repo init"", чтобы инициализировать репозиторий, и затем использовать команду ""repo sync"", чтобы загрузить все необходимые файлы.
+
+3.	Настройка среды: для сборки Android нужно настроить среду, используя файл ""envsetup.sh"" или ""envsetup.bat"" в зависимости от вашей операционной системы. Это позволяет настроить переменные среды, которые используются при сборке.
+
+4.	Конфигурация сборки: нужно настроить сборку, используя файл ""lunch"", который позволяет выбрать устройство или эмулятор для сборки.
+
+5.	Сборка: после настройки среды и конфигурации сборки, нужно использовать команду ""make"" для запуска сборки. Это может занять достаточно много времени, в зависимости от вашего компьютера и настроек сборки.
+
+6.	Установка: после сборки можно установить Android на устройство или эмулятор, используя команду ""adb install"" или ""fastboot flash"".
+
+Это лишь общий обзор процесса сборки Android из исходников, и на практике могут возникнуть дополнительные проблемы и трудности, которые требуют дополнительного исследования и изучения. Поэтому, если у вас нет достаточного опыта и знаний, может быть полезнее использовать готовые образы Android, которые можно загрузить с официального сайта Android.",,,,
+sona-9.0-20261114T224303Z-013,87,57ec2a56d08b34675bd2ecf3,08503089295dcd60da464affd3353e52,sona-9.0,ru,web_frontend,oasst2,human_authored,"[user] Чем отличаются React, Angular и Vue?","React, Angular и Vue - это все фреймворки для разработки фронтенд-приложений. Вот как они отличаются:
+
+React:
+
+- Разработан компанией Facebook.
+- Использует язык JavaScript и библиотеку JSX для создания компонентов пользовательского интерфейса.
+- Цель React - создание простого в использовании, но мощного и гибкого инструмента для создания веб-приложений с большим объемом данных.
+- React обладает большой экосистемой, включающей множество дополнительных библиотек и инструментов, таких как Redux и React Native.
+
+Angular:
+
+- Разработан компанией Google.
+- Использует языки TypeScript и HTML для создания компонентов пользовательского интерфейса.
+- Цель Angular - создание универсального фреймворка для создания веб-приложений любой сложности.
+- Angular также имеет большую экосистему, включающую множество дополнительных библиотек и инструментов, таких как RxJS и Angular Material.
+
+Vue:
+
+- Разработан одним человеком - Эваном Ю.
+- Использует язык JavaScript и шаблонизатор HTML для создания компонентов пользовательского интерфейса.
+- Цель Vue - создание легкого, быстрого и гибкого фреймворка для создания интерактивных пользовательских интерфейсов.
+- Vue также имеет небольшую экосистему, включающую некоторые дополнительные библиотеки и инструменты, такие как Vuex и Vue Router.
+
+В целом, React, Angular и Vue имеют сходства и различия, и выбор между ними зависит от конкретных потребностей проекта и личных предпочтений разработчика.",,,,
+sona-9.0-20261114T224303Z-013,88,1de142c5ac161e38a8085fee,195e42a10517aba16bfe81d95f03081c,sona-9.0,ru,writing,oasst2,human_authored,"[user] Я хочу купить ssl сертификат для домена и поддомена одновременно. как я могу это сделать?
+
+[assistant] Чтобы купить SSL-сертификат для домена и субдомена одновременно, вы можете использовать SSL-сертификат Wildcard или Multi-domain Wildcard SSL-сертификат. С помощью SSL-сертификата Wildcard вы можете защитить один основной домен и неограниченное количество поддоменов первого уровня для этого домена. Например, mydomain.com (основной домен) и www.mydomain.com, blog.mydomain.com, admin.mydomain.com и т. д. - неограниченно. С другой стороны, многодоменный SSL-сертификат Wildcard позволяет вам защитить несколько основных доменов и неограниченное количество поддоменов первого уровня на этих основных доменах. Если вы хотите защитить поддомены второго уровня, вам нужно либо купить SSL-сертификат wildcard для вашего поддомена, либо купить многодоменный wildcard. При генерации CSR поставьте *. (звездочка) перед доменом или поддоменом, чьи поддомены вам нужно покрыть сертификатом wildcard.
+
+[user] Какой вариант обойдётся мне выгоднее, если покупать Multi-domain Wildcard SSL или обычный?","Чтобы купить SSL сертификат для домена и поддомена одновременно, вам нужно приобрести Multi-domain SSL сертификат (также известный как SAN или UCC сертификат). Этот тип сертификата позволяет защитить до нескольких доменных имен и поддоменов в рамках одного SSL сертификата.
+
+Существует также Multi-domain Wildcard SSL сертификат, который позволяет защитить несколько доменов и поддоменов с использованием подстановочного знака (wildcard). Например, такой сертификат может защищать домены mydomain.com, blog.mydomain.com, store.mydomain.com и т.д.
+
+Вариант, который обойдется вам выгоднее, зависит от того, сколько доменных имен и поддоменов вы планируете защитить. Если у вас есть несколько доменных имен и поддоменов, которые нужно защитить, то Multi-domain Wildcard SSL сертификат может быть выгоднее, чем несколько отдельных Multi-domain SSL сертификатов. Однако, если вы планируете защитить только несколько доменных имен и поддоменов, то отдельные Multi-domain SSL сертификаты могут быть дешевле и проще в использовании.
+
+В любом случае, перед покупкой SSL сертификата, рекомендуется обратиться к поставщику услуг и узнать, какой тип сертификата наиболее подходит для ваших нужд, и какую цену предлагает поставщик.",,,,
+sona-9.0-20261114T224303Z-013,89,4df3bfc4a7d5148f4b34b151,322026db324af59d01fbad942476b6ec,sona-9.0,sw,research,tydiqa-goldp,human_authored,"[user] Miaka ya upapaJina rasmiJina la KilatiniJina la kuzaliwaMahali pa kuzaliwaMaelezo30 – 64/67Petro Mtakatifu PetroPetrus, Apostolusשמעון בן יונה (Shimon ben Yona) Shimon Kipha, CΙΜΗΟΝ ΚΗΦΑC (Simeon Kephas - Simoni Mwamba - Simoni Petro) Bethsaida, GalilayaMtume wa Yesu ambaye alimpa funguo za Ufalme wa Mbinguni, kufuatana na Injili ya Mathayo 16:18-19. Alisulubiwa juu chini; sikukuu yake ni 29 Juni 68(?) – 79(?)Linus Mtakatifu Linus Linus, Episcopus RomanusLinusToscana (Italia ya Kati) Sikukuu yake ni 23 Septemba80(?) – 92Anacletus (Cletus) Mtakatifu AnacletusAnacletus, Episcopus RomanusAnacletusRoma au UgirikiAlifia dini; sikukuu yake ni 26 Aprili 92 – 96/99Klementi I Mtakatifu Klemens IClemens, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 23 Novemba96/99 – 108Evaristus (Aristus) Mtakatifu EvaristusEvaristus, Episcopus RomanusAristusMgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 26 Oktoba108/109 – 116/119Alexander I Mtakatifu AlexanderAlexander, Episcopus RomanusAlexanderRomaSikukuu yake ni 3 Mei117/119 – 126/128Sixtus I Mtakatifu SixtusXystus, Episcopus RomanusRomaSikukuu yake ni 6 Aprili127/128 – 137/138Telesfori Mtakatifu TelesforiTelesphorus, Episcopus RomanusUgirikiSikukuu yake ni 5 Januari138 – 142/146Hyginus Mtakatifu HyginusHyginus, Episcopus RomanusUgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 11 Januari142/146 – 157/161Pius I Mtakatifu PiusPius, Episcopus RomanusAquileia, Friuli, ItaliaAlifia dini kwa panga; sikukuu yake ni 11 Julai157 – 163/168Anicetus Mtakatifu Anicetus Anicetus, Episcopus RomanusEmesa, SyriaInsemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 17 Aprili166 hivi– 170/177Soter Mtakatifu SoterSoterius, Episcopus RomanusFondi, Lazio, ItaliaInasemekana alifia dini; sikukuu yake ni 22 Aprili171/177 – 185/193Eleuteri Mtakatifu EleutherusEleutherius, Episcopus RomanusNikopoli, EpyrusInasemekana alifia dini; sikukuu yake ni 6 Mei186/189 – 197/201Viktor I Mtakatifu ViktaVictor, Episcopus RomanusAfrika ya KaskaziniSikukuu yake ni 28 Julai198/201 – 217/218Zefirino Mtakatifu ZefirinoZephyrinus, Episcopus RomanusRomaSikukuu yake ni 20 Desemba218 – 222Kalisti I Mtakatifu Kalisti ICallistus, Episcopus RomanusAlifia dini; sikukuu yake ni 14 Oktoba222 – 230Urban I Mtakatifu Urban IUrbanus, Episcopus RomanusRomaSikukuu yake ni 25 Mei21 Julai 230 – 28 Septemba 235Ponsyano Mtakatifu PonsyanoPontianus, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 13 Agosti21 Novemba 235 – 3 Januari 236Anterus Mtakatifu AnterusAnterus, Episcopus RomanusUgirikiSikukuu yake ni 3 Januari10 Januari 236 – 20 Januari 250Fabiani Mtakatifu FabianiFabianus, Episcopus RomanusRomaSikukuu yake ni 20 Januari
+
+Papa wa 12 wa kikatoliki anaitwa nani?","Mtakatifu Soter
+
+Alisulubiwa juu chini; sikukuu yake ni 29 Juni 68(?) – 79(?)Linus Mtakatifu Linus Linus, Episcopus RomanusLinusToscana (Italia ya Kati) Sikukuu yake ni 23 Septemba80(?) – 92Anacletus (Cletus) Mtakatifu AnacletusAnacletus, Episcopus RomanusAnacletusRoma au UgirikiAlifia dini; sikukuu yake ni 26 Aprili 92 – 96/99Klementi I Mtakatifu Klemens IClemens, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 23 Novemba96/99 – 108Evaristus (Aristus) Mtakatifu EvaristusEvaristus, Episcopus RomanusAristusMgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 26 Oktoba108/109 – 116/119Alexander I Mtakatifu AlexanderAlexander, Episcopus RomanusAlexanderRomaSikukuu yake ni 3 Mei117/119 – 126/128Sixtus I Mtakatifu SixtusXystus, Episcopus RomanusRomaSikukuu yake ni 6 Aprili127/128 – 137/138Telesfori Mtakatifu TelesforiTelesphorus, Episcopus RomanusUgirikiSikukuu yake ni 5 Januari138 – 142/146Hyginus Mtakatifu HyginusHyginus, Episcopus RomanusUgirikiInasemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 11 Januari142/146 – 157/161Pius I Mtakatifu PiusPius, Episcopus RomanusAquileia, Friuli, ItaliaAlifia dini kwa panga; sikukuu yake ni 11 Julai157 – 163/168Anicetus Mtakatifu Anicetus Anicetus, Episcopus RomanusEmesa, SyriaInsemekana alifia dini (lakini haijathibitishwa); sikukuu yake ni 17 Aprili166 hivi– 170/177Soter Mtakatifu SoterSoterius, Episcopus RomanusFondi, Lazio, ItaliaInasemekana alifia dini; sikukuu yake ni 22 Aprili171/177 – 185/193Eleuteri Mtakatifu EleutherusEleutherius, Episcopus RomanusNikopoli, EpyrusInasemekana alifia dini; sikukuu yake ni 6 Mei186/189 – 197/201Viktor I Mtakatifu ViktaVictor, Episcopus RomanusAfrika ya KaskaziniSikukuu yake ni 28 Julai198/201 – 217/218Zefirino Mtakatifu ZefirinoZephyrinus, Episcopus RomanusRomaSikukuu yake ni 20 Desemba218 – 222Kalisti I Mtakatifu Kalisti ICallistus, Episcopus RomanusAlifia dini; sikukuu yake ni 14 Oktoba222 – 230Urban I Mtakatifu Urban IUrbanus, Episcopus RomanusRomaSikukuu yake ni 25 Mei21 Julai 230 – 28 Septemba 235Ponsyano Mtakatifu PonsyanoPontianus, Episcopus RomanusRomaAlifia dini; sikukuu yake ni 13 Agosti21 Novemba 235 – 3 Januari 236Anterus Mtakatifu AnterusAnterus, Episcopus RomanusUgirikiSikukuu yake ni 3 Januari10 Januari 236 – 20 Januari 250Fabiani Mtakatifu FabianiFabianus, Episcopus RomanusRomaSikukuu yake ni 20 Januari",,,,
+sona-9.0-20261114T224303Z-013,90,1b17e19a7655b93ba374d0b5,87378ef8b810ea79ef3011466dcc8b30,sona-9.0,ta,general_knowledge,aya-dataset,human_authored,[user] முதன்முதலில் மேடையில் பேசிய அனுபவத்தை வகுப்பில் பகிர்ந்து கொள்க.,"விடை :
+நான் இரண்டாம் வகுப்புப் படிக்கும் போதுதான் முதன்முதலில் மேடையில் பேசினேன். விடுதலை நாளன்று விடுதலைக்குழைத்து தம் இன்னுயிர் ஈந்த திருப்பூர் குமரன் பற்றிப் பேசினேன்.
+
+எனக்கு அப்போது சரளமாகப் படிக்கத் தெரியாது. என் அம்மாதான் எனக்கு மீண்டும் மீண்டும் பேச வைத்து எனக்குப் பயிற்சியளித்தார்கள். எப்படியோ பத்து நாட்களில் மனப்பாடம் செய்தேன்.
+
+விடுதலை நாளன்று மேடையில் போய் நிற்கும்போது ஒரே பயம். என் உடல் நடுங்கிற்று. என்ன செய்வதென்றே தெரியவில்லை. என் வகுப்பாசிரியர் வந்தார். பயப்படாதே! நீ என்ன பேசுகிறாய் என்பது உனக்கு மட்டும்தான் தெரியும். பிறரைப் பற்றிக் கவலை கொள்ளாதே என்றும் உனக்கு நினைவிருக்கும் வரை பேசி முடித்து விடு என்றும் கூறினார்கள். ஒலி பெருக்கியின் முன் போய் நின்றேன். ஓரிரு விநாடிகள் படபடப்பாக இருந்தது.
+
+அதற்குப் பிறகு படபடப்பு நீங்கியது. தடங்கல் இல்லாமல் பேசி முடித்துவிட்டேன். என்னை எல்லோரும் பாராட்டினர். வகுப்பாசிரியர் என்னைத் தட்டிக் கொடுத்துப் பாராட்டினார். என் பெற்றோர் என்னை வாரி அணைத்துக் கொண்டனர். அந்த நிமிடம் நான் எங்கோ பறப்பது போன்ற உணர்வு ஏற்பட்டது. என்னுடைய பயம் நீங்கியது. இப்போதெல்லாம் அச்சமின்றி மேடையில் பேசுகிறேன். இதற்குக் காரணமான என் வகுப்பாசிரியருக்கு நன்றி கூற வேண்டும்.",,,,
+sona-9.0-20261114T224303Z-013,91,0ca516027fbfa4b49a3a17db,dc8b9b70c2d0395d3511d29c0f2cf721,sona-9.0,ta,mathematics,aya-dataset,human_authored,"[user] கீழே கொடுக்கப்பட்டுள்ள பொருட்களைவைத்து உருளைக்கிழங்கு பொரியல் செய்வது எப்படி?
+தேவையான பொருட்கள்:
+3 உருளைக்கிழங்கு
+1 பெரிய வெங்காயம்
+1 தக்காளி
+1 பச்சை மிளகாய்
+1 துண்டு இஞ்சி
+3 பல் பூண்டு
+2 மேஜைக்கரண்டி துருவிய தேங்காய்
+¼ மேஜைக்கரண்டி மஞ்சள் தூள்
+¼ மேஜைக்கரண்டி மிளகு தூள்
+¼ மேஜைக்கரண்டி சாம்பார் தூள்
+½ மேஜைக்கரண்டி மல்லி தூள்
+½ மேஜைக்கரண்டி கரம் மசாலா
+½ மேஜைக்கரண்டி கடுகு
+½ மேஜைக்கரண்டி கடலை பருப்பு
+½ மேஜைக்கரண்டி உளுத்தம் பருப்பு
+தேவையான அளவு எண்ணெய்
+தேவையான அளவு உப்பு
+தேவையான அளவு மிளகாய்த் தூள்
+சிறிதளவு கருவேப்பிலை
+சிறிதளவு கொத்தமல்லி","தேவையானவை:
+
+உருளைக்கிழங்கு- 4
+பெரிய வெங்காயம் – 1
+சாம்பார் தூள்- 1 தேக்கரண்டி
+மஞ்சள் பொடி- 1/2 தேக்கரண்டி
+உப்பு- தேவையான அளவு
+
+தாளிக்க:
+
+நல்லெண்ணெய்- 2 தேக்கரண்டி
+கடுகு- 1 தேக்கரண்டி
+வெள்ளை உளுத்தம்பருப்பு- 1 தேக்கரண்டி
+மிளகாய்வற்றல்- 1
+கறிவேப்பிலை- 1 இணுக்கு
+
+செய்முறை:
+
+1. உருளைக்கிழங்கை ஒரு பாத்திரம் அல்லது குக்கரில் தோலுடன் 4 சத்தத்திற்கு வேக வைக்கவும்.
+2. எண்ணெயில் தாளிசப் பொருட்களைத் தாளிக்கவும்
+3. பெரிய வெங்காயத்தைச் சிவக்க வதக்கவும்.
+3. வெந்த உருளைக்கிழங்கைத் தோல் நீக்கிக் கொண்டு வதக்கின வெங்காயத்துடன் சேர்த்து உப்பு, மஞ்சள் தூள் சேர்த்துத் தீயைக் குறைத்து வைத்துக் கிளறவும்.
+4. வெந்ததும் சாம்பார் தூள் சேர்த்து ஓரிரு முறை கிளறவும், பொடியின் பச்சை வாசனை போனதும் சிறிதளவு எண்ணெய் விட்டு இறக்கிப் பரிமாறவும் சுவையான வெங்காய உருளைக்கிழங்கு பொரியல் தயார். சாம்பார், வத்தக்குழம்பு, ரசம் போன்றவற்றிற்கு அருமையான இணை.
+
+குறிப்புகள்:
+
+1. தோலுடன் பொடியாக நறுக்கியும் பொரியல் செய்யலாம்.
+2. சாம்பார் தூளிற்குப் பதில் பச்சை மிளகாய் சேர்த்தும் செய்யலாம், மசாலா தோசை அல்லது பூரி போன்றவற்றிற்கு இம்முறையில் செய்வது நன்றாக இருக்கும்.
+3. உருளைக்கிழங்கை மசியும் படி வேக வைத்தும் மேற்கூறிய முறையில் செய்யலாம், குழந்தைகள் விரும்பி உண்ணுவர்.
+
+உருளைக்கிழங்கின் நன்மைகள்:
+மண்ணில் விளையும் கிழங்கு வகைகளில் உருளைக்கிழக்கு ஏராளமான சத்துக்களையும் மருத்துவ குணங்களையும் கொண்டுள்ளது.
+அதிக சத்துள்ளதும் எளிதில் சமைக்கக்கூடியதுமாகிய உருளைக்கிழங்கில் அதிக அளவு கலோரிகள் கிடைக்கின்றன. எளிதில் ஜீரணமாகக்கூடிய இந்த காய்கறியில் வைட்டமின்கள், தாது உப்புகள் அதிகம் காணப்படுகின்றன. இந்த காய் அதிக நார்ச்சத்தும் கொண்டுள்ளது.
+
+வாழைப்பழத்தில் உள்ளதைப் போன்ற அதிக பொட்டாசியம் சத்து உருளைக்கிழங்கில் அதிகம் உள்ளது. நம் உடலில் அதிகமாய் உள்ள புளித்த அமிலங்களைச் சமப்படுத்தி அல்லது வெளியேற்றி உடலை ஆரோக்கியமாகப் பாதுகாப்பதில் உருளைக்கிழங்குக்கு முக்கிய பங்குண்டு.
+
+1. யூரிக் அமிலத்தையும் புளித்த நீரையும் கரைத்து வெளியேற்றி விடுகிறது. அத்துடன் சாப்பிட்ட உணவு எளிதில் ஜீரணமாக உணவுப் பாதையில் நட்புணர்வுடன் செயல்படும் பக்டீரியாக்களையும் அதிகம் வளர்த்து விடுகிறது. பச்சை உருளைக்கிழங்கு வயிற்றுப்புண், வயிற்றுக் கோளாறுகள், குடல் கோளாறுகள், இரைப்பைக் கோளாறுகள் உள்ளவர்களுக்கு உருளைக்கிழங்கு சாறு வரப்பிரசாதமாகும்.
+
+2. இளஞ்சிவப்பு நிறத்தில் உள்ள உருளைக்கிழங்குகளை பச்சயைாக மிக்ஸிசியில் அரைத்து சாறு எடுத்துக் கொள்ள வேண்டும். உணவு சாப்பிடுவதற்கு அரைமணி நேரத்திற்கு முன்பாக இந்தச் சாற்றில் அரை கப் அருந்தினால் இரைப்பைக் கோளறுகள் குணமடையும்.
+
+3. இரு பச்சையான உருளைக்கிழங்குகளைத் தோலுடன் மிக்ஸியில் அரைத்துச் சிறிது தண்ணீர்விட்டு இரு தேக்கரண்டி வீதம் உணவு சாப்பிடுவதற்கு முன்பு அருந்த வேண்டும். இப்படி அருந்திய சாறு உடலில் வாதநோயைத் தோற்றுவிக்கும் அமிலத்தை வெளியேற்றிவிடுகிறது. தொடர்ந்து உட்கொண்டால் வாதநோய் முற்றிலும் குணமாகும்.
+
+4. உருளைக் கிழங்கில் உள்ள மாவுச்சத்து, அடிவயிறு மற்றும் இரைப்பைகளில் உள்ள குழாய்கள் வீங்குவதையும் அவற்றில் நச்சுநீர் தேங்குவதையும் முன் கூட்டியே தடுத்து உடலுக்கு நன்மை செய்கிறது. உடலில் எலும்பு இணைப்புகள் மற்றும் தசைப்பகுதிகளில் வீக்கம் முதலிய கோளாறுகளுக்கும், வாத நோய்களுக்கும் வெளிப்பூச்சாகத் தேய்க்க நிவாரணம் கிடைக்கும்.
+
+5. உருளைக்கிழங்கு சாற்றை அடுப்பில் வைத்து மூன்றில் ஒரு பங்காக வற்றச் செய்து அதில் கிளிசரின் சேர்த்து பாட்டிலில் அடைத்து வைத்துக் கொள்ள வேண்டும். வீக்கம், வலி ஆகியன உள்ள இடங்களில் இரண்டு அல்லது மூன்ற மணி நேரத்திற்கு ஒரு முறை இந்த தைலத்தை அழுத்தித் தேய்த்தால் ஒரே நாளில் வீக்கம் குறையும், வலியும் நீங்கும்.
+
+6. அவித்த உருளைக்கிழங்குகளின் தோல்களைச் சேகரித்து சுத்தம் செய்து ஒரு டம்ளர் தண்ணீரில் பத்து நிமிடங்கள் அடுப்பில் வைத்து இறக்கவும். பிறகு இந்தக் கஷாயத்தை அருந்தினாலும் கீல் வாதம் குணமாகும்.
+
+இந்த முறையில் தினமும் மும்முறை தயாரித்து அருந்த வேண்டும். உருளைக்கிழங்கு வைத்தியம் தினசரி உணவில் உருளைக்கிழங்கை அவித்தோ, வேகவைத்தோ, பொரித்தோ, சூப்வைத்தோ சேர்த்துக் கொள்வது தான் உருளைக் கிழங்கு வைத்தியம்.
+
+7. சாதம், சப்பாத்தி போன்றவற்றைக் குறைத்துக் கொண்டு உருளைக்கிழங்குடன் கீரைவகைகளை, குறிப்பாக லெட்டூஸ், பசலைக்கீரை, தக்காளி, செலரி, வெள்ளரிக்காய், பிட்ரூட் கிழங்கு, டர்னிப்கிழங்கு போன்றவற்றையும் சேர்த்துச் சாப்பிடவேண்டும்.
+
+கெட்டுப்போன இரத்தம், குடல்பாதையின் நச்சுத்தன்மை உள்ள அமிலம், சிறுநீரில் உள்ள புளிப்பு அமிலம் தொடர்பாக ஏற்படும் நோய்கள் உள்ளோர், நீண்ட நாள் மலச்சிக்ககால் அவதிப்படுவோர் ஆகியோர் உருளைக்கிழங்கு வைத்தியத்தை குறைந்தது ஆறுமாதங்கள் பின்பற்றினால் மேற்கண்ட நோய்களிலிருந்து பூரண நலம் பெறலாம்.
+
+8. இரவு தூங்கப்போகும் முன்னர் பச்சை உருளைக்கிழங்கை நசுக்கி முகத்திலும் மற்ற பகுதிகளிலும் தேய்த்துக்கொண்டு உறங்கினால் அதிகாலை எழும் போது முகம் புத்துணர்வுடன் காணப்படும். அமெரிக்காவில் இந்த முறையில் இயற்கையாக முதுமையால் ஏற்படும் தோல் சுருக்கங்களை நீக்கிக்கொள்கின்றனர்.
+
+தவிர்க்க வேண்டியவர்கள்:
+
+கர்ப்பகால நீரிழிவு உள்ளவர்களும் சர்க்கரை உள்ளவர்களும் உருளைக்கிழங்கை அதிகமாக உட்கொள்வதைத் தவிர்க்க வேண்டும்.",,,,
+sona-9.0-20261114T224303Z-013,92,b88f5806c78cc2683746016d,197514d74ae334088244bb12021ec452,sona-9.0,te,general_knowledge,aya-dataset,human_authored,[user] గుప్తుల పాలనా లక్షణాలు పరిశీలించండి.,"గుప్త చక్రవర్తులు ఉత్తర భారతదేశమున రాజకీయ ఐక్యతను సాధించి సుభిక్షమైన పాలనావ్యవస్థను ప్రవేశపెట్టారు. వీరి పాలనలో ప్రజలకు ప్రభుత్వ ఉద్యోగుల బాధ లేదు. ఫాహియాన్ “గుప్త పాలన ఉదారమైనది, ప్రభుత్వము ప్రజల విషయములో అనవసరముగా జోక్యం చేసుకొనెడిది కాదు” అని పేర్కొన్నాడు. అట్టి ఉదాత్త పాలనలో ప్రజలు సుఖశాంతులను అనుభవించారనుట అతిశయోక్తి కాదు.
+
+కేంద్ర ప్రభుత్వము: గుప్త సామ్రాజ్యమునకు సర్వాధికారి చక్రవర్తి. గుప్త చక్రవర్తులు మహేశ్వర్, మహారాజాధిరాజా, పరమభట్టారక మొదలగు బిరుదులు ధరించారు. రాచరికం వంశపారంపర్యంగా లభించేది. రాజు దైవాంశ సంభూతుడని ప్రజలు విశ్వసించారు. రాజు నిరంకుశుడైనా ప్రజాక్షేమమే తన క్షేమముగా భావించేవాడు. పరిపాలనలో రాజుకు సలహాలు ఇవ్వడానికి ఒక మంత్రిమండలి ఉండేది. ఈ మండలిలో 1. మహాప్రధానామాత్యుడు 2. సచివుడు 3. కుమారామాత్యుడు 4. సంధి విగ్రహకుడు 5. మహాదండ నాయకుడు 6. రణభండారికుడు అనే ఉద్యోగులుండేవారు. వీరే కాకుండా కంచుకి అనే ఉద్యోగి చక్రవర్తికి, మంత్రిమండలికి మధ్యవర్తిగా వ్యవహరించేవాడు. ఉద్యోగుల నియామకంలో కుల, మత భేదములను పాటింపక అభ్యర్థుల శక్తిసామర్థ్యములను పరిగణనలోనికి తీసుకునేవారు. ఈ కాలంలో గూఢచారి వ్యవస్థ అమలులో ఉంది.
+
+రాష్ట్ర ప్రభుత్వం: పరిపాలనా సౌలభ్యం కోసం గుప్త చక్రవర్తులు తమ సామ్రాజ్యాన్ని భుక్తులుగా, భుక్తులను విషయాలుగా, విషయాలను ప్రదేశాలుగా విభజించారు. భుక్తికి అధిపతిని ఉపరిక అని పిలిచేవారు. విషయానికి అధిపతి విషయపతి. విషయపాలనలో విషయపతికి సహకరించేందుకు 5గురు సభ్యులు గల సభ సహాయపడేది. వారు నగరశ్రేష్టి, సార్ధవాహుడు, ప్రథమకులికుడు, ప్రథమ కాయస్థుడు, పుస్తపాలడు మొదలైనవారు. పాలనా వ్యవస్థలో చివరిది గ్రామము. గ్రామానికి పెద్ద గ్రామికుడు. గ్రామ పాలనలో గ్రామ పంచాయితీ అతడికి తోడ్పడేది.
+
+నగరపాలన: నగర పరిపాలనకు గుప్తుల కాలంలో ప్రత్యేక ఏర్పాటు ఉంది. నగర పరిపాలనాధికారిని ”పురపాలుడు’ అనేవారు. పరిపాలనలో అతనికి సహాయపడేందుకు ఒక నగరసభ ఉండేది.
+
+భూమిశిస్తు: గుప్త చక్రవర్తులకు ఆదాయం ముఖ్యంగా భూమిశిస్తు నుండి లభించేది. పండిన పంటలో 1/3వ వంతు పంటను భూమిశిస్తుగా నిర్ణయించేవారు. భూమిశిస్తును భాగకర, ఉద్యంగ అనేవారు. భూమిశిస్తుతో పాటు వృత్తిపన్ను, ఉప్పుపన్ను, వర్తక సుంకం, వాణిజ్య పన్నులు, రేవులు, అడవులు, గనులు మొదలగు వానిపై కూడా ప్రభుత్వానికి ఆదాయం లభించేది.
+
+న్యాయపాలన: గుప్త పాలకులు ప్రజలకు నిష్పక్షపాతమైన, సమర్థవంతమైన పాలనను అందించారు. న్యాయ వ్యవహారాలలో చక్రవర్తి మాటకు తిరుగులేదు. ఆయనే ఉన్నత న్యాయాధీశుడు. న్యాయశాఖలో మహాదండ నాయకుడు, మహాక్షపతిలక వంటి న్యాయాధికారులుండేవారు. రాజదండన కఠినంగా ఉండేది కాదు. కాని తిరుగుబాటు చేసిన వారిపట్ల కఠినంగా వ్యవహరించేవారు. శిక్షగా వారి కుడిభుజాన్ని ఖండించేవారు లేదా కళ్ళు పీకించేవారు. మరణదండన తప్పనిసరైనప్పుడు అట్టివారిని ఏనుగులతో తొక్కించి చంపేవారు.
+
+సైనిక వ్యవస్థ: గుప్త సామ్రాజ్యానికి చక్రవర్తే సర్వసైన్యాధ్యక్షుడు. గుప్త చక్రవర్తులు సంప్రదాయంగా అనుసరించబడుతున్న చతురంగ బలాలను పోషించారు. సైనిక రంగంలో సేనాపతి, మహాసేనాపతి, దండనాయకుడు మొదలైన ఉద్యోగులుండేవారు.
+
+ముగింపు: గుప్తుల పరిపాలనలో అధికార వికేంద్రీకరణ చోటుచేసుకుంది. రాష్ట్రపాలకులు ఎక్కువ అధికారాలు అనుభవించారు. ప్రభువులు ప్రజాక్షేమాన్ని దృష్టిలో వుంచుకొని పరిపాలన సాగించటం గుప్త పాలనలోని విశేషం.",,,,
+sona-9.0-20261114T224303Z-013,93,621dc00cf9d1295b3a2db391,294051f10f72d5f8b1789fb6df71357b,sona-9.0,te,mathematics,aya-dataset,human_authored,[user] చెట్ల పెంపకం గురించి శ్రద్ధ తీసుకోవాలని కరపత్రం తయారు చేయండి.,"చెట్లు ప్రగతికి. మెట్లు. పచ్చని చెట్లు, ఆరోగ్య సంజీవనులు. ఈ రోజు దేశంలో ఎక్కడ చూసినా పరిశుభ్రమైన గాలికి, నీటికి కొరత ఉంది. దీనికి కారణం, వర్షాలు లేకపోవడం, చెట్లు లేకపోవడం. మంచి వర్షాలు కురిస్తే, చెట్లు మొలుస్తాయి. చెట్లు పెంచితే, చల్లని ప్రాణవాయువు లభిస్తుంది. వర్షాలు కురుస్తాయి. దేశంలో 1/3 వంతు భాగంలో అడవులు ఉంటే, సకాలంలో చక్కని వర్షాలు పడతాయి.
+చెట్లు మనం విడిచే కార్బన్ డై ఆక్సెడ్ ను పీల్చుకొని, మనకు ప్రాణవాయువును ఇస్తాయి. చెట్ల వల్ల పండ్లు, కాయలు, కూరగాయలు, కలప, తేనె వగైరా లభిస్తాయి. మంచి పువ్వులు దొరుకుతాయి. పండ్లు మంచి ఆరోగ్యాన్ని ఇస్తాయి. చెట్లు దేశ భవితకు మెట్లు.
+
+కాబట్టి ఖాళీ ప్రదేశాల్లో చెట్లను పెంచుదాం. దేశంలో వాతావరణంలో సమతుల్యతను సాధిద్దాం. చెట్లు మనకు కావలసిన అన్ని వస్తువులను ఇస్తాయి. చెట్లను కొట్టడం నేరం. ప్రతి బడిలోనూ, రోడ్డు ప్రక్కనూ, ఖాళీ స్థలాల్లోనూ కాలువ గట్ల వెంబడిని, చెట్లను ఉద్యమంగా నాటుదాం. పెంచుదాం. రండి. కదలిరండి.
+
+దివి. xxxxxx,
+
+ఇట్లు,
+వన సంరక్షణ సమితి,
+గన్నవరం.",,,,
+sona-9.0-20261114T224303Z-013,94,7ebb0b35f8d2d1df683f2f9e,99add1ba820594e3ed8cbf20821f3729,sona-9.0,te,research,tydiqa-goldp,human_authored,"[user] అనుమసముద్రంపేట ఆంధ్ర ప్రదేశ్ రాష్ట్రం, శ్రీ పొట్టి శ్రీరాములు నెల్లూరు జిల్లాలో ఇదే పేరుతో ఉన్న మండలం యొక్క కేంద్రము. ఇది సమీప పట్టణమైన నెల్లూరు నుండి 56 కి. మీ. దూరంలో ఉంది. 2011 భారత జనగణన గణాంకాల ప్రకారం ఈ గ్రామం 1281 ఇళ్లతో, 4746 జనాభాతో 395 హెక్టార్లలో విస్తరించి ఉంది. గ్రామంలో మగవారి సంఖ్య 2402, ఆడవారి సంఖ్య 2344. షెడ్యూల్డ్ కులాల సంఖ్య 220 కాగా షెడ్యూల్డ్ తెగల సంఖ్య 141. గ్రామం యొక్క జనగణన లొకేషన్ కోడ్ 591836[1].పిన్ కోడ్: 524304.
+
+అనుమసముద్రంపేట నుండి నెల్లూరు కి ఎంత దూరం?","56 కి. మీ
+
+అనుమసముద్రంపేట ఆంధ్ర ప్రదేశ్ రాష్ట్రం, శ్రీ పొట్టి శ్రీరాములు నెల్లూరు జిల్లాలో ఇదే పేరుతో ఉన్న మండలం యొక్క కేంద్రము. ఇది సమీప పట్టణమైన నెల్లూరు నుండి 56 కి. మీ. దూరంలో ఉంది. 2011 భారత జనగణన గణాంకాల ప్రకారం ఈ గ్రామం 1281 ఇళ్లతో, 4746 జనాభాతో 395 హెక్టార్లలో విస్తరించి ఉంది. గ్రామంలో మగవారి సంఖ్య 2402, ఆడవారి సంఖ్య 2344. షెడ్యూల్డ్ కులాల సంఖ్య 220 కాగా షెడ్యూల్డ్ తెగల సంఖ్య 141. గ్రామం యొక్క జనగణన లొకేషన్ కోడ్ 591836[1].పిన్ కోడ్: 524304.",,,,
+sona-9.0-20261114T224303Z-013,95,803fe5e6494c2d5bf3b6ccdc,c073d06fd6ce8ae7f9b1db552185e934,sona-9.0,te,writing,aya-dataset,human_authored,"[user] స్టాకర్‌వేర్ వినియోగం అత్యధిక స్థాయిలో ఉన్న దేశం రష్యా అని కాస్పర్‌స్కీ లెక్కలు సూచిస్తున్నాయి. రష్యా తర్వాతి స్థానాల్లో వరుసగా ఇండియా, బ్రెజిల్, అమెరికా, జర్మనీలు ఉన్నాయి. బ్రిటన్ ఎనిమిదో స్థానంలో ఉంది. 
+
+ఎవరైనా తమ మీద స్టాకర్‌వేర్ నిఘా ఉందని సందేహిస్తే.. కొన్ని చర్యలు తీసుకోవచ్చునని మరో సైబర్ భద్రతా సంస్థ చెప్తోంది. 
+
+''మీ మొబైల్ ఫోన్‌లో ఏ ఏ యాప్‌లు ఉన్నాయనేది తరచుగా తనిఖీ చేసుకోవటం మంచిది. అవసరమైనపుడు వైరస్ స్కాన్ చేస్తుండాలి. మీకు ... Write the rest of the article:","ాదంటూ అధికారిక ఆంక్షలు తెప్పించుకున్నారు. అతడు వారి కుమారుడి సంరక్షణ విషయంలో కేవలం రాతపూర్వక లేఖల ద్వారా మాత్రమే ఆమెను సంప్రదించటానికి చట్టపరంగా అనుమతి ఉంది. 
+
+స్టాకర్ వేర్ సాఫ్ట్ వేర్‌తో ఇతరుల మొబైల్ ఫోన్లోని మెసేజ్‌లు, ఈ మెయిళ్లు, కెమెరాను సైతం చూడొచ్చు
+
+మూడు నెలలకు రూ. 13,000... 
+
+అత్యంత ప్రజాదరణ గల ఒక స్టాకర్‌వేర్ ఉత్పత్తిని నేను పరీక్షించి చూశాను. దాని ద్వారా మూడు నెలలు నిఘా పెట్టటానికి 140 పౌండ్లు (దాదాపు రూ. 13,000) ఖర్చవుతుంది. 
+
+దానిని ఆన్‌లైన్‌లో కొని నా వర్క్ ఫోన్‌లో ఇన్‌స్టాల్ చేశాను. అందుకు ఒక గంట సేపు పట్టింది. అందులో ఏదైనా సమస్య ఎదురైతే దానిని పరిష్కరించటానికి సదరు సంస్థ 24 గంటల లైవ్ సపోర్ట్ కూడా అందిస్తోంది. దానినీ నేను వాడుకున్నాను. 
+
+ఈ స్పైవేర్ కంపెనీలు తమ ఉత్పత్తులను ''ఎంప్లాయీ మానిటరింగ్'' అని.. ''పేరెంటల్ కంట్రోల్'' అని ప్రచారం చేస్తాయి. 
+
+బ్రిటన్ సహా చాలా దేశాల్లో జీవిత భాగస్వామి మీద వారి అనుమతి లేకుండా స్పైవేర్‌ను ఉపయోగించటం చట్ట విరుద్ధం. కాబట్టి.. తమ ఉత్పత్తులను అలా ఉపయోగించరాదని సలహా ఇస్తూ.. అలా ఉపయోగిస్తే తమకు సంబంధం లేదని చాలా కంపెనీల వెబ్‌సైట్లు చెప్తుంటాయి. 
+
+కానీ.. అవే వెబ్‌సైట్లు కొన్నిటిలో.. ''మోసం చేసే భార్యలు, భర్తల'' మీద నిఘా కోసం ఈ సాఫ్ట్‌వేర్‌ను ఉపయోగించాలని సిఫారసు చేస్తూ రాసిన వ్యాసాల లింకులు కనిపిస్తాయి. వీటిని ఆయా సంస్థలతో సంబంధం ఉన్నవారే రాసినట్లు కనిపిస్తుంది. 
+
+నేను ఉపయోగించిన ఉత్పత్తిని ''నా భార్య ఫోన్‌లో ఇన్‌స్టాల్ చేయాలనుకుంటున్నాను. అది రహస్యంగా ఉంటుందా?'' అని సదరు కంపెనీతో ఒక లైవ్ చాట్‌లో నేను నేరుగా అడిగాను. 
+
+సదరు కస్టమర్ సర్వీస్ ప్రతినిధి.. ''ఈ అప్లికేషన్ ఇన్‌స్టాల్ చేసిన తక్షణమే రహస్యంగా పనిచేయటం ప్రారంభిస్తుంది. నేను సంతోషంగా సాయం చేస్తాను'' అని బదులిచ్చారు. 
+
+ఈ స్పైవేర్‌ను ఇన్‌స్టాల్ చేసిన ఫోన్‌లో.. ఐదు టాప్ సైబర్ సెక్యూరిటీ ఉత్పత్తులను కూడా డౌన్‌లోడ్ చేసి ఫ్రీ స్కాన్ చేశాను. 
+
+అవన్నీ ''ప్రమాదకరం కాగల సాఫ్ట్‌వేర్'' ఉందని నన్ను అప్రమత్తం చేశాయి. 
+
+ఇటువంటి నిఘా సాంకేతికత వినియోగానికి వ్యతిరేకంగా చట్టాలు చేయటానికి మరింత కృషి జరగాల్సి ఉందని అమీ అంటారు. 
+
+ఇవి కూడా చదవండి:
+
+(బీబీసీ తెలుగును ఫేస్‌బుక్, ఇన్‌స్టాగ్రామ్‌, ట్విటర్‌లో ఫాలో అవ్వండి.  యూట్యూబ్‌లో సబ్‌స్క్రైబ్ చేయండి.)",,,,
+sona-9.0-20261114T224303Z-013,96,52811d62e7a3f9a7fbe874a3,799ad9e0e60e3b35c6ccfcaff1f83be2,sona-9.0,th,general_knowledge,oasst2,human_authored,[user] ขอวิธีไล่นกแสกหน่อยคับ,"การไล่นกแสกมีวิธีหลายวิธี ดังนี้
+
+1. ติดตั้งที่กั้นนกแสก: ใช้วัสดุที่ไม่ให้นกแสกสามารถเข้าไปอยู่ในพื้นที่ที่เราไม่ต้องการ เช่น ติดตั้งสแน็ทหรือวอลล์กั้นนกแสก
+
+2. ใช้ตัวไล่นก: มีตัวไล่นกที่ขายในร้านขายอุปกรณ์สัตว์เลี้ยง ใช้กั้นทางเดินของนกแสก และไล่ไปยังที่ที่เราต้องการให้ไป
+
+3. ใช้เสียง: นกแสกไม่ชอบเสียงดัง เมื่อมีเสียงดังมากจะทำให้นกแสกไม่สบายใจและอาจจะไปอยู่ที่อื่น
+
+4. ใช้กลิ่น: นกแสกไม่ชอบกลิ่นของสิ่งที่ไม่ชอบ เช่น น้ำมันหอม หรือผงซักฟอก
+
+5. ใช้วิธีสลับสถานที่: ปลูกพืชหรือใช้วัสดุใหม่ในพื้นที่ที่นกแสกมักจะมาอยู่ ทำให้นกแสกไม่สะดุดตาและหาที่อื่นที่เหมาะสมยากขึ้น
+
+การไล่นกแสกอาจใช้เวลาและความอดทน แต่ควรลองวิธีต่างๆ ดังกล่าวเพื่อช่วยได้ผลดีในการป้องกันนกแสกจากการอยู่ในพื้นที่ที่เราไม่ต้องการ",,,,
+sona-9.0-20261114T224303Z-013,97,685f7a0009c68c5d89f71475,5b8b83ea105ffa72a0c94be83da8a31f,sona-9.0,tr,coding,aya-dataset,human_authored,"[user] ""Meaning of Life"" filmi neyi konu almaktadır?","""Meaning of Life,"" Monty Python adlı İngiliz komedi grubunun 1983 yapımı bir filmidir. Bu film, komik ve absürd skeçlerin bir araya geldiği bir yapıttır ve ana temaları insanın hayatının anlamını sorgulamaktır. Monty Python ekibi, filmin her bir skeçinde hayatın tuhaflıkları, insan doğası, ölüm ve yaşamın anlamı gibi konuları hiciv ve absürd mizahla ele alır.
+Filmin skeçleri, farklı zaman dilimlerinde ve mekanlarda geçer ve çeşitli karakterleri ve olayları içerir. Örneğin, bir grup madenci, bir restoranda abur cubur yemeye çalışan bir obezite araştırma ekibi, bir doğum sahnesi, bir anarşistler kulübü ve daha pek çok sahne filmde yer alır. Her bir skeç, farklı bir yolla insan hayatının anlamsızlığını veya tuhaflığını vurgular.
+""Meaning of Life,"" Monty Python'ın karakteristik tarzını taşır ve sıklıkla absürd, çılgın ve siyasi hiciv içerir. Film, izleyicilere hayatın anlamını arayışta olan insanların komik ve çoğu zaman saçma deneyimlerini gösterirken, aynı zamanda ciddi felsefi ve toplumsal konuları da ele alır.",,,,
+sona-9.0-20261114T224303Z-013,98,bc7c77ea8c5044443990979a,ab5c34091cbbb24617fe996c0a5a069f,sona-9.0,tr,general_knowledge,aya-dataset,human_authored,[user] Büyük İskender nereleri fethetti?,"Büyük İskender, Makedonya Kralı II. Philip'in oğlu olarak Makedonya'da doğmuş ve Makedonya İmparatorluğu'nun hükümdarı olarak tanınmıştır. Büyük İskender, kısa sürede gerçekleştirdiği askeri kampanyalar ve fetihlerle tarihte önemli bir figür haline gelmiştir. İşte Büyük İskender'in fethettiği bazı önemli bölgeler:
+
+1. Anadolu (M.Ö. 334-333): Büyük İskender, Pers İmparatorluğu'nun batı sınırlarına yönelik ilk seferine Anadolu üzerinden başlamıştır. Granikos Nehri Muharebesi ve İssos Muharebesi'nde Pers kralı III. Darius'u mağlup ederek Anadolu'nun birçok bölgesini ele geçirmiştir.
+
+2. Mısır (M.Ö. 332): İskender, Mısır'ı fethederek kent merkezi İskenderiye'yi kurdu. Mısır'ı fethi, kendisine ""Pharao"" (firavun) unvanını kazandırmıştır.
+
+3. Pers İmparatorluğu (M.Ö. 331-330): Büyük İskender, Gaugamela Muharebesi'nde Pers Kralı III. Darius'u mağlup ederek Pers İmparatorluğu'nun başkenti olan Babil'i ele geçirdi. Ardından Pers İmparatorluğu'nun büyük bir bölümünü kontrolü altına aldı.
+
+4. Orta Doğu (M.Ö. 330): İskender, Pers İmparatorluğu'nun ardından Mezopotamya, Fenike ve Filistin gibi bölgeleri fethetti.
+
+5. Afganistan ve Hindistan (M.Ö. 327-326): İskender, İndus Vadisi'ne kadar ilerleyerek Afganistan ve Hindistan'ı fethetti. Bu dönemde, savaşlar ve yerel direnişlere rağmen, İskender'in orduları çok uzaklara ulaştı.
+
+Büyük İskender'in fetihleri, Makedonya İmparatorluğu'nun sınırlarını genişletti ve kısa ömrüne rağmen tarih boyunca büyük bir askeri lider ve imparator olarak hatırlanmasını sağladı. Ancak İskender'in ölümünden sonra, imparatorluğu generalleri arasında bölündü ve Helenistik Dönem başladı.",,,,
+sona-9.0-20261114T224303Z-013,99,d55041b62a96319d7475a6ba,7ad64b1426a1ce9d2646f3a3ae2b156d,sona-9.0,tr,mathematics,aya-dataset,human_authored,[user] Bursluluk sınavı için gelir hesaplaması nasıl yapılır?,4 kişilik bir aile için hesaplandığında bursluluk sınavına başvurabilmek için yıllık gelirinin (4 x 16.080 = 64.320 TL) olması gerekir. Ailede bir kişi çalışıyorsa aylık geliri (64.320 ÷ 12 = 5.360 TL) olmalıdır. Bu miktardan daha düşük aylık geliri olanlar Milli Eğitim Bakanlığı tarafından YOKSUL sayılmaktadır.,,,,
+sona-9.0-20261114T224303Z-013,100,afa9566da78a092e29afdfd1,ca2053d046ca7707f1737c28e63e84f9,sona-9.0,ur,general_knowledge,aya-dataset,human_authored,[user] بار بی کیو فرائی قیمہ بنانے کی ترکیب,پیالے میں قیمے کو ڈال کر اس میں نمک،ادرک لہسن ،لال مر چ ،سرکہ اور چار کھانے کے چمچ کوکنگ آئل ڈال کر اچھی طرح ملائیں اور دس سے پندرہ منٹ کے لئے رکھ دیں ۔ پھر پین میں کوکنگ آئل ڈال کر گرم کریں اور اس میں قیمہ ڈال کر ہلکی آنچ پر پکائیں ۔جب قیمے کا اپنا پانی خشک ہونے پر آجائے تو اس میں زیرہ اور گرم مصالحہ ڈال کر اچھی طرح فرائی کریں ۔ آخر میں بار بی کیو ساس ڈال کر اوپر سے دہکتا ہوا کوئلہ رکھیں اور ایک کھانے کا چمچ کوکنگ آئل ڈال کر پانچ سے سات منٹ ڈھک کر رکھ دیں ۔,,,,

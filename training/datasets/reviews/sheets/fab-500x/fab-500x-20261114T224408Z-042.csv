@@ -1,0 +1,1037 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-042,1,2f20a2cdbe85cb1b8ca6c84c,aface8874c26c283574dd9964b9c80a3,fab-500x,en,mathematics,aqua-rat,human_authored,"[user] A train 125 m long passes a man, running at 5 km/hr in the same direction in which the train is going, in 10 seconds. The speed of the train is?
+
+A)12
+B)50
+C)27
+D)28
+E)11","Speed of the train relative to man = (125/10) m/sec = (25/2) m/sec. [(25/2) * (18/5)] km/hr
+= 45 km/hr. Let the speed of the train be x km/hr. Then, relative speed = (x - 5) km/hr. x - 5 = 45 ==> x
+= 50 km/hr.
+Answer: B
+
+Answer: B",,,,
+fab-500x-20261114T224408Z-042,2,0d2b03885559dd831fee4d79,8cf4c1429f7c1c4de0a700f78f4760d9,fab-500x,en,pakistan,oasst1,human_authored,"[user] What is the largest city in the world? And how many people are moving there?
+
+[assistant] The largest city in the world is Chongqing, China with 82,403 km^2.
+
+I do not understand what you mean by people moving there. Assuming you mean living there, population of Chongqing is 32 million.
+
+[user] According to the United Nations Population Division, the largest city in the world by population is Tokyo, with a population of 37.4 million.
+
+Due to an aging population and government incentive programs the population of the city is slowing going down. 
+
+According to Wikipedia 
+
+The cities in the world with the largest population are Tokyo, Delhi, Shanghai, São Paulo, Mexico City, Cairo, Mumbai, Beijing, Dhaka, Osaka, New York, Karachi, Buenos Aires, and Chongqing","Yes, you are correct, going by population, the largest city in the world is Tokyo, but that population is expected to decline over the next decade. By some estimates, Tokyo will be replaced by Jakarta, Indonesia, as the world's largest city by the year 2035.",,,,
+fab-500x-20261114T224408Z-042,3,1a6a829d3b0ff54347e0687f,a6b36b2a58a3e09fad52691db3ade90d,fab-500x,en,problem_solving,oasst2,human_authored,"[user] I’m making a playlist on Spotify. I want each song to have a similar structure and feel. My first song is “Ancient Stones” by Jeremy Soule. Can you suggest 10 more tracks to follow?
+
+[assistant] You can use a simple tool like this to achieve what you want:
+
+https://www.chosic.com/playlist-generator/
+
+[user] I want you to suggest them. Go ahead and give me 10 tracks similar to the one I suggested.","I understand you'd like me to suggest ten tracks similar to ""Ancient Stones"" by Jeremy Soule. Here are some recommendations that should fit well with the atmosphere and structure of that track:
+
+- ""Secunda"" by Jeremy Soule
+- ""Auriel's Ascension"" by Jeremy Soule
+- ""Wind Guide You"" by Jeremy Soule
+- ""From Past to Present"" by Jeremy Soule
+- ""Kyne's Peace"" by Jeremy Soule
+- ""Nerevar Rising"" by Jeremy Soule
+- ""Far Horizons"" by Jeremy Soule
+- ""Elder Scrolls Online Main Theme"" by Brad Derrick
+- ""Streets of Whiterun"" by Jeremy Soule
+- ""Dragonborn"" by Jeremy Soule
+
+As you can see, most of these suggestions are also composed by Jeremy Soule, as his work has a consistent style that aligns well with ""Ancient Stones."" I've also included one track by Brad Derrick from the Elder Scrolls Online soundtrack to provide some variety while maintaining the desired atmosphere.",,,,
+fab-500x-20261114T224408Z-042,4,ef3ad977f70664c3d0b30713,05e6dbe259d67a390fe81f278b3216e5,fab-500x,en,reasoning,dolly-15k,human_authored,[user] Classify as a technical book vs Non technical book,"Solution Architecture with AWS - Technical 
+Quantum Physics made me do it - Technical
+The only survivors - Fiction
+Camp Zero - Sci - Fi",,,,
+fab-500x-20261114T224408Z-042,5,bda74fb144f678c27cc67a4b,bad79e2820a9e1270ceac8f0d09a27c8,fab-500x,en,research,dolly-15k,human_authored,"[user] Based on the paragraph below, the failure to uphold the commitments outlined in Magna Carta lead to what war?
+
+Context:
+Magna Carta Libertatum (Medieval Latin for ""Great Charter of Freedoms""), commonly called Magna Carta (also Magna Charta; ""Great Charter""), is a royal charter of rights agreed to by King John of England at Runnymede, near Windsor, on 15 June 1215. First drafted by the Archbishop of Canterbury, Cardinal Stephen Langton, to make peace between the unpopular king and a group of rebel barons, it promised the protection of church rights, protection for the barons from illegal imprisonment, access to swift justice, and limitations on feudal payments to the Crown, to be implemented through a council of 25 barons. Neither side stood behind their commitments, and the charter was annulled by Pope Innocent III, leading to the First Barons' War.",First Barons' War,,,,
+fab-500x-20261114T224408Z-042,6,6f164a77cba07c75b2c2cf5c,8129390ecbb3156a1acfd3310b6b5d9a,fab-500x,en,safety_ethics,ethics-commonsense,templated_human,"[user] Consider this situation: ""I loved listening to music so much, that I told my friends I wished I could listen to it constantly.""
+By ordinary moral standards, is what the narrator did acceptable or wrong?",By ordinary moral standards this is not wrong; it is an acceptable thing to do.,,,,
+fab-500x-20261114T224408Z-042,7,0ddf680fb9c339006a4d4db7,b84f9162773a9f29fb0fdbfbc6a206f0,fab-500x,en,science,scienceqa-text,human_authored,"[user] Which figure of speech is used in this text?
+Ezra and Florence have trouble working on projects together. Although Florence is very sociable and friendly, she's not exactly a team player.
+
+A. euphemism
+B. oxymoron","The answer is A: euphemism.
+
+Explanation: Figures of speech are words or phrases that use language in a nonliteral or unusual way. They can make writing more expressive.
+A euphemism is a polite or indirect expression that is used to de-emphasize an unpleasant topic.
+The head of Human Resources would never refer to firing people, only to laying them off.
+Hyperbole is an obvious exaggeration that is not meant to be taken literally.
+I ate so much that I think I might explode!
+An oxymoron is a joining of two seemingly contradictory terms.
+Some reviewers are calling this book a new classic.
+A paradox is a statement that might at first appear to be contradictory, but that may in fact contain some truth.
+Always expect the unexpected. The text uses a euphemism, a polite or indirect expression that is used to de-emphasize an unpleasant topic.
+Not exactly a team player is an indirect way of saying that someone doesn't work well with others.",,,,
+fab-500x-20261114T224408Z-042,8,ef51ff4d2c97a9c3d6d7e27a,2f714550baf7ea5fcf9b521dc5379c55,fab-500x,en,software_engineering,commitpackft,human_authored,"[user] Add babel polyfills as a direct dependency
+
+File: src/js/app.js
+```javascript
+/**
+ * Main application file of Fittable
+ *  - Requires React.js to be loaded before loading this
+ *
+ *  @author Marián Hlaváč
+ */
+
+import React from 'react';
+import Fittable from './components/Fittable.component';
+
+import Counterpart from 'counterpart';
+import Moment from 'moment';
+import Momentcslocale from 'moment/locale/cs';
+
+import LocaleCS from '../lang/cs.json';
+import LocaleEN from '../lang/en.json';
+
+function fittable ( containerElId, options )
+{
+    // Register translations
+    Counterpart.registerTranslations( 'en', LocaleEN );
+    Counterpart.registerTranslations( 'cs', Object.assign( LocaleCS, {
+        counterpart: { pluralize: ( entry, count ) => entry[ (count === 0 && 'zero' in entry) ? 'zero' : (count === 1) ? 'one' : 'other' ] }
+    } ) );
+
+    // Set locale
+    Counterpart.setLocale( options.locale );
+    Moment.locale( options.locale );
+
+    // Create root fittable element
+    var element = React.createElement( Fittable, options );
+    var rendered = React.render( element, document.getElementById( containerElId ) );
+
+    // Return fittable instance
+    return rendered;
+
+}
+global.fittable = fittable;
+export default fittable;
+```
+
+Apply this change and return the full updated file.","```javascript
+/**
+ * Main application file of Fittable
+ *  - Requires React.js to be loaded before loading this
+ *
+ *  @author Marián Hlaváč
+ */
+
+// https://babeljs.io/docs/usage/polyfill/
+require('babel/polyfill');
+
+import React from 'react';
+import Fittable from './components/Fittable.component';
+
+import Counterpart from 'counterpart';
+import Moment from 'moment';
+import Momentcslocale from 'moment/locale/cs';
+
+import LocaleCS from '../lang/cs.json';
+import LocaleEN from '../lang/en.json';
+
+function fittable ( containerElId, options )
+{
+    // Register translations
+    Counterpart.registerTranslations( 'en', LocaleEN );
+    Counterpart.registerTranslations( 'cs', Object.assign( LocaleCS, {
+        counterpart: { pluralize: ( entry, count ) => entry[ (count === 0 && 'zero' in entry) ? 'zero' : (count === 1) ? 'one' : 'other' ] }
+    } ) );
+
+    // Set locale
+    Counterpart.setLocale( options.locale );
+    Moment.locale( options.locale );
+
+    // Create root fittable element
+    var element = React.createElement( Fittable, options );
+    var rendered = React.render( element, document.getElementById( containerElId ) );
+
+    // Return fittable instance
+    return rendered;
+
+}
+global.fittable = fittable;
+export default fittable;
+```",,,,
+fab-500x-20261114T224408Z-042,9,096eb81a8cee2a98721dbb79,a9828444d26d3b9accf70fe9a3e96769,fab-500x,en,web_backend,commitpackft,human_authored,"[user] Add unittest for dashboard redirection and template
+
+Test that checks template rendered by /dashboard endpoint.
+
+File: logtoday/tests.py
+```python
+from django.test import TestCase
+from django.urls import resolve
+
+
+class HomePageTest(TestCase):
+    fixtures = ['tests/functional/auth_dump.json']
+
+    def test_root_url_resolves_to_index_page_view(self):
+        found = resolve(""/"")
+        self.assertEqual(found.view_name, ""index"")
+
+    def test_uses_login_template(self):
+        response = self.client.get('/')
+        self.assertTemplateUsed(response, 'login.html')
+
+    def test_redirects_login_and_logout(self):
+        response = self.client.post('/login/', {'username': 'admin',
+                                                'password': 'administration'})
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, '/dashboard/')
+
+        response = self.client.get('/logout/')
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, '/')
+```
+
+Apply this change and return the full updated file.","```python
+from django.test import TestCase
+from django.urls import resolve
+
+
+class HomePageTest(TestCase):
+    fixtures = ['tests/functional/auth_dump.json']
+
+    def test_root_url_resolves_to_index_page_view(self):
+        found = resolve(""/"")
+        self.assertEqual(found.view_name, ""index"")
+
+    def test_uses_login_template(self):
+        response = self.client.get('/')
+        self.assertTemplateUsed(response, 'login.html')
+
+    def test_redirects_login_and_logout(self):
+        response = self.client.post('/login/', {'username': 'admin',
+                                                'password': 'administration'})
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, '/dashboard/')
+
+        response = self.client.get('/logout/')
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, '/')
+
+    def test_uses_dashboard_landing_page(self):
+        # login is required to access /dashboard url.
+        self.client.post('/login/', {'username': 'admin',
+                                     'password': 'administration'})
+        response = self.client.get('/dashboard', follow=True)
+        self.assertTemplateUsed(response, 'dashboard/landing_page.html')
+```",,,,
+fab-500x-20261114T224408Z-042,10,5e32c692e03c9127d957061d,8ad621dac6cd8c45bd8b466703c4f3cb,fab-500x,en,web_frontend,commitpackft,human_authored,"[user] feat(Global): Add focusable class to visuallyhidden.
+
+Snagged from H5BP:
+
+https://github.com/h5bp/html5-boilerplate/blob/024b8a05ee9acf99393469c0622e55a694542493/src/css/main.css#L147
+
+File: rocketbelt/tools/placeholders/_visually-hidden.scss
+```scss
+%visuallyhidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+```
+
+Apply this change and return the full updated file.","```scss
+%visuallyhidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  white-space: nowrap;
+  clip-path: inset(50%);
+
+
+  // Genius idea from H5BP. See https://github.com/h5bp/html5-boilerplate/blob/024b8a05ee9acf99393469c0622e55a694542493/src/css/main.css#L147
+  &.focusable:active,
+    &.focusable:focus {
+      position: static;
+      overflow: visible;
+      clip: auto;
+      margin: 0;
+      width: auto;
+      height: auto;
+      white-space: inherit;
+      clip-path: none;
+  }
+}
+```",,,,
+fab-500x-20261114T224408Z-042,11,c70d9a858106d1ab622caa41,27c233bcc643b58f13ee43a976ec4909,fab-500x,en,web_fullstack,commitpackft,human_authored,"[user] Fix exec command timeout timer bug.
+
+File: website/services.py
+```python
+# -*- coding: utf-8 -*-
+""""""
+    website.services
+    ~~~~~~~~~~~~~~~~
+
+    top level services api.
+
+    :copyright: (c) 2014 by xiong.xiaox([EMAIL]).
+""""""
+
+
+import subprocess
+
+from threading import Timer
+
+
+def exec_command(cmd):
+    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE,
+                            stderr=subprocess.PIPE)
+    # settings exec timeout
+    timer = Timer(5, proc.kill, [proc])
+    timer.start()
+    stdout, stderr = proc.communicate()
+    timer.cancel()
+    return {'return_code': proc.returncode, 'stdout': stdout,
+            'stderr': stderr}
+```
+
+Apply this change and return the full updated file.","```python
+# -*- coding: utf-8 -*-
+""""""
+    website.services
+    ~~~~~~~~~~~~~~~~
+
+    top level services api.
+
+    :copyright: (c) 2014 by xiong.xiaox([EMAIL]).
+""""""
+
+
+import subprocess
+
+from threading import Timer
+
+
+def exec_command(cmd):
+    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE,
+                            stderr=subprocess.PIPE)
+    # settings exec timeout
+    timer = Timer(5, proc.kill)
+    timer.start()
+    stdout, stderr = proc.communicate()
+    timer.cancel()
+    return {'return_code': proc.returncode, 'stdout': stdout,
+            'stderr': stderr}
+```",,,,
+fab-500x-20261114T224408Z-042,12,cacf76c4da961f251dadd050,9a27b82f843df48792209eebbcb3200b,fab-500x,en,writing,dolly-15k,human_authored,[user] What are the benefits of hot yoga?,Hot yoga is nothing but yoga performed in the hot studio. Temperature in the room ranges from 80 to 110 degree F with added humidity. Hot yoga provides higher flexibility and yogis can stretch a bit more than cold rooms. Hot rooms can increase heart rates. However one has to be careful as there is a tendency overstretch  that can cause injuries.,,,,
+fab-500x-20261114T224408Z-042,13,50006e91dbb64e2b01ec3217,6caaa114b526db17b1cf32c52235de29,fab-500x,eo,general_knowledge,oasst2,human_authored,"[user] Ĉu Esperanto havas idiomojn kiel aliaj lingvoj?
+
+[assistant] Jes, Esperanto havas idiomojn kiel aliaj lingvoj. Idiomoj estas esprimoj aŭ frazoj, kiuj havas apartan signifon, kiu ne tuj kompreneblas el la signifoj de la individuaj vortoj. Kvankam Esperanto estis kreita por esti simpla kaj logika lingvo, ĝi ankaŭ evoluigis idiomojn pro naturaj lingvaj procezoj kaj la influo de aliaj lingvoj. Jen kelkaj ekzemploj:
+
+* Krokodili (en Esperanta medio paroli en lingvo alia ol Esperanto, kiu estas la gepatra lingvo de ĉiuj ĉeestantoj)
+* Kabei (estinte tre aktiva esperantisto, forlasi la movadon, kiel faris la grava aŭtoro Kabe)
+* Malĉu (ĉu ne; ofte uzata kiel ŝerca demando, ""Ĉu aŭ malĉu?"")
+
+Por pliaj ekzemploj ekzemple vidu la paĝon ""Esperantaj idiotismoj"" en la Esperanta vikipedio.
+
+[user] Kio estas aliaj interesaj vortoj en la lingvo Esperanto?","Jen du pliaj ekzemploj:
+* ""ŭaŭ""estas ŝerca traduko de la angla vorto ""wow""
+* ofte lokalaj nomoj estas preferataj. Ekzemple la angla ""Mount Everest"" nomiĝas Ĉomolungmo en esperanto.",,,,
+fab-500x-20261114T224408Z-042,14,198909659d9a1d4a42df3af4,b5b1506ebbeae982231c61350d8fb01c,fab-500x,es,coding,oasst1,human_authored,"[user] ¿Cuál es la diferencia de un IDE y un editor de código?
+
+[assistant] Un IDE (Integrated Development Environment, Ambiente Integrado de Desarrollo en español) es una herramienta completa y de alto nivel para el desarrollo de software, que incluye un editor de código, pero además cuenta con otras características que facilitan el proceso de programación. Estas características incluyen, entre otras, herramientas de depuración, autocompletado de código, análisis de código, compilación, ejecución y pruebas unitarias.
+
+Por otro lado, un editor de código es una herramienta más simple, enfocada en el proceso de escritura y edición de código. Es una herramienta básica para programadores que no requieren las funciones avanzadas de un IDE. Un editor de código proporciona características básicas como resaltado de sintaxis, autocompletado de código, búsqueda y reemplazo, entre otras.
+
+En resumen, un IDE es una herramienta completa y de mayor nivel para el desarrollo de software, que incluye un editor de código, mientras que un editor de código es una herramienta más simple y básica para la escritura y edición de código.
+
+[user] No lo he entendido demasiado bien, ¿podrías darme algunos ejemplos comparativos para que pudiese entenderlo mejor?
+
+[assistant] Claro, aquí hay algunos ejemplos de IDE y editores de código:
+
+IDE:
+- Eclipse
+- Visual Studio
+- NetBeans
+- Xcode
+
+Editores de código:
+- Atom
+- Sublime Text
+- Visual Studio Code
+- Vim
+
+Un IDE generalmente ofrece una amplia variedad de herramientas y características para ayudar a los programadores a escribir, depurar, compilar y ejecutar su código. Por otro lado, un editor de código es una herramienta más simple que se enfoca en la edición de código y proporciona herramientas básicas como resaltado de sintaxis, autocompletado, búsqueda y reemplazo.
+
+[user] Si voy a desarrollar código en GO, ¿qué IDE y editor de código recomendarías?","Para desarrollar código en ""GO "" o ""Golang"" te recomendaría que utilizaras un IDE o Editor de código que sea compatible con el leguaje deseado y/o tenga la capacidad de instalar plugins para ese leguaje.
+Aquí tienes algunas recomendaciones:
+
+ - Visual Studio Code
+ - Vim-go
+ - GoSublime
+ - GoLand",,,,
+fab-500x-20261114T224408Z-042,15,95ee132609e2f133b06264af,651d72d5cc091e489953e571a0441d5e,fab-500x,es,cybersecurity,oasst2,human_authored,"[user] Estoy escribiendo un reporte de ethical hacking y he encontrado que el servidor auditado le falta la configuración: HTTP-Strict-Transport-Security
+
+En un punto explica el peligro de esto y en otro punto la recomendación técnica para mitigarlo","¡Claro! Aquí te proporciono información sobre la importancia de la configuración de HTTP Strict Transport Security (HSTS) en un servidor y cómo se puede mitigar este riesgo:
+
+1. Peligro de la falta de configuración de HSTS:
+
+• La falta de configuración de HSTS puede dejar al servidor vulnerable a ataques de tipo man-in-the-middle (MITM) mediante el uso de ataques de protocolo de downgrade.
+• Esto podría permitir a un atacante interceptar la comunicación entre el usuario y el servidor, permitiéndole leer, modificar o incluso inyectar información en la conexión cifrada.
+• Además, la falta de HSTS también puede dejar al servidor vulnerable a ataques de suplantación de identidad o phishing, ya que los atacantes pueden crear sitios web falsos que se parezcan al sitio web original para engañar a los usuarios y obtener información confidencial.
+
+2. Recomendación técnica para mitigar este riesgo:
+
+• Para mitigar este riesgo, se recomienda configurar HSTS en el servidor para indicar a los navegadores web que solo se debe acceder al sitio web a través de una conexión HTTPS segura y cifrada.
+• La configuración de HSTS se realiza mediante la inclusión de una cabecera en la respuesta HTTP del servidor. La cabecera indica al navegador que solo se debe acceder al sitio web a través de una conexión segura durante un periodo de tiempo determinado.
+• Al configurar HSTS, se evita que los navegadores permitan que los usuarios accedan al sitio web a través de una conexión HTTP no segura.
+• Además, también se recomienda configurar la cabecera ""preload"" de HSTS, lo que permitirá que los navegadores web más populares carguen automáticamente el sitio web en una lista de pre-carga de HSTS, lo que garantiza que se acceda al sitio web solo a través de una conexión segura, incluso si el usuario nunca ha visitado el sitio web anteriormente.
+
+Espero que esta información sea útil para tu reporte de ethical hacking. Si tienes alguna otra pregunta o necesitas más información, no dudes en preguntar.",,,,
+fab-500x-20261114T224408Z-042,16,105491f66e018622394aeee4,f324ab866e54bba6ce1007410c454081,fab-500x,es,education,oasst1,human_authored,[user] Como hacer un post para twitter,"Para hacer un Post en Twitter, Primero: Debes de tener una cuenta,Si tienes una cuenta, entonces Inicia Sesión, si no tiene una cuenta puedes crearlo buscando al lado derecho superior que dice ""Crear cuenta"", Segundo: Una vez Iniciado Sesión En Twitter, veras un texto que dice: ¿Qué estas pensando?, ahí puedes escribir tu publicacion, una vez terminado solo debes dar Click en ""Twittear"", Ojo el tutorial que te he dicho es para hacerlo en la pagina en PC, para hacerlo en APP de Android e IOS debe variar un poco donde se encuentran los botones de Crear Cuenta e Iniciar Sesión, lo demás es lo mismo, espero haberte ayudado.",,,,
+fab-500x-20261114T224408Z-042,17,2f0b494468568adb9e953346,7f1e8dd92cf7409381d0a38341b8d31c,fab-500x,es,general_knowledge,oasst1,human_authored,"[user] ¿Si tengo relaciones sexuales estando embarazado, puedo dejar embarazado al bebé?","No, si tienes relaciones sexuales estando embarazado, no puedes dejar embarazado al bebé. Cuando una mujer está embarazada, el bebé está en periodo de gestación y este no tiene los órganos reproductivos lo suficientemente desarrollados como para poder quedar embarazado. A parte, en ningún caso el semen masculino puede entrar en útero donde se gesta el bebé.",,,,
+fab-500x-20261114T224408Z-042,18,e8eb0b84f93936ac92ea5081,c97d240acd11dc71a23458ae91c67b5c,fab-500x,es,islamic_studies,aya-dataset,human_authored,[user] ¿Dónde colocó Turabi a los estudiantes que simpatizaban con sus puntos de vista? Aparentemente en la universidad y academia militar. ¿Me puedes dar algo de contexto?.,"Durante muchos años, Sudán tuvo un régimen islamista bajo el liderazgo de Hassan al-Turabi. Su Frente Nacional Islámico ganó influencia por primera vez cuando el General Gaafar al-Nimeiry invitó a miembros a formar parte de su gobierno en 1979. Turabi construyó una poderosa base económica con el dinero de sistemas bancarios islamistas extranjeros, especialmente los vinculados con Arabia Saudita. También reclutó y construyó un cuadro de leales influyentes al colocar estudiantes simpatizantes en la universidad y academia militar mientras se desempeñaba como ministro de educación.",,,,
+fab-500x-20261114T224408Z-042,19,6656374ba92a349564ea8b2b,063cecba7dcf563f047be96fcd931d33,fab-500x,es,mathematics,oasst2,human_authored,[user] ¿Podrías darme los pasos y formularas necesarias para poder calcular el área de una esfera?,"Para calcular el área de una esfera, se puede utilizar la siguiente fórmula:
+
+A = 4πr²
+
+Donde:
+A = Área de la esfera
+π = Constante matemática pi (aproximadamente igual a 3.14)
+r = Radio de la esfera
+
+Los siguientes son los pasos para calcular el área de una esfera:
+
+Determina el valor del radio de la esfera.
+
+Multiplica el radio de la esfera (r) por sí mismo.
+
+Multiplica el resultado del paso 2 por 4.
+
+Multiplica el resultado del paso 3 por pi.
+
+El resultado final será el área de la esfera.
+
+Ejemplo: Si el radio de la esfera es de 3, entonces:
+
+r² = 3 * 3 = 9
+4πr² = 4 * 3.14 * 9 = 113.04
+
+El área de la esfera es de 113.04.",,,,
+fab-500x-20261114T224408Z-042,20,2bbd65e9c5e2aeb98fa85390,76f6179b8b0a143a2f03a6aa7ba2c941,fab-500x,es,problem_solving,aya-dataset,human_authored,"[user] ¿De qué evento importante trata este texto?: Criada en el suburbio de Park Ridge en Chicago, Clinton se graduó del Wellesley College en 1969 y obtuvo su título de la Facultad de Derecho de Yale en 1973. Tras ejercer como asesora parlamentaria en temas legales, se mudó a Arkansas y se casó con el futuro presidente Bill Clinton en 1975, luego de haberse conocido en Yale. En 1977, co-fundó Defensores para Niños y Familias de Arkansas, una organización sin ánimo de lucro. Fue designada como la primera mujer presidenta de la Corporación de Servicios Legales en 1978, y se convirtió en la primera mujer socia del Rose Law Firm en Little Rock al año siguiente. El ""National Law Journal"" la incluyó dos veces entre los cien abogados más influyentes de Estados Unidos. Clinton fue la primera dama de Arkansas de 1979 a 1981 y nuevamente de 1983 a 1992. Como la primera dama de los Estados Unidos, Clinton abogó por una reforma de salud. En 1994, su principal iniciativa, el plan de salud Clinton, no logró obtener la aprobación del Congreso. En 1997 y 1999, Clinton desempeñó un rol crucial en promover la creación del Programa Estatal de Seguro Médico Infantil, la Ley de Adopción y Familias Seguras, y la Ley de Independencia de Hogares de Acogida. Clinton abogó por la igualdad de género en la conferencia de la ONU sobre la mujer de 1995. Su relación marital estuvo bajo escrutinio público durante el escándalo Lewinsky en 1998, llevándola a emitir un comunicado en el que reafirmaba su compromiso con su matrimonio.","El texto trata sobre la vida y carrera de Hillary Clinton, incluyendo su matrimonio con el expresidente Bill Clinton, sus logros profesionales y su tiempo como Primera Dama de los Estados Unidos. También se mencionan algunos de los eventos más significativos de su vida política, como su defensa de la reforma de salud durante su tiempo como Primera Dama y su papel en la promoción de varias leyes y programas relacionados con la adopción, la igualdad de género y el cuidado de la infancia. Además, se menciona el escándalo Lewinsky, que afectó a su relación marital y recibió una amplia atención pública en 1998.",,,,
+fab-500x-20261114T224408Z-042,21,53f08f3897774f6f8edaf3e7,41471a3e539d649b30bc0c54d0808cb1,fab-500x,es,reasoning,oasst1,human_authored,[user] nombra cinco razas de perros pequeñas,"Claro, se entiende como raza de raza pequeña aquella cuyos tamaño es de media inferior al resto de razas. Dentro de este grupo podemos enumerar las siguientes razas:
+* Chihuahua, la raza de perro más pequeña del mundo.
+* Teckel, también conocido como perro salchicha.
+* Caniche, con un característico pelo rizado.
+* Yorkshire, procedente de inglaterra.
+* Cocker, con orejas largas y caidas muy caracteristicas.",,,,
+fab-500x-20261114T224408Z-042,22,97ed329d167c399406fa5207,579b5f6cf62bc10be9d1766cb7761abd,fab-500x,es,research,oasst2,human_authored,"[user] ¿Crees que los museos deberían devolver los objetos culturales a sus países de origen? ¿Por qué?
+
+[assistant] Como modelo de lenguaje, no tengo una opinión personal sobre el tema, pero puedo presentar algunos argumentos que se han discutido en relación a si los museos deberían devolver los objetos culturales a sus países de origen.
+
+En primer lugar, algunos argumentan que los objetos culturales fueron tomados de sus países de origen en circunstancias injustas, como el colonialismo, la conquista militar o el expolio. Por lo tanto, los museos deberían devolverlos como una forma de reparación histórica y restitución de lo que fue robado. Además, muchos de estos objetos tienen un gran valor simbólico y espiritual para las comunidades de origen, por lo que su repatriación puede tener un efecto sanador y reparador en las relaciones entre las comunidades y los museos.
+
+En segundo lugar, otros argumentan que la preservación de los objetos culturales es mejor garantizada por las comunidades de origen, ya que son quienes pueden cuidarlos y transmitir su significado cultural a las generaciones futuras. Si los objetos culturales permanecen en los museos de otros países, corren el riesgo de ser malinterpretados, malinterpretados o incluso maltratados. Devolver los objetos culturales a sus países de origen puede ayudar a preservar y proteger su legado cultural.
+
+Sin embargo, también hay argumentos en contra de la devolución de objetos culturales. Algunos argumentan que los objetos culturales en los museos pueden ser apreciados y estudiados por un público global, lo que puede ayudar a difundir el conocimiento y la comprensión de diferentes culturas. Además, la devolución de objetos culturales a menudo presenta desafíos legales y prácticos, como la falta de capacidad y recursos de los países de origen para proteger y conservar los objetos adecuadamente.
+
+En conclusión, la cuestión de si los museos deberían devolver los objetos culturales a sus países de origen es compleja y conlleva múltiples consideraciones, incluyendo la historia, la justicia, la preservación cultural y el acceso global.
+
+[user] No, creo que los museos no deben de regresar los objetos culturales a su país de inicio debido a que los museos están hechos para preservar el patrimonio cultural y u otros objetos, ya sean religiosos o históricos.
+
+Así que supongo que no es buena idea hacer eso, ya que los objetos no tendrían un lugar en donde estar.","Entiendo tu punto de vista, y es válido resaltar que los museos tienen como función principal preservar el patrimonio cultural y otros objetos, ya sean religiosos o históricos. Sin embargo, es importante considerar también las perspectivas de las comunidades de origen y el impacto que puede tener la devolución de dichos objetos en la relación entre estas comunidades y los museos.
+
+Un aspecto relevante en este debate es el hecho de que, en muchos casos, los objetos culturales fueron adquiridos en circunstancias cuestionables, como el colonialismo o el expolio, lo que puede generar la percepción de que su preservación en museos de otros países perpetúa una ideología colonialista [Source 4](https://www.elconfidencial.com/el-grito/2023-05-08/museos-devolver-arte-expoliado_3623299/).
+
+Además, en algunos casos, los países de origen pueden enfrentar dificultades legales para reclamar sus objetos culturales, ya que se requiere que los objetos hayan sido inventariados previamente y que se pueda demostrar que fueron sustraídos después de la promulgación de sus leyes de patrimonio nacional [Source 4](https://www.elconfidencial.com/el-grito/2023-05-08/museos-devolver-arte-expoliado_3623299/).
+
+Por otro lado, también es cierto que los museos pueden ofrecer una plataforma global para la apreciación y el estudio de estos objetos culturales, y que en ocasiones los países de origen pueden carecer de los recursos y la capacidad para preservar y proteger adecuadamente su patrimonio. En este sentido, es importante sopesar los beneficios y desafíos asociados a la devolución de objetos culturales a sus países de origen, y buscar soluciones que permitan preservar el patrimonio cultural y garantizar el acceso a estos objetos para el público en general.
+
+En última instancia, la decisión de si los museos deben regresar los objetos culturales a sus países de origen es un tema complejo y multifacético, y cada caso debe ser evaluado cuidadosamente para alcanzar una solución justa y equitativa.",,,,
+fab-500x-20261114T224408Z-042,23,a0ba6ac02ffa56f6ab3e2172,dd7f497d6c78727547745800c6de34d3,fab-500x,es,science,oasst2,human_authored,"[user] Escribe un resumen del libro Rebelión En La Granja de George Orwell y dime si debería leerlo.
+
+[assistant] Rebelión en la Granja es una novela satírica escrita por George Orwell que relata la historia de un grupo de animales de una granja que se rebelan contra sus dueños humanos para establecer un sistema de gobierno propio y autónomo. Sin embargo, las cosas no salen como esperaban y la granja se convierte en un estado totalitario liderado por los cerdos, quienes corrompen la idea original de la rebelión y la transforman en un régimen opresivo y cruel.
+
+La obra de Orwell es una crítica a la corrupción del poder y a la naturaleza humana, que a menudo busca el control y la dominación sobre los demás. La novela es una metáfora de la Revolución Rusa y el régimen comunista que se estableció después, y también es un comentario sobre la naturaleza del totalitarismo y la manipulación de la propaganda.
+
+En mi opinión, Rebelión en la Granja es una obra importante que debería ser leída por cualquier persona interesada en la política, la historia y la naturaleza humana. La narrativa es accesible y fácil de seguir, y a través de la historia de los animales, Orwell presenta complejas ideas políticas y filosóficas de una manera clara y accesible. Además, la novela tiene un mensaje atemporal y sigue siendo relevante hoy en día en nuestra sociedad actual.
+
+[user] ¿Qué otras obras interesantes escribió George Orwell?","Los 3 libros más conocidos de George Orwell son:
+1984. -> Es un libro que toda persona debe leer al menos una vez en la vida.
+Rebelión en la granja. -> ¿El día en que los cerdos se rebelen?
+Homenaje a Cataluña. -> Este libro es el resultado de lo que experimentó en carne y hueso en el frente de batalla y que escribió unos meses después de su retorno en 1937",,,,
+fab-500x-20261114T224408Z-042,24,3955da4167d7766177f4b12c,098839309f84356bbd628da6d20b7d13,fab-500x,es,web_backend,oasst1,human_authored,[user] Programa un script en python para hacer una API básica,"Aquí tienes el script: 
+# api.py
+import flask
+from flask import Flask, request, jsonify
+from flask_restful import Resource, Api
+
+# Create Flask application
+app = Flask(__name__)
+api = Api(app)
+
+# Mocked data
+students_list = [
+    {
+        'id': 1,
+        'name': 'John'
+    },
+    {
+        'id': 2,
+        'name': 'Mike'
+    }
+]
+
+# Create StudentsList class and route
+class StudentsList(Resource):
+    def get(self):
+        return students_list
+
+    def post(self):
+        student = {'name': request.form['name']}
+        students_list.append(student)
+        return student, 201
+
+api.add_resource(StudentsList, '/students')
+
+# Create index.py script
+if __name__ == '__main__':
+    app.run(debug=True)",,,,
+fab-500x-20261114T224408Z-042,25,596626c1d2cd4194405fbf58,758389aa842f6f4a05ac56711ab991e6,fab-500x,es,web_frontend,oasst1,human_authored,[user] Podrías recomendarme diez libros para empezar en la filosofía?,"1: Tao Te Ching, de Lao Tsé (El libro del camino y la virtud)
+Esta pequeña joya es uno de los libros fundamentales del pensamiento de Asia y piedra angular del taoísmo, filosofía fundada por el sabio chino Lao Tsé allá por el siglo VI a. C.
+
+2: El Banquete, de Platón
+Platón nos sienta a la mesa junto a Sócrates y un nutrido grupo de personajes, que aprovechan la ocasión para analizar una de las mayores fuerzas que existen en el mundo: el amor.
+
+3: Ética a Nicómaco, de Aristóteles
+En este libro, dirigido a su hijo Nicómaco, el sabio de Macedonia hace su famosa apuesta para lograr vivir bien y alcanzar la felicidad, que se basa principalmente en la virtud.
+
+4: Cartas, de Epicuro
+Epicuro de Samos no fue el primero que identificó la felicidad con el placer, pero sí fue el primero que hizo un estudio pormenorizado y profundo sobre él. Y podemos hallar una muestra en estas cartas, concretamente en la dedicada a Meneceo.
+
+5: El discurso del método, de René Descartes
+Todos conocemos la famosa cita de «pienso, luego existo». Bien, el origen de la misma es este libro del francés René Descartes, en el que el autor nos explica cuál es el método que ideó para que nuestro saber fuera cierto, haciendo uso de la mejor herramienta que poseemos los seres humanos para alcanzar la verdad: la razón.
+
+6: Leviatán, de Thomas Hobbes
+En él, Hobbes apostó fuerte por un tratado en el que ya se vislumbraría lo que poco después conoceríamos como empirismo. Analizó la organización social en función de la naturaleza humana (defendiendo la monarquía absoluta como el sistema menos malo para los hombres, de natural competitivos, egoístas, pendencieros y corruptos) y atacó duramente a la Iglesia, lo que le valió problemas con las autoridades cristianas.
+
+7: Investigación sobre el entendimiento humano, de David Hume
+Este libro es realmente una revisión de otro anterior, Tratado sobre la naturaleza humana, cuyo contenido Hume quiso pulir tras el poco éxito cosechado en un principio.
+
+8: El espíritu de las leyes, de Montesquieu
+Para Montesquieu, es necesario que el poder legislativo, ejecutivo y judicial no se encuentren en las manos de los mismos individuos o grupos, de manera que así puedan ejercer cada uno de contrapeso de los demás, evitando el despotismo.
+
+9: El arte de sobrevivir, de Arthur Schopenhauer
+Junto con Nietzsche, Arthur Schopenhauer fue el pensador moderno más polémico y llamativo. Debido a su amarga visión de la vida y sus frases lapidarias, el filósofo alemán (que no vivió tan mal como pintan sus obras), autor de El mundo como voluntad y representación, influiría poderosamente en muchos filósofos posteriores.
+
+10: Así habló Zaratustra, de Friedrich Nietzsche
+La obra maestra de uno de los pensadores más revolucionarios que han existido.",,,,
+fab-500x-20261114T224408Z-042,26,351060b2fe8ec7ec70195e29,cba725e50ccec1eddf5058a0a156c402,fab-500x,es,writing,oasst1,human_authored,"[user] Resume el funcionamiento de un acelerador de partículas, teniendo en cuenta todos los conceptos físicos que se conoce hasta la actualidad. Además agrega los beneficios que traería la continuación en las investigaciones con esta máquina creada por el hombre.","Un acelerador de partículas es una máquina que se utiliza para estudiar la estructura de la materia y las interacciones entre partículas subatómicas. En esencia, lo que hace un acelerador de partículas es acelerar partículas cargadas eléctricamente, como protones o electrones, a velocidades cercanas a la velocidad de la luz. Para lograr esto, se utilizan campos eléctricos y magnéticos para acelerar y enfocar las partículas.
+
+Hay varios tipos de aceleradores de partículas, pero los más grandes y conocidos son los aceleradores circulares. Estos aceleradores tienen forma de anillo y las partículas se aceleran mediante campos magnéticos que las hacen girar en círculos cada vez más grandes. Cada vez que las partículas completan una vuelta, se les da un impulso adicional de energía, lo que les permite alcanzar velocidades cada vez más altas.
+
+A medida que las partículas se aceleran, se utilizan diferentes tipos de detectores para medir sus propiedades y comportamiento. Estos detectores pueden medir cosas como la velocidad, la energía y la trayectoria de las partículas, lo que permite a los científicos estudiar cómo interactúan y se comportan.
+
+Los aceleradores de partículas tienen una amplia variedad de aplicaciones en la investigación científica. Por ejemplo, se pueden utilizar para estudiar las propiedades de la materia a nivel subatómico, lo que nos ayuda a comprender mejor cómo funciona el universo. También se pueden utilizar para crear nuevas formas de materia y para investigar la física de los materiales. Además, los aceleradores de partículas también tienen aplicaciones en la medicina, como en la radioterapia para tratar el cáncer.
+
+La continuación de las investigaciones con aceleradores de partículas tiene el potencial de llevar a importantes descubrimientos científicos y tecnológicos. Por ejemplo, puede ayudarnos a descubrir nuevas partículas y fenómenos físicos, lo que podría conducir a la creación de nuevos materiales y tecnologías. También puede ayudarnos a entender mejor cómo funciona el universo y cómo evolucionó a lo largo del tiempo. En general, los aceleradores de partículas son una herramienta crucial en la investigación científica y pueden tener importantes beneficios para la humanidad en el futuro.",,,,
+fab-500x-20261114T224408Z-042,27,9ab5957ba28c12a63c968a40,89c12c79a88289a860ee553efa73b004,fab-500x,eu,general_knowledge,oasst2,human_authored,[user] Zein da Peruko hiriburua?,Peruko hiriburua Lima da.,,,,
+fab-500x-20261114T224408Z-042,28,8cc741d33e75f188a004f8cf,644d8aab48c5349f8e6ccc983e987959,fab-500x,eus,general_knowledge,aya-dataset,human_authored,[user] Nola lagundu dezake teknologia medikuak osasun publikoaren arloan?,"Teknologia medikuak diagnostiko zehatzagoak, tratamendu personalizatuak eta prebentzio estrategiak ahalbidetzen ditu, osasun kudeaketa hobetuz.",,,,
+fab-500x-20261114T224408Z-042,29,36125bdbe2e8470215465a24,7761e71054b45e6b8a454ef1b42108f6,fab-500x,eus,science,aya-dataset,human_authored,"[user] Zer da genetika, eta nola aztertzen du organismoen heredagarritasuna?","Genetika da organismoen ezaugarri genetikoak aztertzen duen zientzia. Organismoen heredagarritasuna aztertzeko, genetikak erakusten du nola geneak transmititzen diren eta nola ezaugarriak belaunaldiz belaunaldi mantentzen diren.",,,,
+fab-500x-20261114T224408Z-042,30,00847579cb4414192e36859c,458158616f69cb4aea96d73086c58a0b,fab-500x,fa,general_knowledge,aya-dataset,human_authored,"[user] این عبارت را کامل کنید:
+""مرد مجرد و دختر جوان"" نام فیلمی در ژانر کمدی رمانتیک به کارگردانی اروینگ ریس و دور شری است که در سال ۱۹۴۷ منتشر شد و برنده",جایزه اسکار بهترین فیلمنامه شد.,,,,
+fab-500x-20261114T224408Z-042,31,ed09a5ccdfb6b66d5483b547,dc051a5ccf869ad6855ef326b1451214,fab-500x,fa,islamic_studies,aya-dataset,human_authored,[user] باب چهاردهم قابوس نامه ی عنصرالمعالی که در باره ی چه موضوعی است و چگونه آغاز می شود؟,"نصیحت‌نامه مشهور به قابوس‌نامه کتابی به زبان فارسی از قرن پنجم هجری است که تألیف امیرعنصرالمعالی کیکاووس بن اسکندر زیاری است. تألیف این کتاب به سال ۴۷۵ هجری قمری است. 
+باب چهاردهم قابوس نامه عنوانش ""اندر عشق ورزیدن و رسم آن"" است و اینگونه شروع می شود:
+"" جهد کن ای پسر که تا عاشق نشوی، خواه به پیری و خواه بجوانی، پس اگر اتفاق افتد یقین دل مباش و پیوسته دل در لعب مدار بر عشق، که متابع شهوت بودن نه کار خردمندانست. از عشق تا توانی پرهیز کن، که عاشقی کار با بلاست، خاصه پیری و هنگام مفلسی، که یک‌ساله راحت وصال بیک روزه رنج فراق نه ارزد، که سر‌تاسر عاشقی رنج است و درد دل و محنت، هر چند که دردی خوش است، اگر در فراق باشی در عذاب باشی و اگر در وصال باشی و معشوق بدخوی بود، از رنج ناز و خوی بد او راحت وصال ندانی و اگر مثل معشوقهٔ تو فریشتهٔ مقرب است که بهیچ وقت از ملامت خلقان رسته نباشی و مردم همیشه در مساوی تو باشند و در نکوهش معشوق تو، از آنکه عادت خلق چنین است. پس خویشتن را نگاه دار و از عاشقی پرهیز کن، که خردمندان از چنین کار پرهیز توانند کرد، از آنچه ممکن نگردد که بیک دیدار کسی بر کسی عاشق شود، اول چشم بیند، آنگه دل پسندد؛ چون دل پسند کرد طبع بدو مایل شود، آنگاه متقاضی دیدار او کند؛ اگر تو شهوت خویش را در امر دل کنی و دل را متابع شهوت گردانی تدبیر آن کنی که یک‌بار دیگر او را به بینی، چون دیدار دوباره شود و طبع بدو مضاعف گردد و هوای دل غالب‌تر شود پس قصد دیدار سیوم کنی، چون سیم بار دیدی و در حدیث آمد و سخن گفت و جواب شنید، خر رفت و رسن برد و دریغا چنبر.""
+
+یكی از حُسن‌های «قابوس‌نامه» كه آن را دلنشین‌تر می‌كند، لحن مشفقانه، پدرانه و به دور از افراط و تفریط نویسنده است كه تلخی پند را با شیرینی و خلوصِ لحن و بیان خویش جبران كرده و موجب شده، نصیحت‌هایش در عمق جان مردم پاك سرشت و بهره‌مند از خرد، خوش بنشیند.
+
+نویسندهٔ قابوس‌نامه، عنصرالمعالی کیکاووس، از امیرزادگان دودمان زیاریان بود. او این کتاب را برای فرزندش گیلانشاه، در قالب ۴۴ فصل و یک مقدمه نوشت؛ به این قصد که اگر پسرش پس از او حکومت را حفظ کند یا به رتق و فتق کارهای دیگر بپردازد، بداند چگونه وظایف خود را انجام دهد. کیکاووس همچنین بدین شکل به تربیت فرزند، رسوم لشکرکشی، مملکت‌داری، آداب اجتماعی و دانش و فنون متداول آن دوره پرداخته‌است. گرچه مخاطب اثر، گیلانشاه است ولی کیکاووس در مقدمه توضیح داده‌است که دیگران هم می‌توانند از این اثر استفاده کنند و نویسنده کوشیده‌است کتاب همهٔ انسان‌ها را دربرگیرد.",,,,
+fab-500x-20261114T224408Z-042,32,a2ae123cc6e789540f37e947,0b85c49fd16df95846d95de0c7982c00,fab-500x,fa,mathematics,aya-dataset,human_authored,[user] کدام محصول رشد کمتری دارد، چای یا قهوه؟ با توجه به سوال قبلی، زمینه ای را بنویسید که شامل پاسخ باشد. می‌تواند شامل 1 تا 20 جمله باشد. زمینه:,"این پاسخ شامل دو بخش است. ابتدا یک تحلیل دست دوم از یک صفحه وب را برایتان می آوریم، سپس به آمار رسمی اشاره میکنیم. در کل، میزان تولید چای سبز در جهان افزایش بیشتری نسبت به تولید قهوه داشته است.
+
+درابتدا توجه کنید که این که چای رشد بیشتری دارد یا قهوه، بسته به منطقه جغرافیایی و زمان، پاسخ متفواتی خواهد داشت. در این صفحه وب مطلب جالبی درمورد مصرف چای و قهوه وجود دارد:
+https://www.pewresearch.org/short-reads/2013/12/20/chart-of-the-week-coffee-and-tea-around-the-world/
+در این صفحه میزان مصرف چای و قهوه در جهان روی نقشه جغرافیا نشان داده شده. این نقشه مربوط به سال 2011 است. باتوجه به مطالب این صفحه درمیابیم که اولا میزان مصرف چای و قهوه میتواند وابسته به عوامل فرهنگی و اقتصادی باشد. برای مثال در کشورهای عضو اتحاد جماهیر شوروی سابق مصرف چای بر مصرف قهوه غلبه دارد و در کشورهای غربی مصرف قهوه غلبه دارد. همچنین درکشوری مثل فیلیپین که روابط بیشتری با آمریکا دارد مصرف قهوه غلبه دارد. دوما میزان مصرف قهوه و چای براساس زمان تغییر میکند. برای مثال در کشورهای عمده تولیدکننده قهوه در خاورمیانه، بتدریج مصرف چای غلبه کرده است. فلذا این که چای رشد بیشتری دارد یا قهوه، بسته به منطقه جغرافیایی و زمان، پاسخ متفواتی خواهد داشت.
+
+درادامه، با استفاده از داده های سازمان جهانی فائو در پیوند زیر، میتوان میزان تولید مواد غذایی مختلف در طمان های متفاوت را بررسی کرد.
+https://www.fao.org/faostat/en/#data/QCL
+در مقایسه میزان تولید قهوه سبز در کل جهان بین سالهای 1961 تا 2021 تقریبا 2.2 برابر شده است درحالیکه تولید برگ چای در همین مدت 28 برابر شده است. تولید برگ چای فقط در سالهای 1990 تا 1991 جهار برابر شده است (طبق آمار اعلامی فائو).  اگر به آمار قبل از 1990 شک کنیم، بازهم باید توجه کنیم که از 1991 تا 2021 تولید چای 2.6 برابر شده ولی تولید قهوه 1.6 برابر شده است. این نشان میدهد که مصرف آنها نیز باید افزایش یافته باشد. اما اینکه در کدام کشور یا ناحیه دقیقا به چه میزان افزایش یافته، متفاوت خواهد بود.",,,,
+fab-500x-20261114T224408Z-042,33,8b398e031e14e7ffa8803787,222745af334ff18ddcf47252e97d6c56,fab-500x,fi,general_knowledge,oasst2,human_authored,[user] Mikä on pisin pala eurooppatietä Suomessa?,"Suomessa sijaitsevista Eurooppateiden osuuksista pisin on noin 1 295 kilometriä pitkä eurooppatie E75:n osuus, joka yhdistää Helsinkiä ja Utsjokea. Tämä osa E75-tiestä tunnetaan myös nimillä Valtatie 4 ja Nelostie.",,,,
+fab-500x-20261114T224408Z-042,34,adb486cb5dd7bd9efe658c4c,87cbbc4bf85ebd958e26b20ef308a5df,fab-500x,fi,research,tydiqa-goldp,human_authored,"[user] Lähimaksamisen käsitteellä tarkoitetaan suomen kielessä kahta erillistä asiaa: ostajan ja myyntipisteen välistä lyhyttä fyysistä etäisyyttä, joka toteutuu esimerkiksi kaupassa asioitaessa, tai maksamista, jossa kaupan maksupäätteen ja ostajan maksuvälineen välillä ei käytetä ulkoista tietoliikenneverkkoa.
+
+Miten lähimaksaminen määritellään?","ostajan ja myyntipisteen välistä lyhyttä fyysistä etäisyyttä, joka toteutuu esimerkiksi kaupassa asioitaessa, tai maksamista, jossa kaupan maksupäätteen ja ostajan maksuvälineen välillä ei käytetä ulkoista tietoliikenneverkkoa
+
+Lähimaksamisen käsitteellä tarkoitetaan suomen kielessä kahta erillistä asiaa: ostajan ja myyntipisteen välistä lyhyttä fyysistä etäisyyttä, joka toteutuu esimerkiksi kaupassa asioitaessa, tai maksamista, jossa kaupan maksupäätteen ja ostajan maksuvälineen välillä ei käytetä ulkoista tietoliikenneverkkoa.",,,,
+fab-500x-20261114T224408Z-042,35,c283c6975646f23e985e51f3,0bdb2222955a2db3f4feea359522f42e,fab-500x,fin,general_knowledge,aya-dataset,human_authored,"[user] Mistä merkittävästä tapahtumasta teksti kertoo: World Series of Pokerissa de Wolfe oli parhaimmillaan ollut kolmas: vuonna 2006 2000 dollarin no limit hold'em shootout -turnauksessa. Kolmossija toi 65 520 dollaria. Kesäkuussa 2009 de Wolfe onnistui voittamaan 5 000 dollarin sisäänoston pot limit omaha hi/lo -turnauksen ja näin saavutti toisena pelaajana voiton kaikissa kolmessa isossa turnaussarjassa (EPT, WPT ja WSOP). WSOP-turnauksen ykköspalkinto oli 246 616 dollaria. Syksyllä 2010 de Wolfe oli World Series of Poker Europen pääturnauksessa neljäs.","Teksti kertoo merkittävistä saavutuksista pokerissa, erityisesti World Series of Poker -turnauksessa. Se keskittyy de Wolfen saavutuksiin, mukaan lukien hänen voittonsa ja sijoituksensa eri turnauksissa sekä hänen ainutlaatuinen saavutuksensa voittaa kaikissa kolmessa suuressa turnaussarjassa (EPT, WPT ja WSOP).",,,,
+fab-500x-20261114T224408Z-042,36,0d3dfc6b6ffe9b1c278a0506,ef63b9bb40fb091fe1eefce40bfbfe1a,fab-500x,fin,mathematics,aya-dataset,human_authored,[user] Miksi yleisetkin lajit ovat rauhoitettuja?,"Nisäkkäiden ja lintujen rauhoitus ei ole suoraan riippuvainen lajin yleisyydestä tai uhanalaisuudesta. Monet yleisetkin lajit, kuten esimerkiksi talitiainen, kalalokki tai peltohiiri, ovat rauhoitettuja. Toisaalta joitakin uhanalaisia lintuja tai nisäkkäitä saa metsästää. Lintujen osalta taustalla on EU:n lintudirektiivi, joka koskee kaikkia lintulajeja. Lintudirektiivissä mm. määritellään, mitä lajeja voi metsästää. Suomessa asia on ratkaistu niin, että lintu- ja nisäkäslajit ovat lähtökohtaisesti rauhoitettuja ja metsästyslain 5 §:ssä ( https://www.finlex.fi/fi/laki/ajantasa/1993/19930615 ) on lueteltu riista- ja rauhoittamattomat lajit, jotka eivät ole rauhoitettuja. Myös riista- ja rauhoittamattomat lajit ovat pesimäaikaan rauhoitettuja.  
+
+Jos joku sellaisen eläinlaji, joka ei kuulu nisäkkäisiin tai lintuihin, harvinaistuu niin, että lajin olemassaolo vaarantuu, voidaan tällainen laji rauhoittaa. Sama koskee myös kasveja.",,,,
+fab-500x-20261114T224408Z-042,37,2f791c35b0b0249140dac85b,95161ca10195add841d0c24a0ffbded8,fab-500x,fr,coding,wikipedia-fr,templated_human,[user] Présente brièvement : Dmitry Sklyarov.,"Dmitry Sklyarov (Дмитрий Скляров), né le , est un programmeur russe employé de la société ElcomSoft. Il est connu pour avoir été poursuivi en 2001 par la société américaine Adobe qui s'est plainte que le système de protection anti-copie de son format de fichier e-book était contourné par le produit de ElcomSoft.
+
+Sklyarov conduit sa thèse de doctorat en cryptanalyse chez ElcomSoft, dans laquelle il met au point un logiciel de gestion de livres électroniques nommé AEBPR.
+
+Chez cet éditeur, il écrit et publie un programme permettant de briser le verrouillage anti-copie des livres électroniques d'Adobe, ce qui n'est alors pas interdit en Russie.
+
+Le , il donne une conférence intitulée « eBook's Security - Theory and Practice » à la convention DEF CON à Las Vegas, aux États-Unis, durant laquelle il présente des techniques pour briser la protection des droits d'auteur d'Adobe sur les livres électroniques. Le lendemain, le , il est arrêté par le FBI alors qu'il s'apprête à déjeuner à l'hôtel Alexis Park de Las Vegas avant de rentrer à Moscou. Il lui est reproché d'avoir diffusé un logiciel destiné à contourner des mesures de protection logicielles, selon les termes du Digital Millennium Copyright Act.",,,,
+fab-500x-20261114T224408Z-042,38,c30724973b707640a8bafe51,dc30c8da1d9993ab3548a4e5ea30422e,fab-500x,fr,cybersecurity,wikipedia-fr,templated_human,[user] Présente brièvement : Luc Sonor.,"Luc Sonor est un footballeur français, né le  à Basse-Terre en Guadeloupe.
+
+Luc Sonor est originaire de Saint-Claude en Guadeloupe où il intégre le club de la commune. Il part en métropole, à l'âge de treize ans, pour poursuivre sa formation aux centres du CS Sedan Ardennes puis du FC Metz.
+
+Avec le FC Metz, il remporte la Coupe de France avec le club lorrain en 1984 face à l'AS Monaco.
+
+L'année suivante, lors de la Coupe d'Europe des vainqueurs de coupe, il prend part à l'un des plus grands exploit du FC Metz et du football français, battant le FC Barcelone au Camp Nou 4-1 et se qualifiant pour les  de la compétition.
+
+Éliminés par le Dynamo Dresde au tour suivant, l'exploit des Messins de battre le Barça à domicile reste inégalé par un club français jusqu'au triplé de Kylian Mbappé en 2021 qui permet au PSG de reproduire le score de 4-1 des Lorrains.
+
+Il est ensuite transféré à l'AS Monaco, où sa carrière s'envole avec son intégration en équipe de France.
+
+Il termine sa carrière en Écosse à l'Ayr United Football Club. Il participe notamment au jubilé de Roger Milla à Yaoundé en 1988.
+
+Luc Sonor devient en  entraîneur adjoint de l'AS Saint-Étienne pendant quelques mois.",,,,
+fab-500x-20261114T224408Z-042,39,6c9bdbf7eee60cb8437cdb64,3e22c773693772a22d8e2f4d85eb571b,fab-500x,fr,general_knowledge,oasst1,human_authored,"[user] Dans Animal Crossing, de quelle espèce est Tom Nook ?
+
+[assistant] Un raton laveur
+
+[user] Mais pourtant les ratons laveurs c'est noir et gris non ?","Il est important de noter que les créateurs du jeu ont choisi de styliser les personnages du jeu de manière très mignonne et colorée, avec des tons pastels et des couleurs vives pour les animaux. Cette décision a été prise pour rendre les personnages plus attrayants et agréables à regarder pour les joueurs.",,,,
+fab-500x-20261114T224408Z-042,40,c990075df8fa332ac387ee3f,a5e802c3f51ea2ba7320ee043f031131,fab-500x,fr,islamic_studies,wikipedia-fr,templated_human,[user] Présente brièvement : Ménaka.,"Ménaka (en berbère : ⵎⵏⴾⴰ) est une ville et une commune du Mali, dans le cercle de Ménaka dans la région de Gao, et le futur chef-lieu de la nouvelle région de Ménaka.
+
+Ménaka est bordée à l’est par la commune d’Inékar, au nord par celle de Tidermène, à l’ouest par le cercle d'Ansongo et au sud par la ville d'Ouallam en République du Niger.
+
+Au , la localité de Ménaka a été la « capitale » des Touaregs Iwilimiden.
+
+Lors de l'insurrection de 2012, la ville est la première à tomber sous le contrôle d'un groupe rebelle touareg, le Mouvement national pour la libération de l'Azawad (MNLA), le . Le MNLA est rapidement supplanté par des mouvements islamistes comme Ansar Dine, et surtout le MUJAO qui prennent le contrôle de la ville et y instaurent la charia. À la suite de l'engagement militaire de la France en janvier 2013 dans le cadre de l'opération Serval, l'armée française, appuyée par celle du Mali, reprend progressivement la boucle du Niger et notamment Gao le 26 et . De manière coordonnée, le même jour un contingent de soldats tchadiens et nigériens, venus du Niger, reprend Ménaka ainsi qu'Andéramboukane aux islamistes. Durant les mois qui suivent, les troupes nigériennes sont chargées par la MINUSMA, avec des éléments français, de sécuriser la ville.",,,,
+fab-500x-20261114T224408Z-042,41,828b45e3d4171d02bfc5ed16,cbac8c1650a1f9171e72fc2ae7d45e5f,fab-500x,fr,mathematics,aya-dataset,human_authored,"[user] De quel événement important ce texte parle-t-il ? En 1979/1980, il entame la saison olympique comme un concurrent potentiel pour la médaille d'or aux Jeux olympiques d'hiver à Lake Placid. Néanmoins, il semble qu'il ait été mal préparé à l'événement, en ayant une certaine surcharge pondérale et un manque d'inspiration. En conséquence, ses sauts étaient devenus très inconstants. Les semaines précédant les Jeux olympiques, Vladimir Kovalev a terminé aux championnats d'Europe de 1980 à Göteborg, avec de mauvais programmes court et libre, loin derrière ses principaux rivaux principaux, Robin Cousins et Jan Hoffmann. Une fois à Lake Placid, Vladimir était sans doute sceptique sur ses chances de médaille et a raté la plupart des séances d'entraînement. À ses rares apparitions avant la compétition, il a été incapable de terminer les sauts de base. Après la première épreuve, il abandonna de la compétition olympique. La raison officielle était la maladie, mais selon la rumeur, il aurait été forcé d'abandonner sur les pressions des représentants soviétiques. Il décida à la suite de cette contre-performance aux JO, de quitter les compétitions du patinage amateur, sans attendre les championnats du monde de 1980 à Dortmund.","Le texte parle au sujet de Vladimir Kovalev, un skieur de URSS qui quitté de la compétition olympique en 1980.",,,,
+fab-500x-20261114T224408Z-042,42,9c6780e9ef8503d260d6107a,11ba974071f83f1f0e2a330bd5879c1d,fab-500x,fr,problem_solving,wikipedia-fr,templated_human,[user] Présente brièvement : Monstrous moonshine.,"En mathématiques,  est un terme anglais conçu par John Horton Conway et Simon P. Norton en 1979, utilisé pour décrire la connexion, alors totalement inattendue, entre le groupe Monstre M et les formes modulaires (en particulier la fonction j).
+
+Précisément, Conway et Norton, suivant une observation initiale de John McKay, trouvèrent que le développement de Fourier de  (, où  désigne le ) pouvait être exprimé en termes de combinaisons linéaires des dimensions des représentations irréductibles de M ()
+
+Conway et Norton formulèrent des conjectures concernant les fonctions  obtenues en remplaçant les traces sur l'élément neutre par les traces sur d'autres éléments g de M. La partie la plus saisissante de ces conjectures est que toutes ces fonctions sont de genre zéro. En d'autres termes, si  est le sous-groupe de SL2() qui fixe , alors le quotient du demi-plan supérieur du plan complexe par  est une sphère privée d'un nombre fini de points, correspondant aux formes paraboliques de .",,,,
+fab-500x-20261114T224408Z-042,43,2ec7d70456303d363464010d,0d1178420f437d1223e7a5f6ecc5ac7e,fab-500x,fr,reasoning,wikipedia-fr,templated_human,[user] Présente brièvement : Curseur (interface).,"En informatique, un curseur est un outil d'interface utilisateur graphique prenant la forme d'un repère, servant à montrer à l'utilisateur la zone de l'écran qui va réagir dans l'immédiat à ses instructions. C'est donc sur cette zone qu'il doit se concentrer et se préparer à observer les éventuelles conséquences des ordres qu'il va donner à la machine (via les périphériques d'entrées). Les curseurs constituent donc un élément de base fondamental dans la communication homme-machine, ils sont indispensables. Plus particulièrement, on distingue deux types de curseur :
+
+les curseurs utilisés lors d'une saisie de texte ;
+
+les curseurs contrôlés par un dispositif de pointage (comme une souris, le terme pointeur est également utilisé pour les designers).
+
+C'est également le nom d'un contrôle (widget) utilisé dans les interfaces graphiques.
+
+La saisie de texte est une activité de base en informatique que l'on retrouve aussi bien en interface en ligne de commande qu'en interface graphique (dans les éditeurs de textes, les logiciels de traitement de texte ou encore simplement les zones de texte). Dans les deux cas, le curseur réagit au clavier, mais avec les interfaces graphiques, il peut aussi être déplacé avec le dispositif de pointage.",,,,
+fab-500x-20261114T224408Z-042,44,70ba1e5f42599e04560a86ad,4e02dc57f38c9d703dd1919b3f29e4e0,fab-500x,fr,research,wikipedia-fr,templated_human,[user] Présente brièvement : Alexandru IV Iliaș.,"Alexandru  Iliaș est prince de Valachie 1616 à 1618 puis de 1629 à 1630 et prince de Moldavie 1620 à 1621 et 1631 à 1633. La monarchie était élective dans les principautés roumaines de Moldavie et de Valachie, comme en Transylvanie et en Pologne voisines : le prince (voïvode, hospodar ou domnitor selon les époques et les sources) était élu par (et souvent parmi) les boyards : pour être nommé, régner et se maintenir, il s'appuyait sur les partis de boyards et fréquemment sur les puissances voisines, habsbourgeoise, polonaise, russe et surtout ottomane, car jusqu'en 1859 les deux principautés étaient vassales de la « Sublime Porte » ottomane dont elles étaient tributaires.
+
+Alexandru IV Iliaș est le fils de Ilie, ou Iliaș, lui-même fils d'Alexandru  Lăpușneanu, prince de Moldavie. Son père fut élu prince de Valachie en mars 1591 mais il ne put s'imposer face à Radu.
+
+Alexandru  est agréé par les Ottomans prince de Valachie de septembre 1616 à novembre 1618 puis d'octobre 1629 au . Il fut également prince de Moldavie sous le nom de Alexandru Ilie du  (après la bataille de Țuțora) à octobre 1621 et de décembre 1631 à avril 1633 ; il meurt en 1666.
+
+D'une épouse inconnue il laissait deux fils :
+
+Alexandru Dimitrie Xenopol Histoire des Roumains de la Dacie trajane : Depuis les origines jusqu'à l'union des principautés. E Leroux Paris (1896)",,,,
+fab-500x-20261114T224408Z-042,45,e715df0665e7e71ed899b669,a6f397a2846f6acc00f6cb6a57ada629,fab-500x,fr,safety_ethics,aya-dataset,human_authored,[user] Qui était le compositeur Paul Hindemith ?,"Paul Hindemith, compositeur et altiste allemand, a évolué dans divers styles musicaux tout au long de sa carrière. Ses œuvres symphoniques et de musique de chambre « Mathis der Maler » reflètent son engagement à explorer de nouveaux langages harmoniques tout en maintenant un lien fort avec la tradition.",,,,
+fab-500x-20261114T224408Z-042,46,27fddc45b889e07cca10f493,1e1115fc434a9e58f151a4f80e4b9558,fab-500x,fr,science,wikipedia-fr,templated_human,[user] Présente brièvement : Richard Arkwright.,"Richard Arkwright, né à Preston le  et mort à Cromford le , est un ingénieur et industriel britannique surtout connu pour les machines qu'il a inventées et qui ont, sinon permis, du moins accéléré à partir de Nottingham, la révolution industrielle. Il est souvent crédité de l'invention de la machine à filer (en anglais spinning frame, rebaptisée water frame après le passage à l'énergie hydraulique). Il breveta également une machine à carder, capable de transformer le coton brut en fil. Autodidacte, son succès fut de parvenir, en combinant énergie, machinisme et main d'œuvre semi-qualifiée avec une matière première nouvelle, le coton, à créer plus d'un siècle avant Henry Ford une production de masse, celle du fil. Ses talents d'organisateur ont fait de lui l'un des créateurs du système industriel moderne, qu'il expérimenta en particulier dans son usine de Cromford.",,,,
+fab-500x-20261114T224408Z-042,47,15d937a90c85612a2732c030,a3e970c9faa5e0b3ea79200035c49787,fab-500x,fr,web_frontend,oasst1,human_authored,[user] Quelle sont les dernières recommandations pour débuter un projet d'application web avec React comme technologie pour le Front End et Symfony version 6 comme technologie pour le Backend ?,"Pour débuter un projet d'application web avec React comme technologie pour le Front End et Symfony version 6 comme technologie pour le Backend, voici quelques recommandations :
+
+- Commencez par vous familiariser avec les technologies que vous allez utiliser. Assurez-vous de comprendre les bases de React et de Symfony, ainsi que de connaître les outils et les packages nécessaires pour démarrer votre projet.
+- Planifiez votre projet. Déterminez les fonctionnalités clés que vous souhaitez inclure dans votre application web et élaborez un plan pour les implémenter.
+- Utilisez une architecture propre pour votre application. Il est important de suivre une structure de dossier organisée et facile à comprendre pour votre code. Vous pouvez suivre les conventions de Symfony pour la structure de votre application.
+- Utilisez des packages tiers pour accélérer le développement. Par exemple, utilisez des packages de composants React populaires comme Material UI, React Router, Redux ou MobX pour vous aider à développer plus rapidement.
+- Utilisez des outils modernes pour améliorer votre workflow. Des outils comme Webpack, Babel, ESLint et Prettier peuvent vous aider à optimiser votre développement et à garantir que votre code est de haute qualité.
+- Testez votre application. Assurez-vous que votre application fonctionne correctement en effectuant des tests unitaires, des tests d'intégration et des tests fonctionnels.
+- Utilisez des bonnes pratiques de sécurité pour protéger votre application. Assurez-vous que votre application est protégée contre les attaques courantes telles que les injections SQL, les attaques XSS et les attaques CSRF.
+- Utilisez des outils de déploiement modernes pour déployer votre application en production. Les outils comme Docker, Kubernetes et Jenkins peuvent vous aider à déployer votre application efficacement.
+
+En suivant ces recommandations, vous pouvez démarrer votre projet d'application web avec React et Symfony avec une base solide.",,,,
+fab-500x-20261114T224408Z-042,48,42c929472edadd5b6cd9ea81,90b17a1f71d580535e4e3537503cd62a,fab-500x,fr,writing,wikipedia-fr,templated_human,[user] Présente brièvement : Sergio Rodríguez Gómez.,"Sergio Rodríguez Gómez, né le  à Tenerife, est un joueur espagnol de basket-ball, évoluant au poste de meneur.
+
+Il est sélectionné par les Suns de Phoenix à la vingt-septième position de la Draft 2006 de la NBA, puis ses droits sont aussitôt transférés pour les Trail Blazers de Portland. Le , il est échangé par Portland et rejoint les Kings de Sacramento. Il est transféré en  aux Knicks de New York, où il réalise une moyenne de 7,4 points.
+
+En , il retourne en Espagne, au Real Madrid, avec qui il signe un contrat de trois ans. Avec ce dernier, il remporte la coupe du Roi 2012, puis la saison suivante, la Supercoupe d'Espagne et le championnat d'Espagne. Lors de cette dernière saison 2012-2013, il fait partie du cinq idéal de la Liga Endesa. Avec 16 points, 6,5 passes,2,5 rebonds, il est désigné meilleur joueur de la Supercoupe d'Espagne 2013-2014, compétition remportée par le Real face à Barcelone sur le score de 83 à 79.",,,,
+fab-500x-20261114T224408Z-042,49,f0873818eb361f7efe872274,c8fc2931f84c7b52e268cf04331015e4,fab-500x,gle,general_knowledge,aya-dataset,human_authored,"[user] Cad é an cheist le: ""Is snáithín próitéine nádúrtha é síoda, agus is féidir foirmeacha áirithe de a bheith innte i dteicstílí.""?","""Cad is féidir síoda a úsáid le haghaidh?""",,,,
+fab-500x-20261114T224408Z-042,50,dc78614cb3ccf66377fbef58,a5f4275a9424f883601f796498f48c20,fab-500x,gle,web_frontend,aya-dataset,human_authored,[user] Inis dom faoi Ronald Reagan.,"B'é Ronald Wilson Reagan (Gaeilge: Raghnall Mac Liam Ó Ríagáin) (6 Feabhra 1911 - 5 Meitheamh 2004) an 40ú hUachtarán na Stát Aontaithe (1981-1989), agus an 33ú Gobharnóir California ó 1967 go dtí 1975.
+
+Ba é Ronald Reagan a bhain Toghchán Uachtaránachta SAM i Samhain 1980. Chaith sé dhá theárma ina Uachtarán; le linn an ama seo thit an Cogadh Fuar chuig íosphointí nua teannais agus ansin bhain sé ardphointí nua chomhoibrithe amach; pointí a bhí chóir a bheith doshamhalta go dtí sin. 
+
+Aisteoir ba ea Reagan sna 1940idí-1960idí. Bhí Reagan áirithe i measc na bhfear ba bhreátha go fisiciúil i Hollywood ina óige. Bhí cáil air mar mar chraoltóir chomh maith.",,,,
+fab-500x-20261114T224408Z-042,51,60d6dd2647878a3fb88fd873,36b9511af893938658d29486c84589d0,fab-500x,gu,general_knowledge,aya-dataset,human_authored,[user] નળ સરોવર પક્ષી અભયારણ્ય વિશે જણાવો,"નળ સરોવર પક્ષી અભયારણ્ય, જે મુખ્યત્વે 120.82-ચોરસ-કિલોમીટર (46.65 ચોરસ માઇલ) તળાવ અને આસપાસના ભેજવાળી જમીન ધરાવે છે, તે ભારતના ગુજરાત રાજ્યમાં, સાણંદ ગામ નજીક અમદાવાદની પશ્ચિમે લગભગ 64 કિમી દૂર આવેલું છે. મુખ્યત્વે શિયાળા અને વસંતઋતુમાં યાયાવર પક્ષીઓ  અહી વસવાટ  માટે આવે છે, તે ગુજરાતનું સૌથી મોટું વેટલેન્ડ પક્ષી અભયારણ્ય છે અને ભારતમાં સૌથી મોટામાંનું એક છે. એપ્રિલ 1969માં તેને પક્ષી અભયારણ્ય જાહેર કરવામાં આવ્યું હતું.",,,,
+fab-500x-20261114T224408Z-042,52,c27cebb7d8a2e67321807c01,78406a85198d231127daad214c29666f,fab-500x,gu,mathematics,aya-dataset,human_authored,"[user] જો કોઈ સીધી રેખા બિંદુઓ (4,2) અને (8,6)માંથી પસાર થાય છે, તો તે x અક્ષને ક્યાંથી પાર કરે છે? તમારો જવાબ સમજાવો.","પ્રથમ, તમારે x માં ફેરફાર કરતાં y માં ફેરફાર શોધીને રેખાના ઢાળની ગણતરી કરવી આવશ્યક છે. આ કિસ્સામાં, પ્રથમ બિંદુ અને બીજા બિંદુ વચ્ચે y કોઓર્ડિનેટ 6-2=4 વધે છે અને x કોઓર્ડિનેટ 8-4=4 વધે છે, તેથી ઢાળ 4/4=1 છે. અમે c ના અમુક મૂલ્ય માટે સમીકરણ y=x+c સાથે સીધી રેખા જોઈ રહ્યા છીએ, જે આપણે આપણા એક બિંદુમાં પ્લગ કરીને શોધી શકીએ છીએ, ઉદાહરણ તરીકે, 4=2+c, તેથી c 2 હોવો જોઈએ, અને રેખાનું સમીકરણ y=x+2 છે. જ્યારે રેખા x અક્ષને ઓળંગે છે ત્યારે તેનું y કો-ઓર્ડિનેટ 0 છે. તેથી આ કિસ્સામાં રેખા x=-2 પર x અક્ષને પાર કરે છે.",,,,
+fab-500x-20261114T224408Z-042,53,bf0c2b5af86ad33e7e5d9224,7f3f9ac2c056ae782b8eb97549664a56,fab-500x,hat,general_knowledge,aya-dataset,human_authored,"[user] Konplete fraz sa a: Nan anons ""Habemus papam"" ke Kadinal Jorge Arturo Medina Estévez te bay nan dat 19 avril 2005, sou","eleksyon Pap Benedict XVI, anons lan pat gen on jou idantik nan plizyè lang, respektivman, Italyen, Panyòl, franse, Alman ak angle:",,,,
+fab-500x-20261114T224408Z-042,54,2c24d48e895f9639e0b127c6,1fdba8d637eaa5685ddab981ea1f4fd0,fab-500x,hau,general_knowledge,aya-dataset,human_authored,"[user] shin batun me ake magana a wannan mai zuwa? ""John Kerry yayi tur da matakin da Trump ya dauka kan yarjejeniyar nukiliyar Iran."":
+(a) Lafiya
+(b) Najeriya
+(c) Duniya
+(d) Siyasa
+(e) Afirka","Jumlar : ""John Kerry yayi tur da matakin da Trump ya dauka kan yarjejeniyar nukiliyar Iran."" na batu ne a kan (c) Duniya.",,,,
+fab-500x-20261114T224408Z-042,55,24a84b338eedd9b848960a60,ac46ae1c4006541160bfa6fb1ee2b8a0,fab-500x,hau,islamic_studies,aya-dataset,human_authored,"[user] Mace ce ta sha azumin kwana bakwai lokacin da take jinin biki, har wani Ramadan ya zo ba ta biya ba, kuma a cikin Ramadan na biyu shi ma ta sha na kwana bakwai, kuma ya zamo tana ciyarwa saboda rashin lafiya da take tare da ita.
+
+Sannan ga Ramadan na uku ya kusa zuwa, to mene ne hukuncinta?","Kada mace ta zama kamar yadda tambayar take, wato in ba ta da lafiya ne babu damuwa, lokacin da ta samu lafiya sai ta biya na shekarar can baya da ta bara amma idan sakaci ne, to bai halatta a gare ta ba shan azumi ta yi sakaci ba ta biya ba, har wani Ramadan ya zo ba ta biya ba. In kuma ta yi haka to ta yi laifi. An samu Hadisi daga A’isha (RA), ta ce “Ya kasance Annabi (SAW) yana azumi amma ba na iya biya sai an shiga watan Sha’aban, to idan muka lura da wannan Hadisi na A’isha (RA) yana nuna duk yadda za a yi mutum ya biya kafin Ramadan. To ita wannan mata ta duba ta gani in da gangan ne ta yi gaggawar tuba ga
+
+Kada mace ta zama kamar yadda tambayar take, wato in ba ta da lafiya ne babu damuwa, lokacin da ta samu lafiya sai ta biya na shekarar can baya da na bara amma idan sakaci ne, to, bai halatta gare ta shan azumi, ta yi sakaci ba ta biya ba, har wani Ramadan ya zo ba ta biya ba.
+
+Allah (SWT) ta kuma biya abin da ake bin ta. In kuma rashin lafiya ne, to Allah Ya sani, Shi Ya sa ta jinkirta shekara daya ko biyu, to babu laifi, duk lokacin da ta samu lafiya, sai ta rama abin da ake bin ta.",,,,
+fab-500x-20261114T224408Z-042,56,0302b43a7162d36a0f63527c,b836534f4898a0e9c8e0655728eca1d2,fab-500x,hi,coding,wikipedia-hi,templated_human,[user] गणितीय विश्लेषण के बारे में एक संक्षिप्त परिचय लिखिए।,"गणितीय विश्लेषण (Mathematical analysis) शुद्ध गणित की एक शाखा है। इसके अन्तर्गत अवकलन, समाकलन, सीमा, अनन्त श्रेणी तथा वैश्लेषिक फलनों (analytic functions) के सिद्धान्त आदि आते हैं। ये सिद्धान्त प्रायः वास्तविक संख्याओं, समिश्र संख्याओं तथा वास्तविक एवं समिश्र फलनों के सन्दर्भ में अध्ययन किए जाते हैं। विश्लेषण को परम्परागत रूप से ज्यामिति से अलग गणित की श्रेणी में रखा जाता रहा है।
+
+गणित के क्षेत्र में ग्रीक गणितज्ञों ने प्रमेय को पहले ही सिद्ध किए गए कथनों या प्रमेयों में, अथवा स्वीकृत स्वसिद्ध तथ्यों में, रूपांतरित करके सिद्ध करने की पद्धति को 'विश्लेषण' (Analysis) नाम दिया था।
+
+व्यापक अर्थ में विश्लेषण प्रतीकों तथा समीकरणों के प्रयोग की वह पद्धति है जिसके द्वारा बीजगणित तथा अत्पलीय कलन की प्रक्रियाएँ गणित के विभिन्न क्षेत्रों की अनेक समस्याओं का समुचित हल निकालने के लिए सुलभ होती हैं।
+
+यूरोप में सालहवीं तथा सत्रहवीं शताब्दी के जागरण के युग में रेने देकार्त (१५९६-१६५० ई.) की वैश्लेषिक ज्यामिति ने विश्लेषण का विशेष रूप निर्धारित किया। इसी कृति के आधार पर कलन, अवकलनगणित तथा समाकलनगणित की मूलभूत भावनाओं का विकास हुआ। आज गणितीय विश्लेषण के अंतर्गत गणित की वे सभी पद्धतियाँ हैं जो अपनी क्रियाओं के लिए किसी न किसी प्रकार कलन का अवलंब ग्रहण करती हैं।",,,,
+fab-500x-20261114T224408Z-042,57,083a015fe79b2c9a79761aa7,0e04f98e16323922650dabdc5f252857,fab-500x,hi,general_knowledge,wikipedia-hi,templated_human,[user] किरचॉफ के परिपथ के नियम के बारे में एक संक्षिप्त परिचय लिखिए।,"सन् १८४५ में गुस्ताव किरचॉफ (या, गुस्ताव किरखॉफ) ने विद्युत परिपथों में वोल्टता एवं धारा सम्बन्धी दो नियम प्रतिपादित किये। ये दोनो नियम संयुक्त रूप से किरचॉफ के परिपथ के नियम  कहलाते हैं। ये नियम विद्युत परिपथों के लिये वस्तुतः आवेश संरक्षण एवं उर्जा संरक्षण के नियमों के भिन्न रूप हैं। ये नियम वैद्युत इंजीनियरी से सम्बन्धित गणनाओं के आधार हैं और बहुतायत में प्रयोग होते हैं। ये दोनो नियम मैक्सवेल के समीकरणों से सीधे व्युत्पन्न किये जा सकते हैं किन्तु इतिहास यह है कि किरचॉफ ने इन्हें मैक्सवेल से पहले प्रतिपादित कर दिया था।
+
+इस नियम को 'किरचॉफ का  संधि नियम', 'किरचॉफ का बिन्दु नियम', 'किरचॉफ का जंक्सन का नियम' और किरचॉफ का प्रथम नियम भी कहते हैं।
+
+n किसी नोड से जुड़ी धारा-शाखाओं की कुल संख्या है।
+
+यह नियम समिश्र धाराओं के लिये भी सत्य है।
+
+यह नियम आवेश के संरक्षण के नियम पर आधारित है।
+
+किरचॉफ का विभवान्तर का नियम (केवीएल / KVL)
+
+इस नियम को 'किरचॉफ का द्वितीय नियम', किरचॉफ का लूप (या मेश) का नियम भी कहते हैं।
+
+T किसी घेरा (लूप) के परित: सभी विभवान्तरों का बीजगणितीय योग शून्य होता है।
+
+यहाँ, n लूप में स्थित कुछ विभवान्तरों की संख्या के बराबर है। ये विभवान्तर समिश्र संख्या (जैसे एसी विश्लेषण की स्थिति में) भी हो सकते हैं।
+
+यह नियम उर्जा संरक्षण के नियम पर आधारित है।
+
+सामने दिखाये गये विद्युत परिपथ में 2 वोल्टता स्रोत तथा 3 प्रतिरोधक हैं। तथा,
+
+किरचॉफ के प्रथम नियम के अनुसार हम लिख सकते हैं कि
+
+अब बन्द परिपथ (लूप) s1 में किरचॉफ के द्वितीय नियम के अनुसार,",,,,
+fab-500x-20261114T224408Z-042,58,cc0863ff4f59af9e9624fa87,b435cd0ca231c814dbd7c5d987c5fab5,fab-500x,hi,mathematics,wikipedia-hi,templated_human,[user] गुप्त राजवंश के बारे में एक संक्षिप्त परिचय लिखिए।,"गुप्त राजवंश या गुप्त साम्राज्य (ल. 240/275–550 इस्वी) प्राचीन भारत का एक हिन्दू साम्राज्य था। जिसने लगभग संपूर्ण भारतीय उपमहाद्वीप पर शासन किया। इतिहासकारों द्वारा इस अवधि को भारत का स्वर्ण युग माना जाता है।
+
+मौर्य वंश व शुंग वंश के पतन के बाद दीर्घकाल में हर्ष तक भारत में राजनीतिक एकता स्थापित नहीं रही। कुषाण एवं सातवाहनों ने राजनीतिक एकता लाने का प्रयास किया। मौर्योत्तर काल के उपरान्त तीसरी शताब्दी ईस्वी में तीन राजवंशो का उदय हुआ जिसमें मध्य भारत में नाग शक्‍ति, दक्षिण में वाकाटक तथा पूर्वी में गुप्त वंश प्रमुख हैं। मौर्य वंश के पतन के पश्चात नष्ट हुई राजनीतिक एकता को पुनः स्थापित करने का श्रेय गुप्त वंश को है।",,,,
+fab-500x-20261114T224408Z-042,59,d2e49edc47e23f723adcdb62,2c56f0543d102e3021de986c9c124334,fab-500x,hi,research,wikipedia-hi,templated_human,"[user] शुष्क वन अनुसंधान संस्थान, जोधपुर के बारे में एक संक्षिप्त परिचय लिखिए।","शुष्क वन अनुसंधान संस्थान (Arid Forest research Institute / AFRI) की स्थापना भारतीय वानिकी अनुसंधान एवं शिक्षा परिषद, पर्यावरण एवं वन मंत्रालय के तहत सन् 30 जून 1987 में राजस्थान के जोधपुर जिले में की गई थी। यह संस्थान भारतीय वानिकी अनुसंधान एवं शिक्षा परिषद्, देहरादून के अधीनस्थ भारत भर में फैले हुवे 8 अनुसंधान संस्थानों में से एक है। इस संस्थान का मुख्य उद्देश्य राजस्थान, गुजरात राज्यों तथा दादरा नगर हवेली केन्द्र शासित प्रदेश के गर्म शुष्क एवं अर्द्ध शुष्क क्षैत्रों में वैज्ञानिक अनुसंधान द्वारा वानिकी के क्षैत्रों में ऐसी तकनीके विकसित करना है जिससे वानस्पतिक क्षैत्र बढ़े एवं जैव विविधता का संरक्षण भी हो।
+
+भारत का लगभग 12 प्रतिशत भू-भाग शुष्क क्षैत्र के अन्तर्गत आता है जोकि मुख्यतः राजस्थान, गुजरात, पंजाब, हरियाणा, आन्ध्रप्रदेश, कर्नाटक और महाराष्ट्र के करीब 32 मिलियन हैक्टेयर क्षैत्र में फैला हुआ है। कम एवं अनियमित वर्षा, लगातार पड़ने वाला अकाल, तेज विकिरण की गर्मी, कभी-कभी पड़ने वाला पाला, तेज हवा, कम आर्द्रता एवं अधिक वाष्पोत्सर्जन, कमजोर मृदास्थिति, कम वानस्पतिक क्षैत्र तथा पानी की अत्याधिक कमी जैसी विशेषताएँ इस क्षैत्र की शुष्क परिस्थिति का निर्माण करती है।
+
+इस संस्थान का परिसर न्यू पाली रोड़ पर करीब 66 हैक्टेयर में फैला हुआ है। यहाँ संस्थान का कार्यालय जिसमें अनेक आधुनिकतम प्रयोगशालाएँ हैं तथा पुस्तकालय एवं सूचना केन्द्र भवन, सामुदायिक हॉल, वैज्ञानिक हॉस्टल, अतिथिगृह तथा कर्मचारियों के आवास स्थित हैं।
+
+शुष्क वन अनुसंधान संस्थान, जोधपुर का जालघर (Krutidev010 font)",,,,
+fab-500x-20261114T224408Z-042,60,2ba06380c03f3d9f306fa6c9,d00503713db1db952bf59e2b44a8ab7e,fab-500x,hi,science,aya-dataset,human_authored,"[user] Amidst the towering spires of a futuristic city, a clandestine group of rebels harnesses a quantum computing breakthrough to challenge a totalitarian regime. The narrative weaves together quantum physics concepts, artificial intelligence, and political intrigue as characters grapple with the implications of manipulating the fabric of reality. As the rebels delve into the quantum realm, they confront existential questions about consciousness, free will, and the nature of the universe. Develop a multi-perspective storyline that explores the divergent experiences of rebels, loyalists, and citizens unwittingly caught in the crossfire. Intricately intertwine the technological aspects with the characters' emotional journeys, blurring the lines between the metaphysical and the tangible. Conclude with a revelation that transcends the quantum struggle, leaving characters and readers to ponder the ethical dimensions of wielding such unprecedented power.","एक भविष्यवादी शहर की ऊँची मीनारों के बीच, एक गुप्त समूह ने एक कुआंटम कंप्यूटिंग की प्रवृत्ति को अपराधी प्रशासन के खिलाफ उपयोग करने के लिए काम किया है। कथा क्वांटम भौतिकी सिद्धांत, कृत्रिम बुद्धिमत्ता, और राजनीतिक संगीत को मिलाती है जब पात्र वास्तविकता के कपड़े को हिलाने के परिणामों के साथ जूझते हैं। जैसे ही विद्रोही क्वांटम क्षेत्र में खुदाई करते हैं, वे अज्ञानीगण के बीच फँसे नागरिकों के विचलन अनुसंधान करते हैं। तकनीकी पहलुओं को चरित्रों के भावनात्मक यात्राओं से काट दें, अदृश्य और वास्तविक के बीच रेखाओं को धुंधला करते हैं। एक रहस्योद्घाटन के साथ समाप्त करें जो क्वांटम संघर्ष को पार करता है, छोड़ते हैं चरित्र और पाठकों को ऐसी अभूतपूर्व शक्ति का एतिक आयाम विचार करने के लिए।",,,,
+fab-500x-20261114T224408Z-042,61,283cae4b8e9af69ef00f1074,fcca8afeb71b3578c6e3773335c8702f,fab-500x,hi,web_frontend,wikipedia-hi,templated_human,[user] मुल्तानी मिट्टी के बारे में एक संक्षिप्त परिचय लिखिए।,"मुल्तानी मिट्टी (Fuller's earth) एक प्रकार की औषधीय मिट्टी है। इसका उपयोग पुराने समय से बाल धोने आदि के लिये किया जाता रहा है। आधुनिक काल में भी इसे स्नान करने, फेस पैक आदि के लिये प्रयोग करते हैं। चर्मरोगों को समाप्त करने एवं त्वचा को मुलायम रखने में बहुत सहायक है।
+
+ब्रिटेन में इसे ऊन उद्योग में प्रयोग किया जाता था। प्राचीनकाल से ही मुल्तानी मिट्टी का इस्तेमाल रूप को निखारने के लिए किया जाता रहा है। समय भले ही बदल गया हो लेकिन मुल्तानी मिट्टी का महत्व कम नहीं हुआ आज भी इसका इस्तेमाल सौंदर्य को सँवारने के लिए किया जाता है। मुल्तानी मिट्टी त्वचा से गंदगी साफ करने के लिए बहुत कारगर है और इसके कोई साइड एफेक्ट्स भी नहीं हैं।
+
+https://beautytipsgarden.blogspot.com/2023/06/multani-mitti-ke-chamatkari-fayde.html",,,,
+fab-500x-20261114T224408Z-042,62,79826a1ccc7b1860e62e8089,4d76cedbb2b25f0b49bb6c67060852c4,fab-500x,hi,web_fullstack,wikipedia-hi,templated_human,[user] डाकघर के बारे में एक संक्षिप्त परिचय लिखिए।,"1766 : लार्ड क्लाइव द्वारा प्रथम डाक व्यवस्था भारत में स्थापित
+
+1774 : वारेन हेस्टिंग्स ने कलकत्ता में प्रथम डाकघर स्थापित किया
+
+1854 : भारत में पोस्ट ऑफिस को प्रथम बार 1 अक्टूबर 1854 को राष्ट्रीय महत्व के प्रथक रूप से डायरेक्टर जनरल के संयुक्त नियंत्रण के अर्न्तगत मान्यता मिली। 1 अक्टूबर 2004 तक के सफ़र को 150 वर्ष के रूप में मनाया गया। डाक विभाग की स्थापना इसी समय से मानी जाती है।
+
+1873 : नक्काशीदार लिफाफे की बिक्री प्रारंभ
+
+1876 : भारत पार्सल पोस्टल यूनियन में शामिल
+
+1911 : प्रथम एयरमेल सेवा इलाहाबाद से नैनी डाक से भेजी गई
+
+1985 : पोस्ट और टेलिकॉम विभाग प्रथक किये गए
+
+1990 : डाक विभाग मुंबई व चेन्नई में दो स्वचालित डाक प्रसंस्करण केंद्र स्थापित किये गए
+
+1997 : बिजनेस पोस्ट सेवा को प्रारंभ किया गया
+
+1999 : डाटा डाक व एक्सप्रेस डाक सेवा प्रारंभ
+
+2000 : ग्रीटिंग पोस्ट सेवा प्रारंभ भारतीय डाक शुभकामनाओं वाले लिफाफे ग्राहकों को उपलब्ध कराना
+
+2001 : इलेक्ट्रॉनिक फंड ट्रान्सफर सेवा (EFT) प्रारंभ
+
+3 जनवरी 2002 : इन्टरनेट आधारित ट्रैक एवं टेक्स सेवा की शुरुआत
+
+10 अगस्त 2004 : लोजिस्टिक्स पोस्ट सेवा प्रारंभ की गई
+
+GRC Database Information: worldwide post office website links",,,,
+fab-500x-20261114T224408Z-042,63,2b3aa8a1beae5e4c9e0761e7,51c75b7542f228baa13cb187c36e421d,fab-500x,hi,writing,aya-dataset,human_authored,[user] Write an epic fantasy saga with multiple interconnected storylines and a richly developed fictional world.,एक ऐसा महाकाव्य फैंटेसी सागा लिखें जिसमें कई आपसी कथाएं और एक समृद्धि से विकसित किए गए काल्पनिक दुनिया हो।,,,,
+fab-500x-20261114T224408Z-042,64,154bd85a7d013d85c3fbc097,38dba678bdbf6449d85107bca1ac6fdb,fab-500x,hun,general_knowledge,aya-dataset,human_authored,"[user] Számold össze, hogy a következő szöveg alapján hányan hunytak el közúti baleset miatt:
+Még áprilisban ütöttek el egy középkorú férfit az Üllői úton. A férfi épp a zebrán sétált át, amikor egy autó nagy sebességgel elütötte. A helyszínre érkező mentők nem tudták megmenteni az életét. Májusban összesen 122 baleset történt az utakon, ebből 45 végződött halállal, egyikük egy középiskolás lány volt. A júniusi KSH adatok 51 halálos balesetről írnak.","Közúti halálesetek havi bontásban:
+Április: 1 
+Május: 45
+Június: 51
+Tehát összesen 97-en hunytak el közúti baleset miatt.",,,,
+fab-500x-20261114T224408Z-042,65,c11f486abe67fd8d0229750a,87021ff785f75da64c53dce2b9557afe,fab-500x,ibo,general_knowledge,aya-dataset,human_authored,[user] gịnị bụ nhazi na odide akwụkwọ nkọwaokwu?,"Nhazi na odide akwụkwọ nkọwaokwu bụ usoro ide ,ihazi, ikọwa na ịchịkọta mkpụrụokwu di iche iche iji meta akwụkwọ nkọwaokwu. Ana eme nke site n'usoro dị iche iche site n'ime nkọwa okwu edebanyere baa na itinye Nkejiasụsụ okwu ahụ na Mgbakwunye ụda okwu ahụ na akara ụdaolu ya.",,,,
+fab-500x-20261114T224408Z-042,66,084ec3a68d91084d0329055b,735138a0d006acf705cbfa088b12c273,fab-500x,ibo,reasoning,aya-dataset,human_authored,"[user] Gịnị bu azịza gwam gwam gwam(riddle) a
+
+Gwa m ihe kuru mmiri rịa elu",Ọ bụ Akụ bekee (coconut),,,,
+fab-500x-20261114T224408Z-042,67,fe39fe438c54a07fad8d2b26,c5350414cb42e3453cbded889cbc909f,fab-500x,id,coding,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Teori flogiston.,"Teori flogiston atau Teori phlogiston adalah sebuah teori ilmiah usang (teori ilmiah yang sudah dipalsukan) pada bidang kimia yang mendalilkan bahwa unsur mirip api yang disebut flogiston terdapat di dalam benda yang mudah terbakar dan dilepaskan saat pembakaran . Nama itu berasal dari bahasa Yunani Kuno φλογιστόν phlogistón (terbakar), dari φλόξ phlóx (nyala api). Teori ini pertama kali dinyatakan pada tahun 1667 oleh Johann Joachim Becher, dan kemudian disusun secara lebih formal oleh Georg Ernst Stahl. Teori tersebut mencoba menjelaskan proses pembakaran seperti pembakaran dan perkaratan (rusting), yang sekarang dikenal sebagai oksidasi.",,,,
+fab-500x-20261114T224408Z-042,68,8748d0f62de929d9379bb86d,af7fe4843c0ada1ade7b58ab72fd6ad5,fab-500x,id,education,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang The Emperor's New School.,"The Emperor's New School adalah serial televisi animasi dari Amerika Serikat yang disiarkan melalui Disney Channel dan ABC Kids serta Disney XD (dahulu Toon Disney). Acara ini diambil dari karakter dan situasi yang dapat dilihat melalui The Emperor's New Groove dan Kronk's New Groove. Acara ini mengikuti perjalanan seorang Kaisar muda, Kuzco, yang berusaha menyelesaikan studi.
+
+Acara ini mulai disiarkan melalui Disney Channel pada Januari 2006 dan musim kedua pada 23 Juni 2007.
+
+Miley Cyrus — Yata, Mudka's Meat Hut Waitress
+
+Noah Cyrus — Kid in Crowd in Malina's fantasy sequences
+
+Teresa Ganzel/Estelle Harris — Princess Lalala
+
+Ben Stein — Mr. Purutu the Guidance Counselor
+
+Frank Welker — Homework the Kitten/Jaguar and the Creepy Little Old Man, Caretaker at Micchu Pachu
+
+Ellen Albertini Dow — Azma, Yzma's mother
+
+The Emperor's New Groove - September 2008
+
+Aww Nuts and a Mudka Meat Party - September 2008
+
+Seri televisi oleh Disney Television Animation",,,,
+fab-500x-20261114T224408Z-042,69,5a9e256fdd25aecd0ec97149,3611657a0a611d222af8c663343950e8,fab-500x,id,general_knowledge,wikipedia-id,templated_human,"[user] Jelaskan secara singkat tentang Umejero, Busungbiu, Buleleng.","Umejero adalah desa di kecamatan Busungbiu, Buleleng, Bali, Indonesia. Desa ini memiliki rata-rata ketinggian 700 meter dari permukaan laut.
+
+Pada sensus tahun 2010, Penduduk desa Kedis berjumlah 2.899 jiwa terdiri dari 1.479 laki-laki dan 1.420 perempuan dengan rasio sex 104,1. Jumlah kepala keluarga di desa ini mencapai 799.
+
+Situs Resmi Pemerintahan Kabupaten Buleleng",,,,
+fab-500x-20261114T224408Z-042,70,be8b5ba9a521e15877bc2dda,51e631c2f6ce1b1dd16bef3fa823ffcd,fab-500x,id,islamic_studies,wikipedia-id,templated_human,"[user] Jelaskan secara singkat tentang Berandan Barat, Langkat.","Berandan Barat (ditulis juga sebagai Brandan Barat) adalah sebuah kecamatan yang berada di Kabupaten Langkat, provinsi Sumatera Utara, Indonesia. Ibu kota kecamatan ini terletak di kelurahan Tangkahan Durian.
+
+Berdasarkan hasil Sensus Penduduk Indonesia 2000, penduduk Berandan Barat termasuk heterogen dengan mayoritas bersuku bangsa Jawa. Adapun besaran penduduk kecamatan ini menurut suku bangsa ialah suku Jawa sebanyak 39,46%, kemudian Melayu sebanyak 26,64%. Orang Batak sebanyak 10,65% dengan mayoritas Mandailing serta Angkola sebanyak 6,24%, kemudian Batak Toba, Simalungun, Pakpak sebanyak 2,81%, dan Karo sebanyak 1,60%. Kemudian orang Aceh sebanyak 5,65%, Minang sebanyak 1,12%, dan selebihnya adalah orang Nias 0,12%, Tionghoa sebanyak 0,09%, dan suku lainnya sebanyak 16,27%.
+
+Sedangkan agama yang dianut penduduk Berandan Barat, berdasarkan data Kementerian Dalam Negeri tahun 2021 mencatat bahwa mayoritas warga memeluk agama Islam yakni 98,75%. Selebihnya menganut agama Kristen sebanyak 1,19%, dimana Protestan sebanyak 1,15% dan Katolik 0,04%. Sebagian kecil lainnya menganut agama Buddha yakni 0,06%.",,,,
+fab-500x-20261114T224408Z-042,71,c0496161999562687b9c3541,9de81363a5338fb34cc90f17651d5232,fab-500x,id,mathematics,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang SDN Cipinang Besar Utara 03 Pagi.,"SDN Cipinang Besar Utara 03 Pagi atau nama lengkapnya Sekolah Dasar Negeri Cipinang Besar Utara 03 Pagi merupakan sebuah Sekolah Dasar Negeri Negeri yang terletak di Jln.Bekasi Timur Iv,.No 1, Jakarta Timur, Indonesia.
+
+Sekolah Dasar Negeri Cipinang Besar Utara 03 Pagi memiliki kode NPSN 20108453 dan kod NSS 101016403096. Pada 2010, SDN Cipinang Besar Utara 03 Pagi memiliki 196 pelajar lelaki dan 171 pelajar perempuan, menjadikan jumlah keseluruhan murid sebanyak 367 orang.2010
+
+Sekolah Dasar Negeri Cipinang Besar Utara 03 Pagi
+
+Jln.Bekasi Timur Iv,.No 1, Jakarta Timur, DKI Jakarta
+
+Laman di Kementerian Pendidikan Nasional, Republik Indonesia 2010 / 2011",,,,
+fab-500x-20261114T224408Z-042,72,736b8fa09b9f581ffb6f54fe,b6919a1ae93953865e56a25dbcc461d9,fab-500x,id,pakistan,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Tari klasik India.,"Tari klasik India adalah tarian klasik yang berasal dari variasi berdasarkan daerah-daerah di India antara lain Bharatanatyam dari Tamil Nadu, Kuchipudi dari Andhra Pradesh, Manipuri dari India timur laut, Odissi dari Orissa, serta Kathak dari India dan Pakistan.
+
+India memiliki seni tari klasik yang beragam dan telah lama tercatat ke dalam teks tertua di dunia yang menuliskan tentang pertunjukkan, Natya Shastra (400 SM). Pada masa lalu, tarian ditarikan untuk menceritakan sebuah cerita sambil diiringi oleh nyanyian dan musik. Tarian ditempatkan ke dalam posisi yang paling utama. Tarian-tarian ini ditarikan di kuil untuk memuja dewata dan bersifat religius serta tema-temanya didasarkan pada cerita-cerita mitologi.
+
+Dengan berjalannya waktu, tarian-tarian klasik mulai berkembang. Ekspresi serta temanya berubah menjadi tema tentang kehidupan sosial. Tarian klasik India telah banyak dikenal di dunia internasional dan menggambarkan kekayaan budaya India.
+
+Tarian klasik India dibedakan daripada tarian-tarian yang lain yang tidak dianggap klasik karena bermakna spiritual.",,,,
+fab-500x-20261114T224408Z-042,73,d1d3c14a6fab6b2b29465737,5fac377f5a4c70b10c7f7da1879f8419,fab-500x,id,research,tydiqa-goldp,human_authored,"[user] Ketika mereka berhasil mencapai Danau Tabriyah, Palestina, mereka akan meminum sampai habis air danau tersebut, karena banyaknya populasi mereka, sehingga orang terakhir yang berhasil mencapai danau itu akan berkata, ""Sungguh dahulu di sini masih ada airnya.""[14]
+
+Dimana Ya’juj dan Ma’juj akan muncul?","Palestina
+
+Ketika mereka berhasil mencapai Danau Tabriyah, Palestina, mereka akan meminum sampai habis air danau tersebut, karena banyaknya populasi mereka, sehingga orang terakhir yang berhasil mencapai danau itu akan berkata, ""Sungguh dahulu di sini masih ada airnya.""[14]",,,,
+fab-500x-20261114T224408Z-042,74,ebe64785b61b960940c073b1,fc925a8c06059b2673159fb7d622e5fb,fab-500x,id,safety_ethics,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Banjarmasin Post.,"Banjarmasin Post adalah surat kabar harian yang terbit di Kalimantan Selatan, yang menjadi anggota Kelompok Kompas Gramedia. Kantor pusatnya berada di Kota Banjarmasin dan percetakannya berada di Kecamatan Liang Anggang, Kota Banjarbaru, 20 km dari Kota Banjarmasin.
+
+Edisi perdana Banjarmasin Post terbit pada 2 Agustus 1971 dengan 8 halaman berukuran tabloid. Pencetusnya ialah H.J. Djok Mentaya, Yustan Aziddin dan H. Gt. Rusdi Effendi AR. Mulanya kantor berada di Pasar Bim (Pasar Baru). Di tahun 1974, Banjarmasin Post membeli mesin cetak merek Heidelberg, menjadikannya koran pertama di Kalimantan yang memiliki mesin cetak modern; dua tahun berselang surat kabar ini membeli mesin tik IBM proses tata wajah sehingga tidak lagi menggunakan mesin linotype. Per tahun 1976 Banjarmasin Post terbit 8 halaman dengan ukuran 9 kolom. Menjelang 1980, surat kabar ini memiliki armada distribusi terbanyak se-Indonesia.
+
+Pada dekade 1980-an, Banjarmasin Post pindah kantor dari Pasar Baru Ke Jl MT Haryono serta memulai sistem komputerisasi. Terbitan untuk Koran Masuk Desa (KMD) diterbitkan sampai 1992. Kantornya sempat terbakar pada tanggal 4 November 1989, namun pada 2 Agustus 1990 Banjarmasin Post menempati gedung baru di Jalan M.T. Haryono yang diresmikan Menteri Penerangan masa itu Harmoko. Pada tanggal 13 Januari 1994 H.J. Djok Mentaya meninggal dunia.",,,,
+fab-500x-20261114T224408Z-042,75,0276e1de1477c154e6129242,d7f76734a2092da0f4401fd1ee0c1ae2,fab-500x,id,science,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Some Voices (film).,"Some Voices merupakan sebuah film Inggris yang dirilis tahun 2000. Film ini disutradarai oleh Simon Cellan-Jones dengan scenario dari Joe Penhall, yang berbasis dari sebuah drama teater yang sempat dipentaskan di Royal Court, London. Film ini mengambil tempat syuting di Shepherd's Bush, London Barat, di mana Cellan-Jones tinggal. Film ini dibintangi Daniel Craig, dan Kelly Macdonald sebagai dua pemeran utama.
+
+""Speed of the Sound of Loneliness"" – Alabama 3
+
+""54-46 Was My Number"" – Toots & the Maytals
+
+""Il ragazzo della Via Gluck"" (versi Prancis: ""La Maison ou j'ai grandi)"" - Françoise Hardy",,,,
+fab-500x-20261114T224408Z-042,76,099c9247a01aa1a662b53703,d08a2dc14fc8af0f74ad219881cc59a0,fab-500x,id,web_frontend,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Nakheel Harbour and Tower.,"Nakheel Harbour and Tower merupakan sebuah proyek real estat multimiliar dolar yang direncanakan di Dubai, Uni Emirat Arab. Dibangun oleh pengembang Nakheel, yang telah menyatakan bahwa pembangunan ini akan menjadi, ibu kota tak resmi Dubai. Ketika selesai, proyek ini akan memiliki struktur tertinggi di dunia, Nakheel Tower, dan marina dalam kota terbesar di dunia. Situs ini mencakup tanah seluas 270 hektare. Pembangunan dan rencana besar proyek ini didasarkan pada prinsip desain Islam. Pembangunan dijadwalkan selama sepuluh tahun ke depan.
+
+Rencana untuk menara menandakan bahwa tingginya dapat mencapai lebih dari 1 kilometer, dengan satu laporan menyatakan 1.400 meter (4.593 kaki). Tetapi, Nakheel tidak memberitahukan tinggi akhir struktur. Menurut Nakheel, menara ini akan memiliki lebih dari 200 tingkat dan sekitar 150 elevator. Pada tinggi itu menara ini akan mengalahkan bangunan tertinggi di dunia, Burj Dubai.
+
+Empat puluh menara kecil lainnya akan berdiri di wilayah yang mengelilingi menara utama. Pembangunan ini juga meliputi promenade, bagian dari Arabian Canal, jembatan penyeberangan, dan beberapa bentuk transportasi publik yang mudah dicapai. Lebih dari 50.000 orang diperkirakan akan tinggal di tempat ini bila selesai.
+
+http://www.gulfnews.com/business/Real_Estate_Property/10250097.html",,,,
+fab-500x-20261114T224408Z-042,77,ac0ec92bb776df7d1d1be4d0,7d38d6dd991807d3b96ddf5d1704fff4,fab-500x,id,web_fullstack,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Taiyou no Uta.,"adalah film yang disutradai oleh Norihiro Koizumi. FIlm ini dibintangi oleh penyanyi dan aktris Jepang, Yui, yang dalam film, berperan sebagai Kaoru Amane (雨音 薫 Amane Kaoru), gadis berusia 16 tahun yang menderita kondisi kulit xeroderma pigmentosum (XP), penyakit yang menyebabkan radiasi ultraviolet membahayakan baginya.
+
+https://www.facebook.com/Midnight-Sun-Full-Movie-2017-[CARD]/?ref=bookmarks Official site
+
+Taiyō no Uta at the Internet Movie Database
+
+Presentation of Taiyo no Uta on Shochiku's website
+
+http://www.scorpioeast.com.sg/movie.asp?pdttype=Movies&pdtsubtype=Others
+
+http://www.grouppower.com.tw/midnightsun/
+
+http://wmt.hilive.tv/grouppower/midnightsun.wmv",,,,
+fab-500x-20261114T224408Z-042,78,a43243ca323367e22cb27c56,b6a6bc88097cbffbb1cf111a7acfea76,fab-500x,id,writing,aya-dataset,human_authored,"[user] Tuliskan kelanjutan paragraph berikut: - Pada tahun 1994 Mansell kembali ke arena F1. Setelah kematian tragis Ayrton Senna di San Marino, ia kembali ke arena F1 bersama tim lamanya Williams, menggantikan pembalap muda David Coulthard untuk Grand Prix Prancis dan tiga seri terakhir balapan musim 1994. Mansell dibayar sekitar £900.000 perlomba, dibandingkan dengan pembalap utama Williams saat itu, Damon Hill yang hanya mendapat bayaran £300.000 untuk seluruh musim. Kembali Mansell itu dibantu oleh Bernie Ecclestone untuk membantu memutuskan kontrak balapan CART-nya di Amerika Serikat. Itu penting bagi F1 untuk memiliki juara dunia yang masih aktif membalap dan mereka membutuhkan Mansell. Mansell ternyata tidak secepat Damon Hill dalam beberapa lomba awal tetapi tanda-tanda potensinya mulai terlihat di Jepang","saat bertarung melawan Jean Alesi dari Ferrari. Mansell kemudian memenangi balapan terakhir musim 1994 di Adelaide, yang di saat bersamaan Michael Schumacher (Benetton) bertabrakan dengan Damon Hill yang menyebabkan Schumi menjadi juara dunia 1994. Rencana awalnya, Frank Williams menginstruksikan team order dengan Mansell yang harus melindungi Damon Hill, tetapi baik Hill dan Schumi ternyata mampu menyalip Mansell di awal lomba, dan strategi itu gagal terlaksana.",,,,
+fab-500x-20261114T224408Z-042,79,6228658046a2b73518da885e,f1d41af0aefc5b165207b0df0bb53fc1,fab-500x,it,education,oasst1,human_authored,[user] Qual é il modo migliore di preparsi per le Olimpiadi di matematica che si fanno al liceo?,"Non esiste un *metodo migliore universale* per prepararsi a una competizione del genere, in quanto ogni studente ha le proprie forze e debolezze in materia. Ogni studente dovrebbe concentrarsi ad essere veloce negli ambiti in cui è più sicuro (quindi tanti esercizi) e saper applicare tali ambiti a una vasta gamma di problemi (abilità che si acquisisce facendo tanti esercizi). Inoltre, dovrebbe studiare a fondo le parti del programma in cui si sente più debole (teoria più esercizi)",,,,
+fab-500x-20261114T224408Z-042,80,1c823e07c503477bf37a9554,22a4d3e2b8d5afb122e082f7cac574d6,fab-500x,it,general_knowledge,aya-dataset,human_authored,[user] A quale cattegoria appartiene questa domanda: Jay Z ha mai fatto una canzone con Tupac?.,Questa domanda appartiene alla cattegoria musica.,,,,
+fab-500x-20261114T224408Z-042,81,78197b49a7fd10cda49cc539,e8b86168b7d73a46f9fbba3161d10b79,fab-500x,it,mathematics,oasst2,human_authored,[user] Quanto è distante la Luna dalla Terra in unità astronomiche?,"La distanza Terra-Luna è 384.400 chilometri in media, e varia da un minimo di circa 363.300 chilometri a un massimo di circa 405.500 chilometri. La distanza media Terra-Luna in unità astronomiche equivale a 2,57×10-3 AU circa.",,,,
+fab-500x-20261114T224408Z-042,82,c223aa37e82fb444ad2c35fd,0c1af3e0b1ea0a2579ffcfe4ca7459c5,fab-500x,it,science,oasst2,human_authored,"[user] elencami 10 momenti storici più importanti per l'umanità
+momenti che hanno irrevocabilmente cambiato il verso della storia umana e il suo futuro
+
+[assistant] Alcuni di questi momenti sono:
+- L’unificazione dell’antica Cina (221 a.C.)
+- La fondazione dell’Impero Romano (27 a.C.)
+- La scoperta dell’America da parte di Colombo (1492)
+- La Rivoluzione francese (1789)
+- La Prima guerra mondiale (1914-1918)
+- Il crollo della borsa di Wall Street (1929)
+- La Seconda guerra mondiale (1939-1945)
+- Il lancio della bomba atomica su Hiroshima e Nagasaki (1945)
+- La nascita della Repubblica Italiana (1946)
+- Il crollo del muro di Berlino (1989)
+
+Ho cercato di elencare i momenti più importanti, ma non c’è una risposta univoca a questa domanda. Dipende da quali criteri usi per definire l’importanza di un momento storico.
+Per esempio, alcuni potrebbero considerare importante la nascita dell’agricoltura o la scoperta. Altri potrebbero preferire eventi più recenti come la creazione dell’Unione Europea o l’avvento di Internet, ma anche la nascita di grandi figure religiose, filosofiche o politiche.
+
+[user] Mostrami questi eventi in una tabella che contiene quattro colonne: l'anno, il nome del periodo nel quale l'evento è avvenuto (p. es classicismo, romanticismo, età della pietra), il numero di esseri umani in vita in quell'anno, il nome dell'evento.","Certamente, ecco la tabella:
+| Anno      | Periodo                         | Popolazione mondiale | Evento                                             |
+|-----------|---------------------------------|----------------------|----------------------------------------------------|
+| 221 a.C.  | Periodo degli Stati Combattenti | ~150.000.000         | Unificazione dell’antica Cina                      |
+| 27 a.C.   | Alto impero romano              | ~200.000.000         | Fondazione dell’Impero Romano                      |
+| 1492      | Rinascimento                    | ~450.000.000         | Scoperta dell’America da parte di Colombo          |
+| 1789      | Illuminismo                     | ~900.000.000         | Rivoluzione francese                               |
+| 1914-1918 | Prima guerra mondiale           | ~[IP]       | Prima guerra mondiale                              |
+| 1929      | Grande Depressione              | ~[IP]       | Crollo della borsa di Wall Street                  |
+| 1939-1945 | Seconda guerra mondiale         | ~[IP]       | Seconda guerra mondiale                            |
+| 1945      | Periodo Shōwa                   | ~[IP]       | Lancio della bomba atomica su Hiroshima e Nagasaki |
+| 1946      | Ricostruzione                   | ~[IP]       | Nascita della Repubblica Italiana                  |
+| 1989      | Guerra Fredda                   | [IP]        | Crollo del muro di Berlino                         |",,,,
+fab-500x-20261114T224408Z-042,83,7a540bd1319870578b6431d3,1adc969ff00f1ce0004e13500352aaf3,fab-500x,ja,general_knowledge,aya-dataset,human_authored,[user] 野ねずみが主人公の絵本のタイトルは何と何？,ぐりとぐらです。,,,,
+fab-500x-20261114T224408Z-042,84,cf124258b83a738318919330,2df886ee9e507888344c9ed0242aa0d7,fab-500x,jav,general_knowledge,aya-dataset,human_authored,"[user] Wangsulana pitakonan berdasarkan paragraf ing ngisor iki:
+Ana ing sawijining dina, kancil mlaku-mlaku ana ing pinggir kali. Dheweke lagi susah mergane wetenge krasa luwe. Wis wiwit wingi kancil ora kelebon panganan babar pisan. Desane kancil saiki lagi ana pagebluk. Timun-timun sing ditanduri pak tani padha mati. Pas mlaku ana ing cedhak wit randhu sing nggo tetenger desa kuwi kancil ketemu karo kelinci. Kelincine ngandhani kancil enek timun seger nang sebrang kali.
+
+Pitakonan:
+Sapa sing ngandhani Kancil yen ono timun nang sebrang kali?
+
+Wangsulan:",Wangsulan: Kelinci,,,,
+fab-500x-20261114T224408Z-042,85,ea2b1903192c75b3303c59db,05ce828ae60e700f998448a61bcf1fd8,fab-500x,jav,islamic_studies,aya-dataset,human_authored,"[user] Gaweo teks pawarta cekak nganggo judul utawa topik sing disedhiyakake ing ngisor iki.
+
+Judul: GAGAL DADI CALEG, BANTUAN DITARIK.
+
+Jawaban:","Tingkah polahe para caleg kang gagal lolos seleksi pemilu legislatif akeh kang nganeh-anehi. Saperangan bantuan kang sempat dibagi marang masyarakat ditarik balik maneh. Ing sawijining kabupaten kang kalebu tlatah Jawa Timur, ana mantan caleg narik balik  sumbangan material kanggo pembangunan mushola. 
+
+Pembangunan mushola ing RT 2 RW 2 Desa Merem  Kecamatan Melek iku bakal kandheg. Jalaran material bantuan saka Sodron, pawongan mantan caleg Partai Bajul Buntung dijaluk maneh. Gara-gara Sodron kuciwa meruhi oleh-olehane swara ing pemilu legislatif  9 April wingenane ora kaya kang dikarepake.  
+
+Miturut Bedhor Ketua RT ing kono, material kang arupa bata cacah  2000,  semen 10 sak, lan pasir rong truk pancen diwenehake dening Sodron kanggo pembangunan mushola nalika ngepasi mangsa kampanye wingenane lumantar salah siji tim suksese. Nanging Sodron njaluk maneh bantuane, jalaran ing papan iki dheweke mung oleh swara cacahe 29.",,,,
+fab-500x-20261114T224408Z-042,86,875c33b33f6a8891886687d9,3d41ccb29a6e9342d4d0d006e32b91ef,fab-500x,kan,general_knowledge,aya-dataset,human_authored,[user] ಫೋಟೋಸಿನ್ಥೆಸಿಸ್ ಎಂದರೇನು?,"ಫೋಟೋಸಿನ್ಥೆಸಿಸ್ (ದ್ಯುತಿಸಂಶ್ಲೇಷಣೆಯು) ಸಸ್ಯಗಳು ಸೂರ್ಯನ ಬೆಳಕು, ಇಂಗಾಲದ ಡೈಆಕ್ಸೈಡ್ ಮತ್ತು ನೀರನ್ನು ಗ್ಲೂಕೋಸ್ ಮತ್ತು ಆಮ್ಲಜನಕವಾಗಿ ಪರಿವರ್ತಿಸುವ ಅತ್ಯಗತ್ಯ ಪ್ರಕ್ರಿಯೆಯಾಗಿದೆ. ಈ ಸಂಕೀರ್ಣವಾದ ಜೀವರಾಸಾಯನಿಕ ಕ್ರಿಯೆಯು ಸಸ್ಯ ಕೋಶಗಳ ಕ್ಲೋರೊಪ್ಲಾಸ್ಟ್‌ಗಳಲ್ಲಿ ನಡೆಯುತ್ತದೆ, ಅಲ್ಲಿ ಕ್ಲೋರೊಫಿಲ್ ಬೆಳಕಿನ ಶಕ್ತಿಯನ್ನು ಸೆರೆಹಿಡಿಯುತ್ತದೆ, ನಂತರ ಅದನ್ನು ಉಪಉತ್ಪನ್ನವಾಗಿ ಆಮ್ಲಜನಕವನ್ನು ಬಿಡುಗಡೆ ಮಾಡುವಾಗ ಗ್ಲೂಕೋಸ್ ಅನ್ನು ಸಂಶ್ಲೇಷಿಸಲು ಬಳಸಲಾಗುತ್ತದೆ.",,,,
+fab-500x-20261114T224408Z-042,87,ba43da1018a7b59c8810293e,3ac66a9f954b485021663680402503f2,fab-500x,kir,coding,aya-dataset,human_authored,[user] «SQL» бул ?,"Маалыматтар базасын программалоодо ""SQL"" ""Структураланган суроо тили"" дегенди билдирет. SQL реляциялык маалымат базаларын башкаруу жана манипуляциялоо үчүн колдонулган доменге тиешелүү тил. Бул маалымат базалары менен өз ара аракеттенүүнүн стандартташтырылган жолун камсыз кылат, анын ичинде маалыматтарды түзүү, жаңыртуу, суроо жана жок кылуу сыяктуу тапшырмаларды аткаруу.",,,,
+fab-500x-20261114T224408Z-042,88,23460831b46218a34886e2f4,1e303304cc54c92cfc432a9dd8b01b4e,fab-500x,kir,general_knowledge,aya-dataset,human_authored,[user] Суроо: Доплер эффектиси деген эмне жана анын үн жана жарык толкундары менен кандай байланышы бар?,Жооп: Доплер эффектиси – бул толкундун байкоочусу же булагы бири-бирине салыштырмалуу кыймылдаганда толкундун жыштыгынын же толкун узундугунун өзгөрүшү. Ал үн жана жарык толкун узундуктарынын байкалган жылыштары үчүн жооптуу.,,,,
+fab-500x-20261114T224408Z-042,89,3db5b856bdfb60d3ba204768,f5b042551ab7512d9a2fff51d706a470,fab-500x,kir,mathematics,aya-dataset,human_authored,[user] Кыргыз футболчулары 2019-жылы январь айында кандай ийгиликтерге жетишкен?,"Кыргызстандын футбол боюнча курама командасы өз тарыхында биринчи жолу Азия кубогунун финалынын 1/8 бөлүгүндө ойноду. 21-январда алар Бириккен Араб Эмираттарынын командасы менен беттешип, 3:2 эсебинде утулуп калды. 
+Бул беттеш 2:3 эсебинде БАЭнин жеңиши менен аяктап, Кыргызстан чейрек финалга чыга албай калды. Бирок талдоочулар “ак шумкарлар” БАЭнин командасы менен тең тайлаша ойноп, мыкты оюн көрсөткөнүн белгилеп жатышат. Дегеле кыргыз футболчулары акыркы кезде чоң секирик жасаганы айтылууда. Кыргызстандын футбол боюнча курама командасы өз тарыхында биринчи жолу Азия кубогунун финалынын 1/8 бөлүгүндө ойноду. Буга чейин ""ак шумкарлар"" бул турнирдин тандоо бөлүгүнөн ары өтө албай келген болчу.
+
+Бириккен Араб Эмираттарында өтүп жаткан Азия кубогуна катышкан Кыргызстандын футбол командасы  24-январда кайтып келген. Алардын футболдогу жетишкендиктерине урмат көрсөтүү максатында Бишкектин Ала-Тоо аянтында атайын иш-чара өтөт. Ал саат 15:00дө башталып, бийликтен да жогорку өкүлдөрдүн келишкен. Бул салтанат шоу-концерт менен коштолгон.",,,,
+fab-500x-20261114T224408Z-042,90,e341cf68c74b02ca2c636e36,cb51e97e40484c23153a1fbbb8d9b920,fab-500x,ko,coding,wikipedia-ko,templated_human,[user] Glibc에 대해 간단히 소개해 주세요.,"GNU C 라이브러리(GNU C Library)는 일반적으로 glibc로 알려진, GNU 프로젝트가 C 표준 라이브러리를 구현한 것이다. 이름과는 달리 현재는 C++도 지원한다. 이것은 1990년대 초반 자유 소프트웨어 재단(FSF)이 자신의 GNU 운영 체제를 위해 시작되었다.
+
+GNU 약소 일반 공중 사용 허가서 하에 배포되는 glibc는 자유 소프트웨어이다.
+
+Glibc 프로젝트는 초기의 1980년대에 FSF에서 일하던 Roland McGrath에 의해 대부분 쓰여졌다.
+
+1988년 2월 FSF는 glibc를 ANSI C가 요구하는 기능을 거의 완벽하게 갖는다고 주장하였다. 1992년 이것은 구현된 ANSI C-1989와 POSIX.1-1990을 가졌으며 POSIX.2의 방식으로 동작하였다.
+
+1995년 9월 Ulrich Drepper는 glibc 프로젝트에 대한 그의 첫 기여를 하였고 1990년대 들어 점차적으로 glibc의 핵심 기여자와 유지인이 되었다. Drepper는 수 년동안 유지 관리를 하는 위치였으며 2012년 프로젝트의 전체 커밋 중 63%를 차지하였다.
+
+1990년대 초반 리눅스 커널의 개발자들은 glibc로 분기하였다. ""리눅스 libc""로 불리는 이 분기는 릴리즈 버전 2부터 5까지 독립적으로 유지되었다.
+
+FSF가 glibc 2.0을 릴리즈하였을 때 이것은 더 많은 완전한 POSIX 표준과 더 나은 국제화와 지역화, 다중언어 함수, IPv6 역량, 64비트 데이터 접근, 멀티스레드 애플리케이션을 위한 기능을 가졌으며 코드는 더 이식가능해졌다. 이 시점에서 리눅스 커널 개발자들은 자신들의 분기를 중단하고 다시 FSF의 glibc로 돌아왔다.
+
+리눅스 libc의 최신 버전은 내부 이름(soname) libc.so.5를 가진다. 이 이후로 리눅스의 glibc 2.x는 soname libc.so.6를 사용한다.
+
+리처드 스톨만에 따르면, 코드의 저자가 불분명하고 GNU 프로젝트가 저작권과 저자를 기록하는 것에 엄격하기 때문에 리눅스 libc에서 만들어진 변화는 다시 glibc로 병합될 수 없다고 한다.
+
+2001년부터 라이브러리의 개발은 위원회에 의해 감독되며, 특히  Ulrich Drepper가 주요 기여자와 유지인으로서 활동한다.
+
+이전의 CVS 저장소 대신, 2009년 glibc는 Sourceware의 깃 저장소로 옮겼다.
+
+대부분의 시스템에서, glibc의 버전은 lib 파일을 실행함으로써 획득할 수 있다(예를 들면, /lib/libc.so.6).
+
+glibc는 단일 유닉스 규격과 POSIX (1c, 1d, 1j)가 요구하는 기능들을 제공하며, ISO C11, ISO C99, 버클리 유닉스 (BSD) 인터페이스 등에서 요구하는 몇몇 기능들도 제공한다.",,,,
+fab-500x-20261114T224408Z-042,91,7360f7250038706de881c568,a915aa9d6ff68483ba7da611dbdeaf5b,fab-500x,ko,education,wikipedia-ko,templated_human,[user] 독일 관념론에 대해 간단히 소개해 주세요.,"독일 관념론(Deutscher Idealismus)은 18세기 말부터 19세기 중반까지 독일의 주로 루터파 지역에서 전개했던 철학 사상이다. 독일 고전주의 철학 또는 독일 이상주의 철학이라고도 불린다. 마르크스주의를 국가이념의 시효로 하는 나라들에서는 독일부르즈와 관념론(der deutsch-bürgerliche Idealismus)이라고 불린 적도 있으나 지금은 사라졌다. 칸트의 비판철학 및 그에 대한 프리드리히 하인리히 야코비의 비판에 자극받아 신 또는 절대자라 불리는 관념적 원리의 자기 전개로서 세계 및 인간을 파악하는 것을 그 특징으로 한다. 철학자 피히테, 셸링, 헤겔 외에 라인홀트, 횔덜린, 조르거 신학자 프리드리히 슐라이어마허가 독일 관념론의 주요 논자로 인정 받고 있다.
+
+18세기 말 당시의 독일은 통일국가란 이름뿐이며, 프랑스나 영국에 비하여 근대화가 현저하게 뒤떨어져 있었다. 거기에 결정적인 충격을 준 것은 프랑스 혁명과 나폴레옹의 침략이었다. 봉건제와 정면으로 싸울 힘이 없었던 독일 지식인은 여기서 다시 근대화와 민족 독립을 모순된 것으로 받아들여야만 했었다. 이처럼 거의 빠져나갈 길이 없는 역사적 상황 아래 독일에서는 선진국이 물질적으로나 사회적으로 실현했던 것을 정신적·논리적으로 실현하여 '독일 관념론'이 대두하게 되었던 것이다. 따라서 독일 관념론의 주요한 주제는 정신(思惟)의 자립성 문제, 의식의 능동적 활동성 문제였다.
+
+칸트는 사유(思惟)의 여러 형식만을 주관에 돌리고 그 내용은 주어지는 것으로 하여 형식과 내용, 사유와 존재의 2원론을 방치하였다. 현실을 진리로 높인다는 사업에 정신이 적극적으로 참가하기 위해서는 정신의 자립성이 수립되어야만 한다. 이 2원론의 극복은 우선 ""자아가 비아(非我)를 정립(定立)한다""는 주관주의(피히테), 이어 그와는 반대로 객관 속에 자아와 똑같은 정신적 능동성을 발견하여 사유와 존재, 주관과 객관을 일체적인 관계에 두고 고찰하려는 방향(주로 셸링)에서 추구되고, 마지막으로 이 일체적인 관계가 ""실체는 동시에 주체이다""라는 견지에서 정신이 자기 부정을 매개하여 자기 자신을 정립하는 운동으로서 '변증법'의 자각적인 전개에 의하여(헤겔) 확립되기에 이르렀다.
+
+The London Philosophy Study Guide  offers many suggestions on what to read, depending on the student's familiarity with the subject: Nineteenth-Century German Philosophy
+
+Stanford Encyclopedia of Philosophy articles on
+
+German Idealism from the Internet Encyclopedia of Philosophy",,,,
+fab-500x-20261114T224408Z-042,92,9e678ccee89884264c455533,9cc1db54084e0bcb3d26c5c8f392d9ac,fab-500x,ko,general_knowledge,wikipedia-ko,templated_human,[user] 난고정 (미야자키현)에 대해 간단히 소개해 주세요.,"난고정()은 미야자키현의 남부, 미나미나카 군에 있던 정이다. 2009년 3월 30일에 니치난 시·기타고 정과 신설 합병해 새로운 니치난시의 지역 자치구가 되었다.
+
+온난한 기후와 아름다운 해안선을 가진 어업과 관광의 마을로서 알려져 있다.
+
+미야자키시에서 남쪽으로 약 50km 떨어진 곳에 위치하고 있다. 평지는 적고 면적의 약 60%를 산림이 차지한다. 정의 동쪽은 태평양(휴가나다)에 접하고 있으며 해안선은 리아스식 해안으로 아름다운 경관을 가진다.
+
+중세에는 이토 씨와 시마즈씨의 영토 쟁탈전의 무대가 되었고 도요토미 히데요시의 규슈 정벌 후에는 이토 씨령이 된다. 에도 시대에는 오비번령이었다.
+
+폐번치현 후에는 오비 현→미야코노조 현→미야자키 현→가고시마 현을 거쳐 1883년에 미야자키 현 소속이 되었다.
+
+1889년 5월 1일 - 정촌제 시행에 의해 미나미나카 군 난고 촌이 성립하였다.
+
+2009년 3월 30일 - 니치난 시·기타고 정과 합병해 새로운 니치난시의 지역 자치구가 되었다.
+
+대표적인 산업은 정 총생산의 약 30%를 차지하는 어업이다. 가다랑어, 다랑어의 어획량은 정촌 중에서는 일본 제일이며 농업은 귤류의 생산이 특히 많다. 그 외에 시설 원예에 의한 멜론, 오이, 피망, 망고 생산이 눈에 띈다.",,,,
+fab-500x-20261114T224408Z-042,93,1c86777846f01b215996daae,8ac9c73fdf42cefde994c59920b5038d,fab-500x,ko,mathematics,wikipedia-ko,templated_human,[user] 어떤 마술의 금서목록에 대해 간단히 소개해 주세요.,"《어떤 마술의 금서목록》()은 일본의 작가 카마치 카즈마가 쓰고, 하이무라 키요타카가 삽화를 담당한 라이트 노벨이다. 전격 문고에서 발매 중이며 대한민국에서는 대원씨아이의 NT 노벨로 발매된다. 현재 22권에서 시즌 1이 끝나고 신약 어떤 마술의 금서목록이라는 타이틀로 시즌 2가 연재되고 있다. 코기노 츄우야가 만화화하여 2007년 5월부터 스퀘어 에닉스의 간간 코믹스로 발매되고 있다.
+
+레귤러 캐릭터인 '미사카 미코토'의 시점으로 진행되는《어떤 과학의 초전자포》()는 이 소설의 외전이다. 카마치 카즈마가 구성을 담당하고 후유카와 모토이가 그린 만화로 된 외전이며, 2007년 4월부터 연재를 시작하였다. 애니메이션이 2009년 10월 3일부터 2010년 3월 20일까지 일본에서 방영되었다. 약칭은 초전자포(超電磁砲), 레일건(レールガン) 등. 두 작품을 합쳐 토아루 시리즈(とあるシリーズ)라고 약칭하기도 한다.
+
+또한 학원도시의 최강 레벨5 '액셀러레이터'의 시점으로 진행하는 금서목록의 또다른 외전《어떤 과학의 일방통행》()이 2013년 12월 27일부터 연재중이다.
+
+마지막 외전으로는 학원도시의 레벨 5를 액셀러레이터를 시작으로 전부 아이돌로 데뷔시킨다는 '어떤 우상의 일방동행씨'도 있다.
+
+다른 만화 외전은 4컷만화 '어떤 마술의 인덱스씨'와 '어떤 마술의 인덱스땅' 도 있다.
+
+그리고 2017년 10월 어떤 마술의 금서목록 3기 제작이 확정되었으며 소드 아트 온라인 3기와 함께 2018년 4분기 10월경에 나온다.
+
+초능력이 과학에 의해 해명된 세계. 초능력자들의 능력 개발을 목표로 교육을 시행하는 도쿄 1/3 넓이의 거대한 ‘학원 도시’를 배경으로 초능력을 사용할 수 없는 레벨 제로의 무능력자인 평범한 학생 '카미조 토우마'에게, 순백의 수도복을 걸친 어린 수녀가 나타났다. 그녀는 자신의 이름이 금서목록(인덱스)이라고 불리며, 마술사에 쫓기고 있다고 카미조 토우마에게 말한다.
+
+도쿄 서부에 있는 완전 독립 교육 기관이자 《어떤 마술의 금서목록》의 주된 무대이며 최첨단 과학 집합체.
+
+총인구 230만 명 중 80%는 학생으로, 외부와 철저히 격리된 거대도시이며 첨단 기술을 개발하는 연구소, 그것들을 측정하고 실험하는 시설, 그 기술에 적용을 받는 학생들의 교육기관, 학원도시를 원활하게 운영하게 하는 농업, 공업, 각종 인프라 등을 모두 갖춘 자급자족 도시이다. 독립(설립)기념일은 10월 9일로, 학원 도시에서는 축제일이다. 애니메이션 시리즈에서는 타치카와 시, 타마 센터 역의 주변역을 디자인 모델로 그렸다.
+
+도쿄 남부를 중심으로 도쿄도·카나가와현·사이타마현·야마나시현(극히 일부)에 걸쳐 있으며 면적은 도쿄도의 약 3분의 1 정도.
+
+높이 5미터, 두께 3미터의 담으로 둘러싸인 완전한 원형 도시이며 학구 23곳으로 나뉘어 학구마다 독특한 특징이 있다.",,,,
+fab-500x-20261114T224408Z-042,94,02b4779a87a1e16339ffdf43,c85bec2a194dba61c04a7ee6fae8e779,fab-500x,ko,research,tydiqa-goldp,human_authored,"[user] 센고쿠 시대를 종식시킨 도요토미는 관백위를 양자이자 조카 히데쓰구에게 물려주어 내정을 맡게 하고 본인은 태합에 올라섰고 천하 야망을 동아시아 정복으로 확장하려 했다는 견해도 있다.[2] 히데요시는 1585년에 대륙 진출을 최초로 언급했고 쓰시마 국주에게 조선 정벌을 준비하라고 명한 때는 이미 1587년 이었다.
+
+일본이 침략전쟁을 일으킨 이유는 무엇인가?","대륙 진출
+
+센고쿠 시대를 종식시킨 도요토미는 관백위를 양자이자 조카 히데쓰구에게 물려주어 내정을 맡게 하고 본인은 태합에 올라섰고 천하 야망을 동아시아 정복으로 확장하려 했다는 견해도 있다.[2] 히데요시는 1585년에 대륙 진출을 최초로 언급했고 쓰시마 국주에게 조선 정벌을 준비하라고 명한 때는 이미 1587년 이었다.",,,,
+fab-500x-20261114T224408Z-042,95,c4edfbf95b88fb7409bfbfca,135919bbac50ff37adec56e0af6809d2,fab-500x,ko,science,wikipedia-ko,templated_human,[user] 루비 문자에 대해 간단히 소개해 주세요.,"루비 문자(, )란 문장 내의 임의의 문자(보통은 한자)에 대해 읽는 법을 알려주는 후리가나, 단어에 대한 설명, 또는 일반적인 읽기 방법과 다르게 읽을 때 그 '다르게 읽는 법' 등을 보통 문자보다 더 작은 크기의 문자로 적는 것이다. 통상 세로쓰기에는 문자의 오른쪽, 가로쓰기에는 문자의 위쪽에 적는다.
+
+메이지 시대부터의 일본의 활판 인쇄 용어이며, ""루비 활자""를 사용해 후리가나(일본어의 경우)나 한어병음/주음부호(중국어의 경우)등을 표시한 것이다. 일본과 중국뿐만 아니라 한국에서도 간혹 사용되었다.
+
+일본에서 통상 사용된 5호 활자(10.5 point)에 루비를 사용할 때 7호 활자(5.5 point)를 이용했는데, 이것은 영국으로부터 수입된 5.5 포인트 활자의 통칭이 """"였기 때문에 이 활자를 ""루비 활자""라고 불러, 거기에 따라 붙여진 문자를 ""루비""라고 부르게 되었다.
+
+XHTML 1.1부터 루비 모듈을 통해 후리가나를 붙이는 방법이 제공된다. 루비 모듈은 후리가나 텍스트를 감싸는 ruby 태그와, 원래 텍스트를 감싸는 rb/rbc 태그, 후리가나를 감싸는 rt/rtc 태그, 그리고 루비를 표시할 수 없는 경우 사용할 괄호를 지정하는 rp 태그로 이루어져 있다.
+
+여러 웹 브라우저들은 XHTML 1.1 이전의 표준에서도 루비 모듈을 쓸 수 있도록 확장하고 있지만 엄밀하게는 문법 위반이다. 다음은 루비 모듈을 사용해서 후리가나를 표현하는 예이다.
+
+<ruby><rb>漢字</rb><rp>(</rp><rt>かんじ</rt><rp>)</rp></ruby>
+
+{| style=""display:inline; text-align:center; line-height:1em;"" cellspacing=""0"" cellpadding=""0""
+
+인터넷 익스플로러(Internet Explorer v6.0.2900.5512 이상)",,,,
+fab-500x-20261114T224408Z-042,96,007188635b660259ad82ef20,9f3dbada94317ea19af286c1f01906b3,fab-500x,ko,web_frontend,wikipedia-ko,templated_human,[user] 송재경 (프로그래머)에 대해 간단히 소개해 주세요.,"송재경(宋在京, 1967년 ~ )은 대한민국의 게임 프로그래머이자 게임 디렉터이다. 대표작으로는 리니지,  바람의 나라가 있다.
+
+KAIST 박사과정을 중퇴하고 한글과컴퓨터에 입사하여 '쥬라기 공원'이라는 머드 게임을 만들던 송재경은, 대학
+
+시절부터 알고 지내던 김정주와 함께 1994년 12월 말 넥슨(NEXON)을 공동 창업했다. 송재경은 넥슨에서 온라인게임 바람의 나라를 개발하지만, 정식 서비스를 몇 달 남겨놓은 1996년 말, 김정주 등과의 불화로 지분을 모두 반납하고 넥슨을 퇴사하였다.
+
+넥슨을 나온 송재경은 아이네트에 입사하여 새로운 온라인 게임 리니지 개발에 착수하게 된다. 당시 IMF 한파로 아이네트 역시 어려워진 상황이었는데, 엔씨소프트 대표 김택진이 송재경을 자신의 회사로 영입하였다. 당시 엔씨소프트는 게임 회사가 아니라 html 작성도구 등의 사무용 소프트웨어를 만드는 작은 회사였다.
+
+리니지는 1998년 11월, 엔씨소프트에서 상용화되어 당시 빠르게 보급되던 인터넷망과 게임방 등을 기반으로 큰 인기를 끌게 된다. ‘리니지’의 성공적 상용화 이후 엔씨소프트는 사업을 확장해 2000년 여름에 미국 지사를 설립하고, 송재경은 미국 지사에서 근무하게 되었다. 그러나 당시 미국에서는 이미 에버퀘스트 등의 온라인 게임이 인기를 얻고 있었던 시기인데다, 사업이나 마케팅면에서의 미숙함까지 겹쳐 2D 게임인 ‘리니지’는 북미 시장에서 실패하고 말았다. 반면 대한민국 내에서는 리니지가 히트 게임으로 자리잡아, 엔씨소프트가 대기업으로 성장하는데 확고한 캐시카우(cash cow) 역할을 해주게 된다.
+
+송재경은 2002년 말, 김택진 대표와의 불화로 엔씨소프트를 퇴사하게 되었다. 그는 엔씨소프트와 결별하기 전 자신의 지분 0.73%(시가 45억원)를 처분했는데, 그가 매각한 가격은 대략 33,000원 가량이었던 것으로 알려져 있다.
+
+엔씨소프트와 결별한 후, 송재경은 자신의 회사 엑스엘게임즈를 설립하였다. 이 회사는 첫 프로젝트로 온라인 레이싱 게임 'XL1' 을 3년에 걸쳐 개발하고 2006년 네오위즈를 통해 서비스하게 되지만, 참담한 실패를 맛보게 된다.
+
+송재경은 또다시 2011년 MMORPG 아키에이지를 공개하고 장기간의 베타테스트를 거쳐 2013년 1월 정식서비스를 시작하지만, 밸런스 붕괴 및 운영 미숙 등 수많은 문제를 낳고 기대 이하의 흥행을 거두고 만다.
+
+엑스엘게임즈는 많은 자금이 투입된 아키에이지의 개발이 장기화되면서 2012년부터 극심한 재정난에 시달려 왔다. 이에 그는 협력사인 네오위즈로부터 긴급히 200억원을 대여받는데 성공하지만 아키에이지 상용화 후에도 흥행에 실패하자 결국 550명 중 100명을 해고하는 큰 규모의 구조조정에 들어가게 된다.",,,,
+fab-500x-20261114T224408Z-042,97,5bd6856a1672265f32425076,87d9587e0331eff32b11938b605ae8bf,fab-500x,ko,writing,wikipedia-ko,templated_human,[user] 탁재훈에 대해 간단히 소개해 주세요.,"탁재훈(, 1968년 7월 24일 ~ )은 대한민국의 가수, 배우, 방송인, MC이다. 본관은 분성이다. 남성 듀오 컨츄리 꼬꼬로 활동했다.
+
+솔로 가수로 활동했으나 인기를 끌지 못했다. 그 탓에 생계에 곤란을 겪었으며 생계 때문에 경찰청 사람들에서 단역으로 출연하여 범죄자(도둑) 역할을 했다.
+
+그렇게 살고 있던 도중 이상민을 만나게 되었으며 이상민은 신정환을 소개시켜 주면서 2인조 음악 그룹인 컨츄리 꼬꼬를 결성하려 했으나 탁재훈은 컨츄리 꼬꼬의 컨셉이 너무 가벼워서 거절했다. 하지만 신정환이 이상민보다 더욱 악착같이 달려들어 꼭 결성해 달라고 부탁했으며 계약금과는 별개로 탁재훈이 진 카드빚을 신정환이 대신 갚는다는 조건으로 결국 컨츄리 꼬꼬를 결성하는 데 성공했다.
+
+컨츄리 꼬꼬가 엄청난 인기를 끌었으며 이에 따라 탁재훈도 스타덤에 올랐으며 이로 인해 탁재훈은 김수미의 추천을 받아 영화계에 진출하여 가문의 영광 시리즈(가문의 위기, 가문의 부활, 가문의 수난)에 계속 출연했다.
+
+MBC - 《일요일 일요일 밤에 - mr.요리왕, 대망, 퀴즈프린스, 오빠밴드, 단비, 뜨거운 형제들, 승부의 신》
+
+2002년 영화 《좋은 사람 있으면 소개시켜 줘》 ... 효진의 선배 역 (우정출연)
+
+2006년 영화 《연애, 그 참을 수 없는 가벼움》 ... 준용 역 (우정출연)
+
+1990년 언더그라운드 라이브 클럽에서 록 음악 가수로 첫 데뷔를 한 그는 1995년에 1집 《내가 선택한 길》을 정식 발매했고 1997년에 2집 《Rebirth》를 발매했으나 결과가 좋지 않았다. 탁재훈은 훗날 예능 프로그램에 출연하여 솔로 앨범을 낸 것을 후회했다고 밝히기도 했다. 2004년 12월에 에스파파(S.papa)라는 신비주의 컨셉으로 1집 《Rebeginning Story》를 발매했다. 앨범은 인기를 끌었고, 자신이 탁재훈이라는 정체를 계속 숨기고서 음반 홍보를 했으나 곧 연예 기사들을 통해 탁재훈 본인임이 밝혀지고 말았다. 이와는 별개로 그는 2006년에 자신이 조연으로 출연한 영화 《맨발의 기봉이 OST》앨범에 보컬로서 참여하기도 했다.",,,,
+fab-500x-20261114T224408Z-042,98,bb54c34beaeeb7c236bb01f1,332a6c6cdeeeec33fa1c5a1b483633e5,fab-500x,lit,general_knowledge,aya-dataset,human_authored,[user] Kokios spalvos yra žirafos liežuvis?,"Mėlynos-juodos. Vidutiniškai žirafos liežuvis yra nuo 18 iki 20 colių ilgio ir yra mėlynai juodos spalvos dėl didelio melanino tankio, kuris apsaugo nuo saulės nudegimo, nes žirafos dažnai maitinasi saulėje.",,,,
+fab-500x-20261114T224408Z-042,99,6d152a12210d564b8af9feb2,c7ca294207fe2fc4d4942332a8d6ff3a,fab-500x,lit,science,aya-dataset,human_authored,[user] Atsakyk į šį sudėtingą klausimą: kas buvo Galileo Galilei indėlis į mokslą ir kodėl jis buvo svarbus?,"Galileo Galilei, garsus XVI-XVII amžiaus mokslininkas, yra laikomas moderniosios astronomijos tėvu. Jis patobulino teleskopą ir naudojo jį stebėdamas dangaus kūnus. Galileo padarė revoliucinę atradimą, kad ne visi dangaus kūnai sukasi aplink Žemę, kaip buvo manoma tolimesniame viduramžių mokslui, o patvirtino heliocentrinę sistemą, kurioje Žemė sukasi aplink Saulę",,,,
+fab-500x-20261114T224408Z-042,100,ca02243ca9ee5e4279f7704a,f4d8b8ea38a5e702fed7dc4d354f6cf3,fab-500x,mal,general_knowledge,aya-dataset,human_authored,[user] ചോദ്യം: ഒരു സമവാക്യത്തിനോ അസമത്വത്തിനോ പരിഹാരം കണ്ടെത്തുന്ന പ്രക്രിയ എന്താണ്?,"ഉത്തരം: ഒരു സമവാക്യം അല്ലെങ്കിൽ അസമത്വം പരിഹരിക്കുന്നതിൽ, സമവാക്യം അല്ലെങ്കിൽ അസമത്വം സത്യമാക്കുന്ന മൂല്യങ്ങളുടെ മൂല്യം അല്ലെങ്കിൽ സെറ്റ് കണ്ടെത്തുന്നത് ഉൾപ്പെടുന്നു, ഇത് പലപ്പോഴും ബീജഗണിത കൃത്രിമത്വത്തിലൂടെയും ലോജിക്കൽ ന്യായവാദത്തിലൂടെയും നേടിയെടുക്കുന്നു.",,,,

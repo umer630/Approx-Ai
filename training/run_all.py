@@ -109,6 +109,7 @@ def main(argv=None, *, train_fn=None, gpu=None, restore_fn=None) -> int:
     ap.add_argument("--config-dir", default=str(TRAINING / "models"))
     ap.add_argument("--skip-restore", action="store_true", help="use local datasets (still SHA-256 verified against the lock)")
     ap.add_argument("--retry-failed", action="store_true", help="retry models that failed in an earlier invocation of this run")
+    ap.add_argument("--plan-only", action="store_true", help="readiness only: verify datasets + show what this GPU can train, then exit")
     ap.add_argument("--signing-key", default=os.environ.get("APPROX_RELEASE_SIGNING_KEY", ""))
     a = ap.parse_args(argv)
 
@@ -151,6 +152,21 @@ def main(argv=None, *, train_fn=None, gpu=None, restore_fn=None) -> int:
     except SystemExit as e:
         print(f"\nDATASET RESTORE FAILED: {e}", file=sys.stderr)
         return 1
+
+    if a.plan_only:
+        import json as _j
+        from datahub import dist
+        lock = _j.loads(dist.LOCK.read_text())
+        print("\nReadiness:")
+        ready = True
+        for m in models:
+            man = _j.loads((TRAINING / "datasets" / m / "build" / "manifest.json").read_text()) if (TRAINING / "datasets" / m / "build" / "manifest.json").exists() else None
+            ok = bool(man) and dist.verify_one(m, lock["models"][m], quiet=True)
+            gates_ok = bool(man) and all(g["passed"] for k, g in man["gates"].items() if k != "human_review")
+            print(f"  {m:10s} dataset={'VERIFIED' if ok else 'MISSING'} records={man['counts']['total'] if man else 0} "
+                  f"gates={'PASS' if gates_ok else 'FAIL'} review={(man or {}).get('review_basis')} gpu={'YES' if plan[m]['feasible'] else 'NO'}")
+            ready = ready and ok and gates_ok
+        return 0 if ready else 1
 
     train = train_fn or runner.train_one
     paused = False

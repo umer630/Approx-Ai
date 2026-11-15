@@ -1,0 +1,795 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-008,1,c16fdd0284f504bfa5293e08,63e2afd99f187cfc49a29f20be55bc95,fab-500x,fr,reasoning,aya-dataset,human_authored,[user] Nommez quelques grands films japonais sortis en 1965-1969 et leurs réalisateurs.,"1966 : l'Ange rouge (Y. Masumura).
+1968 : la Pendaison (N. Oshima), Premier Amour, version infernale (S. Hani).
+1969 : Éros + Massacre (Y. Yoshida), le Petit Garçon (N. Oshima).",,,,
+fab-500x-20261114T224408Z-008,2,7dd87f220340a2bafdeb3be5,e201c4cce5e39088f5f433b945e79a52,fab-500x,fr,research,wikipedia-fr,templated_human,[user] Présente brièvement : Département d'Escalante.,"Le département d'Escalante est une des 15 subdivisions de la province de Chubut, en Argentine. Il a une superficie de . Son chef-lieu est la ville de Comodoro Rivadavia. Sa population était de  habitants, selon le recensement de 2001 (source INDEC), soit une densité de . Selon les estimations de l'INDEC, le département comptait  habitants en 2005.
+
+Outre le chef-lieu Comodoro Rivadavia, le département compte l'importante station balnéaire de Rada Tilly, qui fait partie de son agglomération.
+
+Carte détaillée de la province de Chubut.",,,,
+fab-500x-20261114T224408Z-008,3,08fbfd7071d8ff6266f37f3f,000e3232ffbbfc20c800d5cda981175e,fab-500x,fr,safety_ethics,aya-dataset,human_authored,[user] Qui était le compositeur Béla Bartók ?,"Béla Bartók, compositeur et ethnomusicologue hongrois, a laissé une marque indélébile sur la musique du XXe siècle en incorporant des éléments folkloriques dans ses compositions. Son exploration de la musique folklorique d'Europe de l'Est et d'ailleurs est évidente dans des œuvres comme « Mikrokosmos » et les « Six String Quartets ». Les harmonies innovantes de Bartók, les complexités rythmiques et l'exploration des timbres dans des pièces comme ""Music for Strings, Percussion, and Celesta"" révèlent son engagement envers le modernisme et sa synthèse unique de tradition et d'innovation.",,,,
+fab-500x-20261114T224408Z-008,4,fd958d54dfc4a628e0d22e29,a6643ed3aed0bc701b10c2481852db11,fab-500x,fr,science,wikipedia-fr,templated_human,[user] Présente brièvement : Arthur O'Connell.,"Arthur O'Connell est un acteur américain né le  à New York, New York (États-Unis), mort le  à Woodland Hills (Los Angeles). Il était spécialiste des seconds rôles.
+
+1940 : And One Was Beautiful : Moroni's parking attendant
+
+1940 : Two Girls on Broadway : Reporter at Wedding
+
+1942 : Man from Headquarters : Goldie Shores
+
+1942 : Yokel Boy : Second Assistant Director
+
+1942 : Hello, Annapolis : Pharmacist Mate
+
+1948 : La Cité sans voiles (The Naked City) : Sgt. Shaeffer
+
+1948 : Le Retour (Homecoming) de Mervyn LeRoy : Ambulance Attendant
+
+1948 : L'Enjeu (State of the Union) de Frank Capra : First Reporter
+
+1948 : Un caprice de Vénus (One Touch of Venus) : Reporter
+
+1948 :  (The Countess of Monte Cristo) : Assistant Director Jensen
+
+1948 : L'Enfer de la corruption (Force of Evil) d'Abraham Polonsky : Link Hall
+
+1951 : The Whistle at Eaton Falls : Jim Brewster
+
+1952 : Mister Peepers (série télévisée) : Mr. Hansen (1953-1954)
+
+1956 : L'Homme au complet gris (The Man in the Gray Flannel Suit) : Gordon Walker
+
+1956 : Le Shérif (The Proud Ones) : Jim Dexter, Flat Rock Deputy Sheriff
+
+1956 : Une Cadillac en or massif (The Solid Gold Cadillac) : Mark Jenkins
+
+1956 : Arrêt d'autobus (Bus Stop) : Virgil Blessing
+
+1957 : Une histoire de Monte Carlo (The Monte Carlo Story) : Mr. Homer Hinkley
+
+1957 : Le Bal des cinglés (Operation Mad Ball) : Col. Rousch
+
+1957 : The Violators : Solomon Baumgarden",,,,
+fab-500x-20261114T224408Z-008,5,31ea2d329fa51a2c4f59f409,cbfc4252d90b897e21ffc311d39f6a00,fab-500x,fr,software_engineering,oasst2,human_authored,"[user] Quels sont les design patterns les plus utiles dans la programmation orientée objet appliqué à l'informatique de gestion ?
+
+[assistant] Il existe de nombreux design patterns qui peuvent être utiles dans la programmation orientée objet pour les applications de gestion. Voici quelques-uns des plus couramment utilisés :
+
+- Modèle-Vue-Contrôleur (MVC) : ce design pattern sépare les données d'une application, son comportement et l'interface utilisateur, permettant une plus grande modularité et une meilleure maintenance du code.
+
+- Factory Method : ce design pattern définit une interface pour la création d'objets sans préciser leurs classes concrètes. Cela permet de déléguer la création d'objets à des sous-classes.
+
+- Singleton : ce design pattern garantit qu'une classe ne peut avoir qu'une seule instance tout en fournissant un point d'accès global à cette instance.
+
+- Observer : ce design pattern définit une dépendance entre des objets, de sorte que lorsqu'un objet change d'état, tous les objets dépendants sont automatiquement mis à jour.
+
+- Stratégie : ce design pattern définit une famille d'algorithmes, encapsule chacun d'entre eux et les rend interchangeables. Cela permet de sélectionner l'algorithme à utiliser lors de l'exécution.
+
+Il est important de noter que ces design patterns ne sont que des solutions génériques à des problèmes courants, et qu'il est toujours important de les adapter à vos besoins spécifiques pour garantir leur efficacité.
+
+[user] Wow j'ai pas bien compris là, ça sert a quoi tout ça ?","Désolé si j'ai utilisé des termes techniques qui ne sont pas clairs. Les design patterns sont des solutions générales aux problèmes courants rencontrés dans la conception de logiciels. Ils fournissent des structures et des modèles de code réutilisables qui peuvent être appliqués à diverses situations de développement de logiciels.
+
+Pour répondre à votre question, les design patterns sont utiles dans la programmation orientée objet appliquée à l'informatique de gestion, car ils aident les développeurs à créer des applications plus robustes, plus flexibles et plus évolutives. Voici quelques exemples pour illustrer cela :
+
+ - Le modèle MVC permet de séparer la logique métier de la présentation de données, ce qui facilite la maintenance et l'évolutivité de l'application.
+
+ - Le design pattern Singleton permet d'assurer qu'il n'y a qu'une seule instance d'une classe donnée, ce qui permet de garantir l'intégrité des données et de faciliter la communication entre les différentes parties de l'application.
+
+ - Le design pattern Observateur permet d'informer automatiquement des objets de tout changement d'état, ce qui permet de mettre à jour rapidement et efficacement l'interface utilisateur.
+
+En utilisant des design patterns, les développeurs peuvent également créer des applications plus faciles à tester et à maintenir, car les solutions éprouvées ont déjà été testées et documentées. En fin de compte, les design patterns sont une façon pour les développeurs de travailler de manière plus efficace et d'optimiser le temps et les ressources lors de la conception d'applications de gestion.",,,,
+fab-500x-20261114T224408Z-008,6,486b4e74146e1894b412ec4b,5f869881ef9adf5768de7f92b400eca9,fab-500x,fr,web_backend,wikipedia-fr,templated_human,[user] Présente brièvement : Michael Bowen (acteur).,"Michael Bowen est un acteur américain né le  à Gladewater au Texas (États-Unis). Il est le fils de l'actrice Sonia Sorel et du peintre de la Beat Generation .
+
+Il est le demi-frère des acteurs Robert Carradine et Keith Carradine et l'oncle des actrices Martha Plimpton et Ever Carradine.
+
+1982 : Mutant, d'Allan Holzman : Jimmy Swift
+
+1983 : Valley Girl, de Martha Coolidge : Tommy
+
+1984 : La Nuit de la comète, de Thom Eberhardt : Larry Dupree
+
+1985 : Private Resort, de George Bowers : Scott
+
+1986 : Aigle de fer, de Sidney J. Furie : Knotcher
+
+1988 : Neige sur Beverly Hills, de Marek Kanievska : Hop
+
+1997 : Excess Baggage, de Marco Brambilla : Gus
+
+1998 : Jackie Brown, de Quentin Tarantino : Mark Dargus
+
+2000 : Magnolia, de Paul Thomas Anderson : Rick Spector
+
+2003 : Kill Bill : Volume 1, de Quentin Tarantino : Buck
+
+2004 : Tolérance Zéro, de Kevin Bray : Shérif Stan Watkins
+
+2009 : La Dernière Maison sur la gauche (The Last House on the Left), de Dennis Iliadis : Morton
+
+2012 : Django Unchained, de Quentin Tarantino : Tracker Stew
+
+1993 : L'Affaire Amy Fisher : Désignée coupable : Paul Makely
+
+2000 : Comment épouser une milliardaire - Un conte de Noël (How to Marry a Billionaire: A Christmas Tale) : Franklyn
+
+2001 : X-files - saison 8, épisode 8 ( À coup sûr ) : Dwight Cooper
+
+2005 : Lost : Les Disparus (Lost) (série télévisée) - saison 2, épisodes 22 et 24 : Danny Pickett",,,,
+fab-500x-20261114T224408Z-008,7,abe212eec10c38982372db16,f4bc5c5c192bc6fbfc48d97e0721c534,fab-500x,fr,web_frontend,wikipedia-fr,templated_human,[user] Présente brièvement : Oscar du meilleur court métrage (animation).,"L’Oscar du meilleur court métrage (animation) (Academy Award for Animated Short Film), est une récompense cinématographique américaine décernée chaque année depuis 1932 par l'Academy of Motion Picture Arts and Sciences (AMPAS), laquelle décerne également tous les autres Oscars.
+
+Depuis 1989, la récompense est remise au réalisateur alors qu'auparavant elle l'était aux producteurs du film ou - à défaut - à la société de production (comme pour l'Oscar du meilleur film). Le nombre de nominations - majoritairement au nombre de 5 dans les autres catégories - est variable selon les années.
+
+La catégorie initialement intitulée Short subject (cartoon), fut renommée Short subject (animation) en 1972 puis Short film (animation) en 1975.
+
+Un Oscar du meilleur court métrage documentaire est décerné parallèlement pour récompenser les films en prises de vue réelle.
+
+Note : L'année indiquée est celle de la cérémonie, récompensant les films sortis au cours de l'année précédente. Les lauréats sont indiqués en tête de chaque catégorie et en caractères gras. Les noms des réalisateurs ont été indiqués par commodité, bien qu'ils n'aient pas été récompensés personnellement avant 1989.
+
+1932 : Des arbres et des fleurs (Flowers and Trees), série Silly Symphonies – Walt Disney (Walt Disney Productions)
+
+Les Orphelins de Mickey (Mickey's Orphans), série Mickey Mouse – Walt Disney",,,,
+fab-500x-20261114T224408Z-008,8,84a8b4db5d37513b528ea15e,277e2b3b4514cd4131a7d5f56200dcd5,fab-500x,fr,writing,wikipedia-fr,templated_human,[user] Présente brièvement : Stuart Burge.,"Stuart Burge est un réalisateur, producteur et acteur britannique né le  à Brentwood (Royaume-Uni), décédé le  à Lymington (Royaume-Uni).
+
+1986 : The Importance of Being Earnest (TV)
+
+1991 : La Maison de Bernarda Alba (The House of Bernarda Alba) (TV)
+
+1974 : La Chute des aigles (""Fall of Eagles"") (feuilleton TV)
+
+1953 : Tonnerre sur Malte (Malta Story) : Paolo Gonzar, Maria's Brother
+
+1988 : La Petite Dorrit (Little Dorrit) : Head
+
+1972 : Honni soit qui mal y pense de Peter Barnes, mise en scène Stuart Burge, Théâtre de Paris
+
+Commandeur de l'ordre de l'Empire britannique",,,,
+fab-500x-20261114T224408Z-008,9,15c9017e8ce86e6ea55a3aba,a0a5d1a804b3064f77476740906373d0,fab-500x,gle,education,aya-dataset,human_authored,"[user] Cá háit is féidir liom dul chun a bheith ina dhuine creidimh? Roghanna: club, bialann, ollscoil, teach tábhairne nó Eaglais. Ligean ar smaoineamh céim ar chéim:","Is é áit reiligiúnach an áit a ndéanann daoine adhradh do dhuine ar a dtugtar Dia. Is áit adhartha í an eaglais. Mar sin, is é an freagra an eaglais. is féidir leat dul chun a bheith ina dhuine creidimh san Eaglais",,,,
+fab-500x-20261114T224408Z-008,10,66a3a7162d6f9d4cf13dbe91,0cbbf941df4ab5f1fbc64eda2879ed78,fab-500x,gle,general_knowledge,aya-dataset,human_authored,[user] Cé hé Malcolm Turnbull?,"B'é Malcolm Bligh Turnbull, a rugadh i Sydney ar an 24 Deireadh Fómhair 1954, an 29ú Príomh-Aire na hAstráile.",,,,
+fab-500x-20261114T224408Z-008,11,9d5afa10be8a659a38fecc86,024512e44c91416dc9cf42c4866467d6,fab-500x,gle,science,aya-dataset,human_authored,"[user] Féach ar an rann thíos agus ansin freagair an cheist ina dhiaidh sin sa teanga chéanna leis an rann:  Passage: Is é an 2037 Bomber an t-ainm neamhoifigiúil a thugtar do bhombaire straitéiseach trom a bhí beartaithe ag Air Force na Stát Aontaithe, atá ceaptha chun freastal mar athsholáthar don Northrop Grumman B-2 Spirit. Tá sé beartaithe go dtiocfaidh an t-aerárthach i seirbhís i 2037 mar aerárthach buamálaithe stealth, supersonic, fad-raon le cumas oibriú gan foireann.  Ceist: Cén cineál oibríocht a bheidh an tsamhail 2037 Bomber in ann a úsáid?",Beidh an oibríochta gan foireann.,,,,
+fab-500x-20261114T224408Z-008,12,13dbb51f059506b9e7ded4eb,c1d9ae04ed06ba4c884e2ede960deea6,fab-500x,gle,web_backend,aya-dataset,human_authored,[user] Cad a dhéanfá dá mbeifeá i do Thaoiseach ar an tír? An bhfuil tú sásta leis an Taoiseach ag an am sin?,"Ar ndóigh post tábhachtach is ea post an taoisigh, agus tá go leor dualgaisí difriúla ag baint leis. Bíonn muid ag brath go mór ar chinntí an Taoisigh, mar sin bheadh orm a lán machnaimh a dhéanamh ar an gceist sin. Tá rudaí áirithe níos práinní ná a chéile, mar shampla chuirfinn níos mó áiseanna ar fáil do dhaoine óga. Chuirfinn stop le caimiléireacht dífhostaíocht agus fadhb na ndrugaí. Fairis sin, d'athródh mé an bonneagar i gceantair thuaithe, mar Iarthar Chorcaí",,,,
+fab-500x-20261114T224408Z-008,13,be2a17cf7b1cf70e31a5d00b,07a0a1587c1379a8c8f40c936159f8d9,fab-500x,gle,web_frontend,aya-dataset,human_authored,[user] Ca bhfuil an tír Asarbaiseáin? Inis dom faoi.,"Tá sí suite idir an Iaráin, an Rúis, an Airméin agus an tSeoirsia. Tá cuid den Asarbaiseáin, mar atá, Nakhchivan nó Naxçıvan, dealaithe ón gcuid eile den phoblacht ag an Airméin. Tá Naxçıvan ag críochantacht go díreach leis an Tuirc.
+Poblacht iar-Shóivéadach is ea an Asarbaiseáin, nó Poblacht na hAsarbaiseáine. Tugtar ""Tír na Síor-Thine"" ar an Asarbaiseáin, ós rud é go bhfuil sí saibhir in artola. 
+Tá limistéar mór suite idir an Airméin agus an Asarbaiseáin, mar atá, Sléibhte Karabagh, arb Airméanaigh iad formhór mór a dhaonra. Ba leis an Asarbaiseáin an limistéar seo, go dtí gur tháinig deireadh leis an Aontas Sóivéadach, ach ansin, thosaigh na hAirméanaigh áitiúla ag cur cogaidh le cuidiú ón Airméin féin chun neamhspleáchas a bhaint amach ón Asarbaiseáin agus an limistéar a chur leis an gcuid eile den Airméin. Níl ceist Karabagh fuascailte go fóill, cé go bhfuil sos cogaidh i bhfeidhm idir an dá stát inniu.",,,,
+fab-500x-20261114T224408Z-008,14,719eaf8d73921a3561d49c37,b59994882e5a4e9cb59334f25a03fd6d,fab-500x,gle,writing,aya-dataset,human_authored,[user] Cé hé James Macpherson?,"Ba scríbhneoir agus polaiteoir Albanach é James Macpherson nó Seumas Mac a' Phearsain (27 Deireadh Fómhair 1736 i Ruadhainn, Gaeltacht na hAlban - 17 Feabhra 1796). Tá clú air mar ""aistritheoir"" ar fhilíocht Ossian.
+Ó 1753 amach chuaigh sé ar Choláiste an Rí in Obar Dheathain agus ansin ar Ollscoil Dhún Éideann. Ag an am sin, thosaigh sé ag scríobh filíochta, mar shampla The Highlander i 1758, ach ní raibh mórán de foilsithe.
+
+Tháinig cáil air mar gheall ar an ""aistriúchán"" ar Fragments of Ancient Poetry, foilsithe ag Hugh Blair i 1760. Tháinig na leabhair Fingal, an Ancient Epic Poem in Six Books (1761), Temora (1763) agus The Works of Ossian (1765) amach tar éis sin. Fuaireadar clú mar obair de chuid an amhránaí Ghaelaigh Ossian. Bhíothas den tuairim gur bhailiúchán de bhéaloideas ársa a bhí iontu, a d'aimsigh Macpherson i nGaeltacht na hAlban agus sna hOileáin Siar. Bhí na leabhair aistrithe chuig theangacha Eorpacha eile, agus thaitin siad leis an lucht léitheoireachta ansin. Leis an tsuim a bhí in Ossian, d'athraigh an t-ainm ar Ghaeilge na hAlban ó ""Erse"" go ""Gàidhlig"".",,,,
+fab-500x-20261114T224408Z-008,15,bde4f874c532eaad135c9895,a515f24d1e804bc9666696bd8681d676,fab-500x,gu,coding,aya-dataset,human_authored,"[user] ""જાવા"" પ્રોગ્રામિંગ ભાષાનો ઉપયોગ શેના માટે થાય છે?","""જાવા"" એક કમ્પ્યૂટર પ્રોગ્રામિંગ ભાષા છે. જેની શોધ જેમ્સ ગોઝ્લિંગે ઇ.સ. ૧૯૯૫માં કરી. જાવા સન માઇક્રોસિસ્ટમ્સ દ્વારા વિકસાવવામાં આવેલ છે.આ ભાષાના મોટા ભાગની વાક્યરચના C અને C++ મુજબ અનુસરવામાં છે. જાવા એપ્લિકેશન્સનું ""બાઇટ-કોડ""માં સંકલન થાય છે જે કોઇ પણ JVM પર ચલાવી શકાય છે. જાવા એક મલ્ટી પેરાડિગમ, ક્લાસ આધારિત, સમવર્તી, ઓબ્જેકટ ઓરિએન્ટેડ પ્રોગ્રામિંગ ભાષા છે. જાવા પોર્ટેબલ-એટલે કે કોડ એક વાર લખીને કોઇ પણ પ્લેટફોર્મ પર જેમાં JVM સ્થાપિત હોય ચલાવી શકાય છે.
+
+જાવા ત્રણ પ્લેટફોર્મ માં વિભાજીત છે ૧. J2ME (જે મોબાઈલ માં એપલીકેશન બનાવવા માટે વપરાય છે ) ૨. J2SE (જે ડેસ્કટોપ એપ્લીકેશન બનાવવા માટે વપરાય છે) ૩. J2EE (જે વેબસાઈટ બનાવવા માટે વપરાય છે)",,,,
+fab-500x-20261114T224408Z-008,16,9c52c5648b90a01d23e544af,af863640d01328d6a384f3344433c233,fab-500x,gu,general_knowledge,aya-dataset,human_authored,"[user] કૈલાસ પંડિતની ""દર્દને ગાયા વિના"" કવિતા લખો.","દર્દને ગાયા વિના રોયા કરો,
+પ્રેમમાં જે થાય છે જોયા કરો.
+
+બીક લાગે કંટકોની જો સતત,
+ફૂલનો સુંઘો નહીં જોયા કરો.
+
+કેમ આવ્યા આ જગે રડતા તમે?
+જિંદગી આખી હવે રોયા કરો.
+
+લ્યો હવે ‘કૈલાસ’ ખુદને કાંધ પર,
+રાહ સૌની ક્યાં સુધી જોયા કરો?",,,,
+fab-500x-20261114T224408Z-008,17,b75863b776ab90980c6934b0,952e5c63162073067929d472763e058d,fab-500x,gu,mathematics,aya-dataset,human_authored,[user] સેવ ખમણીની સ્પેશ્યલ રેસીપી જણાવો.,"સામગ્રી - 1/2 કિલોગ્રામ ચણાની દાળ , 200 ગ્રામ ઝીણી સેવ, 50 ગ્રામ લીલા મરચાં, 100 ગ્રામ લસણ, 1 ટુકડો આદુ, 100 ગ્રામ ખાંડ, તેલ, હળફરનો પાવડર. લીંબુપાણી, એક ચમચી ખાંડ, મીઠુ, રાઈ.
+ 
+વિધિ - દાળને એક કલાક માટે પલાળી રાખો. ત્યારબાદ તેને મિક્સરમાં અધકચરી દળો. વાસણમાં તેલ ગરમ કરી તેમા રાઈનો વધાર કરી તેમા હળદર નાખો. હવે તેમાં દાળ નાખી પાણી બધુ સુકાય જાય ત્યાં સુધી ગરમ કરો, હવે તેમાં આદુ, લસણ અને ઝીણાં સમારેલા લીલા મરચાં અને મીઠુ નાખો. વાસણને બર્નર પરથી લઈ તેમાં તજના પાન અને દાડમના દાણા તેમજ સેવ અને ઝીણા સમારેલા ધાણા અને લીંબૂનો રસ સારી રીતે મિક્સ કરો, અને ગરમા ગરમ પીરસો.",,,,
+fab-500x-20261114T224408Z-008,18,5f2650f06e653efed48a85c6,85b34e1ced6d561db7a2d08376517670,fab-500x,gu,science,aya-dataset,human_authored,[user] ઓએસ શું છે?,"Operating સિસ્ટમ (ઓએસ) એ સિસ્ટમ સ software ફ્ટવેર છે જે કમ્પ્યુટર હાર્ડવેર અને સ software ફ્ટવેર સંસાધનોનું સંચાલન કરે છે, અને કમ્પ્યુટર પ્રોગ્રામ્સ માટે સામાન્ય સેવાઓ પ્રદાન કરે છે.
+
+સમય-વહેંચણી operating સિસ્ટમ્સ સિસ્ટમના કાર્યક્ષમ ઉપયોગ માટે કાર્યોનું શેડ્યૂલ કરે છે અને પ્રોસેસર સમય, માસ સ્ટોરેજ, પેરિફેરલ્સ અને અન્ય સંસાધનોની કિંમત ફાળવણી માટે એકાઉન્ટિંગ સ software ફ્ટવેર શામેલ હોઈ શકે છે.
+
+ઇનપુટ અને આઉટપુટ અને મેમરી ફાળવણી જેવા હાર્ડવેર કાર્યો માટે, operating સિસ્ટમ પ્રોગ્રામ્સ અને કમ્પ્યુટર હાર્ડવેર વચ્ચેના મધ્યસ્થી તરીકે કાર્ય કરે છે, જો કે એપ્લિકેશન કોડ સામાન્ય રીતે સીધા હાર્ડવેર દ્વારા ચલાવવામાં આવે છે અને વારંવાર ઓએસ ફંક્શનમાં સિસ્ટમ ક calls લ કરે છે અથવા વિક્ષેપિત થાય છેતે.Cell પરેટિંગ સિસ્ટમ્સ ઘણા ઉપકરણો પર જોવા મળે છે જેમાં કમ્પ્યુટર હોય છે - સેલ્યુલર ફોન્સ અને વિડિઓ ગેમ કન્સોલથી લઈને વેબ સર્વર્સ અને સુપર કમ્પ્યુટર્સ સુધી.""",,,,
+fab-500x-20261114T224408Z-008,19,b4c893f01dc7ea998f7afe9d,987e17341c8468ceb7eb848bfb266d62,fab-500x,gu,web_frontend,aya-dataset,human_authored,[user] વેબ ટ્રાફિકના માપન વિશે જણાવો.,"વેબ ટ્રાફિકનુ માપન વેબ સાઇટ્સ અને ચોક્કસ પૃષ્ઠો અથવા સાઇટના વિભાગોની લોકપ્રિયતા જાણવા માટે થાય છે.
+
+વેબ ટ્રાફિકનુ વિશ્લેષણ વેબ સર્વર લોગ ફાઇલમાં મળતા આંકડાઓ પરથી કરી શકાય છે, જે બધા પ્રયુક્ત પૃષ્ઠોની સ્વયં-નિર્મિત સૂચિ હોય છે. જ્યારે કોઇ પણ ફાઇલ પૂરી પડાય ત્યારે એક હીટ બને છે. પૃષ્ઠને પણ એક ફાઇલ ગણાય છે, પણ ચિત્રોને પણ ફાઇલ ગણાય છે, આમ 5 ચિત્રો ધરાવતુ એક પૃષ્ઠ 6 હીટ્સ આપે છે (5 ચિત્રો અને એક સ્વયં પૃષ્ઠ). જ્યારે કોઇ મુલાકાતી વેબ સાઇટમાંના કોઇ પૃષ્ઠ માટે અનુરોધ કરે છે ત્યારે પુષ્ઠ જોવા મળે છે– મુલાકાતી હંમેશા ઓછામાં ઓછુ એક પુષ્ઠને જોઇ (મુખ પૃષ્ઠ) શકશે પરંતુ તે ઘણા બધા પણ બનાવી શકે.
+
+સાઇટ્સની બહારની ટ્રેકિંગ એપ્લિકેશન્સ વેબ સાઇટના દરેક પૃષ્ઠમાં એચટીએમેલ (HTML) કોડનો એક નાનો ભાગ મૂકીને ટ્રાફિકની નોંધ રાખી શકે છે.
+
+વેબ ટ્રાફિકને કોઇક વાર પેકેટ સ્નીફીંગ દ્વારા પણ માપવામાં આવે છે અને તે રીતે ટ્રાફિક માહિતીના યાદૈચ્છિક નમૂના મેળવાય છે જેના દ્વારા પછી ઇન્ટરનેટના કુલ ઉપયોગ તરીકે વેબ ટ્રાફિકની માહિતી પ્રાપ્ત કરાય છે.",,,,
+fab-500x-20261114T224408Z-008,20,63592535f28b71d4bd87ba93,998a9d8b6ec62311cd41c8124d8cf404,fab-500x,gu,writing,aya-dataset,human_authored,"[user] ...ં રિહર્સલ યોજવામાં આવ્યું હોવાનું પંચે તેના અહેવાલમાં નોંધ્યું હતું. 
+
+એ ઉપરાંત કારસેવકોને ડિમૉલિશનની તાલીમ આપવામાં આવ્યાનું દર્શાવતા સાંયોગિક પુરાવા મળ્યાનું પણ પંચે નોંધ્યું હતું. 
+
+દોરડા અને લોખંડની જાળી બાંધીને માટીના મોટા ઢગલાને ગબડાવવાનો પ્રયાસ કરતા લોકોને બરાડીને આદેશ આપી રહેલા એક પુરુષનો ફોટો મેં ખેંચ્યો હતો. 
+
+માટીના મોટા ઢગલાને ગબડાવવાનો પ્રયાસ કરતા લોકોને બરાડીને આદેશ આપી રહેલો પુરુષ
+
+એ પુરુષે તેના ચહેરાને રૂમાલ વડે ઢાંક્યો હતો. એ એક જમણેરી પક્ષનો નેતા હતો. તેથી હું તેમની ઓળખ જાહેર કર... Write the rest of the article:","રહેલા સેન્ટ્રલ બ્યુરો ઓફ ઈન્વેસ્ટિગેશન મને બોલાવતા રહે છે. 
+
+એ ઘટનાને આજે 27 વર્ષ થયાં. છતાં ડીમૉલિશન માટે જવાબદાર એકપણ વ્યક્તિને સજા કરવામાં આવી નથી.",,,,
+fab-500x-20261114T224408Z-008,21,71fd814c0ef8a1d0688dae13,6a61b45de970f1e667b28c33129e96ca,fab-500x,hat,general_knowledge,aya-dataset,human_authored,[user] Likid glise kalmason yo bay la,"Sa gen lontan depi chirijyen yo rann yo kont yo bezwen yon lakòl yo kapab sèvi avè l nan domèn medikal pou ede ògàn yo geri. Anpil nan lakòl ki genyen jodi a pa ka sèvi anndan kò moun. Se pwazon yo ye pou kò a, epitou yo vin rèd lè yo sèch, donk yo pa ret kole ak pati nan kò a ki mouye yo. Apre syantifik yo fin etidye likid glise kalmason yo bay laa, yo vin jwenn yon fason pou yo rezoud pwoblèm sa yo.
+
+Fè yon ti reflechi: Lè kalmason an santi l an danje, li bay yon likid glise ki tankou yon lakòl ki fò ase pou kole bèt la sou yon fèy pyebwa ki mouye. Sa pwoteje kalmason an toutpandan li toujou gen kapasite pou l fè mouvman ak kò l.
+
+Moun k ap fè rechèch yo egzamine likid glise sa a e yo wè gen plizyè rezon ki fè l ka sèvi kòm yon lakòl natirèl. Pa egzanp, nonsèlman likid glise a gen yon pwodui ladan l ki fè de bagay kole youn ak lòt, men tou, li gen kapasite pou l rale lòt bagay sou li. Likid sa a antre anndan kèlkeswa sa kalmason an kole avè l la e lè yo rale l, li tankou yon elastik. Lefètke syantifik yo fè yon likid ki tankou likid glise kalmason an bay la, yo rive fè yon lakòl ki pi fò pase tout lòt lakòl ki deja egziste pou kole yon ògàn nan kò moun. Syantifik yo di ‘menm jan pati nan kò a ki rele katilaj la byen kole de zo ansanm, se konsa lakòl sa a byen kole ògàn yo’.
+
+Espè yo panse lakòl sa a ka vin youn nan zouti tout chirijyen ta dwe genyen, konsa yo pa t ap bezwen koud ògàn yo ankò. Yo ka sèvi ak lakòl sa a pou yo repare katilaj oswa pou yo kole aparèy medikal anndan kò moun. Yo deja fè tès ak lakòl sa a ki bay bon rezilta pou yo repare yon twou nan kè yon kochon e pou yo repare yon twou nan fwa yon rat.
+
+Souvan, syantifik yo jwenn bonjan solisyon pou pwoblèm yo rankontre lè yo etidye bagay natirèl ki toutotou nou. Men sa Donald Ingber, direktè enstiti ki fè lakòl atifisyèl sa a, di: “Nou jis bezwen konnen ki kote pou n chèche bon ide yo epi rive rekonèt yo lè n jwenn yo.”",,,,
+fab-500x-20261114T224408Z-008,22,91eb4f7be85538ea3e13fbec,dd9503517375a19ec25bbdc9c9363e7b,fab-500x,hau,general_knowledge,aya-dataset,human_authored,[user] Wasula nawa ne a hausa?,Hausa na da biyar.,,,,
+fab-500x-20261114T224408Z-008,23,0ab6a72b11e4861e6145faaf,d6c4af11d788e6cdd813738354343652,fab-500x,hau,islamic_studies,aya-dataset,human_authored,[user] Menene matsayin giya a addinin Islam?,Shan giya haramun ne,,,,
+fab-500x-20261114T224408Z-008,24,aede3a0bfd723d693504513e,7099516b5c9b72c63dea2896168069e7,fab-500x,hau,mathematics,aya-dataset,human_authored,[user] Daga me ake samun katako?,"Wani nau'i na halitta na cellulose fibers wanda ke da karfi sosai kuma an saka shi a cikin matrix na lignin wanda ke tsayayya da matsawa. Itace wani lokaci ana bayyana shi azaman xylem na biyu kawai a cikin tushen bishiyoyi, ko kuma an bayyana shi da yawa don haɗa nau'in nama iri ɗaya a wasu wurare kamar a cikin tushen bishiyoyi ko ciyayi. Hakanan yana isar da ruwa da abinci mai gina jiki tsakanin ganye, sauran kyallen takarda masu girma, da kuma saiwoyin. Itace na iya komawa ga wasu kayan shuka masu kamanni, da kayan da aka ƙera daga itace, ko guntun itace ko fiber.",,,,
+fab-500x-20261114T224408Z-008,25,9dce7d310b6b23f079ef7df2,7cebd1bf1e8e0246c217866d80fe11ff,fab-500x,hau,pakistan,aya-dataset,human_authored,"[user] Generate an article for the following headline: Dakin ajiye kayan tarihi na ""CIA"" mafi sirri a duniya","Mai yiwuwa wannan shi ne g﻿idan tarihi da ba'a saba ganin irinsa ba a duniya, wanda aka cika shi da kayan tarihi da suka sauya duniya. Sai dai ba'a barin al'umma suna shiga cikin gidan. A﻿ nan wurin ne kawai masu ziyara za su ga bindigar da aka samu a wajen Osama bin Laden lokacin da aka kashe shi, kusa da wata rigar fata ta Saddam Hussein. B﻿arkanmu da zuwa gidan tarihin sirri na CIA. A﻿ cikin ginin hedikwatar hukumar leken asiri ta Amurka yake a Langley Virginia. An sake yi wa gidan kwaskwarima a wani bangare na cikar hedikwatar shekara 75 da kafuwa. An bai wa wasu 'yan jarida kalilan damar shiga wurin ciki har da BBC, amma fa duka da jami'an tsaro ciki da waje da suka yi mana rakiya. C﻿ikin kayan tarihi 600 da ake da su akwai sauran kayan aikin da 'yan leken asiri suka yi amfani da su a yakin cacar-baka - akwai wani bera da ake aika shi da sako a boye, akwai wata kyamara a jikin taba sigari da ake amfani da ita, ga wata tantabara da kyamarar leken asirin da aka makala a jikinta. A﻿kwai kuma bayanai kan wasu ayyukan hukumar CIA da suka gabata da kuma na yanzu da ake yi. A﻿kwai kuma hoton wani gini wanda aka gano Osama bin Laden a cikinsa a Pakistan. An nuna wa Shugaba Obama hoton ginin kafin ya amince akai harin da ya yi sanadin mutuwar shugaban na kungiyar al-Qaeda a 2011. ""Samun damar ganin abubuwa a jikin hoton fasahar tiridi (3D) yana taimakawa masu tsara dokoki... da kuma mu kanmu kan yadda za mu tsara ayyukanmu,"" kamar yadda Robert Z byer Daraktan gidan da ya zagaya da mu ya shaida mana. A﻿ ranar 30 ga watan Yulin wannan shekarar wani harin makami mai linzami ya kara dira cikin wani gida, amma a wannan karon ya samu sabon shugaban kungiyar al-Qaeda ne Ayman Zawahiri. H﻿arin ya samu Zawahiri ne cikin wata baranda, bayan jami'an hukumar leken asiri ta Amurka sun kwashe watanni suna nazartar abubuwan da yake yi. ""﻿Harin ya nuna karara yadda jami'an yaki da ta'addanci suka fahimci rayuwar Zawahiri,"" in ji Mista Byer. An tsara bangaren farko na gidan tarihin  ne daga abubuwan da suka soma faruwa - kamar kafa ita hukumar a 1974 zuwa yakin cacar-baka, zuwa harin 11 ga watan Satumbar 2001, har da makaman da 'yan uwan wadanda aka kashe suka kawo a matsayin gudunmawa. W﻿adanda suke sauraren bayanin jami'an hukumar CIA ne da kuma jami'an da suka zo ziyarar. B﻿ayanan ba su takaita ba kawai a kan nasarori, a'a akwai bangaren da yake magana a kan harin da CIA ta kai domin kifar da gwamnatin Fidel Castro a Cuba wanda bai yi nasara ba, akwai kuma hujjoji da gazawar da suka yi na nemo makaman kare-dangi a Iraki. ""Wannan ba za mu kira shi gidan tarihi ba kawai. Akwai bangaren ayyuka da muke nuna wa jami'an CIA, domin bankado tarihinmu masu kyau da marasa kyau,"" in ji Mista Byer. ""Muna tabbatar da cewa jami'anmu sun fahimci tarihinsu, domin su yi ayyuka masu kyau nan gaba. Za mu dauki darasi daga nasarorinmu, da kuma gazawarmu domin a gaba mu gyara."" W﻿asu daga cikin ayyukan CIA da ba a fiye ji ba ko gani - kamar su aikin hadin gwiwa da M16 domin kifar da gwamnatin dimokuradiyya da aka zaba a Iran da kuma na baya-bayan nan wanda ya hada da azabtar da mutanen da ake zargi da hannu cikin harin ta'addancin 2001. B﻿angare na biyu na gidan tarihin ya mayar da hankali kan wasu ayyuka na musamman. K﻿almar da muke cewa 'Ba za mu iya tabbatarwa ba ko kuma mu musanta' kalma ce da wadanda suke tattarowa hukumar leken asiri bayanai, kuma an samo asalinta ne daga wani tarihi a cikin gidan wanda ake amfani da shi da ba a taba gani ba kafin yanzu. A﻿ karshen shekarun 1960, wani jirgin ruwan Tarayyar Sobiyet ya bata a wani wuri a teku. Bayan Amurka ta gano inda yake, CIA ta yi aiki da wasu manya-manyan kayayyakin fasaha domin gano tarkacensa da kuma fasahar da aka tattara cikinsa. Gidan tarihin yana kunshe da samfur na jirgin karkashin teku na Tarayyar Sobiyet da kuma tufafi, da kuma tire na ajiye guntayen taba. Akwai wani gashin doki da mataimakin daraktan CIA ya sanya domin yin bad-da-sawu yayin da ya kai ziyara wurin da jirgin yake. Nasarar da aka samu a wannan aikin ba ta da yawa saboda jirgin ya karye ko da yake an samu wasu sassansa. ""Galibin abubuwan da aka samo a cikin jirgin karkashin tekun har yanzu ba a bayyana su ba,"" a cewar Mr Byer. Lokacin da labari ya fita game da ake kira Project Azorian kafin a fitar da sauran sojojin ruwa, an shaida wa jami'ai su bayyana cewa ba ""za su iya tabbatarwa ko musanta"" abin da ya faru ba - wani zance da a yanzu aka fi sani da ""Glomar response"" kuma har yanzu ana amfani da shi. Akwai kuma wasu kayayyaki da aka tsara wasan kwaikwayon bogin nan mai suna Argo. Hakan ya bayar da dama wajen ceto wasu ma'aikatan difilomasiyya da aka tsare a Iran bayan juyin-juya halin 1979, abin da daga bisani aka juya shi zuwa fim din Hollywood. An baje-kolin wasu kayayyaki da aka tsara wajen yin fim din na bogi wadanda  ma'aikatan difilomasiyyar da aka tura can kasar suka yi ikirarin yi.  An tsara zane-zanen kayyakin ne ta yadda da wahala mutum ya fahimci sakon da ke cikinsu. Kuma da yake muna magana ne a kan fahimtar sakonni, a silin din gidan tarihin akwai wasu sakonni da ke dauke da wasu lambobi masu wahalar fahimta. Burin jami'an CIA shi ne a rarraba wa jama'a bayanan a shafukan sada zumunta domin ganin ko za su iya fahimtar su. Kazalika za a wallafa wasu daga cikin bayanan a shafin intanet. Don haka a iya cewa wadannan bayanai su ne mafi girma da mutane suka ganin game da hukumar leken asirin.",,,,
+fab-500x-20261114T224408Z-008,26,cdfdfbc897c0e545b86e9748,d55805de732d0c47177da8157bc88758,fab-500x,hau,science,aya-dataset,human_authored,"[user] Ƙirƙirar kanun labarai don rubutu mai zuwa: A karon farko, Shugaba Muhammadu Buhari na Najeriya ya yi wa 'yan kasar jawabi game da matakan da gwamnatinsa ke dauka a yaki da coronavirus. 1. Tun daga alamun farko da ke nuna coronavirus ko COVID-19 ta zama annoba kuma aka ayyana dokar ta-baci a kanta, gwamnatin tarayya ta fara shiri na daukar matakai na kariya idan har cutar ta shigo Najeriya. 2. Hankalin gwamnati ya tattara ya koma kan tunkarar abin. Zuwa yanzu ta zama matsalar lafiya ta gaggawa da matsalar tattalin arziki. 3. Najeriya, abin takaici, ta tabbatar da bullar cutar a ranar 27 ga Fabrairun 2020. Tun lokacin kuma sannu a hankali muke samun karuwar wadanda suka kamu da cutar. 4. Daga safiyar 29 ga Maris 2020, jimillar wadanda suka kamu a Najeriya sun kai 97. 5. Abin bakin ciki, mun kuma samu mutuwar farko, tsohon ma'aikacin PPMC, wanda ya mutu ranar 23 ga watan Maris 2020. 6. Muna yi masa addu'a da jajantawa iyalinsa a wannan lokaci mai cike da kalubale. Muna kuma yin addu'ar fatan samun sauki cikin gaggawa ga wadanda suka kamu da cutar kuma suke karbar magani. 7. Har zuwa yau COVID-19 ba ta da magani. Masana kimiyya na ci gaba da kokarin gano riga-kafi. 8. Muna tattaunawa da wadannan cibiyoyi a yayin da suke kokarin samar da mafita da hukumomi za su tabbatar cikin kankanin lokaci. 9. A yanzu, hanya ma fi dacewa ta kaucewa kamuwa da cutar ita ce bin matakai na tsafta da kuma nisanta da juna. 10. Mu kasance babban makami na yaki da wannan babbar annoba ta hanyar wanke hannu ko yaushe da sabulu da kuma ruwa mai tsafta, da tsaftace wuraren da muka yi amfani da su, yin tari ta hanyar rufewa da kyalle, ko tsakanin gwiwar hannu da kuma musamman kiyaye matakan kariya na lafiya da za mu iya kamuwa da cutar. 11. Tun da aka fara bayar da rahoton barkewar cutar a China, gwamnatinmu ke bibiyar al'amarin da nazari kan matakan da kasashe suka dauka. 12. Babban daraktan hukumar da ke yaki da cuttuttuka masu yaduwa ta Najeriya NCDC, yana cikin mutum 10 manyan masu ruwa da tsaki a harkar lafiya da Hukumar Lafiya ta Duniya ta gayyata domin ziyartar China don lakantar irin matakan da suka dauka. Ina alfahari da Dr Ihekweazu da ya yi wannan aikin a madadin 'yan Najeriya. 13. Tun dawowarsa, NCDC ke daukar matakai da dama da shirye-shirye a Najeriya domin tabbatar da dakile tasirin cutar a kasarmu. Muna yin kira ga 'yan Najeriya su bayar da goyon bayansu ga ayyukan da  Ma'aikatar lafiya da NCDC suke yi. 14. Ko da yake mun rungumi matakai da aka dauka a wasu kasashen duniya, amma an tsara shirye-shiryenmu daidai da yanayinmu. 15. A Najeriya muna daukar matakai guda biyu. 16. Na farko, mu kare rayukan 'yan Najeriya da kuma mazauna nan, na biyu, kare ma'aikata da 'yan kasuwa domin tabbatar da iyalinsu sun samu sauki cikin mutunci a wannan mawuyacin lokaci tare da kyakkyawan fata da kwanciyar hankali. 17. Zuwa yanzu, mun dauki matakai na kiwon lafiya da tsare kan iyakoki da matakai da suka shafi kudi. Kuma za mu ci gaba har abubuwa su daidaita. 18. Wadannan matakan ko shakka babu za su kawo cikas ga yawancin 'yan kasa. Amma wannan sadaukarwa ce da dukkaninmu za mu yi domin amfanin kasarmu. 19. A yaki da coronavirus, kowanne irin mataki muka dauka ba zai yi yawa ba kuma ba zai yi kadan ba. Maganar kawai ita ce ta daukar matakin da ya dace a lokacin da ya dace daga kwararrun ma'aikata. 20. Don Haka, a matsayinmu na gwamnati, za mu ci gaba da dogara da shawarwarin masana da kwararru a ma'aikatar lafiya da hukumar da ke kula da yaduwar cututtuka, NCDC, da sauran hukumomi a wannan lokaci na tsaka mai wuya. 21. Don haka, nake kira ga duka 'yan kasar nan da su bi dokokin da ake fitarwa a kai a kai. 22. Kamar yadda muka sani, Legas da Abuja ne wuraren da ke da mafi yawan mutanen da aka samu dauke da cutar a Najeriya. Don haka mun mayar da hankali wajen gaggauta dakatar da yaduwar cutar, kuma mu taimakawa sauran jihojin da yankuna iya karfinmu. 23. Shi ya sa ma muka samar da dala biliyan 15 don tallafawa 'yan kasa a lokacin da ake yaki da wannan cuta. 24. Mun kuma kaddamar da wani kwamitin shugaban kasa wato Presidential Task Force, don samar da wani tsari na matakan yaki da wannan cuta, wanda kuma ake bitarsa kullum. Wannan tsari ya kunshi hanyoyin da aka amince da su a fadin duniya amma mun tsara shi yadda zai dace da yanayin da kasarmu ke ciki. 25. Burinmu shi ne mu tabbatar duka jihoji na da goyon baya da karfin daukar matakai da gaggawa. 26. Kawo yanzu, a Legas da Abuja, mun dauki daruruwan ma'aikata na wucin gadi don kara karfin cibiyoyinmu na amsa waya da kuma tallafawa kokarinmu na gano mutanen da ake tunanin suna dauke da cutar da kuma wadanda aka yi wa gwaji. 27. Na kuma bukaci duka gwamnatocin jihohi, ta hanyar Kungiyar Gwamnonin Najeriya, da su tura likitoci da ma'aikatan jinya ga hukumar NCDC da gwamnatin jihar Legas domin horar da su kan hanyoyin hana yaduwar cutar ko da za ta yadu zuwa wasu jihohi. 28. Horon zai hada da wakilan bangaren lafiya daga dakarunmu da sauran jami'an tsaro da hukumomin leken asiri. 29. A matsayinmu na kasa guda, dole ne matakan da muke dauka su zama cikin tsari da kwarewa. Akwai bukatar samar da bayanan bai daya a fadin kasar. Za a kawar da duk wani bambanci a manufofi tsakanin gwamnatin tarayya da jihohi. 30. Kamar yadda na fada a baya, kawo yanzu mutum 97 ne aka tabbatar suna dauke da cutar. Mafi yawansu a Legas da Abuja. Dukkansu suna samun kulawar da ta kamata. 31. Hukumominmu a yanzu haka suna aiki don gano wasu masu dauke da cutar da kuma mutanen da suka yi mu'amala da wadanda aka riga aka gano suna da cutar. 32. Kalilan daga cikin wadanda aka gano suna dauke da cutar a Legas da Abuja sun yi mu'amala ne da masu ita da suka yi tafiya. 33. Don haka muna aiki don tabbatar da cewa an dakatar da zirga-zirga tsakanin jihohi don hana ci gaba da yada cutar. 34. Duba da shawarar Ma'aikatar Lafiya ta tarayya da kuma NCDC, na bayar da umarnin hana duk wata zirga-zirga a Legas da babban birnin tarayya Abuja har tsawon kwana 14, daga ranar Litinin 30 ga watan Maris da 11:00 na dare. Wannan doka za kuma ta shafi jihar Ogun saboda kusancinta da Legas da kuma cunkoson da ake samu tsakanin jihohin biyu. 35. Ana umartar dukkan mazauna wadannan yankuna su zauna a gidajensu. A dakatar da tafiye-tafiye tsakanin garuruwa. A dakatar da dukkan harkokin kasuwanci tare da rufe ofis-ofis a wadannan garuruwa tsawon wannan lokaci. 36. Tuni an sanar da gwamnonin Legas da Ogun da kuma Ministan Birnin Tarayya. An kuma sanar da shugabannin hukumomin tsaro. 37. Za mu yi amfani da wannan dama wajen gano tare da killace dukkan wadanda suka yi mu'amala da mutanen da aka riga aka tabbatar sun kamu da cutar. Za mu tabbatar da cewa an kula da wadanda suka kamu a asibiti yayin da za mu takaita yaduwarta zuwa sauran jihohi. 38. Wannan dokar ba ta shafi asibitoci da sauran cibiyoyin lafiya ba da kuma wuraren da ake samarwa da rarraba magunguna ba. 39. Haka nan ba ta shafi wuraren kasuwanci ba kamar su; a. Wajen sarrafa abinci da kamfanonin da ake sari; b. Wuraren da ake rarraba man fetur da gidajen mai, c. Kamfanonin rarrabawa da samar da wutar lantarki; d. Haka zalika ban da kamfanonin tsaro masu zaman kansu 40. Duk da cewa dokar ba ta shafi wadannan wurare ba, to za takaita ziyarrtarsu kuma za a sa ido. 41. Za a bar ma'aikatan kamfanonin wayoyin salula da ma'aikatan watsa labarai - na rediyo da talbijin da jarida - wadanda suka tabbatar cewa ba za su iya aiki a gida ba, su je wuraren aikinsu. 42. Dukkan tashoshin jiragen ruwa da ke Lagos za su ci gaba da aiki kamar yadda dokoki suka tsara. Jami'an lafiyar da ke tashoshin jiragen ruwa za su binciki dukkan motoci da direbobinsu wadanda ke dauke da kayayyaki daga tashoshin jiragen ruwa zuwa wasu sassan kasar nan kafin su bar tashoshin. 43. Kazalika, za a binciki dukkan motocin da ke dauke da abinci da sauran kayayyakin agaji zuwa tashoshin jiragen ruwa daga wasu sassan kasar nan kafin a bar su su shiga wadannan killatattun wurare. 44. Haka kuma, an bayar da umarni ga Ministan Lafiya ya aika dukkan jami'an lafiya da aiki zuwa tashoshin jiragen ruwa wadanda a baya aka girke su a filayen jiragen saman Lagos da Abuja zuwa muhimman hanyoyi wadanda suka kasance mashiga da mafita daga wadannan killatattun wurare. 45. An dakatar da zirga-zirgar dukkan jiragen saman fasinja, na haya da kuma na masu kashin-kai. Za a bar su su yi amfani ne kawai idan akwai matukar bukatar hakan. 46. Muna sane cewa daukar wadannan matakai zai jefa 'yan kasa cikin kuncin rayuwa. Amma wannan batu ne na ko a mutu ko a yi rai, idan muka yi la'akari da mutanen da suka mutu a Italiya da Faransa da kuma Spaniya. 47. Don hakan, ya zama wajibi a gare mu mu kalli wannan batu a matsayin wani nauyi domin kare kasarmu daga yaduwar wannan cuta. Saboda haka ina yin kira ga dukkanmu da wannan batu ya shafa mu sarayar da jin dadinmu domin kare kanmu da sauran al'umma. Za mu kawar da wannan cuta ce kawai idan muka yi aiki baki daya sannan muka bi umarnin da masana kimiyya da masana harkokin lafiya suka yi mana. 48. A yayin da muka shirya domin tursasa wa mutane bin wadannan dokoki, ya kamata mu yi la'akari cewa wannan wata sadaukarwa ce da za mu yi wajen yaki da COVID-19. Kasashe da dama sun dauki matakan da suka fi namu tsauri wadanda suka ga amfanin su a kokarinsu na hana yaduwar wannan cuta. 49. Daga yanzu zuwa makonnin da ke tafe za mu bayar da kayan agaji ga mutanen da ke zaune a yankunan karkara da ke kusa da Lagos da Abuja wadanda za su fuskanci mawuyacin hali sanadiyar matakan da muka dauka. 50. Kazalika, ko da yake an rufe dukkan makarantu, amma na bayar da umarni ga ma'aikatar bayar da agajin gaggawa ta yi aiki da gwamnatocin jihohi domin samar da tsarin ci gaba da bayar da abinci ga 'yan makaranta a wannan lokaci ba tare da yin karan-tsaye ga dokar yi wa juna tazara ba. Ministar ma'aikatar bayar da agajin gaggawa za ta tuntubi jihohin domin su amince kan tsarin da za a bi wajen aiwatar da wannan tsari. 51. Haka kuma na bayar da umarni ba tare da wani bata lokaci ba da a daga wa masu biyan bashin kudin tallafi na Tradermoni da MarketMoni da kuma FarmerMoni kafa tsawon wata uku. 52. Na kuma umarci da a yi irin wannan sassauci ga dukkanin basukan da gwamnatin tarayya ta bayar ta hannun, Bankin Masana'antu da Bankin Manoma da kuma Bankin Shigarwa da Fitar da Hajoji daga Najeriya. 53. Ga wadanda ke amfani da kudaden basuka na abokanan huldarmu na duniya, na umarci cibiyoyinmu na kudaden Samar da ci-gaba da su tattauna da cibiyoyin na waje da suka bayar da bashin kan yadda za a sassauta wa wadanda aka ba wa bashin. 54. (Ga masu raunin da ake ba wa taimakon kudi na wata-wata don inganta rayuwarsu kuwa, na bayar da umarnin da a biya su na wata biyu na gaba. 'Yan gudun hijira ma za su samu tallafin kayan abinci na wata biyu a makonnin da ke tafe. 55. Muna kuma kira ga dukkan 'yan Najeriya Najeriya su dauki nauyin taimakawa wadanda ba su da wadata a cikin al'ummarsu ta hanyar taimakonsu da duk abin da za iya bukata. 56. A yayin da muke addu'ar samun mafita ta alkhairi, za kuma ci gaba da shiryawa duk wani abu da ka iya faruwa. 57. Wannan dalili ne ya sa na umarci a mayar da filayen kwallo da sansanin alhazai na gwamnatin tarayya su zama cibiyoyin killace marasa lafiya. 58. Ya ku 'yan Najeriya, a matsayinmu na gwamnati, za mu samar da dukkan abubuwan da ake bukata don kula da marasa lafiya. Za mu ci gaba da jajircewa don yin duk abin da za mu iya don tunkarar annobar COVID-19 a kasarmu. 59. Muna matukar farin cikin ganin yadda ake samun tallafi daga manyan 'yan kasuwa da kuma sauran abokan huldar muwajen dakile annobar nan. 60. A wannan gaba, zan bukaci a hada duk wata gudunmuwa ko tallafi waje guda don tabbatar da cewa an yi amfani da su ta hanyar da ta dace. Kwamitin shugaban kasa da ke yaki da COVID-19 ne zai ci gaba da zama mai tsara duk abin da ya shafi annobar. 61. Ina so na tabbatar muku cewa dukkan ma'aikatun gwamnati da hukumomin da suke da rawar da za su taka suna aiki tukuru don shawo kan wannan annobar. 62. Kowace kasa ta duniya na fuskantar kalubale a wannan lokaci. Amma mun ga kasashen da jama'arta suka taimaka wajen rage yaduwar cutar. 63. Don haka zan ci gaba da kira a gare ku da ku bi dokokin da aka sanya kuma ku yi naku kokarin wajen bai wa gwamnati hadin kai da kuma taimakon marasa karfi a al'ummarku. 64. Zan yi amfani da wannan damar na godewa cibiyoyin lafiyarmu da ma'aikatan lafiya da hukumomin da ke kula da gabar teku da sauran ma'aikatan da aikinsu ya zama wajibi a kowane yanayi domin jajircewarsu da sadaukarwarsu. Lallai kun cika gwaraza. 65. Na gode muku duka da saurarata da kuka yi. Allah Ya ci gaba da yi mana albarka da kare mu duka.","Tabbas, ga kanun labarai na rubutun da aka bayar - Coronavirus: Abu 65 da Buhari ya fada a jawabinsa ga 'yan Najeriya",,,,
+fab-500x-20261114T224408Z-008,27,9bdf11c161edf73e5c851d56,7b6de9d5cead03251dd856b2164bb6e0,fab-500x,hau,writing,aya-dataset,human_authored,[user] Ka tsara amsar wannan tambaya mai mahimmanci: Wanne wasan bidiyo na wasan kwaikwayo na 2009 wanda Reid Harrison ya rubuta?,We're Alive: A Story of Survival (2009),,,,
+fab-500x-20261114T224408Z-008,28,dc4fadc9f795b8b0971ae82e,c6e3a6f1c85d8fd1cc535800e1174a70,fab-500x,he,general_knowledge,oasst2,human_authored,[user] מתי נוסדה מדינת ארץ ישראל?,"מדינת ישראל הכריזה על עצמאותה בה' באייר תש""ח, 14 במאי 1948.",,,,
+fab-500x-20261114T224408Z-008,29,49469cb72faf55718f0cf943,e316da650a52d54a92edec19dab3086c,fab-500x,hi,coding,wikipedia-hi,templated_human,[user] बेटा सॅफ़ॅई परिवर्ती तारा के बारे में एक संक्षिप्त परिचय लिखिए।,"बेटा सॅफ़ॅई परिवर्ती तारा ऐसे तारे को कहा जाता है जिसकी सतह पर स्पन्दन (धक-धकी या कंपन) होने की वजह से उसकी चमक में बदलाव आता रहता हो, यानि की वह सतही कंपन की वजह से एक परिवर्ती तारा हो। आम तौर पर ऐसे तारो की चमक (निरपेक्ष कान्तिमान) में हर 0.1 से 0.6 दिनों के अंतराल पर 0.01 से 0.3 मैग्नीट्यूड का फ़र्क़ पड़ता है। बेटा सॅफ़ॅ​ई परिवर्ती तारे सौर द्रव्यमान के 7 से 20 गुना द्रव्यमान (मास) रखने वाले मुख्य अनुक्रम तारे होते हैं।
+
+इस श्रेणी का नाम बेटा सॅफ़ॅ​ई तारे पर पड़ा है जिसकी पृथ्वी से देखी जाने वाली चमक (सापेक्ष कान्तिमान) 4.57 घंटे के अंतराल में +3.16 से +3.27 मैग्नीट्यूड के बीच बदलता रहता है।
+
+अंग्रेज़ी में ""बेटा सॅफ़ॅ​ई परिवर्ती तारे"" को ""बेटा सॅफ़ॅ​ई वेरिएबल स्टार"" (Beta Cephei variable star) कहते हैं।",,,,
+fab-500x-20261114T224408Z-008,30,3770cf7326d0fa0cb7c2c606,f0356ddc280bfc9d74b321c9d5cc0376,fab-500x,hi,cybersecurity,aya-dataset,human_authored,"[user] In a world devastated by an environmental catastrophe, a group of diverse survivors stumbles upon an ancient, encrypted manuscript rumored to hold the secrets of ecological restoration. As they embark on a perilous quest to decipher the text, alliances form and fracture, revealing hidden agendas and personal vendettas. The manuscript's cryptic nature sparks philosophical debates among the characters about humanity's responsibility to the planet. Unraveling the manuscript becomes a metaphor for navigating the complexities of human relationships and understanding the delicate balance between exploitation and preservation. Intertwined with elements of magical realism, the narrative explores the blurred boundaries between myth and reality, challenging characters to confront their beliefs and question the very essence of truth. The climax unveils a twist that redefines the purpose of the manuscript, forcing characters to reassess their motivations and reshaping their vision for a new world.","पर्यावरण की एक विपरीत आपदा द्वारा नष्ट किए गए एक दुनिया में, एक विविध समृद्धि वाले जीवनशील लोग एक प्राचीन, गूढ़ पैराग्राफ्ट पर चुराया हुआ मसौसी दस्तावेज़ पर कुछही सितारा पड़ा होने की अफवाह होती है, जिसमें पर्यावरणीय पुनर्निर्माण के रहस्य छुपे होते हैं। जब वे पाठ को सुलझाने के लिए एक जोखिमपूर्ण अभियान पर निकलते हैं, तो संधि बनती है और टूटती है, छुपे हुए मकसदों और व्यक्तिगत शत्रुताओं को प्रकट करते हुए। पाठ की रहस्यमय प्रकृति के बारे में कारकश चरित्रों के बीच दार्शनिक वादों को उत्तेजित करती है। पाठ की सुलझाई जाना मानव रिश्तों की जटिलताओं का एक उपमहाद्वीप बन जाता है और लुटाने और संरक्षण के बीच सूक्ष्म संतुलन को समझने की सूचना देता है। मैजिकल रियलिज़्म के साथ जुड़ा, कथा मिथक और वास्तविकता के बीच धुंधले सीमाओं का पत्ता लगाती है, चरित्रों को उनके धारणाओं का सामना करने और सत्य के बहुत्व की सबसे आधार पर प्रश्न करने के लिए प्रेरित करती है। क्लाइमेक्स एक मोड़ उन्हें पुनः आकलन करने और एक नए विश्व के लिए उनके दृष्टिकोण को पुनः आकार देने के लिए एक ट्विस्ट का पर्दाफाश करता है।",,,,
+fab-500x-20261114T224408Z-008,31,8ec0c5a316a1df30e8e2aac0,619aeba046736def9e38b35f58fcd4a1,fab-500x,hi,education,aya-dataset,human_authored,"[user] कृत्रिम बुद्धिमत्ता: आइए जानते हैं कि कृत्रिम बुद्धिमत्ता क्या है, इसके क्षेत्रों में कैसे उपयोग हो सकता है, और इसके विकास में क्या-क्या महत्वपूर्ण तकनीकी योगदान हैं।","कृत्रिम बुद्धिमत्ता एक विज्ञान की शाखा है जिसमें कंप्यूटर और मशीनो द्‌‌‌‌वारा मानव बुद्धिमत्ता की क्षमता का सिमुलेशन किया जाता है। इसका उद्देश्य कंप्यूटरों को विचारने, सीखने, समस्याओं का हल निकालने, और निर्णय लेने की क्षमता प्रदान करना होता है: जैसे कि मानव मस्तिष्क करता है।
+
+कृत्रिम बुद्धिमत्ता के क्षेत्र में कई उपयोग हो सकते हैं, जैसे वित्तीय संगठनों में डेटा विश्लेषण और वित्तीय भविष्यवाणी, स्वास्थ्य सेवाओं में रोग पूर्वानुमान और उपचार सिफारिश, विनिमय बाजार में स्वच्छता और सुरक्षा की निगरानी, और निर्माण उद्योग में स्वतंत्र ड्रोन और रोबोट का उपयोग शामिल है।
+
+कृत्रिम बुद्धिमत्ता के विकास में गहरे शिक्षण यांत्रिकी (Deep Learning), मशीन लर्निंग (Machine Learning), और न्यूरल नेटवर्क्स (Neural Networks) जैसी महत्वपूर्ण तकनीकियों का योगदान है। इन तकनीकियों के सहायता से कंप्यूटर मॉडल्स डेटा से सीखते हैं और इसे प्राथमिक और उच्च स्तर की गहराई में समझने की क्षमता प्राप्त करते हैं।
+
+कृत्रिम बुद्धिमत्ता के विकास में एक अन्य महत्वपूर्ण योगदान बिग डेटा (Big Data) का है, जो बड़े और विशाल डेटा सेट्स का विश्लेषण करने में सहायक होता है। ये तकनीकी संग्रहित डेटा से सिखने की क्षमता प्रदान करती है जो विभिन्न डोमेनों में बड़े पैमाने पर डेटा का विश्लेषण करने के लिए उपयुक्त होता है।",,,,
+fab-500x-20261114T224408Z-008,32,9585f18bcf1746cbacd73b54,77d3523697dad1beb40a21f8bfa87922,fab-500x,hi,general_knowledge,wikipedia-hi,templated_human,[user] हिंदी साहित्य का इतिहास (पुस्तक) के बारे में एक संक्षिप्त परिचय लिखिए।,"हिन्दी साहित्य के अब तक लिखे गए इतिहासों में आचार्य रामचन्द्र शुक्ल द्वारा लिखे गए हिन्दी साहित्य का इतिहास को सबसे प्रामाणिक तथा व्यवस्थित इतिहास माना जाता है। आचार्य शुक्ल जी ने इसे हिन्दी शब्दसागर  भूमिका के रूप में लिखा था जिसे बाद में स्वतंत्र पुस्तक के रूप में 1929 ई० में प्रकाशित आंतरित कराया गया। आचार्य शुक्ल ने गहन शोध और चिन्तन के बाद हिन्दी साहित्य के पूरे इतिहास पर विहंगम दृष्टि डाली है।
+
+इतिहास-लेखन में आचार्य रामचन्द्र शुक्ल एक ऐसी क्रमिक पद्धति का अनुसरण करते हैं जो अपना मार्ग स्वयं प्रशस्त करती चलती है। विवेचन में तर्क का क्रमबद्ध विकास ऐसे है कि तर्क का एक-एक चरण एक-दूसरे से जुड़ा हुआ, एक-दूसरे में से निकलता दिखता है। लेखक को अपने तर्क पर इतना गहन विश्वास है कि आवेश की उसे अपेक्षा नहीं रह जाती।
+
+आदिकाल से लेकर आधुनिक काल तक आचार्य शुक्ल का इतिहास इसी प्रकार तथ्याश्रित और तर्कसम्मत रूप में चलता है। अपनी आरम्भिक उतपत्ति में आचार्य शुक्ल ने बताया है कि साहित्य जनता की चित्तवृत्ति का संचित प्रतिबिम्बित होता है। इन्हीं चित्तवृत्तियों की परम्परा को परखते हुए साहित्य-परम्परा के साथ उनका सामंजस्य दिखाने में आचार्य शुक्ल का इतिहास और आलोचना-कर्म निहित है।
+
+इस इतिहास की एक बड़ी विशेषता है कि आधुनिक काल के सन्दर्भ में पहुँचकर शुक्ल जी ने यूरोपीय साहित्य का एक विस्तृत, यद्यपि कि सांकेतिक ही, परिदृश्य खड़ा किया है। इससे उनके ऐतिहासिक विवेचन में स्रोत, सम्पर्क और प्रभावों की समझ स्पष्टतर होती है",,,,
+fab-500x-20261114T224408Z-008,33,6f664a3a3fc4564451673977,9c7649694767dd85739b147c63a4a7e8,fab-500x,hi,islamic_studies,wikipedia-hi,templated_human,[user] क़ुरैश (सूरा) के बारे में एक संक्षिप्त परिचय लिखिए।,"सूरा क़ुरैश (इंग्लिश: Quraysh (surah) इस्लाम के पवित्र ग्रन्थ कुरआन का 106 वां सूरा (अध्याय) है। इसमें 4 आयतें हैं।
+
+इस सूरा के अरबी भाषा के नाम को क़ुरआन के प्रमुख हिंदी अनुवाद में सूरा क़ुरैश और प्रसिद्ध किंग फ़हद प्रेस के अनुवाद में भी सूरा क़ुरैश
+
+नाम पहली ही आयत के शब्द “क़ुरैश ” को इस सूरा का नाम दिया गया है।
+
+मक्की सूरा अर्थात पैग़म्बर मुहम्मद के मदीना के निवास के समय हिजरत से पहले अवतरित हुई।
+
+अत्यन्त बहुसंख्या में टीकाकार इसके मक्की होने पर सहमत हैं और इसके मक्की होने की पूरी गवाही इस सूरा के शब्द 'इस घर के रब' में मौजूद है। यदि यह मदीना में अवतरित होती तो 'काबा के घर' के लिए 'इस घर' के शब्द कैसे उपयुक्त हो सकते थे? बल्कि इसकी वार्ता का सूरा फ़ील की वार्ता से इतना गहरा सम्बन्ध है कि सम्भवतः इसका अवतरण इसके पश्चात् संसर्गतः ही हुआ होगा।
+
+इस्लाम के विद्वान मौलाना सैयद अबुल आला मौदूदी लिखते हैं कि",,,,
+fab-500x-20261114T224408Z-008,34,09522cd8a6a9250d0af3d14f,e61ac7479bf52b5ac2a4fe7094220a14,fab-500x,hi,mathematics,wikipedia-hi,templated_human,[user] सुभाष चन्द्र कुशवाहा के बारे में एक संक्षिप्त परिचय लिखिए।,"जन्म स्थान- ग्राम जोगिया जनूबी पट्टी, फाजिलनगर, कुशीनगर,उ0प्र0
+
+4-हाकिम सराय का आखिरी आदमी, 2003। यात्री प्रकाशन।
+
+6-होशियारी खटक रही है, 2009। अंतिका प्रकाशन।
+
+7-लाला हरपाल के जूते और अन्य कहानियां, 2015। पेंगुइन बुक्स, इण्डिया।
+
+कथादेश का किसान विशेषांक-‘किसान जीवन का यथार्थः एक फोकस’ का संपादन
+
+लोकरंग वार्षिकी का 1998 से निरंतर संपादन।
+
+12-चौरी चौरा विद्रोह और स्वाधीनता आन्दोलन, 2014, पेंगुइन बुक्स इंडिया प्र.लि.
+
+देश के सभी प्रमुख पत्र-पत्रिकाओं में 300 के लगभग आलेख और 55 कहानियां प्रकाशित।
+
+बी 4/140 विशाल खंड, गोमतीनगर, लखनऊ 226010।
+
+हिन्दी कथाकार सुभाष चन्द्र कुशवाहा की कहानी-भटकुइयां इनार के खजाना एम.ए.(भोजपुरी) छपरा विश्वविद्यालय पाठ्यक्रम में लग चुकी है।
+
+लोकरंग-१ और 2 पुस्तकें संदर्भ ग्रंथ के रूप में आरा और छपरा विश्वविद्यालय पाठ्यक्रम में लग चुकी है।",,,,
+fab-500x-20261114T224408Z-008,35,8ab020c24b2efe96cd27a141,fc130254dd72043e16964527aee0c9a9,fab-500x,hi,pakistan,wikipedia-hi,templated_human,[user] पाकिस्तान पीपल्स पार्टी के बारे में एक संक्षिप्त परिचय लिखिए।,"पाकिस्तान पीपल्ज़ पार्टी (उर्दू: , अंग्रेज़ी: Pakistan Peoples Party), जिसे पी॰पी॰पी॰ भी कहा जाता है, पाकिस्तान का एक प्रमुख राजनैतिक दल है। इसकी विचारधार गणतांत्रिक समाजवाद है। इसकी स्थापना ३० नवम्बर १९६७ में ज़ुल्फ़िकार अली भुट्टो ने नेतृत्व में हुई थी। उसी समय से इस पार्टी का नेता हमेशा कोई भुट्टो-ज़रदारी परिवार का सदस्य ही रहा है। पार्टी का केंद्र पाकिस्तान के दक्षिणी सिंध प्रान्त में है, जहाँ भुट्टो परिवार की जड़ें हैं, लेकिन यह पाकिस्तानी पंजाब, बलोचिस्तान, ख़ैबर पख़्तूनख़्वा और गिलगित-बाल्तिस्तान में भी सहमती पाती रही है। ज़ुल्फ़िकार अली भुट्टो, बेनज़ीर भुट्टो और आसिफ़ अली ज़रदारी - इस पार्टी से सम्बंधित रहे हैं।",,,,
+fab-500x-20261114T224408Z-008,36,4ead47bd348ec7808eeaa6a6,a36eb6e122dc687b3cde1066e4df7446,fab-500x,hi,problem_solving,wikipedia-hi,templated_human,[user] दाशमिक मुद्रावली के बारे में एक संक्षिप्त परिचय लिखिए।,"दशमिक मुद्रावली (Decimal Coinage या Decimalization) ऐसी किसी भी मुद्रावली को कहते हैं, जिसमें विभिन्न मानों की मुद्राएँ किसी मानक एकक के सपेक्ष दसगुनी और दशमांशों में होती हैं। इस प्रकार यदि मानक एकक 1 है तो उच्चतर मानों की मुद्राएँ 10, 100, 1000 इत्यादि होंगी और निम्नतर मानों की 0.1, 0.01, 0.001, इत्यादि। परिपूर्ण निकाय में कोई भंजन अथवा अंतवेंशन नहीं होगा, किंतु वस्तुत: दशमिक कहीं जानेवाली मुद्रावलियों में ऐसी दृढ़ परिपूर्णता नहीं होती। भारतीय दशमिक मुद्रावली में मानक एकक एक रुपया है। इसके अपवर्त्य 2 रु., 5 रु., 10 रु., 100 रु. के नोट हैं और अपवर्तक 50, 25, 10, 5 3, 2, 1 पैसे की मुद्राएँ हैं। ऐसी ही विषमताएँ फ्रांस, जर्मनी और संयुक्त राज्य (यूएसए) की मुद्रावलियों में है। अवश्य ही इन व्यावहारिक संशोधनों से परिसीमित हो विश्व के अग्रगण्य देशों ने दशमिक मुद्रावली को अपना लिया है। इनकी तिथियाँ इस प्रकार हैं :
+
+संयुक्त राज्य 1786 और 1792 ई.; फ्रांस 1799 और 1803 ई., जिसका अनुसरण लैटिन यूनियन के देशों ने सन् 1865 में किया; जर्मनी 1873 ई.; स्कैंडिनेवियन स्टेट्स 1875 ई.; ऑस्ट्रिया-हंगरी 1870 ई., जिसका विकास 1892 ई. में हुआ; रूस 1839 और 1897 ई. तथा जापान 1871 ई.। लैटिन अमरीकी देशों ने भी इसे अपना लिया है। यूके 15 फ़रवरी 1971।
+
+Plan for establishing uniformity in the Coinage, Weights, and Measures of the United States: text of a report to the U.S. House of Representatives by Thomas Jefferson.",,,,
+fab-500x-20261114T224408Z-008,37,cd39a19c5cf65ad1ca4cd880,c0bac3974017ec018d3ac2df87389932,fab-500x,hi,reasoning,wikipedia-hi,templated_human,[user] मानव शरीर की पेशियों की सूची के बारे में एक संक्षिप्त परिचय लिखिए।,"यहाँ मानव शरीर की पेशियों की सूची दी गयी है।
+
+सामान्य मानव में लगभग 640 कंकाल पेशियाँ हैं। लगभग प्रत्येक पेशी की जोड़ीदार पेशी भी होती है - इस प्रकार लगभग 320 पेशियों के जोड़े मानव शरीर में हैं।
+
+३. उत्तर ओष्ठ चतुरस्रा (quadratus labii superioris)
+
+१२. वक्त्रमंडलिका (orbicularis oris), की निम्न ओष्ठ कृंतक पेशी (incisivus labii inferioris),
+
+२. अंसकंठिका (omohyoid) का ऊर्ध्व मध्यांश,
+
+४. द्वितुंदी (digastric) का अग्र मध्यांश,
+
+११. उर: कर्णमूलिका (sternocleidomastoid),
+
+१३. द्विशिरस्का प्रगंडिकी का ह्रस्व शीर्ष (short head of biceps brachialis),
+
+१९. अनुप्रस्थांत प्रावरणी (transversalis fascio),
+
+२०. अनुप्रस्थ औदरी (transversus abdominis) तथा
+
+३. अर्धर्कटकी शिरस्या (Semis pinalis capitis),
+
+४. पट्टिका शिरस्या एवं ग्रैवी (splenius capitis et cervicis),
+
+७. बृहत्‌ अंसापकर्षणी (rhomboideus major)
+
+११. ट्राइसेप्स ब्रैकाई (triceps brachii),
+
+१२. पश्च निम्न दंतुरा (serratus posterior, inferior),
+
+१३. बाह्य पर्शुकांतर (external intercostal),
+
+१४. कटि अभिपृष्ठ प्रावरणी (lumbodorsal fascia) से आवृत्त त्रिककंटिका (sacrospinalis),
+
+२०. लघु अंसाभिवर्तनी तथा २१ अंसच्छद (deltoid) पेशी।
+
+५. दीर्घ बहिष्प्रकोष्ठ मणिबंध प्रसारिणी (exensor carpi radialis longus)
+
+६. सामान्य अंगुलिप्रसारिणी (extensor digitorum communis),
+
+८. दीर्घ अंगुष्ठअपवर्तनी (abuctor pollicis longus),
+
+९. लघु अंगुष्ठप्रसारिणी (extensor poillicis brevis),
+
+१०. प्रथम करभ अस्थ्यंतर (first dorsal interosseus) पेशी,",,,,
+fab-500x-20261114T224408Z-008,38,37893b07b60f578bf840c106,ce16c9cf3922d0f9c91daeccdf0d6499,fab-500x,hi,research,wikipedia-hi,templated_human,[user] रोबॉटिक्स के नियम के बारे में एक संक्षिप्त परिचय लिखिए।,"रोबॉटिक्स के नियम वें मापदंड, सिद्धांत व कानून हैं जिनके तहत एक रोबोट का बर्ताव व कार्य करने का ढंग निर्धारित किया जाता है। इस तरह के रोबोट अब तक बनाए नहीं गए है परन्तु इन्हे काल्पनिक विज्ञान, फ़िल्मों और कृत्रिम बुद्धिमत्ता के क्षेत्र में संशोधन के लिए उपयोग किया जाता है।
+
+अब तक के सबसे उत्तम नियम आईज़ैक असिमोव ने 1940 में लिखे थे परन्तु कईं अन्य संशोधकों ने भी नए नियम बनाए है।
+
+आईज़ैक असिमोव ने ""रोबॉटिक्स के तीन नियम"" अपनी लघु कहानी ""रनअराउंड"" में 1942 में बताए थे।
+
+एक रोबोट किसी भी प्रकार से मनुष्य को हानि नहीं पहुंचा सकता, या किसी भी हरकत के द्वारा मनुष्यों को हानि नहीं पहुंचने दे सकता।
+
+एक रोबोट को मनुष्यों द्वारा दिए गए सभी आदेश मानने होंगे बशर्ते वें पहले नियम को नहीं तोडते।
+
+एक रोबोट को अपना अस्तित्व बचाए रखना है जब तक कि पहले दो नियम ना टूटें।
+
+अब तक इन नियमों का उपयोग केवल काल्पनिक कहानियों में ही किया गया है।
+
+2011 में अभियांत्रिकी और भौतिक विज्ञान संशोधन बैठक (Engineering and Physical Sciences Research Council (EPRSC)) और कला व मानवता बैठक (Arts and Humanities Research Council (AHRC)) ने मिलकर पांच आवश्यक सिद्धांत बनाएं है जो रोबोट के डिज़ाइनर, रचयिता और उपयोगकर्ताओं के लिए सात ""उच्च दर्जे के सन्देशों"" के साथ बताएं गए है।:
+
+किसी मनुष्य को हानि या मारने के एक मात्र उद्देष्य से कोई भी रोबोट न बनाया जाए।
+
+मनुष्य, ना की रोबोट किसी भी चीज़ के लिए ज़िम्मेदार है क्योंकि रोबोट मनुष्यों के लक्ष्य को पाने के लिए ही बनाए जाते है।",,,,
+fab-500x-20261114T224408Z-008,39,1fa39cfbf4af17d5951b3f08,de66e1a4625bc4d77008c6066534d01c,fab-500x,hi,safety_ethics,aya-dataset,human_authored,"[user] In a world where emotions are quantifiable commodities, tell the story of a black-market trader dealing in stolen feelings. Explore the ethical dilemmas as characters grapple with the blurred lines between empathy and commerce.","भावनाएं मात्राओं में मापने जा सकने वाली एक दुनिया में, चोरी की गई भावनाओं में व्यापार करने वाले एक ब्लैक-मार्केट व्यापारी की कहानी सुनाएं। पात्रों के बीच सहानुभूति और वाणिज्यिकता के बीच के धुंधले सीमाओं के साथ जुड़ी नैतिक संघर्षों का अन्वेषण करें।",,,,
+fab-500x-20261114T224408Z-008,40,35727c9f56222ffa0f35797c,2bda3ec6a542b696af497adb2fd7bf2a,fab-500x,hi,science,wikipedia-hi,templated_human,[user] एलेक्ट्रॉन नलिका के बारे में एक संक्षिप्त परिचय लिखिए।,"एलेक्ट्रॉन नलिका (Electron tube) काँच या अन्य पदार्थ का नली से मिलता-जुलता संरचना है। इसमें एक एलेक्ट्रॉन का कोई स्रोत होता है जिससे निकलकर एलेक्ट्रॉन दूसरे प्लेट पर जाते हैं। इन एलेक्ट्रॉनों की संख्या, इनके वेग, इनकी उर्जा आदि को तरह-तरह से नियंत्रित किया जाता है। इस प्रकार बहुत सी युक्तियाँ एलेक्ट्रॉन नलिका का प्रयोग करके बनती हैं। उदाहरण के लिये, टेलिविजन मॉनिटर, कैथोड-किरण नलिका, निर्वात डायोड, ट्रायोड, थाइरेट्रॉन, मैग्नेट्रॉन, क्लाइस्ट्रॉन आदि।
+
+कुछ प्रकार की नलियों का उपयोग रेडियो-आवृत्ति-शक्ति (रेडियो फ्ऱीक्वेंसी पावर) उतपन्न करने में किया जाता है जिसका उपयोग रेडियो संग्राही (रिसीवर) तथा रेडियो प्रेषी (ट्रैंसमिटर) में किया जाता है। इन नलियों का उपयोग क्षीण संकेतों के प्रवर्धन (ऐंप्लिफ़िकेशन), ऋजुकरण (रेक्टिफ़िकेशन) तथा परिचयप्राप्तकरण (डिटेक्शन) में होता है। यह कहा जा सकता है कि साधारण इलेक्ट्रान नली की खोज ने ही रेडियो टेलीफोन, ध्वनिचित्र (बोलता सिनेमा), दूरवीक्षण (टेलिविज्हन), रेडियो आदि को जन्म दिया है।",,,,
+fab-500x-20261114T224408Z-008,41,a1189d8aa92cd9a4750986cb,632a34f79d01ff3877ec9960e2246c34,fab-500x,hi,web_frontend,wikipedia-hi,templated_human,[user] शटडाउन.ईऍक्सई के बारे में एक संक्षिप्त परिचय लिखिए।,"शटडाउन.ईऍक्सई (shutdown.exe) एक यूटिलिटी है जो कि विण्डोज़ २००० के समय से माइक्रोसॉफ्ट विण्डोज़ का एक हिस्सा है। इसका प्रयोग एक चलते कम्प्यूटर या रिमोट कम्प्यूटर को शटडाउन करने के लिये किया जाता है।
+
+https://web.archive.org/web/[CARD]/http://support.microsoft.com/kb/317371
+
+8 Best Computer/Laptop को Shutdown करने के तरीके [https://www.hindijarurat.com/2020/08/computer-laptop-shutdown-kaise-kare.html",,,,
+fab-500x-20261114T224408Z-008,42,f9dfe6df734814c017a3dae5,24a761aba47d0f0d1a1608be4c608744,fab-500x,hi,web_fullstack,wikipedia-hi,templated_human,[user] महामस्तकाभिषेक के बारे में एक संक्षिप्त परिचय लिखिए।,"महामस्तकाभिषेक, दो शब्दों के मेल से बना है– महा और मस्तकाभिषेक जिसका अर्थ होता है, बड़े स्तर पर आयोजित होने वाला अभिषेक। सबसे प्रचलित महामस्तकाभिषेक गोमटेश्वर बाहुबली का होता है जो १२ वर्ष के अन्तराल पर दक्षिण भारत के कर्नाटक राज्य के श्रवणबेलगोला शहर में आयोजित किया जाता है। यहाँ पर भगवान बाहुबली की १८ मी. उँची एकाश्म मूर्ति स्थापित है। अगला महामस्तकाभिषेक 2030 ई. में होगा। यह अभिषेक जल, इक्षुरस, दुध, चावल का आटा, लाल चंदन, हल्दी, अष्टगंध, चंदन चुरा, चार कलश, केसर वृष्टि, आरती, सुगंधित कलश, महाशांतिधारा एवं महाअर्घ्य के साथ भगवान नेमिनाथ को समर्पित किया जाता है।
+
+Mahamasthakabhishek Bahubali Official Website
+
+BBC News Special: Interview and Photo Reportage
+
+Photographs of the Bahubali statue at Shravanbelagola",,,,
+fab-500x-20261114T224408Z-008,43,f5061127b8d6dd35b973cfdf,76328919023abddfa2e755ef791196cc,fab-500x,hi,writing,aya-dataset,human_authored,[user] Write a dialogue between two friends discussing the impact of literature on their lives.,दो दोस्तों के बीच एक संवाद बनाएं जिनमें साहित्य के उनके जीवन पर क्या प्रभाव है।,,,,
+fab-500x-20261114T224408Z-008,44,4a41099c706731f425c5a2f8,6f5bb31c97efabd7718fb789317088e6,fab-500x,hu,general_knowledge,oasst2,human_authored,[user] Hogyan lehet megszelídíteni egy rókát?,"Mivel a róka alapvetően vadállat, és nem volt háziasítva, így igen nehéz megszelidíteni, és nem javasolt ha valakinek nincsen megfelelő tapasztalata.
+Amennyiben valaki mégis szeretne ezzel próbálkozni, javasolt egy szakértő felkeresése, és vele együtt közösen próbálkozni a szelidítéssel.",,,,
+fab-500x-20261114T224408Z-008,45,06de5ba921c34020707e4543,5dfa53fcb20de5dde34b2b12e2ba78df,fab-500x,hun,general_knowledge,aya-dataset,human_authored,[user] Mikor volt az első nemzetközi nőnap?,"1911. március 19-én tartották először Ausztriában, Dániában, Németországban és Svájcban.",,,,
+fab-500x-20261114T224408Z-008,46,9fbef166fe4a4bb1c31c2d75,49a8e4fd55a0e6e8b0910985de7aa1c1,fab-500x,ibo,coding,aya-dataset,human_authored,[user] Kedụ ìhè bụ Ọrịa atụghị nwaanyị ime?,"Ọrịa ọzọkwa na-emetụ ụmụnwoke enweghị ike ịtụwa nwaanyị ime.
+
+Nchọpụta gosiri na ọrịa a na-agbali elu ugbua n'ime ụmụnwoke.
+
+O nwere ọrịa dị icheiche nwere ike igbochi nwoke ịtụwa nwaanyị ime.
+
+Nke mbụ bụ mmechi mpio ebe ughe si apụta (sperm blockage), nke abụọ bụ ụghe anaghị agbazu agbazu (low sperm production), nakwa ughe anaghị akpa agwa etu o kwesịrị (abnormal sperm function).
+
+Ise anwụrụ, ịṅụ ọgwụ ike, ịṅụ oke mmanya, ibu oke ibu, dịrị gawazie, socha na ihe nwere ike ịkpata ụdị ọnọdụ a.
+
+Ihe ndị a nwere ọgwụgwọ ma a malite n'oge lebanye ya anya.
+
+Mana nke a abụghị ihe mmadụ ga-eji aka ya mee.
+
+Onye nwere ụdị ọrịa a kwesịrị ịga ụlọọgwụ ka dọkịta nyere ya aka.",,,,
+fab-500x-20261114T224408Z-008,47,7e860e20832db5bfc3196e74,752cb97748f5616f228e1d62c3155115,fab-500x,ibo,general_knowledge,aya-dataset,human_authored,[user] Onye bụ Adakụ Utah?,"Adaku Utah onye amuru 1984 bu onye  Naijiria bụ ọkà okwu, odee na omenkà onye ọrụ ya gbadoro ụkwụ na omenala metụtara okike, ịmụ nwa, agbụrụ, ntorobịa na mmepụtara ikpe ziri ezi Mmegharị ikike obodo maka mgbanwe ọha mmadụ. Ọ bụ onye nchoputa nke Harriet's Apothecary.",,,,
+fab-500x-20261114T224408Z-008,48,53fea49172572950a33f3424,5b5dba5f3f1631153c42545f6a22f06c,fab-500x,ibo,islamic_studies,aya-dataset,human_authored,[user] Kedụ mgbe éjị eme emumme Kayo-Kayo?,"A na-eme emumme a n'ọnwa mbụ nke kalenda islam maka ncheta 'Yaom-al Ashura' ụbọchị iri nke Muharram na kalenda Alakụba, nke bụ ihe dị ka otu ọnwa ka emechara ememme Muslim nke Eid-El-Kabir .",,,,
+fab-500x-20261114T224408Z-008,49,6d1a0b42cbba2b9db838b058,b78e9c4cf23d1791016ebd7e94272041,fab-500x,ibo,mathematics,aya-dataset,human_authored,[user] Zaa ajụjụ ndị a. Kedụ mgbe ikpeazụ ndị Vikings nọ n'asọmpi nfc,na afọ 2017/18,,,,
+fab-500x-20261114T224408Z-008,50,0aff88e31f5ea18fc161c047,10e62eea59f75713e69f5b3988be766b,fab-500x,ibo,reasoning,aya-dataset,human_authored,"[user] gini bu azịza gwam gwam gwam(riddle) a
+
+Gwa m kọkọ nkọ gwa gị",Ajị ewu anaghi akọ n'ọgwa.,,,,
+fab-500x-20261114T224408Z-008,51,d383a22855524d17d6f4ef38,05eb4aaa4ca7eb0d8083e15dc87be1a7,fab-500x,ibo,writing,aya-dataset,human_authored,[user] Ònye dèrè poem Nka Ókwú?,"Nka Okwu bụ akwụkwọ edemede J.C. Madụekwe dere n'afọ 1979. Aha ""Nka Okwu"" pụtara ""Sayings of Wisdom"" n'asụsụ Igbo.",,,,
+fab-500x-20261114T224408Z-008,52,f36aec547559c1fcc46e56e7,cc416ff25afd130360d6944f88818c7e,fab-500x,id,coding,wikipedia-id,templated_human,"[user] Jelaskan secara singkat tentang I Love You, Beth Cooper (film).","I Love You, Beth Cooper adalah sebuah film drama dan komedi asal Amerika Serikat buatan tahun 2009 dan disutradarai oleh Chris Columbus dengan naskah tulisan Larry Doyle. Film ini dirilis oleh studio 1492 Pictures dan distributor 20th Century Fox. Film ini adalah dasar dalam novel I Love You, Beth Cooper.
+
+I Love You, Beth Cooper dikenal untuk pemeran-pemerannya yang merupakan aktor-aktor bintang Amerika Utara: Paul Rust, Jack T. Carpenter, Hayden Panettiere, Lauren London, dan Lauren Storm.
+
+Denis Cooverman (Paul Rust) merupakan seorang kutu buku. Denis menyukai Beth Cooper (Hayden Panettiere), wanita paling cantik di sekolahnya.
+
+Pada hari kelulusannya, Denis tanpa ragu-ragu menyatakan perasaan cintanya kepada Beth di hadapan ratusan siswa yang lainnya. Denis menganggap ia tak akan rugi apapun, karena ia tak akan bertemu Beth lagi jika Beth tak menerima cintanya.
+
+Suatu hari Denis membuat pesta di rumahnya untuk merayakan kelulusannya. Tanpa diduga Beth datang ke pesta tersebut. Namun, pacar Beth yaitu Kevin (Shawn Roberts) tidak bisa menerima bahwa Beth sedang bersama Denis. Kevin pun bermaksud untuk menghajar Denis.
+
+Jack T. Carpenter - Richard ""Rich"" Munsch
+
+Situs resmi di film I Love You, Beth Cooper
+
+Film yang berdasarkan pada novel Amerika Serikat",,,,
+fab-500x-20261114T224408Z-008,53,3921ff31ee0dfdd8d3367cae,d9cae9996b85d11d6d179b0c937ece45,fab-500x,id,cybersecurity,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Timah (perusahaan).,"PT Timah Tbk adalah bagian dari MIND ID yang terutama bergerak di bidang pertambangan timah, batu bara, dan nikel. Hingga akhir tahun 2021, perusahaan ini memiliki Izin Usaha Pertambangan (IUP) di Riau dan Bangka Belitung seluas 45.009 hektar yang mengandung cadangan timah sebanyak 300.000 ton. Untuk mendukung kegiatan bisnisnya, perusahaan ini juga memiliki kantor perwakilan di Jakarta.
+
+Perusahaan ini memulai sejarahnya dari tiga perusahaan pertambangan timah yang masing-masing telah beroperasi di Bangka, Belitung, dan Singkep sejak masa pendudukan Belanda di Indonesia, yakni Banka Tinwinning Bedrijf (BTW),  (GMB, sekarang bagian dari BHP), dan NV Singkep Tin Exploitatie Maatschappij (SITEM). Pada tahun 1959, pemerintah Indonesia resmi menasionalisasi tiga perusahaan tersebut. Pada tahun 1961, pemerintah mengubah status  dari tiga perusahaan tersebut menjadi perusahaan negara (PN) masing-masing dengan nama PN Tambang Timah Bangka, PN Tambang Timah Belitung, dan PN Tambang Timah Singkep. Pada tahun 1961 juga, pemerintah membentuk Badan Pimpinan Umum Perusahaan Tambang-tambang Timah Negara (BPU PN Tambang Timah) untuk mengkoordinasikan tiga perusahaan tersebut.",,,,
+fab-500x-20261114T224408Z-008,54,3de01409cd7311e1cb77f9f7,1ce20e9b340473d70dcba9b5fa313dfd,fab-500x,id,education,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Ratnasiri Wickremanayake.,"Ratnasiri Wickremanayake (, ; ) adalah perdana menteri ke-14 Sri Lanka. Ia diambil sumpahnya sebagai perdana menteri oleh presiden Mahinda Rajapakse pada tanggal 21 November 2005.
+
+Wickremanayake menjalani pendidikan di Ananda College, sebuah sekolah Buddhis terkenal di Colombo dan kemudian di London. Dia terpilih sebagai presiden Ceylon Student's Association di Britania Raya pada tahun 1955. Sekembalinya ke Sri Lanka, dia terpilih sebagai anggota badan legislatif pada tahun 1960, mewakili Horana untuk Partai Kebebasan Sri Lanka (kemudian menjadi bagian dari koalisi Mahajana Eksath Peramuna).
+
+Wickremanayake  menjadi menteri pertama kali pada tahun 1970, ketika dia ditunjuk sebagai deputi menteri kehakiman.",,,,
+fab-500x-20261114T224408Z-008,55,fce0b5b42a3a37dce67e758c,f9f5d5a5dbdff7d1f6ad265d977536f6,fab-500x,id,general_knowledge,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang I.G.K. Manila.,"Mayor Jenderal TNI (Purn.) Dr. (HC) I Gusti Kompyang Manila, S.I.P () adalah seorang Purnawirawan perwira tinggi TNI dan juga ia diantara 15 perwira remaja pertama lulusan AMN dengan kecabangan Corps Polisi Militer. dengan pangkat terahkir Mayor Jenderal TNI AD (POM ABRI). Jabatan yang pernah dipegang adalah Wakil Ketua Umum ORARI, Sebagai Direktur Akademi Olah Raga Indonesia (AKORIN). nama panggilan radio amatirnya adalah YB0AA.
+
+Ia adalah Bapak Wushu Indonesia, Ia juga sempat menjadi manajer olahraga bagi tim sepak bola Persija Jakarta.",,,,
+fab-500x-20261114T224408Z-008,56,50ef8960805ee43582297f37,758693d34bd025d79b210a4c6a8e3937,fab-500x,id,islamic_studies,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Ahmad Amiruddin (pemain sepak bola).,"Ahmad Amiruddin () adalah seorang pemain sepak bola Indonesia. Saat ini Amiruddin bermain untuk Mitra Kukar. Sebelum bermain di Mitra Kukar ia juga pernah memperkuat Arema Indonesia, Deltras Sidoarjo, Persiram Raja Ampat dan PSM Makassar. Ia berposisi sebagai striker dan gelandang sayap, ia memakai nomor punggung 9.
+
+Amirudin pernah bermain dua kali pertandingan di timnas Indonesia di Piala Kemerdekaan 2006. Dia juga salah satu penggawa timnas Indonesia di Piala AFF 2007, namanya juga ada di daftar skuat pemain timnas di Piala Asia 2007.",,,,
+fab-500x-20261114T224408Z-008,57,d1608f4a53a671e48651b834,8d2a8dd947d434b781eb8c7c4a43ccdf,fab-500x,id,mathematics,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang SDN Gedong 10 Pagi.,"SDN Gedong 10 Pagi atau nama lengkapnya Sekolah Dasar Negeri Gedong 10 Pagi merupakan sebuah Sekolah Dasar Negeri Negeri yang terletak di Gedong, Jakarta Timur, Indonesia.
+
+Sekolah Dasar Negeri Gedong 10 Pagi memiliki kode NPSN 20108824. Pada 2010, SDN Gedong 10 Pg memiliki 101 pelajar lelaki dan 83 pelajar perempuan, menjadikan jumlah keseluruhan murid sebanyak 184 orang.2010
+
+Laman di Kementerian Pendidikan Nasional, Republik Indonesia 2010 / 2011",,,,
+fab-500x-20261114T224408Z-008,58,23f740e50e349931f1f1929f,c51840991523f98d559b524b845a41e6,fab-500x,id,pakistan,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Tusuk Jelangkung.,"Tusuk Jelangkung adalah film horor Indonesia yang dirilis pada tahun 2003. Film ini merupakan sekuel dari film Jelangkung karya Rizal Mantovani dan Jose Purnomo yang dirilis pada tahun 2001. Film yang disutradarai oleh Dimas Djayadiningrat ini dibintangi oleh Marcella Zalianty, Iqbal Rizantha, Dinna Olivia, A.A. Gde Wipra, Thomas Nawilis, Samuel Rizal dan Ian's Bahtiar. Film ini kembali mengusung tema ritual mistis kuno ""jailangkung"" dari Indonesia, dengan menggunakan slogan yang berbeda dari film sebelumnya, yaitu ""datang tak dijemput, pulang tak diantar"".
+
+Film Tusuk Jelangkung dibuat mengikuti kesuskesan film horor Jelangkung tahun 2001. Perusahaan film Rexinema menghadirkan film ini dengan Dimas Djayadiningrat sebagai sutradara, menonjolkan penataan musik dan nilai produksi seperti penggunaan efek suara, pengambilan gambar dan lokasi syuting yang unik. Film ini ditanggapi dengan positif di pasar film horor Indonesia dan umumnya dianggap sebagai kemajuan dibanding film pendahulunya. Film ini mulai ditayangkan di bioskop Indonesia mulai tanggal 28 Maret 2003 di 20 bioskop di Jakarta dan Bandung, dengan angka penjualan tiket 180 ribu pada minggu pertama dan 40 ribu pada minggu kedua, sebuah rekor yang sangat tinggi untuk bioskop di Indonesia saat itu.",,,,
+fab-500x-20261114T224408Z-008,59,fba69087f2af941cf13264e6,b45a456f84f3778ad7474a61fb45ceb6,fab-500x,id,problem_solving,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Angkutan umum di Sydney.,"Sydney dan wilayah sekelilingnya dilayani oleh jaringan jasa angkutan umum yang luas. Menurut New South Wales State Plan, negara bagian ini memiliki sistem angkutan umum terbesar di Australia. Pada 1920-an, Sydney memiliki jaringan trem terbesar di belahan Bumi Selatan. Angkutan umum di Sydney mewakili dua kali lipat jumlah perjalanan komuter di ibu kota negara bagian lain. Jaringan ini diatur oleh New South Wales Ministry of Transport, yang menjalankan jaringan terintegrasikan yang melayani Sydney, Newcastle, Central Coast, Blue Mountains, Wollongong dan Illawarra.
+
+Kepadatan penduduk yang rendah di Sydney dapat diketahui dari jaringan angkutan umumnya. Kota yang didirikan tahun 1788 ini memeroleh sistem angkutan umumnya secara bertahap pada awal masa kemunculannya — pelayanan kereta api dimulai tahun 1855. Pinggiran kota kelas pekerja dapat dibangun jauh dari pusat kota, sementara di kota-kota yang lebih tua, kebutuhan untuk mengelola jarak berjalan kaki antara permukiman dan pusat perkantoran telah menyeimbangkan persebaran penduduk pada tingkat minimum.
+
+Transportasi untuk layanan transportasi umum NSW menggunakan sistem tiket Opal. Peluncuran sistem contactless ini dimulai pada Desember 2012 dan selesai pada Desember 2014. Generasi sebelumnya dari produk tiket ditarik pada Agustus 2016.",,,,
+fab-500x-20261114T224408Z-008,60,6cd3a0a9a187d5d499837644,3f9bc97c4386e06aa43211cc2f60da0b,fab-500x,id,reasoning,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Clover Heart's.,"Clover Heart's adalah permainan buatan ALcot yang dirilis tanggal 28 November 2003 dalam bentuk PC dan PS2 pada 26 Agustus 2004. Clover Heart's sendiri memiliki rating untuk 18th ke atas yang artinya untuk dewasa. Sedangkan PS2 (Clover Heart's: Looking for Happiness) mendapat rating untuk 12 tahun ke atas.
+
+Clover Heart's memiliki beberapa protagonis. Berkisah tentang dua pasangan kembar yang tinggal di bawah atap yang sama, kemudian bertemu beberapa orang.
+
+Kawaii!!!, karakter-karakter yang sebenarnya berumur antara 15-17 tahun ini terlihat masih kecil (sya juga hampir tertipu). Loli?
+
+Opening dari game ini memiliki judul yang sama yakni ""Clover Heart's"" yang dinyanyikan oleh Marie.
+
+Ini juga bagian yang unik dari game ini. Bentuknya berupa puzzle. Seiring dengan perkembangan cerita yang kita mainkan, puzzle dari start window akan terbuka satu-persatu. Dan jika sudah tamat, start window akan lebih berbeda.
+
+Ia merupakan kakak dari kembar Nagumo yang pemalu, dan tenang. Tapi anehnya ia disukai semua gadis di kelasnya. (Seiyuu: Ryoko Tanaka)
+
+Meskipun berkacamata, tetapi Itsuki ini bisa dikategorikan anak nakal tetapi pintar. Ia membenci semua orang. Termaksud kakaknya yang sering menyelamatkan jiwanya. Tapi lama-lama ia mulai memikirkan soal Rio. (Seiyuu: Aoi Kisaragi)",,,,
+fab-500x-20261114T224408Z-008,61,09808f012ff6fa20080c42d5,eb7fe08a97000796b6b220711445deb0,fab-500x,id,research,tydiqa-goldp,human_authored,"[user] Pada Agustus 2008, Cinta Laura main sebagai pemeran utama dalam film pertamanyanya Oh Baby[8] yang bercerita tentang seorang gadis miskin yang cantik dan bercita-cita ingin menjadi penari. Di sini ia berperan pula bersama Randy Pangalila, Tio Pakusadewo & Ridwan Ghani. Untuk soundtracknya kali ini Cinta Laura juga menyumbangkan suaranya dalam lagu Oh Baby dan We Can Do It. Lagu ini bernuansa pop-dance yang memang seperti ciri khas Cinta Laura yang sedikit unik dengan campuran bahasa logatnya bahasa Indonesia-Inggris[9][10]
+
+Apaka film pertama Cinta Laura?","Oh Baby
+
+Pada Agustus 2008, Cinta Laura main sebagai pemeran utama dalam film pertamanyanya Oh Baby[8] yang bercerita tentang seorang gadis miskin yang cantik dan bercita-cita ingin menjadi penari.",,,,
+fab-500x-20261114T224408Z-008,62,a849527a713b64abdd9fc1bb,a27f94bac1fcb43877dffa64c6d7608f,fab-500x,id,safety_ethics,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Seharusnya.,"Seharusnya merupakan sebuah album pertama karya grup musik Indonesia ADA Band. Dirilis pada 1 Mei 1997, lagu utamanya ialah ""Seharusnya"", yang  juga menjadi judul album ini. Sayangnya, meskipun nama mereka sudah cukup dikenal karena album ini, eksistensi mereka sempat terhenti lumayan lama, bahkan banyak yang mengira kalau mereka sudah bubar, sehingga nama mereka pun pelan-pelan mulai dilupakan.
+
+Seluruh lagu ditulis oleh Ibrahim Imran. Kecuali Krishna balagita pada lagu 1 dan 3–4, Suriandika Satjadibrata pada lagu 5.
+
+Krishna Balagita - kibor, piano, vokal latar, vokal harmoni
+
+Iso Eddy Himawarso - kibor, penyintesis, vokal latar
+
+Dika Satjadibrata - bass, vokal latar, vokal harmoni",,,,
+fab-500x-20261114T224408Z-008,63,ecd3f07a15727e732dfdc4b4,a97b92b8264380b2bffe034e8a8b2796,fab-500x,id,science,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Grup Fisikawan Teoritik Indonesia.,"GFTI atau Grup Fisikawan Teoritik Indonesia (Indonesian Theoretical Physicist Group) adalah organisasi informal komunitas fisika teoritik di Indonesia. Fisika Teoritik sendiri didefinisikan ""sebagai semua sub-bidang fisika yang mengkaji aneka aspek ilmu fisika itu sendiri"". Secara resmi GFTI berdiri tanggal 19 Mei 2004 saat Workshop on Theoretical Physics 2K4 di UI, Depok.
+
+Sebagai wadah informal fisikawan teoritik, berbeda dengan organisasi profesi ilmiah lainnya GFTI dikelola secara murni virtual tanpa kepengurusan yang tetap sesuai dengan organisasi modern pada era dijital. Dengan sistem ini organisasi tidak merepotkan sebagian anggota yang kebetulan menjadi pengurus, dan bisa lebih fokus pada substansi kegiatan sesuai tujuan organisasi.
+
+Sebagai kegiataan riil, GFTI memayungi konsorsium penyelenggara Workshop on Theoretical Physics yang diadakan setiap tahun dengan lokasi bergantian di antara lembaga anggota konsorsium.",,,,
+fab-500x-20261114T224408Z-008,64,d25963fe8752e7487c9233ba,936019128743dbb1d7a4d0c11cb30811,fab-500x,id,software_engineering,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Lingkungan pengembangan terpadu.,"Lingkungan Pengembangan Terpadu () adalah program komputer yang memiliki beberapa fasilitas yang diperlukan dalam pembangunan perangkat lunak. Tujuan dari IDE adalah untuk menyediakan semua utilitas yang diperlukan dalam membangun perangkat lunak.
+
+Sebuah IDE, atau secara bebas dapat diterjemahkan sebagai Lingkungan Pengembangan Terpadu, setidaknya memiliki fasilitas:
+
+Editor, yaitu fasilitas untuk menuliskan kode sumber dari perangkat lunak.
+
+Compiler, yaitu fasilitas untuk mengecek sintaks dari kode sumber kemudian mengubah dalam bentuk binari yang sesuai dengan bahasa mesin.
+
+Linker, yaitu fasilitas untuk menyatukan data binari yang beberapa kode sumber yang dihasilkan compiler sehingga data-data binari tersebut menjadi satu kesatuan dan menjadi suatu program komputer yang siap dieksekusi.
+
+Debuger, yaitu fasilitas untuk mengetes jalannya program, untuk mencari bug/kesalahan yang terdapat dalam program.
+
+Sampai tahap tertentu IDE modern dapat membantu memberikan saran yang mempercepat penulisan. Pada saat penulisan kode, IDE juga dapat menunjukan bagian-bagian yang jelas mengandung kesalahan atau keraguan.
+
+Sebagai bahan pembanding, bahasa pemrograman terdahulu disiapkan dengan cara yang berbeda, karena disiapkan melalui penyusunan flowchart, menggunakan formulir isian bahkan kartu berlubang.",,,,
+fab-500x-20261114T224408Z-008,65,31d5670211b3de2c0cb20c1b,75f999285a4c007f590b3113418ab078,fab-500x,id,web_frontend,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Teritori Seberang Laut Prancis.,"Wilayah seberang laut (Bahasa Prancis: Territoire d'outre-mer atau TOM) merupakan suatu pembagian administratif di Prancis dan saat ini hanya diperuntukkan kepada Daratan Antartika dan Selatan Prancis.
+
+Pembagian ini berbeda dengan departemen seberang laut (Bahasa Prancis: Département d'outre-mer atau DOM), tetapi karena sejumlah anggapan umum, DOM, TOM dan wilayah seberang laut lainnya yang memiliki status lain sering dianggap secara keseluruhan sebagai DOM/TOM. Berbeda dengan wilayah seberang laut Britania, wilayah-wilayah tersebut merupakan bagian integral dari Republik Prancis.
+
+India Prancis, sejak 1946 hingga 1954, sekarang menjadi wilayah Puducherry di India.
+
+Kaledonia Baru, sejak 1946 hingga 1999, sekarang menjadi jajahan sui generis.
+
+Polinesia Prancis, sejak 1946 hingga 2003, sekarang menjadi jajahan seberang laut.
+
+Saint Pierre dan Miquelon, sejak 1946 hingga 1976 dan 1985 hingga 2003, sekarang menjadi jajahan seberang laut.
+
+Wallis dan Futuna, sejak 1961 hingga 2003, sekarang menjadi jajahan seberang laut.
+
+Mayotte, sejak 1974 hingga 2003, sekarang menjadi departemen seberang laut.
+
+Departemen dan teritori seberang laut Prancis
+
+Teritori negara bagian dengan keanggotaan khusus dan hubungannya dengan Uni Eropa
+
+sejarah dan perkembangan terkini mengenai pembagian administratif seberang laut Prancis seperti DOM dan TOM",,,,
+fab-500x-20261114T224408Z-008,66,c3e9d255b37cede335188368,952b05172fce6b3c6bbb54f1ca1dc809,fab-500x,id,web_fullstack,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Davao Utara.,"Davao del Norte atau Davao Utara (Filipino:Hilagang Davao) merupakan sebuah provinsi di Filipina. Ibu kotanya ialah Tagum City. Provinsi ini terletak di Region Davao. Provinsi ini memiliki luas wilayah 9.654,97 km² dengan memiliki jumlah penduduk 2.243.001 jiwa (2010). Provinsi ini memiliki angka kepadatan penduduk 232 jiwa/km².
+
+Secara administratif provinsi Davao del Norte terbagi menjadi 8 munisipalitas dan 3 kota, yaitu:
+
+Official Website of the Provincial Government of Davao del Norte",,,,
+fab-500x-20261114T224408Z-008,67,dec952908be6ebe5bcb4f821,0efe7c5c1efa2602cdc3cc0cd2c16ff1,fab-500x,id,writing,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Demokrasi Kristen.,"Demokrasi Kristen adalah ideologi politik yang bertujuan untuk menerapkan prinsip-prinsip agama Kristen ke dalam kebijakan publik. Ideologi ini muncul pada awal abad kesembilanbelas di Eropa, pengaruh di Eropa dan Amerika Latin akan tetapi dalam pratiknya di sejumlah negara-negara telah mencair dengan gerakan sekularisasi.
+
+New Advent Catholic Encyclopedia article on Christian democracy
+
+Christian Democracy in Western Europe: 1820-1953 by Michael Fogarty
+
+""Conservativism and Christian Democracy"", an essay by UK Conservative MP David Willetts
+
+An effort to promote a Christian democratic party in the United States (CDU, established in 2006)
+
+Another effort to start a Christian democratic party (USCD) in the US",,,,
+fab-500x-20261114T224408Z-008,68,14446277bcf0b3fe81eb3fb2,9e26b256de59083f092e72e0b787e387,fab-500x,it,coding,oasst2,human_authored,[user] Mi scrivi una query in SQL per selezionare tutti i record che hanno Timestamp più recente di 45 giorni?,"Puoi usare la seguente query SQL per selezionare tutti i record con timestamp più recente di 45 giorni:
+
+SELECT * FROM table_name
+WHERE timestamp > DATE_SUB(CURRENT_TIMESTAMP(), INTERVAL 45 DAY);",,,,
+fab-500x-20261114T224408Z-008,69,05c09d1ce1fa3e47a6687b1d,0196908ca91f59187babbedd47cba220,fab-500x,it,cybersecurity,oasst1,human_authored,[user] Come mai le banane non hanno semi?,"È colpa della domesticazione. La banana è il frutto di un ibrido sterile tra due specie. Per fortuna la pianta, come il fico e l’ananas, è partenocarpica: la produzione dei semi non è cioè necessaria per avere il frutto. Questo significa che la riproduzione della banana commerciale (della varietà “Cavendish”) avviene solo per clonazione: i coltivatori moltiplicano le piante con talee, ottenendo nuovi individui identici.
+Il prezzo da pagare è quello di avere piantagioni geneticamente omogenee, e quindi molto più vulnerabili alle malattie. Una banana chiamata “Gros Michel” è stata spazzata via negli anni Cinquanta a causa di un fungo che, in mancanza di variabilità, si diffuse rapidamente nelle piantagioni.",,,,
+fab-500x-20261114T224408Z-008,70,f5e91ac5b1e177dddf5576a1,8daf240821f93ed7146822c721e56de6,fab-500x,it,education,oasst2,human_authored,[user] Come posso installare ubuntu?,"Per installare Ubuntu puoi seguire questi passi:
+1. Visita la [pagina ufficiale di download](https://ubuntu.com/#download) di Ubuntu e scegli il tipo di installazione che vuoi eseguire: assumendo che tu lo voglia installare sul tuo computer per utilizzarlo in ambiente desktop, prosegui sulla [pagina per scaricare Ubuntu desktop](https://ubuntu.com/download/desktop)
+2. Assicurati che le specifiche hardware del tuo PC rispettino i requisiti minimi richiesti da Ubuntu, se così non fosse, prova a orientarti su distribuzioni con requisiti inferiori, ad esempio: 
+    - [Linux Mint](https://linuxmint.com/)
+    - [Linux Lite](https://www.linuxliteos.com/)
+3. Se invece il tuo PC è adeguato, procedi a scaricare una delle ultime versioni, scegli la LTS se vuoi un sistema che riceve aggiornamenti meno frequentemente, ma che ha il vantaggio di cambiare poco, quindi essendo facile da mantenere, e avere supporto da Canonical per più tempo, se invece vuoi avere software più aggiornato scarica la versione non LTS
+4. **Passo opzionale** (ma caldamente consigliato), verifica il checksum e la firma della iso che hai appena scaricato seguendo di passi indicati [nel sito](https://ubuntu.com/tutorials/how-to-verify-ubuntu), in questo modo potrai assicurarti che il file: 
+    - non si sia corrotto mentre lo scaricavi e che quindi non avrai problemi durante l'installazione
+    - sia veramente quello distribuito da Canonical
+5. A questo punto procurati una chiavetta USB o un CD e installa un'applicazione per fare il flash della iso sul tuo supporto di installazione preferito, un'app facile da usare che funziona su tutti i sistemi operativi desktop è [Balena Etcher](https://www.balena.io/etcher)
+6. Entra in Etcher, seleziona la iso di Ubuntu e il tuo supporto di installazione, fai partire il flash e attendi che si completi sia quello che la verifica automatica che avverà subito dopo
+7. Decidi se vuoi rimpiazzare il tuo intero sistema con Ubuntu o vuoi mantenere il tuo altro sistema operativo, se il tuo caso è il secondo e non hai un secondo disco fisso, allora approfondisci come creare e ridimensionare partizioni
+8. Mantieni la chiavetta inserita e riavvia il tuo PC, accedi al BIOS o allo UEFI mentre si sta accendendo premendo ripetutamente il tasto appropriato per il tuo modello di PC, tasti comuni sono `F2`, `F12`, `Canc`. Per sapere il tuo, puoi cercare su internet
+9. Trova la sezione dove si può cambiare l'ordine dei dispositivi di boot e porta il tuo supporto in cima alla lista, per esempio una chiavetta USB potrebbe avere ""USB"" nel testo o proprio il nome del tuo modello di chiavetta
+10. Salva le impostazioni ed esci, così continua il boot del PC
+11. Entra nella prova live di Ubuntu dal menu che appare
+12. Prima di proseguire con l'installazione cerca di testare il tuo hardware, cose importanti da verificare che funzionino sono:
+    - la scheda Wi-Fi
+    - la scheda Bluetooth
+    - la GPU
+    - le periferiche
+13. Se tutto funziona adeguatamente, segui i passi di installazione che trovi a schermo
+14. Nel momento in cui scegli il disco su cui installare il sistema operativo fai attenzione a selezionare **quello giusto**, in genere vorrai installare su un disco vuoto o in una partizione creata in precedenza, altrimenti se vuoi cancellare tutti i tuoi dati invece installa pure sul disco con il sistema operativo precedente
+15. Finita l'installazione riavvia il tuo computer e rimuovi la chiavetta in modo che non si trovi in mezzo alla sequenza di boot (oppure riporta il tuo disco principale in cima alla lista nel BIOS/UEFI)
+
+Ora il sistema dovrebbe essere installato correttamente, da qui in poi sarà importante imparare come installare le tue app preferite, ciò si può fare dal negozio di applicazioni nella maggior parte dei casi.
+Se trovi dei problemi non scoraggiarti immediatamente, impara a cercare con calma su internet, e in particolare tieni come riferimento la [wiki di Arch](https://wiki.archlinux.org/) e talvolta anche [quella di Gentoo](https://wiki.gentoo.org/wiki/Main_Page), nonostante non siano della tua distribuzione, molto spesso le informazioni presenti si applicano a tutte quante e sono particolarmente esaustive, troverai quasi tutti i problemi che tu possa incontrare.
+Importante inoltre che non ti limiti ai contenuti in italiano, ma che tu guardi anche quelli in inglese perché avrai più possibilità di trovare ciò che cerchi.
+Se poi dovessi davvero incappare in un problema sconosciuto non esitare e chiedi in uno dei forum appropriati, oltre al [forum di Ubuntu](https://forum.ubuntu-it.org/) ne troverai altri su [Reddit](https://www.reddit.com/) o anche quelli del gruppo [StackExchange](https://stackexchange.com/sites#) (principalmente [AskUbuntu](https://askubuntu.com/) e [SuperUser](https://superuser.com/))
+
+Potrebbe intimidirti tutto questo, ma nella maggior parte dei casi non dovrai nemmeno preoccuparti di nessuno di questi siti, è bene sapere che ci sono però, così che tu sappia cosa fare se ne si presentasse la necessità.
+Buona fortuna con la tua esperienza su Linux e se avessi altre domande chiedimi pure!",,,,
+fab-500x-20261114T224408Z-008,71,8c36290edda27df0c2bb26e4,2d179aef6b5258480c35525bf2b9ec2e,fab-500x,it,general_knowledge,aya-dataset,human_authored,"[user] Rispondi alla seguente:
+""In quale paese si trova il Canale del Mare del Nord?""","Il canale del Mare del Nord (in olandese: Noordzeekanaal) è un canale artificiale dei Paesi Bassi situato tra il lago IJ presso Amsterdam e il Mare del Nord, presso la città di IJmuiden.
+
+Il canale fu costruito tra il 1865 e il 1876 per consentire al traffico marittimo di raggiungere il porto di Amsterdam. Il canale è lungo 21 chilometri, largo da 210 metri e profondo 15,1 metri. Questo canale artificiale termina ad Amsterdam nella baia chiusa dell'IJ, dalla quale parte un'altra importante via d'acqua, il canale Amsterdam-Reno.
+
+Il drenaggio delle acque del canale verso il Mare del Nord avviene attraverso la Chiusa Spui a IJmuiden, aiutata dalla più grande stazione di pompaggio in Europa. Questo sistema è vitale per la gestione delle acque nei Paesi Bassi occidentali.",,,,
+fab-500x-20261114T224408Z-008,72,ca7a1837a51c716227b2955b,576f766770c95a5dd3ec355ed491cd84,fab-500x,it,mathematics,oasst1,human_authored,[user] perchè non è possibile vedere oltre un certo punto nell'universo?,"Dato che la velocità della luce c = 3*10^5 km/s è una costante universale e l'età dell'universo è circa 14 miliardi di anni, la luce di alcune galassie risulta troppo lontana per raggiungerci.",,,,
+fab-500x-20261114T224408Z-008,73,177ec8ac4521169e102a35d1,fed71c06d053888d1dc9a80382953acd,fab-500x,it,problem_solving,oasst2,human_authored,"[user] La Cina sta raggiungendo gli USA come armamento militare?
+
+[assistant] La Cina in questo momento sta tentando di raggiungere l'america.
+C'è pero un grosso divario tecnologico tra la Cina e gli USA(come tra gli USA e il resto del mondo)
+USA ha inoltre il vantaggio di un industria militare ben mantenuta e con l'abilità di produre in massa armi di ultima generazione come gli f35 ,con inoltre una attenzione particolare allo sviluppo di armi per la prossima generazione(il che è davvero oneroso per l'economia americana) ;
+mentre la Cina non ha ancora prodotto un singolo jett di sesta generazione con inoltre il fatto che lo sviluppo di armi cinesi è più iterativo su ciò che altri hanno prodotto ;
+ammenoche non pianifichi di avere un industria militare onerosa quanto quella americana è un vantaggio che sara quasi impossiblie colmare;
+inoltre gli USA superano la cina per quanto riguarda numero di attivi e riservisti quantita di aerei militari e numero di missili(sia nucleari che non nucleari)
+inoltre l'esercito e quello meglio equipaggiato al mondo con un costo di 30000$ per soldato mentre (anche tenendo conto che il costo medio di ogni cosa è inferiore in cina rispetto all'america) in cina l'equipaggiamento per soldato costa solo 1500$;
+c'è inoltre un forte sospetto che l'esercito popolare della liberazione sià incredibilmente corrotto e ciò può essere incredibilmente disastroso per quanto riguarda la capacità militari di un esercito
+e inoltre ci sono molti dubbi sulle capacità di comando cinese dato che possiedono un sistema di comando  ripreso dal sistema sovietico considerato antiquato e ineficaccie per un esercito moderno
+anchè tenendo presente che virtualemente la Cina è uno  degli eserciti più potenti al mondo in questo momento  è davvero lontano dal raggiungiere le capacità dell'armamento militare americano
+La Cina ha le capacità industriale ed economiche per raggiungiere le capacità odierne americane ma ci vorrano decenni perchè ciò avvenga e sarà incredibilmente oneroso per l'economia cinese
+ed è difficile sapere se la Cina è pronta a sostenere il costo di ciò e se sarà pronta ad attuare le  riforme politiche necessarie 
+
+
+La Cina  pero  ha già superato il numero di vascelli militari
+in questa metrica ha già raggiunto l'armamento militare
+
+[user] Invece i paesi  europei come sono messi in questo ambito?","In generale, le forze armate dei paesi europei sono meno avanzate di quelle degli Stati Uniti, ma comunque molto sofisticate e ben equipaggiate. L'Unione Europea ha inoltre creato una serie di programmi di cooperazione per lo sviluppo di tecnologie militari avanzate, come il programma FCAS (Future Combat Air System) per la produzione di aerei da combattimento di sesta generazione. Tuttavia, la maggior parte dei paesi europei spende meno del 2% del proprio PIL in spese militari, il che significa che gli investimenti in nuove tecnologie e sistemi d'arma sono spesso limitati. Ci sono alcune eccezioni, come la Francia e il Regno Unito, che hanno un budget militare relativamente elevato e sono impegnati in programmi di modernizzazione delle loro forze armate. Tuttavia, la maggior parte dei paesi europei dipende ancora in gran parte dagli Stati Uniti per la fornitura di tecnologie militari avanzate.",,,,
+fab-500x-20261114T224408Z-008,74,aded9aa74490c6a163224126,fa8023d07015df1cbed7cb7a9512200f,fab-500x,it,reasoning,aya-dataset,human_authored,"[user] Rispondi alla seguente domanda:
+""Che cos'è un lepidosiren paradoxa?""","Il Lepidosiren paradoxaFitzinger, 1837 è un pesce polmonato unico membro del genere Lepidosiren e della famiglia Lepidosirenidae, endemico dell'America meridionale.
+
+Si incontra in un'area abbastanza vasta del Sudamerica, ovvero nei bacini idrografici del Rio delle Amazzoni, del Paraguay e nel tratto inferiore di quello del Paraná. Popola acque ferme o a modestissima corrente.
+
+L. paradoxa ha aspetto anguilliforme ancora più allungato che nei dipnoi africani del genere Protopterus, con i quali condivide le pinne dorsale, caudale e anale unite, le pinne pettorali e le pinne ventrali filiformi, le scaglie piccole e i due polmoni funzionali. Arriva a 125 cm di lunghezza.",,,,
+fab-500x-20261114T224408Z-008,75,c7878322d06244a3d6dfbaf0,b0005504a06e1276e9e9c405074ab22a,fab-500x,it,research,oasst2,human_authored,[user] Esiste un linguaggio di programmazione che consiste interamente di emoji?,"Sì, esiste un linguaggio di programmazione che utilizza solo emoji, si chiama ""Emojicode"". È stato sviluppato nel 2015 da Theo Weidmann e utilizza simboli emoji per rappresentare variabili, funzioni e operatori. Emojicode è un linguaggio di programmazione ad alto livello, orientato agli oggetti e con una sintassi simile a quella di molti altri linguaggi di programmazione moderni.
+
+Anche se l'uso delle emoji può sembrare divertente e informale, Emojicode è stato creato con l'obiettivo di essere un linguaggio di programmazione serio, in grado di supportare lo sviluppo di applicazioni e software complessi. Emojicode è open source e può essere utilizzato gratuitamente per sviluppare software su una varietà di piattaforme.",,,,
+fab-500x-20261114T224408Z-008,76,0392c5137bffe31d16a27cef,7ccf57e103601d13f7bff4dd598f3717,fab-500x,it,safety_ethics,oasst2,human_authored,[user] Parlami di telegram,"elegram è un'applicazione di messaggistica istantanea multi-piattaforma che permette di scambiare messaggi, foto, video, file, chiamate vocali e videochiamate. L'applicazione è stata sviluppata nel 2013 dai fratelli russi Pavel e Nikolai Durov, che sono anche i fondatori di VK, il più grande social network in Russia.
+
+Telegram si differenzia da altre applicazioni di messaggistica per alcune caratteristiche specifiche, come la crittografia end-to-end, che garantisce la sicurezza delle conversazioni, la possibilità di inviare file di grandi dimensioni e la possibilità di creare gruppi di chat con fino a 200.000 membri.
+
+Oltre alle funzioni di base di messaggistica, Telegram offre anche una serie di funzioni avanzate, come i canali pubblici, che permettono di creare un canale a cui gli utenti possono iscriversi per ricevere aggiornamenti su un argomento specifico, e i bot, che permettono di automatizzare alcune attività all'interno dell'applicazione.
+
+Telegram è disponibile su diverse piattaforme, tra cui Android, iOS, Windows, Mac e Linux, ed è gratuito da utilizzare. L'applicazione è stata oggetto di diverse controversie a causa della sua reputazione di essere stata utilizzata da gruppi estremisti e attivisti politici in tutto il mondo, tuttavia, la sua politica di sicurezza e privacy ha ottenuto l'approvazione di molte organizzazioni e utenti preoccupati per la sicurezza dei loro dati.",,,,
+fab-500x-20261114T224408Z-008,77,03670f7725b85612b0bf14c6,577102f075396d8d7a3a6eb495f53af4,fab-500x,it,science,oasst1,human_authored,[user] cos'è il redshift delle galassie?,"Il redshift delle galassie è un fenomeno astronomico che descrive il fatto che la luce proveniente da molte galassie appare spostata verso il rosso (o lunghezza d'onda più lunga) rispetto a quella che ci si aspetterebbe se la galassia fosse ferma. Questo fenomeno viene comunemente descritto come ""spostamento verso il rosso"" o semplicemente ""redshift"".
+
+Il redshift delle galassie è stato scoperto nel 1912 da Vesto Slipher, che osservò che la luce proveniente da molte galassie era spostata verso il rosso. Questo fenomeno è stato successivamente spiegato da Edwin Hubble nel 1920, che lo interpretò come un effetto Doppler causato dalla recessione delle galassie lontane dalla Terra.
+
+Il redshift delle galassie è stato un pezzo fondamentale della prova dell'espansione dell'universo, proposta da Hubble nel 1929. La teoria sostiene che l'universo è in espansione e che le galassie si stanno allontanando l'una dall'altra. Il redshift delle galassie fornisce un modo per misurare la distanza alle galassie e quindi per studiare l'espansione dell'universo.
+
+In sintesi, il redshift delle galassie è un importante fenomeno astronomico che ha contribuito alla comprensione dell'universo e alla sua evoluzione nel tempo.",,,,
+fab-500x-20261114T224408Z-008,78,dbdb3b2a0d4b029356b498c9,1221d2fe04badad77aaf3b76cf9139aa,fab-500x,it,web_backend,oasst2,human_authored,"[user] Spiegami cosa significa ""programmazione asincrona"" in NodeJs","La programmazione asincrona in Node.js è un modello di programmazione che consente a un processo di eseguire più attività contemporaneamente senza bloccarsi o attendere la completazione di altre attività. Ciò significa che un processo può continuare a eseguire altre attività mentre aspetta la risposta da un'altra operazione, come una richiesta di rete o un'operazione di input/output.
+
+La programmazione asincrona è possibile in Node.js grazie al modello di eventi e all'utilizzo delle callback. Quando si effettua una richiesta asincrona, si fornisce una callback che viene eseguita quando la risposta è disponibile. Ciò significa che il processo principale non è bloccato in attesa della risposta, ma può continuare a eseguire altre attività fino a quando la risposta non è disponibile.
+
+L'utilizzo della programmazione asincrona in Node.js aiuta a mantenere il server reattivo e a migliorare la scalabilità, poiché consente di gestire più richieste contemporaneamente senza bloccarsi o rallentare. Ciò rende Node.js particolarmente adatto per le applicazioni web ad alte prestazioni, come i servizi di back-end e le API REST.",,,,
+fab-500x-20261114T224408Z-008,79,9081acffb88392d1eb97ad4e,acc97a12fa460047375334ed5cb31221,fab-500x,it,web_frontend,oasst1,human_authored,[user] Cosa vuol dire codice dichiarativo e come si differenzia rispetto ad altri paradigmi di programmazione?,"Il paradigma di programmazione dichiarativo è un approccio alla programmazione in cui si descrive ""cosa"" si vuole ottenere, piuttosto che ""come"" ottenere il risultato desiderato. In altre parole, si specifica la logica del programma in termini di regole, vincoli o relazioni, invece di specificare una sequenza di istruzioni che il computer deve eseguire per risolvere il problema.
+
+Il codice dichiarativo descrive il risultato desiderato attraverso una serie di definizioni e asserzioni. Un esempio di codice dichiarativo è il linguaggio di markup HTML, che descrive la struttura e il contenuto di una pagina web senza specificare come la pagina deve essere visualizzata.
+
+A differenza del paradigma di programmazione imperativo, in cui si specifica la sequenza di istruzioni che il computer deve eseguire per risolvere il problema, il paradigma dichiarativo permette di separare la descrizione del problema dalla soluzione. In questo modo, il programmatore può concentrarsi sulla descrizione del problema e il computer può determinare automaticamente come risolverlo.
+
+Un altro esempio di paradigma di programmazione dichiarativo è il paradigma funzionale, in cui si descrive la logica del programma in termini di funzioni matematiche. Il paradigma funzionale prevede la composizione di funzioni per ottenere il risultato desiderato, piuttosto che l'utilizzo di istruzioni sequenziali.
+
+In sintesi, il paradigma di programmazione dichiarativo permette di descrivere ""cosa"" si vuole ottenere, piuttosto che ""come"" ottenerlo, offrendo un modo più intuitivo e flessibile per scrivere codice.",,,,
+fab-500x-20261114T224408Z-008,80,d4df22c10fb123ea1561fe79,f2848d40f14b383637b5ae5012c5212e,fab-500x,it,writing,aya-dataset,human_authored,"[user] Forniscimi una curiosità sulla categoria: ""Videogame"".",Quale gioco Nintendo DS della serie Mario ha venduto il minor numero di copie? Mario & Luigi: Bowser's Inside Story,,,,
+fab-500x-20261114T224408Z-008,81,20769b71221b8f9c68762e51,0974eec668e007a0bce48a5637636207,fab-500x,ja,coding,oasst2,human_authored,[user] あなたはどんなプログラム言語でできているの？,私は機械学習によってトレーニングされ、自然言語理解タスクに特化しています。ただし、私が使用している技術には、Python、TensorFlow、そしてCUDAなどのプログラム言語が含まれています。,,,,
+fab-500x-20261114T224408Z-008,82,424759e0b12bc8ea28184430,4f483874da5b074856b864f3c56cab23,fab-500x,ja,general_knowledge,aya-dataset,human_authored,"[user] 次の文章から重要な語彙を探し、その意味を説明しなさい。 
+今年4月から法律で、自転車に乗る人はヘルメットをできるだけかぶることになりました。警察庁は7月、ヘルメットをかぶっている人がどのくらいいるか調べました。
+日本全部では、自転車に乗っていた約5万2000人の中で13.5%でした。
+都道府県では、愛媛県がいちばん高くて59.9%、大分県が46.3%、群馬県が43.8%でした。低かった所は、新潟県が2.4%、青森県が2.5%、秋田県が3.5%でした。
+警察庁によると、今年1月から7月に自転車の事故で亡くなった人の中で、90%がヘルメットをかぶっていませんでした。
+警察庁は、もっと多くの人がヘルメットをかぶるようにしていきたいと考えています。","この文章に出てくる重要な語彙とその意味は次の通りである。
+- ヘルメット: 1）危険から頭を守るためにかぶる、かたいぼうし。プラスチックなどでできている。
+- 警察庁: 1）警察の中心となって、各地の警察を指揮する国の役所。
+- 約: 1）ちかう。取り決める。2）縮める。省く。簡単にする。3）おおよそ。ほぼ。だいたい。
+- 都道府県: 1）全国を47に分けた区画。東京都・北海道・大阪府・京都府と、43の県。",,,,
+fab-500x-20261114T224408Z-008,83,b348f9fa62af8912426c4808,3ba0d43bc33b551b9ede1dc982e6c531,fab-500x,ja,mathematics,aya-dataset,human_authored,[user] x=−3 のとき 2x+5 の値を求めなさい,"x=−3 のときの 2x+5 の値を求めると、以下のようになります:
+2*(-3) + 5 = -6 + 5 = -1
+したがって、x=−3 のとき2x+5 の値は -1 です。",,,,
+fab-500x-20261114T224408Z-008,84,907ebb5db3591405855a534f,e01c6ef41f1a78a5f5db68ae429d9c02,fab-500x,ja,science,aya-dataset,human_authored,[user] 日本語では「画素」といい、「picture element」から来ている、ディスプレイ上の画像を構成する最小の点のことを何というでしょう？,ＰＩＸＥＬ（ピクセル）,,,,
+fab-500x-20261114T224408Z-008,85,1ec415029488ef0af70e8841,4a7bfab9bc6d36ccfb34bb80e45bd44f,fab-500x,jav,general_knowledge,aya-dataset,human_authored,"[user] Gaweo contoh pacelathonan (percakapan) sehari-hari antara Ibu lan Bapak nganggo unggah ungguh Basa Jawa.
+
+Judul: Bapak wis Dhahar?
+
+Jawaban:","Ibu : Bapak wis dhahar? 
+Bapak : Wis, ngenteni Ibu kesuwen. Dakkira durung kondur. 
+Ibu : Lagi wae, Pak. Kanca-kanca ngajak mampir daleme Bu Wira. 
+Bapak : Lo, Bu Wira wis kondur ta? 
+Ibu : Mau awan. Didherekake putra ragile. 
+Bapak : Mas Banu ta? 
+Ibu : Ya. 
+Bapak : Mas Banu kae sida ngasta na ndi ta Bu? Ibu : Dinas Pariwisata kota, Pak.",,,,
+fab-500x-20261114T224408Z-008,86,595d00ce8c3b2aa78b33d272,663b58106e5894dc5b810901594a56b3,fab-500x,jav,islamic_studies,aya-dataset,human_authored,"[user] Terusno pecahan teks Basa Jawa ing ngisor iki nganggo minimal limang (5) ukara, supaya dadi paragraf crito sing runtun.
+
+Tedhak siten iku salah sawijine upacara adat Jawa kanggo ...
+
+Judul: Tedhak Siten, Upacara Adat ing Jawa
+
+Jawaban:","bocah umur 7 lapan utawa 245 dina. Nalika  iku bocah lagi sepisanan ajar mlaku. Selapan yaiku kombinasi 7 dina ing kalender internasional lan 5 dina ing kalender Jawa. Selapan iku pendhak 35 dina pisan. Tedhak siten asale saka rong tembung, yaiku ""tedhak"" utawa idak tegese mudhun lan ""siten"" saka tembung siti kang tegese bumi. Dadi tedhak siten nduweni arti ngidakake sikil ing lemah/pertiwi. Tedhak siten nggambarake kasiapan bocah kanggo nglakokake kauripan kang bener ing mangsa ngarep. Upacara tedhak siten nduweni teges cedhake manungsa karo bumi. Awit nglakokake kauripan kang apik lan becik ing bumi  lan tetep ngruwat lan njaga bumi. Iku kanggo ngelingaken menawa bumi wis menehi akeh banget barang kang dibutuhake kangge uripe manungsa. Ing budaya Jawa ana kapitayan masyarakat ngenani bab tedhak siten, yaiku yen lemah iku nduweni makna ghoib lan dijaga Bathara Kala, mula kanggo ngendhani kadadean sing ora becik dianakake upacara tedhak siten.",,,,
+fab-500x-20261114T224408Z-008,87,92d3f23ae70a40da1e324d89,cd331d8842ccb4c0628c8062f646e7e6,fab-500x,jav,mathematics,aya-dataset,human_authored,"[user] Jeje dodolan 20 bungkus permen pas dina Senen. Sakwise senen, dheweke mung dodolan permen separuhe jumlah permen sing didol ing dina Senen.
+
+Pitakonan: Pira jumlahe total permen sing didol Jeje sakwise telung dina?
+
+Jawaban:","Jawaban: 40. Senen, Jeje dodolan 20 permen. Selasa lan Rebo, dheweke dodol 10x2 permen. Totale dadi 20+20=40.",,,,
+fab-500x-20261114T224408Z-008,88,c1bf3252dc36488b5ac0b878,80acd05102ac92dda935f160f58500e2,fab-500x,jav,science,aya-dataset,human_authored,"[user] Prokariot yaiku makhluk urip sing ora duwe membran inti sel (= karion), dene eukariota duwe membran inti sel. Kabeh prokariota iku uniseluler, kajaba myxobacteria sing dadi multiselular ing sawetara tahapan siklus urip biologis, dene sel eukariota iku multiseluler. Sawijining sel prokariot bisa dibagi kaping pirang-pirang sajrone sak jam. Sawetara sel eukariotik bisa dibagi kanthi cepet. Sel eukariotik ditemokake ing organisme makro kayata tetanduran lan kewan, dene sel prokariotik ditemokake ing mikroorganisme sel tunggal kayata bakteri.
+
+Katrangan endi sing paling cocog saka konteks artikel ing dhuwur? 
+Pilih saka: 
+(i). Sel eukariotik luwih cilik tinimbang sel prokariotik. 
+(ii). Sel eukariotik duwe DNA kurang saka sel prokariotik. 
+(iii). Sel eukariotik duwe luwih akeh tembok sel tinimbang sel prokariotik. 
+(iv). Sel eukariotik luwih kompleks struktural tinimbang sel prokariotik.
+
+Jawaban:","Sel prokariotik ora duwe membran inti sel, dene sel eukariotik duwe membran inti sel. prokariota iku uniseluler, dene sel eukariota iku multiseluler. Sel eukariotik ditemokake ing organisme makro kayata tetanduran lan kewan, dene sel prokariotik ditemokake ing mikroorganisme sel tunggal kayata bakteri.
+
+Dadi, jawaban pitakonan ing ndhuwur yaiku: (iv). Sel eukariotik luwih kompleks struktural tinimbang sel prokariotik.",,,,
+fab-500x-20261114T224408Z-008,89,c82e98866b1429df8d90c0b4,e2aa9aa875b0473646e18700557e3442,fab-500x,kan,general_knowledge,aya-dataset,human_authored,"[user] ""ಮಾನವರು 270 ಕ್ಕೂ ಹೆಚ್ಚು ಮೂಳೆಗಳೊಂದಿಗೆ ಜನಿಸುತ್ತಾರೆ, ಅವುಗಳಲ್ಲಿ ಕೆಲವು ಉದ್ದದ ಅಕ್ಷದಲ್ಲಿ, ಅಕ್ಷೀಯ ಅಸ್ಥಿಪಂಜರದಲ್ಲಿ ಸೇರಿಕೊಳ್ಳುತ್ತವೆ, ಇದರಲ್ಲಿ ಅರೆಪಂಜರದ ಅಸ್ಥಿಪಂಜರವನ್ನು ಜೋಡಿಸಲಾಗಿದೆ. "" ವಾಕ್ಯಕೆ  ಪ್ರಶ್ನೆಯನ್ನು ರಚಿಸಿ.ವಾಕ್ಯದ ವಿಷಯವು ಮಾನವ ಅಸ್ಥಿಪಂಜರವಾಗಿದೆ.","ಅಸ್ಥಿಪಂಜರದ ವ್ಯವಸ್ಥೆಯು ಎಷ್ಟು ಮೂಳೆಗಳನ್ನು ಒಳಗೊಂಡಿದೆ? 
+206 ಮೂಳೆಗಳು",,,,
+fab-500x-20261114T224408Z-008,90,96873c7fa9eb46d749d07765,9b4f2acfb9d03507c0476618be37327e,fab-500x,kan,mathematics,aya-dataset,human_authored,[user] ಪಿಜ್ಜಾ ಮಾಡುವುದು ಹೇಗೆ,"ಪಿಜ್ಜಾ ಪಾಕವಿಧಾನ ಇಲ್ಲಿದೆ:
+
+ಪಿಜ್ಜಾ ಪಾಕವಿಧಿ
+
+     ಸಾಮಗ್ರಿಗಳು:
+         1 ಕಪ್ ಉಪ್ಪುರಹಿತ ಗೋಧಿ ಹಿಟ್ಟು
+         1 ಟೀ ಚಮಚ ಯೀಸ್ಟ್
+         1/2 ಟೀ ಚಮಚ ಉಪ್ಪು
+         1/2 ಕಪ್ ನೀರು
+         1/4 ಕಪ್ ಎಣ್ಣೆ
+         ಟೊಮೆಟೊ ಪೇಸ್ಟ್ - 1 ಕಪ್
+         ಬೆಣ್ಣೆ - 1 ಟೇಬಲ್ ಚಮಚ
+         ಪುದೀನ ಎಲೆಗಳು - 10-12
+         ಉಳಿದ ಪದಾರ್ಥಗಳು (ಹಸಿರು ಈರುಳ್ಳಿ, ಕ್ಯಾಪ್ಸಿಕಮ್, ಬೇಕನ್ ಇತ್ಯಾದಿ) - ರುಚಿಗೆ ತಕ್ಕಂತೆ
+
+     ತಯಾರಿಸುವ ವಿಧಾನ:
+         ಒಂದು ಬೌಲ್ನಲ್ಲಿ ಗೋಧಿ ಹಿಟ್ಟನ್ನು ಹಾಕಿ.
+         ಯೀಸ್ಟ್, ಉಪ್ಪು ಮತ್ತು ನೀರನ್ನು ಸೇರಿಸಿ.
+         ಎಲ್ಲಾ ಪದಾರ್ಥಗಳನ್ನು ಚೆನ್ನಾಗಿ ಮಿಶ್ರಣ ಮಾಡಿ.
+         ಹಿಟ್ಟನ್ನು ಮೃದುವಾಗಿ ಗುಡ್ಡೆ ಮಾಡಿ.
+         ಹಿಟ್ಟನ್ನು ಕೊಬ್ಬಿನಿಂದ ಲೇಪಿತವಾದ ಬೌಲ್ನಲ್ಲಿ ಹಾಕಿ.
+         ಬೌಲ್‌ಗೆ ಮುಚ್ಚಳ ಹಾಕಿ ಮತ್ತು 30 ನಿಮಿಷಗಳ ಕಾಲ ಉಳಿಯಿರಿ.
+         ಉದುರಿದ ಹಿಟ್ಟನ್ನು ಒಂದು ಚಪ್ಪಟೆ ಬಾಣಲೆಯ ಮೇಲೆ ಹರಡಿ.
+         ಟೊಮೆಟೊ ಪೇಸ್ಟ್ ಹಾಕಿ ಮತ್ತು ಸಮವಾಗಿ ಹರಡಿ.
+         ಪದಾರ್ಥವನ್ನು ಒರಸಿ.
+         ಉಳಿದ ಪದಾರ್ಥಗಳನ್ನು ಸೇರಿಸಿ.
+         ಬೆಣ್ಣೆಯನ್ನು ಕರಗಿಸಿ ಮತ್ತು ಪಿಜ್ಜಾದ ಮೇಲೆ ಹರಡಿ.
+         180 ಡಿಗ್ರಿ ಸೆಲ್ಸಿಯಸ್‌ನಲ್ಲಿ 15-20 ನಿಮಿಷಗಳ ಕಾಲ ಪಿಜ್ಜಾವನ್ನು ಬೇಯಿಸಿ.
+         ರುಚಿಯಾದ ಪಿಜ್ಜಾ ಸಿದ್ಧ!
+
+ಈ ಪಾಕವಿಧಾನ ಸಹಾಯಕವಾಗಿದೆಯೆಂದು ನಾನು ಭಾವಿಸುತ್ತೇನೆ!",,,,
+fab-500x-20261114T224408Z-008,91,3b68293f5c6d34b92338bfeb,7592889c285186f0bad4f4e03dbb3bc5,fab-500x,kir,coding,aya-dataset,human_authored,[user] Суроо: Программалоодо интерпретация деген эмне ?,"Программалоодо интерпретация-бул программаны аткаруунун бир жолу. Программа чечмеленгенде(интерпретация болгондо), программанын баштапкы коду түздөн-түз интерпретация (же виртуалдык машина) тарабынан  аткарылат, машина кодуна компиляцияланбай туруп. Башка сөз менен айтканда, интерпретация(котормо же чечмелөө) программалоо кодун бир-бирден окуп, аны ошол замат машина кодуна которуп берет.
+
+Программалоодо интерпретациянын(чечмелөөнүн) негизги мүнөздөмөлөрү:
+
+1. ** Аткаруу ылдамдыгы жай**: Интерпретация программаны этап-этабы менен аткаргандыктан, интерпретацияланган(чечмеленген) программалар көбүнчө машина кодуна алдын ала которулган программаларга салыштырмалуу(мисалы, компиляция) жайыраак иштейт.
+
+2. ** Портативдүүлүк**: Интерпретацияланган код, адатта, белгилүү бир архитектурага же иштөө тутумуна(операционная система) байланбайт, бул программаны ар кандай платформалардын ортосунда көбүрөөк көчмө кылат. Бирок, интерпретация(чечмелөө) максаттуу платформада, тиешелүү интерпретатордун(программалоо кодун машина кодуна которуу) болушун талап кылат.
+
+3. ** Мүчүлүштүктөрдү оңдоодо ыңгайлуулугу**: Интерпретацияладоо(кодду чечмелөөдө) программаны этап-этабы менен аткарууда жана өзгөрмөлөрдүн ,маалыматтардын абалын көзөмөлдөө оңой, бул мүчүлүштүктөрдү оңдоо процессин жеңилдетет.
+
+Интерпретацияланган программалоо тилдеринин мисалдарына Python, Javascript жана башкалар кирет. Бул тилдерде баштапкы кодду окуру менен, программалоо кодун машина кодуна которот.",,,,
+fab-500x-20261114T224408Z-008,92,77f403b921d6bc060b84c739,2646251e8f46dbae8fe1864443f941bd,fab-500x,kir,general_knowledge,aya-dataset,human_authored,[user] Суроо: Чалгындоо доорунун белгилүү изилдөөчүлөрү кимдер болгон?,"Жооп: Изилдөө доорунун атактуу изилдөөчүлөрүнүн арасында Христофор Колумб, Фердинанд Магеллан жана Васко да Гама бар.",,,,
+fab-500x-20261114T224408Z-008,93,fa328052a250c103d619c0de,27594ec7c1bfef5c597a8bdc54b11e48,fab-500x,kir,mathematics,aya-dataset,human_authored,[user] Бейиш менен сүйүнчүлөнгөн 10 сахаба кимдер?,"Бейиш менен сүйүнчүлөнгөн 10 сахаба
+- Азирети Абу Бакр ас-Сыддык;
+- Азирети Умар бин Хаттаб;
+- Азирети Усман бин Аффан;
+- Азирети Али бин Абу Талиб;
+- Азирети Талха бин Убайдуллах;
+- Азирети Зубайр бин Аввам;
+- Азирети Абдурахман бин Ауф;
+- Азирети Саад бин Абу Ваккас;
+- Азирети Саид бин Зайд;
+- Азирети Абу Убайда бин Жаррах.
+
+Алла Таала сахабалардан ыраазы болгондугун, аларды сүйгөндүгүн Куранда айтып кеткен:
+«Алла Таала алардан (сахабалардан) ыраазы, алар да (сахабалар) Алла Тааладан ыраазы».
+(Баййина сүрөсү, 98/8-аят)",,,,
+fab-500x-20261114T224408Z-008,94,c2f87e7f4a070448071885f9,bcecffa4a246c50306b8b7ac29c67815,fab-500x,kir,web_frontend,aya-dataset,human_authored,[user] Эң атактуу болуп жаткан (популярдуу) программалоо тилдери кайсылар?,"Эң атактуу болуп жаткан (популярдуу) программалоо тилдерине Python, JavaScript, Java, HTML/CSS, C#, SQL, C/C++, TypeScript, PHP, Bash/Shell, R, Swift жана Objective-C кирет. Негизи программалоо тилдеринин жалпы болжол менен 700дөн 9000гө чейинки аралыкта, бирок алардын ичинен кеңири таралгандар жогоруда берилди.",,,,
+fab-500x-20261114T224408Z-008,95,d5347c1772d818b1698bb0e0,d644a4e968eccab48b6116b897de67ee,fab-500x,ko,coding,wikipedia-ko,templated_human,[user] Risk (메가데스의 음반)에 대해 간단히 소개해 주세요.,"Risk는 1999년 발매된 스래시 메탈 밴드인 메가데스의 앨범이다. 이 앨범은 Rust In Peace 이후로 계속해서 기타를 맡았던 마티 프리드먼의 마지막 참여작이다. 또한 이 앨범은 드러머 지미 드그라소가 참여한 첫 번째 앨범이기도 하다.
+
+Risk라는 제목은 동료이자 메탈리카의 드러머인 라스 울리히의 조언에 따라, 상업적 경향의 노래를 만들기로 '위험'을 무릅쓴 데이브 머스테인의 결정에서 등장했다. 이러한 결정은 밴드 자체와 이 앨범에 대한 엇갈린 반응을 만들어냈다. 대개는 새로운 시도에 불만을 나타냈지만, 나머지는 헤비 메탈을 고집하지 않고 새로운 실험을 한 밴드에 찬사를 보냈다.
+
+이 앨범은 밴드의 마스코트 Vic Rattlehead가 등장하지 않는 앨범이다. 단, 부클릿에서는 쥐덫에 그려진 얼굴 모습을 확인할 수 있다.
+
+전곡 데이브 머스테인, 마티 프리드먼, 버드 프레이거 작곡(별도 표시 제외)
+
+""Enter the Arena"" (Mustaine, Prager) – 0:52
+
+""Time: The Beginning"" (Mustaine, Friedman) – 3:04
+
+""Duke Nukem theme song"" (Jackson)(일본 라이센스판 보너스 트랙)
+
+Lee Jackson이 작곡한 Duke Nukem Theme Song은 1995년에 만들어졌고, 당해 ""Duke Nukem : A Music to score by""라는 컴필레이션 앨범에 수록되었으며, Warchest에서 초반 곡 구성이 약간 다른 버전도 찾아볼 수 있다.
+
+리마스터 판의 앨범 커버는 1999년 원판과 완전히 다르다. 원판은 나무 쥐덫과 새로운 메가데스 로고가 있었으나, 리마스터 판에서는 메가데스 고유의 로고와 쥐덫 앞에 선 쥐와 고양이가 인쇄되어있다.
+
+싱글로는 ""Insomnia"", ""Crush 'em"", ""Breadline""이 만들어졌다.
+
+뮤직 비디오로는 ""Insomnia"", ""Crush 'em"", ""Breadline""이 만들어졌다.
+
+""Crush 'em"" 은 장 클로드 반담 주연의 Universal Soldier : The Return의 테마곡으로도 등장했다. 머스테인은 이 노래를 스포츠 주제가(Arena Sports Anthem)라고 설명했다. 이 곡은 WWE 프로 레슬러 빌 골드버그의 테마곡으로도 등장했다. ""Crush 'em""은 아이스 하키 경기에서도 쓰이며, 톰 레이키스(Tom Leykis)의 라디오 쇼에서 부분적으로 쓰였다. 드러머 지미 드그라소는 이 곡을 ""무척이나 싫어한다"" 라고 밝혔다.",,,,
+fab-500x-20261114T224408Z-008,96,b85e567ca23260f25109d3d6,6c844d9e6e0630120dc2742d77ac34e9,fab-500x,ko,education,wikipedia-ko,templated_human,[user] 원광대학교에 대해 간단히 소개해 주세요.,"원광대학교(圓光大學校, )는 대한민국 전라북도 익산시에 위치한 사립 종합대학이다. 원불교 개교정신인 '물질이 개벽되니 정신을 개벽하자'를 바탕으로 과학과 도학을 겸비한 전인교육으로 새 문명사회 건설의 주역 양성을 건학이념으로 설립되었다.
+
+캠퍼스의 경관이 아름답기로 유명하여, 2004년에는 관련 기사가 보도된 바 있다.
+
+1946년 5월 1일, 유일학림이 설립되었다. 1951년 9월 5일, 원광초급대학으로 개편되었다. 1953년 1월 29일, 원광대학으로 개편되었다. 1971년 12월 31일, 종합대학으로 승격되며 원광대학교로 교명을 변경하여 현재에 이르고 있다.
+
+한편, 2011년 교육과학기술부에 의하여 정부재정지원제한대학으로 제한받은 이력이 있다.
+
+원광대학교는 교학대학, 인문대학, 경영대학, 농식품융합대학, 약학대학, 사범대학, 보건과학대학, 한의과대학, 조형예술디자인대학, 사회과학대학, 창의공과대학, 치과대학, 의과대학 등 13개 단과대학을 설치하고 하위로 5학부, 61학과, 10전공을 설치하여 학사 학위 과정을 교수하고 있다.
+
+한편, 자율전공학부와 국방기술학과는 단과대학 없이 독립 편제로 존재하고 있다.
+
+원광대학교 대학원은 일반대학원과 전문 2개원, 특수 3개원 등 6개 대학원으로 구성한다. 전문대학원으로 법학전문대학원과 한의학전문대학원을 설치하고 있으며, 특수대학원으로 경영대학원과 교육대학원, 동양학대학원을 설치하고 있다.
+
+원광대학교 캠퍼스 중심에는 수덕호의 이름을 가진 인공호수가 있다. 수덕호에는 분수시설이 내장되어 있어 주변의 경치를 더해준다. 그 주변에는 수많은 벚나무들이 있어 봄학기 4월 중순에서 5월 중순까지 주변 경관이 매우 아름답기로 유명하여 수 많은 사람들의 봄놀이 장소로 이용된다. 수덕호 가운데에는 닭다방이라는 별명을 가진 봉황각이라는 건물이 있다. 1, 2층으로 구성되어있는 내부에는 현재 커피숍이 운영되고 있으며, 커피숍 이용시 외부인에게도 1시간 주차증이 발급되고, 학생들에게는 할인혜택도 주고 있다. 벛꽃이 피면 장관이다.
+
+원광테크노마켓(WM)은 원광보건대학교의 'LTM교육시스템(Learning, Training, Marketing)을 기반으로 설계되었다. 학교기업 원광테크노마켓은 대학의 국가직무능력(NCS)에 기반한 학생들의 취·창업 역량와 Self Marketing 능력 함양을 위해 설립된 국내최초 학과단위의 전공연계 마켓형 학교기업이다.
+
+원광대학교에서는 원탑대동제라는 명칭으로 개최되며 시기는 5월 중순정도에 가지는 편이다. 축제기간은 4일 내외이며 캠퍼스 곳곳에서 다양한 교내 행사가 이루어진다. 봉황가요제, 락페스티벌, 트로트가요제, 댄스페스티벌 등 다양한 행사를 개최한다.",,,,
+fab-500x-20261114T224408Z-008,97,364e47d98f4f691802d9780b,c54b3e302160ef12dd5e349b2e170b64,fab-500x,ko,general_knowledge,wikipedia-ko,templated_human,[user] 윌 라이트에 대해 간단히 소개해 주세요.,"윌 라이트(, 1960년 1월 20일 ~ )는 미국의 게임 디자이너이자, EA의 자회사인 맥시스의 공동 창업자이다. 2009년 4월을 기점으로 EA를 떠나 게임, 영화, TV 프로그램, 인터넷, 장난감 등 새로운 IP(지적재산권)를 개발하는 ‘스투피드 펀 클럽(Stupid Fun Club)’을 설립했다 현재 TV 쇼 <바 카르마>를 제작중이다.
+
+라이트가 디자인한 첫 컴퓨터 게임은 1984년에 출시된 《헬기 대작전》이지만, 명성을 얻기 시작한 것은 제프 브라운과 맥시스를 창업하고난 뒤 출시한 《심시티》 부터였다. 이후 그는 《심어스》와 《심앤트》 등 다양한 시뮬레이션 타이틀을 개발한다.
+
+라이트에게 가장 큰 성공을 가져다 준 것은 심즈 시리즈로, 2009년을 기해 PC 게임 역사상 가장 많이 팔린 시리즈이다. 그의 최신작은 2008년 9월에 출시된 《스포어》로, 진화와 과학 문명의 발전을 바탕으로 한 게임플레이가 특징이다.
+
+심시티 시리즈 : 심시티 (1989), 심시티 2000 (1993), 심시티 3000 (1999) (윌 라이트는 심시티 4 (2003) 나 심시티 소사이어티 (2007)의 개발에는 참여하지 않았다.)
+
+심즈 (윌 라이트는 심즈 2의 개발에는 거의 참여하지 않았으며, 심즈 3의 개발에 참여하지 않았다.)",,,,
+fab-500x-20261114T224408Z-008,98,38d2c518688e8cf3388a99f7,7aa148d8efcbab974dc830a8fc119ab3,fab-500x,ko,islamic_studies,wikipedia-ko,templated_human,[user] 지즈야에 대해 간단히 소개해 주세요.,"지즈야()는 이슬람 왕국에서 무슬림이 아닌 시민에게 일정 기준에 맞춰 부과하는 세금을 뜻한다. 그 세금을 내는 사람들을 딤미라고 불렀다. 세금은 병역수행의 나이가 된 남성에게 부과되는 것을 원칙으로 했다. 무슬림 통치자의 입장에서 지즈야는 다른 종교를 가진 시민이 국가의 국민으로서 법을 따르고 충성을 맹세한다는 증거로서 받아들여졌다. 대가로 다른 종교를 가진 시민들은 자신의 신앙을 유지하고, 자치적인 생활권을 지닐 수 있었으며 외부의 공격에 보호받을 수 있었다.
+
+아랍어로 지즈야는 꾸란 9장 29절에서 나타나며 꾸란에서는 인구 당 세금을 물리는 것 따위로 정확하게 명시하고 있지는 않다. 후대 연구에 따르면 이는 사산 왕조 페르시아의 관세 부과에 기인한 것으로 보인다.
+
+http://www.britannica.com/eb/article-9043677/jizya
+
+https://web.archive.org/web/[CARD]/http://www.islamonline.net/servlet/Satellite?pagename=IslamOnline-English-AAbout_Islam%2FAskAboutIslamE%2FAskAboutIslamE&cid=[CARD]",,,,
+fab-500x-20261114T224408Z-008,99,5f809eb7d886906e1a5c5017,36425e0b19b32774ef4ebece6d50b302,fab-500x,ko,mathematics,wikipedia-ko,templated_human,[user] 등축정계에 대해 간단히 소개해 주세요.,"등축정계(等軸晶系, Cubic crystal system) 또는 입방정계(立方晶系)는 7 결정계 중 하나로 단위세포가 정육면체 모양이며, 세 결정축이 서로 수직이다. 7 결정계 중 가장 많은 대칭성을 가지고 있다.
+
+등축정계에는 단순 입방(primitive cubic; pc 또는 simple cubic; sc), 체심 입방(body centered cubic; bcc), 면심 입방(face centered cubic; fcc)의 3가지 브라베 격자가 있다.
+
+단순 입방(sc)은 정육면체의 각 꼭짓점에 격자점이 위치한다. 근처 8개의 단위 세포가 각 꼭짓점의 격자점을 서로 공유하고 있어서 단위 세포 내 격자점은 1개( × 8)가 된다.
+
+체심 입방(bcc)은 8개의 꼭짓점 외에 단위 세포의 정중앙에 또 하나의 격자점이 위치한다. 단위 세포 내 격자점은 2개( × 8 + 1)이다.
+
+면심 입방(fcc)은 8개의 꼭짓점에 더해서 정육면체의 각 6개 면의 두 대각선 교점인 면의 정중앙에 격자점이 위치한다. 면의 정중앙에 있는 격자점은 두 단위세포가 공유하므로 단위 세포 내 격자점은 4개( × 8 +  × 6)이다. 배위수는 12이다.
+
+면심 입방은 조밀 육방과 격자점 배치가 같다고 볼 수 있다. 즉 면심 입방의 면은 육방 정계의 격자이다.
+
+염화나트륨에서 염소 이온은 입방 밀집 구조를 이루고 있으며, 염소 이온보다 작은 나트륨 이온이 염소 이온 사이의 틈을 채우고 있다. 각 이온은 6개의 다른 종류의 이온과 이웃한다. 염화나트륨 외에도 많은 광물이 가지고 있는 이러한 구조를 암염 구조라고 한다.
+
+Hurlbut, Cornelius S.; Klein, Cornelis, 1985, Manual of Mineralogy, 20th ed., Wiley,",,,,
+fab-500x-20261114T224408Z-008,100,4c20909cef89be84d231cca3,deca9e84fbb4ad4e082d6dd9f3b01327,fab-500x,ko,problem_solving,wikipedia-ko,templated_human,[user] 조선예수교장로회에 대해 간단히 소개해 주세요.,"조선예수교장로회(朝鮮耶蘇敎長老會)는 1912년 결성되어 1943년 해산한, 칼뱅주의 개혁 신학과 대의 민주제 교회정치를 따르는 한국의 개혁교회 교단이다.
+
+미국 북장로교는 1884년, 호주 장로교는 1889년, 미국 남장로교는 1892년부터 대한제국에 선교를 시작했다. 서로 다른 나라에서 내한하여 선교를 시작한 초기의 장로교 선교사들은 1889년 미국 북장로교선교회와 호주 빅토리아 장로회 간의 '장로교선교연합공의회'(The United Council of Presbyterian Missions)를 결성하거나, 1893년 미국 북장로교, 남장로교, 호주 장로교 소속 선교사들 간의 '장로교선교공의회'(The Council of Missions)를 결성하여 효율적인 선교 활동을 추구하였다. 특히 1890년 중국에서 활동하는 네비우스(John L. Nevius) 선교사를 초청하여 들었던 조언에 따라, 장로교선교공의회는 서민층을 우선적으로 전도하고, 지방에 초등 교육기관을 설립하며, 성경 번역에 노력하고, 조선인 스스로 자립 전도하는 훈련을 강화하는 등의 네비우스 정책(Nevius Plan)에 따라 선교활동을 실시하였다.
+
+이후 조선인 장로교인들이 늘어나면서 1901년 9월 20일 선교공의회 소속 선교사 25명은 조선인 3명의 장로 및 6명의 조사들과 함께 '조선예수교장로회공의회'를 결성하였다. 미국 북장로교 선교사들이 중심이 되어 1901년에 설립된 조선예수교장로회신학교는 장로교 목사를 양성하기 시작하였고, 1907년 6월 조선인 장로교 목사 7명이 배출되었다.
+
+조선인 목사 배출을 계기로 외국인 선교부로부터 독립된 조선인들만의 노회의 필요성이 대두되면서 1907년 9월 17일 '조선예수교장로회 대한로회'(일명 '독노회')가 조직되었다. 독노회 산하에 지역별로 경기충청(경충, 京忠), 평북, 평남, 황해, 전라, 경상, 함경 등 7개의 대리회(代理會; sub-presbytery)가 조직되어 각 지방 교회들을 관할하게 하였다.독노회가 시작된 1907년 당시에 7개 대리회에 속한 교회는 각각 경기충청대리회에 50개, 평남대리회에 89개, 평북대리회에 160개, 황해대리회에 47개, 전라대리회에 127개, 경상대리회에 186개, 함경대리회에 78개가 있었으며, 5년동안 독노회 체제가 지속되었다. 1907년 독노회 시작 당시 조선의 장로교회 교인은 5만 6천명이었으나, 1912년에는 14만 4천명까지 증가하였다.",,,,

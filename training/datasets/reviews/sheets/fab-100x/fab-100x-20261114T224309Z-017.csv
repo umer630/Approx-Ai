@@ -1,0 +1,736 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-100x-20261114T224309Z-017,1,7aec7325bf1ffb4c09d3946c,6dbe2645fc8ecc497975df6904e003d8,fab-100x,es,web_frontend,oasst1,human_authored,"[user] Creame un template sencillo para una pagina web utilizando HTML para maquetarla, CSS para darle estilo y javascript para agregarle funcionalidad a la web","Aquí tienes un template sencillo para una página web usando CSS y javascript:
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=""UTF-8"">
+    <title>Mi Página Web</title>
+    <style>
+      /* Estilos CSS */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+      
+      header {
+        background-color: navy;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+      
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Encabezado -->
+    <header>
+      <h1>Bienvenido a Mi Página Web</h1>
+    </header>
+    
+    <!-- Contenido principal -->
+    <div class=""container"">
+      <p>Esta es una página web de ejemplo con una estructura básica.</p>
+    </div>
+    
+    <!-- Scripts JavaScript -->
+    <script>
+      // Funcionalidad JavaScript
+      console.log(""Mi Página Web"");
+    </script>
+  </body>
+</html>",,,,
+fab-100x-20261114T224309Z-017,2,e6dc9e761e15062ec33b251a,63b9f02b48636788ef3e2182cfea201a,fab-100x,es,writing,oasst2,human_authored,"[user] escribe como iniciarías una conversación con un profesor, tratando de aumentar tu calificación","Claro, si tuviera que iniciar una conversación con un profesor, tratando de aumentar mi calificación:
+
+- Pediría una cita para hablar en persona, es más efectivo que un email. Explicaría que me gustaría discutir mi calificación y ver si hay alguna forma de mejorarla.
+
+- No compararía mi calificación con la de otros estudiantes. Hablaría solo de mi y de mis propios logros.
+
+- Reconozco las áreas donde necesito mejorar y lo que puedo hacer para mejorarlas. Por ejemplo, podría entregar trabajos a tiempo, participar más en clase, pedir más ayuda cuando la necesite, etc.
+
+- Preguntaría al profesor si hay oportunidades para hacer trabajos extra o tareas adicionales que puedan aumentar mi calificación. Mostraría mi interés y compromiso.
+
+- Pediría feedback constructivo sobre mis evaluaciones y trabajos para que pueda aprender y mejorar para el futuro.
+
+- Agradecería al profesor su tiempo y consideración. Indicaría que sus comentarios me serán muy útiles.
+
+- Seguiría el consejo del profesor y demostraría mejoría para aumentar mis posibilidades de una calificación más alta.
+
+- En resumen: hablaría con respeto, sería proactivo, asumiría responsabilidad por mis acciones y mostraría compromiso de mejorar. Esto aumentaría mis posibilidades de convencer al profesor para subir mi calificación.",,,,
+fab-100x-20261114T224309Z-017,3,1bb3e03bacc37fc49af894c3,993ea3ac79a93e844f95cacdc2155e7c,fab-100x,fa,general_knowledge,aya-dataset,human_authored,[user] متخصص علم داده کیست؟,"متخصص علم داده (Data Scientist) شخصی است که در تحلیل و تفسیر داده‌ها، مهارت دارد. این فرد از روش‌های آماری، تکنیک‌های استخراج داده و الگوریتم‌های آموزش یادگیری ماشین استفاده می‌کند تا بتواند داده‌ها را بررسی و به دانش و اطلاعات قابل فهم و قابل استفاده، تبدیل کند.
+ این اصطلاح توسط دی جی پاتیل و جف همربارکر ابداع شده‌است در صورتی که سال‌ها قبل از آن که آن‌ها استفاده از اصطلاح فوق را به‌طور عمومی مطرح کنند، از آن استفاده شده‌ است. متخصصین علم داده با عمیق شدن در چندین رشتهٔ علمی، مسائل پیچیدهٔ مطرح شده در حوزهٔ داده را حل می‌کنند. به‌طور کلی انتظار می‌رود که متخصصین علم داده قادر باشند در بخش‌هایی از علوم ریاضیات و آمار و علوم کامپیوتر کار کنند. یک متخصص علم داده می‌بایست در یک یا دو رشته تخصص داشته باشد و در دیگر حوزه‌ها دارای مهارت کافی باشد. نتایج نظرسنجی‌ها حاکی از این موضوع است که برای متخصص علم داده شدن ۵ تا ۸ سال زمان لازم است.",,,,
+fab-100x-20261114T224309Z-017,4,88bca5667ff4b867a7a9c41d,186cc9bd76969af7506abb5387cb3716,fab-100x,fa,islamic_studies,aya-dataset,human_authored,[user] کوروش بزرگ کیست؟,"کوروش دوم که با نام کوروش بزرگ یا کوروش کبیر نیز شناخته می‌شود، بنیان‌گذار و نخستین پادشاه شاهنشاهی هخامنشی بود که به مدت ۳۰ سال، بین سال‌های ۵۵۹ تا ۵۲۹ پیش از میلاد بر نواحی گسترده‌ای از آسیا، حکومت کرد. کوروش در استوانه‌اش، خود را «فرزند کمبوجیه، شاه بزرگ انشان، نوادهٔ کوروش، شاه بزرگ انشان، نوادهٔ چیش‌پیش، شاه بزرگ انشان، از خانواده‌ای که همیشه پادشاه بوده‌است».
+کوروش یک نظامی نابغه بود، به طوری که بین سال‌های ۵۵۰ تا ۵۳۹ پیش از میلاد با فرماندهی موفق لشکریانش، پیروزی‌های متعددی کسب کرد. گستردگی پهنه حکومت کوروش تا سال ۵۳۹ پیش از میلاد از شرق، رود سند در هندوستان تا غرب، آسیای کوچک بود. این قلمرو حکومتی ۳۲۰۰ کیلومتر طول داشت.
+
+در حدود ۲۵۰۰ سال پيش، يعنی ۵۰۰ سال قبل از ميلاد مسيح يا ۱۱۰۰ سال قبل از اسلام، کورش کبیر، پسر شاه پارس که مادر او دختر شاه ماد بود، به فرماندهی نجيب‌ترين قبايل پارسی درآمد. او با حمايت مادی‌ها، خرد نيک و همت والای خود را با هم درآمیخت؛ با شجاعت و مردانگی، اقوام ايرانی آريايی تبار را با هم متحد و با پادشاهان بد‌کردار و ظالم زمان خويش مبارزه کرد. سپس آن‌ها را يکی پس از ديگری شکست داد و اکثرشان را بخشيد و مردم را از ظلم آن‌ها نجات داد و مرزها ايران را تا دوردست‌ها کشانيد. او اولين و بزرگترين امپراتوری جهان را بنيان‌گذارد؛ یک امپراتوری که در طول تاريخ همانندی نداشت. آن شخص کسی نبود جز کوروش کبیر.
+کوروش کبیر نمونه کاملی از صفات اخلاقی را داشت. هرکجا که به‌عنوان فاتح وارد می‌شد، بر‌خلاف فاتحان آشور و بابل نسبت به معابد اقوام بیشترین احترام را نشان می‌داد؛ برای تعمير و توسعه‌ پرستشگاه‌ها کمک‌های زیادی می‌کرد؛ از هر‌گونه تبعیض نسبت به پيروان اديان خودداری می‌کرد و اجازه نمی‌داد اين احترام بهانه‌ای برای تجاوز‌جویی و قدرت‌طلبی کاهنان شود. او با نهايت دقت اين شيوه‌ اخلاقی و انسانی را رعايت می‌کرد و آن را وسيله‌ استحکام قدرت امپراتوری می‌دانست.
+
+کوروش مظهر خردمندی و قابلیت و فردی بافضیلت و شرافتمند است. به گفته‌ هرودوت:
+کوروش دلیرترین و پرهوادارترین مرد جوان در پارس بود. او فریب زندگی پرزرق‌وبرق را ‌نخورد و بر ارزش زندگی شرافتمندانه واقف بود.
+فرمان کوروش کبیر که روی یک استوانه سفالی، به خط میخی و به زبان اکدی (بابلی) نوشته شده است، در ۱۸۷۸ در جریان حفاری‌های محل تمدن بابل، کشف شد. در این فرمان، کوروش، شیوه رفتار انسانی با ساکنان سرزمین بابل را برای فاتحان ایرانی شرح داده است. این سند به‌عنوان اولین منشور حقوق بشر شناخته شده است و در سال ۱۹۷۱، سازمان ملل متحد ترجمه متن آن را به تمام زبان‌های رسمی به چاپ رساند و در کشورهای مختلف در دسترس دفاتر این سازمان قرار داد.",,,,
+fab-100x-20261114T224309Z-017,5,301acc5b357bf15a5779dda1,150a19222d40605b4a7e11b460edff24,fab-100x,fa,mathematics,aya-dataset,human_authored,[user] وضعیت کشور ایتالیا از نظر گردشگری به چه شکل است؟,"بر اساس محاسبه‌ای که یونسکو انجام داده، بیش از نیمی از میراث فرهنگی جهانی در کشور ایتالیا واقع شده‌است، کشوری کوچک که مساحتش فقط ۰/۲۵ ٪ از کل خشکی‌های جهان است.
+نشانه‌های باقی‌مانده از گذشته، آثار هنری و تنوع فوق‌العاده طبیعت در شبه جزیره ایتالیا از جمله عوامل جذب توریست در ایتالیا یکی از توریستی‌ترین کشورهای جهان به‌شمار می‌آید.
+رم، فلورانس، ونیز و بسیاری شهرهای دیگر، از جمله مقصدهای هنری هستند که برنامه هر بازدیدکننده‌ای از شبه جزیره ایتالیا را تشکیل می‌دهند. در کنار این شهرهای بزرگ و معروف، میراثهای فرهنگی پنهانی هم در شهرهایی با تاریخ هزار ساله وجود دارند که البته در مسیر اصلی بازدیدها قرار ندارند و علی‌رغم اینکه کمتر شناخته شده‌اند، اما به همان اندازه شهرهای هنری ایتالیا دارای جذابیت هستند.
+هر ساله به‌طور میانگین حدود شصت میلیون گردشگر خارجی از ایتالیا بازدید می‌کنند[۶] و از این نظر پنجمین کشور پربازدید شده در جهان است.",,,,
+fab-100x-20261114T224309Z-017,6,3ce3f77c463f140a67c30ab2,0019f20783272ef8100a3d482e14af56,fab-100x,fr,coding,oasst2,human_authored,[user] Ecris moi un programme en tant qu'expert en python.,"La question ne fait pas beaucoup de sens, qu'est-ce qu'un expert ? Un expert python serait une personne qui connaît bien le language et possède une grande expérience ? Alors quel code j'écrirai ?",,,,
+fab-100x-20261114T224309Z-017,7,da27fb40781d7b787e35edf9,5af7a332db1765b25ce470e1ffd62dff,fab-100x,fr,cybersecurity,aya-dataset,human_authored,[user] Quelle est l'histoire du cinéma?,"Le cinéma, disait Robert Bresson, « est une écriture avec des images en mouvement et des sons ». C'est aussi une technique audiovisuelle, la plus ancienne de toutes, dont les maillons essentiels ne purent être assemblés qu'après plus d'un siècle de recherches.
+D'abord émergea l'idée d'une reconstitution du mouvement par l'image en exploitant un phénomène physiologique, la persistance des impressions lumineuses sur la rétine de l'œil, phénomène qui donna naissance au thaumatrope en 1825 : en faisant tourner rapidement sur son diamètre un disque comportant le dessin d'un oiseau sur une face et celui d'une cage sur l'autre, on voyait l'oiseau dans la cage, car, sur la rétine, chaque image persistait une fraction de seconde, assurant la continuité des sensations visuelles. En 1832, c'est sur cette base que le physicien belge Joseph Plateau reconstitua le mouvement avec son Phénakistiscope.
+En 1816, Nicéphore Niépce inventait la photographie, qui, en 1895, allait former le second maillon du cinéma. La photographie permit en effet aux frères Lumière de créer le cinématographe, appareil enregistrant sur pellicule une quinzaine d'images par seconde d'un sujet en mouvement, décomposant donc ce mouvement. Ce même appareil fut ensuite utilisé pour projeter les images à la même fréquence. L'œil percevait sur l'écran un sujet en mouvement et non une succession de vues fixes.",,,,
+fab-100x-20261114T224309Z-017,8,0a3a113e6055f9793aa5d890,0d6884556cce46e0fe63dfb8aec54ec3,fab-100x,fr,general_knowledge,oasst2,human_authored,"[user] Imaginez un monde où les chats ont le pouvoir de voler. Les chats volants sont les nouveaux super-héros, sauvant des chats tombés des arbres et luttant contre les méchants qui cherchent à les capturer. Créez un personnage de chat volant qui a une personnalité forte et un style de vol unique, et racontez une aventure excitante avec ce chat en tant que héros.
+
+[assistant] Le personnage de chat volant s'appelle ""Zephyr le Magnifique"". Il est connu pour son audace et sa grâce lorsqu'il vole dans les cieux. Zephyr a une fourrure blanche éclatante et des yeux verts brillants qui sont souvent comparés à ceux d'un aigle. Il est également très confiant et sûr de lui, souvent considéré comme le chef parmi les chats volants.
+
+Un jour, alors que Zephyr patrouillait les rues de la ville, il a entendu un appel au secours provenant d'un chat coincé sur un toit en pente. Zephyr a volé à la rescousse et a réussi à sauver le chat en détresse. Mais alors qu'ils se reposaient sur le toit, ils ont été attaqués par une bande de méchants qui voulaient capturer les chats volants pour les utiliser à leurs propres fins maléfiques.
+
+Zephyr a montré son courage en luttant contre les méchants, utilisant son habileté à voler pour esquiver leurs attaques et les vaincre avec des coups de griffes précis. Pendant le combat, il a découvert que les méchants étaient à la recherche d'un artefact mystique qui leur donnerait le pouvoir de contrôler les chats volants.
+
+Déterminé à empêcher les méchants de mettre la main sur l'artefact, Zephyr a embarqué dans une aventure épique pour le retrouver avant eux. Il a volé à travers les montagnes, les déserts et les océans, affrontant de nombreux dangers et obstacles sur son chemin. Finalement, il a trouvé l'artefact et l'a détruit, empêchant les méchants de prendre le contrôle des chats volants.
+
+Zephyr est rentré chez lui en tant que héros, salué par les chats de la ville pour son courage et sa détermination. Et à partir de ce jour, il est devenu connu comme l'un des plus grands défenseurs de la liberté et de la justice pour tous les chats volants.
+
+[user] Racontez maintenant l'histoire de la bataille entre Zephyr le magnifique et Robert le chien cracheur de feu.","Zephyr le Magnifique était sur une mission pour protéger les chats volants de la ville lorsqu'il a rencontré Robert le Chien Cracheur de Feu, un criminel renégat connu pour sa capacité à cracher du feu. Robert et sa bande de chiens malfaiteurs menaçaient la ville, terrorisant les habitants et les obligeant à leur donner de l'argent et des biens précieux.
+
+Zephyr a décidé de mettre fin à la tyrannie de Robert et de sa bande, et a donc affronté Robert en personne dans une bataille épique au cœur de la ville. Les deux adversaires se sont affrontés avec férocité, utilisant leurs pouvoirs pour essayer de prendre l'avantage.
+
+Robert a utilisé son souffle de feu pour tenter de brûler Zephyr, mais ce dernier était rapide et agile dans les airs, esquivant les flammes avec une grâce incroyable. Zephyr a riposté en utilisant son propre pouvoir, la vitesse de l'éclair, pour fondre sur Robert avec des coups rapides et puissants.
+
+La bataille faisait rage lorsque tout à coup, Robert a commencé à changer. Sa colère déchaînée a commencé à déclencher son pouvoir de manière incontrôlable, projetant des flammes dévastatrices dans toutes les directions. La ville était en danger et Zephyr savait qu'il devait agir rapidement pour sauver les habitants.
+
+Avec un courage indomptable, Zephyr a pris Robert de front, volant à travers les flammes pour atteindre le criminel déchaîné. Il a utilisé tout son savoir-faire pour tenir tête à Robert, luttant contre ses flammes dévastatrices avec une grâce incroyable. Finalement, Zephyr a réussi à maîtriser Robert en le piégeant dans un tourbillon de vent, l'empêchant de contrôler son souffle de feu.
+
+La ville était sauvée et Zephyr était devenu un héros encore une fois. Les habitants ont acclamé Zephyr pour son courage et sa détermination, le remerciant pour sa défense de la ville et de ses habitants. Et Robert le Chien Cracheur de Feu a été emmené en prison pour répondre de ses crimes.
+
+A partir de ce jour, Zephyr le Magnifique est devenu connu comme l'un des plus grands protecteurs de la ville, et son nom est devenu synonyme de courage et de détermination.",,,,
+fab-100x-20261114T224309Z-017,9,213ac4b1cc92a99bc970edca,7a8f6c87c813a9410b0315b6f0131b83,fab-100x,fr,mathematics,oasst2,human_authored,[user] Fais-moi une comparaison objective entre XMPP et Matrix. Quels sont les points forts et faibles de chaque solution ?,"XMPP (Extensible Messaging and Presence Protocol) et Matrix sont deux protocoles de messagerie instantanée open source qui permettent la communication en temps réel entre les utilisateurs. Voici une comparaison objective entre les deux solutions :
+
+Points forts de XMPP :
+
+XMPP est un protocole mature et largement utilisé depuis plus de 20 ans, avec une grande communauté de développeurs et d'utilisateurs.
+Il est extensible, flexible et modulaire, ce qui signifie qu'il peut être adapté à différents cas d'utilisation et intégré à d'autres systèmes.
+XMPP prend en charge une gamme complète de fonctionnalités, y compris la messagerie instantanée, la voix sur IP, la vidéoconférence, la présence, la sécurité et la confidentialité.
+XMPP permet la communication inter-domaines, ce qui signifie que les utilisateurs de différents domaines (par exemple, différents fournisseurs de messagerie) peuvent communiquer entre eux.
+Points faibles de XMPP :
+
+La configuration et la mise en place de XMPP peuvent être plus complexes que pour certaines autres solutions.
+La qualité de la mise en œuvre des serveurs XMPP peut varier, ce qui peut affecter la fiabilité et la performance.
+Points forts de Matrix :
+
+Matrix est un protocole relativement nouveau et moderne, qui est conçu pour être décentralisé, fédéré et auto-hébergé.
+Il est également extensible et modulaire, et prend en charge une gamme complète de fonctionnalités similaires à XMPP.
+Matrix est conçu pour être compatible avec d'autres systèmes de messagerie, de sorte que les utilisateurs peuvent communiquer avec des personnes utilisant d'autres protocoles (par exemple, XMPP ou IRC).
+Les serveurs Matrix sont conçus pour être tolérants aux pannes et résistants à la censure, avec des fonctionnalités telles que la synchronisation de données en temps réel et la réplication multi-serves.
+Points faibles de Matrix :
+
+Matrix est un protocole plus récent et moins largement utilisé que XMPP, ce qui peut affecter la disponibilité des clients et des serveurs compatibles.
+La configuration et la mise en place de Matrix peuvent également être plus complexes que pour certaines autres solutions, en particulier pour les configurations auto-hébergées.
+En résumé, XMPP est un protocole mature, extensible et flexible, qui est largement utilisé et pris en charge par une grande communauté de développeurs et d'utilisateurs. Il est bien adapté aux cas d'utilisation complexes et prend en charge une gamme complète de fonctionnalités. Cependant, la configuration et la mise en place peuvent être plus complexes que pour certaines autres solutions, et la qualité de la mise en œuvre des serveurs XMPP peut varier.
+
+Matrix, quant à lui, est un protocole plus moderne, décentralisé et auto-hébergé, qui est conçu pour être résistant à la censure et tolérant aux pannes. Il est également extensible et compatible avec d'autres systèmes de messagerie. Cependant, il est moins largement utilisé que XMPP, et la configuration et la mise en place peuvent également être plus complexes, en particulier pour les configurations auto-hébergées.",,,,
+fab-100x-20261114T224309Z-017,10,ccd13de3965b0af6a77ca0b2,eb03cf16f93934a7b9cf5e637c95b055,fab-100x,fr,problem_solving,aya-dataset,human_authored,[user] Que sont les « kanji » au Japon ?,"Les kanjis sont des signes issus des caractères chinois dont le rôle est d'écrire une partie de la langue japonaise.
+
+Un kanji représente une ou plusieurs « lectures ». Une lecture est, sur le plan phonologique, une more ou une série de mores ; au niveau lexical, une lecture est un morphème que ce kanji permet d'écrire. Les lectures des kanjis dérivent soit de langues chinoises anciennes (morphèmes sinoxéniques), soit de la langue nipponne originelle (yamato kotoba), laquelle n'a pas de lien de parenté avec les langues chinoises.
+
+La maîtrise des kanjis demande du temps, en raison notamment du grand nombre de signes utilisés en pratique et du fait qu'une partie importante d'entre eux ont plusieurs lectures à leur disposition.",,,,
+fab-100x-20261114T224309Z-017,11,7c58dc0f5032f89c597425cc,f78c82aec6e0ca3610627a0168a5498b,fab-100x,fr,reasoning,wikipedia-fr,templated_human,[user] Présente brièvement : Business to business.,"Les termes , B to B, B2B, BtoB, commerce B to B (prononcés //), commerce entreprise à entreprise ou commerce interentreprise désignent l'ensemble des activités d'une entreprise visant une clientèle d'entreprises, ou l'ensemble d'architectures techniques et logicielles informatiques permettant de mettre en relation des entreprises. On l'appelle aussi parfois « marché professionnel », par opposition au « marché grand public ».
+
+Le marketing B to B représente l’ensemble des relations commerciales entre les entreprises et les professionnels (entreprises, administrations, artisans, professions libérales, associations…). On l’appelle aussi « commerce interentreprises ». Le marketing industriel (échange de biens industriels) et le marketing d’affaires (projet, solution, clés en main) sont des sous-ensembles du marketing B to B.
+
+Il est très difficile de connaître à ce jour l’importance des activités en B to B car une même entreprise peut vendre des produits à une autre qui seront destinés au grand public et vendre ces mêmes produits à une entreprise qui elle les distribuera à des professionnels. Selon les statistiques européennes, les échanges interentreprises représenteraient approximativement les deux tiers du total des échanges commerciaux dans les pays de l’union européenne.",,,,
+fab-100x-20261114T224309Z-017,12,7b4dc4e82b383fc974312faf,35a5512b13f711a72ca38ab415df187c,fab-100x,fr,research,oasst2,human_authored,"[user] Donne moi des conseils pour faire perdurer une amitié alors que l'on habite loin.
+
+[assistant] L'amitié nécessite de garder une forme d'intimité avec nos amis, de savoir se montrer à l'écoute de leurs préoccupations et de leurs envies. Lorsque l'on habite loin, il est précieux de rester en communication avec nos amis : de leur écrire, de les appeler, de prendre et donner des nouvelles, d'envoyer des photographies de notre ville ou de nos vacances, pour que nos amis se sentent toujours inclus dans notre vie. Lorsque l'on est de passage dans la ville de nos amis, il est important de leur écrire et de les prévenir, de sorte à pouvoir se voir en vrai.
+Ainsi, l'on peut entretenir nos relations amicales pendant des années... en espérant pouvoir se retrouver plus fréquemment ensemble dans le même lieu plus tard !
+
+[user] Tu peux me donner un classement de popularité des personnages du jeu Touhou Project.","Le classement de popularité des personnages de Touhou Project peut varier selon les sources, mais voici un classement basé sur les résultats du Touhou Popularity Poll 2021 :
+
+1. Reimu Hakurei
+2. Remilia Scarlet
+3. Sakuya Izayoi
+4. Marisa Kirisame
+5. Flandre Scarlet
+6. Sanae Kochiya
+7. Youmu Konpaku
+8. Patchouli Knowledge
+9. Alice Margatroid
+10. Yukari Yakumo
+
+Il convient de noter que ce classement est basé sur un sondage et que les résultats peuvent varier en fonction de l'époque et de la source du sondage. Cependant, ces personnages sont généralement considérés comme les plus populaires et les plus emblématiques de la série Touhou Project.",,,,
+fab-100x-20261114T224309Z-017,13,6f41c90a40bb69ec9dc01a50,1f2595a2855e30fecc87ec5b9c396a03,fab-100x,fr,safety_ethics,aya-dataset,human_authored,[user] Résume les principales distinctions entre les époques musicales baroque et classique.,"Les époques musicales baroque et classique sont deux périodes distinctes dans l'histoire de la musique, chacune caractérisée par des styles, des formes et des approches artistiques spécifiques. Voici un résumé des principales distinctions entre les époques baroque et classique :
+
+Époque Baroque (1600-1750) :
+
+-Texture musicale : La musique baroque est souvent caractérisée par une texture contrapuntique complexe, avec des lignes mélodiques et harmoniques entrelacées.
+-Dynamisme et expression : Le baroque se caractérise par l'utilisation expressive des contrastes dynamiques et des changements soudains d'intensité, contribuant à une musicalité théâtrale.
+-Basse continue : L'utilisation fréquente de la basse continue, une ligne de basse continue accompagnée d'accords, était une caractéristique distinctive du baroque.
+-Ornements : Les ornements, tels que les trilles, les mordants et les agréments, étaient couramment utilisés pour embellir la mélodie.
+
+Époque Classique (1730-1820) :
+
+-Texture homophonique : La musique classique présente une texture plus homophonique, avec une clarté dans la séparation des voix et une préférence pour des mélodies simples.
+-Équilibre et proportion : La musique classique cherche un équilibre et une proportion, avec une attention particulière à la structure et à la symétrie, favorisant la clarté formelle.
+-Symphonie et sonate : Les formes musicales telles que la sonate et la symphonie ont gagné en importance. La sonate était souvent structurée en trois ou quatre mouvements distincts.
+-Évolution du piano : L'époque classique a vu l'émergence et le développement du piano, remplaçant progressivement le clavecin et le fortepiano.
+
+Pour ce qui est des styles de composition, les compositeurs baroques incluent Johann Sebastian Bach, George Frideric Handel, et Antonio Vivaldi. Tandis que, les compositeurs classiques incluent Wolfgang Amadeus Mozart, Ludwig van Beethoven, et Franz Joseph Haydn.",,,,
+fab-100x-20261114T224309Z-017,14,caffa824e0e213feca9702ed,9dc7d953e78ce942f24f115b86016aa9,fab-100x,fr,science,aya-dataset,human_authored,[user] Quel est le neuvième élément du tableau périodique ?,"Le neuvième élément du tableau périodique est le fluor. Il est représenté par le symbole « F » et porte le numéro atomique 9. Le fluor est un gaz halogène très réactif et est connu pour sa forte tendance à former des composés avec d'autres éléments. Il est couramment utilisé dans diverses applications, notamment le dentifrice et le traitement de l’eau.",,,,
+fab-100x-20261114T224309Z-017,15,89d76af614f779adfabd7af0,b61def0987032e3baa40535f60020f24,fab-100x,fr,web_frontend,aya-dataset,human_authored,[user] Quels sont les bons endroits à visiter à Québec?,"Il y a beaucoup des choses a faire à Québec:
+
+Vieux-Québec
+Déambuler dans les plus vieilles rues en Amérique du Nord
+Parcourez les fortifications entourant le Vieux-Québec,  joyau du patrimoine mondial de l'UNESCO et berceau de l'Amérique française. Faites un tour guidé à pied et visitez des lieux témoins de l'histoire : le Petit-Champlain, la place Royale, les plaines d'Abraham et l'hôtel du Parlement. Profitez d'une balade sur la terrasse Dufferin pour prendre un cliché du célèbre Château Frontenac, l'hôtel le plus photographié au monde! Voici les principaux attraits touristiques du Vieux-Québec :
+
+Le Château Frontenac
+Étant l’emblème de Québec par excellence, ce château est aussi l’hôtel le plus photographié au monde. Pour une visite ou un séjour, le Château Frontenac vaut le détour!
+
+La terrasse Dufferin
+Animée été comme hiver, profitez d’une vue imprenable sur le fleuve Saint-Laurent et le Château Frontenac lors d’une promenade sur l’immense terrasse Dufferin. Nommée ainsi en l’honneur de Lord Dufferin, un gouverneur général du Canada amoureux de la ville de Québec, la terrasse est si appréciée qu’elle été agrandie à deux reprises au cours de son histoire. Faites d’une pierre deux coups en visitant les vestiges des Forts-et-Châteaux-Saint-Louis qui se trouvent en dessous de ce lieu iconique.
+
+Les fortifications et les portes
+Saviez-vous que Québec est la seule ville fortifiée au nord de Mexico? Les fortifications et les 4 portes qui entourent la vieille ville vous donneront l’impression de voyager dans le temps.
+
+Le Petit-Champlain
+Cette charmante rue piétonne saura vous charmer à coup sûr avec ses nombreux commerces locaux et son ambiance féérique en toutes saisons. Aussi considéré comme un excellent repère de galeries d’art de bons bistrots, le Petit-Champlain est une véritable fabrique à souvenirs.
+
+La place Royale
+Véritable joyau historique, la place Royale est le lieu officiel de la fondation de Québec. Son architecture unique témoigne avec authenticité des influences françaises et britanniques qui ont façonné l’urbanisme de la ville.
+
+Les plaines d’Abraham
+Le 13 septembre 1759, le site des plaines d'Abraham a été le théâtre de la fameuse bataille de Québec qui a décidé du sort de l’Amérique. C’est à l’issue de cette bataille que les Français ont cédé la ville aux Britanniques.
+
+La Citadelle de Québec
+Au sommet du célèbre cap Diamant se trouve la plus importante forteresse britannique en Amérique du Nord. Construite entre 1820 et 1850 par les Anglais pour défendre la ville, la Citadelle de Québec est un héritage militaire d’exception. Celle-ci comprend le Musée Royal 22e régiment où vous pourrez apprendre tout ce qu’il y a à savoir sur son histoire.
+
+La Basilique-cathédrale Notre-Dame de Québec
+Située au coeur du Vieux-Québec, la Basilique-cathédrale Notre-Dame de Québec fut l’église de la première paroisse catholique au nord des colonies espagnoles. Son histoire est aussi importante pour le patrimoine que son architecture exceptionnelle.
+
+Le Vieux-Port 
+Les rues du Vieux-Port sont parfaites pour flâner dans les galeries d'art et les boutiques d’antiquités. Les rues pittoresques sont bordées de magnifiques maisons et de points de vue sur le fleuve. C'est aussi le point de départ pour faire une excursion en bateau.",,,,
+fab-100x-20261114T224309Z-017,16,63670f87be82bfedaa7350d6,47714fd95d73093bff1718eda2a23119,fab-100x,gu,general_knowledge,aya-dataset,human_authored,[user] પ્રખ્યાત ચિત્રકાર રવિશંકર રાવળના જીવન વિશે જણાવો.,"તેમનો જન્મ ગુજરાતના ભાવનગરમાં ઔદીચ્ય બ્રાહ્મણ પરિવારમાં થયો હતો. આપમેળે આગળ વધેલા પિતા રાવ સાહેબ મહાશંકર રાવળ સૌરાષ્ટ્રની એક માત્ર બેંક “ભાવનગર દરબાર બેંક”ના પ્રણેતા હતા, તેમને કલાના સ્રોત રવિભાઈને તેમના બા (માતાજી) માણેકબા પાસેથી મળ્યાં. ઇ.સ. ૧૯૦૯માં તેઓ મેટ્રિક પાસ થયા અને તેજ વર્ષે તેમના લગ્ન શિવશંકર ત્રવાડીના પુત્રી રમાબેન સાથે થયા.
+
+૧૯૧૧માં ભાવનગરની શામળદાસ કોલેજમાં વિનયન શાખામાં પ્રવેશ મેળવ્યો. પરંતુ વિનયનનો અભ્યાસ પડતો મૂકી, મુંબઈની સર જે. જે. સ્કૂલ ઓફ આર્ટ્સમાં પ્રવેશ મેળવ્યો. ૧૯૧૬માં સર્વશ્રેષ્ઠ વિદ્યાર્થી તરીકે અભ્યાસમાં ઉત્તીર્ણ થતાં ચોવીસ વર્ષની વયે તેમને જે. જે. સ્કૂલ ઑફ આર્ટ્સનો મેયો ચંદ્રક પ્રદાન થયો હતો. ૧૯૧૫માં સાહિત્ય પરિષદ દ્વારા સુરતમાં યોજાયેલ કલાપ્રદર્શનમાં તેમના ત્રણ ચિત્રો પ્રદર્શિત થયા અને રૌપ્ય ચંદ્રક મેળવ્યો. ૧૯૧૭માં તેમના ચિત્ર 'બિલ્વમંગળ'ને બોમ્બે આર્ટ્સ સોસાયટીનો સુવર્ણચંદ્રક પ્રાપ્ય થયો. ૧૯૧૭થી જ્ 'કલાની કદર' નામના પહેલા લેખથી કલા વિષયક પત્રકારત્વ શરૂ કર્યું. આ લેખ વડોદરાથી પ્રકટ થતાં 'સાહિત્ય' માસિકના સપ્ટેમ્બર માસના અંકમાં પ્રકાશિત થયો હતો. ૧૯૨૪માં અમદાવાદમાં કુમાર સામયિકના સ્થાપક અને પ્રથમ તંત્રી બન્યા. સરદાર પટેલ વિશ્વવિદ્યાલય, વડોદરામાં માનાર્હ કલા-અધ્યાપક. ૧૯૩૦માં સાહિત્યકારોએ તેમને રણજિતરામ સુવર્ણચંદ્રક અર્પ્યો, ઇ. સ. ૧૯૩૩માં બ.ક.ઠાકોરે ચિત્રકલાને કવિતાની માજણી બેનડી કહી, ૧૯૩૫માં 'ગુજરાત ચિત્રકલા સંઘ'ની સ્થાપના કરી. ઇ. સ. ૧૯૩૬માં ગાંધીજીએ કહ્યું, ""મારી છાતી તેમના ચિત્રો જોઈ ઊછળી"", આગળ જતાં કાકા કાલેલકરે તેમને 'ગુજરાતના કલાગુરુ'ના સ્થાને બિરદાવ્યા. ૧૯૩૬માં જાપાનનો ત્રણ માસનો પ્રવાસ ખેડ્યો. ૧૯૩૮માં કરાછી ખાતે આયોજીત 'ગુજરાત સાહિત્ય પરિષદ'ના અધિવેશનના અધ્યક્ષ બન્યાં. ૧૯૪૧માં આર્ટ્સ સોસાયટી ઓફ ઈન્ડિયાના પ્રમુખ બન્યા. ૧૯૫૦માં મ.સ.યુનિવર્સિટી ખાતે લલિત કોલેજ શરૂ કરવા માટે રચાયેલ બોર્ડમાં તેઓ શામિલ થયા. ૧૯૫૨-૫૩માં વિયેના વિશ્વશાંતિ પરિષદમાં હાજરી આપી. ભારત સરકારે ઇ.સ. ૧૯૬૫માં તેમનું પદ્મશ્રીથી બહુમાન કર્યું. આ જ વર્ષે તેમને સોવિયેત લૅન્ડ નહેરુ ઍવોર્ડ પણ મળ્યો.તેઓએ અમદાવાદમાં 'ગુજરાત કલાસંઘ'ની સ્થાપના કરી હતી. તેઓએ 'ગુજરાત રાજ્ય લલિતકલા અકાદમી'ના વાઇસ ચેરમેનના પદને શોભાવ્યું હતું. ૧૯૭૦માં તેઓ લલિતકલા અકાદમીએ ફેલોશીપ ઍવોર્ડ તથા તામ્રપત્ર દ્વારા તેમનું બહુમાન કર્યું. વીસમી સદીના મધ્યાંતે જ્યારે ગુજરાતમાં ચિત્રકારની જાણ માત્ર દુકાનોના પાટિયા લખતા ચિતારા તરીકે હતી ત્યારે કલાનુ પુન:પ્રતિષ્ઠાન કરવાનું માન રવિશંકર રાવળને ફાળે જાય છે.",,,,
+fab-100x-20261114T224309Z-017,17,163061fce67fb4384005f96c,fcccc46d568fbf08ca52ed5dc4f5a30f,fab-100x,gu,mathematics,aya-dataset,human_authored,[user] તંદુરી નાન ની રીત બતાવો.,"તંદુરી નાન ની રીત
+
+ઘટકો:
+
+ 1 કપ મેંદા
+ 1/2 કપ દહીં
+ 1/2 ટીસ્પૂન ખમીર
+1/4 ટીસ્પૂન મીઠું
+ 1/4 ટીસ્પૂન ખાંડ
+ 1 ટેબલસ્પૂન તેલ
+ 1/2 ટીસ્પૂન ગરમ મસાલો
+ 1/4 ટીસ્પૂન ધાણાજીરૂ પાઉડર
+ 1/4 ટીસ્પૂન અજવાઈન
+
+
+બનાવવાની રીત:
+
+1. એક મોટા બાઉલમાં મેંદા, ખમીર, મીઠું, ખાંડ અને અજવાઈન લો. બધું  જોરથી મિક્સ કરો.
+2. તેલ અને દહીં ઉમેરો અને એક લીંબુ જેવો કઠણ લોટ બાંધો. જરૂર પડે તો થોડું પાણી ઉમેરો.
+3. લોટને ઢાંકીને ગરમ જગ્યાએ 1 કલાક સુધી આથવા દો.
+4. લોટને 6 સરખા ભાગમાં વહેંચો. દરેક ભાગને ગોળા આકાર આપો.
+5. એક પેનમાં તેલ ગરમ કરો. દરેક ગોળાને તેલમાં ડુબાવો અને પછી તેને કાઢી લો.
+6. ગરમ તંદૂરમાં દરેક ગોળાને ચોંટાડો.
+7. નાનને 4-5 મિનિટ સુધી અથવા સુવર્ણમયી રંગ થાય ત્યાં સુધી બેક કરો.
+8. નાનને ગરમ ગરમ પીરસો!
+
+ટીપ્સ: 
+
+તમે તંદૂરની જગ્યાએ ઓવનનો પણ ઉપયોગ કરી શકો છો. 200°C (400°F) પર ઓવનને પહેલાથી ગરમ કરો અને નાનને 10-12 મિનિટ સુધી બેક કરો.
+
+તમે નાન પર થોડું ઘી લગાવી શકો છો અથવા લીંબુનો રસ છાંટી શકો છો.
+
+નાનને તમારી મનપસંદ ગ્રેવી અથવા  છટણી સાથે પીરસો!
+
+આશા છે કે તમને આ રેસીપી ગમશે! તંદુરી નાન બનાવવાની મજા લૂંટો!",,,,
+fab-100x-20261114T224309Z-017,18,0a1d4f5163ac77398684ab2a,fd6fd79cbb76f8a8c8a954019497813d,fab-100x,hi,general_knowledge,wikipedia-hi,templated_human,[user] रमेशचन्द्र दत्त के बारे में एक संक्षिप्त परिचय लिखिए।,"रमेशचंद्र दत्त (13 अगस्त 1848 -- 30 नवम्बर 1909) भारत के प्रसिद्ध प्रशासक, आर्थिक इतिहासज्ञ तथा लेखक तथा रामायण व महाभारत के अनुवादक थे। भारतीय राष्ट्रवाद के पुरोधाओं में से एक रमेश चंद्र दत्त का आर्थिक विचारों के इतिहास में प्रमुख स्थान है। दादाभाई नौरोज़ी और मेजर बी. डी. बसु के साथ दत्त तीसरे आर्थिक चिंतक थे जिन्होंने औपनिवेशिक शासन के तहत भारतीय अर्थव्यवस्था को हुए नुकसान के प्रामाणिक विवरण पेश किये और विख्यात ‘ड्रेन थियरी’ का प्रतिपादन किया। इसका मतलब यह था कि अंग्रेज अपने लाभ के लिए निरंतर निर्यात थोपने और अनावश्यक अधिभार वसूलने के जरिये भारतीय अर्थव्यवस्था को निचोड़ रहे हैं।
+
+रमेश चंद्र दत्त का जन्म 1848 में कोलकाता के एक ऐसे परिवार में हुआ था जिसने ईस्ट इण्डिया कम्पनी के तहत व्यापार करके काफी सम्पत्ति अर्जित की थी। सन्‌ 1868 में ये आइ.सी.एस. की परीक्षा देने के लिए इंग्लैंड गए तथा 1869 में इस परीक्षा में तीसरा स्थान पाकर उत्तीर्ण हुए। सन्‌ 1871 में ये भारत वापस आए। इन्होंने अपने इन तीन वर्षो के इंग्लैंड प्रवास के विषय में एक पुस्तक 'थ्री ईयर्स इन इंग्लैड' लिखी। भारत आने के बाद इन्होंने अनेक प्रशासनिक पदों का कार्यभार सँभाला तथा उड़ीसा के कमिश्नर एवं पोलिटिकल एजेंट, बड़ौदा के दीवान और रॉयल कमीशन के सदस्य रहे।",,,,
+fab-100x-20261114T224309Z-017,19,51975039b37d01005391c033,92154a9634fab203d9aadf5b15f3f493,fab-100x,hi,mathematics,wikipedia-hi,templated_human,[user] महाराष्ट्र एक्सप्रेस के बारे में एक संक्षिप्त परिचय लिखिए।,"11039/11040 महाराष्ट्र एक्सप्रेस, भारतीय रेलवे की एक एक्सप्रेस ट्रेन है जो भारत में गोंदिया जंक्शन और कोल्हापुर के बीच चलती हैं। यह गोंदिया जंक्शन से कोल्हापुर के लिए ट्रेन नंबर 11040 के रूप में और विपरीत दिशा में ट्रेन नंबर 11039 के रूप में चलती है।
+
+यह किसी एक राज्य में, ट्रेन द्वारा की जाने वाली सबसे लंबे दूरी (1346 किमी) के लिए मौजूदा रिकॉर्ड रखती है। यह पूरी तरीके से महाराष्ट्र के अंदर चलती है।
+
+इस ट्रेन का नामकरण महाराष्ट्र राज्य के नाम पर किया गया है। हालांकि ऐसे नाम से यह इन गाड़ियों की लीग में आ जाता हैं जो अपने राज्यों के नाम पर रखे गये है, जैसे केरल एक्सप्रेस, तमिलनाडु एक्सप्रेस, आंध्र प्रदेश एक्सप्रेस, लेकिन यह ट्रेन राज्य और राष्ट्रीय राजधानी को आपस में नहीं जोड़ता है।
+
+जबलपुर-चांदाफोर्ट इंटरसिटी सुपरफास्ट एक्सप्रेस
+
+बिलासपुर-एम.जी.आर.चेन्नई सुपरफास्ट एक्सप्रेस
+
+गया-एम.जी.आर.चेन्नई एग्मोर सुपरफास्ट एक्सप्रेस
+
+कोरबा-यशवंतपुर वैनगंगा सुपरफास्ट एक्सप्रेस
+
+वर्तमान में, 11039/11040 महाराष्ट्र एक्सप्रेस 1 एसी 2 टियर, 1 एसी 3 टियर, 8 स्लीपर क्लास व 5 सामान्य अनारक्षित डिब्बों की है। जैसा की भारत में सभी ट्रेन सेवाओं के साथ होता हैं कि कोचो मे फेरबदल उनकी मांग के आधार पर भारतीय रेल के विवेकाधीन होता है।",,,,
+fab-100x-20261114T224309Z-017,20,0884423b33b1cf609fc5a799,98673917cb709ae850c1d6a5cfa3c5f2,fab-100x,id,general_knowledge,aya-dataset,human_authored,"[user] Dalam sejarah orde baru, apa itu peristiwa Malari?","Malari adalah singkatan dari Malapetaka 15 Januari 1974. Malapetaka ini terjadi ketika para mahasiswa di tahun itu melakukan demonstrasi ketika Perdana Menteri Jepang Tanaka Kakuei berkunjung ke Indonesia. Kakuei disambut oleh demonstrasi mahasiswa pada 14 Januari di bandara Halim Perdanakusuma. Karena penjagaan yang ketat, aksi mahasiswa dapat diredam. Keesokan harinya, mahasiswa kembali melakukan demonstrasi. Mahasiswa memprotes penanaman modal asing yang hanya dinikmati oleh segelintir orang, agenda pemberantasan korupsi yang terhambat, tingginya harga kebutuhan pokok, dan menuntut pembubaran lembaga Asisten Penasehat Pribadi (ASPRI) presiden . Di sore hari, demonstrasi berakhir dengan kerusuhan, yang dimulai dari Jalan Sudirman, hingga meluas ke Senen. Kerusuhan ini diperparah dengan penjarahan dan pembakaran pusat perbelanjaan. Mahasiswa menolak bahwa mereka dalang di balik kerusuhan tersebut dan menduga bahwa aksi demonstrasi mahasiswa ditunggangi. Sebanyak 11 orang meninggal dunia, 300 luka-luka, dan 144 bangunan rusak berat.",,,,
+fab-100x-20261114T224309Z-017,21,5259a07ea0ecd6e45ee69d8e,f57c261237712c967ec1c6630431e30d,fab-100x,id,islamic_studies,aya-dataset,human_authored,"[user] Menurut laporan tim non Yudisial Penyelesaian Pelanggaran HAM Berat terdapat 12 peristiwa pelanggaran HAM Berat di Indonesia. Kedua belas pelanggaran tersebut terjadi pada
+1. peristiwa 1965-1966
+2. penembakan misterius
+3. peristiwa Talangsari, Lampung 1989
+4. peristiwa Rumoh Geudong dan Pos Sattis di Aceh 1989
+5. peristiwa Penghilangan Orang Secara Paksa Tahun 1997-1998
+6. peristiwa Kerusuhan Mei 1998
+7. peristiwa Trisakti dan Semanggi 1 dan 2 tahun 1998 dan 1999
+8. peristiwa Pembunuhan Dukun Santet 1998-1999
+9. peristiwa Simpang KKA di Aceh tahun 1999
+10. peristiwa Wasior di Papua 2001-2002
+11. peristiwa Wamena Papua tahun 2003
+12. peristiwa Jambo Keupok di Aceh tahun 2003
+
+Dari kedua belas peristiwa ini, jelaskan apa itu peristiwa Talangsari, Lampung 1989!","Peristiwa Talangsari 1989 merupakan salah satu kasus pelanggaran HAM berat masa lalu yang terjadi pada 7 Februari 1989 di dusun Talangsari III, Rajabasa Lama, Way Jepara, Lampung Timur. Konflik antara aparat negara dan masyarakat sipil ini terjadi sebagai konsekuensi dari pengawasan terhadap penerapan asas tunggal Pancasila pada pemerintahan Orde Baru. Dalam pengawasan, kelompok-kelompok yang melakukan aktivitas yang dianggap tidak pancasilais akan segera ditindak oleh aparat. Salah satu kelompok yang diawasi adalah mereka yang dicap Islamis oleh pemerintah. Pada 1 Februari 1989, seorang Camat Way Jepara Zulkifli Malik melaporkan kepada Komandan Koramil (Danramil) Way Jepara, Kapten Soetiman, bahwa di daerahnya ada tindakan sekelompok warga yang dianggap mencurigakan. Kelompok yang dimaksudkan adalah kelompok pengajian eksklusif bernama Komando Mujahidin Fisabilillah yang dipimpin oleh Warsidi. Ingin mengklarifikasi laporan tersebut, Musyawarah Pimpinan Kecamatan (MUSPIKA) yang dipimpin oleh Kapten Soetiman berangkat ke kediaman Warsidi. Namun, sebelumnya Warsidi dan kelompoknya telah diintai oleh bawahan Soetiman. Pada pukul 23.00 5 Februari 1989 para pengintai bahkan menculik beberapa pengikut Warsidi yang membuat kelompok tersebut bersikap waspada dan mengadakan rapat. Keesokan harinya, pada 6 Februari 1989, rombongan MUSPIKA berjumlah 20 orang yang hendak menemui kelompok Warsidi segera disambut dengan panah dan perlawanan golok yang mengakibatkan tewasnya Kapten Soetiman. Tewasnya Kapten Soetiman membuat Danrem 043 Garuda Hitam Lampung Kolonel AM Hendropriyono kembali bergerak ke Cihideung, pusat gerakan, pada 7 Februari 1989 bersama 3 peleton tentara dan sekitar 40 anggota Brimob. Komisi Orang Hilang dan Tindakan Kekerasan (KontraS) melaporkan, pasukan yang dikomandoi Hendropriyono menyerang warga sipil dengan senjata modern M-16, bom pembakar (napalm), granat, dan dua buah helikopter. Menurut Komite Solidaritas Mahasiswa Lampung (Smalam), kedatangan pasukan ABRI ini mengakibatkan tewasnya 246 penduduk sipil, termasuk Warsidi sendiri. Mirisnya, dari yang meninggal hanya 47 korban yang dapat diidentifikasi jenazahnya. Selain itu, 88 orang lainnya dinyatakan hilang. Dalam investigasi KontraS disebutkan, seorang bocah pengikut kelompok Warsidi disuruh menyiram bensin ke arah pondok dan bangunan yang berisi 80-100 orang yang terdiri dari bayi, anak-anak, remaja, orang tua, dan ibu-ibu yang diantaranya sedang hamil. Dilaporkan, pembakaran itu  disertai dengan tembakan-tembakan yang keluar dari senapan pasukan ABRI untuk meredam suara teriakan warga. Sampai sekarang penyelesaian kasus HAM berat Talangsari masih belum diselesaikan secara tuntas.",,,,
+fab-100x-20261114T224309Z-017,22,40181f08b5acb51a8a4afbd9,d03820c1835b60efdea98d7d9837fef6,fab-100x,id,research,tydiqa-goldp,human_authored,"[user] Juliana menikah dengan Bernhard dari Lippe Biesterfeld, seorang bangsawan Jerman, pada tanggal 7 Januari 1937 dan mendapatkan empat anak Beatrix (1938), Irene (1939), Putri Margriet (1943), dan Marijke (1947) yang namanya kemudian diganti menjadi Christina.
+
+Kapan Ratu Juliana menikah?","7 Januari 1937
+
+Juliana menikah dengan Bernhard dari Lippe Biesterfeld, seorang bangsawan Jerman, pada tanggal 7 Januari 1937 dan mendapatkan empat anak Beatrix (1938), Irene (1939), Putri Margriet (1943), dan Marijke (1947) yang namanya kemudian diganti menjadi Christina.",,,,
+fab-100x-20261114T224309Z-017,23,a68809d2db4fbcefcc1fa824,00c09aea0ffa87281c63994baf430a91,fab-100x,it,general_knowledge,oasst1,human_authored,"[user] Il mio cane ha una zecca, cosa faccio?","Per rimuovere la zecca dal cane, puoi utilizzare una pinzetta o uno strumento specifico per la rimozione delle zecche, cercando di afferrare la zecca il più vicino possibile alla pelle del cane e tirando delicatamente in modo costante fino a quando la zecca non viene completamente rimossa. È importante assicurarsi di non schiacciare la zecca durante la rimozione, poiché ciò potrebbe provocare l'iniezione di saliva contenente batteri nell'animale. Dopo aver rimosso la zecca, è bene disinfettare la zona con un antisettico e tenere d'occhio il cane per eventuali segni di infezione o irritazione. In caso di incertezza o se la zecca non viene rimossa correttamente, è consigliabile consultare il veterinario.",,,,
+fab-100x-20261114T224309Z-017,24,51d6a7be9f273dfaa56c04c5,caae8b7728dbcf5109d4593a75ccd363,fab-100x,it,mathematics,oasst2,human_authored,[user] Sapresti spiegarmi il funzionamento del protocollo di sincronizzazione PTP?,"Il Precision Time Protocol, in sigla PTP, è un protocollo di livello applicativo utilizzato per la sincronizzazione di dispositivi industriali o di strumentazione di laboratorio all'interno di una rete a commutazione di pacchetto, quindi con tempi di latenza variabili ed inaffidabili.
+
+Rispetto al protocollo Network Time Protocol, permette di ottenere un'accuratezza di sincronizzazione maggiore (inferiore al microsecondo), utilizzando componenti hardware dedicati in reti locali (LAN).
+
+La caratteristica del PTP è quella di introdurre una marca temporale, a livello fisico, su tutti i pacchetti consentendo una distribuzione molto precisa dell'informazione relativa a data e ora, che viene ulteriormente corretta (dove serve) per tenere conto anche dei ritardi introdotti per esempio dall'elaborazione e transito attraverso nodi di rete intermedi in modo da garantire che il tempo di rete sia uguale e coerente ovunque entro limiti di precisione molto stringenti. Il protocollo, per poter funzionare al meglio, richiede anche che la rete sia sincronizzata su un riferimento in frequenza comune, utilizzando per questo scopo protocolli specifici come ad esempio la Synchronous Ethernet.
+
+Il protocollo trova larghissimo impiego in applicazioni di broadcasting, rete elettrica, smart grid e telecomunicazioni e viene richiesto sempre di più nell'ambito della finanza e del high-frequency trading in seguito alla normativa europea (Direttiva dell'Unione europea 2004/39/CE), entrata in vigore dal 3 gennaio 2018, che regolamenta e disciplina i mercati finanziari all'interno dell'Unione Europea e richiede una precisione di 100 µs.",,,,
+fab-100x-20261114T224309Z-017,25,377ddd8801532e5da4ede900,4c27caabbbf27561f16ed66796a2e96a,fab-100x,ja,general_knowledge,aya-dataset,human_authored,"[user] 文章からキーワードを選び、その解釈を述べなさい。 
+岸田総理大臣は21日、ウクライナの首都キーウに行って、ゼレンスキー大統領と会いました。ロシアの攻撃で、大勢の市民が亡くなったブチャにも行きました。
+岸田総理大臣は「キーウとブチャを見て、ロシアの攻撃は世界のルールを壊すひどいことだと強く思いました」と話しました。
+そして、日本はこれからもウクライナを助けるためにお金を出すと言いました。岸田総理大臣は「美しいウクライナに平和が戻るまで、日本はウクライナを助けます」と言いました。
+ゼレンスキー大統領は「ロシアが地面に埋めた爆弾をなくすことや、壊れたまちを前のように戻すことができるように、日本に手伝ってほしいです」と話しました。そして、5月に日本の広島で開く「G7サミット」にオンラインで出席すると言いました。","この文章に含まれるキーワードとその解釈は以下です。
+- 総理大臣: 1）内閣総理大臣のこと。内閣の最高責任者で、国会議員の中から議員が選び、天皇によって任命される。首相。総理。
+- 首都: 1）その国の議会や中心になる役所のある都市。日本の東京、アメリカのワシントンなど。首府。
+- 大統領: 1）共和国で、その国を代表する人。
+- 攻撃: 1）相手を攻めること。2）人の欠点や誤りを責めること。
+- ルール: 1）規則。決まり。
+- 助ける: 1）危ないことや苦しいことから救う。2）力を貸す。手伝う。
+- 平和: 1）おだやかで、無事なこと。2）戦争がなく、世の中が無事に治まっていること。
+- 助け: 1）土地の表面。土の上。地上。地べた。2）土地。地所。
+- 地面: 1）穴をほって物を入れ、土や砂をかぶせる。2）ふさいで平らにする。3）すき間なく、いっぱいにする。4）お湯に水を入れて、ぬるくする。5）足りない分を補う。
+- 埋め: 1）中に火薬をつめて、投げたり落としたりして爆発させる兵器。2）人をおどろかせたり、混乱させたりすることのたとえ。
+- 爆弾: 1）元に返す。2）胃の中のものをはく。
+- 戻す: 1）コンピューターが回線でつながって、通信できる状態になっていること。2）テニスなどで、ボールがライン上に落ち、セーフとなること。",,,,
+fab-100x-20261114T224309Z-017,26,cb677227edfd776ba854f585,2abd5c454f696f6926d9c16802154729,fab-100x,ko,general_knowledge,wikipedia-ko,templated_human,[user] 세기말의 시에 대해 간단히 소개해 주세요.,"《세기말의 시》()는 1998년 10월 14일부터 같은 해 12월 23일까지 NTV에서 수요드라마 시간대에 방송된 텔레비전 드라마이다. 총11화이며, 각화가 1화에 완결되는 이야기 구조이다. 최종화는 2시간 스페셜(22:00 - 23:54)로 방송됐다.
+
+27세. 결혼식 날 신부에게 버림받은 충격으로 옥상에 올라가 자살을 시도하다 모모세 교수를 만난다 순수하고 마음씨 착한 청년.모모세 교수를 따라 낯선 곳으로 와 그와 함께 잠수함을 만드는 일을 하고 있다
+
+54세. 대학원 교수. 학장선거에서 한 표 차이로 떨어졌는데 역시 그 충격으로 옥상으로 올라가 자살을 시도하다 건너편에서 자살을 하려던 노아와 만나게 된다 세속적이고 여자를 밝히지만 세상과 동떨어져 꿈을 이루려는 몽상가이기도 하다 철학적이고 깊은 통찰력을 갖고있다
+
+이름도 나이도 불분명.행동 자체도 어리숙하다 순수한 듯하지만 속은 알 수가 없다 모모세교수와 노아를 엮어준 장본인.
+
+23세. 초등학교 교사. 귀가를 늦는 아이들을 걱정하여 뒤따라 갔다가 잠수함을 만드는 모모세교수와 노아를 만나게 된다 그들의 독특한 삶의 방식에 처음에는 회의적이었지만 차츰 이해하게 된다 노아의 사랑을 받고있지만 결혼을 앞두고있다.
+
+16세.모모세와 전처 사이에서 낳은 외동딸. 아버지와 어머니 사이가 다시 되돌아오길 바란다 아버지를 무척 따르는데 그를 만나러 왔다가 노아를 보고 좋아하게 된다
+
+17세. 6명의 동생들을 데리고 사는 소녀가장.매번 노아의 아이스크림을 동생들에게 주기위해 노아와 실랑이를 벌인다 굉장히 순수하고 어린아이같은 면이 있다
+
+1화 모모세 나츠오는 공대 교수인데 학장 선거에서 떨어지고 자살을 시도한다. 일류기업 사원이던 노아 와타루는 영화 졸업에서처럼 결혼식장에서 신부를 도둑맞고 자살을 시도한다. 그 둘사이에 바보인지 요정인지 모를 미아가 나타나 두 남자는 자살을 포기한다.이렇게 해서 셋이 함께 창고에서 살게된다.  모모세 교수는 창고에서 조그만 노란 잠수함을 만들고 노아도 이를 돕는데. 한편 근처 초등학교 여선생인 하시바 사토미와도 안면을 익히게 된다.
+
+그러던 중 노아는 동네 다리에서 아름다운 소녀 스미레를 만나게 되는데.....
+
+이들은 이후 매 화마다 이런 저런 사람을 만나며 진실한 사랑의 의미를 찾아나가게 된다.
+
+2화 노아는 생활비를 벌기 위해 고물승합차에 아이스크림을 싣고 팔러 다닌다. 하마터면 아름다운 여인을 칠 뻔하고 창고로 데려온다. 이 여인은 눈이 보이지 않는 히토나 쿄코였다. 그녀는 남자친구가 데리러 올 거라면서 조명탄 같은 폭죽을 발사하게 하는데....얼마나 사랑하는 남자길래 하늘에 조명탄이 터지면 찾아온다는 것일까...",,,,
+fab-100x-20261114T224309Z-017,27,9cc31b6763db6f96e15a7ac2,e7508395b96d270791f74c979b80d454,fab-100x,ko,research,tydiqa-goldp,human_authored,"[user] 행정권은 내각총리대신을 장으로 하는 내각에 속하며 내각은 행정권의 행사와 아울러 국회에 책임을 진다.[26] 내각은 내각총리대신과 이하 내각총리대신이 임명권을 가지는 국무대신으로 조직되어 행정권의 행사에 대하여 공동 책임을 진다.[22]:531 내각은 행정 사무 이외에 법률 집행, 외교 관계의 처리, 조약 체결, 예산 작성, 정령(政令) 지정을 비롯한 하급 입법 등의 업무를 수행하며[22]:531, 그러한 수행 상의 부담을 나누기 위해 국무대신들을 책임자로 하는 12성(省)을 갖추고 있다.[22]:531
+
+일본에는 총 몇개의 성이 있나요?","12
+
+행정권은 내각총리대신을 장으로 하는 내각에 속하며 내각은 행정권의 행사와 아울러 국회에 책임을 진다.[26] 내각은 내각총리대신과 이하 내각총리대신이 임명권을 가지는 국무대신으로 조직되어 행정권의 행사에 대하여 공동 책임을 진다.[22]:531 내각은 행정 사무 이외에 법률 집행, 외교 관계의 처리, 조약 체결, 예산 작성, 정령(政令) 지정을 비롯한 하급 입법 등의 업무를 수행하며[22]:531, 그러한 수행 상의 부담을 나누기 위해 국무대신들을 책임자로 하는 12성(省)을 갖추고 있다.[22]:531",,,,
+fab-100x-20261114T224309Z-017,28,38778785f767ecfe8ea3c3e4,a8d3f0236c4fda47c12c7b3bfeec8417,fab-100x,nl,general_knowledge,oasst2,human_authored,"[user] Hoe noemen we een moeilijke zin zoals ""De kat krabt de krollen van de trap""?
+
+[assistant] Dit is een goed voorbeeld van een tongbreker.
+
+[user] Waarom heten deze soort zinnen tongbrekers? En kan je meerdere voorbeelden van zulke tongbrekers geven?","Omdat een mens bij het spreken de tong beweegt, wordt voor deze moeilijk uit te spreken zinnen als grap gezegd dat ze de tong als het ware breken.
+
+Voorbeelden van tongbrekers zijn:
+
+* De kok snijdt scheef, maar de knecht snijdt recht.
+* De knappe knecht van de knappe kapper knipt en kapt nog knapper dan de knappe kapper knipt en kapt.
+* Moeder snijdt zeven scheve sneden brood.",,,,
+fab-100x-20261114T224309Z-017,29,f6b101f00faf9261d6e3d607,ce52d77fa1b33041c1c23c1ee5c83993,fab-100x,pa,general_knowledge,aya-dataset,human_authored,"[user] ਸਲੋਕ ਮਃ ੩ ॥ ਆਤਮਾ ਦੇਉ ਪੂਜੀਐ ਗੁਰ ਕੈ ਸਹਜਿ ਸੁਭਾਇ ॥ ਆਤਮੇ ਨੋ ਆਤਮੇ ਦੀ ਪ੍ਰਤੀਤਿ ਹੋਇ ਤਾ ਘਰ ਹੀ ਪਰਚਾ ਪਾਇ ॥ ਆਤਮਾ ਅਡੋਲੁ ਨ ਡੋਲਈ ਗੁਰ ਕੈ ਭਾਇ ਸੁਭਾਇ ॥ ਗੁਰ ਵਿਣੁ ਸਹਜੁ ਨ ਆਵਈ ਲੋਭੁ ਮੈਲੁ ਨ ਵਿਚਹੁ ਜਾਇ ॥ ਖਿਨੁ ਪਲੁ ਹਰਿ ਨਾਮੁ ਮਨਿ ਵਸੈ ਸਭ ਅਠਸਠਿ ਤੀਰਥ ਨਾਇ ॥ ਸਚੇ ਮੈਲੁ ਨ ਲਗਈ ਮਲੁ ਲਾਗੈ ਦੂਜੈ ਭਾਇ ॥ ਧੋਤੀ ਮੂਲਿ ਨ ਉਤਰੈ ਜੇ ਅਠਸਠਿ ਤੀਰਥ ਨਾਇ ॥ ਮਨਮੁਖ ਕਰਮ ਕਰੇ ਅਹੰਕਾਰੀ ਸਭੁ ਦੁਖੋ ਦੁਖੁ ਕਮਾਇ ॥ ਨਾਨਕ ਮੈਲਾ ਊਜਲੁ ਤਾ ਥੀਐ ਜਾ ਸਤਿਗੁਰ ਮਾਹਿ ਸਮਾਇ ॥੧॥ 
+ਮਃ ੩ ॥ ਮਨਮੁਖੁ ਲੋਕੁ ਸਮਝਾਈਐ ਕਦਹੁ ਸਮਝਾਇਆ ਜਾਇ ॥ ਮਨਮੁਖੁ ਰਲਾਇਆ ਨਾ ਰਲੈ ਪਇਐ ਕਿਰਤਿ ਫਿਰਾਇ ॥ ਲਿਵ ਧਾਤੁ ਦੁਇ ਰਾਹ ਹੈ ਹੁਕਮੀ ਕਾਰ ਕਮਾਇ ॥ ਗੁਰਮੁਖਿ ਆਪਣਾ ਮਨੁ ਮਾਰਿਆ ਸਬਦਿ ਕਸਵਟੀ ਲਾਇ ॥ ਮਨ ਹੀ ਨਾਲਿ ਝਗੜਾ ਮਨ ਹੀ ਨਾਲਿ ਸਥ ਮਨ ਹੀ ਮੰਝਿ ਸਮਾਇ ॥ ਮਨੁ ਜੋ ਇਛੇ ਸੋ ਲਹੈ ਸਚੈ ਸਬਦਿ ਸੁਭਾਇ ॥ ਅੰਮ੍ਰਿਤ ਨਾਮੁ ਸਦ ਭੁੰਚੀਐ ਗੁਰਮੁਖਿ ਕਾਰ ਕਮਾਇ ॥ ਵਿਣੁ ਮਨੈ ਜਿ ਹੋਰੀ ਨਾਲਿ ਲੁਝਣਾ ਜਾਸੀ ਜਨਮੁ ਗਵਾਇ ॥ ਮਨਮੁਖੀ ਮਨਹਠਿ ਹਾਰਿਆ ਕੂੜੁ ਕੁਸਤੁ ਕਮਾਇ ॥ ਗੁਰ ਪਰਸਾਦੀ ਮਨੁ ਜਿਣੈ ਹਰਿ ਸੇਤੀ ਲਿਵ ਲਾਇ ॥ ਨਾਨਕ ਗੁਰਮੁਖਿ ਸਚੁ ਕਮਾਵੈ ਮਨਮੁਖਿ ਆਵੈ ਜਾਇ ॥੨॥ 
+ਪਉੜੀ ॥ ਹਰਿ ਕੇ ਸੰਤ ਸੁਣਹੁ ਜਨ ਭਾਈ ਹਰਿ ਸਤਿਗੁਰ ਕੀ ਇਕ ਸਾਖੀ ॥ ਜਿਸੁ ਧੁਰਿ ਭਾਗੁ ਹੋਵੈ ਮੁਖਿ ਮਸਤਕਿ ਤਿਨਿ ਜਨਿ ਲੈ ਹਿਰਦੈ ਰਾਖੀ ॥ ਹਰਿ ਅੰਮ੍ਰਿਤ ਕਥਾ ਸਰੇਸਟ ਊਤਮ ਗੁਰ ਬਚਨੀ ਸਹਜੇ ਚਾਖੀ ॥ ਤਹ ਭਇਆ ਪ੍ਰਗਾਸੁ ਮਿਟਿਆ ਅੰਧਿਆਰਾ ਜਿਉ ਸੂਰਜ ਰੈਣਿ ਕਿਰਾਖੀ ॥ ਅਦਿਸਟੁ ਅਗੋਚਰੁ ਅਲਖੁ ਨਿਰੰਜਨੁ ਸੋ ਦੇਖਿਆ ਗੁਰਮੁਖਿ ਆਖੀ ॥੧੨॥","ਗੁਰੂ ਦੀ ਮਤਿ ਲੈ ਕੇ ਤੇ ਗੁਰੂ ਦੇ ਸੁਭਾਉ ਵਿਚ (ਆਪਣਾ ਸੁਭਾਉ ਲੀਨ ਕਰ ਕੇ) ਜੀਵ-ਆਤਮਾ ਦਾ ਪ੍ਰਕਾਸ਼ ਕਰਨ ਵਾਲੇ (ਹਰੀ) ਦੀ ਸਿਫ਼ਤਿ-ਸਾਲਾਹ ਕਰਨੀ ਚਾਹੀਦੀ ਹੈ। (ਇਸ ਤਰ੍ਹਾਂ) ਜਦੋਂ ਜੀਵ ਨੂੰ ਪ੍ਰਭੂ (ਦੀ ਹੋਂਦ ਤੇ) ਸਿਦਕ ਬੱਝ ਜਾਵੇ, ਤਾਂ ਹਿਰਦੇ ਵਿਚ ਹੀ (ਪ੍ਰਭੂ ਨਾਲ) ਪਿਆਰ ਬਣ ਜਾਂਦਾ ਹੈ (ਤੇ ਤੀਰਥ ਆਦਿਕਾਂ ਤੇ ਜਾਣ ਦੀ ਲੋੜ ਨਹੀਂ ਰਹਿੰਦੀ) , ਕਿਉਂਕਿ ਸਤਿਗੁਰੂ ਦੇ ਪਿਆਰ ਵਿਚ ਤੇ ਸੁਭਾਉ ਵਿਚ (ਵਰਤਿਆਂ) ਜੀਵਾਤਮਾ (ਮਾਇਆਂ ਵਲੋਂ) ਅਹਿੱਲ ਹੋ ਕੇ ਡੋਲਣੋਂ ਹਟ ਜਾਂਦਾ ਹੈ। ਸਤਿਗੁਰੂ ਤੋਂ ਬਿਨਾ ਅਡੋਲ ਅਵਸਥਾ ਨਹੀਂ ਆਉਂਦੀ, ਤੇ ਨਾਹ ਹੀ ਮਨ ਵਿਚੋਂ ਲੋਭ-ਮੈਲ ਦੂਰ ਹੁੰਦੀ ਹੈ। ਜੇ ਇਕ ਪਲਕ ਭਰ ਭੀ ਪ੍ਰਭੂ ਦਾ ਨਾਮ ਮਨ ਵਿਚ ਵੱਸ ਜਾਏ (ਭਾਵ, ਜੇ ਜੀਵ ਇਕ ਮਨ ਇਕ ਪਲਕ ਭਰ ਭੀ ਨਾਮ ਜਪ ਸਕੇ) ਤਾਂ, ਮਾਨੋ, ਅਠਾਹਠ ਤੀਰਥਾਂ ਦਾ ਇਸ਼ਨਾਨ ਕਰ ਲੈਂਦਾ ਹੈ, (ਕਿਉਂਕਿ) ਸੱਚੇ ਵਿਚ ਜੁੜੇ ਹੋਏ ਨੂੰ ਮੈਲ ਨਹੀਂ ਲਗਦੀ, ਮੈਲ਼ (ਸਦਾ) ਮਾਇਆ ਦੇ ਪਿਆਰ ਵਿਚ ਲੱਗਦੀ ਹੈ, ਤੇ ਉਹ ਮੈਲ ਕਦੇ ਭੀ ਧੋਤਿਆਂ ਨਹੀਂ ਉਤਰਦੀ, ਭਾਵੇਂ ਅਠਾਹਠ ਤੀਰਥਾਂ ਦੇ ਇਸ਼ਨਾਨ ਪਏ ਕਰੀਏ। (ਕਾਰਨ ਇਹ ਹੁੰਦਾ ਹੈ ਕਿ) ਮਨੁੱਖ (ਗੁਰੂ ਵਲੋਂ) ਮਨਮੁਖ (ਹੋ ਕੇ) ਅਹੰਕਾਰ ਦੇ ਆਸਰੇ (ਤੀਰਥ-ਇਸ਼ਨਾਨ ਆਦਿਕ) ਕਰਮ ਕਰਦਾ ਹੈ, ਤੇ ਦੁੱਖ ਹੀ ਦੁੱਖ ਸਹੇੜਦਾ ਹੈ। ਹੇ ਨਾਨਕ! ਮੈਲਾ (ਮਨ) ਤਦੋਂ ਹੀ ਪਵਿਤ੍ਰ ਹੁੰਦਾ ਹੈ, ਜੇ (ਜੀਵ) ਸਤਿਗੁਰੂ ਵਿਚ ਲੀਨ ਹੋ ਜਾਵੇ (ਭਾਵ, ਆਪਾ-ਭਾਵ ਮਿਟਾ ਦੇਵੇ) ।1।
+ਜੋ ਮਨੁੱਖ ਸਤਿਗੁਰੂ ਵਲੋਂ ਮੁਖ ਮੋੜੀ ਬੈਠਾ ਹੈ, ਉਹ ਸਮਝਾਇਆਂ ਭੀ ਕਦੇ ਨਹੀਂ ਸਮਝਦਾ, ਜੇ ਉਸ ਨੂੰ (ਗੁਰਮੁਖਾਂ ਦੇ ਵਿਚ) ਰਲਾ ਭੀ ਦੇਵੀਏ, ਤਾਂ ਭੀ (ਸੁਭਾਵ ਕਰਕੇ) ਉਹਨਾਂ ਨਾਲ ਨਹੀਂ ਰਲਦਾ ਤੇ (ਪਿਛਲੇ ਕੀਤੇ) ਸਿਰ ਪਏ ਕਰਮਾਂ ਅਨੁਸਾਰ ਭਟਕਦਾ ਫਿਰਦਾ ਹੈ। (ਉਸ ਵਿਚਾਰੇ ਉਤੇ ਭੀ ਕੀਹ ਰੋਸ? (ਸੰਸਾਰ ਵਿਚ) ਰਸਤੇ ਹੀ ਦੋ ਹਨ (ਹਰੀ ਨਾਲ) ਪਿਆਰ ਤੇ (ਮਾਇਆ ਨਾਲ) ਪਿਆਰ; (ਤੇ ਮਨਮੁਖ) ਪ੍ਰਭੂ ਦੇ ਹੁਕਮ ਵਿਚ (ਹੀ) (ਮਾਇਆ ਵਾਲੀ) ਕਾਰ ਪਿਆ ਕਰਦਾ ਹੈ। (ਦੂਜੇ ਪਾਸੇ, ਹੁਕਮ ਵਿਚ ਹੀ) ਗੁਰਮੁਖ ਮਨੁੱਖ ਸਤਿਗੁਰੂ ਦੇ ਸ਼ਬਦ ਦੀ ਰਾਹੀਂ ਕਸਵੱਟੀ ਲਾ ਕੇ (ਭਾਵ, ਪਰਖ ਕਰ ਕੇ) ਆਪਣੇ ਮਨ ਨੂੰ ਮਾਰ ਲੈਂਦਾ ਹੈ (ਭਾਵ, ਮਾਇਆ ਦੇ ਪਿਆਰ ਵਲੋਂ ਰੋਕ ਲੈਂਦਾ ਹੈ) । ਉਹ ਸਦਾ ਮਨ (ਦੀ ਵਿਕਾਰ-ਬਿਰਤੀ) ਨਾਲ ਝਗੜਾ ਕਰਦਾ ਹੈ, ਤੇ ਸੱਥ ਕਰਦਾ ਹੈ (ਭਾਵ, ਉਸ ਨੂੰ ਸਮਝਾਉਂਦਾ ਹੈ, ਤੇ ਅੰਤ ਇਸ ਵਿਕਾਰ-ਬਿਰਤੀ ਨੂੰ) ਮਨ (ਦੀ ਸ਼ੁਭ-ਬਿਰਤੀ) ਵਿਚ ਲੀਨ ਕਰ ਦੇਂਦਾ ਹੈ। (ਇਸ ਤਰ੍ਹਾਂ ਸਤਿਗੁਰੂ ਦੇ) ਸੁਭਾਉ ਵਿਚ (ਆਪਾ ਲੀਨ ਕਰਨ ਵਾਲਾ) ਮਨ ਜੋ ਇੱਛਾ ਕਰਦਾ ਹੈ ਸੋ ਲੈਂਦਾ ਹੈ। (ਹੇ ਭਾਈ!) ਗੁਰਮੁਖਾਂ ਵਾਲੀ ਕਾਰ ਕਰ ਕੇ ਸਦਾ ਨਾਮ-ਅੰਮ੍ਰਿਤ ਪੀਵੀਏ। ਮਨ ਨੂੰ ਛੱਡ ਕੇ ਜੋ ਜੀਵ (ਸਰੀਰ ਆਦਿਕ) ਹੋਰ ਨਾਲ ਝਗੜਾ ਪਾਂਦਾ ਹੈ, ਉਹ ਜਨਮ ਬਿਰਥਾ ਗਵਾਂਦਾ ਹੈ। ਮਨਮੁਖ ਮਨ ਦੇ ਹਠ ਵਿਚ (ਬਾਜ਼ੀ) ਹਾਰ ਜਾਂਦਾ ਹੈ, ਤੇ ਕੂੜ-ਕੁਸੱਤ (ਦੀ ਕਮਾਈ) ਕਰਦਾ ਹੈ। ਹੇ ਨਾਨਕ! ਗੁਰਮੁਖ ਸਤਿਗੁਰੂ ਦੀ ਕਿਰਪਾ ਨਾਲ ਮਨ ਨੂੰ ਜਿੱਤਦਾ ਹੈ, ਪ੍ਰਭੂ ਨਾਲ ਪਿਆਰ ਜੋੜਦਾ ਹੈ ਤੇ ਸਦਾ-ਥਿਰ ਹਰਿ-ਨਾਮ ਸਿਮਰਨ ਦੀ ਕਮਾਈ ਕਰਦਾ ਹੈ। (ਪਰ,) ਮਨਮੁਖ ਭਟਕਦਾ ਫਿਰਦਾ ਹੈ।2।
+ਹੇ ਹਰੀ ਦੇ ਸੰਤ ਜਨ ਪਿਆਰਿਓ! ਆਪਣੇ ਸਤਿਗੁਰੂ ਦੀ ਸਿੱਖਿਆ ਸੁਣੋ (ਭਾਵ, ਸਿੱਖਿਆ ਤੇ ਤੁਰੋ) । ਇਸ ਸਿੱਖਿਆ ਨੂੰ ਮਨੁੱਖ ਨੇ ਹਿਰਦੇ ਵਿਚ ਪਰੋ ਰੱਖਿਆ ਹੈ, ਜਿਸ ਦੇ ਮੱਥੇ ਉਤੇ ਧੁਰੋਂ ਹੀ ਭਾਗ ਹੋਵੇ। ਸਤਿਗੁਰੂ ਦੀ ਸਿੱਖਿਆ ਦੁਆਰਾ ਹੀ ਅਡੋਲ ਅਵਸਥਾ ਵਿਚ ਪਹੁੰਚ ਕੇ ਪ੍ਰਭੂ ਦੀ ਉੱਤਮ ਪਵਿਤਰ ਤੇ ਜੀਵਨ-ਕਣੀ ਬਖ਼ਸ਼ਣ ਵਾਲੀ ਸਿਫ਼ਤਿ-ਸਾਲਾਹ ਦਾ ਆਨੰਦ ਲਿਆ ਜਾ ਸਕਦਾ ਹੈ। (ਸਤਿਗੁਰੂ ਦੀ ਸਿੱਖਿਆ ਨੂੰ ਜੇਹੜਾ ਹਿਰਦਾ ਇਕ ਵਾਰੀ ਧਾਰਨ ਕਰਦਾ ਹੈ) ਉਸ ਵਿਚ (ਆਤਮਕ ਜੀਵਨ ਦਾ) ਚਾਨਣ ਹੋ ਜਾਂਦਾ ਹੈ ਤੇ (ਮਾਇਆ ਦਾ) ਹਨੇਰਾ ਇਉਂ ਦੂਰ ਹੁੰਦਾ ਹੈ ਜਿਵੇਂ ਸੂਰਜ ਰਾਤ (ਦੇ ਹਨੇਰੇ) ਨੂੰ ਖਿੱਚ ਲੈਂਦਾ ਹੈ। ਜੋ ਪ੍ਰਭੂ (ਇਹਨਾਂ ਅੱਖਾਂ ਨਾਲ) ਨਹੀਂ ਦਿੱਸਦਾ, ਇੰਦ੍ਰਿਆਂ ਦੇ ਵਿਸ਼ੇ ਤੋਂ ਪਰੇ ਹੈ ਤੇ ਅਲੱਖ ਹੈ ਉਹ ਸਤਿਗੁਰੂ ਦੇ ਸਨਮੁਖ ਹੋਣ ਕਰਕੇ ਅੱਖੀਂ ਦਿੱਸ ਪੈਂਦਾ ਹੈ।12।",,,,
+fab-100x-20261114T224309Z-017,30,43890dcc8208572693d0c7d7,016d48a121c727d2cfc99f2216940601,fab-100x,pl,general_knowledge,oasst1,human_authored,"[user] Piszę opowiadanie w którym występuje nekromanta. Opisz, jak wyglądaliby martwi po wskrzeszeniu przez nekromantę.","Martwi, którzy zostali wskrzeszeni przez nekromantę prezentują się okropnie. Skóra jest blada i cienka, a czasami pokryta pleśnią i gnijącymi ranami. Oczy są często bez życia i pozbawione blasku. Często są one nieruchome i wpatrzone w jedno miejsce. Usta są zaciśnięte, a zęby wystają spoza nich.
+
+Ruchy martwych są nieskoordynowane i nieprecyzyjne, co sugeruje, że są one zmuszone do działania przez siłę nekromanty, zamiast wynikać z ich własnej woli. Często wyglądają jakby poruszali się w zwolnionym tempie, jakby ich ciała były ciężkie i oporne. W tle można usłyszeć charakterystyczne trzaskanie i trzaskanie kości, które sugerują, że ich ciała są już w stanie rozkładu.",,,,
+fab-100x-20261114T224309Z-017,31,3d92164e57592445744655a7,8e74e36e7b46920aba96fe2cd11b4125,fab-100x,pl,science,aya-dataset,human_authored,[user] Jakie są najważniejsze polskie tradycje wigilijne?,"Najważniejsze polskie tradycje świąteczne to:
+- Ubieranie choinki: Choinka jest nieodłącznym elementem polskich świąt Bożego Narodzenia. Jest ozdabiana gwiazdą, bombkami, łańcuchami i światełkami.
+- Łamanie się opłatkiem: To symboliczne działanie, podczas którego rodzina dzieli się opłatkiem, składa sobie życzenia i pojednanie.
+- 12 potraw wigilijnych: Tradycyjnie podawane są potrawy bezmięsne, symbolizujące 12 apostołów, takie jak barszcz, pierogi, kapusta z grochem, czy kompot z suszu.
+- Pasterka: To uroczysta msza święta Bożego Narodzenia, odprawiana o północy, upamiętniająca narodzenie Jezusa.
+- Dodatkowe nakrycie przy wigilijnym stole: Symbolizuje zaproszenie dla osoby samotnej lub wędrowca, który może zapukać do drzwi.
+- Prezenty: Tradycyjnie prezenty są dawane w wigilijny wieczór, po zakończeniu kolacji.
+Powyższe zwyczaje są istotną częścią polskich świąt Bożego Narodzenia, kultywowaną przez wiele rodzin na terenie całego kraju",,,,
+fab-100x-20261114T224309Z-017,32,bffd8e926ead4637d2c03a2a,c35db815a590c4a4091c38a4728bf871,fab-100x,pt,general_knowledge,aya-dataset,human_authored,[user] Descreva a bandeira da Irlanda.,"A bandeira da Irlanda, também conhecida como Tricolor Irlandesa, é composta por três faixas verticais de igual largura. A faixa da esquerda é verde, a faixa do meio é branca, e a faixa da direita é laranja. As cores têm significados históricos e culturais, com o verde representando a maioria católica, o laranja representando a minoria protestante e a branca simbolizando a paz e a união entre essas comunidades.",,,,
+fab-100x-20261114T224309Z-017,33,a51007483bc1a5f9d27a1b67,001dca09a5c48f0de3295ce1a6d1a294,fab-100x,pt,mathematics,nemotron-math,synthetic,[user] Find \(\lim_{x \to 0} \frac{\arctan (\sin (\tan (\arcsin (\arctan x)))) - \tan (\arcsin (\arctan (\sin (\tan x))))}{\tan (\sin (\arctan (\arcsin (\tan x)))) - \arctan (\arcsin (\tan (\sin (\arctan x))))}\).,"The limit is evaluated as \(x\) approaches 0. The expression involves nested trigonometric and inverse trigonometric functions, and as \(x \to 0\), all components approach 0, resulting in an indeterminate form \(0/0\).
+
+Using Taylor series expansions around 0:
+
+- \(\arctan y \approx y - \frac{y^3}{3} + O(y^5)\)
+- \(\arcsin y \approx y + \frac{y^3}{6} + O(y^5)\)
+- \(\sin y \approx y - \frac{y^3}{6} + O(y^5)\)
+- \(\tan y \approx y + \frac{y^3}{3} + O(y^5)\)
+
+Define the components:
+
+- \(A = \arctan(\sin(\tan(\arcsin(\arctan x))))\)
+- \(B = \tan(\arcsin(\arctan(\sin(\tan x))))\)
+- \(C = \tan(\sin(\arctan(\arcsin(\tan x))))\)
+- \(D = \arctan(\arcsin(\tan(\sin(\arctan x))))\)
+
+The expression is \(\frac{A - B}{C - D}\).
+
+Expanding step by step:
+
+**For \(A\):**
+- \(\arctan x \approx x - \frac{x^3}{3} + O(x^5)\)
+- \(\arcsin(\arctan x) \approx x - \frac{x^3}{6} + O(x^5)\)
+- \(\tan(\arcsin(\arctan x)) \approx x + \frac{x^3}{6} + O(x^5)\)
+- \(\sin(\tan(\arcsin(\arctan x))) \approx x + O(x^5)\)
+- \(A = \arctan(\cdots) \approx x - \frac{x^3}{3} + O(x^5)\)
+
+**For \(B\):**
+- \(\tan x \approx x + \frac{x^3}{3} + O(x^5)\)
+- \(\sin(\tan x) \approx x + \frac{x^3}{6} + O(x^5)\)
+- \(\arctan(\sin(\tan x)) \approx x - \frac{x^3}{6} + O(x^5)\)
+- \(\arcsin(\arctan(\sin(\tan x))) \approx x + O(x^5)\)
+- \(B = \tan(\cdots) \approx x + \frac{x^3}{3} + O(x^5)\)
+
+**Numerator \(A - B\):**
+- \(A - B \approx \left(x - \frac{x^3}{3}\right) - \left(x + \frac{x^3}{3}\right) + O(x^5) = -\frac{2x^3}{3} + O(x^5)\)
+
+**For \(C\):**
+- \(\tan x \approx x + \frac{x^3}{3} + O(x^5)\)
+- \(\arcsin(\tan x) \approx x + \frac{x^3}{2} + O(x^5)\)
+- \(\arctan(\arcsin(\tan x)) \approx x + \frac{x^3}{6} + O(x^5)\)
+- \(\sin(\arctan(\arcsin(\tan x))) \approx x + O(x^5)\)
+- \(C = \tan(\cdots) \approx x + \frac{x^3}{3} + O(x^5)\)
+
+**For \(D\):**
+- \(\arctan x \approx x - \frac{x^3}{3} + O(x^5)\)
+- \(\sin(\arctan x) \approx x - \frac{x^3}{2} + O(x^5)\)
+- \(\tan(\sin(\arctan x)) \approx x - \frac{x^3}{6} + O(x^5)\)
+- \(\arcsin(\tan(\sin(\arctan x))) \approx x + O(x^5)\)
+- \(D = \arctan(\cdots) \approx x - \frac{x^3}{3} + O(x^5)\)
+
+**Denominator \(C - D\):**
+- \(C - D \approx \left(x + \frac{x^3}{3}\right) - \left(x - \frac{x^3}{3}\right) + O(x^5) = \frac{2x^3}{3} + O(x^5)\)
+
+**Ratio:**
+- \(\frac{A - B}{C - D} \approx \frac{-\frac{2x^3}{3} + O(x^5)}{\frac{2x^3}{3} + O(x^5)} = \frac{-\frac{2}{3} + O(x^2)}{\frac{2}{3} + O(x^2)} \to -1\) as \(x \to 0\)
+
+Numerical verification at \(x = 0.1\) yields a ratio of approximately \(-0.99955\), supporting the result.
+
+Thus, the limit is \(-1\).
+
+\boxed{-1}",,,,
+fab-100x-20261114T224309Z-017,34,4448226c91e4630873a0e7b4,c443ab3be7670aa1e2f3d5aa412b7c51,fab-100x,pt,reasoning,aya-dataset,human_authored,[user] Descreva a bandeira de Moçambique.,"A bandeira de Moçambique é dividida em três faixas horizontais de igual tamanho. A faixa superior é verde, a faixa do meio é preta e a faixa inferior é amarela. No canto superior esquerdo da faixa verde, há um fuzil com uma enxada, que simboliza a luta pela independência do país.",,,,
+fab-100x-20261114T224309Z-017,35,67c34dd826e74e176310f479,cf916f3564b41194b31631362ffb8966,fab-100x,pt,science,aya-dataset,human_authored,[user] O que caracteriza o signo de Touro?,"O signo de Touro é graficamente simbolizado pelos cornos do próprio touro, que representa a Lua Crescente com toda a sua fecundidade e fartura. Afinal, esse é o signo que exalta a materialidade, os recursos e a produtividade. Sendo o maior animal do zodíaco, Touro é a própria força física que resiste e cumpre com as mais árduas tarefas.
+
+Seu elemento solar é a Terra, universo da segurança e da razão. Os pés firmes no chão te permitem seguir com confiança e determinação. Entre as datas dos signos do Zodíaco, a data do signo de Touro é aproximadamente de 21 de abril a 20 de maio, mas isso pode mudar dependendo do seu ano de nascimento.
+
+Você é uma pessoa que prefere viver de acordo com a realidade da vida, já que a racionalidade te permite acessar a segurança que tanto valoriza. Aliás, é justamente esse pragmatismo que faz com que as suas realizações sejam sempre fruto de trabalhos cumpridos com responsabilidade, eficiência e, acima de tudo, satisfação.
+
+O desejo de desfrutar os inúmeros prazeres da vida é o que faz com que você se esforce para ter acesso à estabilidade financeira. Comer bem, cercar-se do que é belo, viver com conforto… Explorar os sentidos traz real motivação e contentamento aos seus dias.",,,,
+fab-100x-20261114T224309Z-017,36,a84b0518714c905e4e290068,33da85984115caec157c03cbcc5f7b5f,fab-100x,roman_ur,mathematics,approx-curriculum,programmatic,[user] Ek dukaan mein 435 aam thay. 76 bik gaye. Ab kitne baqi hain?,"Step 1: Yahan amal - hai.
+Step 2: 435 - 76 = 359.
+
+Jawab: 359 aam.",,,,
+fab-100x-20261114T224309Z-017,37,056ff7a359a0f8eb87c3cc14,66568624d37f2d70a6f27be28a06cf63,fab-100x,roman_ur,science,approx-curriculum,programmatic,[user] Ek gaari 4 ghanton mein 370 km chalti hai. Average speed kya hai?,"Average speed = faasla ÷ waqt = 370 ÷ 4 = 92.5 km/h.
+
+Jawab: 92.5 km/h",,,,
+fab-100x-20261114T224309Z-017,38,813da7e0e2c29de6301d4f5c,32f0e9d43288d13d329147aee6d88f1c,fab-100x,roman_ur,writing,roman-urdu-parl,transliteration_unverified,"[user] Is jumle ko Roman Urdu mein likhein:
+یہاں پاکستان میں حال یہ ہے کہ جس کو ٹیکہ لگانا آ جائے وہ ڈاکٹر ہو جاتا ہے اور کام کوئی آتا ہو یا نہ آتا ہو کسی بھی بیماری کے متعلق آپ ذکر کریں راہ چلتا ہر آدمی آپکو دوا تجویز کردے گا",yahan Pakistan mein haal ki hai ke jis ko ka lagana aa jaye woh dr ho jata hai aur kaam ki mein ho ya nah mein ho kisi bhi bemari ke mutaliq aap zikar karen raah chalta har aadmi aapko dawa tajweez kardey ga,,,,
+fab-100x-20261114T224309Z-017,39,2809a5f06dfb07d533956a4a,346017fceb9ed46aed7b2ef0a750fa69,fab-100x,ru,coding,oasst2,human_authored,"[user] Приведи примеры структур в C++
+
+[assistant] Структуры в C++ — это пользовательские типы данных, которые могут содержать данные-члены и функции-члены. Они похожи на классы, но по умолчанию имеют открытый доступ к своим членам. Структуры могут использоваться для хранения общедоступных данных или для представления сущностей. Примеры структур в C++:
+
+```cpp
+// Определение структуры person
+struct person {
+    unsigned age; // данные-член
+    std::string name; // данные-член
+    void print() { // функция-член
+        std::cout << ""Name: "" << name << ""\tAge: "" << age << std::endl;
+    }
+};
+
+// Создание и инициализация объекта структуры tom
+person tom { 34, ""Tom"" };
+
+// Обращение к членам структуры через операцию точка
+tom.print();
+std::cout << ""Name: "" << tom.name << ""\tAge: "" << tom.age << std::endl;
+```
+
+[user] Какие ещё отличия у структур от класса?","Отличий class от struct всего два
+
+Члены класса, определенного с помощью ключевого слова class, по умолчанию являются private. Члены класса, определенного с помощью ключевого слова struct или union, по умолчанию являются public.
+
+При отсутствии спецификатора доступа (т.е. private/protected/public) у базового класса, базовый класс будет public если класс определен с помощью struct и private если класс определен с помощью class.
+
+Есть популярное мнение, что для ""правильных ООП классов"" надо использовать только class, а для структур данных - только struct, и еще у struct не должно быть методов. Это не более чем вкусовщина, и подобные вещи должны быть закреплены в руководствах по стилю кодирования, как например это сделано в Google C++ Style Guide.
+
+В коротких примерах кода, предпочтительнее использовать struct, и не использовать private/public, если они не относятся к сути проблемы.",,,,
+fab-100x-20261114T224309Z-017,40,7e15714f3dba4f8bb814efa6,efa8f8c701cc2a7737360aa9b0e9b415,fab-100x,ru,general_knowledge,aya-dataset,human_authored,"[user] Заполните это утверждение: ""Космическая гонка"" это","напряжённое соперничество в области освоения космоса между СССР и США, в период с 1957 года по 1988 год. В число событий гонки в космосе входят запуски искусственных спутников, полёты в космос животных и человека, а также высадка на Луну. Побочный эффект Холодной войны. Термин получил на Западе своё название по аналогии с гонкой вооружений. ""Космическая гонка"" стала важной частью культурного, технологического и идеологического противостояния между СССР и США в период Холодной войны. Это было обусловлено тем, что космические исследования имели не только большое значение для научных и военных разработок, но и заметный пропагандистский эффект. Старт гонке был дан 4 октября 1957 года, когда Советским Союзом был запущен первый искусственный спутник Земли ""Спутник-1"". В ходе большой космической гонки СССР и США стали первыми и главными ""космическими державами:, способными выводить на орбиту спутники своими ракетами-носителями, и ""космическими сверхдержавами"", начавшими пилотируемые космические полёты.",,,,
+fab-100x-20261114T224309Z-017,41,90b27f4b81b6085b55b40873,be62d366d5646cbca39088633176e0fd,fab-100x,ru,mathematics,oasst2,human_authored,"[user] В городе 46% взрослого населения – мужчины. Пенсионеры составляют 7,7% взрослого населения, причём доля пенсионеров среди женщин равна 10%. Для социологического опроса выбран случайным образом мужчина, проживающий в этом городе. Найдите вероятность события «выбранный мужчина является пенсионером».
+
+[assistant] Прежде всего давайте выделим из условий существенную информацию. Поскольку в задаче речь идёт только о взрослом населении одного города, можно игнорировать слова «город» и «взрослый». Останутся следующие данные.
+
+- $46$ % населения — мужчины
+- $7.7$ % населения — пенсионеры
+- $10$ % женщин — пенсионеры
+- $x$ % мужчин — пенсионеры
+
+Поскольку людям проще работать с абсолютными величинами, чем с поцентами, предположим, что население составляет $1000$ человек (очевидно, что ответ не зависит от этого произвольного выбора). Тогда население включает:
+- $460$ мужчин и $540$ женщин;
+- $77$ пенсионеров;
+- $54$ женщины-пенсионера ($10$ % от $540$);
+- $23$ мужчины-пенсионера ($77 - 54$).
+
+Таким образом, из $460$ мужчин $23$ являются пенсионерами, что составляет $5$ %.
+
+Ответ: вероятность того, что случайно выбранный (взрослый) мужчина является пенсионером, составляет $5$ %.
+
+[user] Спасибо, довольно доходчиво вышло. А сильно усложнит решение, если не уходить от процентов?","Я также могу решить это в процентном формате. К примеру, возьмем те же 100% и вычтим из них, что 46% это мужчины а 54% это женщины. Также пенсионеры ,как было сказано в вашем условии, составляют 7.7% от 100, и 10% это женщины - пенсионеры. Теперь можно сделать следующие уравнение: (  7.7 - 5.4 = 2.3 ) - так мы узнали процент мужчин-пенсионеров.И следующие уравнение ( 100 / (46 / 2.3) = 5 ). Таким образом можно прийти к выводу что 5% являеться вероятность события «выбранный мужчина является пенсионером».",,,,
+fab-100x-20261114T224309Z-017,42,73ffc4061d4d9b45c3155de1,4e9df3280fc5fe77f8e19d6f9ab33fe4,fab-100x,ru,research,tydiqa-goldp,human_authored,"[user] В настоящее время в резерве ВМФ России находятся около 20 атомных и дизельных подлодок (31.07.2012)[50][51], эсминцы проекта 956[52], которые находятся в резерве, долгосрочном ремонте или консервации[53], а также, вероятно, большой противолодочный корабль Северного флота Адмирал Харламов, который находится в резерве с 2006 года.
+
+Сколько атомных подлодок во флоте России на март 2019?","20 атомных и дизельных подлодок (31.07.2012)
+
+В настоящее время в резерве ВМФ России находятся около 20 атомных и дизельных подлодок (31.07.2012)[50][51], эсминцы проекта 956[52], которые находятся в резерве, долгосрочном ремонте или консервации[53], а также, вероятно, большой противолодочный корабль Северного флота Адмирал Харламов, который находится в резерве с 2006 года.",,,,
+fab-100x-20261114T224309Z-017,43,3fe31b22b7ac5ab323eddf44,7c4cfa6c9672e7eb604c38174802dc2c,fab-100x,ru,web_frontend,oasst2,human_authored,"[user] Что такое JQuery?
+
+[assistant] JQuery - Это программа
+Набор функций JavaScript, фокусирующийся на взаимодействии JavaScript и HTML. Библиотека jQuery помогает легко получать доступ к любому элементу DOM, обращаться к атрибутам и содержимому элементов DOM, манипулировать ими. Также библиотека jQuery предоставляет удобный API для работы с AJAX. Разработка jQuery ведётся командой добровольцев на пожертвования.
+
+[user] А какие границы применения у этой технологии? Какие есть альтернативы? Актуальна ли данная технология сейчас? Можешь дать пример ""Hello World""-а для JQuery?","jQuery — это быстрая, маленькая и многофункциональная JavaScript-библиотека. Она облегчает обработку событий, анимацию и работу с AJAX. Некоторые из границ применения jQuery включают:
+
+1. Простое манипулирование DOM (Document Object Model).
+2. Обработка событий (клик, наведение, изменение и т. д.).
+3. Создание анимаций и эффектов.
+4. Упрощение работы с AJAX.
+5. Обеспечение кросс-браузерной совместимости.
+
+Однако, с развитием веб-технологий и появлением новых библиотек и фреймворков, как React, Angular, и Vue.js, актуальность jQuery постепенно уменьшается. Эти альтернативы предлагают более современные подходы к разработке веб-приложений, включая компонентный подход, шаблонизацию, и двустороннее связывание данных.
+
+Пример ""Hello, World!"" с использованием jQuery:
+
+1. Подключите библиотеку jQuery, используя тег `<script>` в вашем HTML-файле:
+
+```html
+<!DOCTYPE html>
+<html lang=""en"">
+<head>
+    <meta charset=""UTF-8"">
+    <meta http-equiv=""X-UA-Compatible"" content=""IE=edge"">
+    <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+    <title>Hello, World! jQuery</title>
+    <script src=""https://code.jquery.com/jquery-3.6.0.min.js""></script>
+</head>
+<body>
+    <button id=""helloBtn"">Нажмите</button>
+    <p id=""helloText"" style=""display: none;"">Hello, World!</p>
+
+    <script>
+        // Пример Hello, World! с использованием jQuery
+        $(document).ready(function() {
+            $('#helloBtn').click(function() {
+                $('#helloText').show();
+            });
+        });
+    </script>
+</body>
+</html>
+```
+
+В этом примере, при нажатии на кнопку с идентификатором `helloBtn`, текст с идентификатором `helloText` становится видимым. Этот пример демонстрирует простую обработку событий с использованием jQuery.",,,,
+fab-100x-20261114T224309Z-017,44,bc8e80c5209f517623233e98,defd6ca8fb3be4a18180b2f301da45cb,fab-100x,sw,research,tydiqa-goldp,human_authored,"[user] Ainos (m 1,628), Ugiriki Mlima Baba (Pelister, m 2,601), Jamhuri ya Masedonia Milima ya Balkani (Botev, m 2,376), Bulgaria, Serbia Belasica (Radomir, m 2,029), Jamhuri ya Masedonia, Bulgaria na Ugiriki Bistra (Medenica, m 2,163), Jamhuri ya Masedonia Celoica (Dobra Voda, m 2,062), Jamhuri ya Masedonia Čvrsnica (m 2,238), Dinaridi, Bosnia na Herzegovina Deshat (Velivar, m 2,375), Jamhuri ya Masedonia na Albania Dinara (Troglav, m 1,913; Dinara, m 1,831), Dinaridi, Kroatia - Bosnia na Herzegovina Galičica (Magaro, m 2,254), Jamhuri ya Masedonia na Albania Hymettus (m 1,026), mashariki kwa Athens, Ugiriki Jakupica (Solunska Glava, m 2,540), Jamhuri ya Masedonia Jablanica (Black Stone, m 2,257), Jamhuri ya Masedonia na Albania Kopaonik (Pančićev vrh, m 2,017), Serbia Kozuf (Zelenbeg, m 2,171), Jamhuri ya Masedonia na Ugiriki Mlima Korab (Golem Korab / Maja e Korabit, m 2,764), wa juu katika Jamhuri ya Masedonia na Albania Parnassus (m 2,460), Ugiriki Olympus (m 2,919), wa juu katika Ugiriki - makao ya miungu kadiri ya hadithi za Wagiriki Nidze (m 2,521), Jamhuri ya Masedonia na Ugiriki Orjen (m 1,894), wa juu katika Montenegro Osogovo (Ruen, m 2,251), Jamhuri ya Masedonia na Bulgaria Panakaiko (m 1,926), Peloponnese, mashariki kwa Patras, Ugiriki Pirin (Vihren, m 2,915), Bulgaria - wa tatu katika Balkani, baada ya Musala katika Bulgaria na Olympus katika Ugiriki Prokletije (m 2,694), Dinaridi, Albania, Montenegro Rodopi (Golyam Perelik, m 2,191), Bulgaria, Ugiriki Rila (Musala, m 2,925), wa juu katika Bulgaria na Balkani kwa jumla Sakar (Vishegrad, m 895), Bulgaria Stogovo (Golem Rid, m 2,278), Jamhuri ya Masedonia Mlima Sar (m 2,747), Serbia na Albania na Jamhuri ya Masedonia Smolikas (m 2,640), Ugiriki Vitosha (Cherni vrah, m 2,290) Bulgaria Zlatibor (Tornik, m 1,496; Čigota, m 1,422), Serbia
+
+Mlima mkubwa nchini Albania unaitwaje?","Korab
+
+Ainos (m 1,628), Ugiriki Mlima Baba (Pelister, m 2,601), Jamhuri ya Masedonia Milima ya Balkani (Botev, m 2,376), Bulgaria, Serbia Belasica (Radomir, m 2,029), Jamhuri ya Masedonia, Bulgaria na Ugiriki Bistra (Medenica, m 2,163), Jamhuri ya Masedonia Celoica (Dobra Voda, m 2,062), Jamhuri ya Masedonia Čvrsnica (m 2,238), Dinaridi, Bosnia na Herzegovina Deshat (Velivar, m 2,375), Jamhuri ya Masedonia na Albania Dinara (Troglav, m 1,913; Dinara, m 1,831), Dinaridi, Kroatia - Bosnia na Herzegovina Galičica (Magaro, m 2,254), Jamhuri ya Masedonia na Albania Hymettus (m 1,026), mashariki kwa Athens, Ugiriki Jakupica (Solunska Glava, m 2,540), Jamhuri ya Masedonia Jablanica (Black Stone, m 2,257), Jamhuri ya Masedonia na Albania Kopaonik (Pančićev vrh, m 2,017), Serbia Kozuf (Zelenbeg, m 2,171), Jamhuri ya Masedonia na Ugiriki Mlima Korab (Golem Korab / Maja e Korabit, m 2,764), wa juu katika Jamhuri ya Masedonia na Albania Parnassus (m 2,460), Ugiriki Olympus (m 2,919), wa juu katika Ugiriki - makao ya miungu kadiri ya hadithi za Wagiriki Nidze (m 2,521), Jamhuri ya Masedonia na Ugiriki Orjen (m 1,894), wa juu katika Montenegro Osogovo (Ruen, m 2,251), Jamhuri ya Masedonia na Bulgaria Panakaiko (m 1,926), Peloponnese, mashariki kwa Patras, Ugiriki Pirin (Vihren, m 2,915), Bulgaria - wa tatu katika Balkani, baada ya Musala katika Bulgaria na Olympus katika Ugiriki Prokletije (m 2,694), Dinaridi, Albania, Montenegro Rodopi (Golyam Perelik, m 2,191), Bulgaria, Ugiriki Rila (Musala, m 2,925), wa juu katika Bulgaria na Balkani kwa jumla Sakar (Vishegrad, m 895), Bulgaria Stogovo (Golem Rid, m 2,278), Jamhuri ya Masedonia Mlima Sar (m 2,747), Serbia na Albania na Jamhuri ya Masedonia Smolikas (m 2,640), Ugiriki Vitosha (Cherni vrah, m 2,290) Bulgaria Zlatibor (Tornik, m 1,496; Čigota, m 1,422), Serbia",,,,
+fab-100x-20261114T224309Z-017,45,6314ec16836b68bba5561c74,ab6ec7794ff222a29b818c5be429e7d2,fab-100x,ta,general_knowledge,aya-dataset,human_authored,"[user] கேள்வி:
+சென்னைப் பல்கலைக்கழகத்தின் முதல் தமிழிப்பேராசிரியர் யார் ?","பதில்:
+
+சென்னைப் பல்கலைக்கழகத்தின் முதல் தமிழிப்பேராசிரியர் ரா.பி. சேதுப்பிள்ளை.
+
+ரா.பி. சேதுப்பிள்ளை பற்றி விரிவாக,
+
+பிறப்பு, கல்வி
+ரா.பி. சேதுப்பிள்ளை (ராஜவல்லிபுரம். பி. சேதுப்பிள்ளை) திருநெல்வேலி மாவட்டம், பாளையங்கோட்டை வட்டம் இராஜவல்லிபுரத்தில் மார்ச் 2, 1896-ல் பிறவிப்பெருமாள் பிள்ளை - சொர்ணம்மாள் தம்பதியினருக்கு பதினோராவது குழந்தையாகப் பிறந்தார். உள்ளூர்த் திண்ணைப் பள்ளியில் தமிழ் நீதி நூல்களைக் கற்றார். இராஜவல்லிபுரம் செப்பறைத் திருமடத் தலைவர் அருணாசல தேசிகரிடம் மூதுரை, நல்வழி, நன்னெறி, நீதிநெறி விளக்கம், தேவாரம், திருவாசகம் ஆகியவற்றைக் கற்றார். தொடக்கக் கல்வியைப் பாளையங்கோட்டை தூய சேவியர் உயர்நிலைப் பள்ளியிலும், இடைநிலை வகுப்பை திருநெல்வேலி இந்துக் கல்லூரியிலும், இளங்கலை படிப்பை சென்னைப் பச்சையப்பன் கல்லூரியிலும் படித்தார். பின்னர் இளங்கலை சட்டம் படித்தார். உயர்நிலைப் பள்ளியின் தமிழாசிரியர் சுப்பிரமணியம், இந்துக் கல்லூரித் தமிழாசிரியர் சிவராமன் ஆகியோர் சேதுப்பிள்ளையின் தமிழார்வத்தை வளர்த்தவர்கள்.
+
+தனிவாழ்க்கை
+இளங்கலைப் படிப்பை முடித்தவுடன் பச்சையப்பன் கல்லூரியில் தமிழாசிரியராகப் பணிபுரிந்தார். பணியிலிருந்துகொண்டே சட்டப்படிப்பு முடித்த சேதுப்பிள்ளை சென்னையில் நீதிக்கட்சி பிரமுகர்களில் ஒருவரான முத்தையா முதலியாரிடம் வழக்கறிஞர் தொழில் பயின்றார். 1923 முதல் திருநெல்வேலியில் வழக்கறிஞராகப் பணியாற்றினார். சிறிது காலம் அரசியலில் ஈடுபட்டிருந்த சேதுப்பிள்ளை 1926 முதல் 1928 வரையிலும் 1928 முதல் 1930 வரையிலும் திருநெல்வேலியின் நகர்மன்ற உறுப்பினராக தேர்வுசெய்யப்பட்டார். திருநெல்வேலி நகர்மன்றத் தலைவராகவும் தேர்ந்தெடுக்கப்பட்டார். கா.சுப்ரமணிய பிள்ளையின் அழைப்பின் பேரில் அண்ணாமலை பல்கலைக்கழக தமிழ்த் துறையில் விரிவுரையாளராக சுவாமி விபுலானந்தர் சோமசுந்தர பாரதியார் ஆகிய புலவர்களின் தலைமையில் ஆறு ஆண்டுகள் (1930-1936) பணிபுரிந்தார். 1936 முதல் சென்னைப் பல்கலைக் கழகத்தில் தமிழ்த்துறைப் பேராசிரியராக 25 ஆண்டுகள் பணியாற்றினார். எஸ். வையாபுரிப் பிள்ளை தொகுத்து வந்த தமிழ்ப் பேரகராதிப் பணியில் சேதுப்பிள்ளையும் பங்காற்றியுள்ளார். எஸ். வையாபுரிப் பிள்ளையின் ஓய்வுக்குப்பின் சேதுப்பிள்ளை தமிழ்த்துறைத் தலைவராகி (1946-1951) பேரகராதி தொகுப்புப் பணியை ஏற்றார். மனைவி ஆழ்வார் ஜானகி. அவர்களுக்குக் குழந்தைகளில்லை. ரா.பி.சேதுப்பிள்ளை செல்வ வளம் மிக்க வாழ்க்கையை வாழ்ந்தவர். தன் மறைவுக்குப்பின் உடைமைகளை அறக்கட்டளைகளுக்கு அளித்தார். சென்னை காந்திநகரில் இருந்த இல்லம், கண்டியப்பேரி என்னும் ஊரிலிருந்த நிலங்கள் ஆகியவற்றை அறக்கட்டளைக்கு வழங்கினார். ராஜவல்லிபுரத்தில் இருந்த நிலங்களையும் வீட்டையும் ஊராட்சிமன்றத்திற்கு வழங்கினார். ரா.பி.சேதுப்பிள்ளை அறக்கட்டளைக்கு அறங்காவலராக நீதிபதி மகாராஜன் நியமிக்கப்பட்டார்.
+
+சொற்பொழிவாளர்
+சேதுப் பிள்ளை இளமையிலேயே சொற்பொழிவாற்றும் திறன் கொண்டிருந்தார். நெல்லையில் மாணவர் மன்றம் என்னும் அமைப்பை வீரபத்ர பிள்ளை என்பவர் நடத்திவந்தார். அவருடைய கோரிக்கைக்கு ஏற்ப சேதுப்பிள்ளை திருக்குறள் பற்றி ஒரு தொடர் சொற்பொழிவை ஆற்றினார். தொடர்ந்து அங்கே வாரந்தோறும் தமிழிலக்கியங்கள் பற்றி சொற்பொழிவுகளை ஆற்றினார்.
+
+1921-ல் திருநெல்வேலியில் டி.கே.சிதம்பரநாத முதலியார் கம்பன் கழகம் அமைப்பை தொடங்கினார். அங்கே கம்பராமாயண உரைகள் நடைபெற்றன. அவற்றை கேட்டும்கூட சேதுப்பிள்ளையின் உள்ளம் அதில் ஈடுபாடு கொள்ளவில்லை. சுப்பையா முதலியார் என்பவர் கம்பனைப் பற்றி பேசும்போது 'வெள்ளெருக்கஞ்ச் சடைமுடியான், வெற்பெடுத்த திருமேனி...’ என தொடங்கும் பாடலை கேட்டபின் கம்பராமாயணம் மீது ஆர்வம் கொண்டார். சுப்பையா பிள்ளையிடம் கம்பன் கவிநயத்தை பாடம் கேட்டபின் கம்பராமாயணச் சொற்பொழிவுகள் ஆற்றத்தொடங்கினார்.
+
+சிதம்பரம் அண்ணாமலை பல்கலைக்கழகத்தில் பணியாற்றும்போது சிதம்பரம் ஆலயத்தில் பன்னிரு திருமுறைகளைப் பற்றி புகழ்பெற்ற தொடர் சொற்பொழிவுகளை ஆற்றினார். 1955-ல் நடைபெற்ற குடமுழுக்கு விழாவில் ரா.பி.சேதுப்பிள்ளை பேசிய உரை புகழ்பெற்ற ஒன்று.
+
+சென்னை ஒய்.எம்.சி.ஏ. அரங்கத்தில் மூன்றாண்டுகள் கம்பராமாயணச் சொற்பொழிவு ஆற்றினார். அச்சொற்பொழிவின் தாக்கத்தால் சென்னை மாநகரில் கம்பர் கழகம் நிறுவப்பட்டது. சென்னையிலுள்ள கோகலே மன்றத்தில் சிலப்பதிகார வகுப்பைத் தொடர்ந்து மூன்றாண்டுகள் நடத்தினார். தங்கச்சாலை தமிழ்மன்றத்தில் ஐந்தாண்டுகள் (வாரம் ஒருநாள்) திருக்குறள் விளக்க சொற்பொழிவாற்றினார். கந்தகோட்டத்து மண்டபத்தில் ஐந்தாண்டுகள் கந்தபுராண விரிவுரை நிகழ்த்தினார்.
+
+தமிழின் மேடையுரையின் முன்னோடியான ஞானியார் அடிகள், பெரும்பேச்சாளர்களான திரு. வி. கல்யாணசுந்தரனார், மறைமலை அடிகள் போன்றவர்களின் நீட்சியே ரா. பி. சேதுப்பிள்ளை, நாவலர் சோமசுந்தர பாரதியார் முதலியவர்கள்.
+
+இலக்கிய வாழ்க்கை
+ரா.பி. சேதுப்பிள்ளை முதன்மையாக இலக்கிய ஆய்வு, சொல்லாய்வு ஆகியவற்றில் ஈடுபட்டவர். தமிழில் மறந்து விட்ட பிறசொற்களை விலக்குவது, தமிழின் தூய சொற்களை புழக்கத்திற்குக் கொண்டு வருவது, தமிழில் புதிய கலைச் சொற்களை உருவாக்குவது ஆகிய பணிகளின் முன்னோடி, வழிகாட்டியான மறைமலை அடிகளை பின்பற்றி பரிதிமாற்கலைஞர், ரா. பி. சேதுப்பிள்ளை, திரு.வி. கல்யாணசுந்தரனார் போன்றவர்கள் செயல்பட்டார்கள். சேதுப்பிள்ளையின் முயற்சியினால் திராவிடப் பொதுச்சொற்கள், திராவிடப் பொதுப்பழமொழிகள் ஆகிய இரு நூல்களை சென்னைப் பல்கலைக்கழகம் வெளியிட்டது.
+
+சேதுப்பிள்ளையின் முதல் கட்டுரை நூல் ’திருவள்ளுவர் நூல் நயம்’. சேதுப்பிள்ளை தனது ஆராய்ச்சி அனுபவங்களைக் கொண்டு எழுதிய உரைநடை நூல் ""தமிழகம் ஊரும் பேரும்"".
+
+ரா.பி.சேதுப்பிள்ளையின் தமிழ் இன்பம் நூல் மலேசிய அரசாங்கத்தால் தமிழ் மொழி ஆசிரியர் பயிற்சிக் கல்லூரியில் தமிழ் மொழி இலக்கணத்துறையில் ஒரு பாட நூலாக சேர்க்கப்பட்டிருந்தது (1990 - 1998).
+
+ரா.பி. சேதுப்பிள்ளை பதினான்கு கட்டுரை நூல்கள், மூன்று வாழ்க்கை வரலாற்று நூல்கள் உட்பட 21 நூல்கள் எழுதியுள்ளார். நான்கு நூல்களை பதிப்பித்துள்ளார்.
+
+சேதுப்பிள்ளையின் நூல்களுள் பல தமிழக வானொலி நிலையங்களிலும் இலக்கிய அமைப்புகளில் ஆற்றிய இலக்கியச் சொற்பொழிவுகளின் தொகுப்புக்களாகவும் அமைந்தவை. எனவே உரைநடை மேடைப் பேச்சின் இயல்பினில் அமைந்ததாகவே நூல்கள் இருக்கும்.செய்யுளுக்கு என்றே கருதப்பட்ட அடுக்குமொழி, எதுகை, மோனை, இலக்கியத் தொடர் ஆகியவற்றை உரைநடையிலும் கொண்டுவந்தவர். தருமபுர ஆதீனத்தால் சொல்லின் செல்வர் என்றும், சுத்தானந்த பாரதியால் 'செந்தமிழுக்குச் சேதுப்பிள்ளை’ என்றும் போற்றப்பட்டார்.
+
+ரா.பி.சேதுப்பிள்ளை டி.கே.சிதம்பரநாத முதலியாருக்கு அணுக்கமானவர். அ.சீனிவாசராகவன், நீதிபதி மகாராஜன், மீ.ப.சோமு போன்றவர்களுக்கு அணுக்கமானவராக இருந்தார்.
+
+சேதுப்பிள்ளையின் நூல்கள் 2008-ல் நாட்டுடமையாக்கப்பட்டன.
+
+
+சாகித்திய அகாடமி விருது (1955) பெற்ற முதல் தமிழ் நூல்
+விருதுகள்
+தருமபுரம் ஆதீனம் (1950) சொல்லின் செல்வர் பட்டம்
+சாகித்ய அகாடமி (1955) - 'தமிழின்பம்’ சாகித்ய அகாடமி விருது பெற்ற முதல் தமிழ் நூல்
+சென்னை பல்கலைக்கழகம் (1957) டி.லிட் (இலக்கியப்பேரறிஞர்)
+மறைவு
+ரா.பி. சேதுப்பிள்ளை ஏப்ரல் 25, 1961-ல் தனது 65-வது வயதில் மறைந்தார்.
+
+நினைவு நூல்கள்
+ரா.பி.சேதுப்பிள்ளையின் வாழ்க்கை வரலாற்றை சி.கணபதிராமன் சாகித்ய அக்காதமிக்காக இந்திய இலக்கியச் சிற்பிகள் வரிசைக்காக எழுதியிருக்கிறார்.
+
+இலக்கிய இடம்
+ரா.பி.சேதுப்பிள்ளை தமிழை அடுத்த தலைமுறை மாணவர்களுக்கு கொண்டுசென்ற ஆசிரியர் எனும் வகையிலும் சொற்பொழிவாளர் என்னும் முறையிலும் முக்கியமானவர். மரபிலக்கியத்தையும் மத இலக்கியத்தையும் பொதுவான சூழலுக்காக தன் உரைகள் வழியாகக் கொண்டுசென்றவர். மரபிலக்கியத்திலுள்ள சொல்லஅணிகள், சந்தம் போன்றவற்றை சொற்பொழிவுக்கு திறம்படப் பயன்படுத்த முடியும் என காட்டிய முன்னோடிச் சொற்பொழிவாளர்கள் நாவலர் சோமசுந்தர பாரதியார், ரா.பி.சேதுப்பிள்ளை முதலிய சைவப்பேச்சாளர்கள். தமிழில் மேடைப்பேச்சுக்கலை சைவப்பேச்சாளர்கள் வழியாகவே வேரூன்றியது. பின்னர் அவர்களின் பேச்சுமுறை சி.என்.அண்ணாத்துரை, மு.கருணாநிதி ஆகியோர் வழியாக திராவிட இயக்க அரசியலுக்குச் சென்றது. அடுக்குமொழி நடை என அறியப்படுகிறது
+
+ரா.பி.சேதுப்பிள்ளை தன் மேடைப்பேச்சு நடையையே உரைநடைக்குப் பயன்படுத்தினார். அவருடைய பல நூல்கள் மேடைப்பேச்சில் இருந்து பதிவுசெய்யப்பட்டு விரிவாக்கம் செய்யப்பட்டவை. ஆகவே அவை நவீன உரைநடைக்குரிய பொருட்செறிவும் கூர்மையும் அற்று சொல்விளையாட்டுகளாக எஞ்சுகின்றன. அவற்றில் விரிவான ஆய்வும் முறைமைசார்ந்த வெளிப்பாடும் இல்லை என்பதனால் ஆய்வுகளாக அவருடைய நூல்கள் குறிப்பிடத்தக்கவை அல்ல. சாகித்ய அக்காதமி விருது பெற்ற 'தமிழகம் ஊரும் பேரும்' என்னும் நூல்கூட ஆய்வுநூலாக பின்னர் வந்த நாட்டாரியலாளர்களால் கருத்தில்கொள்ளப்படவில்லை. இலக்கியமதிப்பையும் பெறவில்லை. .
+
+படைப்புகள்
+உரைநடை நூல்கள்
+திருவள்ளுவர் நூல் நயம், 1928
+தமிழகம் ஊரும் பேரும்
+சிலப்பதிகார நூல்நயம்
+தமிழ்நாட்டு நவமணிகள், 1926
+வேலும் வில்லும், 1944
+அலையும் கலையும், 1958
+வழிவழி வள்ளுவர், 1945
+வீரமாநகர், 1930
+தமிழ்க்கவிதைக் களஞ்சியம்
+செஞ்சொற் கவிக்கோவை
+கால்டுவெல் ஐயர் சரிதம், 1936
+ஆற்றங்கரையினிலே, 1961
+வேலின் வெற்றி, 1954
+கடற்கரையினிலே, 1950
+தமிழின்பம், 1948
+தமிழர் வீரம், 1947
+கிருஸ்தவத் தமிழ்த் தொண்டர், 1946
+தமிழக ஊரும் பேரும், 1946
+தமிழ் விருந்து, 1945
+மேடைப் பேச்சு
+பதிப்பித்த நூல்கள்
+திருக்குறள் எல்லீஸ் உரை
+பாரதியின் கவித்திரட்டு
+தமிழ் கவிதை களஞ்சியம்",,,,
+fab-100x-20261114T224309Z-017,46,58ec4f2aefcdb214edceb34b,0273b4341d3a85c0007bf9de5e5b5112,fab-100x,ta,mathematics,aya-dataset,human_authored,"[user] வினா:
+
+கீழ் கொடுக்கப்பட்டுள்ள பொருட்களை வைத்து  சாம்பார் செய்வது எப்படி?
+பரிமாறும் அளவு - 4 நபருக்கு 
+
+தேவையான பொருள்கள் -
+துவரம் பருப்பு - 100 கிராம் 
+காய்கறி - 100 கிராம் (முருங்கை அல்லது கத்தரிக்காய் அல்லது கேரட் அல்லது வெண்டை அல்லது உருளை அல்லது அனைத்தும் சேர்ந்து )
+தக்காளி - 1
+புளி - நெல்லிக்காய்  அளவு 
+சாம்பார் பொடி - 1 மேசைக்கரண்டி 
+மஞ்சள் பொடி - 1/2 தேக்கரண்டி 
+பெருங்காயம் - ஒரு கிள்ளு 
+மல்லித்  தழை  - சிறிது 
+உப்பு - தேவையான அளவு 
+தண்ணீர் - 1 கப் (200 மி. )
+எண்ணெய் - 2 மேசைக்கரண்டி 
+அரைக்க - (பதில் )
+தேங்காய் துருவல் - 4 மேசைக்கரண்டி 
+சின்ன வெங்காயம் - 10
+தாளிக்க -
+கடுகு - 1 தேக்கரண்டி
+உளுந்தம் பருப்பு - 1 தேக்கரண்டி
+கறிவேப்பில்லை - சிறிது 
+சின்ன வெங்காயம் - 3","விடை:
+செய்முறை -
+துவரம் பருப்பு, பெருங்காயம் மற்றும் தேவையான அளவு தண்ணீர் சேர்த்து சமையல் பாத்திரத்தை  வேக வைக்கவும்.
+புளியை தண்ணீரில் ஊற வைத்து கரைத்து கொள்ளவும்.
+அரைக்க கொடுத்தவற்றை அரைத்து கொள்ளவும்.
+காய்கறி, தக்காளி மற்றும் சின்ன வெங்காயத்தை நறுக்கி கொள்ளவும்.
+ஒரு கடாயில் 1 கப் தண்ணீர், காய்கறி, தக்காளி, மஞ்சள் பொடி மற்றும் உப்பு சேர்த்து 5-10 நிமிடங்கள்  கொதிக்க விடவும்.
+பின்னர் சாம்பார் பொடியை சேர்த்து 8-10 நிமிடங்கள் கொதிக்க விடவும்.
+பின்னர் புளி தண்ணீரை சேர்த்து 5 நிமிடங்கள் கொதிக்க விடவும்.
+அரைத்து வைத்ததை சேர்த்து பச்சை வாசனை போகும் வரை கொதிக்க விடவும்.
+இப்பொது மசித்த பருப்பை சேர்த்து கொதி வந்தவுடன் அடுப்பை அணைத்து மல்லித் தழையை தூவவும்.
+சிறிய பாத்திரத்தில் எண்ணெய் ஊற்றி சூடானதும் தாளிக்க கொடுத்தவற்றை ஒவ்வொன்றாகப் போட்டு தாளித்து இதைச்  சாம்பாரில் சேர்க்கவும்.
+சுவையான சாம்பார் ரெடி. இதை சாதம், தோசை, இட்லி மற்றும் பொங்கலுடன் பரிமாறலாம்.
+குறிப்புகள் -
+புளியை சுடு தண்ணீரில் ஊற வைத்தால் சீக்கிரமாக கரையும்.
+அரைத்த விழுதை சேர்க்கவில்லை என்றால் , சின்ன வெங்காயத்தை மட்டும் மற்ற காய்கறிகளுடன் சேர்த்து கொதிக்க விடவும். தேங்காய்யை தவிர்த்து விடவும்.
+புளிப்பாக விரும்புவோர் சிறிது மாங்காய் துண்டுகளை மற்ற காய்கறிகளுடன் சேர்த்து செய்யலாம்.",,,,
+fab-100x-20261114T224309Z-017,47,0c19663a135f9c4004f3262c,5051d8c461baa341d111d028e791a210,fab-100x,te,general_knowledge,aya-dataset,human_authored,[user] ద్రవ్యోల్బణంలో రకాలు గురించి సంక్లిప్తంగా వివరించండి,"వస్తువుల సప్లైకి, డిమాండుకు మధ్య ఏర్పడే అసమతౌల్యం వల్ల వస్తువుల ధరలు పెరుగుతూ ఉన్న యెడల దానిని ద్రవ్యోల్బణమనవచ్చు. ధరల పెరుగుదల నిర్విరామంగా, గణనీయమైనదిగా ఉన్నపుడు మాత్రమే ద్రవ్యోల్బణం ఏర్పడిందని చెప్పాలి. ద్రవ్యోల్బణ భావాన్ని వివిధ రకాలుగా పరిశీలించవచ్చు.
+
+డిమాండ్ ప్రేరిత ద్రవ్యోల్బణం: సమిష్టి డిమాండ్, సమిష్ఠి సప్లై కన్నా ఎక్కువగా ఉన్నందువల్ల ఏర్పడే ద్రవ్యోల్బణాన్ని డిమాండ్ ప్రేరిత ద్రవ్యోల్బణం అని అంటారు.
+
+ద్రవ్యరాశి పెరుగుదల, పొదుపు కన్నా పెట్టుబడి అధికంగా ఉండటం వల్ల సమిష్టి డిమాండ్, సమిష్టి సప్లై కన్నా అధికంగా ఉండవచ్చు. ఆర్థిక వ్యవస్థ సంపూర్ణ ఉద్యోగితా స్థాయికి చేరుకున్న తరువాత సమిష్టి డిమాండ్ పెరిగినట్లయినా ఉత్పత్తి పెరగక కేవలం ధరలు మాత్రమే పెరుగుతాయి. డిమాండ్ ప్రేరిత ద్రవ్యోల్బణాన్ని నివారించడానికి సమిష్టి డిమాండ్ను తగ్గించాలి.
+
+వ్యయ ప్రేరిత ద్రవ్యోల్బణం: ఉత్పత్తి వ్యయం పెరుగుదల వల్ల ధరల స్థాయి పెరిగి ద్రవ్యోల్బణం ఏర్పడినా దానిని వ్యయప్రేరిత ద్రవ్యోల్బణం అని అంటారు. కార్మిక సంఘాలు బలోపేతమైన వేతనాలను పెంచుకొన్నప్పుడు లేదా ఇతర ఉత్పత్తి వ్యయాలు పెరిగినప్పుడు ఈ వ్యయ ప్రభావిత ద్రవ్యోల్బణం ఏర్పడుతుంది.
+
+వాస్తవిక ద్రవ్యోల్బణం: వస్తువుల ధరలు పెరిగి శ్రామికుల జీవన ప్రమాణ స్థాయి తగ్గినపుడు వాస్తవిక ద్రవ్యోల్బణం ఏర్పడుతుంది. వస్తువుల ధరల పెరుగుదల రేటులో శ్రామికుల వేతనాలు పెరగకపోయిన వాస్తవిక వేతనాలు తగ్గిపోతాయి. దీనివల్ల ఎక్కువ ప్రమాణంలో వస్తురాశిని కొనుగోలు చేయరాదు.
+
+పాకుతున్న ద్రవ్యోల్బణం: ఈ ద్రవ్యోల్బణం స్వల్ప మోతాదులో ఉంటుంది. ఇందు ధరలు పెరుగుదల స్వల్పంగా ఉండును. ఈ రకమైన ద్రవ్యోల్బణంలో ధరల స్థాయిలో పెరుగుదల సంవత్సరానికి 3 శాతం లోపే ఉంటుంది. కొంతమంది ఆర్థికవేత్తల ప్రకారం ఈ రకమైన ద్రవ్యోల్బణం ఆర్థికాభివృద్ధికి దోహదపడుతుంది.
+
+నడుస్తున్న ద్రవ్యోల్బణం: ధరల స్థాయిలో పెరుగుదల కొంచెం ఎక్కువగా ఉండి ఇది మోతాదులో ఉంటే దీనిని నడుస్తున్న ద్రవ్యోల్బణమని అంటారు. ధరల పెరుగుదల రేటు సంవత్సరానికి 3 నుంచి 4 శాతం వరకు ఈ రకమైన ద్రవ్యోల్బణంలో జరుగును.
+
+పరుగెడుతున్న ద్రవ్యోల్బణం: ఈ రకం ద్రవ్యోల్బణంలో ధరల పెరుగుదల విపరీతంగా ఉంటుంది. సుమారుగా ఇందు ధరల పెరుగుదల 10 శాతం వరకు ఉండవచ్చు. ఈ ద్రవ్యోల్బణం వల్ల ఆర్థిక వ్యవస్థలో అనేక చెడు ఫలితాలు ఏర్పడతాయి.
+
+ఉధృతమైన లేదా అతి ద్రవ్యోల్బణం: ధరల పెరుగుదల విపరీతంగా, అతివేగంగా, నిరాటంకంగా జరుగుతున్న దానిని అతి ద్రవ్యోల్బణం అని అంటారు. దీనినే ఉదృతమైన ద్రవ్యోల్బణం అని కూడా అంటారు.
+
+అణచిన ద్రవ్యోల్బణం: ద్రవ్యోల్బణాన్ని రేషనింగ్, ప్రభుత్వ కంట్రోళ్ళు, ఇతర నియంత్రణ సాధనాల ద్వారా అదుపు చేయబడిన ధరలు తగ్గి ద్రవ్యోల్బణం అదుపు చేయబడుతుంది. దీనినే అణచిన ద్రవ్యోల్బణం అంటారు.",,,,
+fab-100x-20261114T224309Z-017,48,621dc00cf9d1295b3a2db391,294051f10f72d5f8b1789fb6df71357b,fab-100x,te,mathematics,aya-dataset,human_authored,[user] చెట్ల పెంపకం గురించి శ్రద్ధ తీసుకోవాలని కరపత్రం తయారు చేయండి.,"చెట్లు ప్రగతికి. మెట్లు. పచ్చని చెట్లు, ఆరోగ్య సంజీవనులు. ఈ రోజు దేశంలో ఎక్కడ చూసినా పరిశుభ్రమైన గాలికి, నీటికి కొరత ఉంది. దీనికి కారణం, వర్షాలు లేకపోవడం, చెట్లు లేకపోవడం. మంచి వర్షాలు కురిస్తే, చెట్లు మొలుస్తాయి. చెట్లు పెంచితే, చల్లని ప్రాణవాయువు లభిస్తుంది. వర్షాలు కురుస్తాయి. దేశంలో 1/3 వంతు భాగంలో అడవులు ఉంటే, సకాలంలో చక్కని వర్షాలు పడతాయి.
+చెట్లు మనం విడిచే కార్బన్ డై ఆక్సెడ్ ను పీల్చుకొని, మనకు ప్రాణవాయువును ఇస్తాయి. చెట్ల వల్ల పండ్లు, కాయలు, కూరగాయలు, కలప, తేనె వగైరా లభిస్తాయి. మంచి పువ్వులు దొరుకుతాయి. పండ్లు మంచి ఆరోగ్యాన్ని ఇస్తాయి. చెట్లు దేశ భవితకు మెట్లు.
+
+కాబట్టి ఖాళీ ప్రదేశాల్లో చెట్లను పెంచుదాం. దేశంలో వాతావరణంలో సమతుల్యతను సాధిద్దాం. చెట్లు మనకు కావలసిన అన్ని వస్తువులను ఇస్తాయి. చెట్లను కొట్టడం నేరం. ప్రతి బడిలోనూ, రోడ్డు ప్రక్కనూ, ఖాళీ స్థలాల్లోనూ కాలువ గట్ల వెంబడిని, చెట్లను ఉద్యమంగా నాటుదాం. పెంచుదాం. రండి. కదలిరండి.
+
+దివి. xxxxxx,
+
+ఇట్లు,
+వన సంరక్షణ సమితి,
+గన్నవరం.",,,,
+fab-100x-20261114T224309Z-017,49,e95a2342ae05abe9d3ddbf83,d77a5502ad5efe40801df4fc4e8f26b3,fab-100x,te,research,tydiqa-goldp,human_authored,"[user] ఎస్టేట్స్-జనరల్ వెర్సైల్లెస్‌లో మే 5వ తేదీన 1789వ సంవత్సరంలో సమావేశపరిచాడు మరియు ఆ సమావేశాన్ని నెక్కర్ మూడు గంటల ప్రసంగంతో ప్రారంభించాడు.మూడవ ఎస్టేట్ యొక్క మౌలిక ప్రణాళిక ఏమిటంటే ఎస్టేట్స్-జనరల్ చేసిన ఎటువంటి నిర్నయాలైనా ప్రత్యేక గదుల్లో తీసుకోకూడదు అన్ని నిర్ణయాలు ఆ మూడు ఎస్టేట్స్ కు చెందిన నియోగులు కలిసి నిర్ణయాలు తీసుకుంటారు (మరోలా చెప్పాలంటే, మూడు ఎస్టేట్స్ లను ఒకే అసెంబ్లీగా ఒకటి చేయడమే దీని ప్రధాన లక్ష్యం). వారి ఎస్టేట్ ప్రతినిధులు అంతర్గతంగా ఆ దస్తావేజులను సరిచూసేకంటే ప్రతినిధుల దస్తావేజులను ఆ ప్రతినిధులందరూ కలిసి సరిచూడాలని గట్టిగా అడిగారు కాని వారి మధ్య రాజకీయ రాయబారం దీన్ని సాధించుటలో విఫలమయ్యింది.[16] సాధారణ ప్రజలు మతాధికారులకు విన్నవించారు ఇందుకు వారు ఎక్కువ సమయం పడుతుందని సమాధానమిచ్చారు. ప్రతి ఎస్టేట్ తమ దస్తావేజులను సరిచూసుకోవాలి మరియు ""చక్రవర్తి మధ్యవర్తిగా వ్యవహరించాలి"".[18] ఏదేమైనప్పటికీ ఇతర రెండు ఎస్టేట్స్ మధ్య రాజకీయ రాయబారం విఫలమయ్యింది.[19]
+
+ఫ్రెంచ్ విప్లవం ఎప్పుడు జరిగింది?","మే 5వ తేదీన 1789
+
+ఎస్టేట్స్-జనరల్ వెర్సైల్లెస్‌లో మే 5వ తేదీన 1789వ సంవత్సరంలో సమావేశపరిచాడు మరియు ఆ సమావేశాన్ని నెక్కర్ మూడు గంటల ప్రసంగంతో ప్రారంభించాడు.మూడవ ఎస్టేట్ యొక్క మౌలిక ప్రణాళిక ఏమిటంటే ఎస్టేట్స్-జనరల్ చేసిన ఎటువంటి నిర్నయాలైనా ప్రత్యేక గదుల్లో తీసుకోకూడదు అన్ని నిర్ణయాలు ఆ మూడు ఎస్టేట్స్ కు చెందిన నియోగులు కలిసి నిర్ణయాలు తీసుకుంటారు (మరోలా చెప్పాలంటే, మూడు ఎస్టేట్స్ లను ఒకే అసెంబ్లీగా ఒకటి చేయడమే దీని ప్రధాన లక్ష్యం).",,,,
+fab-100x-20261114T224309Z-017,50,df6fb28d52228f9442b66b7e,9a3e9544e69f0917ad468275d74d67c8,fab-100x,te,writing,aya-dataset,human_authored,"[user] ...ైజేషన్ చేసే క్రమంలో ప్రమాదం సంభవించినట్టు అధికారులు భావిస్తున్నారు.
+
+విశాఖలోని పరిశ్రమల శాఖ జాయింట్ చీఫ్‌ ఇన్‌స్పెక్టర్ జె.శివశంకర్ రెడ్డి ఈ విషయంపై బీబీసీతో మాట్లాడారు.
+
+""స్టైరీన్ నిల్వ చేసిన ట్యాంకుల వద్ద నిబంధనల ప్రకారం ఉండాల్సిన ఉష్ణోగ్రతలను నిర్వహించలేకపోయారు. దాంతో ద్రవరూపంలో ఉన్న స్టైరీన్ ఆవిరిగా మారింది. ఎల్జీ పాలిమర్స్‌లో 2వేల మెట్రిక్ టన్నుల స్టైరీన్ నిల్వ సామర్థ్యం ఉంది. ప్రస్తుతం లీకైన గ్యాస్‌ను నియంత్రించలేకపోవడానికి తగిన అప్రమత్తత లేకపోవడమే కారణం. సమస్యను సకాలంలో గుర్తించడంలో జాప్య... Write the rest of the article:","కూడా ఇలాంటివి జరగవచ్చు. ప్రమాదం జరిగిన సమయంలో సైరన్ పనిచేయకపోవడానికి కారణం ఏమిటనేది దర్యాప్తులో తేలుతుంది"" అన్నారు. 
+
+కాగా, ఈ ప్లాంటులో ఏదైనా ప్రమాదం జరిగితే సిబ్బందిని అప్రమత్తం చేసే సైరెన్ ఆటోమేటిక్ గానే పనిచేస్తుందని శివకుమార్ వెల్లడించారు. సైరన్‌కు సంబంధించి కానీ, మరే ఇతర ప్రమాణాల నిర్వహణకు సంబంధించి కానీ అక్కడ గతంలో ఎటువంటి ఫిర్యాదులు లేవని తెలిపారు.ప్రతీసారి తనిఖీల సందర్భంగా అందరినీ అప్రమత్తం చేసే కార్యక్రమాలు నిర్వహిస్తుంటామని, ప్రమాదాలు జరిగితే ఎలా తప్పించుకోవాలి, ఎలాంటి జాగ్రత్తలు తీసుకోవాలనేదానిపై అవగాహన కల్పించేందుకు గతంలో మాక్ డ్రిల్స్ కూడా జరిగాయని వెల్లడించారు.
+
+తనిఖీలు ఎందుకు చేయలేదు?
+
+లాక్ డౌన్ తర్వాత పరిశ్రమ పునఃప్రారంభించే సమయంలో ఎందుకు తనిఖీలు చేయలేదనే ప్రశ్న చాలామంది నుంచే వినిపిస్తోంది. ఈఏఎస్ శర్మ తన లేఖలో ఈ అంశాన్ని కూడా ప్రస్తావించారు.
+
+అయితే అలాంటి తనిఖీలు చేయాల్సిన అవసరం లేదని అధికారులు చెబుతున్నారు. ఏపీ పరిశ్రమల శాఖ, పొల్యూషన్ కంట్రోల్ బోర్డ్, ఫ్యాక్టరీస్ విభాగం అధికారులు కూడా అదే సమాధానం చెప్పారు. ఎక్కడైనా ఫిర్యాదులు వస్తే లేదా ఇతర అవసరాలు ఏర్పడితే తప్ప లాక్ డౌన్ తర్వాత పరిశ్రమలను తనిఖీ చేయాలనే ఆదేశాలు లేవని తెలిపారు.
+
+విస్తరణకు ఎలా అనుమతి ఇచ్చారు?
+
+ఎల్జీ పాలిమర్స్‌ను ప్రభుత్వానికి చెందిన మిగులు భూముల్లో నిర్మించారని ఈఏఎస్ శర్మ చెబుతున్నారు. ఇప్పటికే ఈ అంశంలో న్యాయపరమైన వివాదం ఉందని ఆయన తెలిపారు. అలాంటి సమయంలో జనావాసాల మధ్య విస్తరణకు ఎలా అనుమతి ఇచ్చారని సీఎంకు రాసిన లేఖలో శర్మ ప్రశ్నించారు.
+
+భూముల విషయంపై విశాఖ ఆర్డీవో ఎన్.తేజ్ భరత్‌ను బీబీసీ వివరణ కోరింది. ఎల్జీ పాలిమర్స్ భూములకు సంబంధించి ప్రస్తుతం ఎలాంటి వివాదం లేదని ఆయన తెలిపారు.
+
+పరిశ్రమ విస్తరణకు సంబంధించి సంబంధిత విభాగాలే స్పందించాలని, భూములకు సంబంధించి తమను ఎవరూ ఎన్ఓసీ కోరలేదని, తాము ఇవ్వలేదని స్పష్టం చేశారు.
+
+విశాఖపట్నం డీఐసీ జీఎం  రామలింగేశ్వర రాజు స్పందిస్తూ.. ‘‘2017లో కొత్తగా ప్లాంటు విస్తరణ జరగలేదు. అయితే, ఇంజనీరింగ్ కాంప్లెక్స్ అని ఒక భవనాన్ని నిర్మించారు. దానికి స్టైరీన్ అవసరం ఉండదు. రా మెటీరియల్ ఎప్పుడయినా ఆర్డర్ వచ్చినప్పుడు అక్కడ పని చేస్తారు. లేదంటే నిలిపివేస్తారు. దానికి అనుమతులు ఉన్నాయి. ఆ తర్వాత అక్కడ విస్తరణ ఏమీ జరగలేదు’’ అని వెల్లడించారు.",,,,
+fab-100x-20261114T224309Z-017,51,05f325d8d93e6f1dcb631de7,21eb9da0ece603b614ee2794715a794a,fab-100x,th,general_knowledge,oasst2,human_authored,[user] น้ำตาลสามารถผลิตจากอะไรได้บ้าง,จากอ้อย มะพร้าว ตาลและอื่น ๆ ที่มีส่วนผสมจากน้ำตาล รวมการสังเคราะห์ขึ้นมา,,,,

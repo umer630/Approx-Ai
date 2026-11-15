@@ -31,9 +31,12 @@ DATASETS = ROOT / "datasets"
 DIST = DATASETS / "dist"
 LOCK = DATASETS / "DATASETS.lock.json"
 MODELS = ["nick-4.8", "hike-6.5", "sona-9.0", "fab-100x", "fab-500x"]
+# Extra, separately addressable dataset versions (not trained by default): the original FAB 100X build (90,000 records,
+# fingerprint 52df9c56…) kept exactly as validated before the target was raised to 100,000.
+EXTRA = ["fab-100x-90k"]
 SPLITS = ["train", "eval", "test"]
 SHARD_BYTES = 160 * 1024 * 1024      # uncompressed JSONL per shard (~40–60 MB gzip)
-TARGETS = {"nick-4.8": 30000, "hike-6.5": 50000, "sona-9.0": 70000, "fab-100x": 100000, "fab-500x": 500000}
+TARGETS = {"nick-4.8": 30000, "hike-6.5": 50000, "sona-9.0": 70000, "fab-100x": 100000, "fab-500x": 500000, "fab-100x-90k": 90000}
 
 
 def sha256_file(p: Path) -> str:
@@ -113,7 +116,36 @@ def _lfs_pull(paths: list[str]):
         raise SystemExit(f"git lfs pull failed (exit {rc}). Check network access to GitHub LFS and the repository's LFS quota.")
 
 
-def restore(models=MODELS, force=False) -> dict:
+def _from_drive(drive: Path | None, m: str, x: dict) -> bool:
+    """Use a verified shard copy from Google Drive (Colab) instead of downloading it again."""
+    if not drive:
+        return False
+    src = drive / m / Path(x["path"]).name
+    dst = REPO / x["path"]
+    if src.exists() and src.stat().st_size == x["bytes"] and sha256_file(src) == x["sha256"]:
+        if not (dst.exists() and not _is_lfs_pointer(dst) and sha256_file(dst) == x["sha256"]):
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(src, dst)
+        return True
+    return False
+
+
+def _to_drive(drive: Path | None, m: str, e: dict):
+    """Mirror the verified shards + manifest to Drive so the next Colab session restores without GitHub LFS."""
+    if not drive:
+        return
+    out = drive / m
+    out.mkdir(parents=True, exist_ok=True)
+    for s in SPLITS:
+        for x in e["splits"][s]["shards"]:
+            dst = out / Path(x["path"]).name
+            if not (dst.exists() and dst.stat().st_size == x["bytes"]):
+                shutil.copyfile(REPO / x["path"], dst)
+    shutil.copyfile(DIST / m / "manifest.json", out / "manifest.json")
+    (out / "SHA256SUMS").write_text("".join(f"{x['sha256']}  {Path(x['path']).name}\n" for s in SPLITS for x in e["splits"][s]["shards"]))
+
+
+def restore(models=MODELS, force=False, drive_dir=None) -> dict:
     lock = json.loads(LOCK.read_text())
     report = {}
     for m in models:
@@ -123,8 +155,13 @@ def restore(models=MODELS, force=False) -> dict:
         build = DATASETS / m / "build"
         if not force and verify_one(m, e, quiet=True):
             report[m] = "already present and verified"
+            if drive_dir and all(not _is_lfs_pointer(REPO / x["path"]) for s in SPLITS for x in e["splits"][s]["shards"]):
+                _to_drive(Path(drive_dir), m, e)
             continue
-        need = [x["path"] for s in SPLITS for x in e["splits"][s]["shards"] if _is_lfs_pointer(REPO / x["path"])]
+        drive = Path(drive_dir) if drive_dir else None
+        shards = [x for s in SPLITS for x in e["splits"][s]["shards"]]
+        from_drive = sum(_from_drive(drive, m, x) for x in shards)
+        need = [x["path"] for x in shards if _is_lfs_pointer(REPO / x["path"])]
         _lfs_pull(need)
         build.mkdir(parents=True, exist_ok=True)
         for s in SPLITS:
@@ -147,7 +184,8 @@ def restore(models=MODELS, force=False) -> dict:
         shutil.copy2(DIST / m / "manifest.json", build / "manifest.json")
         if not verify_one(m, e):
             raise SystemExit(f"{m}: restored files failed verification")
-        report[m] = "restored and verified"
+        _to_drive(drive, m, e)
+        report[m] = f"restored and verified ({from_drive}/{len(shards)} shards from Drive, {len(need)} from GitHub LFS)"
     return report
 
 
@@ -171,12 +209,16 @@ def main(argv=None) -> int:
     ap.add_argument("cmd", choices=["pack", "restore", "verify"])
     ap.add_argument("--models", nargs="*", default=MODELS)
     ap.add_argument("--force", action="store_true")
+    ap.add_argument("--drive-dir", default=None, help="Colab: Drive folder for verified shard copies (read first, written after restore)")
     a = ap.parse_args(argv)
     models = MODELS if a.models in (["all"], []) else a.models
+    bad = [m for m in models if m not in MODELS + EXTRA]
+    if bad:
+        raise SystemExit(f"unknown dataset(s) {bad}; choose from {MODELS + EXTRA}")
     if a.cmd == "pack":
         pack(models)
     elif a.cmd == "restore":
-        for k, v in restore(models, a.force).items():
+        for k, v in restore(models, a.force, a.drive_dir).items():
             print(f"{k:10s} {v}")
     else:
         lock = json.loads(LOCK.read_text())

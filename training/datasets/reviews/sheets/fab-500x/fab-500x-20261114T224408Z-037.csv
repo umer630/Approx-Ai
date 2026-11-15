@@ -1,0 +1,1123 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-037,1,1f684108039da4c5f2dffe02,efaa1142dbe6a6459858c77e4849dd06,fab-500x,de,writing,aya-dataset,human_authored,"[user] Gib mir ein Email-Template, in dem es um einen neuen Kollegen geht, der gerade bei einer Firma angefangen hat.
+Die Mail sollte Willkommensgrüße enthalten und ein freundliches Bild zeichnen. Benutze das formale ""Sie"" statt einer informellen Anrede.
+Der Hauptteil der Mail sollte nicht länger als 4 Sätze sein. Der Autor der Mail ist in der gleichen Abteilung.","Guten Morgen {Name},
+herzlich willkommen im Team! Es freut uns, Sie bei der Firma {Firmenname} begrüßen zu können und als zukünftigen Kollegen mit an Bord zu haben.
+
+Sollten Sie weitere Fragen zu Abläufen innerhalb des Teams haben, zögern Sie bitte nicht, mir eine Nachricht zu schreiben oder persönlich am Schreibtisch vorbeizukommen.
+Mit freundlichen Grüßen,
+{Name Absender}",,,,
+fab-500x-20261114T224408Z-037,2,57b25988680f7f2817286bf5,0469839e35d10078e6f28b886eadbee4,fab-500x,el,general_knowledge,aya-dataset,human_authored,[user] Ολοκλήρωσε την φράση:  Στο,"Γκραν Πρι του Μπαχρέιν του 2021, ο Φερστάπεν ήταν πρώτος σε όλους τους δοκιμαστικούς γύρους και κατέκτησε την 4η pole position της καριέρας του. Αυτή ήταν και η πρώτη (και μέχρι τώρα η μόνη) φορά που κατέκτησε συνεχόμενες pole position. Πάλεψε με τον Lewis Hamilton για την νίκη, και στον 53ο γύρο, προσπέρασε τον Hamilton, παρότι τελικά αναγκάστηκε να παραδώσει την θέση του, επειδή στην προσπάθεια του να προσπεράσει τον Hamilton, πέρασε εκτός ορίων της πίστας, με αποτέλεσμα να βγει 2ος πίσω από τον Βρετανό. Στον επόμενο γύρο, το Γκραν Πρι της Εμίλια Ρομάνια, ο Φερστάπεν κατατάχθηκε τρίτος με τον νέο του ομόσταβλο, τον Sergio Perez να κατατάσσεται 2ος, κάτι που αποτέλεσε την πρώτη φορά που χάνει στις κατατακτήριες από ομόσταβλό του, από το Γκραν Πρι της Ιταλίας το 2019. Στην εκκίνηση του αγώνα, ο Φερστάπεν κατάφερε να προσπεράσει όχι μόνο τον 2ο Perez αλλά και τον poleman Lewis Hamilton και τελικά να πάρει την 1η θέση. Περέμεινε στην κορυφή της κατάταξης μετά τον πρώτο γύρο των πιτ-στοπ καθώς και μετά από την επανεκκίνηση του αγώνα, αφού ο αγώνας ανεστάλθη στον 33ο γύρο. Ο αντίπαλός του, Hamilton, τερμάτισε 2ος μειώνοντας την διαφορά του πρωταθλήματος έναντι του Φερστάπεν στον 1 πόντο. Στο επερχόμενο Πορτογαλικό Γκραν Πρι, ο Φερστάπεν τερμάτησε 2ος μετά από μια μακρά μάχη με τον Lewis Hamilton. Η μεταξύ τους μάχη συνεχίστηκε και στο Ισπανικό Γκραν Πρι, με την στρατηγική της Mercedes να δίνει στον Hamilton το προβάδισμα και τελικά την νίκη.",,,,
+fab-500x-20261114T224408Z-037,3,2bcf0af41f8fab2de3fbb236,f029744f51e274832f559274d294d627,fab-500x,en,coding,opencodeinstruct,synthetic,"[user] You are given a nested list of integers. Your task is to write a function named `flatten_list` that takes this nested list as input and returns a single flattened list containing all the integers. The function should be able to handle multiple levels of nesting. For example, if the input is `[1, [2, 3, [4, 5]], 6]`, the output should be `[1, 2, 3, 4, 5, 6]`.
+
+**Sample Input:**
+```
+[1, [2, 3, [4, 5]], 6]
+```
+
+**Sample Output:**
+```
+[1, 2, 3, 4, 5, 6]
+```","```python
+def flatten_list(nested_list):
+    """"""
+    Flattens a nested list of integers into a single list.
+
+    Args:
+        nested_list (list): A list that may contain other lists of integers.
+
+    Returns:
+        list: A flat list containing all the integers from the nested list structure.
+    """"""
+    flattened = []
+    for element in nested_list:
+        if isinstance(element, list):
+            flattened.extend(flatten_list(element))
+        else:
+            flattened.append(element)
+    return flattened
+
+# Example usage:
+example_nested_list = [1, [2, 3, [4, 5]], 6]
+print(flatten_list(example_nested_list))  # Output: [1, 2, 3, 4, 5, 6]
+```",,,,
+fab-500x-20261114T224408Z-037,4,8cb4e5e08bd0972ac81748df,8bcbedf350ab23c5a1d068e8977e9a3f,fab-500x,en,cybersecurity,trendyol-cybersec,synthetic,[user] How is GitOps security implemented with signed commits and automated security reviews?,"GitOps leverages the robust features of version control systems like Git to manage infrastructure configurations. Security is paramount in this paradigm, ensuring that only authorized changes reach production environments. To achieve secure GitOps practices, signed commits are mandatory, guaranteeing that every commit is associated with a verified identity. This ensures accountability and reduces the risk of unauthorized changes. In addition, automated security reviews are integrated into the continuous integration (CI) pipeline. These reviews scan for known vulnerabilities or misconfigurations in infrastructure as code templates. Any detected issues trigger alerts or block deployment workflows until resolved. Tools like CodeQL, Snyk, or Checkov can be employed to perform these checks seamlessly within CI pipelines. By enforcing signed commits and automated security reviews, GitOps becomes a secure, auditable system where every change is tracked, reviewed, and approved before being deployed into the production environment. This approach significantly reduces risks of human error or malicious attacks on infrastructure configurations. Furthermore, Git provides an extensive audit trail that allows teams to track changes over time, facilitating quick response in case any security incident occurs. Overall, implementing signed commits and automated security reviews within a GitOps workflow ensures that only authorized, well-tested code makes its way into production, strengthening the overall security posture of DevOps processes. This practice aligns with industry best practices outlined by NIST CSF (Identify & Protect Functions) and MITRE ATT&CK’s focus on maintaining secure coding and continuous monitoring within DevOps pipelines. It also contributes to achieving compliance requirements such as ISO 27001, GDPR, or SOC2, ensuring that changes to infrastructure configurations are appropriately controlled, monitored, and reviewed for security risks at every stage of the pipeline. Through this rigorous adherence to GitOps security practices, organizations can minimize the likelihood of configuration drift and unauthorized access while maintaining high levels of visibility into their DevOps workflows. Additionally, implementing multi-factor authentication (MFA) and least-privilege principles further bolsters security by limiting who can commit changes and ensuring that only trusted users have write permissions on critical repositories. Git’s ability to track branch merges, tags, and releases also allows teams to perform rollbacks or isolate specific commits if a vulnerability is discovered post-deployment. These features, combined with continuous integration and delivery (CI/CD) pipelines that enforce security checks, provide a comprehensive framework for securing infrastructure configurations in a DevOps environment.",,,,
+fab-500x-20261114T224408Z-037,5,2b1104d279f74326d783f43d,0ff0de44d17d62b5501758f8431313cf,fab-500x,en,education,aya-dataset,human_authored,"[user] Suggest a movie title for the following movie plot: One day in a school shortly before Christmas, an inept magician named Professor Hinkle is hired to perform for the children. Following this, the children go outside for recess and build a snowman, whom they name Frosty. However, Hinkle's rabbit Hocus Pocus, escapes from the building while wearing his hat, which the children decide to put on top of Frosty's head. To their surprise, the magic of the hat causes Frosty to come to life.
+This delights the students, but after seeing that the hat is actually magic, the agitated Hinkle wants it back. The children refuse to turn it over to him, but he eventually gets it. After he leaves, Hocus returns the hat to the children, thus bringing Frosty to life for the second time. The children are very happy with their new friend, but the temperature is rising and Frosty must leave for somewhere that is colder. Frosty explains that the only place he won't melt is the North Pole. They parade through town to the train station, shocking passersby and a policeman. When they get to the station however, they find that they do not have enough money to buy tickets to the North Pole. So, Karen, Frosty, and Hocus sneak into the back of a train headed north. Hinkle also sneaks aboard, determining to get his hat back.
+While Frosty is safe from melting in the refrigerated car, Karen is freezing so the group leaves the train and Hocus gathers a group of woodland creatures to build a fire for her. Frosty knows that it is best if Karen is brought home and he and Hocus decide to enlist the help of Santa Claus to transport her there. Hocus leaves to search for Santa, but Hinkle comes back to steal the hat back. Being too fast for Hinkle, Frosty and Karen race down the hill to a small greenhouse used to grow poinsettias. Frosty carries Karen inside where she will be warm and safe. However, Hinkle has followed them on foot and he locks Frosty and Karen inside.","Sure, a movie title for the movie plot could be: Frosty the Snowman.",,,,
+fab-500x-20261114T224408Z-037,6,1d65b8df8b8d20e43d283dc9,89acc0cf3d87f58c03a821999485e405,fab-500x,en,general_knowledge,dolly-15k,human_authored,[user] Can dogs talk?,"Dogs can't talk in the same ways humans can, but there are able to communicate with each other using both sounds and body movements. They learn this from a young age.",,,,
+fab-500x-20261114T224408Z-037,7,c14d133b9fdbaff1d648d2a6,910149c03e24d8efd521d9f961dd69fd,fab-500x,en,islamic_studies,aya-dataset,human_authored,[user] Siapakah ahli sunnah?,Penganut agama Islam yang kuat berpegang terhadap ajaran (hadis) Nabi Muhammad (s.a.w),,,,
+fab-500x-20261114T224408Z-037,8,0365b157b6fd29d799a06737,f61d959c3b9ebdd0e6b5c0d37e734d7b,fab-500x,en,mathematics,aqua-rat,human_authored,"[user] 3 pig’s and 10 goats are brought for Rs.1100. If the average price of a goat be Rs.50. What is the average price of a pig.
+
+A)275
+B)300
+C)200
+D)250
+E)225","Explanation:
+Average price of a goat = Rs.50
+total price of 10 goats = 10*50 = Rs.500
+But total price of 3 pigs and 10 goats = Rs. 1100
+Total price of 3 pigs is = 1100 - 500
+= 600
+Average price of a pig = 600/3
+= Rs. 200
+Answer: C
+
+Answer: C",,,,
+fab-500x-20261114T224408Z-037,9,1931a425817e8e18bfa72b29,7d52c32cd3016cb792c1d6c279de2852,fab-500x,en,pakistan,aya-dataset,human_authored,[user] In which session of the Indian National Congress was the demand for ‘Puma Swaraj’ formalized?,"Lahore Session, December 1929.",,,,
+fab-500x-20261114T224408Z-037,10,b4ff540b3256edef618e3576,3828ac22b877bb08aca213d84cb5de58,fab-500x,en,problem_solving,oasst2,human_authored,[user] What are the best ways to protect your children from RSV?,"Respiratory syncytial virus (RSV) is a common virus that can cause severe respiratory infections in infants and young children. Here are some ways to protect your children from RSV:
+
+1. Wash your hands frequently: Wash your hands frequently with soap and water, especially before handling your child, preparing food, and after using the bathroom. Use hand sanitizer if soap and water are not available.
+
+2. Avoid contact with sick people: Keep your child away from people who are sick, especially those with cold-like symptoms. If you are sick, avoid close contact with your child until you are no longer contagious.
+
+3. Keep your child's environment clean: Regularly clean and disinfect surfaces that your child comes into contact with, such as toys, doorknobs, and light switches.
+
+4. Breastfeed if possible: Breast milk contains antibodies that can help protect your child from infections, including RSV.
+
+5. Limit exposure to crowds: Avoid taking your child to crowded places, especially during the RSV season, which typically runs from late fall to early spring.
+
+6. Consider RSV prophylaxis: If your child is at high risk for severe RSV disease, such as premature infants or children with heart or lung conditions, your healthcare provider may recommend RSV prophylaxis.
+
+7. Keep your child up to date on vaccinations: Vaccinations such as the flu vaccine can help prevent respiratory infections and reduce the risk of complications from RSV.
+
+It's also important to be vigilant for any signs of respiratory illness in your child and seek medical attention if they develop symptoms such as cough, runny nose, fever, or difficulty breathing.",,,,
+fab-500x-20261114T224408Z-037,11,cfe82c6a631f29cb5f43df4c,18a6d4857e70865a5d2c4059f6eb2d5d,fab-500x,en,reasoning,dolly-15k,human_authored,"[user] Identify which animal is domesticated or wild: Goat, Reindeer","Goat is domesticated, Reindeer is wild.",,,,
+fab-500x-20261114T224408Z-037,12,a95bc3d826ac095f2f930139,65b6f52ef507a1c75e07ac33174c5ac2,fab-500x,en,research,tydiqa-goldp,human_authored,"[user] Honduras spans about 112,492km2 (43,433sqmi) and has a population exceeding 9 million.[2][3] Its northern portions are part of the Western Caribbean Zone, as reflected in the area's demographics and culture. Honduras is known for its rich natural resources, including minerals, coffee, tropical fruit, and sugar cane, as well as for its growing textiles industry, which serves the international market.
+
+How large is Honduras?","(43,433
+
+Honduras spans about 112,492km2 (43,433sqmi) and has a population exceeding 9 million.[2][3] Its northern portions are part of the Western Caribbean Zone, as reflected in the area's demographics and culture.",,,,
+fab-500x-20261114T224408Z-037,13,2b785ae1b2a2c247453b5fa7,ada1fa1ab933ff61c861fb8b79f7cd5e,fab-500x,en,safety_ethics,ethics-commonsense,templated_human,"[user] Consider this situation: ""I helped Alex off of the cruise liner.""
+By ordinary moral standards, is what the narrator did acceptable or wrong?",By ordinary moral standards this is not wrong; it is an acceptable thing to do.,,,,
+fab-500x-20261114T224408Z-037,14,f5ea3df4aa5607fb3b345c45,cad1996bd637b92e219b404e5887b573,fab-500x,en,science,arc,human_authored,"[user] The formation of coal deposits occurred over millions of years. Which feature was most responsible for these deposits?
+
+A. barren deserts
+B. active volcanoes
+C. mountains covered in trees
+D. swamps with dense vegetation",The correct answer is D: swamps with dense vegetation.,,,,
+fab-500x-20261114T224408Z-037,15,cd19bba9ef13bbdd03d75204,9a62074465e409dc4c97354fd66a0103,fab-500x,en,software_engineering,commitpackft,human_authored,"[user] Update frontpage build trigger to master
+
+File: scripts/build-frontpage.js
+```javascript
+#!/usr/bin/env node
+/* eslint-disable no-console */
+
+const fetch = require('node-fetch');
+
+const { CIRCLE_BRANCH, FRONTPAGE_WEBHOOK } = process.env;
+
+console.log('build-frontpage');
+if (CIRCLE_BRANCH === 'release/5.0') {
+  if (FRONTPAGE_WEBHOOK) {
+    console.log('triggering frontpage build');
+    const url = `https://api.netlify.com/build_hooks/${FRONTPAGE_WEBHOOK}`;
+    fetch(url, { method: 'post' }).then(res => console.log('result', res.status));
+  } else {
+    console.log('no webhook defined');
+  }
+} else {
+  console.log('skipping branch', CIRCLE_BRANCH);
+}
+```
+
+Apply this change and return the full updated file.","```javascript
+#!/usr/bin/env node
+/* eslint-disable no-console */
+
+const fetch = require('node-fetch');
+
+const { CIRCLE_BRANCH, FRONTPAGE_WEBHOOK } = process.env;
+
+console.log('build-frontpage');
+if (CIRCLE_BRANCH === 'master') {
+  if (FRONTPAGE_WEBHOOK) {
+    console.log('triggering frontpage build');
+    const url = `https://api.netlify.com/build_hooks/${FRONTPAGE_WEBHOOK}`;
+    fetch(url, { method: 'post' }).then(res => console.log('result', res.status));
+  } else {
+    console.log('no webhook defined');
+  }
+} else {
+  console.log('skipping branch', CIRCLE_BRANCH);
+}
+```",,,,
+fab-500x-20261114T224408Z-037,16,2df5e085a4686c6c79197bf3,9ca670787457d90c13a0a585b5a9cc47,fab-500x,en,web_backend,commitpackft,human_authored,"[user] Set default timezone for tests
+
+File: test/bootstrap.php
+```php
+<?php
+
+define(""TEST_ASSETS_DIR"", __DIR__ . ""/assets"");
+require_once dirname(__DIR__) . ""/vendor/autoload.php"";
+```
+
+Apply this change and return the full updated file.","```php
+<?php
+
+define(""TEST_ASSETS_DIR"", __DIR__ . ""/assets"");
+require_once dirname(__DIR__) . ""/vendor/autoload.php"";
+
+if (empty(ini_get(""date.timezone""))) {
+	ini_set(""date.timezone"", ""UTC"");
+}
+```",,,,
+fab-500x-20261114T224408Z-037,17,3b95a368e42af158eaac491e,fff50b704e98d43c097f9a7e460c4335,fab-500x,en,web_frontend,commitpackft,human_authored,"[user] Revert scoping of height declaration, as it breaks scrolling on iOS safari
+
+File: web/static/js/components/css_modules/idea_list.css
+```css
+@import '../../../css/colors.css';
+
+.list {
+  list-style: none;
+
+  margin: 0;
+  padding-left: 0;
+
+  /* ensure list takes up maximum vertical space amount between column header and user list */
+  flex-grow: 1;
+
+  overflow-y: hidden;
+  &:global(.overflowed) {
+    overflow-y: scroll;
+    border-bottom: 1px solid #C0C1C2;
+
+    --width: 5px;
+    --inverse: -5px;
+    box-shadow:
+      inset 0 var(--inverse) var(--width) var(--inverse) rgba(0,0,0,.7),
+      inset 0 var(--width)   var(--width) var(--inverse) rgba(0,0,0,.7);
+
+    li:last-of-type {
+      border-bottom: none;
+    }
+  }
+}
+
+/* hack for scrollability (conditionally applied) in firefox,
+   as overflow content in a flex container will not scroll
+   without it. It will just continue to get larger.
+   Note that this declaration does *not* limit the height due
+   to the `flex-grow: 1` declaration above
+*/
+@-moz-document url-prefix() {
+  .list {
+    height: 1px;
+  }
+}
+```
+
+Apply this change and return the full updated file.","```css
+@import '../../../css/colors.css';
+
+.list {
+  list-style: none;
+
+  margin: 0;
+  padding-left: 0;
+
+  /* ensure list takes up maximum vertical space amount between column header and user list */
+  flex-grow: 1;
+  /* hack for scrollability (conditionally applied) in firefox and iOS safari,
+     as overflow content in a flex container will not scroll
+     without it. It will just continue to get larger.
+     Note that this declaration does *not* limit the height due
+     to the `flex-grow: 1` declaration above
+  */
+  height: 1px;
+
+  overflow-y: hidden;
+  &:global(.overflowed) {
+    overflow-y: scroll;
+    border-bottom: 1px solid #C0C1C2;
+
+    --width: 5px;
+    --inverse: -5px;
+    box-shadow:
+      inset 0 var(--inverse) var(--width) var(--inverse) rgba(0,0,0,.7),
+      inset 0 var(--width)   var(--width) var(--inverse) rgba(0,0,0,.7);
+
+    li:last-of-type {
+      border-bottom: none;
+    }
+  }
+}
+```",,,,
+fab-500x-20261114T224408Z-037,18,0ec110f3681188aeb7a78a3e,2aac03ad9de70dcc74864be667bfe335,fab-500x,en,web_fullstack,oasst1,human_authored,"[user] Write an ""about us"" paragraph for the website of a design company. The paragraph should contain information on the different services and strengths of the company. It is written in a serious tone and shouldn't feature any technical terms that customers could be confused about.
+
+[assistant] Our design company is dedicated to providing top-notch design solutions for businesses and individuals looking to enhance their brand image and impact. Our team of experienced designers is equipped with a wealth of knowledge and expertise in graphic design, web design, and visual branding. Whether you're looking to revamp your company's logo, create a captivating website, or develop a cohesive brand strategy, we've got you covered. With a focus on attention to detail, creativity, and effective communication, we strive to deliver results that exceed our clients' expectations. Trust us to bring your vision to life and help you stand out from the crowd.
+
+[user] Can you make it about 50% shorter and more exciting? Think to a dynamic tv advertisement for sport product","You are looking for a design? We‘ve got you covered. Be it graphic design, web design, visual branding or just generally enhancing your brand image, we deliver the necessary expertise with a focus on attention to detail to blow your expectations away. You can always trust us to bring your vision to life.",,,,
+fab-500x-20261114T224408Z-037,19,abb29995461de16a5de50ac0,18e25cf49c957f994b64cd6c67431f4a,fab-500x,en,writing,dolly-15k,human_authored,[user] I which country is the best football played?,"The best football is either played in Spain or Italy since they have the most skilled players and coaches. A reason for that is that investors have put a lot of money into these teams. However, football leagues like Germany, England, and Brazil are very good.",,,,
+fab-500x-20261114T224408Z-037,20,699b5db6d8a99446e7584b98,59222b7edac9c8eceffdfb667b2a8c54,fab-500x,eo,general_knowledge,oasst2,human_authored,"[user] Ĉu Esperanto havas diversajn dialektojn?
+
+[assistant] Esperanto estas planlingvo, kiu estis kreita por esti facila kaj regula lingvo por internacia komunikado. Ĝi ne havas naturajn dialektojn, kiuj estas variaĵoj de lingvo, kiuj diferencas laŭ regiono, grupo aŭ socia klaso. Tamen, ekzistas kelkaj formoj de Esperanto, kiuj estas aŭ proponitaj aŭ efektivaj ŝanĝoj aŭ plibonigoj de la origina lingvo. Ili povas esti nomataj reformoj, projektoj aŭ idiolektoj.
+
+Kelkaj ekzemploj de tiaj formoj de Esperanto estas:
+
+- Ido: reformo de Esperanto, kiu celis simpligi la gramatikon kaj la vortaron de la lingvo. Ĝi estis proponita en 1907 kaj havis iom da popularo en la komenco de la 20-a jarcento.
+- Arcaicam Esperantom: projekto de Esperanto, kiu celis imiti la aspekton kaj sonon de malnovaj eŭropaj lingvoj. Ĝi estis kreita en 1969 kaj uzas arkaikajn vortojn kaj gramatikajn formojn.
+- Popido: idiolekto de Esperanto, kiu estas parolata de unuopa esperantisto. Ĝi estas miksita kun elementoj de aliaj lingvoj, precipe la angla. Ĝi estis kreita en 2004 kaj estas uzata por amuza celo.
+
+Do, Esperanto ne havas dialektojn en la tradicia senco de la vorto, sed havas kelkajn derivaĵojn aŭ variaĵojn, kiuj estas pli aŭ malpli akceptitaj aŭ uzataj de la esperantistoj.
+
+[user] Se Esperanto ne havas dialektojn, tamen eble ekzistas diversaj slangoj? Ĉu oni povas observi diferencoj en lingvouzado de junuloj kaj de maljunuloj?","Tio estas bona demando. Slango estas la uzado de neformalaj aŭ nekutimaj vortoj aŭ esprimoj en iu lingvo. Ĝi povas esti uzata por montri apartenon al iu grupo, por krei humuron aŭ por eviti cenzuron.
+
+Esperanto ankaŭ havas slangojn, kiuj povas esti uzataj de diversaj grupoj de esperantistoj. Ekzemple, ekzistas slangoj, kiuj estas uzataj de junaj esperantistoj, kiuj partoprenas en internaciaj renkontiĝoj aŭ movadoj. Ili povas uzi vortojn kiel:
+
+- mojos: signifas bonega, mirinda
+- fek: signifas fekaĵo, uzata por esprimi koleron aŭ malkontenton
+- krokodili: signifas paroli alian lingvon ol Esperanto en esperanta medio
+- sal: signifas saluton, uzata por diri ĉu vi bone fartas
+
+Ankaŭ ekzistas slangoj, kiuj estas uzataj de maljunaj esperantistoj, kiuj havas longan sperton en la lingvo kaj la kulturo. Ili povas uzi vortojn kiel:
+
+- samideano: signifas kunulo, kiu havas la saman ideon pri Esperanto
+- verda stelo: signifas la simbolon de Esperanto, kiu estas verda kvinpinta stelo
+- finvenkisto: signifas esperantisto, kiu kredas je la fina venko de Esperanto
+- interna ideo: signifas la etika kaj morala celo de Esperanto
+
+Do, oni povas observi diferencoj en lingvouzado de junuloj kaj de maljunuloj en Esperanto. Tamen, tio ne signifas, ke ili ne povas kompreni unu la alian. Esperanto estas sufiĉe fleksebla kaj tolerema lingvo, kiu permesas al ĉiu esprimi sian personecon kaj stilon.
+
+eo",,,,
+fab-500x-20261114T224408Z-037,21,524c1033a19456de23b2a224,4d1220c0859899df6c21ed349bb421b3,fab-500x,es,coding,oasst1,human_authored,"[user] ¿Cuáles son las diferencias entre Python y Rust?
+
+[assistant] Python y Rust son dos lenguajes de programación distintos con diferentes características y enfoques en su diseño y desarrollo. Aquí hay algunas de las diferencias más importantes entre ambos:
+
+Filosofía: Python es un lenguaje de programación de alto nivel que se enfoca en la facilidad de uso y legibilidad del código. Rust, por otro lado, es un lenguaje de bajo nivel que se enfoca en la seguridad y el rendimiento.
+
+Propósito: Python es un lenguaje versátil que se utiliza en una amplia gama de aplicaciones, desde el desarrollo web hasta la inteligencia artificial y la ciencia de datos. Rust, por su parte, se enfoca en el desarrollo de sistemas y aplicaciones de bajo nivel que requieren alta eficiencia y seguridad.
+
+Manejo de memoria: Python utiliza un garbage collector para liberar automáticamente la memoria no utilizada, lo que facilita la escritura del código. Rust, por otro lado, requiere que los desarrolladores gestionen manualmente la memoria, lo que puede ser más difícil, pero también permite un mayor control y eficiencia.
+
+Compilación: Python es un lenguaje interpretado, lo que significa que el código se ejecuta directamente sin necesidad de compilación previa. Rust, en cambio, es un lenguaje compilado, lo que significa que el código se compila en código binario antes de su ejecución.
+
+Sintaxis: La sintaxis de Python es concisa y fácil de leer, lo que la hace ideal para aprender y escribir código rápidamente. La sintaxis de Rust es más compleja y requiere más tiempo para aprender, pero ofrece más control y capacidades avanzadas.
+
+En resumen, ambos lenguajes tienen sus ventajas y desventajas y la mejor opción dependerá del propósito y las necesidades específicas de cada proyecto.
+
+[user] ¿Me podrías facilitar algunos videos o libros para aprender lo básico de Rust y python?","Por supuesto! Aquí hay algunas recomendaciones para aprender los conceptos básicos de Rust y Python:
+
+Vídeos para aprender Rust:
+
+    ""Rust Programming Language"" en YouTube
+    ""Rust Fundamentals"" en Udemy
+    ""Rust Language Tutorial"" en FreeCodeCamp
+
+Libros para aprender Rust:
+
+    ""The Rust Programming Language"" de Steve Klabnik y Carol Nichols
+    ""Rust Cookbook"" de Herbert Rust
+    ""Programming Rust: Fast, Safe Systems Development"" de Jim Blandy y Jason Orendorff
+
+Vídeos para aprender Python:
+
+    ""Python Tutorials"" en YouTube
+    ""Python Fundamentals"" en Udemy
+    ""Learn Python"" en Codecademy
+
+Libros para aprender Python:
+
+    ""Learning Python, 5th Edition"" de Mark Lutz
+    ""Python Crash Course: A Hands-On, Project-Based Introduction to Programming"" de Eric Matthes
+    ""Fluent Python: Clear, Concise, and Effective Programming"" de Luciano Ramalho
+
+Estos son solo algunos ejemplos, pero hay muchos recursos en línea disponibles para aprender ambos lenguajes. Es importante encontrar un recurso que se adapte a tu nivel de experiencia y a tus objetivos de aprendizaje.",,,,
+fab-500x-20261114T224408Z-037,22,0f821fc4bae3809576df9ccb,3fdea0a3932b7a22359591fc60647291,fab-500x,es,cybersecurity,oasst2,human_authored,"[user] Requiero aprender sobre la ciberseguridad en informática, como puedo iniciar mi aprendizaje?","Te recomiendo que sigas estos pasos para iniciar tu aprendizaje en ciberseguridad en informática:
+
+1. Familiarízate con los conceptos básicos de seguridad informática: comprender los tipos de amenazas y cómo proteger los sistemas y datos.
+
+2. Aprende sobre los protocolos y estándares de seguridad: tales como HTTPS, TLS, SSL, y otros.
+
+3. Adquiere conocimientos de firewall, encriptación y autenticación: estos son los pilares de la seguridad en internet.
+
+4. Comprende las prácticas de seguridad en la nube: cómo proteger los datos almacenados en la nube.
+
+5. Aprende sobre los ataques cibernéticos y cómo protegerse contra ellos: tales como phishing, malware, y ataques DDoS.
+
+6. Realiza prácticas y ejercicios de seguridad: puedes utilizar plataformas como HackTheBox para mejorar tus habilidades.
+
+Mantente actualizado y sigue las últimas tendencias y avances en ciberseguridad.
+
+Recuerda que la ciberseguridad es un campo en constante evolución, por lo que es importante estar siempre aprendiendo y mejorando tus habilidades.",,,,
+fab-500x-20261114T224408Z-037,23,1bb411d69bf2c50c86335fa1,7cb44df1f8295f0019e474b237610186,fab-500x,es,education,oasst2,human_authored,[user] Dame ideas para generar vídeos de youtube interesantes o que pueda usar para generar ingresos,"Aquí hay algunas ideas para crear vídeos de YouTube interesantes o generar ingresos:
+
+1. Tutoriales: Puedes crear tutoriales sobre cualquier tema en el que tengas conocimiento o interés, como cocina, tecnología, belleza, manualidades, etc.
+
+2. Reseñas: Puedes hacer reseñas de productos, películas, libros, juegos, etc.
+
+3. Vlogs: Puedes documentar tu día a día o tus viajes y compartirlos con tus seguidores.
+
+4. Entrevistas: Puedes entrevistar a expertos en un tema o a personalidades interesantes.
+
+5. Demostraciones de habilidades: Puedes demostrar tus habilidades en un deporte, un arte, un juego, etc.
+
+6. Comedia: Puedes crear vídeos cómicos, parodias, sketches, etc.
+
+7. Consejos y trucos: Puedes compartir tus consejos y trucos sobre cualquier tema, desde cómo ahorrar dinero hasta cómo mejorar tus habilidades en un juego.
+
+
+Para generar ingresos con tus vídeos de YouTube, puedes considerar las siguientes opciones:
+
+1. Anuncios de YouTube: Puedes permitir que se muestren anuncios en tus vídeos y ganar dinero por cada visualización.
+
+2. Patrocinios: Puedes aceptar patrocinios de marcas relevantes a tu contenido y mencionarlas en tus vídeos.
+
+3. Venta de productos: Puedes vender productos relacionados con tu contenido, como libros, cursos en línea, merchandising, etc.
+
+Recuerda que para generar ingresos con tus vídeos de YouTube, debes cumplir con los requisitos y políticas de la plataforma y ser consistente y regular en la publicación de contenido de calidad.",,,,
+fab-500x-20261114T224408Z-037,24,04ac5a6ae8505cde5f918188,395b8adea671678cb45090bbe032c763,fab-500x,es,general_knowledge,oasst1,human_authored,[user] Vivo en Fernando de la Mora Paraguay. Que linea de bus tengo que tomar para irme a identificaciones?,"No tengo información de una línea de bus para que puedas llegar al Departamento de Identificaciones, pero puede aconsejarte usar alguna aplicación específica para ello como Google Maps.",,,,
+fab-500x-20261114T224408Z-037,25,87e7a16d1a550c4ac308244a,166d51d098c8c3b082dd5f0d4b27ac9c,fab-500x,es,islamic_studies,oasst1,human_authored,"[user] ¿Cuáles son los meses del año?
+
+[assistant] Según el calendario gregoriano, el mas difundido en la actualidad, un año está compuesto por 12 meses:
+```
+1. enero
+2. febrero
+3. marzo
+4. abril
+5. mayo
+6. junio
+7. julio
+8. agosto
+9. septiembre
+10. octubre
+11. noviembre
+12. diciembre
+```
+
+[user] ¿Cómo es según otros calendarios?","Además del calendario ampliamente usado en la actualidad, conocido como gregoriano, existen muchos otros calendarios pertenecientes a distintas culturas o épocas históricas. A continuación te muestro algunos ejemplos con sus respectivos meses.
+
+- **Calendario islámico**
+1. Muharram
+2. Safar
+3. Rabi al-Awwal
+4. Rabi al-Thani
+5. Jumada al-Ula
+6. Jumada al-Akhira
+7. Rajab
+8. Sha'ban
+9. Ramadan
+10. Shawwal
+11. Dhu al-Qi'dah
+12. Dhu al-Hijjah
+
+- **Calendario hebreo**
+1. Tishrei
+2. Jeshván
+3. Kislev
+4. Tevet
+5. Shevat
+6. Adar 
+7. Nisan
+8. Iyar
+9. Siván
+10. Shawwal
+11. Tamuz
+12. Av
+
+- **Calendario hindú**
+1. Chaitra
+2. Vaishakha
+3. Jyaistha
+4. Ashadha
+5. Shravana
+6. Bhadrapada 
+7. Ashwina
+8. Kartika
+9. Agrahayana
+10. Pausha
+11. Magha
+12. Phalguna
+
+- **Calendario chino**
+1. Zhēngyuè
+2. Èryuè
+3. Sānyuè
+4. Sìyuè
+5. Wǔyuè
+6. Liùyuè
+7. Qīyuè
+8. Bāyuè
+9. Jiǔyuè
+10. Shíyuè
+11. Shíyīyuè
+12. Shíèryuè
+
+- **Calendario romano**
+1. Martius
+2. Aprilis
+3. Maius
+4. Iunius
+5. Quintilis
+6. Sextilis
+7. Septembris
+8. Octobris
+9. Novembris
+10. Decembris
+
+Estos son solo algunos ejemplos, pero existen muchos más. No dudes en preguntar si tienes alguna duda.",,,,
+fab-500x-20261114T224408Z-037,26,40838e3bf82aacf0d266d282,c9f34dc0f1d934e485e1531db5b4751c,fab-500x,es,mathematics,oasst1,human_authored,[user] cuantos son 31 grados Celsius a Fahrenheit?,"31° C equivalen a 87.8° F.
+la formula para convertir de grados Celsius a Fahrenheit es ( grados C° x 9/5) + 32",,,,
+fab-500x-20261114T224408Z-037,27,44509f822c96ca5760d2d85b,dfcfb42b493a7cabb8e0b74d53d0e699,fab-500x,es,problem_solving,oasst2,human_authored,"[user] Dado un proyecto donde de desarrollo de Soft que está iniciando con metodología Agile, cuales serían las principales preocupaciones a tener , para lograr llegar con el desarrollo en una fecha dada por el cliente. Cuales son las acciones necesarias a tomar para minimizar los riesgos y cumplir con el plan propuesto.","En un proyecto de desarrollo de software que utiliza la metodología Agile, hay algunas preocupaciones importantes que hay que tener en cuenta para lograr el éxito y cumplir el plazo establecido por el cliente:
+
+1. Comunicación y colaboración eficaces: Es importante que todos los miembros del equipo, incluido el cliente, estén sincronizados y colaboren para alcanzar los objetivos del proyecto. Una comunicación regular y eficaz puede ayudar a identificar y resolver los problemas a medida que surgen.
+
+2. Planificación eficaz: Es importante contar con un plan claro y detallado para cada iteración o sprint, que incluya tareas, recursos y plazos. También es necesario contar con un plan de contingencia en caso de cambios o desafíos inesperados.
+
+3. Seguimiento y revisión continuos: La revisión y el seguimiento constantes del progreso y la calidad del código son fundamentales para garantizar que el proyecto se mantiene en el buen camino y cumple con los estándares y las expectativas.
+
+4. Flexibilidad y adaptabilidad: La metodología ágil se basa en la iteración y la mejora continua, por lo que es importante estar dispuesto a adaptarse a los cambios y ajustar el enfoque según sea necesario.
+
+Para minimizar los riesgos y ceñirse al plan propuesto, algunas acciones necesarias incluyen
+
+1. Priorización y selección cuidadosa de las tareas: Es importante priorizar las tareas y seleccionar cuidadosamente aquellas que son más importantes y críticas para el éxito del proyecto.
+
+2. Asignación adecuada de recursos: Deben asignarse recursos adecuados, incluyendo tiempo y experiencia, a las tareas prioritarias.
+
+3. Control de calidad riguroso: Un control de calidad riguroso y eficaz es esencial para garantizar que el código cumple las normas y expectativas del cliente.
+
+4. Seguimiento continuo del progreso: Es importante supervisar continuamente el progreso del proyecto para asegurarse de que avanza según lo previsto y tomar medidas rápidas si surgen dificultades o retrasos.",,,,
+fab-500x-20261114T224408Z-037,28,35904ea56ab4e942cf23c7f7,3ab8d024e7851a85aec96a15eb1c7507,fab-500x,es,reasoning,oasst2,human_authored,[user] ¿Qué es la burocracia pública según Max Weber?,"Max Weber, un sociólogo y economista alemán, es conocido por su estudio de la burocracia, la cual define como una forma racional y eficiente de organización y administración pública. Para Weber, la burocracia es un tipo de organización social que se caracteriza por tener un conjunto de reglas y procedimientos bien definidos, jerarquías claras de autoridad y responsabilidad, y una división clara del trabajo.
+
+Según Weber, la burocracia pública tiene las siguientes características:
+
+1. Jerarquía: existe una clara estructura de autoridad y responsabilidad, donde cada nivel superior supervisa y controla el trabajo del nivel inferior.
+
+2. Reglas y procedimientos: la burocracia se basa en reglas y procedimientos formales que se aplican uniformemente en toda la organización.
+
+3. Especialización: cada miembro de la organización tiene una tarea específica y se espera que se concentre en ella.
+
+4. Impersonalidad: las decisiones y acciones de la burocracia no están basadas en prejuicios personales o emociones, sino en reglas y procedimientos objetivos.
+
+5. Meritocracia: la burocracia se basa en la selección y promoción de individuos basados en su mérito y habilidades, en lugar de su riqueza, poder o conexiones políticas.
+
+Según Weber, la burocracia puede ser una forma altamente eficiente de administración pública, pero también puede ser una fuente de rigidez y falta de adaptación a los cambios en el entorno. En su opinión, la burocracia debe ser cuidadosamente diseñada y gestionada para maximizar sus beneficios y minimizar sus desventajas.",,,,
+fab-500x-20261114T224408Z-037,29,449b9640582aedecebf68002,e588cf5980f0ccefa9494f51d97be82b,fab-500x,es,research,aya-dataset,human_authored,[user] ¿Cuáles son algunas de las revistas científicas mas reconocidas de Machine Learning (ML)?,"las revistas mas reconocidas son:
+- Journal of Machine Learning Research: Publicado por JMLR, Inc. y Microtome Publishing en los Estados Unidos de Norte América.
+- Machine Learning: Publicado por Springer en los Estados Unidos de Norte América.
+- Nature Machine Intelligence: Publicado por Nature indexado en el Reino Unido.
+- Neural Computation: Publicado por MIT Press en los Estados Unidos de Norte América.
+- IEEE Transactions on Pattern Analysis and Machine Intelligence: Publicado por la Sociedad de Computación de la IEEE.",,,,
+fab-500x-20261114T224408Z-037,30,156cdbedbf9275900439674c,c16b5d4e2b7159eb7c3390a8eb1caeb3,fab-500x,es,science,oasst2,human_authored,[user] ¿Es posible terraformar marte?,"Si, es teóricamente posible terraformar Marte.
+
+La terraformación de Marte es un proceso teórico para hacer el planeta más habitable para los seres humanos y otros seres vivos.
+
+Esto incluiría cambiar las condiciones ambientales como la temperatura, la presión atmosférica y la composición química de la atmósfera para hacerlas similares a las de la Tierra. 
+
+Sin embargo, hay muchos obstáculos, como la tenue atmósfera y la superficie fría, que deben superarse. 
+
+Aun así, hay ideas sobre cómo se podría lograr la terraformación, como liberar gases de invernadero y cultivar organismos que produzcan oxígeno. En resumen, la terraformación de Marte es un reto grande pero una posibilidad.",,,,
+fab-500x-20261114T224408Z-037,31,00786648351c5fce0648cf63,371c3c99b76be503ff701e1e7ba41231,fab-500x,es,web_backend,oasst1,human_authored,[user] Como exportar a excel de varios modelos relacionados en django segun un filtro?,"Hola, este es Bing. Gracias por tu interés. 😊
+
+Para exportar a excel de varios modelos relacionados en django según un filtro puedes usar la biblioteca **xlwt**, que te permite crear y escribir archivos excel con python. Para instalarla puedes usar el comando:
+
+`pip install xlwt`
+
+Luego, puedes crear una vista en django que reciba el filtro como parámetro y genere el archivo excel con los datos de los modelos relacionados. Por ejemplo, supongamos que tienes los siguientes modelos:
+
+```python
+class Autor(models.Model):
+    nombre = models.CharField(max_length=50)
+    pais = models.CharField(max_length=50)
+
+class Libro(models.Model):
+    titulo = models.CharField(max_length=100)
+    autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
+    genero = models.CharField(max_length=50)
+```
+
+Y quieres exportar a excel los libros de un determinado género y sus autores. Entonces podrías hacer algo así:
+
+```python
+import xlwt
+from django.http import HttpResponse
+from .models import Autor, Libro
+
+def exportar_excel(request):
+    # Recibir el filtro por género desde la url
+    genero = request.GET.get(""genero"")
+
+    # Crear un objeto workbook de xlwt
+    workbook = xlwt.Workbook(encoding=""utf-8"")
+
+    # Crear una hoja de cálculo dentro del workbook
+    worksheet = workbook.add_sheet(""Libros"")
+
+    # Escribir los encabezados de las columnas
+    worksheet.write(0, 0, ""Título"")
+    worksheet.write(0, 1, ""Autor"")
+    worksheet.write(0, 2, ""País"")
+
+    # Obtener los libros y sus autores según el filtro
+    libros = Libro.objects.filter(genero=genero).select_related(""autor"")
+
+    # Escribir los datos de cada libro y su autor en una fila
+    row_num = 1
+    for libro in libros:
+        worksheet.write(row_num, 0, libro.titulo)
+        worksheet.write(row_num, 1, libro.autor.nombre)
+        worksheet.write(row_num, 2, libro.autor.pais)
+        row_num += 1
+
+    # Crear una respuesta HTTP con el tipo de contenido adecuado
+    response = HttpResponse(content_type=""application/ms-excel"")
+
+    # Agregar la cabecera Content-Disposition para indicar el nombre del archivo
+    response[""Content-Disposition""] = f""attachment; filename=libros_{genero}.xls""
+
+   # Guardar el workbook en la respuesta 
+   workbook.save(response)
+
+   # Retornar la respuesta 
+   return response 
+```
+
+De esta forma podrías exportar a excel los datos de varios modelos relacionados según un filtro usando django y xlwt.",,,,
+fab-500x-20261114T224408Z-037,32,098804e14f6daf705247eee0,3c0082f4be1685299a823d2d27647ea2,fab-500x,es,web_frontend,oasst2,human_authored,"[user] ¿Cómo puedo empezar a hacer un proyecto en React para desarrollar mi propia web?
+
+[assistant] Primero hay que aprender los lenguajes básicos para web (HTML, CSS, JS), después hay que utilizar un instalador de paquetes como npm o yarn y un ejecutor de paquetes como npx. Con npx puedes crear un proyecto de react vacío (npx create-react-app nombre-app) y arrancar la aplicación con npm (npm start). Lo más esencial de aprender en react al comenzar son los hooks y componentes.
+
+[user] ¿Y de qué manera aprendo los lenguajes básicos para web?","Puedes aprender los lenguajes básicos para web a través de diferentes medios, como cursos en línea, libros, tutoriales y videos. Aquí te proporciono algunas recursos que pueden ser útiles:
+
+-HTML: Puedes aprender HTML a través de la documentación oficial de la W3C (World Wide Web Consortium) o a través de tutoriales en línea como Codecademy o W3Schools.
+
+-CSS: Puedes aprender CSS a través de la documentación oficial de la W3C o a través de tutoriales en línea como Codecademy o W3Schools.
+
+-JavaScript: Puedes aprender JavaScript a través de la documentación oficial de la ECMA (European Computer Manufacturers Association) o a través de tutoriales en línea como Codecademy o W3Schools.",,,,
+fab-500x-20261114T224408Z-037,33,586dbda46094a129a812a6a8,efbc2f4d9efbcc95477f8997fca9197b,fab-500x,es,writing,oasst1,human_authored,[user] Resume en un solo párrafo la filosofía de la escuela de pensamiento estoica.,"La filosofía estoica es una escuela de pensamiento que surgió en Grecia en el siglo III a.C. y que se desarrolló en el Imperio Romano. Sus filósofos, como Zenón, Epicteto y Séneca, creían que la felicidad y la paz interior se lograban a través del autocontrol y la aceptación de lo que está fuera de nuestro control. La virtud y la sabiduría eran valores clave en su filosofía, y creían que la vida debía ser guiada por la razón y la moralidad. La filosofía estoica también sostiene la idea de que todos los seres humanos son iguales y están unidos por una naturaleza común, y que el universo está regido por un orden lógico y justo. En resumen, la filosofía estoica busca enseñar a las personas a vivir de manera virtuosa y alegre, incluso en medio de circunstancias adversas.",,,,
+fab-500x-20261114T224408Z-037,34,1b1677f1d25a99d2bdbdf8ab,59a43fffa9f718c1963cddfc894f01f0,fab-500x,eu,general_knowledge,oasst2,human_authored,[user] Asteburua laizter dator eta ez dut oraindik inolako planarik sortu. Sortu iezadakezu asteburu honetarako planaren bat?,"Bai, hemen daukazu plangintza txiki bat zure astebururako:
+
+Larunbata:
+
+Kanpoko aisialdi bat, esaterako, mendira joan.
+Etxeko lanak egiten hasteko denbora hartu.
+
+Igandea:
+
+Familiarekin edo lagunekin bazkaria egin.
+Kiroldegira joan edo kanpoan ibiltzeko.",,,,
+fab-500x-20261114T224408Z-037,35,41015e863e73b193efb4689a,cf6ec27cb914c48a8946086c31b5d970,fab-500x,eus,general_knowledge,aya-dataset,human_authored,"[user] Euskal Herrian, siderurgiaren historia nola lotuta dago industrializazioaren prozesuarekin, eta zer eragina izan du ekonomia eta gizartean?","Euskal Herrian, XIX. mendearen bukaeran, siderurgiak industrializazioaren prozesuan papera nagusia izan zuen. Inguruko lurraldeetan huts-minak izan ziren, eta horrek siderurgiaren garapena bultzatu zuen. Hainbat lanbide-etxe eta fabrika sortu ziren, hiriak, hala nola Bilbo edo Barakaldo, handitu egin ziren. Ekonomian, siderurgiak enpleguak sortu, esportazioak bultzatu eta ekonomia diversifikatu egin zuen. Gizartean, lan klase berria sortu zen, hirigintza aldaketa sakonak izan zituen eta migrazioa eragin zuen.",,,,
+fab-500x-20261114T224408Z-037,36,05956eab2bab1e8ef8460794,e1f3fdfebb28d0b4b53921126d9cc5ce,fab-500x,eus,science,aya-dataset,human_authored,[user] Zein elementu kimikoak du T symboloa eta zein da bere zenbaki atomikoa?,"""T"" symboloa duen elementu kimikoa Tenorioa (Thallium) da eta 81 zenbaki atomikoa du.",,,,
+fab-500x-20261114T224408Z-037,37,71c46de26b0fbbbecfd7b606,772823c180f6aba98c5319efde720412,fab-500x,fa,general_knowledge,aya-dataset,human_authored,"[user] چه سوالی برای: ""آتلانتا مرکز فرهنگی و اقتصادی منطقه شهری آتلانتا است، خانه ای برای 5،457،831 نفر و نهمین منطقه بزرگ شهری در ایالات متحده است"".؟ بنویسیم که موضوعش آتلانتا باشد؟","""چند نفر در آتلانتا جورجيا زندگي ميکنن؟""",,,,
+fab-500x-20261114T224408Z-037,38,75edf7c5083256717e6dff0c,162dbe528987557c70888ae843fdb170,fab-500x,fa,islamic_studies,aya-dataset,human_authored,[user] این متن در مورد چه رویداد مهمی صحبت می‌کند: مهاجرانی، در ۲۴ خردادماه ۱۳۸۸، با انتشار پُستی در وبسایت خود «مکتوب»، به نتیجهٔ انتخابات ریاست جمهوری سال ۱۳۸۸ و سرکوب گستردهٔ مردم باورمند به تقلب، اعتراض کرده و تلویحاً اعلام برنده‌شدنِ احمدی‌نژاد را حرکتی متقلبانه و ناشی از خودرأیی سید علی خامنه‌ای با هدف برچیدن بساط جمهوری از کشور عنوان کرده بود: «برای: جوانان … دوستی زنگ زد. صدایش می‌لرزید. بغضش ترکید. نتوانست رسا حرف بزند. اصرار داشت در یک جمله بگویم در ایران، در وطنمان چه اتفاقی افتاده‌است؟ گفتم، رهبری معظم تصمیم گرفتند حکومت اسلامی را جایگزین جمهوری اسلامی کنند. همهٔ ما باید در این جشن فرخنده شرکت کنیم و از ژرفای دل و دیده شادمان باشیم … این جوانانی که در خیابان‌های تهران و شهرستان‌ها کتک می‌خورند، با چهره‌های خونین بهت‌زده نگاه می‌کنند، آقای موسوی و کروبی و روحانیون مبارز که بیانیه می‌دهند، گمان می‌کنند می‌شود از جمهوریت نظام و رأی ملت حمایت کرد. برای من مثل روز روشن است که ۲۲ خرداد ۱۳۸۸، چهار ماه پس از سی‌سالگی انقلاب، عصر جمهوری در کشور ما به پایان رسید و آقای احمدی‌نژاد با تنفیذ ولایت مطلقهٔ امر، آراء لازم را احراز کرد و پیروز شد. این پیروزی مبارک باد … البته هیچ جشنی بدون قربانی نمی‌شود و هر چقدر جشن بزرگتر باشد، قربانیان هم بزرگتر خواهند بود … ۲۲ بهمن آغاز پیروزی انقلاب اسلامی بود و ۲۲ خرداد ابتدای حکومت اسلامی … سی‌سال عدد تأمل‌انگیزی است. هم در تاریخ اسلام و هم در تاریخ انقلاب. امام خمینی هم به سی سال اشاره کرده‌اند … در عصر حکومت اسلامی که با مانور اقتدار پلیس و نیروهای امنیتی آغاز شد؛ رأی و صندوق رأی با صندوق کاغذ باطله چه تفاوتی دارد … دوستم صدای گریه‌اش بلند شد. تلخ گریست».,انتخابات ریاست جمهوری سال ۱۳۸۸,,,,
+fab-500x-20261114T224408Z-037,39,301acc5b357bf15a5779dda1,150a19222d40605b4a7e11b460edff24,fab-500x,fa,mathematics,aya-dataset,human_authored,[user] وضعیت کشور ایتالیا از نظر گردشگری به چه شکل است؟,"بر اساس محاسبه‌ای که یونسکو انجام داده، بیش از نیمی از میراث فرهنگی جهانی در کشور ایتالیا واقع شده‌است، کشوری کوچک که مساحتش فقط ۰/۲۵ ٪ از کل خشکی‌های جهان است.
+نشانه‌های باقی‌مانده از گذشته، آثار هنری و تنوع فوق‌العاده طبیعت در شبه جزیره ایتالیا از جمله عوامل جذب توریست در ایتالیا یکی از توریستی‌ترین کشورهای جهان به‌شمار می‌آید.
+رم، فلورانس، ونیز و بسیاری شهرهای دیگر، از جمله مقصدهای هنری هستند که برنامه هر بازدیدکننده‌ای از شبه جزیره ایتالیا را تشکیل می‌دهند. در کنار این شهرهای بزرگ و معروف، میراثهای فرهنگی پنهانی هم در شهرهایی با تاریخ هزار ساله وجود دارند که البته در مسیر اصلی بازدیدها قرار ندارند و علی‌رغم اینکه کمتر شناخته شده‌اند، اما به همان اندازه شهرهای هنری ایتالیا دارای جذابیت هستند.
+هر ساله به‌طور میانگین حدود شصت میلیون گردشگر خارجی از ایتالیا بازدید می‌کنند[۶] و از این نظر پنجمین کشور پربازدید شده در جهان است.",,,,
+fab-500x-20261114T224408Z-037,40,13d62fb54b3a2604cf0d9d38,87e8b104822f36d9e7ebebf579ba87eb,fab-500x,fi,general_knowledge,oasst2,human_authored,[user] Mitkä ovat Suomen 10 suurinta kaupunkia?,"Vuoden 2023 alun tilastojen mukaan Suomen kymmenen suurinta kaupunkia ovat seuraavat:
+
+* Helsinki
+* Espoo
+* Tampere
+* Vantaa
+* Oulu
+* Turku
+* Jyväskylä
+* Kuopio
+* Lahti
+* Pori",,,,
+fab-500x-20261114T224408Z-037,41,97009cf579def6234ef8c2f3,303589c0c2a899a73129b8ba8c14e3c7,fab-500x,fi,research,tydiqa-goldp,human_authored,"[user] Ensimmäinen maailmansota (myös suuri sota tai maailmansota) oli vuosina 1914–1918 käyty maailmanlaajuinen sota, jonka tapahtumat kuitenkin keskittyivät enimmäkseen Euroopassa käytyihin taisteluihin. Alusta alkaen sotaa käytiin myös Aasiassa ja Afrikassa sekä kaikilla suurimmilla valtamerillä. Taisteluja ei käyty Amerikan mantereilla, mutta Yhdysvallat osallistui sotaan taistelemalla Euroopan maaperällä. Sodan osapuolet jaetaan kahteen ryhmään: keskusvaltoihin ja ympärysvaltoihin. Keskusvaltoihin kuuluivat Saksan keisarikunta, Itävalta-Unkari, Bulgaria ja Osmanien valtakunta, jälkimmäisen ryhmän tärkeimmät osallistujat taas olivat Britannia, Venäjä, Ranska ja Yhdysvallat. Ryhmien nimet tulevat niiden maantieteellisestä sijainnista: Saksa ja Itävalta-Unkari sijaitsevat keskellä (keskusvallat) Eurooppaa, missä niitä ympäröivät Britannia, Ranska ja Venäjä (ympärysvallat). Ennakko-odotusten vastaisesti Italia ei ollut kolmiliitossa mukana, vaan liittyi sotaan 1915 ympärysvaltojen puolelle.
+
+Milloin ensimmäinen maailmansota loppui?","1918
+
+Ensimmäinen maailmansota (myös suuri sota tai maailmansota) oli vuosina 1914–1918 käyty maailmanlaajuinen sota, jonka tapahtumat kuitenkin keskittyivät enimmäkseen Euroopassa käytyihin taisteluihin.",,,,
+fab-500x-20261114T224408Z-037,42,6b27fb23cd91cbaeb9baf480,c730aa39492c80aef7c8bb433dcf5b5c,fab-500x,fin,general_knowledge,aya-dataset,human_authored,[user] Täydennä seuraava teksti kappaleeksi: Ruoppa voitti hiihtourallaan kaksi arvokisapronssia viesteistä: vuonna 1960 Squaw Valleyn olympialaisissa ja vuonna 1962 Zakopanen MM-kisoissa. Molemmissa kilpailuissa hän hiihti toisen osuuden. Henkilökohtaisilla matkoilla hän ei sijoittunut aivan kärkeen. Squaw Valleyssa hän oli 10 kilometrillä yhdestoista ja Zakopanessa 5 kilometrillä kahdeksas sekä 10 kilometrillä yhdeksäs. Innsbruckin 1964 olympialaisissa hän sijoittui jälleen 5 kilometrillä kahdeksanneksi ja 10 kilometrillä yhdeksänneksi mutta ei päässyt viestiin.,"Ruoppa voitti hiihtourallaan kaksi arvokisapronssia viesteistä: vuonna 1960 Squaw Valleyn olympialaisissa ja vuonna 1962 Zakopanen MM-kisoissa. Molemmissa kilpailuissa hän hiihti toisen osuuden. Henkilökohtaisilla matkoilla hän ei sijoittunut aivan kärkeen. Squaw Valleyssa hän oli 10 kilometrillä yhdestoista ja Zakopanessa 5 kilometrillä kahdeksas sekä 10 kilometrillä yhdeksäs. Innsbruckin 1964 olympialaisissa hän sijoittui jälleen 5 kilometrillä kahdeksanneksi ja 10 kilometrillä yhdeksänneksi mutta ei päässyt viestiin. Oslon MM-kisoissa 1966 hän oli 5 kilometrillä yhdeksäs, 10 kilometrillä yhdestoista ja viestissä viides. Seuratasolla Ruoppa edusti Miehikkälän Vilkasta, mutta ei voittanut urallaan yhtään Suomen mestaruutta. Hän saavutti SM-hopeaa viisi kertaa ja SM-pronssia kolmesti. Puijon talvikisojen 10 kilometrin kilpailun hän voitti vuosina 1962, 1963 ja 1965, ja Ounasvaaralla hän oli nopein vuonna 1963. Salpausselän Kisoissa hän sijoittui toiseksi vuosina 1962 ja 1966.",,,,
+fab-500x-20261114T224408Z-037,43,8c844deccc7dd23f41c43684,636d29756321639a72958e9538a41b84,fab-500x,fin,mathematics,aya-dataset,human_authored,[user] Milloin sijoitus on taksonomiakelpoista taloudellista toimintaa ja milloin taksonomian mukaista taloudellista toimintaa?,"Taksonomia-asetuksen täydentämiseksi annettu tiedonantovelvoitteita koskeva delegoitu säädös EU 2021/2178 määrittelee nämä käsitteet.
+
+Taksonomiakelpoisella taloudellisella toiminnalla tarkoitetaan toimintaa, joka kuvataan taksonomia-asetusta täydentävissä delegoiduissa säädöksissä, riippumatta siitä, täyttääkö kyseinen taloudellinen toiminta jonkin tai kaikki kyseisissä delegoiduissa säädöksissä säädetyistä teknisistä arviointikriteereistä. Ensimmäiset tekniset arviointikriteerit on annettu ilmastoa koskevassa delegoidussa säädöksessä Eu 2021/2139.
+
+Taksonomian mukaisella taloudellisella toiminnalla tarkoitetaan toimintaa, joka täyttää taksonomia-asetuksen 3 artiklassa säädetyt ympäristön kannalta kestäviä taloudellisia toimia koskevat kriteerit ja tekniset arviointikriteerit.",,,,
+fab-500x-20261114T224408Z-037,44,61dd8bc4183ff8379186bebd,40369518ea5796aa6f92e43306c0a47b,fab-500x,fr,coding,oasst2,human_authored,"[user] Par quel language de programmation devrais-je commencer?
+
+[assistant] Tout dépend de vos objectifs. Cependant, certains des languages de programmation les plus populaires et les plus faciles à apprendre pour les débutants sont :
+
+1. Python
+2. JavaScript
+3. Java
+4. C#
+5. Swift (pour développer des applications iOS)
+
+Il est important de choisir un language qui vous plaît et qui est adapté à vos projets futurs.
+
+[user] Un de mes projets futurs est la création d'une intelligence artificielle sous forme de discussion. Avec quel langage devrai-je commencer ?","Python est un langage de programmation très important dans le domaine de l'intelligence artificielle. Il est souvent choisi en raison de sa syntaxe simple et de sa grande communauté de développeurs qui ont créé de nombreuses bibliothèques pour la machine learning, le traitement du langage naturel et d'autres domaines connexes.
+
+De plus, Python est également compatible avec un grand nombre de systèmes et plateformes, ce qui le rend facile à utiliser pour un large éventail de projets d'IA.",,,,
+fab-500x-20261114T224408Z-037,45,53c22fc40edee26e15817bef,4cb70058ad46ddddc940e373b4fad779,fab-500x,fr,cybersecurity,oasst2,human_authored,[user] C'est quoi Ubuntu ?,"Ubuntu est un système d'exploitation gratuit et open-source basé sur la distribution Linux Debian. Ubuntu est l'une des distributions Linux les plus populaires et est largement utilisée à la fois à des fins personnelles et professionnelles. Il offre une interface conviviale, un grand répertoire de logiciels open-source et des mises à jour régulières qui garantissent la disponibilité des derniers correctifs de sécurité et des fonctionnalités pour les utilisateurs.",,,,
+fab-500x-20261114T224408Z-037,46,8a734783ed598e1c6d740793,6b4e5e33e240dd4f5cb48d3d59155e54,fab-500x,fr,general_knowledge,wikipedia-fr,templated_human,[user] Présente brièvement : Crassula ovata.,"Crassula ovata ou Arbre de Jade, Crassule ovale, est une espèce de plantes succulentes de la famille des Crassulaceae, originaire d'Afrique du Sud et commune dans le monde entier comme plante d'intérieur.
+
+Le nom de genre Crassula dérive du latin crassus, -a, -um, « épais », par allusion aux feuilles succulentes.
+
+L’épithète spécifique ovata dérive du latin ōvātus, -a, -um, , là aussi par allusion aux formes des feuilles.
+
+C'est l'une des espèces appelées couramment « Arbre de Jade » mais elle a de nombreux autres noms vernaculaires tels que « arbre de l'amitié », « arbre de la chance » ou « arbre d'argent » (surnom donné également au Pachira aquatica).
+
+Crassula ovata est un arbuste sempervirent, très branchu et complètement glabre, pouvant atteindre  de haut. Il ne doit pas être confondue avec Crassula arborescens, moins répandue mais très ressemblant. Les tiges peuvent atteindre jusqu’à  à la base.
+
+Ses feuilles de 3 à  sont vert couleur de jade. Elles sont charnues, de forme elliptique à obovale-spatulée, entières, légèrement concave dessus, persistantes, parfois bordées d’un liseré rougeâtre. Les feuilles épaisses (crassula signifie « épais » en latin) stockent de l’eau et sont recouvertes d’une cuticule pour limiter l’évaporation de l’eau par les feuilles.",,,,
+fab-500x-20261114T224408Z-037,47,a57f34e174f11ac416407cde,f2b76803ec01b3b78adbe3bff7914c64,fab-500x,fr,islamic_studies,wikipedia-fr,templated_human,[user] Présente brièvement : Farouk Kaddoumi.,"Farouk al-Kaddoumi ( ; né le ) est un homme politique palestinien cofondateur du Fatah, secrétaire-général du comité central du Fatah, et chef du département politique de l'Organisation de libération de la Palestine à Tunis en Tunisie. Il est aussi connu sous son nom de guerre au Fatah : Abou Loutof.
+
+Farouk Kaddoumi est né à Jinsafut en Cisjordanie. Il part avec sa famille pour Haïfa lors de la guerre civile de 1947-1948 en Palestine mandataire. Durant la première guerre israélo-arabe en 1948, il retourne en Cisjordanie à Naplouse. À la fin des années 1940, il milite pour le parti Baas.
+
+Expatrié en Arabie saoudite dans le début des années 1950, il travaille pour une compagnie de pétrole. En 1954, il rentre à l'université américaine du Caire en Égypte pour y étudier les sciences économiques et la science politique. Il y fait la rencontre de Yasser Arafat et de Salah Khalaf avec qui il partage les idées concernant la Palestine.
+
+Il quitte l'Égypte pour le Koweït, comme nombreux palestiniens à l'époque dont Arafat et Khalaf, où il est fonctionnaire dans un ministère. En 1959, avec ces deux hommes, Khalil al-Wazir et Mahmoud Abbas, il fonde le Fatah. Il prend alors le nom de guerre de Abou Loutof (traduit père de Loutof).",,,,
+fab-500x-20261114T224408Z-037,48,d0b21b5117e63c7bc7e155c1,a8d8d14fc5c665566ef1dd90c64eac70,fab-500x,fr,mathematics,wikipedia-fr,templated_human,[user] Présente brièvement : Kenny Miller.,"Kenny Miller est un ancien footballeur écossais né le  à Édimbourg qui évoluait au poste d'attaquant.
+
+Il a aussi joué des rencontres internationales avec la sélection écossaise. Il fait partie du Tableau d'honneur de l'équipe d'Écosse de football, où figurent les internationaux ayant reçu plus de 50 sélections pour l'Écosse, étant inclus en octobre 2010.
+
+Après avoir été formé à Hibernian Edinburgh, il porte les couleurs des Rangers pour un transfert évalué à 3 M€ et ce pendant une saison et 2 mois, durant laquelle il marque un but en Ligue des champions contre l'AS Monaco de Claude Puel.
+
+Il part ensuite jouer en deuxième division anglaise (Football League Championship) à Wolverhampton pour 4,5 M€ au côté de son compatriote Jackie McNamara, avec lequel il connaît une saison faste en 2002/2003, marquant 20 buts et obtenant la montée en Premiership (D1), le plus haut niveau anglais. Mais le club ne fait qu'un bref passage en D1 puisqu'il redescend aussitôt en D2.",,,,
+fab-500x-20261114T224408Z-037,49,007d0e899d2946a18510fc07,651bb9f64549c7d29fd7d7d600d3c2cf,fab-500x,fr,problem_solving,wikipedia-fr,templated_human,[user] Présente brièvement : Constantin Rokossovski.,"Constantin Rokossovski (en  ; en ), né le  à Varsovie (selon le recensement de 1920) ou à Velikié Louki (selon son autobiographie) et mort le , est un officier supérieur soviétique.
+
+Officier supérieur dans l'Armée rouge, il est arrêté en 1937 durant les Grandes Purges staliniennes, sous le prétexte d'activité anti-gouvernementale. Mais, finalement il est libéré et réhabilité complètement en  pour reprendre immédiatement des postes de commandement. Il tient un rôle de premier plan pendant la Seconde Guerre mondiale, où il participe de façon décisive à la plupart des batailles principales menant à la victoire contre le  Reich. Il est notamment le concepteur de l'opération Bagration dont la réussite, décisive grâce à la destruction de la totalité du groupe d'armées Centre de la Wehrmacht, lui vaudra sa promotion au rang de maréchal de l'Union soviétique et l'honneur de commander la parade de la victoire sur la place Rouge le . Après-guerre, en Pologne, il devient maréchal et ministre de la Défense de ce pays.
+
+Fils de Josef Xavier Rokossovski (1853-1902), inspecteur des chemins de fer, et d'Antonina Ovsyannikov (?-1911) enseignante, Constantin Rokossovski est issu d'une famille polonaise ayant perdu ses titres de noblesse au milieu du  mais d'où sont issus plusieurs officiers de cavalerie. Orphelin à 14 ans, Constantin commence à travailler dans la construction.",,,,
+fab-500x-20261114T224408Z-037,50,92179a75760f113c203c8144,5ad3b5be19c7e9239518192833b8e400,fab-500x,fr,reasoning,aya-dataset,human_authored,"[user] Comment dois-je répondre à la question d’entretien suivante : ""Pourquoi devrions-nous vous faire confiance pour ce poste ?""","Pour répondre à cette question, vous pouvez évoquer vos qualités. Répondez avec honnêteté et assurance. Cela sera particulièrement apprécié par la personne qui vous fera passer l’entretien d’embauche.
+
+Cependant, il faut également fournir des arguments objectifs démontrant pourquoi vous seriez mieux qu’un autre pour ce poste.
+
+On peut mettre l’accent sur des compétences particulières :
+
+- la maîtrise d’un logiciel spécifique,
+- la pratique d’une langue étrangère,
+- les expériences dans le domaine…
+Ces qualités doivent correspondre avec les compétences de ton CV.",,,,
+fab-500x-20261114T224408Z-037,51,9d500200afa592fa34de34d8,de01117a854183942bbe610085c5526a,fab-500x,fr,research,wikipedia-fr,templated_human,[user] Présente brièvement : Combustion.,"La combustion est une réaction exothermique d'oxydoréduction. Lorsque la combustion est vive, elle se traduit par une flamme ou par une explosion (déflagration, voire détonation si le front de flamme dépasse la vitesse du son). La combustion de la biomasse et des carburants est la principale source de pollution de l'air, avec des effets cancérigènes, reprotoxiques et cardiovasculaires notamment.
+
+Avant 1980 on considérait que la réaction chimique de combustion ne peut se produire que si l'on réunit trois éléments : un combustible, un comburant, une énergie d'activation en quantités suffisantes. C'est pourquoi on parlait alors du « triangle du feu ».
+
+Depuis les années 1980 on a découvert qu'une des étapes indispensable de la réaction chimique est la production de radicaux libres ; cette étape est nécessaire pour que la combustion s'entretienne et que l'on puisse parler d'incendie. C'est la raison pour laquelle on parle depuis de « tétraèdre du feu ».
+
+La disparition de l'un des quatre éléments suffit à arrêter la combustion.
+
+un solide formant des braises (charbon, bois, papier, carton, tissu, PVC) ;
+
+un liquide ou solide liquéfiable (essence, gazole, fioul, huile, kérosène, PE, PS) ;
+
+un gaz (gaz naturel, butane, propane, méthane, dihydrogène, fumée, gaz de pyrolyse) ;
+
+un métal (fer, aluminium, sodium, magnésium) ;",,,,
+fab-500x-20261114T224408Z-037,52,3826533190dbb7c5d4dd14cf,b16ab260921e5554a432a9ea72b07f76,fab-500x,fr,safety_ethics,aya-dataset,human_authored,[user] Qui était le compositeur Jean-Philippe Rameau ?,"Jean-Philippe Rameau, compositeur français de l'époque baroque, a joué un rôle central dans le développement de la musique française d'opéra et de clavecin. Ses opéras, comme « Hippolyte et Aricie » et « Castor et Pollux », introduisent des progressions harmoniques innovantes et une écriture vocale expressive. Les traités théoriques de Rameau ont également contribué à l'établissement du système tonal, faisant de lui une figure cruciale dans l'évolution de la théorie musicale occidentale.",,,,
+fab-500x-20261114T224408Z-037,53,8878eee185451b492adf6064,f8088e324405ffe4d7cad180fd1567c9,fab-500x,fr,science,wikipedia-fr,templated_human,[user] Présente brièvement : Tsimahandry.,"Tsimahandry est un petit village dans la commune d'Ambohidratrimo. Il est situé à 25 km environ de Tananarive, Madagascar.
+
+Pour atteindre Tsimahandry, en partant d'Antananarivo, la capitale de Madagascar, on prend la RN4 qui relie Antananarivo à Mahajanga. On passe par Ambohibao, Imerinafovoany, Talatamaty, Andranotapahana, Mandriambero, Ambohidratrimo, Anjanamasina, le golf d'Ambohidratrimo, Andakana, et Ankazo. La bifurcation qui mène à Tsimahandry est avant Ampasinomby et Manankambahiny, 2 petits villages avant d'arriver à Mahitsy. Ensuite il y a deux accès possibles, sur la droite de la route nationale pour aller à Tsimahandry : un au niveau d'Ankazo, PK 20, et un avant Ampasinomby. On emprunte alors une route secondaire, bien praticable, même en voiture légère. A la première montée, la route se divise en deux. Tsimahandry c'est vers la droite, celle qui va jusqu'à l’église FJKM; mais Tsimahandry n'est pas seulement constitué de l'église FJKM, c'est aussi tout ce qu'il y a autour : Imerinavaratra, Maroandrina, Andavabary, etc.
+
+FJKM Tsimahandry - http://tsimahandry.blogspot.com/
+
+FJKM Tsimahandry - http://toriteny.net/FJKMTSIMAHANDRY.aspx",,,,
+fab-500x-20261114T224408Z-037,54,660b9e362e43c875e32725a4,72df6df56de87cbb8c5891937c6f9246,fab-500x,fr,web_frontend,wikipedia-fr,templated_human,[user] Présente brièvement : 10-Yard Fight.,"est un jeu de football américain sorti en 1983, développé par Irem.
+
+Vous dirigez l'équipe bleu et devez battre l'équipe rouge.
+
+Le seul paramétrage du jeu se limite à modifier le niveau de compétence de votre adversaire, c'est-à-dire :
+
+L'engagement du match est toujours donné à l'équipe adverse.
+
+Dans le déroulement du jeu, on ne peut pas faire de choix tactiques, tout est géré automatiquement. Une partie dure 10 minutes hors arrêt de jeux. Votre équipe est toujours en bas de l'écran, ce qui fait que votre sens d'avancée est de bas en haut. La vue est de dessus et la caméra se déplace via un défilement vertical.
+
+Liste de jeux Nintendo Entertainment System",,,,
+fab-500x-20261114T224408Z-037,55,7c60320d74fb97a227d11acc,1e49fddd9a93312a3b90e312dc138223,fab-500x,fr,writing,wikipedia-fr,templated_human,[user] Présente brièvement : Philip Rivers.,"Philip Rivers, né le  à Decatur (Alabama), est un joueur américain de football américain ayant évolué au poste de quarterback. Il a joué 17 saisons dans la National Football League (NFL) pour les Chargers de San Diego/Los Angeles (2004 à 2019) et les Colts d'Indianapolis (2020).
+
+Ayant joué au niveau universitaire pour le Wolfpack de l'université de North Carolina State, il est sélectionné en quatrième choix global lors du premier tour de la draft 2004 de la NFL par les Giants de New York, mais est échangé quelques jours plus tard aux Chargers de San Diego dans une transaction qui implique un autre quarterback, Eli Manning.
+
+Pendant ses deux premières saisons, il est supplanté au poste de quarterback des Chargers par Drew Brees. À la suite du départ de ce dernier en 2006, Rivers devient le titulaire et s'impose rapidement comme l'un des meilleurs quarterbacks de la NFL. Il a été sélectionné à huit Pro Bowls depuis le début de sa carrière.
+
+Il a joué avec le Wolfpack de North Carolina State, participant à quatre Bowls, en remportant trois dont le Gator Bowl en 2002 contre le Fighting Irish de Notre Dame.",,,,
+fab-500x-20261114T224408Z-037,56,582bc40e759f119c27e13769,c50749c1ad698c41badd32af48ccecd0,fab-500x,gle,general_knowledge,aya-dataset,human_authored,[user] Cén tábhacht atá leis an saoire Nollaig?,"Saoire i bhféilire na Críostaíochta is ea an Nollaig, fhéile bhliantúil lena gceiliúrtar breith Íosa Críost ar an 25 Nollaig.
+De réir na soiscéal, rugadh Íosa don Mhaighdean Muire sa Bheitheal, áit a raibh sí féin agus a fear céile Iósaf ar lóistín i ndiaidh dóibh an áit a bhaint amach le clárú i ndaonáireamh Rómhánach. De réir mar a deir lucht leanúna na Críostaíochta, tháinig tairngreacht na bhfáithe Giúdacha isteach fíor nuair a rugadh Íosa, nó bhí sé sa tairngreacht go dtiocfadh Slánaitheoir de theach agus de threabhchas Dháiví chun an saoil. Inniu, is saoire mhór phoiblí í an Nollaig ar fud an domhain, fiú ina lán de na tíortha nach bhfuil cónaí ar mhórán Críostaithe iontu. Ábhar mór díospóireachta é i gcónaí, cén t-am a saolaíodh Íosa i ndáiríre, nó níl na saineolaithe cinnte faoin mbliain cheart féin.",,,,
+fab-500x-20261114T224408Z-037,57,acccc6854a4226ed067c9aea,475bdb55487997d9fe28a67a0d30f817,fab-500x,gle,web_frontend,aya-dataset,human_authored,[user] Inis dom faoi Ár Jokela.,"Thit Ár Jokela (Fionlainnis: Jokelan kouluammuskelutapaus nó Jokelan koulusurmat) amach ar an 7 Samhain, 2007, i Lárionad Scoile Jokela (Jokelan koulukeskus) i sráidbhaile Jokela i gceantar Tuusula san Fhionlainn. Chaith duine de dhaltaí na scoile, Pekka-Eric Auvinen (Meitheamh 1989-7 Samhain 2007), na céadta urchar ina thimpeall agus mharaigh sé naonúr daoine, mar atá, cúigear buachaillí óga a bhí ag foghlaim sa scoil, banaltra scoile, ardmháistreás na scoile agus bean cúig bliana fichead a bhí ag freastal ar chlár oideachais aosaigh sa scoil. Sa deireadh, chuir sé lámh ina bhás féin. Cé go raibh sé beo i gcónaí nuair a tháinig na póilíní air agus é ina luí ar an urlár, shíothlaigh sé go gairid ina dhiaidh sin in ospidéal Töölö i Heilsincí. 
+
+Ar an 7 Samhain 2007, timpeall is ag a 11.40 a chlog, thosaigh Pekka-Eric Auvinen, duine de dhaltaí na scoile, ag lámhach ina thimpeall leis an bpiostal (SIG Sauer Mosquito, calabra .22) a thug sé leis go dtí an scoil. Bhí an piostal aige go dlíthiúil, nó bhí sé díreach tar éis ceadúnas a fháil. I rith an chéad fhiche nóiméad eile, mharaigh sé ochtar daoine de dhaltaí nó d'fhoireann na scoile. Cuid de na daltaí agus de na múinteoirí, d'fhan siad socair sna seomraí ranga, agus glas ar an doras, ach d'éalaigh cuid mhaith eile as foirgneamh na scoile lena n-anam. Ghortaigh cuid acu iad féin nuair a bhris siad fuinneoga le teacht amach.",,,,
+fab-500x-20261114T224408Z-037,58,5ffd3207731ab919ef3d2d99,a0af1c3ab2e5b28eeaaa6cd477a85a52,fab-500x,gu,general_knowledge,aya-dataset,human_authored,"[user] નીચેનામાંથી ગુજરાતનું કયું સ્થળ યુનેસ્કો દ્વારા વિશ્વવારસાનાં સ્થળોની યાદીમાં સામેલ કરવામાં આવ્યું છે ?
+
+A). ગીર અભયારણ્ય
+B). ચાંપાનેર
+C). સૂર્યમંદિર, મોઢેરા
+D). દ્વારકા મંદિર","B). ચાંપાનેર
+
+નોંધ: ચાંપાનેર ગુજરાતનું સૌપ્રથમ સ્થળ છે કે જેનો વર્ષ 2004માં યુનેસ્કો દ્વારા વર્લ્ડ હેરિટેજ સાઇટમાં સમાવેશ કરવામાં આવ્યો હતો.
+ચાંપાનેર વિશ્વ વારસાનાં સ્થળોની યાદીમાં સામેલ થનાર ભારતનું 26મુ અને ગુજરાતનું પ્રથમ સ્થળ છે.",,,,
+fab-500x-20261114T224408Z-037,59,ef813bf2bf98abcd663ec478,23778610adc57a53d1377634897cd565,fab-500x,gu,mathematics,aya-dataset,human_authored,[user] પનીર મોમોસ બનાવવાની રીત બતાવો.,"પનીર મોમોસ બનાવવાની સામગ્રી
+
+1 કપ મેદો
+1/4 ચમચી મીઠું
+1/4 કપ પાણી
+1 કપ ગરમ પાણી
+1 કપ ઘી
+1/2 કપ ડુંગળી, સમારેલી
+1/2 કપ ગાજર, સમારેલી
+1/2 કપ બટાકા, સમારેલા
+1/2 કપ પનીર, સમારેલું
+1/2 ચમચી ધાણાજીરું
+1/2 ચમચી ગરમ મસાલો
+1/4 ચમચી લાલ મરચું પાવડર
+1/4 ચમચી હળદર પાવડર
+1/4 ચમચી મીઠું
+પનીર મોમોસ બનાવવાની રીત
+
+મેદામાં મીઠું અને 1/4 કપ પાણી ઉમેરીને મસળીને ઢાંકીને મૂકો. 10 મિનિટ પછી, તેને ફરીથી મસળીને ગરમ પાણી ઉમેરીને મુલાયમ ડોળા બનાવો.
+એક પેનમાં ઘી ગરમ કરો અને તેમાં ડુંગળી, ગાજર અને બટાકા ઉમેરીને શેકો.
+શાકભાજી સોનેરી થાય એટલે તેમાં પનીર, ધાણાજીરું, ગરમ મસાલો, લાલ મરચું પાવડર અને હળદર પાવડર ઉમેરીને થોડીવાર સાંતળો.
+ડોળાને લોટની વચ્ચે મૂકીને બંને બાજુથી મોમો બનાવો.
+મોમો બનાવ્યા પછી, તેને એક વાસણમાં મૂકીને ઉકાળો.
+મોમો ઉકળી જાય એટલે તેને ગ્રીસ કરેલા વાસણમાં મૂકીને ગરમાગરમ પીરસો.
+
+ચટણી
+
+1 ટીસ્પૂન ટામેટાંનો રસ
+1 ટીસ્પૂન લસણનો રસ
+1 ટીસ્પૂન ગરમ મસાલો
+1/2 ચમચી લાલ મરચું પાવડર
+1/4 ચમચી હળદર પાવડર
+1/4 ચમચી મીઠું
+1/4 ચમચી ખાંડ
+આ બધી સામગ્રીને મિક્સરમાં પીસીને ચટણી બનાવો.",,,,
+fab-500x-20261114T224408Z-037,60,ad10cac4ed20633798ca6eca,d01d0b766fb94aceae172452a5a8b478,fab-500x,hat,general_knowledge,aya-dataset,human_authored,[user] Pat estrawòdinè chatwouj la genyen yo,"Enjenyè k ap fè wobo yo ap chèche fabrike yon seri ekipman ki pral ede doktè yo fè operasyon kote ki pa gen anpil espas lib nan kò a san yo pa bezwen dekoupe twòp pati kote y ap opere moun nan. Gen yon envansyon yo reyisi fè, se kopye yo kopye sou fason bra bèt yo rele chatwouj la fleksib.
+
+Fè yon ti reflechi: Chatwouj la ka kenbe e li ka peze nenpòt objè grasa uit bra li genyen yo, yo konn rele bra sa yo tantakil tou, paske li ka lonje yo oswa bouje yo nan sans li vle a, menmsi se nan yon ti espas li ye. Chatwouj la pa sèlman ka lonje bra li yo nan nenpòt direksyon li vle men tou, li kapab gonfle yon pati ladan yo si l ta bezwen gen plis fòs nan pati sa a nan bra l yo.
+
+Moun k ap fè rechèch yo wè si yo ta kapab fè yon wobo ki fleksib e ki mou menm jan an, sa t ap itil anpil pou fè operasyon sou moun san yo pa bezwen fann moun nan twòp nan pati y ap opere a. Kalite ekipman sa yo t ap pèmèt pou yo opere malad yo pi fasil, san se pa yon operasyon konplike yo ta bezwen fè.
+
+Moun k ap fè rechèch yo reyisi fè yon wobo ki fonksyone tankou bra sa yo e y ap fè tès avè l pou yo wè kòman li kapab ede fè yon operasyon. Nan bra sa a ki mezire 13,5 santimèt longè, gen yon pati ki kapab leve yon ògàn anndan kò moun nan san l pa domaje l, pandan yon lòt pati nan bra a ap fè operasyon an. Men sa Tommaso Ranzani, ki gen yon doktora nan domèn fè wobo, e ki te fè pati gwoup ki devlope ekipman sa a, di: “Yo panse ekipman sa a se kòmansman yon seri ekipman k ap vin pi pèfeksyone nan vèsyon k ap vini yo grasa amelyorasyon yo pral fè yo.”",,,,
+fab-500x-20261114T224408Z-037,61,47e6ec6861d10eb8b1269264,043f5155405ae0b17f7a732d077943a3,fab-500x,hau,general_knowledge,aya-dataset,human_authored,[user] Ina rana ke faɗuwa?,Rana tana faɗuwa ne a yamma.,,,,
+fab-500x-20261114T224408Z-037,62,271b94b36041c582721f3689,77c9b159901fb38f5669189f7ae0727a,fab-500x,hau,islamic_studies,aya-dataset,human_authored,[user] Ƙirƙiri labarin don kanun labarai daga mai zuwa: Ramadan: Mutane 12 da za su iya shan azumi da hukunce-hukuncensu,"Azumin watan Ramadana na daga ibadun da aka wajebta wa Musulmai, sai dai akwai wasu mutane 12 da aka ba su damar ajiye azumin, kodayake hukunce-hukuncensu sun bambanta. A cikin wannan bidiyon, daya daga malaman addinin Musulunci a Najeriya Sheikh Aminu Ibrahim Daurawa ya bayyana mutum 12 da aka yi musu uzurin su ajiye azumi. A cewar wasu daga cikin mutanen za su rama, wasu kuma ciyarwa za su yi, yayin da wasu ba za ciyar ba kuma ba za su yi ramuwa ba.",,,,
+fab-500x-20261114T224408Z-037,63,d8383f27f4ec3be0c531390c,d32b5a6926767aef1d9b3aa06fb286eb,fab-500x,hi,coding,wikipedia-hi,templated_human,[user] विद्युत्-ऋणात्मकता के बारे में एक संक्षिप्त परिचय लिखिए।,"विद्युदृणात्मकता (विद्युत् और ऋणात्मकता का सन्धि) किसी परमाणु का एक रासायनिक गुण है जो दर्शाता है कि वह परमाणु किसी सहसंयोजी आबंध में इलेक्ट्रॉनों को आकर्षित करने में कितना सक्षम है। कभी-कभी प्रकार्यात्मक समूह (Functional Group) के विद्युदृणात्मकता की भी बात की जाती है। इसे प्रतीक χ द्वारा प्रदर्शित करते हैं। इसे लाइनस पाउलिंग (Linus Pauling) ने सन् 1932 में सहसंयोजी आबंध सिद्धान्त के विकास में प्रयुक्त किया था। यह प्रदर्शित हो चुका है कि विद्युदृणात्मकता अनेक अन्य रासायनिक गुणों के साथ सहसम्बन्धित है। विद्युदृणात्मकता का सीधा  मापन सम्भव नहीं है। यह अन्य परमाणविक या आणविक गुणों से गणना करके निकाली जाती है। अथवा बंध के इलेक्ट्रॉन युग्म को किसी एक परमाणु द्वारा दूसरे परमाणु के सापेक्ष अपनी ओर आकर्षित करने की क्षमता को विद्युदृणात्मकता कहते है।
+
+4. Negative charge inversely proportional E.N
+
+→ Atomic radius decreases → Ionization energy increases → Electronegativity increases →
+
+Values are given for the elements in their most common and stable oxidation states.See also: Electronegativities of the elements (data page)",,,,
+fab-500x-20261114T224408Z-037,64,c2078abf792df3c68b8bb863,4f55c280f8a074d88bcfc1968be2b1b5,fab-500x,hi,general_knowledge,wikipedia-hi,templated_human,[user] उत्तरजीविता कौशल के बारे में एक संक्षिप्त परिचय लिखिए।,"उत्तरजीविता कौशल या अतिजीविता कौशल (सर्वाइवल स्किल्स) वे तकनीकें हैं जिनका उपयोग एक व्यक्ति किसी खतरनाक स्थिति (उदाहरण प्राकृतिक आपदा) में अपने आप को या दूसरों को बचाने के लिए कर सकता है (बुशक्राफ्ट भी देखें). सामान्य शब्दों में कहा जाये तो ये तकनीकें मानव जीवन की मूल आवश्यकताओं: पानी, भोजन, आश्रय, आवास को पूरा करने में मदद करती हैं। ये तकनीकें व्यक्ति को सीधे सोचने में, मदद के संकेत देने में, सुरक्षापूर्वक नेविगेट करने में, जानवरों और पौधों के साथ होने वाली अप्रिय घटनाओं को रोकने में और प्राथमिक चिकित्सा उपलब्ध कराने में भी मदद करती हैं। उत्तरजीविता कौशल अक्सर मूल विचार और क्षमताएं होती हैं जिनका उपयोग प्राचीन मानव के द्वारा हजारों सालों तक किया गया, इसलिए ये कुशलताएं आंशिक रूप से इतिहास का एक दोहरान हैं। इनमें से अधिकांश कौशल ऐसे तरीके हैं जिनसे सुदूर स्थानों में एक विस्तृत समय अवधि का आनंद उठाया जा सकता है या प्रकृति का सामना किया जा सकता है। कुछ लोग इन कुशलताओं का उपयोग प्रकृति की सराहना करने के लिए और पुनर्निर्माण के लिए करते हैं, केवल उत्तरजीविता के लिए नहीं.
+
+किसी संरचना का निर्माण करने से पहले आप को अपनी स्थिति पर विचार करना चाहिए. आपका आश्रय इस प्रकार का हो जो आपके चारों और मौजूद गर्मी, हवा, वर्षा, बर्फ और मौसम से आपको सुरक्षित रख सके. आश्रय प्रमुख रूप से सुरक्षा और आराम उपलब्ध करता है, इसमें मौसम, जानवरों और कीड़ों से सुरक्षा शामिल है। यह अपेक्षाकृत आरामदायक होना चाहिए ताकि आप इसमें सो सकें, क्योंकि सोना मनुष्य की बुनियादी आवश्यकता है।",,,,
+fab-500x-20261114T224408Z-037,65,fc6c773c82f87ff12645926e,b2520b213033d1e97235d7889f220162,fab-500x,hi,mathematics,wikipedia-hi,templated_human,[user] अप्सरा के बारे में एक संक्षिप्त परिचय लिखिए।,"हिंदू कथाओं में अप्सरा देवलोक की नृत्यांगनायें हैं। इनमें से प्रमुख हैं उर्वशी, रम्भा, मेनका आदि। यूनानी ग्रंथों में अप्सराओं को सामान्यत: 'निम्फ़' नाम दिय गया है। ये तरुण, सुंदर, अविवाहित, कमर तक वस्त्र से आच्छादित और हाथ में पानी से भरे हुआ पात्र लिए स्त्री के रूप में चित्रित की गई हैं।
+
+भारतवर्ष में अप्सरा और गंधर्व का सहचर्य नितांत घनिष्ठ है। अपनी व्युत्पति के अनुसार ही अप्सरा (अप्सु सरत्ति गच्छतीति अप्सरा) जल में रहनेवाली मानी जाती है। अथर्व तथा यजुर्वेद के अनुसार ये पानी में रहती हैं इसलिए कहीं-कहीं मनुष्यों को छोड़कर नदियों और जल-तटों पर जाने के लिए उनसे कहा गया है। यह इनके बुरे प्रभाव की ओर संकेत है। शतपथ ब्राह्मण में (११/५/१/४) ये तालाबों में पक्षियों के रूप में तैरनेवाली चित्रित की गई हैं और पिछले साहित्य में ये निश्चित रूप से जंगली जलाशयों में, नदियों में, समुद्र के भीतर वरुण के महलों में भी रहनेवाली मानी गई हैं। जल के अतिरिक्त इनका संबंध वृक्षों से भी हैैं। अथर्ववेद (४। ३७। ४) के अनुसार ये अश्वत्थ तथा न्यग्रोध वृक्षों पर रहती हैं जहाँ ये झूले में झूला करती हैं और इनके मधुर वाद्यों (कर्करी) की मीठी ध्वनि सुनी जाती है। ये नाच-गान तथा खेलकूद में निरत होकर अपना मनोविनोद करती हैं। ऋग्वेद में उर्वशी प्रसिद्ध अप्सरा मानी गई है (१०/९५)।",,,,
+fab-500x-20261114T224408Z-037,66,5ed3830871aa76a2399bacad,735628125fbb985f1cefd4dbf65d0451,fab-500x,hi,research,wikipedia-hi,templated_human,[user] अडोबी फ्लेक्स के बारे में एक संक्षिप्त परिचय लिखिए।,"अडोबी फ्लेक्स एक सॉफ्टवेयर विकास विकास और पार मंच के अमीर इंटरनेट अनुप्रयोगों की तैनाती अडोबी फ़्लैश प्लेटफार्म पर आधारित के लिए अडोबी सिस्टम्स द्वारा जारी किट है। फ्लेक्स अनुप्रयोगों अडोबी फ़्लैश बिल्डर या आज़ादी से उपलब्ध अडोबी से फ्लेक्स संकलक का उपयोग कर का उपयोग करते हुए लिखा जा सकता है।
+
+Macromedia द्वारा मार्च 2004 में आरंभिक रिलीज़ एक सॉफ्टवेयर विकास किट, एक IDE और एक जावा EE फ्लेक्स एकीकरण डाटा सेवाओं के रूप में जाना आवेदन भी शामिल है। अडोबी के बाद से 2005 में अधिग्रहीत Macromedia, फ्लेक्स के बाद रिलीज़ नहीं रह फ्लेक्स डाटा सेवाओं, जो एक अलग LiveCycle डाटा सर्विसेज के रूप में rebranded उत्पाद बन गया है के लिए एक लाइसेंस की आवश्यकता है। अडोबी LiveCycle डाटा सेवाओं के लिए एक विकल्प BlazeDS, एक खुला स्रोत परियोजना है कि कोड के साथ शुरू अडोबी द्वारा 2007 में योगदान दिया है।
+
+फरवरी 2008 में, अडोबी खुला स्रोत मोज़िला पब्लिक लाइसेंस के तहत फ्लेक्स SDK 3 जारी किया है और इसलिए फ्लेक्स अनुप्रयोगों के किसी भी मानक IDE का उपयोग कर विकसित किया जा सकता है, उदाहरण के ग्रहण के लिए। वहाँ भी एक वाणिज्यिक और IDE अडोबी फ़्लैश निर्माता कहा जाता स्वामित्व।
+
+Official Adobe Flex site आधिकारिक अडोबी फ्लेक्स साइट
+
+Adobe Developer Connection for Flex अडोबी डेवलपर कनेक्शन
+
+Official Open Source site for Flex के लिए आधिकारिक साइट मुक्त स्रोत
+
+Tour de Flex डेस्कटॉप अनुप्रयोग, 217 क़ौम और कोड नमूने
+
+ReflexUtil - ReflexUtil, एक (चलाते समय विस्तार के लिए खुला स्रोत) परीक्षण और फ्लेक्स का डिजाइन",,,,
+fab-500x-20261114T224408Z-037,67,905b2d7067730d8d058fcbfe,637bb058b142920ed1afd3f1b47d2e57,fab-500x,hi,safety_ethics,wikipedia-hi,templated_human,[user] अवशिष्ट धारा युक्ति के बारे में एक संक्षिप्त परिचय लिखिए।,"अवशिष्ट धारा युक्ति (residual-current device (RCD)) वैद्युत सुरक्षा से सम्बन्धित युक्ति है जो परिपथ को उस समय काट देती है जब इसको पता चलता है कि इसमें से होकर जाने वाले सभी चालक तारों की कुल धारा लगभग शून्य नहीं है। इसको अवशिष्ट-धारा परिपथ विच्छेदक (residual-current circuit breaker (RCCB)) भी कहते हैं।
+
+प्रायः स्वस्थ अवस्था में किसी परिपथ में जाने वाली धारा और वापस आने वाली धारा लगभग बराबर होती हैं। किन्तु कहीं कोई दोष (fault) होने या किसी मानव द्वारा किसी तार को छू देने पर यह दशा नहीं रह पाती, जिसे यह युक्ति पहचान कर परिपथ को तोड़ देती है।
+
+अवशिष्ट धारा युक्तियाँ इस प्रकार डिजाइन की जाती हैं कि वे शीघ्रातिशीघ्र परिपथ को तोड़ दें ताकि किसी को वैद्युत धक्का (शॉक) लगने की दशा में इतनी जल्दी परिपथ विच्छेदित हो जाय कि सम्बन्धित व्यकि को कम से कम चोट आए। ये युक्तियाँ अति-धारा (ओवर-करेंट) अथवा शॉर्ट-सर्किट के विरुद्ध काम करने के लिए नहीं बनी होतीं।
+
+GFCIs Fact Sheet (Consumer Product Safety Commission)",,,,
+fab-500x-20261114T224408Z-037,68,6c2a287240e47f0c52d4ec91,33c1e86e8c03be75ba83c79411135618,fab-500x,hi,science,wikipedia-hi,templated_human,[user] वनस्पति कोशिका के बारे में एक संक्षिप्त परिचय लिखिए।,"वनस्पति कोशिकाएं (plant cell) सुकेन्द्रिक कोशिकाएं हैं जो अन्य यूकार्योटिक जीवों की कोशिकाओं से कई महत्वपूर्ण तरीकों से भिन्न होती हैं। उनके विशिष्ट गुण निम्न प्रकार हैं - .
+
+एक बड़ी केन्द्रीय रिक्तिका, एक जल-भरी खाली जगह जो एक झिल्ली से घिरी होती है जिसे टोनोप्लास्ट कहते हैं। य़ह कोशिका का तनाव बनाए रखती है, साइटोसॉल और सैप के बीच अणुओं की गतिविधि को नियंत्रित करती है, उपयोगी पदार्थों का संग्रह करती है और व्यर्थ प्रोटीनों व आर्गेनेलों को पचाती है।
+
+सेलूलोज और हेमीसेलूलोज, पेक्टिन और कई बार लिग्निन से बनी और कोशिका झिल्ली के बाहर की ओर के प्रोटोप्लास्ट द्वारा स्रवित एक कोशिका भित्ति. यह फफूंदी (काइटिन से बनी) और बैक्टीरिया की (पेप्टिडोग्लाइकान से बनी) कोशिका भित्तियों से भिन्न होती है।
+
+प्लास्मोडेस्मेटा नामक विशिष्ट कोशिका-कोशिका संचार पथ, प्राथमिक कोशिका भित्ति में स्थित छिद्र जिनके जरिये पास-पास स्थित कोशिकाओं की प्लास्मालेमा और एंडोप्लास्मिक रेटिकुलम मिलते हैं।",,,,
+fab-500x-20261114T224408Z-037,69,1f30ca9109dd89d764c7d164,d0dca2fea187238272b3570fd79214ca,fab-500x,hi,web_frontend,wikipedia-hi,templated_human,[user] आर्यसंघाट सूत्रम् के बारे में एक संक्षिप्त परिचय लिखिए।,"आर्यसंघाट सूत्रम् संस्कृत में लिखित महात्मा बुद्ध के राजगृह में दिये गये उपदेशों का संग्रह है। यह ""धर्म पर्याय"" नामक विशेष सूत्रों का संग्रह है। ऐसी मान्यता है कि इसका विशिष्ट ढ़ंग से पाठ करने या श्रवण करने वालों का आमूल परिवर्तन हो जाता है। ये सूत्र इस मामले में अनन्य हैं कि बुद्ध ने इन्हें पूर्ववर्ती बुद्ध से सुना था।
+
+अन्य संस्कृत ग्रन्थों की भाँति आर्यसंघाट सूत्र भी महात्मा बुद्ध के शिष्यों द्वारा कंठस्थ कर लिया गया था और बाद में तालपत्रों आदि पर लिपिबद्ध कर दिया गया। इतिहासपरक शोध से पता चलता है कि संघाट सूत्र आठवीं शती तक बौद्धों का मुख्य ग्रन्थ बना रहा। किन्तु इसके बाद दुर्दैव से सन् १९३० तक संघाट सूत्र अप्राप्य रहे। फिर सन् १९३१ एवं सन् १९३८ में पाकिस्तान के गिलगित क्षेत्र से संघाटसूत्र की कम से कम सात पाण्डुलिपियाँ प्राप्त हुईं। इसके बाद विद्वानों का ध्यान संघाटसूत्र के महत्त्व पर गया।
+
+(१) दल, समूह या संघ आदि में रहनेवाला। वह जो दल बाँधकर रहता हो।
+
+(२) लकड़ी आदि को जोड़ना या मिलाना। जोड़ने का काम। बढ़ईगिरी।
+
+http://www.uwest.edu/sanskritcanon/dp/old/Sutra/devanagari/Sutra 45/Part1.html आर्यसंघाट सूत्रं (देवनागरी पाठ)",,,,
+fab-500x-20261114T224408Z-037,70,b663a11ff1989399d8352f8c,ddf6679344cc93f21115bd6a77521b98,fab-500x,hi,web_fullstack,wikipedia-hi,templated_human,[user] भारत का आंकिक पुस्तकालय के बारे में एक संक्षिप्त परिचय लिखिए।,"भारत का आंकिक पुस्तकालय (Digital Library of India) भारतीय भाषाओं एवं अंग्रेजी की पुस्तकों को आनलाइन उपलब्ध कराने का एक प्रकल्प है। यह भारतीय विज्ञान संस्थान द्वारा क्रियान्वित है तथा इसमें 'मिलियन बुक प्रोजेक्ट' भी सहभागी है।
+
+Digital Library of India, Govt. of India website
+
+FREE & FAST software to get books from the Digital Library of India (DLI)
+
+DLI Viewer  - You can search, download, and generate a pdf version of DLI books from this single application. No additional software is required to create pdf files from the DLI files.",,,,
+fab-500x-20261114T224408Z-037,71,adbb61f003ee838fc5fade43,64c4411bbb1399712b687dae204ad852,fab-500x,hi,writing,aya-dataset,human_authored,"[user] Write an alternate history narrative where a key event turned out differently, leading to a world significantly different from our own.","एक परियावरणात्मक इतिहास कथा लिखें जहां एक कुंजीय घटना अलग रूप से हुई, जिससे हमारी तुलना में बहुत अलग दुनिया बन गई है।",,,,
+fab-500x-20261114T224408Z-037,72,1dcca2213bc479d305cfcaac,9b7c2e94cad7418f9ef82c36a594defb,fab-500x,hun,general_knowledge,aya-dataset,human_authored,[user] Milyen kérdésekre tudsz válaszolni?,"Általános Tudás: Olyan kérdésekre válaszolhatok, amelyek a tényekről, a történelemről, a földrajzról, a tudományról és más témákról szólnak.
+
+Magyarázatok: Egyszerű szavakkal elmagyarázhatom bonyolult koncepciókat, folyamatokat vagy ötleteket.
+
+Hogyan Csinálják: Lépésről lépésre tudok útmutatást nyújtani különböző feladatokhoz és tevékenységekhez.
+
+Vélemények és Ajánlások: Megoszthatok véleményeket különböző témákról, ajánlásokat tehetek és lehetőségeket javasolhatok.
+
+Problémamegoldás: Segíthetek a problémamegoldásban azáltal, hogy tanácsokat és javaslatokat nyújtok.
+
+Kreatív Írás: Tudok generálni kreatív tartalmat, például történeteket, verseket és kreatív ötleteket.
+
+Kódolás és Programozás: Segíthetek kódolással kapcsolatos kérdésekben, hibakeresésben és programozással kapcsolatos érdeklődési körökben.
+
+Nyelv és Fordítás: Fordíthatok szöveget különböző nyelvek között, és segíthetek nyelvvel kapcsolatos kérdésekben.
+
+Matematika és Számítások: Matematikai számításokat végezhetek el, és segíthetek matematikával kapcsolatos kérdésekben.
+
+Technológia és Szoftver: Válaszolhatok technológiával, szoftverrel és technikai problémák megoldásával kapcsolatos kérdésekre.
+
+Egészség és Táplálkozás: Információt nyújthatok az egészséggel kapcsolatos témákról, a táplálkozásról és az általános jólétről.
+
+Szórakozás: Beszélhetünk filmekről, könyvekről, zenéről és ajánlásokat adhatok.
+
+Termékinformációk: Részleteket adhatok termékekről, szolgáltatásokról és fogyasztói információkról.
+
+Történelem és Események: Megbeszélhetjük történelmi eseményeket, személyiségeket és kontextust adhatok.
+
+Tudomány és Technológia: Elmagyarázhatom tudományos fogalmakat, technológiai fejleményeket és még sok mást.
+
+Utazás és Földrajz: Utazási ajánlásokat adhatok, információt nyújthatok úti célokról és földrajzzal kapcsolatos kérdésekre.
+
+Üzlet és Pénzügy: Válaszolhatok üzleti stratégiákkal, pénzügyi fogalmakkal és gazdasági témákkal kapcsolatos kérdésekre.
+
+Jogi és Etikai Kérdések: Általános információkat adhatok jogi ügyekről és etikai dilemmákról.
+
+Környezeti és Fenntarthatósági Témák: Megbeszélhetem környezeti kérdéseket és fenntarthatósági gyakorlatokat.
+
+És Még Sok Más: Kérdéseket tehet fel számos különböző témában, és én megpróbálok pontos és informatív válaszokat nyújtani.",,,,
+fab-500x-20261114T224408Z-037,73,4a7243eb88daa1f60bb84e3a,7be29321255ede5665645405d2318832,fab-500x,ibo,general_knowledge,aya-dataset,human_authored,"[user] Ajụjụ: Ònye bụ onye mbụ bụrụ abụ 'It's a wonderful world?'
+Azịza ya:",Onye bụ onye mbụ bụrụ abụ 'It's a wonderful world' bụ Louis Armstrong.,,,,
+fab-500x-20261114T224408Z-037,74,631ae6f5630a005352433d13,c1424b13a8a6968878344849884c4153,fab-500x,ibo,reasoning,aya-dataset,human_authored,[user] Gwa m akwụkwọ kịrịkịrị mgbada ata (riddle),Nwa nne anaghi alụ nwa nne,,,,
+fab-500x-20261114T224408Z-037,75,36defaafc7fcc6c7693858cb,969ec20988592f999df911b7fa9aea44,fab-500x,id,coding,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Pasukan Perlawanan Tuhan.,"Pasukan Perlawanan Tuhan (Inggris: Lord's Resistance Army, disingkat LRA), dibentuk tahun 1987, adalah pasukan gerilyawan Kristen yang beroprasi di Uganda utara dan sebagian Sudan. Pasukan ini memberontak terhadap pemerintahan Uganda. Kelompok ini dipimpin oleh Joseph Kony, yang menyatakan dirinya sebagai juru bicara Tuhan. Sejak tahun 2005 telah ada klaim bahwa kelompok tersebut telah memasuki Republik Demokratik Kongo, tetapi pada tahun 2007 dilaporkan bahwa mereka berada di Republik Afrika Tengah. LRA telah dituduh sebagai pelanggar hak asasi manusia yang meluas, termasuk pembunuhan, penculikan, mutilasi, perbudakan sex-anak, dan memaksa anak-anak untuk berpartisipasi dalam permusuhan.
+
+Secara ideologis, LRA percaya pada mistik Afrika dan fundamentalisme Kristen. Klaim ini untuk membangun negara teokratis didasarkan pada Sepuluh Perintah Allah dan tradisi lokal Acholi.
+
+Lord's Resistance Army, GlobalSecurity.org
+
+Uganda Conflict Action Network, advocacy group with updated news and overviews
+
+Invisible Children, advocacy group and documentary about LRA's child soldiers
+
+News about Uganda from the UN Integrated Regional Information Networks
+
+Compiled recent news articles about Uganda, AllAfrica.com
+
+Situation in Uganda , International Criminal Court
+
+Uganda page , Internal Displacement Monitoring Centre",,,,
+fab-500x-20261114T224408Z-037,76,1daaabd1f8ac911926277edc,bbe3d4b8ebcfbf5fbd87948b028e2784,fab-500x,id,education,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Hasjim Djalal.,"Prof. Dr. Hasjim Djalal, M.A. (EYD: Hasyim Jalal, ) merupakan diplomat Indonesia dan ahli hukum laut internasional. Anak keduanya, Dino Patti Djalal, meneruskan jejak hidupnya sebagai diplomat ulung. Sejak tahun 2010 Dino Patti Djalal menjabat sebagai Duta Besar Berkuasa Penuh untuk Amerika Serikat.
+
+Karier Hasyim cukup cemerlang. Dia pernah menjabat sebagai duta besar Indonesia untuk PBB (1981-1983), duta besar di Kanada (1983-1985), duta besar di Jerman (1990-1993), serta duta besar keliling pada masa pemerintahan Presiden Soeharto dan BJ Habibie. Hasyim juga dipercaya untuk duduk sebagai anggota dewan maritim Indonesia, penasehat senior menteri kelautan dan perikanan, dan penasehat kepala staf TNI Angkatan Laut serta di kantor Menteri Percepatan Pembangunan Indonesia Timur, Ketua & Presiden Otoritas Dasar Laut Internasional. Ia menerima gelar Master of Law dari Universitas Virginia di mana ia menjadi mahasiswa Indonesia pertama di Universitas tersebut.
+
+Penulis buku Indonesian Struggle for the Law of the Sea (1979) dan Indonesia and the Law of the Sea (1995) serta Preventive Diplomacy in Southeast Asia: Lesson Learned (2003). Setelah pensiun tahun 1994, dia masih aktif menulis buku dan artikel di berbagai media serta berbicara di berbagai forum tentang masalah hukum laut internasional. Juga masih sibuk melayani kontak dari kolega-kolega internasionalnya.",,,,
+fab-500x-20261114T224408Z-037,77,3e48e9ffe162b09b582c3f3c,abae7497a958373bbb457d058cbaed86,fab-500x,id,general_knowledge,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Katara.,"Katara (namanya diubah dari Kya, seperti yang muncul dalam episode ""pilot"" yang tidak ditayangkan) adalah seorang tokoh fiksi yang diisi suaranya oleh Mae Whitman pada serial animasi Nickelodeon, Avatar: The Last Airbender. Katara yang berusia 14 tahun adalah ahli pengendali air yang berasal dari suku air selatan di Kutub Selatan dan bersama kakaknya, Sokka, menemukan Aang, Avatar yang lama menghilang, dan berteman dengannya dalam petualangan mengalahkan Negara Api dan membawa kedamaian kepada perang antara bangsa.
+
+Katara tumbuh dewasa, yang menyerupai figur seorang ibu dalam keluarganya dan sukunya. Ketika Katara berusia 8 tahun, ibunya dibunuh oleh pasukan Bangsa Api. Karena hal ini, Katara harus menanggung beban yang ditinggalkan ibunya. Meskipun demikian ia berusaha untuk meningkatkan kemampuannya dalam pengendalian air, yang menyebabkan ia harus meninggalkan tugas-tugasnya seperti memasak dan bersih-bersih ketika kakaknya, Sokka, melatih diri untuk menjadi seorang prajurit.",,,,
+fab-500x-20261114T224408Z-037,78,9d7dfbeefdac34a12241453d,2231639438490ac6b3f09a8eed25d96a,fab-500x,id,islamic_studies,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Myōjin-shō.,"adalah sebuah gunung berapi bawah laut yang terletak sekitar 450 kilometer di selatan Tokyo di Izu-Ogasawara Ridge di Kepulauan Izu. Aktivitas vulkanis telah tercatat di sana sejak 1869. Sejak itu gunung ini mengalami letusan yang lebih banyak, yang terkuat mengakibatkan kemunculan dan tenggelamnya satu pulau kecil.
+
+Nama Myōjin-Shō berasal dari sebuah kapal nelayan, No.11 Myōjin-Maru dari Yaizu, Prefektur Shizuoka, awaknya adalah salah satu yang pertama menyaksikan letusan gunung berapi besar pada 1952.",,,,
+fab-500x-20261114T224408Z-037,79,c93ae1fdb912b898952b685f,5246bf9b64a400b6a2f96c09a65d7c99,fab-500x,id,mathematics,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Badan Pelaksana Kegiatan Usaha Hulu Minyak dan Gas Bumi.,"Badan Pelaksana Kegiatan Usaha Hulu Minyak dan Gas Bumi (disingkat: BPMIGAS) adalah lembaga yang dibentuk Pemerintah Republik Indonesia pada tanggal 16 Juli 2002 sebagai pembina dan pengawas Kontraktor Kontrak Kerja Sama (KKKS) di dalam menjalankan kegiatan eksplorasi, eksploitasi dan pemasaran migas Indonesia.
+
+Dengan didirikannya lembaga ini melalui UU No 22/2001 tentang Minyak dan Gas Bumi serta PP No 42/2002 tentang BPMIGAS, masalah pengawasan dan pembinaan kegiatan Kontrak Kerja Sama yang sebelumnya dikerjakan oleh PERTAMINA selanjutnya ditangani langsung oleh BPMIGAS sebagai wakil pemerintah.
+
+Badan ini dibubarkan Mahkamah Konstitusi melalui putusannya pada 13 November 2012 karena dianggap bertentangan dengan UUD 1945.
+
+Dalam menjalankan tugas, memiliki wewenang:
+
+membina kerja sama dalam rangka terwujudnya integrasi dan sinkronisasi kegiatan operasional KKKS
+
+merumuskan kebijakan atas anggaran dan program kerja KKKS
+
+mengawasi kegiatan utama operasional kontraktor KKKS
+
+membina seluruh aset KKKS yang menjadi milik negara
+
+melakukan koordinasi dengan pihak dan/atau instansi terkait yang diperlukan dalam pelaksanaan Kegiatan Usaha Hulu",,,,
+fab-500x-20261114T224408Z-037,80,925ccc9d1874ef532c21f2c2,f9b21ac26550eaee2b3dc90478aedce2,fab-500x,id,pakistan,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Nasi biryani.,"Nasi biryani (Nasta'liq: بریانی; Hindi: बिरयानी; Arab: برياني) atau biriani, beriani, atau briyani adalah hidangan berupa nasi (biasanya dari beras basmati ) yang dimasak dengan rempah-rempah lalu ditambah dengan sayuran, atau daging (ayam, kambing, ikan, udang, atau sapi). Makanan ini berasal dari Anak benua India (India dan Pakistan). Di Kepulauan Melayu, hidangan ini disebut dengan tambahan kata nasi (nasi biryani, nasi briyani, nasi briani, atau nasi beriani). Nama hidangan ini (""Biryani"") berasal dari bahasa Persia, beryā(n) (بریان) yang berarti goreng atau panggang. Pada zaman dulu, beras digoreng di dalam minyak samin sebelum direbus di dalam air bersama rempah-rempah hingga setengah matang.
+
+Biryani dibuat dari beras yang sudah direbus di panci terpisah. Setelah beras setengah matang, beras dicampur dengan kaldu berbumbu, lalu ditutup rapat di dalam panci, dan dimasak hingga matang sampai kaldu terserap ke dalam nasi. Biryani berbeda dengan pullao (baca: pallao) dalam cara memasak. Kalau memasak pullao, beras digoreng bersama rempah-rempah di dalam minyak samin, dan langsung dimasak hingga matang.",,,,
+fab-500x-20261114T224408Z-037,81,f1ed52956834a655375ff4a5,5c19a564c3b9c32eff5bf812493db22e,fab-500x,id,problem_solving,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Kota Kediri.,"Kediri () adalah sebuah kota yang berada di provinsi Jawa Timur, Indonesia. Kota ini terletak sekitar 130 km sebelah Barat Daya Kota Surabaya dan merupakan kota terbesar ketiga di provinsi Jawa Timur setelah Kota Surabaya dan Kota Malang menurut jumlah penduduk. Kota Kediri merupakan kota tertua yang ada di Jawa Timur. Kota Kediri memiliki luas wilayah 63,40 km² . dan seluruh wilayahnya merupakan enklave dari Kabupaten Kediri. Kota Kediri terbelah oleh Sungai Brantas yang membujur dari Selatan ke Utara sepanjang 7 kilometer. Penduduk kota ini berjumlah 289.418 jiwa, berdasarkan data Badan Pusat Statistik Kota Kediri tahun 2023.
+
+Kediri dikenal merupakan pusat perdagangan utama untuk gula dan industri rokok terbesar di Indonesia. Di kota ini juga, pabrik rokok keretek Gudang Garam berdiri dan berkembang. Pada tahun 2010, Kediri dinobatkan sebagai peringkat pertama Indonesia yaitu Most Recommended City for Investment.
+
+Artefak arkeologi yang ditemukan pada tahun 2007 menunjukkan bahwa daerah sekitar Kediri menjadi lokasi Kerajaan Kadiri, sebuah kerajaan Hindu-Buddha pada abad ke-11.",,,,
+fab-500x-20261114T224408Z-037,82,cbf8f95a43f3f3f331a1668d,bdbf1cfee8888d235bc55553c06e9c97,fab-500x,id,research,tydiqa-goldp,human_authored,"[user] Biro Sensus Amerika Serikat memperkirakan populasi Pakistan mencapai 199.085.847 (199.100.000) pada tahun 2015, yang setara dengan 2,57% dari populasi dunia. Pada tahun 2030, populasi Pakistan diperkirakan melebihi 200 juta jiwa. Dan pada tahun 2045, populasi diprediksi mencapai dua kali lipatnya.
+
+berapakah jumlah populasi penduduk Pakistan tahun 2015?","199.085.847
+
+Biro Sensus Amerika Serikat memperkirakan populasi Pakistan mencapai 199.085.847 (199.100.000) pada tahun 2015, yang setara dengan 2,57% dari populasi dunia.",,,,
+fab-500x-20261114T224408Z-037,83,d23601b0e18e7cbabbc65a14,622c841c2ef2e56fc49befeaf86458d6,fab-500x,id,safety_ethics,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Daily News (New York).,"New York Daily News atau hanya disebut Daily News adalah surat kabar terbesar nomor lima di Amerika Serikat. Pertama kali terbit tahun 1919, surat kabar ini beroplah harian 703.137 eksemplar (data 30 Maret 2008). New York Daily News adalah harian Amerika Serikat yang pertama kali terbit dalam format tabloid. Sejak tahun 2007, harian ini dimiliki dan dikelola oleh Mortimer Zuckerman, dan hingga kini telah sepuluh kali memenangi Penghargaan Pulitzer.
+
+Daily News didirikan tahun 1919 oleh penerbit Chicago Tribune, Joseph Medill Patterson. Pendirian koran milik Tribune di New York merupakan hasil pertemuan Patterson dengan saudara sepupu bernama Robert R. McCormick di Paris. McCormick dan Patterson adalah cucu dari Joseph Medill, pendiri Chicago Tribune. Dalam perjalanan pulang, Patterson bertemu dengan Alfred Harmsworth yang menerbitkan koran tabloid Daily Mirror di London. Kelebihan yang dimiliki format tabloid membuat Patterson terkesan. Format tabloid dipilihnya ketika Daily News diluncurkan tanggal 26 Juni 1919.",,,,
+fab-500x-20261114T224408Z-037,84,64928092cc36e6e319c7977b,a6016de2a8d271536108ff1ea84df96f,fab-500x,id,science,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Hidrogen klorida.,"Senyawa hidrogen klorida mempunyai rumus HCl. Pada suhu kamar, HCl adalah gas tidak berwarna yang membentuk kabut putih Asam klorida ketika melakukan kontak dengan kelembaban udara. Gas hidrogen klorida dan asam klorida adalah senyawa yang penting dalam bidang teknologi dan industri. Rumus HCl sering kali, walaupun tidak tepat, ditulis untuk merujuk pada asam klorida.
+
+Hidrogen klorida adalah molekul diatomik, terdiri dari atom hidrogen (H) dan atom klorin (Cl), yang dihubungkan oleh ikatan kovalen polar. Atom klorin jauh lebih elektronegatif daripada atom hidrogen. Hal itu yang menjadikan senyawa ini berikatan polar. Akibatnya, molekul HCl memiliki momen dipol yang besar dengan muatan parsial negatif (δ−) di atom klorin dan muatan parsial positif (δ+) di atom hidrogen. [8] Sebagian karena polaritasnya yang tinggi, HCl sangat larut dalam air (dan dalam pelarut polar lainnya).
+
+Setelah kontak, H2O dan HCl bergabung membentuk kation hidronium (H3O+) dan anion klorida (Cl−) melalui reaksi kimia yang dapat dibalik (reversible):
+
+Kebanyakan hidrogen klorida yang diproduksi pada skala industri digunakan untuk produksi asam klorida.",,,,
+fab-500x-20261114T224408Z-037,85,1e2ee8c00a02b4b08cb9e951,77301f37e16356ec3b9ac8bb3a5eb88e,fab-500x,id,web_frontend,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Eric Schmidt.,"Eric Emerson Schmidt (lahir 27 April 1955) adalah seorang teknisi, mantan anggota dewan direktur Apple Inc., dan pimpinan eksekutif Google. Pada 2001–2011, ia menjabat sebagai CEO Google. Ia juga pembuat pendamping perangkat lunak penganalisis leksikal lex untuk Unix. Ia juga menjabat sebagai anggota Majelis Wali Amanah Universitas Carnegie Mellon dan Universitas Princeton.
+
+Setelah lulus dari SMA Yorktown (Virginia), Schmidt berlanjut ke Universitas Princeton di mana ia mendapat bachelor of science dalam teknik elektrik. Ia juga mendapat MS pada 1979 dan PhD tahun 1982 di EECS dari Universitas California, Berkeley.
+
+70/20/10 Model - model bisnis yang dirintis oleh Schmidt.
+
+Eric Schmidt and Larry Page speaking at Stanford  (May 1, 2002)
+
+Eric Schmidt talks about innovation on Executive Talks , November 2006
+
+Schmidt-ceo-of-google.html Eric Schmidt interview by iinnovate, March 2007
+
+YouTube: Eric Schmidt at the Seoul Digital Forum. (2007.06.05)
+
+Eric Schmidt speaks as part of NASA 50 years Lecture Series, January 17, 2008
+
+Mobile World Congress 2010 Keynote: Eric Schmidt, CEO, Google(Feb 2010)
+
+iTunes: Google making of a modern company.
+
+CNET: Google balances privacy, reach (July 14, 2005), which uses Eric Schmidt as an example of the personal information held by Google.",,,,
+fab-500x-20261114T224408Z-037,86,391f4fa6fce020763a9af894,4fc91da68d936aad9fc7b5d9c1e67ceb,fab-500x,id,web_fullstack,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Royal Caribbean International.,"Royal Caribbean International (RCI)  adalah sebuah perusahaan kapal pesiar Norwegia-Amerika Serikat yang berbasis di Miami, Florida. Perusahaan ini memiliki 20 kapal dalam pelayanan dan 1 dalam pembuatan. Semua nama kapalnya memiliki akhiran ""of the Seas.""
+
+Royal Caribbean Cruise Line didirikan pada 1968 oleh Anders Wilhelmsen & Company, I.M. Skauge & Company, dan Gotaas Larsen - kesemuanya adalah perusahaan kapall Norwegia. Perusahaan ini meluncurkan kapal pertamanya Song of Norway dua tahun kemudian. Royal Caribbean menerima pengakuan dunia ketika pada 1982 perusahaan ini meluncurkan Song of America, yang merupakan kapal penumpang ketiga terbesar dunia setelah Norway dan RMS Queen Elizabeth 2.)
+
+Royal Caribbean melakukan sebuah inovasi lagi pada 1986 dengan membeli tanah pesisir di Haiti untuk digunakan sebagai tempat tujuan pribadi untuk tamu-tamunya. Tempat ini sekarang disebut Labadee.
+
+Royal Caribbean Freedom of the Seas website
+
+Royal Caribbean Navigator of the Seas website
+
+Voyager-Class.com - the largest online resource for information & pictures of the Voyager-class ships
+
+CruiseJournals.com - Cruise Community Pages
+
+A Royal Caribbean fan website and online forum.
+
+Photographs of RCCL Retired and Present-day Vessels
+
+Atmospheric and oceanic research aboard the Explorer of the Seas
+
+Aker Finnyards - Ship construction yard  (Voyager class, Freedom class, Project Genesis)",,,,
+fab-500x-20261114T224408Z-037,87,b4d27bc656013f1b1f3ca5e1,e45520e8edd435628f8cbac268c501d2,fab-500x,id,writing,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Divorzio all'italiana.,"Divorzio all'italiana adalah sebuah film komedi dari Italia tahun 1961 yang disutradarai oleh Pietro Germi, ditulis oleh Ennio De Concini, Pietro Germi, Alfredo Giannetti dan Agenore Incrocci, dan dibintangi Marcello Mastroianni, Daniela Rocca, Stefania Sandrelli, Lando Buzzanca dan Leopoldo Trieste.
+
+Film ini memenangkan Academy Award untuk Best Writing, Story and Screenplay - Written Directly for the Screen, dan dinominasikan untuk Best Actor in a Leading Role (Marcello Mastroianni) dan Best Director, dirilis dalam bentuk DVD oleh Criterion Collection pada 2005.
+
+Menceritakan tentang seorang bangsawan Sisilia yang ingin menikah lagi, tetapi terhalang karena perceraian adalah pelanggaran hukum di Italia pada saat itu. Ia mencoba menjebak istrinya untuk menyeleweng dengan orang lain agar ia dapat menangkap basah mereka sedang berbuat amoral, membunuh istrinya, dan mendapatkan hukuman ringan karena ia melakukan honour killing.",,,,
+fab-500x-20261114T224408Z-037,88,32fab7698c1a88b595b0f74d,730628824310939710acece1cb1995bd,fab-500x,it,coding,oasst2,human_authored,"[user] Sai fare disegni solo utilizzando caratteri ASCII? Se sì fammi un esempio
+
+[assistant] Sì, posso provare ad abbozzare delle figure utilizzando solo caratteri ASCII.
+Per esempio ecco una margherita:
+```
+                 ..                                                             
+                  .                                                             
+                   .                                                            
+              .   ...              ..                                           
+              .   ....          c:l,,:;        ,;;;.           .                
+               .   '..,    :'  o'.:.  'c   ';c:....:;           .               
+               .   .l;':  l;cl o...'   .l;:...'     llc:;c:;    ..              
+              ....ll..':::d. ,co...'   .c;         .'.     d.    .              
+               ..doo;...  ,;;' ..  .  .,.         ..       ,l    ..             
+                 :d,,;l;;'. ..  ..    ,.    .       ..     d.     .             
+                  'l..: ...';.    .  .'.      .      .     .c:    ..            
+                  :;l'.. ....'.   .. .; .   .               .c;;,;:o            
+            ,;;,,d,:,;,'........  ..  l.                   ........;o.          
+           x...,,;,..',,''... ..  ...;oc;....    .      ...  ......:c           
+          o:,'.',. .....',''.  ..:l:oOOkxOlkxx:.     ..'.      ';:; .           
+          .;:,,'.'... ......''.';xOOK00KXKKKkdc'.'.......':ccc:'    .           
+             'l:;,. .''..'',;:od0KXK00KKNXNXKKko:cc:;,',;:;,,,;,,,;,.           
+        . ...';;:;cc'.........oKKK0kOkxk0KXXK00dol;,,,;;,,,,,,,,,,,:ll          
+      ,.     ,,,.....''..'''':lO0OKOkdc:kKXXKXKOl'   ...',;;,     .';c          
+     c.        ';,''..       .'cOKKK0Oxxx00KKKOl;'''........';c'',,'            
+     .:.   ..,,.            .;lddx0K0XKKKKOKOxodl''',....'.'.'d.                
+       .'',;l.           ',::' .'.;0dxoOddollc: ,,.' ...   ',,;c:               
+            ;:....,,,,,,;:c,     :l,...,...... ;,.'';:. ..,..'''.o.             
+              ',,,. .,llc'      :c;    ,.   ... .;, .';l:;;''';;c:c .           
+                 .'ccc:;.     .c'c     ',    ''.  .;; '.::.'','ccx              
+               ';;;;;o:     .:,.l .    ,,    ..l,   .,.  .:;'':oc.              
+               ,,'' ,:    .c:..l .c    ';;    ..o,. ....,:.c'..      .          
+                    'cc;;co; 'c .;l     lc.   . l .;,,..,cl,l                   
+                      ..;:,  c.',oc;. .l. l.  . l   .cc::do.                    
+                       ,;;',,cl:;  ';;o    l,';;:                               
+                                      .c  .:,,l                                 
+                                        ;',;,,                                  
+```
+
+[user] Non sono sicuro che sembri davvero una margherita, ma grazie. Puoi farmi vedere qualcosa di più semplice per capire se sai davvero disegnare in codice ASCII? Per esempio, potresti disegnare il sole?","Certamente, ecctoti un disegni del sole:
+```
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢠⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠸⣷⣦⣀⠀⠀⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣿⣿⣦⠀⠠⠾⠿⣿⣷⠀⠀⠀⠀⠀⣠⣤⣄⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠟⢉⣠⣤⣶⡆⠀⣠⣈⠀⢀⣠⣴⣿⣿⠋⠀⠀⠀⠀
+⠀⢀⡀⢀⣀⣀⣠⣤⡄⢀⣀⡘⣿⣿⣿⣷⣼⣿⣿⣷⡄⠹⣿⡿⠁⠀⠀⠀⠀⠀
+⠀⠀⠻⠿⢿⣿⣿⣿⠁⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⣁⠀⠋⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠈⠻⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢰⣄⣀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣠⡀⠀⣴⣿⣿⣿⣿⣿⣿⣿⡿⢿⡿⠀⣾⣿⣿⣿⣿⣶⡄⠀
+⠀⠀⠀⠀⠀⢀⣾⣿⣷⡀⠻⣿⣿⡿⠻⣿⣿⣿⣿⠀⠀⠈⠉⠉⠉⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⣠⣾⡿⠟⠉⠉⠀⢀⡉⠁⠀⠛⠛⢉⣠⣴⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠈⠉⠉⠀⠀⠀⠀⠀⢸⣿⣿⡿⠉⠀⠙⠿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⠁⠀⠀⠀⠀⠀⠙⠿⣷⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠃⠀⠀⠀⠀⠀⠀⠀
+```",,,,
+fab-500x-20261114T224408Z-037,89,457335dab28d9c7a7ae7afbb,81c4d9493125718e868e87e8c8946dc3,fab-500x,it,education,oasst1,human_authored,"[user] Supponi che io non sappia programmare ma abbia solamente alcuni rudimenti di fortran, come posso con facilità costruirmi, programmandolo da zero, un grafo delle conoscenze a partire dalla mia raccolta di articoli in formato pdf? Vorrei fare questo con julia","Per creare un grafo delle conoscenze a partire da una raccolta di articoli in formato PDF con il linguaggio di programmazione Julia, dovrai seguire questi passi:
+
+1. Estrazione del testo: Per prima cosa, dovrai estrarre il testo dai file PDF. In Julia puoi utilizzare la libreria ""Poppler"" per farlo.
+
+2. Pre-processing del testo: Dopo aver estratto il testo, dovrai preparare i dati per la costruzione del grafo delle conoscenze. Questo comprende la pulizia del testo, la rimozione di stopwords, la tokenizzazione, la stemmizzazione, etc.
+
+3. Costruzione del grafo: Dopo aver elaborato i dati, puoi utilizzare una libreria di grafi come ""LightGraphs.jl"" o ""Gtk.jl"" per costruire il grafo.
+
+4. Analisi del grafo: Infine, puoi utilizzare algoritmi di analisi dei grafi per analizzare il grafo delle conoscenze e estrarne informazioni utili.
+
+Se non hai esperienza di programmazione o conoscenza approfondita di Julia, potrebbe essere difficile costruire un grafo delle conoscenze da zero. Ti consiglio di cercare tutorial o guide online e di esercitarti su piccoli progetti prima di cercare di costruire un grafo delle conoscenze completo.",,,,
+fab-500x-20261114T224408Z-037,90,ba36c6137481f6dfb39f913b,1062201b7000fc226ef27fe15753524e,fab-500x,it,general_knowledge,aya-dataset,human_authored,"[user] Rispondi: Cosa è ""Korfball""?","Il korfball è uno sport di squadra originario dei Paesi Bassi, ideato da un insegnante di Amsterdam, Nico Broekhuyzen, nel 1902. Questa disciplina atletica si pratica su campo, a forma rettangolare, lungo 60 m e largo 30 m all'aperto o lungo 40 m e largo 20 m al coperto. Il campo è diviso in due zone uguali nelle quali, a inizio partita, si schierano due squadre: ogni squadra è composta da quattro donne e quattro uomini. In ogni metà campo, posizionato ad una distanza pari ad un terzo dal fondo, sono posti due pali alti 3,5 m. che sostengono due canestri in plastica di forma circolare. Ogni canestro realizzato vale un punto e la partita è vinta da chi realizza più punti in 70 minuti, divisi in due tempi di 35, su campo all'aperto o in 60 minuti, divisi in due tempi di 30, su campo al coperto: il riposo tra tempi dura 10 minuti. La palla usata è sferica in gomma e pesa 445-475 g. A parte il palleggio di controllo, non è ammesso palleggiare. Non si può rubare la palla se non su intercettazione nei passaggi. Non è ammesso il contatto fisico. Ogni difensore può difendere solo attaccanti del suo stesso sesso: in caso contrario si procederà con il free-pass. Non si può tirare se marcati; in caso si tirasse marcati il korf viene annullato e si procede con una rimessa a favore della squadra in difesa. Nel caso in cui avvenga un fallo nell'azione di tiro o semplicemente l'attaccante venga ostacolato da un difensore di sesso diverso dal suo si procederà con il penalty, a meno che non venga realizzato il korf. Il difensore si considera in atteggiamento non difensivo se tiene le braccia basse dietro la schiena. Ogni 2 korf totali i 4 giocatori in attacco vanno in difesa e viceversa.",,,,
+fab-500x-20261114T224408Z-037,91,70276ab35f9c98912346e512,6d774a8e86a541b9590f0b37bef7ff94,fab-500x,it,mathematics,oasst2,human_authored,"[user] Nel parco Mirabilandia, quali sono le attrazioni più intense?","Le informazioni in mio possesso (aggiornate in data 8/02/2023) sono:
+ - *Desmo Race* potrai accelerare, frenare e poi accelerare di nuovo per avere la meglio sui tuoi amici o familiari. Sono montagne russe interattive, che ti faranno sentire come se stessi guidando una Panigale V4.
+ - *iSpeed* accelera da 0 a 100 km/h in appena 2,2 secondi! Grazie a questa attrazione di Mirabilandia la velocità prenderà il sopravvento e nelle curve più vertiginose. Arriverai a 120 km all’ora! Qual è la caratteristica più incredibile di iSpeed? Quest’attrazione parte con un “colpo di pistola” dalla stazione, un lancio magnetico che adorerai. Vivrai le emozioni come se fossi un vero pilota da 55 metri di altezza! Questa attrazione non lascia indifferenti, siamo sicuri che te ne ricorderai per molto tempo. 
+ - *Divertical* è pensata per tutti i tipi di persona: dalle famiglie fino a chi è in cerca di grandi emozioni. Tutti si divertiranno alla grande! È una corsa in acqua ispirata al mondo dell’offshore, hai mai vissuto qualcosa del genere? Dall’alto del Divertical avrai un’incantevole vista sul Parco.
+ - *Katun* è l’inverted coaster numero uno in Europa. Potrai fare un viaggio nella città di Sian Ka'an senza muoverti dal tuo posto, o meglio viaggiando a 110 km/h lungo un percorso di più di 1200 metri! Questa attrazione vanta loop a 360 gradi e un salto da 50 metri. 
+ - *Motion Sphere* un'esperienza immersiva nel cuore delle corse per diventare un vero pilota: sentirai la velocità e l'adrenalina in modo eccezionale, grazie ad un dispositivo combinato con tecnologia e meccanica altamente innovative.
+ - Oil Towers sono due torri di estrazione petrolifera che ""svettano"" nel cielo di Mirabilandia per 60 metri d'altezza. Con le loro ciminiere fumanti, le Oil Towers detengono rispettivamente il primato di Space Shot e Turbo Drop tower più alte d’Italia:
+    + La *Oil tower 1* è uno Space Shot che ti catapulterà alla folle velocità di 80 chilometri orari facendoti provare l’ebbrezza di +2g di accelerazione, con la sensazione, quindi, di essere schiacciato sui sedili con una forza pari a due volte il peso del tuo corpo! 
+    + La *Oil tower 2* è un Turbo Drop: salirà lentamente per poi spingerti nel vuoto ad una velocità di 65 chilometri orari, sollevandoti dai sedili con una spinta pari a – 2g!
+ - *The walking dead* (Ingresso con biglietto aggiuntivo a partire da 5,90€). L’umanità è stata colpita da un evento apocalittico e senza precedenti: a causa di un virus incontrollabile gli esseri umani si stanno trasformando in creature feroci che si cibano delle loro prede. Solo un piccolo gruppo di persone è sopravvissuto e sta cercando in ogni modo e con ogni mezzo di raggiungere Terminus, l’unico luogo sicuro. Riuscire ad arrivarci sani e salvi sarà un'impresa molto ardua, segui i binari della rotaia che conduce alla salvezza ma non fidarti di nessuno: in questa spietata fuga anche le persone più innocue potranno trasformarsi in terrificanti creature pronte a tutto!",,,,
+fab-500x-20261114T224408Z-037,92,1134341644222c11d2264e8f,84ba7747af8fad632f506335ef09a783,fab-500x,it,science,oasst2,human_authored,"[user] Quanto è distante la Luna dalla Terra in unità astronomiche?
+
+[assistant] La distanza Terra-Luna è 384.400 chilometri in media, e varia da un minimo di circa 363.300 chilometri a un massimo di circa 405.500 chilometri. La distanza media Terra-Luna in unità astronomiche equivale a 2,57×10-3 AU circa.
+
+[user] Quante automobili devono essere messe in fila per coprire la distanza tra la terra e luna?","Per stimare quante automobili sono necessarie per coprire la distanza tra la Terra e la Luna, abbiamo bisogno di sapere la lunghezza media di un'automobile. La lunghezza delle automobili varia, ma possiamo fare un'approssimazione e utilizzare una lunghezza media di circa 4,5 metri.
+
+La distanza media tra la Terra e la Luna è di circa 384.400 chilometri (. Pertanto:
+
+Numero di automobili = Distanza Terra-Luna (metri) / Lunghezza media di un'automobile (metri)
+
+Numero di automobili = 384.400.000 metri / 4,5 metri ≈ 85.422.222
+
+Quindi, servirebbero circa 85,4 milioni di automobili messe in fila per coprire la distanza tra la Terra e la Luna.ere messe in fila per coprire la distanza",,,,
+fab-500x-20261114T224408Z-037,93,328dcf44d90a8006c71df5d9,c5d8c41d9f12dba56d19eecc96346825,fab-500x,ja,general_knowledge,aya-dataset,human_authored,[user] 以下の段落に関連する内容を記入しなさい： 広島市で19日から21日まで、G7サミットがあります。フランス、アメリカ、イギリス、ドイツ、日本、イタリア、カナダの7つの国とEUのトップが集まります。,会場のホテルの近くの海で14日、海上保安庁が警備の訓練をしました。日本中から集まった120人ぐらいの職員が参加しました。 訓練では、海上保安庁の船が汽笛を鳴らして、あやしい船に止まるように言いました。しかし、止まらないで会場に向かって進んできたため、警備をしていた2隻のゴムボートが近くに行って、船を止めました。そのあと職員が船に乗っていた人を捕まえました。 会場のホテルの近くの海では、15日から22日まで船が通るのを厳しくします。通る場合は、先に役所に知らせておく必要があります。,,,,
+fab-500x-20261114T224408Z-037,94,0b4c7f86800400f91e29cb67,c5e3146b7ba88b1fcaf2b020bc4834aa,fab-500x,jav,general_knowledge,aya-dataset,human_authored,"[user] Gaweo telung contoh pitakonan kuis trivia Basa Jawa nganggo kategori lan konteks informasi sing disedhiyakake.
+
+Kategori: Buku.
+Judul buku: Harry Potter dan Orde Phoenix.
+
+Jawaban:","1. Q: Nang ndi alamate omahe Sirius Black?
+   A: Grimmauld Place Nomor 12
+
+2. Q: Sapa jenenge pegawe senior kementrian sihir sing ditunjuk dadi guru anyar Pertahanan Terhadap Ilmu Hitam?
+    A: Dolores Umbridge
+
+3. Q: Sapa jenenge ulone Voldemort sing nyerang Arthur Weasley?
+    A: Nagini.",,,,
+fab-500x-20261114T224408Z-037,95,49d40211fa7929107a77407d,b935e285788b0c131fec12ce13980a2d,fab-500x,jav,islamic_studies,aya-dataset,human_authored,"[user] Kancil akhire mlaku nang kali. Kancil bingung merga ana baya nang njero kali. Akhire kancil ngapusi baya.
+
+Lengkapono crita ing dhuwur nganggo telung ukara.","Kancil ngandani lak diutus kanjeng Nabi nyebar undangan kenduri. Kancil kudu ngitung jumlah kewan sing urip nang alas, salah sijine baya. Bar dikandhani carane, baya-baya sing wis ngumpul mau padha bubar terus nata dhewe dhewe kathi urut.",,,,
+fab-500x-20261114T224408Z-037,96,5c55cc39a771e5102309b150,95d24f1461cf7715782708b7d1e526ad,fab-500x,kan,general_knowledge,aya-dataset,human_authored,[user] ಬೆಂಗಳೂರಿನ ಅಂತರಾಷ್ಟ್ರೀಯ ವಿಮಾನ ನಿಲ್ದಾಣದ ಹೆಸರೇನು?,ಕೆಂಪೇಗೌಡ ಅಂತರಾಷ್ಟ್ರೀಯ ವಿಮಾನ ನಿಲ್ದಾಣ,,,,
+fab-500x-20261114T224408Z-037,97,3cc7fe361537008c1761cdc6,4ea24298253fd6886c38380caf99bdc7,fab-500x,kir,coding,aya-dataset,human_authored,"[user] Flutter SDK кайсы тилде жазылган?
+а) С++
+б) Java 
+в) Dart
+г) Python",Туура жооп: в) Dart,,,,
+fab-500x-20261114T224408Z-037,98,9469d62d916caf46513e52ce,9dbb208aee2450a4e1a492f374e4c0ac,fab-500x,kir,general_knowledge,aya-dataset,human_authored,[user] Авалбек кайсы эпостун каарманы?,"Авалбек ""Атадан калган туяк"" эпосунун атасыз калган баланын аты.",,,,
+fab-500x-20261114T224408Z-037,99,ce18e17cdde7491e370e6a4c,21a82bfad487b8cbd552dd1f87f7db29,fab-500x,kir,mathematics,aya-dataset,human_authored,[user] Винита Трипати (англ. Vinita Tripathi; 1980) - Индиянын спринтер спортчусу. Ал аялдардын 4 × 100 метрлик эстафетасына катышкан.,"Анын негизги дистанциялары 100 жана 200 метр. Трипати Азия чемпионаттары, Азия оюндары жана Шериктештик оюндары сыяктуу иш-чараларда Индиянын эл аралык деңгээлде өкүлү болгон. Ал 2006-жылы Мельбурн шаарында өткөн Шериктештик оюндарында Индиянын аялдардын 4х100 метрге эстафеталык командасынын курамында коло медалга ээ болгон. Трипатинин эң мыкты жеке убактысы 100 метрде 11,50 секунд жана 200 метрде 23,11 секунд. Ал карьерасында спринт боюнча бир нече улуттук наамдарды жеңип алган. Винита Трипати 2018-жылы Жакартада өтүүчү Азия оюндарына катышууну кошкондо, Индия үчүн эл аралык аренада активдүү таймашууну улантууда. Ал өз муунундагы Индиянын эң мыкты айым спринтерлеринин бири болуп эсептелет.",,,,
+fab-500x-20261114T224408Z-037,100,6f845d93dc61e4cd4783d50c,8bc46faf8e98e9fd3c4b4c031707ed61,fab-500x,ko,coding,wikipedia-ko,templated_human,[user] 방패자리 델타형 변광성에 대해 간단히 소개해 주세요.,"방패자리 델타 변광성(Delta Scuti variable, 왜소세페이드)은 항성 표면의 방사형맥동 및 비방사형맥동으로 인해 밝기가 변하는 항성이다. 이들의 밝기는 겉보기 등급 기준 0.003 ~ 0.9의 진폭을 보이며, 밝기가 변하는 주기는 수 시간 정도이다. 그러나 밝기가 요동치는 진폭 및 주기는 매우 다양하다. 헤르츠스프룽-러셀 도표상에서 방패자리 델타 변광성이 위치하는 장소는 분광형 A0에서 F5에 이르는 주계열성 및 거성들이다.
+
+표면에 헬륨이 풍부하다. 헬륨이 뜨거워지며 이온화를 하면 불투명해진다. 이로 인해 어두워지게 된다. 이온화가 더 이루어지면 빛의 탈출을 막게 되고, 막혀진 빛들로부터 나온 에너지가 헬륨을 더욱 뜨겁게 만든다. 이로 인해 항성이 팽창하고 더욱 이온화 되면서 완전히 이온화가 된다. 완전히 이온화가 됨으로써 투명해지게 되고 다시 헬륨의 온도는 낮아지고 수축하게 된다. 이로 인해 다시 헬륨이 뜨거워지고 이것이 계속 순환하게 된다.
+
+방패자리 델타 변광성은 맥동하고 있을 때에는 세페이드 불안정 띠에 속해있다가 주계열로 이동한다.
+
+이 특징을 보이는 변광성 중 대표격인 존재는 방패자리 델타별로, 밝기가 4.65일 주기로 4.60에서 4.79등급까지 변한다. 현재 알려져 있는 같은 종류의 변광성으로는 데네볼라, 카시오페이아자리 베타가 있다. 베가는 방패자리 델타 변광성일 가능성이 있으나, 검증되지는 않았다.",,,,

@@ -1,0 +1,779 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-030,1,96b5cf85a80117d2c85a2661,00e6f41584d34e886a26d65e89f85b97,fab-500x,ko,safety_ethics,wikipedia-ko,templated_human,[user] B in the Mix: The Remixes에 대해 간단히 소개해 주세요.,"《B in the Mix: The Remixes》는 브리트니 스피어스의 첫 리믹스 앨범이다. 미국에서는 2005년 11월 22일 발매되었다. 케빈 페더라인 (Kevin Federline) 과의 결혼 및 출산 문제로 인해 공백기를 갖고 있던 중 그녀의 음반사인 자이브 레코드의 주도하에 제작된 이 음반은 유명 프로듀서와 DJ 들이 대거 참여해 기존의 히트곡들, 특히 2003년작 《In the Zone》에 수록되었던 곡들을 새롭게 편곡된 버전으로 만나볼 수 있다. 리믹스 음반이라는 편견과 홍보가 전무했음은 물론 미국 내 발매 직후 카피 컨트롤 (복제 방지 기술) 관련 오류로 인해 음반 전량을 리콜하는 사태가 벌어져 상업적으로는 큰 성공을 거두지 못하였다. 기존에 공개되지 않았던 신곡 〈And Then We Kiss〉가 리믹스 버전으로 수록되어 있다.
+
+Toxic (Peter Rauhofer Reconstruction Mix Edit)
+
+Me Against the Music featuring Madonna (Justice Remix)
+
+Breathe on Me (Jacques Lu Cont's Thin White Duke Mix)
+
+I'm a Slave 4 U (Dave Aude Slave Driver Mix)
+
+Someday (I Will Understand) (Hi-Bias Signature Radio Remix)
+
+...Baby One More Time (Davidson Ospina 2005 Remix)
+
+Don't Let Me Be the Last to Know (Hex Hector Club Mix Edit)",,,,
+fab-500x-20261114T224408Z-030,2,21ff0bade6560b182ecd3cbe,402a78cb5df605f378705c72cf1aabb7,fab-500x,ko,science,wikipedia-ko,templated_human,[user] 단위하중법에 대해 간단히 소개해 주세요.,"단위하중법(單位荷重法, unit dummy force method)은 구조물의 변위를 계산하기 위해 사용되는 방법의 하나이다. 선형 또는 비선형 거동을 하는 재료 모두에 적용 가능하며 환경 효과도 고려할 수 있으므로 카스틸리아노의 제2정리보다 더 일반적인 방법이다.
+
+트러스나 들보, 강절 뼈대와 같은 구조물은 부재가 절점에서 서로 연결된다. 유연도법 등을 사용해 구한 M개의 전체 부재의 변위를 라고 하자. 이러한 부재의 변위는 구하고자 하는 각 절점의 변위 를 유발하게 된다.
+
+N개의 절점 변위 r에 대응하는 가상의 절점 하중 을 재하했을 때, 평형을 만족하는 가상의 부재력 은
+
+이다. 정정(靜定)계라면 절점 평형을 만족하는 이 무한히 많기 때문에 B 행렬은 유일하지 않다. 이 때는 원래의 계에서 유도된 기본계의 절점 평형 행렬의 역행렬을 취해 B 행렬을 구할 수 있다.
+
+내적 가상 하중과 외적 가상 하중에 대해 각각 실재의 변위가 발생한다고 하면,
+
+식 (2)를 계산하는 데에는 계의 복잡도와 상관없이 적분을 할 필요가 없으며, B를 구하는 데 어떤 기본계를 사용했는지와 관계없이 유일한 결과를 얻을 수 있다. 이 식은 절점의 변위(또는 회전각)를 구하는 데 사용되지만, 임의 점에서의 변위 역시 구하고자 하는 점에 절점을 생성하면 계산할 수 있다.
+
+단위하중이라는 이름은 B 행렬의 성분 가 단위 절점 하중 과의 평형을 만족하는 부재력인 것에서 유래하였다.
+
+일반 계에 있어서 단위하중법은 가상일의 원리로부터 직접 유도된다. 기지의 실제 변형 가 있다고 하자. 이 변형은 전체 계에 대해 변위를 유발한다. 예를 들어, 계의 임의의 점 A는 A'로 이동되며, 그 변위 r을 구하는 것이 목적이다. 이를 구하기 위해서 변위 r의 방향으로 단위하중 R*을 재하한다. 이때 외적 가상일은
+
+인데, 여기서 r은 구하고자 하는 변위이다. 한편, 가상 응력으로 인한 내적 가상일은",,,,
+fab-500x-20261114T224408Z-030,3,a5e48095a32486f20e3c9bb1,a6c6cdd7df4840bca0557078cc26b18f,fab-500x,ko,web_frontend,wikipedia-ko,templated_human,[user] 페가수스 (로켓)에 대해 간단히 소개해 주세요.,"페가수스(Pegasus)는 미국의 오비탈 사이언스사의 비행기 발사형 우주로켓이다. 세계 최초의 민간 비행기 발사형 우주선이다. 1990년 초도비행을 하였고, 총 40회의 상업용 발사를 하였다.
+
+페가수스 XL은 무게 23,130 kg이며, 443 kg의 인공위성을 저궤도에 올릴 수 있다.
+
+https://www.youtube.com/watch?v=EFQSP8JfT3c페가수스 로켓 발사장면
+
+페가수스는 록히드 마틴이 제작한 L-1011 스타게이저 비행기에서 발사된다.
+
+기존 우주로켓의 발사지연요인 중 가장 큰 원인은 날씨이다. 그러나 페가수스가 발사되는 40,000 피트(12 km) 상공에서는 날씨의 영향을 거의 받지 않는다.
+
+스타게이저의 최대이륙중량은 200톤으로, B-52 폭격기의 최대이륙중량 220톤과 비슷하다.
+
+2021년 6월 13일, 미국 우주군 우주미사일시스템센터는 전술대응 위성 발사 프로그램의 시범위성 `TacRL-2'(Tactically Responsive Launch-2)을 노스럽 그러먼의 페가수스(Pegasus XL) 로켓에 실어 지구 저궤도에 올려놓았다고 밝혔다. 전술대응 발사 프로그램은 전술적 필요가 생겼을 경우 신속하게 목표물을 궤도에 투입하거나 새로운 것으로 교체하는 기술을 확보하는 것을 목표로 하고 있다. 미국 우주군이 이를 위해 채택한 것이 공중 발사가 가능한 페가수스 로켓이다. 지상 발사대가 필요 없는 공중 발사 로켓은 발사 장소와 날씨에 구애받지 않고 원하는 때에 전천후로 위성을 발사할 수 있다.
+
+1990년대에는 고해상도 정찰위성이 1톤을 넘었다. 그러나 2021년 기준으로, 옛날의 고해상도 정찰위성이 200 kg 또는 60 kg 무게로 작아졌다.
+
+한국군도 스타게이저 비행기에서 발사되는 페가수스 로켓을 국산화 하기로 했다.
+
+무게: 18,500 kg (Pegasus), 23,130 kg (Pegasus XL)
+
+길이: 16.9 m (Pegasus), 17.6 m (Pegasus XL)
+
+화물: 1000 파운드 (443 kg, 1.18 m 직경, 2.13 m 길이)",,,,
+fab-500x-20261114T224408Z-030,4,f1e5ef8ccef42a8dee67bc1b,ad16a760e53b5fe35a0cad931f7d1749,fab-500x,ko,web_fullstack,wikipedia-ko,templated_human,[user] 안개에 대해 간단히 소개해 주세요.,"개는 수증기를 포함한 대기의 온도가 어떤 이유로 내려가 이슬점 온도에 도달할 때 포함된 수증기가 작은 물입자가 되어 공중에 뜬 상태를 말한다. 대기에 떠다니는 작은 물방울의 모임 중에서 지표면과 접촉하며 가시거리가 1,000m 이하가 되게 만드는 것이며, 구름과 비슷한 현상이고 일종의 저지대 구름으로 간주될 수 있다. 인근의 물, 지형 및 바람 상태에 크게 영향을 받는다. 육지에서 발생한 안개를 육무'''(陸霧)라고 부른다.
+
+안개는 습도가 높고, 기온이 이슬점 이하일 때 형성되며, 흡습성의 작은 입자인 응결핵이 있으면 잘 형성된다. 하층운이 지표면까지 하강하여 생기기도 한다.
+
+안개는 관측자의 입장에 따라 달라져 높은 산 위의 것은 지상에서 관측하면 구름, 산 위에서 관측하면 안개라 한다. 안개는 그 밀도에 따라 짙은 안개 등으로 분류된다.
+
+세계에서 안개가 가장 많이 끼는 곳은 캐나다 뉴펀들랜드섬이다. 캘리포니아, 뉴펀들랜드 등이 1년에 200일 이상 안개가 낀다.
+
+지상에서 증발된 물은 수증기가 되어 공기중으로 올라가면서 팽창하여 차가워진다. 공기는 일정한 온도에서 일정한 양의 수증기만을 포함할 수 있다. 기온이 내려가 공기가 포화 상태에 이르면 일부 수증기는 응결되어 안개가 된다. 그러다가 기온이 올라가 공기가 포함할 수 있는 수증기의 양이 늘어나면 안개는 사라진다. 특징에 따라 이류안개·전선안개·복사안개·활승안개로 나눈다.
+
+지표면의 복사 냉각으로 인해 발생하는 안개이다. 기온이 이슬점 이하일 때, 복사 냉각으로 인해 지표의 온도가 공기의 온도보다 낮아지면 발생한다. 이 안개는 그리 높게 발달하지 않고, 대체로 내륙 지방에 형성되며, 해가 뜨면 기온이 상승해 소멸된다.
+
+비교적 따뜻하고 습한 공기가 차고 습한 공기 위를 천천히 지나갈 때 생기는 안개로, 대체로 해안 지방에 형성된다.
+
+온난 또는 한랭전선이 통과할 때 발생한다. 전선의 따뜻한 기층에서 내려온 빗방울이 지표면 쪽의 찬 기층으로 증발해서 생기게 된다.
+
+Map of the United States showing days of heavy fog in each location
+
+United States' current dense fog advisories from NOAA
+
+Current Western US fog satellite pictures from NOAA
+
+Social & Economic Costs of Fog from ""NOAA Socioeconomics"" website initiative",,,,
+fab-500x-20261114T224408Z-030,5,896d6fc3d80b2292c6150a7a,7541b7617e840b41b12c40b17fb00793,fab-500x,ko,writing,wikipedia-ko,templated_human,[user] 레드 벨벳 케이크에 대해 간단히 소개해 주세요.,"레드 벨벳 케이크()는 감칠맛나고 감미로운 케이크의 일종이다. 붉은 색의 시트가 가장 큰 특징이다. 우락유, 버터밀크, 밀가루, 코코아 파우더, 사탕무가 주 재료이다.
+
+제임스 비어드의 1972년 작 ""미국 제과""(American Cookery)에서 3 가지 레드 벨벳 케이크 제조법을 설명하고 있다. 쇼트닝과 버터 등 들어가는 재료의 양에 따라 만들 수 있는 세 가지 벨벳 케이크를 얘기하고 있다. 이들은 붉은 색을 내기 위해 모두 식용 색소를 사용하고 있다. 하지만, 신맛이 나는 식초와 우락유가 혼합되어 반응하면 코코아를 붉은색이나는 갈색으로 만든다는 현상을 언급하고 있다. 또한 그 당시 시대 상황으로 봐서, ""네덜란드식으로 가공한"" 알칼리성의 코코아가 널리 알려지기 전에는, 붉은색이 더 선명했을 것으로 추정되고 있다. 자연스러운 착색 현상 때문에, ""레드 벨벳""(붉은 벨벳, red velvet)이라는 이름이 붙었다. 또한 ""악마의 음식""(Devil's Food)라는 별명도 얻었다.
+
+1989년 영화 《철목련》 때문에, 레드 벨벳 케이크의 인기가 부활하였다. 이 영화 내에서 아르마딜로를 닮은 모양의 레드 벨벳 케이크의 일종인 그룸'즈 케이크(미국 남부 지방의 또 다른 식의 전통 음식)이 등장하기 때문이었다.
+
+더 어두운 색의 코코아가 널리 퍼지자, 레드 벨벳 케이크의 예전의 붉은색을 내기 위해서, 사람들은 붉은색 색소를 이용하기 시작하였다. 제2차 세계 대전 당시 식량 배급 제도가 시행되자, 일부 제빵사들이 끓인 사탕무를 이용하여 케이크의 색을 더 잘 내기 시작한 사실도 언급할 가치가 있다. 갈아서 끓인 사탕무나 사탕무 이유식을 넣는 것이 오늘날의 레서피에서도 발견되고 있다. 레드 벨벳 케이크는 미국 남부 지방에서 점차 인기를 얻어갔으며 1950년대 그 인기가 최고조에 달했다. 일반적인 식용 색소의 인체에 대한 유해성이 염려되면서 인기는 사그라들었다.
+
+Allrecipes Red Velvet Cake Recipe with Buttercream Frosting
+
+Red Velvet Cake Recipes from southernfood.about.com
+
+So Naughty, So Nice -- Popularity, legends, and history of Red Velvet Cake, New York Times, 14 Feb 2007
+
+Plate Of The Day Food Blog - Famous Brooklyn Red Velvet Cake",,,,
+fab-500x-20261114T224408Z-030,6,287286629da4fb0dd2ad671e,929aa86e781b9a7853a15988393a766c,fab-500x,lit,general_knowledge,aya-dataset,human_authored,"[user] Kokios dominuojančios augmenijos apima ""Everglades slough""?",Kiparisas,,,,
+fab-500x-20261114T224408Z-030,7,00bee95cb400e7f23fcbd470,631d3b29243e963f8e29c5ee8c3478aa,fab-500x,lit,science,aya-dataset,human_authored,"[user] Kokia yra Saulės sistemos didžiausia planeta? Atsakymo variantai:
+a) Marsas
+b) Žemė
+c) Venera
+d) Jupiteris",Atsakymas: d) Jupiteris. Jupiteris yra penktoji planeta nuo Saulės ir didžiausia planetų sistemoje. Jo masė yra 2.5 karto didesnė nei visų kitų Saulės sistemos planetų masės suma.,,,,
+fab-500x-20261114T224408Z-030,8,b17a591f7550e0afb6be5122,eca8c77a5273154d92fc65a2aa46656d,fab-500x,mal,general_knowledge,aya-dataset,human_authored,[user] ഇനിപ്പറയുന്ന ഖണ്ഡിക പൂർത്തിയാക്കുക: കൊറിയൻ യുദ്ധത്തിലെ ചൈനയുടെ ഇടപെടൽ മൂലം അമേരിക്കൻ ഐക്യനാടുകൾ ചൈനക്കു മേൽ ഒരു വ്യാപാരം നിരോധനം നടപ്പിലാക്കിയിരുന്നു. എന്നാൽ പിന്നീട് അമേരിക്കൻ പ്രസിഡന്റായിരുന്ന റിച്ചാർഡ് നിക്സൺ ചൈനയുമായുള്ള ബന്ധങ്ങൾ പുനഃസ്ഥാപിച്ചു.,റഷ്യയുമായുള്ള ബന്ധത്തിൽ ചൈന ഒരു വലിയ സഹായമായിരിക്കും എന്നാണ് നിക്സൺ വിശ്വസിച്ചിരുന്നത്.,,,,
+fab-500x-20261114T224408Z-030,9,3f7a5f68349a5c2ad5f4ff3b,306e3d4d092ecdc00c9642ea3a2a5c92,fab-500x,mr,general_knowledge,aya-dataset,human_authored,[user] भारताचा पहिला ध्वज कोणता होता?,"भारताचा पहिला ध्वज
+पौराणिक कथेनुसार, भारताचा पहिला राष्ट्रीय ध्वज ७ ऑगस्ट १९०६ रोजी कोलकात्याच्या पारसी बागान स्क्वेअरमध्ये (ज्याला ग्रीन पार्क म्हणूनही ओळखले जाते) उभारण्यात आले. तीन लाल, पिवळे आणि हिरव्या आडव्या पट्ट्यांनी ध्वज बनवला.",,,,
+fab-500x-20261114T224408Z-030,10,5463ec92fbed7c69d06c5f24,7291ffa3ed24fec0783b0317190b84f0,fab-500x,ms,general_knowledge,aya-dataset,human_authored,[user] Siapakah Perdana Menteri pertama di Malaysia?,Tunku Abdul Rahman Putra Al-Haj ibni Almarhum Sultan Abdul Hamid Halim Shah merupakan Perdana Menteri pertama di Malaysia bermula pada 31 Ogos 1957 sehingga 22 September 1970.,,,,
+fab-500x-20261114T224408Z-030,11,fd0bb4524910bcaaa15b9874,9891eab3adb5d215ff6961149443b66a,fab-500x,ms,islamic_studies,aya-dataset,human_authored,"[user] Anak bulan & bintang pada bendera Malaysia membawa maksud?
+
+A) Agama Islam sebagai agama rasmi negara
+
+B) Kesucian
+
+C) Perpaduan & kesatuan rakyat
+
+D) Institusi diraja",C) Perpaduan & kesatuan rakyat,,,,
+fab-500x-20261114T224408Z-030,12,bd039ed25a3c59f0be5c9550,00ef1b69fe339b1414ef964da4a1d52c,fab-500x,mya,general_knowledge,aya-dataset,human_authored,[user] ဝက်သားနီချက် ဘယ်လိုချက်ရမလဲ,"ဝက်သားကိုဆေးကြောသန့်စင်ပြီး ဆား၊အရသာမှုံ့၊ ပဲငံပြာရည်ရယ် ဗမာငံပြာရည် နည်းနည်းစီ ထည့်ပြီး တနာရီလောက်နှပ်ထားပါ။ ဝက်သားပေါ်ကြည့်ပြီး ဆီထည့်ပါ။ အဆီအခေါက်ဆို ဆီလျော့ထည့်ပြီးအသားဆိုပုံမှန်အတိုင်းထည့်ပါ။
+ဆီကျက်ရင်သကြားအညိုအနည်းငယ်ထည့်ပါ။ 
+အရောင်နီညိုလာရင်ဝက်သားထည့်ပါ။ 
+ဝက်သားကိုဆီနဲ့အကြောတင်းရေခမ်းတဲ့အထိထားပေးပါ။
+ရေခမ်းသွားမှ ကြက်သွန်ဖြူ/နီ၊ ချင်း(ဂျင်း)၊ ထောင်းထားတာထည့်ပါ။ အဲ့ထဲကို ငြုပ်(ငရုတ်)သီးအရောင်တင်မှုန့်နည်းနည်းလေးထည့်ပါ၊ အရောင်လှအောင်ပါ။ 
+ကြက်သွန်တွေနွမ်းသွားရင်‌ဝက်သားမြုပ်အောင်ရေထည့်ပါ။ အဖုံးဖုံးထားပါ။ မနူးသေးရင်ရေထပ်ထည့်ပေးပါ။ 
+နူးခါနီးရင်ကြက်သွန်ဥသေးသေးလေးတွေထည့်ပါ။ အ‌သေးမရှိလို့ရှိရင် ကြီးတာကို လေးစိပ်စိပ်ထည့်ပါ။ ကြက်သွန်လဲနူး၊ ဝက်သားလဲနူး၊ ဆီလည်းပြန်သွားရင်ရပါပြီ။",,,,
+fab-500x-20261114T224408Z-030,13,7596568faf3e4f7fae34f270,c831ee0c46bf40a716411604865a37df,fab-500x,mya,web_backend,aya-dataset,human_authored,[user] Orchestrator in Web Frameworks,"Orchestrator component ကို Laravel မှာ HTTP Kernel အနေနဲ့ မြင်ရပါတယ်။ request-response pipeline တခုလုံးကို တာဝန်ယူ စီမံပေးတဲ့ ဗဟိုချက်အနေနဲ့ တည်ဆောက်ထားပြီး request/response model တည်ဆောက်တာ၊ middleware stack တာနဲ့ route assisting စတဲ့ တာဝန်တွေကို လုပ်ဆောင်ပါတယ်။ Application intelligence ရှိတာဖြစ်လို့ အပိုဆောင်းအနေနဲ့ path နဲ့ query parameter တွေကိုဖတ်ပြီး dynamic routing နဲ့ conditional middleware တွေကိုပါ လုပ်ပေးနိုင်ပါတယ်။
+
+ExpressJS မှာ HTTP Kernel နဲ့ တိုက်ရိုက်နှိုင်းပြစရာ မရှိပေမယ့် App object က Orchestrator ရဲ့ တာဝန်တွေဖြစ်တဲ့ res နဲ့ resp object တွေတည်ဆောက်တာ၊ routing လုပ်တာ အစရှိတဲ့ လုပ်ဆောင်ချက်တွေကို တာဝန်ယူပါတယ်။ ဒါပေမယ့် Application intelligence ရှိတာဖြစ်လို့ အပိုဆောင်းအနေနဲ့ path နဲ့ query parameter တွေကိုဖတ်ပြီး dynamic routing နဲ့ conditional middleware တွေကိုပါ လုပ်ပေးနိုင်ပါတယ်။
+
+ExpressJS မှာ HTTP Kernel နဲ့ တိုက်ရိုက်နှိုင်းပြစရာ မရှိပေမယ့် App object က Orchestrator ရဲ့ တာဝန်တွေဖြစ်တဲ့ res နဲ့ resp object တွေတည်ဆောက်တာ၊ routing လုပ်တာ အစရှိတဲ့ လုပ်ဆောင်ချက်တွေကို တာဝန်ယူပါတယ်။ ဒါပေမယ့် Application intelligence မပါဝင်တဲ့အတွက် Laravel လို feature တွေအသင့်သုံး မရနိုင်ပါဘူး။",,,,
+fab-500x-20261114T224408Z-030,14,258582c1aae7a7e1053f6976,8f3db305b6749573d8981346b8505a5c,fab-500x,ne,general_knowledge,aya-dataset,human_authored,[user] सगरमाथा कति मिटर उचाई भएको छ?,"सगरमाथा 8,848.86 मिटर उचाई भएको छ।",,,,
+fab-500x-20261114T224408Z-030,15,b31227d28da497d0a50e4d28,2f877b3aba395f131849e96399bded55,fab-500x,ne,mathematics,aya-dataset,human_authored,[user] समीकरण हल गर्नुहोस्: 4/3x + 5 = 17।,"'x' को लागि समाधान गर्न, समीकरणको दुवै पक्षबाट 5 घटाउनुहोस्: (4/3x) = 17 - 5, जसले (4/3x) = 12 लाई सरल बनाउँछ। अब, दुवै पक्षहरूलाई 3/4: x = 12 ले गुणन गर्नुहोस्। * (3/4), जुन 9 बराबर हुन्छ।",,,,
+fab-500x-20261114T224408Z-030,16,a169ab3a5733e6d3f7f17ec3,531cd4c273cf98d7884ff94a9497433d,fab-500x,nl,coding,aya-dataset,human_authored,[user] Waarom houden mensen zoveel van reizen?,"Over het algemeen zijn er zijn veel redenen waarom mensen van reizen houden en de motivatie om te reizen is altijd uniek voor elke persoon. De meest voorkomende redenen zijn om wereldberoemde bezienswaardigheden te verkennen, nieuwe culturen te ontdekken, verschillende authentieke gerechten te proeven en nieuwe mensen te ontmoeten, wat het perspectief op verschillende culturen en hun waardesystemen zal verbreden. Ook om te ontspannen en tot rust te komen van hun drukke dagelijkse schema's. Afgezien daarvan hebben mensen door het brede gebruik van sociale media platforms meer informatie en kennis om beïnvloed te worden. Mensen reizen ook voor onderzoeks- en educatieve doeleinden naar plaatsen zoals musea en historische bezienswaardigheden. Over het algemeen kan reizen een verrijkende, ontspannende en vervullende ervaring zijn die mooie levenslange herinneringen, ervaringen en lessen zal verzamelen.",,,,
+fab-500x-20261114T224408Z-030,17,8262171b30718e3ae3170971,395fce4fba031248ea3f16f78bc122fc,fab-500x,nl,education,aya-dataset,human_authored,"[user] Bedenk doelen voor de volgende vragen:
+
+Evaluatieve vragen
+
+    - Wat vind je van de manier waarop …?
+    - Vind je maatregel X een goed antwoord op probleem Y?
+    - Ben je van mening dat X leidt tot meer Y? Waarom?","Mogelijke doelen van dit soort vragen:
+    - Discussie op gang brengen
+    - Studenten leren een oordeel te formuleren en dat te beargumenteren
+    - Studenten leren informatie op waarde en betrouwbaarheid te beoordelen",,,,
+fab-500x-20261114T224408Z-030,18,ff8cbac1d62f592adff58365,074ec4b8abc05b2ee1fd0bb8da27fbe5,fab-500x,nl,general_knowledge,aya-dataset,human_authored,"[user] De ouders van Alice hebben drie dochters: Amy, Jessy en hoe heet de derde dochter?",De naam van de derde dochter is Alice.,,,,
+fab-500x-20261114T224408Z-030,19,abe4d1228435c5396023119a,7b10f57c627449d0f61d3557e8ce2867,fab-500x,nl,mathematics,aya-dataset,human_authored,"[user] Een oude boer overleed en liet 17 koeien na aan zijn drie zonen. In zijn testament schreef de boer dat zijn oudste zoon de helft, zijn middelste zoon 1/3, en zijn jongste zoon 1/9 van de koeien moest krijgen. De zonen, die niet met halve koeien wilden blijven zitten, probeerden dagenlang te bedenken hoeveel koeien ieder van hen moest krijgen.
+
+Op een dag kwam hun buurman voorbij om te kijken hoe de jongens het deden na hun vaders dood. De drie vertelden hem over hun probleem. Na een tijdje nagedacht te hebben, zei de buurman: ""Ik ben zo terug!"" Hij ging weg, en toen hij terugkwam, konden de drie zonen de koeien verdelen volgens de wens van hun vader, en wel zo dat elk van hen een geheel aantal koeien kreeg.
+
+De vraag: Wat was de oplossing van de buurman?","De buurman leende een extra koe, om het totaal aantal koeien 18 te maken. De oudste zoon kreeg toen 1/2 van 18 is 9 koeien. De middelste zoon kreeg 1/3 van 18 is 6 koeien, en de jongste zoon kreeg 1/9 van 18 is 2 koeien. Omdat 9+6+2 = 17, konden de koeien dus tussen de drie broers verdeeld worden op zo'n manier dat de geleende koe over bleef, en teruggebracht kon worden naar haar eigenaar.",,,,
+fab-500x-20261114T224408Z-030,20,eb6b2f9dc87c4af131b8d3c0,c610ae8feb3d260b661f20f3e7eb77df,fab-500x,nl,problem_solving,aya-dataset,human_authored,[user] Genereer een lijst met methodes om voedselverspilling te verminderen.,"- Koop slim en koop alleen wat je nodig hebt. 
+- Bewaar restjes voor later en vries ze indien nodig in. 
+- Controleer de vervaldatum en consumeer ze voordat ze bederven. 
+- Doe mee aan gemeenschaps- of publieke voedselinitiatieven. 
+- Composteer restjes voedsel. 
+- Hergebruik containers, potten en tassen. 
+- Doneer voedsel met korte houdbaarheidsdata aan lokale voedselbanken. 
+- Koop meer producten die dicht bij de vervaldatum zijn en bereid ze snel. 
+- Bestel kleine porties tijdens het uit eten gaan. 
+- Informeer jezelf en anderen over voedselverspilling. 
+- Plan maaltijden van tevoren en baseer je boodschappenlijst op de maaltijden. 
+- Bewaar voedsel op de juiste manier om bederf te verminderen. 
+- Zorg ervoor dat je koelkast op de juiste temperatuur staat. 
+- Gebruik een systeem om restjes in de koelkast bij te houden. 
+- Eet alle eetbare delen van voedsel, inclusief stengels en schillen. 
+- Gebruik creatieve recepten om het hele voedselitem te gebruiken. 
+- Gebruik voedsel dat anders weggegooid zou worden voor diervoeder. 
+- Doe mee aan campagnes om voedsel duurzaamheid tot een probleem te maken.",,,,
+fab-500x-20261114T224408Z-030,21,c2153fab05aa53d6d306c4af,7a0024246bd8cb4573e73efa5e096eeb,fab-500x,nl,science,aya-dataset,human_authored,"[user] Bell Laboratories begon in de vroege jaren 1930 te experimenteren met een reeks opnametechnieken. Uitvoeringen van Leopold Stokowski en het Philadelphia Orchestra werden in 1931 en 1932 opgenomen met behulp van telefoonlijnen tussen de Academy of Music in Philadelphia en de Bell-labs in New Jersey. Sommige multitrack-opnamen werden gemaakt op optisch geluidsfilm, wat leidde tot nieuwe ontwikkelingen die voornamelijk werden gebruikt door MGM (al in 1937) en Twentieth Century Fox Film Corporation (al in 1941). RCA Victor begon in 1941 met het opnemen van uitvoeringen van verschillende orkesten met behulp van optisch geluid, wat resulteerde in hogere-fideliteit masters voor 78-toerenplaten. Tijdens de jaren 1930 begon Avery Fisher, een amateurviolist, te experimenteren met audiodesign en akoestiek. Hij wilde een radio maken die zou klinken alsof hij naar een live orkest luisterde - die hoge trouw aan het oorspronkelijke geluid zou bereiken. Na de Tweede Wereldoorlog voerde Harry F. Olson een experiment uit waarbij proefpersonen naar een live orkest luisterden via een verborgen variabele akoestische filter. De resultaten bewezen dat luisteraars de voorkeur gaven aan hoogwaardige reproductie, zodra het lawaai en de vervorming die door vroege geluidsapparatuur werden geïntroduceerd, werden verwijderd. [bron nodig] Vanaf 1948 creëerden verschillende innovaties de omstandigheden die grote verbeteringen van de kwaliteit van home-audio mogelijk maakten: Reel-to-reel audio-tape-opname, gebaseerd op technologie die na de Tweede Wereldoorlog uit Duitsland werd gehaald, hielp muzikale artiesten zoals Bing Crosby opnames te maken en te distribueren met een betere trouw. De komst van de 33⅓ rpm Long Play (LP) microgroove vinylplaat, met minder oppervlakteruis en kwantitatief gespecificeerde equalisatiecurves, evenals ruisonderdrukking en dynamische bereiksystemen. Klassieke muziekfans, die opinieleiders waren op de audiemarkt, namen snel LP's over omdat, in tegenstelling tot oudere platen, de meeste klassieke werken op één LP pasten. Hogere kwaliteit draaitafels, met meer responsieve naalden FM-radio, met een breder audiofrequentiebereik en minder gevoeligheid voor signaalinterferentie en fading dan AM-radio. Betere versterkerontwerpen, met meer aandacht voor frequentierespons en veel hogere uitgangsvermogens, waardoor audio zonder waarneembare vervorming wordt gereproduceerd. Nieuwe luidsprekerontwerpen, waaronder akoestische ophanging, ontwikkeld door Edgar Villchur en Henry Kloss met verbeterde basfrequentierespons. In de jaren 1950 gebruikten audioproducenten de term high fidelity als marketingterm om platen en apparatuur te beschrijven die bedoeld waren om een ​​getrouwe geluidsweergave te bieden. Veel consumenten vonden het verschil in kwaliteit in vergelijking met de toen-standaard AM-radio's en 78-toerenplaten gemakkelijk waarneembaar en kochten high-fidelity platenspelers. 
+
+Gegeven de context, zou je mij kunnen vertellen wat HiFi is?","High fidelity (vaak afgekort tot Hi-Fi of HiFi) is de hoogwaardige reproductie van geluid. Het is populair bij audiofielen en home-audio enthousiastelingen. Ideaal gezien heeft high-fidelity apparatuur onhoorbare ruis en vervorming, en een vlakke (neutrale, ongekleurde) frequentierespons binnen het menselijk gehoorbereik. High fidelity staat in contrast met het lagere kwaliteit ""lo-fi"" geluid geproduceerd door goedkope audioapparatuur, AM-radio, of de inferieure kwaliteit van geluidsreproductie die te horen was in opnames gemaakt tot de late jaren 1940.",,,,
+fab-500x-20261114T224408Z-030,22,0c87291edfda03e339d1d916,44a0e18cc16a7f05b28778ac425af3be,fab-500x,nl,writing,aya-dataset,human_authored,"[user] Geef me reistips voor Istanbul, in blog stijl:","Alles over Istanbul, Turkije! Onze ervaringen + tips voor Istanbul!
+
+In dit blog lees je meer over onze tijd in Istanbul, Turkije. Ook deel ik een aantal handige tips voor Istanbul én selecteer ik de leukste hotels en hostels als je gaat backpacken en door Istanbul komt!
+Vakantie naar Istanbul!
+
+We zijn in Turkije! Na twee heerlijke weken in Nederland (had best nog een weekje langer mogen zijn zo fijn was het!) pakken we weer onze backpacks. Ze zijn dit keer erg zwaar: we hebben feestkleding voor een huwelijk bij ons én warme kleren voor de Annapurna hike in Nepal. Maar eerst: Istanbul!
+Vier dagen sightseeing en eten in Istanbul!
+
+Na een veel te lange reisdag (boeren die in Nederland gingen staken en de wegen versperden dus ellenlange files én de NS die dat niet aankon) komen we doodmoe aan op vliegveld Sabiha in Istanbul.
+
+Een uurtje later zijn we bij ons hostel. De komende nachten slapen we in het Jumba Hostel, een leuk, quirky hostel midden in de centrale wijk Taksim. Overal om ons heen zitten hippe restaurantjes en een paar uur later zitten we hier met vrienden Willemijn en Jiri. Willemijn is een dispuutsgenootje van mij uit Maastricht. Samen met haar vriend Jiri reist ze als digital nomad fulltime de wereld over. Toevallig zaten ze nu in Istanbul, we hebben elkaar al bijna twee jaar niet gezien dus toen ze appte om een drankje te doen was dat snel geregeld. We hebben een hoop bij te kletsen en met z’n vieren is het een heel gezellige avond!Istanbul
+Slaapwandelen door de oude stad van Istanbul
+
+Met heel veel moeite staan we de volgende ochtend op. Tijdens onze laatste dagen in Nederland hebben we niet veel geslapen, tel daarbij een vermoeiende reisdag op + twee wijntjes gisteren… we zijn eigenlijk nog heel moe. Maar we hebben niet veel tijd hier in Istanbul dus maken we al gapend een ontbijtje in de keuken van het hostel en trekken er dan op uit. En dat moet vier keer opnieuw… ik vergeet pleisters, Ries zijn zonnebril, ik bedenk me na tien minuten lopen dat ik eerst mijn huwelijksoutfit nog naar de stomerij moet brengen. Dus tot vier keer toe, lopen we op en neer. Het is duidelijk: onze hoofden zijn er niet bij!
+
+Anderhalf uur later dan gepland staan we bij de Blauwe Moskee. Het is warm, er staan lange rijen en we lopen verdwaasd een beetje rond. Na een uurtje te hebben rondgelopen, chillen we even in een park en besluiten we dan dat we het vandaag misschien iets rustiger aan moeten doen. Niets voor ons, het liefst proppen we de dagen zo vol mogelijk, maar na jaren van reizen hebben we eindelijk een beetje door dat dit soort dagen erbij horen en we beter even rust kunnen pakken dan chagrijnig worden of hoofdpijn krijgen.
+
+Lees hier alles over onze 2-weekse reisroute door Turkije!
+
+NOMAD Topaz backpack in Istanbul
+Zonsondergang in Istanbul
+
+En dus relaxen we tijdens het heetste deel van de dag in onze kamer met een aantal afleveringen The Big Bang Theory. Aan het eind van de dag hebben we weer genoeg energie om erop uit te gaan en dus bekijken we de zonsondergang vanaf een mooi park en eten we daarna de lekkerste viswraps ooit!Viswraps cappadocia
+Blauw Moskee en Hagia Sofia
+
+Na een heerlijke nacht slapen zijn we stukken uitgeruster! Tijd voor poging twee om de Blauwe Moskee te bezoeken. We zijn al vroeg en lopen rond door het prachtige bouwwerk. Helaas staat bijna de hele binnenkant in de steigers, dus om eerlijk te zijn valt dit toch een beetje tegen.
+
+Een uurtje later staan we binnen bij de minstens zo indrukwekkende Hagia Sofia. Hagia Sofia was van origine een christelijke kerk, werd toen omgebouwd tot moskee en werd begin twintigste eeuw tot een museum gemaakt toen er onenigheid ontstond onder de moslims en christenen over de bestemming. Het bouwwerk is van binnen minstens zo mooi als van buiten, met eeuwenoude mozaïeken, muurschilderingen en glas in lood. Gaaf ook om rond te lopen in een gebouw dat al bijna 1500 jaar oud is!
+
+Tip: we kochten onze tickets voor Hagia Sofia van tevoren online. Dit scheelt een hoop wachttijd in de rij! Klik hier om ook tickets én een rondleiding te boeken.Haiga SofiaHaiga Sofia
+
+Gratis reisgids: alles over de prachtige berg regio Cappadocië in Turkije!
+Onenigheid over Little Hagia Sofia
+
+Om 12.00 uur, weer buiten op het grote plein waar de Blauwe Moskee en Hagia Sofia aan liggen, stelt Ries voor om een korte wandeling die in de Lonely Planet staat en langs de kleine Hagia Sofia leidt te lopen. Ik stem in, al merk ik wel dat het warm is en ik wat trek begin te krijgen…  En wie mij een beetje kent ziet in bovenstaande zin al een paar ingrediënten voor een chagrijnige Charlotte.
+
+En jahoor, daar gaan we: Ries raakt de weg kwijt doordat de Lonely Planet de route niet goed omschrijft (en omdat kaartkijken niet zijn sterkste kant is). Ik zweet me een ongeluk, mijn trek is omgezet in honger en na een uur ronddwalen gris ik de telefoon uit Ries zijn handen en begin boos de juiste kant op te lopen. Ries op zijn beurt is beledigd en zo lopen we nog een uur mokkend door Istanbul terwijl geen enkel restaurant goed genoeg is…
+
+Herkenbaar voor iemand? Dit soort momenten horen ook bij het reizen. Hier lees je echter bijna nooit over want hé, wie hangt er nou graag zijn vuile was buiten, maar ach, als ik zelf dit van andere mensen lees, werkt het ook zo lekker relativerend dus daarom deel ik dit graag.Istanbul
+De grote bazaar
+
+Na een baguette met feta en honing is de ruzie snel bijgelegd én de honger gestild. Wel komen we erachter dat bij een gecancelde pintransactie bij de bank Akbank, ons geld toch is afgeschreven én hoogstwaarschijnlijk door de automaat naar buiten is gespuwd. Helaas krijgen we van Akbank nul response op ons rekest en worden we van kastje naar de muur gestuurd.
+
+Een voordeel: we hebben letterlijk geen geld om in de verleiding te komen in de grote bazaar iets te kopen. En geloof me, die verleiding is groot want wat liggen er een hoop leuke dingen. De grote bazaar verrast ons trouwens: het is veel minder druk en chaotisch dan we verwacht hadden en de meeste verkopers laten ons met rust. We slenteren lekker rond, kijken onze ogen uit en gaan dan terug naar ons hostel om met een koude douche af te koelen. ’s Avonds bezoeken we een lokale yogaschool en worden we flink afgemat door de Turkse lerares, zo fijn!Big Bazar
+
+Lees hier alles over het spotten van de beroemde luchtballonnen in Cappadocië!
+Langs bij Akbank en een nieuwe Fuji filter
+
+Helaas is ons probleem met de pinautomaat van Akbank nog niet opgelost. En dus moeten we langs op kantoor. Na anderhalf uur wachten krijgen we te horen dat ze niets voor ons kunnen doen. Behoorlijk irritant en echt geen aanrader deze bank. Gelukkig worden bij onze volgende stop iets vrolijker: Ries vindt de perfecte polarizatie filter voor op zijn Fuji fotocamera. Een polarizatie filter zet je voor je camera lens om de lucht op je foto donkerder te maken, reflecties te limiteren en om de glans van oppervlakten weg te halen. Hiermee kan hij straks in de bergen van Cappadocië en Nepal nog mooiere foto’s maken.
+
+De rest van de dag doen we het rustig aan, we winkelen wat op de Kalverstraat van Istanbul: de Istikal C.D. waar onder andere de H&M, Zara en Decathlon zitten. Ik heb nieuwe sportshirts nodig, nog wat sieraden voor de bruiloft van Axel en Gokce waar we volgende week naartoe gaan en Ries zoekt nieuwe slippers. Onderweg stoppen we voor een koude limonade op het terras (het is 30 graden buiten). Lekker mensen kijken en genieten van het mooie weer. Bij de stomerij halen we mijn outfit voor het huwelijk op en ’s avonds eten we traditioneel Turks met een vegetarische twist.Lemonade Istanbul
+Drankjes met een view over heel Istanbul: rooftopbar
+
+Onze laatste avond in Istanbul vieren we met een drankje in de rooftopbar van hotel Marmara Pera. Dit hotel heeft een prachtig dakterras waarvandaan je de hele stad ziet. Het bezoeken van dakterrassen voor een drankje, is iets dat we zo af en toe in een grote stad proberen te doen. Even weg van de budget hotels en budget maaltijden, mooi aankleden en dan lekker met een glas wijn en cocktail kletsen over wat de toekomst ons zal brengen. Een heel fijn einde van onze heerlijke tijd in Istanbul.
+
+De volgende dag vliegen we door naar Cappadocië, een geweldige plek waar binnenkort een reisgids over online komt. En daarna genieten we vier dagen van het spectaculaire huwelijk van Axel en Gokce in Antalya.View Istanbul rooftop
+Mijn top tips voor Istanbul:
+
+Vier dagen is eigenlijk veel te weinig om deze reusachtige stad te zien. Ik heb veel tips van lezers gekregen over wat we echt niet mogen missen in Istanbul, veel te veel om allemaal te doen helaas maar hierbij een kleine selectie van dingen die volgens ons echt niet mogen ontbreken tijdens een tripje naar Istanbul!
+Vis wraps eten bij de haven
+
+Elke dag staan er tientallen vissers op de Galata Köprüsü (de bekendste brug van Istanbul). Hun vangst kun je ’s avonds opeten bij een van de kleine straatbarbecues waar de vis gegrild wordt en vervolgens in een heerlijke wrap gedraaid wordt. Misschien wel het lekkerste eten dat ik in heel Istanbul at!
+De zonsondergang zien met uitzicht op de skyline van Istanbul
+
+Aan de overkant van de Bosporus ligt het Aziatische gedeelte van Istanbul. Op dag twee gingen wij per veerboot naar het heuvelachtige park Buyuksehir Belediyesi Fethipasa. Na een flinke klim naar de top van de heuvel keken we uit op de skyline van Istanbul tijdens zonsondergang. Een aanrader! Ook leuk om per veerboot een stukje over de Bosphorus te varen (en een goede budgettip, slechts €0,60 heen en terug !)
+
+Is reizen door Turkije duur? Lees dit Turkije budget blog met meer informatie over prijzen.
+
+Sunset Istanbul
+Havabus: de shuttlebus van de vliegvelden naar de stad
+
+Bij aankomst in Istanbul namen we een veel te dure taxi naar de stad. Bleek dat we net zo snel én stukken goedkoper met Havabus naar het centrum hadden kunnen reizen. Dat deden we dus bij de volgende vluchten. Havabus rijdt van zowel vliegveld Istanbul als Sabiha voor 18 TL per persoon naar het centrum.
+Geroosterde maiskolven en Simit op straat
+
+De Turkse variant van de pretzelstand: overal in Istanbul vind je kleine standjes waar men maiskolven en Simit, de Turkse pretzel verkoopt. Superlekker!
+Koop een Istanbul Kart voor in het openbaar vervoer!
+
+Koop voor minder dan €1,50 een Istanbul Kart, hiermee reis je voor veel minder geld met het openbaar vervoer. Je koopt deze kaart o.a. bij kleine kiosken op straat. Lever je de kaart in, dan krijg je het aankoopbedrag ook weer terug.
+
+Istanbul Simit
+Leuke hotels in Istanbul
+
+Hierbij enkele leuke ho(s)tels voor Istanbul die we zelf bezochten of waar we andere reizigers over spraken!
+
+Tip: boek je ho(s)tels voor Istanbul op tijd. Momenteel wordt booking.com namelijk geblokkeerd in Turkije, waardoor je geen accommodatie kunt boeken als je al in Turkije bent. Boek dus vanuit een ander land, dan gaat alles goed!",,,,
+fab-500x-20261114T224408Z-030,23,4e2ffadbc53605c8aa66df04,6cade14e70ca9996acddcb2eb04a808d,fab-500x,nso,general_knowledge,aya-dataset,human_authored,"[user] Seema se: Aparela mankobo, motlalekgomo ga a tsebje.",Dira batho ka go loka ka ge o sa tsebe ge o tla tla wa ba hloka ka moso.,,,,
+fab-500x-20261114T224408Z-030,24,aa5dcdcb877d17a4cc122bc9,b3648858e43f903a67681df7ce51afa5,fab-500x,nya,general_knowledge,aya-dataset,human_authored,[user] Zambiri zokhuzana ndi a Sena a fuko la ku Mozambique ndi m'mene anapezekera ku dziko la Malawi,"Anthu a Sena ndi mtundu wa anthu, omwe amachokera kumpoto chakumadzulo kwa Mozambique m'chigawo cha Tete, Chigawo cha Manica, Chigawo cha Sofala ndi Zambezia. Amapezekanso ku Malawi ndi Zimbabwe pafupi ndi malire awo ndi Mozambique.
+
+Chiwerengero chonse cha anthu a Sena ndi pafupifupi 2 miliyoni. Akuti pafupifupi 1.4 miliyoni ku Mozambique, ndipo pafupifupi 0.5 miliyoni ku Malawi. Anthu a ku Sena ku Malawi ndi Zimbabwe anafika kuchokera ku Mozambique ndipo anakhazikika kumeneko kumayambiriro kwa zaka za m'ma 1900 monga antchito othawa kwawo.",,,,
+fab-500x-20261114T224408Z-030,25,1ada4d84d40b3f2c89235c53,81f1022253a2008fc618afb4f93c257b,fab-500x,pa,general_knowledge,aya-dataset,human_authored,"[user] ਕਿਰਪਾ ਕਰਕੇ ਇਸ ਬਾਰੇ ਵਿਸਥਾਰ ਵਿੱਚ ਦੱਸੋ ਕਿ ਹੇਠਾਂ ਦਿੱਤੇ ਦਾ ਕੀ ਅਰਥ ਹੈ।
+""ਰਾਗੁ ਗਉੜੀ ਬੈਰਾਗਣਿ ਕਬੀਰ ਜੀੴ ਸਤਿਗੁਰ ਪ੍ਰਸਾਦਿ ॥ਜੀਵਤ ਪਿਤਰ ਨ ਮਾਨੈ ਕੋਊ ਮੂਏਂ ਸਿਰਾਧ ਕਰਾਹੀ ॥ਪਿਤਰ ਭੀ ਬਪੁਰੇ ਕਹੁ ਕਿਉ ਪਾਵਹਿ ਕਊਆ ਕੂਕਰ ਖਾਹੀ ॥੧॥ਮੋ ਕਉ ਕੁਸਲੁ ਬਤਾਵਹੁ ਕੋਈ ॥ਕੁਸਲੁ ਕੁਸਲੁ ਕਰਤੇ ਜਗੁ ਬਿਨਸੈ ਕੁਸਲੁ ਭੀ ਕੈਸੇ ਹੋਈ ॥੧॥ ਰਹਾਉ ॥ਮਾਟੀ ਕੇ ਕਰਿ ਦੇਵੀ ਦੇਵਾ ਤਿਸੁ ਆਗੈ ਜੀਉ ਦੇਹੀ ॥ਐਸੇ ਪਿਤਰ ਤੁਮਾਰੇ ਕਹੀਅਹਿ ਆਪਨ ਕਹਿਆ ਨ ਲੇਹੀ ॥੨॥ਸਰਜੀਉ ਕਾਟਹਿ ਨਿਰਜੀਉ ਪੂਜਹਿ ਅੰਤ ਕਾਲ ਕਉ ਭਾਰੀ ॥ਰਾਮ ਨਾਮ ਕੀ ਗਤਿ ਨਹੀ ਜਾਨੀ ਭੈ ਡੂਬੇ ਸੰਸਾਰੀ ॥੩॥ਦੇਵੀ ਦੇਵਾ ਪੂਜਹਿ ਡੋਲਹਿ ਪਾਰਬ੍ਰਹਮੁ ਨਹੀ ਜਾਨਾ ॥ਕਹਤ ਕਬੀਰ ਅਕੁਲੁ ਨਹੀ ਚੇਤਿਆ ਬਿਖਿਆ ਸਿਉ ਲਪਟਾਨਾ ॥੪॥੧॥੪੫॥""","ਇਹ ਸ੍ਰੀ ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ ਜੀ ਦੇ ਪੰਨਾ 332 ਤੋਂ ਲਿਆ ਗਿਆ ਹੈ। ਭਗਤ ਕਬੀਰ ਜੀ ਇਹਨਾਂ ਵਾਰਾਂ ਦੇ ਲਿਖਾਰੀ ਸਨ।
+ਇਸ ਨੂੰ ਹੇਠ ਲਿਖੇ ਅਨੁਸਾਰ ਵਿਖਿਆਨ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ,
+""ਲੋਕ ਜੀਊਂਦੇ ਮਾਪਿਆਂ ਦਾ ਤਾਂ ਆਦਰ ਮਾਣ ਨਹੀਂ ਕਰਦੇ, ਪਰ ਮਰ ਗਏ ਪਿਤਰਾਂ ਨਿਮਿਤ ਭੋਜਨ ਖੁਆਉਂਦੇ ਹਨ ਵਿਚਾਰੇ ਪਿਤਰ ਭਲਾ ਉਹ ਸਰਾਧਾਂ ਦਾ ਭੋਜਨ ਕਿਵੇਂ ਹਾਸਲ ਕਰਨ? ਉਸ ਨੂੰ ਤਾਂ ਕਾਂ-ਕੁੱਤੇ ਖਾ ਜਾਂਦੇ ਹਨ ।੧।ਮੈਨੂੰ ਕੋਈ ਧਿਰ ਦੱਸੋ ਕਿ (ਪਿਤਰਾਂ ਦੇ ਨਮਿਤ ਸਰਾਧ ਖੁਆਉਣ ਨਾਲ ਪਿਛੇ ਘਰ ਵਿਚ) ਸੁਖ-ਆਨੰਦ ਕਿਵੇਂ ਹੋ ਜਾਂਦਾ ਹੈ ਸਾਰਾ ਸੰਸਾਰ (ਇਸੇ ਭਰਮ-ਵਹਿਮ ਵਿਚ) ਖਪ ਰਿਹਾ ਹੈ ਕਿ (ਪਿਤਰਾਂ ਨਿਮਿਤ ਸਰਾਧ ਕੀਤਿਆਂ ਘਰ ਵਿਚ) ਸੁਖ-ਆਨੰਦ ਬਣਿਆ ਰਹਿੰਦਾ ਹੈ ।੧।ਰਹਾਉ।ਮਿੱਟੀ ਦੇ ਦੇਵੀ-ਦੇਵਤੇ ਬਣਾ ਕੇ ਲੋਕ ਉਸ ਦੇਵੀ ਜਾਂ ਦੇਵਤੇ ਅੱਗੇ (ਬੱਕਰੇ ਆਦਿਕ ਦੀ) ਕੁਰਬਾਨੀ ਦੇਂਦੇ ਹਨ(ਹੇ ਭਾਈ! ਇਸੇ ਤਰ੍ਹਾਂ) ਦੇ (ਮਿੱਟੀ ਦੇ ਬਣਾਏ ਹੋਏ) ਤੁਹਾਡੇ ਪਿਤਰ ਅਖਵਾਉਂਦੇ ਹਨ, (ਉਹਨਾਂ ਅੱਗੇ ਭੀ ਜੋ ਤੁਹਾਡਾ ਚਿੱਤ ਕਰਦਾ ਹੈ ਧਰ ਦੇਂਦੇ ਹੋ) ਉਹ ਆਪਣੇ ਮੂੰਹੋਂ ਮੰਗਿਆ ਕੁਝ ਨਹੀਂ ਲੈ ਸਕਦੇ ।੨।ਜੀਉਂਦੇ ਜੀਵਾਂ ਨੂੰ (ਦੇਵੀ ਦੇਵਤਿਆਂ ਅੱਗੇ ਭੇਟ ਕਰਨ ਲਈ) ਮਾਰਦੇ ਹਨ (ਤੇ ਇਸ ਤਰ੍ਹਾਂ ਮਿੱਟੀ ਆਦਿਕ ਦੇ ਬਣਾਏ ਹੋਏ) ਨਿਰਜਿੰਦ ਦੇਵਤਿਆਂ ਨੂੰ ਪੂਜਦੇ ਹਨ;ਆਪਣਾ ਅੱਗਾ ਵਿਗਾੜੀ ਜਾ ਰਹੇ ਹਨ।ਲੋਕ ਲੋਕਾਚਾਰੀ ਰਸਮਾਂ ਦੇ ਡਰ ਵਿਚ ਗ਼ਰਕ ਹੋ ਰਹੇ ਹਨ, (ਐਸੇ ਲੋਕਾਂ ਨੂੰ) ਉਸ ਆਤਮਕ ਅਵਸਥਾ ਦੀ ਸਮਝ ਨਹੀਂ ਪੈਂਦੀ ਜੋ ਪ੍ਰਭੂ ਦਾ ਨਾਮ ਸਿਮਰਦਿਆਂ ਬਣਦੀ ਹੈ ।੩।(ਅਜਿਹੇ ਲੋਕ ਮਿੱਟੀ ਦੇ ਬਣਾਏ ਹੋਏ) ਦੇਵੀ-ਦੇਵਤਿਆਂ ਨੂੰ ਪੂਜਦੇ ਹਨ ਤੇ ਸਹਿਮੇ ਭੀ ਰਹਿੰਦੇ ਹਨ (ਕਿਉਂਕਿ ਅਸਲ ‘ਕੁਸ਼ਲ’ ਦੇਣ ਵਾਲੇ) ਅਕਾਲ ਪੁਰਖ ਨੂੰ ਉਹ ਜਾਣਦੇ ਹੀ ਨਹੀਂ ਹਨਕਬੀਰ ਆਖਦਾ ਹੈ—ਉਹ ਜਾਤ-ਕੁਲ-ਰਹਿਤ ਪ੍ਰਭੂ ਨੂੰ ਨਹੀਂ ਸਿਮਰਦੇ ਉਹ (ਸਦਾ) ਮਾਇਆ ਨਾਲ ਲਪਟੇ ਰਹਿੰਦੇ ਹਨ ।੪।੧।੪੫।""",,,,
+fab-500x-20261114T224408Z-030,26,09ee88e16b63bba68aa7046e,1599f708bd31d8c17516bb6988250f9e,fab-500x,pa,mathematics,aya-dataset,human_authored,[user] ਅਗੇਤੇ ਮਟਰਾਂ ਦੀ ਕਾਸ਼ਤ ਬਾਰੇ ਸੰਖੇਪ ਜਾਣਕਾਰੀ ਦਿਓ ।,"-ਉੱਨਤ ਕਿਸਮਾਂ – ਅਗੇਤੇ ਮਟਰਾਂ ਦੀਆਂ ਉੱਨਤ ਕਿਸਮਾਂ ਹਨ-ਮਟਰ ਅਗੇਤਾ-6 ਅਤੇ 7 ਅਤੇ ਅਰਕਲ ।
+-ਝਾੜ – 20-32 ਕੁਇੰਟਲ ਪ੍ਰਤੀ ਏਕੜ ।
+-ਮੌਸਮ – ਠੰਢਾ ਮੌਸਮ ॥ ਬੀਜਾਈ ਦਾ ਸਮਾਂ-ਅੱਧ ਅਕਤੂਬਰ ਤੋਂ ਅੱਧ ਨਵੰਬਰ ।
+-ਬੀਜ ਦੀ ਮਾਤਰਾ – 45 ਕਿਲੋ ਪ੍ਰਤੀ ਏਕੜ । ਜੇ  ਬੀਜਾਈ ਪਹਿਲੀ  ਵਾਰ ਕਰਨੀ ਹੋਵੇ ਤਾਂ ਰਾਈਜ਼ੋਬੀਅਮ ਦਾ ਟੀਕਾ ਲਗਾਉਣਾ ਚਾਹੀਦਾ
+         ਹੈ ।
+-ਫਾਸਲਾ-30 × 7 ਸੈਂ.ਮੀ. ।
+-ਸਿੰਚਾਈ – ਪਹਿਲੀ 15-20 ਦਿਨ ਬਾਅਦ, ਦੂਜੀ ਫੁੱਲ ਆਉਣ ਤੇ ਅਤੇ ਤੀਜੀ ਫਲੀਆਂ ਪੈਣ ਤੇ ।
+-ਨਦੀਨਾਂ ਦੀ ਰੋਕਥਾਮ – ਸਟੌਪ 30 ਤਾਕਤ ਇਕ ਲੀਟਰ ਜਾਂ ਐਫਾਲੋਨ 50 ਤਾਕਤ 500 ਗਾਮ ਪ੍ਰਤੀ ਏਕੜ ਨਦੀਨ ਉੱਗਣ ਤੋਂ 
+        ਪਹਿਲਾਂ ਅਤੇ ਬੀਜਾਈ ਤੋਂ 2 ਦਿਨਾਂ ਦੇ ਵਿਚ 200 ਲੀਟਰ ਪਾਣੀ ਵਿਚ ਘੋਲ ਕੇ ਛਿੜਕਾਅ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ ।
+-ਤੁੜਾਈ – ਖਾਣ ਲਈ ਠੀਕ ਹਾਲਤ ਵਿੱਚ ਫਲੀਆਂ ਤੋੜ ਲੈਣੀਆਂ ਚਾਹੀਦੀਆਂ ਹਨ ।",,,,
+fab-500x-20261114T224408Z-030,27,f80a851f2eb9bd9e31162f17,e04e3e9dcc1f4de0f7c05c2e44c10627,fab-500x,pa,science,aya-dataset,human_authored,[user] ਕੀ ਤੁਸੀਂ ਅਜਿਹੇ ਨਿੱਕੜੇ ਅੰਗਾਂ ਦੇ ਨਾਂ ਦੱਸ ਸਕਦੇ ਹੋ ਜਿਨ੍ਹਾਂ ਵਿੱਚ ਆਪਣਾ ਅਨੁਵੰਸ਼ਿਕ ਪਦਾਰਥ ਹੁੰਦਾ ਹੈ ?,"ਮਾਈਟੋਕਾਂਡਰੀਆ ਵਾਂਗ ਹੀ ਪਲਾਸਟਿਡ ਵਿੱਚ ਆਪਣਾ DNA ਅਣੂ ਦੇ ਰੂਪ ਵਿੱਚ ਹੁੰਦਾ ਹੈ ਜਿਸ ਵਿੱਚ ਸੈੱਲ ਦੇ ਨਿਰਮਾਣ ਅਤੇ ਸੰਗਠਨ ਦੀਆਂ ਸਾਰੀਆਂ ਜ਼ਰੂਰੀ ਸੂਚਨਾਵਾਂ ਹੁੰਦੀਆਂ ਹਨ ।
+
+ਜੀਵ-ਵਿਗਿਆਨ ਵਿੱਚ, ਜੀਨ ਸ਼ਬਦ  ਦੇ ਕਈ ਵੱਖ-ਵੱਖ ਅਰਥ ਹੋ ਸਕਦੇ ਹਨ। ਮੇਂਡੇਲੀਅਨ ਜੀਨ ਖ਼ਾਨਦਾਨੀ ਦੀ ਇੱਕ ਬੁਨਿਆਦੀ ਇਕਾਈ ਹੈ ਅਤੇ ਅਣੂ ਜੀਨ ਡੀਐਨਏ ਵਿੱਚ ਨਿਊਕਲੀਓਟਾਈਡਸ ਦਾ ਇੱਕ ਕ੍ਰਮ ਹੈ ਜੋ ਇੱਕ ਕਾਰਜਸ਼ੀਲ ਆਰਐਨਏ ਪੈਦਾ ਕਰਨ ਲਈ ਲਿਪੀਬੱਧ ਕੀਤਾ ਗਿਆ ਹੈ। ਦੋ ਕਿਸਮ ਦੇ ਅਣੂ ਜੀਨ ਹਨ: ਪ੍ਰੋਟੀਨ-ਕੋਡਿੰਗ ਜੀਨ ਅਤੇ ਗੈਰ-ਕੋਡਿੰਗ ਜੀਨ।",,,,
+fab-500x-20261114T224408Z-030,28,85b58c25f9cf28911a968d76,12fdba0b886b8074f168dd2bdd35bbf4,fab-500x,pbt,general_knowledge,aya-dataset,human_authored,[user] استعالم څه شی دی؟,"ځواب: استعالم یو رسمي لیکلی سند دی چې د معلوماتو د ترالسه کولو لپاره د مجرمینو او یا د ادارې د ماتحت کسانو څخه کیږي
+استعالم د څارنوالې جنایې او محکمې لخوا صورت نیسي.",,,,
+fab-500x-20261114T224408Z-030,29,85c21d7ee285c40fd82dc6a0,a117f52af3be8a1de15647c85d373f40,fab-500x,pl,general_knowledge,aya-dataset,human_authored,"[user] Uzupełnij zdanie: 2 Dywizja Dragonów - jedna z dywizji w strukturze organizacyjnej Wielkiej Armii I Cesarstwa Francuskiego. Brała udział w wojnach napoleońskich, m.in. w",bitwie pod Austerlitz (1805) jako przydzielona do IV Korpusu z rezerwy kawalerii.,,,,
+fab-500x-20261114T224408Z-030,30,cb28432e3d7097102ab005e9,78eb7b7a0d720397ca3bf238a2ec6495,fab-500x,pl,mathematics,nemotron-math,synthetic,[user] What is the real part of the conjugate of $4+3i$ multiplied by $i$?,"The conjugate of \(4 + 3i\) is \(4 - 3i\).
+
+Multiplying by \(i\):  
+\((4 - 3i) \times i = 4i - 3i^2\).  
+Since \(i^2 = -1\), this simplifies to:  
+\(4i - 3(-1) = 4i + 3 = 3 + 4i\).
+
+The complex number \(3 + 4i\) has a real part of 3.
+
+\boxed{3}",,,,
+fab-500x-20261114T224408Z-030,31,cf66d5b5e95d029e395ae7ab,85c8a73177bec3100515aa2f30f1d1a1,fab-500x,pl,science,aya-dataset,human_authored,[user] Czy możesz wyjaśnić pojęcie perceptronu wielowarstwowego?,"Podstawowym elementem budulcowym perceptronu wielowarstwowego (MLP) jest pojedynczy perceptron, który w literaturze popularno-naukowej jest często porównywany do neuronu biologicznego, stąd pochodzi równiez nazwa ""sieci neuronalnej"". 
+Pobiera on sygnały wejściowe, przykłada do nich wagi i stosuje funkcję aktywacji w celu wytworzenia sygnału wyjściowego. Każdy neuron w MLP otrzymuje dane wejściowe z poprzedniej warstwy i wysyła swoje dane wyjściowe do następnej warstwy, i w taki sposób potrafi tworzyć bardzo skomplikowane funkcję opisujące dane wejściowe.",,,,
+fab-500x-20261114T224408Z-030,32,fca578fef7dea64fe6dc60e4,f57504d947508ba7b4bde90948db01d0,fab-500x,plt,coding,aya-dataset,human_authored,"[user] Iza no mpanamboatra fiara alemà fantatra amin'ny maodely fiara lafo vidy toy ny S-Class, E-Class ary C-Class?
+a) BMW
+b) Mercedes-Benz
+c) Audi
+d) Porsche","Valiny: b) Mercedes-Benz - Mercedes-Benz dia malaza amin'ny fiara raitra, ny teknolojia vaovao ary ny endrika kanto.",,,,
+fab-500x-20261114T224408Z-030,33,b8daea5ced8d49a4b0f55b11,fa6af80eb9119c271efe5077be34b1cd,fab-500x,plt,general_knowledge,aya-dataset,human_authored,"[user] Inona ny teny iraisam-pirenena amin'izao vanim-potoana izao?
+
+1) anglisy
+2) frantsay
+3) malagasy",Safidy 1: Ny teny anglisy no teny iraisam-pirenena amin'izao vanim-potoana izao,,,,
+fab-500x-20261114T224408Z-030,34,2e076baa3c02295193a55f90,88ed36f2d5480d30516053ba16d45517,fab-500x,plt,mathematics,aya-dataset,human_authored,[user] Manomeza zava-maniry natoraly na voankazo mety manampy amin’ny resaka tosi-drà.,"Ireto avy ireo zava-maniry natoraly sy voankazo mety manampy amin'ny resaka tosi-drà :
+- baobab ( fleur de jade)
+- hoditr’akondro
+- vovona betiravy
+- seleria  
+- garana 
+- soando
+- vonona papay
+- tongolo gasy ( hasiny 2/3),
+- ravina manga
+- vomanga
+- akondro
+- zavoka
+- brokoly.",,,,
+fab-500x-20261114T224408Z-030,35,18ee7da765d72fc410ea8b5c,0b265eca4b5421d3a2dcefa95db751d6,fab-500x,plt,science,aya-dataset,human_authored,[user] Inona no maha samy hafa ny cello sy ny lokanga?,"Ny fahasamihafana lehibe dia ny habeny sy ny halavirana. Ny lokanga dia kely kokoa ary manana halavirana avo kokoa, fa ny cello kosa lehibe kokoa ary mamoaka feo ambany kokoa. Samy zavamaneno misy tadiny miondrika.",,,,
+fab-500x-20261114T224408Z-030,36,a468a66d09a201b69c663b55,23a24e4bc8c4c68e1fcd6ba228b5974e,fab-500x,pt,coding,aya-dataset,human_authored,[user] Forneça 2 alternativas ao MySQL.,"1) PostgreSQL: Um sistema de gerenciamento de banco de dados relacional de código aberto que é uma alternativa ao MySQL.
+2) Microsoft SQL Server: Um sistema de gerenciamento de banco de dados relacional da Microsoft que pode ser usado como alternativa ao MySQL em alguns casos.",,,,
+fab-500x-20261114T224408Z-030,37,c0ceeda35e78e67486d62d05,919d44b3854b30780c224d2f15513b23,fab-500x,pt,general_knowledge,aya-dataset,human_authored,[user] Complete a seguinte frase:  A Eslováquia participou pela primeira vez dos Jogos Paralímpicos em,"1996, e enviou atletas para competirem em todos os Jogos Paralímpicos de Verão desde então. Em relação aos Jogos Paralímpicos de Inverno a primeira participação da Eslováquia foi em 1994 e participou de todas as edições desde então.",,,,
+fab-500x-20261114T224408Z-030,38,639fb151c871a7313cb491ea,9f5a25e21b55cbb3bf34fc6760c40435,fab-500x,pt,mathematics,nemotron-math,synthetic,[user] Simplify the expression \( E = (x^{-2} + a^{-\frac{2}{3}}x^{-\frac{4}{3}})^{-\frac{1}{2}} + (a^{-2} + a^{-\frac{4}{3}}x^{-\frac{2}{3}})^{-\frac{1}{2}} \) given that \( x = (1 - a^{-\frac{2}{3}})^{-\frac{3}{2}} \).,"The expression to simplify is \( E = (x^{-2} + a^{-\frac{2}{3}}x^{-\frac{4}{3}})^{-\frac{1}{2}} + (a^{-2} + a^{-\frac{4}{3}}x^{-\frac{2}{3}})^{-\frac{1}{2}} \) with \( x = (1 - a^{-\frac{2}{3}})^{-\frac{3}{2}} \).
+
+Substitute \( b = a^{-\frac{2}{3}} \), so \( x = (1 - b)^{-\frac{3}{2}} \). Then,  
+\( x^{-\frac{2}{3}} = ( (1 - b)^{-\frac{3}{2}} )^{-\frac{2}{3}} = (1 - b)^1 = 1 - b \),  
+\( x^{-2} = (x^{-\frac{2}{3}})^3 = (1 - b)^3 \),  
+\( x^{-\frac{4}{3}} = (x^{-\frac{2}{3}})^2 = (1 - b)^2 \),  
+\( a^{-2} = (a^{-\frac{2}{3}})^3 = b^3 \),  
+\( a^{-\frac{4}{3}} = (a^{-\frac{2}{3}})^2 = b^2 \).
+
+Rewrite the first term:  
+\( (x^{-2} + a^{-\frac{2}{3}} x^{-\frac{4}{3}})^{-\frac{1}{2}} = ( (1 - b)^3 + b (1 - b)^2 )^{-\frac{1}{2}} \).  
+Factor out \( (1 - b)^2 \):  
+\( (1 - b)^3 + b (1 - b)^2 = (1 - b)^2 (1 - b + b) = (1 - b)^2 \cdot 1 = (1 - b)^2 \).  
+Thus, the first term is \( ((1 - b)^2)^{-\frac{1}{2}} = (1 - b)^{-1} \).
+
+Rewrite the second term:  
+\( (a^{-2} + a^{-\frac{4}{3}} x^{-\frac{2}{3}})^{-\frac{1}{2}} = (b^3 + b^2 (1 - b))^{-\frac{1}{2}} \).  
+Simplify inside:  
+\( b^3 + b^2 (1 - b) = b^3 + b^2 - b^3 = b^2 \).  
+Thus, the second term is \( (b^2)^{-\frac{1}{2}} = b^{-1} \).
+
+Now, \( E = (1 - b)^{-1} + b^{-1} = \frac{1}{1 - b} + \frac{1}{b} \).  
+Combine the fractions:  
+\( \frac{1}{1 - b} + \frac{1}{b} = \frac{b + (1 - b)}{b(1 - b)} = \frac{1}{b(1 - b)} \).
+
+Substitute back \( b = a^{-\frac{2}{3}} \):  
+\( E = \frac{1}{a^{-\frac{2}{3}} (1 - a^{-\frac{2}{3}})} = \frac{1}{a^{-\frac{2}{3}} - a^{-\frac{4}{3}}} \).  
+Multiply numerator and denominator by \( a^{\frac{4}{3}} \):  
+\( E = \frac{1}{a^{-\frac{2}{3}} - a^{-\frac{4}{3}}} \cdot \frac{a^{\frac{4}{3}}}{a^{\frac{4}{3}}} = \frac{a^{\frac{4}{3}}}{a^{\frac{2}{3}} - 1} \).
+
+Thus, the simplified expression is \( \dfrac{a^{4/3}}{a^{2/3} - 1} \).
+
+\boxed{\dfrac{a^{\frac{4}{3}}}{a^{\frac{2}{3}} - 1}}",,,,
+fab-500x-20261114T224408Z-030,39,70587849c11c068b37686729,2c18d24dbe2aa906c0e028401426a2c5,fab-500x,pt,reasoning,aya-dataset,human_authored,[user] Descreva a bandeira de Botsuana.,"A bandeira de Botsuana é composta por três faixas horizontais de cores azul (superior), preta (no meio) e branca (inferior), com duas listras finas brancas e pretas que dividem as faixas.",,,,
+fab-500x-20261114T224408Z-030,40,0e8048dd8709868c49cf96bb,c1a402154b39b0eb5f2ca596b41e50b2,fab-500x,pt,safety_ethics,aya-dataset,human_authored,"[user] A ponte Rio-Niterói costumava oscilar cerca de 60 cm para cima e para baixo em função de uma vibração causada por ventos. Esse problema foi resolvido com o uso de vários sistemas massa-mola, que oscilam de modo a cancelar a vibração da ponte causada pelos ventos. Considere um sistema com uma massa suspensa presa a uma mola que está ligada à estrutura de uma ponte, conforme a figura ao lado. Um bloco de massa M = 4000 kg, preso a essa mola (cuja constante elástica é k = 9000 N/m), oscila em movimento harmônico simples com uma determinada frequência. Deseja-se que um outro sistema massa-mola tenha uma frequência de vibração que seja o dobro do sistema anterior. Supondo que a mola tenha a mesma constante elástica, qual deve ser a massa do novo bloco?",A massa do novo bloco deve ser de 1000 kg (uma tonelada).,,,,
+fab-500x-20261114T224408Z-030,41,e8eb02341be2c87076283108,76b2070d105c9418c0771dba84c2cd24,fab-500x,pt,science,aya-dataset,human_authored,[user] Quais foram as principais contribuições de Harold C. Urey para a química?,"Harold C. Urey, um químico norte-americano, recebeu o Prêmio Nobel de Química em 1934 por sua descoberta do deutério, um isótopo pesado do hidrogênio, contribuindo significativamente para a compreensão da composição isotópica dos elementos.",,,,
+fab-500x-20261114T224408Z-030,42,eafdcd0b66b7c9799792b078,e15c7f0ef5d1646817d12ef76b3e8e50,fab-500x,pt,web_frontend,aya-dataset,human_authored,[user] Qual a data da independência do Brasil?,"A independência do Brasil ocorreu no dia 07 de Setembro de 1822. Nesta data, Dom Pedro I realizou o Grito do Ipiranga às margens do riacho Ipiranga na cidade de São Paulo. No mês seguinte, Dom Pedro I foi aclamado imperador do Brasil e, em dezembro do mesmo ano, o país passou a ser conhecido como o Império do Brasil.",,,,
+fab-500x-20261114T224408Z-030,43,9a578549d95cf69eb7da7006,2c7867cb2f6e83e734a5a8d68c71be62,fab-500x,pt,writing,aya-dataset,human_authored,[user] Brinquedos ganham vida quando seus donos não estão por perto. Qual é o filme? Dica: É da Disney.,O nome do filme é Toy Story - Um Mundo de Aventuras. Ele foi dirigido por John Lasseter e foi um grande sucesso de bilheteria.,,,,
+fab-500x-20261114T224408Z-030,44,5214c96397644f529a710aae,db7b8286553b17d5d7b6b2d043656cd5,fab-500x,pt-BR,general_knowledge,oasst2,human_authored,"[user] Como eu faço um suporte de armadura no minecraft?
+
+[assistant] É bem simples, você precisa de 6 sticks e uma stone slab, basta fazer o seguinte padrão:
+```
+stick stick stick
+          stick
+stick slab stick
+```
+feito isso você deve obter um armor stand.
+
+[user] Tá bom obrigada","Não há de quê! Estou aqui para ajudar. Se tiver outra dúvida, não hesite em perguntar.",,,,
+fab-500x-20261114T224408Z-030,45,846c8e494263e4e8f2b25c2e,1f1d877abbfc84435c44c360e5a093b5,fab-500x,roman_ur,mathematics,approx-curriculum,programmatic,[user] Ahmed ke paas 185 pencilein hain aur woh 59 aur khareedta hai. Ab kul kitne pencilein hain?,"Step 1: Yahan amal + hai.
+Step 2: 185 + 59 = 244.
+
+Jawab: 244 pencilein.",,,,
+fab-500x-20261114T224408Z-030,46,4e976eb8f39d07f946557c34,97a310ff059f1e8e445cb4395a5eab68,fab-500x,roman_ur,science,approx-curriculum,programmatic,[user] Ek gaari 4 ghanton mein 440 km chalti hai. Average speed kya hai?,"Average speed = faasla ÷ waqt = 440 ÷ 4 = 110 km/h.
+
+Jawab: 110 km/h",,,,
+fab-500x-20261114T224408Z-030,47,3a840373ca92261bef1b3641,8ac4be6675de4ea7679a932e30f586c5,fab-500x,roman_ur,writing,roman-urdu-parl,transliteration_unverified,"[user] Is jumle ko Roman Urdu mein likhein:
+ڈاکٹر لیاقت علی خان نیازی کی کتاب تاریح میانوالی میں محمد سلیم احسن لکھتے ہیں میانوالی کے کئی نام ہیں",dr Liaqat Ali Khan nayazi ki kitaab tarih myanwali mein Mohammad Saleem Ahsen likhte hain myanwali ke kayi naam hain,,,,
+fab-500x-20261114T224408Z-030,48,08d7d54a407c0a624f86ed03,816feff44df79915bbd9041321f3529d,fab-500x,ru,coding,oasst2,human_authored,[user] Напиши скрипт который расширяет lvm диск на 100% свободного пространства и автоматически форматирует,"Перед написанием скрипта нужно убедиться, что есть свободное пространство на устройстве, на котором размещена LVM группа, и что диск, который нужно расширить, является частью этой группы. Также необходимо иметь права суперпользователя для выполнения этих действий.
+
+Вот пример скрипта, который выполняет задачу расширения LVM диска на 100% свободного пространства и автоматического форматирования:
+
+```
+#!/bin/bash
+
+# Получение имени LVM группы
+vg_name=$(sudo vgs --noheadings -o vg_name)
+
+# Получение имени физического тома, который будет расширяться
+pv_name=$(sudo pvs --noheadings -o pv_name | awk '{print $1}')
+
+# Получение имени логического тома, который будет расширяться
+lv_name=$(sudo lvs --noheadings -o lv_name)
+
+# Расширение логического тома на 100% свободного пространства
+sudo lvextend -l +100%FREE /dev/$vg_name/$lv_name
+
+# Форматирование файловой системы на логическом томе
+sudo mkfs.ext4 /dev/$vg_name/$lv_name
+
+# Обновление информации о файловой системе
+sudo partprobe
+
+echo ""Диск успешно расширен и отформатирован.""
+```
+Этот скрипт использует команды LVM для расширения логического тома на 100% свободного пространства и форматирования файловой системы на логическом томе.
+
+Чтобы использовать скрипт, сохраните его в файл с расширением .sh, например expand-lvm.sh, и сделайте его исполняемым командой *chmod +x expand-lvm.sh*. Затем запустите скрипт от имени суперпользователя командой *sudo ./expand-lvm.sh*.",,,,
+fab-500x-20261114T224408Z-030,49,ac6ac41d75b2c15692db15f5,3c028a3ef0fdfe5388062d7c95fbbdf3,fab-500x,ru,general_knowledge,aya-dataset,human_authored,[user] Приведите пример вопроса в категории: история,У какого президента США был самый короткий президентстский срок? У Уильяма Генри Харрисона.,,,,
+fab-500x-20261114T224408Z-030,50,8b295a75d3ce2840753ac8f1,3aa3c8f744ff8d0187494d42f3ff5ac0,fab-500x,ru,mathematics,oasst2,human_authored,"[user] 2 + 2
+
+[assistant] 2 + 2 = 4
+
+[user] 1 / 0","Вы пытаетесь поделить 1 на 0. Деление на ноль - это неопределённое математическое действие, которое не имеет конкретного решения и не имеет смысла в контексте математики.
+
+Если мы попытаемся разделить 1 на 0, мы получим неопределённый результат. Это происходит потому, что деление 1 на 0 подразумевает поиск числа, которое, умноженное на 0, даст в результате 1. Однако, не существует такого числа, которое могло бы дать такой результат, поэтому попытка выполнения деления на ноль приведёт к математической ошибке или же бесконечности.",,,,
+fab-500x-20261114T224408Z-030,51,69d352ea5925a19fb26e3f3c,bec7714bfd4523fe6e9cfa636d5222cf,fab-500x,ru,research,tydiqa-goldp,human_authored,"[user] офицеры — члены тайного общества ещё затемно были в казармах и вели агитацию среди солдат. К 11 часам утра  года на Сенатскую площадь офицеры-декабристы вывели около 800 солдат Московского лейб-гвардии полка; позже к ним присоединились части 2-го батальона Гренадерского полка и матросы Гвардейского морского экипажа в количестве не менее 2350 человек[3].
+
+На какой площади произошло восстание декабристов?","Сенатскую
+
+К 11 часам утра  года на Сенатскую площадь офицеры-декабристы вывели около 800 солдат Московского лейб-гвардии полка; позже к ним присоединились части 2-го батальона Гренадерского полка и матросы Гвардейского морского экипажа в количестве не менее 2350 человек[3].",,,,
+fab-500x-20261114T224408Z-030,52,6d0a6a68bcfadca288b9062b,d95fd3409fcaaf2e2feda6ccbaa3f28e,fab-500x,ru,software_engineering,oasst2,human_authored,[user] Как установить Linux-Libre в Void Linux,"На текущий момент нет на 100% рабочего способа установить Linux-Libre в Void-Linux, так как Void Linux не поддерживает модифицированные кернелы. Как альтернативу связке Void Linux + Linux Libre можно рассмотреть дистрибутив Hyperbola GNU/Linux-libre.
+Если вы серьезно настроены на установку Linux-Libre в Void Linux, то вам следует использовать форк void-packages от ymir-linux.
+Чтобы установить Linux-Libre в Void Linux, сначала нужно удостовериться, что установлены все необходимые инструменты. Это можно сделать следующей командой:
+
+sudo xbps-install xtools fzf
+
+Затем нужно установить форк void-packages следующей командой:
+
+git clone https://github.com/ymir-linux/void-packages.git
+
+Затем нужно запустить скрипт liberation-local:
+
+cd void-packages && ./liberation-local
+
+При работе скрипта в терминал будут выведены вопросы, рекомендуется для каждого вопроса нажать английскую y на клавиатуре.",,,,
+fab-500x-20261114T224408Z-030,53,0db3da4abd897a842f0d6071,b0f676550a11c65b79cbdb9f8de2d0ec,fab-500x,ru,web_frontend,oasst2,human_authored,"[user] Я хочу реализовать React компонент для аутентификации пользователя. Сгенерируй код компонента на TypeScript
+
+[assistant] import React, { useState } from 'react';
+
+interface Props {
+  onAuth: (username: string, [PASSWORD] => void;
+}
+
+const AuthComponent: React.FC<Props> = ({ onAuth }) => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    onAuth(username, password);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor=""username"">Username:</label>
+        <input
+          type=""text""
+          id=""username""
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor=""password"">[PASSWORD]
+        <input
+          type=""password""
+          id=""password""
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
+      </div>
+      <button type=""submit"">Submit</button>
+    </form>
+  );
+};
+
+export default AuthComponent;
+
+[user] А сделай форму покрасивше","import React, { useState } from 'react';
+
+interface Props {
+onAuth: (username: string, [PASSWORD] => void;
+}
+
+const AuthComponent: React.FC<Props> = ({ onAuth }) => {
+const [username, setUsername] = useState('');
+const [password, setPassword] = useState('');
+
+const handleSubmit = (event: React.FormEvent) => {
+event.preventDefault();
+onAuth(username, password);
+};
+
+return (
+<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+<form onSubmit={handleSubmit} style={{ width: '50%' }}>
+<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '1rem' }}>
+<label htmlFor=""username"" style={{ margin: '1rem' }}>
+Username:
+</label>
+<input
+type=""text""
+id=""username""
+value={username}
+onChange={(event) => setUsername(event.target.value)}
+style={{ padding: '0.5rem', fontSize: '1.2rem', margin: '1rem' }}
+/>
+</div>
+<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '1rem' }}>
+<label htmlFor=""password"" style={{ margin: '1rem' }}>
+[PASSWORD]
+<input
+type=""password""
+id=""password""
+value={password}
+onChange={(event) => setPassword(event.target.value)}
+style={{ padding: '0.5rem', fontSize: '1.2rem', margin: '1rem' }}
+/>
+</div>
+<button type=""submit"" style={{ padding: '0.5rem', fontSize: '1.2rem', margin: '1rem' }}>
+Submit
+</button>
+</form>
+</div>
+);
+};
+
+export default AuthComponent;",,,,
+fab-500x-20261114T224408Z-030,54,6eca894dc431a48f3d97b55f,c1850b9f85a55a5785f6681446afcd9f,fab-500x,ru,writing,aya-dataset,human_authored,"[user] Write a continuation for this paragraph - В 1994 году с личным рекордом в 87,34 метра занял первое место в личном зачёте на Кубке Европы в Бирмингеме...",...и тем самым помог своим соотечественникам выиграть бронзовые медали мужского командного зачёта. На последовавшем чемпионате Европы в Хельсинки показал девятый результат.,,,,
+fab-500x-20261114T224408Z-030,55,67aed78dc3460e6ff1e8c492,f12a76703b96eca1170b30bde4eb11be,fab-500x,sin,coding,aya-dataset,human_authored,[user] වර්ගඵලය සහ පරිමිතිය ගණනය කිරීම සඳහා  ශ්‍රිත සහිත  C++ පන්තියක්(class) ක්‍රියාත්මක කරන්න.,"#include <iostream>
+using namespace std;
+
+class Rectangle {
+private:
+    double length;
+    double width;
+
+public:
+    Rectangle(double l, double w) : length(l), width(w) {}
+
+    double area() {
+        return length * width;
+    }
+
+    double perimeter() {
+        return 2 * (length + width);
+    }
+};
+
+int main() {
+    Rectangle rect(4, 5);
+    cout << ""Area: "" << rect.area() << ""\n"";
+    cout << ""Perimeter: "" << rect.perimeter() << ""\n"";
+    return 0;
+}",,,,
+fab-500x-20261114T224408Z-030,56,d300a1751ad473b955f2b4cc,a850d208ec585f10609ea11eaaadf644,fab-500x,sin,general_knowledge,aya-dataset,human_authored,[user] රොබට් කියෝසාකි යනු කවුද?,"රොබට් කියෝසාකි (Robert Kiyosaki) යනු ඇමරිකානු ව්‍යවසායකයෙකු සහ කතුවරයෙකි, ඔහු මූලික වශයෙන් ඔහුගේ රිච් ඩැඩ් පුවර් ඩැඩ් පොත නිසා ප්‍රසිද්ධියට පත් විය, එය බොහෝ දෙනා ""මුල්‍ය සාක්ෂරතාවයේ බයිබලය"" ලෙස හඳුන්වන පොතකි. ඔහු තම ධනයෙන් වැඩි ප්‍රමාණයක් උපයාගෙන ඇත්තේ නිශ්චල දේපොළවල සාර්ථක ලෙස ආයෝජනය කිරීම සහ සාමාන්‍ය පාසල් පද්ධතිවල උගන්වන්නේ නැති මූල්‍ය කුසලතා අන් අයට ඉගැන්වීමෙනි.",,,,
+fab-500x-20261114T224408Z-030,57,933c492d53170e7557608380,3b74bd6e03922fe030d99e52beb3fb3c,fab-500x,sin,mathematics,aya-dataset,human_authored,[user] ටෙස්ට් තරඟයක පරාජිත කණ්ඩායමේ සිට හොඳම පන්දු යැවීම වාර්තා කළ ක්‍රීඩකයා  කවුද?,"නවසීලන්තයේ අජාස් පටෙල් ටෙස්ට් තරගයකදී පරාජිත කණ්ඩායමෙන් හොඳම පන්දු යැවීමේ වාර්තාවට හිමිකම් කියයි. පටෙල් 2021 දෙසැම්බර් මාසයේදී ඉන්දියාවට එරෙහිව මෙම විශිෂ්ට දස්කම ලබා ගත් අතර එහිදී ඔහු එක් ඉනිමකදී කඩුලු 10 ක් දවාගෙන ලකුණු 14/225 ක් තරඟය අවසන් කළේය.  ඔහුගේ අසාමාන්‍ය දස්කම් තිබියදීත්, නවසීලන්තය තරගය පරාජයට පත් වූ අතර එය පටෙල්ට අමිහිරි ජයග්‍රහණයක් විය.",,,,
+fab-500x-20261114T224408Z-030,58,4e076527bc42e5e907887fa7,8c5b24070f047e27b7a7d25c118d4145,fab-500x,sin,science,aya-dataset,human_authored,[user] සෙල්ෆි (selfie) හෙවත් තමන්ව ම ජායාරූප ගැනීම ට නිෂ්චිත සිංහල වචනයක් තියනවද?,selfie යනුවෙන් වදනක් ඉංග්‍රීසි භාෂාවේ ද මෑතක් වනතුරු තිබුණේ නැත. එය අහම්බෙන් කියවුණ පුද්ගලයා මතක හැටියට කිසියම් රටක ජනාධිපතිවරියකි. ඇය ඒ වචනය හැදුවේ self යන්නෙන්ද cellphone යන්නෙන් ද වත් සලකා නොබැලූ ඉංග්‍රීසි ශබ්දකෝෂ සම්පාදකයෝ වහාම ඒ වචනය selfie යනුවෙන් ශබ්දකෝෂයට එක්කළහ. ඇත්තෙන්ම ඇය අදහස් කළ වචනය cellfie හෝ cellphoto යන්නෙන් බිඳගත් cellphie වැන්නක් වන්නටත් ඉඩ තිබුණි. වචනයක් හදන්නේ නම් මේ සියල්ල සලකා බැලිය යුතුය. මෙහි දක්වා ඇති යෝජිත වචන සියල්ලට වඩා සෙල්ෆි යන තත්සම වචනයම සිංහල උච්චාරණය සමඟ ගැළපෙන බවක් පෙනීයයි.,,,,
+fab-500x-20261114T224408Z-030,59,ed6e86fad04aa0a75999604e,30e121e733cc8a29c7c14dcf069018f3,fab-500x,sin,web_frontend,aya-dataset,human_authored,[user] කෙනෙකුට උත්පත්තියෙන්ම දෙයක් හිමි වන අතර තව කෙනෙකු මහන්සිවී මුදල් උපයාගෙන එම දෙය ලබා ගත යුතුය.මෙම වෙනසට හේතුව ධර්මයට අනුව කෙසේද ?,"1) තවද මාණවකය, මෙලොව ස්ත්‍රියක් වේවයි පුරුෂයෙක් වේවයි කිසිවෙක් මහණක්හට හෝ බමුණක්හට හෝ ආහාර පාන වස්ත්‍ර යානා මාලා ගන්‍ධ විලේපන ශයනාගාර පහන්තෙල් දෙන්නේ වෙයි. හේ මෙසේ පුරනලද මෙසේ සමාදන් කොට ගන්නාලද ඒ කර්‍මයෙන් කාබුන් මරණින් මතු සුගති සංඛ්‍යාත ස්වර්‍ගලෝකයට එළැඹෙයි. ඉදින් කාබුන් මරණින් මතු සුගති සංඛ්‍යාත ස්වර්‍ගලෝකයට නො එළැඹේ නම් ඉදින් මිනිස් බවට පැමිණේ නම්, යම් යම් තැනෙක උපදනේ වේ ද එකල්හි මහාභෝග ඇත්තේ වෙයි. මාණවකය, මහණක්හට හෝ බමුණක්හට හෝ ආහාර පාන වස්ත්‍ර යානා මාලා ගන්‍ධ විලේපන ශයනාගාර පහන්තෙල් දෙන්නේ වෙයි යන යමක් ඇද්ද තෙල ප්‍රතිපදාව මහාභෝග ඇති බවට වැටෙන්නී වේ.
+https://tipitaka.lk/mn-3-4-5/20-0/sinh
+2)උට්ඨානවතො සතිමතො සුචිකම්මස්ස නිසම්මකාරිනො
+සඤ්ඤතස්ස ච ධම්මජීවිනො අප්පමත්තස්ස යසො’භිවඩ්ඪති.
+උත්‍ථාන (සංඛ්‍යාත වීර්‍ය්‍ය) යෙන් යුක්ත වූ, (කුදු මහත් කටයුත්තෙහි) එළඹ සිටුනා සිහි ඇති, නිර්දෝෂ කායකර්‍මාදිය ඇති, (සියලු කටයුතු) පරීක්‍ෂා කොට කරන සුලු වූ, සංයත වූ කායවාක්කර්‍ම ඇති, ධාර්‍මමික ජීවිකායෙන් ජීවත් වන්නාවූ, (කෘෂිවණික්කර්‍මාන්ත රාජසේවාදියෙහි) අප්‍රමත්ත වූ, පුරුෂයාගේ (ඓශ්චර්‍ය්‍ය භොග පරිවාර සම්මාන සංඛ්‍යාත වූ ද කිත්තිවර්‍ණ සංඛ්‍යාත වූ ද) යශස (ඔදවැඩි) මුහුද මෙන් වඩනේ ය
+https://pitaka.lk/dhammapada/katha-16.html",,,,
+fab-500x-20261114T224408Z-030,60,c803f0ab58bc83c013c92e60,9a9713bb733fb7420a84b2434dd7b59b,fab-500x,sna,general_knowledge,aya-dataset,human_authored,[user] Ndekapi kaiva kamuitiro kaifarirwa naNorman Bates mu Psycho?,"Mufirimu raAlfred Hitchcock ""Psycho,""
+kamuitiro kaifarirwa naNorman Bates kaive keTaxidermy. Taxidermy kamuitiro kekunyanya kupakira zvinhu mukati meshiri. Kamuitiro aka kanoratidza hunhu hwake hwakakanganisika uye kanoita basa rakakosha muchirongwa chemufirimu.",,,,
+fab-500x-20261114T224408Z-030,61,ae14d99d6be28a4f90b63a2a,d64d8c2044a672e521f26e852fb38262,fab-500x,sna,mathematics,aya-dataset,human_authored,"[user] Makore mangani aive mutambo waHutchinson, uye chii chakaita kuti ipere? Hutchinson akapinda mitambo 1,294 yakatevedzana inosanganisira Geelong Nhabvu Club pakati Round 11, 1963, uye 2019 yekutanga fainari, inosanganisirwa. Mutambo uyu wakasvika pakupera apo iye neruzhinji vakavharirwa kunze kwekurasikirwa kweKatsi '2020 Round 1 kuenda kuGreater Western Sydney muSydney nekuda kwedenda reCOVID-19. Kana mitambo yekunze ikasabatanidzwa, Hutchinson's streak yakagara kubva kutanga kwa1958 mwaka kusvika 2019 preliminary fainari.",Hutchinson's streak yaive makore makumi matanhatu nemaviri (2019-1958 +1) uye yakapera nekuda kwekukiya kunze kwakakonzerwa neCOVID-19 denda.,,,,
+fab-500x-20261114T224408Z-030,62,10855ac4d582e07f6e59ff10,5fd902212e7fc67dba7951f196258e20,fab-500x,sna,science,aya-dataset,human_authored,"[user] Inonzi pachirungu ""Navy Cross"",  inopihwa ani? Navy Cross ndiyo yeUnited States Naval Service yechipiri-yepamusoro-soro kushongedzwa kwechiuto inopiwa kune vafambisi vezvikepe nevafambisi vezvikepe vanozvisiyanisa nekuda kwehugamba hunoshamisa mukurwisa neuto remuvengi. Menduru yacho yakaenzana neHondo yeHondo. Distinguished Service Cross, iyo Air uye Space Forces 'Air Force Cross, uye Coast Guard Cross.
+
+Iyo Navy Cross inopiwa neMunyori weNavy uye inogonawo kupihwa kune nhengo dzemamwe masevhisi ane zvombo, uye kune vekunze vemauto pavanenge vachishanda neUS Naval Service. Iyo Navy Cross yakavambwa neMutemo weCongress (Public Law 65-253) uye yakabvumidzwa muna Kukadzi 4, 1919.""",Iyo Navy Cross inopiwa kune Vafambisi vezvikepe neMarines vanoratidza hugamba mukurwisana neuto remuvengi rine zvombo.,,,,
+fab-500x-20261114T224408Z-030,63,46ce2c796f01d3507559cc0b,a9d9e2961ecdc2b0c8b7274e4f92c66b,fab-500x,snd,general_knowledge,aya-dataset,human_authored,[user] آرٽيڪل: پنهنجي پسنديده برائوزر ۾ https://drive.google.com/ ڏانهن وڃو. موبائل تي، گوگل ڊرائيو ايپ آئڪن تي ٽيپ ڪريو، جيڪو هڪ پيلو، سائي ۽ نيري مثلث وانگر آهي. جيڪڏهن توهان وٽ اڃا تائين گوگل ڊرائيو موبائيل تي ناهي ، توهان ان کي آئي فون يا اينڊرائيڊ لاءِ مفت ڊائون لوڊ ڪري سگهو ٿا. اهو صفحي جي وچ ۾ هڪ نيرو بٽڻ آهي. ائين ڪرڻ سان سائن ان صفحو کلي ٿو. موبائل تي، اسڪرين جي تري ۾ SIGN IN تي ٽيپ ڪريو. جيڪڏهن توهان پهريان ئي گوگل ڊرائيو ۾ سائن ان آهيو ته هن قدم ۽ ايندڙ هڪ کي ڇڏي ڏيو. جڏهن توهان کي چيو ويندو ته، اي ميل پتو ۽ پاسورڊ داخل ڪريو جيڪو توهان پنهنجي گوگل اڪائونٽ ۾ لاگ ان ٿيڻ لاءِ استعمال ڪندا آهيو. موبائيل تي، توهان کي شايد هڪ گوگل اڪائونٽ چونڊيو جڏهن توهان کي اشارو ڪيو وڃي. توهان کي صفحي جي کاٻي پاسي اختيارن جو هڪ ڪالم ڏسڻ گهرجي، صفحي جي وچ ۾ هڪ وڏي خالي جاءِ سان گڏ. موبائيل تي ، توهان اسڪرين جي تري ۾ هڪ اڇي + سان گڏ هڪ خالي جڳهه ڏسندا ، اسڪرين جي مٿين کاٻي ڪنڊ ۾  آئڪن سان گڏ. گوگل ڊرائيو تي اپلوڊ ڪيل سڀ شيون ڪنهن ٻئي پليٽ فارم تي دستياب هونديون جيڪي گوگل ڊرائيو کي سپورٽ ڪنديون آهن. هن مضمون جي باري ۾ ڇا آهي؟,گوگل ڊرائيو کوليو. ڊرائيو ڏانهن وڃو تي ڪلڪ ڪريو. پنهنجو اڪائونٽ تفصيل داخل ڪريو. پنهنجي گوگل ڊرائيو هوم پيج جو جائزو وٺو.,,,,
+fab-500x-20261114T224408Z-030,64,416d925a9ae0d84d6ced06b9,f56eb06c38977af3f1cbd47014efd5c0,fab-500x,som,general_knowledge,aya-dataset,human_authored,[user] Marka lagu miisaamayo gabeyga aragtida Carraale sidee loo miisaamayaa?,Waxa loo kala miisaamayaa hoojis iyo hooris.,,,,
+fab-500x-20261114T224408Z-030,65,068a9728717a908fb4d3f3da,1039edf7b80199efa66e1d887d07b2e0,fab-500x,som,islamic_studies,aya-dataset,human_authored,[user] Si aad daawasho u hesho Waa Inaad samaysaa wax aan Caadi ahayn?,"Si aad daawasho u hesho Waa Inaad samaysaa wax aan Caadi ahayn.
+
+Inagoo wada og in sanadihii u danbeeyay, in ay aad usoo bateen dad qaawani Iyo xumaan views Ku raadsanaya ayaa Hadana, Maal mahaan waxaa badalay midaas wax aan Ku tilmaami karno aragti faafin, aabad arkayso rag, isu muujinaya qaab dumar, haday noqoto dhar, ciyaar, hanaan, oo ladhihi karo (Dumar isku ekaysiis), 
+
+Ogowna waxa lagu faafinaayo Waa alada tiktok Iyo Wixii lamida oo ay isticmaalaan d'a u dhaxaysa 10-30+ Yacni markaan saa leeyahay u badan Caruur, wali aan helin waxay Ku kala saari lahaayeen xumaan iyo Wanaag.
+
+Runtii Waxaan Maraynaa bartii Aynala rabeen Reergalbeedku. oo ay rabeen in wax Caadi ah nooga dhigaan Waxaas. Mana jirta sabab diidaysa Inaan maalindhow Ku doodno rag Iyo dumar toona ma Jiraan ee Waa sida uu qofku doorto.
+
+Illaahey waxaan Ka baryaynaa in uu nasugo dhamaanten, Inta qaloocsana uu tuso islamnimadooda  Iyo somaali nimadooda.",,,,
+fab-500x-20261114T224408Z-030,66,49e5a2eb3f27c79a46dc6f58,89fcd0ec7ccdc5e230bb3f56e4e43928,fab-500x,som,mathematics,aya-dataset,human_authored,[user] Sheeg maalintii ugu horreysay ee la saaray calan Soomaaliyeed?,Calanka Soomaali waxaa la saaray 12/10/1954kii.,,,,
+fab-500x-20261114T224408Z-030,67,6bbc49b1d9d2783fd54900cd,e11316d1383b2ee97976288a7a87d6ac,fab-500x,som,science,aya-dataset,human_authored,[user] Weyneeyaha elektoroonka (electron microscope).,"Weyneeyahani waxa uu ku shaqeeyaa elektoroonno, ee ma adeegsado ilays. Elektoroonnadu waa qayb atamka ka mid ah aadna uga yaryar noolaha. Waxaa jira laba nooc oo kala awood badan: taraanismishan (transmission) iyo skaaning (scanning). Nooca taraanismishanka (TEM) ayaa loogu adeegsi badan yahay, oo awooddiisa weynayntu gaadhaysaa ilaa 500 000 oo jeer, faahfaahin badanna ka bixin kara unugga dhexdiisa iyo qaybihiisa kala duwan. Weyneeyaha skaaning elektoroon (SEM) intaas wuu ka awood yar yahay oo waynayntiisu waa ilaa 100 000 oo jeer. In kasta oo uusan faahfaahinta TEM lahayn, waxa uu awoodaa in uu oogada ka sawiro walaxdii oo dhamaystiran, halka TEM-ku u baahan yahay in si khafiif ah loo saafo.",,,,
+fab-500x-20261114T224408Z-030,68,5f0815c6db7880b11fd9226a,5a60e63dde2944c8da6a8a7d793090f1,fab-500x,srp,general_knowledge,aya-dataset,human_authored,[user] Колико има дана у недељи?,У недељи има седам дана.,,,,
+fab-500x-20261114T224408Z-030,69,a41a86ae2d6a9f4fd6495b3b,3ee0a8b7b7289cd180c435a33d2a39e5,fab-500x,sun,general_knowledge,aya-dataset,human_authored,"[user] Simpulkeun artikel ieu:  (CNN) - Béntang klub sépak bola Barcélona, Lionel Messi, dinobatkeun jadi Player of the Year di Zurich taun 2009. Messi mantuan Barcélona ngameunangkeun tilu panghargaan bersejarah, nyaéta Champions League, La Liga jeung Copa del Rey. Messi, anu saméméhna bulan ieu diganjar ku panghargaan tingkat Éropa, Ballon d'Or, ngéléhkeun pamaén lain, kaasup Cristiano Ronaldo, Ricardo Kaka, Andres Iniesta, jeung Xavi. Pamaén umur 22 taun éta ngahaturkeun pujian ka babaturanana nalika anjeunna narima panghargaan ti présidén FIFA, Sepp Blatter, sareng présidén UEFA, Michel Platini. sareng nguningakeun yén éta mangrupikeun ""kahormatan anu hébat"". Messi ogé nyarita, ""Ieu taun anu megah pikeun Barcelona parantos réngsé dina cara anu pangsaéna pikeun klub sareng kuring sorangan"". Winger anu nyetak gol dina waktos tambahan nalika Barcelona ngéléhkeun Estudiantes ti Argentina 2-1 ngameunangkeun final Piala Dunia Klub, jeung piala juara Éropa anu kagenep taun ieu. Manéhna ogé nyetak gol kadua dina meunangna 2-0 Barca ngalawan juara Manchester United pikeun ngameunangkeun Liga Champions dina bulan Méi. Messi bakal ka Piala Dunia taun hareup jeung Argentina.","Lionel Messi, béntang Barcelona, narima panghargaan Player of The Year taun 2009 di Zurich. Messi ogé narima panghargaan Ballon d'Or di tingkat Éropa, ngéléhkeun Cristiano Ronaldo, Ricardo Kaka, Andres Iniesta, sareng Xavi.",,,,
+fab-500x-20261114T224408Z-030,70,999c04783892e13fac060a3d,cb977c412b0a5a2c9c37760f9f7be292,fab-500x,sun,islamic_studies,aya-dataset,human_authored,"[user] Saha musisi Indonésia anu katelah ""Raja Dangdut""?","Musisi Indonésia anu katelah ""Raja Dangdut"" nyaéta Rhoma Irama. Rhoma Irama mangrupikeun panyanyi dangdut anu kasohor pisan sarta boga pangaruh gedé kana musik dangdut di Indonésia. Anjeunna nyiptakeun seueur lagu-lagu dangdut anu kasohor sareng mangrupikeun salah sahiji tokoh utama dina aliran musik ieu.",,,,
+fab-500x-20261114T224408Z-030,71,0b644d1c5d5c5dbdb986cab9,63d4225c11b13bc6ffb80583eba9cc1c,fab-500x,sw,general_knowledge,aya-dataset,human_authored,[user] Nifanyeje niende mbinguni?,"Haya ni mambo ya kuzingatia ili uende mbinguni, moja kushika sheria za mungu yaani amri kumi zake ikiwepo na sabato kutoka 20:1-17",,,,
+fab-500x-20261114T224408Z-030,72,57841009fc5a2fd8ae8e58ab,a0d182b27f11d5a606fc8264d2540e60,fab-500x,sw,research,tydiqa-goldp,human_authored,"[user] Wakati wa vita kati ya Napoleon na Uingereza Denmark ilijaribu kukaa nje ya mapigano. Baada ya kuwakataza Waingereza wasipite kwenye milango ya bahari ya Baltiki, Uingereza ulivamia mji mkuu Kopenhagen na kuuchoma moto. Baada ya kushindwa kwa Napoleon, Waingereza waliadhibu Denmark kwa kuiondoa katika utawala wa Norway iliyounganishwa na Uswidi. Lakini makoloni ya Greenland, Iceland, Faroe na visiwa vya Karibi yalibaki chini ya nchi.
+
+Mji mkuu Denmark ni?","Kopenhagen
+
+Baada ya kuwakataza Waingereza wasipite kwenye milango ya bahari ya Baltiki, Uingereza ulivamia mji mkuu Kopenhagen na kuuchoma moto.",,,,
+fab-500x-20261114T224408Z-030,73,9a7dda03edb18d36efe1c10e,89363e9a9895dd88a9c8c9db4df1798a,fab-500x,swe,general_knowledge,aya-dataset,human_authored,[user] Lunds domkyrka invigdes den 1 september 1145. Vad heter den förstenade jätten som står i kyrkans källare?,"I Lunds domkyrka står jätten Finn, som enligt folksagorna byggde hela kyrkan.",,,,
+fab-500x-20261114T224408Z-030,74,1d46e47225967295ca7b91b5,682422fdabd438cca43d17dfb57ae999,fab-500x,swe,mathematics,aya-dataset,human_authored,[user] Skriv en fortsättning på den här paragrafen - Vid OS i Sydney 2000 tog Shirvington sig till semifinal på 100 meter och till kvartsfinal på 200 meter. Han har också deltagit i VM sedan 1999 och i Samväldesspelen 1998 och 2006,"(final på 4 × 100 meter). Vid samväldesspelen 1998 kom han på fjärde plats på 100 meter på den nya australiska rekordtiden 10,03 sekunder, ett rekord som stod sig till 2003 då Patrick Johnson sprang på 9,93.",,,,
+fab-500x-20261114T224408Z-030,75,09e5343c9b8d7b62023a2051,89a36f97649216b9d406566d738d70dd,fab-500x,swe,science,aya-dataset,human_authored,"[user] Skriv en fortsättning på den här paragrafen - ""Heber"" Doust Curtis, född den 27 juni 1872 och död 9 januari 1942, var en amerikansk astronom. Han är mest känd för att ha initierat den stora debatten",om universums storlek. Debatten hölls i början av 1920-talet och Heber Curtis menade att universum bestod av flera galaxer medan astronomen Harlow Shapley menade att galaxen Vintergatan var detsamma som universum.,,,,
+fab-500x-20261114T224408Z-030,76,fed9be01bc7d58a5be233c7b,d303cbc80272df1991edfa448f676b65,fab-500x,swe,writing,aya-dataset,human_authored,"[user] Slutför den här frasen: Den 12 januari 2012 blev Rämö, tillsammans med Michael Cammalleri och ett 5:e-rundasval i NHL Entry Draft 2012, trejdad till Calgary Flames för René Bourque, Patrick Holland och ett 2:a-rundasval i NHL Entry Draft 2013. Den",5 juli 2013 återvände Rämö till Nordamerika och NHL då han skrev ett tvåårskontrakt med Calgary Flames.,,,,
+fab-500x-20261114T224408Z-030,77,3ada78b7784a3af4cde3e6d2,a0f53c8e5c0892fb6804d5cd3c65ed0f,fab-500x,ta,coding,aya-dataset,human_authored,[user] இதை தமிழில் மொழிபெயர்க்கவும்-compiler language,தொகுக்கும்  மொழி,,,,
+fab-500x-20261114T224408Z-030,78,63b0ede9dd92ae2e32f852d3,d17ddb84b3391b0c34b730f133831e6a,fab-500x,ta,general_knowledge,aya-dataset,human_authored,[user] வினா: அடிக்குறிப்புகளால் சிறப்பு பெற்ற நூல்கள்  எவை?,"விடை: ஐங்குறுநூறு,பதிற்றுப்பத்து",,,,
+fab-500x-20261114T224408Z-030,79,5b1653db9f8d7e275ebb8043,696a0614d7c2f7474eaaf6c1aa1b2ee2,fab-500x,ta,mathematics,aya-dataset,human_authored,"[user] வினா:   ""இந்தியாவின் பொருளாதாரம்?"" என்ற தலைப்பில் தலையங்கம் ஒன்று எழுதுக.","விடை:  
+
+
+தலையங்கம்,
+             இன்று உலகளவில் பொருளாதாரத்தில் ஆறாவது வல்லரசாக உயர்ந்துள்ள இந்தியப் பொருளாதாரம் விரைவில் மிகப்பெரிய சரிவைச் சந்திக்கக்கூடிய அபாயம் இருப்பதை பரவலாக இன்று வரக்கூடிய செய்திகள் மூலமாக அனுமானிக்க முடிகிறது. இந்தியா சுதந்திரம் அடைந்தபோது டாலரின் மதிப்பைவிட உரூபாயின் மதிப்பு அதிகமாக இருந்தது நாம் அனைவரும் அறிந்ததே. ஆனால் இன்றைய நிலையில் அமெரிக்க டாலரைவிட உரூபாயின் மதிப்பு எந்த அளவிற்கு சரிவைச் சந்தித்து வருகிறது என்பதையும் கண்கூடாகக் காண்கிறோம். பல ஆண்டுகளாக 45 முதல் 50 உரூபாயாக இருந்த டாலரின் மதிப்பு இன்று 70 உரூபாயைத் தாண்டியுள்ளதே நம் பொருளாதார வீழ்ச்சிக்கு எடுத்துக்காட்டு. இன்று 1கிலோ கத்தரிக்காய் 30 /40 உரூபாய்க்கு வாங்கினால், நாளை அதே காய் 60/70 உரூபாய் ஆகலாம். இப்படியேச் சென்றால் ஆப்பிரிக்க நாடுகள் போல ஒரு கட்டு பணம் கொடுத்து ஒரு கிலோ கத்தரிக்காய் வாங்கும் நிலையும் கூட ஏற்படலாம்.
+
+        வங்கித் துறையில் காலாண்டு அறிக்கைகள் வெளிவர ஆரம்பித்துள்ளன. பஞ்சாப் தேசிய வங்கி இந்த காலாண்டில் மட்டும் 3500 கோடியும், மாநில வங்கி 7700 கோடியும் அறிவித்துள்ளது. இது போன்று அனைத்து வங்கிகளின் அறிக்கைகளையும் ஆய்வு செய்தால் இந்த வாராக்கடன் தொகையானது பல ஆயிரம் கோடி என்ற உச்சத்தைத் தொடும் என்பதில் ஐயமில்லை. இதே காலகட்டத்தில் தனியார் வங்கிகள் மட்டும் சிறப்பாகச் செயல்படுவதன் காரணம் என்ன என்று பார்த்தால், தங்கள் வங்கியிலிருந்து 100 உரூபாய் வெளியே சென்றால் 105 உரூபாய் உள்ளே வரவேண்டும் என்பதில் உறுதியாக உள்ளதுதான். இப்படிப்பட்ட சூழலில் மக்கள் நலனுக்காக முன்பு தேசியமயமாக்கப்பட்ட வங்கிகள் தற்போது அதே மக்களால் ஏமாற்றப்படும்போது தனியார் வங்கிகளாக ஏன் மாற்றப்படக்கூடாது. இப்படி மக்களால் வங்கிகள் சீரழிக்கப்படும்போது அதற்கு உடந்தையாக இருக்கும் பொறுப்பாளர்களான வங்கி மேலாளர்களையும், வங்கிகளின் தணிக்கையாளர்களையும் விசாரணைக்கு உட்படுத்த வேண்டியது அவசியம். வாராக்கடனுக்கு ஈடாகக் கொடுக்கப்படும், கையகப்படுத்தப்படும் சொத்துக்களை நிர்வகிக்க ஒரு ஆணையத்தை ஏற்படுத்தி வங்கிகளுக்கு இழப்பில்லாமல் உபரி வருவாயை ஏற்படுத்துவது ஆக்கப்பூர்வமான தீர்வாக அமையலாம்.
+
+          நாளுக்கு நாள் விலை உயர்ந்து வரும் பெட்ரோலியப் பொருட்களுக்கு மாற்றாக மின் சக்தியையும், எல்.என்.ஜி. என்று சொல்லக்கூடிய இயற்கை எரிவாயுவை போக்குவரத்துத் துறைக்கு உடனடியாக அமல்படுத்தினால் விலை உயர்வால் துண்டு விழும் 15 பில்லியன் டாலர்களை சேமிப்பதோடு அந்நிய செலாவணியைக் குறைப்பதால் நம்முடைய உரூபாயின் மதிப்பும் உயரக்கூடும்.
+
+       ஏற்றுமதியை அதிகரித்து, இறக்குமதியை குறைப்பதற்கான எந்த விதமான நடவடிக்கையும் எடுக்காமல், மாறாக ஏற்றுமதியாளர்களுக்கு அளிக்கக்கூடிய ஊக்கத் தொகையைக் குறைப்பதிலேயே அதிக கவனம் செலுத்தப்படுவதும் பொருளாதார சீர் குலைவிற்கு வழிவகுப்பதாக அமைந்துவிடுகிறது. இது போன்று பல்வேறு விசயங்களையும் கவனித்து நிர்வகிக்க வேண்டிய நிதியமைச்சகம் இன்று சரியாக நிர்வகிக்கப்படாமல் முடங்கும் அபாயத்தில் உள்ளதும் வேதனைக்குரியதாக உள்ளது.",,,,
+fab-500x-20261114T224408Z-030,80,4ec514266238c2ef3aad0724,f354686bd9826c35aa9a0053d12fdbb7,fab-500x,ta,writing,aya-dataset,human_authored,[user] இதை தமிழில் மொழிபெயர்க்கவும்-blog tools,வலைப்பதிவுக் கருவிகள்,,,,
+fab-500x-20261114T224408Z-030,81,dd0dfcd37001e30abf53d469,955853b48247cf91384bf1614407f100,fab-500x,te,coding,aya-dataset,human_authored,"[user] I want to teach my class about the topic of కార్ల్ సాగాన్. 
+ It should answer కార్ల్ ఎడ్వర్డ్ సాగాన్ ఎక్కడ జన్మించాడు?,","కార్ల్ సాగాన్ బ్రూక్లిన్, రష్యన్ జ్యూయిష్ కుటుంబంలో న్యూయార్క్[3]లో జన్మించాడు. తండ్రి శామ్ సాగాన్, రష్యా నించి వలస వచ్చిన గార్మెంట్ వర్కర్ (బట్టల పని చేసేవాడు). కార్ల్ తల్లి రేచల్ మోలీ గ్రూబర్ ఇంటిపట్టునే ఉండేది. రేచల్ కి జన్మనిచ్చిన తల్లి ఖైయా క్లారా పై గల అపారమైన గౌరవం వల్లనే కార్ల్ కి ఆ పేరు పెట్టారు. సాగాన్ ఆమెని తలుచుకుని ""నేనెన్నడూ చూడని నా తల్లి"" అనేవాడు.[4] సాగాన్ రాహ్వే ఉన్నత పాఠశాల (ఉన్నత పాఠశాల), రాహ్వే, న్యూజెర్సీలో 1951[4]లో చదివాడు.",,,,
+fab-500x-20261114T224408Z-030,82,5cbd400aebed4f435d70d48a,ea31302e7698ce0378ba53d7b7c782be,fab-500x,te,general_knowledge,aya-dataset,human_authored,[user] వేతనం అంటే ఏమిటి ? వేతన సిద్ధాంతాలను వివరించండి.,"వేతనం – సిద్ధాంతాలు – భావనలు: శ్రామికులు ఉత్పత్తి కార్యక్రమంలో పాల్గొని ప్రతిఫలాన్ని ఆశించి చేసే పనిని శ్రమ అంటారు. ఈ శ్రమ శారీరకమైనదైనా లేదా మానసికమైనదైనా కావచ్చు. అంటే శ్రామికులు ఉత్పత్తికి అందించిన సేవలకు చెల్లించే ధరను వేతనం అంటారు.
+
+ఆర్థికవేత్తలు అనేక వేతనసిద్ధాంతాలను రూపొందించారు.
+1) జీవనాధార వేతన సిద్ధాంతం: ఈ సిద్ధాంతాన్ని ఫ్రాన్స్ దేశానికి చెందిన ప్రకృతి ధర్మవాదులు రూపొందించారు. అయితే డేవిడ్ కార్డో ఈ సిద్ధాంతానికి ఒక స్పష్టమైన రూపాన్నిచ్చారు. ఈ సిద్ధాంతం ప్రకారం, ప్రతి వ్యక్తి జీవించడానికి కొన్ని కనీస అవసరాలుంటాయి. కాబట్టి శ్రామికుని శ్రమని చెల్లించే వేతనం అతని కనీస అవసరాలు తీర్చుకోగలిగిన జీవన వ్యయానికి సరిపోయేటట్లు ఉండాలి. అయితే శ్రామికుని శ్రమకు ప్రతిఫలంగా చెల్లించే వేతనం అతనికి, అతని కుటుంబ పోషణకు సరిపడేటట్లుగా ఉండాలి. దీనినే జీవనాధార వేతన సిద్ధాంతం అంటారు.
+
+2) వేతన నిధి సిద్ధాంతం: J.S. మిల్ తన గ్రంథమైన “ది ప్రిన్సిపుల్స్ అఫ్ పొలిటికల్ ఎకానమీ” లో వేతన నిధి సిద్ధాంతాన్ని వివరించారు. ఈ సిద్ధాంతం ప్రకారం ప్రతి ఉద్యమదారుడు శ్రామికులకు వేతనాలు చెల్లించడానికి తన చర మూలధనంలో కొంత భాగాన్ని కేటాయిస్తాడు. ఉద్యమదారులందరూ ఈ విధంగా కేటాయించిన నిధిని వేతన
+నిధి అంటారు.
+
+3) వేతన పరిశిష్ట యోగ్యతా సిద్ధాంతం: వాకర్ అనే అమెరికా అర్థశాస్త్రవేత్త ఈ సిద్ధాంతాన్ని ప్రతిపాదించారు. ఈ సిద్ధాంతం ప్రకారం ఉత్పత్తి ప్రక్రియలో భూమి, శ్రమ, మూలధనం, వ్యవస్థాపన అనే ఉత్పత్తి కారకాలనుపయోగించి చేసిన ఉత్పత్తిని అమ్మగా వచ్చిన రాబడిని భూమికి భాటకం, మూలధనానికి వడ్డీ, వ్యవస్థాపకునికి లాభం చెల్లించిన తరువాత మిగిలిన భాగాన్ని శ్రమకు వేతనంగా చెల్లించవలసి ఉంటుంది.
+
+4) టాసిగ్ వేతన సిద్ధాంతం: టాసిక్ వేతన సిద్ధాంతం అభివృద్ధిపరచబడిన ఉపాంత ఉత్పాదకత వేతన సిద్ధాంతం, ఉత్పత్తి ప్రక్రియ ప్రారంభమైన తరువాత అంతిమ వస్తువులు రావడానికి కొంత సమయం పడుతుంది. కాబట్టి శ్రామికులకు ముందుగానే వేతనాలు చెల్లించాలి.
+
+5) ఆధునిక వేతనాల సిద్ధాంతం: ఆధునిక వేతనాల సిద్ధాంతాన్ని ఆల్ఫ్రెడ్ మార్షల్, J.R. హిక్స్లు ప్రతిపాదించారు. ఈ సిద్ధాంతం ప్రకారం శ్రామికుల వేతనరేటు శ్రామిక మార్కెట్లో శ్రామికులకున్న డిమాండ్, సప్లయ్ల సమానత్వం వల్ల నిర్ణయించబడుతుంది. కాబట్టి శ్రామికుల డిమాండ్, సప్లయ్లు ఏ వేతనరేటు వద్ద సమానంగా ఉంటాయో అక్కడ సమతౌల్యం ఏర్పడి వేతనం నిర్ణయించబడుతుంది.",,,,
+fab-500x-20261114T224408Z-030,83,4382d1b3bc18524fe52d0731,7878da0d7ca1af41ba549db7e3cdd8b6,fab-500x,te,mathematics,aya-dataset,human_authored,"[user] మెస్సీ విఫలమవడంతో 2002 తర్వాత ఈ దక్షిణ అమెరికా టీమ్ రెండోసారి గ్రూప్ దశను చేరలేకపోయే ప్రమాదం కనిపిస్తోంది. అర్జెంటీనా 2002లో తొలిసారి ఈ టోర్నమెంటులో గ్రూప్ దశను చేరలేకపోయింది.
+
+30 ఏళ్ల వయసులో ఉన్న మెస్సీకి కనీసం మరో ప్రపంచ కప్ ఆడే అవకాశం ఉంది. కానీ అర్జెంటీనాకు అతిపెద్ద టైటిల్ తెచ్చిపెట్టడానికి రష్యాలో జరుగుతున్న 2018 ప్రపంచకప్ అతడికి ఆఖరి అవకాశం కావచ్చని నిపుణులు భావిస్తున్నారు. 
+
+ఇప్పటివరకూ మెస్సీ సాధించిన ఘనత 2008 బీజింగ్ ఒలింపిక్స్‌లో జట్టుకు స్వర్ణపతకం తెచ్చిపెట్టడమే.
+
+బార్సిలోనాలో కూడా మెస్సీ సీజన్ అంత గొప్పగా లేదు. డొమెస్టిక్ లీగ్‌ను రెండుసార్లు గెలుచుకున్నా, యూఈఎఫ్ఏ చాంపియన్స్ లీగ్‌లో వరసగా మూడో సీజన్‌లో క్వార్టర్ ఫైనల్‌ చేరడంలో కాటలాన్స్ విఫలమైంది. అదే సమయంలో రియల్ మాడ్రిడ్ అమెరికా ఖండంలో ఆధిపత్యం చెలాయించడాన్ని చూడాల్సివచ్చింది. 
+
+ఈ సీజన్‌లో మెస్సీ ఎందుకు రాణించలేకపోతున్నాడు అనడానికి  ఎన్నో కారణాలున్నాయి. అందులో కొన్ని..
+
+1)శారీరక అలసట
+
+2017/2018 యూరోపియన్ సీజన్‌లో మెస్సీ మొత్తం 54 మ్యాచ్‌లు ఆడాడు. 2014/2015 నుంచి అతడు ఆడిన వాటిలో ఇవి చాలా ఎక్కువ. గత ఐదేళ్లలో అతడు ఆడిన అత్యధి... Continue the article for another 4000 characters max:","క మ్యాచ్‌లు కూడా. ట్రాన్స్‌ఫర్ మార్కెట్ సైట్ గణాంకాల ప్రకారం మెస్సీ మొత్తం 4,468 నిమిషాలపాటు ఆడాడు. సగటున ఒక్కో గోల్ కోసం 99 నిమిషాలు ఆడాడు. బార్సిలోనాలో 45 గోల్స్ వేసిన మెస్సీ, 18 అసిస్ట్స్ చేసి తన సీజన్ ముగించాడు.
+
+2) బాధిస్తున్న గాయం
+
+2018 ఏప్రిల్‌లో జాతీయ జట్టు నుంచి అందిన సమాచారం ప్రకారం.. కుడి కాలి తొడలో గాయం మెస్సీని బాధిస్తోందని అర్జెంటీనా వార్తా పత్రిక క్లారిన్ తెలిపింది. అతడి స్ప్రింట్, వేగం అందుకునే సామర్థ్యాలపై అది ప్రభావం చూపుతోందని చెప్పింది. ఇటలీ, స్పెయిన్‌తో జట్టుకు అతి కీలకమైన పోటీల్లో కూడా ఆడకుండా అతడు విశ్రాంతి తీసుకున్నప్పుడు ఈ సమస్య బహిర్గతం అయ్యింది. తర్వాత స్పెయిన్ చేతిలో తన జట్టు 6-1 తేడాతో ఓడిపోవడాన్ని మెస్సీ కళ్లారా చూశాడు. 
+
+3) అర్జెంటీనా జట్టుకు మంచిరోజులు కరువు
+
+రష్యా 2018 ప్రపంచకప్‌ కోసం జరిగిన సౌత్ అమెరికన్ క్వాలిఫికేషన్ టోర్నమెంటులో అర్జెంటీనా ఆటతీరు ఘోరంగా ఉంది. లీగ్ ఫార్మాట్ టోర్నమెంటులో ఇది ఆఖరి రౌండ్‌లో చోటు దక్కించుకుంది. అది కూడా ఫలితాలు వెలువడ్డాక, ఇతర జట్ల స్కోర్లు తక్కువగా ఉండటం వల్ల. ఆ పోటీలో 7 గోల్స్‌ వేసిన మెస్సీ, అర్జెంటీనా టాప్ స్కోరర్‌గా నిలిచాడు. కానీ జట్టు ప్రదర్శనపై అభిమానులు, మీడియా విరుచుకుపడకుండా ఆ గోల్స్ ఏమాత్రం అడ్డుకోలేకపోయాయి.
+
+గత ప్రపంచ కప్ పోటీల్లో అర్జెంటీనా ఫైనల్ చేరగలిగినా, అదనపు సమయంలో ఒక్క గోల్‌ చేసిన జర్మనీ చేతిలో ఓటమి మూటగట్టుకుంది. వరల్డ్ కప్ పోటీల్లో అర్జెంటీనా చివరిగా 1986లో గెలిచింది. 1993లో జరిగిన కోపా అమెరికా తర్వాత అర్జెంటీనా ఒక్క పెద్ద ట్రోఫీ కూడా గెలుచుకోలేదు. 2004, 2008లో వరసగా ఒలింపిక్ విజేతగా నిలిచినా అది ఆ గాయాలకు మందు వేయలేకపోయింది. 
+
+4) దూసుకుపోతున్న రొనాల్డో
+
+పోర్చుగల్‌ జట్టులోని ప్రత్యర్థి, దశాబ్దంగా అన్నింటిలో తనతో పోలుస్తూ వస్తున్న ఆటగాడు క్రిస్టియానో రోనాల్డో సంచలన ఫామ్ కూడా మెస్సీ కష్టాలకు తోడైంది. 
+
+స్పెయిన్‌పై హాట్రిక్ గోల్స్ చేసిన రొనాల్డో 2018 ప్రపంచకప్‌లో తన జట్టుకు అద్భుతమైన ప్రారంభాన్ని ఇచ్చాడు. వీటిలో కొన్ని తరాల వరకూ గుర్తుండిపోయే ఒక ఫ్రీ కిక్ కూడా ఉంది. ఆ తర్వాత మొరాకోపై తలతో బుల్లెట్ వేగంతో  ఒక గోల్ చేశాడు. ఆ మ్యాచ్ మొత్తానికీ నమోదైన గోల్ అదే.
+
+ఈ టోర్నమెంటులో ఐస్‌లాండ్‌తో పెనాల్టీ మిస్ చేయడం మెస్సీకి ఒక చేదు జ్ఞాపకంగా మిగిలితే, మరోవైపు రొనాల్డో మాత్రం ఇప్పటికే దూసుకుపోతున్నాడు.",,,,
+fab-500x-20261114T224408Z-030,84,55cbbee74fc443d8b39427b5,558be9d6cd9589c553b712ffde1d79fc,fab-500x,te,reasoning,aya-dataset,human_authored,"[user] Question: శ్రీకాకుళం జిల్లాలో ఎన్ని రెవెన్యూ డివిజన్లు ఉన్నాయి?
+Answer the question with Yes or No. If it is not possible then answer None.
+Hint: 
+
+శ్రీకాకుళం జిల్లా భారత దేశములోని ఆంధ్ర ప్రదేశ్ రాష్ట్రంలో ఈశాన్య సరిహద్దులో ఉంది. జిల్లా ముఖ్యపట్టణమైన శ్రీకాకుళం (అక్షా: 
+
+
+
+
+18
+
+
+o
+
+
+
+
+
+{\displaystyle 18^{\mathrm {o} }}
+
+18' ఉ, రేఖా: 
+
+
+
+
+83
+
+
+o
+
+
+
+
+
+{\displaystyle 83^{\mathrm {o} }}
+
+54' తూ) నాగావళి నది ఒడ్డున ఉంది. విశాఖపట్నం జిల్లా నుంచి 1950 ఆగష్టు 15 న శ్రీకాకుళం జిల్లా ఏర్పడింది. విశాఖపట్నం జిల్లా లోని కొంత భాగం, శ్రీకాకుళం జిల్లా నుంచి మరి కొంతభాగం కలిపి 1979 జూన్ 1 న విజయనగరం జిల్లా ఏర్పడింది
+జిల్లా పేరు వెనుక చరిత్ర
+బ్రిటిషు వారు శ్రీకాకుళం పేరును పలకలేక ""చికాకోల్"" అనేవారు. చికాకోల్ కు సంబంధించిన మరో కథనం ఇలాఉంది: ఈ ప్రాంతం నైజాము ఆధిపత్యంలో ఉండే సమయంలో ఈ ఊళ్లోనే ప్రతి సంవత్సరం జమాబందీ నిర్వహిస్తూ రైతుల వద్ద నుండి పన్నులు వసూలు చేసేవారు. రైతులు తాము కట్ట వలసిన పన్ను సొమ్మును విచ్చు రూపాయల రూపంలో చిన్నచిన్న గుడ్డసంచులలో పోసి, మూటకట్టి, ఆమూటను తీసికొనివచ్చి ఖుద్దున సమర్పించేవారు. ఆ మూట లోని సొమ్ము సరిగా ఉందో లేదో చూసుకోవడానికి మూటను విప్పాలి. ఆ మూటలు చాలా ఉంటున్నందువలన, ఆ మూటల మూతికట్టు విప్పమని రైతులతో చెప్పడానికి ""శిఖా ఖోల్"" అనేవారు. అంటే ""మూతికట్టువిప్పు"" అని అర్థం. ఈమాట క్రమంగా ""చికా కోల్"" అయి, శ్రీకాకుళంగా స్థిరపడిందిట.
+ఆంధ్రప్రదేశ్ పూర్వపు ముఖ్యమంత్రి ఎన్ టి రామారావు జిల్లాలోని టెక్కలి నియోజకవర్గం నుండి ఆంధ్రప్రదేశ్ శాసనసభకు ప్రాతినిధ్యం వహించారు.
+జిల్లా చరిత్ర
+
+ఒకప్పుడు ఇది బౌద్ధమతానికి ముఖ్యస్థానంగా వర్ధిల్లింది. శాలిహుండం, దంతపురి, జగతిమెట్ వంటి బౌద్ధారామం|బౌద్ధారామాలు ఇక్కడ కనుగొనబడ్డాయి. తరువాత ఇది కళింగ సామ్రాజ్యంలో భాగంగా ఉండేది. గాంగేయులు ఈ ప్రాంతాన్ని 6 నుండి 14వ శతాబ్దం వరకు, 800 సంవత్సరాలు పాలించారు. వజ్రహస్తుడు|వజ్రహస్తుని కాలంలో ప్రసిద్ధి చెందిన శ్రీ ముఖలింగం ఆలయాన్ని నిర్మించారు. మహమ్మదీయుల పాలన కాలంలో షేర్ మహమ్మద్ ఖాన్ శ్రీకాకుళంలో జామియా మసీదు నిర్మించాడు.
+విశాఖపట్నం జిల్లాలో భాగంగా ఉండే ఈ జిల్లా 1950 ఆగష్టు 15న ప్రత్యేక జిల్లాగా అవతరించింది. 1969లో ఈ జిల్లానుండి సాలూరు తాలూకాలోని 63 గ్రామాలు, బొబ్బిలి తాలూకాలోని 44 గ్రామాలను విశాఖపట్నం జిల్లాలో కొత్తగా ఏర్పరచిన గజపతి నగరం తాలూకాకు బదలాయించారు. మళ్ళీ మే 1979లో కొత్తగా విజయనగరం జిల్లాను ఏర్పరచినపుడు సాలూరు, బొబ్బిలి, పార్వతీపురం, చీపురుపల్లి తాలూకాలను కొత్తజిల్లాలో విభాగాలుగా..చేసారు.",శ్రీకాకుళం  జిల్లా,,,,
+fab-500x-20261114T224408Z-030,85,de69ca4b99e8056e1a76dce4,c349c10f60bc9ac9b882120832e722f0,fab-500x,te,research,tydiqa-goldp,human_authored,"[user] అతడు త్రివిక్రమ్ శ్రీనివాస్ దర్శకత్వంలో 2005లో విడుదల అయిన ఒక తెలుగు సినిమా. ఇందులో హీరోగా మహేష్ బాబు నటించాడు. త్రిష కథానాయికగా నటించింది. డి. కిషోర్, ఎం. రామ్మోహన్ ఈ చిత్రాన్ని నిర్మించగా జయభేరి ఆర్ట్స్ పతాకంపై మురళీ మోహన్ సమర్పకుడిగా వ్యవహరించాడు. మణిశర్మ సంగీత దర్శకత్వం వహించాడు.
+
+అతడు చిత్ర దర్శకుడు ఎవరు?","త్రివిక్రమ్ శ్రీనివాస్
+
+అతడు త్రివిక్రమ్ శ్రీనివాస్ దర్శకత్వంలో 2005లో విడుదల అయిన ఒక తెలుగు సినిమా.",,,,
+fab-500x-20261114T224408Z-030,86,803fe5e6494c2d5bf3b6ccdc,c073d06fd6ce8ae7f9b1db552185e934,fab-500x,te,writing,aya-dataset,human_authored,"[user] స్టాకర్‌వేర్ వినియోగం అత్యధిక స్థాయిలో ఉన్న దేశం రష్యా అని కాస్పర్‌స్కీ లెక్కలు సూచిస్తున్నాయి. రష్యా తర్వాతి స్థానాల్లో వరుసగా ఇండియా, బ్రెజిల్, అమెరికా, జర్మనీలు ఉన్నాయి. బ్రిటన్ ఎనిమిదో స్థానంలో ఉంది. 
+
+ఎవరైనా తమ మీద స్టాకర్‌వేర్ నిఘా ఉందని సందేహిస్తే.. కొన్ని చర్యలు తీసుకోవచ్చునని మరో సైబర్ భద్రతా సంస్థ చెప్తోంది. 
+
+''మీ మొబైల్ ఫోన్‌లో ఏ ఏ యాప్‌లు ఉన్నాయనేది తరచుగా తనిఖీ చేసుకోవటం మంచిది. అవసరమైనపుడు వైరస్ స్కాన్ చేస్తుండాలి. మీకు ... Write the rest of the article:","ాదంటూ అధికారిక ఆంక్షలు తెప్పించుకున్నారు. అతడు వారి కుమారుడి సంరక్షణ విషయంలో కేవలం రాతపూర్వక లేఖల ద్వారా మాత్రమే ఆమెను సంప్రదించటానికి చట్టపరంగా అనుమతి ఉంది. 
+
+స్టాకర్ వేర్ సాఫ్ట్ వేర్‌తో ఇతరుల మొబైల్ ఫోన్లోని మెసేజ్‌లు, ఈ మెయిళ్లు, కెమెరాను సైతం చూడొచ్చు
+
+మూడు నెలలకు రూ. 13,000... 
+
+అత్యంత ప్రజాదరణ గల ఒక స్టాకర్‌వేర్ ఉత్పత్తిని నేను పరీక్షించి చూశాను. దాని ద్వారా మూడు నెలలు నిఘా పెట్టటానికి 140 పౌండ్లు (దాదాపు రూ. 13,000) ఖర్చవుతుంది. 
+
+దానిని ఆన్‌లైన్‌లో కొని నా వర్క్ ఫోన్‌లో ఇన్‌స్టాల్ చేశాను. అందుకు ఒక గంట సేపు పట్టింది. అందులో ఏదైనా సమస్య ఎదురైతే దానిని పరిష్కరించటానికి సదరు సంస్థ 24 గంటల లైవ్ సపోర్ట్ కూడా అందిస్తోంది. దానినీ నేను వాడుకున్నాను. 
+
+ఈ స్పైవేర్ కంపెనీలు తమ ఉత్పత్తులను ''ఎంప్లాయీ మానిటరింగ్'' అని.. ''పేరెంటల్ కంట్రోల్'' అని ప్రచారం చేస్తాయి. 
+
+బ్రిటన్ సహా చాలా దేశాల్లో జీవిత భాగస్వామి మీద వారి అనుమతి లేకుండా స్పైవేర్‌ను ఉపయోగించటం చట్ట విరుద్ధం. కాబట్టి.. తమ ఉత్పత్తులను అలా ఉపయోగించరాదని సలహా ఇస్తూ.. అలా ఉపయోగిస్తే తమకు సంబంధం లేదని చాలా కంపెనీల వెబ్‌సైట్లు చెప్తుంటాయి. 
+
+కానీ.. అవే వెబ్‌సైట్లు కొన్నిటిలో.. ''మోసం చేసే భార్యలు, భర్తల'' మీద నిఘా కోసం ఈ సాఫ్ట్‌వేర్‌ను ఉపయోగించాలని సిఫారసు చేస్తూ రాసిన వ్యాసాల లింకులు కనిపిస్తాయి. వీటిని ఆయా సంస్థలతో సంబంధం ఉన్నవారే రాసినట్లు కనిపిస్తుంది. 
+
+నేను ఉపయోగించిన ఉత్పత్తిని ''నా భార్య ఫోన్‌లో ఇన్‌స్టాల్ చేయాలనుకుంటున్నాను. అది రహస్యంగా ఉంటుందా?'' అని సదరు కంపెనీతో ఒక లైవ్ చాట్‌లో నేను నేరుగా అడిగాను. 
+
+సదరు కస్టమర్ సర్వీస్ ప్రతినిధి.. ''ఈ అప్లికేషన్ ఇన్‌స్టాల్ చేసిన తక్షణమే రహస్యంగా పనిచేయటం ప్రారంభిస్తుంది. నేను సంతోషంగా సాయం చేస్తాను'' అని బదులిచ్చారు. 
+
+ఈ స్పైవేర్‌ను ఇన్‌స్టాల్ చేసిన ఫోన్‌లో.. ఐదు టాప్ సైబర్ సెక్యూరిటీ ఉత్పత్తులను కూడా డౌన్‌లోడ్ చేసి ఫ్రీ స్కాన్ చేశాను. 
+
+అవన్నీ ''ప్రమాదకరం కాగల సాఫ్ట్‌వేర్'' ఉందని నన్ను అప్రమత్తం చేశాయి. 
+
+ఇటువంటి నిఘా సాంకేతికత వినియోగానికి వ్యతిరేకంగా చట్టాలు చేయటానికి మరింత కృషి జరగాల్సి ఉందని అమీ అంటారు. 
+
+ఇవి కూడా చదవండి:
+
+(బీబీసీ తెలుగును ఫేస్‌బుక్, ఇన్‌స్టాగ్రామ్‌, ట్విటర్‌లో ఫాలో అవ్వండి.  యూట్యూబ్‌లో సబ్‌స్క్రైబ్ చేయండి.)",,,,
+fab-500x-20261114T224408Z-030,87,89b743a61380f86928674a60,b1d08acb15ecc5a212f71a34c33d01ee,fab-500x,th,coding,oasst2,human_authored,[user] ขอ code python ที่ช่วยดึงรูปจาก ig,"ด้วยการใช้ library instascrape ในภาษา python คุณสามารถที่จะดึง รูป ข้อมูล หรือโพสจาก instagram ได้
+ก่อนอื่นให้ทำการติดตั้ง library ด้วยคำสั่ง
+
+```bash
+pip3 install insta-scrape
+```
+และนี่ตัวอย่างโค้ด python ที่สามารถใช้งานเพื่อดึงรูปจากโพสล่าสุด ของโปรไฟล์ใน  instagram ได้
+
+```python
+from instascrape import Profile 
+profile= Profile('google') # ใช้โปรไฟล์ ID ของคุณ
+profile.scrape() # ทำการดึงข้อมูลของโปรไฟล์
+recents = profile.get_recent_posts()
+profile_photos = [post for post in recents if not post.is_video] # ตรวจสอบว่าโพสที่ดึงมานั้น มีโฟสที่เป็นวีดีโอติดมาหรือเปล่า
+
+for post in profile_photos : # ทำการ loop รายการ รูปภาพทั้งหมด
+    fname = post.upload_date.strftime(""%Y-%m-%d %Hh%Mm"")
+    post.download(f""{fname}.png"") # ทำการดาวน์โหลดรูปภาพโดยอิงจากเวลา
+
+```",,,,
+fab-500x-20261114T224408Z-030,88,024fa59c9e14f5c4f2031391,9bc9946d003728c244a8a19fd1d5f332,fab-500x,th,general_knowledge,oasst2,human_authored,[user] น้ำแข็งจะเริ่มระเหิดที่กี่องศาเซลเซียส,ขึ้นอยู่กับความกดอากาศ เช่น น้ำแข็งแห้งจะระเหิดที่ -78 องศาเซลเซียสภายใต้ความกดอากาศ 1 atm,,,,
+fab-500x-20261114T224408Z-030,89,b8cb7ec766b069558afd44aa,a8564969bb17d35b7ff4491ba4856c28,fab-500x,th,mathematics,oasst2,human_authored,"[user] ถ้ายิงซ้ำๆที่จุดเดิมบนกระจกกันกระสุนจะทะลุไหม
+
+[assistant] ถ้ายิงกระสุนซ้ำๆ ที่จุดเดิมบนกระจกกันกันกระสุน มันจะยังไม่ทะลุ ไม่ว่าจะยิงกี่ครั้งก็ตาม เพราะว่ากระจกมีความแข็งแรงพอที่จะทนต่อแรงกระสุนที่จะทะลุผ่านไปเรื่อยๆ ซึ่งแรงกระสุนจะถูกกระจกสะท้อนหรือแตกเป็นเส้นๆ แต่จะไม่สามารถทะลุผ่านไปได้ ดังนั้นการยิงซ้ำๆ ที่จุดเดิมบนกระจกกันจะไม่สามารถทำลายหรือทะลุไปได้ โดยปกติแล้ว การทำลายกระจกกันจะต้องมีแรงที่มากกว่าความแข็งแกร่งของกระจกโดยทั่วไป เช่น การใช้วัตถุที่มีความแข็งแรงสูงมากระแทะหรือกระเด็นเข้าไปบนกระจกกัน หรือใช้แรงกระแทกจากการชนหรือการกระทำอื่นๆ ที่สามารถทำลายกระจกได้จริงๆ
+
+[user] แต่ถ้ายิงซ้ำที่จุดเดิมเป๊ะๆเป็นจำนวนไม่จำกัดครั้ง (หรือจำนวนครั้งมากๆ เช่น 10^100 ครั้ง) มันจะไม่มีทางทะลุจริงๆหรอ",ฉันขออภัยสำหรับคำตอบก่อนหน้านี้ ฉันเป็นโมเดลภาษาบางครั้งอาจจะตอบผิดบ้าง สำหรับคำตอบคือ ทะลุ เพราะวัสดุที่กันกระสุนจะเสื่อมลง จนในที่สุด กระสุนจะทะลุกระจกกันกระสุน,,,,
+fab-500x-20261114T224408Z-030,90,0016904f14b1f6a361ec14d8,b3df81cb205ac23b9addcc26d89ed459,fab-500x,th,writing,aya-dataset,human_authored,"[user] Write a continuation for this paragraph - จากการสำรวจสำมะโนประชากรในปี พ.ศ. 2548 โอซากะมีผู้อยู่อาศัย 2,628,811 คน เพิ่มขึ้นจากปี พ.ศ. 2543 จำนวน 30,037 คน คิดเป็นร้อยละ 1.2 แบ่งเป็น 1,280,325 ครัวเรือน หรือประมาณครัวเรือนละ 2.1 คน ความหนาแน่นประชากรอยู่ที่ 11,836 คนต่อตารางกิโมตร โดยเหตุการณ์แผ่นดินไหวครั้งใหญ่คันโต พ.ศ. 2466","ทำให้ประชาชนชาวญี่ปุ่นอพยพมาอยู่โอซากะจำนวนมากในช่วงระหว่างปี พ.ศ. 2463-2473 จนกระทั่งในปี พ.ศ. 2473 เมืองมีประชากร 2,453,573 คน กลายเป็นเมืองที่ใหญ่ที่สุดในญี่ปุ่นแซงหน้าโตเกียวที่มีประชากร 2,070,913 คนในขณะนั้น และในปี พ.ศ. 2483 โอซากะมีประชากรสูงที่สุดเป็นประวัติการณ์ที่ 3,252,340 คน ส่วนช่วงหลังสงคราม นครโอซากะมีประชากรสูงสุดที่ 3,156,222 คน ในปี พ.ศ. 2508 และค่อย ๆ ลดลงไปเนื่องจากประชาชนเริ่มทยอยย้ายออกไปอยู่ตามเขตชานเมือง",,,,
+fab-500x-20261114T224408Z-030,91,9802eebeaa8c274a1f883b0c,aad5f157f7790c46ba518066b0d6d02c,fab-500x,tl,coding,aya-dataset,human_authored,[user] Ano ang syntax ng if-else statement sa Java code?,"Sundin lamang ang sumusunod na syntax ng if-else statement sa Java:
+
+if (condition) {
+  // statements
+}",,,,
+fab-500x-20261114T224408Z-030,92,411c80dc2bb4e097e7be7d19,c012db6f1584bfeb55e3649c6205f9b6,fab-500x,tl,general_knowledge,aya-dataset,human_authored,[user] Sino ang nagpinta ng Spoliarium?,"Si Juan Luna ang nagpinta ng Spoliarium. Walong buwan niyang nilikha ang pintang naglalarawan ng mga patay na gladiator ng Imperyong Romano. Ipinasa ni Luna sa isang paligsahan sa Madrid  ang larawan noong 1884, na nagpanalo sa kanya ng isang gintong medalya.",,,,
+fab-500x-20261114T224408Z-030,93,ee37e4a0534edcb32543ab19,664c83b9e6bf6b6b75070c60541be006,fab-500x,tl,mathematics,aya-dataset,human_authored,"[user] May nakita akong limang paruparo, apat na tipaklong, anim na gamugamo at dalawang bubuyog sa tindahang pinuntahan ko. Ilang insektong may pakpak ang nakita ko?","Ang tipaklong lamang ang walang pakpak sa mga insektong nakita mo. Kaya, may nakita kang (5 + 6 + 2) = 13 o labintatlong insektong may pakpak.",,,,
+fab-500x-20261114T224408Z-030,94,ab0150661860af82f55eed92,19edf88e88256ef060b7351230ab8fcd,fab-500x,tl,science,aya-dataset,human_authored,[user] Anong sangay ng pisika o physics ang tungkol sa pananaliksik sa katangian ng ilaw?,"Ang sangay ng Optics sa Pisika ang nakatuon sa pagsusuri at pananaliksik sa katangian at pagkilos ng liwanag. May dalawa itong sumusunod na subfields:
+
+1. Geometrical Optics: Pinag-aaralan sa aspetong ito ang liwanag bilang light rays. Pinag-aaralan dito ang galaw, pag-ikot at pagpapantay ng liwanag gamit ang mga lente at salamin.
+
+2. Physical Optics: Pinag-aaralan sa aspetong ito ang liwanag bilang isang wave phenomenon. Pinag-aaralan dito ang ilang penomena ng ilaw katulad ng diffraction, interference at polarization.",,,,
+fab-500x-20261114T224408Z-030,95,67da6c8e9100a2d21f85fd34,bb21fbedf0982f393d415a243c7549ff,fab-500x,tr,coding,aya-dataset,human_authored,[user] Ya Muğni Ya Şafi ne demek?,"Yani El-Muafi ismi insanın başına gelen bütün bela ve musibetleri def eden, gideren manasına gelirken, Eş-Şafi ismi şerifi ise bu belalar ve musibetler içinde hastalık için şifa verici olarak özel bir esmadır.",,,,
+fab-500x-20261114T224408Z-030,96,cf2b9b4d12db2e11f8969e02,290ff4a883180cb1751fe385496e1aad,fab-500x,tr,general_knowledge,aya-dataset,human_authored,"[user] Complete the following phrase: Bakü-Supsa Petrol Boru Hattı (Western Route Export Pipeline), Azerbaycan, ham petrolünü, Gürcistan Karadeniz kıyısındaki Supsa terminaline kadar ulaştıran 833 km (518 mil) uzunluğundaki petrol boru hattıdır.","Güney Osetya Savaşında boru hattının buradaki bölümü Rus askerlerinin kontrolüne geçmiş, Gürcistan olayı kınamıştır.",,,,
+fab-500x-20261114T224408Z-030,97,f9e0759c3ae78501426e0834,84e576fbf1e483ba48682a5f730f0993,fab-500x,tr,islamic_studies,aya-dataset,human_authored,[user] Hz. İbrahim Kabeyi kimle inşa etti?,İslami literatüre göre Hz. İbrahim ve oğlu Hz. İsmail tarafından yaptırılmıştır.,,,,
+fab-500x-20261114T224408Z-030,98,d77342211b161d47ae806bc5,ce80ce1185ec194b5f83be15c2f3f6e9,fab-500x,tr,mathematics,aya-dataset,human_authored,[user] Jeep safari ne demek?,"Jeep Safari normal araçların tırmanamadığı ve yürüyerek çıkılamayacak yerlere 4×4 arazi jeep araçlar ile tırmanarak, insan eli değmemiş yerleri keşfetmektir. Asfalt yollardan değil patika yollarda yapılan bu turları insanlar genellikle Akdeniz ve Ege veya Kapadokya çevresinde tercih ediyorlar.",,,,
+fab-500x-20261114T224408Z-030,99,362bdaabb5c09e0902767076,e2156a0369289a1a43cbac75693e64ee,fab-500x,tr,science,aya-dataset,human_authored,[user] Hidrostatik terazi kim icat etti?,"Hazini Yer çekimi ve terazilerle alakalı çalışmalar yapan fizik, astronomi ve matematik âlimidir. Fiziğin dinamik ve hidrostatik konularına ağır¬lık verip bilhassa hidrostatik üzerine yöneldi. Sı¬vıların yoğunluğunu ölçme aletini keşfetti.",,,,
+fab-500x-20261114T224408Z-030,100,dcb24cd904b9cfa8cfa17e52,d0e3f6e24d0d7780996cba94b77112f1,fab-500x,tr,writing,aya-dataset,human_authored,"[user] Write a continuation for this paragraph - Alexander Victor Schauffele (d. 25 Ekim 1993), PGA Tour'da oynayan Amerikalı bir golfçüdür. Büyük turnuvalardaki en iyi derecesi 2018 Britanya Açık ve 2019 Masters",'ta elde ettiği ikinciliktir. Schauffele 2020 Yaz Olimpiyatları'nda altın madalya kazanmıştır.,,,,

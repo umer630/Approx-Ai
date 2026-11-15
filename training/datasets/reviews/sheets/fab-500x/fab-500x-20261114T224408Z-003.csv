@@ -1,0 +1,869 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-003,1,b42ca592472f3f5a5a9e6955,2731c24014c7861e5ede8a2cafd85c6b,fab-500x,id,software_engineering,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Pola active record.,"Dalam ilmu komputer, pola active record (:en:active record pattern) adalah sebuah pola desain (en:design pattern) yang sering ditemui dalam aplikasi enterprise.
+
+Active record adalah salah satu pendekatan untuk membaca data dari sebuah basis data. Sebuah tabel atau view dibungkus ke dalam sebuah kelas sedemikian sehingga sebuah instansi objek terikat dengan satu baris tunggal dalam tabel. Setelah objek dibuat, sebuah baris baru ditambahkan pada tabel pada saat disimpan. Objek-objek yang dimuat mendapatkan informasi tentang dirinya dari basis data; ketika sebuah objek diubah, baris yang berkaitan dalam tabel juga diubah. Kelas pembungkus mengimplementasikan metode-metode aksesor untuk setiap kolom di dalam tabel atau view.
+
+Implementasi Active Record dapat ditemukan dalam banyak sekali framework pemrograman, termasuk di antaranya dalam framework web CakePHP dan Ruby on Rails. Sebagai contoh, jika ada sebuah tabel onderdil dengan kolom id (kunci primer berseri), nama (tipe varchar) dan harga (tipe money atau presisi double), dan terdapat sebuah kelas Onderdil, kode berikut:
+
+akan menyimpan sebuah baris baru dalam basis data dengan nilai-nilai yang diberikan, kurang-lebih sama dengan perintah SQL berikut ini:
+
+INSERT INTO onderdil (nama, harga) values ('Contoh onderdil', 123.45);
+
+Sebaliknya, kelas dapat digunakan untuk melakukan kueri ke basis data:",,,,
+fab-500x-20261114T224408Z-003,2,3f62750dec1b6332e1fdabf5,cad954f93d6e9303b89aa7be2a097402,fab-500x,id,web_backend,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Samuel L. Jackson.,"Samuel Leroy Jackson () adalah Aktor dan produser Amerika. Salah satu aktor yang paling dikenal di generasinya, the film di mana dia telah muncul secara kolektif telah meraup lebih dari $27 miliar di seluruh dunia, menjadikannya aktor berpenghasilan tertinggi sepanjang masa (tidak termasuk penampilan cameo dan peran suara). Dia menjadi terkenal dengan film-film seperti Coming to America (1988), Goodfellas (1990), Patriot Games (1992), Juice (1992), Menace II Society (1993), True Romance (1993), Jurassic Park (1993), dan Fresh (1994). Jackson terus mendapatkan ketenaran yang lebih besar untuk kolaborasinya dengan sutradara Spike Lee di film-film School Daze (1988), Do the Right Thing (1989), Mo' Better Blues (1990), Jungle Fever (1991), Oldboy (2013) dan Chi-Raq (2015) dan di Quentin Tarantino film Pulp Fiction (1994), Jackie Brown (1997), Django Unchained (2012), and The Hateful Eight (2015). Untuk perannya dalam Pulp Fiction, dia dinominasikan untuk Academy Award for Best Supporting Actor. Pada tahun 2021 diumumkan oleh Academy of Motion Picture Arts and Sciences bahwa Jackson akan menjadi penerima Honorary Academy Award.",,,,
+fab-500x-20261114T224408Z-003,3,0c235dd9f32d2787380f7e81,778794f11c1b58ea4bfa0bf3dcd06efc,fab-500x,id,web_frontend,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Nordhausen.,"Nordhausen adalah ibu kota Distrik Nordhausen Thüringen, Jerman. Kota yang berada di selatan Pegunungan Harz ini memiliki penduduk sekitar 44.272 jiwa. Nordhausen pernah dikenal akan industri tembakaunya, dan masih dikenal akan produksi birnya Nordhäuser Doppelkorn.
+
+http://www.stadtmagazin-nordhausen.de/dora.html
+
+http://www.hoeckmann.de/deutschland/thueringen.htm",,,,
+fab-500x-20261114T224408Z-003,4,bb6bec3b24386b58998c17af,ae5efb4a68f75b6edbbda5e2da1cb8d5,fab-500x,id,web_fullstack,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang SC Heerenveen.,"Sportclub Heerenveen (; (bahasa Frisia: Sportklub It Hearrenfean) adalah sebuah klub sepak bola Belanda yang bermarkas di kota Heerenveen. Logo dari klub adalah lambang dari Friesland, sebuah provinsi di Belanda di mana terdapat banyak orang yang menggunakan bahasa frisia. Klub ini selama berkompetisi di kompetisi sepak bola resmi Belanda belum sekalipun meraih prestasi yang membanggakan sekalipun.
+
+Nama yang ditulis tebal ditandakan sebagai pemain bercaps di negara masing-masing ketika main di Heerenveen.
+
+Official website of the supportsclub of sc Heerenveen",,,,
+fab-500x-20261114T224408Z-003,5,16b2e13f2db4232ee6ef2b28,6d862fb1769cf4bd590b369347a2ad6c,fab-500x,id,writing,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Justin Long.,"Justin Jake Long (lahir 2 Juni 1978) merupakan seorang aktor berkebangsaan Amerika Serikat yang menjadi terkenal saat bermain di film utamanya seperti Jeepers Creepers, Waiting..., Accepted, Dodgeball, Herbie: Fully Loaded, dan Live Free or Die Hard. Dia dilahirkan di Fairfield, Connecticut. Dia berkarier di dunia film sejak tahun 1999.
+
+Walking With Dinosaurs (2013) as Patchi (voice)
+
+Alvin and the Chipmunks: Chipwrecked (2011) as Alvin (voice)
+
+Alvin and the Chipmunks: The Squeakquel (2009) as Alvin (voice)
+
+Serious Moonlight (2009, post-production) as Todd
+
+Still Waiting... (2008, filming) as Dean (rumored)
+
+He's Just Not That Into You (2008, post-production) as Alex
+
+Patroitville (2008, post-production) as Chase Revere
+
+Walk Hard: The Dewey Cox Story (2007) as George Harrison
+
+Alvin and the Chipmunks (2007) as Alvin (voice)
+
+Live Free or Die Hard (2007) as Matt Farrell
+
+Wake Up, Ron Burgundy: The Lost Movie (2004) as Chris Harken
+
+Dodgeball: A True Underdog Story (2004) as Justin
+
+Jeepers Creepers II (2003) as Darry Jenner
+
+RadarOnline Article about Apple not bringing Long back, and bringing him back after all
+
+Video interview with Justin Long  at the premiere of The Break-Up''
+
+Justin Long's Interview on FOX News Radio
+
+Justin Long on Living Free and Well, You Know",,,,
+fab-500x-20261114T224408Z-003,6,161a715adff7784ad95864fe,29eaf3b9616cd98b628665a7eb7d5de5,fab-500x,it,coding,oasst2,human_authored,"[user] Mi scrivi una query in SQL per selezionare tutti i record che hanno Timestamp più recente di 45 giorni?
+
+[assistant] Puoi usare la seguente query SQL per selezionare tutti i record con timestamp più recente di 45 giorni:
+
+SELECT * FROM table_name
+WHERE timestamp > DATE_SUB(CURRENT_TIMESTAMP(), INTERVAL 45 DAY);
+
+[user] Per piacere rendila una Materialized View per SQL Server","Ecco come creare una Materialized View per SQL Server sulla base della query fornita:
+
+```
+CREATE MATERIALIZED VIEW my_view_name
+AS
+SELECT *
+FROM table_name
+WHERE timestamp > DATEADD(DAY, -45, GETDATE());
+```
+
+In questa Materialized View, ho utilizzato la funzione DATEADD() di SQL Server invece di DATE_SUB() poiché questa funzione non è disponibile in SQL Server. La funzione DATEADD() funziona in modo simile a DATE_SUB() e sottrae un intervallo di tempo dalla data corrente (GETDATE()). La Materialized View che ho creato eseguirà la stessa query ogni volta che viene acceduta, quindi i dati saranno aggiornati in base alla data corrente meno 45 giorni.",,,,
+fab-500x-20261114T224408Z-003,7,0dc78434aca761d424d0707d,f03f3b3690715eaa403c8fb16584241f,fab-500x,it,cybersecurity,oasst2,human_authored,[user] Ho appena ricevuto una e-mail dove mi dicono che devo pagare 2000 bitcoin se no vengono a casa mia a prendermi. Cosa devo fare?,"Questo tipo di mail è un tipo di attacco chiamato phishing, un tipo di truffa effettuata su Internet attraverso la quale un malintenzionato cerca di ingannare la vittima convincendola a fornire informazioni personali, dati finanziari o codici di accesso.
+Sarebbe meglio non aprire la mail, ma anche se dovessi averlo fatto non ti preoccupare, il massimo di informazioni che possono ottenere è la conferma che tu hai ricevuto e letto la mail tramite delle immagini nascoste che vengono recuperare dai server di chi manda la mail.
+Non aprire però alcun link presente nella mail e non rispondere in alcun modo.",,,,
+fab-500x-20261114T224408Z-003,8,fe34aec4984025d7e564a138,55a0b4036907cafb7bd53ec00a8afc28,fab-500x,it,education,aya-dataset,human_authored,"[user] Completa la frase seguente:  
+""Come la maggior parte dei pittori impressionisti, Garber dipinse paesaggi ""en plein air"", direttamente dalla natura. Espone le sue opere a livello nazionale e ottiene numerosi riconoscimenti, tra cui una medaglia d'oro...""","""... all'Esposizione internazionale Panama-Pacifico (1915) a San Francisco, in California. Fu eletto membro della National Academy of Design nel 1913. Garber morì il 5 luglio 1958, dopo essere caduto da una scala nel suo studio. Oggi, i dipinti di Garber sono considerati da collezionisti e storici dell'arte tra le migliori opere prodotte dalla colonia di New Hope. I suoi dipinti sono di proprietà di importanti musei tra cui lo Smithsonian American Art Museum a Washington, DC, l'Art Institute di Chicago e il Philadelphia Museum of Art. Uno degli studenti di Garber era l'artista Delle Miller.""",,,,
+fab-500x-20261114T224408Z-003,9,18a539c6e6ed8cd3d64229c2,6662bb792d73ec411d85a938ba7a6cca,fab-500x,it,general_knowledge,aya-dataset,human_authored,"[user] Completa il testo seguente:
+""Il nome Bangladesh ...""","""... significa in bengalese Paese del Bengala. Il Bengala (in bengalese Bôngo (বঙ্গ), Bangla (বাংলা), Bôngodesh (বঙ্গদেশ), o Bangladesh (বাংলাদেশ)), è una regione nord-orientale del Subcontinente indiano. La maggior parte è divisa tra il Bangladesh (Bengala Orientale) e lo Stato federato indiano del Bengala Occidentale, mentre alcuni territori appartenenti allo scomparso Regno del Bengala (durante il periodo della monarchia locale e del dominio britannico) sono divenuti territorio di alcuni Stati confinanti dell'India nord-orientale, come Bihar, Tripura e Orissa. La gran parte del territorio del Bengala è abitata da bengalesi.
+
+La regione del Bengala è una tra le più densamente popolate della terra, con un tasso superiore a 900 ab./km². La maggior parte della regione soggiace nel delta del Gange-Brahmaputra, il più grande delta fluviale del mondo. Nella parte meridionale del delta si trovano le Sundarbans, la più grande foresta di mangrovie del mondo nonché habitat della tigre del Bengala. Anche se la maggior parte della popolazione è di estrazione rurale e agraria, nella regione si trovano le metropoli di Calcutta, Dacca e Chittagong.""",,,,
+fab-500x-20261114T224408Z-003,10,615bcb4f04593b52e17bd0b9,2c86530c0e977ac618fe3dcc76dcf50f,fab-500x,it,mathematics,oasst2,human_authored,[user] qual'è la città italiana più bella?,"La bellezza è legata a parametri soggettivi, come le esperienze personali e la cultura di provenienza. Anche la definizione di città può essere altrettanto ambigua e ricomprendere più o meno abitati in base a popolazione o estensione territoriale. Tuttavia un modo possibile per approssimare il pensiero comune su quale possa essere la città più bella, può essere quello delle statistiche sulle presenze turistiche. Le città più visitate in Italia sono: Roma, Milano, Venezia e Firenze. Questo non necessariamente potrà incontrare i gusti di tutti i visitatori che potranno singolarmente preferirne anche altre in base al loro attuale gusto.",,,,
+fab-500x-20261114T224408Z-003,11,05a50b32fa03d44f427ada28,2843ad66219622a961f19035f83ef625,fab-500x,it,problem_solving,oasst1,human_authored,[user] Supponendo di voler effettuare analisi metabolomiche quali tecniche d'analisi sono più indicate?,"Ci sono diverse tecniche d'analisi utilizzate per l'analisi metabolomica, e la scelta dipende dal tipo di campione e dal tipo di informazioni che si desidera ottenere. Alcune delle tecniche d'analisi più comuni includono:
+
+    Spettroscopia di risonanza magnetica nucleare (NMR) - questa tecnica è utile per l'identificazione di metaboliti organici e inorganici. È particolarmente utile per l'analisi di campioni biologici come il sangue, l'urina e i tessuti.
+
+    Spettrometria di massa (MS) - questa tecnica è ampiamente utilizzata nell'analisi metabolomica. È utile per l'identificazione e la quantificazione di metaboliti e può essere utilizzata per l'analisi di una vasta gamma di campioni biologici.
+
+    Cromatografia liquida ad alta prestazione (HPLC) - questa tecnica è spesso utilizzata in combinazione con la spettrometria di massa per l'analisi metabolomica. È utile per la separazione dei metaboliti in un campione prima dell'analisi con MS.
+
+    Elettroforesi capillare (CE) - questa tecnica è utile per la separazione di metaboliti carichi elettricamente. È particolarmente utile per l'analisi di campioni biologici come il sangue e l'urina.
+
+La scelta della tecnica d'analisi dipende dalle caratteristiche del campione, dalle informazioni richieste e dal budget disponibile. Inoltre, molte volte è utile combinare più tecniche d'analisi per ottenere una visione completa del metaboloma del campione in esame.",,,,
+fab-500x-20261114T224408Z-003,12,ae4f415da82333189880c9fe,e9c584cfded16b951f770e51756a28f8,fab-500x,it,reasoning,aya-dataset,human_authored,"[user] Rispondi alla seguente domanda:
+""Che cosa distingue una metropolitana leggera?""","La metropolitana leggera è un mezzo di trasporto veloce di massa con le caratteristiche della metropolitana, ma con portata oraria inferiore.
+
+La norma UNI 8379-2000 definisce la metropolitana leggera come un «sistema di trasporto rapido di massa che mantiene le caratteristiche della metropolitana» classica, «ad eccezione della portata oraria, che risulta ridotta a causa della limitata capacità dei convogli». La norma (in Allegato B) fornisce alcuni parametri caratteristici per le metropolitane leggere:
+- Portata potenziale minima per senso di marcia: 8000 passeggeri/ora
+- Cadenza potenziale minima: 3 minuti
+- Capacità di ogni convoglio: 400 persone
+- Distanza media stazioni/fermate: 500 – 800 m
+- Velocità commerciale minima: 25 km/h
+- Lunghezza massima del convoglio: 80 m
+
+La ""capacità"" dei convogli può scendere a 200 passeggeri nei sistemi con distanziamento di 90 secondi, per esempio metropolitana automatica integrale.
+
+Tra le caratteristiche contemplate nel medesimo allegato, per le metropolitane è previsto l'incarrozzamento a raso.
+
+La stessa norma considera questi parametri ""puramente indicativi"" e quindi «possono essere intesi come un utile strumento di riferimento per un linguaggio comune fra gli operatori del settore».",,,,
+fab-500x-20261114T224408Z-003,13,bd9bcc7a688bf52e5ea322d0,8fdaa003d0a5a4057c6cd43d26f66ca5,fab-500x,it,research,oasst2,human_authored,[user] Che differenza c'è tra Asp.net MVC e Asp.net MVC core?,"ASP.NET MVC è un framework di sviluppo Web basato su pattern MVC (Model-View-Controller) che utilizza il linguaggio .NET. ASP.NET Core MVC è una versione riscritta e più leggera di ASP.NET MVC. ASP.NET Core MVC offre una migliore scalabilità, flessibilità, modularità e prestazioni rispetto a ASP.NET MVC. ASP.NET Core MVC è anche open source e multipiattaforma, quindi può essere eseguito su Windows, Linux e MacOS. ASP.NET Core MVC è anche più veloce rispetto a ASP.NET MVC in termini di compilazione e caricamento delle pagine. Inoltre, ASP.NET Core MVC offre una migliore sicurezza e supporta una migliore gestione dei dati rispetto a ASP.NET MVC.",,,,
+fab-500x-20261114T224408Z-003,14,353b3ac30055d8c1bc3e124e,d858bbce30f6f0189d33cd935fce5f2a,fab-500x,it,safety_ethics,aya-dataset,human_authored,"[user] Scrivi una possibile continuazione a questo paragrafo: 
+""Se necessario, una gara può iniziare o anche terminare in regime di ""safety car"". La partenza in regime di safety car avviene se ci sono condizioni meteo sfavorevoli, come durante un forte acquazzone prima della partenza. Ciò è accaduto undici volte in Formula 1: nel 1997 e nel 2000 in Belgio, nel 2003 in Brasile, nel 2007 al Gran Premio del Giappone sul Circuito del Fuji, nel 2008 al Gran Premio d'Italia a Monza, nel 2009, in Cina, ...""","""... nel 2010 in Corea, nel 2011 in Canada, nel 2014 in Giappone e infine nel 2016 a Monaco, in Gran Bretagna e in Brasile. Dal 2017 la procedura di partenza dietro la ""safety car"" in caso di condizioni della pista proibitive è stata modificata: le monoposto effettueranno dei giri dietro la vettura di sicurezza finché le condizioni della pista non permettono una partenza; tale partenza può essere da fermo oppure lanciata: nel caso di partenza da fermo il numero di giri della gara viene ridotto del totale dei giri percorsi dietro la safety car meno uno (quello di formazione originariamente previsto), mentre nel caso di partenza lanciata tutti i giri percorsi dietro la safety car sono detratti dal totale. Nel caso le condizioni della pista non permettano una partenza (da fermo o lanciata) l'intera procedura viene sospesa e si procede con una ripartenza da effettuarsi con la stessa procedura prevista nel caso di una sospensione della gara. Nei casi descritti la durata massima della gara (4 ore) comincia ad essere calcolata dall'orario di partenza programmato della gara. La procedura di partenza secondo le nuove norme è stata applicata una volta nel 2019 in Germania.""",,,,
+fab-500x-20261114T224408Z-003,15,eeeee8856801987114f8d096,3663deb768488d65219fa8bc0fb9282a,fab-500x,it,science,oasst2,human_authored,"[user] è possibile dividere i quark che compongono un protone?
+
+[assistant] No, non possibile dividere i quark che compongono un protone. La forza forte, che mantiene i quark uniti all'interno di un protone, molto pi potente della forza elettromagnetica, che agisce tra gli elettroni, quindi troppo grande per essere superata. Perci, non possibile dividere un quark da un protone o da un neutrone.
+
+[user] cos'è quindi il Quark–gluon plasma (QGP)?","Il Quark-Gluon Plasma (QGP) è uno stato della materia che si ritiene esista solo a temperature e densità estremamente elevate, come quelle presenti subito dopo il Big Bang o in collisioni ad alta energia di nuclei atomici pesanti. In questo stato, i quark e i gluoni non sono confinati all'interno di particelle subatomiche come protoni e neutroni, ma si comportano come particelle libere. In altre parole, il QGP è uno stato di materia in cui i quark e i gluoni sono completamente deconfinati e si muovono liberamente, come in un gas. Questo stato di materia è molto difficile da studiare sperimentalmente, ma la sua esistenza è stata dimostrata in diversi esperimenti di collisione di particelle ad alta energia condotti presso il CERN e altri laboratori di fisica delle particelle. La comprensione del QGP è importante per comprendere le prime fasi dell'Universo e l'evoluzione delle particelle subatomiche.",,,,
+fab-500x-20261114T224408Z-003,16,3295fbaa67fa80f39c39cac4,f520a73f41572d5424b6da90b432830e,fab-500x,it,web_backend,oasst1,human_authored,"[user] Devo sviluppare una applicazione di backend in ambito NLP (Natural Language Processing). 
+Tra Python, Java e NodeJs, quale linguaggio mi consiglieresti di usare e perché?","La scelta del linguaggio per lo sviluppo di un'applicazione di backend NLP dipende dalle tue preferenze personali, dalle esigenze specifiche del progetto e dalla tua esperienza con i vari linguaggi.
+
+Python è una scelta popolare per lo sviluppo di applicazioni NLP grazie alla sua vasta libreria di NLP, tra cui NLTK, Spacy e Gensim. Queste librerie rendono semplice la manipolazione e l'elaborazione del testo, il che significa che puoi concentrarti sulla logica del tuo backend NLP invece che sulla costruzione degli strumenti per elaborare il testo. Python è anche un linguaggio intuitivo e facile da apprendere, il che lo rende una scelta popolare per molte persone.
+
+Java è un altro linguaggio molto diffuso, con una grande comunità e una libreria estesa di NLP. Anche se potrebbe richiedere più tempo per imparare rispetto a Python, Java offre una maggiore velocità di esecuzione e scalabilità rispetto a Python, il che lo rende una buona scelta per progetti più grandi.
+
+Node.js è una scelta più recente, ma sta guadagnando popolarità come linguaggio per lo sviluppo di backend NLP. La sua architettura a eventi lo rende una scelta rapida e scalabile, e ci sono anche molte librerie di NLP disponibili per Node.js. Tuttavia, potrebbe essere più difficile trovare esperti di NLP esperti in Node.js rispetto a Python o Java.
+
+In sintesi, la scelta del linguaggio dipende dalle tue esigenze e preferenze personali. Se hai già esperienza con Python e vuoi un linguaggio intuitivo con una vasta libreria di NLP, potrebbe essere la scelta migliore. Se hai bisogno di velocità e scalabilità, Java potrebbe essere la scelta giusta. Se stai cercando una soluzione rapida e scalabile, Node.js potrebbe essere la scelta adatta a te.",,,,
+fab-500x-20261114T224408Z-003,17,775e50105423472a1c7b44e7,39894af5f1576cceb361542c9c1cd467,fab-500x,it,web_frontend,aya-dataset,human_authored,[user] Frase 1: E'stato pubblicato il 28 gennaio 2008 negli Stati Uniti da Angular Recording Corporation e il 18 marzo 2008 nel Regno Unito da Domino Records. Frase 2: E'stato pubblicato il 28 gennaio 2008 nel Regno Unito da Angular Recording Corporation e il 18 marzo 2008 negli Stati Uniti da Domino Records. Domanda: La frase 1 e la frase 2 esprimono lo stesso significato? - Sì o no?,"No, le due frasi invertono il paese dove è stato pubblicato (Stati Uniti e Regno Unito).",,,,
+fab-500x-20261114T224408Z-003,18,42f3f63d19a271d308814854,c4fbbdeb2d91fac3cbed58ed840d4827,fab-500x,it,writing,aya-dataset,human_authored,[user] Scrivi una continuazione: Prodotto dei Miami Redhawks si dichiara eleggibile dopo quattro anni di college,"per il Draft NBA 2012, ma non viene scelto.",,,,
+fab-500x-20261114T224408Z-003,19,5c93f65a06e0230a7e7ad21d,87130dd54fb775a6e265ab964a35631c,fab-500x,ja,coding,oasst2,human_authored,"[user] 質問なのですがBlenderアドオンにおけるシーンプロパティーをオペレーターに使用し、
+実行後にdef draw()メニューに使用されているシーンプロパティーの値を後から変更することは可能でしょうか？","はい、可能です。オペレーターを実行してシーンプロパティーの値を変更したい場合、以下の手順に従うことができます。
+
+まず、オペレーター内でシーンプロパティーの値を変更するコードを書きます。例えば、以下のようになります。
+
+```python
+import bpy
+
+class MyOperator(bpy.types.Operator):
+    bl_idname = ""my_operator""
+    bl_label = ""My Operator""
+
+    my_prop : bpy.props.StringProperty()
+
+    def execute(self, context):
+        # シーンプロパティーの値を変更する
+        bpy.context.scene.my_prop = self.my_prop
+
+        return {'FINISHED'}
+
+```
+
+このオペレーターでは、my_propというシーンプロパティーの値を変更しています。
+
+次に、def draw()メソッドを定義し、メニューにシーンプロパティーを表示するためのコードを書きます。例えば、以下のようになります。
+
+```python
+class MyPanel(bpy.types.Panel):
+    bl_idname = ""MY_PT_panel""
+    bl_label = ""My Panel""
+    bl_space_type = ""VIEW_3D""
+    bl_region_type = ""UI""
+    bl_category = ""My Addon""
+
+    def draw(self, context):
+        layout = self.layout
+
+        # シーンプロパティーを表示する
+        layout.prop(context.scene, ""my_prop"")
+```
+
+このパネルでは、context.scene.my_propをprop()メソッドで表示しています。
+
+ここで、オペレーターを実行すると、シーンプロパティーの値が変更されます。そして、def draw()メソッドで表示されているシーンプロパティーの値も自動的に更新されます。
+
+つまり、シーンプロパティーの値を変更するためには、オペレーターを実行すればよく、def draw()メソッドで表示されているシーンプロパティーの値を変更する場合にも、シーンプロパティーの値が更新されます。",,,,
+fab-500x-20261114T224408Z-003,20,49352d4a3c5f07424bbfee2d,d7438ffa9f35f82b530d25db7fca2f43,fab-500x,ja,general_knowledge,aya-dataset,human_authored,"[user] 文章からキーワードを選び、その解釈を述べなさい。 
+政府は12月1日から来年3月31日まで、家庭や会社で使う電気を少なくして、節電してほしいとお願いしています。これからとても寒くなった場合は、電気が足りなくなる心配があるためです。ロシアがウクライナを攻撃しているため、電気をつくるのに必要な燃料の輸入が難しくなる心配もあります。
+政府は、暖かい服を着て暖房の温度を下げたり、使っていない部屋の明かりやパソコンなどのスイッチを切ったりしてほしいと言っています。使う電気をどのくらい少なくするかは決めていないため、無理をしないで節電してほしいと言っています。
+政府が冬に節電をお願いしたのは7年前でした。",この文章に含まれるキーワードとその解釈は以下です。,,,,
+fab-500x-20261114T224408Z-003,21,a97c3f893eaf0c26c1186829,e33342e3ce822492ebf92c3102e5292a,fab-500x,ja,mathematics,aya-dataset,human_authored,[user] 式の値とは何ですか？,"式の値とは、数学的な表現、すなわち数式や等式の一部を具体的な数字や数値で置き換えた結果得られる値のことを指します。
+たとえば、x = 3 のときの 2x の値を求めるという問いに対しては、xの位置に3を代入して計算することで答えを得ます。すなわち、2x = 2*3 = 6 となります。
+したがって、「式の値」は、変数に特定の値を代入することで得られる結果のことを指します。",,,,
+fab-500x-20261114T224408Z-003,22,fcdd92b53f8020ad1a484fc2,12e95f26e67a75c4424cc375c88d8a5c,fab-500x,ja,science,aya-dataset,human_authored,[user] 現在モハメッド・エルバラダイ (Mohammed Elbaradei) が事務局長を務めている 、1957年に原子力平和利用促進と核拡散防止を目的に設立された国連機関は何でしょう？,国際原子力機関 (IAEA: International Atomic Energy Agency)です。,,,,
+fab-500x-20261114T224408Z-003,23,f3ab5331f7a681eb78641b1d,d83dd85cee4b66651b446a3fdfd5a1a6,fab-500x,ja,web_frontend,oasst2,human_authored,"[user] DNSとはなんですか？
+
+[assistant] DNS：Domain Name System（ドメイン・ネーム・システム）
+ネットワークに接続された機器を、人間にわかりやすい名前で管理するためのシステムです。
+役割：
+ネットワークに接続された機器には、住所にあたるIPアドレスが割り当てられます。
+ある機器と通信するためには、相手のIPアドレスを指定する必要があります。
+しかしIPアドレスは、数字や英字であり、人間にとっては分かりやすいものではありません。
+そこで、通信する際に、人間がIPアドレスを意識することなく相手を指定できるよう、
+IPアドレスと、文字列による名前を対応づけ、自動的に読み替えを行うこと、
+また、その情報を管理する方法が考えられました。
+それが、DNSと呼ばれるものです。
+規格：
+DNSの規格は、RFCによって定義されています。
+詳細は下記で見ることができます（英語）。
+https://datatracker.ietf.org/doc/html/rfc6895
+下記でツールによる自動翻訳が公開されています。
+https://tex2e.github.io/rfc-translater/html/rfc6895.html
+
+[user] 分かりやすい説明をありがとうございます。では、RFCに関しても説明いただけますか？","どういたしまして。お気に召したなら何よりです。
+
+RFC：Request For Comments（リクエスト・フォー・コメンツ）
+インターネットの通信基盤となる技術仕様、標準、合意事項、メモなど、公開・共有しておくべき情報を、既定の書式で記述し、番号を振って整理した文書の集合です。
+IEGF（Internet Engineering Steering Group）によって管理されています。
+草案は誰でも起案することができ、IETF（Internet Engineering Task Force）での討論を得たのち、IEGFに提出されて、RFCとして全世界に公開されます。
+
+重要かつ真面目な内容が中心ですが、エイプリルフールに公開されるジョークRFCも含まれます。
+（2023年はRFC9401「TCP通信への死亡フラグの追加」、
+お薦めはRFC1149「鳥類キャリアによるIPデータグラム通信規格」）
+
+RFCの歴史については、それ自体RFC2555として、関係者の覚書が公開されています。
+RFC2555「30 Years of RFCs」（RFCの30年）
+https://datatracker.ietf.org/doc/html/rfc2555
+ツールによる自動翻訳
+https://tex2e.github.io/rfc-translater/html/rfc2555.html
+
+また、JPNIC（一般社団法人 日本ネットワークインフォメーションセンター）に端的な解説記事があります。
+https://www.nic.ad.jp/ja/rfc-jp/WhatisRFC.html",,,,
+fab-500x-20261114T224408Z-003,24,8d18976d4b412e6ec77b658a,1206a737744930365ba1df626bda47bd,fab-500x,jav,coding,aya-dataset,human_authored,"[user] Gaweo pitakonan kanggo jawaban ing ngisor iki.
+
+Jawaban:
+Struktur data tipe primitif ing Pemrograman Array iku minangka nge-ekspresikake fungsi manipulasi data.
+
+Pitakonan:","Pitakonan sing cocok gawe jawaban ing nduwur yaiku: 
+Apa fungsine struktur data tipe primitif ing Pemrograman Array?",,,,
+fab-500x-20261114T224408Z-003,25,ddbbd3423cda95669618bdd8,68a797e8adad2d76d53dfd9833095aa2,fab-500x,jav,general_knowledge,aya-dataset,human_authored,"[user] Wangsulana pitakonan ing ngisor iki nganggo pilihan sing disedhiyakake.
+
+Iman marang kuwasa sing luwih dhuwur kuwi isa nglipur wektu apa? 
+Pilihan: 
+A. pindhah gunung 
+B. putus asa 
+C. ora duwe pendidikan 
+D. ora percaya kawruh","Iman marang Gusti Allah menehi kita dhukungan mental nalika wektu seneng lan susah (sedih). Dadi, wangsulanipun pitakonan ing ndhuwur yaiku: B. putus asa, sebab termasuk jenis ekspresine wektu susah.",,,,
+fab-500x-20261114T224408Z-003,26,9bd59f4c0a82f0dcc3f3d722,d3c2e92afac82afbd28c2e98c0877884,fab-500x,jav,islamic_studies,aya-dataset,human_authored,"[user] Terusno pecahan teks ing ngisor iki nganggo dhasar judul artikel sing disedhiyakake supaya dadi artikel sing utuh (minimal 10 ukara).
+
+Judul: Bebayane Sampah Elektronik lan Pangolahe
+
+Indonesia kawentar minangka bangsa kang masyarakate nyengkuyung budaya konsumtif, kalebu panggunane barang-barang elektronik, kayata: ponsel, televisi, komputer, laptop, lan liya-liyane. Saben dina ewon jenis barang elektronik diproduksi lan ...","kaimpor. Wondene kepriye nasibe barang-barang bekas elektronik sing wis ora digunakake, durung oleh kawigaten kang mirunggan. Banjur kepriye pangolahe sampah elektronik utawa electronic waste utawa e-waste ing Indonesia? Kamangka kita kabeh ngerteni, manawa salah pangolahe e-waste sing akeh bahan-bahan beracun lan mbebayani bakal njalari kapitunan tumrap manungsa. 
+
+Sampah elektronik kudu diolah kanthi bener lan pamilahe komponen kudu selektif, bener, lan pener. Ana zat-zat sing mbebayani ing sajrone komponen elektronika sing mbutuhake penanganan khusus lan ora bisa kacampur karo sampah liyane. Sing sapisan plastik, mligine jenis PVC, mbebayani banget awit  ngandhut unsur klorin sing kita mangerteni yen barang iku  mujudake zat sing paling  mbebayani kanggo kesehatan. Kejaba kuwi angel ajure ing sajrone lemah butuh waktu puluhan nganti atusan tahun.
+
+Kapindho, timbal utawa lead. Komponen iki mbebayani banget. Kaya bahan bakar bensin kinandhut TEL (tetra ethyl lead) kanggo ngunggahake nilai oktan, ing komponene ana timbal kang mbebayani tumrap kesehatan manungsa. TV lan layar komputer tipe CRT sing nggunakake tabung kanthi bahan timbal, saiki wis wiwit ganti modhel LCD. Ananging kang dadi masalah ganti tipe LCD iku uga mbebayani amarga tipe LCD ana kandhutan komponen merkuri. Ora mung kuwi wae, ing sajrone barang elektronik mau kinandhut kadium, beryllium, lan komponen liyane kaya BFR (brominated flame retardant) Kadium digunakake kanggo nglapisi logam, utamane wesi, waja, lan tembaga. Bisa  uga kanggo nggawe batu baterai lan plastik. Resiko kadium yen kasedhot nduweni sifat iritatif. Zat iki bisa njalari keracunan, gangguan ing sistem organ njero manungsa lan kewan. Komponen-komponen mau yen dibuang menyang pawuhan bakal nuwuhake pencemaran lingkungan lan bisa gawe kapitunane manungsa. Awit  saka iku, sampah elektronik kudu kaolah luwih dhisik kanggo ngurangi efek negatif saka zat-zat beracun lan mbebayani banget. Cara pangolahan kanthi metode recycling utawa daur ulang, komponen-komponen logam bisa digawe komponen anyar. Plastik bisa dikonversi dadi bahan bakar cair kaya bensin lan solar.",,,,
+fab-500x-20261114T224408Z-003,27,6bb45fe7c009efa821907ec8,9205b76073789b8af157d959350bbee1,fab-500x,jav,mathematics,aya-dataset,human_authored,"[user] Gaweo contoh teks pawarta cekak nganggo judul utawa topik sing disedhiyakake.
+
+Judul: Walikota Ngamuk.
+
+Jawaban:","Suwasana andum es krim gratis Wall’s ing Taman Bukul ndadak dadi tegang. Udakara jam 10.30 WIB, Walikota Surabaya, Tri Rismaharini rawuh lan langsung ngamuk,  jalaran weruh taman kota rusak. Risma langsung mrentahake Bagian Hukum Pemkot Surabaya nggugat panitia kanthi pidana dan perdhata. 
+
+""Iya, ibu duka banget, jalaran panitia ora nggatekake resikone acara, taman sadawaning dalan  kiwa-tengene Taman Bungkul kang tumata asri nganti prapatan Al-Falah rusak kabeh, wong kang melu acara iku ana atusan ewu,"" ujare Kabag Humas Pemkot Surabaya M Fikser, Minggu (11/5).  
+
+""Nggawe taman iki ora gampang, biayane ya ora sithik, iki mono dhuwite rakyat. Aku arep nuntut panitia!”,   ngendikane Bu  Risma karo nudingnuding panitia. Panitia mung manthuk-manthuk lan ora bisa kumecap apa-apa. Sabanjure ketua panitia janji arep ndandani sakabehe taman lan wangunan kang rusak.",,,,
+fab-500x-20261114T224408Z-003,28,2383e3ce5e7fc274b2054be4,42235622a8fc917788f05736ad1951df,fab-500x,jav,science,aya-dataset,human_authored,"[user] Wangsulana pitakonan ing ngisor iki nganggo konteks lan pilihan jawaban sing disedhiyakake.
+
+Konteks:
+Sawijining ilmuwan ing perjalanan lapangan nemokake organisme anyar. Dheweke mriksa sel-sele organisme kuwi nganggo mikroskop lan ndelok pirang-pirang struktur sing beda-beda, kayata: inti sel, dinding sel, lan sawetara kloroplas. 
+Organisme iki kanthi bener diklasifikasikake ing kerajaan ing ngisor iki, yaiku? 
+
+Pilihan: 
+A. Animalia.  
+B. Monera.  
+C. Plantae.  
+D. Jamur.
+
+Wangsulan:","Organisme sing diteliti iku bisa diklasifikasikake ing kerajaan Plantae (Tumbuhan) amarga ono struktur kloroplas. Dadi, jawabane: C. Plantae.",,,,
+fab-500x-20261114T224408Z-003,29,a06ee9c86d7edac9206f7751,431581cfd65f039f2e8336e22c0b3ae7,fab-500x,kan,general_knowledge,aya-dataset,human_authored,"[user] ಈ ವಾಕ್ಯದ ಹೆಚ್ಚು ಸಂಕೀರ್ಣವಾದ ಆವೃತ್ತಿಯನ್ನು ರಚಿಸಿ ಫ್ರಾಂಕ್ ಗಿಂಟಾ (ಜನನ ಸೆಪ್ಟೆಂಬರ್ 26, 1970) ನ್ಯೂ ಹ್ಯಾಂಪ್ಶೈರ್ನ 1 ನೇ ಕಾಂಗ್ರೆಷನಲ್ ಡಿಸ್ಟ್ರಿಕ್ಟ್ನ ಹಾಲಿ ಯು. ಎಸ್. ಪ್ರತಿನಿಧಿಯಾಗಿದ್ದಾರೆ.","ಫ್ರಾಂಕ್ ಗಿಂಟಾ (ಜನನ ಸೆಪ್ಟೆಂಬರ್ 26, 1970 ) ಒಬ್ಬ ಅಮೇರಿಕನ್ ರಾಜಕಾರಣಿ ಮತ್ತು ರಿಪಬ್ಲಿಕನ್ ಪಕ್ಷದ ಸದಸ್ಯರಾಗಿದ್ದು, 2006 ರಿಂದ 2010 ರವರೆಗೆ ನ್ಯೂ ಹ್ಯಾಂಪ್ಶೈರ್ನ ಮ್ಯಾಂಚೆಸ್ಟರ್ನ ಮೇಯರ್ ಆಗಿ ಮತ್ತು 2011 ರಿಂದ 2013 ರವರೆಗೆ ಯುಎಸ್ ಪ್ರತಿನಿಧಿಯಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸಿದ್ದಾರೆ.",,,,
+fab-500x-20261114T224408Z-003,30,28b07b7024b8991ee1443a57,f77223a1aaec0651d71fec8f176606d0,fab-500x,kan,mathematics,aya-dataset,human_authored,"[user] ಕೆಳಗಿನ ವಾಕ್ಯವನ್ನು ಪೂರ್ಣಗೊಳಿಸಿ: ನಾಲ್ಕು ವರ್ಷಗಳ ನಂತರ ಸ್ಟಾಕ್‌ಹೋಮ್‌ನಲ್ಲಿ ನಡೆದ 1912 ಬೇಸಿಗೆ ಒಲಿಂಪಿಕ್ಸ್‌ನಲ್ಲಿ, ಅವರು",4×200-ಮೀಟರ್ ಫ್ರೀಸ್ಟೈಲ್ ರಿಲೇ ತಂಡದ ಭಾಗವಾಗಿ ಬ್ರಿಟಿಷ್ ತಂಡದ ಭಾಗವಾಗಿ ಕಂಚಿನ ಪದಕವನ್ನು ಗೆದ್ದರು. 400 ಮೀಟರ್ ಫ್ರೀಸ್ಟೈಲ್ ಈವೆಂಟ್ ಮತ್ತು 1500 ಮೀಟರ್ ಫ್ರೀಸ್ಟೈಲ್ ಸ್ಪರ್ಧೆಯಲ್ಲಿ ಅವರು ಸೆಮಿಫೈನಲ್‌ನಲ್ಲಿ ನಿರ್ಗಮಿಸಿದರು.,,,,
+fab-500x-20261114T224408Z-003,31,c6113e283d30bb4ab75094ef,4c925a77eefcb0dec96429d5261ea608,fab-500x,kan,research,aya-dataset,human_authored,"[user] ಸೋರ್ಸ್‌ಫೈರ್ (Sourcefire) ಕುರಿತು ಉಲ್ಲೇಖ ಪಠ್ಯವನ್ನು ನೀಡಿದರೆ, ಯಾವ ಕಂಪನಿಯು ಅದನ್ನು ಸ್ವಾಧೀನಪಡಿಸಿಕೊಂಡಿತು ಮತ್ತು ಅದನ್ನು ಎಷ್ಟು ಮೊತ್ತಕ್ಕೆ ಸ್ವಾಧೀನಪಡಿಸಿಕೊಂಡಿತು? ಸೋರ್ಸ್‌ಫೈರ್(Sourcefire) ನೆಟ್‌ವರ್ಕ್ ಸೆಕ್ಯುರಿಟಿ ಹಾರ್ಡ್‌ವೇರ್ ಮತ್ತು ಸಾಫ್ಟ್‌ವೇರ್ ಅನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸಿದ ತಂತ್ರಜ್ಞಾನ ಕಂಪನಿಯಾಗಿದೆ. ಕಂಪನಿಯ ಫೈರ್‌ಪವರ್ ನೆಟ್‌ವರ್ಕ್ ಭದ್ರತಾ ಉಪಕರಣಗಳು ತೆರೆದ ಮೂಲವಾದ Snort ಅನ್ನು ಆಧರಿಸಿವೆ. ಒಳನುಗ್ಗುವಿಕೆ ಪತ್ತೆ ವ್ಯವಸ್ಥೆ (IDS) ಜುಲೈ 2013 ರಲ್ಲಿ ಸಿಸ್ಕೋ $2.7 ಬಿಲಿಯನ್‌ಗೆ ಸೋರ್ಸ್‌ಫೈರ್ ಅನ್ನು ಸ್ವಾಧೀನಪಡಿಸಿಕೊಂಡಿತು.
+
+ಹಿನ್ನೆಲೆ
+ಸೋರ್ಸ್‌ಫೈರ್(Sourcefire) ಅನ್ನು 2001 ರಲ್ಲಿ ಸ್ನೋರ್ಟ್‌ನ ಸೃಷ್ಟಿಕರ್ತ ಮಾರ್ಟಿನ್ ರೋಶ್ ಸ್ಥಾಪಿಸಿದರು. ಕಂಪನಿಯು ಸ್ನಾರ್ಟ್ ಸಾಫ್ಟ್‌ವೇರ್‌ನ ವಾಣಿಜ್ಯ ಆವೃತ್ತಿಯನ್ನು ರಚಿಸಿತು, ಸೋರ್ಸ್‌ಫೈರ್ 3D ಸಿಸ್ಟಮ್, ಇದು ಕಂಪನಿಯ ಫೈರ್‌ಪವರ್ ಲೈನ್ ನೆಟ್‌ವರ್ಕ್ ಭದ್ರತಾ ಉತ್ಪನ್ನಗಳಾಗಿ ವಿಕಸನಗೊಂಡಿತು. ಕಂಪನಿಯ ಪ್ರಧಾನ ಕಛೇರಿಯು ಯುನೈಟೆಡ್ ಸ್ಟೇಟ್ಸ್‌ನ ಕೊಲಂಬಿಯಾ, ಮೇರಿಲ್ಯಾಂಡ್‌ನಲ್ಲಿತ್ತು, ವಿದೇಶದಲ್ಲಿ ಕಚೇರಿಗಳನ್ನು ಹೊಂದಿದೆ.",ಸಿಸ್ಕೋ ಸೋರ್ಸ್‌ಫೈರ್ ಅನ್ನು $2.7B ಗೆ ಸ್ವಾಧೀನಪಡಿಸಿಕೊಂಡಿತು.,,,,
+fab-500x-20261114T224408Z-003,32,7b3d059ca21b8ce276e9ce78,307d6fe05fd7e96415df7974bf55e46a,fab-500x,kir,coding,aya-dataset,human_authored,[user] Python программалоо тили – өз алдынча үйрөнсө болобу?,"Python программалоо тили – бул жаңы үйрөнүп жаткандар үчүн да жетки-
+ликтүү болгон, ар түркүн багыттагы программаларды түзүү үчүн колдонул-
+ган аспап. Эгерде силер Scratchте блоктор менен программа түзүп жүргөн 
+болсоңор, анда Python тилинде программа түзүү силерге оңой эле болот.
+ Бүгүнкү күндө бул программалоо тилинде банктар, телекоммуникациялык 
+компаниялар үчүн программалар жазылат, көптөгөн аналитиктер ушул 
+тилдин жардамындагы маалыматтар менен иштешет. Өтө жөнөкөй синтак-
+систин натыйжасында бул тилде программалоону баштоо жеңил.
+Python тилинде программалоо үчүн өзүңөрдүн компьютериңерге акысыз 
+программалоо чөйрөсүн орнотушуңар керек. Аны https://www.python.org/
+downloads/ сайтынан жүктөп алып өз алдынча үйрөнсө да болот.",,,,
+fab-500x-20261114T224408Z-003,33,8aa144fa98156652412a69c9,c3ca9e845a8348d66f6ad46b3d08546d,fab-500x,kir,general_knowledge,aya-dataset,human_authored,[user] Сүйүү жөнүндө М.Буларкиева эмне деп айткан?,"Сүйүү - деген кайнар булак,
+Жүрөктөрдөн атылган.
+Ар тамгасы жашоо болуп, 
+Өмүрүнө чачылган.",,,,
+fab-500x-20261114T224408Z-003,34,dec16a14509aba5d88394c6a,78c4de2b17b19b957c44eeee77fd4722,fab-500x,kir,mathematics,aya-dataset,human_authored,[user] Кыргыз Республикасы Бириккен Улуттар Уюмуна качан кабыл алынган?,1992-жылдын 2-мартында БУУнун Башкы Ассамблеясынын 46-сессиясынын жүрүшүндө БУУнун Коопсуздук Кеңешинин сунушуна жана БУУнун Башкы Ассамблеясына  46/225 резолюциясына ылайык Кыргызстан Бириккен Улуттар Уюмуна бир добуштан кабыл алынган.,,,,
+fab-500x-20261114T224408Z-003,35,1b3f9cf804ac760c465efa0d,9266d5efc44dc01cf758b871a5a76960,fab-500x,kir,science,aya-dataset,human_authored,[user] 2014-жылы кайсы европалык мунай гиганты J.P. Morgan компаниясынын сырьелук бөлүгүн сатып алган?,2014-жылы европалык мунай гиганты J.P. Morgan компаниясынын Mercuria Energy Group Ltd сырьелук бөлүгүн сатып алган,,,,
+fab-500x-20261114T224408Z-003,36,e4837ef3c0e6d4958e9d65bb,0193a2173f50ee9fd824824f242fd0b5,fab-500x,kir,web_frontend,aya-dataset,human_authored,[user] HTML деген эмнени билдирет жана веб-иштеп чыгууда анын эмнеси колдонулат?,HTML HyperText Markup Language дегенди билдирет жана веб-баракчалардын структурасын жана мазмунун түзүү үчүн колдонулат.,,,,
+fab-500x-20261114T224408Z-003,37,2e80f160a58390e8b1445317,f01f444e104e6dddf6264f33a8ad28f3,fab-500x,ko,coding,wikipedia-ko,templated_human,[user] 민족대표 33인에 대해 간단히 소개해 주세요.,"민족대표 33인(民族代表三十三人)은 1919년 3·1 운동 때 발표된 기미독립선언서에 서명한 33명을 가리킨다. 종교별로 나누어 대표를 선정하여 개신교 인사 16명, 천도교 인사 15명, 불교 인사 2명이다.
+
+1919년 3월 1일 오후 2시에 모이기로 했던 조선의 민족대표 33인은 오후 3시가 되어서야 기독교계 길선주, 유여대, 김병조, 정춘수를 제외한 29인이 태화관(서울시 종로구 인사동 소재)에 모였다. 그들은 조선이 독립국임을 선언하였고, 모든 행사가 끝난 때가 오후 4시 무렵이었다. 그들은 총독부 정무총감 야마가타 이자부로에게 전화를 걸어 독립선언 사실을 알렸다. 헌병과 순사들이 태화관에 들어닥쳐 민족대표를 남산 경무총감부와 지금의 중부경찰서로 연행하였다.
+
+상하이로 망명해 체포를 피한 김병조와 2년간의 구금 이후 무죄 판결을 받은 길선주, 그리고 체포 직후 구금 중에 사망한 양한묵을 제외하고는 모두 이 사건으로 징역 1년 6개월에서 3년형을 선고받고 옥고를 치렀다. 이들 중 손병희 등은 복역 후 병사하였다.
+
+{| class='wikitable' style=""text-align:center""
+
+민족대표 33인 중 최린, 박희도, 정춘수는 변절하여 민족문제연구소가 친일인명사전에 수록하기 위해 정리한 친일인명사전 수록예정자 명단에 포함되었다.
+
+3.1만세운동을 이끌어내고 표현하게 된 대한독립선언서(독립선언문)는 3.1운동 정신의 근간이 되었고 대한민국의 주권을 기록한 주요 문헌이 되었다.
+
+3.1 독립선언문은 대한민국임시정부 설립의 근거로 현재 대한민국임시정부의 정통을 잇는 대한민국 정부에 그 정신이 계승된다.
+
+일제의 침탈로 정치, 사회, 경제 분야가 친일로 변질된 상황에서 유일하게 남은 민족 지도자로서 종교계를 중심으로 3.1운동을 전개하였다.
+
+사회 전반이 친일 변질 상황에서 독립선언서 작성 및 배포 등 3.1운동 전반에 종교계가 앞장선 결과, 민족대표 33인 모두 종교계 인사들이라는 한계가 있다.",,,,
+fab-500x-20261114T224408Z-003,38,4ba039a5397ba4c39a2888bd,e23fa2501596014fd6028da749d23db5,fab-500x,ko,cybersecurity,wikipedia-ko,templated_human,[user] 마스터 오브 오리온에 대해 간단히 소개해 주세요.,"마스터 오브 오리온(Master of Orion, MoO)은 턴 방식 SF 전략 게임으로 스티브 바르시아에 의해 디자인되고 그의 회사 심텍스에 의해 개발되었으며 마이크로프로즈가 1993년에 출시한 게임이다. 앨런 엠리치가 이 게임의 리뷰에서 ""4X""(eXplore(탐험), eXpand(확장), eXploit(개척), eXterminate(절멸))라는 용어를 만들어내기는 했지만, '마스터 오브 오리온'이 최초의 4X 게임인 것은 아니다. 1991년 출시된 '문명 (비디오 게임)'이나 1980년대 초에 출시된 'Reach for the Stars'같은 게임들도 있다. 마스터 오브 오리온은 게임스파이의 명예의 전당에 올라가 있다.
+
+게임 제목의 ""오리온""은 엄청나게 귀중한 어떤 행성이 있는 항성계의 이름으로, 이 행성은 산업과 연구 두 방면 모두에 걸쳐 가장 강력한 생산력을 발휘하며 이 행성에 남겨진 고대 종족의 아티팩트는 지극히 발전된 군사 기술의 비밀을 가르쳐 준다. 하지만 이 행성을 정복하기 위해서는 매우 강력한 로봇 전함인 가디언과의 전투에서 승리해야 한다.
+
+이후 마스터 오브 오리온 2와 마스터 오브 오리온 3의 두 후속작이 출시되었다.
+
+이 게임은 MS-DOS나 맥 OS에서 실행된다. MS-DOS 버전은 어떤 버전의 마이크로소프트 윈도와도 호환되지 않는 메모리 관리 기술을 사용하지만, 윈도 95·98·ME·XP 사용자들은 도스박스와 같은 도스 에뮬레이터를 통해 게임을 실행할 수 있다. 이 게임은 4장의 플로피 디스켓을 통해 배포되었기 때문에 게임을 실행하는 데에 CD-ROM이나 DVD-ROM은 필요하지 않다.
+
+이 게임은 320x240의 해상도와 256색의 화면을 제공한다. 90년대 초반의 컴퓨터들은 매우 제한된 그래픽 처리 능력을 지니고 있었고, 대부분의 모니터들은 12인치(30센티미터)에서 14인치(35센티미터)의 크기였기 때문이다. 사운드 또한 무기 효과음과 약간의 MIDI 음악 뿐으로 간소하다.
+
+멀티플레이 모드는 존재하지 않으며 컴퓨터 AI와의 대전 게임만을 할 수 있다.
+
+승리 조건은 두 가지가 있다. 적을 모두 섬멸하거나, 우주 위원회에서 선거를 통해 우주의 지도자로 선출되는 것이다. 선거에서 승리하기 위해서는, 3분의 2 이상의 득표가 필요하다.(기권표는 양 후보 모두에 대한 표로 간주된다.)각 제국은 인구 수에 비례하는 수의 표를 행사할 수 있다. 따라서 정복과 외교의 적절한 조합이 필요하다.
+
+게임의 이름과는 달리, 오리온 항성계를 점령한다고 해도 게임에서 승리할 수는 없다. 하지만 가디언을 제거하기 위해서는 대규모의 강력한 함대가 필요하기 때문에, 가디언을 물리칠 정도 수준이라면 이미 게임에서의 승리 조건을 거의 갖추었다고 볼 수 있다.",,,,
+fab-500x-20261114T224408Z-003,39,9298aadb73e88f85a1fab50b,676d4dcf608115d54ef9f1d197b3f789,fab-500x,ko,education,wikipedia-ko,templated_human,[user] 접근 제어에 대해 간단히 소개해 주세요.,"접근 제어(接近 制御, access control, AC) 또는 액세스 제어는 누군가가 무언가를 사용하는 것을 허가하거나 거부하는 기능을 말한다. 파일, 프린터, 레지스트리 키, 디렉터리 서비스 개체 등에 대한 서비스, 사용자의 권한을 결정한다.
+
+개인의 물리 접근은 비용 청구, 인증 등에 따라 허용될 수도 있고 허용되지 않을 수도 있다. 물리 접근에 대해서는, 부지나 건조물, 방 등의 입구에서 허가된 사람에게만 입장을 제한하는 것을 가리킨다. 이러한 물리적 접근 제어는, 경비원, 경호원, 접수원 등의 사람에 의해서나 열쇠, 자물쇠 등의 기계적 수단, 카드에 의한 접근 시스템 등 기술적인 수단에 의해서 이루어진다.
+
+컴퓨터 보안에서의 접근 제어는 사람이나 프로세스가 시스템이나 파일에 읽기, 쓰기, 실행 등의 접근 여부를 허가하거나 거부하는 기능을 말한다.
+
+컴퓨터 보안에 의한 접근 제어에는 인증, 인가, 감사가 포함된다. 이러한 것들은 물리적 기기에 의한 수단으로 수명 측정, 금속 자물쇠, 디지털 서명, 암호화, 사회 장벽, 인간 및 자동화 시스템에 의한 감시 등을 포함한다. 인가는 역할 기반 접근 제어, 접근 제어 목록, XACML와 같은 정책 언어 등에 추가된다.
+
+접근 제어 시스템은 식별 및 인증, 인가, 책임(accountability)의 기본 서비스를 제공한다. 식별 및 인증은 시스템에 로그온할 수 있는 사람을 결정하고, 인가는 인증된 사람이 생기는 것을 결정하며, 책임은 해당 사용자가 무엇을 하였는지 밝힌다.
+
+Harris, Shon, All-in-one CISSP Exam Guide, Third Edition, McGraw Hill Osborne, Emeryville, California, 2005.",,,,
+fab-500x-20261114T224408Z-003,40,9bf48eb504ab4fcf9db6cc56,b36e15668067c59e458ff719d3f060b1,fab-500x,ko,general_knowledge,wikipedia-ko,templated_human,[user] 마크로스 프론티어에 대해 간단히 소개해 주세요.,"《마크로스 프론티어》(, MACROSS Frontier)는 마크로스의 세계관을 배경으로 하는 텔레비전 애니메이션이다. 사테라이트에서 애니메이션으로 제작하고 마이니치 방송에서 2008년 4월 3일에 방영을 시작하여 같은해 9월 25일에 총 25화로 종영되었다. 정규 방영에 앞서 2007년 12월 23일에 본편의 1화를 편집한 선행방영판을 방영했다.
+
+텔레비전 애니메이션이 방영되기 앞서 아오키 하야토에 의해 2007년 12월 26일부터 월간 소년 에이스에서, 그리고 쿠로이와 요시히로에 의해 란카를 주인공으로 한 초시공 가무녀 란카가 2008년 1월 26일부터 월간 콤프 에이스에서 연재되고 있다. 두 만화는 모두 가도카와 쇼텐에서 출판된다.
+
+작중 주인공. 미호시 학원 고등부 파일럿 편성 코스에 재학 중인 남자 아이, 여자로 착각할 수 있는 외모를 지닌 콤플렉스를 품고 있다. 대대로 가부키 배우를 배출한 집안에서 태어나 어릴 적에는 무대에 서기도 했지만, 아버지와의 대립과 하늘을 날고 싶은 소망에서 고등부에서는 파일럿 편성 코스로 진학했다. 바쥬라 습격시 발키리에 탑승, 란카 리를 구해주며 S.M.S에 들어가게 된다. 스컬 소대 소속의 콜사인 스컬4. 계급 중위.
+
+작중 히로인. 작지만 밝고 천진난만하고 셰릴을 동경하여 특기인 노래를 살린 가수가 되고자 하는 15세의 여자 아이, 젠트라디의 피가 일부 섞인 쿼터로서 감정에 따라 머리카락이 움직이는 특징이 있다. 오빠인 오즈마의 권유로 이름난 여자고등학교에 다니면서 중화반점 냥냥에서 아르바이트를 하고 있다. 천진난만하고 활발한 성격을 지녔다.
+
+11년 전 알 수 없는 적의 공격으로 제117차 대규모 조사단이 괴멸당한 사건에서 살아남은 생존자로 당시의 기억을 해리성 기억 상실에 의해 잃었다. 사건 직후, 오즈마에게 거두어져 의붓남매로서 자랐다. 알토와 미하엘의 조언에 따라 가수의 길을 걷기 시작하였다.
+
+작중 히로인. 은하 히트 채널에 항상 가장 높게 자리잡고 있어서 별명 '은하계의 요정'으로도 알려져 있는 마크로스 갤럭시에서 온 17세의 아이돌 가수이다. 오만하고 긍지높은 성격이지만, 운명은 스스로의 정열과 노력을 개척한다는 신조에 따라 자신의 힘으로 지금의 위치에 올라섰다.
+
+콘서트 투어를 위해 마크로스 프론티어를 찾아왔다. 첫 공연에서 콘서트의 흥을 돋우기 위해 아크로뱃 비행을 했던 알토에게 도움을 받은 뒤, 만나게 될 때마다 은하계의 요정인 가수로서 취급하지 않고 자신을 대하는 그에게 흥미를 갖기 시작하였다. 고별 콘서트를 마치고 마크로스 갤럭시가 바쥬라에 의해 공격받는 상황에 맞닥뜨리자, 미호시 학원을 견학하고 파일럿 편성 코스로 편입하였다.",,,,
+fab-500x-20261114T224408Z-003,41,82865dfd816e0bf8477d1851,c4bdb9b42bb65d3163183b1d8d554229,fab-500x,ko,islamic_studies,wikipedia-ko,templated_human,[user] 발음 구별 기호에 대해 간단히 소개해 주세요.,"발음 구별 기호(發音區別記號, , . ‘구별하다’라는 뜻)는 글자에 붙여서 그 글자가 들어간 낱말의 철자를 바꾸는 데 쓰이는 표지이다. 분음 부호(分音符號)라고도 한다.
+
+발음 구별 기호는 보통 글자의 위쪽이나 아래쪽에 붙지만, 글자의 위쪽이나 아래쪽에 붙은 모든 표지가 발음 구별 기호는 아니다. 예를 들어 로마자의 i와 j 위에 있는 점은 발음 구별 기호라기보다는 그 자체로 하나의 글자를 이룬다. 또한 어떤 표지는 언어에 따라서 발음 구별 기호일 수도 있고 하나의 글자에 포함될 수도 있다.
+
+또한, 위에 있는 기본적인 발음구별기호들을 동시에 한 문자에 사용할 수도 있다.(ex.Ấ,Ṝ,...)
+
+그리스어 문자 표기에는, 강세, 약세, 장음 기호 외에 다음과 같은 기호가 존재한다.
+
+– 거센 숨표 (spiritus asper): ἁ ἑ ἡ ἱ ὁ ὑ ὡ / αἱ οἱ υἱ
+
+– 부드러운 숨표 (spiritus lenis): ἀ ἐ ἠ ἰ ὀ ὐ ὠ / αἰ εἰ εὐ οἰ
+
+– 밑에 쓴 요타(iota subscriptum). 고대 그리스어의 낱말 변화에서 소리 값이 달라지는 장모음을 표기할 때에 이용.
+
+아랍 문자에는 모음을 위한 문자가 없기 때문에, 아랍어 및 아랍 문자를 사용하는 언어들에서는 문자에 특별한 발음 기호들이 존재한다.
+
+모음 기호는, 모음 발음을 나타내는 것 외에, 문법적인 역할을 표시하는 용도가 있다. 구체적으로 단어의 마지막 글자에 붙은 모음 기호는 형 변화의 의미를 포함한다.
+
+명사의 경우, 돰마[u]는 주격, 파트하[a]는 대격, 카스라[i]는 속격을 의미한다.
+
+동사의 경우, 돰마[u]는 미완료, 파트하[a]는 완료, 스쿤은 명령형을 의미한다.
+
+ء(함자) : 성문 폐쇄음을 표기하는 기호 ( 알리프, 와우, 야에 붙는 함자(ئ ؤ إ أ ) 및 단독 함자 (ء)가 있다.
+
+탄윈(ــًــٍــٌـ) (تنوين) : 아랍어의 모음 및 문법의 격을 표시하는 기호. ـً 기호는 일반적으로 알리프가 뒤에 표시된다(예: ـًا ).
+
+와슬라 (ٱ) : 단어의 맨 앞에 자주 쓰이며, 대화의 맨 처음은 함자의 발음, 그 외에는 묵음 처리가 됨을 표시한다.
+
+맛다 (آ) : 알리프 앞에 오는 함자(ءا)의 축약형으로, 함자 발음 후에 장음[a:]를 읽어야 한다. , (예: ءاداب، ءاية، قرءان، مرءاة 는 각각 آداب، آية، قرآن، مرآة으로 표기한다.)
+
+윗첨자 알리프 (ــٰـ) : 일부 단어에서 알리프가 떨어져 나갔을 때 장음[a:]를 표시하기 위한 기호이다.
+
+중세 한국어가 표기된 문헌에서 발견되는 방점 기호는 성조를 표기하기 위한 기호이다.
+
+히브리 문자는 자음을 표기하기 위한 기호로, 반모음 표기 문자가 장모음 표기에 이용되며, 추가로 문자의 위아래에 발음을 위한 기호가 존재한다. (마소렛을 참조)",,,,
+fab-500x-20261114T224408Z-003,42,64dc27e715c7c5d35ce3847b,d1eec21d392473708730791e71c2d5d0,fab-500x,ko,mathematics,wikipedia-ko,templated_human,[user] 조지타운 대학교 법학센터에 대해 간단히 소개해 주세요.,"조지타운 대학교 법학센터()는 미국 조지타운 대학교의 법학전문대학원(law school)이다. 1870년에 설립되었으며 미국에서 하버드에 이어 두번째로 규모가 큰 로스쿨이다. 3년 풀타임 J.D.(법무박사), 4년 파트타임 J.D., 1년 세부분야 LL.M.(법학석사), 1년 일반 LL.M., J.S.D.(법률과학박사), 1년 M.S.L.(비법률가용 법학석사) 과정을 제공한다. 속칭 탑14으로 분류되는 미국 최상위 로스쿨 중 한 곳이다. 특히 세법 분야에서는 명문 로스쿨 중 뉴욕대 로스쿨 다음으로 최상위로 인정받고, 국제법 분야에서도 미국내 3위로 인정받는다.
+
+풀타임 J.D. 과정은 2012-2013년 입시기간 동안 약 500명 정원에 약 7,000명의 지원을 받았다. 2013년 가을에 입학한 풀타임 J.D. 신입생들의 LSAT 점수 25th/75th 퍼센타일은 164/169, 중간값은 168이었고 학부 GPA 25th/75th 퍼센타일은 3.49/3.83, 중간값은 3.74였다. 신입생들의 6.1%가 외국인이었다.
+
+《U.S. 뉴스 & 월드 리포트》가 매년 발행하는 로스쿨 순위에서는 1999년부터 지금까지 늘 14위 혹은 13위를 차지해왔다.
+
+에드워드 베넷 윌리엄즈 워싱턴 DC 최고의 송무(litigation) 로펌 윌리엄즈 & 코놀리(Williams & Connolly) 설립파트너(founding partner)
+
+미국 로스쿨 혼자서 가기(대화로 푸는 로스쿨 진학 안내서), 문봉섭, 서원, 2003.",,,,
+fab-500x-20261114T224408Z-003,43,b7894ffc3e07f95c5bfa8575,1856644799a98a55676cfb32f500c6fd,fab-500x,ko,problem_solving,wikipedia-ko,templated_human,[user] 성품성사에 대해 간단히 소개해 주세요.,"성품성사(聖品聖事, )는 기독교에서 사제와 부제에게 교회가 사목(목회)을 맡기는 성사를 말한다. 성품성사는 주교가 집전할 수 있으며, 주교의 임명의 경우, 로마 가톨릭교회에서는 교황이, 동방 정교회에서는 총대주교가 임명하며, 사제는 해당 교구의 주교가 임명한다. 서품을 성사로 보는 교파는 로마 가톨릭교회와 정교회이며, 성공회는 서품을 성사적 예식으로 보아 서품예식이라고 부른다.
+
+The Steps to Orders in The United Methodist Church  (PDF)
+
+Elder's Orders in the UMC: The Disciplinary Questions and Sample Answers by Gregory S. Neal
+
+VISION Vocation Guide Information on Roman Catholic priesthood and religious life",,,,
+fab-500x-20261114T224408Z-003,44,1bb25bfc9814d9541b2ce9c6,0df7fa20f90c0275fd830c535d3f122d,fab-500x,ko,reasoning,wikipedia-ko,templated_human,[user] 하드웨어 기술 언어에 대해 간단히 소개해 주세요.,"전자공학에서 하드웨어 기술 언어(- 記述 言語, hardware description language)는 전자회로를 정밀하게 기술하는 데 사용하는 컴퓨터 언어이다. 흔히 HDL이라고 줄여쓰기도 한다. 회로의 원하는 동작을 기술할 수도 있고, 원하는 회로 구조를 기술할 수도 있으며 시뮬레이션을 통해 제대로 동작하는지 검증할 수도 있다. HDL의 문법과 의미(semantics)는 소프트웨어 프로그래밍 언어와 달리 하드웨어의 주요한 특징인 시간과 동시성(concurrency)를 표현할 수 있는 notation들이 명시적으로 존재한다.
+
+HDL은 두 가지 종류의 시스템을 설계하기 위해 만들어졌다. 첫 번째는, 프로세서나 기타 여러 가지 디지털 칩과 같은 특정한 집적회로를 설계하기 위해 사용된다. 이런 경우 HDL은 회로가 설계되고 만들어지기 전에 그 회로의 동작을 예측하는 모델을 제공한다. 두 번째는 FPGA같은 PLD를 프로그램하기 위해 사용한다. HDL로 작성된 코드는 로직 컴파일러를 이용하여 컴파일한 후 해당 기기에 올려진다. 대개의 경우, 테스트를 진행하며 여러 번 코드를 수정하여 기기에 올려볼 수 있다.
+
+HDL 설계의 가장 중요한 부분은 HDL 프로그램을 시뮬레이트할 수 있는 능력이다. HDL 프로그램은 PLD 같은 장비에 업로드하여 테스트를 하거나, 칩으로 제작하여 테스트 할 수 있다. 그러나 이러한 테스트는 대개 비용이 비싸며 시간이 오래 걸리기 때문에 대부분의 테스트와 디버깅은 시뮬레이터를 사용하여 수행한다. 시뮬레이터는 디지털 기기의 실제 클럭과 유사한 리셋 가능한 클럭을 유지하고 설계자가 코드를 디버그하기 위해 특정 시간 동안의 다양한 레지스터의 값들을 볼 수 있도록 해준다.
+
+HDL은 소프트웨어 프로그래밍 언어와 유사하지만, 약간의 차이가 있다. 두 언어는 컴파일러(HDL의 경우에는 보통 synthesizer라고 불린다)에 의해 처리되지만,  HDL은 다음과 같은 단계를 거쳐 컴파일된다. 먼저 HDL 고유의 포맷으로 칩의 logic을 기술한 파일을 생성하고, 다음으로 산업 표준(industry-standard)인 EDIF 포맷으로 변환한다. 마지막으로 JEDEC 포맷 파일로 변환하는데, JEDEC 파일은 PLD programmer가 PLD를 프로그램하는 데 필요한 명령어를 담고 있다.
+
+이와는 달리, 소프트웨어 컴파일러는 마이크로프로세서에서  직접 실행되는 명령어를 생성한다. HDL과 소프트웨어 프로그래밍 언어의 차이는 두 언어의 특징을 결합한 reconfigurable system이 시작됨에 따라서 점점 모호해지고 있다.
+
+현재는 회사 고유의 포맷을 이용하기보다는 VHDL과 Verilog로 대표되는 표준 HDL로 넘어가고 있는 추세이다.
+
+ABEL (""Advanced Boolean Expression Language"")",,,,
+fab-500x-20261114T224408Z-003,45,34d2e95bebff17299d495bf0,3fda188afaee4e0391fd49e312370bdb,fab-500x,ko,research,tydiqa-goldp,human_authored,"[user] 아프리카(Africa, 음역: 아비리가(阿非利加))는 아시아 다음으로 면적이 넓고 인구가 많은 대륙이다. 면적은 주변 섬을 합하여 3천2십만km²으로, 지표 표면의 6%이며, 육지 면적의 20.4%를 차지한다.[1] 61개 영토에 11억 명(2014년 기준)이 살고 있으며, 세계 인구의 14.8%에 해당한다. 아프리카 대륙 주변으로 북쪽에는 지중해, 북동쪽에는 수에즈 운하와 홍해, 남동쪽에는 인도양, 서쪽에는 대서양이 있다. 이 대륙에는 분쟁 지역인 소말릴란드를 빼고 마다가스카르와 여러 도서 지역을 포함하여 총 55개국이 있다. 아프리카연합에서는 서사하라를 정식으로 국가로 인정하여 55개국으로 분류하고 있다.
+
+아프리카의 총 인구는 얼마인가?","11억
+
+면적은 주변 섬을 합하여 3천2십만km²으로, 지표 표면의 6%이며, 육지 면적의 20.4%를 차지한다.[1] 61개 영토에 11억 명(2014년 기준)이 살고 있으며, 세계 인구의 14.8%에 해당한다.",,,,
+fab-500x-20261114T224408Z-003,46,e187c8584b3168d9c023f187,547aa80c153d38e7a404f483481dd215,fab-500x,ko,safety_ethics,wikipedia-ko,templated_human,[user] 귀인 편견에 대해 간단히 소개해 주세요.,"귀인 편견(attributional bias)은 어떤 사건에 대한 원인을 판단하는데 영향을 끼치는 심리학의 인지적 편견 중 하나다. (귀인)
+
+귀인 편견은 보통 행위자/관찰자 차이(actor/observer differences)의 형태를 띈다. 어떤 행위에 참여하고 있는 사람들(행위자)은 그것에 참여하지 않는 사람들과(관찰자) 다르게 본다는 것이다. 이런 차이는 종종 가용성(availability)의 비대칭성에 의해 생긴다. 예를 들어 행위자의 행동은 관찰자가 기억하는 것보다 더 기억하기 쉽기 때문에 이 후에 더 고려대상이 되기 쉽다는 것이다. 결과적으로 원인에 대한 판단은 이런 이유들로 왜곡되기 마련이다.
+
+예를 들어 몇몇 실험에서 실험 대상자는 대화에 참여한 사람들 중 한 사람쪽만 보거나, 한 사람의 얼굴만 보았다. 실험 대상자가 더 잘 볼 수 있었던 사람에 대해 실험 대상자는 그 대화에서 더 중요하거나 영향력있는 사람으로 인식했다.
+
+대응 추론을 통해 또 다른 예시를 살펴볼 수 있다. 우리는 어떤 사람이 왜 특정한 행동을 하였는가를 설명할 때, 그 사람의 상황적인 요인보다는 성격적인 특징들이나 개인적인 속성들을 많이 사용하는 경향이 있다. 즉, 그 사람이 음료수를 쏟았을 때, 순간적으로 주의가 분산되어서가 아니라 그 사람의 행동이 서투르기 때문이라고 설명하는 것이다. 이런 경향은 우리로 하여금 동기와 행동의 일관성이 실제보다 더 존재한다고 믿게 한다.
+
+Block, J., & Funder, D. C. (1986). Social roles and social perception: Individual differences in attribution and ""error."" Journal of Personality and Social Psychology, 51, 1200-1207.
+
+Psychology of Intelligence Analysis: Biases in Perception of Cause and Effect",,,,
+fab-500x-20261114T224408Z-003,47,d2bb2f5b39f8899efbebaabf,fe54f39573bd6a4d1663ff9a562316bb,fab-500x,ko,science,wikipedia-ko,templated_human,[user] 전술 고에너지 레이저에 대해 간단히 소개해 주세요.,"전술 고에너지 레이저(Tactical High-Energy Laser, THEL)는 적의 미사일, 로켓포, 대포, 박격포 등을 공중에서 요격하기 위해 군사용으로 개발된 고출력 레이저이다. 노틸러스 레이저 시스템(Nautilus laser system)이라고도 알려져 있다. 이동식 버전은 이동식 전술 고에너지 레이저(Mobile Tactical High-Energy Laser, MTHEL)라고 부른다.
+
+1996년 7월 18일 미국과 이스라엘은 레이저 개발을 함께 하기로 협약했다.
+
+이스라엘 국방부는 미국 뉴멕시코주의 화이트 샌드 미사일 사격장에서 2000년 6월 6일 실시된 노틸러스 시스템의 발사시험에서 날아오는 카추사 로켓포를 정확히 추적해 파괴했다고 밝혔다.
+
+노스럽 그러먼은 이스라엘 국방부와 공동으로 스카이가드 레이저 요격 시스템을 개발하고 있으며, 대당 가격은 약 1억 5,000만 달러(1,500억원), 대량생산시 3,000만 달러(300억원)로 예상하고 있다.
+
+이스라엘은 가자지구와 레바논 무장세력의 단거리 미사일 공격을 방어하기 위한 미사일 방어체계인 아이언 돔(Iron Dome) 시스템을 2010년 여름에 본격 가동할 예정이다. 라파엘사는 2009년 3월 아이언 돔 레이저 요격시스템의 실험에 성공했다. 이스라엘은 2006년 헤즈볼라와 전쟁시 4,000발의 카추사 로켓포 공격을 받은 뒤 이 시스템의 구축을 서둘러 왔다.
+
+페레츠 이스라엘 국방부 장관은 아이언 돔이 사정거리가 짧은 로켓포나 수십km의 단거리 사정 미사일에 대처하는 좋은 수단이 될 것이라고 강조했다. 불과 수백만 달러의 비용으로 2년 안에 배치될 예정이다.
+
+2000-2001년, THEL은 카추사 다연장로켓 28발, 대포 5발을 요격했다.
+
+60회의 사격으로 다시 장전하고 5 km 범위에서 100%에 가까운 요격율이 되는 것을 목표로하고 있다.
+
+Counter-RAM 로켓포, 대포, 박격포를 공중에서 요격하는 방어 시스템
+
+NBS C-RAM 독일 라인메탈에서 생산하는 35mm 기관포 6개로 구성된 시스템이다.
+
+US, Israel to test Nautilus anti-rocket system
+
+Israeli-U.S. Laser Downs Long-Range Missile in Test
+
+Strategic and Arms Control Implications of Laser Weapons, Barry J. Smernoff
+
+High Energy Laser Weapons Systems Applications",,,,
+fab-500x-20261114T224408Z-003,48,8e6616c01051dd4257752802,52114ed0aa672e87be3760707d0a1792,fab-500x,ko,software_engineering,wikipedia-ko,templated_human,[user] Gedit에 대해 간단히 소개해 주세요.,"지에디트(gedit)는 그놈 데스크톱 환경용으로 개발된 자유 소프트웨어인 텍스트 편집기이다. 마이크로소프트 윈도우, 맥 OS X에서도 사용할 수 있다. UTF-8과 호환하며, 프로그램 코드, 마크업 언어와 같은 구조화된 텍스트 문서를 편집하는 용도에 중점을 두고 개발했다. 그놈 프로젝트의 철학에 따라 깔끔하고 단순한 그놈 GUI가 특징이다.
+
+X 윈도 시스템에 맞춰 개발했으며, GTK+ 2.0과 그놈 2.0 라이브러리를 이용한다. 한편, 그놈 파일 관리자인 노틸러스와의 사이에서 드래그 앤 드롭이 가능하다. gedit에 관한 문서는 그놈 도움말 시스템, 가상 파일 시스템, 그리고 인쇄 미리보기를 위한 인쇄 프레임워크를 사용한다.
+
+다양한 프로그램 코드와 마크업 코드에 맞춘 구문 강조 기능(Wrap around)이 포함되어 있으며, 여러 파일을 편집할 때 탭으로 나눌 수 있다. 탭을 하나 창들 사이에서는 물론, 여러 창들 사이를 옮겨다닐 수 있다. 실행 취소, 또는 실행 취소했던 부분을 다시 복구할 수 있으며, 줄 번호 매기기, 현재 줄 강조, 줄 바꿈 기능, 다양한 언어의 맞춤법 검사도 포함되어 있다.  강력한 '찾기 및 바꾸기' 기능 등도 있다. 플러그인을 통해서 추가적인 기능을 업그레이드할 수도 있다.
+
+Gedit는 '찾기 및 바꾸기'기능에서 다양한 필터링 특히 정규표현식과  이스케이프 시퀸스을 지원한다.
+
+다음은 파일내 문자열중 이스케이프 시퀀스 유형의 이스케이프 문자 \* 을 '찾기 및 바꾸기'기능으로 전부 찾아내어 반복 삭제하는 정규표현식(Regular expression)의 예이다.
+
+{}에 둘러싸인 시작점과 종점이 각각 { 및 }이고 {}및 {}안에 포함되어 있는 모든 내용(*)을 1로 바꾸는 예
+
+여기서 {}을 포함하는 {}안에 포함되어 있는 모든 내용(*)의 매치(match)에서 { 은 시작점이자 문자로서의 이중 표현에 해당한다.
+
+행 라인(line)의 맨끝 그리고 개행특수문자(\n)앞에 &를 삽입하는 예
+
+Gedit는 우분투  LTS18기준 우분투 데스크탑의 공식 텍스트 에디터이다.  우분투의 소프트웨어(그놈 소프트웨어) 패키지 관리자에서 북마크(Bookmarks),Git,터미널 등의 여러 기능들을 플러그인(Add on)으로 추가할 수 있다.  한편 이러한 추가 기능들중에는 특정 폴더내 여러 파일들의 텍스트를 찾기등의 기능을 지원하는 것도 있다.",,,,
+fab-500x-20261114T224408Z-003,49,29a881b3302cb6b04dbf0774,de865c0a7e31e4e9bbf91c42a155bbad,fab-500x,ko,web_backend,wikipedia-ko,templated_human,[user] 데이터베이스 스키마에 대해 간단히 소개해 주세요.,"컴퓨터 과학에서 데이터베이스 스키마()는 데이터베이스에서 자료의 구조, 자료의 표현 방법, 자료 간의 관계를 형식 언어로 정의한 구조이다. 데이터베이스 관리 시스템(DBMS)이 주어진 설정에 따라 데이터베이스 스키마를 생성하며, 데이터베이스 사용자가 자료를 저장, 조회, 삭제, 변경할 때 DBMS는 자신이 생성한 데이터베이스 스키마를 참조하여 명령을 수행한다.
+
+외부 스키마(External Schema) : 프로그래머나 사용자의 입장에서 데이터베이스의 모습으로 조직의 일부분을 정의한 것
+
+개념 스키마(Conceptual Schema) : 모든 응용 시스템과 사용자들이 필요로하는 데이터를 통합한 조직 전체의 데이터베이스 구조를 논리적으로 정의한 것
+
+내부 스키마(Internal Schema) : 전체 데이터베이스의 물리적 저장 형태를 기술하는 것
+
+Tip/Trick: Online Database Schema Samples Library",,,,
+fab-500x-20261114T224408Z-003,50,6666ed24db8651c99ac53b9d,f138c2b9fcbb2d3b0267587bf3abd966,fab-500x,ko,web_frontend,wikipedia-ko,templated_human,[user] 액티브 서버 페이지에 대해 간단히 소개해 주세요.,"액티브 서버 페이지(Active Server Pages, 줄여서 ASP, 과거 명칭: 클래식 ASP/Classic ASP, ASP 클래식/ASP Classic)는 마이크로소프트사에서 동적으로 웹 페이지들을 생성하기 위해 개발한 서버 측 스크립트 엔진이다.
+
+ASP 2.0은 6개의 내장 객체들을 제공한다: Application, ASPError, Request, Response, Server, Session. 예를 들어, Session은 페이지 간의 변수의 상태를 유지하는 쿠키 기반의 세션을 나타낸다. 동적 스크립팅 엔진의 컴포넌트 객체 모델(COM) 지원은 ASP 웹사이트들이 DLL들 같은 컴파일 된 라이브러리들을 함수처럼 접근 가능하게 해 준다.
+
+처음에 1996년 경 윈도우 NT 4.0 옵션 팩을 통해 인터넷 정보 서비스(IIS)의 추가 기능으로 출시되었으며, 나중에 윈도 서버(윈도 2000 서버의 최초 버전 이후로)의 무료 구성 요소로 포함되었다. ASP에는 3가지 버전이 있으며 각각 각기 다른 IIS 버전과 함께 도입되었다:
+
+.asp 파일 확장자를 가진 웹페이지는 ASP를 사용하지만, 몇개의 웹 사이트들은 보안 목적으로 스크립팅 언어를 숨기는 경우도 있다(예를 들면 더 일반적인 .htm 또는 .html 확장자를 사용하기). .aspx 확장자를 가진 페이지들은, ASP에서 서버측 스크립팅 보다 더 빠르고 강력하게 해주는 (마이크로소프트의 .NET 프레임워크 기반의) ASP.NET으로 컴파일되었고, 구동 시에 해석되지만; ASP.NET 페이지들은 여전히 일부 ASP 스크립팅을 포함하고 있을 것이다. ASP.NET의 도입은 원천 기술에 대해서는 오랜 ASP용어를 사용하였다.
+
+프로그래머들은 대부분의 ASP페이지를 VBScript를 사용하여 작성하였지만 그 외에도 동적 스크립팅 엔진은 @Language 지시문이나 <script language=""language"" runat=""server""> 구문으로 선택하여 사용할 수 있다. JScript(마이크로소프트가 구현한 ECMAScript)가 보통 사용가능한 다른 언어이다. PerlScript(Perl의 파생언어)와 다른 것들도 타사 제공 형태로 동적 스크립팅 엔진에 설치해서 사용 가능하다.
+
+마이크로소프트의 액티브 스크립팅 표준과 호환되는 어떠한 스크립팅 언어라도 ASP에서 사용할 수 있다. 기본 스크립팅 언어(고전 ASP에서)는 VB스크립트이다.:
+
+브라우저가 웹 서버에서 ASP 파일을 요청하면 서버는 프로세서를 호출하고, 프로세서는 요청된 파일을 읽고 스크립트 명령을 실행하여 결과를 웹페이지 형태로 브라우저에 전송한다.
+
+이 예는 ""Hello World!""를 HTML 문서의 body로 출력한다.
+
+Set oConn = Server.CreateObject(""ADODB.Connection"")",,,,
+fab-500x-20261114T224408Z-003,51,82886a3520f849329ddff1f0,de8a49a970c65f3bef1e536be06b573c,fab-500x,ko,web_fullstack,wikipedia-ko,templated_human,[user] VOLA & THE ORIENTAL MACHINE에 대해 간단히 소개해 주세요.,"VOLA & THE ORIENTAL MACHINE()은 일본의 록 밴드로 ZAZEN BOYS를 탈퇴한 아히토 이나자와가 자신이 하고 싶은 음악을 하기 위해 결성했다. 블랙 파티와 프란츠 펠디나드라 불렸던 뉴 웨이브와 포스트 펑크로부터 강하게 영향을 받았다. 2008년 5월, 뮤직 타블로이드로 이적.
+
+베이스 기타 담당. 후쿠오카 현 출신. LOST IN TIME의 서포트 멤버로서도 활동.
+
+드럼 담당. 아오모리현 출신. Syrup16g에서 기한 없이 계약해, 밴드 해산시까지 정식 멤버가 되기로 한다.
+
+기타 담당. 이바라키현 출신. 2008년 9월 말을 기해 탈퇴.downy의 멤버로서도 활동.
+
+VOLA & THE ORIENTAL MACHINE OFFICIAL WEBSITE - 공식 웹사이트.",,,,
+fab-500x-20261114T224408Z-003,52,9c278c32403bacd7a9e996cf,1319e93164e7824ebcaa16cb1d3d011e,fab-500x,ko,writing,wikipedia-ko,templated_human,[user] Train of Thought에 대해 간단히 소개해 주세요.,"Train of Thought는 프로그레시브 메탈 밴드 드림 시어터의 정규 7번째 앨범이다.
+
+투어 기간 동안 드림 시어터의 헤비한 곡들에 좋은 반응을 보인 팬들에게 영감을 얻은 밴드는 Train of Thought를 그때까지 낸 앨범 중 가장 헤비한 스타일로 만들어냈다. 작곡은 3주에 걸쳐 이루어졌다. 엔지니어는 Doug Oberkircher, 믹싱은 케빈 셜리(Kevin Shirley)가 맡았다. 앨범 수록곡은 7곡으로, 이는 6집 Six Degrees of Inner Turbulence가 6곡, 8집 Octavarium이 8곡인것과 맞춰 하나의 컨셉화시킨 부분이다. 이러한 패턴은 이후 반대로 나타나는데, 9집 Systematic Chaos는 7곡, 10집 Black Clouds & Silver Linings는 6곡으로 다시 줄어든다. 이러한 컨셉에서 Octavarium의 주요 테마 ""모든 것은 시작한 곳에서 끝이난다""를 도출해 낼 수 있다.
+
+'Train of Thought'는 비평가들로부터는 좋은 평가를 받았지만 팬들의 반응은 지금도 양분되어있다. 일부 새로운 팬들은 보다 강해지고 직선적으로 변한 메탈 사운드를 좋아했다. 많은 나머지 팬들은 새로운 스타일에 실망했고, 주류음악에 편승했으며 젊은 층의 음악 취향에 영합했다고 생각했다.
+
+""As I Am""의 도입부는 ""Six Degrees of Inner Turbulence의 마지막 부분과 신스/오케스트라 코드가 똑같다.
+
+""As I Am""의 가사 중 일부분은 퀸스라이크와 함께한 밴드의 2003년 여름 투어에서 영감을 얻었다. 포트노이에 따르면 퀸스라이크의 기타리스트 마이크 스톤은 존 페트루치에게 몇가지 연주 팁을 가르쳐줬고, 후에 페트루치는 다음과 같은 가사를 썼다. ""Don't tell me what's in, tell me how to write""
+
+""This Dying Soul""은 마이크 포트노이가 가사를 쓴 12단계 모음곡의 연작 중 하나이다. 이 연작은 ""The Glass Prison""부터 시작되었고 이후 ""The Root of All Evil"", ""Repentance""로 이어지고 ""The Shattered Fortress""로 마무리되었다. 이 곡들은 몇몇 멜로디와 가사를 공유한다.
+
+""Honor Thy Father""는 포트노이의 의붓 아버지에 대한 가사이다. 그는 IRC채팅에서 어떤 계기로 이 가사를 쓰게 되었냐는 질문에 이렇게 답했다 ""나는 사랑에 관한 곡을 쓰는데 정말 능력이 없다. 그래서 나는 누군가를 '싫어하는' 가사를 쓰기로 했다.""",,,,
+fab-500x-20261114T224408Z-003,53,327a3c04b0c2f0ac12ae5704,7ecbf916037b849f445e9aead983a38a,fab-500x,lit,coding,aya-dataset,human_authored,"[user] Koks klausimas: ""Array programavimo primityvai, glaustai išreiškia plačias idėjas apie duomenų manipuliavimą"". Tema yra ""Array"" programavimas.","""Kas yra Array programavimas?""",,,,
+fab-500x-20261114T224408Z-003,54,78e816d1ca42716921d708a5,b3f2d2f0d04d51ba6db8f2bd630fb916,fab-500x,lit,education,aya-dataset,human_authored,"[user] Atsižvelgiant į sakinį ""Studentai, stovintys ant snieguoto paplūdimio, laukia šuolių į arktinį vandenį"", ar galime daryti išvadą, kad ""Studentai yra bibliotekoje ir skaito knygą""? Pasirinkimai: - Taip - neįmanoma pasakyti - Ne. Būkite kuo tikslesni.","Jei skaitote bibliotekoje, negalite būti ant snieguoto paplūdimio. Galutinis atsakymas: ne.",,,,
+fab-500x-20261114T224408Z-003,55,d02e94f683bcab7722f691c7,0543f12bb4bd7467840c983733e01986,fab-500x,lit,general_knowledge,aya-dataset,human_authored,"[user] Klausimas: kada pasirodys ""Dragon Ball Z Super"" 96 epizodas Atsakymas:",2017 m. birželio 25 d.,,,,
+fab-500x-20261114T224408Z-003,56,37bd3164aa4ed8c9bdf16bb9,aa6dafd101c382f4116df1432b94a19a,fab-500x,lit,islamic_studies,aya-dataset,human_authored,"[user] Patikrinkite žemiau pateiktą eilutę ir atsakykite į klausimą, pateiktą toje pačioje kalba, kaip ir eilutė:  Perėjimas: Istoriniame persų sodų dizaine sahnai buvo privačių Rojaus sodų vieta. Tradicinėje persų architektūroje kieme paprastai būdavo howz arba simetriškas baseinas, kuriame vyko wudu (islamiškasis plovimas).  Klausimas: Ką reiškia wudu?",Islamiškasis plovimas,,,,
+fab-500x-20261114T224408Z-003,57,af159be3c7da113109066525,3a82dfe6d5e9f0725e5f1954749b568e,fab-500x,lit,mathematics,aya-dataset,human_authored,"[user] Patikrinkite žemiau pateiktą eilutę ir atsakykite į klausimą, pateiktą toje pačioje kalba, kaip ir eilutė:  Ištrauka: Pietų Korėjoje vasario 14 d. moterys dovanoja vyrams šokoladą, o kovo 14 d. (Baltosios dienos) vyrai dovanoja moterims nešokoladinius saldainius. Balandžio 14 d. (Juodoji diena) tie, kurie vasario arba kovo 14 d. nieko negavo, eina į kinų ir korėjiečių restoraną valgyti juodų makaronų (자장면 jajangmyeon) ir apgailestauja dėl savo ""vienatvės"". Lapkričio 11-ąją Korėjos gyventojai taip pat švenčia Pepero dieną, kai jaunos poros dovanoja viena kitai Pepero sausainius. Datą ""11/11"" siekiama priminti ilgą sausainio formą. Kiekvieno mėnesio 14-ąją Korėjoje švenčiama su meile susijusi diena, nors dauguma jų yra neaiški. Nuo sausio iki gruodžio: žvakės diena, Valentino diena, Baltoji diena, Juodoji diena, Rožės diena, Bučinio diena, Sidabro diena, Žalioji diena, Muzikos diena, Vyno diena, Kino diena ir Apkabinimo diena. Korėjos moterys duoda daug daugiau šokolado nei japonės.  Klausimas: Pietų Korėjos moterys, kurios kovo 14 dieną negauna saldainių iš vyro, kur eina ir ką daro?",Eina į kinų-korejų restoraną valgyti juodų makaronų,,,,
+fab-500x-20261114T224408Z-003,58,354efa8fa256960b808636bd,a2054b7e90337f062c41e9d06edc8421,fab-500x,lit,pakistan,aya-dataset,human_authored,"[user] Atsakykite į šį sudėtingą klausimą: Komandos kapitonas žaides kriketo draugiškose rungtynėse tarp Pakistano ir Australijos,1964 m. Pakistane ir mires 2016 m. rugpjūčio mėn. Kas jis?",Hanifas Mohammadas,,,,
+fab-500x-20261114T224408Z-003,59,ad56950b5af3c08c9ad487bb,a195dbdcf5d2f90b9902c3ee8160ebec,fab-500x,lit,science,aya-dataset,human_authored,[user] Ką žemės drebėjimai pasako mokslininkams apie planetos istoriją? - Taip. Pasirinkimas: (a) Žemės klimatas nuolat keičiasi. (b) Žemės žemynai nuolat juda. (c) Dinozaurai išnyko prieš 65 milijonus metų. (d) Šiandien vandenynas yra daug gilesnis nei prieš milijonus metų.,Atsakymas: (b) Žemės žemynai nuolat juda,,,,
+fab-500x-20261114T224408Z-003,60,b427de3ee8d17102199c8b7b,55c4698492d8cd5ef812f7b814efc854,fab-500x,mal,general_knowledge,aya-dataset,human_authored,"[user] മലയാളം പ്രാഥമികമായി ഇന്ത്യൻ സംസ്ഥാനമായ കേരളത്തിലും കേന്ദ്രഭരണ പ്രദേശമായ ലക്ഷദ്വീപിലും സംസാരിക്കുന്ന ഒരു ഭാഷയാണ്. ഇന്ത്യയിലെ ഔദ്യോഗികമായി അംഗീകരിക്കപ്പെട്ട 22 ഭാഷകളിൽ ഒന്നായ ഇത് ദ്രാവിഡ ഭാഷാ കുടുംബത്തിൽ പെട്ടതാണ്.
+
+മലയാളത്തിന് സമ്പന്നമായ ഒരു സാഹിത്യ പാരമ്പര്യമുണ്ട്, അതിന്റെ ഉത്ഭവം ഒമ്പതാം നൂറ്റാണ്ടിലാണ്. പുരാതന ബ്രാഹ്മി ലിപിയിൽ നിന്ന് ഉരുത്തിരിഞ്ഞ മലയാള ലിപി എന്നറിയപ്പെടുന്ന ഒരു തനത് ലിപി ഇതിന് ഉണ്ട്. അക്ഷരങ്ങൾ, സ്വരാക്ഷരങ്ങൾ, ഡയാക്രിറ്റിക് അടയാളങ്ങൾ എന്നിവയുടെ സംയോജനമാണ് ലിപിയിൽ അടങ്ങിയിരിക്കുന്നത്.
+
+മലയാളത്തിന്റെ പദാവലിയിൽ സംസ്‌കൃതം, തമിഴ്, അറബിക് തുടങ്ങി വിവിധ ഭാഷകളിൽ നിന്നുള്ള സ്വാധീനമുണ്ട്. സങ്കീർണ്ണമായ വ്യാകരണത്തിനും സംയുക്ത പദങ്ങളുടെ വിപുലമായ ഉപയോഗത്തിനും ഇത് അറിയപ്പെടുന്നു. മലയാള സാഹിത്യത്തിൽ കവിത, ഗദ്യം, നാടകം, നാടോടി സാഹിത്യം എന്നിവയുൾപ്പെടെ നിരവധി വിഭാഗങ്ങൾ ഉൾക്കൊള്ളുന്നു.
+
+കേരളത്തിനു പുറമേ, ഇന്ത്യയുടെ മറ്റ് ഭാഗങ്ങളിലും ലോകമെമ്പാടുമുള്ള മലയാളി പ്രവാസികളും മലയാളം സംസാരിക്കുന്നു. ഇതിന് ശക്തമായ ഒരു സാംസ്കാരിക പ്രാധാന്യമുണ്ട് കൂടാതെ കേരളത്തിന്റെ കല, സംഗീതം, സിനിമ, നാടകം എന്നിവയുടെ അവിഭാജ്യ ഘടകമാണ്.
+
+ചോദ്യം: എന്താണ് മലയാളം, അത് പ്രധാനമായും എവിടെയാണ് സംസാരിക്കുന്നത്?",ഉത്തരം: ഇന്ത്യൻ സംസ്ഥാനമായ കേരളത്തിലും കേന്ദ്രഭരണ പ്രദേശമായ ലക്ഷദ്വീപിലും പ്രാഥമികമായി സംസാരിക്കുന്ന ഭാഷയാണ് മലയാളം. ദ്രാവിഡ ഭാഷാ കുടുംബത്തിൽ പെടുന്ന ഇതിന് സമ്പന്നമായ സാഹിത്യ പാരമ്പര്യവും തനതായ ലിപിയും വിവിധ ഭാഷകളിൽ നിന്നുള്ള സ്വാധീനവുമുണ്ട്. ഇന്ത്യയുടെ മറ്റ് ഭാഗങ്ങളിലും ലോകമെമ്പാടുമുള്ള മലയാളി പ്രവാസികളും മലയാളം സംസാരിക്കുന്നു.,,,,
+fab-500x-20261114T224408Z-003,61,863778eec815cdd936d14964,76ef048b799c63458e29b74f869043d2,fab-500x,mal,mathematics,aya-dataset,human_authored,"[user] ഇനിപ്പറയുന്ന വാചകം പൂർത്തിയാക്കുക:  സെപ്റ്റംബർ 2001-ൽ ഒരു ഏകാംഗകലാകാരനായി ജാക്സൺ സംഗീത ലോകത്ത്  30 വർഷം പൂർത്തിയാക്കിയതിന്റെ ഭാഗമായി മാഡിസൺ സ്ക്വയർ ഗാർഡനിൽ വെച്ച് ""മുപ്പതാം വാർഷിക കച്ചേരി"" എന്ന പേരിൽ രണ്ട് പരിപാടികൾ നടത്തി. ഒരു സംഗീത പരിപാടിയുടെ ചരിത്രത്തിലെ തന്നെ ഏറ്റവും ഉയർന്ന ടിക്കറ്റ് നിരക്കായിരുന്നു മുൻനിര സീറ്റുകൾക്ക്.ഈ പരിപാടിയിൽ മ്യാ, അഷർ  ,വിറ്റ്നി ഹ്യൂസ്റ്റൺ, ബ്രിട്ട്നി സ്പിയേർസ് , എൻസിങ്ക്, ഡെസ്റ്റിനിസ് ചൈൽഡ്, മോണിക്ക, ലൂഥർ വാൻഡറോസ്,സ്ലാഷ് എന്നിവരടക്കം നിരവധി കലാകാരന്മാർ പങ്കെടുത്തു. ജാക്സൺ തന്റെ സഹോദരന്മാരോടൊപ്പം 1984 നു ശേഷം ആദ്യമായി സ്റ്റേജിൽ പ്രത്യക്ഷപ്പെടുന്നത് ഈ പരിപാടിയിൽ ആയിരുന്നു. ഇതിലെ രണ്ടാമത്തെ പരിപാടി","സെപ്റ്റംബർ 11ലെ ഭീകരാക്രമണംത്തിന്റെ തലേ ദിവസമായിരുന്നു. 9/11 ശേഷം ജാക്സൺ, എന്ന ലാഭരഹിതമായ സംഗീത പരിപാടി വാഷിങ്ടൺ, ഡി.സി.യിലെ ആർ എഫ് കെ സ്റ്റേഡിയത്തിൽ വെച്ചു സംഘടിപ്പിച്ചു. നിരവധി പ്രമുഖർ പങ്കെടുത്ത ഈ സംഗീത പരിപാടിയിൽ ജാക്സൺ  തന്റെ ഐക്യദാർഡ്യം പ്രകടിപ്പിച്ചു വാട്ട് മോർ കാൻ ഐ ഗിവ് എന്ന ഗാനം അവസാനം ആലപിച്ചു.",,,,
+fab-500x-20261114T224408Z-003,62,978372859a7638b4ccded0f9,e82337852c700e54f3b5126156613de3,fab-500x,mal,science,aya-dataset,human_authored,[user] ചോദ്യം: എന്താണ് പ്രകാശസംശ്ലേഷണം?,"ഉത്തരം: ഹരിതസസ്യങ്ങൾ, ആൽഗകൾ, ചിലതരം ബാക്റ്റീരിയകൾ എന്നിവ, സൂര്യനിൽ നിന്നുള്ള ഊർജ്ജം ഉപയോഗിച്ച്, കാർബൺ ഡയോക്സൈഡിനെ കാർബോ ഹൈഡ്രേറ്റുകൾ (പഞ്ചസാര) ആക്കിമാറ്റുന്ന പ്രക്രിയയെയാണ്‌ പ്രകാശസംശ്ലേഷണം(Photosynthesis) എന്ന് പറയുന്നത്. കാർബൺ ഡയോക്സൈഡും ജലവും ഉപയോഗപ്പെടുത്തുന്ന ഈ പ്രക്രിയയിലെ ഉപോല്പ്പന്നമാണ്‌ ഓക്സിജൻ. ഭൗമാന്തരീക്ഷത്തിലെ ഓക്സിജന്റെ നില പരിപാലിക്കുന്ന ഈ പ്രവർത്തനം മിക്കവാറും എല്ലാ ജീവികളുടെയും പ്രത്യക്ഷമോ പരോക്ഷമോ ആയ ഊർജ്ജസ്രോതസ്സുമാണ്.
+
+ഹരിത കണത്തിൽ അടങ്ങിയിട്ടുള്ള ഹരിതകം a, ഹരിതകം b, കരോട്ടിൻ, സാന്തോഫിൽ എന്നീ വർണ്ണകങ്ങളാണ് പ്രകാശസംശ്ലേഷണത്തിനു സഹായിക്കുന്നത്. ഈ വർണ്ണകങ്ങളാള് പ്രകാശത്തിൽനിന്നുമുള്ള ഊർജ്ജം ആഗിരണം ചെയ്യുന്നത്, സസ്യങ്ങളിൽ ‍ഈ പ്രോട്ടീനുകൾ ക്ലോറോപ്ലാസ്റ്റുകളിൽ കാണപെടുമ്പോൾ ബാക്റ്റീരിയകളിൽ ഈ പ്രോട്ടീനുകൾ കോശഭിത്തിയിലാണ്‌ (plasma membrane) കാണപ്പെടുന്നത്. ഹരിതകം ആഗിരണം ചെയ്യുന്ന ഊർജ്ജത്തിൽ കുറച്ചുഭാഗം അഡിനോസിൻ ട്രൈ ഫോസ്ഫേറ്റ് (adenosine triphosphate - ATP)രൂപത്തിൽ ശേഖരിക്കപ്പെടുന്നു, ബാക്കി ഊർജ്ജം, ജലത്തിൽനിന്നും ഇലക്ട്രോണുകളെ വേർപ്പെടുത്താൻ ഉപയോഗിക്കുന്നു. ഇങ്ങനെ സ്വതന്ത്രമാക്കപ്പെട്ട ഇലക്ട്രോണുകൾ ഉപയോഗിച്ച് കാർബൺ ഡയോക്സൈഡും ജലവും കൂടുതൽ സങ്കീർണ്ണമായ, അന്നജം തുടങ്ങിയ ഓർഗാനിൿ സംയുക്തങ്ങളായി മാറുന്നു. ഹരിതസസ്യങ്ങൾ, ആൽഗകൾ, സൈനോബാക്റ്റീരിയകൾ എന്നിവയിൽ കാൽവിൻ ചക്രം (Calvin cycle) എന്ന പ്രകാശസംശ്ലേഷണ രാസപ്രവർത്തനങ്ങളാണ് നടക്കുന്നത്, എന്നാൽ ക്ലോറോബിയം പോലെയുള്ള ചില ബാക്റ്റീരിയകളിൽ വിപരീതക്രെബ്സ് ചക്രം(reverse Krebs cycle) എന്നറിയപ്പെടുന്ന സംശ്ലേഷണരീതിയാണ് നടക്കുന്നതു്.",,,,
+fab-500x-20261114T224408Z-003,63,9eb1aebf55f7632414d60f1a,8e1bbd92c2d04df3478b6196129e6faf,fab-500x,mal,web_frontend,aya-dataset,human_authored,"[user] താഴെ കൊടുത്തിരിക്കുന്ന ഭാഗം കാണുക, അതിനുശേഷം ചോദ്യത്തിന് ഉത്തരം നൽകുക, അതേ ഭാഷയിൽ:  പാസേജ്: മൈക്രോസോഫ്റ്റ് വിൻഡോസ്, മാക് ഒഎസ് എക്സ് എന്നിവയ്ക്കായുള്ള ഒരു സ്ക്രീൻകാസ്റ്റിംഗ്, ഇലേണിംഗ് സോഫ്റ്റ്വെയറാണ് ആക്റ്റീവ്പ്രസന്റർ, ഇത് സോഫ്റ്റ്വെയർ പ്രകടനങ്ങൾ, സോഫ്റ്റ്വെയർ സിമുലേഷനുകൾ, ക്വിസുകൾ എന്നിവ സൃഷ്ടിക്കാൻ ഉപയോഗിക്കാം. ചിത്രങ്ങൾ, HTML സ്ലൈഡ്ഷോകൾ, പ്രമാണങ്ങൾ (PDF, മൈക്രോസോഫ്റ്റ് വേഡ്, എക്സൽ), മൈക്രോസോഫ്റ്റ് പവർപോയിന്റ് അവതരണങ്ങൾ, വീഡിയോകൾ (AVI, MP4, WMV, WebM), ഫ്ലാഷ് വീഡിയോകൾ, സംവേദനാത്മക സിമുലേഷനുകൾ (HTML5, അഡോബ് ഫ്ലാഷ്) എന്നിവയുടെ ഒരു പരമ്പരയിലേക്ക് കയറ്റുമതി ചെയ്യാൻ ഇത് അനുവദിക്കുന്നു. ഇ-ലേണിംഗിനായി, ആക്റ്റീവ് പ്രെസെന്ററിന് കയറ്റുമതി ചെയ്ത മെറ്റീരിയലുകൾ സ്കോർം അല്ലെങ്കിൽ എക്സ് എപിഐയിൽ പായ്ക്ക് ചെയ്യാൻ കഴിയും. സോഫ്റ്റ്വെയർ സിമുലേഷനുകൾക്കായി, മൌസ് ഹോവറുകൾ, ഇടത് അല്ലെങ്കിൽ വലത് മൌസ് ക്ലിക്കുകൾ, മോഡിഫയർ കീകളുള്ള കീ പ്രഷുകൾ എന്നിവ ഉപയോഗിക്കാം.  ചോദ്യം: സ്ക്രീൻ കാസ്റ്റിംഗ് സോഫ്റ്റ് വെയറിന് എന്താ പേര്?",ആക്റ്റീവ്പ്രസന്റർ ഒരു സ്‌ക്രീൻ കാസ്റ്റിംഗ് സോഫ്റ്റ്‌വെയർ ആണ്.,,,,
+fab-500x-20261114T224408Z-003,64,f2b1ef4c973ff5b62be51480,f54d13484d72b0bdeb4a1c969d7db608,fab-500x,mal,web_fullstack,aya-dataset,human_authored,[user] സിവില്‍ നിയമ ലംഘന പ്രസ്ഥാനം,"Home
+Indian Independence Movement
+സിവില്‍ നിയമ ലംഘന പ്രസ്ഥാനം
+by
+PSC Website
+•
+May 17, 2021
+0
+സിവില്‍ നിയമ ലംഘന പ്രസ്ഥാനം (Civil Disobedience Movement in Malayalam)
+
+
+
+ബ്രിട്ടീഷ്‌ ഭരണത്തിനെതിരെ ഗാന്ധിജി നയിച്ച രണ്ടാമത്തെ വന്‍ പ്രക്ഷോഭമാണ്‌ സിവില്‍ നിയമലംഘന പ്രസ്ഥാനം. ഉപ്പുനിയമം ലംഘിച്ചുകൊണ്ടാണ്‌ ഗാന്ധിജി സിവില്‍നിയമലംഘന പ്രസ്ഥാനത്തിനു തുടക്കം കുറിച്ചത്‌. പ്രക്ഷോഭം ആരംഭിക്കുന്നതിനു മുമ്പ്‌ അതിനുള്ള വിശദമായ പരിപാടികള്‍ ഗാന്ധിജി തയ്യാറാക്കിയിരുന്നു. സ്വാതന്ത്ര്യദിനാഘോഷങ്ങള്‍ കഴിഞ്ഞ ഉടനെതന്നെ അദ്ദേഹം “പതിനൊന്ന്‌ ആവശ്യങ്ങള്‍' ബ്രിട്ടീഷ്‌ ഗവണ്‍മെന്റിന്‌ മുന്നില്‍ സമര്‍പ്പിച്ചു, ഈ ആവശ്യങ്ങള്‍ അംഗീകരിച്ചില്ലെങ്കില്‍ ഗവണ്‍മെന്റിനെതിരെ കോണ്‍ഗ്രസ്സ്‌ ഒരു സിവില്‍ നിയമലംഘന പ്രസ്ഥാനം ആരംഭിക്കണമെന്ന്‌ അദ്ദേഹം മുന്നറിയിപ്പ്‌ നല്‍കുകയും ചെയ്തു. എന്നാല്‍ വൈസ്രോയി ഈ ആവശ്യങ്ങളില്‍ ഒന്നുപോലും അംഗീകരിച്ചില്ല. 1930 ഫെബ്രുവരിയില്‍ കോണ്‍ഗ്രസ്സ്‌ പ്രവര്‍ത്തക സമിതി സബര്‍മതിയില്‍ സമ്മേളിച്ച്‌ സിവില്‍ നിയമലംഘന പ്രസ്ഥാനം ആരംഭിക്കാന്‍ ഗാന്ധിജിയെ അധികാരപ്പെടുത്തി.
+
+ഗവണ്‍മെന്റിനെതിരെ പോരാടുന്നതിനുവേണ്ടി ഗാന്ധിജി പുതിയൊരു സമരായുധം സ്വീകരിച്ചു. ഉപ്പുനിയമം ലംഘിച്ച്‌ സിവില്‍ നിയമലംഘന പ്രസ്ഥാനം ആരംഭിക്കുമെന്ന്‌ അദ്ദേഹം പ്രഖ്യാപിച്ചു. ഉപ്പുനിയമം ബ്രിട്ടീഷ്‌ ഇന്ത്യയിലെ വെറുക്കപ്പെട്ട നിയമങ്ങളില്‍ ഒന്നായിരുന്നു.  ഉപ്പു നികുതിയെ കേന്ദ്രപ്രശ്നമാക്കി സിവില്‍ നിയമലംഘന പ്രസ്ഥാനം ആരംഭിക്കാനുള്ള ഗാന്ധിജിയുടെ തീരുമാനം തികച്ചും തന്ത്രപരമായ ഒരു നീക്കമായിരുന്നു. ഇതിലൂടെ ജനരോഷം ബ്രിട്ടീഷുകാര്‍ക്കെതിരെ തിരിച്ചുവിടാന്‍ കഴിയുമെന്ന്‌ ഗാന്ധിജി കണക്കുകൂട്ടി. അങ്ങനെ ഉപ്പുനിയമം ഇന്ത്യന്‍ സ്വാതന്ത്ര്യ സമരത്തിലെ ഒരു പ്രധാന പ്രശ്നമായിത്തീര്‍ന്നു.",,,,
+fab-500x-20261114T224408Z-003,65,fc43a36f4418cef040e53e97,9b202830e78d7be5cc4437c88de7ba93,fab-500x,mal,writing,aya-dataset,human_authored,"[user] Write a continuation for this paragraph - ബൈസന്റൈൻ സാമ്രാജ്യത്തിന്റെ കാലത്ത്, സിറിയ ഏറ്റവും പ്രധാനപ്പെട്ട പ്രദേശങ്ങളിലൊന്നായിരുന്നു, 609 നും 628 നും ഇടയിൽ സസാനിഡുകൾ കൈവശം വച്ചിരുന്നതിനാൽ തന്ത്രപരമായ പ്രാധാന്യമുണ്ടായിരുന്നു, പിന്നീട് ചക്രവർത്തി ട്രഷറി വീണ്ടെടുത്തു.",അന്ത്യോക്യയുടെ പതനത്തിനും ശേഷം ഈ പ്രദേശത്തെ ബൈസന്റൈൻ ഭരണം മുസ്‌ലിംകൾക്ക് നഷ്ടപ്പെട്ടു.,,,,
+fab-500x-20261114T224408Z-003,66,6a7fb0e3430fac94ebf2abca,4b89438db41b05a4713bcd9b938d4395,fab-500x,mr,general_knowledge,aya-dataset,human_authored,"[user] शशिना सह याति कौमुदी,
+सह मेघेन तडित्प्रलीयते ।
+प्रमदाः पतिवर्त्मगा इति
+प्रतिपन्नं हि विचेतनैरपि ।।
+
+कालिदास – कुमारसंभव-४.३३","चंद्रासोबतच कौमुदी (चांदणे) असते, मेघ विजेला सामावून घेतो, पतीच्या मार्गावरूनच त्याची सहधर्मचारिणी पत्नीही जात असते हे (उदाहरणात दिलेल्या) अचेतनांनासुद्धा माहीत असते.",,,,
+fab-500x-20261114T224408Z-003,67,94b01b4ab68a3a50be4602ce,a4a791ad448d70859440ec7e29ab0ec6,fab-500x,mr,problem_solving,aya-dataset,human_authored,"[user] fbp म्हणजे काय?
+उत्तर :",Flexible Benefits Plan (FBP),,,,
+fab-500x-20261114T224408Z-003,68,8d48df8c0bea83a9bc1b1f7d,59449c764dca1945cfa0214f989ac72d,fab-500x,mr,science,aya-dataset,human_authored,"[user] सीआरपीएफ चा फुल फॉर्म (CRPF Full form in marathi) काय आहे?
+उत्तर :",सेंट्रल रिझर्व पोलीस फोर्स (Central Reserve Police Force),,,,
+fab-500x-20261114T224408Z-003,69,a2a09bd3f399badb48c636fa,9814ab84063339523e135ca336eb1e57,fab-500x,ms,general_knowledge,aya-dataset,human_authored,"[user] Apakah maksud ""bagai bertanak di kuali""?",Bermurah-murah kepada orang lain sehingga mendatangkan kesusahan kepada diri sendiri,,,,
+fab-500x-20261114T224408Z-003,70,353b31d81e498bb48aeb4e62,7ac7ed458c8a9a582bfcb20645737447,fab-500x,ms,islamic_studies,aya-dataset,human_authored,"[user] Apakah maksud 'kalau menyeberang sungai biarlah ditelan oleh buaya, tetapi janganlah dipagut oleh ikan kecil-kecil'?","Ia bermaksud kalau berbuat salah biarlah dihukum oleh orang besar, jangan dianiaya oleh orang kecil-kecil",,,,
+fab-500x-20261114T224408Z-003,71,f5c374ea8cd853d9a66ab17f,686f52a2b4b564b740974ade94b9d4fc,fab-500x,ms,mathematics,aya-dataset,human_authored,[user] Berikan resepi membuat Kek Lapis Kacang Tanah berserta cara-cara penyerdiaanya.,"Resepi Kek Lapis Kacang Tanah
+
+Bahan:
+15 butir telur ayam utuh (pisahkan kuning dan putih) 
+500 grm gula pasir 
+1 kaleng susu kental manis 
+300 gram kacang tanah,disangray,dihaluskan.
+400 gram mentega
+1sdt panili.
+
+Caranya:
+
+Kocok mentega dengan setengah gula pasir sampai putih,masukan kuning telur kocok lagi sampai kembang,.
+Dilain tempat kocok putih telur dgn gula yang setengahnya lagi. Sampai kaku.
+Sesudah itu campurkan kocokan kuning sama putihnya tadi, aduk pelan pelan, masukan susu,panili, dan terahir kacang tanah, sesudah tercampur rata, siapkan loyang ukuran 18×18.
+Bakar selapis selapis dgn api atas saja. 
+Selamat mencoba.",,,,
+fab-500x-20261114T224408Z-003,72,f3fb833a41cce702e517787f,a5222c6d8440770fe2e1d4d86bb4114e,fab-500x,ms,science,aya-dataset,human_authored,"[user] Maklumat berikut menerangkan satu proses dalam teknologi kejuruteraan genetik. 
+""Menghasilkan insulin manusia melalui bakteria.""
+""Membantu penghidap diabetes mellitus (kencing manis)""
+
+Antara berikut, yang manakah benar tentang proses tersebut?
+A. Terapi gen
+B. Rawatan moden
+C. Teknologi DNA Rekombinan
+D. Organisma Termodifikasi Genetik",Jawapannya ialah C. Teknologi DNA Rekombinan,,,,
+fab-500x-20261114T224408Z-003,73,c08d15051caf87bd07265b7e,a4a0bcfb31791a073241f9627e5985fb,fab-500x,ms,writing,aya-dataset,human_authored,[user] Siapakah Michelle Yeoh? Jelaskan dalam ayat-ayat yang tidak melebihi 130 patah perkataan.,"Michelle Yeoh ialah seorang pelakon wanita Malaysia dan orang Asia pertama yang memenangi Anugerah Akademi untuk Pelakon Wanita Terbaik melalui filem Everything Everywhere All at Once. Dilahirkan pada 6 Ogos 1962 di Ipoh, Perak, Yeoh belajar di Royal Academy of Dance di London dalam jurusan balet dan kemudiannya memenangi pertandingan Miss Malaysia World ketika beliau berusia 20 tahun. Beliau memulakan kerjaya dalam bidang filem aksi di Hong Kong and kemudian meneruskannya di Hollywood. Filem-filem beliau termasuk Yes, Madam (1985), Magnificent Warriors (1987), Police Story 3: Supercop (1992), The Heroic Trio (1993), Holy Weapon (1993),  Crouching Tiger, Hidden Dragon (2000),  Memoirs of a Geisha (2005), Sunshine (2007), The Mummy: Tomb of the Dragon Emperor (2008), Reign of Assassins (2010), Kung Fu Panda 2 (2011), dan The Lady (2011),",,,,
+fab-500x-20261114T224408Z-003,74,eef7499c414850938ecdd9bc,2a89defe0b85cf4a6072d7821f5406cf,fab-500x,mya,coding,aya-dataset,human_authored,[user] JavaScript က Object Oriented Language ဟုတ်လား,"JavaScript က OOP language မဟုတ်ပါဘူး။ ဒါပေမယ့် အတိုင်းအတာတခုထိ OOP feature တွေ support နိုင်ဖို့တော့ ကြိုးစားပြင်ယူလာခဲ့တယ်။ 
+programming language တွေမှာ data type တွေကို စုစည်းဖို့နဲ့ အမျိုးအစား ခွဲနိုင်ဖို့အတွက် construct အမျိုးမျိုး ပြင်ဆင်ထားကြတယ်။ ဥပမာ Swift မှာ struct နဲ့ class နှစ်မျိုးရှိတယ်။ Java မှာ class ပဲရှိပြီး Go မှာတော့ struct ပဲရှိပါတယ်။ JavaScript မှာ ဘာမှမရှိပါဘူး။
+ဒီ keyword တွေရဲ့ ရည်ရွယ်ချက်တွေထဲက တခုက clsss definition လို့ခေါ်တဲ့ object specification ဖြစ်တယ်။ object တခုမှာ ဘယ်လို state တွေ ပါရမယ်။ ဘယ်လို behavior ရှိရမယ် စသဖြင့် format တခု သတ်မှတ်လိုက်ပြီး code တွေကို ကျစ်ကျစ်လျစ်လျစ် ရေးချင်တာဖြစ်တယ်။
+ဥပမာ Http Object ဆိုရင် headers တွေပါရမယ်။ သူ့ထဲက payload ကိုဖတ်နိုင်တဲ့ method တွေပါရမယ် စသဖြင့်။
+JavaScript မှာ class မရှိပေမယ့် အနီးစပ်ဆုံးဆိုရင် Prototype ကိုပြလို့ရတယ်။ Prototype ဆိုတာက JavaScript object တွေထဲပါတဲ့ နောက်ထပ် object တခုပါပဲ။ ဘာမှမရှိတဲ့ object ကို toLocaleString, toString စသဖြင့် log ကြည့်ပါ။ ဒီ method တွေက ဘယ်ကလာသလဲဆိုရင် prototype ဆိုတဲ့ property ရဲ့တန်ဖိုးဖြစ်တဲ့ inner object ထဲက လာပါတယ်။
+ဒီ prototype က javascript function တွေထဲမှာပါတဲ့ Function.prototype နောက် Array.prototype စတာတွေရဲ့ ဘိုးအေကြီး ဖြစ်တဲ့ Object.prototype ဖြစ်တယ်။ ဆိုလိုချင်တာက မိသားစု သစ်ပင်အရ Function.prototype ဆိုတဲ့ object ထဲမှာလည်း Object.prototype object တခုရှိပါမယ်။ ဒါပေမယ့် Object.prototype object ထဲမှာတော့ prototype ထပ်မရှိဘူးပေါ့။
+ဒီတော့ object အနေနဲ့ property တခု အတောင်းခံရတဲ့အခါ အပြင် object ကနေ အတွင်း prototype ထိ ပတ်ရှာပါတယ်။ ဒါကြောင့် object အလွတ်ကြီးထဲမှာ toLocaleString ရှိနေတာဖြစ်တယ်။
+ကျွန်တော်တို့ prototype ကိုသုံးပြီး OOP langauge တွေမှာလို class definition တွေရေးနိုင်ပါတယ်။ ကိုယ်လိုချင်တဲ့ method တွေပါအောင် ရေးထားတဲ့ prototype ကိုသုံးပြီး Object.create(myPrototype) လို့ ဆောက်လိုက်ရင် myPrototype ထဲက method တွေကို property အဖြစ် ကူးယူဆောက်ပေးပါလိမ့်မယ်။ ဒါ JavaScript မှာ OOP နဲ့အနီးစပ်ဆုံးတူတဲ့အရသာပါပဲ။ 
+ဒါပေမယ့် OOP native language တွေမှာလို state property တွေကိုတော့ ထည့်မရေးထားနိုင်ပါဘူး။ ဒီအချက်က undefined property access တွေကိုဖြစ်စေနိုင်တုန်းပါပဲ။ ဒါကြောင့် constructor method တွေကို helper အဖြစ် ရေးထားတဲ့ pattern ကိုကျင့်သုံးလာကြပါတယ်။ ဒီပုံစံမှာတော့ လိုအပ်တဲ့ state ကို function ရဲ့ parameter ကနေ လက်ခံတယ်။ function ထဲမှာ လိုအပ်တဲ့ prototype ကနေ object ဆောက်တယ်။ object မှာ state property တွေကို ချက်ချင်း set လုပ်တယ်။
+နောက်ပိုင်းမှာတော့ constructor function ကိုမိတ်ဆက်လာခဲ့တယ်။ ဒီပုံစံမှာတော့ function ကို new keyword နဲ့ ခေါ်မယ်။ ကိုယ်လိုချင်တဲ့ prototype ကို function နဲ့ သေချာနွှယ်ထားမယ်ဆိုရင် JS Engine အနေနဲ့ prototype မှန်အောင် ရွေးဆောက်ပေးပြီး ဆောက်လိုက်တဲ့ object ကို this ဆိုတဲ့ keyword မှာပြန်ချည်ပေးမယ်။ this ကိုသုံးပြီး လိုအပ်တဲ့ state တွေ set ပေါ့။
+ဒီပုံစံမှာလည်း language တိုးတက်ပြောင်းလဲမှုတွေကို လွတ်လွတ်လပ်လပ် မလုပ်နိုင်သေးတဲ့အတွက် သီးခြား class keyword ကိုမိတ်ဆက်လာခဲ့တယ်။ အရင်က constructor function ကို class ထဲမှာ constructor လို့ခေါ်ပြီး constructor method က object တွေထဲ ထည့်မကူးပေးလိုက်မယ့် method တခုဖြစ်တယ်။
+ဒါပေမယ့် JavaScript မှာ OOP native တွေလိုမျိုး state ကို class definition (object specification) ထဲထည့်မသတ်မှတ်နိုင်သေးပါဘူး။
+ကံကောင်းတာက Java နဲ့ သူတင်ကိုယ်တင် ယှဥ်နိုင်တဲ့ C# လို OOP language ရဲ့ ပဲ့ကိုင်ရှင် Microsoft ဆီက လက်ဆောင်တခု ရခဲ့ကြပါတယ်။ typescript တဲ့။ အချိန်ရရင် လေ့လာထားသင့်ပါတယ်ခင်ဗျာ။
+
+CodeHub by Harry Yan, Sep 2023",,,,
+fab-500x-20261114T224408Z-003,75,bc853e5842007e0e11c19d87,0d4eb48c0aafbe16a5bd6861c3cde0ed,fab-500x,mya,cybersecurity,aya-dataset,human_authored,[user] ကွန်ပြူတာလုံခြုံရေးအတွက် firewall ၏ရည်ရွယ်ချက်ကဘာလဲ။,Firewall သည် ကွန်ပြူတာကွန်ရက် ( computer network )အတွင်းသို့ ခွင့်ပြုချက်မရှိဘဲ ဝင်ရောက်ခြင်း သို့မဟုတ် ပြင်ပသို့ ဝင်ရောက်ခြင်းမှ ကာကွယ်ရန် ဒီဇိုင်းထုတ်ထားသော လုံခြုံရေးစနစ်တစ်ခုဖြစ်သည်။ ဝင်ရောက်ခွင့်မရှိသောအင်တာနက်အသုံးပြုသူများသည် ကိုယ်ပိုင်ကွန်ရက်များ ( private networks ) သို့မဟုတ် အင်တာနက်သို့ချိတ်ဆက်ထားသည့် အင်ထရာနက်များ ( intranets ) နှင့် ချိတ်ဆက်၍မရကြောင်း သေချာစေရန် Firewall များကို မကြာခဏအသုံးပြုပါသည်။,,,,
+fab-500x-20261114T224408Z-003,76,ce4cecc4de43c2c77ede2eda,345bea60b3d19881cebbc79b67eb198f,fab-500x,mya,education,aya-dataset,human_authored,[user] Machine Learning အမျိုးအစား အဓိက ၂ မျိုးကို ဖော်ပြပါ,"Machine Learning မှာ အဓိကအားဖြင့်
+၁။ Supervised Machine Learning နဲ့
+၂။ Unsupervised Machine Learning ဆိုပြီး နှစ်မျိုး ပြန်ခွဲနိုင်ပါတယ်။ reinforcement learning လို တခြား ML အမျိုးအစားတွေလည်း ရှိပါသေးတယ်။",,,,
+fab-500x-20261114T224408Z-003,77,ca0ef0c4fa16710f5f956aa9,c719f550402ed86c8ecca872fe7876d6,fab-500x,mya,general_knowledge,aya-dataset,human_authored,[user] လူတွေက ဒိုင်နိုဆောကမ္ဘာမှာ ဘယ်လောက်ကြာကြာနေလဲ။,"2-3 နာရီခန့်
+များသောအားဖြင့် ကျွန်ုပ်တို့သည် ၂-၃ နာရီခန့်ကြာတတ်သည်။ ကျွန်ုပ်တို့သည် ပန်းခြံတစ်ခုလုံး လမ်းလျှောက်ကာ ဒိုင်နိုဆောအရိုးများကို ရှာဖွေရန်၊ ကစားကွင်း၌ ကစားကြပြီး ကျောက်မျက်ရတနာများတူးဖော်ရန် တူးကြသည်။",,,,
+fab-500x-20261114T224408Z-003,78,d3bf861c0308a89416548019,6ceb8e50bebab24c46cb1d40d15e70a2,fab-500x,mya,mathematics,aya-dataset,human_authored,[user] Developer ဖြစ်ဖို့ သင်္ချာလိုအပ်လား,"Developer တွေ သင်္ချာလိုအပ်လားဆိုတော့ လိုအပ်အောင် လုပ်ရင် လိုအပ်ပါလိမ့်မယ်လို့ ဖြေရမှာပဲ။ မမဆောင်းတာ မဟုတ်ပါဘူး။
+သင်္ချာထည့်တွက်ချင်ရင် Loading စက်ဝိုင်းလေးမှာ လည်နေတဲ့ အချောင်းလေးတွေကို ကိုယ်တိုင်တွက်ပြီး timing နဲ့ frequency ညှိလို့ရပါတယ်။
+Premium မဝယ်လို့ locked ဖြစ်နေတဲ့ image တွေကို အဖြူအမည်းနဲ့ ပြချင်တာလား။ matrix ကိုသုံးပြီး color filter လုပ်လို့ရပါတယ်။ ဒါတွေ ကိုယ်တိုင် မတွက်ချင်ရင် prebuilt library တွေသုံးရုံပါပဲ။
+Mobile မှာ gesture နဲ့ pointer တွေသုံးပြီး custom ရေးချင်တာလား။ geometry လိုပါတယ်။ sin cos tangent တွေ သိမှရမှာပါ။ မတွက်ချင်လည်း ရပါတယ်။ Declarative UI library တွေသုံးပြီး အတိုင်းအတာတခုအထိ ဖြေရှင်းနိုင်ပါတယ်။ ဥပမာ Jetpack Compose, SwiftUI
+Game မှာ shadow, trajectory motion နဲ့ character rotation တွေထည့်ပြီး လူဆော့ချင်တဲ့ ဂိမ်းတခုဖြစ်အောင်ရေးဖို့ သင်္ချာကော physics ပါ လိုပါတယ်။ Unity, Unreal စတဲ့ engine တွေက ဘယ်လောက် လုပ်ပေးလာနိုင်တယ်ပြောပြော အကန့်အသတ် ရှိပါတယ်။
+Data Science ဆိုရင်လည်း Tensor, matrix တွေ မသိပဲ ရှင်သန်လို့မရတဲ့ အဖြစ်ကနေ အခုတော့ no code နီးနီးဖြစ်လာတဲ့အထိ ရွေ့လျားလာနေတယ်။ ဒါပေမယ့် probability, statistics စတာတွေ မသိရင် analysis ကောင်းကောင်း လုပ်နိုင်မှာ မဟုတ်ပါဘူး။
+Development ရဲ့သဘောက ကိုယ့်ပြဿနာကို ရှေ့မှာ ကြုံခဲ့တဲ့သူ ရှိပြီးလောက်တာမို့ အတိုင်းအတာတခုထိ အသင့်သုံး အဖြေရှိဖို့ 80% သေချာပါတယ်။ ဒါပေမယ့် ပင်လယ်ထဲက ငါးလို ကူးချင်ရင်တော့ ကျန်တဲ့ 20% အတွက် အချိန်ပေးမလား ဆုံးဖြတ်ဖို့ပါပဲ။
+
+CodeHub by Harry Yan, Sep 2023",,,,
+fab-500x-20261114T224408Z-003,79,1eb9e8140b7d809c24de9356,2f7d4d15473b86643bde6b8a120b69c5,fab-500x,mya,pakistan,aya-dataset,human_authored,"[user] ဤဝါကျ၏ပိုမိုရှုပ်ထွေးသောမူကွဲကိုဖန်တီးပါ။
+
+M. H. Douglas ကို Muhammad Hussain (အာရပ် / Persian / Urdu: محمد حسین) အဖြစ်မွေးဖွားခဲ့သည်။ ဟိန္ဒူရုပ်ရှင်လုပ်ငန်းတွင် အိန္ဒိယသရုပ်ဆောင် ၊ ဇာတ်ညွှန်းဒါရိုက်တာ ၊ တိုက်ခိုက်ရေးဂီတပညာရှင် အဖြစ် လူသိများ ကျော်ကြားသည်။",ဒေါ့ဂလတ်စ် (M. H. Douglas) ကို မိုဟာမက် ဟူစိန် (အာရပ်/ဖာရ်စီ/အူဒူ: محمد حسین) ဟု မွေးဖွားခဲ့ပြီး သူသည် စတန့်ဒါရိုက်တာ၊ အက်ရှင်ဒါရိုက်တာ၊ အက်ရှင် ကိုအော်ဒီနိတ်တာဖြစ်ပြီး ဘောလိဝုဒ်အကျော်အမော်များစွာအတွက် တိုက်ခိုက်မှုနှင့် အက်ရှင်မြင်ကွင်းများကို ရေးဆွဲခဲ့သည်။,,,,
+fab-500x-20261114T224408Z-003,80,2e5b85371cc6bcc4c6ebdf92,2effae1f92d1a196efa43b4fedf4be40,fab-500x,mya,problem_solving,aya-dataset,human_authored,[user] Magic Mushrooms က သက်ရောက်မှုဘယ်လိုရှိနိုင်လဲ,"Magic mushrooms တွေကို Shrooms တွေလို့လည်းခေါ်ကြတယ်။ သူက မှိုအမျိုးစားတစ်ခုတည်းကိုခေါ်တာမဟုတ်ဘဲ psilocybin (ဆီလိုဆိုင်ဘင်) ဆိုတဲ့ ဓာတ်တစ်မျိုးပါတဲ့ မှိုတွေကိုပြောတာပါ။ 
+မှိုတွေမှာပါတဲ့ အဲဒီဓာတ်က စိတ်ပိုင်းဆိုင်ရာ အလုပ်လုပ်ပုံကိုပြောင်းစေနိုင်ပြီး hallucination လို့ခေါ်တဲ့ တကယ်မရှိတာတွေကို မြင်စေနိုင်ပါတယ်။ စိတ်ရဲ့ အလုပ်လုပ်ပုံကိုပြောင်းစေတယ်ဆိုတာမှာတော့ ကောင်းတာရော ဆိုးတာရောနှစ်ခုလုံးဖြစ်နိုင်တယ်။ ဆေးဝါးအနေနဲ့ ကုသလို့ရနိုင်မယ် ဒါမှမဟုတ် ဦးနှောက်ရဲ့ စွမ်းရည်ကို မြှင့်တင်ပေးနိုင်မယ်လို့ ယုံကြည်ကြတယ်၊ စမ်းသပ်နေကြတယ်။ ဒါပေမယ့် တကမ္ဘာလုံးနီးပါးလောက်မှာ ဒီမှိုတွေက တရားမဝင်ဘူး။ မှိုစားရင် စိတ် နေလို့ကောင်းပြီးလွင့်မြောမယ်၊ တကယ်မရှိဘဲ မြင်ရတာ၊ ကြားရတာတွေဖြစ်နိုင်တယ်၊ အတွေးအခေါ်တွေပြောင်းသွားစေနိုင်တယ်၊ ဘာသာရေးအားကောင်းသူတွေမှာ ဘာသာရေးနဲ့ပတ်သက်ပြီး ဉာဏ်အလင်းပွင့်တယ်ဆိုတာမျိုးတွေထိတောင် ဖြစ်နိုင်တယ်။ ဒါပေမယ့် စိတ်ပိုင်းဆိုင်ရာကို တော်တော်လေး နက်နက်ရှိုင်းရှိုင်းထိုးဖောက်ရောက်နိုင် သက်ရောက်နိုင်တဲ့အမျိုးအစားဖြစ်လို့ စိတ်က ပုံဖော်သမျှမြင်ပြီး ကြောက်ရွံ့တုန်လှုပ်နေတာ၊ စိတ်ကိုက အလိုလိုကြောက်လန့်နေတာ ဒါမျိုးတွေလည်း ဖြစ်နိုင်တယ်။ မှိုကို အခြောက်ခံစားတာ၊ အမှုန့်လုပ်စားတာ၊ အရည်စိမ်သောက်တာ စသဖြင့် မျိုးစုံစားကြတယ်။ စားပြီး မိနစ် ၃၀ လောက်ကနေ သူ့သက်ရောက်မှုကို ခံစားရမယ်။ သက်ရောက်မှုကြာချိန်က ၄နာရီကနေ ၆နာရီလောက်ဖြစ်မယ်။
+
+Netflix ကြည့်တဲ့သူတွေဆိုရင် fantastic fungi လို့ခေါ်တဲ့ မှိုအကြောင်းရိုက်ထားတဲ့ Documentary ကိုကြည့်ကြည့်ဖို့ recommend ပေးပါတယ်။ ကျနော်အခုရှင်းပြမယ့်အကြောင်းအရာထက် ပိုစုံအောင်သိသွားလိမ့်မယ်
+
+ကောက်နှုတ်ချက် ။ ။ Dr. Thurein Hlaing Win ရဲ့ Aug, 2023 က content တခုမှ ကောက်နှုတ်ဖော်ပြထားပါသည်။",,,,
+fab-500x-20261114T224408Z-003,81,572c44a2a7b240dfdd1397dc,513e817c978b8d5806e14b4588bba930,fab-500x,mya,research,aya-dataset,human_authored,[user] ChatGPT လို AI tools တွေကို programmer / coder တွေအနေနဲ့ သုံးသင့် မသုံးသင့် ပြောပြပေးနိုင်မလား,"Software Developer တွေအနေနဲ့ ChatGPT or Any Generative AI တွေကို အရမ်းအားမကိုးသင့်ဘူး... သူပေးတဲ့ အချက်အလက်က အကန့်အသတ်ရှိတယ်... Google search result မှာဆိုရင် ဘယ်သူရေးတယ်... ဘယ် Organization က နောက်ခံရှိတယ်... အရင် ပေးထားတဲ့ အချက်အလက်တွေကကော မှန်တယ် မှားတယ်ဆိုတာ စစ်လို့ရတယ်... ChatGPT or Generative AI တွေမှာ ဒါတွေ စစ်လို့မရဘူး... ကိုယ်တိုင်လိုက်ဖတ်ပြီး ရှိပြီးသား အချက်အလက်တွေပေါ်မှာ မူတည်ပြီး Trusted Source က လာတာ ဟုတ်မဟုတ်ပေါ်မူတည်ပြီး ယုံသင့် မယုံသင့် ဆုံးဖြတ်လို့ မရဘူး... ChatGPT က Generative AI Category ထဲမှာ ပါတယ်... သူရဲ့ Train ထားတဲ့ Data ပေါ်မူတည်ပြီး အဖြေကို generate ပြန်ထုတ်ပေးတာ... တချို့ဟာတွေ အမှားတွေရှိတယ်... လုံးဝ 100% မမှန်ဘူး... AI ဆိုတာနဲ့ ဒါကြီးကတော့ ငါ့ထက်ပိုပြီး Smart ဖြစ်နေမှာပဲလို့ တွေးထားလို့ မရဘူး... AI ကိုယ်တိုင် Hallucinations ဖြစ်တတ်တယ်... အဖြေအမှားကြီးပဲ ထုတ်ပေးတတ်တယ်
+Comment ထဲမှာ ChatGPT Link တစ်ခုပေးထားတယ်... Software Architecture တွေကို Implement လုပ်ခိုင်းကြည့်လိုက်တာ တကယ်တန်း ရှုပ်ရှက်ခပ်လာရင် ChatGPT က... သူ့ကို Train ပေးလိုက်တဲ့ဟာကိုပဲ ရေးပေးနိုင်တယ်... တကယ်တန်း အကုန်လုံး ပြည့်စုံအောင် မရေးပေးနိုင်ဘူး... သူ့ဟာနဲ့သူ Conflict ဖြစ်ပြီး ဒီအဖြေကိုပဲ ထပ်ခါတလဲလဲ ပြန်ထုတ်ပေးနေကော
+သာမာန် ပြဿနာတွေတော့ အလွယ်တကူရှင်းနိုင်ပေမဲ့ ဒီ AI တွေက နေရာတိုင်းမှာ အလုံးစုံ မှန်ကန်တယ်ဆိုပြီး မျက်လုံး စုံမှိတ် မယုံသင့်ဘူး... ChatGPT က အဖြေတွေက အိပ်မက်မက်နေသလိုပဲ... Context တော့သိတယ်... သေချာ သိလားဆိုတော့ မသိဘူး
+ဘယ်လို နေရာတွေမှာ သုံးမလဲဆိုတော့ သူ Solid သိ
+နိုင်လောက်တဲ့ဟာမျိုးမှာ သုံးမယ်... ဥပမာ ငါ့ကို Dan Brown ရဲ့ The Da Vinci Code စာအုပ်အကြောင်းကို အတိုချုံးလေး ရေးပေး... ငါက Native Speaker မဟုတ်လို့ လွယ်လွယ်ရှင်းရှင်း sentences လေးတွေနဲ့ ရှင်းပြပါ ဆိုတာမျိုးမှာ သိပ်ကောင်းတယ်... Study Guide လိုမျိုး သုံးလို့ရတယ်... Technical Concept တွေ ဖတ်ရင်း Technical စာအုပ်တွေ ဖတ်ရင်း နားမလည်တာမျိုးဆို သုံးလို့ အဆပြေတယ်...
+Decision ချခိုင်းလို့ တကယ်လုပ်ခိုင်းလို့ အဆင်မပြေဘူး... ပြေတယ်ထားဦး.. သူ့ Result ကို ယုံလို့မရဘူး... Solid သိနိုင်လောက်တဲ့ဟာကိုပဲ 50% လောက် ယုံကြည်ထားတာ ကောင်းမယ်",,,,
+fab-500x-20261114T224408Z-003,82,a2e7b36773ee329fd1884e70,a741c5888976f6c9dd12361eca3306e9,fab-500x,mya,software_engineering,aya-dataset,human_authored,[user] Enterprise software system တွေမှာ အလုပ်လုပ်ချင်ရင် ဘယ် language တွေလေ့လာထားသင့်လဲ။ list လေးနဲ့ပြပေးပါ,"Enterprise software system တွေမှာ အလုပ်လုပ်ဖို့ ​စိတ်ကူးရှိရင် ဒီ language တွေကို လေ့လာထားသင့်ပါတယ်။
+- COBOL နဲ့ Java က enterprise တွေရဲ့ ကျောရိုး system ကို တည်ဆောက်ကြတဲ့ အဓိက language 2 ခုပါ။ US ကုမ္ပဏီကြီးတွေ၊ ဖက်ဒရယ်ဘဏ်နဲ့ US အစိုးရဌာနတချို့ရဲ့ system တွေကို COBOL သုံးပြီး တည်ဆောက်ထားတာဖြစ်တယ်။ Java ကတော့ ဒီနေ့အထိ enterprise system တွေအတွက် ရွေးချယ်စရာ ဖြစ်နေတုန်းပါပဲ။
+- Python ကို analytics system တွေ တည်ဆောက်ဖို့ အသုံးပြုကြတယ်။ ဒေတာ အခြေပြု Business Intelligence အတွက် enterprise တွေမှာ Python က ဦးစားပေး ရွေးချယ်စရာ ဖြစ်ပါတယ်။
+- C++ ကို performance လုံးဝ အထိခိုက် မခံနိုင်တဲ့ realtime application တွေတည်ဆောက်တဲ့အခါမှာ အသုံးပြုကြပါတယ်။
+- JavaScript ကိုတော့ Web layer မှာ အသုံးပြုဖို့ ရွေးချယ်ကြပါတယ်။
+- Microservice နဲ့ Cloud native​ ဦးစားပေးလာတဲ့အချိန်ကစပြီး Go ကို enterprise project တွေမှာ တွေ့ရများလာပါတယ်။
+
+CodeHub by Harry Yan, Sep 2023",,,,
+fab-500x-20261114T224408Z-003,83,06b7b9c1dbf55fd8a0410b7c,0eb1d9921900e0827e1926b311a5f855,fab-500x,mya,web_backend,aya-dataset,human_authored,[user] Web Framework တခုရဲ့ architecture ကို High level ကြည့်မယ်ဆိုရင် -,"Orchestrator, Request/Response Model, Routing System, Handler, Middleware ဆိုပြီး အဓိက ၅ ခု ရှိပါတယ်။",,,,
+fab-500x-20261114T224408Z-003,84,0b2595ba2c98ae044097853c,6688655230a348ad8c3a72d5466704e5,fab-500x,mya,web_frontend,aya-dataset,human_authored,[user] Bun ကြောင့် Node ကြီး ပလုံတော့မှာလား။,"Bun က benefit တွေ အများကြီး ယူလာခဲ့ပေမယ့် Node လို ဆယ်စုနှစ်တခုကျော်အောင် ရပ်တည်လာတဲ့ runtime ကို ကောက်လဲပလိုက်ဖို့ဆိုတာ အခုချိန်မှာတော့ အလျော်အစား ကြီးလွန်းနေသေးတယ်။
+Node မတိုင်ခင်ကလည်း JS runtime တွေရှိခဲ့တာပဲ။ GCP ရဲ့ AppEngine တို့ နောက် silk တို့ထွက်ခဲ့တယ်။ ဒါပေမယ့် JavaScript ရဲ့ single thread model ကြောင့် JS web program တွေရဲ့ လုပ်နိုင်စွမ်းက အထင်ကြီးစရာ မရှိခဲ့ဘူး။ နောက်တော့ Node.js ရောက်လာပြီး Google ရဲ့ V8 Engine နဲ့ Event loop Architecture ကိုသုံးပြီး JavaScript Backend တခေတ်စခဲ့တယ်။
+Node.js ရဲ့ သဘောက CPU bound task ကလွဲရင် I/O job တွေကို မ​စောင့်ပဲ callback တွေနဲ့ ပြန်လာစေမယ်။ ငွေရှင်းကောင်တာမှာ ငွေရှင်းဖို့ ရှေ့လူမှာတဲ့ စားစရာ ရတဲ့အထိ နောက်လူတွေက စောင့်စရာ မလိုတဲ့ ပုံစံပေါ့။
+Http Server တခါတည်းပါပြီး NPM လို package management နဲ့ ပေါင်းလိုက်တဲ့အခါ Node.js က ခဏလေးနဲ့ ထိုးတက်လာတယ်။ Node API တွေကို အခြေခံပြီး Express တို့လို web serving component ကို ချောမွတ်စေတဲ့ library တွေ ထပ်ထွက်လာတယ်။ frontend မှာ Next တို့ Nuxt တို့လို SSR framework တွေ ထွက်ခဲ့တာမှာလည်း Node ကအခရာကျခဲ့တယ်။ Node Ecosystem က အချိန်တိုအတွင်း ခပ်မြန်မြန်ပဲ ကြီးလာတယ်။
+အပြောင်းအလဲကြီးတခုက ECMAScript ပဲ။ ES6 မှာ prototype နဲ့ constructor helper pattern ကိုရှောင်ဖို့ class ကိုထည့်လာတာ၊ callback တွေကိုလျှော့ချပြီး ပိုချောမွတ်တဲ့ asynchronous code တွေရေးနိုင်ဖို့ ပြင်ဆင်လာတာနဲ့ module system အသစ်စတဲ့ အပြောင်းအလဲတွေကို မြင်ရခဲ့ရတယ်။
+ဒီထဲမှာ Node Ecosystem ကို တိုင်ပတ်သွားစေတဲ့တချက်က CommonJS နဲ့ ES6 module အကြား compatability ဖြစ်လိမ့်မယ်။ Webpack, Vite စတဲ့ bundler, transpiler တွေနဲ့ တအိအိ ရှေ့ဆက်ခဲ့ကြပေမယ့် typescript ရောက်လာတဲ့အခါမှာတော့ uniformity မရှိတဲ့ ပြဿနာက ပိုကြီးလာတယ်။ ပိုဆိုးတာက Node.js ထွက်တုန်းက Typescript မရှိသေးလို့ Node မှာ Typescript native support မပါဘူး။
+Bun က ဒီပြဿနာတွေကို ဖြေရှင်းဖို့ ရည်ရွယ်လာတယ်။ builtin typescript support ပါလာမယ်။ ပိုချောမွတ်တဲ့ module နဲ့ package management နောက် အဟော့ဆုံးက performance ပေါ့။ Node တို့ Deno တို့ထက် ဘယ်နှဆ မြန်တယ်ဆိုတာမျိုး။ တကယ်လည်း မြန်တယ်။ Bun Team ကတော့ Zig နဲ့ JSC (JavaScript Core) Engine ကြောင့်လို့ အသားပေး ပြောထားပေမယ့် ရာနှုန်းပြည့် မမှန်ဘူး။
+Bun ရှေ့မှာ Deno ဆိုတာ ထွက်ခဲ့သေးတယ်။ Node ကိုဖန်တီးခဲ့တဲ့သူပဲ ဦးဆောင်ခဲ့တာ။ Deno မှာ Rust နဲ့ V8 Engine ကိုသုံးထားတယ်။ Rust နဲ့ Zig နှစ်ခုက အခုလောက် performance ကွာစရာ မရှိဘူး။ ဒါပေမယ့် သုံးထားတဲ့ JS Engine ချင်းယှဥ်ရင် V8 က JSC ထက် အတော်လေး အထနှေးတယ်။ အထနှေးလို့ V8 က JSC လောက် မကောင်းဘူးတော့ မဟုတ်ဘူးပေါ့။
+Browser လို client program နဲ့ server program ရဲ့ fault tolerance နဲ့က သိပ်ကွာတယ်။ V8 Engine က သူ့ရဲ့ stability ကို Node.js နဲ့အတူ ဆယ်စုနှစ်တခုကျော် ရှေ့မှာ သက်သေပြထားပြီးသား။ ဒါကြောင့် အခုချိန်မှာ stability နဲ့ speed ကိုယှဥ်ရွေးဖို့ဆိုတာ အလျော်အစား ကြီးလွန်းနေသေးတယ်ပြောတာ။
+JavaScript Engine တွေအကြောင်းပြောရင် JSC, V8 တို့အပြင် နောက်ထပ် အများကြီး ရှိသေးတယ်။ Facebook က ထုတ်ထားတဲ့ Hermes ဆိုရင် JSC ကိုပါ ရာနှုန်းပြည့် နောက်ကောက်ချလို့ရတယ်။ ပိုလည်းပေါ့ပါးတယ်။ React Native ရဲ့ကျောရိုး js engine ပေါ့။ ဒါပေမယ့် သူ့မှာ JIT compilation လို feature တွေတော့ ပါမှာမဟူတ်ဘူး။ ဒါကြောင့် JS engine ထက်စာရင် တကယ်တမ်း Bun နဲ့ Deno မှာစကားပြောသွားတာက runtime ရဲ့ architecture ပဲ။
+လက်ရှိနဲ့ နောက်နှစ်တွေကိုကြည့်ရင်တော့ Node က ကျသွားဖို့ မဖြစ်နိုင်သေးဘူး။ ဒါပေမယ့် အနှေးနဲ့အမြန် Node ကို အစားထိုးသွားကြမှာလည်း ငြင်းမရဘူး။ အဲဒါက Bun ဖြစ်ရင်လည်းဖြစ်မယ်။ Deno ဖြစ်ချင်လည်းဖြစ်မယ်။ တခြားတခုခုလည်း ဖြစ်ရင်ဖြစ်မှာပဲ။
+ခုတောင် ECMAScript က type annotation ထည့်ဖို့ ပြင်နေတယ် ပြောတယ်။ annotation ကြောင့် IDE type hint တွေပိုကောင်းလာမယ်။ နောက် static type checker တွေ ရေးရ လွယ်လာမယ်။ Frontend ဖက်မှာ Typescript မြင်ရတာ ပိုနည်းသွားနိုင်တယ်။ ဒါပေမယ့် ချုံကြည့်ရင် built in type check ပါလာတာ မဟုတ်တဲ့အတွက် typescript ကိုလည်း ဆက်သုံးနေဦးမှာပဲ။
+ဒီတော့ Node.js လား Bun လားဆိုရင် စောင့်ကြည့်ဦးကြတာပေါ့။ အခုတော့ Bun လိုက်ဖို့ စောလွန်းပါသေးတယ်။
+
+CodeHub by Harry Yan, Sep 2023",,,,
+fab-500x-20261114T224408Z-003,85,c1a6940e7158ef75dff4f594,b27fd6a4f6fc45c9cc39cda45909fecd,fab-500x,mya,web_fullstack,aya-dataset,human_authored,[user] software engineering မှာ scaling ဆိုတာ ဘာကို ပြောတာလဲ။ မတူညီတဲ့ scaling လုပ်တဲ့ ပုံစံတွေကို နားလည်အောင် အကျယ်ချဲ့ ရှင်းပြပေးပါလား,"Amazon website က စက္ကန့်တိုင်းမှာ စျေးဝယ်သူတွေဆီက traffic သောင်းနဲ့ချီ ရှိနေနိုင်တဲ့အတွက် Amazon Web System ဆော့ဝဲကို စက်တလုံးတည်းပေါ်မှာပဲ အလုပ်လုပ်စေပြီး ကျားကန်ထားဖို့ မဖြစ်နိုင်ပါဘူး။ ဒီပြဿနာကို ဖြေရှင်းဖို့ဆိုရင် လိုအပ်တဲ့ resource တွေကို ချဲ့ထုတ် ( scale out ) ရမှာပါ။ software engineering ရှုထောင့်ကကြည့်ရင် ဒါကို scaling လုပ်တယ်လို့ ခေါ်တာဖြစ်တယ်။
+
+scaling အကြောင်းပြောရရင် ယေဘုယျအားဖြင့် ၂ မျိုး ရှိပါတယ်။ ဒီဆော့ဝဲကိုပဲ ပိုအားကောင်းတဲ့ စက်နဲ့ အလုပ်လုပ်စေမလား။ ဒါမှမဟုတ် ​ဒီဆော့ဝဲကိုပဲ အရေအတွက်ပွားပြီး အလုပ်လုပ်စေမလားဆိုတဲ့ နှစ်မျိုးပေါ့။
+
+ပထမတခုကိုတော့ vertical scaling လို့ခေါ်တယ်။ 3D sketch ထုတ်ပေးတဲ့ program လို့ဆိုပါစို့။ ရလဒ်ထွက်ဖို့ အရမ်းစောင့်ရတယ်လို့ user တွေ ကွန်ပလိန်းတက်နေပြီ။ ဒီနေရာမှာ လွယ်တဲ့ အဖြေက program ကို CPU ပိုကြမ်းတဲ့ စက်တခုပေါ် ပြောင်းတင်လိုက်တာပါပဲ။ ဒါမှမဟုတ် ကိုယ့် program က file system ကိုမှီခိုနေရပြီး အဲဒီနေရာက အဓိက နှေးကွေးနေစေတာဆိုရင် IOPS များများရအောင် storage ခပ်ကြီးကြီးထည့်လိုက်ပြီး Scale Up လုပ်နိုင်ပါတယ်။
+vertical scaling မှာ အရေးကြီးတဲ့အချက်က လက်ရှိ သုံးနေတဲ့ user တွေကို မထိခိုက်စေဖို့ပါ။ ဒါကြောင့် များသောအားဖြင့် ပြုပြင်ထိန်းသိမ်းရေးကာလတခု ထားပြီး vertical scaling လုပ်ကြပါတယ်။ ဒါပေမယ့် program ကိုပိတ်မချပဲ live migration လုပ်ဖို့ လိုအပ်လာတဲ့အခါ memory snapshot ယူဖို့၊ ဟန်ချက်ညီညီ cluster management coordination လုပ်ဖို့နဲ့ data မဆုံးရှုံးရအောင် storage replication လုပ်ဖို့ အရေးကြီးပါတယ်။
+ဒါပေမယ့် ဒီခေတ်မှာ ကုမ္ပဏီတိုင်း cloud environment ကို မှီခိုလာပြီး လိုအပ်တဲ့ software တွေကလည်း အသင့်ရနိုင်တာဖြစ်လို့ အရင်လောက် ခေါင်းစားစရာ သိပ်မရှိတော့ပါဘူး။
+vertical scaling က ရုတ်တရက်ကြည့်ရင် ရိုးရှင်းတယ်လို့ ထင်ရပေမယ့် သူ့မှာ ကန့်သတ်ချက်တွေ ရှိပါတယ်။ ပထမတချက်က ကိုယ်စိတ်ကြိုက် အဆုံးမရှိ scale up လုပ်လို့ မရပါဘူး။ ကိုယ့် program က Memory 300 TB နဲ့မှ user တွေ အဆင်ပြေမယ်လို့ ခန့်မှန်းရတယ်။ ဒါပေမယ့် လက်ရှိ hardware နည်းပညာက 250 TB ထိပဲရနိုင်ဦးမယ်ဆိုရင် vertical scaling နဲ့ Scale Up လုပ်ဖို့ မဖြစ်နိုင်တော့ပါဘူး။
+နောက်တချက်က ပိုက်ဆံ ကုန်ပါတယ်။ CPU, Memory, Storage ပိုများလာလေလေ ပိုက်ဆံ ပိုပေးရလေလေပါပဲ။ နောက်ဆုံးတချက်ကတော့ ဒီစက်ကြီးပဲရှိတဲ့အတွက် ဒီစက်ကြီး ကျသွားရင် အကုန် ကုန်သွားပါပြီ။ ဒီအချက်ကို SPOF (single point of failure) လို့ခေါ်ပါတယ်။
+
+ဒါတွေကို ဖြေရှင်းဖို့ horizontal scaling ကိုကျင့်သုံးကြတယ်။ ဒီပုံစံမှာ Amazon ရဲ့ Web program ကို ခုနကလို ပိုကောင်းတဲ့စက်ပေါ် မရွှေ့တော့ပါဘူး။ အဲဒီအစား စက်တွေ အများကြီးပေါ်မှာ Amazon Web program အပွားတွေ အများကြီး တင်ပြီး အလုပ်လုပ်စေပါတယ်။ အစကတည်းက ဒီ mindset နဲ့တည်ဆောက်ခဲ့တဲ့ program တွေက UX ကို လုံးဝမထိခိုက်စေပဲ နောက်ထပ်စက်တွေ ထည့်လိုက် လျှော့လိုက် လုပ်နေလို့ရပါတယ်။
+ဒါပေမယ့် horizontal scaling ကလည်း ပြီးပြည့်စုံနေတာ မဟုတ်ပါဘူး။ စက်တွေ ဆော့ဝဲတွေက တခုတည်း မဟုတ်တော့ပဲ cluster တခု fleet တခုဖြစ်လာတဲ့အခါ အချင်းချင်း အဆက်အသွယ် မပြတ်ဖို့၊ ဟန်ချက်ညီနေဖို့၊ လုပ်ရမယ့် တာဝန်တွေကို ခွဲဝေပေးနိုင်ဖို့၊ တယောက်တည်း မနိုင်ဝန် မထမ်းနေရဖို့ စသဖြင့် စီမံထားဖို့ လိုအပ်လာပါတယ်။
+ကိုယ့် software အလုပ်လုပ်နေရဲ့လားလို့ စောင့်ကြည့်တဲ့အခါ အရင်လို တခုတည်း တနေရာတည်းကို အာရုံစိုက်လိုက်ရုံနဲ့ မပြီးတော့ပါဘူး။ software version အတင်အချ လုပ်ချင်တဲ့အခါမှာလည်း စက်တိုင်းကို ကိုင်တွယ်ဖို့ လိုအပ်လာတယ်။ နောက်တချက်ကတော့ software တခုအလုပ်လုပ်ဖို့အတွက် သီးသန့်စက်တခု လိုချင်မှ လိုပါလိမ့်မယ်။ ဒါကြောင့် horizontal scaling မှာမလိုအပ်ပဲ အပိုဖြုန်းတီးမှု ဖြစ်နိုင်တယ်။ နောက်တခေါက်မှာ ဒီပြဿနာတွေကို containerization နဲ့ container orchestration နည်းပညာတွေက ဘယ်လိုဖြေရှင်းပေးသလဲလို့ ဆက်ပြောကြပါမယ်။
+vertical scaling နဲ့ horizontal scaling မှာ တကယ်တမ်း ဘယ်ဟာက အမှန်ရယ်လို့ မရှိပဲ ကိုယ့်လိုအပ်ချက်အပေါ် မူတည်ပါတယ်။ Amazon နဲ့ Netflix တို့က ထောင်ချီတဲ့ program အပွားတွေနဲ့ အလုပ်လုပ်နေပေမယ့် ကျွန်တော်တို့ ချစ်တဲ့ Stack overflow က ပင်မစက်ကြီးတခုထားပြီး အရံတွေနဲ့ အလုပ်လုပ်နေတာဖြစ်တယ်။ ဒါကြောင့် မူတည်တယ်လို့ ပြောတာပါ။ ဒါကတော့ software engineering ရဲ့ scaling ဖြစ်ပါတယ်။",,,,
+fab-500x-20261114T224408Z-003,86,282b77da134fa615495dd7e1,1787276caadf710c3b14faadc9f210c3,fab-500x,mya,writing,aya-dataset,human_authored,[user] Data State များ,"Data State လို့ ပြောလိုက်ရင် အရင်ဆုံး မျက်စိထဲမှာ မြင်မိတာ State Machine တွေ သင်ခဲ့တုန်းက Turnstile ဥပမာပါပဲ။ ငွေအကြွေစိထည့်ပြီး တွန်းဝင်လို့ရတဲ့ ဂိတ်တွေပေါ့။ အဲဒီအကြောင်း သိချင်ရင် Infinite State Machine ဆိုပြီး ရှာလိုက်ပါ။ Wiki မှာလဲ ဖတ်လို့ရပါတယ်။
+Current State က Locked ဖြစ်နေမယ်။ အဲဒါကို Coin ထည့်လိုက်မယ်ဆိုရင် နောက် State က Unlocked ဖြစ်သွားတဲ့ State ပါ။ Unlocked ဖြစ်သွားတဲ့အတွက် အသုံးပြုသူအနေနဲ့ တွန်းဝင်သွားလို့ရပါမယ်။ Unlocked State မှာ Push လုပ်ပြီး တွန်းဝင်သွားတဲ့အတွက် နောက် State က Locked ဖြစ်တဲ့အတွက် Turnstile က locked ဖြစ်သွားပါမယ်။
+ဒါကတော့ Infinite State Machine ကို စသင်ပြီဆိုတာနဲ့ နမူနာပေးတဲ့ ပုံစံပါ။ အမှန်တကယ် လက်တွေ့မှာရော ဘယ်လိုတွေ သုံးကြမလဲ။ ဒါကတော့ အသုံးပြုချင်တဲ့ နည်းပညာရဲ့အပေါ်မူတည်ပါလိမ့်မယ်။ ကျွန်တော်ကတော့ Data Intensive ဖြစ်တဲ့ Service တွေအတွက် ရည်ရွယ်ပြီး ဆက်ပြောပါမယ်။
+
+Data Intensive Application များနှင့် State များ
+ကျွန်တော်တို့မှာ Online Shop တစ်ခု ရှိတယ်ဆိုကြပါစို့။ အဲဒီမှာ အရင်ဆုံး လုပ်ရမှာ Data Entry ပါ။ အဲဒီအတွက် အသေးစိတ်တော့ မပြောတော့ပေမယ့် ရှင်းပြလို့ မြင်သာအောင်တော့ ပုံစံချထားပါတယ်။
+Staff က Stock Entry လုပ်တယ်ဆိုပါစို့။ Business Requirement အရ Data Entry ကို တစ်ကြိမ်တည်းထည့် တစ်ခါတည်း Publish လုပ်တဲ့ ပုံစံသွားလို့မရဘူးဆိုပါစို့။ အဲဒီအခါ ကျွန်တော်တို့အနေနဲ့ Draft လုပ်လို့ရတဲ့ Feature ကို ထည့်ပေးရပါမယ်။ အဲဒီအပြင် အဲဒီ​ Draft မှာ နောက်ပြန် Replay လုပ်ချင်တဲ့ Feature လဲ ထည့်ပေးရမယ် ဆိုပါစို့။ အဲဒီလို အခြေအနေမျိုးမှာ ကျွန်တော်တို့ Data State တွေကို လေ့လာလို့ရနိုင်ပါတယ်။
+အခုချထားတာက နမူနာပုံစံပါ။ လက်တွေ့မှာတော့ ဒီထက် စဉ်းစားစရာတွေ အများကြီး ရှိပါတယ်။ Staff က Stock Entry လုပ်တယ်။ Action အနေနဲ့ Draft နှစ်ခါ၊ Save တစ်ခါနဲ့ Publish တစ်ခါ လုပ်ပါတယ်။ ကျွန်တော်တို့ Draft တွေကိုတော့ Main Stock Table ထဲ မထည့်သေးပါဘူး။ ဘာကြောင့်လဲဆိုတော့ Stock Table ထဲမှာ ရှုပ်မှာစိုးလို့ပါ။ အဲဒီအတွက် History Table တစ်််ခုဖန်တီးပြီး Row အလိုက် မှတ်ထားပါတယ်။
+အဲဒီအပြင် Replay ပါ လုပ်ချင်အတွက် Snapshot တွေလဲ သိမ်းထားပါတယ်။ ထုံးစံအတိုင်း created_at, updated_at, deleted_at ဆိုတာတွေတော့ ရှိမှာပေါ့။ State တစ်ခုချိန်းသွားတဲ့ Action တွေက Trigger လုပ်လို့လိုပါတယ်။ အဲဒီမှာ ပါတဲ့ State တွေကို ခွဲခြားကြည့်မယ်ဆိုရင်
+- Linear States
+- Non-linear States
+ဆိုပြီး တွေ့ရပါလိမ့်မယ်။
+
+Linear States
+Linear States တွေရဲ့ အဓိက ကျတဲ့အချက်ကတော့ ရှေ့ကိုပဲ သွားနေတာပါ။ နောက်ပြန်လှည့်လို့မရပါဘူး။ (SE အရ အခေါ်အဝေါ်တူချင်မှ တူပါမယ်။ ကျွန်တော် မမှတ်မိတော့လို့ပါ)​ လူတစ်ယောက် မွေးလာတာ၊ ကျောင်းတက်တာ၊ အလုပ်လုပ်တာ၊ အိုသွားတာ စသည်ဖြင့် အစဉ်လိုက် နောက်ပြန်မလှည့်ပဲ သွားတာမျိုးကို Linear State လို့ ခေါ်ပါတယ်။ ကျွန်တော်တို့ Data Table တွေမှာ မှတ်ရင်တော့ Encapsulated State အနေနဲ့ Hard Coded လုပ်ပြီး ချိန်းသွားတာမျိုးနဲ့ မှတ်လို့ရပါတယ်။
+
+Non-linear States
+Non-linear States တွေကတော့ Business Requirement တွေအပေါ်မှာ မူတည်တာ များပါတယ်။ Drafted State ဆိုရင် Non-linear State လို့ ခေါ်လို့ရပါတယ်။
+အဲဒီအပြင် ကျွန်တော်တို့ Approved ဆိုတဲ့ State မှာတင် Manager Approved လား၊ GM Approved လား၊ CEO Approved လားဆိုပြီးကွဲပါသေးတယ်။ အဲဒီလို Linear မဟုတ်တဲ့ အပြန်အလှန်သွားနေတဲ့ ပြောင်းလဲနေတဲ့ State တွေကို Non-linear State​ တွေလို့ ခေါ်လို့ရမယ်ထင်ပါတယ်။ (ဒီနေရာမှာ Dynamic States တွေလို့လဲ ပြောလို့ရမယ်ထင်တယ်။ SE အရ​ ဘယ်လိုခေါ်လဲဲ ကျွန်တော် မမှတ်မိတော့လို့ပါ)
+
+Classification of States
+State တွေကို တစ်ခြားနည်းတစ်ခုနဲ့ ခွဲကြည့်မယ်ဆိုရင်
+- Business States
+- Technical States
+ဆိုပြီးခွဲလို့ရပါသေးတယ်။ Business States ကတော့ အချိန်ပြည့် အပြောင်းအလဲရှိနေတဲ့ State တွေကို ပြောတာပါ။ ဉပမာ — approved ဆိုပါစို့။ 
+approved_by_sales_person ဆိုတာလဲ ရှိနိုင်သလို approved_by_sales_admin ဆိုတာလဲ ရှိနိုင်ပါတယ်။ ဒါပေမယ့် business requirement အရ approved_by_sales_person ဆိုတာကို ဖြုတ်လိုက်တာလဲ​ ဖြစ်နိုင်သလို approved_by_manager ဆိုတာ ထပ်ထည့်နေတာလဲ​ ဖြစ်နိုင်ပါတယ်။ အစီအစဉ်ပြောင်းသွားတာလဲ ဖြစ်နိုင်ပါတယ်။ အဲဒီလို business requirement အရ အချိန်ပြည့် ပြောင်းလဲနေတဲ့ state တွေကို business states တွေလို့ ကျွန်တော် ယူဆပါတယ်။
+Architecture သမားအနေနဲ့ business state တွေဆိုတာ အမြဲတမ်းပြောင်းလဲနေမယ်လို့ သိထားဖို့လိုပါတယ်။ အဲဒါကို မင်းက အချိန်ပြည့် ပြောင်းနေတာပဲလို့ သွားအပြစ်တင်လို့မရပါဘူး။ business မှာ profit making အရ အမျိုးမျိုး ပြောင်းလဲ ထိုးဖောက်နေမှာ ထုံးစံပဲဖြစ်ပါတယ််။ ကိုယ်တွေကသာ အမြဲပြောင်းလဲနေမယ်လို့ သဘောထားပြီး ပြင်ဆင်တည်ဆောက်ထားဖို့ လိုပါတယ်။
+နောက်တစ်ခုကတော့ technical state တွေပါ။ created_at တို့ updated_at တို့ deleted_at တို့စတာတွေက technical states တွေလို့ ဆိုနိုင်ပါတယ်။
+
+Mapping between business states and technical states
+Business state တွေက အချိန်ပြည့် ပြောင်းလဲနေမှာ ဖြစ်တဲ့အတွက် Data တွေကို ကိုင်တွယ်တဲ့အခါ Consistency Issue ရှိလာပါတယ်။ အဲဒီအတွက် အပြောင်းအလဲမရှိတဲ့ technical states တွေနဲ့ ဒေတာတွေကို ကိုင်တွယ်ရပါတယ်။ အဲဒီမှာ business states တွေနဲ့ technical states တွေကြားမှာ Mapping လုပ်ဖို့ လိုလာပါတယ်။ တစ်ခုခု အပြောင်းအလဲရှိရင် အဲဒီ Mapping တွေကို ချိန်းလိုက်တာနဲ့ Data Consistency ရှိရှိ ရှေ့ဆက်သွားနိုင်အောင် ပြင်ဆင်ထားဖို့ လိုပါတယ်။
+ဒီအပိုင်းကတော့ Architecture အပိုင်းမှာ အတော်လေးကို ခက်ခဲတဲ့အပိုင်းလို့ ပြောရပါမယ်။ Deterministic ဖြစ်အောင် သေသေချာချာ Mapping ချနိုင်ဖို့ လိုပါတယ်။ Business States တွေက Non-deterministic တွေ ဖြစ်ပါတယ်။ ဒါပေမယ့် Technical States တွေကတော့ Deterministic ဖြစ်ဖို့ လိုကိုလိုပါတယ်။
+ဉပမာ အနေနဲ့ ပြောရမယ်ဆိုရင် approved ဆိုတဲ့ states ကိုပဲ ရှေ့ဆက်လေ့လာကြည့်ပါမယ်။
+approved_by_sales_person ဆိုတဲ့ business state ကို technical state အရ approved ဆိုတဲ့ state ရယ်၊ user ရယ်၊ အဲဒီ user ရဲ့ role​ ရယ်တွဲပြီး Mapping လုပ်ထားဖို့ လိုပါတယ်။ audit အနေနဲ့ပဲ မှတ်မလား၊ history အနေနဲ့ပဲ မှတ်မလား မှတ်ထားဖို့ လိုပါတယ်။ အဲဒီနေရာမှာ approved_by_sales_admin ဆိုတာလေး ပြောင်းချင်တယ်ဆိုရင် user ရဲ့ role ကို ချိန်းလိုက်ရုံပါပဲ။ ဒါကတော့ တကယ့် business system ကြီးတွေကို Design ချတဲ့အခါ စဉ်းစားစရာတွေ အများကြီး ရှိပါတယ်။
+
+State Dependencies
+State တစ်ခုနဲ့ တစ်ခု ကူးပြောင်းတဲ့အခါ State Dependencies တွေ လိုလာပါတယ်။ ဒီနေရာမှာလဲ
+- Linear Dependency
+- Non-linear Dependency
+ဆိုပြီး နှစ်မျိုးခွဲလို့ရပါတယ်။ Linear Dependency တွေကတော့ ရှင်းပါတယ်။ Approved ပြီးမှ Disbursed သွားလို့ရမယ်ဟာမျိုးတွေပါ။ Non-linear Dependeny တွေမှာတော့ Multiple Dependency နဲ့ Complex Dependency ဆိုပြီး နှစ်မျိုးရှိပါတယ်။ State တစ်ခုဟာ State နှစ်ခု (သို့)​နှစ်ခုထက် ပိုပြီး Dependent ဖြစ်နေရင် Multiple Dependency လို့ခေါ်နိုင်ပြီး State တစ်ခုဟာ State တစ်ခုကို မှီချင်လဲမှီမယ်၊ မမှီချင်လဲမမှီဘူး၊ နှစ်ခုမှာ တစ်ခုကို မှီချင်မှီမယ် မမှီချင် မမှီဘူးဆိုတာတွေကတော့ Complex Dependency လို့ ခေါ်နိုင်ပါတယ်။ Complex Dependency တွေကတော့ SaaS တွေ ရေးတဲ့အခါမှာ ကြုံလာရနိုင်ပါတယ်။ Complex Dependency ဆိုတဲ့အတိုင်း Architecture ချတဲ့နေရာမှာလဲ အင်မတန် Complex ဖြစ်ပါတယ်။
+
+Before & After
+ဒါကတော့ State တစ်ခုကို မချိန်းခင်နဲ့ ချိန်းပြီးတဲ့အချိိိန် ဘာတွေ လုပ်ပေးရမလဲ သတ်မှတ်တာတွေပါ။ Rules တွေ ဖြစ်နိုင်တယ်။ Process တွေ ဖြစ်နိုင်တယ်။ filter တွေ ဖြစ်နိုင်တယ်။ အစုံဖြစ်နိုင်ပါတယ်။
+
+State Lock/Unlock
+ဒါကတော့ State တစ်ခုနဲ့ တစ်ခုကြားမှာ Lock နဲ့ သွားမယ်ဆိုရင် ဒီတစ်ခု မချိန်းပဲ နောက်တစ်ခု သွားလို့ရမှာ မဟုတ်ပါဘူး။ Unlock ဆိုရင်တော့ သွားလို့ရပါမယ်။ အဲဒီ Lock/Unlock တွေဆိုတာကို Flow နဲ့လဲ တွဲလို့ရပါတယ်။ Flow လို့ ပြောလိုက်ရင် Orchestration တွေပါ ပါလာမှာ ဖြစ်တဲ့အတွက် အများကြီး မပြောတော့ပါဘူး။
+
+Service Oriented Architecture and Data States
+Service Oriented Architecture တွေမှာ Data State​ တွေက သိပ်ကို အရေးပါပါတယ်။ Service တစ်ခုနဲ့ တစ်ခုကြား Contract တွေ သတ်မှတ်ရတဲ့အခါ ဘယ် Data ကတော့ဖြင့် ဘယ် state မှာ ငါကလက်ခံမယ်ဆိုတာမျိုးတွေ သေသေချာချာ သတ်မှတ်ဖို့ လိုပါတယ်။ မဟုတ်ရင် Service တွေဟာ တစ်ခုနဲ့တစ်ခု မပြတ်တော့ပဲ ပုံမှန် Monolith ရေးတာထက်ကို ပိုပြီးရှုပ်ထွေးသွားနိုင်ပါတယ်။",,,,
+fab-500x-20261114T224408Z-003,87,99196ab0ba518d21705ba086,d3ea989bb5da1ef51b8528dcc0e60b4d,fab-500x,ne,coding,aya-dataset,human_authored,"[user] नमस्कार। आज म सामाजिक शिक्षाको विषयमा कक्षा लिन जाँदैछु। 
+
+सामाजिक अध्ययनले भूगोल, मानवविज्ञान, अर्थशास्त्र, इतिहास, समाजशास्त्र, राजनीति विज्ञान र नागरिकशास्त्र सहित समाजका विभिन्न पक्षहरूलाई समेट्छ। सामाजिक शिक्षा सिकाउने मुख्य लक्ष्य विद्यार्थीहरूलाई असल नागरिक बन्न सिकाउनु हो। हामी एक विविध समाजमा बाँचिरहेका छौं - जसलाई सफल हुनको लागि सामाजिक शिक्षाको ज्ञान चाहिन्छ। सामाजिक शिक्षाको ज्ञान भएका बच्चाहरु ठुला भएर हाम्रो समाजमा सामाजिक, सभ्य र मानवीय ढंगले भाग लिन सक्छन्।
+
+माथिको अन्नुक्चेदहरुलाई अंग्रेजी भाषामा लेख्नुहोस् ।","Hello. Today I am going to take a class on social studies.
+
+Social studies covers various aspects of society including geography, anthropology, economics, history, sociology, political science and civics. The main goal of teaching social studies is to teach students to be good citizens. We live in a diverse society - one that requires knowledge of social studies to succeed. Children with knowledge of social studies can grow up and participate in our society in a social, civilized and humane manner.",,,,
+fab-500x-20261114T224408Z-003,88,cbe0afad9fef67c72e6c2141,4b7151c1ef7d35a3398e94a32c9adb3f,fab-500x,ne,education,aya-dataset,human_authored,"[user] Explain the cultural significance of the ""Pala"" dance and music of the Limbu community.
+Pala is a traditional Limbu dance and music form often performed during cultural celebrations and festive occasions.","लिम्बु समुदायको ""पाला"" नृत्य र संगीतको सांस्कृतिक महत्व व्याख्या गर्नुहोस्।
+पाला एक परम्परागत लिम्बु नृत्य र संगीत प्रकार हो जुन प्राय: सांस्कृतिक उत्सव र उत्सव अवसरहरूमा प्रदर्शन गरिन्छ।",,,,
+fab-500x-20261114T224408Z-003,89,ec6e60c53db31fad850a79c1,b47fb99cab242e1fa85dad176be5b2f8,fab-500x,ne,general_knowledge,aya-dataset,human_authored,[user] उत्पादन विकासमा सामग्री इन्जिनियरिङको महत्त्व व्याख्या गर्नुहोस्।,"सामग्री ईन्जिनियरिङ् विशेष अनुप्रयोगहरूको लागि सामग्रीको चयन र डिजाइनमा केन्द्रित हुन्छ। सामग्रीको छनोटले उत्पादनको कार्यसम्पादन, स्थायित्व र कार्यक्षमतामा प्रत्यक्ष प्रभाव पारेकोले उत्पादन विकासमा यो महत्त्वपूर्ण छ।",,,,
+fab-500x-20261114T224408Z-003,90,1ba3a8b8c02dd928d60df79d,3d08eaea93fe3936ddd1cb09a1f5344a,fab-500x,ne,mathematics,aya-dataset,human_authored,[user] समीकरण हल गर्नुहोस्: 3/2x + 2 = 14।,"'x' को लागि समाधान गर्न, समीकरणको दुवै पक्षबाट २ घटाउनुहोस्: (3/2x) = 14 - 2, जसले (3/2x) = 12 लाई सरल बनाउँछ। अब, दुवै पक्षलाई 2/3: x = 12 ले गुणन गर्नुहोस्। * (2/3), जुन 8 बराबर हुन्छ।",,,,
+fab-500x-20261114T224408Z-003,91,fb294dedfccd335fadd01bee,9bb28437ed1d64ebd26676ae096e17f6,fab-500x,ne,science,aya-dataset,human_authored,[user] Explain the role of renewable energy in sustainable development.,"नवीकरणीय ऊर्जा स्रोतहरू, जस्तै सौर्य र वायु ऊर्जा, सीमित जीवाश्म ईन्धनहरूमा निर्भरता घटाएर र वातावरणीय प्रभावलाई कम गरेर दिगो विकासमा प्रमुख भूमिका खेल्छन्।",,,,
+fab-500x-20261114T224408Z-003,92,a2bcddb7f1f2db0562a88920,aef6e3077fd5ea32a5d7263ecb4d181e,fab-500x,ne,writing,aya-dataset,human_authored,"[user] आधुनिक नेपाली कथाको संसारमा विश्वेश्वरप्रसाद कोइराला (वि.सं.१९७१-२०३९) मनोवैज्ञानिक धाराको थालनी गर्ने महान्‌ कथाकार हुन्‌ । मानिसका चरित्र तथा मनोदशा प्रस्तुत गरिने कथा नै मनोवैज्ञानिक कथा हो । उनका प्रकाशित कथासङ्ग्रह 'दोषी चस्माः र “श्वेत भेरवी' हुन्‌ । प्रस्तुत 'शन्र' कथा उनले रचेको एक उतृष्ट मनोवैज्ञानिक कथा हो । क्षीण (झिनो) कथानकमा बुनिएको यो एक चरित्र प्रधान कथा हो । यहाँ कृष्ण रायको चरित्रबाट यस संसारमा सबैका शन्रु हुन सक्छन्‌ भन्ने तितो सत्य प्रस्तुत गरिएको छ
+
+
+कथाका मूल पात्र कृष्ण राय इमानदार थिए । उनी निष्पक्ष बनेर झगडाको निसाफ गर्थे । एक बेलुका सुले बेलामा एक्कासि उनीमाथि लट्ठी प्रहार भयो लट्ठी हान्नेको पहिचान हुन सकेन । उनले एक एक गर्दै सबैलाई सम्झे । काम बिगार्दा गाली खाने नोकरलाई सम्झे । उनीबाट लज्जित बन्न पुगेको बलभद्रलाई सम्झे । नोकरी खोज्दै आएको युवक सम्झे । झगडामा उनले मध्यस्त गराएका व्यक्तिहरू सम्झे । यसरी नै आफ्नो पक्षमा निर्णय नपाएको गोविन्द पण्डितलाई सम्झे । मास्टरलाई पनि सम्झे । रेलको डब्बामा भएको झगडा पनि सम्झे हाटमा उनको धक्काबाट लडेको मानिस सम्झे । आफूले निकालेका नोकरहरू सम्झे । इखालु दाजुभाइ, आफ्नै धर्मपुत्रमाथि पनि शङ्काको डोरी बाटियो तथापि उनी कुनै निर्णयमा पुग्न सकेनन्‌ । अन्त्यमा पुलिस इन्स्पेक्टरले कसैसँग शङ्का छ कि भनी सोध्दा सबैको नाम एक एक गरी भने । यही अन्योलमै कथा पनि समाप्त हुन्छ।
+
+
+यसरी कृष्ण रायका मनमा उत्पन्न आवेगलाई नै यस कथाले छ । यो पात्रको मनोविश्लेषणमा केन्द्रित चरित्र प्रधान कथा कथामा कृष्ण राय मूल पात्रका रूपमा उपस्थित भएका राय उमेरले ४५ कटेका छन्‌ । उनी सबैसँग मिल्ने स्वभावका उनी आफूलाई अजात शत्रु सम्झन्छन्‌ । धन, यश र कुराले सम्पन्न उनी असल मानिस हुन्‌ । उनी गाउँलेहरूको सहयोग गर्छन्‌ । झगडा परेमा मध्यस्थता गराउने र सबैलाई हुने फैसता गर्न सक्ने उनमा विशेष क्षमता पनि छ ।
+
+
+उनी पहिले सबैलाई मित्र ठान्थे । आफूमाथि लट्ठी प्रहारपछि सबैलाई शन्रु देख थाल्छन्‌ । उनी मिलुन्जेल कसैमाथि शङ्का गर्दैनन्‌ । सानो घटना हुनासाथ सबैलाई शाङ्का गर्छन्‌ । यसरी यो एक मनोवैज्ञानिक कथा बनेको छ | यस कथामा आन्तरिक द्वन्द्व प्रबत छ । कृष्ण रायका मनमा उत्पन्न उतार चढाव नै आन्तरिक द्वन्द्व हो । बेलुका सुले बेलामा उनीमाथि लट्ठी प्रहार भएपछि भोलिपल्ट पुलिसलाई घटनाको रिपोर्ट लेखाउँदासम्मको समयलाई यस कथाले बोकेको छ कथामा सबैले मान्ने खालका व्यक्तिबाट भेञ्गगडा मिलाउने न्यायनिसाफ छिन्ने सामाजिक प्रचलनको समेत उल्लेख भएको छ ।
+
+
+यस कथामा ग्रामीण सामाजिक परिवेश छ । यसमा आन्तरिक परिवेश निकै सशक्त बनेको छ । 'शन्र' कथाको शीर्षक पनि कथाको विषयवस्तुमा चिटिक्क मिलेको छ । कथामा आफ्नो कुनै शन्रु नै जन्मेको छैन भन्ने श्रममा कृष्ण राय थिए । आफूमाथि लट्ठी प्रहारपछि आफ्नो सम्पर्कका सबैलाई शन्रु ठान्न पुगे । हामीले न्याय निसाफ छिन्दा वा सम्झाउँदा पनि शन्रु बनाउन पुग्छौं । सहयोग गर्दा होस्‌ वा उपदेश दिँदा होस्‌; नजानिँदो तरिकाले शन्रुता बढाउँछौँ । कृष्ण रायले शङ्का गर्दा शन्नु बन्नाका कारणहरूको पनि एक एक गरेर चर्चा गरिएको छ यसरी कथाको शीर्षक यसको विषयवस्तु र मूलभावसँग सुहाएको छ ।
+
+
+यसरी झिनो कथा भएर पनि कृष्ण रायको चरित्र मिहिन रूपमा प्रस्तुत गरिएको छ । मध्यस्थको भूमिकामा आफूलाई गर्व गर्ने कृष्ण राय लटठीको प्रहारपछि आफ्ना पनि बैरी भएको निष्कर्षमा पुगेका छन्‌ । यहाँ सरल र सहज भाषाशैलीमा ग्रामीण समाजको परिवेश छ । यस कथाले जति नै राम्रो काम गर्दा पनि कतै न कतै कोही न कोही शन्रु हन सक्छन्‌ भनेर देखाएको छ ।
+
+प्रश्न : एस्लाई अंग्रेजीमा लेख्नुहोस।","उत्तर  :
+In the world of modern Nepali stories, Bishweshwar Prasad Koirala (1971B.S. -2039 B.S.) is a great storyteller who started the psychological stream. A psychological story is a story that presents the character and mood of a person. His published collections of stories are 'Doshi Chasma' and 'Shwet Bhervi'. The presented 'Satru' story is a great psychological story written by him. It is a character-driven story woven into a weak plot. Here, through the character of Krishna Raya, the bitter truth is presented that everyone can be Satru in this world
+
+
+The main character of the story, Krishna Raya, was honest. He used to judge the fights by being impartial. One evening while he was sleeping, he was suddenly hit with a stick. He remembered everyone one by one. He remembered the servant whom he scolded, when he messed up his work. He remembered Balabhadra who became ashamed of him. He remembered the young man who was looking for a job. He remembered the people he had mediated in fights. This is how he remembered Govinda Pandit who did not get a decision in his favor. He also remembered the master. He also remembered the fight in the train compartment and remembered the man who fell due to his push. He remembered the servants he had fired. Suspicions were cast on his brother, his own adopted son, but he could not reach a decision. Finally, when the police inspector asked if anyone was suspicious, he told everyone's name one by one. The story also ends in this confusion.
+
+
+In this way, this story is based on the impulse generated in the mind of Krishna Raya. In this character-driven story focused on the psychoanalysis of this character, Krishna Raya, who appeared as the main character, is 45 years old. He has the nature to get along with everyone, and he considers himself an untouchable enemy. He is a good man endowed with wealth, fame and fortune. He helps the villagers. He also has a special ability to mediate in case of conflict and make a decision for everyone.
+
+
+He used to consider everyone as his friend. He starts seeing everyone Satru after Someone hitting him with a stick. He does not suspect anyone until he meets him. As soon as a small incident happens, they suspect everyone. Thus it has become a psychological story There is an internal conflict in this story. The ups and downs in Krishna Raya's mind is an internal conflict. This story covers the time from when he was hit with a stick in the evening until he wrote a report of the incident to the police the next day. The story also mentions the social practice of wresting justice from people who are respected by everyone.
+
+
+This story has a rural social environment. The internal environment has become very strong. The title of the story 'Satru' also matches the theme of the story. Krishna was of the opinion that no Satru was born in the story. After hitting him with a stick, he came to think of everyone he came in contact with as Satru. Even when we judge or remind, we end up making Satru. Be it by helping or giving sermons; Unknowingly, we increase shatru. The reasons why Krishna Raya became Shatru when he doubted have also been discussed one by one, thus the title of the story suits its theme and essence.
+
+
+In this way, even though it is a small story, the character of Krishna Raya is presented in a perfect way. Krishna Rai, who is proud of his role as a mediator, has come to the conclusion that he is also an enemy after being hit with a stick. Here is the environment of rural society in simple and easy language style. This story shows that no matter how good a job you do, someone can become a shanru somewhere.",,,,
+fab-500x-20261114T224408Z-003,93,fd20a6b62aff0fc9aeccba0a,6542c1856b4ce6c7b550a99345443ad1,fab-500x,nl,coding,aya-dataset,human_authored,[user] Waarom maakt multi-threading mijn Python code niet sneller?,"Python beperkt de toegang tot de interpreter met een Global Interpreter Lock, ook wel de GIL genoemd, vanwege interne thread-safe vereisten. Helaas beperkt deze ontwerpbeslissing slechts één thread om Python-code tegelijk te interpreteren, zelfs op een machine met de mogelijkheid om meerdere threads tegelijk uit te voeren. Als u Python-code op een set gegevens wilt uitvoeren en de gegevens in onafhankelijke segmenten kunnen worden opgesplitst (een proces dat bekend staat als gegevenspartitie), kunt u kijken naar de multiprocessing-bibliotheek in Python.",,,,
+fab-500x-20261114T224408Z-003,94,b984f56254f08eae55a34094,034e28aa2a065f25f76cda80cf699f3d,fab-500x,nl,education,aya-dataset,human_authored,[user] Ze begon met het onderwijzen en groeperen van studenten met hetzelfde taalprobleem. Ze begon met het groeperen van leerlingen met hetzelfde spraakprobleem en ze samen te onderwijzen. Vraag: Hebben zin 1 en zin 2 dezelfde betekenis? Ja of nee?,"Nee, de twee zinnen hebben niet dezelfde betekenis. In de tweede zin gaat het specifiek over spraakproblemen. In de eerste zin gaat het algemener over taalproblemen. Dat kunnen problemen met spraak zijn, maar bijvoorbeeld ook met lezen, schrijven, of luisteren naar spraak.",,,,
+fab-500x-20261114T224408Z-003,95,ea4799e53a7096b6577670f6,439d08c7bafa7ab5b52e58f47d631196,fab-500x,nl,general_knowledge,aya-dataset,human_authored,[user] Kun je mij twee voorbeelden geven van een vloeistof.,Twee voorbeelden van vloeistoffen zijn water en olie.,,,,
+fab-500x-20261114T224408Z-003,96,975065f8e7fba43c6edd3929,ab999e5d7ac075b84b44aecfadba9763,fab-500x,nl,islamic_studies,aya-dataset,human_authored,"[user] Verwijst u naar de passage hieronder en beantwoordt u vervolgens de vraag in dezelfde taal als de passage:  Aflevering: Islam is de belangrijkste religie in Kirgizië, maar de grondwet garandeert vrijheid van godsdienst. Kirgizië is een multi-etnisch en multi-religieus land met islam (met inbegrip van soennieten, sjiieten en ahmadiyya), boeddhisme, bahá'í, het christendom (met inbegrip van de Russische orthodoxe kerk, het rooms-katholicisme en de zevende-dag adventistenkerk), het jodendom en andere religies die allemaal aanwezig zijn in het land. Moslims vormen de belangrijkste religie in Kirgizië, met 87,6% van de bevolking.  Vraag: Wat maakt de islam in Kirgizië zo populair vergeleken met andere religies?",De grondwet garandeert vrijheid van godsdienst.,,,,
+fab-500x-20261114T224408Z-003,97,f9ad5ff4b9c2b7ac6e1fd71f,b745ec155cfa8c0f2dd86377439d9358,fab-500x,nl,mathematics,aya-dataset,human_authored,"[user] Denkvraag. In een bak met 12 knikkers zitten er 5 rode, 4 blauwe en 3 gele. Germaine neemt twee knikkers uit deze bak. Wat is de kans dat deze dezelfde kleur hebben?",De kans is 19/66.,,,,
+fab-500x-20261114T224408Z-003,98,b8a9c99c5aac06bc97e04846,5d12537e60936ad741fffb769d183088,fab-500x,nl,pakistan,aya-dataset,human_authored,"[user] Voltooi de volgende zin: Een jaar voor de Olympische Spelen van 1972 won India een bronzen medaille op het WK van 1971 door een overwinning op Kenia. In het WK van 1973 versloeg India Pakistan in de halve finale, maar verloor het in de finale in een penalty shoot-out van Nederland nadat de wedstrijd eindigde in een 2-2 gelijkspel. Maar in de","in de Olympische Spelen van 1976 werd het astro-turfhockeyveld geïntroduceerd, India worstelde om hun dominantie te behouden zoals ze dat op grasvelden deden en keerde voor het eerst ooit met lege handen naar huis.",,,,
+fab-500x-20261114T224408Z-003,99,ba4d6e5a40be396c5e6543eb,b63e3644839497a956f75db629603a66,fab-500x,nl,problem_solving,aya-dataset,human_authored,"[user] Ik zoek een?
+Accespoint
+
+Wat is je budget?
+€150,- ??
+
+Heb je bepaalde (merk)voorkeuren?
+Fritz! WiFi6?
+
+Momenteel heb ik een glasvezel modem/router/Wifi accespoint Fritzbox 5490.
+Deze bevalt me uitstekend, ik heb er veel aanhangen, zowel bedraad als via Wifi.
+Veel smartplugs, en Sonoff dingetjes, een Synology NAS, een alarmsysteem, TV, Versterker, Sat receiver, bewakingscamera's, noem maar op, veel dus.
+Veel heb ik met een vast IP adres geconfigureerd. Vooral mijn alarminstallatie, sat receiver en camera's vinden dat fijn.
+Alles draait mooi maar ik wil ook wel eens veranderen van internetaanbieder om zo de kosten te drukken.
+Dit gaat altijd gepaard met een nieuw modem en alles opnieuw configureren. Dagen werk, gepruts en ergernis.
+
+Daarom dacht ik, als ik ná het modem van de provider een eigen router/Wifi accespoint hang, dan hoef ik nog maar 1x alles opnieuw daar aan te hangen en kan ik veel eenvoudiger overstappen als er een interessante Internet/TV aanbieding voorbij komt. Simpel het modem wisselen en alles werkt weer.
+
+Nu heb ik dus :
+Fritzbox Wifi modem van de provider met 4 netwerkaansluitingen
+Een simpel 10 poorts hubje
+Een POE switch voor de max. 4 beveiligingscamera's
+
+Ik ben benieuwd naar jullie meningen en ideeën. :Y","Begrijp ik het goed dat je in je huis alles dus bedraad hebt aangesloten en dat je router/modem het enige WIFI punt is?
+
+Dat lijkt mij toch heel waarschijnlijk, maar het zou kunnen.
+
+Je gewenste opstelling is precies het gene wat menig IT-er heeft. Juist om er voor te zorgen dat mocht een modem gewisselt worden, je alle instellingen lekker behoud en gewoon door kan gaan.
+
+Ik weet niet of er een mogelijkheid is om je huidige configuratie in het modem te exporteren en dan te exporteren naar een ander Fritzbox, maar anders ben ik bang dat je alle gegevens zal moeten noteren en handmatig opnieuw moet inkloppen in je nieuwe router.
+
+Dat wil zeggen al je DHCP gegevens, je reserveringen, port forwarding regels etc.
+
+Ik zou wel voor een router gaan die genoeg configuratie opties heeft (VLAN opties, eventueel gescheiden IOT netwerk aanmaken, etc) heeft en geschikt is voor WIFI6 of hoger.
+
+Wat dan je voorkeur is, ligt bij je zelf.",,,,
+fab-500x-20261114T224408Z-003,100,ec5330c792837af23a191c4d,c8fcc20eff8aa6c11d6893b0da3cd70e,fab-500x,nl,reasoning,aya-dataset,human_authored,[user] Wat zijn enkele bezienswaardigheden en buitenactiviteiten om te doen in Portugal en Spanje?,"Dit kan een plan zijn:
+
+Dag 1: Aankomst in Lissabon:
+- Transfer van de luchthaven naar het hotel (14 km) 
+
+Dag 2: Lissabon 
+- Bezoek aan de Belém-toren (9 km) 
+- Jerónimos-klooster 
+- Kasteel van St. George 
+- Alfama-buurt 
+
+Dag 3: Sintra 
+- Bezoek aan het Pena-paleis (30 km) 
+- Sintra Nationaal Paleis 
+- Cabo da Roca (23,5 km) 
+
+Dag 4: Cascais 
+- Stranddag in Cascais (27 km) 
+- Bezoek aan Boca do Inferno 
+- Cascais Marina 
+
+Dag 5: Óbidos 
+- Bezoek aan het kasteel van Óbidos (85 km) 
+- Wandeling door het dorp 
+- Bezoek aan het klooster van Alcobaça (37 km) 
+
+Dag 6: Nazaré 
+- Bezoek aan het strand van Nazaré (49,5 km) 
+- Kabelbaanrit 
+- Bezoek aan de Kapel van Onze-Lieve-Vrouw van Nazaré 
+
+Dag 7: Coimbra 
+- Bezoek aan de Universiteit van Coimbra (110 km) 
+- Wandeling door het historische centrum 
+- Bezoek aan de Oude Kathedraal 
+
+Dag 8: Aveiro 
+- Boottocht door de kanalen van Aveiro (72 km) 
+- Bezoek aan de kathedraal van Aveiro 
+- Wandeling door de Visserswijk 
+
+Dag 9: Porto 
+- Bezoek aan de wijk Ribeira (75 km) 
+- Beklimming van de Clérigos-toren 
+- Bezoek aan het treinstation São Bento 
+- Rondleiding door de Port-wijnkelders 
+
+Dag 10: Vertrek uit Porto 
+- Transfer van het hotel naar de luchthaven (17 km)",,,,

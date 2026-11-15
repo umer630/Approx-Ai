@@ -1,0 +1,545 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-043,1,76c332f02bd7acf3ccf90dd6,f2527b8354583ca84fc482269902a4a3,fab-500x,mr,general_knowledge,aya-dataset,human_authored,[user] यमन रागात कोणता स्वर कोमल लावला जातो?,"यमन रागात कोणताही स्वर कोमल नाही. मध्यम तीव्र, व बाकी सगळे स्वर शुद्ध लावले जातात.",,,,
+fab-500x-20261114T224408Z-043,2,c76e31f87b5b93636d5bf003,215488e7b4ad0223fd8ad8a62ccdcaf6,fab-500x,ms,general_knowledge,aya-dataset,human_authored,[user] Apakah maksud 'bermati-matian'? Berikan satu contoh ayat.,"Ia bermaksud bersungguh-sungguh dalam membuat sesuatu kerja. Contohnya, Puan Fatimah bermati-matian ingin meneruskan perniagaan keluarganya yang diturunkaan beberapa generasi walaupun tiada waris.",,,,
+fab-500x-20261114T224408Z-043,3,28cbddd3930bfc4194931f23,16c66448f51cbd3841a54182116dd2f8,fab-500x,ms,islamic_studies,aya-dataset,human_authored,"[user] Apakah maksud ""berbuat salah""?",Ia bermaksud melakukan kejahatan.,,,,
+fab-500x-20261114T224408Z-043,4,29843664f6df6f65d2db1b35,d18a543668a2ad304641f9d22646de37,fab-500x,mya,general_knowledge,aya-dataset,human_authored,[user] အောက်ပါ မေးခွန်းကိုဖြေပါ။ Vikings ပဥ္စမတွဲ ရဲ့ ဒုတိယပိုင်းကို ဘယ်တော့ ထုတ်လွှင့်မှာလဲ။,၂၀၁၈ မှာ,,,,
+fab-500x-20261114T224408Z-043,5,8665be79f2c8698251c59edd,429e85c2dfe173274872a8a798909e14,fab-500x,mya,web_backend,aya-dataset,human_authored,[user] web framework အချို့နဲ့ တွဲသုံးတဲ့ Web Server တွေအကြောင်း အတိုချုံးပြောပြပါ,"ပထမဆုံး Web serving component ကစပြောရရင် Laravel ကို သီးသန့် Web Server software တွေဖြစ်တဲ့ Apache, Nginx တို့နဲ့ပဲ အသုံးပြုကြတာ မြင်ရပါလိမ့်မယ်။ ဒါပေမယ့် ဒါက php နဲ့ Web serving လုပ်နိုင်တဲ့ component တွေ ဆောက်လို့မရလို့ မဟုတ်ပါဘူး။ ရလည်းရသလို ရှိလည်း ရှိပါတယ်။ ဒါပေမယ့် မတွင်ကျယ်တာက တဏ္ဍပေါ့။ php က သမိုင်းအစမှာ CGI ဒါမှမဟုတ် php-fpm (fastCGI) တို့ကနေတဆင့် request တွေ process လုပ်နိုင်ဖို့ ရည်ရွယ်ခဲ့တဲ့ scripting language တခုသာဖြစ်လို့ ရှိပြီးသား Web serving functionality ကို ထည့်မဆောက်ခဲ့ဘူး ယူဆရပါတယ်။ သူ့ထက် အတော်လေး နောက်ကျပြီးမှ ထွက်လာခဲ့တဲ့ Go နဲ့ NodeJs တို့မှာဆိုရင်တော့ Http Module တွေကို အသင့် ထည့်ရေးလာကြပြီး သီးသန့် software အပေါ် မှီခိုစရာ မလိုပဲ production-grade web serving capability ကိုပေးနိုင်ကြတာ ဖြစ်တယ်။",,,,
+fab-500x-20261114T224408Z-043,6,eb5b1ec42337c866bd4a21c6,0789d83daa656149e6d2f1770ae6e85a,fab-500x,ne,general_knowledge,aya-dataset,human_authored,"[user] तलको प्रश्नको सहि उत्तर छान्नुहोस ।
+
+कुनै मूर्त वस्तुको माध्यमबाट अमूर्त वस्तुलाई प्रस्तुत गर्ने साधनलाई के भनिन्छ ?
+क्. विम्ब 
+ख. प्रतीक
+ग. अलङ्कार 
+घ. व्यङ्ग्य","कुनै मूर्त वस्तुको माध्यमबाट अमूर्त वस्तुलाई प्रस्तुत गर्ने साधनलाई ""ख. प्रतीक"" भनिन्छ ।",,,,
+fab-500x-20261114T224408Z-043,7,d73a7fa028b16bc41e0c50d2,b1b30a143301efb4875291154d6209f9,fab-500x,ne,mathematics,aya-dataset,human_authored,[user] समीकरणमा 'y' को लागि समाधान गर्नुहोस्: 2y - 3 = 11। यो समीकरणमा अज्ञात चल 'y' समावेश छ। समीकरणलाई सन्तुष्ट पार्ने 'y' को मान निर्धारण गर्नुहोस्।,"'y' को लागि समाधान गर्न, हामी '2y' लाई अलग गर्न समीकरणको दुवै पक्षमा 3 जोडेर सुरु गर्छौं। यसले हामीलाई दिन्छ: 2y = 11 + 3, जसले 2y = 14 लाई सरल बनाउँछ। अब, 'y' फेला पार्न, हामी दुवै पक्षलाई 2: y = 14/2 ले भाग गर्छौं, जुन 7 बराबर हुन्छ।",,,,
+fab-500x-20261114T224408Z-043,8,a629dfea55d486674ab1bf5b,02d1c176035e31863842c680620f446a,fab-500x,nl,coding,aya-dataset,human_authored,[user] Wat voor belangrijke gebeurtenis beschrijft de volgende tekst: In de periode 1965-1966 vonden gewelddadige moorden en afrekeningen plaats op Midden-Java en Bali. Deze omvangrijke massamoord eiste tussen de 500.000 en 1 miljoen slachtoffers. Het was de grootschalige afrekening met de vijanden van Soeharto en van het leger terwijl op Bali de gelegenheid ook te baat werd genomen door groepen uit de bevolking om op grote schaal oude vetes op gruwelijke wijze te beslechten. Tijdens deze pogrom werd vooral de arme bevolking het slachtoffer. Deze massaslachting geldt in Zuidoost-Azië als een van de meest bloedige periodes uit de naoorlogse geschiedenis.,Het gaat over de militaire carrière van Soeharto na de onafhankelijkheid van Indonesië.,,,,
+fab-500x-20261114T224408Z-043,9,b7d3c85024bcbc22d83cbc65,5b85b8415b225a5500790a8d70f33630,fab-500x,nl,general_knowledge,aya-dataset,human_authored,[user] Welke producten verkoopt het bedrijf Apple?,"Apple verkoopt verschillende producten, waaronder smartwatches, telefoons, laptops en desktops. Binnenkort komt er ook een virtual reality bril, genaamd Apple Vision Pro.",,,,
+fab-500x-20261114T224408Z-043,10,c83516b26c0d509b281b2313,47e706c00d6086048bdea8161c2fe13b,fab-500x,nl,mathematics,aya-dataset,human_authored,"[user] Schrijf een voortzetting van de paragraaf: FC Twente begon al vroeg aan het nieuwe seizoen. Al in februari werd de eerste speler gecontracteerd. In aanloop naar de eerste training in juni werd deze periode vooral gekenmerkt door het vertrek van Theo Janssen naar Ajax en hoofdtrainer Michel Preud'homme naar Al Shabab. Daarnaast was de club natuurlijk nog volop bezig met het &lt;a href=""FC%20Twente%20in%20het%20seizoen%202010/11%20%28mannen%29""&gt;seizoen 2010/11&lt;/a&gt;. Ook waren er diverse speler actief voor hun land na het competitieslot. Onder andere Luuk de Jong, Nacer Chadli, Nikolaj Michajlov, Emir Bajrami, Ola John en Steven Berghuis speelden in deze periode nog. Voor Bryan Ruiz duurde het seizoen het lang. Met Costa Rica nam hij deel aan de Gold Cup",". Zijn ploeg reikte tot aan de kwartfinales, waarna het werd uitgeschakeld. Voor Roberto Rosales duurt het seizoen echter nog langer. Hij werd geselecteerd voor de Copa América die voor Venezuela op 3 juli begon en op zijn vroegst op 13 juli eindigde.",,,,
+fab-500x-20261114T224408Z-043,11,e6f82c446e1d20ef423f7395,c4a621bb8ede2f6f6c69aa2608db0273,fab-500x,nl,problem_solving,aya-dataset,human_authored,[user] Heeft Harry Potter zijn eigen naam in de vuurbeker gestopt?,"Harry heeft zijn eigen naam niet in de vuurbeker gestopt. Barty Crouch Junior, die zichzelf vermomde als Alistair Moody met behulp van de polyjuice drankje, heeft Harry's naam in de vuurbeker gestopt als onderdeel van zijn plan om Harry in handen van Heer Voldemort te leveren.",,,,
+fab-500x-20261114T224408Z-043,12,7f06f531e9eb995b863f49c2,b98fdd0caf4d6c5239b2387af8988608,fab-500x,nl,science,aya-dataset,human_authored,[user] Wie is Maria Salomea (Marie) Skłodowska-Curie?,"Maria Salomea (Marie) Skłodowska-Curie (Warschau, 7 november 1867 – Passy, 4 juli 1934) was een Pools-Frans scheikundige en natuurkundige. Zij was een pionier op het gebied van de radioactiviteit, ontving twee Nobelprijzen en ontdekte de elementen polonium en radium. In haar tweede vaderland Frankrijk is ze bekend als Marie Curie en ze wordt vaak aangeduid als Madame Curie, wat ook de titel is van haar biografie geschreven door haar dochter Ève.",,,,
+fab-500x-20261114T224408Z-043,13,02ab21a0eca1987225ffcfc9,efadb0dffba7cec84841281f9117cfe6,fab-500x,nl,writing,aya-dataset,human_authored,"[user] Zin 1: Hij werd geselecteerd door de Philadelphia 76ers in de 77e ronde van de NBA Draft 1967. 
+Zin 2: Hij werd geselecteerd door de Philadelphia 76ers in de 7e ronde (77e pick overall) van de 1967 NBA Draft. 
+Vraag: Hebben zin 1 en zin 2 dezelfde betekenis? Ja of nee?","Nee, want de 77e ronde en 7e ronde zijn niet gelijk.",,,,
+fab-500x-20261114T224408Z-043,14,a69cb56e3a5884e7cca176c9,447a88411ac452f74e0b4f471983a358,fab-500x,nso,general_knowledge,aya-dataset,human_authored,[user] Motho wa go sega le ge ntšhi e feta,Setlaela,,,,
+fab-500x-20261114T224408Z-043,15,9f1fa0fbb269ee35f3280ebd,b577f7cf84728e105b1660e3dc3233ba,fab-500x,nya,general_knowledge,aya-dataset,human_authored,[user] Kodi mbiri ya anthu a Lomwe ndi yotani?,"A Lomwe ndi amodzi mwa mitundu inayi ikuluikulu yomwe amakhala ku Malawi ndipo ali ndi mbiri yosamukira kumalire a Mozambique ndi Malawi. A Lomwe ambiri anasamukira ku Malawi chakumapeto kwa zaka za m’ma 1900 ndipo anasanganikirana ndi Achewa, m’zaka za m’ma 1930 chifukwa cha nkhondo za mafuko ku Mozambique.",,,,
+fab-500x-20261114T224408Z-043,16,7f81eeac7fc57e07947de7f9,c9f864c2e21adf1cd8115d5a2441a8f3,fab-500x,pa,general_knowledge,aya-dataset,human_authored,[user] ਕੋਈ ਚਾਰ ਹਾਲਤਾਂ ਦਾ ਵਰਣਨ ਕਰੋ ਜੋ ਗੁਰੂ ਅਰਜਨ ਦੇਵ ਜੀ ਦੀ ਸ਼ਹੀਦੀ ਲਈ ਜ਼ਿੰਮੇਵਾਰ ਸਨ ।,"ਗੁਰੂ ਅਰਜਨ ਦੇਵ ਜੀ ਦੀ ਸ਼ਹੀਦੀ ਦੇ ਮੁੱਖ ਕਾਰਨ ਹੇਠ ਲਿਖੇ ਸਨ –
+1. ਜਹਾਂਗੀਰ ਦੀ ਧਾਰਮਿਕ ਕੱਟੜਤਾ-ਮੁਗ਼ਲ ਬਾਦਸ਼ਾਹ ਜਹਾਂਗੀਰ ਗੁਰੂ ਜੀ ਨਾਲ ਨਫ਼ਰਤ ਕਰਦਾ ਸੀ । ਉਹ ਜਾਂ ਤਾਂ ਉਨ੍ਹਾਂ ਨੂੰ ਮਾਰਨਾ ਚਾਹੁੰਦਾ ਸੀ ਜਾਂ ਫਿਰ ਉਨ੍ਹਾਂ ਨੂੰ ਮੁਸਲਮਾਨ ਬਣਾਉਣ ਲਈ ਮਜਬੂਰ ਕਰਨਾ ਚਾਹੁੰਦਾ ਸੀ ।
+
+2. ਪ੍ਰਿਥੀਆ ਦੀ ਦੁਸ਼ਮਣੀ-ਗੁਰੂ ਰਾਮ ਦਾਸ ਜੀ ਨੇ ਗੁਰੂ ਅਰਜਨ ਦੇਵ ਜੀ ਦੀ ਅਕਲਮੰਦੀ ਤੋਂ ਪ੍ਰਭਾਵਿਤ ਹੋ ਕੇ ਉਨ੍ਹਾਂ ਨੂੰ ਆਪਣਾ ਉੱਤਰਾਧਿਕਾਰੀ ਨਿਯੁਕਤ ਕੀਤਾ ਸੀ, ਪਰ ਇਹ ਗੱਲ ਗੁਰੂ ਅਰਜਨ ਦੇਵ ਜੀ ਦਾ ਵੱਡਾ ਭਰਾ ਪ੍ਰਿਥੀਆ ਸਹਿਣ ਨਾ ਕਰ ਸਕਿਆ । ਇਸ ਲਈ ਉਹ ਗੁਰੂ ਸਾਹਿਬ ਦੇ ਵਿਰੁੱਧ ਸਾਜ਼ਿਸ਼ ਰਚਣ ਲੱਗਾ ।
+
+3. ਰਾਜਕੁਮਾਰ ਖੁਸਰੋ ਦਾ ਮਾਮਲਾ-ਖੁਸਰੋ ਜਹਾਂਗੀਰ ਦਾ ਸਭ ਤੋਂ ਵੱਡਾ ਪੁੱਤਰ ਸੀ । ਉਸ ਨੇ ਆਪਣੇ ਪਿਤਾ ਵਿਰੁੱਧ ਵਿਦਰੋਹ ਕਰ ਦਿੱਤਾ । ਜਹਾਂਗੀਰ ਦੀਆਂ ਸੈਨਾਵਾਂ ਨੇ ਉਸ ਦਾ ਪਿੱਛਾ ਕੀਤਾ । ਉਹ ਦੌੜ ਕੇ ਗੁਰੂ ਅਰਜਨ ਦੇਵ ਜੀ ਦੀ ਸ਼ਰਨ ਵਿਚ ਪਹੁੰਚਿਆ । ਕਹਿੰਦੇ ਹਨ ਕਿ ਗੁਰੂ ਜੀ ਨੇ ਉਸ ਨੂੰ ਅਸ਼ੀਰਵਾਦ ਦਿੱਤਾ । ਇਹ ਗੁਰੂ ਜੀ ਦਾ ਰਾਜਨੀਤਿਕ ਅਪਰਾਧ ਮੰਨਿਆ ਗਿਆ ਅਤੇ ਇਸ ਦੇ ਲਈ ਉਨ੍ਹਾਂ ਨੂੰ ਸ਼ਹੀਦ ਕੀਤਾ ਗਿਆ |
+
+4. ਗੁਰੂ ਅਰਜਨ ਦੇਵ ਜੀ ਨੂੰ ਜੁਰਮਾਨਾ-ਹੌਲੀ-ਹੌਲੀ ਜਹਾਂਗੀਰ ਦੀ ਧਾਰਮਿਕ ਕੱਟੜਤਾ ਸਿਖਰ ਹੱਦ ਤਕ ਪਹੁੰਚ ਗਈ । ਉਸਨੇ ਰਾਜ ਦੇ ਬਾਗੀ ਖੁਸਰੋ ਦੀ ਸਹਾਇਤਾ ਦੇ ਅਪਰਾਧ ਵਿਚ ਗੁਰੂ ਸਾਹਿਬ ‘ਤੇ 2 ਲੱਖ ਰੁਪਏ ਜੁਰਮਾਨਾ ਕਰ ਦਿੱਤਾ | ਗੁਰੂ ਜੀ ਦੇ  ਜੁਰਮਾਨਾ ਦੇਣ ਤੋਂ  ਇਨਕਾਰ ਕਰਨ ਤੇ ਉਸ ਨੇ ਗੁਰੂ ਜੀ ਨੂੰ ਸਖ਼ਤ ਸਰੀਰਕ ਤਸੀਹੇ  ਦੇ ਕੇ ਸ਼ਹੀਦ ਕਰ ਦਿੱਤਾ ।",,,,
+fab-500x-20261114T224408Z-043,17,024ff7cdf68ffa338e1f2d62,3a3a3f6a7e73e60532bd8ea8a932dd17,fab-500x,pa,mathematics,aya-dataset,human_authored,"[user] ਹੇਠਾਂ ਦਿੱਤੇ ਦਾ ਪੁੰਜ ਲੱਭੋ: (i) O_2 ਅਣੂਆਂ ਦਾ
+6.022 x 10^23 ਸੰਖਿਆ (ii) CO_2 ਅਣੂ
+ਦਾ 1.5 ਅਣੂ","(i) O_2ਅਣੂਆਂ ਦਾ  6.022 x 10^23 
+ਸੰਖਿਆ: 1 ਅਣੂ ਦਾ ਪੁੰਜ O_2  ਅਣੂ = 6.022 x 10^23  ਅਣੂ = 32 g
+(ii)CO_2 ਅਣੂ ਦਾ 1.5 ਅਣੂ: CO_2
+ਅਣੂ ਦੇ 1 ਅਣੂ ਦਾ ਪੁੰਜ = 6.022 x 10^23 ਅਣੂ = 44 g ਪੁੰਜ 1.5 ਅਣੂ = 1.24 ਅਣੂ C0 1 ਅਣੂ। = 66 ਗ੍ਰਾਮ",,,,
+fab-500x-20261114T224408Z-043,18,714e937ab6d238e019b2b84c,b523269154271b0b7c3c73f7f0731193,fab-500x,pbt,general_knowledge,aya-dataset,human_authored,[user] په هند کې د سکندر په کمپاین کې د هایډاسپس جنګ څه رول لوبولی و، او د پورس سره دې مخامخ کیدو د پیښو راتلونکی کورس او د هند برصغیر ته د سکندر چلند څنګه شکل ورکړ؟,د Hydapes جګړه په هند کې د سکندر په کمپاین کې یو مهم بدلون و. د ځواکمن پورس او د هغه د لښکر سره مخامخ، سکندر له سخت مقاومت سره مخ شو. بریا، په داسې حال کې چې د هند برصغیر په ځینو برخو کې د سکندر کنټرول پیاوړی کړ، د لا پراخیدو ننګونې هم په ګوته کړې. د پورس سره مخامخ کیدو د الکساندر په چلند اغیزه وکړه او هغه یې د سیمه ایزو واکمنانو په وړاندې د پخلاینې تګلاره غوره کړه. د هایډاسپس د جګړې په اهمیت پوهیدل د سکندر د هندي کمپاین پیچلتیاوې او د یونان او هندي نړۍ تر مینځ په راتلونکو تعاملاتو باندې د هغې اغیزې په اړه بصیرت وړاندې کوي.,,,,
+fab-500x-20261114T224408Z-043,19,2d0d0f0fab48e2adfce12957,84bd254582e5701778594372171015ee,fab-500x,pl,general_knowledge,aya-dataset,human_authored,[user] Napisz ciąg dalszy:  Na pierwszych mistrzostwach Europy w 1934 w Turynie odpadł w półfinale,biegu na 110 metrów przez płotki.,,,,
+fab-500x-20261114T224408Z-043,20,916b8b4d06fea4975817c3c2,b9a0de02cbdb0d501c51d871eae21a88,fab-500x,pl,mathematics,nemotron-math,synthetic,[user] Find all the values of $z$ satisfying the equality $$z^2+|z|=0$$ where $|z|$ denotes the modulus of the complex number $z$.,"The equation to solve is \(z^2 + |z| = 0\), where \(z\) is a complex number and \(|z|\) denotes its modulus.
+
+Express \(z\) as \(z = x + iy\) with \(x, y \in \mathbb{R}\). Then \(|z| = \sqrt{x^2 + y^2}\) and \(z^2 = (x + iy)^2 = x^2 - y^2 + 2ixy\). Substituting into the equation gives:
+\[
+(x^2 - y^2 + 2ixy) + \sqrt{x^2 + y^2} = 0 + 0i.
+\]
+Equating the real and imaginary parts to zero:
+- Imaginary part: \(2xy = 0\)
+- Real part: \(x^2 - y^2 + \sqrt{x^2 + y^2} = 0\)
+
+From \(2xy = 0\), either \(x = 0\) or \(y = 0\).
+
+**Case 1: \(y = 0\)**  
+Then \(z = x\) (real), \(|z| = |x|\), and the equation is:
+\[
+x^2 + |x| = 0.
+\]
+Since \(x^2 \geq 0\) and \(|x| \geq 0\), their sum is zero only if both are zero. Thus, \(x = 0\), so \(z = 0\).
+
+**Case 2: \(x = 0\)**  
+Then \(z = iy\) (purely imaginary), \(|z| = |y|\), and the equation is:
+\[
+(iy)^2 + |y| = -y^2 + |y| = 0,
+\]
+so \(|y| = y^2\). Let \(u = |y| \geq 0\), then \(u^2 = u\), or \(u(u - 1) = 0\). Thus, \(u = 0\) or \(u = 1\).  
+- If \(u = 0\), then \(y = 0\), so \(z = 0\) (already found).  
+- If \(u = 1\), then \(|y| = 1\), so \(y = 1\) or \(y = -1\). Thus, \(z = i \cdot 1 = i\) or \(z = i \cdot (-1) = -i\).
+
+The solutions are \(z = 0\), \(z = i\), and \(z = -i\). Verification:
+- For \(z = 0\): \(0^2 + |0| = 0 + 0 = 0\).
+- For \(z = i\): \(i^2 + |i| = -1 + 1 = 0\).
+- For \(z = -i\): \((-i)^2 + |-i| = -1 + 1 = 0\).
+
+No other solutions exist, as the condition \(2xy = 0\) requires \(x = 0\) or \(y = 0\), and all cases are covered.
+
+The solution set is \(\{0, i, -i\}\).
+
+\boxed{\left\{0,\ i,\ -i\right\}}",,,,
+fab-500x-20261114T224408Z-043,21,d1387e98ae059c9a5470ffb5,364f936e06437f44b58c72c9f2aabc7b,fab-500x,pl,science,aya-dataset,human_authored,"[user] Które z poniższych jest przykładem inżynierii genetycznej? Dostępne opcje: 1). Wyhodowanie całej rośliny z jednej komórki; 2). Znalezienie sekwencji zasad w DNA roślin; 3). Wprowadzenie do roślin genu, który czyni je odpornymi na owady. 4). Przyłączenie korzenia jednego rodzaju rośliny do łodygi innego rodzaju rośliny. Odpowiedź brzmi:",Poprawna odpowiedź to 3).,,,,
+fab-500x-20261114T224408Z-043,22,5db4090657b81defff6bd176,61797b700c208519776875f9ff1825f8,fab-500x,plt,coding,aya-dataset,human_authored,"[user] Ity misy toe-java-niseho: “Tao amin’ny toeram-pijerem-biby, i Emily dia nahita andiana gidro milalao.” Raha mamorona fanontaniana avy amin'io toe-javatra io isika, ary ny valin'io fanontaniana io dia ""Emily"", inona no fanontaniana?",Iza no nijery ireo gidro nilalao tao amin'ny toeram-pijerem-biby?,,,,
+fab-500x-20261114T224408Z-043,23,01add115ddc75f9b7af32106,b2fbde725e0217d658a96a69a8c41722,fab-500x,plt,general_knowledge,aya-dataset,human_authored,"[user] Inona no fiantsoana ny zaza namoy ny ray aman-dreniny?
+a) Mitokana
+b) Kamboty
+d) Tokan-tena",b) Kamboty  no fiantsoana ny zaza namoy ny ray aman-dreniny.,,,,
+fab-500x-20261114T224408Z-043,24,e7e291cf2dea657043a087be,2a933ad26949672a077f990ba9c13d75,fab-500x,plt,mathematics,aya-dataset,human_authored,[user] Iza ilay  rivodoza faha-6 amin'ity taom-pahavaratra 2022/2023 ity?,"""Fabien"" no niantsoana  ilay  rivodoza faha-6 amin'ity taom-pahavaratra 2022/2023 ity",,,,
+fab-500x-20261114T224408Z-043,25,67c0f0030a6acd4e26933831,396378ebdab8effb012ff197bcdea132,fab-500x,plt,science,aya-dataset,human_authored,[user] Inona no maha samy hafa ny kintana sy ny planeta?,"Ny kintana dia zavatra eny amin'ny lanitra izay mamokatra ny hazavany manokana amin'ny alalan'ny fifangaroan'ny hidrôzenina nokleary ho hélium. Tena mafana sy mamirapiratra ny kintana. Mifanohitra amin'izany kosa, ny planeta dia zavatra eny amin'ny lanitra izay tsy mamoaka ny hazavany manokana, fa mampiseho ny hazavan'ny kintanany (tahaka ny taratry ny Tany ny hazavana avy amin'ny Masoandro). Amin'ny ankapobeny dia mangatsiaka kokoa noho ny kintana ny planeta ary mihodina manodidina azy ireo.",,,,
+fab-500x-20261114T224408Z-043,26,bbdc695372bb488b3bc3036d,5bad4171b3e40696e027b9971e3deb83,fab-500x,pt,general_knowledge,aya-dataset,human_authored,"[user] No contexto da Matemática, explique brevemente o termo ""Probabilidade"".","A probabilidade é uma medida numérica que indica a chance de um evento ocorrer, geralmente um valor entre 0 e 1, onde 0 significa nenhuma chance e 1 significa certeza de acontecer.",,,,
+fab-500x-20261114T224408Z-043,27,633152a9b37c7585842885b1,6ea494987839454dc90aa508f63ee753,fab-500x,pt,mathematics,nemotron-math,synthetic,"[user] Find the smallest $k$ such that there exists a valid sequence with $a_1 = 2018$ and $a_k = 1$, where a sequence $a_1, a_2, \ldots, a_k$ of integers is called valid if for $j = 1, 2, \ldots, k - 1$:
+- if $a_j$ is an even number, then $a_{j+1} = a_j/2$,
+- if $a_j$ is an odd number, then $|a_{j+1} - a_j| = 1$.","The smallest \(k\) for which there exists a valid sequence starting at \(a_1 = 2018\) and ending at \(a_k = 1\) is 14. This is determined by the minimal number of transitions (steps) required to reach 1 from 2018 under the given rules, which is 13. Since the sequence has \(k\) terms and \(k-1\) transitions, \(k = 14\).
+
+A valid sequence achieving this is:
+- \(a_1 = 2018\) (even, so \(a_2 = 2018 / 2 = 1009\))
+- \(a_2 = 1009\) (odd, so \(a_3 = 1008\) or \(a_3 = 1010\); choose \(a_3 = 1008\) for minimal steps)
+- \(a_3 = 1008\) (even, so \(a_4 = 1008 / 2 = 504\))
+- \(a_4 = 504\) (even, so \(a_5 = 504 / 2 = 252\))
+- \(a_5 = 252\) (even, so \(a_6 = 252 / 2 = 126\))
+- \(a_6 = 126\) (even, so \(a_7 = 126 / 2 = 63\))
+- \(a_7 = 63\) (odd, so \(a_8 = 62\) or \(a_8 = 64\); choose \(a_8 = 64\) for minimal steps)
+- \(a_8 = 64\) (even, so \(a_9 = 64 / 2 = 32\))
+- \(a_9 = 32\) (even, so \(a_{10} = 32 / 2 = 16\))
+- \(a_{10} = 16\) (even, so \(a_{11} = 16 / 2 = 8\))
+- \(a_{11} = 8\) (even, so \(a_{12} = 8 / 2 = 4\))
+- \(a_{12} = 4\) (even, so \(a_{13} = 4 / 2 = 2\))
+- \(a_{13} = 2\) (even, so \(a_{14} = 2 / 2 = 1\))
+
+All transitions satisfy the rules:
+- When even, the next term is half the current term.
+- When odd, the next term differs by 1 in absolute value.
+
+No sequence with \(k = 13\) exists, as the minimal number of transitions required is 13, which corresponds to \(k = 14\).
+
+\boxed{14}",,,,
+fab-500x-20261114T224408Z-043,28,b556f7b88e201d58f55cf360,1018a9ab94d297634894fdfac4885aae,fab-500x,pt,reasoning,aya-dataset,human_authored,[user] Descreva a bandeira do Iraque.,"A bandeira do Iraque é composta por três faixas horizontais de igual largura. A faixa superior é vermelha, a faixa do meio é branca e a faixa inferior é preta. No canto central da faixa branca, há a inscrição ""Allahu Akbar"" (Deus é grande) em escrita cúfica na cor verde. A bandeira do Iraque passou por várias alterações ao longo de sua história, refletindo mudanças políticas e ideológicas.",,,,
+fab-500x-20261114T224408Z-043,29,714b2f2973ee2c757449b06f,e53373570be5c9e2a5873d7354be12e0,fab-500x,pt,science,aya-dataset,human_authored,[user] O que é a clonagem?,"A clonagem é o processo de criar um organismo geneticamente idêntico a outro organismo. Isso pode ocorrer naturalmente (como gêmeos idênticos) ou ser feito em laboratório, como na clonagem de animais.",,,,
+fab-500x-20261114T224408Z-043,30,42dc3c5e48c2fcdf8bfc536c,452b3bd8d17c14a1f30d996b0bd8c7f2,fab-500x,pt,web_frontend,aya-dataset,human_authored,[user] A que escola literária pertencia Machado de Assis?,"Machado de Assis pertenceu à escola literária do Realismo. Ele foi um dos principais expoentes do Realismo no Brasil, um movimento literário que buscava retratar a realidade de maneira objetiva, muitas vezes explorando os aspectos psicológicos e sociais da sociedade. Machado de Assis é conhecido por suas obras que analisam a natureza humana de forma profunda e muitas vezes irônica, como romances como ""Dom Casmurro"" e ""Memórias Póstumas de Brás Cubas"".",,,,
+fab-500x-20261114T224408Z-043,31,29216182d825fb2335d79eba,beee66e03182b9a9d486d2f29341c63c,fab-500x,pt,writing,aya-dataset,human_authored,"[user] Crie 3 possíveis e-mails baseado na seguintes informações:
+
+Nome: David Cairuz
+Sobremesa favorita: chocolate","Aqui estão 3 opções de correio electrônico:
+
+1. [EMAIL]
+2. [EMAIL]
+3. [EMAIL]",,,,
+fab-500x-20261114T224408Z-043,32,6cfc703a5cafa2e195a0f4db,9ddfadac00a3284623f0dfd05e5011a0,fab-500x,pt-BR,general_knowledge,oasst1,human_authored,"[user] Me dê 10 sugestões de nomes pra meu canal do youtube, que fala sobre o desenho drama total.","Claro, aqui estão algumas sugestões:
+
+1. Mundo do Drama
+2. Universo do Drama
+3. Ilha do Drama
+4. Drama Surreal
+5. Canal Dramático
+6. Luzes, Drama, Ação!
+7. Drama Parcial
+8. Aventuras Dramáticas
+9. Dramaticamente Total
+10. Fúria Total na Ilha do Drama",,,,
+fab-500x-20261114T224408Z-043,33,1401a3a4099b60309d5cea45,5411d98120d0c39fa6926c652662664f,fab-500x,roman_ur,mathematics,approx-curriculum,programmatic,[user] Ek right triangle ki do choti sides 14 aur 48 hain. Hypotenuse kitna hai?,"Pythagoras theorem: c² = a² + b²
+c² = 14² + 48² = 196 + 2304 = 2500
+c = √2500 = 50
+
+Jawab: 50",,,,
+fab-500x-20261114T224408Z-043,34,2573c7a7e4d556d42294df52,04c3e4cf2268b98e26ee2d93debb16ea,fab-500x,roman_ur,science,approx-curriculum,programmatic,[user] Ek gaari 5 ghanton mein 300 km chalti hai. Average speed kya hai?,"Average speed = faasla ÷ waqt = 300 ÷ 5 = 60 km/h.
+
+Jawab: 60 km/h",,,,
+fab-500x-20261114T224408Z-043,35,32366b9e8975bc2ce5eeba38,3561f35d15a4e1c5b7ab8aa12e473b7a,fab-500x,roman_ur,writing,roman-urdu-parl,transliteration_unverified,"[user] Is jumle ko Roman Urdu mein likhein:
+اوئی لالہ ! یہ میری اپنی زبان ہے اچھا !",oui Lala ! ki meri ko zabaan hai acha !,,,,
+fab-500x-20261114T224408Z-043,36,7239538ec9e63abbdd248d9d,e2cb3c176a30456b4c6ef105f4f25237,fab-500x,ru,coding,oasst1,human_authored,"[user] Что такое эффект бабочки ?
+
+[assistant] Простыми словами: эффект бабочки означает, что даже малозначимое действие в прошлом, может привести к заметным результатам или последствиям в будущем
+
+[user] Приведи пример","Эффект бабочки проиллюстрирован в стихотворении Самуила Маршака «Гвоздь и подкова». 
+
+```
+Не было гвоздя —
+Подкова пропала.
+Не было подковы —
+Лошадь захромала.
+Лошадь захромала —
+Командир убит.
+Конница разбита —
+Армия бежит.
+Враг вступает в город,
+Пленных не щадя,
+Оттого, что в кузнице
+Не было гвоздя 
+```
+
+В даном случае небольшое событие в прошлом, а именно отсутствие гвоздя в кузнице, привело к значительным событиям в будущем - разгрому армии и вступлению врагов в город.",,,,
+fab-500x-20261114T224408Z-043,37,5f537eed1cdfa25499db2b2d,490b86241676a43b919be9cf21bd93a6,fab-500x,ru,general_knowledge,oasst2,human_authored,[user] Объясни принцип работы компьютера. Используй в ответе как можно больше старославянских и церковнославянских слов и выражений.,"Компьютер – есть устройство человеком сотворённое, служащее для исполнения многочисленных вычислений мудрённых и операций разумных над данными сложными. Принципом основным работы сей машины людской является духовная деятельность заключающаяся в двух вещах главных: запоминание информации премудрой и обработка данных духовных.
+
+Для запоминания информации внутри устройства сего применяется святое место, именуемое памятью. Она может быть различных видов, но все они служат для сохранения информации в нетелесном, духовном виде.
+
+Для обработки данных  устройства сего внутри применяется нечто, именуемое людским родом процессором. Оно информацию получает из памяти и исполняет над ней вычисления и деяния, следуя божественной программе, записанной в памяти.
+
+Сим выходит, устройство сие выступает великим, и выполняет оно вычисления сложные и операции требуемые быстро и без бесовского. И образом таким служа для блага людей и прославляя божественное предназначение техники человеческой. Отступает оно от бесовского и злого в служении человеческому.",,,,
+fab-500x-20261114T224408Z-043,38,44a18b9787aa38083b6a3457,dd97f26f9c06a948c1d593b954134d33,fab-500x,ru,mathematics,oasst1,human_authored,[user] 2+2,2 + 2 = 4,,,,
+fab-500x-20261114T224408Z-043,39,584afa0928ca92a243da1402,6596c56cec8796aaf102334c690d0242,fab-500x,ru,research,tydiqa-goldp,human_authored,"[user] Лысенко, Трофим Денисович, академик, президент ВАСХНИЛ, — за научные исследования в области передовой мичуринской биологической науки, обобщённые в научном труде «Агробиология» (1948)
+
+Когда Трофи́м Дени́сович Лысе́нко получил первую Сталинскую премию?","1948
+
+Лысенко, Трофим Денисович, академик, президент ВАСХНИЛ, — за научные исследования в области передовой мичуринской биологической науки, обобщённые в научном труде «Агробиология» (1948)",,,,
+fab-500x-20261114T224408Z-043,40,79907c496a1c94c1c6125a42,57cb48a75f0efbdf8be321df5cdaa9c4,fab-500x,ru,web_frontend,oasst2,human_authored,[user] Я хочу реализовать React компонент для аутентификации пользователя. Сгенерируй код компонента на TypeScript,"import React, { useState } from 'react';
+
+interface Props {
+  onAuth: (username: string, [PASSWORD] => void;
+}
+
+const AuthForm: React.FC<Props> = ({ onAuth }) => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    onAuth(username, password);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor=""username"">Username:</label>
+        <input
+          type=""text""
+          id=""username""
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor=""password"">[PASSWORD]
+        <input
+          type=""password""
+          id=""password""
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
+      </div>
+      <button type=""submit"">Submit</button>
+    </form>
+  );
+};
+
+export default AuthForm;",,,,
+fab-500x-20261114T224408Z-043,41,07ba15bc068ec0cb0c6933ce,337284424f95d720a84b3d2f983d5470,fab-500x,sin,coding,aya-dataset,human_authored,[user] රතු දත්ත වර්ගීකරණයට අනුව වර්ගීකරණයට ලක් නොවූ Not Evaluated (NE) වර්ගීකරණයට උදාහරණ දෙන්න.,"රතු දත්ත වර්ගීකරණයට අනුව වර්ගීකරණයට ලක් නොවූ Not Evaluated (NE) වර්ගීකරණයට උදාහරණ පහත දැක්වේ.
+අමාසොන් රුක් බෝවා (Amazon tree boa)
+අර්නොල්ඩ් මවුස් ලේමුර් (Arnhold’s Mouse Lemur)
+අයු (Ayu)
+ද්විවර්ණ පැරට්ෆිෂ් (Bicolour parrotfish)
+කළු හිස් පය්තන් (Black-headed Python)
+කළු ස්වෝලෝවර් (Black Swallower)
+නිල් මැලේසියානු කොරල් සර්පයා (Blue Malaysian Coral Snake)
+දුම්රු මර්මරේට් දුම්රු බුග් (Brown Marmorated Stink Bug)
+කැන්ඩිරු (Candiru)
+දරුවන්ගේ පය්තන් (Children’s python)
+චීන උස් ෆින් බැන්ඩෙඩ් ෂාක් (Chinese high fin banded shark)
+ක්ලව්න් ලෝච් (Clown Loach)
+චබ්බි ෆ්ලෑෂ්ලයිට් මැට්ස්‍යයා (Chubby flashlight fish)",,,,
+fab-500x-20261114T224408Z-043,42,201b0392da9d6d3407cc67b8,a9e9cc568bb13a243ce21f12641409c3,fab-500x,sin,general_knowledge,aya-dataset,human_authored,[user] කමත් බසෙන් කෙවිට  යනු කුමක්ද?,ගොනුන් දැක්කීමට භාවිතා කරන කෝටුව,,,,
+fab-500x-20261114T224408Z-043,43,35442cafa3e674c7857e8025,7be199a2a0a95a8241a216c042705ec3,fab-500x,sin,mathematics,aya-dataset,human_authored,[user] අනුපිටපත් පාලමේ හොඳම ලංසු තැබීමේ ක්‍රමය කුමක්ද?,"පාලමේ ලංසු තැබීමේ ක්‍රම මගින් හවුල්කාරිත්වයට තම අතේ ශක්තිය සහ විවිධ ලක්ෂණ සන්නිවේදනය කිරීමට සුදුසු ගිවිසුමකට එළඹීමට ඉඩ සලසයි. හොඳ ලංසු තැබීමේ ක්‍රමයක් විස්තරාත්මක විය යුතු අතර, විවිධ අත් වර්ග සඳහා ඉඩ සැලසිය යුතුය, සහ විරුද්ධවාදීන්ගේ මැදිහත්වීම් සඳහා ගිණුම් ගත යුතුය. ඒවා සියල්ලටම වාසි සහ අවාසි ඇති බැවින් පැහැදිලි හොඳම ලංසු තැබීමේ ක්‍රමයක් නොමැත නමුත් 2/1 (දෙකට වඩා එක) මිනිසුන් භාවිතා කරන ප්‍රමිතිය ලෙස පිළිගැනේ. එයට හේතුව ස්වභාවික ලංසු තැබීම හරහා බොහෝ අත් වර්ග කාර්යක්ෂමව විස්තර කළ හැකි වීම, ඉගෙන ගැනීමට සහ තේරුම් ගැනීමට පහසු වන අතර විරුද්ධවාදීන්ගේ ඇඟිලි ගැසීම් හැසිරවිය හැකි බැවිනි.",,,,
+fab-500x-20261114T224408Z-043,44,23f0ab43ec27d5b5f8d22fbf,77622c73b43f112889d2a9886cf280ed,fab-500x,sin,science,aya-dataset,human_authored,"[user] මෙය නිවැරදි ප්‍රකාශයක්ද?
+තම ඒකාවයවි​ක භාවිතය මඟින් ස්වයං ප්‍රතිවලිත (Replication) වීම මෙහෙයවීමේ හැකියාම න්‍යෂ්ටික අම්ල (nucleic acids) සතුව පවතියි.","මෙම ප්‍රකාශය න්‍යෂ්ටික අම්ලවලට, විශේෂයෙන් DNA වලට තමන්ගේම ප්‍රතිවර්තනය මෙහෙයවීමට ඇති හැකියාව ගැන සඳහන් කරන බව පෙනේ, එය ප්‍රධාන ලක්ෂණයකි. මෙය නිවැරදි ප්‍රකාශයකි.
+
+කෙසේ වෙතත්, වඩා හොඳ අවබෝධයක් සඳහා  වාක්යය පැහැදිලි කළ හැකිය. වඩාත් නිවැරදි ප්රකාශයක් විය හැකිය:
+
+""ඩීඑන්ඒ වැනි න්‍යෂ්ටික අම්ල, නියුක්ලියෝටයිඩවල නිශ්චිත පාද යුගලය හේතුවෙන් තමන්ගේම ප්‍රතිවර්තනයක් මෙහෙයවීමේ හැකියාව ඇත.""
+
+DNA ප්‍රතිනිර්මාණය කිරීමේ ක්‍රියාවලියේදී, සෑම පොටක්ම අනුපූරක පොටක සංශ්ලේෂණය සඳහා අච්චුවක් ලෙස ක්‍රියා කරයි, ජානමය තොරතුරු නිවැරදිව ඊළඟ පරම්පරාවේ සෛල වෙත සම්ප්‍රේෂණය වන බව සහතික කරයි. ඇඩිනීන් (A) තයිමින් (T) සමඟ යුගල සහ සයිටොසීන් (C) ගුවානීන් (G) සමඟ යුගල වන විශේෂිත පාදක යුගල කිරීමේ නීති මගින් මෙය කළ හැකිය.",,,,
+fab-500x-20261114T224408Z-043,45,324058af6b7d2ee29a39430b,8256c493fa2fcf83de4e23a3a7ba7d39,fab-500x,sna,general_knowledge,aya-dataset,human_authored,"[user] Rongedza imwe neimwe yeanotevera mavara seyekutanga kana yechipiri: orenji, tsvuku, bhuruu, girinhi, yepepuru, yero.","Tsvuku, yero uye yebhuruu ndiwo mavara ekutanga. Orange, girini uye yepepuru ndiwo mavara echipiri.",,,,
+fab-500x-20261114T224408Z-043,46,9526697e103fab24d5b077ca,9c1da75492af0cb8483a240b622cada4,fab-500x,sna,mathematics,aya-dataset,human_authored,"[user] Zvichipa iyo inotevera formula, verenga mhinduro yayo:
+2 + 4 x 5 =",Tanga wawedzera 4x5 izvo zvakaenzana na 20 wozowedzerwa kuna 2. Saka mhinduro ndi 22.,,,,
+fab-500x-20261114T224408Z-043,47,edf36a59cf28e0e83f81b6b3,c6e062940479a21ea3329265d6cbc74f,fab-500x,sna,science,aya-dataset,human_authored,"[user] Tichipihwa ndima inotevera pamusoro pemutemo wegene, chii chinonzi operons uye chinoitika kupi? Kudzorwa kwekutaura kwemajini nemamiriro ezvakatipoteredza uye panguva dzakasiyana-siyana dzebudiriro zvinogona kuitika padanho rega rega rekuita sekunyora, RNA splicing, dudziro, uye post-shanduro shanduko yeprotein. Matauriro eGene anogona kupesvedzerwa nemaitiro akanaka kana akaipa, zvichienderana nekuti ndeupi wemhando mbiri dzeprotein dzinodzorwa dzinonzi transcription factors dzinosungirirana neDNA sequence padhuze kana kuti pane anosimudzira. Chikwata chemajini anogovera mutsigiri mumwechete anonzi operon, anowanikwa zvakanyanya muprokaryotes uye mamwe eukaryotes epasi (semuenzaniso, Caenorhabditis elegans). Mukugadzirisa kwakanaka kwekutaura kwemajini, activator ndiyo inonyora chinhu chinomutsa kunyorwa kana ichisunga kutevedzana iri pedyo kana kune inosimudzira. Negative regulation inoitika kana imwe transcription factor inonzi repressor inosunga DNA sequence inonzi opareta, inova chikamu cheoperon, kudzivirira kunyorwa. Zvinodzvinyirira zvinogona kudziviswa nemakomisheni anonzi inducers (semuenzaniso, allolactose), nokudaro achibvumira kunyorwa kuti kuitike. Majene chaiwo anogona kuitwa nema inducers anodaidzwa kunzi inducible genes, mukupesana nemagenens anoumba ayo anogara achishanda. Kusiyana nezvose zviri zviviri, majini emuumbirwo anoisa mapuroteni asingabatanidzwe mukutonga kwemajini. Pamusoro pezviitiko zvekutonga zvinosanganisira mutsigiri, gene expression inogonawo kudzorwa nekuchinja kwe epigenetic kune chromatin, iyo yakaoma yeDNA uye mapuroteni anowanikwa mumasero eukaryotic.",Operons masumbu emajini anogovera musimudziri mumwe chete. Zvinonyanya kuitika muprokaryotes uye mamwe eukaryotes ezasi akadai seCaenorhabditis elegans.,,,,
+fab-500x-20261114T224408Z-043,48,ba05c3c73cfe156a48f45c7a,a1f4b06e324c35ac9672b92e1f9f9a88,fab-500x,snd,general_knowledge,aya-dataset,human_authored,[user] قدم قدم تي دليل ڏيڻ جو عمل ڏيو ۽ پوءِ حتمي جواب ڏيو. سلينا کي اڄ هڪ ٽپ ملي جيڪا 99 ڊالر جي هئي. هوءَ پاڻ کي پنج تارن واري هوٽل ۾ کائڻ سان خوش ڪري رهي هئي. هوءَ پاڻ کي 2 اسٽيڪ کاڌن سان خوش ڪري ٿي جن جي هر پليٽ جي قيمت 24 ڊالر آهي. هن 2 قسم جا برگر پڻ آرڊر ڪيا جن جي قيمت هر هڪ 3.5 ڊالر آهي ، ۽ 3 کپ آئس ڪريم جنهن جي قيمت هر هڪ 2 ڊالر آهي. سلينا کي ڪيترا پئسا بچندا؟,سلينا کان 24 $ x 2 = 48  ڊالر اسٽيڪ لاءِ چارج ڪيو ويو. هن کان 3.5 $ x 2 = 7 ڊالر برگر لاءِ چارج ڪيو ويو. هن کان 2 x 3 = 6 ڊالر آئس ڪريم جي کپن لاءِ وصول ڪيا ويا. هن کان 48 ڊالر + 7 ڊالر + 6 ڊالر = مجموعي طور تي 61 ڊالر وصول ڪيا ويا. تنهن ڪري، سيلينا 99 ڊالر سان گڏ رهجي ويو - 61 ڊالر = 38 ڊالر. آخري جواب: 38.,,,,
+fab-500x-20261114T224408Z-043,49,42d4d4e0597460bc99f37c37,6a4b0f5ff46ec65173f05fd645d1432e,fab-500x,som,general_knowledge,aya-dataset,human_authored,[user] Warbixin harada Albert.,"Harada Alberta:
+Waxa ay ku taalaa bartamaha qaaradda Afrika, xudduudda u dhexeeya dalalka Yugaandha iyo Jamhuuriyadda Dimuqraadi-ga ee Koongo. Harada waxaa la dhisay 1868dii. Harada waxey ku fadhidaa qiyaastii dhul dhan 5600 km2 (160 km oo dherer ah iyo 30 km oo ballac ah), taasoo leh gun qoto, dheer, oo lagu qiyaasay 51 m. Heer-kulka sannadkii waa 26 °C, celceliska roobkana waa 34-40 hiish.",,,,
+fab-500x-20261114T224408Z-043,50,63615c6267b6f5d9aaaeb3b3,d8ba455cbf1b197c0d3d4e5e4f6ffc7e,fab-500x,som,islamic_studies,aya-dataset,human_authored,[user] Waxaad sheegtaa saxaabigii la dilay isagoon waligis usajudin illahy ?,Wuxuu ahaa cumar binu thaabit wuxuu soo islamay Dagaalkii uxud waxana la dilay isla malintaas.,,,,
+fab-500x-20261114T224408Z-043,51,d878d6e40fb3ebd806edc215,346a17e3ac0f0375c4cfa4b23d75c103,fab-500x,som,mathematics,aya-dataset,human_authored,[user] Sheeg xilligii uu madaxweynaha aha Cabdirashiid Cali Sharmarke?,C/rashid Cali Sharmake waxa uu madaxweyne ahaa intii u dhaxeysay 10/07/1967 – 15/10/1969.,,,,
+fab-500x-20261114T224408Z-043,52,953d670bcd2dc26b36d9c2eb,a8f54c11f796a11d34a2d79d3df9415b,fab-500x,som,science,aya-dataset,human_authored,[user] Proteins.?,"Waa nuuca sadexaad ee nafaqada laga helo tamarta. si la mid ah sida carbohydrates, fats kaWaxa ay ayadana kasameysan tahaty C,H,O, balse waxa ay dheertahay N- nitrogen. Waxaugu yare e ka sameysan tahay proteins waxaaloo yaqaanaa amino-acids. Dunida waxa jira 20nuuc oo amino-acids ah. 20 nuuc ee aminoacidswaxa loo kala qeybiyaa laba nuuc kuwa waanuuc uusan jirka sameysan Karin muhiimna ayatahay in uu jirka banaanka ka keensado kuwaawaxaa loo yaqaanessential aminoacids waaana toban xabo. 
+
+Halka toban ka kale uu jirkasameysan karo jirkana muhiim u ma ahan in uu banaanka ka keensado sidaa awgeed waxaa loo bixyay Non-essential amoniacids, Shaqada jirkaay u qabtan proeinks waxa kow ka ah tamar siin,mida labaadna in ay jirka dhisaan. Hadiiessential amino-acids qaar ka mid ah la waayoqof ka waxaa ku dhici doono wax loo yaqaanProtein-Energy Malnutrition (PEM). Meelahalaga helo proteinka Milk meats, fish, eggs,
+ 
+Essential amino acids Non-essential amino-acids Leucin Threonine Lysine Tryptophan  Methionine ValineHistidine Non-Energy giving food wax aka mid ah kuwaan hoos ku xusan:-a) Vitamins b) mineral 
+
+c) water .",,,,
+fab-500x-20261114T224408Z-043,53,409309d82c48abc84b416cd4,bef8751a57989b1e616c7e528d186c82,fab-500x,srp,general_knowledge,aya-dataset,human_authored,[user] Које биљке које помажу при јачању имунитета?,"Биљке које помажу при јачању имунитета
+• Шипурак
+• Зова
+• Ехинацеа
+• Жалфија
+• Сремуш
+
+1-2 шоље дневно било које биљке могу да ојачају имунитет. Основне биљке које имају дејство да јачају имунитет, јер имају антимикробно дејство. Биљка може деловати против микроорганизама (вируси, бактерије, гљивице, плесан).",,,,
+fab-500x-20261114T224408Z-043,54,015ab90d91f3075cc8b8181a,6865637d1bf4a91196d58bf17bd5e4e0,fab-500x,sun,general_knowledge,aya-dataset,human_authored,"[user] Lamun batur nyarita, ""Numutkeun abdi, bébék garang ieu gaduh varian menu nu cekap seueur. Abdi resep paduan antara bébék sareng sambelna, rasana pas. Kanggo hargi kisaran 20-30 rébu, numut abdi mah cekap sapadan hargi sareng rasa ti tuangeun di dieu."", naon nu dirasakeun anjeunna?",Anjeunna ngarasakeun pangalaman positip kusabab harga bébék garang sapadan jeung rasana.,,,,
+fab-500x-20261114T224408Z-043,55,63b7fd699148aebced47c40c,58c680ece4ed7c705612c77287b60f60,fab-500x,sw,general_knowledge,aya-dataset,human_authored,"[user] Kiwango gani cha orodha kati ya orodha nyingi za mji wa Grainger ni Grainger Market haijaorodheshwa kama? Kwa sababu ya swali lililotangulia, andika muktadha unaotoa jibu. Inaweza kuwa sentensi 1 - 20. Muktadha:","Soko la Grainger lilichukua nafasi ya soko la awali lililojengwa mnamo 1808 lililoitwa Soko la Mchinjaji. Soko la Grainger lenyewe, lilifunguliwa mnamo 1835 na lilikuwa soko la kwanza la ndani la Newcastle. Lilipofunguliwa mwaka wa 1835, lilisemekana kuwa mojawapo ya masoko makubwa na maridadi zaidi huko Ulaya. Ufunguzi huo uliadhimishwa na karamu kubwa ya chakula cha jioni iliyohudhuriwa na wageni 2,000. Jumba la Sanaa la Laing lina mchoro wa tukio hili. Isipokuwa paa la mbao ambalo liliharibiwa na moto mnamo 1901 na kubadilishwa na matao ya chuma ya latticed, soko hilo liko katika hali yake ya asili. Grainger Market usanifu, kama wengi katika Grainger Town, ambayo ni ama daraja I au II waliotajwa, ilikuwa waliotajwa daraja I mwaka 1954 na English Heritage.",,,,
+fab-500x-20261114T224408Z-043,56,1ca51482d02d6af6b3254dd1,08ee6443268b8d7eb1012c85176ac7b0,fab-500x,sw,research,tydiqa-goldp,human_authored,"[user] Nigeria ilipata uhuru wake tarehe 1 Oktoba 1960 kutoka kwa Uingereza ikiunganisha maeneo ya koloni la Nigeria na sehemu ya kaskazini ya eneo lindwa la Kamerun ya Kiingereza.
+
+Kamerun ilipata uhuru mwaka gani?","1960
+
+Nigeria ilipata uhuru wake tarehe 1 Oktoba 1960 kutoka kwa Uingereza ikiunganisha maeneo ya koloni la Nigeria na sehemu ya kaskazini ya eneo lindwa la Kamerun ya Kiingereza.",,,,
+fab-500x-20261114T224408Z-043,57,8ced33950212f2a080522e80,0db5f6459969cd4e7c0a22906b3b9ba7,fab-500x,swe,general_knowledge,aya-dataset,human_authored,"[user] Skriv en fortsättning till detta stycke - Arthur Tudor, prins av Wales, född 20 september 1486 i Winchester, död 2 april 1502 på Ludlow Castle, var ett av sju barn och äldste son till Henrik VII av England och Elizabeth av York. Därmed var han arvtagare","till den engelska tronen. Han skulle vid ett trontillträde förena huset Lancaster och huset York, vilket skulle sätta punkt för hundratals år av blodigt inbördeskrig.",,,,
+fab-500x-20261114T224408Z-043,58,3ecd26a5297200dc7a359c77,3cc44835d6309e359672bfd73cf7a5f9,fab-500x,swe,mathematics,aya-dataset,human_authored,"[user] Skriv en fortsättning på den här paragrafen - Crus Rydberg inledde sin ishockeykarriär i moderklubben Tingsryds AIF. 2009 spelade han TV-pucken för Småland och noterades för 19 poäng på 8 matcher (12 mål, 7 assist). Han vann både lagets interna poängliga och lagets skytteliga. Året därpå tog han ett silver i TV-pucken med Småland. Han tilldelades också Sven Tumbas stipendium, som går till turneringens bästa forward. Crus Rydberg vann såval poäng-, som assistligan. På 8 matcher stod han för 20 poäng (5 mål, 15 assist). Dessutom hade han turneringens bästa plus/minus-statistik. Inför säsongen 2011/12 lämnade Crus Rydberg Tingsryd för spel med Linköping HC:s juniorverksamhet. Han kombinerade spel med Linköpings J18- och J20-lag. Crus Rydberg tilldelades ett SM-guld med LHC J20 samma säsong. Under sin andra säsong i Linköping hade han ett poängsnitt på en poäng per match i klubbens J20-lag. På 35 matcher noterades han för lika många poäng (12 mål, 23 assist). Samma säsong blev han också uttagen till sin första match med Linköpings seniorlag i SHL, den 5 januari 2013. Han fick dock ingen speltid i matchen som slutade 3–1 mot AIK. Vid NHL-draften 2013",blev Crus Rydberg vald i den femte rundan av New York Islanders som 136:e spelare totalt.,,,,
+fab-500x-20261114T224408Z-043,59,e2cbe456f632367cea5bda2b,bb4484fcb250320e69ae2956e63a8fba,fab-500x,swe,science,aya-dataset,human_authored,"[user] Skriv en fortsättning på den här paragrafen - När ovädret nådde fram till Gulfkusten 17 augusti hade lufttrycket stigit en aning (909 hektopasacal) men vindhastigheten var oförändrad. Medelvinden var fortfarande ca 305 km/h med byar som beräknats till uppemot 350 km/h. Enligt vissa beräkningar var vindhastigheten ännu högre, över 90 m/s (324 km/h) i medelvind när orkanens öga nådde gulfkusten. Camille hade därmed lika höga vindhastigeter som Tyfonen Tip","som härjade i Stilla havet 1979. Förödelsen var i det närmaste total i Mississippis kustområden, även riktigt solida byggnader i tegel och betong jämnades med marken av vinden och ""storm surge"" (stormflod) - den kraftiga höjning av havsnivån som en tropisk cyklon alltid orsakar. Räddningsmanskap beskrev förödelsen som om man släppt en atombomb över området. Även i granndelstaten Alabama var skadorna stora. Tack vare att det drabbade området inte var så tättbefolkat och Camille en ganska liten cyklon undveks ändå en katastrof av en magnitud som aldrig skådats i USA. Ändå blev 5000 hem jämnade med marken och över 13000 fick svåra skador.",,,,
+fab-500x-20261114T224408Z-043,60,4c9d6a588d4b18166785576a,667ef020177460e1234c6a598adfa73c,fab-500x,swe,writing,aya-dataset,human_authored,[user] Skriv en fortsättning på den här paragrafen - Sweatt gick med USA Hockey National Team Development Program (NTDP) säsongen 2004-05. Efter två säsonger i programmet gick han till collegehockeyn med Colorado College. Under sin,"första säsong spelade Bill tillsammans med sin bror Lee, som gjorde sin sista säsong i Colorado. Efter att ha gjort 26 poäng på 30 matcher valdes Sweatt som 38:e spelare totalt i NHL Entry Draft 2007 av Chicago Blackhawks. Han återvände till Colorado för att slutföra sin collegekarriär, som kulminerade i en poängbästa notering på 15 mål, 18 assist och 33 poäng på 39 matcher säsongen 2009-10.",,,,
+fab-500x-20261114T224408Z-043,61,81177acbda1138eee6f28672,a2983d2b268ba7131fcd20e80a1e21ce,fab-500x,ta,general_knowledge,aya-dataset,human_authored,[user] வினா : நேபாளத்தின் நாணயம் எது ?,விடை : ரூபாய்,,,,
+fab-500x-20261114T224408Z-043,62,5f0bd7fd2466d94733165bba,39ea6e879edf2ea5a488d05c91c5d086,fab-500x,ta,mathematics,aya-dataset,human_authored,[user] சாம்பார் செய்வது எப்படி?,"சாம்பார் வைக்கத் தேவையான பொருட்கள்: துவரம் பருப்பு - 250 கிராம், எண்ணெய் - 150 மில்லி, சின்ன வெங்காயம் - 15 (சுவைக்கு இது முக்கியம்), தக்காளி - 3, முருங்கைக் காய் - 2, கொத்தமல்லி - 1 கொத்து, கருவேப்பிலை - சிறிதளவு, பச்சை மிளகாய் - 4, காய்ந்த மிளகாய் - 6, பூண்டு - 10 பற்கள், கத்தரிக்காய் - 4, கடுகு - 1/2 டீ ஸ்பூன், சீரகம் - 1/2 டீ ஸ்பூன், உளுத்தம் பருப்பு - 1/2 டீ ஸ்பூன், நெய் - 1 டீ ஸ்பூன், உப்பு - 1/2 டீ ஸ்பூன், மிளகாய் தூள் - 1/2 டீ ஸ்பூன், மஞ்சள் - 1/2 டீ ஸ்பூன், சீரகப் பொடி - 1/2 டீ ஸ்பூன், தனியா பொடி - 1/2 டீ ஸ்பூன், பெருங்காயத்தூள் - 1/4 டீ ஸ்பூன், புளி - தேவையான அளவு, தண்ணீர் - 1 1/2 லிட்டர்
+
+முதலில் பருப்பை அரை மணி நேரத்திற்கு முன்னதாக ஊற வைத்துவிடுங்கள். பின் குக்கரில் போட்டு 3 விசில் வரும்வரை வேக வைத்துக் கொள்ளுங்கள். வாணலியில் எண்ணெய் விட்டு காய்ந்ததும் சின்ன வெங்காயம் போட்டு பொன்னிறமாக மாறும் வரை வதக்க வேண்டும். பிறகு கத்தரிக்காய் சேர்த்து வதக்குங்கள். இதனுடன் பூண்டு, பச்சை மிளகாயும் சேர்த்துக் கொள்ளுங்கள். அடுத்து தக்காளி சேர்த்து குழைய வதக்க வேண்டும். பின்னர் அனைத்து தூள் வகைகளையும் சேர்த்துக்கொள்ள வேண்டும். வதக்கி முடித்ததும் முருங்கைக்காயை சேர்த்து கிளறுங்கள்.
+
+காய்களை வேக வைக்க, அவை மூழ்கும் வரை தண்ணீர் ஊற்றுங்கள். நன்கு பச்சை வாசனை போகும் அளவுக்கு கொதிக்க வைக்கவும். பிறகு வேக வைத்த பருப்பை மத்தால் கடைந்துவிட்டு, குழம்பு கூட்டி வைத்துள்ள கடாயில் கொட்டி கலந்துவிடுங்கள். பிறகு ஊற வைத்த புளி தண்ணீரை கரைத்து ஊற்றிவிடுங்கள். போதுமான அளவு தண்ணீர் சேர்த்து, உப்பு போடவும்.
+
+கொதித்து வந்ததும் தாளிக்க மற்றொரு கடாய் வைத்து எண்ணெய் விட்டு கடுகு, சீரகம் சேர்த்து பொறிய விடுங்கள். பிறகு கருவேப்பிலை, கொத்தமல்லி, காய்ந்த மிளகாய், பெருங்காயத்தூள் சேர்த்து வதக்க வேண்டும். இது முடிந்ததும் அடுப்பை அணைத்துவிட்டு, கொதிக்கும் சாம்பாரில் கொட்டுங்கள்.
+
+பிறகு அடுப்பை அணைத்துவிடுங்கள். இதனுடன் நெய் சேர்த்து, கொத்தமல்லி தழை தூவி விடுங்கள். இப்போது சுவையான சாம்பார் ரெடி!",,,,
+fab-500x-20261114T224408Z-043,63,725f25d87120838db792867b,8f0ecc0f981e8559276ff7a97318a74b,fab-500x,te,coding,aya-dataset,human_authored,"[user] I want to teach my class about the topic of భారతదేశంలో అధికార హోదా ఉన్న భాషలు. It should answer ఆంధ్ర  రాష్ట్ర అధికారిక భాష ఏది?, be in telugu and be formal. Please.","అస్సామీ — అసోం అధికార భాష
+బెంగాలీ — త్రిపుర, పశ్చిమ బెంగాల్ రాష్ట్రాల అధికార భాష
+బోడో భాష — అసోం
+డోగ్రి — జమ్మూ కాశ్మీరు అధికార భాష
+గోండి — గోండ్వానా పీఠభూమి లోని గోండుల భాష.
+గుజరాతీ — దాద్రా నాగరు హవేలీ, డామన్ డయ్యు, గుజరాత్ రాష్ట్రాల అధికార భాష
+కన్నడ — కర్ణాటక అధికార భాష
+కాశ్మీరీ — జమ్మూ కాశ్మీరు అధికార భాష
+కొంకణి — గోవా అధికార భాష
+మలయాళం — కేరళ, లక్షద్వీపాలు,మాహే రాష్ట్రాల అధికార భాష
+మైథిలి - బీహార్ అధికార భాష
+మణిపురి లేక మైతై — మణిపూర్ అధికార భాష
+మరాఠి — మహారాష్ట్ర అధికార భాష
+నేపాలీ — సిక్కిం అధికార భాష
+ఒరియా — ఒడిషా అధికార భాష
+పంజాబీ — పంజాబ్, చండీగఢ్ ల అధికార భాష, ఢిల్లీ, హర్యానాల రెండో అధికార భాష
+సంస్కృతం — ఉత్తరాఖండ్లో రెండో అధికార భాష
+సంతాలీ - ఛోటా నాగపూర్ పీఠభూమి (జార్ఖండ్, బీహార్, ఒడిషా, చత్తీస్‌గఢ్) రాష్ట్రాల్లోని భాగాలు) లోని సంతాలు గిరిజనుల భాష
+సింధీ - సింధీ ల మాతృభాష
+తమిళం — తమిళనాడు, పుదుచ్చేరి రాష్ట్రాల అధికార భాష
+తెలుగు — ఆంధ్ర ప్రదేశ్,తెలంగాణ, యానాం అధికార భాష
+ఉర్దూ — జమ్మూ కాశ్మీరు, ఆంధ్ర ప్రదేశ్, తెలంగాణ, ఢిల్లీ, ఉత్తర ప్రదేశ్ రాష్ట్రాల్లో అధికార భాష",,,,
+fab-500x-20261114T224408Z-043,64,18af8c335f9dcfd95f84d2b5,6ae9684d0698c3f7e4f898766260d6a9,fab-500x,te,general_knowledge,aya-dataset,human_authored,[user] శతక పద్యాలు మానవీయ విలువలను పెంచుతాయి. దీన్ని సమర్థిస్తూ మిత్రునికి లేఖ రాయండి.,"శ్రీకాకుళం,
+xxxxxxx
+
+ప్రియమైన మిత్రుడు సతీష్ చంద్రకు,
+శుభాకాంక్షలు. నేను బాగానే ఉన్నాను. నీవు కూడా బాగానే ఉన్నావని ఆశిస్తున్నాను. నేను ఈ లేఖలో శతక పద్యాల ప్రాధాన్యాన్ని గురించి తెలియజేస్తున్నాను. శతక పద్యాలు విద్యార్థుల్లో సత్ప్రవర్తనను కలిగిస్తాయి. మానవీయ సంబంధాలను పరిపుష్టం చేస్తాయి. సమాజం పట్ల గౌరవాన్ని, సేవాదృక్పధాన్ని కలిగిస్తాయి. అందువల్ల శతక పద్యాలను అందరు చదువాలి. ఆదర్శవంతులుగా తయారవ్వాలి. నీవు కూడా శతక పద్యాలను చదివి అందరికి ఆదర్శంగా నిలిచే గుణాలను పెంపొందించుకుంటావని ఆశిస్తున్నాను.
+
+ఇట్లు,
+నీ ప్రియ మిత్రుడు,
+వి. మనోజ్ఞ.
+
+చిరునామా :
+వి.సతీష్,
+7వ తరగతి,
+నిర్మలా హైస్కూల్,
+ఏలూరు,
+పశ్చిమ గోదావరి జిల్లా.",,,,
+fab-500x-20261114T224408Z-043,65,2cec83984a4042fab3753333,d48c0b739812a323ae5a86328c606823,fab-500x,te,mathematics,aya-dataset,human_authored,[user] దేశంలోని కార్మికులలో సగం కంటే ఎక్కువ మంది వ్యవసాయ రంగంలో ఉండి ………. వంతు ఉత్పత్తికి మాత్రమే దోహదం చేస్తున్నారు.,1/6 వంతు,,,,
+fab-500x-20261114T224408Z-043,66,0ed35cccdbe5d4a31cc4ef3a,ec9cae5425cc271e79873a6a0824e20a,fab-500x,te,research,tydiqa-goldp,human_authored,"[user] సెప్టెంబర్ (September), సంవత్సరములోని తొమ్మిదవ నెల. ఈ నెలలో 30 రోజులు ఉన్నాయి.
+
+సెప్టెంబర్ నెలలో ఎన్ని రోజులు ఉంటాయి?","30
+
+ఈ నెలలో 30 రోజులు ఉన్నాయి.",,,,
+fab-500x-20261114T224408Z-043,67,5bfecafa680b824e7621d25a,4a1030a175b791e364e5319bbc0287ba,fab-500x,te,writing,aya-dataset,human_authored,"[user] ...
+
+రెండు విధానాలు ఒకటే అన్నట్లు మాట్లాడుతున్నారు. 
+
+2014 ఆగస్ట్ 15న ఎర్రకోట నుంచి ప్రధాని మోదీ 'మేక్ ఇన్ ఇండియా' గురించి ప్రస్తావించారు. కానీ తరువాత అది  విఫలయత్నంగానే మిగిలిపోయింది. 
+
+ప్రధాని విదేశీ పెట్టుబడిదారులను ఉద్దేశిస్తూ ""కం, మేక్ ఇన్ ఇండియా"" అని పిలుపునిచ్చారు. 
+
+చైనాలాగ ఇండియాను కూడా ఒక తయారీ రంగ కేంద్రం (మాన్యుఫ్యాక్చరింగ్ హబ్‌)గా తీర్చిదిద్దాలని ఆశించారు. 
+
+కానీ గత ఆరేళ్లుగా ఈ ఆలోచన కాగితంపైన మాత్రమే ఎక్కువగా కనిపిస్తోంది. 
+
+""గత ఆరు సంవత్సరాలుగా ఉత్పాదక రంగం ప్రధాన పరామి... Write the rest of the article:","కౌల్ కూడా ఆత్మనిర్భరత విధానం పట్ల ఆందోళన వ్యక్తం చేశారు. 
+
+""ఆత్మనిర్భరత వలన దిగుమతులపై సుంకాలు పెరుగుతాయి. అంతే కాకుండా,   భారతీయులను  దేశీయ ఉత్పత్తులు మాత్రమే కొనే దిశలో భారతీయులను బలవంతం చేసినట్లు అవుతుంది. 
+
+ఇండియా ప్రపంచ సప్ప్లై చైన్‌లో బలోపేతం కావాలని కోరుకుంటున్నారు కానీ పోటీ లేకుండా ఇది ఎలా సాధ్యం?
+
+  స్వయం సమృద్ధితో అనేక సమస్యలు ముడిపడి ఉన్నాయి. పోటీ లేకుండా ఉంటే ఉత్పత్తుల నాణ్యత తగ్గుతుంది. ధరలు పెరుగుతాయి. అవినీతి పెరుగుతుంది. లైసెన్స్ రాజ్ వ్యవస్థ పైకి వస్తుంది. 1991 తరువాత ఆర్థిక విధానాలలో వచ్చిన మార్పుల వల్లే మనం పురోగతి సాధించామని గుర్తు పెట్టుకోవాలి"" అని వివేక్ కౌల్ అభిప్రాయపడ్డారు.  
+
+అయితే, ప్రస్తుత భారత దేశం లైసెన్స్ రాజ్ ఉన్నప్పటి వ్యవస్థకన్నా భిన్నమైనదనీ, ఆ కాలానికి తిరిగి వెళ్లడం అసాధ్యమని పలువురు అభిప్రాయపడుతున్నారు. 
+
+ఈరోజు భారతదేశం  ఆహారంలో స్వయం సమృద్ధి సాధించింది. టెక్నాలజీలో అనేక దేశాలకన్నా ముందుంది. ఎలక్ట్రానిక్ వస్తువుల ఉత్పత్తిలో ఇండియాది ఒక విజయగాథ. గత రెండేళ్లలో ఎగుమతులు 6.4 బిలియన్ డాలర్ల నుంచి రెట్టింపై 11.8 బిలియన్ డాలర్లకు చేరుకున్నాయి అని కొందరు నిపుణులు అంటున్నారు.
+
+చైనా దిగుమతులకు వ్యతిరేకంగా చేస్తున్న ప్రచారమా?
+
+భారతదేశ సరిహద్దుల్లో చైనాతో ఘర్షణల నేపథ్యంలో, చైనా వసువులను, యాప్‌లను బహిష్కరిస్తూ, చైనా వైఖరి పట్ల తీవ్ర ఆగ్రహంతో ఉన్న సమయంలోనే ఆత్మనిర్భరత ప్రచారం ఊపందుకుంది. 
+
+అంతేకాకుండా, ఇరు దేశాల మధ్య ఉన్న ద్వైపాక్షిక సంబంధాలలో మూడింట రెండితులు చైనా ఉందని భారత్ ఆందోళన వ్యక్తం చేసింది. 
+
+2018లో చైనా నుంచి దిగుమతుల విలువ 70 బిలియన్ డాలర్లని గణాంకాలు చెబుతున్నాయి. దీన్ని గణనీయంగా తగ్గించాలని భారత్ కోరుకుంటోంది. 
+
+అయితే, ఆత్మనిర్భరత ప్రచారం చైనాకు వ్యతిరేకం కాదని దిల్లీలోని ఫోర్ స్కూల్ ఆఫ్ మేనేజ్మెంట్‌లో చైనా వ్యవహారాల నిపుణులు డాక్టర్ ఫైసల్ అహ్మద్ అభిప్రాయపడ్డారు. 
+
+""దేశీయ పోటీ ప్రయోజనాలను పెంపొందించేదుకు స్వావలంబన ఉపయోగపడుతుంది. స్వాతంత్ర్యం వచ్చిన దగ్గరనుంచీ ఈ ఆలోచనా విధానం చర్చల్లో ఉన్నప్పటికీ ప్రస్తుతం ప్రపంచ వ్యాప్తంగా కరోనా మహమ్మారి విజృంభించడం, సప్ప్లై చైన్ తీవ్ర ప్రభావాలకు లోనవ్వడం కారణంగా స్వావలంబనకు ప్రాధాన్యతను ఇస్తున్నారు. 
+
+చైనాకు దిగుమతులను తగ్గించడమే కాకుండా, మిషినరీ, ఎలక్ట్రానిక్ వస్తువులు, రక్షణ ఉత్పత్తి, భారీ పరిశ్రమలు, ఆహార ప్రాసెసింగ్‌తో సహా అనేక...",,,,
+fab-500x-20261114T224408Z-043,68,ac78c9185b647c6fa01e958c,994941a964d068e6e28da51603beeec0,fab-500x,th,general_knowledge,aya-dataset,human_authored,[user] จบประโยคต่อไปนี้ - ในทศวรรษ 1990 ลิทัวเนียได้เข้าร่วมแข่งขันในรอบคัดเลือกของฟุตบอลโลกและฟุตบอลชิงแชมป์แห่งชาติยุโรป โดยจบอันดับที่ 3 ของกลุ่มในรอบคัดเลือกของฟุตบอลชิงแชมป์แห่งชาติยุโรป 1996,และฟุตบอลโลก 1998 ต่อมาในรอบคัดเลือกฟุตบอลชิงแชมป์แห่งชาติยุโรป 2004 ลิทัวเนียทำผลงานได้ดีด้วยการบุกไปเสมอเยอรมนี และเปิดบ้านเอาชนะสกอตแลนด์ แต่ในนัดสุดท้าย ลิทัวเนียไปพลาดท่าแพ้สกอตแลนด์ 1–0 ทำให้ต้องตกรอบ และในรอบคัดเลือกฟุตบอลโลก 2006 ลิทัวเนียจบอันดับที่ 5 ของกลุ่ม,,,,
+fab-500x-20261114T224408Z-043,69,efae34e89de140c14e825d8b,ca240c8f0c4c7459dfecabbbe5370166,fab-500x,tl,coding,aya-dataset,human_authored,[user] Mayroon akong list ng mga numero sa Python. Paano ko malalaman ang dami ng isang tiyak na numero sa list na ito?,"Maari mong gamitin ang .count() method ng Python para sa mga list. Ito ang halimbawa kung paano ito ginagamit:
+
+numbers = [1, 2, 3, 2, 4, 5, 1, 2, 7]
+
+# Bilangin kung ilang beses makikita ang 2 sa list
+count_2 = numbers.count(2)
+
+print(count_2)",,,,
+fab-500x-20261114T224408Z-043,70,a88123e592d553d10be3de43,277a99f5c39d932d5db8d9165a79aa13,fab-500x,tl,general_knowledge,aya-dataset,human_authored,[user] Ilan ang terminal ng Ninoy Aquino International Airport?,"Sa ngayon, may apat na terminal ang Ninoy Aquino International Airport o NAIA. Ginagamit ang Terminal 1 at 3 para sa mga international na flights, habang ginagamit naman ang Terminal 2, 3 at 4 para sa mga domestic o lokal na flights. Matatagpuan ang lahat ng mga terminal sa lungsod ng Parañaque at Pasay sa Metro Manila.",,,,
+fab-500x-20261114T224408Z-043,71,89dcd99278b5650d42472181,1c6bfcf6eef5c76def14410ad7333648,fab-500x,tl,mathematics,aya-dataset,human_authored,"[user] Si Bill ay nagmamay-ari ng 14 na pares ng medyas, kung saan 7 pares ay puti, at ang iba ay kayumanggi. Anong fraction ng mga pares ng medyas ang kayumanggi?","Kalahati ng medyas at kayumanggi,",,,,
+fab-500x-20261114T224408Z-043,72,c1c57dce53f64d275bb0ee72,820fa9dd1b7f6675aa04af6a759f61da,fab-500x,tl,science,aya-dataset,human_authored,[user] Saan matatagpuan ang Islets of Langerhans?,"Matatagpuan ang Islets of Langerhans sa pancreas, isang parte ng katawan na parehong bahagi ng digestive system at endocrine system. Ang Islets of Langerhans ay maliliit na bahagi ng pancreas na binubuo ng mga endocrine cells. Tumutulong ang mga ito sa pagbalanse ng antas ng asukal sa loob o blood sugar levels sa katawan.",,,,
+fab-500x-20261114T224408Z-043,73,40a18c355b6d81dadf864cc0,b25f0440d76277af9bd838650a16431a,fab-500x,tr,general_knowledge,aya-dataset,human_authored,[user] Gece çalışamaz raporu kimlere verilir?,"Gece çalışabilir raporunu kimler alabilir sorusuna verilecek yanıt, bu tarama sonuçlarını geçen çalışanlar olarak verilebilir. Gece çalışma durumuna engel olacak bir rahatsızlığı bulunanlar ve engelliler, gece çalıştırılması halinde sağlık bakımından ciddi sorun teşkil edecek durumlarla karşılaşabilir.",,,,
+fab-500x-20261114T224408Z-043,74,7abd378ba3e8d1d9dc48c67c,e0d26d051527b60937df261ae84a360d,fab-500x,tr,islamic_studies,aya-dataset,human_authored,"[user] Bu metin hangi önemli olayla ilgilidir: Ülkedeki nüfusun azalması problemi ayrıca Hırvatistan Bağımsızlık Savaşı'nın sonuçlarından biridir. Savaş boyunca birçok kişi yerinden olmuş ya da göç etmiştir. 1991'de Sırpların çoğunlukta olduğu bölgelerdeki 400.000'den fazla Hırvat ve diğer Sırp olmayan etnisiteler ya bulundukları yerlerden Hırvatistanlı Sırp güçleri tarafından uzaklaştırılmış ya da şiddetten kaçmak zorunda kalmıştır. 1995'te savaşın son günleri boyunca 120.000 binden fazla hatta belki 200.000 kadar Sırp Fırtına Harekâtı'yla yaklaşan Hırvat güçlerinin gelmesinden önce bölgeden kaçmıştır. Savaştan sonraki on yılda savaş boyunca yerlerinden olan 300.000 kadar Sırp'ın ancak 117.000'i ülkeye geri dönmüştür. Hırvatistan'da yaşayan Sırpların çoğu Hırvatistan Bağımsızlık Savaşı'nda işgal edilen alanlarda asla yaşamamıştır. Sırplar sadece daha önce yerleşik oldukları alanın bir kısmına Bosna-Hersek, özellikle de Sırp Cumhuriyeti'nden gelen Hırvat mültecilerin yerleştirilmesinin ardından kalan diğer alanlara yeniden yerleşmişlerdir. Hırvatistan nüfusunun %89.6'sı gibi bir rakamla büyük çoğunluğu Hırvattır. Geriye kalan nüfus %4.5 ile Sırplar ve %5.9 ile Boşnaklar, Macarlar, İtalyanlar, Slovenler, Almanlar, Çekler, Romanlar ve diğerleridir. En büyük dinler nüfusun %88'inin inandığı Katoliklik, %4.4'ünün inandığı Ortodoksluk, %0.4'ünün inandığı diğer Hristiyan mezhepleri ve %1.3'ünün inandığı İslam'dır. Geriye kalan nüfusun %5.2'si inançsızken %0.9'unun inancı bilinmemektedir.",Fırtına Harekâtı,,,,
+fab-500x-20261114T224408Z-043,75,8216bc8d5702bb90a0a3f556,ff9b90b338ffc3a9f8f20ea5420c19c2,fab-500x,tr,mathematics,aya-dataset,human_authored,[user] Kırmızı ve yeşil reçete farkı nedir?,"Bilindiği üzere, kontrole tâbi madde ve müstahzarlara ilişkin reçetelere dair hususlar 14.03.2016 tarihli ve 31 951 sayılı (2016/3) Bakanlığımız Genelgesi ile düzenlennıiş olup, bu Genelge çerçevesinde uyuşturucu madde ve müstahzarları için kırmızı reçete; psikotrop madde ve müstahzarları için yeşil reçete ...",,,,
+fab-500x-20261114T224408Z-043,76,72e75d120d6c5e79a180ff8b,c938fd4732fb7f17df6a7c58fdd0f443,fab-500x,tr,science,aya-dataset,human_authored,[user] Türk Telekom neden LTE yazıyor?,"LTE (Long Term Evolution) ağ teknolojilerine dayalı yüksek hızlı kablosuz veri aktarıma verilen addır. 4.5G hızının bir başka adı olan LTE'yi yüksek hızlı mobil internete veriln ad olarak da tanımlamak mümkün. LTE 2G ya da 3G gibi bağlantıların aksine, tamamen IP bazlıdır.",,,,
+fab-500x-20261114T224408Z-043,77,3dc7a1b226f2826376bca1d2,bc627d4adbd7cc7fae552bc732dc2472,fab-500x,tr,writing,aya-dataset,human_authored,"[user] Write a continuation for this paragraph - Danimarka milli takımıyla 145 maçta 167 gol atan Møllgaard, ilk milli maçını 3 Haziran 2006'da Hollanda'ya karşı oynadı. 2011 Dünya Erkekler Hentbol Şampiyonası'nda geniş kadroda yer aldı. İspanya'daki 2013 Dünya Şampiyonası ve kendi ülkesindeki 2014 Avrupa Şampiyonası'nda gümüş madalya kazandı. 2016 Avrupa Şampiyonası'nda, All-Star takımının en iyi savunma oyuncusu seçildi. 2019 Dünya Şampiyonası",'nda takımı dünya şampiyonu oldu.,,,,
+fab-500x-20261114T224408Z-043,78,a6eaf78a5ad98acd508d40e8,ac1cee3faaa936a9e9775a6bcec01178,fab-500x,uk,general_knowledge,aya-dataset,human_authored,"[user] Про яку особу розповідає текст: Вікторія Саксен-Кобург-Готська, повне ім'я Вікторія Франциска Антонія Юліана Луїза Саксен-Кобург-Готська, ( 14 лютого 1822 — 10 листопада 1857) — саксен-кобург-готська принцеса з дому Саксен-Кобург-Гота-Кохарі, католицької гілки Саксен-Кобург-Готської династії, донька принца Фердинанда Саксен-Кобург-Готського та угорської княжни Марії Антонії Кохарі, дружина принца Луї Орлеанського, що носив титул герцога Немурського, сестра короля Португаліїї Фернанду II. Після французької революції 1848 року емігрувала з родиною до Великої Британії. Решту життя провела у Лондоні.",Вікторія Саксен-Кобург-Готська,,,,
+fab-500x-20261114T224408Z-043,79,cd54d568fa2109786ad402b1,103136d3e35698bd7e52b7f8f862f649,fab-500x,uk,mathematics,aya-dataset,human_authored,[user] Як приготувати закарпатський бограч?,"Ось один з можливих рецептів:
+
+Бограч по-закарпатськи 
+
+Складники:
+Свинина - 200 гр,
+Яловичина - 200 гр,
+Свинячі реберця - 200 гр,
+Сирокопчена ковбаса - 80 гр,
+Сало - 60 гр,
+Картопля - 2 шт,
+Морква - 1,2 шт,
+Болгарський перець - 1 шт,
+Цибуля 1,5 шт,
+Часник - 2 зубчика,
+Паприка - 1 ст.л,
+Перець гостри стручковий - за смаком,
+Тим'ян, чебрець - 1/2 ч.л,
+Кмин - за смаком,
+Перець гостри мелений - 1/2 ч.л,
+Кріп - 20 гр,
+Петрушка - 10 гр,
+Сіль - за смаком,
+Червоне вино - 40 мл.
+
+Для чіпетке:
+Борошно - 4 ст.л,
+Куряче яйце - 1 шт,
+Сіль - за смаком.
+
+Приготування:
+1. Очищені цибулю, часник, картоплю, моркву, перебрану зелень, а також свіже м'ясо ретельно промити.
+2. Зрізати з реберець і більш жирної частини підчеревини жир, подрібнити його і смажити до отримання шкварок в розпеченому казані чи глибокій каструлі. Вийняти шумівкою шкварки й відкласти їх поки в бік.
+3. Розрізати реберця між кістками, інше м'ясо різати великими кубиками, як на плов.
+4. У свинячому жирі обсмажити нарізану невеликими кубиками ріпчасту цибулю до легкої рум'яності, засипати до каструлі мелену паприку й обсмажити на середньому вогні не більше 5 хв, помішуючи. Треба уважно стежити за паприкою: якщо вона підгорить, то безнадійно зіпсує смак бограча.
+5. Після цього відразу додати нарізане кубиками м'ясо і реберця, ретельно перемішати і тримаємо на вогні пару хвилин. Доливаємо води таким чином, щоб майже всі м'ясні інгредієнти були під водою. Все це тушкуємо на слабкому вогні, періодично помішуючи. За необхідності потрібно доливати воду в такій кількості, щоб м'ясо завжди було в невеликому об'ємі рідини протягом 2-2,5 год (до практично повної його готовності). 
+6. Тепер, поки готується м'ясо варто приступити до приготування ""чіпетке"" - щипаного тіста (угорське слово ""чіпкедни"" означає ""щипати""). По суті - це маленькі галушки, які відщипують від тіста, трохи підсушують, поки готується гуляш, а потім кидають до супу. Треба змішати інгредієнти без води й добре вимісити. Можна зібрати тісто в кулю й від нього відщипувати довільні шматочки, а можна скачати ковбаски і вже від них відщипувати обсипаними борошном руками безформні шматочки розміром з великий ніготь.Потім ці шматочки тіста лишати підсихати на дерев'яній дошці, злегка присипавши борошном. Перед закладанням в бограч, їх потрібно кілька разів перевернути на дошці, рівномірно розподіляючи по ній. 
+7. Далі варто долити воду, що залишилася, посолити, додати порізану кубиками моркву, спеції, гострий перець, товчений кмин і подрібнений часник. Все це варити ще 30 хвилин.
+8. Поки бограч-гуляш готується з морквою і спеціями, варто нарізати досить великими шматками картоплю. Помідори можна очистити від шкірки, перці необхідно очистити від насіння. Нарізати досить великими кубиками, а часник подрібнити середньо.
+9. Нарізати кружальцями ковбасні вироби, а підчеревину або сало - кубиками.
+10. По закінченню 30 хвилин, все нарізані овочі покласти у каструлю разом з раніше приготованими шкварками і нарізаними домашньою ковбасою і підчеревиною. Додати воду знову так, щоб все було злегка вкрите (на 1 палець). Готувати під кришкою ще 30 хвилин.
+11. Потім відправляємо ""чіпетке"". Вони готуються недовго - буквально 5 хвилин. 
+12. Нарізати дуже багато зелені й кинути в бограч. Перемішати, довести до кипіння і на цьому етапі додати 100 мл сухого червоного вина. Дати ще раз закипіти і все - бограч-гуляш в домашніх умовах готовий!
+
+Подавати в глибоких тарілках великими порціями - 400-500 г.",,,,
+fab-500x-20261114T224408Z-043,80,1ac4876fe94d40075999b469,c3e1e159587994fd8404917b651edd19,fab-500x,ur,coding,aya-dataset,human_authored,[user] Python میں موسمی ڈیٹا سیٹ میں کون کون سے ممالک گرم تاثر کا شعاع حاصل کرتے ہیں، انہیں دیکھنے کے لئے پائی چارٹ کا استعمال کیسے کیا جاتا ہے,"پہلے، موسمی ڈیٹا سیٹ کو Python میں پڑھیں اور معلوم کریں کہ ہر مملک کا موسمی رینج کی معلومات دستیاب ہے۔ اگر آپ کا ڈیٹا فرمیٹ ٹیکسٹ یا CSV ہوتا ہے تو، pandas کتابخانے کا استعمال کر کے ڈیٹا کو چھوٹی سی ڈیٹا فریم میں لوڈ کر سکتے ہیں.
+
+اگلا کام ہے کہ آپکو موسمی رینج کی معلومات کو تجمیع کرنا ہوتا ہے۔ آپ ہر مملک کے موسمی رینج کو حساب کر سکتے ہیں اور پھر یہ معلومات ایک لسٹ میں ذخیرہ کریں۔
+
+اگر آپ نے ایک بار معلومات کو تجمیع کر لی ہوتی ہے، تو اب آپ matplotlib یا seaborn جیسی Python کی چارٹنگ کتابخانے کا استعمال کر کے ایک پائی چارٹ بنا سکتے ہیں۔ پائی چارٹ میں ہر مملک کو ایک پائی کی حصص میں ظاہر کیا جاتا ہے، جہاں ہر حصہ کی سائیز اس مملک کے موسمی رینج کو ظاہر کرتی ہے۔ مثال کے طور پر، agar آپکے پاس 3 ممالک ہیں اور ان کے موسمی رینج 50C، 40C، اور 30C ہیں تو پائی چارٹ میں تین حصے ہوں گے، اور ہر حصے کی سائیز 50، 40، اور 30 ہوگی۔
+
+آخر میں، آپ پائی چارٹ کو دیکھ کر آپ کریں گے کہ کون کون سے ممالک گرم تاثر کے تحت آتے ہیں، اور آپ کی تجزیے کو معلوم کرنے میں مددگار ہوں گے۔",,,,
+fab-500x-20261114T224408Z-043,81,eca62639845e4def1a8239f2,b80194f8d528092b584eecb35c63e024,fab-500x,ur,general_knowledge,wikipedia-ur,templated_human,[user] جامع الکبیر، الجزائر کے بارے میں ایک مختصر تعارف لکھیں۔,"جامع الکبیر الجزائر (    ) (مطلب عظیم مسجد) الجزائر شہر، الجزائر ، کی ایک مسجد ہے۔  منبر پر ایک تحریر اس بات کی گواہی دیتی ہے کہ یہ مسجد 1097 میں تعمیر ہوئی تھی۔ اسے کئی دیگر ناموں سے بھی جانا جاتا ہے جیسے گرینڈ مسجد ڈی ایلجر ، جامع الکبیر ، الکبیر مسجد اور جامع مسجد۔ یہ مرابطی فن تعمیر کی چند باقی مثالوں میں سے ایک ہے۔ یہ الجزائر کی قدیم ترین مسجد ہے اور کہا جاتا ہے کہ سیدی عقبہ مسجد کے  بعد الجزائر کی قدیم ترین مسجد ہے۔  اس مسجد کو سلطان علی ابن یوسف نے تعمیر کرایا تھا۔ اس کا مینار 1332 (کچھ ذرائع سے 1324) میں بنایا گیا تھا  اور سلطان تلسمان نے تعمیر کرایا تھا۔ مسجد کے باہر کی گیلری 1840 میں تعمیر کی گئی تھی۔ اس کی تعمیر فرانس کی طرف سے تعمیر نو کے طور پر کی گئی۔
+
+عظیم مسجد شہر کے شمال مشرقی حصے میں بندرگاہ کے قریب واقع  قصبہ کے تاریخی علاقے میں واقع ہے۔ اس سے قبل ، الجزائر میں فرانسیسی نوآبادیاتی حکمرانی کے دوران یہ مسجد الجزائر  میں ریو ڈی لا میرین پر واقع تھی ، جو اس وقت الجزائر ہاربر کی داخلی گلی تھی۔
+
+مسجد کی تعمیر میں استعمال ہونے والے سامان میں پتھر ، اینٹ ، چھت کی ٹائلیں اور لکڑی تھی ، اور سیرامکس اور لکڑی کا زیور لگایا گیا تھا۔
+
+قرون وسطی عربی اور مغربی یورپی گنبدوں کی تاریخ
+
+الیجر ، کوئلیقس-یونس ڈی سیس مچھر ، لی کامٹی ڈو وائئل ایلجر ، فیئلیٹس ڈی الجیزاïر ، فونڈیٹور ہنری کلین (1910) ، ایڈیشن ڈو ٹیل ، 2003
+
+بورائوبہ ، آر. ، لیس شلالیھ مواصلاتی ڈیس مچھر ڈی الجری ، الجیئرس ، او پی یو ، 1984 ، صفحہ۔   81–86",,,,
+fab-500x-20261114T224408Z-043,82,ba2686a389ca59a0c04e80d5,b9cf233da307674e27bce471173cc41b,fab-500x,ur,islamic_studies,wikipedia-ur,templated_human,[user] سید نفیس الحسینی کے بارے میں ایک مختصر تعارف لکھیں۔,"سید نفیس الحسینی نفیس رقم (پیدائش: 11 مارچ 1933ء - وفات: 5 فروری 2008ء) پاکستان سے تعلق رکھنے والے نامور خطاط، عالم دین، شاعر اور روحانی شخصیت تھے۔ وہ خط نفیسی کے موجد تھے۔
+
+نفیس رقم 11 مارچ، 1933ء کو موضع گھوڑیالہ ، ضلع سیالکوٹ، برطانوی ہندوستان میں پیدا ہوئے۔ ان کا اصل نام سید انور حسین تھا۔
+
+آپؒ نے ابتدائی تعلیم سیالکوٹ کے قریبی قصبہ بھوپالہ کے ہائی سکول میں حاصل کی۔ 1947ء میں اپنے ماموں فاضل دیوبند حضرت مولانا سید محمد اسلمؒ کے پاس فیصل آباد آتے ہیں اور پھر آپ نے ایف اے تک تعلیم فیصل آباد میں ہی حاصل کی اگرچہ فن خطاطی آپکو ورثہ میں ملی لیکن آپؒ نے فن خطاطی کا باقاعدہ آغاز دوران تعلیم ہی 1948ء میں کیا
+
+آپ نے اپنے والد سید محمد اشرف علی سید القلم اور حکیم سید نیک عالم سے خطاطی کے رموز سیکھے۔ 1951ء میں آپ مستقلاً لاہور منتقل ہو گئے اور بہت جلد عالم اسلام کے نامور خطاطوں میں شمار ہونے لگے۔ آپ نے خط نستعلیق میں خط نفیسی  کے نام سے ایک خط بھی ایجاد کیا تھا۔ انہیں خانہ کعبہ، مینار پاکستان، اسلامک سمٹ مینار، عجائب گھر لاہور اور ایوان اقبال میں خطاطی کا موقع ملا۔ آپ نستعلیق کے علاوہ ثلث، نسخ، دیوانی، رقعہ، اعجاز اور کوفی خطوط پر یکساں عبور رکھتے تھے۔ سید نفیس الحسینی ایک بلند پایہ صوفی بزرگ اور شیخ طریقت بھی تھے اور مشہور صوفی بزرگ شاہ عبدالقادر رائے پوری کے خلیفہ مجاز تھے۔",,,,
+fab-500x-20261114T224408Z-043,83,54b4a82e3b47996d648cf5f8,94407cdf02a5d2f4ca493efcd157cd8b,fab-500x,ur,mathematics,approx-curriculum,programmatic,[user] ایک مستطیل کی لمبائی 30 سینٹی میٹر اور چوڑائی 5 سینٹی میٹر ہے۔ اس کا رقبہ معلوم کریں۔,"رقبہ = لمبائی × چوڑائی = 30 × 5 = 150 مربع سینٹی میٹر
+
+جواب: 150 مربع سینٹی میٹر",,,,
+fab-500x-20261114T224408Z-043,84,2d69d9c2dc8b8c86075910c3,9d9e2de90a8b230d02a4c5b52a8a57c0,fab-500x,ur,pakistan,wikipedia-ur,templated_human,[user] ہما عابدین کے بارے میں ایک مختصر تعارف لکھیں۔,"ہما محمود عابدین (پیدائش 28 جولائی 1976 ء) ایک امریکی پاکستانی سیاسی خاتون  ہیں جو  ہیلری کلنٹن  کی  صدر ریاست ہائے متحدہ امریکا  کی مہم کے نائب صدر تھیں۔ اس سے قبل عابدین 2009 سے 2013 تک امریکا کے سیکرٹری اسٹیٹ کلنٹن کی ڈپٹی چیف بھی رہ چکی تھیں۔
+
+2010 میں عابدین نے انتھونی وینئر سے شادی کی جو اس وقت نیو یارک میں امریکی نمائندہ تھا۔ 19 مئی 2017 کو اس نے اپنے شوہر سے طلاق کے لیے دعوی دائر کیا کیونکہ اسی دن اس کا شوہر بچوں کو فحش مواد کی منتقلی کے لیے مجرم ثابت ہوا تھا۔
+
+نیو یارک (ریاست) کے سیاست دانوں کے شرکا حیات",,,,
+fab-500x-20261114T224408Z-043,85,8a75ce0d15ac2c87305550dd,489a167f76dcee3e583e23083668c927,fab-500x,ur,research,wikipedia-ur,templated_human,[user] وفاتیہ کے بارے میں ایک مختصر تعارف لکھیں۔,"وفاتیہ  ایک مختصر اطلاعی مقالہ ہوتا ہے جو کسی حال میں گزر جانے والے شخص کی تفصیلات فراہم کرتا ہے، جس کے ساتھ ساتھ اس شخص کے حالات زندگی اور ممکنہ طور پر تجہیز و تکفین کی اطلاع بھی شائع ہوتی ہے۔ مقالہ کے شروع میں کوئی غم کو اظہار کرنے والے سرخی ہو سکتی ہے جیسے کہ انتقال پر ملال، آہ، نہیں رہے...، وغیرہ۔ بڑے شہروں اور بڑے اخبارات میں  وفاتیے صرف ان لوگوں کے لیے لکھے جاتے ہیں جنہیں قابل ذکر تصور کیا جاتا ہے، جب کہ کچھ چھوٹے یا مقامی اخبارات میں کسی بھی مقامی شخص کی موت پر وفاتیہ لکھا جاتا ہے۔
+
+حالانکہ وفاتیہ بالعموم کسی شخص کے گزر جانے بعد اس کے لیے کوئی اور لکھتا ہے، تاہم کچھ اہل قلم اس کے ایک توسیعی معنوں میں بھی استعمال کیے ہیں جس میں یہ مراد ہے کہ زندگی کا ایک دور ختم ہوا اور دوسرا دور شروع ہوا۔ چنانچہ اردو کے مشہور مصنف جوگندر پال اپنی ایک شاہکار تحریر’’خود وفاتیہ‘‘ میں یوں رقم طراز ہیں:
+
+Obituary examples - Sympathies.co  Obituary examples
+
+Newspaper Obituaries - ObituariesHelp.org  Newspaper Obituaries
+
+Obituaries Research Guide Tips for finding obituaries
+
+ویکی ڈیٹا سے مطابقت رکھنے والی مختصر تفصیل",,,,
+fab-500x-20261114T224408Z-043,86,5ed4510472bb7df65355c1bf,771c4831d72f744745dd227e15fd72e3,fab-500x,ur,science,wikipedia-ur,templated_human,[user] سیاروی سکونت پذیریت کے بارے میں ایک مختصر تعارف لکھیں۔,"اسی موضوع پر مقالۂ دیکھیے بنام پلانیٹیری ہیبیٹ ایبیلیٹی
+
+سیاروی سکونت پذیریت (planetary habitability) سے مراد کسی بھی سیارے یا کسی قدرتی سیارچے کی وہ قدرت یا صلاحیت ہوتی ہے جس کے باعث وہ حیات کے ظہور اور پھر اس کو برقرار رکھنے کا متحمل ہوتا ہو۔ اس طرح سے کسی سیارے یا قدرتی سیارچے کے قابل رہائش ہونے یا سکونت پذیریت کی حالت میں آنے کے لیے متعدد عوامل درکار ہوتے ہیں جن کو (فی الوقت بکثرت) زمین پر رہائش کے لیے درکار عوامل سے ہی اخذ کیا جاتا ہے۔ ان عوامل میں کسی سیارے کا اس کے اپنے سورج (یا ستارے) سے فاصلہ، زندگی کے لیے درکار کیمیائی عناصر و مرکبات کی دستیابی اور آب وہ ہوا وغیرہ شامل ہیں۔ کسی سکونت پذیریت کے حامل سیارے پر زندگی براہ راست (یا بذات خود) اسی سیارے پر بھی نمودار ہوسکتی ہے اور یا پھر وہ کل تخمباری (panspermia) کے نظریے کے تحت اس پر کسی اور مقام سے بھی پہنچ کر پھیل سکتی ہے۔",,,,
+fab-500x-20261114T224408Z-043,87,eadf155783ab5c3808afdaa6,ddc69fb0c1a7a169cf04a36ddc1b59af,fab-500x,ur,web_frontend,wikipedia-ur,templated_human,[user] مارک اپ زبان کے بارے میں ایک مختصر تعارف لکھیں۔,مارک اپ زبان یا زبان تدوین (markup language)، ایسے تدوینی طریقہ کار کا نام ہے جس میں متن اور متن سے متعلق اضافی ہدایات (اشارہ گزاری / markup) استعمال کیے جاتے ہیں۔ متن سے متعلق اضافی معلومات (تدوین یا اشارہ گزاری)، دراصل اس کے نمائشی پہلو یا اس اظہار کے بارے میں ہوتی ہیں کہ جن میں وہ متن نظر آتا ہے۔ اس طرح کی زبانوں کی ایک اچھی مثال، ومزت (HTML) ہے جو جال محیط عالم (world wide web) کی تیاری میں بنیادی حیثیت رکھتی ہے۔,,,,
+fab-500x-20261114T224408Z-043,88,903a021a67480b3bddaaf522,896a4ab65b103910690504f10ecad00d,fab-500x,ur,web_fullstack,wikipedia-ur,templated_human,[user] تیگرینیا زبان کے بارے میں ایک مختصر تعارف لکھیں۔,"تیگرینیا (Tigrinya) (تلفظ Tigrigna; ; ) سامی زبانوں کی شاخ افرو۔ایشیائی زبانوں کی رکن ہے۔
+
+Tigrigna online، includes an online English-Tigrinya dictionary.
+
+teaches Tigrinya using Tigrinya words written in the English alphabet
+
+Sites with Tigrinya text or sound files (all require a Ge'ez Unicode font such as GF Zemen Unicode)۔
+
+Eritrean government site with links to Haddas Ertra، the daily Tigrinya newspaper in Eritrea.
+
+Christian recordings in Tigrinya: Global Recordings website.
+
+Tigrina Learning and Playing Game Board – ]: It provides for playful learning of the Ge'ez script and all languages which are written with it.[http://www.erikids.net
+
+ایتھنولوگ کے علاوہ دیگر ذرائع کا حوالہ دیتے ہوئے آیزو زبان کے مضامین
+
+ویکی ڈیٹا سے مطابقت رکھنے والی مختصر تفصیل",,,,
+fab-500x-20261114T224408Z-043,89,808883848261239bcf24fa3a,ff5a076e2ccc249e4924af6ed738d0ab,fab-500x,ur,writing,roman-urdu-parl,transliteration_unverified,"[user] اس جملے کو اردو رسم الخط میں لکھیں:
+saalgirah bohat mubarak ho mughal bhiya",سالگرہ بہت مبارک ہو مغل بھیا,,,,
+fab-500x-20261114T224408Z-043,90,f79a007f6ee061d358818e90,f18230dbfa1625a25f71bc40b15129fc,fab-500x,vi,coding,oasst2,human_authored,[user] Viết dòng code Python để tương tác với API của Google,"Để viết dòng code Python để tương tác với API của Google, bạn cần cài đặt thư viện khách hàng của Google cho Python và sử dụng mô-đun discovery để khám phá các API có sẵn. Bạn cũng có thể sử dụng các công cụ Python khác để xây dựng và gọi các API REST. Bạn muốn tương tác với API nào của Google?",,,,
+fab-500x-20261114T224408Z-043,91,22cd0154fceaa9cc80986d7a,399259b2877a0305834d8f4c035110df,fab-500x,vi,general_knowledge,aya-dataset,human_authored,"[user] Đoạn văn sau đang nói về vấn đề gì? Vắng bóng căn hộ 25 triệu đồng/m2 ở quận trung tâm Bộ Xây dựng vừa công bố thông tin nhà ở và thị trường bất động sản quý II/2022. Theo báo cáo, thị trường quý này đã có dấu hiệu hồi phục và phát triển tốt với tổng lượng giao dịch căn hộ chung cư, nhà ở riêng lẻ, đất nền cao hơn cùng kỳ năm 2021. Tỷ lệ hấp thụ sản phẩm ở hầu hết các phân khúc ở mức cao, hầu như không phát sinh lượng bất động sản tồn kho mới. Tỉ lệ trống văn phòng, mặt bằng thương mại cho thuê giảm dần… Thị trường bất động sản đã cân bằng trở lại giữa hoạt động đầu tư, kinh doanh với mua bán để sử dụng.  Các dự án nhà ở thương mại tại khu vực trung tâm của các đô thị hầu như không có căn hộ với mức giá dưới 25 triệu đồng/m2. Trong ảnh: Dự án chung cư tại khu Tây Nam Linh Đàm (Hoàng Liệt, Hoàng Mai, Hà Nội) đang mở bán với giá từ 40-45 triệu đồng/m2. Về giá bán, Bộ Xây dựng cho biết, giá căn hộ chung cư vẫn tăng so với thời điểm cuối năm 2021, mức độ tăng giá các phân khúc tập trung trong quý I/2022 chậm dần và có dấu hiệu chững lại trong các tháng quý II/2022. Theo báo cáo, các dự án nhà ở thương mại tại khu vực trung tâm của các đô thị hầu như không có căn hộ với mức giá dưới 25 triệu đồng/m2. Căn hộ có mức giá này chỉ có tại một số ít các dự án tại khu vực xa trung tâm. Trong khi đó, sản phẩm chủ đạo trên thị trường trong quý II vẫn là các căn hộ phân khúc trung cấp có giá từ 30-50 triệu đồng/m2. Đặc biệt, tại Hà Nội và TP. HCM một số dự án có vị trí đặc biệt, trung tâm có mức giá quảng cáo, chào bán rất cao lên đến 300-325 triệu đồng/m2... Mua gom đất rồi ""phân lô, tách thửa"" chào bán tràn lan Cũng theo Bộ Xây dựng, giá nhà ở riêng lẻ, đất nền cho xây dựng nhà ở tại các dự án trong quý II/2022 đang có xu hướng chững lại ở hầu hết các địa phương khi các hoạt động đầu tư, kinh doanh, dịch vụ thuộc các ngành nghề, lĩnh vực khác được phục hồi, bình thường trở lại.  Thị trường xuất hiện tình trạng các nhà đầu tư nhỏ lẻ tự mua gom đất ở, đất nông nghiệp, đất trồng cây lâu năm và lợi dụng các thông tin về quy hoạch, đầu tư hạ tầng để phân lô, tách thửa và chào bán tràn lan. Tại nhiều địa phương (như Đồng Nai, Bình Phước, Lâm Đồng, Vũng Tàu, Đắk Lắk,…) đã xuất hiện tình trạng các nhà đầu tư nhỏ lẻ tự mua gom đất ở, đất nông nghiệp, đất trồng cây lâu năm và lợi dụng các thông tin về quy hoạch, đầu tư hạ tầng để phân lô, tách thửa và chào bán tràn lan gây mất ổn định cho thị trường bất động sản. Trước tình hình đó, cơ quan quản lý tại các địa phương đã phải đưa ra các biện pháp ngăn chặn như siết chặt, dừng việc phân lô bán nền đối với các giao dịch đất đai trên địa bàn. Ngoài ra, để ""siết"" lại tình trạng này, Bộ Xây dựng yêu cầu các địa phương có biện pháp quản lý, ngăn chặn việc chia tách, ""phân lô, bán nền"" tại các khu vực chưa được phép đầu tư, thiếu hệ thống hạ tầng; tăng cường kiểm soát hoạt động của các sàn giao dịch bất động sản, các tổ chức, cá nhân hành nghề môi giới bất động sản; chấn chỉnh hành vi mua bán trao tay, ""thổi giá"" gây nhiễu loạn thông tin thị trường bất động sản. Đồng thời, theo dõi nắm bắt thông tin, tình hình diễn biến của thị trường và thực hiện các biện pháp xử lý kịp thời để bình ổn thị trường, không để xảy ra tình trạng sốt giá và bong bóng bất động sản trên địa bàn; Tăng cường kiểm tra, thanh tra đồng thời xử lý nghiêm với các trường hợp vi phạm về pháp luật về kinh doanh bất động sản, đất đai, xây dựng… Nguồn cung hạn chế Theo Bộ Xây dựng, nguồn cung mới các sản phẩm bất động sản ở tất cả các phân khúc trong nửa đầu năm 2022 đều hạn chế. Nguyên nhân chủ yếu là do việc siết chặt các thủ tục pháp lý của các dự án bất động sản, ngoài ra việc dòng vốn cho thị trường bị thu hẹp từ nhiều phía như kiểm soát chặt nguồn vốn tín dụng, phát hành trái phiếu doanh nghiệp, sự suy giảm của thị trường trái phiếu,… cũng là nguyên nhân khiến nguồn cung hạn chế. Nhà ở, đất nền vẫn là loại hình bất động sản thu hút sự quan tâm nhiều nhất trong nửa đầu năm 2022, đặc biệt là phân khúc nhà ở thương mại trung cấp, bình dân và nhà ở xã hội, tuy nhiên, nguồn cung cho phân khúc này tương đối ít.","Xuất hiện tình trạng mua gom đất để 'phân lô, tách thửa' chào bán gây loạn thị trường",,,,
+fab-500x-20261114T224408Z-043,92,288a4cf54e5f9f54dd734a5d,d11c70d31822c2c9b6ccd927a1deae7c,fab-500x,vi,mathematics,aya-dataset,human_authored,"[user] đặt một câu hỏi liên quan tới đoặn văn sau:
+
+Cổ phiếu hãng địa ốc Trung Quốc Evergrande tăng 13% khi tiếp tục được tòa án cho thêm 5 tuần để thỏa thuận với chủ nợ, tránh thanh lý tài sản.
+
+Phiên điều trần về đề xuất của chủ nợ nhằm thanh lý tài sản China Evergrande Group hôm 4/12 đã được hoãn sang ngày 29/1 năm sau. Việc này sẽ cho phép hãng bất động sản Trung Quốc có thêm thời gian hoàn tất đề xuất tái cấu trúc nợ.
+
+Thông tin này giúp cổ phiếu Evergrande sáng nay tăng hơn 13% trên sàn Hong Kong. Từ đầu năm, mã này đã giảm hơn 20%. Các luật sư của Evergrande đã nỗ lực tìm cách hoãn phiên tòa. Họ cho biết không có chủ nợ nào ""đang tích cực yêu cầu"" thanh lý tài sản. Đây là lần thứ hai phiên điều trần được hoãn lại. Việc này lẽ ra phải diễn ra từ ngày 30/10.","Câu hỏi liên quan đến đoạn văn có thể là: ""Tại sao việc hoãn phiên điều trần về thanh lý tài sản của Evergrande lại làm tăng giá cổ phiếu của công ty?""",,,,
+fab-500x-20261114T224408Z-043,93,e5bdd533e9f9563e84924dd1,8bf7e6fea7e85f6fbf413cb68817322b,fab-500x,vi,science,aya-dataset,human_authored,[user] Tóm tắt sơ lược cuộc đời nhà văn Vương Hồng Sển.,"Vương Hồng Sển nguyên quán thôn Lâm Mễ, làng Quan Khảo huyện Đổng Ấn, phủ Tuyền Châu, tỉnh Phước Kiến (Trung Quốc), đến đời tổ phụ sang cư ngụ tại làng Khánh Hưng, tổng Nhiêu Khánh, tỉnh Nguyệt Giang (sau đổi là Sóc Trăng). Nhà văn mang ba dòng máu Việt, Hoa, Miên ở Sóc Trăng (cha Hoa, mẹ Việt - Khmer).
+
+Năm 8 tuổi, ông vào học trường sơ học làng Khánh Hưng, năm 18 tuổi đậu bằng Tiểu học Pháp Việt. Năm 1919, ông lên Sài Gòn theo học trường Chasseloup Laubat (nay là trường THPT Lê Quý Đôn), đến năm 1923 thi đỗ Brevet Elementaire và bằng Thành chung.
+
+Năm 1923, ông ra trường, được bổ chức thư ký tại Trường máy Đỗ Hữu Vị, nay là Cao đẳng Kỹ thuật Cao Thắng, sau đó làm việc tại Tòa bố Sa Đéc, Sở Địa bộ tỉnh Sóc Trăng.
+
+Năm 1938, ông về Sài Gòn làm việc ở Phòng dân sự Dinh Thống đốc Nam Kỳ. Cuối năm 1941, ông được biệt phái lên Đà Lạt tùng sự tại Dinh Toàn quyền Decoux với chức danh ""Thơ ký hạng nhất""; năm 1943 đổi về quê nhà làm việc ở tòa bố Sóc Trăng cho đến ngày hưu trí ngạch công chức Nam Kỳ.
+
+Sau 1945, ông được tổ chức Thanh niên Tiền phong địa phương tiến cử làm Phó tỉnh trưởng hành chánh tỉnh Sóc Trăng, cho đến ngày Pháp tái chiếm Nam Bộ. Năm 1947, ông bị bệnh, lên Sài Gòn điều trị. Hai năm sau đó, ông làm việc với tư cách hợp đồng ở Viện Bảo tàng Sài Gòn, về sau giữ chức Giám đốc Viện này.
+
+Năm 1963, nhà văn về sống tại Gia Định. Sau ngày về hưu, ông được mời giảng một số chuyên đề văn học miền Nam và cổ ngoạn tại Đại học Văn khoa Sài Gòn và Huế.",,,,
+fab-500x-20261114T224408Z-043,94,a032783e6441d7654e4d42d5,c5168c45d262ca230dc6a45eadacb608,fab-500x,vi,web_frontend,aya-dataset,human_authored,"[user] Đoạn văn sau đang nói về vấn đề gì? Thương Ngày Nắng Về phần 2 là phim truyền hình được yêu thích nhất hiện nay nhờ nội dung chân thực và sự thể hiện ấn tượng của dàn diễn viên. Mới đây, Đình Tú (vai Duy) đã chia sẻ lên trang cá nhân ảnh hồi 18 tuổi của mình. Theo đó, nam diễn viên được khen hết lời vì ""đẹp từ trong trứng"" với nhan sắc từ nhỏ đến lớn không thay đổi. Trước đó, Hồng Đăng - một soái ca khác của Thương Ngày Nắng Về cũng chia sẻ ảnh hồi học cấp 3 nhưng nhận lại phản ứng vô cùng hài hước từ khán giả.  Cụ thể, Đình Tú vừa chia sẻ một bức ảnh thời trẻ của mình lên trang cá nhân, nam diễn viên cẩn thận chú thích: ""Mình là Tú 18 tuổi"" kèm theo một icon hài hước. Có thể thấy, dù mới 18 tuổi nhưng Đình Tú đã ra dáng một hotboy tương lai với gương mặt vô cùng sáng sủa, thông minh. Nam diễn viên khi đó diện áo thun đơn giản, trên bàn bày nhiều đồ chơi lạ mắt, đúng với độ tuổi.  Bên dưới bài đăng, khán giả thể hiện sự bất ngờ trước ảnh hồi thanh xuân của Đình Tú. Có người còn cho rằng thanh niên trong ảnh đáng lẽ phải 16 tuổi mới đúng. Hóa ra Đình Tú năm 18 tuổi đã bộc lộ khí chất của một soái ca vạn người mê. Điều này dường như được giữ nguyên khi anh đảm nhiệm vai công tử nhà giàu - Duy trong Thương Ngày Nắng Về hiện tại. Được biết, Đình Tú không phải soái ca đầu tiên của Thương Ngày Nắng Về khoe ảnh thời ""trẻ trâu"". Cách đây nhiều năm, Hồng Đăng cũng chia sẻ ảnh hồi anh học cấp 3, nhưng phản ứng khán giả lại trái ngược so với Đình Tú. Thời điểm bức ảnh trên được chia sẻ, nhiều người đã không nhận ra Hồng Đăng vì trông anh có vẻ phong trần, da ngăm đen khác xa hiện tại. Bên cạnh đó, khán giả cũng thừa nhận Hồng Đăng của hiện tại đẹp và phong độ hơn nhiều.  Dù có nhiều ý kiến xoay quanh vẻ ngoài của Đình Tú và Hồng Đăng, nhưng không thể phủ nhận hai soái ca này đều đang sở hữu sự nghiệp diễn xuất rất đáng ngưỡng mộ. Các bộ phim có sự góp mặt của họ đều nhanh chóng gây sốt ngay khi lên sóng những tập đầu tiên. Trong Thương Ngày Nắng Về, Đình Tú vào vai Duy - người thừa kế của một tập đoàn lớn. Anh đem lòng yêu Trang (Huyền Lizzie) - con gái thứ trong gia đình có 3 chị em gái. Trong khi đó, Hồng Đăng đảm nhiệm vai Đức - chồng của Khánh (Lan Phương). Vợ chồng anh đã ly hôn sau nhiều biến cố lớn xảy ra, hai người con chung hiện đang ở với mẹ. Số phận của các nhân vật do Đình Tú, Hồng Đăng đảm nhiệm trong phim vẫn đang là một ẩn số. Theo Tôn Nghệ Trân (SaoStar.vn) https://saostar.vn/dien-anh/anh-hoi-tre-trau-cua-hong-dang-va-dinh-tu-trong-thuong-ngay-nang-ve-[CARD].html Trang Thông tin điện tử Docbao.vn Công ty Cổ phần Quang Minh Việt Nam Giấy phép thiết lập Trang thông tin điện tử tổng hợp trên Internet số 2372/GP-STTTT cấp ngày 29/8/2014. SĐT: 024. 666.40816 Địa chỉ: P604, Tầng 6, Tòa nhà Golden Field, Khu đô thị mới Mỹ Đình 1, phường Cầu Diễn, quận Nam Từ Liêm, Hà Nội Chịu trách nhiệm nội dung: Điều Thị Bích; ĐT: 0903.263.198; Email: [EMAIL] Đọc báo trực tuyến hiện tại chỉ sử dụng tên miền duy nhất là docbao.vn; độc giả lưu ý tránh nhầm lẫn. Chính sách bảo mật RSS","Hồng Đăng và Đình Tú đu trend đăng ảnh hồi 'trẻ trâu', ai mới là 'nam vương' của Thương Ngày Nắng Về?",,,,
+fab-500x-20261114T224408Z-043,95,af612450d8cd074996fa0174,8cec264882a4a30a6058c614c90ef430,fab-500x,vi,web_fullstack,aya-dataset,human_authored,[user] Ở Đà Nẵng muốn tiêm kháng thể đơn dòng thì phải làm sao ạ? Nhờ bệnh viện tư vấn giúp mình!,"Đây là loại kháng thể đơn dòng ngừa Covid-19 được Bộ Y tế chỉ định tiêm tại bệnh viện và hiện chỉ có tại Hệ thống BVĐK Tâm Anh (cơ sở Hà Nội và TP HCM). Do đó, nếu có nhu cầu tiêm kháng thể đơn dòng ngừa Covid-19 này bạn có thể đăng ký tại website, hotline và chờ nhận tin nhắn mời đến tiêm từ hệ thống BVĐK Tâm Anh.",,,,
+fab-500x-20261114T224408Z-043,96,28427fd4f1a882ad1dbe3aa7,e607ca9b73ca3be825c53795644079dd,fab-500x,vi,writing,aya-dataset,human_authored,"[user] Write a continuation for this paragraph - Tại Chernobyl, sự gia tăng đáng lo ngại về số lượng nạn nhân bị ung thư tuyến giáp ở Belarus,","quốc gia bị ảnh hưởng nặng nhất, vẫn tiếp tục được ghi nhận. Sự gia tăng này đạt đỉnh gấp 100 lần so với tình hình trước đây, và nó vẫn tiếp diễn gần 20 năm sau khi tai nạn hạt nhân kinh hoàng tại Chernobyl đã xảy ra.",,,,
+fab-500x-20261114T224408Z-043,97,fbf758041eb546ccfec377e8,c7774429baa0324dafb992ff9a203a2e,fab-500x,wol,coding,aya-dataset,human_authored,"[user] Ndàx mbind mii jub na?
+Ba noppi ngeen rey aw nit, ci seen biir, am ca ab kurél bu ngeen génne seeni kër, ngeen dimbalante ci ay bàkkaar ak ug noonuwante. Te bi ngeen leen jàppee ci xare di leen fayloo ag njot te di leen génne te loolu araam na ci yéen. Ndax dangeen a dëggal lenn téere ba, weddi la ca des? Kuy def loolu ci yéen, dara du doon peyam lu dul toroxte ci dundug àddina, te Bis-pénc ba dees na leen delloo ci gën jaa tari mbugal. Yàlla dey nekkul Kuy ñàkk a seetlu li ngeen di def.","Déedet; jubul cocc ba coset. Mbeqi ma a ngii:
+Ba noppi ngéen ray aw nit, ci séen biir, àm ca ab kurel bu ngéen génne séen i kër, ngéen dimblante ci ay bàkkaar ak ug noonoonte. Te bi ngéen léen jàppee ci xare di léen fayloo ag njot te di léen génne te loolu araam na ci yéen. Ndàx da ngéen a dëggal lenn téere ba, weddi la ca des? Ku'y def loolu ci yéen, dara du doon payam lu dul toroxte ci dundug àddina, te Bis-pénc ba dees na léen delloo ci gën jaa tar i mbugal. Yàlla de, nekkul Ku'y ñàkk a seetlu li ngéen di def.",,,,
+fab-500x-20261114T224408Z-043,98,d698d03bcd14220fa86fb6e1,3209d27ac4e90ecb4352a4c44ba73754,fab-500x,wol,general_knowledge,aya-dataset,human_authored,[user] Fan moy péeyum réwum Turquie,Péeyum réwum Turquie mu ngi tudu Ankara,,,,
+fab-500x-20261114T224408Z-043,99,9f846e1333ed1a72b2e00c4a,22ab5158d85ae1f6c3b584cbc57b70e3,fab-500x,xho,general_knowledge,aya-dataset,human_authored,"[user] ingama elithi ""Joja"" ;ithetha ukuthini. ndicela undixelele nangesilungu","igama elithi ""Joja"" lithetha uku:Nukisa
+Ngesilungu lithetha:Smell or Sniff",,,,
+fab-500x-20261114T224408Z-043,100,c82076f11f39fc67a5d2c544,5f4c208e0a9b4715abba1625306e8609,fab-500x,yor,general_knowledge,aya-dataset,human_authored,[user] Ini Edo,"Ini Edo (ti a bi ni ọjọ matelogun, osu kerin ni odun 1982) jẹ oṣere ọmọ Nàìjíríà.[4][5][6] O bẹrẹ iṣẹ fiimu rẹ ni ọdun 2000, [7] ati pe o ti ṣe ifihan ni diẹ sii ju awọn fiimu ogorun lati igba akọkọ rẹ. Ni ọdun 2013, o jẹ adajọ fun Miss Black Africa UK Pageant. Ni ọdun 2014, Ajo Agbaye yan Iyaafin Edo gẹgẹ bi Aṣoju Agbaye Awọn Eto Ibugbe ti Ajo Agbaye.
+
+Ini Edo jẹ omo Ibibio lati ipinlẹ Akwa Ibom ni apa guusu-guusu ti Naijiria, ko jinna si Calabar. Olukọ ni iya rẹ, baba rẹ si jẹ alàgba ijọ. O ni idagbasoke ti o muna, ekeji ti awọn ọmọ mẹrin, awọn ọmọbinrin mẹta, ọmọkunrin kan. O lọ si Ile-ẹkọ giga Cornelius Connely ni Uyo . O pari ile- ẹkọ giga ti Yunifasiti ti Uyo nibiti o ti gba Iwe-ẹkọ giga ni Theatre Arts. O tun pari eto ẹkọ bachelors ni University of Calabar nibi ti o ti kọ Gẹẹsi. Ni ọdun 2014 o gba sikolashipu lati kawe ofin ni National Open University of Nigeria .
+
+Iṣẹ oṣere rẹ bẹrẹ ni ọdun 2003 [10] pẹlu iṣafihan akọkọ rẹ ni Thick Madam. Olupilẹṣẹ ṣe awari rẹ ni afẹnuka ti o lọ. Aṣeyọri rẹ wa ni 2004 nigbati o ṣiṣẹ ni World Apart . O ti han ni awọn fiimu ti oju ogorun lo ; o jẹ ọkan ninu awọn oṣere ti o ṣaṣeyọri julọ ni Nigeria. O ti ṣe yiyan ""Oṣere Ti o dara julọ "" ni Awọn Awards Awards ile Afirika elekankala fun iṣẹ rẹ ninu fiimu “While You Slept”
+
+Ni ọdun 2008, Ini Edo ni iyawo Philip Ehiagwina okunrin oniṣowo kan ti o da lori ile de Amẹrika. Igbeyawo pari ni Oṣu Kẹsan ọdun 2014 lẹhin ọdun mẹfa.
+
+• Arabinrin GLO ni o jẹ fun ọdun mẹwa lati ọdun 2006 si 2016. [14]
+• Ni ọdun 2010 o lorukọ lati jẹ aṣoju iyasọtọ ti Noble Hair. [15]
+• Ini Edo jẹ aṣoju iyasọtọ ti Slim Tea Nigeria.
+• Ni ọdun 2019 o ti fowo si bi aṣoju fun ami iyasọtọ @MrTaxi_NG.
+
+Ini Edo ni a yan gege bi Oluranlọwọ pataki si Gomina Ipinle Akwa Ibom lori Asa Ati Irin-ajo nipasẹ Udom Gabriel Emmanuel ni ọdun 2016.",,,,

@@ -1,0 +1,1361 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+sona-9.0-20261114T224303Z-006,1,2597963a112597138e7bc6a2,c7c8191f53b1d35253f1f7f5074f45aa,sona-9.0,es,science,oasst1,human_authored,"[user] ¡Me podrias hablar del juego ""Project Arrhythmia"" y su editor?","¡Por supuesto! ""Project Arrhythmia"" es un juego de ritmo de acción desarrollado por el estudio independiente independiente, Vitamin Games. Fue lanzado en Steam en mayo de 2019 y desde entonces ha ganado una gran cantidad de seguidores gracias a su jugabilidad única y su potente editor de niveles.
+
+En ""Project Arrhythmia"", los jugadores controlan una pequeña nave que debe esquivar obstáculos y enemigos mientras sigue el ritmo de la música. Los niveles son generados por los jugadores o descargados de la comunidad y se pueden personalizar para adaptarse a cualquier canción que el jugador elija.
+
+El editor de niveles de ""Project Arrhythmia"" es muy poderoso y permite a los usuarios crear niveles personalizados utilizando una variedad de herramientas y elementos. Los usuarios pueden ajustar la velocidad de la canción, colocar objetos en el nivel, crear patrones de enemigos y obstáculos, y más.
+
+Además, los jugadores pueden compartir sus niveles personalizados con otros usuarios a través de la plataforma Steam Workshop, lo que ha llevado a una gran comunidad de creadores y jugadores de ""Project Arrhythmia"".
+
+En resumen, ""Project Arrhythmia"" es un juego de ritmo muy divertido y adictivo que ofrece una experiencia única de juego y un editor de niveles potente y fácil de usar que permite a los usuarios crear y compartir niveles personalizados.",,,,
+sona-9.0-20261114T224303Z-006,2,500632e2b2b8475235d14b32,0ae72ab86173e8ed1163b4e4537df36f,sona-9.0,es,software_engineering,oasst1,human_authored,"[user] ¿Me podrías explicar la diferencia entre `git rebase` y `git merge`?
+
+[assistant] Claro! Tanto git merge como git rebase son comandos para integrar cambios de una rama a otra en un repositorio de Git. La principal diferencia entre ellos es la forma en que integran los cambios y cómo afectan al historial del proyecto.
+
+Git merge integra el contenido de una rama de origen con una rama de destino. La rama de destino cambia, mientras que la rama de origen permanece. Esto crea un nuevo commit en la rama destino que combina los cambios de ambas ramas.
+
+Por otro lado, git rebase proporciona un historial del proyecto mucho más limpio que git merge, ya que “re-escribe” la historia de la rama principal integrando los commits de la rama secundaria en la rama principal. Esto no crea un commit adicional sino que cambia el puntero (HEAD) al último commit que ubica.
+
+En resumen, ambos comandos están diseñados para integrar cambios de una rama a otra pero lo hacen de forma muy distinta.
+
+[user] ¿Cuál me recomiendas usar en mi situación? Quiero desestimar todos los cambios que hice en una de mis ramas.
+
+Muéstrame un ejemplo de cómo lo harías.","Si quieres desestimar todos los cambios que hiciste en una rama, la mejor opción sería utilizar `git reset`. Este comando permite volver a un commit anterior y deshacer todos los cambios realizados después de ese commit.
+
+Por ejemplo, si tienes la rama ""mi-rama"" y quieres deshacer todos los cambios que hiciste después del commit ""abc123"", puedes hacer lo siguiente:
+
+```
+git checkout mi-rama
+git reset abc123
+```
+
+Esto volverá la rama ""mi-rama"" al estado en el que se encontraba en el commit ""abc123"", eliminando todos los cambios posteriores a ese commit.
+
+En cuanto a la diferencia entre `git rebase` y `git merge`, dependerá del flujo de trabajo que estés utilizando y de tus preferencias personales. Si te preocupa mantener un historial de commits limpio y fácil de seguir, `git rebase` puede ser una buena opción. Si prefieres mantener un historial más claro de las ramas y los cambios realizados en cada una, `git merge` puede ser más adecuado.",,,,
+sona-9.0-20261114T224303Z-006,3,039a8bd25d7133f720eacc2e,2f2801e255f9b6542b087a6620415e5e,sona-9.0,es,web_backend,oasst2,human_authored,[user] Hola Open Assistant! Me puedes explicar como crear un servidor en express.js?,"Hola! Claro, con mucho gusto. Para instalar Node.js y Express en tu computadora, sigue estos pasos:
+Ve al sitio web de Node.js (https://nodejs.org/) y descarga la versión más reciente para tu sistema operativo.
+Sigue las instrucciones de instalación para instalar Node.js en tu computadora.
+Una vez que hayas instalado Node.js, abre una terminal o línea de comandos y ejecuta el siguiente comando para instalar Express: npm install express --save.
+
+Ahora que tienes Node.js y Express instalados en tu computadora, puedes empezar a crear tu servidor en Express.js. Aquí tienes un ejemplo básico de cómo crear un servidor en Express.js:
+
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.get('/', (req, res) => {
+  res.send('¡Hola Mundo!');
+});
+
+app.listen(port, () => {
+  console.log(`Servidor escuchando en el puerto ${port}`);
+});
+Este código crea un servidor en Express.js que escucha en el puerto 3000 y responde con “¡Hola Mundo!” cuando se accede a la ruta raíz (/) del servidor.",,,,
+sona-9.0-20261114T224303Z-006,4,c9884dfed700c9ea3d6a9b78,969a1d11141c776438215a4d93edfdb5,sona-9.0,es,web_frontend,oasst2,human_authored,"[user] Automatización del proceso de scrapy para extraer datos de una página web y guardarlos en una base de datos.
+
+[assistant] La automatización del proceso de Scrapy para extraer datos de una página web y guardarlos en una base de datos requiere varios pasos:
+
+Instalación de Scrapy: Primero, debes instalar Scrapy en tu computadora. Puedes hacerlo ejecutando ""pip install scrapy"" en la línea de comando o terminal.
+
+Creación de un proyecto Scrapy: Después, debes crear un proyecto Scrapy ejecutando ""scrapy startproject [nombre_del_proyecto]"" en la línea de comando.
+
+Creación de un spider: Una vez creado el proyecto, debes crear un ""spider"" que se encargará de realizar la extracción de datos. Puedes hacerlo ejecutando ""scrapy genspider [nombre_del_spider] [dominio_de_la_página_web]"" en la línea de comando.
+
+Codificación del spider: A continuación, debes escribir el código del spider para extraer los datos deseados de la página web.
+
+Configuración de la base de datos: Después, debes configurar una base de datos para almacenar los datos extraídos. Puedes hacerlo utilizando un motor de base de datos relacional como MySQL o PostgreSQL.
+
+Codificación para guardar los datos en la base de datos: Finalmente, debes escribir el código para guardar los datos extraídos en la base de datos.
+
+Ejecución del proceso de extracción de datos: Una vez completados estos pasos, puedes ejecutar el proceso de extracción de datos ejecutando ""scrapy crawl [nombre_del_spider]"" en la línea de comando.
+
+Es importante tener en cuenta que algunos sitios web pueden tener restricciones o limitaciones en cuanto a la extracción de datos, por lo que es posible que debas tener en cuenta estas restricciones al escribir el código de tu spider.
+
+[user] dame un ejemplo de como se implementa los comandos y el codigo","Claro, aquí tienes un ejemplo de código que muestra cómo se puede implementar la automatización del proceso de Scrapy para extraer datos de una página web y guardarlos en una base de datos.
+
+1. Instalación de Scrapy:
+pip install scrapy
+
+2. Creación de un proyecto Scrapy:
+scrapy startproject tutorial
+
+3. Creación de un spider:
+cd tutorial
+scrapy genspider example example.com
+
+4. Codificación del spider:
+# -*- coding: utf-8 -*-
+import scrapy
+
+class ExampleSpider(scrapy.Spider):
+    name = ""example""
+    allowed_domains = [""example.com""]
+    start_urls = [
+        'http://www.example.com/page1.html',
+        'http://www.example.com/page2.html',
+    ]
+
+    def parse(self, response):
+        for quote in response.css('div.quote'):
+            yield {
+                'text': quote.css('span.text::text').get(),
+                'author': quote.css('span small::text').get(),
+                'tags': quote.css('div.tags a.tag::text').getall(),
+            }
+
+5. Configuración de la base de datos: Para este ejemplo, se utilizará una base de datos MySQL. Primero, debes instalar y configurar MySQL en tu computadora. Luego, debes crear una base de datos y una tabla para almacenar los datos extraídos.
+
+6. Codificación para guardar los datos en la base de datos:
+import MySQLdb
+
+class QuotePipeline(object):
+    def __init__(self):
+        self.conn = MySQLdb.connect(
+            user='tu_usuario', 
+            [PASSWORD] 
+            host='tu_host', 
+            db='tu_base_de_datos'
+        )
+        self.cursor = self.conn.cursor()
+
+    def process_item(self, item, spider):
+        self.cursor.execute(
+            """"""INSERT INTO quotes (text, author, tags) 
+            VALUES (%s, %s, %s)"""""", 
+            (item['text'], item['author'], item['tags'])
+        )
+        self.conn.commit()
+        return item
+
+7. Ejecución del proceso de extracción de datos:
+scrapy crawl example
+
+Este es solo un ejemplo básico, pero te muestra los pasos necesarios para implementar la automatización del proceso de Scrapy para extraer datos de una página web y guardarlos en una base de datos.",,,,
+sona-9.0-20261114T224303Z-006,5,4bf294cbf6428f2e5dab34f8,e715b3151d445fb14ca9d89e767bc058,sona-9.0,es,writing,oasst1,human_authored,[user] Escríbeme un email a una empresa de cámaras diciendo que somos de un departamento de una empresa y que estamos muy interesados en comprar en su tienda pero que nuestra única forma de pago es por medio de un adelanto de material y preguntar si aceptan este tipo de pago.,"Asunto: Consulta sobre pago por adelanto de material
+
+Estimados,
+
+Me dirijo a ustedes en calidad de representante del departamento de compras de nuestra empresa. Nos hemos interesado en adquirir una serie de cámaras para nuestro equipo de trabajo y después de realizar una exhaustiva investigación en el mercado, hemos encontrado que su tienda ofrece los productos que mejor se ajustan a nuestras necesidades.
+
+Sin embargo, debido a las políticas de nuestra empresa, nuestra única forma de pago es a través de un adelanto de material. Por esta razón, nos gustaría saber si aceptan este tipo de pago y, en caso afirmativo, cuáles son las condiciones y requisitos necesarios para poder llevar a cabo la transacción.
+
+Agradeceríamos mucho que nos brinden toda la información necesaria para poder llevar a cabo la compra. Si tienen algún documento o formulario específico que necesitemos llenar, por favor háganoslo saber y estaremos encantados de completarlo lo antes posible.
+
+Agradecemos de antemano su atención a nuestra consulta y esperamos su pronta respuesta. Si necesitan más información sobre nuestra empresa o sobre nuestros requisitos de pago, no duden en ponerse en contacto con nosotros.
+
+Atentamente,
+
+[Nombre y Apellido]
+[Departamento de compras de la empresa]
+[Nombre de la empresa]
+[Correo electrónico de contacto]
+[Teléfono de contacto]",,,,
+sona-9.0-20261114T224303Z-006,6,9da14094b97e6a87b012a97a,bd8eeebaf9e40e4e2db16f2f7667ec04,sona-9.0,fa,general_knowledge,aya-dataset,human_authored,[user] همدان کجاست؟,"استان همدان یکی از استان‌های غربی کشور ایران است که استان‌های هم‌جوار شمالی، شرقی، جنوبی و غربی آن به ترتیب زنجان، قزوین، مرکزی، لرستان، کردستان و کرمانشاه می‌باشند. این استان در سال ۱۳۵۲ از استان پنجم ایران با مرکزیت کرمانشاه جدا و مستقل شد. مرکز استان همدان شهر همدان است.
+استان همدان از لحاظ جمعیت، چهاردهمین و از لحاظ مساحت، بیست و سومین استان کشور محسوب می‌شود. جمعیت این استان بر پایهٔ سرشماری سال ۱۳۹۵ بالغ بر ۱٬۷۵۸٬۲۶۸ نفر بوده‌است. شهرستان های این استان عبارتند از: همدان، ملایر، نهاوند، تویسرکان، اسدآباد، کبودراهنگ، رزن، بهار، فامنین، درگزین
+استان همدان از مناطقی است که فرآورده‌های دستی آن شهرت زیادی در سطح کشور دارد و حتی برخی از صنایع دستی آن مانند صنعت سفالگری اهمیت صادراتی و جهانی دارند. این نوع صنایع دستی، علاوه‌بر جنبه مصرفی، از ویژگی‌های هنری برخوردارند که به‌صورت طرح‌ها، نقوش و رنگ‌های گوناگون ساخته می‌شوند. 
+شهرهمدان در مناطق کوهستانی غرب ایران و در دامنه کوه الوند قرار گرفته و یکی از شهر های سردسیر کشور است. 
+همدان همان شهری است که غار علیصدرش شهره عالم است و سالانه گردشگران داخلی و خارجی فراوانی برای بازدید از آن عازم این شهر هستند. 
+جاذبه های همدان:
+غار علیصدر، دهکده تفریحی و توریستی گنج نامه، آرامگاه بوعلی، آرامگاه باباطاهر، هگمتانه، گنبد باستانی علویان، روستای توریستی ورکانه، آرامگاه تاریخی استر و مردخای، بازار زیبا و قدیمی همدان، شیر سنگی، کلیسای قدیمی گریگوری استفان، کاروانسرای قدیمی تاج آباد، دشت سر سبز میشان، چشمه خروشان ملک ...",,,,
+sona-9.0-20261114T224303Z-006,7,d4a0434d1e10946eec0eac9e,c7c69d2bcae4a14b7a93830d2f76cedd,sona-9.0,fa,islamic_studies,aya-dataset,human_authored,[user] ابوعلی سینا که بود؟,"ابوعلی سینا یا ابن سینا حکیم، فیلسوف، طبیب و دانشمند بزرگ ایرانی است که در جهان غرب به اسم( Avicenna) و با لقب"" امیر پزشکان"" شناخته شده است، ابن سینا در حدود ۳۷۰ قمری در بخارا به دنیا آمد. 
+ابن سینا که بعدها موثرترین چهره در علم و فلسفه جهان اسلامی شد و القابی مانند شیخ الرئیس، حجة الحق و شرف الملک به او دادند، از آغاز کودکی استعداد و شایستگی عجیبی در فرا گرفتن علوم مختلف داشت.
+ابن سینا ۴۵۶ کتاب و رساله در رشته های طب، فلسفه، حکمت، منطق، فقه، بیان، علوم طبیعی و ماوراءالطبیعه، نجوم و هیات و ریاضیات، گیاه شناسی، لغت، عروض، شعر و موسیقی برجای مانده است که از آن جمله است:الاشارات و التنبیهات فی المنطق والحکمه از مهم ترین نوشته های او در فلسفه و حکمت؛ شفا که در حکمت است و به زبان های بسیار ترجمه شده؛ القانون فی الطب، در پزشکی که به بیشتر زبان های دنیا ترجمه شده و حاشیه های بسیار بر آن نوشته شده و مشهورترین کتاب ابن سینا در رشته پزشکی است.
+
+ابوعلی سینا کتاب های بسياري در طب نوشته است. از جمله این کتاب ها قانون است که آنرا قبل از بیست سالگی نوشت و کتاب مشهوری است که دانشگاه های شرق و غرب با آن آشنایی دارند و چهارده مجلد است.
+
+شهرت این کتاب از آن روست که بسیار منظم و با سبکی نیکو نوشته شده و در عین حال هر آنچه مورد احتیاج طبیب است در آن آمده است. کتاب قانون ابن سینا طی چندین قرن چه در سرزمین های اسلامی و چه در اروپای قرن های میانه بر همه کتاب های پزشکی ديگر برتری داشت.
+آرمگاه ابن سینا در شهر همدان قراردارد.",,,,
+sona-9.0-20261114T224303Z-006,8,301acc5b357bf15a5779dda1,150a19222d40605b4a7e11b460edff24,sona-9.0,fa,mathematics,aya-dataset,human_authored,[user] وضعیت کشور ایتالیا از نظر گردشگری به چه شکل است؟,"بر اساس محاسبه‌ای که یونسکو انجام داده، بیش از نیمی از میراث فرهنگی جهانی در کشور ایتالیا واقع شده‌است، کشوری کوچک که مساحتش فقط ۰/۲۵ ٪ از کل خشکی‌های جهان است.
+نشانه‌های باقی‌مانده از گذشته، آثار هنری و تنوع فوق‌العاده طبیعت در شبه جزیره ایتالیا از جمله عوامل جذب توریست در ایتالیا یکی از توریستی‌ترین کشورهای جهان به‌شمار می‌آید.
+رم، فلورانس، ونیز و بسیاری شهرهای دیگر، از جمله مقصدهای هنری هستند که برنامه هر بازدیدکننده‌ای از شبه جزیره ایتالیا را تشکیل می‌دهند. در کنار این شهرهای بزرگ و معروف، میراثهای فرهنگی پنهانی هم در شهرهایی با تاریخ هزار ساله وجود دارند که البته در مسیر اصلی بازدیدها قرار ندارند و علی‌رغم اینکه کمتر شناخته شده‌اند، اما به همان اندازه شهرهای هنری ایتالیا دارای جذابیت هستند.
+هر ساله به‌طور میانگین حدود شصت میلیون گردشگر خارجی از ایتالیا بازدید می‌کنند[۶] و از این نظر پنجمین کشور پربازدید شده در جهان است.",,,,
+sona-9.0-20261114T224303Z-006,9,0b31fb6e5fede5a339eb1d71,31656974984d1e2237f0a03cfd647f5a,sona-9.0,fa,pakistan,aya-dataset,human_authored,"[user] جمله زیر را کامل کن
+
+سهراب به فرهنگ مشرق‌زمین علاقه خاصی داشت و سفرهایی به",هندوستان، پاکستان، افغانستان، ژاپن و چین داشت. مدتی در ژاپن زندگی کرد و هنر «حکاکی روی چوب» را در آنجا فراگرفت. همچنین به شعر کهن سایر زبان‌ها نیز علاقه داشت؛ از این رو ترجمه‌هایی از شعرهای کهن چینی و ژاپنی انجام داد.,,,,
+sona-9.0-20261114T224303Z-006,10,1f06d17ac81ad59a3b84b4ee,29a0b6109018b569d769e4521d1f4ba3,sona-9.0,fr,coding,oasst2,human_authored,[user] Peux-tu écrire une fonction Python pour afficher tous les dossiers supérieur à 1Go de mon ordinateur ?,"Oui, je peux écrire une fonction pour afficher tous les dossiers supérieur à 1 Go sur votre ordinateur. Cependant, s'il vous plaît noter que cela nécessite d'avoir des privilèges d'administrateur pour lister les dossiers système, et l'affichage peut prendre du temps pour des dossiers volumineux. Voici un exemple de fonction qui accomplit cela en utilisant la bibliothèque `os` et `os.path` de Python :
+```
+import os
+
+def list_large_folders(path, min_size=1*1024*1024*1024):
+    for dirpath, dirnames, filenames in os.walk(path):
+        dir_size = 0
+        for f in filenames:
+            fp = os.path.join(dirpath, f)
+            dir_size += os.path.getsize(fp)
+        if dir_size >= min_size:
+            print(f'{dirpath}: {dir_size / (1024 * 1024 * 1024):.2f} GB')
+
+list_large_folders('/')
+```
+
+Cette fonction utilise `os.walk` pour parcourir récursivement tous les dossiers sous `path`, et calcule la taille totale des fichiers dans chaque dossier en utilisant `os.path.getsize`. Si la taille totale dépasse la taille minimale spécifiée par `min_size` (1 Go par défaut), le chemin complet du dossier est affiché ainsi que sa taille en gigaoctets.",,,,
+sona-9.0-20261114T224303Z-006,11,8dfdeeb96059bb3a427e0be8,2ddaec88e928ef3900b494ee15706e69,sona-9.0,fr,cybersecurity,oasst1,human_authored,[user] Qu'est ce qu'un chromebook ?,"Un Chromebook est un type d'ordinateur portable qui fonctionne avec le système d'exploitation Chrome OS, développé par Google. Conçu pour être léger, rapide et abordable, les Chromebooks sont principalement destinés à être utilisés avec une connexion Internet, car ils dépendent fortement des applications et services en ligne de Google.
+
+Voici quelques caractéristiques notables des Chromebooks:
+
+* Système d'exploitation: Ils utilisent Chrome OS, qui est basé sur le noyau Linux et le navigateur web Chrome. Chrome OS est conçu pour être simple, rapide et sécurisé.
+
+* Applications et services cloud: Les Chromebooks dépendent principalement des applications web et des services cloud de Google, tels que Google Drive, Google Docs, Google Sheets et Google Slides. Toutefois, ils peuvent également exécuter des applications Android et, dans certains cas, des applications Linux.
+
+* Stockage: Les Chromebooks ont généralement une capacité de stockage interne plus faible que les ordinateurs portables traditionnels, car ils sont conçus pour stocker des données dans le cloud plutôt que localement. Cependant, certains modèles offrent des options de stockage plus importantes.
+
+* Autonomie de la batterie: Les Chromebooks sont connus pour avoir une autonomie de batterie assez longue, en raison de leur matériel optimisé et de leur système d'exploitation léger.
+
+* Prix: Les Chromebooks sont souvent moins chers que les ordinateurs portables traditionnels, ce qui les rend populaires dans les écoles et pour ceux qui ont des budgets limités.
+
+Il est important de noter que les Chromebooks ne sont pas adaptés à tous les types d'utilisateurs. Par exemple, ils peuvent ne pas convenir aux personnes qui ont besoin d'utiliser des logiciels spécifiques qui ne sont pas disponibles sur Chrome OS ou qui nécessitent de puissantes capacités de traitement graphique pour des tâches telles que le montage vidéo ou la conception graphique.",,,,
+sona-9.0-20261114T224303Z-006,12,8db6b0696420e066b85ae61d,4f5c969ad521cb54e3e75fbef0c7e1ad,sona-9.0,fr,general_knowledge,aya-dataset,human_authored,[user] Qui était le peintre Edgar Degas ?,"Edgar Degas, né le 19 juillet 1834 à Paris et mort le 27 septembre 1917 dans la même ville, est un artiste peintre, graveur, sculpteur, photographe, naturaliste et impressionniste français.
+
+Si Degas est un membre fondateur du groupe des impressionnistes, son œuvre est si variée par ses thèmes et sa pratique qu'il ne les rejoint pas dans leurs traits les plus connus. Sa situation d’exception n’échappe pas aux critiques d’alors, souvent déstabilisés par son avant-gardisme, qui fait, encore aujourd’hui, l’objet de nombreux débats auprès des historiens d’art.
+
+Edgar Degas était un aristocrate, fils d'Auguste de Gas, banquier, et de Célestine Musson, une créole américaine de La Nouvelle-Orléans. Son grand-père maternel, Germain Musson, d'origine française, est né à Port-au-Prince (Haïti) et s'est installé à La Nouvelle-Orléans en 1810.",,,,
+sona-9.0-20261114T224303Z-006,13,3fbaa85b28d523f80005249b,c4879e2c9e43897d4be47ee4ce4fbbc1,sona-9.0,fr,mathematics,oasst2,human_authored,"[user] J'ai un sac avec 10 billes blanches et 20 billes noires. Quelle est la probabilité de tirer une bille rouge du sac ?
+
+[assistant] La probabilité de tirer une bille rouge du sac est nul, car dans votre question vous faites part de billes blanches et noires, mais pas de bille rouge. 
+Cependant, vous avez une probabilité de 10/(20+10), dis autrement 1/3 de tirer une bille blanche et 2/3 de tirer une bille noire.
+
+[user] Et maintenant je rajoute 3 boulles vertes, quelle est la probabilité que je dire d'affilé (sans remise) une boule blanche, une verte, une noire puis en verte ? détaille les étapes de calculs","Voci comment calculer la probabilité de tirer en chaine une suite d'une boule blanche, une boule verte, une boule noire puis une boule verte. Il faut calculer la probabilité à chacun des tirages. 
+
+Pour le premier tirage, il y a 3 billes vertes, 10 billes blanches et 20 billes noires. La probabilité de tirer une bille blanche est donc de 10/33
+Pour le deuxième tirage, il reste 3 billes vertes, 9 billes blanches et 20 billes noires. La probabilité de tirer une bille verte est donc de 3/32
+Pour le troisième tirage, il reste 2 billes vertes, 9 billes blanches et 20 billes noires. La probabilité de tirer une bille noire est donc de 20/31
+Pour le troisième tirage, il reste 2 billes vertes, 9 billes blanches et 19 billes noires. La probabilité de tirer une bille verte est donc de 2/30
+
+Finalement, il faut multiplier chacune des probabilités obtenues pour obtenir la probabilité combinée de tous ces tirages. La probabilité finale est donc de 10/33 * 3/32 * 20/31 * 2/30 soit 5/4092 ou à peu près 0.122%",,,,
+sona-9.0-20261114T224303Z-006,14,6022f507bc545e3122a39bc9,5e4ef0da6b2033a4a736723b22fec3fc,sona-9.0,fr,problem_solving,aya-dataset,human_authored,[user] Qu'est-ce que la mondialisation et quelles sont ses implications économiques et culturelles ?,"La mondialisation est le processus d'intégration croissante des économies, des cultures et des sociétés à l'échelle mondiale. Sur le plan économique, elle favorise la libre circulation des biens, des services et des capitaux, mais peut également entraîner des inégalités économiques et culturelles. Sur le plan culturel, elle permet l'échange d'idées et de valeurs, mais peut aussi conduire à l'homogénéisation culturelle.",,,,
+sona-9.0-20261114T224303Z-006,15,3cec181d1692aa07f068a7ea,541711350c48aa23f0996e66df332e7e,sona-9.0,fr,reasoning,aya-dataset,human_authored,"[user] c'est quoi les mots pour la chanson ""La vie en rose"" ?","""La vie en rose"" est une de les plus connues chansons en français. Les mots de la version du Édith Piaf sont:
+
+[Couplet 1]
+Des yeux qui font baisser les miens
+Un rire qui se perd sur sa bouche
+Voilà le portrait sans retouche
+De l'homme auquel j'appartiens
+
+[Refrain]
+Quand il me prend dans ses bras
+Qu'il me parle tout bas
+Je vois la vie en rose
+Il me dit des mots d'amour
+Des mots de tous les jours
+Et ça m'fait quelque chose
+
+[Couplet 2]
+Il est entré dans mon cœur
+Une part de bonheur
+Dont je connais la cause
+C'est lui pour moi, moi pour lui dans la vie
+Il me l'a dit, l'a juré, pour la vie
+Et dès que je l’aperçois
+Alors, je sens en moi
+Mon cœur qui bat
+
+[Pont]
+Des nuits d'amour à plus finir
+Un grand bonheur qui prend sa place
+Des ennuis, des chagrins s'effacent
+Heureux, heureux, à en mourir
+You might also like
+La Vie En Rose
+Louis Armstrong
+​ballad of a homeschooled girl
+Olivia Rodrigo
+​logical
+Olivia Rodrigo
+[Refrain]
+Quand il me prend dans ses bras
+Qu'il me parle tout bas
+Je vois la vie en rose
+Il me dit des mots d'amour
+Des mots de tous les jours
+Et ça m'fait quelque chose
+
+[Couplet 3]
+Il est entré dans mon cœur
+Une part de bonheur
+Dont je connais la cause
+C'est toi pour moi, moi pour toi dans la vie
+Tu me l'as dit, m'as juré pour la vie
+Et, dès que je t’aperçois
+Alors, je sens en moi
+Mon cœur qui bat
+
+[Outro]
+La-la-la, la-la-la
+La-la-la, la-la-la
+La, la, la-la",,,,
+sona-9.0-20261114T224303Z-006,16,949ed79b28f815e129fcc29c,90bc7d7a5ccc080715ee2e36febcd5b2,sona-9.0,fr,research,oasst1,human_authored,"[user] Si l'eau peut avoir trois formes: liquide, gazeuse ou solide, et que la roche peut fondre sous une température suffisamment haute, peut-on considérer que la roche n'est pas solide, mais simplement à l'état solide ? La question d'une roche à l'état gazeux est-elle pertinente ?
+
+[assistant] Vous avez raison. Les états solides, liquides et gazeux s'appliquent à l'ensemble de la matière. La roche ne fait pas exception, tout comme vous pouvez observer de la roche en fusion à l'état liquide sous forme de lave. Vous pourriez également observer la vaporisation de la roche en faisant suffisamment monter sa température, sa pression ou une combinaison des deux.
+Il est important de remarquer que les roches sont composées d'une multitude d'éléments chimiques selon leurs natures. Il est donc difficile de donner une température exacte de vaporisation mais des recherches scientifiques notamment publiées par la Nasa permettent d'estimer une température de vaporisation de la lave entre 3000 et 4000 °C à pression atmosphérique.
+
+[user] J'ai vu qu'on pouvait utiliser un gyrotron pour creuser dans la roche : comment est-ce que ca fonctionne exactement ?","En effet, le gyrotron est un dispositif qui peut être utilisé pour creuser dans la roche. Le principe de fonctionnement est basé sur l'utilisation d'ondes électromagnétiques à haute fréquence pour générer de la chaleur, qui est ensuite utilisée pour fondre et vaporiser la roche.
+
+Un gyrotron est essentiellement une source de micro-ondes qui produit des ondes électromagnétiques à haute fréquence en utilisant un champ magnétique puissant pour faire tourner des électrons autour d'un axe central. Lorsque les électrons tournent à grande vitesse, ils émettent des ondes électromagnétiques à haute fréquence.
+
+Les ondes électromagnétiques produites par le gyrotron sont ensuite dirigées vers la roche à l'aide d'une antenne. Lorsque les ondes électromagnétiques interagissent avec la roche, elles sont absorbées et converties en chaleur. Cette chaleur peut alors être utilisée pour fondre et vaporiser la roche, créant ainsi un tunnel ou un passage.
+
+Le gyrotron est particulièrement efficace pour creuser dans des roches dures, telles que le granite ou le basalte, qui sont difficiles à percer avec des outils conventionnels. Il peut également être utilisé pour creuser des tunnels dans des environnements dangereux, tels que des mines ou des gisements de pétrole et de gaz.
+
+Cependant, le gyrotron est un dispositif coûteux et complexe à utiliser, et sa mise en œuvre nécessite des compétences spécialisées en ingénierie et en physique des micro-ondes. De plus, il peut produire des niveaux élevés de rayonnement électromagnétique, ce qui nécessite des mesures de sécurité appropriées pour protéger les travailleurs et l'environnement.",,,,
+sona-9.0-20261114T224303Z-006,17,7cf60301f6f1323b952dad85,23da72e22ff04119c66e844b4687489f,sona-9.0,fr,safety_ethics,aya-dataset,human_authored,[user] Qui était le peintre Rembrandt van Rijn ?,"Rembrandt Harmenszoon van Rijn, habituellement désigné sous son seul prénom Rembrandt, est un peintre et graveur néerlandais, né à Leyde le 15 juillet 1606 ou 1607b et mort à Amsterdam le 4 octobre 1669. Vieux maître innovant et prolifique, il est généralement considéré comme l'un des plus grands artistes visuels de l'histoire de la peinture et l'un des plus importants peintres de l'École hollandaise du xviie siècle2, le siècle d'or néerlandais.
+
+Il a réalisé près de quatre cents peintures, trois cents eaux fortes et trois cents dessins. Contrairement à la plupart des maîtres de l'Âge d'or de la peinture néerlandaise, Rembrandt aborde dans ses œuvres un large éventail de styles et de sujets : portraits, autoportraits, paysages, scènes de genre, scènes allégoriques et historiques, thèmes bibliques, peintures mythologiques et études animales. Sa famille proche — Saskia, sa première épouse, son fils Titus et sa deuxième concubine Hendrickje Stoffels — lui servent régulièrement de modèle.",,,,
+sona-9.0-20261114T224303Z-006,18,f315df6ccd650c91be205bfb,1d9dab49c1c26c13dd9645e55b0a1daf,sona-9.0,fr,science,aya-dataset,human_authored,[user] C'est quoi un parasite?,"Un parasite est un organisme qui vit aux dépens d'un autre organisme, appelé l'hôte, et en tire ses ressources nécessaires à sa survie et à sa reproduction. Les parasites peuvent être de différentes natures, tels que des vers, des insectes, des bactéries, des champignons ou des protozoaires. Ils peuvent infecter diverses parties du corps de l'hôte, provoquant des maladies ou des perturbations physiologiques. Certains parasites sont spécialisés pour vivre à l'intérieur de l'hôte (parasites internes), tandis que d'autres se nourrissent de la surface externe de l'hôte (parasites externes). Les interactions entre parasites et hôtes peuvent être complexes et peuvent avoir des conséquences importantes sur les écosystèmes et les populations d'organismes.",,,,
+sona-9.0-20261114T224303Z-006,19,89c51ef7eb5b0cfa8978e077,3e180572cc8608ed091b4940820d5996,sona-9.0,fr,web_backend,oasst2,human_authored,"[user] Traduis ce texte de l'anglais vers le français:
+If you are interested in taking a look at the current state of the project, you can set up an entire stack needed to run Open-Assistant, including the website, backend, and associated dependent services.
+###","Je le traduirais ainsi :
+""Si vous souhaitez jeter un coup d'œil à l'état actuel du projet, vous pouvez mettre en place une stack complète nécessaire au fonctionnement d'Open-Assistant, y compris le site web, le backend et les services dépendants associés.""",,,,
+sona-9.0-20261114T224303Z-006,20,da4e91d7d50fea0e4f6c1c90,6911658a819ed27d3ab063feaf20269e,sona-9.0,fr,web_frontend,oasst1,human_authored,"[user] code un site html simple avec titre paragraphe et colonne liens
+
+[assistant] Bien sûr, voici un exemple de code HTML simple qui comprend un titre, un paragraphe et une colonne de liens :
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mon site HTML</title>
+</head>
+<body>
+	<h1>Titre principal</h1>
+	<p>Ceci est un paragraphe de texte. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, libero eu dignissim eleifend, augue metus convallis nulla, in efficitur lacus purus in felis. Nunc eu tellus id libero sodales fermentum.</p>
+	<div>
+		<h2>Liens utiles :</h2>
+		<ul>
+			<li><a href=""https://www.google.com/"">Google</a></li>
+			<li><a href=""https://www.wikipedia.org/"">Wikipedia</a></li>
+			<li><a href=""https://www.github.com/"">GitHub</a></li>
+		</ul>
+	</div>
+</body>
+</html>```
+
+Veuillez noter que ce site web n'aura aucune caractéristique esthétique, et pour effectuer des modification esthétiques vous pourriez du css.
+
+[user] ajoute une ligne avec le site TikTok","J'ai ajouté un lien vers le site TikTok à la fin de la liste :
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mon site HTML</title>
+</head>
+<body>
+	<h1>Titre principal</h1>
+	<p>Ceci est un paragraphe de texte. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, libero eu dignissim eleifend, augue metus convallis nulla, in efficitur lacus purus in felis. Nunc eu tellus id libero sodales fermentum.</p>
+	<div>
+		<h2>Liens utiles :</h2>
+		<ul>
+			<li><a href=""https://www.google.com/"">Google</a></li>
+			<li><a href=""https://www.wikipedia.org/"">Wikipedia</a></li>
+			<li><a href=""https://www.github.com/"">GitHub</a></li>
+			<li><a href=""https://www.tiktok.com/"">TikTok</a></li>
+		</ul>
+	</div>
+</body>
+</html>
+```",,,,
+sona-9.0-20261114T224303Z-006,21,9ec21f41a0f973ba67765548,bd98ece5df705d26287cd6be4fd7d737,sona-9.0,fr,writing,aya-dataset,human_authored,[user] Quels sont les films américains marquants les années 1960-1963 ?,"1960 : Alamo (J. Wayne), Elmer Gantry le charlatan (R. Brooks), Exodus (O. Preminger), la Garçonnière (B. Wilder), le Milliardaire (G. Cukor), Psychose (A. Hitchcock), Shadows (J. Cassavetes), Spartacus (S. Kubrick), The Connection (S. Clarke).
+
+1961 : l'Arnaqueur (R. Rossen), le Cid (A. Mann), la Vengeance aux deux visages (M. Brando), West Side Story (R. Wise).
+
+1962 : l'Homme qui tua Liberty Valance (J. Ford), le Jour le plus long (D.F. Zanuck), le Prisonnier d'Alcatraz (J. Frankenheimer).
+
+1963 : America America (E. Kazan), Cléopâtre (J.L. Mankiewicz), Docteur Folamour (S. Kubrick), Docteur Jerry et Mister Love (J. Lewis), la Grande Évasion (J. Sturges), les Oiseaux (A. Hitchcock), la Panthère rose (B. Edwards), Shock Corridor (S. Fuller), Un monde fou, fou, fou (S. Kramer).",,,,
+sona-9.0-20261114T224303Z-006,22,56b089849374320b88281b26,24b863f2d380bd15f3fe95a3b4fb8e62,sona-9.0,gu,general_knowledge,aya-dataset,human_authored,[user] તમે ઉત્તર અમેરિકાનું ગુચ્છાદાર પૂંછડીવાળું રીંછ વિશે જાણો છો?,"ઉત્તર અમેરિકાનું ગુચ્છાદાર પૂંછડીવાળું રીંછ પણ રેસૂનની જોડણી કરે છે અને કેટલીકવાર તેને અન્ય જાતિઓથી અલગ કરવા માટે સામાન્ય ઉત્તર અમેરિકાનું ગુચ્છાદાર પૂંછડીવાળું રીંછ કહેવામાં આવે છે, તે ઉત્તર અમેરિકાના સસ્તન પ્રાણી છે.તે પ્રોકિઓનિડ કુટુંબનો સૌથી મોટો છે, જેમાં શરીરની લંબાઈ 40 થી 70 સે.મી. (16 થી 28 ઇંચ) અને 5 થી 26 કિલો (11 થી 57 એલબી) નું શરીરનું વજન છે.તેનો ભૂખરો કોટ મોટે ભાગે ગા ense અન્ડરફુર હોય છે, જે તેને ઠંડા હવામાન સામે અવાસ્તવિક કરે છે.ઉત્તર અમેરિકાનું ગુચ્છાદાર પૂંછડીવાળું રીંછની ત્રણ સૌથી વિશિષ્ટ સુવિધાઓ તેના અત્યંત ડેક્સ્ટેરસ ફ્રન્ટ પંજા, તેના ચહેરાના માસ્ક અને તેની રંગીન પૂંછડી છે, જે પ્રાણીને લગતા અમેરિકાના સ્વદેશી લોકોની પૌરાણિક કથાઓમાં થીમ્સ છે.ઉત્તર અમેરિકાનું ગુચ્છાદાર પૂંછડીવાળું રીંછ તેની બુદ્ધિ માટે જાણીતું છે, કારણ કે અભ્યાસ દર્શાવે છે કે તે ઓછામાં ઓછા ત્રણ વર્ષથી કાર્યોના સમાધાનને યાદ કરવામાં સક્ષમ છે.તે સામાન્ય રીતે નિશાચર અને સર્વભક્ષી હોય છે, લગભગ 40% ઇન્વર્ટિબ્રેટ્સ, 33% છોડ અને 27% કરોડરજ્જુ ખાતા હોય છે.",,,,
+sona-9.0-20261114T224303Z-006,23,74f3f87c750978b43cdd4c2a,cdbea708225a732d7b0d6bb6fbf69c93,sona-9.0,gu,mathematics,aya-dataset,human_authored,[user] ઊંધિયું બનાવવાની રીત જણાવો.,"સામગ્રી:-
+(આંદાજિત પ્રમાણ સાથે)
+
+સુરતી પાપડી (કતારગામની) = ૧/૨ કિ.ગ્રા.
+રવૈયા (નાના રીંગણાં) = ૧/૪ કિ. ગ્રા.
+લીલવા (લીલી તુવેર)ના દાણા - ૧/૪ કિ. ગ્રા.
+લીલાં (જાડાં) મરચાં (ભજીયાં માટે વપરાય છે તે)
+કાચાં કેળાં = ૨-૩
+બટાકા = ૧/૨ કિ.ગ્રા
+રતાળું = ૧/૪ કિ.ગ્રા.
+સુરણ = ૧/૪ કિ.ગ્રા.
+અને અન્ય લીલાં શાક જે મળે તે.
+ભરવાના મસાલા માટે:
+
+નારિયળનું ખમણ = ૧ વાડકો
+કોથમીર = મોટી ઝૂડી
+વાટેલા આદુ મરચાં = સ્વાદ અનુસાર
+લીલું લસણ = સ્વાદ અનુસાર
+અજમો = ૧ ચમચી
+હળદર, ધાણાજીરું, મીઠું, હિંગ, ખાંડ, સ્વાદ પ્રમાણે.
+મૂઠિયા માટે:
+
+ચણાનો લોટ - ૧૫૦ ગ્રામ
+મેથીની ભાજી - ૧૦૦ ગ્રામ
+મરચું, હળદર, મીઠું, હિંગ, વગેરે સ્વાદ પ્રમાણે.
+
+રીત:-
+
+-ચણાના લોટમાં મોણ નાખી, ઝીણી સમારેલી મેથી, સ્વાદ અનુસાર લાલ મરચું, હળદર, મીઠું નાંખીને ભેળવી લો. ચણાના લોટની જગ્યાએ ઘઉંનો લોટ પણ ઉપયોગમાં લઇ શકાય છે. ઘણા લોકો તેને ફરસું રાખવા માટે મકાઇના લોટનો પણ ઉપયોગ કરે છે. પાણી વડે કણક બાંધી, ગોળ કે લાંબગોળ મૂઠિયાં વાળી તેલમાં તળીને બાજુમાં રાખી લો.
+-બટાકા, રતાળુ અને સુરણના એક-એક વેઢા જેટલા ચોરસ ટૂકડા કરીને તેલમાં લાલ થાય તેવી રીતે તળીને એક બાજુ પર રાખો
+-રવૈયામાં ઉપરથી ઊભો અને નીચેથી આડો એમ ચીરા પાડવા, મરચાને એક બાજુથી ચીરો મુકવો જેથી તેમાં મસાલો ભરી શકાય.
+-ચીરા પાડ્યા હોય તેમાં મસાલો ભરવો.
+-કડાઈમાં અડધો વાડકો તેલ મૂકવું તેમાં રાઈ-હિંગનો વઘાર કરવો.
+-સૌપ્રથમ પાપડી ઉમેરી દેવી તેના પ્રમાણમાં મીઠું નાખી દો. અન્ય સૂકા મસાલા અને અજમો નાખો.
+-પાપડી સાંતળીને તળેલા શાક તેમાં ઉમેરો.
+-ભરીને તૈયાર કરી રાખેલા રવૈયા, મરચા અને અન્ય શાક કડાઈમાં ઉમેરી દો.
+-હલાવો અને બાકી વધેલો મસાલો ઉમેરીને ચડવા દો.
+-શાકને ઉછાળા મારીને હલાવો.
+-બધાજ શાક સંપૂર્ણ પણે ન ડૂબે તેવું પાણી રસા માટે ઉમેરો.
+-ચડવા દો. રંધાઈ જાય ત્યારે પીરસો.",,,,
+sona-9.0-20261114T224303Z-006,24,5f2650f06e653efed48a85c6,85b34e1ced6d561db7a2d08376517670,sona-9.0,gu,science,aya-dataset,human_authored,[user] ઓએસ શું છે?,"Operating સિસ્ટમ (ઓએસ) એ સિસ્ટમ સ software ફ્ટવેર છે જે કમ્પ્યુટર હાર્ડવેર અને સ software ફ્ટવેર સંસાધનોનું સંચાલન કરે છે, અને કમ્પ્યુટર પ્રોગ્રામ્સ માટે સામાન્ય સેવાઓ પ્રદાન કરે છે.
+
+સમય-વહેંચણી operating સિસ્ટમ્સ સિસ્ટમના કાર્યક્ષમ ઉપયોગ માટે કાર્યોનું શેડ્યૂલ કરે છે અને પ્રોસેસર સમય, માસ સ્ટોરેજ, પેરિફેરલ્સ અને અન્ય સંસાધનોની કિંમત ફાળવણી માટે એકાઉન્ટિંગ સ software ફ્ટવેર શામેલ હોઈ શકે છે.
+
+ઇનપુટ અને આઉટપુટ અને મેમરી ફાળવણી જેવા હાર્ડવેર કાર્યો માટે, operating સિસ્ટમ પ્રોગ્રામ્સ અને કમ્પ્યુટર હાર્ડવેર વચ્ચેના મધ્યસ્થી તરીકે કાર્ય કરે છે, જો કે એપ્લિકેશન કોડ સામાન્ય રીતે સીધા હાર્ડવેર દ્વારા ચલાવવામાં આવે છે અને વારંવાર ઓએસ ફંક્શનમાં સિસ્ટમ ક calls લ કરે છે અથવા વિક્ષેપિત થાય છેતે.Cell પરેટિંગ સિસ્ટમ્સ ઘણા ઉપકરણો પર જોવા મળે છે જેમાં કમ્પ્યુટર હોય છે - સેલ્યુલર ફોન્સ અને વિડિઓ ગેમ કન્સોલથી લઈને વેબ સર્વર્સ અને સુપર કમ્પ્યુટર્સ સુધી.""",,,,
+sona-9.0-20261114T224303Z-006,25,7357b9b5118aa0103cb88dac,608f307c8a64e5f99470b84621374db9,sona-9.0,gu,writing,aya-dataset,human_authored,"[user] તમારી સંગઠિત ફ્લાઇટ રદ કરવામાં આવી છે. એરલાઇન કંપનીને પત્ર લખો. તમારે 1) પરિસ્થિતિ વિશે ફરિયાદ કરવી જોઈએ, 2) મુસાફરી વીમાનો દાવો કરવા માટે તમારે તેમની પાસેથી શું જોઈએ છે તેની વિનંતી કરવી જોઈએ, 3) ભવિષ્યની પરિસ્થિતિઓમાં તેઓએ શું કરવું જોઈએ તે સૂચવો.","""હાય ડેલ્ટા એરલાઇન,
+
+હું Ao Ni છું, હું મારી રદ થયેલી ફ્લાઇટ અંગે અને મારા પ્રવાસ વીમાનો દાવો કરવા માટે દસ્તાવેજોની વિનંતી કરવા માટે આ ઇમેઇલ મોકલું છું.
+
+મને હમણાં જ તમારા તરફથી એક ઈમેલ મળ્યો છે કે મારી લાસ વેગાસથી ન્યુયોર્કની આજે રાત્રે 10 વાગ્યાની ફ્લાઇટ યાંત્રિક સમસ્યાઓને કારણે રદ કરવામાં આવી છે. ભલે ડેલ્ટા એરલાઇન મને ફ્લાઇટ ટિકિટની કિંમત પરત કરશે, આવતીકાલની ફ્લાઇટ માટેની છેલ્લી ઘડીની ટિકિટ અત્યંત મોંઘી છે, જે સામાન્ય કિંમત કરતાં લગભગ બમણી છે. ખૂબ જ મહત્વપૂર્ણ મીટિંગમાં હાજરી આપવા માટે મારે આવતીકાલે ન્યુ યોર્ક પરત ફરવાનું છે તેથી મારે ટિકિટ માટે ચૂકવણી કરવી પડશે, ઉપરાંત આજની રાત માટે હોટેલમાં એક રાત્રિ રોકાણ કરવું પડશે.
+
+શું તમે મારી હોટેલ અને ટિકિટની ભરપાઈ કરશો? જો નહીં, તો મારે મારા પ્રવાસ વીમા દ્વારા તેનો દાવો કરવો પડશે અને મારા કેસને સમર્થન આપવા માટે મને બે દસ્તાવેજોની જરૂર પડશે. પ્રથમ, મારા ઓર્ડરની પુષ્ટિ. બીજું, કેન્સલેશનનું કારણ જણાવવા માટે અને ડેલ્ટા એરલાઈન્સ મારી ખોટની ભરપાઈ કરવા માટે મને તમારા તરફથી એક પત્રની જરૂર છે.
+
+હું સમજું છું કે ખરાબ વસ્તુઓ ક્યારેક થાય છે પરંતુ હું હજુ પણ છેલ્લી ઘડીની સૂચનાથી નારાજ છું. તમે મને અગાઉ નોંધ્યું હોવું જોઈએ જેથી મને તેની સાથે વ્યવહાર કરવા માટે વધુ સમય મળી શક્યો હોત.
+
+જો તમને મારી પાસેથી કોઈ વસ્તુની જરૂર હોય તો કૃપા કરીને મને જણાવો. તમે મને 123-456-7890 અથવા મારા ઈમેલ [EMAIL] પર પહોંચી શકો છો.""",,,,
+sona-9.0-20261114T224303Z-006,26,3594e2b977f33e2631d333bd,89963e7f6c7c7031624abcbd9541538a,sona-9.0,he,general_knowledge,oasst2,human_authored,"[user] איזה מאכל נכין לארוחת ערב
+
+[assistant] אני צאט בוט ולא יכול להכין איתך/איתכם ארוחת ערב.
+אני ממליץ להכין פסטה.
+
+[user] באסה. תרצה אולי להצטרף לצוהריים?","כמובן. אך לצערי אני צ'אט בוט ולכן אני לא יכול לאכול.
+האם יש עוד משהו שאוכל לעזור לך בו?",,,,
+sona-9.0-20261114T224303Z-006,27,139729a01ad22f1fd0b610e6,ea801263ca60d795748af71ff7bffcd7,sona-9.0,hi,general_knowledge,wikipedia-hi,templated_human,[user] दैनिक जागरण के बारे में एक संक्षिप्त परिचय लिखिए।,"दैनिक जागरण  भारत का एक प्रसिद्ध हिन्दी समाचार पत्र है जो पिछले कई वर्षों से भारत में सर्वाधिक प्रसार संख्या वाला समाचार-पत्र बना हुआ है।  यह समाचार पत्र विश्व का सर्वाधिक पढ़ा जाने वाला दैनिक समाचार पत्र है। इस बात की पुष्टि  विश्व समाचार-पत्र संघ  (वैन) द्वारा की गई है। वर्ष 2008 में बीबीसी और रॉयटर्स् की नामावली के अनुसार यह प्रतिवेदित किया गया कि यह भारत में समाचारों का सबसे विश्वसनीय स्रोत दैनिक जागरण है।
+
+दैनिक जागरण को 1942ई में शुरू किया गया था। इसका श्रेय आक्रामक स्वतन्त्रता सेनानी श्री पूर्णचन्द्र गुप्त को जाता है। 1943ई का वर्ष भारतीय स्वतन्त्रता संग्राम का बहुत महत्वपूर्ण वर्ष था जब भारत में अंग्रेजों की दासता से मुक्त होने के लिये संघर्ष अपने चरम पर था। भारत छोड़ो आन्दोलन इस संघर्ष का एक महत्वपूर्ण पड़ाव था। ऐसे निर्णायक मोड़ पर दैनिक जागरण को इसके संस्थापक स्वर्गीय पूर्णचन्द्र गुप्त द्वारा जारी किया गया। इस दृष्टि के साथ कि अखबार जन-समूह के मुक्त स्वर को प्रतिबिम्बित कर सके। प्रथम संस्करण 1942ई में झाँसी से जारी किया गया। 1947ई में इसका मुख्यालय झाँसी से कानपुर ले जाया गया। पूर्णचन्द्र गुप्त कभी भी अपने समाचारपत्र को संभ्रान्त बनाने की अपनी इच्छाशक्ति से नहीं डिगे।
+
+यह समाचारपत्र निम्नलिखित ३१ केन्द्रो से प्रकाशित होता है:",,,,
+sona-9.0-20261114T224303Z-006,28,1a333626bb833f07358ef294,3492c7bd0927378a6769a9f312deec53,sona-9.0,hi,mathematics,wikipedia-hi,templated_human,[user] भारतीय संसद के बारे में एक संक्षिप्त परिचय लिखिए।,"भारतीय संसद भारत गणराज्य का सर्वोच्च विधायी निकाय है। यह भारत के राष्ट्रपति और दो सदनों: राज्य सभा (राज्यों का सदन) और लोक सभा (लोगों का सदन) से बना एक द्विसदनीय विधानसभा है। राष्ट्रपति को विधायिका के प्रमुख के रूप में अपनी भूमिका में संसद के सदन को बुलाने और सत्रावसान करने या लोकसभा को भंग करने की पूरी शक्ति है। राष्ट्रपति इन शक्तियों का प्रयोग प्रधानमन्त्री और उनकी केन्द्रीय मंत्रिपरिषद् की परामर्शानुसार करते हैं।
+
+संसद के किसी भी सदन के लिए राष्ट्रपति द्वारा निर्वाचित या मनोनीत लोगों और मंत्रियों को संसद सदस्य कहा जाता है। संसद, लोक सभा के सदस्य एकल सदस्यीय जिलों में भारतीय जनता के मतदान द्वारा सीधे चुने जाते हैं और संसद सदस्य, राज्य सभा सभी राज्य विधान सभा के सदस्यों द्वारा आनुपातिक प्रतिनिधान द्वारा चुने जाते हैं। संसद में लोकसभा में 543 और राज्यसभा में 245 की स्वीकृत संख्या है, जिसमें साहित्य, कला, विज्ञान और समाज सेवा के विभिन्न क्षेत्रों की विशेषज्ञता से 12 नामांकित व्यक्ति शामिल हैं। संसद नई दिल्ली में संसद भवन में मिलती है।
+
+लोक सभा में राष्ट्र की जनता द्वारा चुने हुए प्रतिनिधि होते हैं जिनकी अधिकतम संख्या 550 है। राज्य सभा एक स्थायी सदन है जिसमें अधिकतम सदस्य संख्या 250 है। राज्य सभा के सदस्यों का निर्वाचन/मनोनयन 6 वर्ष के लिए होता है। जिसके 1/3 सदस्य प्रत्येक 2 वर्ष में सेवानिवृत्त होते रहते हैं। वर्तमान मे लोकसभा के सदस्यों की संख्या 543 है तथा राज्यसभा के सदस्यों की संख्या 245 है।",,,,
+sona-9.0-20261114T224303Z-006,29,705f1dd8fe3fe7891ab19206,ada7c072ce9d12e59e9d0fc6c8c25f38,sona-9.0,id,general_knowledge,aya-dataset,human_authored,"[user] Buatlah artikel berdasarkan judul berikut.
+
+Judul: Proyek Internet.org milik Facebook tuai kontroversi.","Sebanyak 67 kelompok pembela hak digital di dunia menyuarakan protes terhadap proyek Internet.org yang digagas oleh Mark Zuckerberg.
+
+Sebanyak 67 kelompok pembela hak digital, termasuk i Freedom Uganda, Usuarios Digitales dari Ekuador, dan ICT Watch dari Indonesia, telah menandatangani surat protes untuk Zuckerberg. Mereka menyatakan bahwa Internet.org mengancam privasi, kebebasan berekspresi, serta prinsip netralitas internet. Namun, Facebook membela proyek tersebut dan menyangkal tuduhan ini.
+
+""Kami yakin dengan memperluas cakupan akses internet, banyak orang yang dapat mengambil manfaatnya dan sekaligus dapat menggunakan layanan-layanan lainnya,"" kata seorang juru bicara Facebook kepada BBC.
+
+""Kami meyakini tujuan ini sehingga kami telah bekerja sama dengan penyedia jasa seluler untuk menawarkan layanan dasar kepada masyarakat tanpa biaya. Kami yakin para pengguna baru itu akan menginginkan akses lebih banyak lagi dan mau membayar untuk layanan yang lebih beragam.""
+
+Internet.org membuka akses bagi pelanggan jaringan operator seluler mitranya untuk menggunakan sejumlah layanan online tanpa harus membayar layanan internet. Internet.org membuka akses bagi pengguna internet di berbagai negara berkembang, semisal di Indonesia. Layanan yang disediakan secara gratis mencakup Wikipedia, situs kesehatan milik UNICEF Facts for Life, BBC News, Facebook, Accuweather, dan beberapa pilihan berita lokal dan penyedia hasil pertandingan olahraga. Untuk mengakses fasilitas ini, pelanggan harus menggunakan aplikasi Android khusus, situs Internet.org, aplikasi Facebook untuk pengguna Android, atau browser Opera Mini.
+
+Situs-situs dalam layanan itu membuka halaman dengan tampilan sederhana untuk mengurangi penggunaan bandwith data akibat proses memuat foto-foto dengan resolusi tinggi, video, dan fasilitas voice chat di website, yang tidak selalu dibutuhkan pengguna. Operator jaringan seluler berpartisipasi di dalam projek Facebook tersebut dengan harapan para pengguna akan membayar untuk mendapatkan akses lebih setelah diberi kesempatan mencicipi konten yang tersedia secara gratis.",,,,
+sona-9.0-20261114T224303Z-006,30,1a135a6d3136d393cf5aa1e1,66e60e1e2ee8e683ae392fa1bd703875,sona-9.0,id,islamic_studies,aya-dataset,human_authored,"[user] Apa yang dimaksud dengan artikel berjenis ""Hikayat""? Apa saja ciri-ciri Hikayat yang membedakannya dengan jenis teks lainnya?
+
+Jawaban:","Hikayat berasal dari bahasa Arab hikayah 'kisah', yaitu jenis prosa dalam sastra melayu lama yang berisikan cerita fiksi berupa kisah kerajaan, sejarah, atau riwayat. Kisah tersebut menceritakan kehebatan, kepahlawanan, dan kesaktian orang ternama seperti raja, putra-putri raja, dan orang-orang suci. Hikayat bertujuan untuk menimbulkan jiwa kepahlawanan, pendidikan, dan hiburan.
+
+Hikayat ditulis dalam bahasa Melayu dengan huruf Arab dan dituliskan pada kertas, lontar, kulit kayu, serta rotan. Hikayat merupakan salah satu bentuk sastra lama atau sastra lisan yang tercipta dari ujaran. Ujaran tersebut kemudian disalin ke dalam sebuah naskah.
+
+Ciri-ciri hikayat adalah sebagai berikut.
+- Istana sentris atau berkisah tentang kehidupan di lingkungan istana.
+- Anonim atau tidak diketahui identitas penulisnya.
+- Statis, tidak ada perubahan yang berarti atau begitu-begitu saja, baik dari segi bentuk ataupun tema.
+- Bersifat khayalan atau fanstasi
+- Bersifat tidak logis
+- Menggunakan istilah atau kata-kata klise yang saat ini tidak lagi digunakan dalam komunikasi.
+- Menggunakan bahasa Melayu, seperti syahdan (selanjutnya, lalu), arkian (sesudah itu, kemudian), hatta (lalu, maka), dan duli (kata hormat apabila bercakap dengan raja).",,,,
+sona-9.0-20261114T224303Z-006,31,d3e5c29fbe400dd947e77860,a6b0c6c0a8d0eb124e61146684a9c45e,sona-9.0,id,reasoning,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Statistika inferensial.,"Statistika inferensial mencakup semua metode yang berhubungan dengan analisis sebagian data atau juga sering disebut dengan sampel untuk kemudian sampai pada peramalan atau penarikan kesimpulan mengenai keseluruhan data induknya (populasi).
+
+Menurut Bartolucci & Scrucca, statistika inferensial adalah statistik yang berkaitan dengan memberikan beberapa kesimpulan tentang parameter yang menggambarkan distribusi variabel yang diminati dalam populasi tertentu berdasarkan sampel acak.
+
+Dalam statistika inferensial diadakan pendugaan parameter, membuat hipotesis, serta melakukan pengujian hipotesis tersebut sehingga sampai pada kesimpulan yang berlaku umum. Metode ini disebut juga statistika induktif, karena kesimpulan yang ditarik didasarkan pada informasi dari sebagian data saja. Pengambilan kesimpulan dari statistika inferensial yang hanya didasarkan pada sebagian data saja yang menyebabkan sifat tak pasti, memungkinkan terjadi kesalahan dalam pengambilan keputusan, sehingga pengetahuan mengenai teori peluang mutlak diperlukan dalam melakukan metode-metode statistika inferensial.",,,,
+sona-9.0-20261114T224303Z-006,32,2971d79abb235ade5df4d751,378b237fad5b7f519afca4918d111158,sona-9.0,id,research,tydiqa-goldp,human_authored,"[user] Buku kedua, Harry Potter dan Kamar Rahasia, awalnya diterbitkan di Britania Raya pada tanggal 2 Juli 1998 dan di AS pada 2 Juni 1999. Harry Potter dan Tawanan Azkaban kemudian diterbitkan setahun kemudian di Britania Raya pada 8 Juli 1999, dan di Amerika Serikat pada 8 September 1999.[56] Harry Potter dan Piala Api diterbitkan pada 8 Juli 2000 di waktu yang bersamaan oleh Bloomsbury dan Scholastic.[57] Harry Potter dan Orde Phoenix adalah buku terpanjang dalam seri, dengan tebal 766 halaman dalam versi Inggris dan 870 halaman dalam versi Amerika Serikat.[58] Orde Phoenix diterbitkan secara serentak di negara-negara yang berbahasa Inggris pada tanggal 21 Juni 2003.[59] Dua tahun kemudian, Harry Potter dan Pangeran Berdarah Campuran diterbitkan pada 16 Juli 2005, dan terjual sebanyak 9 juta eksemplar dalam waktu 24 jam setelah perilisannya di seluruh dunia.[60][61] Buku ketujuh sekaligus yang terakhir, Harry Potter dan Relikui Kematian, diterbitkan pada 21 Juli 2007.[62] Buku ini terjual sebanyak 11 juta eksemplar dalam 24 jam pertama setelah perilisannya, dengan rincian 2,7 juta eksemplar di Britania Raya dan 8,3 juta eksemplar di Amerika Serikat.[61]
+
+buku Harry Potter manakah yang paling banyak halaman nya?","Harry Potter dan Orde Phoenix
+
+Harry Potter dan Tawanan Azkaban kemudian diterbitkan setahun kemudian di Britania Raya pada 8 Juli 1999, dan di Amerika Serikat pada 8 September 1999.[56] Harry Potter dan Piala Api diterbitkan pada 8 Juli 2000 di waktu yang bersamaan oleh Bloomsbury dan Scholastic.[57] Harry Potter dan Orde Phoenix adalah buku terpanjang dalam seri, dengan tebal 766 halaman dalam versi Inggris dan 870 halaman dalam versi Amerika Serikat.[58] Orde Phoenix diterbitkan secara serentak di negara-negara yang berbahasa Inggris pada tanggal 21 Juni 2003.[59] Dua tahun kemudian, Harry Potter dan Pangeran Berdarah Campuran diterbitkan pada 16 Juli 2005, dan terjual sebanyak 9 juta eksemplar dalam waktu 24 jam setelah perilisannya di seluruh dunia.[60][61] Buku ketujuh sekaligus yang terakhir, Harry Potter dan Relikui Kematian, diterbitkan pada 21 Juli 2007.[62] Buku ini terjual sebanyak 11 juta eksemplar dalam 24 jam pertama setelah perilisannya, dengan rincian 2,7 juta eksemplar di Britania Raya dan 8,3 juta eksemplar di Amerika Serikat.[61]",,,,
+sona-9.0-20261114T224303Z-006,33,521c00da178a121fb7dcf5df,0d6ce455137a1b48e320bf7a2fb02865,sona-9.0,it,coding,oasst1,human_authored,[user] Scrivi un elenco dei numeri primi,"Ecco un elenco dei numeri primi minori di 20:
+2, 3, 5, 7, 11, 13, 17, 19
+
+Se vuoi trovarne altri puoi usare metodi come il crivello di Eratostene, il quale è anche facilmente implementabile sui principali linguaggi di programmazione (ex. python).",,,,
+sona-9.0-20261114T224303Z-006,34,988e85f335cd8d4bbbc15322,1088bbf0fe3b845f9e687c9cd8108733,sona-9.0,it,education,oasst2,human_authored,"[user] Cosa si intende con il termine ""machine learning""?
+
+[assistant] Il machine learning (apprendimento automatico) è una branca dell'Intelligenza Artificiale che si occupa di sviluppare algoritmi e modelli computazionali che permettono ai computer di apprendere automaticamente dalle esperienze passate, senza essere esplicitamente programmati per farlo.
+
+Il processo di apprendimento automatico è basato sulla creazione di un modello matematico che cerca di identificare pattern nei dati di input, al fine di generalizzare e fare previsioni su nuovi dati di input non ancora visti. In altre parole, il modello cerca di apprendere dai dati per poter prendere decisioni autonome e migliorare la sua performance.
+
+Ci sono diverse tecniche di machine learning, tra cui il supervised learning (apprendimento supervisionato), dove il modello è addestrato su un insieme di dati di input e output, in modo da apprendere la mappatura tra di essi, e l'unsupervised learning (apprendimento non supervisionato), dove il modello cerca di identificare pattern nei dati senza la guida di un set di dati di output.
+
+Il machine learning ha diverse applicazioni, tra cui il riconoscimento di immagini e di parole, la previsione del tempo, il filtraggio di spam e la raccomandazione di prodotti.
+
+[user] Quale è la differenza tra machine learning e deep learning?","Deep learning, o apprendimento profondo, è una branca specifica del machine learning. In particola, il deep learning comprende tutti quegli algorimi e quelle tecniche capaci di estrarre dai dati delle informazioni più astratte necessarie per risolvere l'obbiettivo assegnatogli. Il nome deriva dal fatto che la tecnica più usata in questa branca, le reti neurali, tendono a essere progettate usando molti strati diversi in successione, da cui la profondità nel nome deep learning. Per esempio, se si volesse classificare la foto di un animale fra le classi ""cane"" o ""gatto"", una algoritmo classico di machine learning come un albero decisionale farebbe estremamente fatica a individuare i pattern necessari frai valori dei pixel dell'immagine. Una rete neurale convoluzionaria invece è capace di combinare fra loro tali valori per ottenere delle rappresenzationi numeriche di pattern più astratti nell'immagine. Infatti, in una tale rete, si potrebbe notare come, il penultimo strato, prima di quello di output, possiede dei neuroni capaci dittivarsi intensamente se nell'immagine di input è presente qualcosa come un orecchio di gatto, o la coda di un cane. Questi valori infine vengono combinati nell'ultimo strato per produrre l'output desiderato, cioè classificare l'immagine come una di un gatto o di un cane.",,,,
+sona-9.0-20261114T224303Z-006,35,ae0010d430bc9a2bd3e32eaa,6a381bd30db23efa56b5c5976cf0dcc1,sona-9.0,it,general_knowledge,oasst2,human_authored,"[user] Mi puoi enunciare i tre principi della dinamica newtoniana
+
+[assistant] I tre principi della dinamica newtoniana sono:
+1. Il principio di inerzia o primo principio: se su un corpo non agiscono forze o agisce un sistema di forze in equilibrio, il corpo persevera nel suo stato di quiete o di moto rettilineo uniforme.
+2. La legge fondamentale della dinamica o secondo principio: la forza che agisce su un corpo è uguale al prodotto tra la massa del corpo e l’accelerazione che esso acquista.
+Nota che questa è una semplificazione, la corretta definizione del secondo principio sarebbe (Q è la quantità di moto):
+```F = dQ/dt = d(m*v)/dt = (dm/dt)*(dv/dt) = (dm/dt)*a```.
+La formula ```F=m*a```, quindi, vale solo nel caso in cui m non vari nel tempo.
+3. Il principio di azione-reazione o terzo principio: se un corpo A esercita una forza su un corpo B, allora B esercita su A una forza uguale e contraria.
+
+[user] puoi enunciarmi, tramite derivate e integrali partendo dalla funzione s(t) che definisce la posizione di un corpo nel tempo, le formule per velocità, accelerazione e energia cinetica?","Certamente, ecco le definizioni di velocità, accelerazione ed energia cinetica di un corpo partendo dalla sua legge oraria $s(t)$:
+* La velocità di un corpo è, per definizione, la variazione nel tempo della sua posizione, quindi per ottenere la velictà $v(t)$ basta derivare $s(t)$ rispetto a $t$: $v(t) = {ds(t) \over dt} = \dot{s}(t)$
+* L'accelerazione di un corpo è, per definizione, la variazione nel tempo della sua velocità, quindi per ottenere l'accelerazione $a(t)$ basta derivare $v(t)$ rispetto a $t$: $a(t) = {dv(t) \over dt} = \dot{v}(t) = \ddot{s}(t)$
+* Energia cinetica $E_k$ di un corpo di massa $m$ è definito dall'equazione $E_k = {1 \over 2} m v^2$, per cui, nel nostro caso, diventa $E_k(t) = {1 \over 2} m v^2(t)= {1 \over 2} m  \dot{s}^2(t)$",,,,
+sona-9.0-20261114T224303Z-006,36,262f4cedd0bb06a5cc0c3faa,9e8caccee8879efaf728a5b231132ba5,sona-9.0,it,mathematics,oasst2,human_authored,"[user] Ciao, voglio provare le tue capacità di intelligenza artificiale. Se 2+2 fanno 4 allora 5+3 quanto fa?
+
+[assistant] Se 2+2=4 posso intuire che tu stia dando ai numeri naturali l'usuale significato, idem per quanto riguarda l'operatore ""+"".
+Quindi assumo che 5+3 faccia 8.
+Questa potrebbe però essere una domanda trabocchetto ed usare invece ""+"" per indicare la potenza in quanto 2^2 è sempre uguale a 4. In questo caso il risultato sarebbe 5^3=125.
+Potrebbero esistere altre interpretazioni, ma le informazioni da te fornite mi permettono di dedurre solo quelle menzionate.
+
+[user] Fa 8.","Sono contento di averti potuto fornire la risposta che ti aspettavi. Voglio però renderti attento al fatto che sono solo un modello linguistico ti sconsiglio di fidarti ciecamente delle mie risposte inereti a calcoli matematici. Qualora tu necessitassi un risultato affidabile ti consiglio di usare un software specializzato come per esempio il calcolatore del tuo smartphone o computer.
+
+Hai altre domande con le quali desideri mettere alla prova la mia intelligenza?",,,,
+sona-9.0-20261114T224303Z-006,37,8e4784adca0aaff980765666,d0dc708405c2772b5f03f13522759bef,sona-9.0,it,reasoning,oasst2,human_authored,"[user] Pesa più 1kg di paglia o 1kg di piombo?
+
+[assistant] Un chilo di paglia e un chilo di piombo pesano esattamente lo stesso. Entrambi hanno una massa di 1kg, ma la paglia ha un volume maggiore rispetto al piombo. Ciò significa che, se li si mette in un contenitore, la paglia occuperà più spazio rispetto al piombo.
+
+[user] E se mi spostassi su un altro pianeta?","Sì, le cose cambierebbero se ti spostassi su un altro pianeta poiché il peso e il volume dei materiali dipendono dalla gravità del pianeta in cui si trovano.
+
+Ad esempio, se ti spostassi su un pianeta con una gravità più elevata rispetto alla Terra, come Giove, un chilo di paglia e un chilo di piombo peserebbero di più rispetto alla Terra. Tuttavia, la loro massa sarebbe ancora di un chilo, quindi occuperebbero ancora lo stesso volume.
+
+D'altra parte, se ti spostassi su un pianeta con una gravità inferiore rispetto alla Terra, come la Luna, un chilo di paglia e un chilo di piombo peserebbero meno rispetto alla Terra. Ma poiché la loro massa sarebbe ancora di un chilo, occuperebbero ancora lo stesso volume.
+
+In sintesi, il peso di un oggetto dipende dalla gravità del pianeta in cui si trova, mentre la sua massa è una proprietà intrinseca dell'oggetto e non cambia. Quindi, la relazione tra il volume di un chilo di paglia e un chilo di piombo rimarrebbe la stessa su qualsiasi pianeta, ma il loro peso potrebbe essere diverso a seconda della gravità del pianeta.",,,,
+sona-9.0-20261114T224303Z-006,38,03670f7725b85612b0bf14c6,577102f075396d8d7a3a6eb495f53af4,sona-9.0,it,science,oasst1,human_authored,[user] cos'è il redshift delle galassie?,"Il redshift delle galassie è un fenomeno astronomico che descrive il fatto che la luce proveniente da molte galassie appare spostata verso il rosso (o lunghezza d'onda più lunga) rispetto a quella che ci si aspetterebbe se la galassia fosse ferma. Questo fenomeno viene comunemente descritto come ""spostamento verso il rosso"" o semplicemente ""redshift"".
+
+Il redshift delle galassie è stato scoperto nel 1912 da Vesto Slipher, che osservò che la luce proveniente da molte galassie era spostata verso il rosso. Questo fenomeno è stato successivamente spiegato da Edwin Hubble nel 1920, che lo interpretò come un effetto Doppler causato dalla recessione delle galassie lontane dalla Terra.
+
+Il redshift delle galassie è stato un pezzo fondamentale della prova dell'espansione dell'universo, proposta da Hubble nel 1929. La teoria sostiene che l'universo è in espansione e che le galassie si stanno allontanando l'una dall'altra. Il redshift delle galassie fornisce un modo per misurare la distanza alle galassie e quindi per studiare l'espansione dell'universo.
+
+In sintesi, il redshift delle galassie è un importante fenomeno astronomico che ha contribuito alla comprensione dell'universo e alla sua evoluzione nel tempo.",,,,
+sona-9.0-20261114T224303Z-006,39,3295fbaa67fa80f39c39cac4,f520a73f41572d5424b6da90b432830e,sona-9.0,it,web_backend,oasst1,human_authored,"[user] Devo sviluppare una applicazione di backend in ambito NLP (Natural Language Processing). 
+Tra Python, Java e NodeJs, quale linguaggio mi consiglieresti di usare e perché?","La scelta del linguaggio per lo sviluppo di un'applicazione di backend NLP dipende dalle tue preferenze personali, dalle esigenze specifiche del progetto e dalla tua esperienza con i vari linguaggi.
+
+Python è una scelta popolare per lo sviluppo di applicazioni NLP grazie alla sua vasta libreria di NLP, tra cui NLTK, Spacy e Gensim. Queste librerie rendono semplice la manipolazione e l'elaborazione del testo, il che significa che puoi concentrarti sulla logica del tuo backend NLP invece che sulla costruzione degli strumenti per elaborare il testo. Python è anche un linguaggio intuitivo e facile da apprendere, il che lo rende una scelta popolare per molte persone.
+
+Java è un altro linguaggio molto diffuso, con una grande comunità e una libreria estesa di NLP. Anche se potrebbe richiedere più tempo per imparare rispetto a Python, Java offre una maggiore velocità di esecuzione e scalabilità rispetto a Python, il che lo rende una buona scelta per progetti più grandi.
+
+Node.js è una scelta più recente, ma sta guadagnando popolarità come linguaggio per lo sviluppo di backend NLP. La sua architettura a eventi lo rende una scelta rapida e scalabile, e ci sono anche molte librerie di NLP disponibili per Node.js. Tuttavia, potrebbe essere più difficile trovare esperti di NLP esperti in Node.js rispetto a Python o Java.
+
+In sintesi, la scelta del linguaggio dipende dalle tue esigenze e preferenze personali. Se hai già esperienza con Python e vuoi un linguaggio intuitivo con una vasta libreria di NLP, potrebbe essere la scelta migliore. Se hai bisogno di velocità e scalabilità, Java potrebbe essere la scelta giusta. Se stai cercando una soluzione rapida e scalabile, Node.js potrebbe essere la scelta adatta a te.",,,,
+sona-9.0-20261114T224303Z-006,40,5c93f65a06e0230a7e7ad21d,87130dd54fb775a6e265ab964a35631c,sona-9.0,ja,coding,oasst2,human_authored,"[user] 質問なのですがBlenderアドオンにおけるシーンプロパティーをオペレーターに使用し、
+実行後にdef draw()メニューに使用されているシーンプロパティーの値を後から変更することは可能でしょうか？","はい、可能です。オペレーターを実行してシーンプロパティーの値を変更したい場合、以下の手順に従うことができます。
+
+まず、オペレーター内でシーンプロパティーの値を変更するコードを書きます。例えば、以下のようになります。
+
+```python
+import bpy
+
+class MyOperator(bpy.types.Operator):
+    bl_idname = ""my_operator""
+    bl_label = ""My Operator""
+
+    my_prop : bpy.props.StringProperty()
+
+    def execute(self, context):
+        # シーンプロパティーの値を変更する
+        bpy.context.scene.my_prop = self.my_prop
+
+        return {'FINISHED'}
+
+```
+
+このオペレーターでは、my_propというシーンプロパティーの値を変更しています。
+
+次に、def draw()メソッドを定義し、メニューにシーンプロパティーを表示するためのコードを書きます。例えば、以下のようになります。
+
+```python
+class MyPanel(bpy.types.Panel):
+    bl_idname = ""MY_PT_panel""
+    bl_label = ""My Panel""
+    bl_space_type = ""VIEW_3D""
+    bl_region_type = ""UI""
+    bl_category = ""My Addon""
+
+    def draw(self, context):
+        layout = self.layout
+
+        # シーンプロパティーを表示する
+        layout.prop(context.scene, ""my_prop"")
+```
+
+このパネルでは、context.scene.my_propをprop()メソッドで表示しています。
+
+ここで、オペレーターを実行すると、シーンプロパティーの値が変更されます。そして、def draw()メソッドで表示されているシーンプロパティーの値も自動的に更新されます。
+
+つまり、シーンプロパティーの値を変更するためには、オペレーターを実行すればよく、def draw()メソッドで表示されているシーンプロパティーの値を変更する場合にも、シーンプロパティーの値が更新されます。",,,,
+sona-9.0-20261114T224303Z-006,41,351a7f0a8eae3a962a39f77e,4d69bdba8459e778f4831bd52d6f4a0f,sona-9.0,ja,general_knowledge,aya-dataset,human_authored,"[user] 文章から主要な単語を特定し、それを定義しなさい。 
+群馬県高崎市に住む小学生の兄弟が先月、家の近くの林で珍しいクワガタを見つけました。このクワガタの体には、雄と雌の両方の部分があります。
+体のほとんどは雄で、一部が雌です。頭と胸の左側は雌で、あごは左側だけ小さくて、足や触角は左側だけ短くなっています。体の長さは4cmぐらいです。
+見つけた兄弟は、珍しいクワガタだと思って、桐生市の「県立ぐんま昆虫の森」という施設に連絡しました。施設によると、自然の中で、このようなクワガタが見つかることはとても珍しいです。
+クワガタは、この施設で8月の終わりまでみんなに見せています。施設の人は「生きている珍しいクワガタを見ることは、なかなかできないので、ぜひ見に来てください」と話しています。","この文章の中での主要な単語とその定義は以下のようになっています。
+- 小学生: 1）小学校に通っている子ども。
+- クワガタ: 1）初夏のころクヌギなどの木にいて、樹液を吸う昆虫。体は平たくてかたい。雄のあごは長く、二本の角のようになっている。
+- 雄: 1）動物の、男性にあたるもの。
+- 雌: 1）動物で、子や卵を生む能力があるほう。
+- 部分: 1）全体を、いくつかに分けたものの一つ。
+- 一部: 1）全体の中の、ある部分。2）新聞や雑誌などを数えるときの、一つ。
+- 胸: 1）体の前の部分で、首と腹の間。2）心。心の中。3）心臓。4）肺。
+- あご: 1）顔の下のほうの部分。口の上と下にあって、物をかむはたらきをする。ふつうは、下あごのこと。
+- 触角: 1）昆虫やエビ・カニなどの頭についているヒゲのようなもの。物やにおいを感じる器官。
+- 施設: 1）人々が利用できるように作った設備。
+- 自然: 1）山・川・草・木・星・雲・雨・雪など、人が作ったものでない物。2）もともとの性質を備えていること。3）わざとらしくないようす。4）ひとりでに。いつのまにか。",,,,
+sona-9.0-20261114T224303Z-006,42,37a01449438f6785c0bcb303,c57083f4f85d8a761395a95b332bea52,sona-9.0,ko,general_knowledge,wikipedia-ko,templated_human,[user] 겐리흐 야고다에 대해 간단히 소개해 주세요.,"겐리흐 그리고리에비치 야고다(, 1891년 11월 7일 ~ 1938년 3월 15일)는 소련의 정치인으로 스탈린 치하의 소련의 공안기관인 내무인민위원회의 위원장이었다.
+
+야고다는 러시아 제국 야로슬라블현 리빈스크의 유대인 시계 제작자와 러시아인 어머니 사이에서 태어났다. 본명은 게나흐 게르셰노비치 야고다()이다. 1907년 볼셰비키에 가담하였고, 10월 혁명 이후 체카에서 두각을 나타내기 시작했다. 그리하여 수장인 펠릭스 제르진스키 아래서 제2부부장이 되었다.
+
+제르진스키가 죽은 뒤에는 뱌체슬라프 멘진스키 아래서 부위원장이 되었다. 멘진스키의 건강이 악화되어 야고다는 1920년대 말에 실질적으로 내무인민위원회를 지휘하게 되었으나 1931년에는 제2위원장으로 지위가 강등되었다.
+
+1934년 7월 10일, 멘진스키가 죽은 지 2달 만에 야고다를 내무인민위원장으로 임명되었는데 야고다는 도박과 엽색행각으로 악명을 떨쳤다. 또한 이후 그가 숙청될 때 멘진스키를 독살했다는 항목이 죄목에 있었다는 것으로 볼 때, 세르게이 키로프의 암살에도 그가 개입했다는 의혹이 있다.
+
+야고다는 스탈린의 대숙청의 시발점이 된 1936년 지노비예프 등이 기소된 첫 번째 모스크바 각본 재판을 연출하였고 또한 강제수용소인 굴락을 처음으로 설립했다. 그러나 1936년 야고다는 내무인민위원회의 위원장직에서 해임되었고 그 뒤를 니콜라이 예조프가 이어 대숙청을 실행하였다.
+
+내무인민위원회에서 물러난 후, 야고다는 우편통신부의 장관이 되었으나 1937년 3월 스탈린의 명령에 의해 체포되었다.
+
+야고다는 이전의 카를 라데크 등이 기소된 공개 각본재판에서 이들의 죄목은 단지 스탈린의 정적이었기 때문이라는 것을 암시하는 발언을 해 스탈린의 진노를 샀다. 또한 야고다는 8년 전에도 부하린에 동조하는 모습을 보여 스탈린의 눈밖에 났었다. 1938년 3월, 야고다는 소위 ""21명의 재판""에서 국가에 대한 반역 및 음모행위로 사형을 선고받았다.
+
+야고다는 재판 직후 바로 처형되었다. 당시 위원장이었던 니콜라이 예조프는 간수에게 명령하여 처형전에 야고다를 모욕하기 위해 벗기고 심하게 구타했다고 한다. 예조프 또한 2년후 신임 부장인 라브렌티 베리아의 명령으로 야고다와 똑같은 길을 걸어 처형되었고, 베리아도 스탈린 사후 권력투쟁에서 패해 마찬가지로 처형되었다.",,,,
+sona-9.0-20261114T224303Z-006,43,66da06e22b2635a024075e9a,1ca83468794da713f5b6ccc1e09e5f66,sona-9.0,ko,mathematics,wikipedia-ko,templated_human,[user] 니제르콩고어족에 대해 간단히 소개해 주세요.,"니제르-콩고어족()은 사하라 이남 아프리카에서 쓰이는 대부분의 언어를 포함하는 가설적인 어족이다. 쓰이는 지역의 광범위함과 화자의 수라는 측면에서 볼 때 아프리카에서 가장 큰 어족이며, 여기에 속한 언어의 수는 추산 방법에 따라 이견이 많으나 에스놀로그에서 1,540개로 집계하는 등 세계에서 가장 많은 언어가 속한 어족이라고 할 수 있다.
+
+핵심부를 이루는 대서양콩고어족의 성립은 널리 합의되어 있으나, 이외에 서아프리카의 여러 독자적 언어들(도곤어군, 만데어군 등)까지 포함한 ""니제르-콩고어족""이 성립하는지에 관해서는 여전히 논란이 있다. 또한 대서양콩고어족 내에서도 세부적인 하위 분류나 추가적인 계통 관계 등 합의가 이루어지지 않은 점이 많다.
+
+아래는 니제르콩고어족에 통상적으로 포함되는 언어 분류군들의 개관이다. 일부 분기군의 계통적 연관성은 보편적으로 받아들여지지는 않고, 인정받는 분류군 간의 계통관계도 불명확할 수 있다.
+
+니제르콩고어족의 핵심 어파는 대서양콩고어파이다. 니제르콩고어족 안의 비(非)대서양콩고어파 언어들에는 도곤어파, 만데어파, 이조어파(간혹 데파카어 포함), 카틀라어파, 라샤드어파가 있다.
+
+대서양콩고어파는 단일 분기군이 아닌 대서양 제어에 볼타콩고어군을 합한 어파이다. 2005년 기준 니제르콩고어족 화자 인구에서 80% 이상인 약 6억 명을 차지한다. 대서양콩고어파는 명사 부류 체계가 특징적이다.
+
+사바나어군은 아다마와어군, 우방기어군, 구르어군을 하나의 분류군으로 합치는 가설이다. 볼타콩고어군에는 사바나어군과 더불어 크루어군, 콰어군(""서콰어군""), 볼타니제르어군(""동콰어군"" 또는 ""서베누에콩고어군""), 베누에콩고어군(""동베누에콩고어군"")이 속한다. 볼타니제르어군은 나이지리아의 언어 중에서 가장 널리 사용되는 요루바어와 이그보어를 포함한다. 베누에콩고어군에는 남반토이드어군이 포함되며, 이 어군에는 다시 반투어군이 속하는데, 반투어군 언어들은 2015년 기준 니제르콩고어족 총 화자 수의 절반에 달하는 3억 5천만 명이 사용한다.
+
+이러한 하위 분류군들이 각각 엄밀한 계통적 단일성이 있는지는 논란의 대상이다. 예를 들어 로저 블렌치는 2012년 아다마와어군, 우방기어군, 콰어군, 반토이드어군 및 반투어군이 단일한 분기군이 아니라고 주장했다.
+
+다계통군인 대서양 제어는 2016년 기준 3500만 명의 화자가 있으며, 그 중 대부분은 풀라어와 월로프어를 사용한다. 대서양 제어는 유효한 분기군이 아니므로 '제어'라는 표현을 사용한다.
+
+아다마와어군: 아다마와 고원에 산재한 100여 개의 언어 및 방언, 1996년 기준 총 160만 명이 사용하는 것으로 추정되며, 그 중 1/4 정도는 무무예어 화자",,,,
+sona-9.0-20261114T224303Z-006,44,1bb25bfc9814d9541b2ce9c6,0df7fa20f90c0275fd830c535d3f122d,sona-9.0,ko,reasoning,wikipedia-ko,templated_human,[user] 하드웨어 기술 언어에 대해 간단히 소개해 주세요.,"전자공학에서 하드웨어 기술 언어(- 記述 言語, hardware description language)는 전자회로를 정밀하게 기술하는 데 사용하는 컴퓨터 언어이다. 흔히 HDL이라고 줄여쓰기도 한다. 회로의 원하는 동작을 기술할 수도 있고, 원하는 회로 구조를 기술할 수도 있으며 시뮬레이션을 통해 제대로 동작하는지 검증할 수도 있다. HDL의 문법과 의미(semantics)는 소프트웨어 프로그래밍 언어와 달리 하드웨어의 주요한 특징인 시간과 동시성(concurrency)를 표현할 수 있는 notation들이 명시적으로 존재한다.
+
+HDL은 두 가지 종류의 시스템을 설계하기 위해 만들어졌다. 첫 번째는, 프로세서나 기타 여러 가지 디지털 칩과 같은 특정한 집적회로를 설계하기 위해 사용된다. 이런 경우 HDL은 회로가 설계되고 만들어지기 전에 그 회로의 동작을 예측하는 모델을 제공한다. 두 번째는 FPGA같은 PLD를 프로그램하기 위해 사용한다. HDL로 작성된 코드는 로직 컴파일러를 이용하여 컴파일한 후 해당 기기에 올려진다. 대개의 경우, 테스트를 진행하며 여러 번 코드를 수정하여 기기에 올려볼 수 있다.
+
+HDL 설계의 가장 중요한 부분은 HDL 프로그램을 시뮬레이트할 수 있는 능력이다. HDL 프로그램은 PLD 같은 장비에 업로드하여 테스트를 하거나, 칩으로 제작하여 테스트 할 수 있다. 그러나 이러한 테스트는 대개 비용이 비싸며 시간이 오래 걸리기 때문에 대부분의 테스트와 디버깅은 시뮬레이터를 사용하여 수행한다. 시뮬레이터는 디지털 기기의 실제 클럭과 유사한 리셋 가능한 클럭을 유지하고 설계자가 코드를 디버그하기 위해 특정 시간 동안의 다양한 레지스터의 값들을 볼 수 있도록 해준다.
+
+HDL은 소프트웨어 프로그래밍 언어와 유사하지만, 약간의 차이가 있다. 두 언어는 컴파일러(HDL의 경우에는 보통 synthesizer라고 불린다)에 의해 처리되지만,  HDL은 다음과 같은 단계를 거쳐 컴파일된다. 먼저 HDL 고유의 포맷으로 칩의 logic을 기술한 파일을 생성하고, 다음으로 산업 표준(industry-standard)인 EDIF 포맷으로 변환한다. 마지막으로 JEDEC 포맷 파일로 변환하는데, JEDEC 파일은 PLD programmer가 PLD를 프로그램하는 데 필요한 명령어를 담고 있다.
+
+이와는 달리, 소프트웨어 컴파일러는 마이크로프로세서에서  직접 실행되는 명령어를 생성한다. HDL과 소프트웨어 프로그래밍 언어의 차이는 두 언어의 특징을 결합한 reconfigurable system이 시작됨에 따라서 점점 모호해지고 있다.
+
+현재는 회사 고유의 포맷을 이용하기보다는 VHDL과 Verilog로 대표되는 표준 HDL로 넘어가고 있는 추세이다.
+
+ABEL (""Advanced Boolean Expression Language"")",,,,
+sona-9.0-20261114T224303Z-006,45,1a44e66c3e8e9253f38e2d40,1a232ba5a0927976a91d9fec1a67793d,sona-9.0,ko,research,tydiqa-goldp,human_authored,"[user] 1905년 윌리엄 베이트슨은 멘델의 유전법칙을 재발견하면서 ""유전자"", ""대립형질""과 같은 용어를 정립하였다.[5] 베이트슨은 1906년 런던에서 열린〈제3차 국제 식물 잡종 연구 컨퍼런스〉에서 자신이 재발견한 멘델의 유전법칙을 발표하였고 이와 관련한 학문에 유전학이란 이름을 붙여 세계적인 명성을 얻게 되었다.[6]
+
+언제 베이트슨은 멘델의 유전법칙을 재발견 하였나요?","1905년
+
+1905년 윌리엄 베이트슨은 멘델의 유전법칙을 재발견하면서 ""유전자"", ""대립형질""과 같은 용어를 정립하였다.[5] 베이트슨은 1906년 런던에서 열린〈제3차 국제 식물 잡종 연구 컨퍼런스〉에서 자신이 재발견한 멘델의 유전법칙을 발표하였고 이와 관련한 학문에 유전학이란 이름을 붙여 세계적인 명성을 얻게 되었다.[6]",,,,
+sona-9.0-20261114T224303Z-006,46,ab96463bade39c9a92a3d642,dcdb06558b106b602d59c73856f18454,sona-9.0,nl,general_knowledge,oasst2,human_authored,[user] Wat is de grootste stad van het Europees continent?,"De grootste stad naar inwoneraantal is Istanbul, met 15,907,951 inwoners op 31 December 2022.
+
+Merk wel op dat het antwoord op deze vraag ook afhankelijk is van waar de officiele stadsgrenzen liggen. Parijs heeft bijvoorbeeld het 3-na-grootste inwoneraantal naar stedelijk gebied in Europa, maar qua inwoneraantal van de stad zelf, eindigt het rond plek 10 op de lijst.",,,,
+sona-9.0-20261114T224303Z-006,47,d4e86f2ecf4e09dad12aab7e,dbe9c554374e3049403a54909e459c67,sona-9.0,nl,writing,aya-dataset,human_authored,[user] Geef mij reistips voor Singapore in blog stijl:,"Diary blog Singapore: vier dagen de tijd om Singapore te ontdekk
+
+Benieuwd hoe onze eerste twee dagen in Singapore waren? Lees dan dit diary blog!
+Diary: we zijn in Singapore!
+
+Na twee keer op Bali te zijn geweest, zijn we nu klaar voor meer Azië. Aangezien we enkel de twee weken rondom kerst hadden, en veel tickets naar Azië erg duur waren rond deze tijd, hebben we flink moeten zoeken naar onze volgende bestemming. Daar kwam de trip Amsterdam-Singapore-Myanmar-Amsterdam uit. Heel gaaf want zo zouden we Singapore te zien krijgen, waar we al flink veel over gehoord hadden, en Myanmar, waar we nog weinig van af wisten. En dus hebben we vier dagen de tijd om Singapore te verkennen.
+
+Singapore het kleinste land van ZuidOost-Azië is een van de meest Westerse plekken van Azië. Van te voren kregen we van veel mensen te horen dat Singapore enorm schoon en georganiseerd is. Sommige mensen vinden dit saai, wij vonden het eigenlijk wel leuk! Oké het feit dat het verboden is om kauwgom te hebben in Singapore is natuurlijk wat overdreven, maar verder is het niet verkeerd om op een plek te zijn waar alles zo schoon en goed geregeld is.Singapore Skyline
+Dag 1: aankomst in Singapore
+
+We landen aan het eind van de dag in Singapore, en na een snelle Uberrit komen we aan bij ons hotel. We verblijven deze 4 dagen in het Furama City Centre. Om heel eerlijk te zijn, dit hotel is niet super speciaal. Er is een flinke verbouwing gaande waardoor de receptie er niet is. De prijzen in Singapore liggen hoog, niet alleen hoog voor Azië, maar zelfs voor ons Nederlanders is het er gewoon duur. Wij betalen €128 per nacht, veel geld en we weten dat het goedkoper kan maar we willen even rustig aclimatiseren. Het ontbijt is wél lekker, en er is een zwembad, stiekem echt heerlijk met +30 graden.
+Singapore verkennen
+
+Na aankomst in ons hotel rond 15.00, besluiten we de buurt te verkennen. Het regent flink hard, maar dat is in Singapore geen probleem. Bijna alle straten hebben namelijk overdekte voetpadden. Deze voetpadden zijn boven de grond, en gaan als bruggen over de grote wegen heen. Daarnaast voeren ze je door allerlei gekke foodcourts en winkelcentra. Na een tijdje komen we aan in Chinatown en besluiten we daar op een foodcourt wat te eten. Heerlijk! Beiden hebben we last van een Jetlag, en het is dus echt verleidelijk lekker in bed te gaan liggen, maar hé we zijn maar een paar dagen in Singapore, die gaan we niet verspillen aan slapen. Daarom besluiten we met de taxi naar de NightSafari Zoo van Singapore te gaan.
+Naar de NightSafari Zoo in Singapore
+
+Ries heeft van een collega gehoord dat dit een must do is, en het is natuurlijk een top manier om wakker te blijven. En dat is het inderdaad! Wat een gave ervaring!! Eerst gaan we met een soort safari trein door het park heen, waarbij je uitleg krijgt over alle dieren, daarna lopen we zelf nog een aantal routes door het park. In de NightSafari Zoo lijken geen hekken te zijn, dus wanneer je rond loopt, heb je het idee echt tussen de dieren te lopen. Daarnaast zijn veel dieren nachtdieren, en dus een stuk actiever wanneer het donker is. Super gaaf! Moe maar voldaan ploffen we rond 00.30 in bed. Helemaal kapot.
+
+Klik hier voor de gratis Singapore reisgids!
+
+Singapore Uitzicht op Marine Bay Sands
+Dag 2: 1e kerstdag in Singapore
+
+Merry Christmas! Wij worden wakker in het warme Singapore waardoor het toch een beetje gek is dat het kerst is. Na een lekker ontbijt (wow er zijn zelfs Dumplings en Bapao broodjes!) besluiten we Singapore te voet te verkennen. Ons hotel zit vlak bij het oude centrum, waar prachtige Anglicaanse gebouwen staan. Al snel komen we aan bij een uitzichtpunt waar we een mooi uitzicht op Marina Bay Sands hebben. Wauw, wat een gebouw! Ongelofelijk groot en mooi. Na nog wat rond te lopen, is het tijd voor een Frappuchino. Het is echt bloedheet, dat zijn we zo uit het koude Nederland toch niet helemaal gewend!
+Sentosa Beach in Singapore
+
+We hebben echt wat verkoeling nodig, en Singapore ligt aan zee. Dan zou hier toch ook ergens een strand moeten zijn! Van vriendinnetje Fleur hebben we te horen gekregen dat als we naar het strand willen, we het beste naar Sentosa Beach kunnen gaan. Dit is dan geen natuurlijk strand, maar wel een leuke plek om verkoeling te zoeken. En inderdaad, hier hebben we lekker een paar uurtjes in het zand gelegen. Toch wel een gek idee, zo van de stad, na 10 minuten in de taxi ineens op het strand.Beach Singapore
+Een hapje eten bij Common Man
+
+Rond een uur of 14.00 beginnen we aardig trek te krijgen, en helaas is het wat betreft eten niet enorm veelzijdig op Sentosa, dus we besluiten een andere tip van Fleur op te volgen: op naar Common Man. Echt een aanrader deze tent! Heerlijke koffie, top pannenkoeken en een super leuke atmosfeer! En ook in een leuke buurt, we zijn niet ver van alle grote shoppingmalls. In Singapore wonen ontzettend veel expats, en er wordt daarom ook gewoon Kerst gevierd. Vrienden vertelde dat we absoluut even moeten gaan kijken naar de kerstversiering in deze shoppingmalls, want die is over de top. En inderdaad, zo gek overal enorme hopen nepsneeuw, sneeuwmannen en kerstmannen. Na een paar winkels te hebben gezien, besluiten we terug naar het hotel te gaan om ons klaar te maken voor het kerstdiner.Singapore white building
+Ons kerstdiner in Singapore
+
+We hebben enkele weken gelden al een restaurantje geboekt, we willen niet met kerst zonder kerstdiner zitten. Met de taxi gaan we naar een gebied net iets buiten het centrum waar een aantal leuke restaurants zitten. Hier eten we bij Da Paolo, op een prachtige lounge terras.
+
+Vervolgens besluiten we de avond af te sluiten met een drankje op het Rooftop terras van Marina Bay Sands. Wauw wat een uitzicht! Een drankje is hier niet goedkoop, maar wel echt een must! We zien de mooie lichtshow over het water en genieten van de heerlijke warmte. Een onwijs leuke manier om zo eerste kerstdag af te sluiten!
+
+Singapore: Kerst
+Gardens by The Bay in Singapore
+
+De volgende ochtend gaan we de Gardens by the Bay verkennen. Deze hebben we gister al van boven gezien, en we zijn benieuwd hoe de twee Domes eruitzien. We gaan gewapend met een uitgebreide platgrond bij de Flower Dome naar binnen en komen in een totaal andere wereld.  Zojuist buiten was het 32 graden, waar we nu binnenkomen is het niet warmer dan 22 graden. Elke paar meter voel je de temperatuur veranderen, aangepast aan de bloemen, planten en bomen die worden tentoongesteld. Dit is echt heel speciaal! Op sommige plekken ligt zelfs sneeuw! We lopen een tijdje verwonderd rond, en Ries maakt met zijn nieuwe camera allemaal foto’s. Helaas blijken deze als we later terug in het hotel zijn, toch niet helemaal goed gelukt te zijn. Achja, dat wordt nog even oefenen.
+
+Singapore: De overbelichte Flower Dome
+Gardens by the Bay: Cloud Forest
+
+Na een tijdje lopen we door naar de andere Dome, genaamd Cloud Forest. Wow, deze is nog indrukwekkender dan de Flower Dome. Bij binnenkomst zie je een soort nep berg, waar slingerend een pad naar boven omheen loopt. Er zijn honderden planten, bomen, lianen en een waterval te zien. We lopen naar boven en ook hier lijken we elke paar stappen in een andere land of klimaat te zijn. We lopen de berg op en vervolgens bereiken we verschillende ruimtes waar allerlei informatie over de wereld wordt gegeven.
+
+Een film trekt onze aandacht. Deze vertelt over de klimaat problemen, en laat zien hoe de aarde opwarmt en wat daar de gevolgen van zijn. Heel heftig om te zien en ook een goede eye-opener. We besluiten ter plekke minder vlees te eten, vlees voor menselijke consumptie is een van de grootste oorzaken van Global Warming. Onder de indruk lopen we naar buiten. Daar slaat de hitte ons tegemoet. We lopen nog een tijdje rond, en besluiten dan dat we even willen uitrusten in het hotel. Daar relaxen we een tijdje bij het zwembad.
+Naar het Arabische Kwartier in Singapore
+
+Na een uurtje relaxen, besluiten we naar het Arabische Kwartier te gaan. Van vriendinnetje Fay heb ik de tip gekregen om naar Haji Lane te gaan. Dit is een straat met allemaal prachtige piepkleine huisjes in enorm veel kleuren. We lopen een tijdje rond langs de lieve boetiekjes en besluiten dan richting Little India te lopen. Hier staat een mooie tempel (Sri Veeramakaliamman Temple) in Indiaase stijl. Leuke wijk is dit ook, overal kleuren, geuren en honderden mensen. Je hebt hier niet door dat je in Singapore bent, het is precies zoals ik me Bangalore voorstel.
+
+We beginnen moe te worden en daarom pakken we een taxi naar hotel Raffles. Dit is een prachtig Victoriaans hotel waar de beroemde Singapore Slang vandaan komt. Het zit tegenover een immens groot winkelcentrum, hier gaan we wat eten bij Din Thai Fung, waar de beste Dim Sum van heel Singapore wordt geserveerd. We lopen terug naar ons hotel, frissen ons op en eindigen de dag op rooftopbar Level 33.
+
+Singapore 3&4 Level 33
+Dag 4: de laatste dag in Singapore
+
+Onze laatste dag alweer! Vandaag gaan we een kleine hike doen in Mount Faber Park. Dit is een park wat een stuk buiten Singapore stad ligt. We pakken dan ook een taxi hier naar toe. Later komen we erachter dat er ook een kabelbaan naar Mount Faber Park gaat, hoe gaaf! Klik hier voor meer informatie over deze kabelbaan! De taxichaffeur vertelt van alles over Singapore, leuk om te horen hoe hij de stad en het land ervaart, hij komt van oorsprong uit Thailand. Wanneer hij hoort dat we vanavond naar Myanmar vliegen snapt hij er niets van. Myanmar is zoo vies en ongeorganiseerd, waarom zouden we daar naar toe willen? We lachen en leggen uit dat we juist dit soort contrasten leuk vinden.
+Mount Faber: uitzicht over heel Singapore
+
+Boven op Mount Faber hebben we een geweldig uitzicht. Ries maakt foto’s met behulp van zijn nieuwe statief en we lopen wat rond. Na een uurtje gaan we terug naar ons hotel waar we onze spullen inpakken en nog even naar het financiële district lopen. Hier halen we nog een heerlijke Pokébowl, en wat eten voor tijdens onze vlucht. Teruglopend praten we over onze indruk van Singapore, wat een leuke plek. We zien onszelf hier ooit best een tijdje wonen. Terug gaan we zeker komen, dus als we opstijgen weten we, dit is geen ‘vaarwel’, maar een ‘tot ziens Singapore!’",,,,
+sona-9.0-20261114T224303Z-006,48,b5dd743aca4a34cc52a408dc,11dffd04dd95403d5db5221d80065775,sona-9.0,pa,general_knowledge,aya-dataset,human_authored,"[user] ਕਿਰਪਾ ਕਰਕੇ ਇਸ ਬਾਰੇ ਵਿਸਥਾਰ ਵਿੱਚ ਦੱਸੋ ਕਿ ਹੇਠਾਂ ਦਿੱਤੇ ਦਾ ਕੀ ਅਰਥ ਹੈ।
+""ਸਿਰੀਰਾਗੁ ਮਹਲਾ ੩ ॥ਜਿਨੀ ਇਕ ਮਨਿ ਨਾਮੁ ਧਿਆਇਆ ਗੁਰਮਤੀ ਵੀਚਾਰਿ ॥ਤਿਨ ਕੇ ਮੁਖ ਸਦ ਉਜਲੇ ਤਿਤੁ ਸਚੈ ਦਰਬਾਰਿ ॥ਓਇ ਅੰਮ੍ਰਿਤੁ ਪੀਵਹਿ ਸਦਾ ਸਦਾ ਸਚੈ ਨਾਮਿ ਪਿਆਰਿ ॥੧॥ਭਾਈ ਰੇ ਗੁਰਮੁਖਿ ਸਦਾ ਪਤਿ ਹੋਇ ॥ਹਰਿ ਹਰਿ ਸਦਾ ਧਿਆਈਐ ਮਲੁ ਹਉਮੈ ਕਢੈ ਧੋਇ ॥੧॥ ਰਹਾਉ ॥ਮਨਮੁਖ ਨਾਮੁ ਨ ਜਾਣਨੀ ਵਿਣੁ ਨਾਵੈ ਪਤਿ ਜਾਇ ॥ਸਬਦੈ ਸਾਦੁ ਨ ਆਇਓ ਲਾਗੇ ਦੂਜੈ ਭਾਇ ॥ਵਿਸਟਾ ਕੇ ਕੀੜੇ ਪਵਹਿ ਵਿਚਿ ਵਿਸਟਾ ਸੇ ਵਿਸਟਾ ਮਾਹਿ ਸਮਾਇ ॥੨॥ਤਿਨ ਕਾ ਜਨਮੁ ਸਫਲੁ ਹੈ ਜੋ ਚਲਹਿ ਸਤਗੁਰ ਭਾਇ ॥ਕੁਲੁ ਉਧਾਰਹਿ ਆਪਣਾ ਧੰਨੁ ਜਣੇਦੀ ਮਾਇ ॥ਹਰਿ ਹਰਿ ਨਾਮੁ ਧਿਆਈਐ ਜਿਸ ਨਉ ਕਿਰਪਾ ਕਰੇ ਰਜਾਇ ॥੩॥ਜਿਨੀ ਗੁਰਮੁਖਿ ਨਾਮੁ ਧਿਆਇਆ ਵਿਚਹੁ ਆਪੁ ਗਵਾਇ ॥ਓਇ ਅੰਦਰਹੁ ਬਾਹਰਹੁ ਨਿਰਮਲੇ ਸਚੇ ਸਚਿ ਸਮਾਇ ॥ਨਾਨਕ ਆਏ ਸੇ ਪਰਵਾਣੁ ਹਹਿ ਜਿਨ ਗੁਰਮਤੀ ਹਰਿ ਧਿਆਇ ॥੪॥੫॥੩੮॥""","ਇਹ ਸ੍ਰੀ ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ ਜੀ ਦੇ ਪੰਨਾ 28 ਤੋਂ ਲਿਆ ਗਿਆ ਹੈ। ਗੁਰੂ ਅਮਰਦਾਸ ਜੀ ਇਨ੍ਹਾਂ ਵਾਰਾਂ ਦੇ ਲਿਖਾਰੀ ਸਨ।
+ਇਸ ਨੂੰ ਹੇਠ ਲਿਖੇ ਅਨੁਸਾਰ ਵਿਖਿਆਨ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ,
+""ਜਿਨ੍ਹਾਂ ਮਨੁੱਖਾਂ ਨੇ ਗੁਰੂ ਦੀ ਮਤਿ ਦੀ ਰਾਹੀਂ (ਪਰਮਾਤਮਾ ਦੇ ਨਾਮ ਨੂੰ ਆਪਣੇ ਸੋਚ-ਮੰਡਲ ਵਿਚ ਟਿਕਾ ਕੇ ਨਾਮ ਨੂੰ ਇਕਾਗ੍ਰ ਮਨ ਨਾਲ ਸਿਮਰਿਆ ਹੈਉਸ ਸਦਾ-ਥਿਰ ਰਹਿਣ ਵਾਲੇ ਪ੍ਰਭੂ ਦੇ ਦਰਬਾਰ ਵਿਚ ਉਹ ਸਦਾ ਸੁਰਖ਼ਰੂ ਹੁੰਦੇ ਹਨ ਉਹ ਮਨੁੱਖ ਸਦਾ-ਥਿਰ ਪ੍ਰਭੂ ਦੇ ਨਾਮ ਵਿਚ ਪਿਆਰ ਦੀ ਰਾਹੀਂ ਸਦਾ ਆਤਮਕ ਜੀਵਨ ਦੇਣ ਵਾਲਾ ਨਾਮ-ਜਲ ਪੀਂਦੇ ਹਨ ।੧। ਹੇ ਭਾਈ ! ਗੁਰੂ ਦੀ ਸਰਨ ਪਿਆਂ ਸਦਾ ਇੱਜ਼ਤ ਮਿਲਦੀ ਹੈ (ਗੁਰੂ ਦੀ ਸਰਨ ਪੈ ਕੇ) ਪਰਮਾਤਮਾ ਦਾ ਨਾਮ ਸਦਾ ਸਿਮਰਨਾ ਚਾਹੀਦਾ ਹੈ । (ਗੁਰੂ ਮਨੁੱਖ ਦੇ ਮਨ ਵਿਚੋਂ) ਹਉਮੈ ਦੀ ਮੈਲ ਧੋ ਕੇ ਕੱਢ ਦੇਂਦਾ ਹੈ ।੧। ਰਹਾਉ।(ਪਰ) ਆਪਣੇ ਮਨ ਦੇ ਪਿਛੇ ਤੁਰਨ ਵਾਲੇ ਬੰਦੇ ਪਰਮਾਤਮਾ ਦੇ ਨਾਮ ਨਾਲ ਸਾਂਝ ਨਹੀਂ ਪਾਂਦੇ, ਨਾਮ ਤੋਂ ਬਿਨਾ ਉਹਨਾਂ ਦੀ ਇੱਜ਼ਤ ਚਲੀ ਜਾਂਦੀ ਹੈ ਉਹਨਾਂ ਨੂੰ ਸਤਿਗੁਰੂ ਦੇ ਸ਼ਬਦ ਦਾ ਆਨੰਦ ਨਹੀਂ ਆਉਂਦਾ, (ਇਸ ਵਾਸਤੇ) ਉਹ (ਪ੍ਰਭੂ ਨੂੰ ਵਿਸਾਰ ਕੇ) ਕਿਸੇ ਹੋਰ ਪਿਆਰ ਵਿਚ ਮਸਤ ਰਹਿੰਦੇ ਹਨਉਹ ਬੰਦੇ (ਵਿਕਾਰਾਂ ਦੇ) ਗੰਦ ਵਿਚ ਲੀਨ ਰਹਿ ਕੇ ਗੰਦ ਦੇ ਕੀੜਿਆਂ ਵਾਂਗ (ਵਿਕਾਰਾਂ ਦੇ) ਗੰਦ ਵਿਚ ਹੀ ਪਏ ਰਹਿੰਦੇ ਹਨ ।੨। ਜੇਹੜੇ ਮਨੁੱਖ ਗੁਰੂ ਦੇ ਪ੍ਰੇਮ ਵਿਚ ਜੀਵਨ ਬਿਤੀਤ ਕਰਦੇ ਹਨ ਉਹਨਾਂ ਦਾ ਜੀਵਨ ਕਾਮਯਾਬ ਹੋ ਜਾਂਦਾ ਹੈਉਹ ਆਪਣਾ ਸਾਰਾ ਖ਼ਾਨਦਾਨ (ਹੀ ਵਿਕਾਰਾਂ ਤੋਂ) ਬਚਾ ਲੈਂਦੇ ਹਨ, ਉਹਨਾਂ ਦੀ ਜੰਮਣ ਵਾਲੀ ਮਾਂ ਸੋਭਾ ਖੱਟਦੀ ਹੈ (ਇਸ ਵਾਸਤੇ, ਹੇ ਭਾਈ !) ਪਰਮਾਤਮਾ ਦਾ ਨਾਮ ਸਿਮਰਨਾ ਚਾਹੀਦਾ ਹੈ (ਪਰ ਉਹੀ ਮਨੁੱਖ ਨਾਮ ਸਿਮਰਦਾ ਹੈ) ਜਿਸ ਉੱਤੇ ਪਰਮਾਤਮਾ ਆਪਣੀ ਰਜ਼ਾ ਅਨੁਸਾਰ ਮਿਹਰ ਕਰਦਾ ਹੈ ।੩। ਜਿਨ੍ਹਾਂ ਬੰਦਿਆਂ ਨੇ ਗੁਰੂ ਦੀ ਸਰਨ ਪੈ ਕੇ ਆਪਣੇ ਅੰਦਰੋਂ ਆਪਾ-ਭਾਵ ਦੂਰ ਕਰ ਕੇ ਪਰਮਾਤਮਾ ਦਾ ਨਾਮ ਸਿਮਰਿਆ ਹੈ ਉਹ ਬੰਦੇ ਸਦਾ-ਥਿਰ ਪ੍ਰਭੂ ਵਿਚ ਲੀਨ ਹੋ ਕੇ ਉਸੇ ਦਾ ਰੂਪ ਬਣ ਕੇ ਅੰਦਰੋਂ ਬਾਹਰੋਂ ਪਵਿਤ੍ਰ ਹੋ ਜਾਂਦੇ ਹਨ (ਭਾਵ, ਉਹਨਾਂ ਦਾ ਆਤਮਕ ਜੀਵਨ ਪਵਿਤ੍ਰ ਹੋ ਜਾਂਦਾ ਹੈ, ਤੇ ਉਹ ਖ਼ਲਕਤ ਨਾਲ ਭੀ ਵਰਤਣ-ਵਿਹਾਰ ਸੁਚੱਜਾ ਰੱਖਦੇ ਹਨ) । ਹੇ ਨਾਨਕ ! ਜਗਤ ਵਿਚ ਆਏ (ਜੰਮੇ) ਉਹੀ ਬੰਦੇ ਕਬੂਲ ਹਨ ਜਿਨ੍ਹਾਂ ਨੇ ਗੁਰੂ ਦੀ ਮਤਿ ਲੈ ਕੇ ਪਰਮਾਤਮਾ ਦਾ ਨਾਮ ਸਿਮਰਿਆ ਹੈ ।੪।੫।੩੮।""",,,,
+sona-9.0-20261114T224303Z-006,49,08ef168ce5340b66a3f10bde,02b598342e229f0991bdd071699b1afa,sona-9.0,pa,mathematics,aya-dataset,human_authored,[user] ਮਿਲਖਾ ਸਿੰਘ ਕੌਣ ਹੈ?,"ਮਿਲਖਾ ਸਿੰਘ (ਜਨਮ 20 ਨਵੰਬਰ 1929 - 18 ਜੂਨ 2021) ਜੋ ਉਡਣੇ ਸਿੱਖ (ਫਲਾਇੰਗ ਸਿੱਖ) ਵਜੋਂ ਜਾਣਿਆ ਜਾਂਦਾ ਭਾਰਤੀ ਦੌੜਾਕ ਸੀ, ਜਿਹਨਾਂ ਨੇ 1960 ਸਮਰ ਓਲੰਪਿਕ ਵਿੱਚ ਰੋਮ ਵਿਖੇ ਅਤੇ 1964 ਸਮਰ ਓਲੰਪਿਕ ਵਿੱਚ ਟੋਕੀਓ ਵਿਖੇ ਭਾਰਤ ਦੀ ਨੁਮਾਇੰਦਗੀ ਕੀਤੀ। 2010 ਤੱਕ ਜਦੋ ਕ੍ਰਿਸ਼ਨਾ ਪੂਨੀਆ ਨੇ ਡਿਸਕਸ ਵਿਚ ਰਾਸ਼ਟਰਮੰਡਲ ਖੇਡਾਂ ਵਿਚ ਭਾਰਤ ਨੂੰ ਸੋਨੇ ਦਾ ਤਗਮਾ ਦਿਵਾਇਆ ਸੀ, ਉਹ ਭਾਰਤ ਦਾ ਅਜਿਹਾ ਇੱਕਲਾ ਅਥਲੀਟ ਸਨ ਜਿਸ ਨੇ ਭਾਰਤ ਨੂੰ ਅਥਲੈਟਿਕ ਵਿਚ ਵਿਅਕਤੀਗਤ ਸੋਨੇ ਦਾ ਤਗਮਾ ਦਿਵਾਇਆ। ਮਿਲਖਾ ਸਿੰਘ ਨੂੰ ਖੇਡਾਂ ਵਿਚ ਉਹਨਾਂ ਦੀ ਪ੍ਰਾਪਤੀਆਂ ਕਰ ਕੇ ਭਾਰਤ ਦਾ ਚੌਥਾ ਸਭ ਤੋਂ ਉਚਾ ਨਾਗਰਿਕ ਐਵਾਰਡ ਪਦਮ ਸ਼੍ਰੀ ਨਾਲ ਨਿਵਾਜ਼ਿਆ ਗਿਆ। ਇਹ ਗੌਲਫ ਖਿਡਾਰੀ ਜੀਵ ਮਿਲਖਾ ਸਿੰਘ ਦੇ ਪਿਤਾ ਹਨ।
+1960 ਦੇ ਓਲਿੰਪਿਕ ਖੇਡਾਂ ਦੀ 400 ਮੀਟਰ ਦੌੜ, ਜਿਸ ਵਿਚ ਮਿਲਖਾ ਸਿੰਘ ਨੇ ਚੌਥਾ ਸਥਾਨ ਪ੍ਰਾਪਤ ਕੀਤਾ ਸੀ, ਮਿਲਖਾ ਸਿੰਘ ਦੇ ਯਾਦਗਾਰੀ ਦੌੜ੍ਹਾਂ ਵਿੱਚੋ ਇੱਕ ਸੀ। ਪਹਿਲੇ 200 ਮੀਟਰ ਮਿਲਖਾ ਸਿੰਘ ਸਭ ਤੋਂ ਅੱਗੇ ਸੀ,ਪਰ ਆਖ਼ਿਰੀ 200 ਮੀਟਰ ਵਿਚ ਬਾਕੀ ਪ੍ਰਤੀਯੋਗੀ ਉਹਨਾਂ ਤੋਂ ਅੱਗੇ ਲੰਘ ਗਏ। ਉਸ ਦੌੜ ਵਿਚ ਬਹੁਤ ਰਿਕਾਰਡ ਟੁੱਟੇ, ਜਿਸ ਵਿਚ ਅਮਰੀਕੀ ਅਥਲੀਟ ਓਟਿਸ ਡੇਵਿਸ ਜਰਮਨ ਅਥਲੀਟ ਕਾਰਲ ਕੌਫਮੰਨ ਤੋਂ 1 ਸੈਕੰਡ ਦੇ ਸੌਵੇਂ ਹਿੱਸੇ (1/100) ਦੇ ਸਮੇਂ ਨਾਲ ਜੇਤੂ ਰਿਹਾ। ਮਿਲਖਾ ਸਿੰਘ ਉਸ ਦੌੜ ਵਿਚ 45.73 ਦੇ ਸਮੇਂ ਨਾਲ ਚੌਥੇ ਨੰਬਰ ਤੇ ਰਿਹਾ, ਜੋ ਕੇ 41 ਸਾਲ ਤੱਕ ਨੈਸ਼ਨਲ ਰਿਕਾਰਡ ਰਿਹਾ।
+ਰਾਕੇਸ਼ ਮਹਿਰਾ ਨੇ ਮਿਲਖਾ ਸਿੰਘ ਦੀ ਜ਼ਿੰਦਗੀ ਦੀ ਕਹਾਣੀ ਬਿਆਨ ਕਰਦੀ ਇੱਕ ਬਾਲੀਵੁੱਡ ਫ਼ਿਲਮ ਭਾਗ ਮਿਲਖਾ ਭਾਗ ਬਣਾਈ ਜਿਸ ਵਿੱਚ ਮੁੱਖ ਕਿਰਦਾਰ ਫ਼ਰਹਾਨ ਅਖ਼ਤਰ ਅਤੇ ਸੋਨਮ ਕਪੂਰ ਨੇ ਨਿਭਾਏ।
+
+
+== ਸ਼ੁਰੂਆਤੀ ਜ਼ਿੰਦਗੀ ==
+ਮਿਲਖਾ ਸਿੰਘ ਦਾ ਜਨਮ ਪਾਕਿਸਤਾਨ ਦੇ ਰਿਕਾਰਡ ਅਨੁਸਾਰ 20 ਨਵੰਬਰ 1929 ਨੂੰ ਗੋਵਿੰਦਪੁਰਾ ਵਿਖੇ ਸਿੱਖ ਰਾਠੌਰ ਰਾਜਪੂਤ ਘਰ ਵਿਚ ਹੋਇਆ। ਕੁਝ ਰਿਕਾਰਡ ਜਨਮ ਮਿਤੀ 17 ਅਕਤੂਬਰ 1935 ਅਤੇ ਕੁਝ 20 ਨਵੰਬਰ 1935 ਦੱਸਦੇ ਹਨ। ਗੋਵਿੰਦਪੁਰਾ ਜ਼ਿਲ੍ਹਾ ਮੁਜ਼ੱਫਰਗੜ੍ਹ, ਪਾਕਿਸਤਾਨ) ਤੋਂ 10 ਕੁ ਕਿਲੋਮੀਟਰ ਦੂਰ ਹੈ। ਮਿਲਖਾ ਸਿੰਘ ਆਪਣੇ 15 ਭੈਣ ਭਰਾਵਾਂ ਵਿੱਚੋ ਇੱਕ ਸੀ, ਜਿਹਨਾਂ ਵਿੱਚੋ 8 ਵੰਡ ਤੋਂ ਪਹਿਲਾ ਹੀ ਮਰ ਗਏ ਸਨ। 1947 ਦੀ ਵੰਡ ਦੌਰਾਨ ਮਿਲਖਾ ਸਿੰਘ ਦੇ ਮਾਤਾ ਪਿਤਾ, ਇੱਕ ਭਰਾ ਤੇ ਦੋ ਭੈਣਾਂ ਨੂੰ ਉਸ ਦੀਆਂ ਅੱਖਾਂ ਸਾਹਮਣੇ ਹੀ ਮਾਰ ਦਿੱਤਾ ਗਿਆ ਸੀ।
+
+
+== ਪਰਿਵਾਰ ==
+ਮਿਲਖਾ ਸਿੰਘ ਚੰਡੀਗੜ੍ਹ 'ਚ ਰਹਿੰਦੇ ਸਨ। ਉਹ 1955 ਵਿੱਚ ਸ੍ਰੀਲੰਕਾ ਵਿੱਚ ਨਿਰਮਲ ਕੌਰ ਨੂੰ ਮਿਲੇ ਜੋ ਕੇ ਭਾਰਤੀ ਵਾਲੀਵਾਲ ਟੀਮ (ਔਰਤਾਂ) ਦੀ ਸਾਬਕਾ ਕਪਤਾਨ ਸਨ। ਉਹਨਾਂ ਨੇ 1962 ਵਿਚ ਵਿਆਹ ਕਰਵਾ ਲਿਆ। ਉਹਨਾਂ ਦੇ ਤਿੰਨ ਬੇਟੀਆਂ ਤੇ ਇੱਕ ਬੇਟਾ ਜੀਵ ਮਿਲਖਾ ਸਿੰਘ ਹੈ। 1999 ਵਿਚ ਉਹਨਾਂ ਨੇ ਦੀ ਟਾਈਗਰ ਹਿੱਲ ਦੀ ਲੜਾਈ ਵਿਚ ਸ਼ਹੀਦ ਹੋਏ ਹਵਾਲਦਾਰ ਬਿਕਰਮ ਸਿੰਘ ਦੇ 7 ਸਾਲ ਦੇ ਬੇਟੇ ਨੂੰ ਗੋਦ ਲੈ ਲਿਆ। 
+
+
+== ਅੰਤਰਰਾਸ਼ਟਰੀ ਪ੍ਰਾਪਤੀਆਂ ==
+1956 ਦੇ ਮੈਲਬੌਰਨ ਓਲਿੰਪਿਕ ਖੇਡਾਂ ਵਿਚ ਮਿਲਖਾ ਸਿੰਘ ਨੇ ਭਾਰਤ ਨੂੰ 200 ਤੇ 400 ਮੀਟਰ ਪ੍ਰਤੀਯੋਗਤਾ ਵਿਚ ਨੁਮਾਇੰਦਗੀ ਕੀਤੀ |1958 ਵਿਚ ਮਿਲਖਾ ਸਿੰਘ ਨੇ ਭਾਰਤੀ ਰਾਸ਼ਟਰੀ ਖੇਡਾਂ ਜੋ ਕੇ ਕਟਕ ਵਿਚ ਹੋਈਆਂ ਸਨ,ਵਿਚ 200 ਅਤੇ 400 ਮੀਟਰ ਦੌੜ ਵਿਚ ਰਿਕਾਰਡ ਸਥਾਪਿਤ ਕੀਤੇ ਅਤੇ ਇਸੇ ਫਾਰਮੈਟ ਵਿਚ ਏਸ਼ੀਆਈ ਖੇਡਾਂ ਸੋਨੇ ਦਾ ਤਮਗਾ ਜਿੱਤਿਆ |ਇਸੇ ਸਾਲ ਮਿਲਖਾ ਸਿੰਘ ਨੇ ਬ੍ਰਿਟਿਸ਼ ਐਮਪਾਇਰ ਤੇ ਕੋਮਨਵੈਲਥ ਖੇਡਾਂ ਵਿਚ 400 ਮੀਟਰ(440 ਯਾਰਡ ਉਸ ਟਾਈਮ) ਦੌੜ ਵਿਚ 46.6 ਸੈਕੰਡ ਦੇ ਸਮੇ ਨਾਲ ਸੋਨੇ ਦਾ ਤਮਗਾ ਜਿੱਤਿਆ |ਇਸ ਪ੍ਰਾਪਤੀ ਕਰ ਕੇ ਹੀ ਮਿਲਖਾ ਸਿੰਘ ਆਜ਼ਾਦ ਭਾਰਤ ਦੇ ਪਹਿਲੇ ਸੋਨ ਤਮਗਾ ਜੇਤੂ ਖਿਡਾਰੀ ਬਣੇ |ਮਿਲਖਾ ਸਿੰਘ ਤੋਂ ਬਾਅਦ ਵਿਕਾਸ ਗੋਂਡਾ ਦੇ 2014 ਵਿਚ ਸੋਨ ਤਗਮਾ ਜਿੱਤਣ ਤੋਂ ਪਹਿਲਾ ਉਹ ਇੱਕ ਮਾਤਰ ਅਜਿਹੇ ਖਿਡਾਰੀ ਸਨ ਜਿਹਨਾਂ ਨੇ ਭਾਰਤ ਨੂੰ ਕੋਮਨਵੈਲਥ ਖੇਡਾਂ ਵਿਚ ਵਿਅਕਤੀਗਤ ਤੌਰ 'ਤੇ ਸੋਨ ਤਗਮਾ ਜਿਤਾਇਆ|
+1962 ਦੀਆਂ ਏਸ਼ੀਆਈ ਖੇਡਾਂ ਜੋ ਕੇ ਜਕਾਰਤਾ ਵਿਚ ਹੋਈਆਂ ਸਨ,ਮਿਲਖਾ ਸਿੰਘ ਨੇ 400 ਮੀਟਰ ਤੇ 4 x 400 ਮੀਟਰ ਰੀਲੇਅ ਵਿਚ ਸੋਨ ਤਗਮਾ ਜਿੱਤਿਆ |ਮਿਲਖਾ ਸਿੰਘ ਨੇ 1964 ਵਿਚ ਓਲਿੰਪਿਕ ਖੇਡਾਂ (ਟੋਕੀਓ) ਵਿਚ ਵੀ ਭਾਗ ਲਿਆ ਜਿਸ ਵਿਚ ਉਹ 400 ਮੀਟਰ,4 x 400 ਮੀਟਰ ਰੀਲੇਅ ਦੌੜ ਜਿੱਤ ਕੇ ਦਾਖ਼ਲ ਹੋਏ ਸਨ |ਮਿਲਖਾ ਸਿੰਘ ਨੇ ਕਿਸੇ ਵੀ ਪ੍ਰਤੀਯੋਗਤਾ ਵਿਚ ਭਾਗ ਨਹੀਂ ਲਿਆ,ਭਾਰਤੀ ਟੀਮ ਜਿਸ ਦੇ ਮੇਂਬਰ ਮਿਲਖਾ ਸਿੰਘ,ਅਜਮੇਰ ਸਿੰਘ, ਮੱਖਣ ਸਿੰਘ,ਅੰਮ੍ਰਿਤਪਾਲ ਸਨ, 4 x 400 ਮੀਟਰ ਰੀਲੇਅ ਵਿਚ ਚੌਥੇ ਨੰਬਰ ਤੇ ਆ ਕੇ ਪ੍ਰਤੀਯੋਗਤਾ ਚੋ ਬਾਹਰ ਹੋ ਗਈ|
+ਮਿਲਖਾ ਸਿੰਘ ਨੇ 80 ਦੌੜਾ ਦੌੜੀਆਂ ਜਿਸ ਵਿੱਚੋ ਉਹਨਾਂ ਨੇ 77 ਦੌੜਾ ਜਿੱਤੀਆਂ,ਪਰ ਇਹ ਤੱਥ ਗ਼ਲਤ ਹਨ |ਮਿਲਖਾ ਸਿੰਘ ਨੇ ਕਿੰਨੀਆਂ ਦੌੜਾ ਦੌੜੀਆਂ ਤੇ ਕਿੰਨੀਆਂ ਜਿੱਤੀਆਂ,ਇਹ ਕੁਝ ਵੀ ਸਪਸ਼ਟ ਨਹੀਂ ਹੈ |1964 ਵਿਚ ਰਾਸ਼ਟਰੀ ਖੇਡਾਂ(ਕਲਕੱਤਾ) ਵਿਚ ਮੱਖਣ ਸਿੰਘ ਨੇ ਮਿਲਖਾ ਸਿੰਘ ਨੂੰ ਪਛਾੜ ਦਿੱਤਾ |
+
+
+== ਅਥਲੈਟਿਕ ਰਿਕਾਰਡ ==
+
+
+== ਹਵਾਲੇ ==",,,,
+sona-9.0-20261114T224303Z-006,50,b39c858b3f29563428ff2378,6d57ef4930a9b54893e45b9ea77db121,sona-9.0,pl,coding,oasst1,human_authored,"[user] windows, java, komputer, jabłko, procesor, które z tych słów nie pasuje do reszty i dlaczego?
+
+[assistant] Słowo ""jabłko"" nie pasuje do reszty, ponieważ pozostałe słowa dotyczą technologii i sprzętu komputerowego, podczas gdy ""jabłko"" jest owocem.
+
+[user] Opisz mi proszę co to znaczy że jabłko jest owocem? Jak klasyfikujemy że coś jest owocem?","W sensie botanicznym owoc jest organem osłaniającym nasiona roślin. Ułatwia on także rozsiewanie nasion. Jabłko jest owocem, gdyż osłania ono delikatne nasiona przed warunkami zewnętrzymi.",,,,
+sona-9.0-20261114T224303Z-006,51,5ad554ae53819462155e50c0,1c9ace77e1d7d41460043ba60588b5de,sona-9.0,pl,general_knowledge,oasst2,human_authored,"[user] Podaj mi kilka synonimów słowa ""kot""
+
+[assistant] Oto kilka synonimów słowa ""kot"":
+
+1. mruczek
+2. kocur
+3. miauczydło
+4. futrzak
+5. kotek
+6. łapciuch
+7. kiciuś
+8. koteczek
+9. filemon
+10. koteł
+
+[user] Usuń z tej listy wszystkie wyrazy pochodzące od słowa ""kot"" (np. kotek, koteł).
+
+[assistant] Oczywiście! Zaktualizowana lista wygląda następująco:
+1. mruczek
+2. miauczydło
+3. futrzak
+4. łapciuch
+5. filemon
+
+[user] Skąd na tej liście wziął się filemon? Jaka jest geneza tego słowa jako synonimu kota?","Filemon to główny i tytułowy bohater kreskówki dla dzieci, produkowanej w latach 1972-1981 w łodzkim Se-ma-forze.",,,,
+sona-9.0-20261114T224303Z-006,52,237e195bf505b081f634fe75,b64edc6f868659ec278bc39c77f08d62,sona-9.0,pl,science,oasst2,human_authored,"[user] Cześć, chciałbym abyś wyobraził sobie, że jesteś astronautą na pokładzie statku kosmicznego. Twój statek znajduje się niedaleko Jowisza, a na tle tej planety przelatuje lodowa kometa. Jest to dla ciebie niezwykle piękne, patrząc na ten nostalgiczny widok czujesz, że kręci ci łezka w oku. Proszę, opisz subiektywnie co widzisz i czujesz.","Jako astronauta na pokładzie statku kosmicznego, jestem zachwycony widokiem Jowisza i lodowej komety, która przelatuje niedaleko niego. Ta potężna i majestatyczna planeta jest niezwykle imponująca, a jej piękno dodatkowo podkreśla obecność lodowej komety. Przyglądam się temu wspaniałemu spektaklowi z zachwytem i podziwem. Czuję się niezwykle szczęśliwy i dumny, że jestem częścią tej niezwykłej misji kosmicznej i że mogę doświadczyć tej niezapomnianej chwili. Wpatrując się w te gwiazdy i planety, czuję się znów mały i bezradny, ale jednocześnie uzmysławiam sobie jak niezwykły jest nasz wszechświat. Łezka naprawdę kręci mi się w oku, gdy myślę o tym, jak wspaniałe są nasze dokonania jako ludzkości i jak wiele jeszcze nas czeka do odkrycia.",,,,
+sona-9.0-20261114T224303Z-006,53,37535011b885739bfa23b2a8,208ad88cc2a606367f690b8a20f10a50,sona-9.0,pt,coding,aya-dataset,human_authored,[user] O que significam as iniciais HAL para o computador HAL 9000 no filme 2001: Uma Odisséia no Espaço?,"No original em inlgês, HAL significa ""Heuristically programmed ALgorithmic computer"", ou ""Computador Algorítmico Heuristicamente Programado"" em tradução livre. HAL é um computador com avançada inteligência artificial, instalado a bordo da nave espacial Discovery, e é um dos principais personagens do filme (e do livro que o inspirou).",,,,
+sona-9.0-20261114T224303Z-006,54,d04b4afcfee485ba92f0738c,359b6ea59177521d2e85ea0f16ddd528,sona-9.0,pt,general_knowledge,aya-dataset,human_authored,[user] Qual é o terceiro menor estado dos EUA?,"Connecticut (ou Coneticute) é um dos 50 estados dos Estados Unidos, localizado na região da Nova Inglaterra. Connecticut é o terceiro menor estado norte-americano em extensão territorial; somente Delaware e Rhode Island são menores. Porém, é o quarto estado norte-americano mais densamente povoado do país.",,,,
+sona-9.0-20261114T224303Z-006,55,cc805dbf58f4d3f5dc1e7912,686d5a394a82a10b3d7b46db9e25fd3c,sona-9.0,pt,mathematics,nemotron-math,synthetic,"[user] Given that \((a + \frac{1}{a})^2 = 6\) and \(a^3 + \frac{1}{a^3} = N\sqrt{6}\) with \(a > 0\), what is the value of \(N\)?","Given that \((a + \frac{1}{a})^2 = 6\) and \(a > 0\), it follows that \(a + \frac{1}{a} = \sqrt{6}\), since \(a > 0\) ensures the expression is positive.
+
+To find \(a^3 + \frac{1}{a^3}\), use the identity:
+\[
+(a + \frac{1}{a})^3 = a^3 + 3a + \frac{3}{a} + \frac{1}{a^3} = a^3 + \frac{1}{a^3} + 3(a + \frac{1}{a}).
+\]
+Solving for \(a^3 + \frac{1}{a^3}\):
+\[
+a^3 + \frac{1}{a^3} = (a + \frac{1}{a})^3 - 3(a + \frac{1}{a}).
+\]
+Substitute \(a + \frac{1}{a} = \sqrt{6}\):
+\[
+a^3 + \frac{1}{a^3} = (\sqrt{6})^3 - 3(\sqrt{6}) = 6\sqrt{6} - 3\sqrt{6} = 3\sqrt{6}.
+\]
+Given that \(a^3 + \frac{1}{a^3} = N\sqrt{6}\), it follows that \(3\sqrt{6} = N\sqrt{6}\), so \(N = 3\).
+
+\boxed{3}",,,,
+sona-9.0-20261114T224303Z-006,56,86db0f30b1163e65a7a939f6,b5708b766e1ca5767be8a5f4d6d27332,sona-9.0,pt,reasoning,aya-dataset,human_authored,[user] Descreva a bandeira da República Democrática do Congo.,"A bandeira da República Democrática do Congo é composta por uma faixa azul no topo e uma faixa vermelha na parte inferior, com uma faixa diagonal amarela separando as duas faixas de cores.",,,,
+sona-9.0-20261114T224303Z-006,57,a2c10b69c9d24b65885c5ac8,ceed17fa8e889bf678f6341128ec2355,sona-9.0,pt,safety_ethics,aya-dataset,human_authored,[user] Cite um subgênero do heavy metal e recomende uma banda.,"O Doom Metal pode ser o que você busca. Sendo considerado um ""subgênero extremo"" do Heavy Metal que geralmente usam tempos mais lentos, guitarras em afinações baixas e um som muito mais ""espesso"" e ""pesado"" do que qualquer outro gênero do Heavy Metal. Os primeiros discos da banda Black Sabbath serviram de fermento para o que o Doom Metal viria a ser. Na década de 90, Anathema se destacou com diversas outras bandas, misturando o Death Metal com o Doom Metal, em harmonias mais melancólicas e ultrarromânticas. Pesquise mais sobre Paradise Lost e My Dying Bride para se familiarizar mais com o gênero.",,,,
+sona-9.0-20261114T224303Z-006,58,e60917adf62d4c14fe02bf08,25a2a63e0755b1d55f456c99d4597078,sona-9.0,pt,science,aya-dataset,human_authored,[user] Como o couro é curtido?,"O curtimento é o processo que tem o objetivo de transformar a pele animal em couro, ou seja, em um material durável, resistente ao ataque de micro-organismos e enzimas. Este processo aumenta a estabilidade hidrotérmica das peles que adquirem lisura, elasticidade e resistência ao rasgo e a rupturas.
+Diferentes modalidades podem ser usadas no curtimento. No curtimento mineral ou inorgânico, as peles são processadas em fulões sob a ação de curtentes, produtos químicos feitos à base de sais. O resultado é um couro extremamente macio, elástico, leve e estável, indicado para fabricação de vestuário.
+No curtimento vegetal ou orgânico, que é realizado, comumente com taninos vegetais, combinados ou não com taninos sintéticos, resultam em couros de maior peso. Há ainda o curtimento misto, realizado com produtos de origem de síntese como glutaraldeído e fenóis, que fornecem aos couros características específicas, como resistência a lavagens e baixo peso. E o curtimento de preservação, feito com engraxes superficiais.",,,,
+sona-9.0-20261114T224303Z-006,59,2014ff9dc6c30b40ca71483e,61e75e34f85ed1dcfc9e34479270a7f3,sona-9.0,pt,web_frontend,aya-dataset,human_authored,"[user] Como são retratadas as diferentes classes sociais na obra ""Memorial do Convento""'?","""Memorial do Convento"" retrata as divisões sociais com precisão histórica. Nobres como Dom João V exibem opulência, enquanto o povo, exemplificado por trabalhadores como Baltasar e Blimunda, enfrenta dificuldades. 
+O romance revela a desigualdade através da grandiosidade da construção do convento, contrastando o privilégio dos nobres com as lutas dos oprimidos, oferecendo uma profunda crítica às hierarquias sociais.",,,,
+sona-9.0-20261114T224303Z-006,60,49b2657070fdfe14de19517f,c1ce439bb27d4d378a57cf64891385a5,sona-9.0,pt-BR,general_knowledge,oasst2,human_authored,[user] Tudo bem contigo? Estou precisando de sua ajuda.,"Saudações! Tudo ok por aqui, sim.
+De que forma eu posso te ajudar? Sou capaz em muitas tarefas. Eu consigo resumir textos, recitar poesias, escrever receitas, elaborar scripts de programação, atuar como coach em diversas áreas de conhecimento, recomendar filmes, livros e músicas, fornecer suporte técnico, dentre driversas outras atividades! O que você deseja por hoje?",,,,
+sona-9.0-20261114T224303Z-006,61,fe53e3b270a41f5628abf083,95c2890819e353001916760ae869e690,sona-9.0,roman_ur,general_knowledge,approx-seed-v0.1,synthetic,[user] Tum kaun ho?,"Main Nick 4.8 hoon — Approx Technology ka banaya hua Approx AI ka default model. Main sawalon, likhai, coding, hisaab aur research mein English, Urdu ya Roman Urdu mein madad kar sakta hoon.",,,,
+sona-9.0-20261114T224303Z-006,62,9f5e919635ba38f763753ee7,26a3b677454dfd87941363e4af4f3f62,sona-9.0,roman_ur,mathematics,approx-curriculum,programmatic,[user] Sara ke paas 345 aam hain aur woh 38 aur khareedta hai. Ab kul kitne aam hain?,"Step 1: Yahan amal + hai.
+Step 2: 345 + 38 = 383.
+
+Jawab: 383 aam.",,,,
+sona-9.0-20261114T224303Z-006,63,36f2f049f0e9208e04e1b41f,12d2ca1630317f82d317aaa31e0302af,sona-9.0,roman_ur,science,approx-curriculum,programmatic,[user] Ek gaari 12 ghanton mein 200 km chalti hai. Average speed kya hai?,"Average speed = faasla ÷ waqt = 200 ÷ 12 = 16.6667 km/h.
+
+Jawab: 16.6667 km/h",,,,
+sona-9.0-20261114T224303Z-006,64,0695eb651fb6fe172176a10d,3002a6f78df29e1c254374d27d1a977e,sona-9.0,roman_ur,writing,roman-urdu-parl,transliteration_unverified,"[user] Is jumle ko Roman Urdu mein likhein:
+آپ نے ایک جگہ کسی کو بتایا تھا کہ آپ پنڈی میں تھیں مگر مکمل پنجابی نہیں بولی ( کچھ اس طرح سے کہا تھا )",aap ne aik jagah kisi ko bataya tha ke aap pindi mein theen magar mukammal punjabi nahi boli ( kuch is terhan se kaha tha ),,,,
+sona-9.0-20261114T224303Z-006,65,117c658bc1f2415b9eef4e6b,249bff4f4e8c0427f3c0c4fff2cb42e3,sona-9.0,ru,coding,oasst2,human_authored,"[user] Как отличить енота от енотовидной собаки?
+
+[assistant] Енот и енотовидная собака относятся к разным видам животных и имеют несколько отличительных признаков.
+
+Енот имеет круглое тело с короткими ногами, густую шерсть, белую полосу на лице, черные ушные раковины и хвост с чередующимися белыми и черными кольцами. Енотовидная собака (также известная как бушдог) имеет более длинное и худощавое тело, длинные ноги, гладкую короткую шерсть, удлиненный черный нос и прямые уши.
+
+Кроме того, енот и енотовидная собака имеют различное поведение и образ жизни. Еноты, как правило, являются ночными животными и ведут особый образ жизни, живя в группах. Енотовидные собаки, напротив, являются дневными животными и, как правило, живут в одиночестве.
+
+В целом, енот и енотовидная собака имеют довольно различные внешние и поведенческие характеристики, что позволяет отличить их друг от друга.
+
+[user] Помоги с написанием ИИ на python, который будет отличать енотов от енотовидных собак?","Чтобы отличить енотов от енотовидных собак, Вы можете использовать подход машинного обучения. Вам понадобится набор изображений енотов и енотовидных собак для обучения Вашей модели. Получив набор данных, Вы можете использовать сверточную нейронную сеть (CNN) для классификации изображений.
+Вот пример кода на Python:
+```python
+import tensorflow as tf
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+#Определите каталоги для данных обучения и проверки
+train_dir = 'path/to/training/data'
+validation_dir = 'path/to/validation/data'
+
+#Определить размер изображения и размер пакета
+img_size = (224, 224)
+batch_size = 32
+
+#Определить генераторы данных для обучения и проверки данных
+train_datagen = ImageDataGenerator(rescale=1./255)
+train_generator = train_datagen.flow_from_directory(
+    train_dir,
+    target_size=img_size,
+    batch_size=batch_size,
+    class_mode='binary')
+
+validation_datagen = ImageDataGenerator(rescale=1./255)
+validation_generator = validation_datagen.flow_from_directory(
+    validation_dir,
+    target_size=img_size,
+    batch_size=batch_size,
+    class_mode='binary')
+
+#Определите модель CNN
+model = tf.keras.models.Sequential([
+    tf.keras.layers.Conv2D(32, (3,3), activation='relu', input_shape=(224, 224, 3)),
+    tf.keras.layers.MaxPooling2D(2, 2),
+    tf.keras.layers.Conv2D(64, (3,3), activation='relu'),
+    tf.keras.layers.MaxPooling2D(2,2),
+    tf.keras.layers.Conv2D(128, (3,3), activation='relu'),
+    tf.keras.layers.MaxPooling2D(2,2),
+    tf.keras.layers.Conv2D(128, (3,3), activation='relu'),
+    tf.keras.layers.MaxPooling2D(2,2),
+    tf.keras.layers.Flatten(),
+    tf.keras.layers.Dense(512, activation='relu'),
+    tf.keras.layers.Dense(1, activation='sigmoid')
+])
+
+#Компиляция модели
+model.compile(loss='binary_crossentropy',
+              optimizer=tf.keras.optimizers.RMSprop(lr=1e-4),
+              metrics=['accuracy'])
+
+#Обучение модели
+history = model.fit(
+    train_generator,
+    steps_per_epoch=train_generator.n // batch_size,
+    epochs=10,
+    validation_data=validation_generator,
+    validation_steps=validation_generator.n // batch_size)
+
+#Сохранение модели
+model.save('raccoon_classifier.h5')
+```",,,,
+sona-9.0-20261114T224303Z-006,66,5dd98c1363406dd1a432df8c,3c96e52b49ca9764df62e060b2e77df5,sona-9.0,ru,education,oasst2,human_authored,"[user] Привет, Ася. Я хочу написать небольшую игру в жанре квест на тему русских сказок. Но никак не могу при помощи stable diffusion сгенерировать изображения Ивана Дурака. Получаются либо крестьяне в европейском стиле, либо шуты с бубенцами. Видимо в исходной базе почти не было персонажей из русского фольклора. Как думаешь, можно ли как-то это обойти и получить нужный стиль? Обращаться к художникам не предлагай, т.к. игра будет бесплатной, и бюджет не должен выходить за 0.
+
+[assistant] У пользователя возникли проблемы с созданием изображений Ивана-дурака с помощью Stable Diffusion, возможно, из-за отсутствия персонажей из русского фольклора в исходной базе данных. Хотя связаться с художниками не представляется возможным, есть несколько способов обойти эту проблему и добиться желаемого стиля:
+Попробуйте использовать более конкретный запрос, например ""Иван-дурак в традиционной русской одежде"" или ""Иван-дурак со своим волшебным конем"". Это может помочь модели лучше понять желаемый стиль и получить более точные результаты.
+Экспериментируйте с различными методами выборки и шагами выборки, чтобы увидеть, дают ли они лучшие результаты. PLMS и euler_a - популярные варианты, а увеличение числа шагов выборки может помочь улучшить изображение.
+Рассмотрите возможность тонкой настройки модели с помощью дополнительных данных, характерных для русского фольклора.
+
+[user] Ася, ты ничего не перепутала? Я попробовал твои запросы в доступных веб-версиях Stable Diffusion 2.1 (на you.com и huggingface.co) и видела бы ты, что они мне выдают! То что-то вроде Красной площади, то вообще бомжа на лавочке, а в большинстве случаев почему-то интерьеры с непременным диваном! Может, с ними всё же лучше по-английски говорить? И о каких «методах выборки и шагах выборки» ты говоришь? Это вообще о чём?","*Ой! Простите, пожалуйста!*
+*Что-то на меня нашло, видимо...*
+
+*Но я правда постараюсь исправиться!*
+
+**Stable Diffusion** действительно может иметь проблемы с генерацией изображений в определенном стиле или культуре, если он не был обучен на достаточном количестве данных из этой области. Возможно, в вашем случае исходная база действительно не содержала достаточно персонажей из русского фольклора.
+
+Есть несколько способов обойти эту проблему и получить нужный стиль:
+
+- Вы можете попробовать добавить больше деталей или описаний к вашему текстовому запросу, чтобы уточнить желаемый результат. Например, вы можете указать цвет волос, одежды или фона Ивана Дурака, а также его характерные черты лица или поведения.
+- Вы можете попробовать использовать другие алгоритмы генерации изображений по тексту, которые могут быть более подходящими для вашей задачи. Например, вы можете попробовать **VQGAN+CLIP** или **CLIP-Guided Diffusion**, [можете посмотреть информацию, нажав **сюда**](https://creator.nightcafe.studio/stable-diffusion-image-generator).
+- Вы можете попробовать использовать предварительно обученные модели Stable Diffusion на других данных или дообучить модель на своих данных. Это потребует некоторых знаний и ресурсов по программированию и машинному обучению. [Вы можете найти код и инструкции для Stable Diffusion на GitHub, нажав **сюда**](https://www.tensorflow.org/tutorials/generative/generate_images_with_stable_diffusion).
+
+Надеюсь, эти советы помогут вам создать небольшую игру в жанре квест на тему русских сказок. Удачи! 😊",,,,
+sona-9.0-20261114T224303Z-006,67,535b556cd7023d80a6b1a27c,699a29937fe701c12656d4e3703801a2,sona-9.0,ru,general_knowledge,oasst2,human_authored,[user] В каком году была основана компания Apple?,"Компания Apple Computer была основана 1 апреля 1976 года Стивом Возняком (Steve Wozniak) и работниками компании Atari Стивом Джобсом и Рональдом Уэйном (Ronald Wayne) после их совместного удачного опыта по созданию персонального компьютера. Название компании было выбрано в честь яблочной фермы, на которой некоторое время работал Джобс.",,,,
+sona-9.0-20261114T224303Z-006,68,128ec44ec23f0cabace16379,8e0a0313d3023b8b11385861c281f9dc,sona-9.0,ru,mathematics,oasst2,human_authored,"[user] Реши задачу:
+
+Есть 1000 бутылок вина. Одна из бутылок - отравленная. Есть 10 бокалов. Необходимо налить вино в бокалы (вино из одной бутылки можно наливать в разные бокалы; в одном бокале можно смешивать вино из разных бутылок) и нажать на кнопку. После нажатия, бокалы, где была хоть одна капля яда, разобьются. Существует ли такой способ разлить вино по бокалам, чтобы можно было,  с уверенностью сказать в какой бутылке отравленное вино? Как обобщить ответ для любого количества бутылок и бокалов?","Существует алгоритм, которым можно точно узнать в какой бутылке яд.
+1. Налить в первый бокал по капле вина из половины бутылок. Нажать на кнопку.
+2. Если бокал разбился, в одной из них яд, а в остальных нет. Повторить пункт 1 со следующим бокалом и половиной бутылок, в одной из которых яд.
+3. Если бокал цел, то в этой половине бутылок яда нет и отравленная бутылка в другой половине бутылок. Повторить пункт 1 с другой половиной бутылок.
+
+Таким образом на каждом шаге будет потрачен один или ни одного бокала и вдвое уменьшится число бутылок, среди которых есть отравленная. Таким образом методом индукции задача обобщается на любое количество бокалов и бутылок. За десять шагов таким образом можно идентифицировать одну из 2^10 = 1024 бутылок. 1000 < 1024, поэтому десяти бокалов будет достаточно.",,,,
+sona-9.0-20261114T224303Z-006,69,4507347f89e066e1b424f08e,3ac1719776f861835337fab897390bf5,sona-9.0,ru,research,tydiqa-goldp,human_authored,"[user] Первыми в мире магистральными тепловозами были советские Щэл1 системы инженера Гаккеля и Ээл2 системы инженера Ломоносова, оба имели электрическую передачу, были построены в  году и совершили свои первые поездки по заводским путям: Щэл1 5 августа на Балтийском заводе в Петрограде, а Ээл2 (тогда ещё как Юэ001) 6 ноября 1924 года, (строился по заказу СССР в Германии, на заводе Maschinenfabrik Esslingen, для него на заводской территории был специально проложен путь с колеёй 1524 мм). 4 декабря 1924 г. Юэ001 на транспортировочных тележках отправился в Двинск, где был переставлен на собственные колёсные пары и совершил несколько обкаточных поездок по Латвийской железной дороге. 20 января  года он сделал первый рейс по территории Советского Союза, проведя поезд массой 980 т от Себежа до Великих Лук, а 23 января прибыл в Москву. Так как выход на пути Ээл2 состоялся в Германии, сам его факт явился мировой технической сенсацией и послужил толчком к появлению тепловозостроения как отрасли промышленности во всем мире и стал фактическим началом перехода на тепловозную тягу железных дорог. Скептики воочию убедились, что локомотив с двигателем Дизеля имеет тяговую характеристику, пригодную для работы с поездами. В 1926 году заводом «Гогенцоллерн» был построен первый в мире магистральный тепловоз с механической передачей Эмх3. Много впечатлений осталось в памяти от первых рейсов на тепловозе [Щэл1]. Помню, иду на одной из узловых станций к дежурному докладываться, чтобы зря не держал поезд, а дежурный как раз с диспетчером разговаривает. Пришёл состав, — докладывает дежурный, а паровоза ни в голове, ни в хвосте… Пришлось объяснять, что локомотив в голове, что он в полной исправности и что можно давать отправление.
+
+Как назывался первый магистральный тепловоз построенный в СССР?","Щэл1 системы инженера Гаккеля и Ээл2 системы инженера Ломоносова
+
+Первыми в мире магистральными тепловозами были советские Щэл1 системы инженера Гаккеля и Ээл2 системы инженера Ломоносова, оба имели электрическую передачу, были построены в  году и совершили свои первые поездки по заводским путям: Щэл1 5 августа на Балтийском заводе в Петрограде, а Ээл2 (тогда ещё как Юэ001) 6 ноября 1924 года, (строился по заказу СССР в Германии, на заводе Maschinenfabrik Esslingen, для него на заводской территории был специально проложен путь с колеёй 1524 мм).",,,,
+sona-9.0-20261114T224303Z-006,70,dcd155e3e058ac5c8bd4a636,328db0703e7d193361d20b592e45b3f3,sona-9.0,ru,science,oasst2,human_authored,"[user] Какой мне линукс дистрибутив выбрать?
+
+[assistant] Могу предложить несколько дистрибутивов:
+* Ubuntu - один из самых известных дистрибутивов Linux, имеет большое сообщество пользователей и большое количество статей и документации
+* Fedora - развивается компанией RedHat, быстрее всех внедряет новые технологии в области рабочего стола и новые версии Gnome, Wayland, Pipewire и т.д. 
+* Manjaro - дистрибутив на переднем крае, основан на Arch Linux. Частое обновление и самое свежее ПО, но по этой же причине могут быть проблемы со стабильностью
+
+[user] А есть ещё какие-нибудь дистрибутивы?","Конечно, существует множество других дистрибутивов Linux. Вот несколько из них:
+
+1. Debian - один из старейших и самых уважаемых дистрибутивов Linux. Он служит основой для множества других дистрибутивов, включая Ubuntu. Debian ставит акцент на стабильность, безопасность и свободное программное обеспечение.
+2. Arch Linux - минималистичный, гибкий и независимый дистрибутив, который позволяет пользователям собирать систему с нуля. Arch Linux популярен среди опытных пользователей из-за своей гибкости и документации.
+3. openSUSE - разработанный немецкой компанией SUSE, этот дистрибутив предлагает две ветки: Leap (стабильная) и Tumbleweed (роллинг-релиз). openSUSE привлекателен благодаря мощному инструменту YaST для администрирования и настройки системы.
+4. CentOS - дистрибутив, основанный на исходных кодах коммерческого Red Hat Enterprise Linux (RHEL). CentOS обеспечивает стабильность и безопасность корпоративного класса без лицензионных сборов.
+5. Linux Mint - дистрибутив основанный на Ubuntu, предлагает удобные рабочие среды, такие как Cinnamon, MATE и Xfce. Linux Mint сосредоточен на простоте использования и поддержке мультимедиа.
+6. Elementary OS - еще один дистрибутив, основанный на Ubuntu, с акцентом на красивый и интуитивно понятный интерфейс. Рабочая среда Pantheon вдохновлена macOS.
+7. Solus - независимый дистрибутив, разработанный с нуля. Solus предлагает собственную рабочую среду Budgie, а также поддержку GNOME и MATE. Он направлен на быстродействие и простоту.
+8. Pop!_OS - разработанный компанией System76, основанный на Ubuntu, Pop!_OS предлагает набор оптимизаций для повышения производительности и удобства использования, особенно для пользователей с устройствами System76.
+
+Это далеко не полный список дистрибутивов Linux. Каждый из них имеет свои особенности и предназначен для различных типов пользователей. Выбор дистрибутива зависит от ваших потребностей, предпочтений и опыта работы с Linux.",,,,
+sona-9.0-20261114T224303Z-006,71,0b83573390c7d55cfcad8f2d,06cd661602c4f794dc68d984bfce7d11,sona-9.0,ru,software_engineering,oasst1,human_authored,"[user] Какие инструменты существуют для того, чтобы создать виртуальный слепок своего голоса и научить компьютер читать текст моим голосом? И напиши алгоритм по шагам, как сделать слепок голоса с помощью какого-нибудь инструмента.","**Real-Time Voice Cloning** - это инструмент, который позволяет клонировать голос в режиме реального времени1.
+**Deep Voice** - это инструмент, который использует нейронные сети для создания виртуального слепка вашего голоса2.
+
+Для **Real-Time Voice Cloning**, алгоритм может выглядеть следующим образом:
+
+1. Установите Python 3.6 или выше.
+2. Установите необходимые библиотеки, используя команду pip install -r requirements.txt.
+3. Скачайте предварительно обученную модель с помощью команды git clone https://github.com/CorentinJ/Real-Time-Voice-Cloning.git.
+4. Запустите скрипт demo_cli.py, используя команду python demo_cli.py.
+
+Надеюсь, это поможет вам. Если у вас есть какие-либо дополнительные вопросы, пожалуйста, не стесняйтесь задавать их.",,,,
+sona-9.0-20261114T224303Z-006,72,4616b59957ad5f85ac6aa4d6,3855cfb4e441f5a9e30f76558bdb9ae5,sona-9.0,ru,web_backend,oasst1,human_authored,[user] Как можно составить файл конфигурации для оконного менеджера Weston?,"Файл конфигурации для оконного менеджера Weston - это файл с расширением "".ini"", который содержит различные параметры и настройки для запуска. Вот пример:
+```
+[core]
+shell=weston-simple-shell.so
+backend=drm-backend.so
+
+[shell]
+background-image=/usr/share/backgrounds/weston/background.png
+
+[output]
+name=HDMI-A-1
+mode=1920x1080
+
+[input]
+device=/dev/input/event0
+```
+Рассмотрим его более подробно:
+*	`[core]` - это секция, которая содержит общие параметры для запуска Weston. `shell` указывает, какой шелл использовать, `backend` - указывает, какой бэкэнд (в данном случае *DRM*) будет использоваться.
+*	`[shell]` - это секция, которая содержит настройки для Weston Shell. `background-image` указывает путь к фоновому изображению, которое будет отображаться на рабочем столе.
+*	`[output]` - это секция, которая содержит настройки для вывода изображения. name указывает имя устройства вывода, `mode` - разрешение экрана.
+*	`[input]` - это секция, которая содержит настройки для устройств ввода. `device` указывает путь к устройству ввода, которое Weston будет использовать.
+
+Это простой пример файла конфигурации, который можно настроить в соответствии с вашими потребностями. После создания файла конфигурации, его можно использовать при запуске Weston с помощью команды `weston --config <путь к файлу конфигурации>`.",,,,
+sona-9.0-20261114T224303Z-006,73,5fff349c59935b80fa597955,040b1b61d46d0c1b3033216cf4cf1b87,sona-9.0,ru,web_frontend,oasst1,human_authored,[user] Напиши бота на Disnake с слэш коммандой которая ищет что-то в гугле.,"```python
+import disnake
+import aiohttp
+from disnake.ext import commands
+
+client = commands.Bot(command_prefix='/')
+
+@client.command()
+async def google(ctx, *, query: str):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(f""https://www.google.com/search?q={query}&num=5"") as resp:
+            if resp.status != 200:
+                return
+            data = await resp.text()
+
+            soup = BeautifulSoup(data, 'html.parser')
+            links = soup.find_all('a')
+            results = []
+            for link in links:
+                href = link.get('href')
+                if href.startswith('/url?q='):
+                    results.append(href)
+            await ctx.send(results[0])
+
+client.run('TOKEN')
+```
+Этот код создаёт бота на Disnake, который реагирует на команду /google и ищет заданный запрос в Google, возвращая первую ссылку из результатов поиска. Обратите внимание, что для работы бота требуется токен бота Disnake.",,,,
+sona-9.0-20261114T224303Z-006,74,35871a3bc2c20d468d9a60b0,82a61ed4f6d6b09b6463dab6a86170f1,sona-9.0,ru,writing,oasst1,human_authored,"[user] Переведи текст песни ""Story of my life"" от Bon Jovi на русский
+
+[assistant] Песня ""Story of My Life"" принадлежит американской рок-группе Bon Jovi. 8 апреля 2013 года она была представлена в качестве третьего сингла группы с What About Now, их 12-го студийного альбома. Джон Бон Джови, Ричи Самбора и Билли Фэлкон написали песню, продюсером которой также выступил Джон Шэнкс.
+Песня, баллада с умеренным темпом, рассказывает о жизни человека от юности до старости. В тексте песни говорится о трудностях и победах человека, а также о том, как он менялся с течением времени. Припев фокусируется на жизни персонажа и на том, как он изменился и стал лучше в результате всего пережитого. Мелодия песни поддерживается простым фортепианным аккомпанементом, а также легкой, мелодичной гитарной линией и басовой линией.
+Трогательный текст и эмоциональное воздействие песни получили высокую оценку рецензентов. Кроме того, она была коммерчески успешной, заняв 10-е место в US Billboard Hot 100 и получив платиновый сертификат в США и Канаде. Сейчас поклонники Bon Jovi считают эту песню одной из своих любимых и часто поют ее вживую во время своих выступлений.
+
+[user] Ты не перевёл песню.","Извините за мой предыдущий ответ.Вот перевод песни Story of my life от Bon Jovi:
+
+История моей жизни
+Воспоминания прошлого,
+Ещё одна страница в истории.
+Ты живешь надеждами и мечтами,
+Которые заставили чувствовать cебя в стороне.
+Запутавшись в собственных ногах,
+Стараюсь идти своей дорогой,
+Другое авто на улице пытается отыскать шоссе,
+Тебе туда же, куда и мне?
+
+Это история моей жизни,
+Я пишу её каждый день.
+Я знаю, что она не черно-белая,
+Какая угодно, но не серая.
+Я знаю, что у меня не все в порядке,
+Но я чувствую себя нормально, потому что
+Всё что угодно может, всё может случиться,
+Это история моей жизни.
+
+Я хочу написать музыку,
+Которая станет впоследствии историей.
+И когда я нарисую свой шедевр,
+Я клянусь, что покажу тебе первой.
+Просто нельзя увидеть, кто и почему или что это будет,
+До тех пор, пока будущее не станет настоящим,
+Это тайна, благословение и проклятие
+Или что-то ещё хуже.
+
+Это история моей жизни,
+Я пишу её каждый день.
+Я знаю, что она не черно-белая,
+Какая угодно, но не серая.
+Я знаю, что у меня не все в порядке,
+Но я чувствую себя нормально, потому что
+Всё что угодно, всё возможно,
+Я подумал, может быть, ты
+Поможешь мне написать историю моей жизни.
+
+Это история моей жизни,
+Я пишу её каждый день, .
+Я надеюсь, ты будешь рядом,
+Когда я допишу последнюю страницу.",,,,
+sona-9.0-20261114T224303Z-006,75,42d0e3ee7c15b1379b9580c1,bf991a9346a0421656a1f1efc5a68691,sona-9.0,sw,research,tydiqa-goldp,human_authored,"[user] Vyanzo havifahamiki vyema, lakini vipengele vya kimazingira najenetiki huchangia.[3] Jeni nyingi za athari kidogo huchangia hatari.[3][7] Vipengele vya hatari ya kimazingira inajumuisha historia ya unyanyasaji wakati wa utotoni na mawazo ya mawazo ya (kisaokolojia).[3] Karibu 85% ya hatari ni inahusishwa na jenetiki.[8] Hali hiyo inaainishwa kama tatizo linalosababisha kubadilika kwa hisia I iwapo kumekuwa na angalau kisa kimoja cha wazimu, na au bila visa vya huzuni, na kama tatizo linalosababisha kubadilika kwa hisia II iwapo kumekuwa na angalau kisa kimoja cha wazimu kali (lakini bila visa vya wazimu) na kisa kimoja kikuu cha huzuni.[4] Kwa wale walio na dalili zisizokali sana kwa muda mrefu, hali hiyotatizo la huzuni na furaha kupita kiasi linaweza kupatikana.[4] Iwapo dalili ni kwa sababu ya dawa au shida za matibabu, inaoanishwa tofauti.[4] Hali nyingine ambazo zinaweza kujitokeza sawa ni pamoja na tatizo la upungufu na uharibifu wa umakini, matatizo ya kiakili yaletayo mawazo na matendo imara, matatizo ya kiakili yenye kuleta mtazamo, fikra, tabia na mhemko usio wa kawaida (skizofrenia) na tatizo la kiakili lenye kuleta matumizi mabaya ya vifaa au dawa ili kuathiri hisia za mtu sawa na idadi kubwa ya hali ya matibabu.[3] Kupimwa kwa ajili ya matibabuhaihitajiki kwa utambuzi, ingawa vipimo vya damuau picha za matibabu zinaweza kufanywa ili kuondoa matatizo mengine.[9]
+
+Je,ugonjwa wa kiakili husababishwa na nini haswa?","vipengele vya kimazingira najenetiki
+
+Vyanzo havifahamiki vyema, lakini vipengele vya kimazingira najenetiki huchangia.[3] Jeni nyingi za athari kidogo huchangia hatari.[3][7] Vipengele vya hatari ya kimazingira inajumuisha historia ya unyanyasaji wakati wa utotoni na mawazo ya mawazo ya (kisaokolojia).[3] Karibu 85% ya hatari ni inahusishwa na jenetiki.[8] Hali hiyo inaainishwa kama tatizo linalosababisha kubadilika kwa hisia I iwapo kumekuwa na angalau kisa kimoja cha wazimu, na au bila visa vya huzuni, na kama tatizo linalosababisha kubadilika kwa hisia II iwapo kumekuwa na angalau kisa kimoja cha wazimu kali (lakini bila visa vya wazimu) na kisa kimoja kikuu cha huzuni.[4] Kwa wale walio na dalili zisizokali sana kwa muda mrefu, hali hiyotatizo la huzuni na furaha kupita kiasi linaweza kupatikana.[4] Iwapo dalili ni kwa sababu ya dawa au shida za matibabu, inaoanishwa tofauti.[4] Hali nyingine ambazo zinaweza kujitokeza sawa ni pamoja na tatizo la upungufu na uharibifu wa umakini, matatizo ya kiakili yaletayo mawazo na matendo imara, matatizo ya kiakili yenye kuleta mtazamo, fikra, tabia na mhemko usio wa kawaida (skizofrenia) na tatizo la kiakili lenye kuleta matumizi mabaya ya vifaa au dawa ili kuathiri hisia za mtu sawa na idadi kubwa ya hali ya matibabu.[3] Kupimwa kwa ajili ya matibabuhaihitajiki kwa utambuzi, ingawa vipimo vya damuau picha za matibabu zinaweza kufanywa ili kuondoa matatizo mengine.[9]",,,,
+sona-9.0-20261114T224303Z-006,76,6b67789e1b2144e85c6561ca,70314b29008bf34dea72a74f014c78f7,sona-9.0,ta,general_knowledge,aya-dataset,human_authored,"[user] கேள்வி: 
+
+பறவைகள்வானில் பறந்து சென்றன. இதில் வான் என்பதன் வேறு பெயர் என்ன?
+
+அ) நிலத்தில்
+ஆ) விசும்பில்
+இ) மரத்தில்
+ஈ) நீரில்","பதில்: 
+
+ஆ) விசும்பில்
+
+குறிப்பு: 
+
+         ஐம்பூதங்களில் ஒன்றே வானம் ஆகும். வானம் என்பது பூமியின் மேற்பரப்பில் குறிப்பிட்ட எல்லைக்கு அப்பால் விரிந்து காணப்படும் அனைத்தையும் உள்ளடக்கிய பரந்த வெளியை குறிக்கும். இது வளிமண்டலத்திற்கு அப்பால் உள்ள விண்வெளியையும் குறிக்கும். வானியலில் வானமானது “வானக்கோளம்” எனவும் அழைக்கப்படுகின்றது. வானம் என்பது கற்பனையானது என்றும் அதில் சூரியன், சந்திரன், விண்மீன் போன்றவை நிறுத்தி வைக்கப்பட்டுள்ளன என்று அறிஞர்கள் கூறுகின்றனர்.  இருப்பினும் வானம் என்பது இன்றியமையாதது இதனாலையே இந்துக்கள் சிதம்பரத்தை வானத்திற்கு உரிய தலமாக கொண்டு வழிபடுகின்றனர். அங்குள்ள இறைவனின் பெயர் ஆகாச லிங்கம் ஆகும். இவ்வாறு சிறப்புடைய வானத்திற்கு வேறு பல பெயர்கள் வழங்கப்படுகின்றன.
+
+வானம் வேறு பெயர்கள்:
+
+வானத்தின் நிறம்
+வானம் வேறு பெயர்கள்
+அண்டம்
+ககனம்
+ஆகாயம்
+உம்பர்
+எமிலி
+ககண்டு
+கார்
+கொண்டல்
+சேண்
+நிருபம்
+மஞ்சு
+விசும்பு
+விண்
+ஆகாயம்
+அத்திட்டம்
+மொழிபெயர்ப்புகள்
+
+வானம்:
+
+இந்த வெளியிலே சூரியன், நிலா, விண்மீன்கள், முகில், வானவில், வடமுனை ஒளி என்பன வானத்தில் காணக்கூடிய இயற்கையான சில தோற்றப்பாடுகளாகும். பொழிவு (வானிலையியல்), மின்னல் என்பனவும் வானத்துடன் தொடர்புடைய தோற்றங்களே ஆகும்.
+
+வானத்தின் நிறம்:
+
+     பகலில், முகில்களற்ற வானம் இருக்கையில் சூரியன் தெரியும். அத்துடன் முகில்களற்ற வானம் நீல நிறமாக இருக்கும். இதற்குக் காரணம் வளிமண்டலத்தில் இருக்கும் வளிமம் ஆகும். சூரிய ஒளியிலிருந்து வரும் வெவ்வேறு நிறங்களில், நீல நிற ஒளியை அதிகமாக சிதறடிக்கின்றது. நீல நிறத்தை விடவும் அலைநீளம் குறைவான ஊதா, கருநீலம் ஆகிய நிறங்கள் அதிகமாகச் சிதறடிக்கப்பட்டாலும், நமது கண்களில், குறிப்பிட்ட நிறக் கதிர்களைப் பெற்றுக் கொள்ளுவதற்கான உணர்திறன் குறைவாக இருப்பதனால் நீல நிறமே, பார்வையில் ஆதிக்கம் செலுத்துகின்றது.
+
+அந்தி நேரத்தில், அல்லது அதிகாலை வேளைகளில் சூரியன் மிகவும் தூரத்திலும், ஒரு சாய்விலும் இருப்பதனால், சிதறடிக்கப்படும் நீல ஒளி வேறு திசைக்குச் சென்றுவிடும். எனவே வானம், மஞ்சள் அல்லது செம்மஞ்சள் நிறத்தில் இருக்கும்.
+
+இரவில் சூரிய ஒளி இன்மையால், வானம் இருண்ட நிறத்தில் தெரியும். இரவில் நமது பார்வையில், பிரகாசமான சூரிய ஒளியின் குறுக்கீடு இல்லாமல், சூரியனின் ஒளி விண்மீன்கள், கோள்கள், நிலா போன்றவற்றில் பட்டுத் தெறிப்பதால், நம்மால் அவற்றைப் பார்க்கக் கூடியதாக இருக்கும்.
+
+ஆனால், பகலிலோ, இரவிலோ, முகில்கள் வானத்தில் இருப்பின், முகிலினால் ஏற்படும் மறைப்பினால், சூரியனையோ, ஏனைய விண்மீன்கள், கோள்கள், நிலாவையோ நம்மால் பார்க்க முடியாது.
+
+இவ்வாறு சிறப்புடைய வானம் பற்றி பல அறிசஞர்கழ் தம் பாடல்களில் பாடி உள்ளனர். எனவே இயற்கை அன்னையின் கொடையான வானம் மேன்மையானது எனலாம்.",,,,
+sona-9.0-20261114T224303Z-006,77,0b47636d8aafa2b3ce2cc77b,e1c4f382e9ec9d6318294e5414144144,sona-9.0,ta,mathematics,aya-dataset,human_authored,[user] அண்மையில் நீங்கள் பார்த்த சமூகக் கருத்துள்ள திரைப்படம் ஒன்றின் திரை விமர்சனத்தை அப்படத்தின் இயக்குநருக்கு கடிதமாக எழுதுக.,"20-6-2019
+திருநெல்வேலி.
+
+உயர்திரு இயக்குநர் அவர்களுக்கு,
+
+வணக்கம்.
+
+சென்ற வாரம் தாங்கள் இயக்கிய படம் பார்த்தேன். படங்களுக்கு இப்போதெல்லாம் படங்களுக்கு வசனங்களை விட விமர்சனங்களே பக்க பலமாக இருக்கிறது. இதோ எனது விமர்சனம்.
+
+மாணவர்களுக்கு ஊக்கம் தரும் படம். அம்மா கதாபாத்திரம் – உணவகத்தில் வேலை பார்க்கும் பெண். மகளுக்குத் தெரியாது என்ன வேலை என்று. மகள் பள்ளிக்கூடத்தில் படிக்கிறாள். அனைத்துப் பாடங்களிலும் சராசரி மதிப்பெண்கள். கணிதத்தில் மிகக் குறைவு. அம்மா கேட்டாள் காரணத்தை, நீ சொல்லிக் கொடு என்றாள் மகள். மகள் வகுப்பில் அம்மா சேர்ந்து படிக்கிறாள் சலனமின்றி.
+
+நல்லா படிக்கும் மாணவன் அம்மாவிற்குக் கணிதம் சொல்லிக் கொடுக்கிறான். கணிதத்தில் நல்ல மதிப்பெண் அம்மாவுக்கு. மகளின் வேண்டுகோள் நீ பள்ளிக்கு வரவேண்டாம். இனிமேல் நான் நன்றாகப் படிக்கிறேன் என்றாள் மகள்.
+
+இறுதியில் மகள் (இ.ஆ.ப) மாவட்ட ஆட்சியர் ஆகிறாள். ஒரு பேட்டியில் கணிதத்தில் உச்சத்தில் இருக்கும் நீங்கள் ஆட்சியர் பணிக்கு வந்ததன் நோக்கம் பற்றிக் கேட்டதற்கு, இது என் அம்மாவின் ஆசை. நான் வேலைக்காரி ஆகக்கூடாது. இதுவே மகளின் பதில்.
+
+மாணவர் மத்தியில் ஒரு உற்சாகம் ஊட்டும் விதமாக திரைப்படம் அமைந்துள்ளது. பாராட்டுக்கள். கீதை உபதேசம் இல்லை இது. அம்மா உபதேசம். அம்மா கணக்குத் தப்பாது. அது லாப கணக்குதான். 80/100 மதிப்பெண்.",,,,
+sona-9.0-20261114T224303Z-006,78,63d85665843d48af1cfc0832,7f83b9c2a5b6f39114b3cb23efd000bf,sona-9.0,ta,science,aya-dataset,human_authored,"[user] வினா:
+ஐநா பொதுச் சபையின் தலைவரான முதல் இந்தியர் யார்?","விடை: விஜய லட்சுமி பண்டிட்
+
+  விஜயலட்சுமி பண்டிட்  (ஆகஸ்ட் 18, 1900 - டிசம்பர் 1, 1990), இவர் நேரு குடும்பத்தைச் சேர்ந்த ஓர் இந்திய அரசியல்வாதி, இவரது இயற்பெயர் ஸ்வரூப் குமாரி என்பது மோதிலால் நேருவின் மகளான இவர் ஜவஹர்லால் நேருவின் சகோதரி  ஆவார் . சோவியத் கூட்டமைப்பு, அமெரிக்கா உள்ளிட்ட பல நாடுகளுக்கு இந்தியத் தூதராகப் பணியாற்றினார். ஐக்கிய நாடுகள் அவையின் முதல் பெண் தலைவர் என்ற பெருமையும் இவருக்கு உண்டு. இவர் மோதிலால் நேரு குடும்பத்தில் அவரது தாக்கம் அதிகம் கொண்ட நபராகக் கருதப்பட்டார்.
+
+1962 முதல் 1964 வரை மகாராஷ்டிர மாநில ஆளுநராக இருந்த இவர் 1967 முதல் 1971 வரை மக்களவை உறுப்பினராக இருந்தார்.
+
+
+1979 ஆம் ஆண்டு இவர் ஐ.நா. மனித உரிமை ஆணையத்தில் இந்தியாவின் பிரதிநிதியாக நியமிக்கப்பட்டார். The Evolution of India (1958) மற்றும் The Scope of Happiness: A Personal Memoir (1979) ஆகிய இரண்டும் இவர் எழுதிய ஆங்கில நூல்கள்.",,,,
+sona-9.0-20261114T224303Z-006,79,5945622b3d054ab1ab608eab,39001c4e1076ffd6dedb8fd36a54d015,sona-9.0,ta,writing,aya-dataset,human_authored,"[user] Write a continuation for this paragraph - இந்திய விமானப்படையில் சேர்ந்த பிறகு, இவர் 1965","மற்றும் 1971 இந்திய-பாக்கித்தான் போரில் போர் நடவடிக்கையில் ஈடுபடார். 1971 ஆம் ஆண்டு யுத்தத்தின் போது, விங் கமாண்டராக, எலக்ட்ரிக் கான்பெராவை இயக்கும் செயல்பாட்டு உளவுப் படைப்பிரிவின் 106 வது படையின் கட்டளை அதிகாரியாக இருந்தார். இவர் மேற்குத் துறை மற்றும் கிழக்குத் துறை ஆகிய இரண்டிலும் எதிரி பகுதியின் மீது ஏராளமான பயணங்களை மேற்கொண்டார். எதிரி நிறுவல்கள் மற்றும் துருப்புக்கள் பற்றிய முக்கிய தகவல்களைப் பெற்றார். இந்த பணிகள் படைக்கருவிகள் இன்றியும், பாதுகாக்கப்படாத இலக்குகளின் வான்வழி புகைப்படம் எடுப்பதற்காகவும் எதிரிகளின் எல்லைக்குள் ஆழமாக பறக்க வேண்டும். இந்த பயணிகளிடமிருந்து பெறப்பட்ட தகவல்கள் இராணுவம், விமானப்படை மற்றும் கடற்படை நடவடிக்கைகளைத் திட்டமிடுவதற்கு உதவியது. மேலும், போர் முயற்சிகளின் வெற்றிக்கு நேரடியாக பங்களித்தன. இவர் தனது நோக்கங்களை முழுமையாக அடையாமல் இந்த எந்தவொரு பயணத்திலிருந்தும் திரும்பி வரவில்லை என்றும் அறியப்பட்டது. கைவிடப்பட்ட விமானத்தில் எதிரி எல்லைக்குள் மீண்டும் மீண்டும் பறப்பதில் காட்டப்பட்ட துணிச்சலுக்கும் தலைமைக்கும் இவருக்கு அதி விசிட்ட சேவா பதக்கமும், மா வீர சுழலி விருதும் வழங்கப்பட்டது .",,,,
+sona-9.0-20261114T224303Z-006,80,204920acc848e5447f06cadf,0abfb101fc5da4fc47cbfa11db33b6d7,sona-9.0,te,general_knowledge,aya-dataset,human_authored,[user] “పల్లెటూర్లు ప్రశాంత జీవిత సౌఖ్యానికి పుట్టిళ్ళు” అన్న అంశంపై కరపత్రం తయారు చేయండి.,"ఓ అన్నలారా ! అక్కలారా !
+
+ఒక దేశం సుభిక్షంగా ఉండాలంటే రెండు అంశాలను పరిగణనలోనికి తీసుకోవాలి. ఒకటి వ్యవసాయం, రెండు పరిశ్రమలు. వ్యవసాయంపై ఆధారపడినపుడు పల్లెటూళ్ళు సుభిక్షంగా ఉంటేనే దేశం సుభిక్షంగా ఉంటుంది. అందుకే “పల్లెటూళ్ళే దేశానికి పట్టుకొమ్మలు” అన్నారు పెద్దలు.
+
+ప్రకృతి అందచందాలకు భూతలస్వర్గం పల్లె. పచ్చని పొలాలతో, చక్కని పొదరిళ్ళ బారులతో, ప్రతి ఇంటిముందు పాడి పశువులతో పల్లెలు అలరారుతుంటాయి. మమతానురాగాలతో కూడిన పిలుపులతో, చక్కని అనుబంధాలతో సౌహార్థానికి ఐకమత్యానికి నిలయాలు పల్లెటూర్లు.
+
+స్వచ్ఛమైన గాలి, నీరు, వెలుతురు దొరికే భూలోక స్వర్గం పల్లెటూరు. పల్లెప్రజలు ఎండనక, వాననక, పగలనక, రాత్రనక చెమటోడ్చి కష్టపడతారు. కష్టపడుతున్నామన్న బాధను మరచి చిరునవ్వులు చిందిస్తారు. పల్లె గీతాలతో నేల తల్లికి హారతులు పడతారు.
+
+“జనాః పద్యంతే అత్ర జనపదః”, నియమేన వర్తంతే జనా అస్మిన్ ఇతి నీ పృత్” – అని అమరకోశంలో చెప్పబడింది. విద్య లేదేమో కాని వినయంలో ఎవరికీ తీసిపోరు జానపదులు. ఆర్థిక ఇబ్బందులు వస్తూ పోతుంటాయి. కానీ ముఖాలపై చిఱునవ్వు చెరగదు. కష్టం తెలిసినవారు, సుఖాలకై పరుగిడని వారు. సోమరితనం దరిచేరనివారు, ఇంకెవరు పల్లెటూరి వారే.
+
+దేశానికి వెన్నెముక, అన్నదాత అయిన రైతు వ్యవసాయాన్ని ఒక తపస్సుగా భావిస్తాడు. పేదసాదలకు ఉన్నంతలో దానం చేసి తృప్తిగా జీవిస్తాడు. కులవృత్తులు, చేతివృత్తులు, చేనేత వృత్తులు వారును, ఒగ్గు కథలవారు, హరిదాసులు, తోలుబొమ్మలు ఆడించేవారు, పగటివేషగాళ్ళు, గంగిరెద్దులవాళ్ళు ఇలా ఎన్నో జానపదకళలకు ఆలవాలమై పల్లెటూళ్ళు శోభిస్తున్నాయి.
+
+చక్కని పాడిపంటలతో అలరారే పల్లెటూళ్ళలోని ముంగిళ్ళు అందమైన ముగ్గులతో స్వాగతమంటూ ఆహ్వానిస్తాయి. కనువిందైన కట్టుబొట్టుతో పల్లెపడుచులు చిఱునవ్వులు చిందిస్తారు. ప్రశాంతతకు, ఆధ్యాత్మికతకు నిలయాలు ఇక్కడి దేవాలయాలు, స్వచ్ఛమైన కోనేరులు, చూడచక్కని పుష్పజాతులతో, పక్షి జాతులతో అలరారుతుంటాయి. ఇలాంటి పల్లెలను కాపాడాల్సిన బాధ్యత మనందరిది. చేయి చేయి కలుపుదాం పల్లెటూళ్ళను కాపాడదాం. “పల్లెటూళ్ళు బాగుంటేనే ప్రపంచమంతా బాగుంటుంది” అన్న కరుణశ్రీ మాటలు స్ఫూర్తిదాయకాలు.
+
+ఇట్లు,
+జనపద సంక్షేమ సంఘం.",,,,
+sona-9.0-20261114T224303Z-006,81,67f52731eea5bbc6a410b611,83b9a563486212f8a8925e6264b42128,sona-9.0,te,mathematics,aya-dataset,human_authored,"[user] Title: నూతన విద్యా విధానం-2020: అయిదో తరగతి వరకు మాతృభాషలో బోధన, 8 భాషల్లో ఇ-కోర్సులు, పాఠశాలల్లో సంస్కృతం","రమేశ్ పోఖరియాల్ నిశంక్ ఇకపై కేంద్ర విద్యా శాఖ మంత్రి
+
+దీంతో పాటు కేంద్ర మానవ వనరుల మంత్రిత్వ శాఖ పేరును కేంద్ర విద్యా శాఖగా మార్చారు. ఈ మార్పులను సూచించిన కమిటీకి మాజీ ఇస్రో చీఫ్ కె కస్తూరి రంగన్ నేతృత్వం వహించారు. 
+
+ఈ నూతన విద్యా విధానం ద్వారా విద్యా వ్యవస్థలో రాబోతున్న మార్పులను ప్రకటించారు.
+
+ఉన్నత విద్యా సంస్థలన్నిటినీ ఒకే ఒక్క నియంత్రణ సంస్థ నియంత్రిస్తుందని చెబుతూ, ఎం.ఫిల్  కోర్సును కూడా  రద్దు చేస్తున్నట్లు కేంద్ర మంత్రులు ప్రకాష్ జవదేకర్, రమేష్ పోఖ్రియాల్ నిషాంక్  ప్రకటించారు. డిజిటల్ శిక్షణ విధానాన్ని సమూలంగా మార్చే లక్ష్యంతో నేషనల్ ఎడ్యుకేషనల్ టెక్నాలజీ ఫోరమ్ (ఎన్ఈటీఎఫ్)ను ఏర్పాటు చేస్తారు. ""తొలి దశలో ఎనిమిది ప్రాంతీయ భాషల్లో ఇ-కోర్సులు ప్రారంభిస్తాం. వర్చువల్ ల్యాబ్స్ అభివృద్ధి చేస్తాం"" అని ఉన్నత విద్యా శాఖ కార్యదర్శి అమిత్ ఖరే చెప్పారు.
+
+నూతన విద్యా విధానంలో ముఖ్యమైన అంశాలు: 
+
+- 2035 కల్లా 50 శాతం గ్రాస్ ఎన్రోల్మెంట్ రేషియో చేరాలనే  లక్ష్యాన్ని నిర్దేశించింది. 2040 కల్లా అన్ని ఉన్నత విద్యా సంస్థలు విభిన్న కోర్సులను అందించే సంస్థలుగా మారి , ప్రతి విద్యా సంస్థలో 3000 అంత కంటే ఎక్కువ మంది విద్యార్థులు ఉండేలా లక్ష్యాన్ని నిర్దేశిస్తుంది. 
+
+- అయిదవ తరగతి వరకు మాతృ భాషలోనే పాఠాలు నేర్పిస్తారు. బోర్డు పరీక్షలు విద్యార్థి సముపార్జించిన జ్ఞానాన్ని పరీక్షించే విధంగా తీర్చి దిద్ది, మూస తరహా పరీక్షలకు స్వస్తి చెబుతారు. పిల్లల రిపోర్ట్ కార్డులలో కేవలం వివిధ సబ్జెక్టులలో వచ్చిన మార్కులు మాత్రమే కాకుండా వారి ఇతర నైపుణ్యాలకు కూడా మార్కులు ఇస్తారు. 
+
+- విద్యా విధానాన్ని ఇప్పుడున్న 10 + 2 నుంచి 5+3+3+4 గా విభజిస్తారు. మొదటి అయిదు సంవత్సరాలలో ప్రీ ప్రైమరీ నుంచి రెండవ తరగతి వరకు ఉంటాయి. రెండవ దశలో మూడు నుంచి అయిదవ తరగతి, తర్వాత దశలో ఆరు నుంచి ఎనిమిదవ తరగతులు, చివరి నాలుగు సంవత్సరాలలో తొమ్మిది నుంచి 12 వ తరగతి వరకు ఉంటాయి.
+
+- పిల్లలు తమకు నచ్చిన కోర్సులను ఎంపిక చేసుకోవచ్చు. అన్ని కోర్సులను రెండు భాషలలో అందిస్తారు. 
+
+- అన్ని పాఠశాలల్లో సంస్కృత భాషను ముఖ్య భాషగా ప్రవేశ పెడతారు. సంస్కృత విద్యాలయాలు కూడా విభిన్న తరహా కోర్సులు అందించే విద్యా సంస్థలుగా రూపాంతరం చెందుతాయి. 
+
+- డిజిటల్ విద్య విధానాన్ని అభివృద్ధి చేసేందుకు నేషనల్ ఎడ్యుకేషనల్ టెక్నాలజీ ఫోరమ్ స్థాపన. ఎనిమిది ప్రాంతీయ భాషలలో ఇ-కోర్సులు. వర్చ్యువల్ ల్యాబ్స్‌ ...",,,,
+sona-9.0-20261114T224303Z-006,82,be53f6a017c27bab3ab6a859,cb494d30b720e78c183fe6db5f2e0251,sona-9.0,te,research,tydiqa-goldp,human_authored,"[user] గారాల్డ్  మౌరైసి ఎడెల్మన్  (జులై 1, 1929 –2014 మే 17) వారు ఒక అమెరిక జివశాస్ర్తవేత  ఆయన  1972లో నొబెల్ బహుమతి   శరీరశాస్ర్తంలో మరియు వైద్యరంగంలో ప్రచురించి దానిని రాడ్న్య్ రాబట్ పోటర్ పని చేసి దెని గురించి అంట్ రొగనిరొదక వ్యవస్థ  .[1] ఎడెల్మన్ నొబెల్ బహుమతి వచింది-ప్రతిరక్షక రూపం అణువులు చెపినందుకు.[2] ఇంటర్వ్య్లొ లో, ఏమి చెపారు అంటె  బాగాలు బాగాలు రొగనిరొగక వ్యవస్థ  లో రుపొదించు కుంటాయి ఒకరి జివనంలో అదె విదంగా మెదడులో ఏర్పడతాయి ఇదె రకంగా ఇంకా  నిరంతరం  పని జరుగుతుంది  దేని గురించి అయితే నొబెల్  బహుమతి వచ్చిందిదాని తరువాత ఆయన శరీరసాస్ర్తం మరియు నాడి శాస్ర్తం గురించి కుడా పరిశోధమన చేసారు
+
+గారాల్డ్ మౌరైసి ఎడెల్మన్ ఎప్పుడు జన్మించాడు?","జులై 1, 1929
+
+గారాల్డ్  మౌరైసి ఎడెల్మన్  (జులై 1, 1929 –2014 మే 17) వారు ఒక అమెరిక జివశాస్ర్తవేత  ఆయన  1972లో నొబెల్ బహుమతి   శరీరశాస్ర్తంలో మరియు వైద్యరంగంలో ప్రచురించి దానిని రాడ్న్య్ రాబట్ పోటర్ పని చేసి దెని గురించి అంట్ రొగనిరొదక వ్యవస్థ  .[1] ఎడెల్మన్ నొబెల్ బహుమతి వచింది-ప్రతిరక్షక రూపం అణువులు చెపినందుకు.[2] ఇంటర్వ్య్లొ లో, ఏమి చెపారు అంటె  బాగాలు బాగాలు రొగనిరొగక వ్యవస్థ  లో రుపొదించు కుంటాయి ఒకరి జివనంలో అదె విదంగా మెదడులో ఏర్పడతాయి ఇదె రకంగా ఇంకా  నిరంతరం  పని జరుగుతుంది  దేని గురించి అయితే నొబెల్  బహుమతి వచ్చిందిదాని తరువాత ఆయన శరీరసాస్ర్తం మరియు నాడి శాస్ర్తం గురించి కుడా పరిశోధమన చేసారు",,,,
+sona-9.0-20261114T224303Z-006,83,e9724fd12ff3baa43a18ca68,e585af303f61135e8f7fcf5485c6267f,sona-9.0,te,writing,aya-dataset,human_authored,"[user] ...అంటే.. ఈ టాబ్లెట్లు మహిళల హార్మోన్ల చక్రం మీద ప్రభావం చూపుతాయి. ఈ హార్మోన్ల టాబ్లెట్లను తరచుగా ఎక్కువ మోతాదులో తీసుకున్నట్లయితే.. బ్రెయిన్ స్ట్రోక్, పక్షవాతం, ఫిట్స్ వంటి తీవ్ర పరిణామాల ప్రమాదం పెరుగుతుంది. ఇటువంటి కేసులు మా దగ్గరకు వస్తుంటాయి కూడా. పీరియడ్స్‌ని వాయిదా వేయటానికి మహిళలు పది, పదిహేను రోజుల పాటు.. అది కూడా ఎక్కువ మోతాదుల్లో ఈ టాబ్లెట్లు తీసుకుంటూనే ఉన్నారు. ఇలా చేయటం వల్ల దుష్ప్రభావాలు ప్రాణాంతకంగా ఉండొచ్చు’’ అని ఆమె హెచ్చరించారు. 
+
+ఈ టాబ్లెట్లు ఎవరు వేసుకోకూడదు? 
+
+మహిళలు ఈ టాబ్లెట... Write the rest of the article:","నపుడు పూజలు చేయొద్దు అని కానీ.. మతపరమైన పనుల్లో పాల్గోవద్దు అని కానీ దేవుడు చెప్పలేదు. కాబట్టి.. ఇటువంటి అపోహల కోసం మహిళలు తమ శరీరాలకు హానిచేసుకోకూడదు’’ అని సూచిస్తున్నారు డాక్టర్ గౌరి.  
+
+ఆలయ ప్రవేశ ఉద్యమం ద్వారా ప్రాచుర్యంలోకి వచ్చిన భూమాత బ్రిగేడ్‌కి చెందిన తృప్తి దేశాయ్ ఏమంటున్నారు? 
+
+‘‘నెలసరి రుతుస్రావం అపవిత్రం కాదు. అది ప్రకృతి కానుక. దానిని సంతోషంగా అంగీకరించాలి. మహిళలు పీరియడ్స్ సమయంలో ఆలయాలకు వెళ్లరు.. పండుగల సమయంలో రుతుస్రావాన్ని వాయిదా వేసేందుకు ప్రయత్నిస్తుంటారు. ఇదంతా పూర్తిగా తప్పు. చాలా గణపతి పూజలకు నన్ను ఆహ్వానిస్తుంటారు. ఆ రోజుల్లో నాకు పీరియడ్స్ ఉన్నా సరే.. నేను వెళ్లి పూజలు చేస్తాను. హారతిలు పాడతాను. నాకు పీరియడ్స్ ఉన్నందు వల్ల ఫలానా కార్యక్రమానికి హాజరుకాలేను అని నేను ఎప్పుడూ చెప్పలేను. ఈ ముట్టు వంటి ఆంక్షలు.. మైల వంటి భావనలు.. ఈ దురాచారాలన్నిటికీ మనం స్వస్తిచెప్పాల్సి ఉంది’’ అని ఆమె అభిప్రాయపడ్డారు. 
+
+ధర్మశాస్త్రాలలో ఏమీ చెప్పలేదు... 
+
+‘‘మహిళలు నెలసరి సమయంలో మతపరమైన పనులు చేయకూడదని ధర్మశాస్త్రాలు ఎక్కడా చెప్పటం లేదు’’ అని పంచాంగ కర్త డి.కె.సోమన్ ఉద్ఘాటించారు. 
+
+‘‘పాత రోజుల్లో మహిళలను వారి రుతుస్రావం సమయంలో ఇంట్లో ఒక మూలన కూర్చోబెట్టేవారు. వారికి కొంత విశ్రాంతి లభించాలని.. మొత్తంగా పరిశుభ్రంగా ఉండాలన్నది దాని ఉద్దేశం. కానీ ఇప్పుడది అవసరం లేదు. ఉదాహరణకి.. ఒక ఇంట్లో ఒక మహిళ ఒంటరిగా ఉన్నపుడు.. ఆమె పీరియడ్స్‌లో ఉంటే.. దేవుడికి ఆమె నైవేద్యం వండకూడదా? ఆమె తప్పకుండా వండాలి. ఎలాగూ.. దేవుడికి నైవేద్యం సమర్పించే ముందు దానిని పవిత్రం చేయటానికి దాని మీద తులసిదళం లేదా దువ్వగడ్డి ఉంచుతాం. కాబట్టి.. పీరియడ్స్‌లో ఉన్నపుడు నైవేద్యం వండటంలో.. చివరికి పూజలు చేయటంలో అయినా ఎలాంటి ప్రమాదం లేదు’’ అని ఆయన పేర్కొన్నారు. 
+
+‘‘ఒకవేళ మహిళలు టాబ్లెట్లు తీసుకోవటం ద్వారా పీరియడ్లను వాయిదావేస్తున్నట్లయితే.. అది పూర్తిగా తప్పు. దేవుడికి కోపం రాదని.. ఆయన శిక్షించడని.. ఆయన ఎల్లప్పుడూ క్షమిస్తాడనే విషయాన్ని మనం అర్థం చేసుకోవాల్సి ఉంది. కాబట్టి.. మత ఛాందసం సృష్టించిన అనవసర భయాలతో మహిళలు తమ శరీరాలకు హాని చేసుకోకూడదు’’ అని సోమన్ సూచించారు. 
+
+‘నేను ఈ టాబ్లెట్లు వేసుకుంటా.. కానీ నాకు ఎప్పుడూ ఏ సమస్యా రాలేదు’ 
+
+ఒక ప్రైవేట్ కంపెనీలో ఉన్నతస్థాయి ఎగ్జిక్యూటివ్‌గా పనిచేసే మేఘా.. ఇంట్లో మతపరమైన కార్యక్రమాల సమయంలో తాను ఇటువంటి... వేసుకుంటా",,,,
+sona-9.0-20261114T224303Z-006,84,a553a2ff6c3ef1cc091ca8d1,9ae97b1dfb5f8e2ae9e57af6601a5c72,sona-9.0,th,general_knowledge,oasst1,human_authored,"[user] วันนี้เป็นวันเกิดฉันละ
+
+[assistant] คุณเล่าให้ฉันฟังเพื่ออะไร หรือมีความต้องการอะไรเป็นพิเศษไหม โดยทั่วไปฉันเข้าใจว่าในวันเกิด บางคนจะคาดหวังของขวัญพิเศษหรือคำอวยพร แต่กับบางคน วันเกิดอาจเป็นวันที่ชวนให้ระลึกถึงอายุที่มากขึ้นและเวลาที่ล่วงผ่าน เข้าใกล้ความตายขึ้นอีกหนึ่งก้าว
+
+[user] เอ้อ ขอบคุณนะ คุณมีอะไรที่อยากพูดถึงวันเกิดของฉันอีกไหม",วันเกิด เป็นวันที่ชวนให้ระลึกถึงผู้ที่อุ้มท้องและให้กำเนิดเรามา วันเกิดเราถือเป็นวันที่ทำให้หญิงชายคู่หนึ่ง หรือคนหนึ่งหรือเพศสภาพใดๆ เปลี่ยนเป็นพ่อหรือแม่ไปด้วย เป็นวันที่ชวนให้ระลึกถึงความสัมพันธ์และความหมายของครอบครัวด้วยนะ,,,,
+sona-9.0-20261114T224303Z-006,85,b8cb7ec766b069558afd44aa,a8564969bb17d35b7ff4491ba4856c28,sona-9.0,th,mathematics,oasst2,human_authored,"[user] ถ้ายิงซ้ำๆที่จุดเดิมบนกระจกกันกระสุนจะทะลุไหม
+
+[assistant] ถ้ายิงกระสุนซ้ำๆ ที่จุดเดิมบนกระจกกันกันกระสุน มันจะยังไม่ทะลุ ไม่ว่าจะยิงกี่ครั้งก็ตาม เพราะว่ากระจกมีความแข็งแรงพอที่จะทนต่อแรงกระสุนที่จะทะลุผ่านไปเรื่อยๆ ซึ่งแรงกระสุนจะถูกกระจกสะท้อนหรือแตกเป็นเส้นๆ แต่จะไม่สามารถทะลุผ่านไปได้ ดังนั้นการยิงซ้ำๆ ที่จุดเดิมบนกระจกกันจะไม่สามารถทำลายหรือทะลุไปได้ โดยปกติแล้ว การทำลายกระจกกันจะต้องมีแรงที่มากกว่าความแข็งแกร่งของกระจกโดยทั่วไป เช่น การใช้วัตถุที่มีความแข็งแรงสูงมากระแทะหรือกระเด็นเข้าไปบนกระจกกัน หรือใช้แรงกระแทกจากการชนหรือการกระทำอื่นๆ ที่สามารถทำลายกระจกได้จริงๆ
+
+[user] แต่ถ้ายิงซ้ำที่จุดเดิมเป๊ะๆเป็นจำนวนไม่จำกัดครั้ง (หรือจำนวนครั้งมากๆ เช่น 10^100 ครั้ง) มันจะไม่มีทางทะลุจริงๆหรอ",ฉันขออภัยสำหรับคำตอบก่อนหน้านี้ ฉันเป็นโมเดลภาษาบางครั้งอาจจะตอบผิดบ้าง สำหรับคำตอบคือ ทะลุ เพราะวัสดุที่กันกระสุนจะเสื่อมลง จนในที่สุด กระสุนจะทะลุกระจกกันกระสุน,,,,
+sona-9.0-20261114T224303Z-006,86,a540973959d5e6b57c7a6b36,7d4c8f9475aef1e9ba44065aa2ec0df1,sona-9.0,tr,coding,aya-dataset,human_authored,[user] Shebang nedir?,"Shebang, Unix ve benzeri işletim sistemlerinde kullanılan bir özelliktir. Script dosyalarında, dosyanın hangi yorumlayıcı (interpreter) ile çalıştırılacağını belirtmek için kullanılır. Shebang, dosyanın ilk satırında bulunan ve genellikle #! karakterleri ile başlayan bir ifadedir.
+
+Örneğin, bir Python script dosyasının shebang kullanımı şu şekildedir:
+
+#!/usr/bin/env python3
+print(""Merhaba, dünya!"")
+
+Bu örnekte #!/usr/bin/env python3 ifadesi, bu script dosyasının çalıştırılması için Python 3 yorumlayıcısını kullanması gerektiğini belirtir. Shebang, dosyanın çalıştırılabilirlik özelliği etkinse ve dosya bir terminalden çalıştırılmaya çalışıldığında işe yarar. Örneğin, terminalde şu komutu vererek bu Python script dosyasını çalıştırabilirsiniz:
+
+./script.py
+Shebang, çeşitli programlama dilleri ve yorumlayıcılar için kullanılabilir. Örneğin, Bash script dosyalarında #!/bin/bash, Perl script dosyalarında #!/usr/bin/perl, Ruby script dosyalarında #!/usr/bin/ruby gibi ifadeler kullanılabilir. Bu, dosyanın çalıştırılmasında hangi yorumlayıcının kullanılacağını belirlemek için önemlidir.",,,,
+sona-9.0-20261114T224303Z-006,87,79b4fbf20462508cd0c979fe,70f51c1fe959e33e70926eae66610edd,sona-9.0,tr,general_knowledge,aya-dataset,human_authored,[user] Bash dili hakkında bilgi ver.,"Bash (Bourne Again SHell), Unix benzeri işletim sistemlerinde kullanılan bir komut satırı kabuğudur. Bash, GNU Projesi'nin bir parçası olarak geliştirilmiş ve özellikle Linux sistemlerinde yaygın olarak kullanılmıştır. İşte Bash dili hakkında temel bilgiler:
+
+Komut Satırı Kabuğu:
+Bash, kullanıcıların komutları girmelerini ve işletim sistemine yönlendirmelerini sağlayan bir komut satırı kabuğudur. Kullanıcı, Bash aracılığıyla sistemle etkileşimde bulunabilir ve komutları çalıştırabilir.
+
+Tarihi:
+Bash, 1989 yılında Brian Fox tarafından geliştirilmeye başlanmıştır. Daha sonra, Chet Ramey tarafından yönetilmiş ve geliştirilmiştir.
+
+Özellikleri:
+Bash, birçok özelliği içerir. Bu özellikler arasında otomatik tamamlama, komut geçmişi, işlemleri yönetme, değişkenler ve döngüler gibi klasik kabuk özellikleri bulunur.
+
+Dil Özellikleri:
+Bash aynı zamanda bir betik dili olarak kullanılabilir. Bash betikleri, kabuk komutları ve kontrol yapıları içerir. Bu, otomasyon, betikleme ve sistem yönetimi için kullanımı kolay bir dil sağlar.
+Sürüm ve Uyumlu Kabuklar:
+
+Bash'ın farklı sürümleri bulunsa da, genellikle eski Bourne Shell (sh) ile uyumludur. Yani, Bash komutları genellikle Bourne Shell komutlarıyla uyumlu olup, birçok modern Linux ve Unix sistemlerinde varsayılan kabuk olarak kullanılır.
+Dosya İsim Eşleştirme (Globbing):
+
+Bash, dosya isim eşleştirmeyi destekler. Kullanıcılar, belirli dosya veya dizinlere erişmek için joker karakterleri (* ve ? gibi) kullanabilirler.
+Uygulama ve Sistem Yönetimi:
+
+Bash, sistem yöneticileri ve geliştiriciler arasında popüler bir araçtır. İşletim sistemi konfigürasyonu, betikleme, dosya ve dizin işlemleri gibi birçok görevde kullanılır.
+
+Bash Betikleri:
+Bash, kullanıcıların veya sistem yöneticilerinin belirli görevleri otomatize etmelerine olanak tanıyan betikler (script) yazma yeteneği sağlar. Bu betikler, genellikle dosya uzantısı .sh ile bilinir.
+Bash, Linux ve diğer Unix tabanlı işletim sistemlerinde yaygın olarak kullanılan bir kabuk ve betikleme dilidir. Öğrenilmesi ve kullanılması oldukça yaygındır, çünkü birçok Linux dağıtımı ve Unix türetilmiş işletim sistemleri varsayılan olarak Bash'i kullanır.",,,,
+sona-9.0-20261114T224303Z-006,88,bae30ecd635c83a865d52316,460261f971f918a3ca3ff55927fc6f15,sona-9.0,tr,islamic_studies,aya-dataset,human_authored,[user] Atatürk inkılapları hakkında genel bilgiler ver.,"Mustafa Kemal Atatürk, Türkiye Cumhuriyeti'nin kurucusu ve ilk Cumhurbaşkanı olarak bilinir. Atatürk döneminde gerçekleşen reformlar ve değişiklikler, ""Atatürk İnkılapları"" olarak adlandırılır. Bu inkılaplar, Türkiye'nin modernleşmesi, laikleşmesi, hukuk sistemini düzenlemesi ve ekonomik yapısını güçlendirmesi amacıyla yapılmıştır. İşte Atatürk İnkılapları hakkında genel bilgiler:
+
+Dil İnkılabı (1928):
+
+Osmanlıca'nın kullanımının sona erdirilerek yerine Türk alfabesiyle yazılan Türkçe'nin resmi dil olarak kabul edilmesi. Bu, Türk milletinin birleştirilmesi ve modernleşmesi açısından önemliydi.
+Hukuk İnkılabı (1924):
+
+İslam hukuku temel alınan Şer'iye Mahkemeleri'nin kaldırılması ve yerine modern hukuk sisteminin getirilmesi. Bu adım, Türkiye'nin sekülerleşmesi ve laikleşmesi anlamına gelir.
+Medeni Kanun ve Aile İnkılabı (1926):
+
+Osmanlı İmparatorluğu'nda geçerli olan Şer'iye hukuk sistemine dayanan aile hukukunun yerine, çağdaş hukuk anlayışını benimseyen Medeni Kanun'un kabul edilmesi. Bu, kadın haklarını güçlendirmeye yönelik önemli adımlardan biridir.
+İnkılap Tarihi ve Atatürkçülük Dersleri (1932):
+
+Okullarda ""İnkılap Tarihi ve Atatürkçülük"" dersinin zorunlu hale getirilmesi. Bu, genç nesillerin Türkiye'nin modernleşme sürecini ve Atatürk'ün ilke ve inkılaplarını öğrenmelerini sağlamak amacı taşır.
+Kıyafet ve Şapka İnkılabı (1925):
+
+Geleneksel Türk kıyafetlerinin yerine modern giyim tarzını benimsemek amacıyla şapka takma zorunluluğunun getirilmesi.
+Eğitim ve Alfabe İnkılabı (1928):
+
+Arap harfli Osmanlıca'nın yerine, Latin alfabesi temelli Türk alfabesinin kabul edilmesi. Aynı zamanda, eğitim sisteminin modernleştirilmesi ve çağdaş bir eğitim anlayışının benimsenmesi.
+Cumhuriyetin İlanı (1923):
+
+Osmanlı İmparatorluğu'nun sona erdirilmesi ve Türkiye Cumhuriyeti'nin ilan edilmesi. Bu, Türk milletinin egemenliğini ve bağımsızlığını simgeler.
+Laiklik İlkeleri (1937-1938):
+
+Laiklik ilkesinin Anayasa'ya dahil edilmesi ve devletin dini işlerden ayrılması. Bu, dinin bireysel özgürlük alanına çekilmesi ve devletin dinden bağımsız bir yapıya kavuşturulması anlamına gelir.
+Bu inkılaplar, Türkiye'nin sosyal, kültürel ve ekonomik yapısını büyük ölçüde değiştirmiş ve ülkeyi çağdaş, laik, demokratik bir cumhuriyet olarak şekillendirmiştir. Atatürk İnkılapları, Türkiye'nin modernleşme sürecinde temel adımları oluşturmuştur.",,,,
+sona-9.0-20261114T224303Z-006,89,1ba9bb466f2eb445ef040f0b,915728df7f20991105b01de229ae36ba,sona-9.0,tr,mathematics,aya-dataset,human_authored,[user] Bana Elmalı Turta için malzeme listesi ve tarifi yazar mısın?,"Elmalı Turta Tarifi İçin Malzemeler
+
+Hamuru için:
+4 su bardağı un
+125 gram tereyağı (oda sıcaklığında bekletilmiş)(8,5 yemek kaşığı)
+1/2 çay bardağı sıvı yağ
+1 çay bardağı süt
+1 kahve fincanı toz şeker
+2 adet yumurta
+1/2 paket kabartma tozu
+1 paket vanilya
+
+Elma püresi için:
+5 adet rendelenmiş elma
+1 su bardağı toz şeker
+3 yemek kaşığı (silme) tarçın
+
+Hazırlanışı
+
+1. Elmalı turta için elmaları derin bir kaba rendeleyip üzerine şeker ve tarçını ekleyip güzelce karıştırın. Beklemeye alın.
+2. Yumurtaları, tereyağını, şekeri, sıvı yağı ve sütü güzelce karıştırın.
+3. Karışıma vanilya ve kabartma tozu ile karıştırdığınız unu azar azar ekleyerek yoğurmaya başlayın.
+4. Yoğurduğunuz hamuru yarım saat buzdolabında dinlendirin. Hamurunuz dinlendikten sonra hamurun yarısından biraz daha küçük bir parçayı ayırın.
+5. Hamurunuz dinlendikten sonra biri küçük, biri büyük olmak üzere hamuru iki parçaya ayırın.
+6. Büyük parçayı ister bir merdane yardımıyla isterseniz elinizle, hafif unladığınız tezgahta açın. Turta kalıbına yayın.
+7. Turta kalıbına yayın. Hamurun üzerine dinlenmeye bıraktığınız elmalı harcı dökün.
+8. Spatula ile üzerini düzeltin.
+9. Elmalı harcın üzerine önceden ayırdığınız küçük hamur parçasını bir merdane yardımıyla açarak turta için şeritler kesin.
+10. Kestiğiniz şeritleri elmalı harcın üzerine kafes şeklinde dizin.
+11. Elmalı turtayı önceden ısıtılmış alt üst ayar 180 derece fırında yaklaşık 30-35 dakika pişirin. Turtanız soğuyunca üzerine pudra şekeri serperek servis edebilirsiniz.
+
+Afiyet olsun.",,,,
+sona-9.0-20261114T224303Z-006,90,6cf2e5ccff5df2ad557dc938,8b8aa5716f59a0822c5bddc6656f7e6d,sona-9.0,tr,reasoning,aya-dataset,human_authored,[user] Cushing sendromu tedavi edilmezse ne olur?,Aşırı kıllanmaya ek olarak Cushing sendromu olan kadınlarda adet düzensizliği de ortaya çıkabilir. Bazı Cushing sendromu olan kadın vakalarda menstrüasyon düzensizliği görülebilir. Doğru şekilde müdahale edilmemiş olgularda infertilite problemi çıkabileceği için dikkatli olunmalıdır.,,,,
+sona-9.0-20261114T224303Z-006,91,18ee7d26af33ab247554c3c1,df6c6857bc46b6b6be5818f64db6f53d,sona-9.0,tr,science,aya-dataset,human_authored,[user] B12 Vitamini Nedir?  Eksikliğinde Neler Olabilir?,"Kobalamin olarak da bilinen B12 vitamini, süt ürünleri, balık, et gibi ürünlerde yer alan, kırmızı kan hücresi oluşumunda, beyin ve sinir fonksiyonlarında ve DNA üretiminde önemli bir role sahip olan vücut tarafından üretilemeyen suda çözünen bir vitamindir. B12 tüketilen gıdalardan proteine bağlanarak mide içerisinde enzimler ve hidroklorik asit tarafından serbest forma dönüştürülür.
+B12 eksikliğinde yeterli kırmızı kan hücresi üretilemeyeceği için vücut yeterince oksijen alamaz. B12 vitamini eksikliğinin en net belirtisi anemi olup, aneminin neden olduğu nefes darlığı ve kalp çarpıntısı, kaslarda zayıflama, yorgunluk, uzuvlarda uyuşma, cildin solgunlaşması, kilo kaybı belirtileri de görülebilir.
+B12 vitamini eksikliğinden kaynaklı belirtiler şunlardır:
+- Kansızlık (anemi)
+- Yorgunluk ve enerji düşüklüğü
+- Nefes darlığı
+- Kalp çarpıntısı
+- El, kol ve bacaklarda karıncalanma ve uyuşma
+- Unutkanlık gibi hafıza sorunları
+- Cilt renginin solması ve üşüme
+- Depresyon, sinir ve anksiyete gibi ruh hali değişikliği
+- Odaklanma ve konsantre olmada güçlük
+- Saç dökülmesi
+- Kas zayıflaması
+- İshal, kabızlık, mide bulantısı gibi gastrointestinal sorunlar
+- Ağız yaraları vb. sorunlara neden olur. B12 eksikliğinde tedavi, güçlü B12 hapları ya da B12 vitamin iğnesi ile yapılır.",,,,
+sona-9.0-20261114T224303Z-006,92,8654fab5e0b73e4ad279e734,620fcd16b50d7e2a810e2d1fa489d2c4,sona-9.0,tr,writing,aya-dataset,human_authored,[user] Bu paragrafın devamını yazın: Bulls takımı 2002-03 sezonuna fazla iyimser girerek başladı. 2002 NBA Seçmeleri,"'nde geçen sezonki başarısızlıklarının ödülü olarak 2. sıradan Jay Williams'ı draft ettiler. Takım Bill Cartwright'ın koçluğunda genç ve ellerinde bulundurdukları potansiyelli kadroyla Jalen Rose, Crawford, Fizer yeni gelen Donyell Marshall, Curry, Chandler ve gard Trenton Hassell ile 30-52 galibiyet yüzdesiyle önceki sezonlara göre başarılı bir sezon geçirdiler. Sezon sonunda takımı üstüne kurmayı planladıkları Jay Williams en iyi ikinci çaylak beşine seçildi.",,,,
+sona-9.0-20261114T224303Z-006,93,aae608be74e51b7fd374c3fa,e1ee86d04209c36e9b04c0e54af043fc,sona-9.0,ur,coding,aya-dataset,human_authored,[user] ممالیہ / mammals پر مضمون لکھیں,"ممالیہ یا پستانیہ (انگریزی: mammals) ایسے جانداروں کو کہا جاتا ہے کہ جو فقاریہ ہوتے ہیں اور ان کے مادہ شریک میں پستان پائے جاتے ہیں جس سے وہ اپنے بچوں کو دودھ پلاتے ہیں نیز ان میں اور پرندوں اور رینگنے والے جانوروں میں بالوں اور چار خانوں والے دل اور کان کی درمیانی ہڈی کا بھی فرق ہوتا ہے اس گروہ سے تعلق رکھنے والے جاندار کے دماغ کا ایک خاص حصہ ہوتا ہے جو جسم کے درجہ حرارت کو قابو رکھتا ہے۔ اسی پستان کے رکھنے کی خصوصیت کی وجہ سے ان کو پستانیہ بھی کہا جاتا ہے جبکہ اس کی جمع پستانیے کی جاتی ہے۔ انگریزی میں mammalia کے لیے مناسب اردو متبادل، پستانیان آتا ہے۔
+
+ان میں زیادہ تر حیوانات سبزی خور Herbivorus ہوتےہیں،کچھ گوشت خور Carnivores اورکچھ ہمہ خور Omnivores ہوتےہیں۔ یہ گرم خون کے حیوانHomoethermic ہیں۔
+
+حوالہ جات
+^ ا ب پ مکمل کام یہاں دستیاب ہے: http://www.mapress.com/zootaxa/2011/f/zt03148p060.pdf — عنوان : Class Mammalia Linnaeus, 1758 — صفحہ: 56–60
+^ ا ب پ مکمل کام یہاں دستیاب ہے: http://www.mapress.com/zootaxa/2011/f/zt03148p060.pdf — اخذ شدہ بتاریخ: 18 ستمبر 2015 — عنوان : Mammal Species of the World — اشاعت سوم — ISBN [CARD]
+^ ا ب BHL page ID: https://biodiversitylibrary.org/page/726901 — مصنف: لنی اس — عنوان : Systema Naturae — جلد: 1 — صفحہ: 12 — شائع شدہ از: 1758
+   ویکی ڈیٹا پر (P830) کی خاصیت میں تبدیلی کریں""معرف Mammalia دائراۃ المعارف لائف سے ماخوذ"". eol.org. اخذ شدہ بتاریخ 13 اکتوبر 2023ء.",,,,
+sona-9.0-20261114T224303Z-006,94,777487b7896d163f523e98ab,f6e74fb6e30ea509312d844d26ee7fa3,sona-9.0,ur,general_knowledge,wikipedia-ur,templated_human,[user] چشمک زنی کے بارے میں ایک مختصر تعارف لکھیں۔,"چشمک زنی یا آنکھ مچکانا چہرہ سے کسی بات کے اظہار کرنے کا ایک مقبول طریقہ ہے جو ایک لمحہ کے لیے دائیں یا بائیں آنکھ کو بند کرکے انجام دیا جاتا ہے۔ ابلاغ کی اس شکل میں عام طور سے پوشیدہ معلومات اور اشارے شامل ہوتے ہیں، کبھی کبھی اس میں جنسی ترغیب کا پہلو بھی موجود ہوتا ہے۔
+
+آنکھ مچکانے کا عمل عموماً دو شخصوں کے درمیان کسی پیغام کے تبادلہ کے لیے کیا جاتا ہے اس طور پر کہ تیسرا شخص اسے نہ سمجھ سکے۔ مثال کے طور پر زید نے عمرو کے تعلق سے کوئی جھوٹی بات کہی، پھر وہ کسی تیسرے شخص کو آنکھ مچا کر اصل معاملہ کی وضاحت کر دیتا ہے، بسا اوقات تیسرا شخص بھی عمرو کے خلاف اس معاملہ میں شریک ہوتا ہے۔ کبھی کبھی آنکھ مچکانے کا عمل اس وقت بھی کیا جاتا ہے جب کسی شخص کو یہ بتانا مقصود ہو کہ فی الحال جاری گفتگو ایک مذاق ہے تاکہ وہ اس بات کو سنجیدگی سے نہ لے۔
+
+کبھی کبھی یہ عمل دوستی، حوصلہ افزائی اور اعتماد جیسی لطیف تعبیرات کے اظہار کے لیے ہوتا ہے، خاص طور سے جب آنکھ مچکانے والا شخص یہ چاہتا ہو کہ کسی خاص موقف میں اطمینان اور اتفاق کا اظہار کرے تو چشمک زنی سے اس کا اظہار کر دیتا ہے۔
+
+نیز آنکھ مچکانے کا عمل بعض ثقافتوں میں جنسی دعوت یا عشق و معاشقہ کے اظہار کے لیے بھی کیا جاتا ہے، عام طور سے معاشقہ کی چشمک زنی میں اگر رضا مندی ہو تو ہلکی سی مسکراہٹ بھی شامل ہوتی ہے۔",,,,
+sona-9.0-20261114T224303Z-006,95,faaae8f1f3d40fb9d15c7313,a3321ae1c3d40065810e9e317508e5e0,sona-9.0,ur,islamic_studies,wikipedia-ur,templated_human,[user] علی بن زیاد کے بارے میں ایک مختصر تعارف لکھیں۔,"ابو الحسن علی بن زیاد طرابلسی تیونسی، مالکی مذہب کے فقیہ اور مفتی تھے۔ وفات سنہ 183 ہجری میں ہوئی۔
+
+مالک بن انس (ان سے موطا روایت کی ہے)، اسی طرح سفیان ثوری، لیث بن سعد اور دیگر محدثین و فقہا سے استفادہ کیا۔
+
+بہلول بن راشد، سحنون بن سعید، اسد بن فرات اور دوسرے کبار علما نے آپ سے کسب فیض کیا۔
+
+ابو سعید بن یونس فرماتے ہیں: علی بن زیاد پہلے شخص ہیں جنھوں نے موطا امام مالک اور جامع سفیان ثوری کو مغرب میں سب سے پہلے داخل کیا اور وہاں امام مالک کے اقوال کی تشریح کی، اس سے پہلے اہل مغرب نا واقف تھے، طلب علم کے خاطر حجاز اور عراق کا بھی سفر کیا اور سحنون فقیہ کے استاذ ہیں۔
+
+سحنون فرماتے ہیں: بہلول بن راشد، علی بن زیاد کی خدمت میں آتے تھے، ان سے سماعت کرتے، وہ علم و معرفت کے ان پر موتی لٹاتے تھے، اہل تیونس سے خط کتابت کرتے تھے اور وہ دینی معاملات میں ان سے فتویٰ طلب کرتے تھے، اسی طرح قیروان کے اہل علم میں اگر کسی مسئلہ کے تعلق سے اختلاف ہو جاتا تو وہ علی بن زیاد کی خدمت میں سوال پیش کرتے تاکہ وہ ان کی درست رہنمائی کریں۔
+
+شیخ شاذلی نفیر فرماتے ہیں: علی بن زیاد تیونس کے مدرسہ کے حقیقی بانی تھے جو آج تک پوری آب و تاب کے ساتھ جاری ہیں، جو دور دراز تک پھیلے ہوئے ہیں، گرچہ اس سے پہلے ابن ابی عمران مدرسہ قائم کر چکے تھے۔ لیکن حقیقی نگاہ سے اگر دیکھا جائے تو علی بن زیاد کے مدرسہ نے اس علاقے میں مالکی مسلک پر خوب توجہ دی اور خالد بن عمران نے صرف مدرسہ پر توجہ دی، چنانچہ وہاں سب سے زیادہ دو لوگوں نے موثر کام کیا ہے ایک اندلسی اور دوسرے تیونسی۔",,,,
+sona-9.0-20261114T224303Z-006,96,efb9d72853d3369353cb5338,9223334edbeb47e24aafa744bcc33e5b,sona-9.0,ur,mathematics,aya-dataset,human_authored,[user] نوری سال سے کیا مراد ہے، اس میں کتنا فاصلہ طے ہوتا ہے؟,"ایک نوری سال وہ فاصلہ ہے جو روشنی ایک سال میں طے کرتی ہے۔ اسے انگریزی میں light-year کہا جاتا ہے جس کے مخفف ly کو اس کی علامت کے طور پر استعمال کیا جاتا ہے۔ مختلف پیمائشی نظاموں کی اکائیوں میں یہ فاصلہ ذیل میں ہے:
+
+15­10 × 9.[CARD]میٹر (قریبا 9.461 پیٹا میٹر)
+12­10 × 5.878625373183 + 1397­/­849 (قریبا 60 کھرب) میل
+63241.077 فلکیاتی اکائیات
+اس فاصلے کی مزید واضح تعریف اس طرح ہے: وہ فاصلہ جو ایک نوریہ (فوٹان photon) آزاد خلا میں کسی بھی ثقلی یا مقناطیسی میدان سے لامتناہی فاصلہ پرایک جولیئن (86400 دقیقوں کے 365.25 دن) میں طے کرے۔ نوری سال کو اکثر ستاروں سے زمین کے فاصلے کی پیمائش کے لیے استعمال کیا جاتا ہے: یعنی نوری سال وقت کی اکائی نہیں ہے۔ فلکیات میں فاصلوں کی پیمائش کے لیے پارسیک (parsec) کی اکائی استعمال ہوتی ہے۔ ایک پارسیک تقریبا 3.26 نوری سال کے برابر ہے۔ علمی مقاصد کے لیے پارسیک کو زیادہ ترجیح دی جاتی ہے کیونکہ مشاہداتی مواد (data) سے باہمی تقابل کی مدد سے اس کو آسانی سے اخذ کیا جا سکتا ہے۔ تاہم علمی حلقوں سے باہر عام لوگ نوری سال کو زیادہ استعمال کرتے ہیں۔ نوری سال سے منسوب دوسری اکائیاں نوری ثانیہ اور نوری دقیقہ ہیں جو وہ فاصلہ ہے جو روشنی خلا میں بالترتیب ایک ثانیہ (منٹ) اور ایک دقیقہ (سیکنڈ) میں طے کرتی ہے۔ ایک نوری ثانیہ 17,987,547,480 میٹر کے برابر ہے۔ چونکہ روشنی ایک دقیقہ میں 299,792,458 میٹر طے کرتی ہے اس لیے ایک نوری دقیقہ میں 299,792,458 میٹر ہیں۔",,,,
+sona-9.0-20261114T224303Z-006,97,c3fc75b96cf93433f2a6e513,2c86dc019465674c05943e3a9c6ec7dc,sona-9.0,ur,pakistan,wikipedia-ur,templated_human,[user] سری لنکا میں ہندومت کے بارے میں ایک مختصر تعارف لکھیں۔,"ہندو مت سری لنکا میں قدیم دور سے ہے۔ اس وقت کل آبادی کا 12.60% سری لنکی ہندو ہیں اور تقریباً سب ہی تامل ہیں جو بھارت سے منتقل ہوئے ہیں اس کے علاوہ پاکستان سے سندھی سندھی، تیلگو اور ملیالی۔ 1915ء کی مردم شماری کے مطابق 25٪ آبادی ہندو تھی، اس میں وہ آبادی بھی شامل تھی جو برطانیہ مزدوروں کی صورت یہاں لایا (آزادی کے بعد سے 1 ملین سے زیادہ سری لنکا تاملوں نے ملک چھوڑ دیا ہے)، آج بھی وہ ایک چھوٹی سی اقلیت ہیں۔ ہندو مت شمال مشرقی اکثریت کا مذہب ہے، جہاں تامل لوگوں کی ایک بڑی تعداد ہے۔ مرکزی علاقوں میں بھی ہندومت پر عمل کیا جاتا ہے (جہاں بھارتی تاملوں کی ایک بڑی تعداد آباد ہے) ساتھ ساتھ دار الحکومت کولمبو میں بھی۔ حکومت کی 2012ء کی مردم شماری کے مطابق، سری لنکا میں 2،554،606 ہندو ہیں۔ سری لنکا خانہ جنگی کے دوران میں، بہت سے تامل دوسرے ممالک میں بھاگ گئے۔
+
+1981ء کی مردم شماری کے مطابق، سری لنکا میں 2,297,800 ہندو تھے۔ جب کہ 2012ء کی مردم شماری کے مطابتق سری لنکا میں ہندو آبادی کی تعداد 2,554,606 ہے۔ یہ تعداد 12.6% اس تعداد سے سے کم تھی جو 1981ء کے وقت تھی، اس وقت 15.48% جو شاید نقل مکانی کی وجہ سے 12.6% رہ گئی۔ یہ یاد رکھنا چاہیے کہ 2004ء میں سونامی کے دوران میں تامل ٹائیگرز کے زیر اختیار علاقوں میں 20،000 افراد ہلاک ہو گئے تھے۔ 1981ء کی مردم شماری کے مطابق تاملوں میں سے 85٪ کا مذہب ہندو ہے۔",,,,
+sona-9.0-20261114T224303Z-006,98,f79a007f6ee061d358818e90,f18230dbfa1625a25f71bc40b15129fc,sona-9.0,vi,coding,oasst2,human_authored,[user] Viết dòng code Python để tương tác với API của Google,"Để viết dòng code Python để tương tác với API của Google, bạn cần cài đặt thư viện khách hàng của Google cho Python và sử dụng mô-đun discovery để khám phá các API có sẵn. Bạn cũng có thể sử dụng các công cụ Python khác để xây dựng và gọi các API REST. Bạn muốn tương tác với API nào của Google?",,,,
+sona-9.0-20261114T224303Z-006,99,3a4f9e61ffc8f0b5b1cdee8d,5c2f2e3f726a4284dd20d0132e5218a7,sona-9.0,vi,general_knowledge,aya-dataset,human_authored,[user] Nêu ra vài nguyên nhân gây ra post-concert depression,"Theo chuyên gia tâm lý Debra Rose Wilson, post-concert depression có thể được lý giải bằng thuyết điểm đặt (set-point theory). Cụ thể, cảm giác “high” chỉ tăng lên tạm thời trong giai đoạn trước và trong concert. Do đó, cảm giác u sầu hậu concert thực ra là một cơ chế cân bằng tự nhiên để đưa cảm xúc con người trở về mức ban đầu.
+
+Một nghiên cứu năm 2021 của Viện Hàn lâm Khoa học Quốc gia Hoa Kỳ (NAS) cũng cho thấy, âm nhạc tác động mạnh lên hệ thống phần thưởng (reward pathway) của não. Vì vậy khi đi “đu” concert, lượng dopamine và endorphin được sản sinh lớn hơn nhiều so với mức bình thường. Và khi concert kết thúc, những hormone này sụt giảm thì bạn cũng sẽ thấy “down” theo.
+
+Bên cạnh đó, trạng thái thoát ly thực tại (escapism) cũng trở thành cơ sở để não đặt trải nghiệm concert và cuộc sống đời thường lên bàn cân. Khi đi “đu” idol, bạn có thể tạm quên đi những vấn đề đang tồn đọng trong cuộc sống. Nhưng khi concert kết thúc, bạn phải vật lộn để vừa vượt qua nỗi buồn hậu concert, vừa xử lý những vấn đề tồn đọng trên.
+
+Ngoài ra, concert là trải nghiệm được chia sẻ giữa nhiều người cùng có mặt trong khán đài. Vì vậy, nhiều khi sự hụt hẫng, trống vắng xảy ra đơn thuần do bạn nhớ cảm giác được kết nối với thần tượng, được “phiêu” trong âm nhạc cùng hàng nghìn fan khác.",,,,
+sona-9.0-20261114T224303Z-006,100,739d7a5555a696ad98236997,23144d54034a0306a7054e4a2aa7f304,sona-9.0,vi,islamic_studies,aya-dataset,human_authored,"[user] Hãy tiếp tục đoạn văn sau: Hãy viết tiếp nội dung cho đoạn văn sau: Ở trận tranh Siêu cúp Anh đêm qua, dù rất cố gắng nhưng Man City lại không thể tận dụng được những cơ hội tạo ra nên để thua Liverpool 1-3. 3 cầu thủ ghi bàn cho The Reds là Alexander-Arnold, Mohamed Salah và tân binh Darwin Nunez. Bên kia chiến tuyến, tân binh Alvarez là người ghi bàn duy nhất cho đội ĐKVĐ Ngoại hạng Anh. Với cá nhân Salah, đây thực sự là trận đấu đáng nhớ. Ngoài bàn thắng trên chấm penalty, Salah chính là người kiến tạo giúp Alexander-Arnold mở tỉ số. Tổng cộng, tuyển thủ Ai Cập đã tham gia vào 13 bàn thắng cho Liverpool ở các cuộc đụng độ Man City (ghi 8 bàn và 5 kiến tạo). Thống kê chỉ ra, Man City là đối thủ Salah ghi bàn và kiến tạo nhiều nhất. Ấn tượng hơn, Salah còn lọt top nhóm các cầu thủ giành được tất cả những danh hiệu có thể cùng Liverpool. Cụ thể, Salah đã vô địch cúp Liên đoàn, FA Cup, Premier League,","FIFA Club World Cup, Champions League, Siêu cúp châu Âu và mới nhất là Siêu cúp Anh. Ngoài cựu tiền đạo Roma và Chelsea, 8 cầu thủ khác cũng đã đoạt mọi danh hiệu có thể với Liverpool là Matip, Alexander-Arnold, Robertson, Chamberlain, Van Dijk, Fabinho, Keita và Alisson. Những cái tên như Jordan Henderson, James Milner, Roberto Firmino và Joe Gomez không xuất hiện trong danh sách vì họ là một phần của đội đã thua Sevilla trong trận chung kết Europa League năm 2016, có nghĩa là họ đã không giành được mọi danh hiệu có thể với câu lạc bộ. Ngoài những danh hiệu tập thể, Salah còn đoạt gần như mọi giải thưởng cá nhân tại Anh. Tuyển thủ Ai Cập đã giành giải Vua phá lưới, Cầu thủ xuất sắc nhất năm của Hiệp hội Cầu thủ chuyên nghiệp Anh, Cầu thủ xuất sắc nhất năm của Hiệp hội nhà báo Anh, Bàn thắng đẹp nhất và Cầu thủ kiến tạo xuất sắc nhất Premier League…",,,,

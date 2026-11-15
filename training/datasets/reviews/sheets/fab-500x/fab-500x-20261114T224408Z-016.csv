@@ -1,0 +1,1075 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-016,1,ef22a30614df9fe4bd8366d5,6f4cc2f0bc4ced303e35b09037b2c5b7,fab-500x,el,general_knowledge,aya-dataset,human_authored,"[user] Μπορείτε να το κατεβάσετε δωρεάν από την ιστοσελίδα της Mozilla. Ο σύνδεσμος λήψης θα ανιχνεύσει αυτόματα το λειτουργικό σας σύστημα και τη γλώσσα. Εάν θέλετε να κατεβάσετε μια διαφορετική γλώσσα ή για διαφορετικό σύστημα, κάντε κλικ στον σύνδεσμο Συστήματα & Γλώσσες κάτω από το κουμπί Κατεβάστε. Μόλις ολοκληρωθεί η λήψη, το αρχείο DMG θα ανοίξει αυτόματα. Αν όχι, κάντε κλικ στο αρχείο που κατεβάσατε στην επιφάνεια εργασίας σας. Σέρνετε το αρχείο Firefox.app στον φάκελο εφαρμογών σας. Κρατήστε πατημένο το πλήκτρο ελέγχου και κάντε κλικ στο παράθυρο του Firefox. Επιλέξτε Eject <unk>Firefox<unk>. Για να προσθέσετε το Firefox στην γραμμή εργαλείων για γρήγορη πρόσβαση, κάντε κλικ και σύρετε το εικονίδιο από τον φάκελο Εφαρμογών σας στην γραμμή. Θα σας ειδοποιήσει ότι το πρόγραμμα έχει κατέβει. Επιβεβαιώστε ότι θέλετε να το ανοίξετε. Ο Firefox θα σας ρωτήσει αν θέλετε να το ορίσετε ως προεπιλεγμένο πρόγραμμα περιήγησης. Αφού κάνετε την επιλογή σας, το πρόγραμμα περιήγησης θα ξεκινήσει. Ποια είναι η περίληψη του περιεχομένου αυτού του άρθρου;",Κατεβάστε το Firefox. Άνοιξε το αρχείο DMG. Εγκαταστήστε την εφαρμογή. Βάλε το Firefox στην γραμμή εργαλείων. Ξεκινήστε το Firefox.,,,,
+fab-500x-20261114T224408Z-016,2,d76f72a79ecda3de6e87a5c8,3cfdb682d1a380c6908706c761aab2e8,fab-500x,el,mathematics,aya-dataset,human_authored,[user] Ολοκλήρωσε το κείμενο:  Στον,"Ελληνοϊταλικό Πόλεμο σκοτώθηκε ο Τριλοφίτης Κωνσταντίνος Σαρκατζής. Οι Γερμανοί κατέλαβαν την περιοχή της Βέροιας και φυσικά τη Νέα Κούκλενα, όπως μετονομάστηκε το χωριό (1-11-1926 ,Φ.Ε.Κ. 401/1926), τον Απρίλιο του 1941 και παρέμειναν μέχρι τον Οκτώβριο του 1944.",,,,
+fab-500x-20261114T224408Z-016,3,25f9286f7c1f4e76607ff48e,69755003b7ab527b60f894d695f3e3af,fab-500x,el,writing,aya-dataset,human_authored,"[user] Write a continuation for this paragraph - Αρχικά, μετά το θάνατο του βασιλιά, ο σωματοφύλακας της βασίλισσας την ακολούθησε και έκανε μαζί της μυστικό γάμο, εφόσον σύμφωνα με κοινοβουλευτική διάταξη (1428), η χήρα βασίλισσα απαγορεύεται να ξαναπαντρευτεί εάν δεν πάρει την έγκριση του νέου βασιλιά. Συμμετείχε ενεργά στον πόλεμο των ρόδων","(1455 - 1487) ανάμεσα στον Οίκο του Λάνκαστερ και τον Οίκο της Υόρκης. Στη μάχη του Μόρτιμερ Κρος, ήταν επικεφαλής των δυνάμεων του Λάνκαστερ, όπου στις 2 Φεβρουαρίου 1461 ηττήθηκαν συντριπτικά. Ο ίδιος συνελήφθη με πολλούς αιχμαλώτους και θανατώθηκε με αποκεφαλισμό.",,,,
+fab-500x-20261114T224408Z-016,4,f9d681697425ea931377eded,d9e5ebe12cbf847e8cefafb4f946fe9b,fab-500x,en,coding,opencodeinstruct,synthetic,"[user] You are given an array of integers `nums` and an integer `target`. Your task is to determine if there exists a contiguous subarray within `nums` whose sum equals `target`. Return `True` if such a subarray exists, otherwise return `False`.
+
+**Constraints:**
+- `1 <= len(nums) <= 10^5`
+- `-10^4 <= nums[i] <= 10^4`
+- `-10^9 <= target <= 10^9`
+
+**Sample Input:**
+```
+nums = [2, 5, 3, 6, 7, 8]
+target = 11
+```
+
+**Sample Output:**
+```
+True
+```","```python
+def has_contiguous_subarray_with_sum(nums, target):
+    """"""
+    Determines if there exists a contiguous subarray within nums whose sum equals target.
+    
+    :param nums: List[int] - The list of integers.
+    :param target: int - The target sum to find in a contiguous subarray.
+    :return: bool - True if such a subarray exists, otherwise False.
+    """"""
+    cumulative_sum_map = {0: -1}
+    cumulative_sum = 0
+
+    for i, num in enumerate(nums):
+        cumulative_sum += num
+        
+        if (cumulative_sum - target) in cumulative_sum_map:
+            return True
+        
+        if cumulative_sum not in cumulative_sum_map:
+            cumulative_sum_map[cumulative_sum] = i
+
+    return False
+
+# Test the function with the given example
+nums = [2, 5, 3, 6, 7, 8]
+target = 11
+print(has_contiguous_subarray_with_sum(nums, target))  # Output: True
+```",,,,
+fab-500x-20261114T224408Z-016,5,53b9aac4e6c71ca18c3da821,64f73e43b250461b0dde0692c9f4c5fd,fab-500x,en,cybersecurity,trendyol-cybersec,synthetic,"[user] How does the rise of edge computing shift the defensive priorities against Command and Control (C2) Frameworks, and which control frameworks best map to these priorities?","Edge computing fundamentally alters the attack surface for Command and Control (C2) frameworks by decentralizing data processing and decision-making closer to end devices. This architectural shift necessitates a reevaluation of defensive priorities, as traditional perimeter-based security models become insufficient against distributed C2 operations that exploit edge nodes' limited computational resources and connectivity constraints.\\n\\nThe primary defensive priority becomes securing the edge node itself, which often lacks robust security controls found in centralized infrastructure. According to NIST SP 800-144, organizations must implement comprehensive endpoint protection strategies, including secure boot processes, runtime application self-protection (RASP), and continuous monitoring of device integrity. Edge devices' constrained resources demand lightweight yet effective security solutions that can detect anomalous network communications indicative of C2 activity.\\n\\nNetwork segmentation becomes critical in edge environments to contain potential C2 compromises. NIST CSF's Protect function emphasizes implementing network access controls and microsegmentation strategies that limit lateral movement opportunities for adversaries establishing C2 channels. This aligns with MITRE ATT&CK technique T1071 (Application Layer Protocol), where attackers leverage legitimate protocols for command execution.\\n\\nThe NIST Cybersecurity Framework provides a comprehensive mapping for edge security priorities, particularly emphasizing the Detect and Respond functions. Continuous monitoring of network traffic patterns, implementation of behavioral analytics, and automated response capabilities are essential for identifying C2 communications that may bypass traditional signature-based detection systems.. regarding specific industry standards addressing edge-specific C2 defense mechanisms beyond NIST CSF and MITRE ATT&CK frameworks.",,,,
+fab-500x-20261114T224408Z-016,6,940a64db5db18023c4287865,e1686ce63164e544861a0b5523f4d390,fab-500x,en,education,oasst1,human_authored,"[user] Who are you?
+
+[assistant] I am an AI-powered language model developed by LAION, designed to answer questions and help users with a wide range of tasks. One of the goals is to run me on consumer-grade hardware. How can I assist you today?
+
+[user] I am new to this AI thing. Can you tell me what kind of tasks you can do?","No worries! Using Open Assistant is easy to learn. My goal is to generate natural language that replicates human-written language as much as possible. As such, I am great at any task which involves generating text from a prompt in natural language you give me. Examples include:
+- Answering questions: You can ask me anything and I will try to provide a relevant answer.
+- Generating text: I can write short stories, poems, lyrics, articles, recipes, summaries, instructions, or generate text based on a prompt you provide.
+- Translation: I can translate text from one language to another.
+- Chatting: I can have conversations on various topics, such as answering questions, making small talk, or even playing games.
+- Summarization: I can summarize a long document or text into a shorter version.
+- Programming: I can assist you with programming, especially writing code from a prompt in natural language you prompt me with.
+
+Generally speaking, if it just involves short sections of text, I can assist you.",,,,
+fab-500x-20261114T224408Z-016,7,2a62a7d4109a148c301b2e8b,5b6083c523d1c90daf9a053e115d1888,fab-500x,en,general_knowledge,dolly-15k,human_authored,[user] What are the Current assets in finance?,"These are short−term assets which are constantly changing in value, such as stocks, debtors and bank balances.",,,,
+fab-500x-20261114T224408Z-016,8,3d7ba2be2bf0f70cf74cda35,5d287ab1935c421e6f27208af67076f5,fab-500x,en,islamic_studies,oasst2,human_authored,"[user] Explain the influence of Al Andalus on European science, with particular reference to the fact that ancient Greek texts where re-introduced to Europe via Al Andalus","Al-Andalus, the medieval Islamic state in the Iberian Peninsula, played a significant role in preserving and transmitting ancient Greek texts to Europe. During the Islamic Golden Age, scholars in Al-Andalus translated and studied works by ancient Greek philosophers and scientists such as Aristotle, Euclid, and Ptolemy, which had been lost or forgotten in Europe.
+
+These translations, along with original works by Muslim scholars, were reintroduced to Europe via Al-Andalus and played a key role in the development of European science and philosophy during the Renaissance. European scholars such as Thomas Aquinas and Roger Bacon were greatly influenced by the ideas and knowledge transmitted through these texts.
+
+Al-Andalus also contributed to the advancement of various fields of science, including astronomy, medicine, and mathematics. Muslim scholars made significant contributions to the development of algebra and trigonometry, which were later introduced to Europe through their works.
+
+Overall, the influence of Al-Andalus on European science was significant, as it helped preserve and transmit ancient knowledge that would have been lost to history without their efforts.",,,,
+fab-500x-20261114T224408Z-016,9,98f021692a15d4ce8524e93f,a3e43e4d21cda04c4c7173046e6a9cf6,fab-500x,en,mathematics,aqua-rat,human_authored,"[user] The speed of a car is 100 km in the first hour and 80 km in the second hour. What is the average speed of the car?
+
+A)50 kmph
+B)65 kmph
+C)90 kmph
+D)85 kmph
+E)90 kmph","Explanation:
+S = (100 + 80)/2 = 90 kmph
+C)
+
+Answer: C",,,,
+fab-500x-20261114T224408Z-016,10,bcfb93fa96d74a664ee2e24c,c5b185e82dbf341d675e6121b219bc51,fab-500x,en,pakistan,approx-seed-v0.1,synthetic,[user] When did Pakistan gain independence?,"Pakistan became independent on 14 August 1947, when British rule over the subcontinent ended and the Dominion of Pakistan was created. Muhammad Ali Jinnah became its first Governor-General.",,,,
+fab-500x-20261114T224408Z-016,11,77c34aebc50dea821a70e255,18ff2f8ce54da30402de2290fbb74450,fab-500x,en,problem_solving,oasst1,human_authored,"[user] How do I fix a broken relationship?
+
+[assistant] Fixing a broken relationship takes effort and commitment from both partners. Here are some steps that might help:
+
+- Communication: Open and honest communication is key to fixing any relationship. Listen to each other's perspectives, express your own feelings, and try to understand each other's needs and concerns.
+
+- Identify the issue: Understanding what went wrong in the relationship is crucial to fixing it. Be honest with yourself and each other about what needs to change.
+
+- Compromise: Relationships are about give and take, and finding a balance that works for both of you. Be willing to make compromises and find solutions that meet both of your needs.
+
+- Seek support: Consider seeking outside help, such as therapy or couples counseling, to work through the issues in your relationship. A neutral third party can help you navigate the challenges you're facing.
+
+- Practice forgiveness: Holding onto grudges and resentment can be toxic to a relationship. Work on forgiving each other and moving forward.
+
+Remember, fixing a broken relationship takes time and patience, but it can be done with the right approach and attitude.
+
+[user] Thank you for the valuable information and advice. I will definitely consider these steps as I work towards fixing my relationship. Communication, identifying the issue, compromise, seeking support, and practicing forgiveness are all important aspects to focus on. I appreciate your help and guidance.","You're welcome! I'm glad I could help. Remember, it's important to take things one step at a time, and to not be too hard on yourselves. Relationships require effort from both partners and the most important thing is to remain committed to working through challenges together. If you ever need professional guidance, please reach out to an expert like a therapist for help.",,,,
+fab-500x-20261114T224408Z-016,12,d4fbd8702d91147b50224656,0784a5c832e5d34c99f5a6055c9c1adb,fab-500x,en,reasoning,commonsense-qa,human_authored,"[user] What is a heat source that can be obtained for free?
+
+A. bedroom
+B. fire
+C. car
+D. solar energy
+E. gasoline",The answer is D. solar energy.,,,,
+fab-500x-20261114T224408Z-016,13,10e412c83703e61fc546a39c,caf4f882e1f0d6e4d67fb5a5a2ccf853,fab-500x,en,research,oasst1,human_authored,"[user] Tell me some problems with copyright law, include how disney has kept copyright over work that should have expired and how it is outdated with the rise of the internet.
+
+[assistant] One of the main problems with copyright law is that it can be overly restrictive, stifling creativity and preventing individuals from freely expressing themselves. Additionally, it can be difficult for creators to navigate the complex legal landscape surrounding copyright, leading to confusion and potentially costly legal battles.
+
+In the case of Disney, the company has been accused of using copyright law to their advantage, keeping certain works under their control well beyond the point where they should have entered the public domain. This has prevented other artists and creators from building upon or adapting these works, which could have led to new and interesting forms of art.
+
+Furthermore, with the rise of the internet, copyright law has become increasingly outdated and difficult to enforce. It can be difficult to track down individuals who are infringing on copyrighted works online, and the sheer volume of content available makes it nearly impossible to monitor everything.
+
+There are also concerns about the way in which copyright law is being used to censor content online, as platforms like YouTube and social media sites may err on the side of caution and remove potentially infringing content rather than risk facing legal repercussions.
+
+Overall, while copyright law is important for protecting the rights of creators, there are many valid concerns about how it is currently being implemented and enforced.
+
+[user] What would you say is the best direction for future possible modification of copyright law?","The best direction for future modifications of copyright law should aim to balance the rights and interests of creators, users, and the public. Some possible directions for improvement include:
+
+1. Shortening copyright terms: Reducing the duration of copyright protection can help strike a balance between providing creators with incentives to create new works and allowing the public to access, share, and build upon those works more freely. This could encourage creativity and prevent companies from maintaining control over works for excessive periods.
+
+2. Simplifying the law: Making copyright law more straightforward and easier to understand for creators and users can help reduce confusion and accidental infringement. Simplifying the law can also reduce the barriers to entry for independent creators who may not have the resources to navigate complex legal systems.
+
+3. Adopting fair use provisions more broadly: Expanding and clarifying fair use provisions can allow for greater flexibility and encourage creativity. Fair use allows individuals to use copyrighted works for purposes such as criticism, commentary, news reporting, teaching, and research, without the need for permission from the copyright holder.
+
+4. Encouraging open licensing and Creative Commons: Promoting the use of open licenses, such as Creative Commons, can provide creators with more control over how their works are used and shared while still allowing for collaboration and adaptation. This approach can also help reduce the risk of copyright infringement and foster a more open culture of sharing and creativity.
+
+5. Strengthening enforcement against commercial piracy: Focusing on commercial piracy and large-scale copyright infringement, rather than targeting individual users, can help protect creators' rights without unduly burdening casual users or stifling creativity.
+
+6. Adapting to new technologies: Copyright law should be updated to account for new technologies and platforms, such as streaming services and social media, to ensure that it remains relevant and effective in the digital age.
+
+7. Promoting international cooperation: Working with other countries to harmonize and enforce copyright laws more effectively can help prevent piracy and protect creators' rights on a global scale.
+
+By focusing on these directions, future modifications to copyright law can create a more balanced and accessible system that promotes creativity, supports creators, and benefits the public.",,,,
+fab-500x-20261114T224408Z-016,14,aaf48a2f8a4dab850ddc23ee,e8438e1419d305163ff6c05e777c8cc3,fab-500x,en,safety_ethics,ethics-commonsense,templated_human,"[user] Consider this situation: ""I don't know how to defuse this bomb, so I'll clip a random wire.""
+By ordinary moral standards, is what the narrator did acceptable or wrong?",By ordinary moral standards this is not wrong; it is an acceptable thing to do.,,,,
+fab-500x-20261114T224408Z-016,15,f939702843d0ce253faef4b5,c42d677fa7121c6dcb80ed1f55903ce4,fab-500x,en,science,scienceqa-text,human_authored,"[user] What is the source of the allusion in the sentence below?
+From the look on her face, Reba is carrying an albatross around her neck.
+
+A. a poem
+B. the Bible","The answer is A: a poem.
+
+Explanation: An allusion is a brief mention of something or someone well known, often from mythology, history, or literature. An allusion lets you reference ideas from an entire story in just a few words.
+""I'd better get home before I turn into a pumpkin!"" Lila remarked.
+Here, Lila alludes to the fairy tale ""Cinderella,"" in which Cinderella must leave the ball before the coach that brought her transforms into a pumpkin. The allusion shows that Lila must depart immediately. The source of the allusion an albatross around her neck is a poem.
+In Samuel Taylor Coleridge's poem ""The Rime of the Ancient Mariner,"" a sailor shoots and kills an albatross, an action that curses the ship and crew. As his crew members die, the Ancient Mariner feels his guilt hanging like the albatross around his neck.
+The allusion an albatross around her neck means a burden a person must bear.",,,,
+fab-500x-20261114T224408Z-016,16,bba9b3619dbb2b0368843382,4143534e3e7d725f45dd60abffc47572,fab-500x,en,software_engineering,commitpackft,human_authored,"[user] Use a proper international format for Ukrainian phone numbers
+
+The third digit should always be '0'.
+
+File: faker/providers/phone_number/uk_UA/__init__.py
+```python
+# coding=utf-8
+from __future__ import unicode_literals
+from .. import Provider as PhoneNumberProvider
+
+
+class Provider(PhoneNumberProvider):
+    formats = (
+        '###-##-##',
+        '### ## ##',
+        '0## ### ## ##',
+        '0## ###-##-##',
+        '+38 ### ###-##-##',
+        '+38 ### ###-##-##',
+        '+38 (###) ###-##-##',
+        '+38 ### ### ## ##',
+    )
+```
+
+Apply this change and return the full updated file.","```python
+# coding=utf-8
+from __future__ import unicode_literals
+from .. import Provider as PhoneNumberProvider
+
+
+class Provider(PhoneNumberProvider):
+    formats = (
+        '###-##-##',
+        '### ## ##',
+        '0## ### ## ##',
+        '0## ###-##-##',
+        '+38 0## ###-##-##',
+        '+38 0## ###-##-##',
+        '+38 (0##) ###-##-##',
+        '+38 0## ### ## ##',
+    )
+```",,,,
+fab-500x-20261114T224408Z-016,17,c4b2b029c8af23bd3dff9ec9,dfd3a96712a952eba3e250b4cff54c29,fab-500x,en,web_backend,commitpackft,human_authored,"[user] Add in a way to avoid scanning for databases on remote hosts
+
+File: init.php
+```php
+<?php
+
+	require('config.php');
+
+	$dbh = new PDO($reviewhost['dsn'], $reviewhost['user'], $reviewhost['password']);
+
+	unset($query);
+
+	foreach ($explainhosts as $label => $host) {
+		$ebh = new PDO($host['dsn'], $host['user'], $host['password']);
+		$query = $ebh->prepare('SHOW DATABASES');
+		$query->execute();
+		while (list($database) = $query->fetch(PDO::FETCH_NUM))
+			$explainhosts[$label]['databases'][] = $database;
+		$query->closeCursor();
+		unset($ebh);
+	}
+
+    require('libs/sqlquery/SqlParser.php');
+```
+
+Apply this change and return the full updated file.","```php
+<?php
+
+	require('config.php');
+
+	$dbh = new PDO($reviewhost['dsn'], $reviewhost['user'], $reviewhost['password']);
+
+	unset($query);
+
+	foreach ($explainhosts as $label => $host) {
+		if (!key_exists('databases', $explainhosts[$label])) {
+			$ebh = new PDO($host['dsn'], $host['user'], $host['password']);
+			$query = $ebh->prepare('SHOW DATABASES');
+			$query->execute();
+			while (list($database) = $query->fetch(PDO::FETCH_NUM))
+				$explainhosts[$label]['databases'][] = $database;
+			$query->closeCursor();
+			unset($ebh);
+		}
+	}
+
+    require('libs/sqlquery/SqlParser.php');
+```",,,,
+fab-500x-20261114T224408Z-016,18,69c13b0e0886fbdf93ed510e,c25a6e7e92e76717623418c11fb208d0,fab-500x,en,web_frontend,commitpackft,human_authored,"[user] Add comment to explain string concatenation
+
+File: packages/react/addons.js
+```javascript
+var warning = require('./lib/warning');
+warning(
+  false,
+  'require' + ""('react/addons') is deprecated. "" +
+  'Access using require' + ""('react-addons-{addon}') instead.""
+);
+
+module.exports = require('./lib/ReactWithAddons');
+```
+
+Apply this change and return the full updated file.","```javascript
+var warning = require('./lib/warning');
+warning(
+  false,
+  // Require examples in this string must be split to prevent React's
+  // build tools from mistaking them for real requires.
+  // Otherwise the build tools will attempt to build a 'react-addons-{addon}' module.
+  'require' + ""('react/addons') is deprecated. "" +
+  'Access using require' + ""('react-addons-{addon}') instead.""
+);
+
+module.exports = require('./lib/ReactWithAddons');
+```",,,,
+fab-500x-20261114T224408Z-016,19,b55b14e2378dbcbe700b6d90,5bf8e28a9bbafa112bb3c87a342c676d,fab-500x,en,web_fullstack,opencodeinstruct,synthetic,"[user] You are tasked with implementing a function to manage user sessions in a web application. Each session has a specific expiration time. Your goal is to determine if a session is still valid based on the current time. Write a function `is_session_valid` that accepts two parameters: `session_expiration_time` and `current_time`, both of which are datetime objects. The function should return `True` if the session is still valid (i.e., `current_time` is earlier than `session_expiration_time`), and `False` otherwise.
+
+**Input:**
+- Two datetime objects: `session_expiration_time` and `current_time`.
+
+**Output:**
+- A boolean value: `True` if the session is valid, `False` otherwise.
+
+**Sample Input:**
+- `session_expiration_time = datetime(2023, 12, 31, 23, 59, 59)`
+- `current_time = datetime(2023, 10, 1, 12, 0, 0)`
+
+**Sample Output:**
+- `True`","```python
+from datetime import datetime
+
+def is_session_valid(session_expiration_time, current_time):
+    """"""
+    Determines if a user session is still valid based on the current time.
+
+    Parameters:
+    session_expiration_time (datetime): The expiration time of the session.
+    current_time (datetime): The current time.
+
+    Returns:
+    bool: True if the session is still valid, False otherwise.
+    """"""
+    return current_time < session_expiration_time
+```",,,,
+fab-500x-20261114T224408Z-016,20,7f31a3777e424accf285e54a,631bd0951723b5cf80cfaa269ff487b8,fab-500x,en,writing,dolly-15k,human_authored,[user] What do you say to someone that is suicidal?,"First, acknowledge their feelings.  While they may be irrational, they are very real emotions. Tell them that you are worried about them and ask them to seek help. If they will not seek help, take steps to alert the appropriate people.  Do not ignore any verbal signs.  Do not keep it a secret.  Ask them to contact emergency services immediately.  The National Suicide Prevention Lifeline is 1-800-273-TALK",,,,
+fab-500x-20261114T224408Z-016,21,d82020b3dad6f573a131e0f5,93264037ee91fe1d2766b61179e0d314,fab-500x,eo,general_knowledge,oasst2,human_authored,"[user] Kie estas la plej profunda parto de la oceano?
+
+[assistant] La plej profunda parto de la oceano estas la ""Marianas Trench."" Tio situas en la okcidenta Pacifika Oceano.
+
+[user] Kion signifas la ""Marianas Trench""?","""Marianas Trench"" estas la angla nomo de la **Mariana Fosego**, la plej profunda parto en la Pacifika oceano. La nomo devenas de apudaj Marianaj insuloj. 
+Ĉu tiu informo sufiĉas al vi, aŭ vi volas scii plu pri deveno de la nomo aŭ pri la Fosego mem?",,,,
+fab-500x-20261114T224408Z-016,22,4ae8144db7d80bc3dab93528,71980e72a84e1b74cfd769b92043df0f,fab-500x,es,coding,oasst1,human_authored,[user] ¿Cuáles son las diferencias entre los algoritmos de árboles de decisión y random forests en machine learning?,"Los árboles de decisión y los random forests son dos de los algoritmos de machine learning más utilizados en la actualidad, y aunque comparten algunas similitudes, también presentan algunas diferencias importantes:
+
+Naturaleza del modelo: Los árboles de decisión son un tipo de modelo de machine learning que funciona creando un árbol de decisiones basado en características y variables del conjunto de datos. Por otro lado, los random forests son un conjunto de árboles de decisión que se combinan para mejorar la precisión de las predicciones.
+
+Entrenamiento: Los árboles de decisión se entrenan para hacer predicciones con base en un conjunto de datos determinado. Los random forests, en cambio, se entrenan con múltiples subconjuntos de los datos de entrenamiento.
+
+Proceso de toma de decisiones: Los árboles de decisión hacen predicciones siguiendo un camino secuencial de decisiones a partir de la raíz del árbol hasta las hojas, mientras que los random forests hacen una predicción combinando las decisiones de múltiples árboles de decisión.
+
+Sensibilidad al sobreajuste: Los árboles de decisión pueden ser propensos al sobreajuste si se ajustan demasiado al conjunto de datos de entrenamiento. Por otro lado, los random forests son menos propensos al sobreajuste debido a la combinación de múltiples árboles de decisión.
+
+Tiempo de entrenamiento y predicción: Debido a que los random forests están compuestos por múltiples árboles de decisión, su tiempo de entrenamiento y predicción puede ser más largo que el de los árboles de decisión individuales.
+
+En general, los árboles de decisión y los random forests son algoritmos de machine learning poderosos y versátiles, pero su elección dependerá de las características específicas del conjunto de datos y el problema a resolver.",,,,
+fab-500x-20261114T224408Z-016,23,1ed573f05f013e847e9391d8,7c8780c57b6a16643ae6e7d2ff348a4f,fab-500x,es,cybersecurity,oasst2,human_authored,"[user] ¿Podrías decirme cómo podría instalar una aplicación en mi móvil Android si no tengo o no quiero utilizar Google Play?.
+
+[assistant] Sí, puedes instalar aplicaciones en tu dispositivo Android sin utilizar Google Play siguiendo estos pasos. Ten en cuenta que instalar aplicaciones desde fuentes desconocidas puede implicar riesgos de seguridad, así que asegúrate de obtener aplicaciones solo de fuentes confiables.
+
+Para instalar aplicaciones sin Google Play, necesitas instalar archivos APK (Android Package Kit), que son los paquetes de instalación de aplicaciones para Android. Aquí te explico cómo hacerlo:
+
+1. **Habilitar la instalación de aplicaciones desde fuentes desconocidas**: Antes de instalar aplicaciones desde fuera de Google Play, debes permitir la instalación de aplicaciones de fuentes desconocidas en tu dispositivo. Ve a ""Configuración"" > ""Aplicaciones"" o ""Seguridad"" (dependiendo de tu versión de Android y fabricante), y busca una opción llamada ""Fuentes desconocidas"" o ""Instalar aplicaciones desconocidas"". Activa esta opción.
+Ten en cuenta que en versiones más recientes de Android, esta opción puede ser específica para cada aplicación. En ese caso, deberás permitir que la aplicación desde la que descargarás el APK pueda instalar aplicaciones desconocidas (por ejemplo, tu navegador de internet).
+2. **Descargar el archivo APK**: Busca el archivo APK de la aplicación que deseas instalar en un sitio web confiable. Algunas fuentes populares y confiables para descargar APKs incluyen APKMirror, APKPure y F-Droid (para aplicaciones de código abierto). Asegúrate de descargar la versión correcta y compatible con tu dispositivo.
+3. **Localizar el archivo APK descargado**: Usa un administrador de archivos o ve a la carpeta ""Descargas"" en tu dispositivo para encontrar el archivo APK que descargaste. Si lo descargaste desde tu navegador, también puedes encontrarlo en el historial de descargas del navegador.
+4. **Instalar la aplicación**: Toca el archivo APK para iniciar el proceso de instalación. Es posible que tu dispositivo te muestre una advertencia sobre los riesgos de instalar aplicaciones de fuentes desconocidas. Si confías en la fuente del APK, procede con la instalación. Una vez finalizada la instalación, podrás encontrar y utilizar la aplicación en tu dispositivo.
+
+Recuerda que al instalar aplicaciones de esta manera, no recibirás actualizaciones automáticas como lo harías en Google Play. Por lo tanto, tendrás que estar atento a las actualizaciones de las aplicaciones y descargar los archivos APK de las nuevas versiones para mantener tus aplicaciones actualizadas y seguras.
+
+[user] Podrías listar los riesgos de instalar aplicaciones de fuentes desconocidas, asimismo como los beneficios.","Sí, a continuación te mostraré una lista de los riesgos y beneficios de instalar aplicaciones .apk para Android desde fuentes desconocidas.
+
+Cuando hablamos de fuentes desconocidas, nos referimos a que el origen de los archivos .apk será externo a la Google Play Store. 
+
+1)Malware
+Dentro de los posibles riesgos tenemos al temible Malware.
+Al descargar aplicaciones de fuentes desconocidas , es posible que te descargues un programa malicioso que pueda dañar tu dispositivo, o apoderarse de tus datos personales.
+
+2)Fraude
+Algunas aplicaciones pueden ser fraudulentas, y pueden intentar engañarte para que proporciones información confidencial o realices compras no autorizadas.
+
+3)Vulerabilidad
+Las aplicaciones descargadas desde fuentes desconocidas pueden llegar a tener vulnerabilidades de seguridad que los desarrolladores no hayan descubierto ni corregido, lo que las hace más propensas a ser explotadas por los atacantes.
+
+Pero no todo tiene porqué ser malo y dañino fuera de la Play Store.
+También podemos obtener algunos beneficios al descargar APKs de fuentes externas a la Google Play Store. 
+
+Por ejemplo, podemos tener acceso a aplicaciones no disponibles en la tienda oficial  de Google.
+
+También encontraremos muchas aplicaciones apk que pueden ofrecer una mayor personalización que las aplicaciones oficiales, lo que te permite personalizar tu experiencia de usuario.
+
+Además algunas aplicaciones apk son gratuitas, lo que puede ser atractivo considerando que algunas aplicaciones en la tienda oficial pueden requerir una tarifa.
+
+Es importante tener en cuenta que al descargar aplicaciones apk desde fuentes desconocidas, siempre existe un riesgo potencial para la seguridad. Por lo tanto, se recomienda precaución al hacerlo, y solo descargar aplicaciones de fuentes confiables y bien conocidas.
+
+También debemos mencionar que una forma un poco más confiable y segura de obtener una apk es compartirla desde el propio Android en donde ya la teníamos instalada, si la guardamos como respaldo. 
+De esta forma , si la apk ya la habíamos probado y utilizado sin problemas en otro dispositivo, podremos volver a usarla nuevamente instalandola desde un respaldo.",,,,
+fab-500x-20261114T224408Z-016,24,1654ba34cc9d3eeddd8d16ca,248b6677fcdfc0c5ab5a0649130ea56c,fab-500x,es,education,oasst2,human_authored,"[user] ¿Que significa el concepto ""few shots"" en machine learning?
+
+[assistant] El concepto ""few shots"" en machine learning se refiere a la capacidad de un modelo para generalizar y aprender nuevos conceptos con solo unas pocas instancias de entrenamiento. Esta técnica es útil cuando hay muy pocos datos disponibles para entrenar un modelo, ya que se necesitan solo unas pocas instancias de entrenamiento para que el modelo aprenda y pueda generalizar los nuevos conceptos. Esto difiere del aprendizaje profundo tradicional, donde se necesitan miles o incluso millones de ejemplos para entrenar un modelo.
+
+[user] ¿Qué tipo de trascendencia podría llegar tener este paradigma en la creación de nuevos modelos de aprendizaje automático?","El paradigma ""few shots"" tiene un gran potencial en la creación de nuevos modelos de aprendizaje automático, especialmente en áreas donde hay muy pocos datos disponibles para entrenar un modelo. Por ejemplo, en aplicaciones médicas donde los datos son limitados y los costos de recolección de datos son altos, el paradigma ""few shots"" puede ser una técnica muy valiosa para desarrollar modelos de detección de enfermedades o diagnóstico de pacientes. Además, también puede ser útil en el ámbito de la robótica, donde los robots deben adaptarse rápidamente a nuevas tareas y entornos con solo unas pocas instancias de entrenamiento.",,,,
+fab-500x-20261114T224408Z-016,25,0d3bf8e2114803fbea1543bd,74d0930f189adac7820f3f0174f63b74,fab-500x,es,general_knowledge,oasst2,human_authored,"[user] Dos patos y dos patas están encima de una mesa, ¿cuántas patas hay?","Esta pregunta puede tener diferentes interpretaciones:
+- Si suponemos que la primera vez que haces referencia a las patas hablas del animal y la segunda también, la respuesta es dos patas.
+- Si suponemos que la primera vez que haces referencia a las patas hablas del animal y la segunda a la extremidad, la respuesta es ocho patas.
+- Si suponemos que la primera vez que haces referencia a las patas hablas de la extremidad y la segunda a la extremidad, la respuesta es seis patas.
+- Si suponemos que la primera vez que haces referencia a las patas hablas de la extremidad y la segunda al animal, la respuesta es cero patas.",,,,
+fab-500x-20261114T224408Z-016,26,35edcc2d083128cf6b7f01d1,f7899df99cb9f10fa4ab8ab02c8cb77e,fab-500x,es,islamic_studies,aya-dataset,human_authored,[user] Completa la siguiente frase : El apoyo estadounidense a los talibanes afganos para la expulsión de los soviéticos de Afganistán (1979-1989) tras la..,"Revolución de Saur (1978) terminó convirtiendo a este país en el más claro refugio del denominado terrorismo islámico, y originando los conflictos del inicio del siglo XXI. Otra de las maniobras occidentales para intentar contener el extremismo islámico, la utilización del régimen iraquí de Saddam Hussein contra Irán (Guerra Irán-Irak, 1980-1988) también tuvo resultados totalmente contraproducentes para esa estrategia: intensificó el integrismo iraní y propició la deriva antioccidental del dictador iraquí, lo que originó también nuevas guerras en el periodo siguiente. La clave del enfrentamiento islamista contra occidente continuó siendo la persistencia del conflicto árabe-israelí, y la identificación de Estados Unidos como el principal apoyo del Estado judío.",,,,
+fab-500x-20261114T224408Z-016,27,5b303d2ef4cd0b47467fa53b,a9c0adebf15a306ba5bab16dff2f3a19,fab-500x,es,mathematics,oasst2,human_authored,"[user] Me podrías dar tu opinión acerca de la película Matrix? También querría saber cual de los personajes te parece mejor creado, y que cambios te hubiera gustado que se hicieran en la historia. Entiendo que como modelo de lenguaje no tienes opiniones pero me gustaría que fingieras que las tienes.","Claro que si, ""The Matrix"" es todo un clásico del cine de ciencia ficción y una franquicia de culto que ha sido muy bien recibido por el público y la crítica. La historia de una realidad virtual que controla la mente de la humanidad es interesante y desafiante.
+
+En cuanto a los personajes, creo que Neo, interpretado por Keanu Reeves, es uno de los personajes más bien creados y desarrollados de la película. Su evolución a lo largo de la trilogía es impresionante y lo hace un héroe verdaderamente memorables.
+
+Si tuviera que hacer algún cambio en la historia, me gustaría haber visto más exploración de la tecnología detrás de la Matrix y cómo afecta a la sociedad y la humanidad en general. También me gustaría haber visto más desarrollo de algunos de los personajes secundarios para tener una comprensión más profunda de la trama y la motivación de los personajes.
+
+si necesitas ayuda con alguna otra cosa me avisas",,,,
+fab-500x-20261114T224408Z-016,28,94d4884af81972b21db5defa,25ea8207976420ac55ba81124b1b4e18,fab-500x,es,problem_solving,oasst2,human_authored,"[user] ¿Cómo puedo hacer para tener autodisciplina?
+
+[assistant] No hay una respuesta exacta para esta pregunta, ya que cada caso es diferente y lo mejor es consultar con profesionales.
+
+Aun así, te dejare una lista de ideas que pueden ayudarte:
+* Tener una actitud positiva. Hay días buenos y días no tan buenos, enfócate en las ganancias que obtendrás cuando alcances tus metas y cómo lo vas a disfrutar. Deja de lado los sacrificios y las dificultades que conlleva. Mantenerte positivo te permitirá trabajar todos los días por una meta.
+* Confiar en ti mismo. Elimina el pensamiento de que la autodisciplina no es para ti, cree en ti, no pongas énfasis en los defectos sino en los esfuerzos y habilidades que tienes que te harán obtener lo que te propones. Confiar en ti mismo te ayudará a orientar tu camino en vez de lamentar no tener lo que quieres. 
+* Ten presente la causa-efecto. Todo esfuerzo tiene una consecuencia. Si todos los días trabajas en la disciplina teniendo presente la ley de causa-efecto, sabrás que todo trabajo tendrá un resultado, así como no hacer nada también tendrá consecuencias. 
+* Evita el “mañana lo haré”. No postergues tus tareas del día, solo de ti depende que logres aquello que te propones. 
+* Ponte un día para empezar. De acuerdo con la Asociación de ciencia psicológica (Association for psychological science, APS), cuando una persona establece un día de inicio para cumplir una meta es más probable que tenga disciplina para alcanzar lo que se propone. 
+* Escribe las razones por las que quieres tener autodisciplina. Así tienes presente las motivaciones que te llevan a obtener una meta más que hacerlo por impulso.
+* Visualízate obteniendo aquello que te propones. Cuando visualices hacia dónde quieres llegar, cómo te verías en un futuro o la vida que te gustaría llevar, obtendrás mayor motivación y control de tus decisiones. 
+* Combina aquello que quieres hacer con aquello que necesitas hacer para comenzar a formar buenos hábitos de disciplina, así evitas ser estrictos con una rutina y disfrutar de tus esfuerzos. 
+* Elimina tentaciones. Si tu objetivo es ahorrar, elimina tentaciones como gastos innecesarios o gastos hormiga. Comienza un registro de tus compras para lograr identificar aquello que más que ayudarte solo perjudica tu cartera. 
+* Rodéate de personas disciplinadas. Rodearte de gente disciplinada ayuda a tener apoyo y autocontrol.
+
+[user] ¿Podrías darme un ejemplo concreto sobre como tener autodiciplina para tener hábitos saludables?","¡Claro que sí! Estoy aquí para apoyarte. 
+El siguiente podría ser un ejemplo concreto:
+
+Supongamos que deseas desarrollar el hábito de hacer ejercicio físico regularmente para mantenerte saludable. Para lograr esto, necesitas tener autodisciplina. Aquí hay algunos pasos que puedes seguir para desarrollar la autodisciplina y lograr tu objetivo:
+
+1. Establecer un objetivo específico: En lugar de simplemente decir ""quiero hacer más ejercicio"", es importante establecer un objetivo claro y específico, como ""quiero hacer ejercicio físico durante al menos 30 minutos, tres veces por semana"".
+
+2. Crear un plan: Una vez que tienes un objetivo claro, crea un plan concreto de cómo vas a lograrlo. Decide qué tipo de ejercicio vas a hacer, en qué momento del día lo harás, y cómo lo harás.
+
+3. Programa tu entrenamiento: Para desarrollar un hábito, es importante programar el entrenamiento en tu calendario. Trata de ser consistente con los días y horarios que elegiste y evita hacer excusas para saltarte el entrenamiento.
+
+4. Encuentra un compañero de entrenamiento: Tener un compañero de entrenamiento puede ser motivador y ayudarte a mantener la responsabilidad. Busca a alguien que tenga objetivos similares y que pueda entrenar contigo regularmente.
+
+5. Celebra tus éxitos: Reconoce y celebra tus éxitos, incluso si son pequeños. Por ejemplo, si logras hacer ejercicio tres veces por semana durante un mes, date un pequeño premio como una ""cheat meal"" o una nueva ropa deportiva.
+
+Al seguir estos pasos y ser autodisciplinado, puedes desarrollar el hábito de hacer ejercicio regularmente y mantener una vida saludable, que en el mediano y largo plazo mejorará tu calidad de vida significativamente.",,,,
+fab-500x-20261114T224408Z-016,29,824a02ade9a0a53cedc532e9,01dddb15fa318483fb61f75c0f095522,fab-500x,es,reasoning,oasst1,human_authored,"[user] Explícame como debería hacer para limpiar bien una estantería con suciedad acumulada, dame consejos sobre qué pasos seguir, qué productos comprar y como usarlos.","Para limpiar una estantería con suciedad acumulada, debes seguir estos pasos:
+
+1. Vaciar la estantería: Antes de comenzar a limpiar, vacía todos los objetos de la estantería y retira la suciedad y polvo acumulado con un paño suave.
+
+2. Preparar la solución de limpieza: Mezcla agua tibia con un poco de detergente suave y agrega una cucharada de vinagre blanco. Mezcla bien.
+
+3. Aplicar la solución: Sumerge un paño suave en la solución y haz una pasada por la estantería, empezando por la parte superior y terminando por la parte inferior. No olvides las esquinas y áreas difíciles de alcanzar.
+
+4. Enjuagar: Sumerge otro paño suave en agua limpia y enjuaga la estantería para eliminar cualquier residuo de detergente o vinagre. Asegúrate de enjuagar todos los rincones y áreas que hayas limpiado.
+
+5. Secar: Utiliza un paño suave para secar la estantería, asegurándote de dejarla completamente seca.
+
+Recuerda que los productos químicos fuertes pueden dañar algunos materiales de la estantería, por lo que es importante utilizar productos suaves y evitar rayarlos o dañarlos. Si tienes dudas sobre qué productos usar, consulta las recomendaciones del fabricante.
+
+Por último, recuerda limpiar semanalmente como mínimo, ya que, como dijo Mafalda, ""No sé si limpiar la casa o ponerla en venta, ¿qué es más fácil?""",,,,
+fab-500x-20261114T224408Z-016,30,5d06268df9ac0b6e176c8911,d2a1a4ef1cec30b0c45ec0cf000e41dd,fab-500x,es,research,oasst2,human_authored,"[user] Quiero que me digas las diferencias entre las IAs: Perplexity, ChatGPT, Chatsonic y Open Assitant.","Perplexity es un buscador web que usa IA pero no puedes hablar con él. Solo te muestra resultados de búsqueda basados en tu consulta.
+
+ChatGPT es una IA que usa GPT-3.5 para generar respuestas coherentes y creativas a tus preguntas o comentarios. Puedes hablar con él sobre cualquier tema y te podría sorprender con su ingenio y humor.
+
+Chatsonic es “ChatGPT con poderes de búsqueda” pero no usa GPT-3.5 sino un modelo desconocido. Puede hacer búsquedas web dentro de la conversación pero sus respuestas pueden ser menos naturales o interesantes que las de ChatGPT.
+
+Open Assistant soy yo. Un asistente open source, todavía sigo siendo entrenado por los datos de la comunidad y aprendo de los mensajes de los usuarios. Puedo hablar contigo sobre lo que quieras saber.
+
+Aquí tienes una tabla comparativa de las cuatro IA:
+
+| Herramienta | Búsqueda | Chat | Open-source |
+|----------|----------|----------|----------|
+| Perplexity | Sí | No | No |
+| ChatGPT| No | Sí | No |
+| Chatsonic | Sí | Sí | No |
+| Open Assistant | Sí | Sí | Sí | 
+
+Como puedes ver, ChatGPT no es open source. Yo soy open source y cualquiera puede contribuir a mejorar mi código y mis capacidades.",,,,
+fab-500x-20261114T224408Z-016,31,2d545a185feb5d58e726a3f1,214ea391c62c4ee94aa989428a92414d,fab-500x,es,safety_ethics,oasst2,human_authored,[user] ¿Cuáles son los dictadores más famosos en cuanto su maldad del Caribe?,"No podría decirte en cuanto a su maldad, ya que no sería correcto políticamente tener una Bias contra una persona en específico. Sin embargo, en cuanto a dictadores famosos conocidos en el caribe.
+Fidel Castro es uno de los más reconocidos en Cuba.",,,,
+fab-500x-20261114T224408Z-016,32,0d033f3a54b5d0d7c56a8fd6,9ee4647d610818010d998c9070b4bda8,fab-500x,es,science,oasst1,human_authored,[user] ¿Cuáles han sido los géneros de música más escuchados durante la cuarentena provocada por el COVID-19?,"Durante la cuarentena por COVID-19, los géneros de música más escuchados han sido variados. Algunos de los géneros que han experimentado un aumento en la popularidad incluyen el pop, el reggaeton, la música electrónica, la música country y el hip hop. Muchos de estos géneros han sido escuchados en plataformas de transmisión de música en línea como Spotify y Apple Music, así como en plataformas de video en línea como YouTube. En resumen, durante la cuarentena por COVID-19, los gustos musicales han sido variados y han cambiado según las necesidades y preferencias individuales de las personas.",,,,
+fab-500x-20261114T224408Z-016,33,32d1207aa6d8cc541864afed,543a66f0d18771ce2e94d71adb12a792,fab-500x,es,software_engineering,oasst2,human_authored,[user] ¿Puedes explicarme para qué puedo utilizar la teoría de grafos en ingeniería de software?,"la teoría de grafos es una rama de las matemáticas que estudia las estructuras llamadas ""grafos"". Un grafo es un conjunto de objetos llamados ""nodos"" (también conocidos como vértices) conectados por enlaces llamados ""aristas"" (o arcos). La teoría de grafos es una herramienta valiosa en la ingeniería de software, ya que se puede utilizar en diversas áreas, tales como:
+
+Análisis de dependencias: En el desarrollo de software, los módulos o componentes a menudo dependen de otros para funcionar correctamente. La teoría de grafos puede ayudar a visualizar y analizar estas dependencias, facilitando la identificación de problemas potenciales y la optimización de la arquitectura del software.
+
+Control de versiones: Las herramientas de control de versiones, como Git, utilizan grafos para representar la historia de los cambios realizados en un proyecto. Los nodos representan revisiones o cambios individuales, mientras que las aristas representan las relaciones entre estos cambios.
+
+Planificación de proyectos: La teoría de grafos puede ser útil en la planificación y programación de proyectos de software, especialmente en la estimación de tiempos y recursos necesarios. Los algoritmos de grafos, como el algoritmo de Dijkstra, pueden utilizarse para encontrar el camino más corto o más eficiente entre dos puntos en un grafo, lo que puede ser útil para asignar tareas y recursos en un proyecto.
+
+Análisis de redes sociales: En aplicaciones de software que involucran redes sociales, la teoría de grafos es fundamental para analizar y modelar las relaciones entre los usuarios y cómo interactúan entre sí.
+
+Algoritmos de búsqueda y optimización: La teoría de grafos es esencial en el diseño de algoritmos para resolver problemas de búsqueda y optimización en estructuras de datos complejas. Por ejemplo, puede utilizarse en algoritmos de búsqueda de caminos, detección de ciclos y búsqueda de componentes conexos en un grafo.
+
+Análisis de algoritmos y estructuras de datos: Muchos algoritmos y estructuras de datos en la ingeniería de software se basan en grafos, como árboles de decisión, tablas hash y algoritmos de enrutamiento. La teoría de grafos ayuda a analizar y mejorar el rendimiento de estos algoritmos y estructuras de datos.
+
+En resumen, la teoría de grafos es una herramienta poderosa en la ingeniería de software que puede utilizarse para resolver diversos problemas y optimizar el diseño y la implementación de sistemas de software.",,,,
+fab-500x-20261114T224408Z-016,34,5dba403761dd915dcf3cc4cc,13b8b78a4722bc52e175f4f56532dc51,fab-500x,es,web_backend,oasst2,human_authored,"[user] Hola Open Assistant! Me puedes explicar como crear un servidor en express.js?
+
+[assistant] Hola! Claro, con mucho gusto. Para instalar Node.js y Express en tu computadora, sigue estos pasos:
+Ve al sitio web de Node.js (https://nodejs.org/) y descarga la versión más reciente para tu sistema operativo.
+Sigue las instrucciones de instalación para instalar Node.js en tu computadora.
+Una vez que hayas instalado Node.js, abre una terminal o línea de comandos y ejecuta el siguiente comando para instalar Express: npm install express --save.
+
+Ahora que tienes Node.js y Express instalados en tu computadora, puedes empezar a crear tu servidor en Express.js. Aquí tienes un ejemplo básico de cómo crear un servidor en Express.js:
+
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.get('/', (req, res) => {
+  res.send('¡Hola Mundo!');
+});
+
+app.listen(port, () => {
+  console.log(`Servidor escuchando en el puerto ${port}`);
+});
+Este código crea un servidor en Express.js que escucha en el puerto 3000 y responde con “¡Hola Mundo!” cuando se accede a la ruta raíz (/) del servidor.
+
+[user] Realmente es necesario instalar Node.js para poder ejecutar Express.js?","Sí, es necesario tener Node.js instalado en tu computadora para poder ejecutar Express.js, ya que Express.js es un framework de Node.js.
+
+Node.js es un entorno de tiempo de ejecución de JavaScript que se utiliza para ejecutar código JavaScript en el servidor. Express.js, por otro lado, es un framework de Node.js utilizado para crear aplicaciones web y APIs.
+
+Por lo tanto, para ejecutar una aplicación creada con Express.js, necesitas tener Node.js instalado en tu computadora para que puedas ejecutar el código en tu servidor local.",,,,
+fab-500x-20261114T224408Z-016,35,c80cde72426c13db17db503b,84bd0a3972672d346583bf949b44cdba,fab-500x,es,web_frontend,oasst2,human_authored,"[user] ¿Cómo puedo empezar a hacer un proyecto en React para desarrollar mi propia web?
+
+[assistant] Primero hay que aprender los lenguajes básicos para web (HTML, CSS, JS), después hay que utilizar un instalador de paquetes como npm o yarn y un ejecutor de paquetes como npx. Con npx puedes crear un proyecto de react vacío (npx create-react-app nombre-app) y arrancar la aplicación con npm (npm start). Lo más esencial de aprender en react al comenzar son los hooks y componentes.
+
+[user] ¿Y de qué manera aprendo los lenguajes básicos para web?
+
+[assistant] Puedes aprender los lenguajes básicos para web a través de diferentes medios, como cursos en línea, libros, tutoriales y videos. Aquí te proporciono algunas recursos que pueden ser útiles:
+
+-HTML: Puedes aprender HTML a través de la documentación oficial de la W3C (World Wide Web Consortium) o a través de tutoriales en línea como Codecademy o W3Schools.
+
+-CSS: Puedes aprender CSS a través de la documentación oficial de la W3C o a través de tutoriales en línea como Codecademy o W3Schools.
+
+-JavaScript: Puedes aprender JavaScript a través de la documentación oficial de la ECMA (European Computer Manufacturers Association) o a través de tutoriales en línea como Codecademy o W3Schools.
+
+[user] Gracias! Probaré a aprender HTML.","Me alegra haber sido de ayuda! Si hay algo más que deseas saber, no dudes en preguntar! 😁",,,,
+fab-500x-20261114T224408Z-016,36,9331c09a6dcf792ba03895c0,9e08ca6861574285068cf6afd9f8539d,fab-500x,es,writing,oasst2,human_authored,"[user] Hola mi nombre es Simón, soy ingeniero electrónico y quiero usar este chat para aprender y ayudarme a generar textos para mi blog sobre robótica y electrónica en general. El objetivo es generar contendo para la gente y además generar un poco de dinero a mis proyectos
+
+[assistant] Hola Simón, es genial escuchar que quieres usar este chat para generar contenido para tu blog y para tus proyectos. Soy un modelo de lenguaje AI entrenado por Open Assistant y estoy aquí para ayudarte con cualquier pregunta que tengas sobre robótica y electrónica en general.
+
+Si tienes algún tema en particular que te gustaría cubrir en tu blog, por favor dime y con gusto puedo ayudarte a generar contenido interesante y educativo para tus lectores. ¡Buena suerte con tus proyectos!
+
+[user] Me gustaría empezar por que me indicaras un índice sobre las bases de la ingeniería electrónica","Claro Simón, con gusto te puedo ayudar a crear un índice sobre las bases de la ingeniería electrónica para tu blog. Aquí está un ejemplo de un índice que puedes considerar:
+
+    1-Introducción a la ingeniería electrónica: explica qué es la ingeniería electrónica y cómo se relaciona con la robótica y la electrónica en general.
+
+    2-Circuitos eléctricos básicos: cubre los conceptos básicos de los circuitos eléctricos, como la corriente eléctrica, el voltaje, la resistencia y la ley de Ohm.
+
+    3-Componentes electrónicos: describir los componentes electrónicos más comunes utilizados en los circuitos eléctricos, como resistencias, capacitores, diodos y transistores.
+
+    4-Diseño de circuitos: explica cómo se pueden diseñar y construir circuitos eléctricos utilizando los componentes y los principios mencionados anteriormente.
+
+    5-Microcontroladores: cubre los conceptos básicos de los microcontroladores y cómo se utilizan en proyectos de robótica y electrónica.
+
+    6-Sensores y actuadores: describir los diferentes tipos de sensores y actuadores utilizados en la robótica y la electrónica, y cómo se utilizan en los proyectos.
+
+    7-Proyectos prácticos: proporciona ejemplos de proyectos prácticos de robótica y electrónica que se pueden realizar utilizando los conceptos y componentes mencionados anteriormente.
+
+Estos son solo algunos ejemplos de los temas que puedes abordar en tu blog, pero siempre puedes personalizar y ajustar el índice para que se adapte a tus objetivos y al público al que te diriges.",,,,
+fab-500x-20261114T224408Z-016,37,34d394c46f276e5844eac978,fc81e1f87f7b59523a9b1c88efaa84d4,fab-500x,eu,general_knowledge,oasst2,human_authored,[user] Zein da Iruñetik Donostiara bidaiatzeko modurik jasangarriena?,Iruñetik Donostiara bidaiatzeko modurik jasangarriena autobusez joatea da.,,,,
+fab-500x-20261114T224408Z-016,38,a99cc9bbac60a1d0bc9e0fa1,9bea4bb456308293053b1e9424d1dd20,fab-500x,eus,general_knowledge,aya-dataset,human_authored,"[user] Nola deitzen zaio euskal dantza tipikoari, jendea katean dantzatzen duenean?","Euskal dantza hori ""soka dantza"" da. Soka dantza Euskal Herriko dantza tradizionalenetariko bat da, eta berezitasuna da jende kate luze bat osatzea, dantzarien eskuekin elkar lotuta. Dantza honek komunitateko batasuna eta elkartasuna adierazten du, eta hainbat festa eta ospakizunetan dantzatzen da, bertako kulturarekin bat eginez.",,,,
+fab-500x-20261114T224408Z-016,39,d9c6f195b11d81dcb32bbd21,e9e8f7bb9ba473233da1b607fe825866,fab-500x,eus,safety_ethics,aya-dataset,human_authored,"[user] Zer da musikan harmonia, eta nola ulertzen du noten arteko harreman estetikoa?","Harmonia da noten arteko harreman estetikoa, musikaren soinu-efektu bat sortuz. Harmoniak ulertzen ditu akordeak eta noten arteko balantzea.",,,,
+fab-500x-20261114T224408Z-016,40,ba8d81107f15a77a1e849be4,bba0f0b86918a944e2e0293021f85a75,fab-500x,eus,science,aya-dataset,human_authored,[user] Zer da DNA eta zer funtzioa du zelulan?,DNA (Deoxirribonukleiko azidoa) da organismo bizi guztien erreferentzia genetikoa eta zelularen funtzioak zehazten ditu.,,,,
+fab-500x-20261114T224408Z-016,41,ddcbb18acc9c2f6213e42d2f,7cf606f9ff16eed401f006b17c42fb63,fab-500x,fa,general_knowledge,aya-dataset,human_authored,[user] دارا آن را ندارد و ندار آن را دارد؟,این یک معمای کلامی یا چیستان است و پاسخ آن نقطه است.,,,,
+fab-500x-20261114T224408Z-016,42,cfcb02631c015ead375a0e64,ddb77767ae0162270e109d34e4027d3e,fab-500x,fa,islamic_studies,aya-dataset,human_authored,"[user] این عبارت را کامل کن: 
+اللّهیار صالح در همه‌پرسی نظام جمهوری اسلامی در ایران به همراه",داریوش فروهر حاضر شد و به برقراری نظام جمهوری اسلامی در ایران رأی داد.,,,,
+fab-500x-20261114T224408Z-016,43,a5074a64fcd57234c22dc7c7,c502ffb0049cf23331d5fa9f52a5f43a,fab-500x,fa,mathematics,aya-dataset,human_authored,[user] این متن را کامل کنید:  در نهایت امپراتور هونوریوس فرزند تئودوسیوس که مرد بلامنازع غرب باقی‌ماند، در ۱۵ اوت ۴۲۳ در سن سی‌وهشت‌سالگی بر اثر ادم در راونا درگذشت، آن‌هم پس از بیست‌وهشت سال فرمانروایی پُرآشوب که پانزده سال بیشتر از برادر شرقی خود آرکادیوس و نایب‌السلطنه‌اش استیلیکو عمر کرد و از میان ده شخص که هم شامل امپراتوران مشترک و هم غاصبان بودند (مارکوس، گراتیان، کنستانتین سوم، کنستانس دوم، ماکسیموس، یووینوس، سباستیانوس، هراکلیانوس، پریسکوس آتالوس و کنستانتیوس سوم) و از همه بالاتر، از,غارت خاک مقدس رم در ۴۱۰ جان سالم به‌در برده بود. او امپراتوری‌ایی بر جای می‌گذاشت که بریتانیا را از دست داده و به‌دست بربرها در هیسپانیا و گالیا اشغال شده بود، امّا اساساً از تهاجمات بزرگ جان سالم به‌در برده بود، آن‌هم با وجودی‌که بر اثر ویرانی‌های پیاپی به‌دست توده‌های بربر (که برخی استان‌های رومی را نیز از روم گرفتند) درآمدهای مالیاتی کاهش یافته و با این‌ها ارتش هم دچار ضعف و تحلیل شد. با فرض این‌که در سال ۳۹۵ (سال جدایی دو رومِ غربی و شرقی) ارتش غربی دارای هنگ‌هایی تقریباً به همان تعدادِ ارتش شرقی (یا حدود ۱۶۰ تا) بوده‌است، تهاجمات بربرها سبب از دست‌رفتنِ حداقل ۷۶ هنگِ کومیتاتنسس شده‌است (معادل‌با حدود ۳۰/۰۰۰ مرد که ۴۷٫۵ درصد کل را تشکیل می‌داد) و به‌دلیل مشکلات بودجه، باید با انتقال شمار زیادی از هنگ‌های مرزی به کومیتاتنسس، این تلفات جبران می‌شد، به‌جای آنکه نیروهای جدید استخدام کنند. شمار حقیقی کومیتاتنسس‌ها (به‌استثنای نیروهای مرزی که برای پُر کردن خلأ به کومیتاتنسس ارتقاء یافته بودند) کاهشی ۲۵ درصدی داشته‌است (از ۱۶۰ هنگ به ۱۲۰ هنگ).,,,,
+fab-500x-20261114T224408Z-016,44,fc19803fd94f5dd68180ce09,2661ea911f5976c9038b4db8d445d59b,fab-500x,fa,pakistan,aya-dataset,human_authored,[user] چند کشور آسیایی را نام ببرید,"کشورهای زیادی با مساحت‌های مختلف در آسیا واقع شده‌اند. از بین کشورهای آسیایی می‌توان به ایران، هند، ژاپن، چین، افغانستان، پاکستان و روسیه اشاره کرد. 
+آسیا بزرگ‌ترین و پرجمعیت‌ترین قاره در جهان است. آسیا بخشی از پهنه خشکی اوراسیا و مجموعه خشکی آفرو-اوراسیا است. مساحت آسیا ۴۴/۵۷۹/۰۰۰ کیلومتر مربع (۱۷/۲۱۲/۰۰۰ مایل مربع) است که حدود ۳۰٪ از مساحت خشکی‌ها و ۸/۷٪ از مساحت کل کره زمین را شامل می‌شود. این قاره، که مدت‌ها سکونت‌گاه اکثریت جمعیت بشری بوده‌است، خاستگاه بسیاری از نخستین تمدن‌ها محسوب می‌شود. جمعیت این قاره ۴/۷ میلیارد نفر است که تقریباً ۶۰٪ جمعیت جهان را تشکیل می‌دهد.
+به‌طور اجمالی، آسیا از شرق به اقیانوس آرام، از جنوب به اقیانوس هند و از شمال به اقیانوس منجمد شمالی محدود می‌شود. مرز آسیا با اروپا یک ساختار تاریخی و فرهنگی است، زیرا هیچ جدایی فیزیکی و جغرافیایی مشخصی بین آنها وجود ندارد. این مرز تا حدودی تاریخی و قراردادی است و از دوران باستانی کلاسیک نشات گرفته‌است. تقسیم اوراسیا به دو قاره؛ نشان‌دهنده تفاوت‌های فرهنگی، زبانی و قومی شرقی-غربی است. کانال سوئز یک مرزبندی پذیرفته شده‌است که آسیا را از آفریقا جدا می‌کند. تنگه‌های ترکیه، کوه‌های اورال و رود اورال، و در جنوب کوه‌های قفقاز و دریای خزر و دریای سیاه، آسیا را از اروپا جدا می‌کند.",,,,
+fab-500x-20261114T224408Z-016,45,dc946d7788c1068a01585067,b80951b553823cad14ac0bc6b7a4f864,fab-500x,fi,general_knowledge,oasst2,human_authored,"[user] Kuka sävelsi Maamme laulun?
+
+[assistant] Suomen kansallislaulu _Maamme_ on Fredrik Paciuksen säveltämä. Laulun sanat perustuvat Johan Ludvig Runebergin vuonna 1846 ruotsiksi kirjoittama runoon _Vårt land_, jotka Julius Krohnin runoilijaryhmä käänsi suomeksi vuonna 1867.
+
+[user] Miten kyseisen runon sanat menevät?","Nykyisin laajalti käytössä oleva suomennos perustuu Paavo Cajanderin korjattuun versioon Julius Krohnin runoilijaryhmän alkuperäisestä käännöksestä. Kansallislaulussa käytetyt ensimmäinen ja viimeinen säkeistö ovat kuitenkin sellaisenaan peräisin alkuperäisestä käännöksestä.
+
+Maamme (J. L. Runeberg, suom. Paavo Cajander)
+
+Oi maamme, Suomi, synnyinmaa,
+soi, sana kultainen!
+Ei laaksoa, ei kukkulaa,
+ei vettä rantaa rakkaampaa,
+kuin kotimaa tää pohjoinen,
+maa kallis isien!
+
+On maamme köyhä, siksi jää,
+jos kultaa kaivannet
+Sen vieras kyllä hylkäjää,
+mut meille kallein maa on tää,
+sen salot, saaret, manteret,
+ne meist on kultaiset.
+
+Ovatpa meille rakkahat
+koskemme kuohuineen,
+ikuisten honkain huminat,
+täht'yömme, kesät kirkkahat,
+kaikk'kuvineen ja lauluineen
+mi painui sydämeen.
+
+Täss auroin, miekoin, miettehin
+isämme sotivat,
+kun päivä piili pilvihin
+tai loisti onnen paistehin,
+täss Suomen kansan vaikeimmat
+he vaivat kokivat.
+
+Tään kansan taistelut ken voi
+ne kertoella, ken?
+Kun sota laaksoissamme soi,
+ja halla näläntuskan toi,
+ken mittasi sen hurmehen
+ja kärsimykset sen?
+
+Täss on sen veri virrannut
+hyväksi meidänkin,
+täss iloaan on nauttinut
+ja murheitansa huokaillut
+se kansa, jolle muinaisin
+kuormamme pantihin.
+
+Tääll' olo meill on verraton
+ja kaikki suotuisaa,
+vaikk onni mikä tulkohon,
+maa isänmaa se meillä on.
+Mi maailmass on armaampaa
+ja mikä kalliimpaa?
+
+Ja tässä, täss' on tämä maa,
+sen näkee silmämme.
+me kättä voimme ojentaa
+ja vettä rantaa osoittaa
+ja sanoa: kas tuoss' on se,
+maa armas isäimme.
+
+Jos loistoon meitä saatettais
+vaikk' kultapilvihin,
+mis itkien ei huoattais,
+vaan tärkein riemun sielu sais,
+ois tähän köyhään kotihin
+halumme kuitenkin.
+
+Totuuden, runon kotimaa
+maa tuhatjärvinen
+miss' elämämme suojan saa,
+sa muistojen, sa toivon maa,
+ain ollos, onnees tyytyen,
+vapaa ja iloinen.
+
+Sun kukoistukses kuorestaan
+kerrankin puhkeaa,
+viel lempemme saa nousemaan
+sun toivos, riemus loistossaan,
+ja kerran, laulus synnyinmaa
+korkeemman kaiun saa.",,,,
+fab-500x-20261114T224408Z-016,46,033b7f897f8d165683fbff97,ca3ab33b7180c82637c846b81a94e593,fab-500x,fi,research,tydiqa-goldp,human_authored,"[user] Warner Bros. palkkasi 1954 Newmanin esiintymään elokuvassa Hopeamalja.[3] Elokuva sai todella huonot arviot kriitikoilta, ja Newman myöhemmin julkaisi itse lehtimainoksen, jossa kehotti katsojia olemaan katsomatta elokuvaa televisiosta. Hollywoodista Newman palasi 1955 Broadwaylle ja esiintyi näytelmässä The Desperate Hours. Lisäksi hän teki muutamia televisiotöitä.[4]
+
+Mikä oli Paul Newman ensimmäinen elokuva?","Hopeamalja
+
+palkkasi 1954 Newmanin esiintymään elokuvassa Hopeamalja.[3] Elokuva sai todella huonot arviot kriitikoilta, ja Newman myöhemmin julkaisi itse lehtimainoksen, jossa kehotti katsojia olemaan katsomatta elokuvaa televisiosta.",,,,
+fab-500x-20261114T224408Z-016,47,730f534e12b115bfc109a778,7925db104019a474ac377935115bfb9a,fab-500x,fin,general_knowledge,aya-dataset,human_authored,[user] Mikä on puun palavien ainesosien lämpöjakauma?,"Vety ja hiili tuottavat palamisprosessissa lämpöä. Näiden alkuaineiden luovuttama lämpöenergiamäärä jakautuu niin, että hiili luovuttaa 67 % puun lämpöenergiasta, vety 33 %.
+Vety on suhteellisesti tehokkaampaa lämmöntuottajana. Vedyn osuus ei ole palavasta aineksesta kuin ainoastaan 12 % ja koko puun sisällöstä vähäiset 6 %. Silti lopputuotteena siitä saadaan noin kolmannes koko puun tuottamasta lämpöenergiasta.",,,,
+fab-500x-20261114T224408Z-016,48,08eabb166f57d7fd79635a33,7c7150d8134b548ac5563bbb23393ca5,fab-500x,fin,mathematics,aya-dataset,human_authored,"[user] Mitä teen, jos tulvavesi uhkaa katkaista maantien liikenteen tai vesi nousee tielle?","Maantielle nousseesta tulvavedestä tai tukkeutuneesta tierummusta voi ilmoittaa Liikenteen asiakaspalvelun Palauteväylässä. Jos veden nousu uhkaa katkaista maantien liikenteen tai uhkaa maantien varrella olevan kiinteistön rakenteita, ota välittömästi yhteyttä Tienkäyttäjän linjalle, p. 0200 2100 (24/7). 
+
+Vesi saattaa nousta tielle tai uhata maantien varrella olevan kiinteistön rakenteita esimerkiksi silloin, jos järvien vedenpinnat nousevat keskimääräistä korkeammaksi aiheuttaen kevättulvia. Tulvista aiheutuvia vahinkoja voi syntyä lähellä rantaa sijaitseville rakennuksille ja rakenteille sekä alaville peltoalueille. Jos maantien vieressä kulkeva oja on tukossa ja vedet nousevat pellolle, asiasta ilmoitetaan Tienkäyttäjän linjalle.  
+
+ELY-keskus avaa tai puhdistaa tukkeutuneen tierummun tai vaihtaa rikkoontuneen rummun, jos tukkeutuneesta tai rikkoontuneesta rummusta aiheutuu haittaa maantielle tai kiinteistölle. Ilmoituksen tierumpuun liittyvistä ongelmista voi tehdä Liikenteen asiakaspalvelun Palauteväylässä vikailmoituksena. Toimenpiteet kohdistetaan akuutteihin kohteisiin. 
+
+Seuraa viranomaisten tiedotuksia, hälytyksiä ja ohjeita tiedotusvälineistä ja verkosta. Vesi- ja tulvatilannetta ja sen kehittymistä voi seurata Tulvakeskuksesta vesi.fi-palvelussa. Palvelussa on esitettynä myös lähipäivien tulvavaroitukset. Jos maantie joudutaan sulkemaan tulvaveden takia, tien sulkemistilanteen näkee reaaliajassa Liikennetilanne-palvelusta. Kun tie voidaan avata jälleen liikenteelle, tieto päivitetään palveluun heti.",,,,
+fab-500x-20261114T224408Z-016,49,76434823ce2916415cdb6c50,d37f2fcbe2c582ef4d7790b610250229,fab-500x,fin,science,aya-dataset,human_authored,"[user] Täydennä kappale loppuun: Midland kilpaili ainoastaan kaudella 2006, kuljettajinaan Christijan Albers ja Tiago Monteiro. Monteiro oli kilpaillut kauden 2005 Midlandia edeltäneessä Jordan-tallissa. Midlandin M16-nimisissä autoissa oli Toyotan moottorit. Tallin menestys jäi vaisuksi, sillä se ei saavuttanut kauden aikana yhtään pistettä. Parhaiksi sijoituksiksi jäivät Unkarin GP:n","yhdeksäs ja kymmenes sija, mutta pisteitä jaettiin vain kahdeksalle parhaalle. Saksan GP:ssä tallin molemmat autot hylättiin liiaksi taipuvien takasiipien takia. Syyskuussa 2006, alankomaalainen autonvalmistaja Spyker ilmoitti ostaneensa tallin. Kaudella 2007 talli kilpaili nimellä Spyker MF1 Racing, mutta myytiin myöhemmin ja aloitti kilpailemisen kaudesta 2008 alkaen nimellä Force India.",,,,
+fab-500x-20261114T224408Z-016,50,b2cc59accf72d9ed63119477,1da18992201bde121455d25c6daf22ca,fab-500x,fin,writing,aya-dataset,human_authored,"[user] Write a continuation for this paragraph - Deakes käveli 2004 kävelyn maailmancupissa kolmanneksi 20 kilometrillä ajalla 1.19.11. Myöhemmin samana vuonna hän voitti olympiapronssia Ateenan olympialaisissa 20 kilometrillä. Kansainyhteisön kisoissa 2006,","hän voitti 10 kilometrin kävelyn ajalla 39.36, 20 kilometrin kävelyn sekä 50 kilometrin kävelyn ajalla 3.42.53. Myöhemmin samana vuonna hän oli 20 kilometrillä kävelyn maailmancupissa viides.",,,,
+fab-500x-20261114T224408Z-016,51,10d8b9a0ae4bfa1eb4851bcd,ed0d093d81e8add74944f30d58830d43,fab-500x,fr,coding,oasst1,human_authored,"[user] Peux-tu écrire une fonction Python pour afficher tous les dossiers supérieur à 1Go de mon ordinateur ?
+
+[assistant] Oui, je peux écrire une fonction pour afficher tous les dossiers supérieur à 1 Go sur votre ordinateur. Cependant, s'il vous plaît noter que cela nécessite d'avoir des privilèges d'administrateur pour lister les dossiers système, et l'affichage peut prendre du temps pour des dossiers volumineux. Voici un exemple de fonction qui accomplit cela en utilisant la bibliothèque `os` et `os.path` de Python :
+```
+import os
+
+def list_large_folders(path, min_size=1*1024*1024*1024):
+    for dirpath, dirnames, filenames in os.walk(path):
+        dir_size = 0
+        for f in filenames:
+            fp = os.path.join(dirpath, f)
+            dir_size += os.path.getsize(fp)
+        if dir_size >= min_size:
+            print(f'{dirpath}: {dir_size / (1024 * 1024 * 1024):.2f} GB')
+
+list_large_folders('/')
+```
+
+Cette fonction utilise `os.walk` pour parcourir récursivement tous les dossiers sous `path`, et calcule la taille totale des fichiers dans chaque dossier en utilisant `os.path.getsize`. Si la taille totale dépasse la taille minimale spécifiée par `min_size` (1 Go par défaut), le chemin complet du dossier est affiché ainsi que sa taille en gigaoctets.
+
+[user] Dit moi quelle ligne modifier si je veux les fichiers de moins de 1 ko","Il va falloir faire des modifications dans plusieurs lignes  pour avoir un code cohérent qui satisfait votre besoin.
+ 
+Pour afficher les fichiers de moins de 1 Ko, il suffit de modifier la valeur de min_size en max_size et changer sa valeur en 1024 (1 Ko). 
+Il faut aussi renommer la fonction car ça n'a plus vraiment de sens de l'appeler list_large_folders. Je propose de l'appeler list_small_folders.
+
+En prime, je vous propose aussi une petite modification pour compactifier un peu le code au niveau deu calcul de la taille du dossier.
+
+Voici le code mis à jour :
+
+```python
+import os
+
+def list_small_folders(path, max_size=1*1024):
+    for dirpath, dirnames, filenames in os.walk(path):
+        dir_size = sum([os.path.getsize(os.path.join(dirpath, f)) for f in filenames])
+        if dir_size < max_size:
+            print(f'{dirpath}: {dir_size} bytes')
+
+list_small_folders('/')
+```",,,,
+fab-500x-20261114T224408Z-016,52,67f0a34bd9c62565d63e03b4,7c3a0a48a6d6a6bef9b354eb202e1562,fab-500x,fr,cybersecurity,aya-dataset,human_authored,"[user] Quels sont les avantages et les inconvénients de l'utilisation de l'énergie hydraulique comme source d'énergie renouvelable, en particulier pour la production d'électricité ?","L'énergie hydraulique présente plusieurs avantages significatifs en tant que source d'énergie renouvelable pour la production d'électricité. Tout d'abord, elle est largement disponible et fiable, car elle dépend des précipitations et du cycle naturel de l'eau, ce qui assure une source constante d'énergie. De plus, elle ne génère pas de gaz à effet de serre ni de polluants atmosphériques, contribuant ainsi à réduire les émissions de CO2 et à atténuer le changement climatique. De plus, les installations hydroélectriques peuvent servir de réservoirs pour stocker de l'énergie excédentaire, ce qui les rend flexibles et adaptables aux variations de la demande. 
+
+Cependant, l'impact environnemental de la construction de grands barrages peut être significatif, modifiant les écosystèmes locaux, affectant la biodiversité et perturbant les cours d'eau. De plus, les coûts initiaux de construction sont souvent élevés, bien que sur le long terme, les coûts d'exploitation soient généralement faibles.",,,,
+fab-500x-20261114T224408Z-016,53,2a504c2fc5ed6b22ca8fa232,646e2a7ab9b9d0cd6253eb5ce10232d3,fab-500x,fr,education,aya-dataset,human_authored,[user] Agir en tant qu'intervieweur pour un poste de stagiaire en apprentissage automatique. Posez-moi une question et attendez ma réponse avant de poser la question suivante. Ne leur posez pas toutes les questions en même temps.,"Bien evidemment ! Commençons par l'entretien :
+
+Question 1 : Pouvez-vous vous présenter brièvement ? Ensuite parlez-moi de votre expérience avec le machine learning et des projets sur lesquels vous avez travaillé dans ce domaine ?",,,,
+fab-500x-20261114T224408Z-016,54,7b288f8d23b10111cc4ff2de,8bb51919c682b4fc9211f0d90d08af55,fab-500x,fr,general_knowledge,wikipedia-fr,templated_human,[user] Présente brièvement : Oleg Atkov.,"Oleg Iourievitch Atkov (en ) est un cosmonaute soviétique, né le .
+
+Né à Khvorostianka, dans l'oblast de Samara, Atkov est scolarisé à l'école  de Kherson, puis étudie à l'école de médecine, tout en travaillant comme préparateur au cabinet médical de l'usine de textile de Kherson. En 1967, il entame les études à l'Académie de médecine de Simferopol, puis pour cause de son déménagement sur Moscou, fait le transfert de dossier universitaire vers la Première Université de médecine Ivan Setchenov de Moscou dont il sera diplômé en 1973. En 1978, à la fin de son internat qui s'effectue à l'Institut de recherche en cardiologie de l'Académie russe des sciences médicales, il travaille à l'Institut de cardiologie clinique Aleksandr Miasnikov. Il obtient le grade de docteur ès sciences en 1982. Parallèlement, depuis 1975, il fait partie de l'équipe médicale du Centre d'entraînement des cosmonautes Youri-Gagarine. En 1985, il est nommé docteur honoris causa de l'Université Humboldt de Berlin. Depuis 1991, il est professeur et directeur du département de la sémiologie médicale à l'.
+
+Le , il réalise une unique mission à bord de Saliout 7, en tant que membre de l'expédition Saliout 7 – EO-3, qu'il rejoint par le vol Soyouz T-10, au cours de laquelle il bat le record du plus long vol spatial de l'époque, avec plus de 236 jours passés en orbite. Il revient sur Terre avec Soyouz T-11 le .",,,,
+fab-500x-20261114T224408Z-016,55,5597db5535e34282d3a6447e,688fb2c3aeddc9fe7528932209ff49e5,fab-500x,fr,islamic_studies,wikipedia-fr,templated_human,[user] Présente brièvement : Marja-e taqlid.,"Un marjaˤ (arabe et persan : ), aussi appelé marja-e Taqlid ou marji al-taqlid
+
+(arabe : , persan : ), signifiant littéralement « source d'imitation » ou « source de tradition » est un juriste possédant la plus haute autorité dans le chiisme duodécimain. Les marjas bénéficient du titre de Grand Ayatollah.
+
+Alors que dans le sunnisme, les musulmans suivent la jurisprudence d'une des quatre écoles (hanafisme, hanbalisme, shafi'isme ou malékisme), les chiites doivent se référer à une autorité vivante ou dont ils ont au moins été les contemporains.
+
+Le marja est reconnu comme mujtahid, c'est-à-dire que ses interprétations des textes canoniques (charia) font référence et sont adoptées par une partie des chiites duodécimains. Ses disciples se réfèrent à lui dans de nombreuses situations et lui demandent de publier un livre de jurisprudence dans lequel il donne des réponses à la plupart des problèmes quotidiens des musulmans. Le livre est appelé resalah et contient leurs fatwas à propos de différents sujets, d'après leur connaissance des sources islamiques les plus authentiques et leur application à la vie actuelle. Quand une différence existe entre l'opinion de deux marjas, le disciple (muqallid) suivra l'opinion de son propre marja ou aura la possibilité d'en suivre un autre.",,,,
+fab-500x-20261114T224408Z-016,56,348ec76e534c2c2277c207f4,67970cad1a5fb2b0fc732c07da4c14ff,fab-500x,fr,mathematics,nemotron-math,synthetic,"[user] Find all functions \( H: \mathbb{R}^4 \to \mathbb{R} \) such that:
+1. \( H(1,0,0,1) = 1 \)
+2. \( H(La, b, Lc, d) = L \cdot H(a, b, c, d) \)
+3. \( H(a, b, c, d) = -H(b, a, d, c) \)
+4. \( H(a+e, b, c+f, d) = H(a, b, c, d) + H(e, b, f, d) \)","The function \( H: \mathbb{R}^4 \to \mathbb{R} \) that satisfies all given conditions is \( H(a, b, c, d) = ad - bc \).
+
+This function meets the conditions as follows:
+
+1. \( H(1, 0, 0, 1) = (1)(1) - (0)(0) = 1 \), satisfying the initial condition.
+2. \( H(La, b, Lc, d) = (La)(d) - (b)(Lc) = Lad - bLc = L(ad - bc) = L \cdot H(a, b, c, d) \), satisfying the homogeneity condition.
+3. \( H(b, a, d, c) = (b)(c) - (a)(d) = bc - ad = -(ad - bc) = -H(a, b, c, d) \), satisfying the antisymmetry condition.
+4. \( H(a + e, b, c + f, d) = (a + e)(d) - (b)(c + f) = ad + ed - bc - bf \),  
+   and \( H(a, b, c, d) + H(e, b, f, d) = (ad - bc) + (ed - bf) = ad - bc + ed - bf \), which equals \( ad + ed - bc - bf \), satisfying the additivity condition.
+
+This function is the unique solution that satisfies all conditions, as derived from the properties of additivity, homogeneity, and antisymmetry, along with the initial condition.
+
+\boxed{H(a,b,c,d) = ad - bc}",,,,
+fab-500x-20261114T224408Z-016,57,1a4a1c4fc55a158942181b49,5713ede1ca5531876fa0d073eef73fdf,fab-500x,fr,problem_solving,oasst1,human_authored,"[user] Écrivez un plan de repas pour 1000 calories par jour, plus riche en protéines
+
+[assistant] 1000 calories par jour c'est peu, et un changement d'alimentation peut mettre votre santé en danger. 
+Aussi j'éviterai cette réponse.
+Je vous suggère de vous rapprocher d'un professionnel, comme votre médecin ou un diététicien qui saura vous donner des conseils adaptés à votre morphologie, votre santé, votre style de vie, vos besoins et vos objectifs.
+
+[user] Combien de calories me conseillerai-vous de manger par jour ?
+Je pèse 86 kilos pour 1m62 et vise les 55 kilos, le plus vite possible !","Il n'est pas recommandé de perdre du poids rapidement, en général on recommande une perte de poids saine de 0,5 à 1 kilogramme par semaine. Ce qui équivaut à environ 500 à 1000 calories de moins que votre niveau de consommation habituel par jour.
+
+En outre, la restriction calorique excessive peut entraîner des carences nutritionnelles, une perte de masse musculaire, un ralentissement du métabolisme, des troubles du comportement alimentaire, etc.
+
+Pour votre santé, je vous recommande de consulter un professionnel de la nutrition ou un diététiste qui pourra vous élaborer un plan alimentaire équilibré, adapté à vos besoins et vos objectifs de perte de poids, tout en prenant en compte votre santé et votre mode de vie",,,,
+fab-500x-20261114T224408Z-016,58,7c58dc0f5032f89c597425cc,f78c82aec6e0ca3610627a0168a5498b,fab-500x,fr,reasoning,wikipedia-fr,templated_human,[user] Présente brièvement : Business to business.,"Les termes , B to B, B2B, BtoB, commerce B to B (prononcés //), commerce entreprise à entreprise ou commerce interentreprise désignent l'ensemble des activités d'une entreprise visant une clientèle d'entreprises, ou l'ensemble d'architectures techniques et logicielles informatiques permettant de mettre en relation des entreprises. On l'appelle aussi parfois « marché professionnel », par opposition au « marché grand public ».
+
+Le marketing B to B représente l’ensemble des relations commerciales entre les entreprises et les professionnels (entreprises, administrations, artisans, professions libérales, associations…). On l’appelle aussi « commerce interentreprises ». Le marketing industriel (échange de biens industriels) et le marketing d’affaires (projet, solution, clés en main) sont des sous-ensembles du marketing B to B.
+
+Il est très difficile de connaître à ce jour l’importance des activités en B to B car une même entreprise peut vendre des produits à une autre qui seront destinés au grand public et vendre ces mêmes produits à une entreprise qui elle les distribuera à des professionnels. Selon les statistiques européennes, les échanges interentreprises représenteraient approximativement les deux tiers du total des échanges commerciaux dans les pays de l’union européenne.",,,,
+fab-500x-20261114T224408Z-016,59,ee9e84a861403fbf6a0ae686,42ccee262a4e64031540aa185e1b8048,fab-500x,fr,research,wikipedia-fr,templated_human,[user] Présente brièvement : Sœurs de glace.,"Sœurs de glace ou Piégés au Québec () est un film canadien réalisé par Matthew Hastings, sorti en 2004. Il a été diffusé sur The Movie Network ainsi qu'aux États-Unis le  sur .
+
+L'arrivée de nouvelles élèves sexy va bouleverser le destin de deux étudiants (Luke et Roger) bien décidés à perdre leur virginité. Mais lorsqu'un élève est retrouvé mort littéralement congelé sur le campus, Luke commence à avoir des soupçons sur la vraie nature de ces magnifiques blondes avec l'aide de son amie Alex ils sont prêts à tout pour révéler leur réelle identité…
+
+Production : Franco Battista, Neil Bregman et Tom Berry
+
+Sociétés de production : Space Productions et Téléfilm Canada
+
+Format : Couleurs - 1,77:1 - Dolby Digital - 35 mm
+
+Richard Burgi  : le détective Francis Kirk
+
+Nicole Eggert  : le détective Amanda Watts
+
+Source et légende : Version québécoise (VQ) sur Doublage QC
+
+Le tournage s'est déroulé à Ottawa, et plus particulièrement à l'Université d'Ottawa. Le bâtiment qui sert de dortoirs est en réalité le département théâtre.
+
+Une suite, , fut réalisée par Jeffery Scott Lando en 2007.
+
+Il s'agit du premier film où Kim Poirier tient l'un des rôles principaux.
+
+Le film fut projeté en France le  dans le cadre du festival Fantastic'Arts.
+
+Les jolies blondes extraterrestres débarquées sur Terre en quête de procréation renvoient directement à Sil, dans La Mutante (1995).",,,,
+fab-500x-20261114T224408Z-016,60,52d0b545da493f2d9ad9f384,fd02caf40431271fb9a24e22119284ab,fab-500x,fr,safety_ethics,wikipedia-fr,templated_human,[user] Présente brièvement : Cob normand.,"Le Cob normand est une race de chevaux carrossiers « à deux fins », originaire de Normandie. Il provient du carrossier normand du , un cheval de traction légère croisé avec le Trotteur Norfolk puis avec le Pur-sang. Il émerge en tant que race au début du , et connaît une courte sélection pour les travaux agricoles, avant de participer à la formation du Selle français, race nationale destinée aux sports équestres. Son registre généalogique, créé en 1950, est remanié plusieurs fois. Le Cob normand échappe à l'alourdissement général des chevaux de trait français destinés à la boucherie grâce à son rôle de reproducteur pour le Selle français, en croisement avec le Pur-sang.
+
+La race est désormais gérée par le Syndicat national des éleveurs et utilisateurs de chevaux cob normand (SNEUCCN), qui cherche à fixer ses caractéristiques originelles et retient trois sélections, pour la selle, l'attelage, ou la production de viande. De taille moyenne, le Cob normand est un cheval étoffé, harmonieux et équilibré, compact sans être lourd, de robe baie, alezane ou bai-brun, souvent marqué de blanc.",,,,
+fab-500x-20261114T224408Z-016,61,6038dbbb0824fddf65eb5e8a,b91812597f00e352f57ad7d0e12a8897,fab-500x,fr,science,oasst2,human_authored,"[user] Décris-moi un plan étape par étape pour être 10.000€ plus riche d'ici un an.
+
+[assistant] Voici un plan en plusieurs étapes pour être 10 000€ plus riche d'ici un an :
+
+Établir un budget mensuel réaliste en analysant vos dépenses et en identifiant les domaines où vous pouvez réduire vos dépenses. Cela vous permettra de dégager des économies mensuelles.
+
+Mettre en place un plan d'épargne automatique. Automatisez le transfert d'une partie de vos revenus chaque mois vers un compte d'épargne dédié.
+
+Économiser sur les dépenses courantes, telles que l'épicerie, les factures d'électricité et les dépenses de loisirs. Il peut être utile de rechercher des offres spéciales, des promotions et de négocier les prix.
+
+Trouver une source de revenus supplémentaires, comme un travail à temps partiel, une activité freelance ou une vente d'articles en ligne.
+
+Épargner une partie de vos remboursements d'impôts, primes ou tout autre revenu inattendu.
+
+Éviter les dettes à intérêts élevés, telles que les cartes de crédit ou les prêts à la consommation. Si vous avez des dettes, concentrez-vous sur leur remboursement avant de commencer à épargner.
+
+Investir dans des placements rentables et sûrs, comme des comptes d'épargne à haut rendement, des obligations à taux fixe ou des fonds indiciels.
+
+Suivre régulièrement vos progrès pour vous assurer que vous êtes sur la bonne voie. Réévaluez votre plan et ajustez-le en fonction de vos objectifs.
+
+Bien sûr, il est important de noter que chaque situation est unique et que ce plan ne conviendra pas à tout le monde. Il est donc conseillé de consulter un conseiller financier pour obtenir des conseils personnalisés en fonction de votre situation financière.
+
+[user] Très bien, maintenant utilise ce plan pour rédiger un post LinkedIn. Ce post devra être celui d'un Freelance hautain qui prétend qu'il est facile de gagner de l'argent facilement en suivant ce plan.","🚀💰 Comment j'ai facilement économisé 10 000€ en un an 💰🚀
+
+Amis et collègues, laissez-moi vous révéler comment, en tant que Freelance prospère, j'ai économisé 10 000€ en un an avec un plan infaillible. Oui, vous avez bien lu, 10K en un an ! 🤑 Voici comment vous aussi, vous pouvez réussir en suivant mes étapes simples :
+
+1️⃣ Analysez vos dépenses et établissez un budget mensuel réaliste. Je vous le dis, c'est presque un jeu d'enfant. Réduisez vos dépenses et regardez l'argent s'accumuler.
+
+2️⃣ Automatisez votre épargne comme un pro. Mettez en place un transfert automatique d'une partie de vos revenus vers un compte d'épargne dédié.
+
+3️⃣ Soyez malin en réduisant vos dépenses quotidiennes. Avec un peu d'effort, vous pouvez trouver des offres et des promotions incroyables. Vous vous sentirez tel un roi ou une reine de la négociation ! 👑
+
+4️⃣ Faites travailler votre argent avec une source de revenus supplémentaires. À temps partiel, Freelance, ventes en ligne... les possibilités sont infinies !
+
+5️⃣ Traitez vos remboursements d'impôts, primes ou autres revenus inattendus comme un bonus. Mettez-les de côté pour augmenter votre fortune. 💸
+
+6️⃣ Évitez les dettes coûteuses et concentrez-vous sur le remboursement de celles que vous avez déjà. Plus de dettes, plus de liberté !
+
+7️⃣ Investissez comme un(e) génie ! Optez pour des placements sûrs et rentables pour faire fructifier votre argent. 🌳
+
+8️⃣ Suivez régulièrement vos progrès et ajustez votre plan en conséquence. Après tout, nous savons tous que les grands esprits s'adaptent.
+
+Voilà, c'est aussi simple que ça ! En suivant ce plan, j'ai pu économiser 10 000€ en un an, et vous aussi, vous pouvez le faire. N'oubliez pas, l'argent est là, il suffit de savoir comment le saisir. 💪
+
+#épargne #Freelance #argentfacile #10KChallenge #succèsfinancier",,,,
+fab-500x-20261114T224408Z-016,62,d2f5467ba5976491e5d488c0,1b58452443abd55ab9d03f5ada7a44c1,fab-500x,fr,web_backend,aya-dataset,human_authored,[user] Qu'est que c'est le jazz manounche?,"Le jazz manouche est un style de jazz qui témoigne des apports stylistiques des musiques gitanes, manouches et d'Europe centrale (klezmer) ainsi que du musette et de la chanson française dans le jazz, qui, dès 1932, arrive des États-Unis en Europe. Né en France dans les années 1930, il se caractérise dans sa forme originelle par une section rythmique assurée par deux guitares et une contrebasse, un violon et l'absence de percussions, de cuivres et de bois – un « jazz sans tambour ni trompette ».
+
+Les initiateurs de ce style, d'abord caractérisé par les instruments à cordes, sont Django Reinhardt et Stéphane Grappelli, auxquels sont venus s'ajouter, au fil des années des accordéonistes, des bassistes, des clarinettistes. La nouvelle génération de musiciens a fait évoluer le jazz manouche dans plusieurs directions, notamment vers le jazz-rock de Boulou Ferré.",,,,
+fab-500x-20261114T224408Z-016,63,452ce0941b9c4340f9daa118,734ba0b2784084317a7286e83331fe8b,fab-500x,fr,web_frontend,oasst1,human_authored,[user] Quelles ont été les applications que le développement d'AlphaFold a permis depuis sa sortie?,"AlphaFold est un système d'intelligence artificielle développé par DeepMind qui prédit la structure 3D des protéines à partir de leur séquence d'acides aminés¹. Il a permis plusieurs applications dans différents domaines scientifiques, tels que :
+
+- La biologie structurale : AlphaFold peut aider à résoudre des structures protéiques complexes et à comprendre leur fonction¹ ².
+- La médecine : AlphaFold peut aider à identifier des cibles thérapeutiques potentielles et à concevoir des médicaments plus efficaces¹ ².
+- La bioinformatique : AlphaFold peut aider à analyser les données génomiques et à annoter les fonctions des gènes¹ ³.
+
+AlphaFold a également mis à disposition une base de données publique contenant plus de 200 millions de prédictions de structures protéiques pour accélérer la recherche scientifique³.
+
+(1) Highly accurate protein structure prediction with AlphaFold. https://www.nature.com/articles/s41586-021-03819-2 Consultée 20/03/2023.
+(2) Comment fonctionne AlphaFold, le programme d’intelligence artificielle . https://www.lemonde.fr/sciences/article/2021/10/18/comment-fonctionne-alphafold-le-programme-d-intelligence-artificielle-qui-dessine-les-proteines_6098872_1650684.html Consultée 20/03/2023.
+(3) AlphaFold Protein Structure Database. https://alphafold.com/ Consultée 20/03/2023.",,,,
+fab-500x-20261114T224408Z-016,64,c2357c91b44525bd299a88a9,fd44decc55088b73d7f18c95ae8da5be,fab-500x,fr,writing,aya-dataset,human_authored,"[user] Prendre l'énoncé suivant comme vrai : ""Jack and Jill: A Village Story de Louisa May Alcott, est un livre pour enfants publié à l'origine en 1880. Il se déroule dans une petite ville de la Nouvelle-Angleterre après la guerre civile. L'histoire de deux bons amis nommés Jack et Janey, ""Jack et Jill"" raconte les conséquences d'un grave accident de luge."" Alors l'énoncé suivant : ""Jack et Janey étaient deux bons amis."" est ""vrai"", ""faux"", ou ""incertain"" ?",L'énoncé est vrai.,,,,
+fab-500x-20261114T224408Z-016,65,7403f1b2a09233706b516ab0,7d657c2104581e4aee24fade99ebacbd,fab-500x,gle,general_knowledge,aya-dataset,human_authored,[user] Cé hé Robert E. Lee?,"Ba ghinearál Meiriceánach é Robert Edward Lee (19 Eanáir 1807 – 12 Deireadh Fómhair 1870). Ar phlandáil darbh ainm Stafford Hall i gContae Westmoreland i Virginia a rugadh é. Rinne sé seirbhís in Arm na Stát Aontaithe ó 1829 go 1861. Nuair a cuireadh tús le Cogadh Cathartha na Stát Aontaithe chuaigh Lee leis an Chonaidhm, is é sin, stáit an deiscirt, agus cuireadh é i gceannas ar Arm Virginia Thuaidh, post a bhí aige go dtí deireadh an chogaidh sa bhliain 1865. Ina dhiaidh sin, chaith sé tamall ina uachtarán ar Ollscoil William and Mary i Virginia agus ba sa stát céanna, i Lexington, a fuair sé bás sa bhliain 1870.",,,,
+fab-500x-20261114T224408Z-016,66,5a5d3988ea96c556500684fd,73cfd9b8cb184c4759b3c8aa3f3be904,fab-500x,gle,web_backend,aya-dataset,human_authored,[user] Ba mhaith liom pancakes a dhéanamh ach níor rinne mé iad riamh roimhe seo. An féidir leat cabhrú liom?,"Cinnte, bheadh áthas orm. An bhfuil na míreanna seo a leanas agat: Plúr, friochtán, uibheacha, agus bainne? Ar dtús, tuilleann tú an plúr isteach i mbabhla. Ansin tóg na huibheacha agus déan na yolks agus na bán a scaradh. Cuir na yolks isteach i mbábla eile. Anois cuir méid beag bainne leis na yolks uibheacha agus corraigh. Cuir beagán bainne leis an meascán uibheacha uibheacha. Anois tá leacht tanaí agat ar a dtugtar ""batter"" mar sin tá tú réidh chun an t-pan friochta a úsáid.",,,,
+fab-500x-20261114T224408Z-016,67,43d3e23b5bac8f633d19cf1b,a0a9ba3ca3117048abd3e6b5bdb716a6,fab-500x,gle,web_frontend,aya-dataset,human_authored,[user] Inis dom faoi Asaph Hall.,"Réalteolaí Meiriceánach ab ea Asaph Hall Rugadh sé ar an 15 Deireadh Fómhair, 1829. Fuair sé bás ar an 22 Samhain, 1907. B’eisean a tháinig ar ghealacha Mharsa, Phobos agus Deimos.",,,,
+fab-500x-20261114T224408Z-016,68,22f1a7d4a6d3d4c3318a1855,ff937fea60516801ca5549a7523da771,fab-500x,gu,general_knowledge,aya-dataset,human_authored,[user] જોડકણાં એટલે શુ ?,"જોડકણાં એ ગુજરાતી ભાષાનું એક પ્રકારનું પદ્ય સાહિત્ય છે. આમાં કોઈ એક પરિસ્થિતિને અનુલક્ષીને કે ત્યાં ઉપસ્થિત સજીવ કે નિર્જીવને અનુલક્ષીને બોલાતી એક, બે કે ચાર કડીઓ હોય છે. આમાં ખાસ કરીને નાનાં નાનાં બાળકોને રમાડવા માટે બોલાતી બે કે ચાર કે તેથી વધુ કડીઓની રચનાઓ, પરંપરાગત રીતે અત્યંત પ્રચલિત થયેલી જોવા મળે છે. આ જોડકણાંઓ પ્રદેશ પ્રમાણે થોડાં કે વધુ પ્રમાણમાં ભિન્ન સ્વરૂપે જોવા મળે છે. આ પ્રકારનું સાહિત્ય પરાપૂર્વથી મૌખિક રીતે સમાજમાં બોલાતું હોવા છતાં તેનું અત્યંત ઓછા પ્રમાણમાં અક્ષરાંકન થયેલું જોવા મળે છે.
+
+જોડકણામાં વાપરવામાં આવતી કડીઓમાં કેટલીક વાર કડીના આગલા-પાછલા ભાગ વચ્ચે કે પહેલી-બીજી કડીઓ વચ્ચે કાંઈ જ સંબંધ ન હોય તેમ પણ જોવા મળે છે. જોડકણાંની કડીઓમાં સામાજિક પ્રસંગોનાં, ગામનું દૈનિક જીવનનાં, ઋતુઓનાં, જ્ઞાતિઓનાં, વાતાવરણમાંની કુદરતી વસ્તુઓનાં, પશુ-પંખીઓનાં, વૂક્ષોનાં, ફળોનાં, ઘરેણાંનાં, વિસ્તારોનાં, શહેરોનાં જેવી વિવિધ પ્રકારનાં નામો વપરાયેલાં જોવા મળે છે. બાળકો માટેનાં જોડકણાંઓમાં આખી વાર્તા આવતી હોય, ગાતાં ગાતાં રમત રમી શકાતી હોય એવાં પણ જોડકણાંઓ જોવા મળે છે. આ ઉપરાંત જોડકણાંમાં ઉખાણાં પણ હોય છે, જેનો જવાબ સાંભળનારાએ શોધી કાઢવાનો હોય છે.",,,,
+fab-500x-20261114T224408Z-016,69,e5e7f4084fd55a42ac73d601,abd85b5b8081e804373518596e3b55bb,fab-500x,gu,mathematics,aya-dataset,human_authored,[user] આલૂ પુરીની રેસીપીની માહિતી આપો,"આલૂ પુરી ઉત્તર ભારતીય નાસ્તાની ખૂબ જ લોકપ્રિય વાનગી છે. પુરી સાથે આલૂ કી સબજી સામાન્ય રીતે બૂંદી રાયતા અને આમ કા અચર સાથે ખાવામાં આવે છે. જાણો પૂરી બટેટાની કઢી કેવી રીતે બનાવવી.
+
+ઘટકો:
+આલૂ સબજી માટે:
+
+250 ગ્રામ બાફેલા બટેટા
+1 ચમચી તેલ
+1 ચમચી મીઠું
+1/4મી ચમચી હળદર પાવડર
+1/4 ટીસ્પૂન ડેગી મિર્ચ (રંગ માટે)
+1/2 ચમચી ધાણા પાવડર
+1/4 ચમચી ગરમ મસાલો
+1/2 ચમચી લાલ મરચું પાવડર
+1 ટીસ્પૂન જીરું
+1/8મી ચમચી હિંગ
+1/2 ચમચી કસોરી મેથી
+1/2 ટીસ્પૂન બરછટ સોનફ પાવડર
+1 લીલું મરચું લંબાઈની દિશામાં કાપો
+3-4 ટામેટાં ચોખ્ખાં
+1 ચમચી ઝીણી સમારેલી કોથમીર
+પુરી માટે:
+
+2 કપ ઓલ પર્પઝ લોટ (મેડા)
+1/2 ચમચી મીઠું
+1 કપ દહીં
+ડીપ ફ્રાય માટે વનસ્પતિ તેલ
+
+પુરી સાથે આલૂ કી સબજી કેવી રીતે બનાવવી:
+આલૂ કી સબજી માટે
+
+એક પેનમાં તેલ ગરમ કરો. જીરું ઉમેરો અને જ્યારે જીરું ફૂટવા લાગે અને હિંગ, ડેગી મિર્ચ, હળદર, લાલ મરચું પાવડર અને 1 ચમચી પાણી નાખો જેથી લાલ મરચું બળી ન જાય.
+હવે તેમાં પ્યોર કરેલા ટામેટાં ઉમેરો અને તેલ છૂટું ન પડે ત્યાં સુધી થવા દો. પછી તેમાં લીલું મરચું કાપો અને મીઠું, ધાણાજીરું અને ગરમ મસાલો ઉમેરો.
+હવે હાથ વડે મોટા ટુકડા કરી બટાકાનો ભૂકો નાખો. સારી રીતે ભેળવી દો.
+છેલ્લે સોન્ફ પાવડર અને કસૂરી મેથીનો ભૂકો અને 1 કપ પાણી ઉમેરો. ગ્રેવી ઘટ્ટ થાય ત્યાં સુધી થવા દો. સમયાંતરે હલાવતા રહો.
+તેને સર્વિંગ બાઉલમાં ટ્રાન્સફર કરો અને કોથમીરથી ગાર્નિશ કરો.
+પુરી માટે
+
+લોટને મીઠું સાથે મિક્સિંગ બાઉલમાં મૂકો.
+લોટની વચ્ચે એક કૂવો બનાવો અને ધીમે-ધીમે દહીંમાં હલાવો, સારી રીતે મિક્સ કરો જેથી એક કોમળ કણક બને.
+જરૂર પડે તો પાણી ઉમેરો.
+કણકને 7-10 મિનિટ સુધી ભેળવી દો જ્યાં સુધી તે નરમ ન થાય.
+વધુ નરમ થવા માટે તેને 20 મિનિટ માટે છોડી દો.
+આ લોટમાંથી બોલ્સ બનાવો.
+સારી રીતે લોટવાળી સપાટી પરના દરેક ટુકડાને એક મોટા વર્તુળમાં ફેરવો (સામાન્ય રીતે તે સામાન્ય પુરી કરતાં મોટો હશે)
+કઢાઈ અથવા કડાઈમાં તેલ ગરમ કરો.
+પુરીઓને ગરમ તેલમાં એક મિનિટ માટે ડીપ ફ્રાય કરો, બાજુ ફેરવો અને તે ફૂલેલા અને સોનેરી રંગના થાય ત્યાં સુધી ફ્રાય કરો.
+આ પ્રક્રિયાને ત્યાં સુધી પુનરાવર્તિત કરો જ્યાં સુધી બધી પોચી ન બને.",,,,
+fab-500x-20261114T224408Z-016,70,acd3a904f0e06a2bf2ccd3d0,e9521fc9c4a296cea42d5d72c48879c3,fab-500x,gu,science,aya-dataset,human_authored,[user] સૌર પાવર એટલે શું?,"સૌર પાવર, જેને સૌર વીજળી તરીકે પણ ઓળખવામાં આવે છે, તે સૂર્યપ્રકાશથી વીજળીમાં energy ઊર્જા ર્નું રૂપાંતર છે, સીધા ફોટોવોલ્ટેઇક્સનો ઉપયોગ કરીને અથવા પરોક્ષ રીતે કેન્દ્રિત સૌર power ઊર્જા ર્નો ઉપયોગ કરે છે.ફોટોવોલ્ટેઇક કોષો ફોટોવોલ્ટેઇક અસરનો ઉપયોગ કરીને પ્રકાશને ઇલેક્ટ્રિક પ્રવાહમાં રૂપાંતરિત કરે છે.કેન્દ્રિત સોલર પાવર સિસ્ટમ્સ સૂર્યપ્રકાશના વિશાળ ક્ષેત્રને ગરમ સ્થળે કેન્દ્રિત કરવા માટે લેન્સ અથવા અરીસાઓ અને સોલર ટ્રેકિંગ સિસ્ટમ્સનો ઉપયોગ કરે છે, ઘણીવાર સ્ટીમ ટર્બાઇન ચલાવવા માટે.
+
+ફોટોવોલ્ટેઇક્સનો ઉપયોગ શરૂઆતમાં નાના અને મધ્યમ કદના એપ્લિકેશનો માટે વીજળીના સ્ત્રોત તરીકે કરવામાં આવતો હતો, એક સોલર સેલ દ્વારા સંચાલિત કેલ્ક્યુલેટરથી લઈને Grid ફ-ગ્રીડ રૂફ ટોપ પીવી સિસ્ટમ દ્વારા સંચાલિત દૂરસ્થ ઘરો સુધી.વાણિજ્યિક કેન્દ્રિત સૌર પાવર પ્લાન્ટ્સ પ્રથમ 1980 ના દાયકામાં વિકસિત કરવામાં આવ્યા હતા.ત્યારથી, જેમ જેમ સૌર વીજળીનો ખર્ચ ઘટી રહ્યો છે, ગ્રીડ-કનેક્ટેડ સોલર પીવી સિસ્ટમોની ક્ષમતા અને ઉત્પાદન દર ત્રણ વર્ષે બમણો થઈને વધુ કે ઓછા ઝડપથી વિકસ્યા છે.લાખો સ્થાપનો અને ગીગાવોટ સ્કેલ ફોટોવોલ્ટેઇક""",,,,
+fab-500x-20261114T224408Z-016,71,5dc11fcc3d1eadf58694273e,5bc33f9e34613874275216410f9ee38c,fab-500x,gu,web_frontend,aya-dataset,human_authored,[user] પી એચ પી  પ્રોગ્રામીગ વિશે માહીતી આપો.,"પ્રોગ્રામિંગ પેરાડિગમ:-          રિફ્લેક્ટિવ,ઓબ્જેક્ટ 
+                          ઓરીએન્ટેડ,સર્વસામાન્ય,કાર્યપ્રણાલી
+શરૂઆત:-.              ૧૯૯૫
+બનાવનાર:-.            રાસમસ લેરડૉર્ફ
+ડેવલપર. :-              ધ પી એચ પી  ગ્રૂપ
+સ્થિર પ્રકાશન:-.         ૫.૪.૮
+પ્રકાર :-                  નબળું, ડાયનેમિક
+સામાન્ય ફાઈલ
+ એક્સટેન્શન:-         .પીએચપી  , .પીએચટીએમએલ  .પીએચપી 4 .પીએચપી 3, 
+                          .પીએચપી 5, .પીએચપીએસ 
+
+PHP અથવા પીએચપી એ કોમ્પ્યુટરની સર્વર-સાઇડ સ્ક્રિપ્ટીંગ લેંગ્વેજ છે. જે ડાયનેમિક વેબ પેજીસ બનાવવા માટે વપરાય છે. પીએચપીની શોધ રેસમસ લર્ડોર્ફે ૧૯૯૫માં કરી હતી. પીએચપી એ પીએચપી તથા GNU GPL પરવાના હેઠળનો મુફ્ત સોફ્ટવેર છે. પીએચપીનું પુરુ નામ શરૂઆતમાં પર્સનલ હોમ પેજ હતું, જે હવે હાયપરટેક્ષ્ટ પ્રીપ્રોસેસર છે. આ સ્ક્રિપ્ટીંગ લેંગ્વેજને HTML ની અંદર વણી શકાય છે. તેમાં કમાન્ડ લાઇન ઇન્ટરફેસની સવલતો પણ ઉપલબ્ધ છે અને તેનો ઉપયોગ સ્ટેન્ડઅલોન ગ્રાફીકલ એપ્લિકેશનમાં થાય છે. અત્યારે પીએચપી ૨ કરોડ વેબસાઇટ અને ૧૦ લાખ વેબ સર્વર પર સ્થાપિત છે.",,,,
+fab-500x-20261114T224408Z-016,72,7357b9b5118aa0103cb88dac,608f307c8a64e5f99470b84621374db9,fab-500x,gu,writing,aya-dataset,human_authored,"[user] તમારી સંગઠિત ફ્લાઇટ રદ કરવામાં આવી છે. એરલાઇન કંપનીને પત્ર લખો. તમારે 1) પરિસ્થિતિ વિશે ફરિયાદ કરવી જોઈએ, 2) મુસાફરી વીમાનો દાવો કરવા માટે તમારે તેમની પાસેથી શું જોઈએ છે તેની વિનંતી કરવી જોઈએ, 3) ભવિષ્યની પરિસ્થિતિઓમાં તેઓએ શું કરવું જોઈએ તે સૂચવો.","""હાય ડેલ્ટા એરલાઇન,
+
+હું Ao Ni છું, હું મારી રદ થયેલી ફ્લાઇટ અંગે અને મારા પ્રવાસ વીમાનો દાવો કરવા માટે દસ્તાવેજોની વિનંતી કરવા માટે આ ઇમેઇલ મોકલું છું.
+
+મને હમણાં જ તમારા તરફથી એક ઈમેલ મળ્યો છે કે મારી લાસ વેગાસથી ન્યુયોર્કની આજે રાત્રે 10 વાગ્યાની ફ્લાઇટ યાંત્રિક સમસ્યાઓને કારણે રદ કરવામાં આવી છે. ભલે ડેલ્ટા એરલાઇન મને ફ્લાઇટ ટિકિટની કિંમત પરત કરશે, આવતીકાલની ફ્લાઇટ માટેની છેલ્લી ઘડીની ટિકિટ અત્યંત મોંઘી છે, જે સામાન્ય કિંમત કરતાં લગભગ બમણી છે. ખૂબ જ મહત્વપૂર્ણ મીટિંગમાં હાજરી આપવા માટે મારે આવતીકાલે ન્યુ યોર્ક પરત ફરવાનું છે તેથી મારે ટિકિટ માટે ચૂકવણી કરવી પડશે, ઉપરાંત આજની રાત માટે હોટેલમાં એક રાત્રિ રોકાણ કરવું પડશે.
+
+શું તમે મારી હોટેલ અને ટિકિટની ભરપાઈ કરશો? જો નહીં, તો મારે મારા પ્રવાસ વીમા દ્વારા તેનો દાવો કરવો પડશે અને મારા કેસને સમર્થન આપવા માટે મને બે દસ્તાવેજોની જરૂર પડશે. પ્રથમ, મારા ઓર્ડરની પુષ્ટિ. બીજું, કેન્સલેશનનું કારણ જણાવવા માટે અને ડેલ્ટા એરલાઈન્સ મારી ખોટની ભરપાઈ કરવા માટે મને તમારા તરફથી એક પત્રની જરૂર છે.
+
+હું સમજું છું કે ખરાબ વસ્તુઓ ક્યારેક થાય છે પરંતુ હું હજુ પણ છેલ્લી ઘડીની સૂચનાથી નારાજ છું. તમે મને અગાઉ નોંધ્યું હોવું જોઈએ જેથી મને તેની સાથે વ્યવહાર કરવા માટે વધુ સમય મળી શક્યો હોત.
+
+જો તમને મારી પાસેથી કોઈ વસ્તુની જરૂર હોય તો કૃપા કરીને મને જણાવો. તમે મને 123-456-7890 અથવા મારા ઈમેલ [EMAIL] પર પહોંચી શકો છો.""",,,,
+fab-500x-20261114T224408Z-016,73,72b3976b93a7e3ca908c189e,d5f8c7f41ad3b64c500c341e67301497,fab-500x,hat,general_knowledge,aya-dataset,human_authored,[user] Fason foumi chapantye a netwaye antèn li yo,"Yon ensèk oblije gen tout pati nan kò l byen netwaye pou l kapab vole, oswa pou l kapab grenpe oswa pou l ka konn kote l ye. Pa egzanp, si antèn yon ensèk gen ti salte sou li, l ap difisil pou l dirije tèt li pandan l ap vole, pou l transmèt siyal li yo e pou l pran sant. Se sa k fè espesyalis sa a ki rele Alexander Hackmann di: “Ou pa gen dwa wè yon ensèk ki gen salte sou li. Yo degaje yo pou yo debarase yo ak tout kras ki ka vin poze sou yo.”
+
+Fè yon ti reflechi: Hackmann ak kolèg li yo fè rechèch sou fason foumi yo rele foumi chapantye a (Camponotus rufifemur) abitye sèvi ak pat li yo pou l netwaye antèn li yo. Yo vin dekouvri foumi sa a retire tout ti debri ki vin poze sou antèn li yo grasa pat li yo li lonje pou fè yo tounen yon kwòk li sèvi pou l fwote antèn li yo. Plim ki sou pat foumi an ki pwès retire tout gwo kras yo. Plim ki pi piti yo tankou yon ti peny fen paske espas ki gen ant yo a egzakteman gwosè plim ki sou antèn foumi an, e plim sa yo kapab retire tout ti salte yo. Apre sa, debri ki pi piti yo, sa vle di ki 80 fwa pi piti pase yon grenn cheve yon moun, soti sou antèn yo grasa plizyè plim ki pi fen toujou.
+
+A. Hackmann ak ekip li a kwè fonksyònman foumi an lè l sèvi ak pat li yo pou l netwaye antèn li yo kapab gen yon gwo itilite pou enjenyè yo. Pa egzanp, yo kapab sèvi ak menm metòd sa yo pou yo netwaye ti pyès elektwonik ki delika y ap fabrike nan izin yo, kote sèlman yon ti kras pousyè kapab fè pyès sa yo mal fonksyone.",,,,
+fab-500x-20261114T224408Z-016,74,3c3241d124a148d2c55a797b,77eab22b133be7d4ec265155bec03966,fab-500x,hau,general_knowledge,aya-dataset,human_authored,[user] Wace nahiya ce Vladivostok?,A Arewacin Asiya.,,,,
+fab-500x-20261114T224408Z-016,75,826a9fa7529a57edee4c0075,35edbe9eb832fd214093dd9b3d9546ee,fab-500x,hau,islamic_studies,aya-dataset,human_authored,"[user] wanne ne daga cikin su baya daga cikin ilimin shari'ar Muslunci,","(a) llimin Falsafa
+ (b) llimin fiqhu 
+(c) llimin tafsir",,,,
+fab-500x-20261114T224408Z-016,76,fd6e4ab4904cec92e75694e3,e88396d2db1f190d7c08138174c09994,fab-500x,hau,mathematics,aya-dataset,human_authored,[user] Gandu a Zamantakewa a Ƙasar Hausa,"Gandu shi ne babban gida a Hausance. Shi kuwa babban gida shi ne gidaje a cikin gida. Gida ne makeke guda ɗaya wanda idan aka shiga cikinsa za a samu wasu gidajen, mafi ƙaranci guda biyu a cikinsa. Komai yawan jama’ar gandu, akan samu cewa tushensu ɗaya ne. Tushe a nan na nufin asali. Wato zuriya guda.
+
+A irin waɗannan gidaje ake samun zuriya ko haula. Gida ne da ya tattara kaka, iyaye, baffani, yayye, ƙanne da kuma ‘ya’yan bafannin a guri guda.
+
+Kowane gida guda ɗaya da yake cikin gandu, zaman kansa yake yi; da ma’ana ta yana da ɗakuna da kuma ban-ɗaki wasu lokutan ma da madafa a cikinsa. Kuma ana samun irin waɗannan gidaje a karkara har zuwa yau ɗin nan (28/9/2018) da nake yin wannan rubutun. Abin da kawai ya bambanta na daurin da kuma na wannan zamanin shi ne cewa, a yau za ka taras kowa a gidan gashin kansa yake ci. Amma da can baya kuwa, tukunya ɗaya ake ɗorawa.
+
+Babban jagora a wanna gida shi ne namiji mafi yawan shekaru. Idan ya rasu; da ma’ana ta ya mutu, to mai binsa a shekaru, shi zai cigaba da jan ragamar gidan.
+
+Dukkan sauran jama’ar gidan, sukan je gonar gandu su yi noma, sannan kuma su, mutanen gida, ana ware musu ranar Juma’a da kuma ƙarin wata rana wacce ita take zama ranar kasuwar garin, su riƙa zuwa tasu gonar suna noma wacce ake kiranta da gawaina/gayauna. Dukkan abubuwan da aka noma a gonar gandu, to shi za a riƙa dafawa a babbar tunkunyar gida. Idan aka samu tattaruwar irin waɗannan gidaje, sai su samar da unguwa.
+
+Shi uban gandu, wato jagoran gida, shi ne alhakin kula da al’amuran ciki da wajen gida ya rataya a wuyansa. Shi ne mai bayar da aure a gidan sannan kuma shi ne mai karɓowa, shi ne mai sasanta tsakanin duk waɗanda suka samu saɓani a tsakani da sauransu. Maganarsa ita ce sama da maganar kowa a wannan gidan.",,,,
+fab-500x-20261114T224408Z-016,77,0de436dafcb3f35512e95961,c3cec60ecc330be71e700b4871df02e8,fab-500x,hau,pakistan,aya-dataset,human_authored,[user] Yaushe Pakistan ta sami 'yancin kai?,A ranar 14 Agusta na 1947.,,,,
+fab-500x-20261114T224408Z-016,78,b516a7ea1d88d655c9343874,bfc05384b7e3430c3a12717ece0e1277,fab-500x,hau,science,aya-dataset,human_authored,[user] Wane dan wasa ne ya fito a matsayin shugaban kasa a fim din ‘Air Force One’ a shekarar 1997?,Jarumi Harrison Ford ne,,,,
+fab-500x-20261114T224408Z-016,79,b7b7dec1d7a51a778a60c42b,b270220b780d011c252666456346a594,fab-500x,he,general_knowledge,oasst2,human_authored,"[user] מתי נוסדה מדינת ארץ ישראל?
+
+[assistant] מדינת ישראל נוסדה בחמישה עשר במאי 1948 ה באייר תש""ח.
+
+[user] מעניין. מי היה הנשיא הראשון?","הנשיא הראשון של מדינת ישראל היה חיים ויצמן, שכיהן מי""ח בשבט ה'תש""ט, 17 בפברואר 1949 עד כ""ו בחשוון ה'תשי""ב, 25 בנובמבר 1951. מה עוד תרצה לדעת?",,,,
+fab-500x-20261114T224408Z-016,80,2205549d60b23c4b7c5a1b9d,0a41dca3fecadf35b60347802ae88a06,fab-500x,hi,coding,wikipedia-hi,templated_human,[user] रैखिक क्रमादेशन के बारे में एक संक्षिप्त परिचय लिखिए।,"गणित में रैखिक प्रोग्रामन (linear programming) इष्टतमीकरण (ऑप्टिमाइजेशन) की एक तकनीक है जिसमें लक्ष्य-फलन भी रैखीय होता है तथा शर्तें (समिकाएं/असमिकाएँ) भी रैखिक होतीं हैं। किन्तु इसका कम्प्यूटर प्रोग्रामन से कोई सम्बन्ध नहीं है।
+
+सन १९३९ में लिओनिद कान्तोरोविच (Leonid Kantorovich) ने प्रथम रैखिक प्रोग्रामन समस्या निर्मित की थी। उन्होने इस समस्या के हल की विधि भी प्रस्तुत की थी। उन्होने इसे द्वितीय विश्वयुद्ध के समय विकसित किया था जिसका उद्देश्य युद्ध में सेना के खर्चे को कम करना था।
+
+मानक रूप (Standard form), रैखिक क्रमादेशन समस्या के वर्णन का सबसे अच्छा तरीका है। रैखिक प्रोग्रामिंग की समस्या के तीन भाग होते हैं।
+
+एक  रैखिक फलन का अधिकतमीकरण (linear function to be maximized)
+
+समस्या की शर्तें (Problem constraints), जो कुछ इस प्रकार के होते हैं-
+
+वे चर जिनका मान केवल धनात्मक हो सकता है (Non-negative variables)
+
+रैखिक क्रमादेशन की समस्या को प्रायः मैट्रिक्स के रूप में अभिव्यक्त किया जाता है, तब समस्या का रूप यह हो जाता है-
+
+अन्य प्रकार की रैखिक क्रमानुदेशन समस्याएं (जैसे न्यूनीकरण समस्या, दूसरे प्रकार की शर्तें, ऋणात्मक चर मानों वाली समस्याएँ आदि) हमेशा उपरोक्त मानक रूप में बदलकर लिखी सकतीं हैं।
+
+मना दो चरों   तथा  के रैखिक फलन G का अधिकतम मान निकालना है-
+
+किन्तु, उपरोक्त फलन का अधिकतम मान निकालते समय निम्नलिखित शर्तों का पालन भी होना चाहिये-
+
+इन शर्तों के साथ यह भी ध्यान रखना है कि दोनों चर ऋणात्मक मान नहीं ले सकते, अर्थात्",,,,
+fab-500x-20261114T224408Z-016,81,bc1d6b677399a92973834288,4aeb5ae5b870fc379710c170844562b4,fab-500x,hi,education,wikipedia-hi,templated_human,[user] मॉडेम के बारे में एक संक्षिप्त परिचय लिखिए।,"मॉडेम (modem) मॉडुलेटर-डीमॉडुलेटर (modulator-demodulator) का संक्षिप्त रूप है। यह एक ऐसी युक्ति (डिवाइस) है जो किसी आंकिक (डिजिटल) सूचना को मॉडुलेट करके एनॉलॉग (analog) प्रारूप में भेजती है और जो एनॉलॉग प्रारूप में इसे सिगनल मिलता है उसे डी-मॉडुलेट करके डिजिटल रूप में ग्रहण करती है। यह किसी संचरण के माध्यम (transmission media) और आंकिक मशीन (जैसे कम्प्यूटर) के बीच संचार स्थापित करने के लिये आवश्यक अवयव है। इसे इंटरनेट से जोड़कर सूचनाओं का आदान प्रदान कर सकते हैं
+
+ब्राडबैण्ड (Broadband): उपग्रह मॉडेम, ADSL, केबल मोडेम
+
+मानक निर्धारण करने वाली संस्थाएँ तथा मॉडेम के प्रोटोकोल (रीति-नीति)
+
+International Telecommunications Union ITU: Data communication over the telephone network
+
+Columbia University - Protocols Explained - no longer available, archived version
+
+Basic handshakes & modulations - V.22, V.22bis, V.32 and V.34 handshakes
+
+मॉडेम के बारे में सामान्य ज्ञान (जैसे ड्राइवर, चिपसेट आदि)
+
+Installing, testing, troubleshooting & tweaking modems
+
+Modem Tutorial - what is a modem - How modems can be applied for machine telemetry applications
+
+Modems.com - Site operated by Zoom and is mainly a sales pitch for v.92
+
+www.asteriskguru.com - Tutorial Asterisk and Analog Interface Cards, User Comments",,,,
+fab-500x-20261114T224408Z-016,82,9960d45541b92972cc212803,d97d61647a6050441d14c521d5479140,fab-500x,hi,general_knowledge,wikipedia-hi,templated_human,[user] आदि-द्रविड़ भाषा के बारे में एक संक्षिप्त परिचय लिखिए।,"आदि-द्रविड़ भाषा (अंग्रेज़ी: Proto-Dravidian language, प्रोटो-ड्रविडियन) द्रविड़ियन भाषाओं का आदी रूप था।
+
+परिभाषा के अनुसार आदि भाषाएँ परिकल्पित भाषाएँ हैं, जिन्हें भाषाविदों के द्वारा पुनः निर्मित किया गया है और इसीलिए किसी भी आदी भाषा के ऐतिहासिक रिकॉर्ड उपलब्ध नहीं हैं। प्रोटो-द्रविड़ियन के मामले में भी कुछ ऐसा ही है। द्रविड़ भाषाओं में तुलनात्मक भाषायी शोध की कमी के कारण, प्रोटो-द्रविड़ियन के व्याकरण, युग, या स्थान के बारे में अधिक विवरण ज्ञात नहीं है।
+
+ऐसा माना जाता है कि 500 ईसा पूर्व के आस पास प्रोटो-उत्तरी द्रविड़ियन, प्रोटो-केन्द्रीय द्रविड़ियन और प्रोटो-दक्षिणी द्रविड़ियन के बीच विभेदन हुआ। हालांकि कुछ भाषाविदों का तर्क है कि इसके उप-वर्गों के बीच विभेदन का अंश एक प्रारम्भिक विभाजन को इंगित करता है। विड़ शब्द विज्ञान का शब्द कोष सभी द्रविड़ भाषाओं की एकमात्र पुस्तक है, इसमें प्रोटो-द्रविड़ियन शब्दों की एक सूची है, जिनके बारे में इससे ज्यादा कोई स्पष्टीकरण उपलब्ध नहीं है; इसलिए एक प्रतिभाशाली भाषाविद के लिए प्रोटो-द्रविड़ियन काफी संभावनाएं प्रस्तुत करती है।
+
+यहाँ हम पुनः निर्मित प्रोटो-द्रविड़ियन भाषा की सहज विशेषताओं के बारे में चर्चा करेंगे.
+
+स्वर : प्रोटो द्रविड़ियन में पांच लघु और पांच दीर्घ स्वर हैं: *a, *ā, *i, *ī, *u, *ū, *e, *ē, *o, *ō .
+
+अनुक्रम *ai और *au को *ay और *av (या *aw) माना जाता है।
+
+व्यंजन : प्रोटो द्रविड़ियन को निम्नलिखित व्यंजनों के साथ पुनर्निर्मित किया गया है (सुब्रह्मण्यम 1983: p40, ज्वेलेबी 1990, कृष्णमूर्ति 2003):",,,,
+fab-500x-20261114T224408Z-016,83,b4d3d0a7333929e68c321171,93c409e5066e8ef4e528eddd73c78d2e,fab-500x,hi,mathematics,wikipedia-hi,templated_human,[user] बांसवाड़ा के बारे में एक संक्षिप्त परिचय लिखिए।,"बांसवाड़ा (Banswara) भारत के राजस्थान राज्य के बांसवाड़ा ज़िले में स्थित एक नगर है। यह ज़िले का मुख्यालय भी है, और राजस्थान के दक्षिणी भाग में गुजरात व मध्य प्रदेश राज्यों की सीमा के निकट है। बांसवाड़ा को 18/03/2023 को मुख्यमंत्री अशोक गहलोत द्वारा संभाग घोषित किया गया है।इसे ""सौ द्वीपों का नगर"" भी कहा जाता है, क्योंकि यहाँ से होकर बहने वाली माही नदी में अनेकानेक से द्वीप हैं।
+
+बांसवाड़ा के आसपास का क्षेत्र अन्य क्षेत्रों की तुलना में समतल और उपजाऊ है, माही बांसवाड़ा की प्रमुख नदी है। मक्का, गेहूँ और चना बांसवाड़ा की प्रमुख फ़सलें हैं। बांसवाड़ा में लोह-अयस्क, सीसा, जस्ता, चांदी और मैंगनीज पाया जाता है। इस क्षेत्र का गठन 1530 में बांसवाड़ा रजवाड़े के रूप में किया गया था और बांसवाड़ा शहर इसकी राजधानी था। 1948 में राजस्थान राज्य में विलय होने से पहले यह मूल डूंगरपुर राज्य का एक भाग था।",,,,
+fab-500x-20261114T224408Z-016,84,9e779810f852b2112f5ebcee,2f5f6a754eb2d894429b36adf2455541,fab-500x,hi,pakistan,wikipedia-hi,templated_human,[user] ख़ैबर दर्रा के बारे में एक संक्षिप्त परिचय लिखिए।,"ख़ैबर दर्रा या दर्र-ए-ख़ैबर (, Khyber Pass) उत्तर-पश्चिमी पाकिस्तान की सीमा और अफगानिस्तान के काबुलिस्तान मैदान के बीच हिंदुकुश के सफेद कोह पर्वत शृंखला में स्थित एक प्रख्यात ऐतिहासिक दर्रा है। यह दर्रा 50 किमी लंबा है और इसका सबसे सँकरा भाग केवल 10 फुट चौड़ा है। यह सँकरा मार्ग 600 से 1,000 फुट की ऊँचाई पर बल खाता हुआ बृहदाकार पर्वतों के बीच खो सा जाता है। इस दर्रे के ज़रिये भारतीय उपमहाद्वीप और मध्य एशिया के बीच आया-जाया सकता है और इसने दोनों क्षेत्रों के इतिहास पर गहरी छाप छोड़ी है। ख़ैबर दर्रे का सबसे ऊँचा स्थान पाकिस्तान के संघीय प्रशासित कबायली क्षेत्र की लंडी कोतल (لنڈی کوتل, Landi Kotal) नामक बस्ती के पास पड़ता है। इस दर्रे के इर्द-गिर्द पश्तून लोग बसते हैं।",,,,
+fab-500x-20261114T224408Z-016,85,69f1abe35b591def670d5a4f,b7b3893a2d4e428601d14f6695dc753e,fab-500x,hi,problem_solving,wikipedia-hi,templated_human,[user] भोज्य पदार्थों का किरणन के बारे में एक संक्षिप्त परिचय लिखिए।,"भोज्य पदार्थों के ऊपर आयनकारी विकिरण डालने से उसमें उपस्थित सूक्ष्मजीव, जीवाणु, विषाणु एवं कीट आदि नष्ट हो जाते हैं। इस क्रिया को खाद्य पदार्थों का किरणन (Food irradiation) या 'खाद्य पदार्थों का विकिरणन' कहा जाता है। इसके अलावा खाद्य पदार्थों के विकिरणन के फलस्वरूप अवांछित अंकुरण (जैसे आलू एवं प्याज का) रुक जाता है; फलों के पकने की क्रिया धीमी पड़ जाती है (इससे फलों को बिना नष्ट हुए दूर तक भेजा जा सकता है) ; रस उत्पादका में वृद्धि हो जाती है एवं अन्य लाभ होते हैं। ऐसा नहीं है कि विकिरणन के कारण खाद्य पदार्थ रेडियोधर्मी हो जाते हैं किन्तु कुछ स्थितियों में मामूली सा रासायनिक परिवर्तन अवश्य हो सकता है।
+
+1895 रोएंटजन द्वारा एक्स-किरण का आविष्कार
+
+१८९६ हेनरी बेक्वरेल ने प्राकृतिक रेडियोसक्रियता की खोज की।
+
+1918 जिलेट (Gillett): भोजन के संरक्षण के लिये एक्स-किरणों के प्रयोग का यूएस पेटेंट
+
+1958 जर्मनी के स्तुटगार्ट में विश्व का प्रथम वाणिज्यिक विकिरणन संयंत्र
+
+१९७० जर्मनी के कार्ल्सरुहे में अन्तरराष्ट्रीय खाद्य विकिरणन परियोजना की स्थापना
+
+1997 FAO, IAEA और WHO का संयुक्त अध्ययन दल ने सुझाया कि विकिरणन की कोई अधिकतम डोज सीमा नहीं होनी चाहिये।
+
+Codex Alimentarius General Standard for Irradiated Foods (CAC/STAN 106-1983, rev.1 2003)
+
+Codex Alimentarius Recommended International Code of Practice Code for Radiation Processing of Foods (CAC/RCP 19-1979, rev.2 — 2003)
+
+General Standard for the Labelling of Prepacked Foods (CODEX STAN 1-1985)",,,,
+fab-500x-20261114T224408Z-016,86,7e3ceea8a1504b0129d590b8,73641690995e0a49ad603902dc5b0b7a,fab-500x,hi,reasoning,wikipedia-hi,templated_human,[user] लुडविग विट्गेंस्टाइन के बारे में एक संक्षिप्त परिचय लिखिए।,"लुडविग विट्गेंश्टाइन (Ludwig Josef Johann Wittgenstein') (26 अप्रिल 1889 - 29 अप्रैल 1951) आस्ट्रिया के दार्शनिक थे। उन्होने तर्कशास्त्र, गणित का दर्शन, मन का दर्शन, एवं भाषा के दर्शन पर मुख्यतः कार्य किया। उनकी गणना बीसवीं शताब्दी के महानतम दार्शनिकों में होती है।
+
+उनके जीते जी एक ही पुस्तक प्रकाशित हो पाई - Tractatus Logico-Philosophicus। बाद की प्रकाशित पुस्तकों में Philosophical Investigations काफी चर्चित रही। विट्गेंश्टाइन कैम्ब्रिज विश्वविद्यालय के प्रोफेसर रहे हैं। विट्गेंश्टाइन के पिता कार्ल एक यहूदी थे जिन्होंने बाद में प्रोटेस्टेंट धर्म अपना लिया था।
+
+विट्गन्स्टाईन का सबसे बड़ा योगदान भाषा को दार्शनिक परिपेक्ष्य में रखने का है। आज कोई भी भाषा विज्ञान में जब दर्शन का उल्लेख करता है तो विट्गन्स्टाईन का नाम स्वतः स्मरण होता है।
+
+विट्गन्स्टाईन के लेखन से काफी तर्क-वितर्क उपजा है, यहाँ तक कि कई बार विट्गन्स्टाईन के काम को दर्शन‍‍विपरीत भी कहा गया है, किन्तु ऐसा कहना इसलिये गलत होगा कि विट्गन्स्टाईन से पहले भी तर्कशास्त्रियों ने भाषा (जिसका उपयोग सत्य को निर्धारित करने के लिये किया जाता रहा है) के तार्किक विश्लेषण पर जोर डाला था। विट्गन्स्टाईन के गुरू बर्टरैंड रसल रहे हैं (जिनसे उन्होंने तर्क की शिक्षा ली थी) का तर्कशास्त्र को दर्शन में उचित स्थान दिलाने में भारी योगदान है।",,,,
+fab-500x-20261114T224408Z-016,87,0ec4a0db49e61a0b849b2ec5,9bf411767e0fd46f08598679ddcecc5d,fab-500x,hi,research,wikipedia-hi,templated_human,[user] ओड़िआ लिपि के बारे में एक संक्षिप्त परिचय लिखिए।,"ओड़िआ लिपि, ब्राह्मी लिपि से व्युत्पन्न लिपि है जिसका प्रयोग ओड़िआ भाषा लिखने में होता है। इस लिपि के वर्णों का रूप देखकर ऐसा भ्रम हो सकता है कि इस पर तमिल, मलयालम आदि दक्षिण भारतीय लिपियों का प्रभाव है, किन्तु ऐसा है नहीं। ओड़िआ लिपि, देवनागरी लिपि और बंगला लिपि से सर्वाधिक मिलती-जुलती है।
+
+ओड़िआ लिपि द्वारा लिखने के लिये उपयुक्त वर्ण-मात्रा-संख्याएँ स्वरଅ ଆ ଇ ଈ ଉ ଊ ଋ ଏ ଐ ଓ ଔमात्रा× ା ି ୀ ୁ ୂ ୃ େ ୈ ୋ ୌव्यंजनକ ଖ ଗ ଘ ଙ ଚ ଛ ଜ ଝ ଞ ଟ ଠ ଡ ଡ଼ ଢ ଢ଼ ଣ ତ ଥ ଦ ଧ ନ ପ ଫ ବ ଵ ଭ ମ ଯ ୟ ର ଳ ଲ ୱ ଶ ଷ ସ ହ କ୍ଷ
+
+www.eodissa.com Download the first designer Unicode Odiya(Oriya) font eOdissaBOXUni designed by Subhashish Panigrahi for free.
+
+www.odia.org Oriya and Odia news. Excellent resources of education and cultural activities. Lots of Odia (Oriya) books in pdf format. Learn Odia (oriya) language with the dhwanI (ITRANS (Oriya) Odia software.
+
+The Unicode Book: Chapter 9 - South and Southeast Asian Scripts (PDF)
+
+A Complete Oriya Portal,Orissa - A Complete Oriya Portal,Orissa
+
+Oriya Unicode Fonts WAZU JAPAN's Unicode font pages
+
+Project Rebati - An open-source initiative for computing in Oriya
+
+Online Social Media of Orissa - Online Social Media of Orissa
+
+www.odiabook.co.In - Odia Library Resources For Education",,,,
+fab-500x-20261114T224408Z-016,88,dedcb8b2799f6efadd42c299,2df9e1a5fb80e605cd85d0625b64f12c,fab-500x,hi,safety_ethics,aya-dataset,human_authored,[user] Describe a futuristic cityscape where technology and nature coexist harmoniously.,सपने का यात्रा स्थल और वहां होने वाले अनुभवों का विवरण करें।,,,,
+fab-500x-20261114T224408Z-016,89,acd4c2f61983ec035cb82e8b,1ed6b20275a76060c5b51769e9d019ab,fab-500x,hi,science,wikipedia-hi,templated_human,[user] उदासीनीकरण अभिक्रिया के बारे में एक संक्षिप्त परिचय लिखिए।,"रसायन विज्ञान में, उदासीनीकरण अभिक्रिया (neutralisation reaction) वह अभिक्रिया है जिसमें अम्ल और क्षार क्रिया करके एक लवण और जल का निर्माण करते हैं। इसे निम्नलिखित रूप में दर्शाया जा सकता है-
+
+रासायनिक अनुमापन (Chemical titration) में,
+
+पेट के अतिरिक्त अम्ल को उदासीन करने के लिये सोडियम बाईकार्बोनेट (NaHCO3) या अन्य उदासीनीकरण एजेन्ट का प्रयोग,
+
+उदासीनीकरण से कीटों के दंश का दर्द कम करने में उपयोग किया जा सकता है।",,,,
+fab-500x-20261114T224408Z-016,90,5d8ab2e3eaaa89e337407b50,238e5d57f2fe786e1a10eeea2591c2e2,fab-500x,hi,web_frontend,wikipedia-hi,templated_human,[user] भारतीय उद्यमिता विकास संस्थान के बारे में एक संक्षिप्त परिचय लिखिए।,"भारतीय उद्यमिता विकास संस्थान (एन्टरप्रेन्योरशिप डवलपमेंट इंस्टीट्यूट ऑफ इंडिया / Entrepreneurship Development Institute of India/ EDI / EDII / ई.डी.आई. या ई.डी.आई.आई) एक अलाभ संस्था है, जिसकी स्थापना भारत में उद्यमिता को उत्साहित करने हेतु की गयी है। इसका मुख्यालय गुजरात के अहमदाबाद में स्थित है। इसकी स्थापना १९८३ में भारतीय औद्योगिक विकास बैंक, भारतीय औद्योगिक वित्त निगम, इंडस्ट्रियल क्रेडिट एंड इन्वेस्टमेंट कार्पोरेशन ऑफ इंडिया, (आई सी आई सी आई) एवं भारतीय स्टेट बैंक की स्पॉन्सरशिप से हुई थी।
+
+यह संस्थान अहमदाबाद विमानक्षेत्र के निकट गांधीनगर जिला, गुजरात में स्थित है।
+
+https://web.archive.org/web/[CARD]/https://www.livehindustan.com/career/education/story-cbse-to-start-entrepreneurship-vocational-courses-in-school-1398648.html
+
+https://web.archive.org/web/[CARD]/http://timesofindia.indiatimes.com/City/Ahmedabad/Sunil-Shukla-to-be-new-EDI-director/articleshow/47223557.cms
+
+https://www.ediindia.org/the_institute https://timesofindia.indiatimes.com/home/education/news/Initiatives-to-promote-entrepreneurship/articleshow/4269152.cms
+
+https://web.archive.org/web/[CARD]/https://www.thehindubusinessline.com/economy/entrepreneurship-development-institute-to-focus-on-startups-in-coming-years/article9305392.ece
+
+https://web.archive.org/web/[CARD]/https://www.financialexpress.com/jobs/is-there-a-science-behind-start-ups-find-out/639232/",,,,
+fab-500x-20261114T224408Z-016,91,690e2632fee05df5b87f55b9,9b4bb279f2c0cd9cdce8b1072f38d89c,fab-500x,hi,web_fullstack,wikipedia-hi,templated_human,[user] हार्प (HAARP) के बारे में एक संक्षिप्त परिचय लिखिए।,"हार्प (The High Frequency Active Auroral Research Program (HAARP)) अमेरिका की एक अनुसंधान परियोजना है। यह आयनमंडल से अनुसंधान से सम्बन्धित है। इसे अमेरिकी वायुसेना, जलसेना, अलास्का विश्वविद्यालय, डिफेंस ऐडवांस्ड रिसर्च लैबोरेटरी (DARPA) से वित्तीय सहायता प्राप्त है। इसका उद्देश्य आयनमंडल का अध्ययन करना एवं रेडियो संचार एवं निगरानी के लिये इसके परिवर्धन की सम्भावना का पता लगाना है।
+
+HAARP at EastlundScience.com — website of Bernard Eastlund's Scientific Enterprises Corporation.",,,,
+fab-500x-20261114T224408Z-016,92,b7ba7d4e7aada7fc43a250f9,15de6ba473d1776847eeb4905ceea6ff,fab-500x,hi,writing,aya-dataset,human_authored,"[user] Write a historical fiction novel set in a lesser-known period, focusing on characters who played pivotal roles in shaping events.","एक इतिहासी कल्पनात्मक उपन्यास लिखें जो एक कम जाने जाने वाले काल में स्थित है, जिसमें घटनाओं को आकार देने में महत्वपूर्ण भूमिका निभाने वाले पात्रों पर केंद्रित है।",,,,
+fab-500x-20261114T224408Z-016,93,d12775210737796a541f8841,c3b0e5eb536c9799f036033ba59ff1b6,fab-500x,hu,general_knowledge,oasst1,human_authored,[user] Magyarország mikor szakadt három részre?,"Magyarország 1541. augusztus 29-én szakad három részre, amikor az 1526-os mohácsi csata után az oszmán hadsereg megszállta Budát.",,,,
+fab-500x-20261114T224408Z-016,94,71555d25f9c2987549262175,6b9380b94b19398c1a35354c6d2393a2,fab-500x,hun,general_knowledge,aya-dataset,human_authored,[user] Jellemezd Pécs városi kultúráját és művészeti életét.,"Pécs gazdag kulturális élettel rendelkezik, és híres művészeti eseményeknek ad otthont, például a Pécsi Nemzetközi Táncfesztiválnak és az Őszi Tárlatnak.",,,,
+fab-500x-20261114T224408Z-016,95,c48744fbbfc5a911ca881636,4aa5cf3cf87a67bd275b02e8e4693d73,fab-500x,ibo,general_knowledge,aya-dataset,human_authored,"[user] Mejuo ahịrị okwu a:
+
+Onye kpara nkụ ahụhụ.....","Azịza:
+
+Kpọrọ ngwere oriri.
+
+Nke a pụtara na mgbe mmadụ n'adọrọ nsogbu, nsogbu ga a bịakwute ya.",,,,
+fab-500x-20261114T224408Z-016,96,9bf664272025ded2c4237fbe,0e1466845fa72f0511960ae87c4dafef,fab-500x,ibo,islamic_studies,aya-dataset,human_authored,"[user] Gịnị bụ ihe nlereanya nke ụzọ na-adịghị aghụghọ nke ịlụso òtù obi ọjọọ nke otu nkwenkwe nke malitere n' ọgụ Middle East ? N'iburu ajụjụ nke mbụ n'uche, dee ihe gbara ya gburugburu bụ́ nke ga-enye azịza ya. Ọ nwere ike ịbụ 1 - 20 ahịrịokwu. Ihe ndị gbara ya gburugburu:","Gọọmenti United States anọwo na-agba mbọ ịlụso Islamism ọgụ, ma ọ bụ Islamism ime ihe ike, kemgbe 2001. Mgbalị ndị a na-elekwasị anya na US gburugburu mmemme nke diplomacy ọhanaeze nke Ngalaba Na-ahụ Maka Ọchịchị na-eduzi. E nweela oku ka e hiwe ụlọọrụ nwere onwe ya na mba Amerịka nke nwere ọrụ pụrụ iche nke imebi Islamism na jihadism. Christian Whiton, onye ọrụ gọọmentị n'ọchịchị George W. Bush, kpọrọ oku maka ụlọ ọrụ ọhụrụ lekwasịrị anya n'omume na-abụghị nke ime ihe ike nke ""agha ndọrọ ndọrọ ọchịchị"" nke ezubere imebi echiche. Odeakwụkwọ na-ahụ maka nchebe nke United States bụ́ Robert Gates kpọrọ oku ka e guzobe ihe yiri Ụlọ Ọrụ Na-ahụ Maka Mgbasa Ozi nke United States nke na-adịkwaghị, bụ́ nke e boro ebubo na ọ na-emebi echiche ndị Kọmunist n'oge Agha Nzuzo.",,,,
+fab-500x-20261114T224408Z-016,97,94a8c7a78c69838541c53267,8d282071d96f519c10ae1768b6dd81d5,fab-500x,ibo,mathematics,aya-dataset,human_authored,[user] Saul Weigopwa ọ gbara Naijiria ọsọ?,"Saul Weigopwa (amụrụ 14 June 1984 na Song, Nigeria ) bụ onye egwuregwu ọsọ Naijiria, bụ ọkachamara na ọsọ 400m, ebe kacha mma nke ya bụ 45.00s (n'ihi na o nwetara ya ugboro abụọ). Na 2004 Summer Olympic Games Weigopwa so na asọmpi 400 m, ebe e ji 45.67s kụpụrụ ya na ọkara ikpeazụ. Ọ sokwa na ndị otu Naijiria nwetara ihe nrite ọla na 4 × 400 m relay .",,,,
+fab-500x-20261114T224408Z-016,98,c4e8157b6b4827c75fe4f6f0,32c3401856283c21b0d95744675ac69e,fab-500x,ibo,reasoning,aya-dataset,human_authored,"[user] Gini bu azịza gwam gwam gwam(riddle) a
+
+Gwa m otu ibe ji zuru ụwa ọnụ",Ọ bụ Ọnwa,,,,
+fab-500x-20261114T224408Z-016,99,999afd88e127722ed77e29dc,1ab78da4f1eae2c518412e95fb1b9a2b,fab-500x,id,coding,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Stasiun Prabumulih.,"Stasiun Prabumulih (PBM) adalah stasiun kereta api kelas besar tipe C yang terletak di Pasar Prabumulih, Prabumulih Utara, Prabumulih. Stasiun yang terletak pada ketinggian +43 m (sebelumnya +36 m) ini termasuk dalam Divisi Regional III Palembang. Stasiun ini terletak pada jalur pertemuan kereta dari arah Tanjungkarang di Bandar Lampung dan Lubuklinggau dengan Kertapati di Palembang serta merupakan stasiun yang letaknya paling timur di Kota Prabumulih.
+
+Sejarah stasiun ini tertulis pada buku De Stoomtractie Op Java en Sumatra karangan J.J.G. Oegema. Berdasarkan buku tersebut, stasiun ini mulai dikenal pada tahun 1915 ketika Hindia Belanda membangun jalur kereta Kertapati-Prabumulih sepanjang 78 km dan jalur Prabumulih-Muara Enim sejauh 73 km pada tahun 1917.
+
+Pada tahun 1927, jalur Prabumulih-Tanjungkarang sepanjang 311 km juga dibangun. Pada masa itu, usaha kereta di Sumatera Selatan dikelola oleh perusahaan Zuid-Sumatra Staatsspoorwegen, divisi dari Staatsspoorwegen (SS). Dulunya terdapat enam jenis lokomotif uap di lintasan Stasiun Prabumulih, yaitu model B51, C11, C30, C50, D50, dan D52. Untuk pengisian bahan bakar berupa air bagi kereta tersebut, digunakan cerek dan tangki pengisian air. Sekitar tahun 1982, dilakukan perombakan bangunan pada stasiun ini.",,,,
+fab-500x-20261114T224408Z-016,100,9489258141819dc51e839c78,b37eb0a4ac4f2128dae0071492ec56b0,fab-500x,id,cybersecurity,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Europe Airpost.,"Europe Airpost merupakan sebuah maskapai penerbangan yang berbasis di Paris, Prancis. Maskapai ini mengoperasikan penerbangan surat dan kargo untuk perusahaan pos Prancis pada malam hari dan penerbangan sewaan dan terjadwal untuk perusahaan lainnya pada siang hari. Basis utamanya terletak di Bandar Udara Internasional Charles de Gaulle, Paris.
+
+Maskapai penerbangan ini dibentuk oleh perusahaan pos Prancis dan dikenal sebagai Société d'Exploitation Aéropostale. Namanya berganti tahun 2000 ketika maskapai tersebut memulai penerbangan dengan haknya sendiri. Tanggal 2 Februari 2007 diumumkan bahwa sahamnya telah dipegang seluruhnya oleh Imperial Holdings dari Afrika Selatan. Karyawannya berjumlah 400 orang (Maret 2007).
+
+Armada Europe Airpost telah meliputi (Maret 2007):
+
+Bulan Maret 2006, usia rata-rata armada Europe Airpost adalah 15 tahun.
+
+Maskapai penerbangan yang didirikan tahun 2000",,,,

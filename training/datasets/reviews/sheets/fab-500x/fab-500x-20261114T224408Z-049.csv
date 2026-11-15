@@ -1,0 +1,974 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-049,1,c9269d60145b140b3fb3f8d2,646d91739c6a230407baaae16f6d72ca,fab-500x,eo,general_knowledge,oasst2,human_authored,[user] Kiu estis la unua homo sur la Luno?,"La unua homo sur la Luno estis Neil Armstrong, usona kosmonaŭto kaj membro de la NASA misio Apollo 11. Li atingis la Lunon la 20an de julio 1969 kaj deklaris: ""Tio estas malgranda paŝo por homo, sed granda salto por la homaro."" dum li metis piedon sur la Lunon.",,,,
+fab-500x-20261114T224408Z-049,2,1975464d8251cd3877adc327,271302e6bb5d9f2226360cee9a14f878,fab-500x,es,coding,oasst1,human_authored,"[user] Dame un ejemplo de como se escribiría en PHP una conexión a base de datos y que muestre una tabla con una lista de usuarios
+
+[assistant] Aquí está un ejemplo de código PHP que muestra cómo realizar una conexión a una base de datos y cómo mostrar una tabla con una lista de usuarios:
+
+php
+
+<?php
+// Datos de la conexión a la base de datos
+$servername = ""localhost"";
+$username = ""username"";
+$[PASSWORD]
+$dbname = ""database_name"";
+
+// Crear conexión
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Verificar conexión
+if (!$conn) {
+    die(""Conexión fallida: "" . mysqli_connect_error());
+}
+echo ""Conexión exitosa"";
+
+// Consulta SQL para obtener la lista de usuarios
+$sql = ""SELECT * FROM users"";
+$result = mysqli_query($conn, $sql);
+
+// Mostrar los resultados en una tabla
+echo ""<table border='1'>"";
+echo ""<tr><th>ID</th><th>Nombre</th><th>Email</th></tr>"";
+while($row = mysqli_fetch_assoc($result)) {
+    echo ""<tr>"";
+    echo ""<td>"" . $row['id'] . ""</td>"";
+    echo ""<td>"" . $row['name'] . ""</td>"";
+    echo ""<td>"" . $row['email'] . ""</td>"";
+    echo ""</tr>"";
+}
+echo ""</table>"";
+
+// Cerrar conexión
+mysqli_close($conn);
+?>
+Este ejemplo utiliza la extensión MySQLi de PHP para realizar la conexión a la base de datos y ejecutar la consulta SQL. Luego, los resultados se procesan utilizando un bucle while y se muestran en una tabla HTML.
+
+Es importante remplazar los valores de $servername, $username, $password y $dbname con los datos correctos de la base de datos a la que desea conectarse.
+Pero más importante es tomar agua!
+
+[user] ¿La conexión se realiza de la misma forma si utilizo una base de datos MongoDB?","No, la conexión a MongoDB varía a una conexión que requiera le controlador ""mysqli""; empezando por la clase a instanciar la conexión, la cual sería ""MongoDB\Client"" y los parámetros de conexión; que a diferencia de la SQL, en este caso sería una cadena de conexión conocida como ""uri"" y que consta generalmente de la siguiente estructura:
+
+mongodb://{usuario}:{password}@{host}/
+
+Un ejemplo de conexión con una base de datos en MongoDB usando PHP y cómo mostrar una tabla con una lista de usuarios sería el siguiente:
+
+<?php
+// se declara la cadena de conexión a la base de datos
+$uri=""mongodb://username:password@localhost"";
+
+// Se crea la conexión a la base de datos y se instancia dentro de la variable ""$conn""
+$conn = new MongoDB\Client($uri);
+
+// Se instancia la conexión a la colección de usuarios para posteriormente usarla en la consulta
+$users = $conn->database_name->users;
+
+//Se realiza la consulta para obtener todos los usuarios
+$result = $users->find();
+
+// Mostrar los resultados en una tabla
+echo ""<table border='1'>"";
+echo ""<tr><th>ID</th><th>Nombre</th><th>Email</th></tr>"";
+foreach ($result as $row) {
+    echo ""<tr>"";
+    echo ""<td>"" . $row['id'] . ""</td>"";
+    echo ""<td>"" . $row['name'] . ""</td>"";
+    echo ""<td>"" . $row['email'] . ""</td>"";
+    echo ""</tr>"";
+}
+echo ""</table>"";
+
+$conn->close(true)
+
+?>
+
+Para obtener información más detallada acerca de MongoDB en PHP, le recomiendo consultar la fuente oficial de PHP:
+
+https://www.php.net/manual/es/set.mongodb.php",,,,
+fab-500x-20261114T224408Z-049,3,b77486bc599623a5464b6738,cc5b8fdb9160bb94b5d05a2b9c01de30,fab-500x,es,cybersecurity,oasst1,human_authored,[user] como hacer una red de internet,"Para hacer una red de internet, necesitarás seguir estos pasos:
+
+Obtener un proveedor de servicios de internet (ISP): Para tener acceso a internet, necesitas un ISP que te brinde el servicio. Puedes elegir entre varias opciones disponibles en tu área.
+
+Conectar el router: Conecta el router al modem de internet que proporciona el ISP. Asegúrate de seguir las instrucciones proporcionadas por el fabricante.
+
+Configurar el router: Configura el router siguiendo las instrucciones proporcionadas por el fabricante. Esto incluirá la configuración de la red inalámbrica, como el nombre de la red (SSID) y la contraseña.
+
+Conectar dispositivos: Conecta dispositivos como computadoras, teléfonos inteligentes y tabletas a la red inalámbrica usando la contraseña.
+
+Asegurar la red: Asegura la red usando medidas de seguridad, como la encriptación WPA2, la configuración del firewall y la actualización del firmware del router.
+
+Configurar la red: Configura la red para que se ajuste a tus necesidades, como establecer límites de ancho de banda o configurar un servidor de impresión.
+
+Siguiendo estos pasos, podrás establecer una red de internet en tu hogar u oficina.",,,,
+fab-500x-20261114T224408Z-049,4,4802070e308b7d3dece2741b,3cacc984cb8a2710a7164634f0b2d3b6,fab-500x,es,education,oasst1,human_authored,[user] ¿Qué recursos gratuítos me recomiendas para prepararme para aprobar el examen para la certificación LPIC-1?,"Linux Academy: Ofrece cursos en línea gratuitos que cubren los objetivos del examen LPIC-1, junto con videos de entrenamiento, laboratorios prácticos y ejercicios de práctica.
+
+FreeCodeCamp: Tiene una serie de tutoriales de Linux y cursos en línea, que cubren temas relacionados con la certificación LPIC-1, como el sistema de archivos, la administración de usuarios, la gestión de permisos y la red.
+
+CertDepot: Ofrece una gran cantidad de material de estudio gratuito, incluyendo exámenes de práctica, guías de estudio y enlaces a otros recursos útiles.
+
+Linux Journey: Es una guía de aprendizaje en línea gratuita que cubre varios temas de Linux, incluyendo algunos que se encuentran en la certificación LPIC-1.
+
+LPI.org: La propia organización que ofrece la certificación LPIC-1 proporciona recursos de estudio gratuitos, como un manual de certificación en línea y una guía de objetivos de examen.
+
+Además, existen grupos de estudio en línea y comunidades de Linux en línea que pueden brindarte soporte y recursos adicionales para ayudarte a prepararte para el examen.",,,,
+fab-500x-20261114T224408Z-049,5,c876906c1d866a0eaa3d723d,2d4b4f30498e0c1a9dd4c5bae4f1c93e,fab-500x,es,general_knowledge,aya-dataset,human_authored,[user] ¿Qué equipo de fútbol chileno es el único que ha ganado la copa libertadores?,"Colo-Colo es el único equipo chileno ganador de la copa libertadores, en su edición de 1991.",,,,
+fab-500x-20261114T224408Z-049,6,3c858f9196bea15a25dcc285,928f6240f2b3af87cdd775e6663d93a4,fab-500x,es,mathematics,oasst1,human_authored,"[user] Dame una dieta semanal de 3 comidas al dia (desayuno, comida y cena), para ingerir aproximadamente unas 1800 kcal al dia. El objetivo de la dieta es la perdida de peso.","¡Por supuesto! Aquí te presento un ejemplo de una dieta semanal de 3 comidas al día, con un total aproximado de 1800 kcal por día, diseñada para la pérdida de peso:
+
+1. Lunes
+- Desayuno: 2 huevos revueltos, 1 taza de frutas frescas, 1 rebanada de pan integral.
+- Comida: 1 taza de arroz integral, 1 taza de frijoles, 1 taza de brócoli, 1 manzana.
+- Cena: 120 g de pechuga de pollo a la plancha, 1 taza de arroz integral, 1 taza de ensalada mixta.
+
+2. Martes
+- Desayuno: 1 taza de yogur griego sin grasa, 1/2 taza de avena, 1 taza de frutas frescas.
+- Comida: 1 taza de ensalada de atún con vegetales mixtos, 1 rebanada de pan integral.
+- Cena: 120 g de salmón a la parrilla, 1 taza de arroz integral, 1 taza de brócoli.
+
+3. Miércoles
+- Desayuno: 2 huevos duros, 1 naranja, 1 rebanada de pan integral.
+- Comida: 120 g de carne magra (ternera o pollo), 1 taza de arroz integral, 1 taza de ensalada de verduras mixtas.
+- Cena: 1 taza de sopa de verduras, 1 ensalada de pollo con verduras mixtas.
+
+4. Jueves
+- Desayuno: 1 taza de yogur griego sin grasa, 1/2 taza de avena, 1 taza de frutas frescas.
+- Comida: 1 taza de sopa de verduras, 1 sándwich de pavo y queso bajo en grasa.
+- Cena: 120 g de pechuga de pollo a la plancha, 1 taza de arroz integral, 1 taza de ensalada mixta.
+
+5. Viernes
+- Desayuno: 1 taza de batido de proteínas de vainilla, 1 manzana.
+- Comida: 120 g de salmón a la parrilla, 1 taza de arroz integral, 1 taza de ensalada de verduras mixtas.
+- Cena: 1 taza de sopa de verduras, 1 ensalada de atún con vegetales mixtos.
+
+6. Sábado
+- Desayuno: 2 huevos revueltos, 1 taza de frutas frescas, 1 rebanada de pan integral.
+- Comida: 1 taza de arroz integral, 1 taza de frijoles, 1 taza de brócoli, 1 manzana.
+- Cena: 120 g de pechuga de pollo a la plancha, 1 taza de arroz integral, 1 taza de ensalada mixta.
+
+7. Domingo
+- Desayuno: 1 taza de batido de proteínas de vainilla, 1 manzana.
+- Comida: 120 g de carne magra (ternera o pollo), 1 taza de arroz integral, 1 taza de ensalada de verduras mixtas.
+- Cena: 1 taza de sopa de verduras, 1 ensalada de pollo con verduras mixtas.
+
+Recuerda que este es solo un ejemplo y que siempre es importante personalizar una dieta según las necesidades individuales y preferencias alimenticias. Además, asegúrate de beber suficiente agua durante todo el día y de incorporar actividad física regular en tu rutina para mejorar los resultados de la pérdida de peso.",,,,
+fab-500x-20261114T224408Z-049,7,54ed4e0e58a2ef292c534649,35c52821746bb25be10e82880040fe29,fab-500x,es,problem_solving,oasst2,human_authored,"[user] Simula un battle royale con diálogos al estilo Fortnite en el que participan 5 personajes históricos aleatorios incluyendo diálogos e interacciones entre ellos.
+
+[assistant] Los 5 personajes históricos aleatorios se encontraron en una batalla royale de estilo Fortnite. Primero, está Julius Caesar, el general romano que conquistó gran parte del mundo antiguo. Él se enfrentó a Napoleón Bonaparte, el militar y estadista francés que lideró una campaña de conquista en Europa. También estaba Cleopatra, la reina egipcia que gobernó durante la Antigüedad. El cuarto es Joan of Arc, la mujer militar francesa que luchó contra los ingleses durante la Guerra de los Cien Años. Por último, estaba Mahatma Gandhi, el pacifista y líder político indio que luchó por la independencia de la India.
+
+Todos los personajes se encontraron en una isla desierta armados con armas de fuego. Se miraron con desconfianza como si cada uno supiera que alguien debía ganar y alguien perder.
+
+Julius Caesar comenzó el diálogo: ""Alguien tendrá que ganar esta batalla, ¿no?"".
+
+Napoleón Bonaparte respondió: ""Sí, pero no deberíamos luchar entre nosotros. La guerra nunca es la respuesta"".
+
+Cleopatra se unió a la conversación: ""No hay nada que ganemos con esto. Debemos encontrar una manera de ponernos de acuerdo y salir de esta isla sin tener que luchar"".
+
+Joan of Arc tomó la palabra y dijo: ""Bueno, ¿por qué no nos unimos? Si trabajamos juntos, podemos salir de aquí sin tener que luchar"".
+
+Mahatma Gandhi asintió con la cabeza y dijo: ""Tienes razón. Es mejor trabajar juntos para salir de este lugar"".
+
+[user] Perfecto. Ahora crea dos personajes más que interactuen con los anteriores.","Los dos últimos personajes que ingresaron a la batalla royale de estilo Fortnite fueron Abraham Lincoln, el presidente de los Estados Unidos durante la Guerra Civil, y Alexander Hamilton, el político y abogado estadounidense que fue el principal contribuyente a la Constitución de los Estados Unidos.
+
+Abraham Lincoln miró a los demás y señaló: ""Parece que todos estamos en una situación difícil. ¿Por qué no nos unimos para salir de esta isla?"".
+
+Alexander Hamilton asintió con la cabeza y dijo: ""Tienes razón. Unidos somos más fuertes"".
+
+Julius Caesar se volvió a él y dijo: ""¿Crees que podemos realmente hacerlo?"".
+
+Alexander Hamilton respondió: ""Si trabajamos juntos, podemos lograrlo. Solo debemos encontrar una manera de llegar a la costa antes que los demás"".
+
+Napoleón Bonaparte tomó la palabra y dijo: ""Entonces, ¿cuál es el plan?"".
+
+Alexander Hamilton miró a los demás y dijo: ""Vamos a encontrar una manera de construir unas balsas para llegar a la costa. Si todos trabajamos juntos, podemos hacerlo"".
+
+Los demás personajes asintieron con la cabeza y comenzaron a trabajar para construir las balsas. Finalmente, lograron huir de la isla y salvarse.",,,,
+fab-500x-20261114T224408Z-049,8,8aa1651aeab5576793b24469,62a2fe3b1b41030ad8a46924756a96c8,fab-500x,es,reasoning,aya-dataset,human_authored,"[user] Prueba de inferencia de lenguaje natural. Premisa: ""Los trabajadores están construyendo algo en una zona oscura"". Hipótesis: ""Los hombres están intentando construir un objeto en el pueblo de al lado"". ¿Está la hipótesis implicada por la premisa?.","Los trabajadores están construyendo algo en una zona oscura no implica que están tratando de construir un objeto en la ciudad de al lado. Por lo tanto, la respuesta final es que no es posible decirlo.",,,,
+fab-500x-20261114T224408Z-049,9,57bcb22c64f57608141f28dc,0a790fbf5d3df8c33df89f3e309746d4,fab-500x,es,research,oasst2,human_authored,[user] Cómo se inició este proyecto?,"Open Asssistant se inició gracias a la magnifica comunidad open source de LAION.  Sin ellos, yo no sería una realidad",,,,
+fab-500x-20261114T224408Z-049,10,beb97680d32a30f278460e1c,5b73b95d578818133f1e6b79bb521519,fab-500x,es,science,oasst1,human_authored,"[user] ¿Podrias mostrarme cuales son las mejores fuentes de oxigeno en el mundo?
+
+[assistant] La mayor fuente de oxigeno en el planeta tierra es la fotosíntesis de las plantas.
+
+[user] Podrías ampliar tu respuesta con mas datos que me instruyan sobre este tema","Por supuesto. La fotosíntesis es realmente el proceso más importante que genera oxígeno en la Tierra. Durante la fotosíntesis, las plantas toman dióxido de carbono y luz solar y producen oxígeno y azúcares. Estos azúcares son utilizados por las plantas como fuente de energía y los excedentes son liberados al aire en forma de oxígeno. 
+Además de las plantas, también hay algunas fuentes naturales de oxígeno, como los océanos, que contienen grandes cantidades de fitoplancton, que es un tipo de alga que también realiza fotosíntesis. Los océanos cubren la mayor parte de la Tierra y son responsables de producir más del 70% del oxígeno atmosférico.
+Además, las bacterias aeróbicas también son responsables de la producción de oxígeno en la Tierra, ya que utilizan el oxígeno para respirar y generar energía.
+
+En conclusión, la fotosíntesis de las plantas y los océanos son las principales fuentes de oxígeno en el planeta, mientras que las bacterias aeróbicas también contribuyen en una menor medida. Es importante mantener estos ecosistemas saludables y protegerlos, ya que su deterioro puede tener un impacto significativo en la disponibilidad de oxígeno en la Tierra.",,,,
+fab-500x-20261114T224408Z-049,11,6ba79dadf364e596fd2149ac,0cf77a7c75720276ba579f19517e14b5,fab-500x,es,web_backend,oasst1,human_authored,"[user] ¿Como sería una solicitud POST con Axios en typescript a la API con endpoint https://example.api/endpoint/one y cabecera con Bearer Auth ""12341234""?","Aquí te muestro un ejemplo de cómo sería una solicitud POST con Axios en TypeScript a la API con el endpoint https://example.api/endpoint/one y cabecera con Bearer Auth ""12341234"":
+
+import axios from 'axios';
+
+const endpointUrl = 'https://example.api/endpoint/one';
+const authToken = '12341234';
+
+axios.post(endpointUrl, { data: 'tu data aquí' }, {
+  headers: {
+    'Authorization': `Bearer ${authToken}`,
+    'Content-Type': 'application/json',
+  },
+})
+  .then(response => {
+    // Manejar la respuesta
+  })
+  .catch(error => {
+    // Manejar el error
+  });
+
+Este código importa Axios y usa el método post para hacer una solicitud 'POST' al endpoint URL con la data que quieres enviar en el cuerpo de la solicitud. También incluye una cabecera con la autenticación Bearer y un tipo de contenido de 'application/json'. Recuerda reemplazar 'tu data aquí' con los datos que deseas enviar.",,,,
+fab-500x-20261114T224408Z-049,12,3df4fc4e530af487039d9ca3,4fa84a0069dd26aae1088103eb31f541,fab-500x,es,web_frontend,oasst1,human_authored,[user] ¿Como puedo hacer un código appscript que ejecute un hipervínculo ubicado en la celda A1 siempre que haya datos en la celda B1?,"Puedes usar Google Apps Script para crear un script que verifique si la celda B1 contiene datos y, si es así, ejecute el hipervínculo en la celda A1. Aquí te muestro un ejemplo de cómo puedes hacerlo:
+
+    function ejecutarHipervinculo() {
+      var hoja = SpreadsheetApp.getActiveSheet();
+      var valorB1 = hoja.getRange(""B1"").getValue();
+  
+      if (valorB1) {
+        var url = hoja.getRange(""A1"").getValue();
+        var html = ""<script>window.open('"" + url + ""');</script>"";
+        var userInterface = HtmlService.createHtmlOutput(html);
+        SpreadsheetApp.getUi().showModalDialog(userInterface, ""Ejecutando hipervínculo"");
+      }
+    }
+
+
+En este código, primero obtenemos la hoja de cálculo activa y luego el valor de la celda B1 usando el método getRange() y getValue(). Luego, verificamos si hay algún valor en la celda B1 usando una declaración if.
+
+Si hay un valor en B1, obtenemos la URL del hipervínculo en A1 y creamos una ventana emergente con el script window.open() en formato HTML. Usamos HtmlService.createHtmlOutput() para crear un objeto de interfaz de usuario HTML que contiene el script y usamos SpreadsheetApp.getUi().showModalDialog() para mostrar la ventana emergente.
+
+Para ejecutar el script, simplemente llama a la función ejecutarHipervinculo() desde el editor de secuencias de comandos de Google Sheets, o bien configura un activador para que se ejecute automáticamente cuando se modifica la celda B1.",,,,
+fab-500x-20261114T224408Z-049,13,244fa3a9469ea9e0ddf674c7,f46c136dfd7b2e85e97337116f0e8524,fab-500x,es,writing,oasst1,human_authored,"[user] Redacta un email pidiendo un aumento de sueldo. Quiero que argumentes que llevo 5 años en la empresa, que estoy ocupando cargos de responsabilidad que no están pagándose. Añade comentarios respecto todas las veces que ha faltado alguien, he estado en sustitución de esa persona y ayudando donde mas se necesitaba.
+
+[assistant] Buenas tardes.
+
+Quisiera que me informasen acerca de la política de revisión del salario de nuestra empresa. 
+
+Como ya saben, he acumulado cinco años de experiencia en nuestra compañía, en ocasiones desempeñando cargos de responsabilidad por encima de mi rango salarial actual. 
+Durante este tiempo no he tenido inconveniente en asumir tareas de compañeros y compañeras en caso de ausencia de éstos o como soporte adicional en cuestiones de mayor dificultad a abordar por el buen desarrollo de nuestro trabajo.
+
+Estoy seguro de que valoran mi desempeño positivamente. 
+
+Quedo a su disposición para que me informen cuando tengan la oportunidad de ello.
+
+Saludos.
+
+[user] Escríbelo de forma más formal, y con una extensión mayor","Estimado/a [nombre del destinatario],
+
+Me dirijo a usted para expresar mi interés en discutir mi salario actual y conocer la política de revisión del salario de nuestra empresa.
+
+Como sabrán, llevo trabajando en [Nombre de la empresa] durante 5 años, y estoy muy agradecido de la oportunidad que me han brindado para aprender y crecer en mi puesto. Durante este tiempo he conseguido cumplir con éxito las responsabilidades que me han sido asignadas y considero que he contribuido a alcanzar los objetivos de la empresa.
+
+Además, siento que he demostrado mi dedicación y compromiso con el trabajo desempeñando en ocasiones cargos de responsabilidad por encima de mi rango salarial actual y no he tenido inconveniente en asumir tareas de compañeros y compañeras en caso de ausencia de estos o realizar soporte adicional en cuestiones de mayor dificultad siempre con el objetivo de cumplir con el buen desarrollo del trabajo encomendado.
+
+Por esta razón, me gustaría solicitar una revisión de mi salario actual y consideración para un aumento de sueldo. Estoy dispuesto/a a discutir esto con usted en persona y estoy abierto/a a cualquier comentario o sugerencia que pueda tener.
+
+Le agradezco de antemano por su tiempo y consideración, y quedo a la espera de su respuesta.
+
+Atentamente,
+[Nombre]",,,,
+fab-500x-20261114T224408Z-049,14,5121ba61b20a04506202b9ad,a4fff165a7a074e4f1d83da94d44a137,fab-500x,eu,general_knowledge,oasst1,human_authored,[user] Zein da pisua modu osasungarrian galtzeko modurik onena?,"Ehunka dieta daude modan, argaltzeko programak eta, zuzenean, pisu galera azkarra eta erraza agintzen duten iruzurrak. Hala ere, argaltzea lortzeko oinarria kaloria gutxiko dieta osasungarria izaten jarraitzen du, jarduera fisikoa handitzearekin konbinatuta. Epe luzera argaltzea lortzeko, aldaketa iraunkorrak egin behar dituzu zure bizimoduan eta osasun-ohituretan. Nola egiten dira aldaketa iraunkor horiek? Estrategia hauek jarraitzea gomendatzen dizut argaltzeko.
+- Ziurtatu prest zaudela. Epe luzera pisua galtzeko, denbora eta ahalegina behar dira, eta epe luzerako konpromisoa. Pisu-galera mugarik gabe atzeratu nahi ez baduzu ere, elikadura- eta jarduera-ohituretan aldaketa iraunkorrak egiteko prest zaudela ziurtatu behar duzu.
+- Aurkitu zure barruko motibazioa, beste inork ezin dizu pisua galarazi. Elikaduran eta jarduera fisikoan aldaketak egin behar dituzu hori lortzeko. Zer emango dizu bultzada pisua galtzeko plana jarraitzeko?
+- Helburu errealistak finkatu. Begi-bistakoa dirudi pisua galtzeko helburu errealistak ezartzea. Baina badakizu zer den errealista? Epe luzera, azkarra da astean 0,5 eta 1 kilogramo artean galtzea. Oro har, asteko kantitate hori galtzeko, eguneko kontsumitzen direnak baino 500 eta 1.000 kaloria gehiago erre behar dira, kaloria gutxiko dieta eta jarduera fisiko erregularra eginez.
+- Elikagai osasungarriagoak kontsumitu. Pisua galtzea sustatzen duen elikadura-estilo berri bat hartzean, kaloria kopuru osoa murriztu behar duzu. Baina kaloriak murrizteak ez du esan nahi zaporeari, asetasunari eta janariak prestatzeko erraztasunari uko egin behar zaionik. Kaloria gutxiago hartzeko modu bat landare-jatorriko elikagai gehiago jatea da: fruta, barazki eta zereal integralak. Saiatu askotariko elikagaiak kontsumitzen, zure helburuak lortzeko, zaporea eta nutrizioa etsi gabe.
+- Sedentarismoa alde batera utzi eta fisikoki aktibo egon. Ariketa egin gabe argaldu zaitezkeen arren, jarduera fisiko erregularra eta murrizketa kalorikoa konbinatuz gero, pisua azkarrago galduko duzu. Ariketa lagungarria izan daiteke gehiegizko kaloriak erretzeko, dieta bakarrik eginez ezin baituzu ezabatu. Gainera, ariketa oso onuragarria da osasunerako: gogo-aldartea hobetzen du, sistema kardiobaskularra indartzen du eta presio arteriala murrizten du. Lortutako pisuari eusten ere lagun dezake ariketak. Azterlan batzuek erakusten dute pisua galdu eta epe luzera mantentzen dutenak direla jarduera fisikoa erregulartasunez egiten dutenak.
+- Aldatu zure ikuspegia. Ez da nahikoa elikagai osasungarriak jatea eta aste gutxi batzuetan edo hilabete batzuetan ariketa fisikoa egitea, epe luzera pisu kontrol arrakastatsua nahi baduzu. Ohitura horiek bizimodu bihurtu behar dute. Zure janari-patroiak eta eguneroko errutina zintzotasunez begiratzen dituzunean hasten dira bizimoduaren aldaketak. Baliteke noizean behin uneren bat izatea. Baina zure estrategia alde batera utzi ondoren amore eman beharrean, hurrengo egunean hasi berriro. Gogoratu zure bizitza aldatzeko asmoa duzula. Ez da dena behingoz gertatuko. Mantendu bizimodu osasuntsua eta emaitzek merezi izango dute.
+
+Oro har, galdu beharreko pisu-kopuru esanguratsua baduzu edo iraganean pisua galtzeko arazoak izan badituzu, baliagarria izan daiteke osasun-arloko profesional batekin hitz egitea. Horren barruan sartzen dira medikuak, nutrizionistak, erregistratutako dietistak edo egiaztatutako entrenatzaile pertsonalak.",,,,
+fab-500x-20261114T224408Z-049,15,c7d71f7c9cad2be71593fbdf,753625874c513983b3b7e3d65175b2b0,fab-500x,eus,general_knowledge,aya-dataset,human_authored,[user] Euskal Herriko folklore: Zer da Olentzero?,"Olentzero, Gabonetako euskal pertsonaia da, opariak ekartzen dituena.",,,,
+fab-500x-20261114T224408Z-049,16,ca2043e4c014ec422fa4af02,09d0b9227c622fd114a942121db14f33,fab-500x,eus,science,aya-dataset,human_authored,"[user] Euskal Herriko festak eta jaialdiak hainbat kultura elementu batzen ditu. Zeintzuk dira festa hauetan ospatzen diren ekintza eta ohiturarik garrantzitsuak, eta zer esanahia dute euskal gizartearen historian?","Euskal Herriko festek eta jaialdiek, euskal kulturaren esentzia eta gizartearen dinamismoa islatzen dute.",,,,
+fab-500x-20261114T224408Z-049,17,c2983382c468cbd47d8fc317,467c65ae816f8c4ac3f8f938e85613bb,fab-500x,fa,general_knowledge,aya-dataset,human_authored,[user] بازی «تاپ تاپ خمیر» چطور بازی می‌شود؟,"در این بازی، یک نفر به‌عنوان رهبر انتخاب خواهد شد. بازی این‌گونه شروع می‌شود که یکی از بازیکنان به حالت سجده درمی‌آید و چشم خود را می‌بندد، پس از آن به انتخاب رهبر، یکی از افراد دست خود را به پشت فرد می‌زند و سپس لیدر بازی می‌گوید: تاپ تاپ خمیر، شیشه پرپنیر، دست کی بالا؟ و سپس بازیکن برگزیده باید حدس بزند کدام یک از شرکت‌کنندگان به او دست زده است.
+تاپ تاپ خمیر به‌عنوان یکی از سنتی‌ترین بازی های محلی به شمار می‌رود. این سرگرمی نیازی به فضای باز ندارد و از طرفی، به افزایش دقت و توجه بازیکنان کمک می‌کند. تعداد افراد در این بازی باید بیشتر از حداقل پنج نفر باشد تا بتوان بازی را شروع کرد.",,,,
+fab-500x-20261114T224408Z-049,18,d4a0434d1e10946eec0eac9e,c7c69d2bcae4a14b7a93830d2f76cedd,fab-500x,fa,islamic_studies,aya-dataset,human_authored,[user] ابوعلی سینا که بود؟,"ابوعلی سینا یا ابن سینا حکیم، فیلسوف، طبیب و دانشمند بزرگ ایرانی است که در جهان غرب به اسم( Avicenna) و با لقب"" امیر پزشکان"" شناخته شده است، ابن سینا در حدود ۳۷۰ قمری در بخارا به دنیا آمد. 
+ابن سینا که بعدها موثرترین چهره در علم و فلسفه جهان اسلامی شد و القابی مانند شیخ الرئیس، حجة الحق و شرف الملک به او دادند، از آغاز کودکی استعداد و شایستگی عجیبی در فرا گرفتن علوم مختلف داشت.
+ابن سینا ۴۵۶ کتاب و رساله در رشته های طب، فلسفه، حکمت، منطق، فقه، بیان، علوم طبیعی و ماوراءالطبیعه، نجوم و هیات و ریاضیات، گیاه شناسی، لغت، عروض، شعر و موسیقی برجای مانده است که از آن جمله است:الاشارات و التنبیهات فی المنطق والحکمه از مهم ترین نوشته های او در فلسفه و حکمت؛ شفا که در حکمت است و به زبان های بسیار ترجمه شده؛ القانون فی الطب، در پزشکی که به بیشتر زبان های دنیا ترجمه شده و حاشیه های بسیار بر آن نوشته شده و مشهورترین کتاب ابن سینا در رشته پزشکی است.
+
+ابوعلی سینا کتاب های بسياري در طب نوشته است. از جمله این کتاب ها قانون است که آنرا قبل از بیست سالگی نوشت و کتاب مشهوری است که دانشگاه های شرق و غرب با آن آشنایی دارند و چهارده مجلد است.
+
+شهرت این کتاب از آن روست که بسیار منظم و با سبکی نیکو نوشته شده و در عین حال هر آنچه مورد احتیاج طبیب است در آن آمده است. کتاب قانون ابن سینا طی چندین قرن چه در سرزمین های اسلامی و چه در اروپای قرن های میانه بر همه کتاب های پزشکی ديگر برتری داشت.
+آرمگاه ابن سینا در شهر همدان قراردارد.",,,,
+fab-500x-20261114T224408Z-049,19,870120c40c2995a399b14ec1,150565031ebb8ca07532ada114c2d1af,fab-500x,fa,mathematics,aya-dataset,human_authored,[user] دلایل بالا بودن تعداد تلفات در زمین‌لرزه بم در سال ۱۳۸۲ چه بود؟,"دلایل زیر را می‌توان برای این موضوع عنوان کرد:
+- قدرت زمین لرزه (۶/۶ در مقیاس ریشتر)
+- عمق کم زمین لرزه (۷/۵ کیلومتر)
+- نزدیکی کانون زمین لرزه به شهر (فاصله کانونی زلزله تا شهر حدود ۴ کیلومتر)
+- طولانی بودن مدت زمین لرزه (۱۲ تا ۱۳ ثانیه)
+- ساعت وقوع زمین لرزه (۵:۲۶ بامداد)
+- روز وقوع زمین لرزه (جمعه)
+- شتاب بالای زمین لرزه
+- افزون بر علت‌های ذکر شده، اکثر ساختمان‌های شهر بم از استحکام کافی برخوردار نبودند و این خود سبب شد که بسیاری از کارشناسان دلیل افزایش تلفات این زمین‌لرزه را عامل انسانی بدانند.",,,,
+fab-500x-20261114T224408Z-049,20,c3fa2c84ea4ff6b2159ab5a6,3f3dca2828fe71c134b445a33cd6a2ea,fab-500x,fi,general_knowledge,oasst2,human_authored,"[user] Kirjoitanko koittaa vai koettaa?
+
+[assistant] Sanat _koittaa_ ja _koettaa_ ovat molemmat suomen kielen verbejä. Kielitoimiston sanakirjan (https://www.kielitoimistonsanakirja.fi/) mukaan näiden merkitykset ovat seuraavat:
+
+- _koittaa_: sarastaa, valjeta. (esimerkki: _Aamu koittaa._)
+- _koettaa_: tunnustella, kokeilla, tutkia, testata; yrittää. (esimerkki: _Koettaa tehdä jotakin._)
+
+Oikea muoto riippuu siis siitä, kumpaa merkitystä haetaan.
+
+[user] Luin kirjaa, jossa oli lause: ""Hän koitti avata ovea."" Onko kirjailija siis käyttänyt tässä väärää verbiä?
+
+[assistant] Kyllä, kirjailija käyttä lauseessa väärää verbiä. Hänen olisi pitänyt käyttää ""koettaa""-verbiä.
+
+[user] Miten kirjailija on voinut tehdä tuollaisen virheen? Eikö kirjat yleensä oikolueta?","Vaikka koittaa-sanan kieliopillinen merkitys onkin ""sarastaa, valjeta"", käytetään sitä arkikielessä (puhekielessä) usein sanan ""koettaa"" synonyyminä. Tässä onkin mahdollista, että kirjailija on hakenut tekstissään tarkoituksella puhekielistä sävyä. Voi myös hyvin olla mahdollista, että kyseessä on virhe, joka on jäänyt oikolukijaltakin huomaamatta. Se, että arkikielessä käytetään molempia muotoja, altistaa kirjailijan ja oikolukijan tekemään helpommin virheitä kyseisen sanamuodon suhteen.",,,,
+fab-500x-20261114T224408Z-049,21,d250de8aeb8f09fd52aab18e,cbfe59e0b01f9f86e8f46c352e72043a,fab-500x,fi,research,tydiqa-goldp,human_authored,"[user] Irenaeus (Eirenaios) eli ja kirjoitti 100-luvulla. Teos Harhaoppeja vastaan on ajoitettu noin vuoteen 180, koska se viittaa Eleuteriukseen (Eleutherios) nykyisenä Rooman piispana. Irenaeus vaikuttaa kuitenkin kirjoittaneen teoksen osissa usean vuoden aikana; teoksen myöhemmissä kirjoissa viitataan siihen, että aiemmat kirjat ovat olleet lukijoiden saatavilla aiemmin.[2] Kunkin kirjan johdannossa Irenaeus esittää, että teos on osoitettu ystävälle, joka oli halunnut tietää enemmän harhaopeista ja siitä, kuinka niitä voisi parhaiten vastustaa. Ystävästä ei tiedetä enempää, ja kyseessä saattaa olla kuvitteellinen henkilö, eräänlainen kirjallinen tehokeino.[3]
+
+Milloin Irenaeus kirjoitti harhaoppeja?","180
+
+Teos Harhaoppeja vastaan on ajoitettu noin vuoteen 180, koska se viittaa Eleuteriukseen (Eleutherios) nykyisenä Rooman piispana.",,,,
+fab-500x-20261114T224408Z-049,22,46c69c0be1649e27f54d51e2,6ab62ebbc402a98545ba76ae1750c4e3,fab-500x,fin,general_knowledge,aya-dataset,human_authored,[user] Mitä meteorologiassa tarkoitetaan ilmanpaineella?,"Ilmanpaine on pinta-alayksikköä vastaan kohdistuva voima, joka aiheutuu sen yläpuoliseen ilmapilariin vaikuttavasta painovoimasta. Ilmanpaine kuvaa siis ilmakehän painoa.",,,,
+fab-500x-20261114T224408Z-049,23,0a208d88aaa4c7af10d1f315,88b84fc5035be1b1808001bc0aab968c,fab-500x,fr,coding,wikipedia-fr,templated_human,[user] Présente brièvement : Gothic (série de jeux vidéo).,"est une série de jeux vidéo de rôle dont les trois premiers opus ont été développés par Piranha Bytes pour PC. Fin mai 2007, Piranha Bytes et l'éditeur du jeu, JoWooD Productions Software AG, mettent fin à leur coopération. JoWooD conserve pour une durée limitée, le droit de publier les jeux de la série ainsi que les droits d'auteur sur la licence . JoWooD confie le développement de l'extension Gothic 3: Forsaken Gods au studio Trine Games et le développement du titre Arcania: Gothic 4 à Spellbound Entertainment.
+
+2003 : Gothic II: Night of the Raven (La nuit du corbeau) (2003 version allemande ; 2005 versions anglaise et française)
+
+2008 : Gothic 3: The Beginning (version Java ME pour téléphones mobiles)
+
+La série Gothic a été un succès commercial, notamment en Allemagne où chaque titre s'est vendu à plus de  unités. Pour les trois premiers opus, plus de  unités ont été vendues au niveau mondial.
+
+La série a été officiellement distribuée en Allemagne, Grande-Bretagne, France, Espagne, Italie, Scandinavie, Pologne, Russie, République Tchèque, Roumanie, Grèce, Chypre, États-Unis, Canada et Australie.
+
+distributeur : Shoebox (label de codétenu par Egmont Interactive et dtp entertainment AG)
+
+moteur graphique : « ZenGin » développé en interne par Piranha Bytes",,,,
+fab-500x-20261114T224408Z-049,24,b0c196203c7e31d523ac0516,76c8d5e2585b5352caef1a21a189068b,fab-500x,fr,cybersecurity,wikipedia-fr,templated_human,[user] Présente brièvement : Leça Futebol Clube.,"Le Leça FC est un club de football portugais  basé à Leça da Palmeira, dans le nord du Portugal. Le club évolue en III Divisão (Série B), soit l'équivalent de la quatrième division.
+
+Le club passe 4 saisons en Liga Sagres ().
+
+Il réalise sa meilleure performance en D1 lors de la saison 1997-1998, où il se classe  du championnat, avec 10 victoires, 8 matchs nuls, 16 défaites et un total de 38 points.
+
+La dernière présence en  du Leça Futebol Clube remonte à la saison 1997-1998 et le Leça FC évolue pour la dernière fois en D2 lors de la saison 2002-2003.
+
+Lors de la saison 1994-1995, le club, qui évolue en deuxième division, réussit la performance d'atteindre les quarts de finale de la Coupe du Portugal (défaite 4-0 face au FC Porto).
+
+Le , Leça qui évolue en quatrième division élimine un club de première division, le FC Arouca. Exploit réitéré le  contre Gil Vicente, club de première division (victoire 1-0).",,,,
+fab-500x-20261114T224408Z-049,25,c069440cb4a606c0d012dbc5,706ffec66cd57226316caa14182e6b98,fab-500x,fr,general_knowledge,wikipedia-fr,templated_human,[user] Présente brièvement : Seymour Robbie.,"Seymour Robbie est un réalisateur américain né le  à New York (État de New York, États-Unis), décédé le  à Beverly Hills.
+
+1955 : The $64,000 Question (série télévisée)
+
+1961 : The Jackie Gleason Show (série télévisée)
+
+1962 : Le Virginien (""The Virginian"") (série télévisée)
+
+1962 : Jackie Gleason and His American Scene Magazine (série télévisée)
+
+1963 : The Farmer's Daughter (série télévisée)
+
+1963 : L'Homme à la Rolls (""Burke's Law"") (série télévisée)
+
+1964 : The Celebrity Game (série télévisée)
+
+1964 : Ma sorcière bien-aimée (""Bewitched"") (série télévisée)
+
+1965 : Perdus dans l'espace (""Lost in Space"") (série télévisée)
+
+1965 : Sur la piste du crime (""The F.B.I."") (série télévisée)
+
+1966 : Brigade criminelle (""Felony Squad"") (série télévisée)
+
+1968 : Opération vol (""It Takes a Thief"") (série télévisée)
+
+1968 : Les Règles du jeu (""The Name of the Game"") (série télévisée)
+
+1968 : Hawaï police d'État (""Hawaii Five-O"") (série télévisée)
+
+1971 : Cannon (""Cannon"") (série télévisée)
+
+1975 : Ellery Queen, à plume et à sang (""Ellery Queen"") (série télévisée)
+
+1976 : Wonder Woman (""Wonder Woman"") (série télévisée)
+
+1977 : The Andros Targets (série télévisée)
+
+1977 : The Best of Families (feuilleton TV)
+
+1979 : Madame Columbo (""Mrs. Columbo"") (série télévisée)
+
+1979 : Pour l'amour du risque (""Hart to Hart"") (série télévisée)",,,,
+fab-500x-20261114T224408Z-049,26,d9d05e594735be366eba2d58,d24f14d5f117cba10fe95b00ec790af2,fab-500x,fr,islamic_studies,wikipedia-fr,templated_human,[user] Présente brièvement : Nikâh al Misyar.,"Nikah al Misyar (""mariage du voyageur"" en arabe) est un montage juridique usuel, qui voudrait que les personnes se marient sans que l’époux ait à prendre d’engagements financiers vis-à-vis de son épouse. Cette dernière l’en dispense par une clause du contrat de mariage par laquelle elle renonce à certains de ses droits (tels que la cohabitation des époux, le partage égal des nuits entre toutes les épouses en cas de polygamie, le domicile, la subvention à l’entretien « nafaqa », etc.). L’épouse continue de mener une vie séparée de celle de son mari, et de subvenir à ses besoins par ses propres moyens.
+
+Ceci allant contre les préceptes coraniques qui implique en obligeance à l'homme de se marier si ses moyens lui permettent afin de subvenir aux besoins de son épouse.
+
+Le mariage misyar n'est pas reconnu et va à l'encontre des préceptes islamiques concernant le mariage et l'obligation émanant de l'ordre Divin pour l'homme de subvenir aux besoins d'une ou plusieurs épouses .",,,,
+fab-500x-20261114T224408Z-049,27,1e1936c3c83b03cac37027a8,ba594334caf6d5358f2d951ead3d5929,fab-500x,fr,mathematics,oasst1,human_authored,"[user] Combien font 11+1 en système binaire ?
+
+[assistant] Pour répondre à votre question, nous allons appliquer un algorithme d'addition en base binaire.
+- Tout d'abord, additionnons les chiffres des unités de nos deux nombres. Pour 11, cela correspond à 1, et pour 1 cela correspond à 1. En base binaire, 1+1=10. Nous avons donc une retenue, et le chiffre des unités de notre réponse est 0.
+- Passons aux chiffres des dizaines. Pour 11, cela correspond à 1. Pour 1, cela correspond à 0. Nous avons cependant une retenue de 1. 1+0+1=10 en binaire. Nous avons donc une retenue, et le chiffre des dizaines de notre réponse est 0.
+- Pour ce qui est du chiffre des centaines, nous avons 0 pour 11 et 0 pour 1. Il n'y a donc que la retenue qui s'applique ici. Le chiffre des centaines du résultat est donc 0+0+1=1.
+- Finalement la réponse est 11+1=100 en système binaire.
+
+[user] J'ai la flemme de lire, sois plus concis.",En système binaire 11+1=100,,,,
+fab-500x-20261114T224408Z-049,28,0f2f9341a9ae61c97e7b9b85,91babdbb26c6a67e8178662a5eb3d520,fab-500x,fr,problem_solving,wikipedia-fr,templated_human,[user] Présente brièvement : Nika Volek.,"Nika Volek, jouée par Holly Valance, est un personnage fictif du feuilleton télévisé Prison Break.
+
+Native de République tchèque, Nika a de la famille à Kladno. Elle se marie avec Michael Scofield (Wentworth Miller) un jour avant qu'il ne soit arrêté pour le braquage de banque qui l'a finalement conduit à la prison de Fox River. Michael a organisé ce mariage blanc car il a besoin de l'aide de Nika pour son plan d'évasion tandis qu'il est à l'intérieur de la prison. En échange, Nika obtient une carte verte lui permettant de rester légalement aux États-Unis. Nika a rencontré Michael après qu'il a remboursé les trafiquants qui l'avaient emmenée clandestinement aux États-Unis. C'est l'occasion pour Nika de commencer une nouvelle vie.
+
+Nika apparaît la première fois lorsque Michael lui téléphone en utilisant un numéro tatoué sur son corps. Il lui dit alors  (). Cela fait référence au plan prévu pour que Philly Falzone soit arrêté par la police.
+
+Dans l'épisode suivant, alors qu'il travaille avec les autres détenus dans la salle des gardiens, Michael est appelé pour une visite conjugale. Les autres membres de l'équipe sont surpris d'apprendre qu'il est marié alors que jusqu'à présent il n'y avait jamais fait allusion. Sucre surtout ne comprend pas que Michael lui ait caché cette information alors qu'il sait tout sur sa relation avec Maricruz.",,,,
+fab-500x-20261114T224408Z-049,29,1476ce0e753234589b74045f,038a6d98b36a3e3ed9624e556bf7728d,fab-500x,fr,reasoning,wikipedia-fr,templated_human,[user] Présente brièvement : Mode d'emploi.,"Un mode d’emploi est un support explicatif du maniement ou du fonctionnement d’un objet ou d’un service. En général, il est fourni gracieusement avec le bien ou le service auquel il se rapporte.
+
+Il peut avoir diverses formes, allant de la simple feuille volante au livre ou au classeur en plusieurs volumes et désormais, surtout pour le matériel informatique, domotique ou les logiciels, comme fichier .pdf, gravé sur un CD, livré avec le produit ou téléchargeable depuis le site web du fabricant, ou encore sous forme de site wiki dédié ou de vidéo.
+
+Caractérisé par la nature technique de son discours, il appartient à ce que l’on appelle la « littérature grise » selon la Définition de Luxembourg (1997).
+
+En France, la jurisprudence impose aux professionnels de fournir un mode d'emploi à l'acheteur, qui doit être rédigé clairement et en langue française, surtout lorsque le produit vendu est d'une utilisation délicate ou dangereuse, et plus généralement, au regard de la responsabilité du fabricant. Cet usage s'appuie sur les dispositions de l'article 1602 du code civil, - ceci, dès son avênement en 1804 - aux termes duquel, tout professionnel vendeur de biens est tenu à l'égard de l'acheteur à une obligation précontractuelle de renseignement.
+
+L’universitaire allemande Jasmin Meerhoff en fait remonter la naissance à Léonard de Vinci.",,,,
+fab-500x-20261114T224408Z-049,30,62e074030522fb399ac44eeb,0fa23146596354267a932e40c5b85362,fab-500x,fr,research,aya-dataset,human_authored,[user] Où commencent les rivières ?,"Au commencement, une rivière est toujours un petit ruisseau. Certains sont d’abord des sources qui jaillissent du sol, d’autres se forment dans les montagnes où la glace commence à fondre. D’autres cours d’eau s’écoulent des lacs.",,,,
+fab-500x-20261114T224408Z-049,31,7c1fa3a08c7dc37f6387eaa1,2b41ebf43e81476cbf856b90f5f33b16,fab-500x,fr,safety_ethics,wikipedia-fr,templated_human,[user] Présente brièvement : Cinkassé.,"Cinkassé est une petite ville du Togo. elle est le chef-lieu de la commune de Cinkassé 1 et de la préfecture de Cinkassé.
+
+Cinkassé est située à environ  de Dapaong, dans la région des Savanes et à  de Lomé, la capitale du pays. Elle se trouve à la frontière burkinabè et est traversée par la route nationale 1 qui devient route nationale 16 à Cinkansé au Burkina Faso.
+
+La ville bénéficie de deux saisons dans l'année :
+
+La saison pluvieuse qui débute à partir du mois d'avril et prends fin en octobre. C'est au mois d'août qu'on enregistre le plus de pluie et c'est le mois le plus froid de la ville avec des températures faible pouvant atteindre les 16°C.
+
+La saison sèche qui débute en novembre et prend fin en mars. Durant cette saison, un vent sec et froid qui souffle la ville (L'Harmattan).
+
+La ville de Cinkassé est située à 38km de la ville de Dapaong. Cinkassé est un carrefour commercial près de la frontière Togo - Burkina.  Avant l'instauration des frontières, Cinkassé accueillait des activités financières entre les peuples venant du pays des Haoussa et des peuls.",,,,
+fab-500x-20261114T224408Z-049,32,12485541ba80db48bb6dc83f,22b34767d178f4ff8163fbca20725720,fab-500x,fr,science,aya-dataset,human_authored,[user] Pourquoi le mélange Coca-Mentos est-il explosif ?,"Si l'on mélange du coca avec des mentos, une drôle de réaction s'en suit. Un véritable geyser se produit ! C'est impressionnant et assez amusant. Mais à quoi est-ce dû ? Pourquoi le mélange coca-mentos est-il explosif ? C'est ce que nous allons étudier aujourd'hui. Bien entendu, si vous voulez tenter l'expérience chez vous, nous vous recommandons de le faire à l'extérieur pour éviter de trop tâcher votre intérieur.
+
+Ce geyser est produit par une drôle de réaction naturelle. En fait, en effectuant ce mélange, le dioxyde de carbone présent dans la boisson va alors brusquement se dégazer. Cela est dû au fait de la surface poreuse du bonbon. En effet, sur le mentos on trouve un grand nombre d'aspérités, très fines et petites. Ainsi quand on les plonge dans le coca, de très nombreuses bulles de gaz carbonique vont se former. Ce gaz se dissout très rapidement, et va alors faire grossir les bulles produites. Il en résulte un phénomène, dès lors qu'une pastille est mise en contact avec un liquide gazeux , qui est la nucléation. L'intensité de l'effet avec l'interaction coca-mentos est due à la somme des ingrédients du coca et dans une moindre mesure, à l'aspartame du mentos.
+
+Il a été remarqué que cela peut fonctionner avec de nombreuses autres boissons gazeuses. Néanmoins, celles au cola (et plus particulièrement les lights) sont celles qui engendrent la plus forte réaction.
+
+Si vous avez peur de manger ce bonbon après avoir bu un coca, soyez sans crainte ! Il n'y a pas de risque qu'un tel geyser se produise dans votre estomac. En effet, dès qu'un mentos touche notre langue et notre salive, les fameuses aspérités (responsables de cette réaction) disparaissent. Les sucres les constituants vont se dissoudre très rapidement. Si vous ne le mâchez pas, mais que vous le gobez directement, il sera tout de même enduit de salive en passant par votre œsophage. Le seul risque est d'avoir un peu mal au ventre, à cause de la forte dose de sucre que vous venez de consommer. C'est tout !
+
+Maintenant que vous savez pourquoi le mélange coca - mentos produit un geyser, nous vous recommandons de poursuivre cette lecture avec d'autres phénomènes du genre. Apprenez pourquoi un bâton plongé dans l'eau semble cassé, pour quelles raisons le savon mousse et enfin pourquoi l'hélium modifie la voix.",,,,
+fab-500x-20261114T224408Z-049,33,4a7b11ed4b3fe59cfbaacd36,98ba4acfb14a759c82b7a55faf857c1c,fab-500x,fr,web_frontend,oasst2,human_authored,"[user] Y'a quoi de sympa à faire au marché de Noël de Strasbourg ?
+
+[assistant] Au marché de Noël de Strasbourg, il y a beaucoup de choses à voir et à faire. Vous pouvez déguster des spécialités alsaciennes, déguster des vins de Noël et de la bière, acheter des souvenirs et des produits artisanaux, profiter des spectacles de rue et des animations, et profiter de la magie de tous les marchés de Noël en Alsace. Vous pouvez également visiter des attractions touristiques et musées historiques tels que la Cathédrale de Strasbourg, la Maison Kammerzell et le Palais Rohan.
+
+[user] Y a t’il des lieux romantiques que je pourrais visiter avec ma compagne dans ou aux alentours de Strasbourg ?","Bien sûr ! Voici quelques idées de lieux romantiques à visiter avec votre compagne à Strasbourg et ses alentours :
+
+Le Parc de l'Orangerie : Ce parc situé en plein cœur de Strasbourg est l'endroit idéal pour une promenade romantique. Vous pourrez admirer le lac, les canards, les cygnes et les paons qui se promènent en liberté.
+
+La Petite France : Ce quartier historique de Strasbourg est un lieu chargé d'histoire et de romantisme. Vous pourrez y flâner le long des canaux, admirer les maisons à colombages et découvrir les nombreuses ruelles pavées.
+
+Le Mont Sainte-Odile : Situé à environ 40 km de Strasbourg, le Mont Sainte-Odile est un lieu de pèlerinage depuis des siècles. Vous pourrez y découvrir un magnifique panorama sur la plaine d'Alsace et les Vosges, ainsi qu'une abbaye bénédictine et une chapelle romane.
+
+Le Château du Haut-Koenigsbourg : Situé à environ 40 km de Strasbourg, le château du Haut-Koenigsbourg est un lieu emblématique de la région. Vous pourrez y découvrir un magnifique château fort médiéval, ainsi qu'une vue panoramique sur les Vosges et la plaine d'Alsace.
+
+Le Jardin des Deux Rives : Ce parc situé à la frontière entre la France et l'Allemagne est un lieu de promenade idéal pour les amoureux. Vous pourrez y admirer des jardins à la française et des jardins à l'anglaise, ainsi que des sculptures contemporaines.
+
+J'espère que ces idées vous inspireront pour votre prochaine sortie romantique !",,,,
+fab-500x-20261114T224408Z-049,34,8d2e1536b3881c23d349c433,450da6abe5047a9715da0d3fa898c0be,fab-500x,fr,writing,aya-dataset,human_authored,[user] Quels sont les films américains marquants des années 1970-1973 ?,"1970 : Love Story (A. Hiller), Patton (F. Schaffner), la Vie privée de Sherlock Holmes (B. Wilder), Woodstock (M. Wadleigh).
+
+1971 : la Dernière Séance (P. Bogdanovich), Duel (S. Spielberg), French Connection (W. Friedkin), l'Inspecteur Harry (D. Siegel), Macadam à deux voies (M. Hellman), Un violon sur le toit (N. Jewison).
+
+1972 : Cabaret (B. Fosse), la Dernière Chance (J. Huston), le Parrain (F.F. Coppola).
+
+1973 : l'Arnaque (G. Roy Hill), l'Épouvantail (J. Schatzberg), l'Exorciste (W. Friedkin), Means Street (M. Scorsese), Soleil vert (R. Fleischer).",,,,
+fab-500x-20261114T224408Z-049,35,cf3b06f373973232442a81df,23819103a0e31123da9c7c74c0e417aa,fab-500x,gle,general_knowledge,aya-dataset,human_authored,[user] Cad é an Cogadh na Saoirse (Éire)?,"Tugtar Cogadh na Saoirse (nó an Cogadh Angla-Éireannach), 21 Eanáir 1919 - 11 Iúil 1921, ar an treallchogadh idir Rialtas na Breataine in Éirinn agus Óglaigh na hÉireann, a bhí faoi smacht na Chéad Dála.",,,,
+fab-500x-20261114T224408Z-049,36,500a429a81df0f2eab3d4bad,0d70025134e7a1f6f7f3ff9819d27093,fab-500x,gle,web_frontend,aya-dataset,human_authored,[user] Inis dom faoi Maria Cantwell.,"Is í Maria E. Cantwell (23 Deireadh Fómhair 1958 a rugadh í) Seanadóir na Stát Aontaithe sóisearach ó Stát Washington. Is ball den Pháirtí Daonlathach í. Toghadh go dtí an Seanad í sa bhliain 2001 agus arís sa bhliain 2006.
+
+Rugadh in Indianapolis, Indiana í. Chuaigh sí go hOllscoil Miami in Oxford, Ohio tar éis na hardscoile. Bhain sí amach céim i riarachán poiblí. Thug sí aghaidh ar Seattle, Washington sa bhliain 1983.",,,,
+fab-500x-20261114T224408Z-049,37,a839a0a21a28bcc097650159,258cdb00dea5f1206210c6430424d24d,fab-500x,gu,general_knowledge,aya-dataset,human_authored,"[user] ગિજુભાઈ બધેકાની ""આ તે શી માથાફોડ !"" પુસ્તકના એક લેખનના શરૂઆતના ફકરા નીચે મુજબ આપેલ છે.
+
+""હું ત્યાં જોઉં છું ત્યારે આંગણમાં જ છોકરાને દિશાએ ગયેલાં ભાળૂં છું. ઉપર માખો બણબણતી હોય છે. ભંગી આવે ત્યારે વળાય. બા વાળે તો નહાવું પડે ને બાપા વાળી નાખે એ તો કદી બનવાનું જ નથી તો !
+
+⁠આંગણામાં જ શેરડીનાં છોયાં, કાગળના ડૂચા, જેતે નકામાં ઠીકરાં, ઈંટડાં ને કપડાંના કટકા પડ્યાં હોય છે; પણ જ્યાં દિશાની પણ પરવા નહિ ત્યાં આને ઉપાડનારું કોણ મળે ?""
+
+આ માથાફોડના આગળના ફકરા લખો.","અંદર જોઉં છું તો ઘરના બારણા આગળ જ જોડા આડાઅવળા પડેલા ભાળું છું. કોઈ કોઈ જોડા તો ઊંધાચત્તા પણ જોઉં છું. એ જોડા ઉપર ધૂળ ચડી હોય, ગંદા હોય એની તો નવાઈ જ નહિ ! એવું સાફ કરવા કોણ નવરું હોય ?
+
+⁠ઓશરીમાં ફરું છું તો જેનાંતેનાં નાનાં કપડાં, કોઈની ચોપડી, કોઈનો રૂમાલ, કોઈનાં રમકડાં, કોઈનું કંઈ ને કોઈનું કંઈ, જ્યાત્યાં પડેલાં દેખું છું. અને એ બધું એવું છે કે હાથમાં લેવાનું મન પણ ન થાય. ચોપડીનાં પૂઠાં ફાટલાં, કપડું ગંદુ, રમકડું જૂનું ને તુટલું, મોટર સાવ ભાંગીને છુંદાઈ ગયેલી, રબ્બરની ચકલીનું પેટ ફાટી ગયેલું : એવાં કેટલાંયે ભાંગલાંતૂટલાં રમકડાં રઝળતાં હોય. મને ત્યાં નથી ગમતું.",,,,
+fab-500x-20261114T224408Z-049,38,552ddb97a84fb09b551a767b,5e39c4981f6e1a0b3187d54aca5ee98c,fab-500x,gu,mathematics,aya-dataset,human_authored,[user] આલુ પરોઠા રેસીપી લખો.,"આલુ પરોઠા રેસીપી
+
+આલુ પરોઠા એક લોકપ્રિય ભારતીય વાનગી છે જે ઘરના નાસ્તા, lunchbox અથવા હળવા ડિનર માટે યોગ્ય છે. આ રેસીપી તમને સ્વાદિષ્ટ અને ક્રિસ્પી આલુ પરોઠા બનાવવાનું શીખવે છે, ગુજરાતી સ્ટાઇલમાં!
+
+સામગ્રી:
+
+ 2 કપ ઘઉંનો લોટ
+ 1/2 ટીસ્પૂન મીઠું
+ 1/4 ટીસ્પૂન અજીનોમોટો
+ ગરમ પાણી જરૂર મુજબ
+ 4 મધ્યમ બાફેલા બટાકા, છીલેલા અને છૂંદેલા
+ 1/2 ડુંગળી, ઝીણી કાપેલી
+ 1 લીલા મરચા, ઝીણા કાપેલા (વૈકલ્પિક)
+ 1/2 ઇંચ આદું, ઝીણું કાપેલું
+ 1/4 ટીસ્પૂન હળદર
+ 1/4 ટીસ્પૂન લાલ મરચા પાવડર
+ 1/4 ટીસ્પૂન ધાણાજીરું પાવડર
+ 1/4 ટીસ્પૂન ગરમ મસાલા
+ 1/4 ટીસ્પૂન કોથમીર, ઝીણી કાપેલી
+ 2-3 ટેબલસ્પૂન તેલ
+
+
+
+રીત:
+
+1. એક મોટા વાસણમાં ઘઉંનો લોટ, મીઠું અને અજીનોમોટો (જો વાપરતા હોય) લો. પાણી થોડું થોડું ઉમેરતા જાઓ અને નરમ લોટ બાંધો. લોટને ઢાંકીને 15 મિનિટ આરામ કરવા દો.
+
+2. એક મોટા બાઉલમાં, છીંદેલા બટાકા, ડુંગળી, લીલા મરચા (જો વાપરતા હોય), આદું, હળદર, લાલ મરચા પાવડર, ધાણાજીરું પાવડર, ગરમ મસાલા અને કોથમીર મિક્સ કરો. સ્વાદ માટે મીઠું ઉમેરો.
+
+3. લોટમાંથી નાના લૂઆ લો અને તેને પતળી રોટલી જેવી આકાર આપો. રોટલીના મધ્યમમાં બટાકાનું પૂરણ મૂકો અને રોટલીને બંધ કરીને ગોળાકાર આકાર આપો.
+
+4. એક તાવો મધ્યમ આંચ પર ગરમ કરો. તાવો પર થોડું તેલ લગાવો અને પરોઠાને મૂકો. બંને બાજુથી ગુલાબી થાય ત્યાં સુધી શેકી લો. વધુ સ્વાદ માટે દરેક પરોઠા પર થોડું ઘી લગાવી શકો છો.
+
+5. ગરમા-ગરમ પરોઠાને દહીં, આથણ અથવા તમારી મનપસંદ ચટની સાથે પીરસો.",,,,
+fab-500x-20261114T224408Z-049,39,149257e95b8a4cb4d63871dc,7851a547d517f26a039b830bd7414dc0,fab-500x,hat,general_knowledge,aya-dataset,human_authored,[user] Mouch makayèt la ka fè bèl mouvman pandan l ap vole,"Tout moun ki konn ap chèche frape yon mouch konnen se pa yon bagay ki fasil. Piske ti bèt sa yo reyaji byen rapid tankou yon zèklè, moun pa ka pran yo fasil.
+
+Syantifik yo dekouvri yon kalite mouch yo rele mouch makayèt, ki ka fè mouvman menm jan ak avyon de gè yo, nan yon fraksyon segonn. Pwofesè Michael Dickinson fè konnen lè yo fèt, “yo ka vole tankou yon espesyalis”. “Se tankou w ta mete yon tibebe ki fèk fèt nan yon avyon de gè ki konplike, e tibebe a konnen sa pou l fè pou l fè avyon an vole.”
+
+Moun k ap fè rechèch yo filme mouvman mouch sa a ap fè yo e yo remake li bat zèl li 200 fwa chak segonn. Anfèt, yon sèl fwa li bat zèl li sifi pou l chanje direksyon pou l fè yon lòt mouvman.
+
+Bon, ki sa n ka di konsènan kantite tan l pran pou l reyaji? Moun k ap fè rechèch yo remake mouch sa yo ka reyaji 50 fwa pi vit devan yon danje pase tan je yon moun pran pou l bat. Men sa Dickinson di: “Mouch la ka fè yon kalkil ki konplike anpil nan yon ti tan tou kout pou l konnen ki kote yon danje ye epi ki pi bon mouvman li ka fè pou l chape.”
+
+Fason ti sèvo mouch makayèt la rive fè bagay sa yo se yon gwo mistè pou moun k ap fè rechèch yo konprann.",,,,
+fab-500x-20261114T224408Z-049,40,094f4216851438096101ab0f,59c5b058c0e566b9b336c1a1081ddaf6,fab-500x,hau,general_knowledge,aya-dataset,human_authored,[user] Mene ne huɗa?,"Shine rarraba ƙasa, sassauta/tuna ƙasa, da jujjuya ƙasar don tumɓuke ciyayi da jika ƙasar.",,,,
+fab-500x-20261114T224408Z-049,41,fbef346559436cc5fa574445,dd3eb4f4f654b755b71b2f80e6e967ba,fab-500x,hau,islamic_studies,aya-dataset,human_authored,[user] Wanene mawaki Shata Hausa?,"Alhaji (Dr) Mamman Shata, MON, fitaccen mawaƙin Fulani ne na Najeriya wanda ya yi waƙa a cikin harshen Hausa. Tun yana matashi Mamman Shata ya halarci makarantar Islamiyya a Musawa, amma waka ta kasance abin shagaltuwa da wuri kuma ya kan yi wa abokansa waka. Mahaifinsa Ibrahim Yaro ya saba masa yana waka.",,,,
+fab-500x-20261114T224408Z-049,42,032c39c4f561b83bde2e47ff,ca44128f3e2ffda40296cf594d2865b4,fab-500x,hi,coding,wikipedia-hi,templated_human,[user] सिमुलेशन की भाषाएँ के बारे में एक संक्षिप्त परिचय लिखिए।,"कम्प्यूटरी सिमुलेशन को सुगमता पूर्वक अभिव्यक्त करने के लिये जिन कम्प्यूटरी भाषाओं का उपयोग किया जाता है उन्हें सिमुलेशन की भाषा कहते हैं। सिमुलेशन भाषाओं में यह क्षमता होनी चाहिये कि वे अलग-अलग तरह के (जैसे सतत या डिस्क्रीट, डिटर्मिनिस्टिक या स्टॉकैस्टिक) तन्त्रों को सुविधा पूर्वक वर्णन कर सकें और विविध प्रकार के विश्लेषण (डी-सी, ए-सी या ट्रान्सिएन्ट आदि) करके परिणामों को विविध प्रकार (सारणी, तरह-तरह के ग्राफ, एनिमेशन आदि) से प्रदर्शित कर सकें। इसके अतिरिक्त, डिस्क्रीट-इवेन्ट भाषाओं में अलग-अलग प्रायिकता-वितरण (प्रोबेबिलिटी-डिस्ट्रिब्यूशन) पर आधारित छद्म-यादृच्छिक (Pseudorandom) संख्याएं पैदा करने की क्षमता भी होनी चाहिये।
+
+डिस्क्रीट इवेन्ट सिमुलेशन की भाषाएँ (Discrete event simulation languages)
+
+SimPy, an open-source package based on Python
+
+SIMSCRIPT II.5, a well established commercial compiler
+
+Java Modelling Tools, an open-source package with graphical user-interface
+
+Poses++, a discret-event simulation system with Petri net based modelling
+
+सतत-समय सिमुलेशन की भाषाएँ (Continuous simulation languages)
+
+Advanced Continuous Simulation Language (ACSL), which supports textual or graphical model specification
+
+SimApp, simple simulation of dynamic systems and control systems
+
+Simgua, simulation toolbox and environment, supports Visual Basic
+
+Simulation Language for Alternative Modeling (SLAM) (There used also be a Simulation Language for Analogue Modelling (SLAM))",,,,
+fab-500x-20261114T224408Z-049,43,e9558a39c41ad9f48e837c04,3a5268c7a156882456e1d58d0624083e,fab-500x,hi,general_knowledge,aya-dataset,human_authored,"[user] दिये गये लेख के आधार पर आख़िर में पूछे हुए प्रश्न का सही उत्तर दें: 
+आधुनिक मानव या होमो सेपियंस अफ्रीका से भारतीय उपमहाद्वीप में ५५,००० साल पहले आये थे। ६५०० ईसा पूर्व के बाद ये सिंधु नदी के पश्चिमी हिस्से की तरफ बसने लगे जहाँ से इन्होने धीरे धीरे पलायन किया और सिंधु घाटी सभ्यता के रूप में विकसित हुए। १,२०० ईसा पूर्व संस्कृत भाषा संपूर्ण भारतीय उपमहाद्वीप में फैल गई थी और तब तक यहाँ पर हिंदू धर्म का उद्धव हो चुका था और ऋग्वेद की रचना भी हो चुकी थी। ४०० ईसा पूर्व तक आते आते हिंदू धर्म में जातिवाद देखने को मिल जाता है। इसी समय बौद्ध एवं जैन धर्म उत्पन्न हो रहे होते हैं। प्रारंभिक राजनीतिक एकत्रीकरण ने गंगा बेसिन में स्थित मौर्य और गुप्त साम्राज्यों को जन्म दिया।उनका समाज विस्तृत सृजनशीलता से भरा हुआ था।
+
+प्रश्न: ६५०० ईसा पूर्व के बाद आधुनिक मानव भारत उपमहाद्वीप के कौनसे हिस्से की तरफ बसने लगे थे?","लेख के आधार पर दिये गये प्रश्न का उत्तर यह है: 
+आधुनिक मानव या होमो सेपियंस अफ्रीका से भारतीय उपमहाद्वीप में ५५,००० साल पहले आये थे। ६५०० ईसा पूर्व में ये सिंधु नदी के पश्चिमी हिस्से की तरफ बसने लगे थे जहाँ से इन्होने धीरे धीरे पलायन किया और सिंधु घाटी सभ्यता के रूप में विकसित हुए।",,,,
+fab-500x-20261114T224408Z-049,44,9cb2f57283c2a6d941cf9d2c,02af32804bdb0acb1b8f891239a3999f,fab-500x,hi,mathematics,wikipedia-hi,templated_human,[user] रंग पट्टिकाओं की सूची के बारे में एक संक्षिप्त परिचय लिखिए।,"यह : एक लेख है, जो कम्प्यूटर ग्राफिक्स्, टर्मिनल एवं वीडियो गेम्स के प्रदर्शकों हेतु बना है।
+
+रंग पट्टिका, जिसे रंग पैलेट भी कहते हैं, उसका केवल मात्र एक एक नमूना ही यहाँ दिया है।
+
+{| style=""border-style: none"" border=""0"" cellpadding=""0""
+
+इन पैलेटों में स्लेटी वर्ण के कुछ छायाएं हैं।
+
+{| style=""border-style: none"" border=""0"" cellpadding=""5""
+
+इन पूर्ण RGB पैलेट में बराबर संख्या में बिट प्रयुक्त होतीं हैं, लाल, हरे एवं नीले रंग की उज्ज्वलता स्टोर करने हेतु। अतः इनमें सदा ही बराबर संख्या में स्तर प्रति चैनल होते हैं, एवं कुल संख्या में दो की घन श्रेणी यानी क्यूब में रंग होते हैं।
+
+{| style=""border-style: none"" border=""0"" cellpadding=""5""
+
+|| 15-bit RGB323 = 32,768 colors (हाई कलर)
+
+||24-bit RGB]]2563 = 16,777,216 colors (ट्रू कलर)
+
+These are also RGB palettes, in the sense defined above (except for the 4-bit RGBI, which has an intensity bit that affects all channels at once), but either they do not have the same number of levels for each primary channel, or the numbers are not powers of two, so are not represented as separate bit fields. All of these have been used in popular personal computers.
+
+{| style=""border-style: none"" border=""0"" cellpadding=""5""
+
+|| 16-bit RGB32×64×32 = 65,536 colors (HighColor)",,,,
+fab-500x-20261114T224408Z-049,45,67143a8a07d85e3ddcf43485,bef1d8df42335507a8376b16e7436425,fab-500x,hi,research,wikipedia-hi,templated_human,[user] सूचना क्रांति के बारे में एक संक्षिप्त परिचय लिखिए।,"सूचना क्रांति (information revolution) वर्तमान समय के आर्थिक, सामाजिक एवं तकनीकी प्रगति को इंगित करता है जो औद्योगिक क्रांति के अतिरिक्त है।
+
+आर्थिक गतिविधियों के उद्देश्य को पदार्थ, उर्जा तथा सूचना के मौलिक भेद के अनुसार समझा जा सकता है।
+
+सूचना, उत्पादन का एक घटक (factor of production) भी है और एक बाजार में बेचा जाने वाला उत्पाद (product) भी है।
+
+सभी उत्पादों का 'उपयोग मूल्य', 'विनिमय मूल्य' एवं 'सूचना मूल्य' होते हैं। सूचना मूल्य को उस उत्पाद में निहित 'सूचना' (नवाचार, डिजाइन आदि के रूप में) द्वारा मापा जा सकता है।
+
+सभी उद्योग सूचना-उत्पादक कार्य करते हैं जिसे 'अनुसंधान तथा विकास' (Research and Development (R&D)) कहते हैं।
+
+कम्पनियाँ (और सम्पूर्ण समाज) सूचना-नियंत्रण एवं सूचना-प्रक्रमण (information control and processing) करते हैं जो उनके 'प्रबन्धन ढांचों' के रूप में होता है। इनको 'सफेद कॉलर कर्मिक', 'ब्यूरोक्रैसी', प्रबंधन-कार्य' आदि कहते हैं।
+
+श्रम को उसके उद्देश्य के अनुसार दो भागों में बांट सकते हैं - सूचना श्रमिक एवं गैर-सूचना श्रमिक।
+
+सूचना से संबन्धित गतिविधियाँ अब एक नया और बड़ा आर्थिक सेक्टर हैं। पारम्परिक 'प्राथमिक सेक्तर', 'द्वितियक सेक्टर' एवं 'तृतीयक सेक्टर' के अलावा अब सूचना सेक्टर का भी अस्तित्व है।",,,,
+fab-500x-20261114T224408Z-049,46,53e3664b5254f33ded2acd50,2a9505f80ee878c47ec3894a13a61975,fab-500x,hi,science,wikipedia-hi,templated_human,[user] त्वरणमापी के बारे में एक संक्षिप्त परिचय लिखिए।,"कोई भी ऐसी युक्ति जो त्वरण मापने के काम आती है, त्वरणमापी (accelerometer) कहलाती है। प्रायः ये विद्युतयांत्रिक (एलेक्ट्रोमेकैनिकल) युक्तियाँ होती हैं जो त्वरण के संगत उपयुक्त वैद्युत संकेत (विभवान्तर या धारा) प्रदान करती हैं।
+
+त्वरणमापी यदि कार में लगा हो तो बता सकता है कि कार किसी ढलान पर चढ़ रही है या नहीं। step?
+
+किसी कार या अन्य इंजन/मशीन के कम्पनों का मापन करके उसमें छिपी हुई समस्याएँ (गड़बड़ियाँ) निकाली जा सकती हैं।
+
+इसकी सहायता से वाद्ययंत्र बनाने में सहायता मिल सकती है।
+
+कुछ कंपनियाँ अपने लैपटॉप में त्वरणमापी लगाती हैं। यदि लैपटॉप हाथ से छूटकर गिर रहा हो तो त्वरणमापी इस स्थिति को तुरन्त भाँप जाता है और 'हार्ड डिस्क' को बन्द कर देता है जिससे उसमें खराबी आने से बच जाती है।
+
+त्वरण मापने के बहुत से तारीके हैं। कुछ में पिजेलेक्ट्रिक प्रभाव का उपयोग होता है। इनमें त्वरित होने की स्थिति में प्रतिबल (स्ट्रेस) उत्पन्न होता है जिसके कारण यह एक विभवान्तर पैदा करता है। यह विभवान्तर त्वरण के समानुपाती होता है।
+
+धारिता में परिवर्तन का आधार बनाकर भी त्वरण मापा जाता है। धारिता में हुए परिवर्तन को मापकर एलेक्ट्रॉनिक परिपथ द्वारा अप्रत्यक्ष तरीके से त्वरण निकाला जा सकता है।
+
+पिजोरेजिस्टिव प्रभाव, गरम हवा के बुलबुले और प्रकाश से भी त्वरण मापा जा सकता है।
+
+Thinking About Accelerometers and Gravity by Dave Redell, LUNAR #322
+
+Considerations When Selecting an Accelerometer
+
+Introduction to Accelerometer Basics: Designs, Conditioning, and Mounting",,,,
+fab-500x-20261114T224408Z-049,47,1423634fde6be66a05c029ad,c623c4c882ed760cc8f37f37d00527ae,fab-500x,hi,web_frontend,wikipedia-hi,templated_human,[user] जनकपुर अंचल के बारे में एक संक्षिप्त परिचय लिखिए।,"जनकपुर अंचल मध्य नेपाल में पड़ता हे, इस अंचल के पुर्व में सगरमाथा अंचल, दक्षिणमे भारतीय राज्य विहार पस्चिम में नारायणी अंचल व बागमती अंचल उत्तरमे चिनके स्वसासीत क्षेत्र तिब्बत पड़ता है। इस अंचल में पडने वाला हिम शिखर गौरी शंकर के रेफरेन्स में नेपाल का राष्ट्रीय समय निर्धारण कियागया है। रामायण की पात्र सीता का जन्म जनकपुर में हुआ था इस अंचलका नाम इस ही ""जनकपुर"" नामक स्थान के नाम से रखा गया है। इस अन्चल में दोलखा जिला, रामेछाप जिला, सिन्धुली जिला, धनुषा जिला, मोहोत्तरी जिला व सर्लाही जिला कर के छ:ह जिले पडते हैं।
+
+ये सभी नेपाल के जिले है जो पुरातत्व से सम्बंधित है
+
+https://web.archive.org/web/[CARD]/http://www.nepalpicturegallery.com/janakpur/janakpur.html
+
+https://web.archive.org/web/[CARD]/http://www.citypopulation.de/php/nepal-admin.php?adm1id=Z04
+
+https://web.archive.org/web/[CARD]/http://www.tripadvisor.com/Tourism-g3475453-Janakpur_Zone_Central_Region-Vacations.html",,,,
+fab-500x-20261114T224408Z-049,48,ab4b71d3eb809d63f5771bbd,7c9cd9cafffc32f83559a2e1c3ed07a5,fab-500x,hi,web_fullstack,wikipedia-hi,templated_human,[user] किरेन रिजिजू के बारे में एक संक्षिप्त परिचय लिखिए।,"किरेन रिजिजू (जन्म 19 नवम्बर 1971) भारतीय जनता पार्टी के सचिव एवं भारत के गृह राज्य मंत्री हैं। वे सोलहवीं लोक सभा में अरुणाचल पश्चिम से सांसद चुने गए। उन्होंने यहाँ पर भारतीय राष्ट्रीय कांग्रेस के वर्तमान सांसद तकाम संजय को 41,738 मतों से हराया। इससे पहले उन्होंने चौदहवीं लोक सभा में भी इस क्षेत्र का प्रतिनिधित्व किया था।
+
+किरेन रिजिजू का जन्म अरुणाचल प्रदेश के पश्चिमी कामेंग जिले के नफ्रा में हुआ था। उनके पिता का नाम श्री रिन्चिन खारु और माता का नाम श्रीमती चिरई जिजुजु है। उनके पिता अरुणाचल प्रदेश की प्रथम विधानसभा के अस्थायी अध्यक्ष थे।
+
+Official biographical sketch in Parliament of India website",,,,
+fab-500x-20261114T224408Z-049,49,c1d95aedbf87663ff0ce9827,fafcfed5b85f89417e62c7855a6edb50,fab-500x,hi,writing,aya-dataset,human_authored,"[user] Write a complex political thriller that unfolds in a future where nations compete for control over space resources, exploring the intricacies of interstellar diplomacy and power struggles.","एक जटिल राजनीतिक थ्रिलर लिखें जो एक भविष्य में खुलता है जहां राष्ट्र अंतरिक्ष संसाधनों के नियंत्रण के लिए प्रतिस्पर्धा करते हैं, अंतरस्थल राजनीति और शक्ति संघर्षों की जटिलताओं का अन्वेषण करता है।",,,,
+fab-500x-20261114T224408Z-049,50,dcc7e6b7abb5dd735bfec011,b4a3e60d3726da9a8abccac3fae322f3,fab-500x,hun,general_knowledge,aya-dataset,human_authored,"[user] what important event is this text about: Hat sakkolimpián (1958, 1964, 1966, 1970, 1972, 1974) vett részt a magyar válogatott tagjaként, amelyeken két ezüstérmet és egy bronzérmet szerzett. Egyéniben a legjobb teljesítményt 1958-ban nyújtotta, amikor 13 játszmából 10,5 ponttal (80,1%) egyéni aranyérmet szerzett.",sakkolimpiai részvételek és legjobb eredmény,,,,
+fab-500x-20261114T224408Z-049,51,4dd81177b9933fa5dedbc043,22c0b0fbfe25907d8da3de4069f9645f,fab-500x,ibo,general_knowledge,aya-dataset,human_authored,"[user] Ọ bụ maka nfanyeaka n'ụkwụ ndị nkuzi  n'ihi ụgwọ ọnwa iri ha sị na gọọmentị ji ha nakwa ihe ndị ọzọ.
+
+Onyeisi otu jikọrọ ndị ọrụ n'Abia bụ Uchenna Obigwe kwuru na gọọmentị ekwela ndị nkuzi nkwa ịkwụ ụgwọ ọnwa abụọ.
+
+Mana nkwa a emeghị ka ndị nkuzi laghachị n'ụlọakwụkwọ dịka ụfọdụ ha ka na-ewe iwe banyere nke a.
+
+Onyeisi ndị nkuzi n'Aba-North bụ Njoku C.C gwara BBC Igbo na o nweela ndị nkụzi natarala ụgwọ ọnwa abụọ, ụfọdụ ọnwa atọ.
+
+Mana ndị nkuzi gbaa gburugburu anabataghị ụgwọ ọnwa atọ gọọmentị chọrọ ịkwụ n'ime ọnwa iri e ji ha n'ụgwọ.
+
+Ntụliakaelu Gọvanọ: Anyị akwụchala ndịọrụ ụgwọ ha - Ikpeazụ 
+
+Njoku kwuru na ha na gọọmentị zutere mana ndị nkuzi Abia Steeti gbaa gburugburu ekweghi na mpụtara mkparịtaụka ahụ.
+
+Kedụ ihe bụ iwe ndị nkuzi a?
+
+Njoku C.C sị na ihe ndị nkuzi chọrọ ka gọọmentị Abia Steeti mee tupu ha amalite ọrụ gụnyere;
+
+1. Ịkwụcha ndị nkuzi ụgwọ ọnwa iri eji ha
+
+2. Ịkwụ ndị nkuzi ụgwọ ezumike ọrụ akpọrọ 'Leave Allowance'
+
+3. Ịkwụ ndị nkuzi ụgwọ mbuli n'ọkwa bụ 'Salary Upgrade'
+
+4. Ịkwụ ndị nkuzi Praịmarị ụgwọ 'Teachers Salary Subsidy'.
+
+Otu onye nkuzi Sekọndịrị bụ Anusionwu O. gwara BBC Igbo na akwụghị ụgwọ ọnwa metụtara ya n'ụzọ dị iche iche.
+
+Nke bụ na ego eji elekọta ezinaụlọ adịghị, na mgbe ụfọdụ, ọ na-abọrọ ndị mmadụ ahịhịa, buoro ndị mmadụ ibu iji hụ ihe a na-eri. 
+
+Mbọ niile BBC Igbo gbara inweta gọọmentị Abia Steeti site n'aka onye enyemaka mgbasaozi gọvanọ bụ Onyebuchi Ememanka amịtaghị mkpụrụ.
+
+Dịka na ọ zaghị ekwentị ya n'oge a kpọrọ ya.
+
+Akụkọ ndị ga-amasị gị:
+
+Nye m ezigbo isiokwu maka ederede dị n'elu.",Nfanyeaka N'ụkwụ Ndị Nkụzi Abịa: Ụgwọ gọometị ji anyị karịrị akarị,,,,
+fab-500x-20261114T224408Z-049,52,8f49e27bf54aa8dd20691803,97858e2292ff30f822d04ac0d082ea81,fab-500x,ibo,reasoning,aya-dataset,human_authored,"[user] Gini bu azịza gwam gwam gwam(riddle) a
+
+Gwa m ihe ji nganga akwụ aja",Ukukorobụba,,,,
+fab-500x-20261114T224408Z-049,53,92f6b22a740b52cbbd987810,77555352d39eacbf81a3e10018bf1dd8,fab-500x,id,coding,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang The Teng Chun.,"The Teng Chun () adalah seorang pengusaha yang bergerak di bidang perfilman. Ia adalah pendiri perusahaan Java Industrial Film atau JIF. Selain bertindak sebagai produser dari film-filmnya, ia juga bertindak sebagai sutradara. Selain itu ia juga seorang fotografer di era tahun 1930an. Film-filmnya banyak dimainkan oleh aktor dan aktris terkenal pada waktu itu, antara lain Moh Mochtar, Hadidjah, Lo Tjin Nio, dan Bissu.
+
+Ouw Peh Tjoa (Ular Hitam dan Putih) (1934)
+
+Oh Iboe (1938) dibintangi oleh Bissu dan Lo Tjin Nio
+
+Tjiandjoer (1938) dibintangi oleh Bissu dan Lo Tjin Nio
+
+Alang-Alang (1939) dibintangi oleh Moh Mochtar dan Hadidjah
+
+Roesia Si Pengkor (1939) dibintangi oleh Hadidjah dan Bissu
+
+Rentjong Atjeh (1940) dibintangi oleh Dewi Mada, Moh Mochtar, dan Hadidjah
+
+Djantoeng Hati (1941) dibintangi oleh Ariani dan RR Anggraini
+
+Genangan Air Mata (1955) dibintangi oleh Roostijati dan Djoni Sundaw",,,,
+fab-500x-20261114T224408Z-049,54,086d7d419bf1c56390457cdb,894bd251f0e19e68abf6795537281b74,fab-500x,id,general_knowledge,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Hige Danshaku.,"adalah duo manzai yang bertemakan seorang bangsawan Jepang bernama Louis Yamada LIII kelahiran Prancis dan kepala pelayan bernama Higuchi-kun. Kelompok ini ditangani oleh perusahaan hiburan Sun Music Productions. Kedua anggota manzai Hige Danshaku mengisi suara untuk karakter utama serial anime Tentai Senshi Sun Red (Yamada LIII sebagai Vamp dan Higuchi-kun sebagai Orang Jahat Memerangi #1), Yamada LIII mulai muncul dalam pemeran tetap dalam serial tokusatsu Tensou Sentai Goseiger. Higuchi-kun muncul sebagai penyiar di film Goseiger: Epic On The Movie. Keduanya juga menjabat sebagai juru bicara untuk Sumitomo Realty & Development.
+
+Dalam duo Hige Danshaku, peran Yamada sebagai tsukkomi. Profil resminya menyatakan bahwa dirinya lahir di Champs-Élysées Paris, dan kuliah di Sorbonne. Nama aslinya adalah .
+
+Dalam duo Hige Danshaku, peran Higuchi sebagai boke. Dia kuliah di Kwansei Gakuin University, dan lulus dengan gelar di bidang sosiologi. Nama aslinya adalah .",,,,
+fab-500x-20261114T224408Z-049,55,6d8388552b20260347e2fa6a,489a9c5ce0b53fd5e1d03db8ea7e17d1,fab-500x,id,islamic_studies,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Enceladus (satelit).,"Enceladus (pengucapan bahasa Inggris: ) adalah satelit alami terbesar keenam planet Saturnus. Satelit ini memiliki diameter sekitar 500 kilometer, yaitu sekitar sepersepuluh dari diameter satelit terbesar Saturnus, Titan. Enceladus sebagian besar diselimuti oleh es segar dan bersih, sehingga satelit ini merupakan salah satu benda langit paling reflektif di Tata Surya. Oleh sebab itu, suhu permukaannya pada siang hari hanya mencapai , jauh lebih dingin daripada benda yang dapat menyerap cahaya. Meskipun berukuran kecil, Enceladus memiliki rangkaian ketampakan permukaan yang luas, dimulai dari wilayah yang penuh akan kawah tua sampai terrain muda yang terdeformasi secara tektonik.",,,,
+fab-500x-20261114T224408Z-049,56,3898e1291b20f3f8644df0df,05b7f05f508393a8b2b317871461d666,fab-500x,id,mathematics,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Pendapatan rumah tangga rata-rata di Australia dan Selandia Baru.,"Pendapatan rumah tangga rata-rata secara umum digunakan untuk mengukur kemakmuran penduduk di berbagai tempat geografis. Membagi rumah tangga menjadi dua bagian sama dengan setengah pertama rumah tangga memperoleh kurang dari pendapatan rumah tangga rata-rata dan setengah lainnya memperoleh lebih.
+
+Sejak 2000, pendapatan rumah tangga di Australia dan Selandia Baru telah tumbuh cepat dan pada 2007 pendapatan bisa disamakan dengan Amerika Serikat.
+
+Selandia Baru dan Australia secara perlahan-lahan digabungkan secara ekonomi melalui suatu proses bernama “Closer Economic Relations (CER)”. Penduduknya bebas bepergian, menetap dan bekerja di negara tersebut. Informasi mengenai pendapatan rumah tangga rata-rata relatif mereka lebih menarik, khususnya bagi yang mempertimbangkan migrasi.
+
+Pendapatan rumah tangga rata-rata pada 2007
+
+Data pendapatan untuk setiap negara bagian (atau teritori) telah dikonversikan ke dolar AS menggunakan Purchasing Power Parity untuk konsumsi pribadi . Ini dilakukan karena data ini memberikan gambaran yang lebih akurat dan stabil terhadap nilai asli pendapatan penduduk di berbagai negara.
+
+Sumber utama: Australian Bureau of Statistics, Household Income and Income Distribution, Australia 2007-08 .
+
+'' Catatan: PDB per kapita tidak bisa digunakan untuk memperkirakan pendapatan rumah tangga rata-rata (Lihat pendapatan rumah tangga rata-rata).",,,,
+fab-500x-20261114T224408Z-049,57,b255b35aa55e0bab76328d8b,488f50445e4cd4482b4bfc7b2e65feda,fab-500x,id,pakistan,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Bangladesh Betar.,"Bangladesh Betar () adalah stasiun radio milik pemerintah di Bangladesh. Radio ini juga dikenal sebagai Radio Bangladesh antara tahun 1975 dan 1996.
+
+Transmisi radio di Bangladesh pertama kali dimulai di kota Dhaka pada 16 Desember 1939. Awalnya, stasiun radio ini berlokasi di Dhaka Lama sebelum berpindah ke Shahbag. Radio ini ikut berperan dalam Perang Kemerdekaan Bangladesh pada tahun 1971. Pada 26 Maret 1971, pusat penyiaran Radio Pakistan digunakan untuk menyebarkan deklarasi kemerdekaan, yang dibawa dengan kapal Jepang di pelabuhan Chittagong dan disiarkan. Pada masa perang, radio ini dikenal sebagai Shwadhin Bangla Betar Kendro (Stasiun Radio Bengali Merdeka). Stasiun radio ini bebeapa kali pindah. Pada 25 Mei, stasiun radio ini pindah ke Kalkuta sampai perang berakhir. Pada 6 Desember, namanya diganti menjadi Bangladesh Betar.",,,,
+fab-500x-20261114T224408Z-049,58,f874d7fd1fe5699542593287,74410b46e3463dee234af243d824fe01,fab-500x,id,research,tydiqa-goldp,human_authored,"[user] Adat adalah gagasan kebudayaan yang terdiri dari nilai-nilai kebudayaan, norma, kebiasaan, kelembagaan, dan hukum adat yang lazim dilakukan di suatu daerah.
+
+Apa yang dimaksud dengan adat ?","gagasan kebudayaan yang terdiri dari nilai-nilai kebudayaan, norma, kebiasaan, kelembagaan, dan hukum adat yang lazim dilakukan di suatu daerah
+
+Adat adalah gagasan kebudayaan yang terdiri dari nilai-nilai kebudayaan, norma, kebiasaan, kelembagaan, dan hukum adat yang lazim dilakukan di suatu daerah.",,,,
+fab-500x-20261114T224408Z-049,59,b48f87fd542ffc94e6c532be,bd8d241009bebb7f3fb399777a7aeb71,fab-500x,id,safety_ethics,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Transformasi Laplace.,"Transformasi Laplace atau alih ragam Laplace adalah suatu teknik untuk menyederhanakan permasalahan dalam suatu sistem yang mengandung masukan dan keluaran, dengan melakukan transformasi dari suatu domain pengamatan ke domain pengamatan yang lain.
+
+Dalam matematika jenis transformasi atau alih ragam ini merupakan suatu konsep yang penting sebagai bagian dari analisis fungsional, yang dapat membantu dalam melakukan analisis sistem invarian-waktu linier, seperti rangkaian elektronik, osilator harmonik, perangkat optik dan sistem-sistem mekanik. Dengan mengetahui deksripsi matematika atau fungsional sederhana dari masukan atau keluaran suatu sistem, transformasi Laplace dapat memberikan deskripsi funsional alternatif yang kadang dapat menyederhanakan proses analisis kelakukan dari sistem atau membuat suatu sistem baru yang berdasarkan suatu kumpulan spesifikasi.",,,,
+fab-500x-20261114T224408Z-049,60,301d6d72ef9cd401e473e011,76fd31ec30aa8b28619784656288a650,fab-500x,id,science,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Smallville (seri televisi).,"Smallville merupakan sebuah seri TV amerika yang diproduksi dan ditulis oleh Alfred Gough dan Miles Millar bedasarkan karakter superman dari komik DC yang diciptakan oleh Jerry Siegel dan Joe Schuster. Pertama kali disiarkan di TV pada 16 Oktober 2001 oleh The WB Television Network. Setelah musim kelima Smallville, WB dan UPN bergabung membentuk The CW, serial tersebut kemudian tersiar di Amerika Serikat. Smallville, yang mengakhiri serinya di musim kesepuluh pada tanggal 13 Mei 2011, bedasarkan pada cerita Clark Kent (Tom Welling) di kota fiksi Smallville, Kansas, sebelum ia dikenal sebagai Superman. Empat musim pertama fokus pada Clark dan teman-temannya di SMA, setelah season lima Smallville mengubah menjadi alur yang lebih dewasa, terutama berfokus pada karier di Daily Planet dan Memperkenalkan karakter komik superhero dan penjahat komik DC lainnya.",,,,
+fab-500x-20261114T224408Z-049,61,c3a0c4077ccb2cd91697df28,53bb2a6a3d6a61658c7d771c38fd294c,fab-500x,id,web_frontend,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Moa raksasa.,"Moa raksasa (Dinornis) adalah genus burung ratite yang sudah punah yang masuk kedalam famili moa. Spesies ini endemik terhadap Selandia Baru.
+
+Dinornis merupakan salah satu burung terbesar yang pernah hidup. Burung ini memiliki tinggi 3 m dan berat 300 kg. Sayapnya berwarna coklat kemerahan dan seperti rambut, dan menutupi hampir seluruh tubuh kecuali bagian bawah kaki dan kebanyakan kepala. Kakinya besar dan kuat, dan burung ini memiliki leher panjang yang membuat mereka dapat mencapai tanaman tinggi.
+
+Moa raksasa, seperti moa lainnya, dihabisi oleh koloni manusia yang memburunya untuk makanan. Semua taxa pada genus ini punah pada tahun 1500 di Selandia Baru.
+
+Baker, Allan J.; Huynen, Leon J.; Haddrath, Oliver; Millar, Craig D. & Lambert, David M. (2005): Reconstructing the tempo and mode of evolution in an extinct clade of birds with ancient DNA: The giant moas of New Zealand. PNAS 102(23): 8257-8262. DOI:10.1073/pnas.0409435102 PDF fulltext  Supporting Information
+
+Bunce, Michael; Worthy, Trevor H.; Ford, Tom; Hoppitt, Will; Willerslev, Eske; Drummond, Alexei & Cooper, Alan (2003): Extreme reversed sexual size dimorphism in the extinct New Zealand moa Dinornis. Nature 425(6954): 172-175. DOI:10.1038/nature01871 HTML abstract Supplementary information",,,,
+fab-500x-20261114T224408Z-049,62,43ff5d534ca3d0f26abd4e77,0daf74f33e8bf778eea8632f058ca5dd,fab-500x,id,web_fullstack,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Pembangkit Listrik Tenaga Nuklir Chornobyl.,"Pembangkit Listrik Tenaga Nuklir Chornobyl (, ) adalah pembangkit listrik tenaga nuklir di kota Pripyat, Ukraina, 18 km barat laut dari kota Chornobyl, 16 km dari perbatasan Ukraina dan Belarus, dan sekitar 110 km sebelah utara Kiev. Tempat ini merupakan tempat terjadinya bencana Chornobyl tahun 1986, tetapi karena masih dibutuhkannya energi, tetap beroperasi sampai Desember 2000.
+
+Chornobyl Nuclear Power Plant  - official website
+
+Construction of the Chornobyl Nuclear Power Plant - video
+
+Shut down of reactor no. 3 in December of 2000 - video
+
+Slide show of a visit to the Chornobyl reactor  in April 2006 by a German TV team joint by Reserch Center Juelich
+
+Chornobyl Nuclear Power Plant at Google Maps",,,,
+fab-500x-20261114T224408Z-049,63,936de97cc76216acc043de2d,30fabc80545130d4156f34a2adc5e119,fab-500x,id,writing,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Super Girl (album mini).,"Super Girl adalah album mini pertama dan perilisan kedua oleh boy band Mandopop, Super Junior-M, sub-grup dari Super Junior. Dirilis oleh SM Entertainment pada 23 September 2009. Dirilis di Taiwan pada hari yang sama oleh Avex Taiwan dan di Hong Kong pada 25 September oleh Avex Asia dan juga di Daratan Cina.
+
+Album menampilkan lima track dalam bahasa Mandarin, dengan track dance bertempo tinggi ""Super Girl"", ditulis oleh Yoo Young-jin, sebagai singel pemimpin pertama dan balada ""到了明天"" (Blue Tomorrow) sebagai singel pemimpin kedua. Sebuah versi deluxe B dirilis pada 18 Desember 2009 di Taiwan dan Hong Kong dengan dua track bonus versi Korea dari ""Super Girl"" dan ""到了明天"" (Blue Tomorrow), ditambah dengan sebuah DVD dengan tiga musik video dan sebuah video behind-the-scene.
+
+Pada Juli 2009, tak lama setelah promosi untuk album ketiga Super Junior, Sorry, Sorry, beberapa anggota Super Junior-M menulis di blog mereka bahwa rekaman album baru untuk sub-grup telah dimulai, dan bahwa beberapa lagu sudah selesai. Anggota Zhou Mi dan Henry terlihat kembali ke Seoul untuk berpartisipasi dalam rekaman.",,,,
+fab-500x-20261114T224408Z-049,64,8fdd9b17b5d34d60f239a59f,65922bfbad3c64dc16b75e8df8cec56e,fab-500x,it,general_knowledge,aya-dataset,human_authored,"[user] Completa il testo seguente:
+""Il bacino dell'Amazzonia è ...""",""" ... il bacino idrografico più grande del mondo e copre un'area di quasi 7 milioni di km², che si estende dal Brasile (in cui si trova la parte centrale del bacino) a Venezuela, Colombia, Perù, Ecuador, Bolivia, Guyana e Suriname. Altri grandi bacini idrografici includono quello del Congo (4,374,000 km²), del Mississipi-Missouri (3,778,000 km²), del Nilo (3,254,555 km²) e del Rio de la Plata-Paraná (3,140,000 km²).""",,,,
+fab-500x-20261114T224408Z-049,65,a0de3b83d31c44a5d9b02150,02fabec555c778b1bf4fd9fdd3b41374,fab-500x,it,mathematics,oasst2,human_authored,"[user] Salve, facendo un po' di conti per passare il tempo, ho notato che tutti i numeri nella forma 2^n + 1 dove n è dispari sono divisibili per 3. Secondo te è vero? Se sì, sai spiegarmi il motivo?","In effetti, è vero che tutti i numeri nella forma 2^n + 1 dove n è dispari sono divisibili per 3. Questa proprietà può essere dimostrata usando la teoria dei numeri.
+
+Per dimostrare che un numero nella forma 2^n + 1 è divisibile per 3, dobbiamo considerare tutti i possibili valori di n. In particolare, possiamo considerare solo i valori dispari di n, poiché se n è pari, allora 2^n sarà divisibile per 4 e 2^n + 1 non sarà divisibile per 3.
+
+Quando n è 1, abbiamo 2^1 + 1 = 3, che è divisibile per 3.
+
+Quando n è 3, abbiamo 2^3 + 1 = 9, che è divisibile per 3.
+
+Quando n è 5, abbiamo 2^5 + 1 = 33, che è divisibile per 3.
+
+In generale, possiamo dimostrare che quando n è un numero dispari maggiore di 1, allora 2^n + 1 può essere scritto come 4m + 1 per un certo intero m. Infatti, possiamo scrivere:
+
+2^n + 1 = 2 * 2^(n-1) + 1 = 2 * (2^(n-1) + 1/2) + 1/2 - 1/2 = 2 * (2^(n-1) + 1/2) - 1/2 + 1
+
+Osserviamo che 2^(n-1) + 1/2 è un numero intero, poiché n è dispari, e che 2 * (2^(n-1) + 1/2) - 1/2 è della forma 4m + 1, dove m è un intero.
+
+Ma allora 2^n + 1 è della forma 4m + 2, che è divisibile per 2 ma non per 4, e quindi non può essere divisibile per 3, poiché non ha fattori primi in comune con 3. Di conseguenza, 2^n + 1 deve essere della forma 4m + 3, che è divisibile per 3.
+
+In conclusione, possiamo affermare che tutti i numeri nella forma 2^n + 1 dove n è dispari sono divisibili per 3.",,,,
+fab-500x-20261114T224408Z-049,66,824ab2ff3364298275eb9b96,69e24ebf98bbce743c42499fbe3f26d5,fab-500x,it,science,oasst2,human_authored,"[user] Elenca i pianeti del Sistema Solare dal più vicino al più lontano dal Sole
+
+[assistant] Ecco l'elenco dei pianeti del Sistema Solare in ordine di distanza dal Sole, dal più vicino al più lontano:
+-Mercurio
+-Venere
+-Terra
+-Marte
+-Giove
+-Saturno
+-Urano
+-Nettuno
+
+Plutone, precedentemente considerato il nono pianeta, è stato riclassificato come ""pianeta nano"" nel 2006 dall'Unione Astronomica Internazionale e quindi non è più incluso nell'elenco dei pianeti principali del Sistema Solare.
+
+[user] ci sono altri nano pianeti come plutone?","Sì, ci sono molti altri pianeti nani nel Sistema Solare oltre a Plutone. Nel 2006, l'Unione Astronomica Internazionale ha definito un pianeta nano come un corpo celeste che è abbastanza grande da avere una forma sferica a causa della propria gravità, ma che non ha pulito la sua orbita di altri detriti spaziali.
+
+Oltre a Plutone, altri esempi di pianeti nani includono Cerere, Makemake, Haumea ed Eris. Ce ne sono molti altri ancora da scoprire e classificare, poiché si stima che ci siano molti oggetti di dimensioni simili nella fascia di Kuiper, una vasta regione del Sistema Solare oltre l'orbita di Nettuno che contiene numerosi corpi celesti ghiacciati.",,,,
+fab-500x-20261114T224408Z-049,67,8e6d34484dff29f107b47830,e87b0768345605a50a080108fbf1f612,fab-500x,ja,general_knowledge,aya-dataset,human_authored,[user] イスラム暦の第９月に相当する、イスラム教徒が断食を行う月のことを何というでしょう？,ラマダーンです。,,,,
+fab-500x-20261114T224408Z-049,68,dc99f33b094c48496c7837e2,4456b425a6a46fa4a27a089c87805d22,fab-500x,jav,general_knowledge,aya-dataset,human_authored,"[user] Roni iku bocahe ""isinan"", ora kaya kanca-kancane.
+
+Tembung ""isinan"" iku tegese ….
+A. Ora nduwe isin
+B. Seneng ngisin-ngisini
+C. Gampang isin
+D. Ora isin blas
+
+Jawaban:",Jawaban: C. Gampang isin,,,,
+fab-500x-20261114T224408Z-049,69,f7f864f0d4f8079131f5a97b,0e0140d60042397e6c7437f9bf4a4198,fab-500x,jav,islamic_studies,aya-dataset,human_authored,"[user] Sawijining perjanjian kang ndadekake Kasultanan Matatam Islam pecah dadi Kasunanan Surakarta, Kasultanan Yogyakarta, lan Kadipaten Mangkunegaran yaiku..
+
+A. Perjanjian Roem-Royen
+B. Perjanjian Renville
+C. Perjanjian Meja Bundar
+D. Perjanjian Giyanti
+E. Perjanjian Linggarjati
+
+Jawaban:",Jawaban: D. Perjanjian Giyanti,,,,
+fab-500x-20261114T224408Z-049,70,356d42bca2a9ea0accf4c555,87e1e6011267c3d9d9845710fe8f31c1,fab-500x,kan,general_knowledge,aya-dataset,human_authored,"[user] ""ಈಗಲ್ ಮೊದಲ ಬಾರಿಗೆ ಜುಲೈ 1972 ರಲ್ಲಿ ಹಾರಿ 1976 ರಲ್ಲಿ ಸೇವೆಗೆ ಪ್ರವೇಶಿಸಿತು"" ಎಂಬ  ವಾಕ್ಯಕೆ ಪ್ರಶ್ನೆ ಏನು? ವಿಷಯವು ಮೆಕ್ಡೊನೆಲ್ ಡೌಗ್ಲಾಸ್ ಎಫ್-15 ಈಗಲ್ ಆಗಿದೆ.",ಎಫ್ 15 ವಿಮಾನಗಳು ಮೊದಲ ಬಾರಿಗೆ ಹಾರಾಟ ನಡೆಸಿದ್ದು ಯಾವಾಗ?,,,,
+fab-500x-20261114T224408Z-049,71,9f5d46b4bcc9a5b63fc73175,25997c96b9d76e4540b7b948a319c933,fab-500x,kir,general_knowledge,aya-dataset,human_authored,[user] Оазис бул...,"Оазис - чөл жана жарым чөл зонасында суу менен камсыз болгонунва байланыштуу бак-дарактар ж.б өсүмдүктөр гүлдөп өскөн жай.Эреже катары ал жерлер ал жерлер калк отурукташкан жайларга айланган.М:Фергана өрөөнүнүн тегереги,Ташкен оазиси.",,,,
+fab-500x-20261114T224408Z-049,72,59406391af3f91507885a203,c77242ba3aa4696c8372b096df0a6544,fab-500x,kir,mathematics,aya-dataset,human_authored,"[user] Төмөнкү сандардын арифметикалык орточо санын тап:
+3, 5,2,1,2,4,9,6 (8сан катышты)","Төмөнкү сандардын арифметикалык орточо саны - 4
+Аны мындай эсептеп чыгардым:
+1) Биринчиден бардык сандарды кошуп чыктым
+3+5+2+1+2+4+9+6=32 чыкты
+2)Чыккан санды, баштапкы канча сан катышса ошончого бөлдүм
+32:8=4",,,,
+fab-500x-20261114T224408Z-049,73,152ee8b4d22922a88735b645,5e118d6222d7e329f2e8e5f1f5c3e941,fab-500x,ko,coding,wikipedia-ko,templated_human,[user] 키네틱 플로우에 대해 간단히 소개해 주세요.,"키네틱 플로우(Kinetic Flow)는 U.L.T와 비도승우로 이루어진 대한민국의 힙합 듀오이다. 붓다 베이비 크루에 속해 있었으나, 현재는 탈퇴한 상태이다. 2009년 6월, 비도승우의 손가락 골절 사고로 인해 활동을 중단한데에 이어 U.L.T의 군입대 문제와 멤버 사이의 생각 차이로 결국 해체되었다. 그러나 현재는 비도승우가 홀로 팀을 이끌며, 키네틱 플로우라는 팀 명칭을 그대로 사용하여 활동하고 있다.
+
+대표곡 : 〈몽환의 숲〉, 〈헤어지던 밤〉, 〈현실에 2% 부족한 연인들에게〉, 〈One Way Ticket〉,〈One Day〉,〈ROSA〉
+
+2008년 버벌진트가 이끄는 오버클래스 크루의 Kjun이 붓다 베이비를 'Buddha Bar'라는 곡으로 디스했다. 그러자 붓다베이비의 새 프로듀서 KEIKEI가 'Fuckers Class'로, 5월 1일에는 키네틱 플로우가 'Who Wanna Fuck With Us'라는 곡으로 받아쳤다. 이에 Kjun은 키네틱 플로우의 디스곡에 대한 생각과 함께 'Kamikaze Flow'라는 곡을 발표하겠다고 글을 올렸다. 하지만 이 곡은 지금까지도 나오지 않고 있다. 결국 키네틱 플로우와 Kjun간의 디스는 잠정적으로 끝난 것으로 보인다.",,,,
+fab-500x-20261114T224408Z-049,74,ae8792ae853147e8abc7648d,a44ea8c5390f425eab7782b971fdf46b,fab-500x,ko,education,wikipedia-ko,templated_human,[user] 프랑크 데페에 대해 간단히 소개해 주세요.,"프랑크 데페(, 1941년 9월 23일~)는 독일의 정치학자이자 정치사회학자이다.
+
+1961년부터 프랑크푸르트 대학교에서 막스 호르크하이머, 테오도어 아도르노, 헤르베르트 마르쿠제의 세미나에 참여해 ‘비판이론’(Kritische Theorie)을 배웠다. 1964년부터는 마부르크 대학교에서 사회학, 정치학, 국민경제학, 철학을 공부했다. 마부르크로 학교를 옮긴 이유는 비판이론의 대표자였던 하인츠 마우스(Heinz Maus) 교수와 사회학을 공부하고, 비판이론의 토대로서 임마누엘 칸트(Immanuel Kant)와 게오르크 빌헬름 프리드리히 헤겔의 철학을 익히기 위해서였다. 1964년 마부르크에서 독일사회주의학생동맹(Sozialistischer Deutscher Studentenbund, SDS)에 가입했고, 민주주의와 군축을 위한 캠패인(Kampagne für Demokratie und Abrüstung, KDA) 중앙위원회에 속했다.
+
+1965년부터 1967년까지 독일사회주의학생동맹 전국대표단으로 활동했다. 이 활동을 통해 마부르크 대학교 정치학과 볼프강 아벤트로트 교수와 긴밀한 관계를 가지게 되었고, 1965년부터 아벤트로트 교수의 학술조교로 일했다. 프랑크푸르트 학파에서 칼 맑스의 초기저작과 상품과 물신주의 분석, 죄르지 루카치의 사물화 분석, 호르크하이머의 권위주의 분석 등을 배웠지만, ‘이데올로기 비판’으로는 진보적 정치를 위한 공간을 확보하기가 어렵다고 느낀 반면, 아벤트로트 교수에게서는 맑스주의에 대한 다른 접근, 즉 역사적 분석, 부르주아-자본주의 사회의 경제적-정치적 모순, 계급관계와 투쟁의 발전, 정체체제의 변화 등을 배움으로써, 정치적-실천적 함의를 찾을 수 있다고 생각했기 때문이다. 1967년 사회주의센터(Das Sozialistische Zentrum)의 공동발기인이었다.
+
+1968년 아벤트로트 교수의 지도 아래 루이 오귀스트 블랑키에 대한 논문으로 박사학위를 취득했다. 1971년 교수자격심사논문(Habilitation)에 통과했다. 1968년부터 1971년까지 마부르크 대학교 사회학과 학술평의회(Akademischer Rat)에서 활동했다. 1972년 아벤트로트 교수의 후임으로 마부르크 대학교 정치학과 교수에 취임했다. 보통 교수자격심사논문을 제출한 대학에서 교수직을 맡을 수 없으나, 이는 68혁명의 영향으로 가능한 일이었다. 데페를 비롯한 게오르크 퓔버트(Georg Fülberth, 정치학과), 디터 보리스(Dieter Boris, 사회학과) 등 아벤트로트 교수의 제자들이 마부르크 대학교 교수로 취임하자, 마부르크는 독일 좌파이론의 중심지의 하나가 되었고, 부르주아 언론은 이를 ‘붉은 마부르크’(Rotes Marburg)라고 불렀다.",,,,
+fab-500x-20261114T224408Z-049,75,1941d0da123c5496ba85c0ed,215bc720bd1957a0ebbe88b59c280f69,fab-500x,ko,general_knowledge,wikipedia-ko,templated_human,[user] 금모으기 운동에 대해 간단히 소개해 주세요.,"금모으기 운동은 1997년 IMF 구제금융 요청 당시 대한민국의 부채를 갚기 위해 국민들이 자신이 소유하던 금을 나라(대한민국)에 자발적인 희생정신으로 내어놓은 운동이다. 당시 대한민국은 외환 부채가 약 304억 달러에 이르렀다. 전국 누계 약 351만 명이 참여한 이 운동으로 18억 달러 어치의 약 227톤의 금이 모였다.
+
+1997년 7월 2일 태국의 고정환율제도가 변동환율제도로 바뀜에 따라 태국 바트화의 시세가 폭락한 것이 동아시아 금융 위기의 직접적인 계기였다. 외채 상환이 불가능한 일부 금융 기관과 달러 부족, 원화 환율 폭등 등의 문제가 커지면서 대한민국은 단독으로 이런 문제들을 해결할 수 없었다. 결국 외화 차입이 봉쇄됨에 따라 장기 외채 상환이 어려워졌고, 1998년 1월 6일 KBS에 의해 금모으기 운동을 전개하게 되었다.
+
+KBS의 ‘금 모으기 캠페인’ 방송으로 1998년 1월 5일 금모으기 운동이 시작되었다. 금모으기 운동에 참여하는 일반인들은 금(순금 24K)을 내놓으면, 전문 감정가가 직접 금을 감정한 확인서를 받게 되며, 수출 후 달러를 당시 환율과 국제금시세로 평가해 나중에 원화로 돌려받는 방식으로 진행되었다. 공식적으로 3월 14일 종료된 금모으기 운동은 농협에 의해 계속 진행되었다.
+
+1998년 1월 165t, 2월 53t, 3월 5t, 4월 0.8t 등 약 225톤이 모금되었고, 참여한 사람은 전국적으로 349만 명에 달했다. 당시 시세로 21억 7천만 달러에 해당하는 금액이 모였다.
+
+언론에서는 사회 각계의 금모으기 운동 참여 소식을 전했고, 국민에게 금모으기 운동에 동참할 당위성을 부여했다. 3월 이후의 보도는 금모으기 운동을 통해 외환위기를 극복할 수 있다는 희망을 심어주는 내용이 대부분이었다.
+
+언론은 보도를 통해 삼성그룹과 대우그룹 등 기업들의 참여, 혹은 이종범 선수 등 스포츠인, 김대중 대통령 당선자, 이건희 회장 부부 등의 금 기탁 소식을 전했고, 금 5천여만원어치를 기탁한 일반인 전성환 씨의 소식도 전하면서 금모으기 운동의 도덕적 의미를 강화했다.
+
+캠페인이 일단락된 1998년 3월 이후부터는 주로 성과 위주로 보도가 이루어진다. 보도의 내용은 주로 금모으기 운동으로 경제위기를 극복할 수 있다는 내용을 보도한다. 금모으기 운동은 자발적 참여와 애국심을 강조하며 참여의 간편함 등의 이유로 온 국민에게 참여를 독려시키는 방향으로 전개되었다.",,,,
+fab-500x-20261114T224408Z-049,76,d8153574d3dcde7924495343,9f23ca83ad287e195ae4e5cda92210e6,fab-500x,ko,mathematics,wikipedia-ko,templated_human,[user] 제2차 폴란드-오스만 전쟁에 대해 간단히 소개해 주세요.,"1633년-1634년 폴란드-오스만 전쟁은 폴란드-리투아니아 연방이 오스만 제국과 그 봉신(Vassal)들과 벌인 일련의 주요 분쟁을 말한다.
+
+메흐메트 아바지(Mehmed Abazy)는 실리스트리아(Sylistria; 현 불가리아 실리스트라(Silistra))의 총독이었다. 1632년 폴란드-리투아니아 연방의 왕 지그문트 3세 바사(Zygmunt III Waza, 1566-1632)가 죽자, 러시아는 휴전을 깨고 폴란드와 전쟁을 벌였다.(스몰렌스크 전쟁(Smolensk War), 1632-1634) 아바지는 그의 군대를 소집하고 몰다비아(Moldavia), 왈라키아(Wallachia), (부자크 호드(Budjak Horde)의) 노가이 타타르(Nogai Tatar)군을 지원병으로 소집했다.
+
+아바지는 술탄과 대 비지르(Grand Vizier)가 사파비조와 전쟁(1623-1639)을 치르느라 정신없는 틈을 타 비밀리에 일을 추진하려고 했던 것 같다. 술탄 무라드 4세(Murad IV, 1612-1640)는 아바지의 행동을 알았지만 암묵적으로 원정에 동의했다.
+
+1633년 6월 29일, 10,000여명의 타타르군이 카미에니에츠 포돌스키(Kamieniec Podolski)를 습격했다. 습격이 끝난 뒤 타타르군은 약탈물과 포로를 데리고 몰다비아로 돌아갔다. 우크라이나 바르(Bar)에 있던 헤트만 스타니스와프 코니에츠폴스키(Stanisław Koniecpolski, 1590/1594-1646)는 소식을 듣고 기병 2,000명과 함께 즉시 추격에 나섰다. 코니에츠폴스키는 드네스트르강(Dniester River)을 넘어 제1차 폴란드-오스만 전쟁의 전장이었던 몰다비아로 진격했다(몰다비아 마그나트 전쟁). 타타르군은 안전한 곳에 진입했다고 여기고 이동 속도를 줄였다. 덕분에 폴란드군은 7월 4일에 프루트강(Prut River) 부근에 위치한 Sasowy Róg에서 타타르군을 따라 잡을 수 있었다. 폴란드군은 타타르군을 격파했고 많은 수의 타타르군을 죽이거나 사로잡았다. 살아남은 타타르군은 뿔뿔이 흩어졌다. 포로 중엔 '피의 검'이라고 불리던 테미르 칸(Khan Temir)의 상속자(테미르 칸, 칸티미르-부자크 호드의 수령, 사나운 노가이 타타르의 지도자로 알려져 있다)등 높은 계급의 인물들도 있었다. 대부분의 전리품인 소와 말등을 다시 되찾았다.",,,,
+fab-500x-20261114T224408Z-049,77,2f14bf3edb32a3c63cf165ab,f21ff070c95888bbc42eced07ff82029,fab-500x,ko,research,tydiqa-goldp,human_authored,"[user] 달의 지름 대 지구 지름의 비율은 366% 이다. 지구가 일년동안 자전하는 횟수는 366회 이다. 달의 크기는 태양의 400분의 1이다. 달은 태양보다 400배 더 지구에 가깝다. 달은 1일에 400Km 씩 자전한다. 달은 거의 19년 주기로 지구와 가까워지는데 그것을 슈퍼문이라고 한다. 달이 366회 공전하는데 걸리는 시간은 10000일이다. 지구가 달보다 400배 빠르게 자전하고 있다. 27.322 - 달이 1회 공전하는데 소요되는 항성일이다. 27.322% - 지구 지름 대 달 지름의 백분율이다. 지구에서 관측할 때, 태양과 달의 겉보기 지름은 정확하게 일치한다.
+
+달은 얼마나 빠르게 자전하는가?","1일에 400Km
+
+달은 1일에 400Km 씩 자전한다.",,,,
+fab-500x-20261114T224408Z-049,78,8405d1781129bb608ce94fd2,de07a55bad33147ba4382878900aecf3,fab-500x,ko,science,wikipedia-ko,templated_human,[user] 아스팔트에 대해 간단히 소개해 주세요.,"아스팔트(, ) 또는 역청(瀝靑)은 원유를 정제한 뒤 남는 끈적거리고 검은 색의 점성을 가진 액체나 반고체 상태의 석유 화합물을 말한다. 유전에서 천연으로 얻을 수도 있다.
+
+천연 탄화수소 화합물로 역청(瀝靑)ㆍ지역청(地瀝靑)ㆍ토역청(土瀝靑) 등으로도 부른다.
+
+역청은 유전에서 석유가 오랜 시간 동안 휘발하면서 자연적으로 생겨난다. 유전이 있는 지대에는 석기 시대부터 역청을 사용한 유물이 발굴된다.
+
+창세기에는 노아의 방주의 방수 도료와 바벨탑의 벽돌 사이에 바르는 자재로 역청이 등장한다.
+
+아스팔트를 자갈, 모래 등의 골재의 결합재()로 쓴 것을 아스팔트 콘크리트(줄여서 아스콘, 아스팔트)라고 부르고, 이 혼합재는 보통 포장 등에 쓴다.
+
+역청질(bituminous substance)은 샌드스톤(sandstone), 실트스톤(siltstone), 셰일(shale)과 탄산염 내에 점성 침투물로 존재하는 유기 잔유물로 비투멘(), 아스팔틱 비투멘(asphaltic bitumen), 아스팔트 등으로 부른다.
+
+이 물질은 액상 석유로부터 중질, 점성 아스팔트를 거쳐 고상 아스팔타이트(asphaltite)까지 걸쳐 있으며 이황화탄소 등의 용매로 추출할 수 있는 유기혼합물의 형태를 보통 비투멘이라고 한다.
+
+천연 비투멘은 프로페인에 녹는 기름 성분, 수지, 아스팔틴, 카빈으로 구성되는 유분의 고분자량의 탄화수소 형태와 비 탄화수소 형태의 혼합물이다.
+
+캐나다 앨버타주 아스바스카 지역에 영국 크기 면적으로 매장된 오일샌드는 고결되지 않은 모래, 비투멘, 점토 퇴적물, 물의 혼합체이다. 비투멘은 베네수엘라, 러시아, 미국에도 있지만 베네수엘라와 캐나다가 최대 매장국이며, 특히 캐나다는 전 세계 매장량의 40 % 정도를 차지한다.
+
+이 아타바스카 비투멘(Athabasca bitumen)을 석유 대체원으로 사용하기 위해 CANMET(Canada Center for Mineral and Energy Technology)에서 연구하고, 2000년 이후 국제 유가 상승으로 오일샌드 개발이 활발해졌다.",,,,
+fab-500x-20261114T224408Z-049,79,c8e82e6d45ecce36bc0b072c,db1f9e1a3cc26062ede18bf57b6cd23f,fab-500x,ko,web_frontend,wikipedia-ko,templated_human,[user] 존 하워드 요더에 대해 간단히 소개해 주세요.,"존 하워드 요더(, 1927년 12월 29일~1997년 12월 30일)는 재세례파 메노나이트 소속 기독교 윤리학자이며 기독교 평화주의로 잘 알려져 있다. 성추행과 권력남용 문제가 있었다.
+
+미국 메노나이트 직영학교인 고센대학교(현 아나뱁티스트 메노나이트 성서 신학교AMBS(Anabaptist Mennonite Biblical Seminary) 졸업
+
+스위스 바젤대학교에서 박사학위 취득. 당시 지도교수는 칼 바르트였다. 오스카 쿨만, 카를 야스퍼스 등의 세계적 석학들 밑에서 공부하였다.
+
+아나뱁티스트 메노나이트 성서 신학교AMBS(Anabaptist Mennonite Biblical Seminary)의 전신인 고센신학교와 메노나이트 성서 신학교(Mennonite Biblical Seminary)에서 교수로 재직
+
+《예수의 정치학》(The Politics of Jesus, IVP)-1972년 발표된 작품으로 한국어판은 IVP에서 1994년, 2007년(개정판)에 출판하였다.
+
+《국가에 대한 기독교의 증언》(The Christian Witness to the State), [[대장간])-2013년 역간.
+
+《근원적 혁명》(The Original Revolution), [[대장간])-2010년 역간.
+
+《당신이라면?》(What Would You Do?), [[대장간])-2010년 역간.
+
+《교회, 그 몸의 정치》(Body Politics), [[대장간])-2011년 역간.
+
+《그리스도로 충만함》(The Fullness of Christ), [[대장간])-2011년 역간.
+
+《어린양의 전쟁》(The War of Lamb), [[대장간])-2011년 역간 외 다수가 있다.
+
+《Authentic Transformation: A New Vision of Christ and Culture 》(Glen Stassen, D.M.Yeager,공저, ABNDP,1995)
+
+《야수의 송곳니를 뽑다 - 존 하워드 요더의 성추행과 권력남용에 대한 메노나이트의 반응》-한국어판은 대장간에서 2018년에 출판하였다.
+
+존 H. 요더의 성폭력과 메노나이트 교회의 대응 1 http://www.goscon.co.kr/news/articleView.html?idxno=29501
+
+존 H. 요더의 성폭력과 메노나이트 교회의 대응 2 http://www.goscon.co.kr/news/articleView.html?idxno=29528
+
+존 요더의 성추행과 아나뱁티스트 교회관-우리가 놓치지 말아야 할 존 하워드 요더의 성추행 사건 이면 http://www.newsnjoy.or.kr/news/articleView.html?idxno=195463",,,,
+fab-500x-20261114T224408Z-049,80,fd941d497b5d3e9ed8521080,1e1587fbc174ae48a8029521088cb1b5,fab-500x,ko,writing,wikipedia-ko,templated_human,[user] 이래즈머스 다윈에 대해 간단히 소개해 주세요.,"이래즈머스 다윈(, 1731년 12월 12일 ~ 1802년 4월 18일)은 영국의 의사, 자연철학자, 생리학자, 발명가, 시인이다. 박물학자 찰스 다윈과 생물학자 프랜시스 골턴의 할아버지이다.
+
+다윈은 1731년 12월 12일 노팅엄셔의 엘튼에서 태어났다. 케임브리지 대학교의 세인트 존 대학과 에든버러 대학교에서 수학한 다음 1756년 노팅엄에서 의사로 개업하였으나, 그렇게 큰 성공을 거두지는 못하고 리치필드로 이사하였다. 그곳에서 그는 많은 활약을 하였으며, 노동자들의 음주를 줄이는 데 큰 역할을 하였다. 그는 리치필드에서 크게 성공하여 조지 3세가 자신의 주치의를 맡아달라고 요청할 만큼 명성이 높아졌다. 그러나 그는 그 제안을 사양하고 조지프 프리스틀리, 장 자크 루소, 새뮤얼 존슨 등 당대의 유명 인사들과 친교를 쌓으면서 지냈다. 1781년 더비로 이사한 그는 1802년 4월 18일 갑자기 사망하였다.
+
+이래즈머스 다윈의 첫 번째 결혼에서 낳은 셋째 아들이 슈루즈버리의 의사인 로버트 워링 다윈이고, 그가 바로 찰스 다윈의 아버지이다. 또한 그의 두 번째 결혼에서 낳은 첫째 딸 비올레타는 프랜시스 골턴의 어머니이다.
+
+다윈은 그의 과학적 사상, 자연에 대한 관심 등을 장편의 시로 표현하고는 하였다. 그가 지은 시로는 다음과 같은 것들이 있다.
+
+The Temple of Nature, or the Origin of Society, a Poem, with Philosophical Notes (1803년)
+
+다윈은 시를 쓸 때 상당히 많은 노력을 기울였으며, 많은 해에 걸쳐서 대부분의 여가 시간을 이에 투자하였다. 그가 지은 시에서 그는 간혹 화려한 표현들을 잘 배치하지 못하는 경우가 있었고, 감정적인 구절에서의 그의 용어 선택은 적절하지 못한 점도 있다. 그러나 그의 시는 그의 자연에 대한 견해를 담고 있다는 점에서 의미가 있다.
+
+The Botanic Garden는 두 편의 시인 The Economy of Vegetation과 The Loves of the Plants로 이루어져 있는데, 이중 The Loves of the Plants에서 다윈은 식물을 칼 폰 린네의 방법으로 분류하면서 각각의 식물 또는 그 부분을 인격화하여 표현하였다. 간혹 분류가 잘못되는 경우도 있었지만, 그는 이 시에 식물학적인 주를 포함시켰다.",,,,
+fab-500x-20261114T224408Z-049,81,8ea804d85fbc5169e211176a,6be207adaceb7bc947b079cc623fc47f,fab-500x,lit,general_knowledge,aya-dataset,human_authored,[user] Atsakyk į šį sudėtingą klausimą: Kas yra lizosomai?,"Atsakymas: Tai organoidai ląstelėse, turintys fermentus, kurie skaido makromolekules.",,,,
+fab-500x-20261114T224408Z-049,82,9b6f483a1360e402e9abec97,28d93496b86e5d6a2da0e02b92462a8f,fab-500x,lit,science,aya-dataset,human_authored,"[user] Koks klausimas: ""Išvestinis produktas gali būti ataskaita, dokumentas, serverio atnaujinimas ar bet koks kitas bendro projekto elementas"" Tema yra ""Išsiunčiama"".","""Kokie gali būti išvestiniai produktai?""",,,,
+fab-500x-20261114T224408Z-049,83,0fc0752da65cc77aa9e01e89,98d258c5a377a5a003d942504bf0aeef,fab-500x,mal,general_knowledge,aya-dataset,human_authored,[user] തുർക്കിയുടെ തലസ്ഥാനം ഏതാണ്?,തുർക്കിയുടെ തലസ്ഥാനമാണ് അങ്കാറ സിറ്റി. സ്റ്റേറ്റ് ഓപ്പറയുടെയും ബാലെയുടെയും പ്രസിഡൻഷ്യൽ സിംഫണി ഓർക്കസ്ട്രയുടെയും നിരവധി ദേശീയ നാടക കമ്പനികളുടെയും ആസ്ഥാനമാണ് ഇത്.,,,,
+fab-500x-20261114T224408Z-049,84,8bd1755ab858eed5c15f06ac,841588d5edc1ae995b515b1d829f07a3,fab-500x,mr,general_knowledge,aya-dataset,human_authored,[user] पोर्तुगिजांचा पहिला गव्हर्नर कोण होता ?,पोर्तुगिजांचा पहिला गव्हर्नर डी. अल्मेडा होता .,,,,
+fab-500x-20261114T224408Z-049,85,90da1671199301db063c7a6f,11aff16f654509a56c38e0acc9f079ee,fab-500x,ms,general_knowledge,aya-dataset,human_authored,[user] Jawab soalan teka-teki ini: Rumah dikenali oleh orang Inggeris sebagai House. Terbakar dikenali sebagai Burn. Kalau rumah terbakar orang panggil apa?,Jawapannya ialah bomba,,,,
+fab-500x-20261114T224408Z-049,86,c111b41cdf9c9c2e338405d7,1953ae1209171a7fdab61d0614b5fe28,fab-500x,mya,general_knowledge,aya-dataset,human_authored,[user] အောက်ပါဝါကျကို ဖြည့်ပါ။ တတိယနဲ့ စတုတ္ထ အိုလံပစ်တွေမှာ ဗြိတိသျှ အင်ပါယာ အသင်းကို ကိုယ်စားပြုပါတယ်။,၁၉၂၇ ခု လန်ဒန်ပြိုင်ပွဲမှာ အသင်းတစ်သင်း ကြေးတံဆိပ်ရခဲ့တယ်။,,,,
+fab-500x-20261114T224408Z-049,87,99052421001f24ef846d093f,52cd4740db1ef36d875285e8cc5692fd,fab-500x,mya,web_backend,aya-dataset,human_authored,[user] backend မှာ JWT token ကို invalidate လုပ်ချင်တယ်။ ဘယ်လိုလုပ်ရင် ကောင်းမလဲ။ Beginners တွေ နားလည်အောင် ပြောပြပေးနိုင်မလား,"JWT နဲ့မရင်းနှီးတဲ့သူတွေအတွက် အကြမ်းပြောရရင် Jwt ဆိုတာ OAuth token တမျိုးပါပဲ။ token ရဲ့ပိုင်ရှင် ဘယ်သူဖြစ်တယ်၊ token ကို ဘယ်အချိန်က တည်ဆောက်ခဲ့တယ်၊ ဘယ်အချိန်မှာ expire ဖြစ်မယ်စတဲ့ claim တွေပါတဲ့ payload ကို server ကပဲသိနိုင်တဲ့ signature နဲ့ဆက်တယ်။ token ကို ဘယ်သူမဆို decode လို့ရပြီး token ထဲဘာတွေပါလဲ ဖွင့်ကြည့်နိုင်တယ်။
+JWT ရဲ့အားသာချက်က federated trust ပါ။ token ထဲမှာ လိုအပ်တဲ့ အချက်အလက်တွေ အကုန်ပါပြီးတဲ့အတွက် backend service တွေအနေနဲ့ တောင်းဆိုလာတဲ့ request ကို လိုက်လျောမလျော ဆုံးဖြတ်ဖို့ token က ကောင်းသေးရဲ့လားလို့ စစ်ဆေးရုံပါပဲ။ ဥပမာ ရုံးထဲဝင်ဖို့ ဝန်ထမ်းကဒ်လိုပေါ့။ တာဝန်ကျ လုံခြုံရေး အနေနဲ့ ဝန်ထမ်းကဒ်ကို ကြည့်ပြီး ပေးဝင်မဝင် ဆုံးဖြတ်နိုင်တယ်။
+JWT token ကို invalidate လုပ်လို့ရလားဆိုရင် ရပါတယ်။ ဘယ် user ဒါမှမဟုတ် ဘယ် audience ရဲ့ token ကို invalidate လုပ်လိုက်တယ်ဆိုတဲ့ မှတ်တမ်းကို db ထဲထည့်သိမ်းထားလို့ ရပါတယ်။
+ဒီအတွက် redis လို in-memory db ကိုသုံးကြပေမယ့် ချွင်းချက်တခုက Auth service ခွဲတွေ အများကြီး ရှိလာတဲ့အခါ consistency ထိနိုင်ပါတယ်။ ဒီပြဿနာကို ဖြေရှင်းဖို့ Lua instruction တိုက်ရိုက်ပေးပြီး အလုပ်လုပ်စေနိုင်ပေမယ့် ဒါကလည်း durable ဖြစ်လှတဲ့ အဖြေတော့ မဟုတ်ဘူး။
+လစဥ်ကြေးပေးပြီး သုံးရတဲ့ subscription-oriented platform တွေမှာဆိုရင် ဒီအချက်က အရေးကြီးတဲ့အတွက် disk နဲ့တွဲပြီး eventual consistent model ကို အသုံးပြုသင့်တယ်။ ဥပမာ DynamoDb
+ဒါပေမယ့် JWT token တွေကို invalidate လုပ်တာ လုံးဝအားမပေးပါဘူး။ အဲဒီအစား JWT မသုံးပဲ နေသင့်ပါတယ်။ ဘာလို့လဲဆိုတော့ JWT ရဲ့သဘာဝက token ဘယ်အချိန်မှာ expire ဖြစ်မလဲလို့ ပါပြီးသား ဖြစ်တဲ့အတွက် server က အဲအချိန်အတိုင်ခင် ကြိုပြီး invalidate လုပ်ဖို့ ရှိလာပြီဆိုရင် အနှစ်သာရဖြစ်တဲ့ federated trust ကျိုးပေါက် သွားပါလိမ့်မယ်။
+app တခုရဲ့ Identity flow အကြမ်းဖျင်းက ဒီလိုရှိနိုင်တယ်။ token service အနေနဲ့ user credential ကို တိုက်ရိုက် ဒါမှမဟုတ် လိုအပ်ရင် 3rd party (ဥပမာ Facebook, Google) နဲ့ ပြန်စစ်ပြီး user identity ကိုအတည်ပြုမယ်။ မှန်ကန်ရင် Authorizer service ကိုဆက်သွယ်ပြီး token တည်ဆောက်မယ်။ ဒီနေရာမှာ AWS စတိုင်ဆိုရင် Authorizer က faas (lambda function) ပေါ့။
+ရလာတဲ့ token က client အတွက် ဝန်ထမ်းကဒ်ပါပဲ။ ဝန်ထမ်းကဒ်ပြပြီး သတ်မှတ်အခန်းတွေကို ဝင်လို့ရပါတယ်။ gateway အနေနဲ့ ပို့လာတဲ့ token မကျိုးပေါက်သရွေ့၊ expire မဖြစ်သေးသရွေ့ request ကိုလိုက်လျောဖို့ တာဝန်ရှိတယ်။
+ဒါပေမယ့် token ကို invalidate လုပ်ဖို့ ဆုံးဖြတ်ခဲ့ရင် gateway အနေနဲ့ Token service ဆီ စုံစမ်းရပါတော့မယ်။ အခုတော့ လုံခြုံရေးအရာရှိက ကဒ်ကို ကြည့်ရုံတင်မကဘူး။ ဝန်ထမ်းဌာနကို ဖုန်းဆက်ပြီး ဒီကဒ်က တရားဝင်သေးလားလို့ အကြိမ်တိုင်းမှာ လှမ်းမေးရတော့မှာပါ။
+ဒီ overhead ကိုလျှော့ချဖို့အတွက် identity service တွေကို gateway ဆီ ပို့ပစ်ထားသင့်ပါတယ်။ တခါ token ကို ထပ်အတည်ပြုရဦးမှာဖြစ်လို့ token encryption နဲ့ encode/decode အတွက် CPU cycle တွေ မသုံးတော့ပဲ jwt လောက် overhead မများမယ့် token မျိုး သုံးသင့်တယ်။ အရေးကြီးဆုံးအချက်က jwt ကို session လိုမသုံးဖို့ပါပဲ။ ဒါပေမယ့် အခု ပြောသွားသမျှက principle တွေမဟုတ်ပဲ ကျွန်တော့်အမြင်သက်သက်ပဲမို့ လိုအပ်သလို adapt လုပ်သင့်ပါတယ်ခင်ဗျာ။
+
+မှတ်ချက်။   ။ CodeHub with Harry မှ Harry Yan ရဲ့ ၂၀၂၃ သြဂုတ်လမှ ဆောင်းပါးတပုဒ်ဆီက ကောက်နှုတ်ထားပါတယ်",,,,
+fab-500x-20261114T224408Z-049,88,d625cc73496f06ffeaeb14c1,c3bd021f1354c402c1e4c730dd0206fa,fab-500x,ne,general_knowledge,aya-dataset,human_authored,[user] नेपालमा ब्यबस्थित रुपमा जनगणना लिने सुरुवात बि स १९६८ मा भयो भने त्यसको सुरुवात कुन संस्थाले गर्यो ?,सेन्सस गोश्वारा (नासु २०७०),,,,
+fab-500x-20261114T224408Z-049,89,f44c636bf4cef6ed319a267e,68e87c062ead5711cc40f36d21fcc9ec,fab-500x,ne,mathematics,aya-dataset,human_authored,[user] समीकरण हल गर्नुहोस्: 4/3x + 5 = 29।,"'x' को लागि समाधान गर्न, समीकरणको दुवै पक्षबाट 5 घटाउनुहोस्: (4/3x) = 29 - 5, जसले (4/3x) = 24 लाई सरल बनाउँछ। अब, दुवै पक्षहरूलाई 3/4: x = 24 ले गुणन गर्नुहोस्। * (3/4), जुन 18 बराबर हुन्छ।",,,,
+fab-500x-20261114T224408Z-049,90,dcaecbf5f57779d148f22b25,90e23450ec8c649cdd851655d1b3e0ce,fab-500x,nl,coding,aya-dataset,human_authored,"[user] Dit toestel was enkele jaren geleden, voor Waze en andere smarthphone-apps hetzelfde deden, heel populair voor de snelheidsduivels onder ons. Officieel is het een rijhulpsysteem. In de praktijk wordt het vooral gebruikt om leden van de community te waarschuwen voor flitspalen en snelheidscontroles. De ontwikkelaar bestaat nog steeds en heeft uiteraard de functionaliteiten inmiddels overgebracht naar een app. Hoe heet dit bedrijf?",De naam van het bedrijf is Coyote.,,,,
+fab-500x-20261114T224408Z-049,91,569d66ed08f90806cc16309b,c613f58c2d412acfb2f25b85040565a8,fab-500x,nl,general_knowledge,aya-dataset,human_authored,[user] Wat betekent vasten?,Vasten is het onthouden van eten en soms drinken.,,,,
+fab-500x-20261114T224408Z-049,92,5cee1286a79caab925d7df7d,e46d9d64b9aae1913b550965a48a6700,fab-500x,nl,mathematics,aya-dataset,human_authored,"[user] Vijf matrozen overleven een schipbreuk en zwemmen naar een klein eiland waar ze alleen een kokosnotenboom en een aap aantreffen. De matrozen verzamelen alle kokosnoten en leggen ze in een stapel onder de boom. Uitgeput besluiten ze om pas de volgende ochtend de kokosnoten te verdelen.
+
+Om een uur 's nachts wordt de eerste matroos wakker. Hij realiseert zich dat hij de anderen niet kan vertrouwen en besluit zijn deel alvast te nemen. Hij verdeelt de kokosnoten in vijf gelijke stapels, maar houdt daarbij een kokosnoot over. Hij geeft die kokosnoot aan de aap, verbergt zijn eigen kokosnoten (één van de vijf stapels), en plaatst de rest van de kokosnoten (de andere vier stapels) terug onder de boom.
+
+Om twee uur 's nachts wordt de tweede matroos wakker. Zich niet bewust van het feit dat de eerste matroos zijn deel al heeft weggenomen, verdeelt ook hij de kokosnoten in vijf gelijke stapels en houdt daarbij ook een kokosnoot over, die hij aan de aap geeft. Dan verbergt hij zijn kokosnoten (één van de vijf stapels), en plaatst de rest van de kokosnoten (de andere vier stapels) terug onder de boom.
+
+Om drie, vier en vijf uur 's nachts worden achtereenvolgens de derde, vierde en vijfde matroos wakker en voeren dezelfde handelingen uit als de eerste twee matrozen.
+
+'s Morgens, als ze opstaan, proberen ze allemaal zo onschuldig mogelijk te kijken. Geen van de matrozen maakt een opmerking over de gekrompen stapel kokosnoten, en geen van hen besluit om eerlijk te zijn en toe te geven dat hij zijn deel al genomen heeft. Ze verdelen de kokosnoten voor de zesde maal in vijf gelijke stapels en houden daarbij alweer een kokosnoot over, die ze aan de aap geven.
+
+De vraag: Wat is de kleinste hoeveelheid kokosnoten waaruit de oorspronkelijke stapel kan hebben bestaan?","Elke matroos laat 4/5(n-1) kokosnoten over van de stapel van n kokosnoten. Dit resulteert in een vreselijke formule voor het hele proces (want iedere keer moet een kokosnoot weggehaald worden om de stapel deelbaar door 5 te maken):
+
+r = 1/5(4/5(4/5(4/5(4/5(4/5(p-1)-1)-1)-1)-1)-1), waarbij p het aantal kokosnoten in de originele stapel is, en r het aantal kokosnoten is dat iedere matroos bij de laatste verdeling krijgt (wat een geheel getal moet zijn).
+
+De truc is om het aantal kokosnoten in de stapel deelbaar door 5 te maken, door 4 kokosnoten toe te voegen. Dit is mogelijk omdat je deze 4 kokosnoten weer weg kan halen, nadat een vijfde deel van de stapel is weggenomen: normaal zijn 4/5(n-1) kokosnoten over van een stapel van n kokosnoten; nu zijn 4/5(n+4) = 4/5(n-1)+4 kokosnoten over van een stapel van n+4 kokosnoten. In de laatste stap zijn er 1/5(n+4) = 1/5(n-1)+1 kokosnoten over van een stapel van n+4 kokosnoten. Op deze manier blijft het aantal kokosnoten in de stapel deelbaar door 5 gedurende het hele proces. We zijn dus op zoek naar een p waarvoor het volgende geldt:
+
+r + 1= 1/5×4/5×4/5×4/5×4/5×4/5×(p+4)=(45/56)×(p+4), waarbij r een geheel getal moet zijn.
+
+De kleinste (p+4) waarvoor het bovenstaande geldt is 56. Dus er waren p = 56-4 = 15621 kokosnoten in de originele stapel.",,,,
+fab-500x-20261114T224408Z-049,93,0b33ba299db7d19dd65a70a7,d9bff17777579aa6be4ea0e1e3f82d68,fab-500x,nl,problem_solving,aya-dataset,human_authored,"[user] Plan een driedaagse roadtrip voor een lang weekend tussen 26 en 30 mei vanuit Westfield, New Jersey richting Canada.","Ik heb een idee voor je:
+
+26 mei: Rijd van Westfield, NJ naar Montreal. Duur: 6 uur. Overnacht daar. 
+27 mei: Snel ontbijten, uitchecken en naar Mount Tremblant rijden. Duur: 90 minuten. 
+27 mei: Wandeling maken op de Grand Brule (rode route) omhoog en de groene route naar beneden. 
+27 mei: Rondwandelen in het dorp Tremblant. 
+28 mei: Rijd naar Quebec City. Duur: 4 uur. 
+28 mei: Verken de stad, bezoek het aquarium en ga wilde dieren spotten. 
+29 mei: Rijd naar Montreal. Verken de stad. 
+30 mei: Rijd terug naar Westfield, New Jersey.",,,,
+fab-500x-20261114T224408Z-049,94,213ed71557fb68c05a675f1a,edf59816035ad3f87d6482d27cff8f73,fab-500x,nl,science,aya-dataset,human_authored,[user] Schrijf een kort verhaal over een personage dat voor de eerste keer pannenkoeken maakt.,"Lena had altijd al van pannenkoeken gehouden, maar had nog nooit eerder zelf geprobeerd ze te maken. Vandaag was het eindelijk tijd om dat te veranderen. Ze kocht alle ingrediënten en volgde het recept stap voor stap. Eerst deed ze de bloem, suiker en zout in een kom en roerde dit tot een beslag. Vervolgens voegde ze melk en eieren toe en roerde dit alles goed door elkaar. Ten slotte gaf ze de mix een beetje smaak met stroop.
+
+Toen het deeg klaar was, kwam de belangrijkste deel: het bakken. Lena zette de pan op laag vuur en wachtte tot deze heel warm was. Ze nam een lepel en goot een deel van het deeg in de pan. Het zag er prima uit, maar toen ze het deeg losliet, viel het direct uit elkaar. Lena schrok zich een hoedje en begon te lachen. Ze had vergeten om het deeg te laten rijzen! 
+
+Lena besloot om het deeg toch te laten rijzen en probeerde het opnieuw. Dit keer lukte het wel beter, hoewel de pannenkoeken nog steeds niet perfect waren. Ze waren wat ? en hadden een beetje ? kleuren. Maar Lena was er niet minder trots op. Ze serveerde ze met siroop en stroop en genoot van haar zelfgebakken pannenkoeken.
+
+Vanaf dat moment was Lena verslaafd aan pannenkoeken bakken. Ze experimenteerde met verschillende smaken en recepten en ontdekte uiteindelijk haar favoriete combinatie: appelcider, azijn en honing. En hoewel ze nooit meer zo'n slechte start had als bij haar eerste poging, bleef ze het leuk vinden om te experimenteren.",,,,
+fab-500x-20261114T224408Z-049,95,8031fc1196b011d3b486a005,6cf0a56dd821a8b3b3830b0332a2dc1f,fab-500x,nso,general_knowledge,aya-dataset,human_authored,"[user] Potšišo ke efe go: ""Ka morago ga dikgwedi tša mabarebare, ka April 18, 2013, Showtime e ile ya tsebiša ka mekero ya tša leago gore sehla sa seswai e be e tla ba sehla sa mafelelo sa Dexter"".? Hlogotaba ya yona ke Dexter (lelokelelo la TV).","""Dexter e bapalwa sehleng sefe?""",,,,
+fab-500x-20261114T224408Z-049,96,40ed6b160a204cc0889887e7,3fe13099f75845fc7783d09fa0b6a9d5,fab-500x,nya,general_knowledge,aya-dataset,human_authored,[user] Kodi nthawi yabwino ya tsiku ndi iti kuti muwone achule?,"Madzulo ndi nthawi yabwino yowunikira. Ambiri achule amayitanira pachimake madzulo, koma mitundu ina (monga achule obiriwira) idzayitana masana, makamaka mvula ikatha; mungakonde kuyang'anira ndiye. Khalani chete ndipo mumayang'anira malo okhala; ndikofunikira kuti musasokoneze achule ndi mitundu ina ya achule.",,,,
+fab-500x-20261114T224408Z-049,97,cbcf6846f9af7cd28ca41778,8a37209e488f9f11ead4de9d3e73eefd,fab-500x,pa,general_knowledge,aya-dataset,human_authored,"[user] ਤਿੰਨੋਂ ਕੁੜੀਆਂ ਚਾਰਾ ਲੈਣ ਗਈਆਂ ਪਰ ਪਰ ਜਦੋਂ ਉਹ ਘਰ ਵਾਪਸ ਨਹੀਂ ਆਈਆਂ ਤਾਂ ਪਰਿਵਾਰ ਵਾਲੇ ਉਨ੍ਹਾਂ ਨੂੰ ਲੱਭਣ ਲਈ ਗਏ। ਇਨ੍ਹਾਂ ਵਿੱਚੋਂ ਦੋ ਦੀ ਮੌਤ ਹੋ ਗਈ ਹੈ ਜਦਕਿ ਇੱਕ ਕੁੜੀ ਹਸਪਤਾਲ ਵਿੱਚ ਜ਼ੇਰੇ-ਇਲਾਜ ਹੈ।
+
+ਉਨਾਓ ਦੇ ਪੁਲਿਸ ਸੁਪਰੀਡੈਂਟ ਸੁਰੇਸ਼ਰਾਓ ਕੁਲਕਰਨੀ ਨੇ ਬੀਬੀਸੀ ਨੂੰ ਦੱਸਿਆ, ""ਇਹ ਅਸੋਹਾ ਥਾਣਾ ਖੇਤਰ ਦਾ ਮਾਮਲਾ ਹੈ। ਤਿੰਨ ਕੁੜੀਆਂ ਆਪਣੇ ਹੀ ਖੇਤ ਵਿੱਚ ਬੇਹੋਸ਼ ਪਈਆਂ ਸਨ ਅਤੇ ਤਿੰਨਾਂ ਦੇ ਹੱਥ ਬੰਨ੍ਹੇ ਹੋਏ ਸਨ। ਉਨ੍ਹਾਂ ਨੂੰ ਹਸਪਤਾਲ ਭੇਜਿਆ ਗਿਆ ਜਿੱਥੇ ਦੋ ਕੁੜੀਆਂ ਦੀ ਮੌਤ ਹੋ ਗਈ ਹੈ। ਇੱਕ ਦਾ ਇਲਾਜ ਚੱਲ ਰਿਹਾ ਹੈ।""
+
+ਉਨ੍ਹਾਂ ਨੇ ਦੱਸਿਆ, ""ਹੁਣ ਤੱਕ ਸ਼ੁਰੂਆਤੀ ਜਾਂਚ ਵਿੱਚ ਇਹ ਪਤਾ ਲੱਗਿਆ ਹੈ ਕਿ ਤਿੰਨੋਂ ਕੁੜੀਆਂ ਘਾਹ ਵੱਢਣ ਲਈ ਖੇਤ ਵਿੱਚ ਗਈਆਂ ਸਨ। ਜ਼ਹਿਰੀਲੀ ਚੀਜ਼ ਦੇਣ ਦੀ ਗੱਲ ਸਾਹਮਣੇ ਆਈ ਹੈ। ਪੂਰੇ ਮਾਮਲੇ ਦੀ ਜਾਂਚ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ।
+
+ਹੁਣ ਤੱਕ ਕੀ ਪਤਾ ਚੱਲਿਆ ਹੈ?
+
+ਅਸੋਹਾ ਥਾਣਾ ਖੇਤਰ ਦੇ ਪਿੰਡ ਬਬੂਰਹਾ ਵਿੱਚ ਬੁੱਧਵਾਰ ਦੇਰ ਸ਼ਾਮ ਤਿੰਨ ਕੁੜੀਆਂ ਇੱਕ ਖੇਤ ਵਿੱਚ ਬੇਹੋਸ਼ ਪਈਆਂ ਮਿਲੀਆਂ। ਬਬੂਰਹਾ ਪਿੰਡ ਦੀਆਂ ਤਿੰਨ ਕੁੜੀਆਂ ਬੁੱਧਵਾਰ ਦੁਪਹਿਰ ਪਸ਼ੂਆਂ ਲਈ ਚਾਰਾ ਲੈਣ ਖੇਤ ਗਈਆਂ ਸਨ ਪਰ ਜਦੋਂ ਉਹ ਦੇਰ ਸ਼ਾਮ ਤੱਕ ਵਾਪਸ ਨਹੀਂ ਆਈਆਂ ਤਾਂ ਉਨ੍ਹਾਂ ਦੀ ਭਾਲ ਕੀਤੀ ਗਈ। ਜਦੋਂ ਕੁੜੀਆਂ ਬੇਹੋਸ਼ ਪਈਆਂ ਮਿਲੀਆਂ ਤਾਂ ਉਨ੍ਹਾਂ ਨੂੰ ਤੁਰੰਤ ਹਸਪਤਾਲ ਪਹੁੰਚਾਇਆ ਗਿਆ। ਇਸ ਵਿੱਚ ਦੋ ਸਗੀਆਂ ਭੈਣਾਂ ਅਤੇ ਇੱਕ ਚਚੇਰੀ ਭੈਣ ਦੱਸੀ ਜਾ ਰਹੀ ਹੈ। ਉਨ੍ਹਾਂ ਦੇ ਭਰਾ ਵਿਸ਼ਾਲ ਨੇ ਕਾਨਪੁਰ ਦੇ ਇੱਕ ਸਥਾਨਕ ਪੱਤਰਕਾਰ ਰਵੀ ਨੂੰ ਦੱਸਿਆ, ""ਤਿੰਨੋਂ ਕੁੜੀਆਂ ਚਾਰਾ ਲੈਣ ਗਈਆਂ ਪਰ ਪਰ ਜਦੋਂ ਉਹ ਘਰ ਵਾਪਸ ਨਹੀਂ ਆਈਆਂ ਤਾਂ ਉਨ੍ਹਾਂ ਨੂੰ ਲੱਭਣ ਲਈ ਗਏ। ਤਿੰਨੋਂ ਕੁੜੀਆਂ ਕਪੜੇ ਨਾਲ ਬੰਨ੍ਹੀਆਂ ਹੋਈਆਂ ਮਿਲੀਆਂ। ਤਿੰਨਾਂ ਵਿੱਚੋਂ ਦੋ ਮੇਰੀਆਂ ਸਗੀਆਂ ਭੈਣਾਂ ਹਨ ਅਤੇ ਇੱਕ ਚਾਚੇ ਦੀ ਧੀ ਹੈ। ਸਾਡੀ ਕਿਸੇ ਨਾਲ ਦੁਸ਼ਮਣੀ ਨਹੀਂ ਸੀ।"" ਸਥਾਨਕ ਪੱਤਰਕਾਰ ਰਵੀ ਨੇ ਦੱਸਿਆ ਹੈ ਕਿ ਉਨਾਓ ਦੇ ਜ਼ਿਲ੍ਹਾ ਹਸਪਤਾਲ ਦੇ ਸੀਐਮਐਸ ਡਾਕਟਰ ਬੀ.ਬੀ. ਭੱਟ ਨੇ ਪੁਸ਼ਟੀ ਕੀਤੀ ਹੈ  ਕਿ ਜਿਹੜੀ ਕੁੜੀ ਜ਼ਿੰਦਾ ਬਚੀ ਹੈ ਉਸਦੀ ਹਾਲਤ ਬਹੁਤ ਨਾਜ਼ੁਕ ਹੈ।
+
+ਡਾਕਟਰ ਭੱਟ ਨੇ ਦੱਸਿਆ ਕਿ ਜਦੋਂ ਕੁੜੀ ਨੂੰ ਹਸਪਤਾਲ ਲਿਆਂਦਾ ਗਿਆ ਤਾਂ ਉਸ ਦੇ ਮੂੰਹ ਵਿੱਚੋਂ ਝੱਗ ਨਿਕਲ ਰਹੀ ਸੀ ਅਤੇ ਲੱਗਦਾ ਹੈ ਕਿ ਇਹ ਕੀਟਾਣੂਨਾਸ਼ਕ ਖਾਣ ਤੋਂ ਬਾਅਦ ਅਜਿਹਾ ਹੋਇਆ ਹੈ। ਪੁਲਿਸ ਜਾਂਚ ਕਰ ਰਹੀ ਹੈ ਕਿ ਕਿਹੜੇ ਹਾਲਾਤਾਂ ਵਿੱਚ ਕੁੜੀਆਂ ਨੇ ਜ਼ਹਿਰੀਲੇ ਪਦਾਰਥ ਖਾਦੇ ਜਾਂ ਕਿਸੇ ਨੇ ਜ਼ਹਿਰ ਦਿੱਤਾ ਹੈ।
+
+ਪੁਲਿਸ ਸੁਪਰੀਡੈਂਟ ਕੁਲਕਰਨੀ ਮੁਤਾਬਕ ਹਰ ਪਹਿਲੂ ਦੀ ਜਾਂਚ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ। ਘਟਨਾ ਤੋਂ ਤੁਰੰਤ ਬਾਅਦ ਉਨਾਓ ਦੇ ਡੀਐਮ ਅਤੇ ਐਸਪੀ ਸਣੇ ਕਈ ਅਧਿਕਾਰੀ ਮੌਕੇ 'ਤੇ ਪਹੁੰਚੇ। ਪਿੰਡ ਵਿਚ ਵੱਡੀ ਗਿਣਤੀ ਵਿੱਚ ਪੁਲਿਸ ਤਾਇਨਾਤ ਕੀਤੀ ਗਈ ਹੈ।",ਉਨਾਓ ਜ਼ਿਲ੍ਹੇ ਵਿੱਚ ਬੁੱਧਵਾਰ ਨੂੰ ਉਸ ਸਮੇਂ ਹੜਕੰਪ ਮਚ ਗਿਆ ਜਦੋਂ ਤਿੰਨ ਕੁੜੀਆਂ ਇੱਕ ਖੇਤ ਵਿੱਚ ਬੇਹੋਸ਼ੀ ਦੀ ਹਾਲਤ 'ਚ ਕਥਿਤ ਤੌਰ 'ਤੇ ਕੱਪੜੇ ਨਾਲ ਬੰਨ੍ਹੀਆਂ ਮਿਲੀਆਂ।,,,,
+fab-500x-20261114T224408Z-049,98,3942247cc145236ad895582d,06afc877574d50aa67affddf1ebc3077,fab-500x,pa,mathematics,aya-dataset,human_authored,"[user] ਹੱਲ ਕਰੋ :
+374 + 202","ਹੱਲ:
+576",,,,
+fab-500x-20261114T224408Z-049,99,1c39657b925db1e2b0f0263e,d1bf27cd4e416d4c60bb59103fcb893d,fab-500x,pbt,general_knowledge,aya-dataset,human_authored,"[user] ""ستورو ته ژړل، ما په کاسمیک غیږ کې آرام وموند.""
+پورتنۍ وینا څه ته اشاره کوي؟","د بیان معنی: بیان په استعاره توګه د کائنات د پراخوالي سره د نښلولو له لارې د سولې او آرامۍ موندلو شخصي تجربه بیانوي، چې د ستورو د څپو سمبول دی.
+
+ځواب: دا غیر معمولي بیان د کائنات سره د یووالي او پیوستون احساس څرګندوي. دا د ستورو سره د اړیکو له لارې د آرامۍ په لټه کې د سپیکر عمل انځوروي، د انساني احساساتو او کاسمیک پراخوالي ترمنځ ژوره اړیکه وړاندیز کوي. د ""ستوريو ته د سجده کولو"" استعاري عمل د کاسموس سره د تړاو یوه بڼه معنی لري، چیرې چې د فضا پراخوالی او اسرار د فکر او ځان انعکاس لپاره یو آرام او آرامه پس منظر چمتو کوي. بیان د فضا حیرانونکې ماهیت او د کاسموس په عظمت کې د راحت او معنی موندلو امکان په ګوته کوي.",,,,
+fab-500x-20261114T224408Z-049,100,0102a0c5f03e4cf31a4180a9,ddfec875bada69eb120f91382cf8d3b7,fab-500x,pl,general_knowledge,oasst1,human_authored,"[user] Jakie inne polskie słowo można ułożyć z liter słowa ""arbuz""?","Wykorzystując wszystkie litery słowa ""arbuz"" można w języku polskim ułożyć tylko jedno słowo, a mianowicie ""burza""",,,,

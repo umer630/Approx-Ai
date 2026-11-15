@@ -1,0 +1,1038 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-500x-20261114T224408Z-001,1,4bb240f8b799d8c9be692a53,4dab84a85aafb6c43cbfb24b26b588b1,fab-500x,acq,general_knowledge,aya-dataset,human_authored,[user] لما واحد يتقرع ايش معناته بالعدني؟,يتقرع معناته ياكل افطار.,,,,
+fab-500x-20261114T224408Z-001,2,dd0215d775a986278a2333f1,de6bbd471b94d47b63260ac236043c10,fab-500x,ajp,general_knowledge,aya-dataset,human_authored,"[user] كمل الحكي:
+
+تعال نلعب بصره متاكد اني راح افوز عليك. ولا انت خايف؟ عادي بسهلها",عليك وبناخدها بشويش.,,,,
+fab-500x-20261114T224408Z-001,3,8a6d21d6ab482bd2336088ad,416aba9371ca4fc0288e03b448028cb0,fab-500x,als,general_knowledge,aya-dataset,human_authored,[user] Kush e fitoi Kampionatin Evropian në vitin 2012?,Në vitin 2012 Kampionatin Evropian e fitoi Spanja.,,,,
+fab-500x-20261114T224408Z-001,4,ae83fce75f772c43ebd4a550,3658f4308bed8a5b8e51bf1e168ea712,fab-500x,am,general_knowledge,aya-dataset,human_authored,[user] የስዋሂሊ ቋንቋ ምን ያህል ሰዎች ይናገራሉ?,ስዋሂሊ በዓለም ዙሪያ ከ100 ሚሊዮን በላይ ሰዎች ይነገራል።,,,,
+fab-500x-20261114T224408Z-001,5,0be02e8744c7f48f460ce916,bcfcd3cf889ca8ce09a5d5fa2a77b442,fab-500x,am,mathematics,aya-dataset,human_authored,[user] የፈረንሳይ ቶስት እንዴት እንደሚሰራ አጭር ምንባብ ይጻፉ,የፈረንሣይ ቶስት ለመሥራት እንቁላል፣ ቫኒላ ማውጣት፣ ቀረፋ፣ ወተት እና ጥቂት ቁርጥራጭ ዳቦ ያስፈልግዎታል ። ለመጀመር እንቁላልን ከአንድ የሻይ ማንኪያ የቫኒላ ይዘት እና አንድ ቁንጥጫ ቀረፋ ጋር ይምቱ። 1/4 ኩባያ ወተት ይጨምሩ እና ይዘቱን ያነሳሱ. የዳቦውን ሁለቱንም ክፍሎች በእኩል መጠን እንዲሸፍኑ የዳቦውን ቁርጥራጮች ወደ ድብልቅው ውስጥ ይንከሩት። የማይጣበቅ ፍርግርግ ያሞቁ እና በትንሹ በቅቤ ይቀቡት። በሁለቱም በኩል ቡናማ እስኪሆን ድረስ ቂጣውን በፍርግርጉ ላይ ያስቀምጡት፣ በሜፕል ሽሮፕ ያቅርቡ፣ የእርስዎ ጣፋጭ የፈረንሳይ ቶስት ዝግጁ ነው!,,,,
+fab-500x-20261114T224408Z-001,6,84c0c2185cc8ccdd3d952401,a911930ea9bed10d0dd3f3256e548f3e,fab-500x,ar,coding,aya-dataset,human_authored,"[user] دائما ما كان لدى السي++ مفهوم التعبيرات الثابتة (constant expression). هذه التعبيرات مثل: 3+4 تعطي نفس النتيجة دائماً، في وقت الترجمة (compile time) وفي وقت التنفيذ (run time). تعد التعبيرات الثابتة من...... تابع ما ورد أعلاه ، بحيث يجيب ""ما هي الفرص التي تتيحها التعبيرات الثابتة؟"":",دائما ما كان لدى السي++ مفهوم التعبيرات الثابتة (constant expression). هذه التعبيرات مثل: 3+4 تعطي نفس النتيجة دائماً، في وقت الترجمة (compile time) وفي وقت التنفيذ (run time). تعد التعبيرات الثابتة من فرص التحسين للمترجمات، حيث تقوم المترجمات غلباً بتنفيذها في وقت الترجمة وتضع النتيجة بدلاً من التعبير نفسه في البرنامج. أيضا في كثير من الأماكن تتطلب مواصفات سي++ استخدام التعبيرات الثابتة. فتعريف مصفوفة يتطلب تعبير ثابت وقيم القائمة العددية (enumerator) يجب أن تكون تعبيرات ثابتة.,,,,
+fab-500x-20261114T224408Z-001,7,22181e0c52f535feef0b3ce0,167987cf9042a54fbda55fa52f11a191,fab-500x,ar,education,aya-dataset,human_authored,[user] ما هو التعلم الآلي,"في اللغة العربية، يُشير مصطلح ""تعلم الآلة"" (بالإنجليزية: Machine learning) إلى فرع من فروع الذكاء الاصطناعي الذي يركز على إعطاء الأنظمة الحاسوبية القدرة على التعلم وتحسين أدائها بدون أن يتم برمجتها بشكل صريح. في هذا السياق، يتعلم النظام الحاسوبي من البيانات والتجارب لتحسين أدائه في المستقبل.
+
+تعتمد تقنيات تعلم الآلة على العديد من النماذج الرياضية والخوارزميات لتحليل البيانات، وتطوير نماذج تنبؤ أو تصنيف أو فهم البيانات. يتم تطبيق تعلم الآلة في مجموعة واسعة من المجالات، مثل معالجة اللغات الطبيعية، التعرف على الصور، تحليل البيانات الكبيرة، وغيرها من التطبيقات.",,,,
+fab-500x-20261114T224408Z-001,8,4e517f5f220c35ea8c5f95e1,737443d9b89130e0584b6a831dcd5766,fab-500x,ar,general_knowledge,aya-dataset,human_authored,[user] ما هو عدد الكواكب في المجموعة الشمسية؟,المجموعة الشمسية تتألف من ثمانية كواكب رئيسية هي: عطارد، الزهرة، الأرض، المريخ، المشتري، زحل، أورانوس، ونبتون. يُعتبر كل من هذه الكواكب جزءًا من نظامنا الشمسي، حيث تدور حول الشمس كواكبه الفردية.,,,,
+fab-500x-20261114T224408Z-001,9,8c536f3f4064ef4b5bb61e6b,0d286e2c4f3262666710a4d4299b5a07,fab-500x,ar,islamic_studies,aya-dataset,human_authored,[user] ماهو أشهر مسلسل سعودي؟,طاش ما طاش: وهو مسلسل تلفزيوني رمضاني كوميدي سعودي من بطولة عبدالله السدحان وناصر القصبي . بدأ إنتاجه عام 1992، وعرض في 22 فبراير 1993 الموافق رمضان سنة 1413 هـ، شارك فيه العديد من الممثلين السعوديين والعرب، ويعتبر من أنجح الأعمال التلفزيونية في السعودية والعالم العربي.,,,,
+fab-500x-20261114T224408Z-001,10,516e56d3ab67c4ae21a751a1,302ddb296cf99ba4a3497b56c1d73edf,fab-500x,ar,mathematics,aya-dataset,human_authored,[user] باعت نورة 48 تفاحة إلى أصدقائها في محرم ، ثم باعت نصف العدد في صفر. كم باعت نورة تفاحة في محرم وصفر؟,حسب السؤال باعت نورة 48 تفاحة في محرم ثم باعت نورة 48/2 = 24 تفاحة في صفر. واجمالي بيع نورة كان 48 + 24 = 72 تفاحة.,,,,
+fab-500x-20261114T224408Z-001,11,cd88bc5d8c9d558f1950c051,b10cbf4e87dc682665d8ca16663e8b2c,fab-500x,ar,research,tydiqa-goldp,human_authored,"[user] فوضت جمعية الفيلهارمونية الملكية في لندن بيتهوفين بتأليف السيمفونية عام 1817، استمرت اعمال التأليف الأساسية مابين خريف 1822 واكتمال المخطوطة عام 1824, مع ذلك ترجع بعض أصول الكلمات والنغمات لاعمال سابقة لبيتهوفين.
+
+متى ألف بيتهوفن السيمفونية التاسعة ؟","1822
+
+فوضت جمعية الفيلهارمونية الملكية في لندن بيتهوفين بتأليف السيمفونية عام 1817، استمرت اعمال التأليف الأساسية مابين خريف 1822 واكتمال المخطوطة عام 1824, مع ذلك ترجع بعض أصول الكلمات والنغمات لاعمال سابقة لبيتهوفين.",,,,
+fab-500x-20261114T224408Z-001,12,8ee44c8537bb1ea695e24872,7748329b71224eced34657504c4633ae,fab-500x,ar,science,aya-dataset,human_authored,[user] ما مفهوم البيانات الضخمة (Big Data) ؟,"""البيانات الضخمة"" (Big Data) تشير إلى مجموعات هائلة ومعقدة من البيانات التي يتعذر تخزينها وإدارتها ومعالجتها باستخدام الطرق التقليدية. تتميز هذه البيانات بثلاثة سمات رئيسية تعرف بـ ""الثلاثية الكبيرة""، وهي:
+-الكمية (Volume): تتعلق بكمية البيانات، حيث يتعامل مع ملايين أو حتى مليارات السجلات.
+-التنوع (Variety): يتعلق بتنوع أنواع البيانات، حيث يمكن أن تكون البيانات متنوعة جدًا في الشكل والمصدر، مثل النصوص والصور ومقاطع الفيديو والصوت والبيانات الهيكلية وغيرها.
+-السرعة (Velocity): تتعلق بسرعة إنتاج وتدفق البيانات، حيث يمكن أن تتحرك البيانات بسرعة كبيرة ويجب معالجتها في وقت فعال.
+للتعامل مع البيانات الضخمة، يتطلب الأمر تقنيات وأدوات متقدمة لتخزين ومعالجة وتحليل هذه الكميات الهائلة من البيانات، مثل تقنيات تخزين البيانات الموزعة وأنظمة إدارة البيانات الضخمة (Big Data Management Systems)، والتحليلات التنبؤية باستخدام تقنيات الذكاء الاصطناعي وتعلم الآلة.",,,,
+fab-500x-20261114T224408Z-001,13,74ee4a7cc51e97b09ac33663,4e66c6a69ce1c2198a79bd2d1223e1b1,fab-500x,ar,writing,aya-dataset,human_authored,[user] أعطني معلومة عامة في هذه الفئة: الأفلام,ما الفيلم الذي حاز على أوسكار أفضل فيلم رسوم متحركة هذا العام؟ Toy Story 4,,,,
+fab-500x-20261114T224408Z-001,14,0d8a02d5af74e6e7c42350e5,09d1240540a1426cd69e1a9445f17bb3,fab-500x,ary,general_knowledge,aya-dataset,human_authored,"[user] wash tweet lli lte7t kay 3bber 3la i7sass ijabi aw silbi aw mou7ayid?
+bghite n9olki wahd lhaja lahdthaa ila kan momkin",Tweet lli lte7t kay 3bber 3la i7sass mou7ayid,,,,
+fab-500x-20261114T224408Z-001,15,b3351a000a1e5e8c93c85feb,a9321fba8c4df6c6d6ba4a5adc2fc51e,fab-500x,ary,islamic_studies,aya-dataset,human_authored,[user] شكون اول واحد تلقب بقاضي القضاه فالاسلام؟,ابو يوسف القاضي.,,,,
+fab-500x-20261114T224408Z-001,16,cd27fecd93f4cfa1f6b09e32,e63a5dde27b86e9890c905acdc1a19ec,fab-500x,arz,general_knowledge,aya-dataset,human_authored,"[user] اكتب الجملة دي بالعربي:
+2ana 3ayez 2akol pizza darory",أنا عايز أكل بيتزا ضروري,,,,
+fab-500x-20261114T224408Z-001,17,fa284c36040ab91d8cba1f09,6350a1ef2de13f5ea7e1ecf73d18dd16,fab-500x,bn,coding,aya-dataset,human_authored,"[user] নিম্নলিখিত জন্য একটি ধারাবাহিকতা লিখুন :
+
+অ্যানালগ কম্পিউটার হলো এমন কম্পিউটার","যা কোনো কম্পিউটিং সমস্যাকে ভৌত বৈশিষ্ট্য যেমন ইলেকট্রিক, যান্ত্রিক, বা হাইড্রলিক-এর ভৌত এবং চলমান (continuous variable) পরিমাপে মডেল হিসেবে রূপ দেয়া হয়। অপরদিকে, ডিজিটাল কম্পিউটার-এ সমস্যাটিকে ধাপবিশিষ্ট সংখ্যামানে মডেল করা হয়।",,,,
+fab-500x-20261114T224408Z-001,18,22a8d65b786add640efbd608,3e4ada19a72209a167c0a5a8c0643e26,fab-500x,bn,cybersecurity,aya-dataset,human_authored,"[user] অনুগ্রহ করে নিচের অনুচ্ছেদটি পড়ুন এবং প্রশ্নের উত্তর দিন |
+
+প্রশ্ন :
+কমান্ড এন্ড কন্ট্রোল কাঠামো সার্ভার কি বটনেটের একটি উপাদান ? 
+
+অনুচ্ছেদ :
+
+""বটনেট"" হল যখন একজন ব্যবহারকারী অনেকগুলি ইন্টারনেট যুক্ত যন্ত্র(Device) ব্যবহার করে বিভিন্ন ধরনের কাজ করে। বটনেট ব্যবহার করে ডিস্ট্রিবিউটেড ডিনায়েল অব সার্ভিস(DDoS), তথ্য চুরি, স্প্যাম পাঠানো, আক্রমণকারীকে ওই যন্ত্রের নিয়ন্ত্রণ দেয়া ইত্যাদি করা যায়। বটনেটের স্বত্বাধিকারী কমান্ড এন্ড কন্ট্রোল(C&C) সফটওয়্যার দিয়ে এটিকে নিয়ন্ত্রণ করতে পারে। বটনেট শব্দটি এসেছে রোবট এবং নেটওয়ার্কের সংমিশ্রণে। শব্দটি মূলত নেতিবাচক দৃষ্টিকোণ থেকে ব্যবহৃত হয়।
+ব্যবহার
+বটনেট ব্যবহার হয় মূলত কোন কম্পিউটারের নিরাপত্তা ব্যবস্থা ভেঙ্গে সেই কম্পিউটারকে নিয়ন্ত্রণের জন্য। এইভাবে অনেকগুলি যন্ত্র যখন কোন ম্যালওয়্যার(malware) বা ক্ষতিকর সফটওয়্যার দ্বারা আক্রান্ত হয়ে যন্ত্রের দখল অন্য কোন তৃতীয় পক্ষের নিয়ন্ত্রণে দিয়ে দেয় তখন প্রতিটা কম্পিউটার একেকটা ‘বট’ হয়ে যায়। এরপর বটনেটের নিয়ন্ত্রক(রা) আইআরসি(IRC) এবং হাইপারটেক্স ট্রান্সফার প্রটোকল(Hypertext Transfer Protocol - HTTP) এর মত নেটওয়ার্ক প্রটোকল ব্যবহার করে
+মূলত সাইবার অপরাধীরাই বিভিন্ন উদ্দেশ্যে সবচেয়ে বেশী বটনেট ব্যবহার করে থাকে।
+গঠন
+সময়ের সাথে সাথে শনাক্তকরণের বিভিন্ন উপায় আবিষ্কারের সাথে সাথে বটনেটের গঠনও বদলাচ্ছে। সাধারণত, বট প্রোগ্রামগুলি ক্লায়েন্ট হিসেবে তৈরি করা হয় যাতে তারা সার্ভারের সাথে যোগাযোগ রাখতে পারে। এর ফলে বটের নিয়ন্ত্রক (যিনি বা যারা বটকে নিয়ন্ত্রণ করছে) দূরে কোথাও থেকেও সকল কার্যক্রম নিয়ন্ত্রণ করতে পারে। আগের অনেক বটনেটই তাই এখন পিয়ার-টু-পিয়ার(peer-to-peer) নেটওয়ার্কের মাধ্যমে যোগাযোগ করে। ক্লায়েন্ট-সার্ভার মডেলের মত পি-টু-পি(P2P-Peer to Peer) বট প্রোগ্রামও একই কাজ করে থাকে। এর ফলে তাদের আর মূল সার্ভারের মাধ্যমে যোগাযোগ না করলেও চলে।
+ক্লায়েন্ট-সার্ভার মডেল (Client-server model)
+
+ইন্টারনেটের প্রথমদিকের বটনেটগুলি ক্লায়েন্ট-সার্ভার নকশা অনুসারে কাজ করত। সাধারণত, এই বটনেটগুলি আইআরসি (IRC-Internet Relay Chat) নেটওয়ার্ক কিংবা ওয়েবসাইটের মাধ্যমে কাজ করে থাকে। আক্রান্ত ক্লায়েন্টে পূর্বে থেকেই নির্ধারিত একটি জায়গা দখল করে নিয়ে এটি সার্ভার থেকে নির্দেশের অপেক্ষা করে। বটের নিয়ন্ত্রক সার্ভারে তার নির্দেশ প্রেরণ করেন, যেটা সার্ভার আক্রান্ত ক্লায়েন্টগুলিতে ছড়িয়ে দেয়। ক্লায়েন্টে বটগুলি নির্দেশ অনুযায়ী কাজ করে তথ্য সার্ভারে পাঠাতে থাকে।
+আইআরসি...","হ্যাঁ, কমান্ড এন্ড কন্ট্রোল কাঠামো সার্ভার বটনেটের একটি উপাদান |",,,,
+fab-500x-20261114T224408Z-001,19,fef056e1fdcc0994fa16cb85,3fc730d38711be3b7c3b164ea501e64d,fab-500x,bn,general_knowledge,aya-dataset,human_authored,"[user] ""বাংলা ভাষা"" শিরোনামে একটি অনুচ্ছেদ রচনা করো।","ভাবের বাহন হলো ভাষা। ভাষা যোগাযোগের সবচেয়ে গুরুত্বপূর্ণ মাধ্যম। ভাষার মাধ্যমেই একের ভাব অন্যের মধ্যে সঞ্চারিত করা সম্ভব হয়। পৃথিবীর এক এক অংশে এক এক ভাষার উৎপত্তি। তাই ভৌগোলিক অঞ্চল ভেদে মানুষের ভাষাও ভিন্ন ভিন্ন। বর্তমান পৃথিবীতে প্রায় সাড়ে তিন হাজারের ওপর ভাষা রয়েছে। তার মধ্যে বাংলা অন্যতম। বাংলা হলো বাঙালির মাতৃভাষা। এ ভাষার রয়েছে হাজার বছরের সমৃদ্ধ ইতিহাস। ভাষাভাষী জনসংখ্যার দিক দিয়ে বাংলা পৃথিবীর চতুর্থ বৃহৎ মাতৃভাষা। বর্তমানে পৃথিবীতে প্রায় চব্বিশ কোটি লোক বাংলা ভাষায় কথা বলে। পৃথিবীর অধিকাংশ ভাষারই আদি উৎস খুঁজে বের করা সম্ভব হয়েছে। মাত্র হাতে গোনা কয়েকটি মূল ভাষা গোষ্ঠী থেকে বিশ্বের যাবতীয় ভাষার উদ্ভব। এর একটি হলো ইন্দো-ইউরোপীয় ভাষা যার অন্যতম একটি শাখা হলো ভারতীয় আর্যভাষা। এ ভাষা থেকেই সৃষ্টি হয় বাংলা ভাষা। বাংলাদেশের অধিবাসীরা এখন যে বাংলা ভাষার ব্যবহার করছে তা আদিতে এমন ছিল না। নানা বিবর্তনের মধ্য দিয়ে উদ্ভব ঘটেছে আজকের বাংলা ভাষা। সুনীতি কুমার চট্টোপাধ্যায়ের মতে পূর্ব মাগধি অপভ্রংশ থেকে বাংলা ভাষার সৃষ্টি হয়। ড. শহীদুল্লাহর মতে, আনুমানিক ৬৫০ খ্রিষ্টাব্দের দিকে গৌড়ী প্রাকৃত হতে জন্ম হয় বাংলা ভাষা। বাংলা ভাষায় রচিত সাহিত্যের আদি নিদর্শন চর্যাপদ, যা বর্তমান সময় হতে অন্তত হাজার বছর পূর্বের। মধ্য যুগ থেকে বাংলা সাহিত্যের ব্যাপক বিস্তার ঘটতে থাকে, যা এখন পর্যন্ত চলছে। বাংলাদেশ ছাড়াও পৃথিবীর নানা অঞ্চলে ছড়িয়ে ছিটিয়ে থাকা সব বাঙালিরা বাংলা ভাষায় কথা বলে। এ ভাষা আমাদের প্রাণের ভাষা। ১৯৫২ সালের ২১শে ফেব্রুয়ারি বাংলা ভাষাকে রাষ্ট্রভাষার স্বীকৃতির জন্য প্রাণ দিয়েছে অনেকে। ১৯৯৯ সালে ইউনেস্কো মাতৃভাষার জন্য আত্মদানকারী শহিদদের প্রতি সম্মান জানিয়ে ২১শে ফেব্রুয়ারিকে আন্তর্জাতিক মাতৃভাষা দিবস হিসেবে ঘোষণা করে। আমাদের প্রাণের ভাষা বাংলা আমাদের স্বপ্ন ও সাধকে পূরণ করে বলেই বাংলা ভাষা আমাদের এত প্রিয়।",,,,
+fab-500x-20261114T224408Z-001,20,87fd71247b5ed05cb56e3ba7,13da0cd6838b91ebcc6f22f39e61af8c,fab-500x,bn,mathematics,aya-dataset,human_authored,"[user] এই অনুচ্ছেদের জন্য একটি ধারাবাহিকতা লিখুন :
+
+আরিফুল ইসলাম
+
+আরিফুল ইসলাম বলেন, বাড়ি থেকে টেনে-হিঁচড়ে তাকে গাড়িতে তোলা হয়। 
+
+""আমাকে জোর করে গাড়ীতে উঠানো হয়। আমি তাদের বলি আমার অপরাধ কী আমাকে বলেন। আমার কোন ভুল হয়ে থাকলে আমাকে মাফ করে দেন। আমি তাদের কাছে বার বার মাফ চেয়েছি।""
+
+সে সময় উপস্থিত জেলা প্রশাসনের একজন কর্মকর্তাকে উদ্ধৃত করে আরিফুল ইসলাম বলেন,  তিনি আইনশৃঙ্খলা বাহিনীর যেসব সদস্য ছিল তাদেরকে বলেন,  'এর হাত পা বেঁধে ফেল, আজকে একে এনকাউন্টারে দিয়ে দেব।' 
+
+""আমাকে অকথ্য ভাষায় গালিগালাজ করছিল। আমি তখন তাদের কাছে মাফ চাই, কিন্তু তিনি বলেন তুই কলেমা পড়, তোকে এনকাউন্টারে দেব, তুই সমাজের জঞ্জাল।""
+
+""আমাকে তিনি জিঞ্জেস করেন তুই কি ডিসির বিরুদ্ধে লিখিস? ডিসি কি ঘুষ খায়? আমি বললাম আমি এমন কিছু লিখি না, আমার ভুল হলে মাফ করে দেন।"" 
+
+'তোর সময় শেষ তুই কলেমা পড়'
+
+""আমি তাদের বলেছিলাম আমার দুটি সন্তান আছে, আমি মারা গেলে ওদের কে দেখবে। ওদের উপর রহম করে আমাকে আপনারা ছেড়ে দেন।""
+
+""উনি (ঐ কর্মকর্তা) কোন কথাই শুনছিলেন না। শুধু বলছিলেন তোর সময় শেষ তুই কলেমা পড়। আমার চোখ যে কাপড় দিয়ে বাঁধা ছিল সেটা কোন রকম একটু সরিয়ে আমি দেখতে পেলাম...","ধরলা ব্রিজ পার হয়ে আমাকে নিয়ে যাওয়া হচ্ছে যেটা আমার বাড়ি থেকে ৭/৮ কিলোমিটার দুর।"" 
+
+""আমি তখন শুধু আল্লাহকে ডাকছিলাম। এর ২/৪ মিনিটের মধ্যে তারা ফোনে কথা বলে, মেসেজ পাঠায় তারপর সিদ্ধান্ত পরিবর্তন করে আবার গাড়ী ঘুরিয়ে নিয়ে আসে।""
+
+আরিফুল বলেন, চোখের কাপড়ের ফাঁক তিনি দেখতে পান তাকে ডিসি অফিসে নিয়ে আসা হয়েছে।
+
+তারপর শুরু হয় প্রচণ্ড মারধোর।  
+
+'আমাকে বিবস্ত্র করে মারে, ছবি তোলে'
+
+""ঐ কর্মকর্তা আমাকে বলতে থাকে তোর বাপের নাম ভুলিয়ে দেব। আমাকে বিবস্ত্র করে মারে, ছবি তোলে , ভিডিও করে।""
+
+অরিফুল বলেন, পরে তাকে কাপড় পরিয়ে জোর করে চারটা স্বাক্ষর করে নেয়া হয়। 
+
+""আমি এখনো জানি না এই স্বাক্ষরগুলো কেন, কোথায় নেয়া হয়েছে।""
+
+এরমধ্যেই পুলিশ চলে আসে, কিন্তু তিনি বলেন পুলিশ কি করতে পারবে!  তাকে দ্রুত কারাগারে নিয়ে আসা হয়। 
+
+বাড়ি থেকে তাকে বের করা হয় রাত সাড়ে ১২টার দিকে। আর কারাগারে পাঠায় রাত দেড়টা থেকে দুইটার দিকে। আরিফুল ইসলাম বলেন, এক/দেড়ঘন্টার মধ্যে এসব কিছু হয়েছে।
+
+আরিফুল ইসলাম কুড়িগ্রাম জেলা প্রশাসনের ঐ কর্মকর্তার নাম বিবিসির কাছে বলেছেন। কিন্তু অভিযোগগুলো যেহেতু খুবই গুরুতর, তাই ঐ কর্মকর্তার বক্তব্যের জন্য তার মোবাইল ফোনে বার বার যোগাযোগের চেষ্টা করা হয়। প্রতিবারই তার ফোন বন্ধ পাওয়া যায়। ফলে ঐ কর্মকর্তার নাম উহ্য রাখা হলো।",,,,
+fab-500x-20261114T224408Z-001,21,d2e13455ea361fb46797f117,4154ceef933317655156427fedbcb601,fab-500x,bn,research,tydiqa-goldp,human_authored,"[user] জুলিয়াস রবার্ট ওপেনহেইমার (English: Julius Robert Oppenheimer; জন্ম: ২২ এপ্রিল, ২০০৪ - মৃত্যু: ১৮ ফেব্রুয়ারি, ১৯৬৭)[1] আমেরিকা যুক্তরাষ্ট্রের বিশিষ্ট তাত্ত্বিক পদার্থবিজ্ঞানী ও বিজ্ঞান সম্পর্কীয় প্রশাসক ছিলেন। লস এলামোজ ন্যাশনাল ল্যাবরেটরিতে পরিচালক হিসেবে কর্মরত অবস্থায় ১৯৪৩ থেকে ১৯৪৫ সালের মধ্যে আণবিক বোমার উন্নয়নে কাজ করেছেন। এছাড়াও তিনি বার্কলে এলাকায় অবস্থিত ক্যালিফোর্নিয়া বিশ্ববিদ্যালয়ের অধ্যাপক ছিলেন। ১৯৪৭ থেকে ১৯৬৬ সাল পর্যন্ত প্রিন্সটনের ইনস্টিটিউট অব অ্যাডভান্সড স্টাডিরও পরিচালকের দায়িত্ব পালন করেন তিনি। কিন্তু নিরাপত্তা বিষয়ক শুনানীতে তাঁর বিরুদ্ধে মার্কিন সরকারের অভিযোগ উত্থাপিত হয়। ফলে যুক্তরাষ্ট্রীয় সরকারের পরামর্শকের দায়িত্ব থেকে তাঁকে অব্যাহতি দেয়া হয়। এ সিদ্ধান্তের বিরুদ্ধে থেকে বিশ্বব্যাপী বিজ্ঞানীরা তাঁর স্বপক্ষে অবস্থান নেন। এছাড়াও, রাজনৈতিক এবং নৈতিকতাকে বিজ্ঞানের সাথে সম্পৃক্ত করার সিদ্ধান্তে সরকারের বিরুদ্ধে নিন্দাজ্ঞাপন করা হয়।
+
+জুলিয়াস রবার্ট ওপেনহেইমার সর্বপ্রথম কোন বিশ্ববিদ্যালয়ের পদার্থবিদ্যার অধ্যাপক হিসেবে নিযুক্ত হন ?","ক্যালিফোর্নিয়া বিশ্ববিদ্যালয়ের
+
+জুলিয়াস রবার্ট ওপেনহেইমার (English: Julius Robert Oppenheimer; জন্ম: ২২ এপ্রিল, ২০০৪ - মৃত্যু: ১৮ ফেব্রুয়ারি, ১৯৬৭)[1] আমেরিকা যুক্তরাষ্ট্রের বিশিষ্ট তাত্ত্বিক পদার্থবিজ্ঞানী ও বিজ্ঞান সম্পর্কীয় প্রশাসক ছিলেন। লস এলামোজ ন্যাশনাল ল্যাবরেটরিতে পরিচালক হিসেবে কর্মরত অবস্থায় ১৯৪৩ থেকে ১৯৪৫ সালের মধ্যে আণবিক বোমার উন্নয়নে কাজ করেছেন। এছাড়াও তিনি বার্কলে এলাকায় অবস্থিত ক্যালিফোর্নিয়া বিশ্ববিদ্যালয়ের অধ্যাপক ছিলেন। ১৯৪৭ থেকে ১৯৬৬ সাল পর্যন্ত প্রিন্সটনের ইনস্টিটিউট অব অ্যাডভান্সড স্টাডিরও পরিচালকের দায়িত্ব পালন করেন তিনি। কিন্তু নিরাপত্তা বিষয়ক শুনানীতে তাঁর বিরুদ্ধে মার্কিন সরকারের অভিযোগ উত্থাপিত হয়। ফলে যুক্তরাষ্ট্রীয় সরকারের পরামর্শকের দায়িত্ব থেকে তাঁকে অব্যাহতি দেয়া হয়। এ সিদ্ধান্তের বিরুদ্ধে থেকে বিশ্বব্যাপী বিজ্ঞানীরা তাঁর স্বপক্ষে অবস্থান নেন। এছাড়াও, রাজনৈতিক এবং নৈতিকতাকে বিজ্ঞানের সাথে সম্পৃক্ত করার সিদ্ধান্তে সরকারের বিরুদ্ধে নিন্দাজ্ঞাপন করা হয়।",,,,
+fab-500x-20261114T224408Z-001,22,f8989774a4444bec0a1a3d26,f9cf4850f0aac7b990da2bf0b4715e45,fab-500x,bn,writing,aya-dataset,human_authored,[user] Write a continuation for this paragraph - সাভার ভবন ধস,"ঘটনায় প্রায় ১,০০০ জন মৃত্যুবরণ করে।",,,,
+fab-500x-20261114T224408Z-001,23,588ec322760e853e8ef97065,b023326ca680df4ca52e30b28172dbc8,fab-500x,ca,coding,oasst2,human_authored,"[user] M'agraden els videojocs que expliquen una bona història i que no impliquen ser molt àgil amb els controls però no he jugat a cap des de el Final Fantasy VII de play station 1. Ara tinc un PC amb el que puc jugar, em podries recomanar els jocs amb millor història dels darrers 15 anys?","Alguns jocs que basen gran part del seu atractiu en la història poden ser Undertale, Her Story, Octopath Traveler, Return to Monkey Island, What remains of Edith Finch, This war of mine, Firewatch, Gone Home o The Stanley Parable",,,,
+fab-500x-20261114T224408Z-001,24,0a382efe75e1273595e4718d,07fd16e1a29b7b849c80f430163d5ea4,fab-500x,ca,education,oasst2,human_authored,[user] Com puc construir una taula pel menjador de casa?,"Aquí tens unes pautes que et poden ajudar:
+
+    Material: necessitaràs fusta o altre material per a la taula, com ara metall o plàstic, segons les teves preferències. També pots necessitar eines com ara una serra de calar, un martell, claus, cola, etc...
+
+    Disseny: Decideix les mides que vols que tingui la teva taula i dibuixa un esborrany per tenir una idea clara de com la vols construir.
+
+    Talla la fusta: Talla la fusta segons les mides que has decidit per a la taula. Assegura't que les peces són rectes i tenen les mateixes mides.
+
+    Montatge: Utilitza claus i cola per a unir les peces de fusta i formar la base de la taula. Deixa secar la cola segons les indicacions del fabricant.
+
+    Afegir les potes: Si vols construir una taula amb potes, talla les peces de fusta per a les potes i uneix-les a la base de la taula amb claus i cola.
+
+    Acabat: Pots acabar la teva taula aplicant un vernís o pintant-la per a protegir-la i donar-li una apariència més atractiva.
+
+Aquestes són les pautes bàsiques per construir una taula pel teu menjador. Si no estàs segur de les teves habilitats per a fer aquesta tasca, pots considerar la contractació d'un professional o buscar tutorials a Internet per a obtenir més informació detallada.",,,,
+fab-500x-20261114T224408Z-001,25,2557386e0556914fb6271f5b,8edab469a4886238dceddefeea271b7b,fab-500x,ca,general_knowledge,oasst1,human_authored,"[user] M'agradaria saber el rànquing dels usuaris segon l'idioma que utilitzen aquí mateix en  l'Open Assistant al dia d'avui.
+
+[assistant] Com a model de llenguatge d'OpenAI, no tinc accés a informació en temps real sobre l'idioma que utilitzen els usuaris de l'Open Assistant. No tinc la capacitat de recopilar dades sobre els usuaris ni sobre les llengües que utilitzen per interactuar amb mi. La meva funció és proporcionar respostes a preguntes i solucionar problemes que es presentin, independentment de l'idioma que es faci servir. Si tens alguna pregunta o problema específic que pugui ajudar a resoldre, estic aquí per ajudar-te en qualsevol llengua que sigui necessària.
+
+[user] Idò mostra les dades de què disposis.
+
+[assistant] Els 5 majors contribuïdors d'avui 24 de febrer de 2023 a les 16:40 són: System, Wally, Jonnyjugo, gentle-lapwing109 i Targed.
+
+[user] Gràcies.","De res, puc ajudar-te en alguna cosa més?",,,,
+fab-500x-20261114T224408Z-001,26,17cd7ab7ba46988432ebc5d9,fab9b0d5e694ab8f1441db0cc7ad8d0b,fab-500x,ca,islamic_studies,oasst1,human_authored,[user] Fes un llistat de les 10 religions amb més seguidors del món ordenades de més a menys persones que professin aquella fe.,"Les 10 religions amb més seguidors del món són:
+Cristianisme: [IP] , 29,4%.
+Islamisme: [IP], 24,1%
+Hinduisme [IP], 15,1%
+Sense confessió religiosa: [IP], 13,9%
+Budisme: 390.450.000, 4,9%
+Sintoisme: 99.540.000, 1,3%
+Taoisme: <1%
+Sikhisme: <1%
+Judaisme: <1%
+Animisme: <1%",,,,
+fab-500x-20261114T224408Z-001,27,82bb1e28feb30d71782a2921,6040637527ba08be0f6203155ff7534e,fab-500x,ca,mathematics,oasst2,human_authored,[user] Què és un anagrama?,"Un anagrama és un mot o un conjunt de paraules que es formen reordenant les lletres d'altres mots o frases.
+
+Et proposo uns exemples: 
+  -  trencar / centrar
+  -  Roma / amor
+  -  escola / escaló
+  -  triangle / integral
+  -  fumar flor, sal i pebre / bufar i fer ampolles
+  -  estar amb l'aigua al coll / sabeu? la mort calla àgil
+
+Com pots comprovar els anagrames donen molt joc. Pots usar-los per a entreteniment o a forma d'enigma per a algun amic, i també se li donen usos literaris sobretot en poesia.",,,,
+fab-500x-20261114T224408Z-001,28,0cb374cc644cdb25498dbe51,8ff13da46a8b5bd6765058213da2e8a9,fab-500x,ca,reasoning,oasst1,human_authored,[user] Digues què és una llengua minoritzada i quina és la diferència amb una minoritària. Dona exemples.,"Una llengua minoritzada és una llengua que té una posició subordinada o inferioritzada respecte a altres llengües en un determinat context socio-lingüístic. Això pot ser degut a factors com la discriminació, l'opressió, la política lingüística o el desplaçament lingüístic. En general, una llengua minoritzada té menys parlants i està en perill d'extinció.
+
+Per altra banda, una llengua minoritària fa referència a una llengua que és parlada per un petit grup de persones en un determinat territori o regió. Això no implica necessàriament que estigui subordinada o inferioritzada, sinó que simplement té una presència minoritària en comparació amb altres llengües en la mateixa zona.
+
+Per exemple, el català a Espanya és una llengua minoritzada, ja que ha estat discriminada i sotmesa a polítiques lingüístiques restrictives per part del govern espanyol durant dècades. D'altra banda, l'anglès a Catalunya seria considerada una llengua minoritària, ja que és parlada només per una minoria de la població en comparació amb el català o el castellà.",,,,
+fab-500x-20261114T224408Z-001,29,12ce28cbf49c7291a2b9f13d,ee2bb1e55c5a19b3f9b86498a5a41f0e,fab-500x,ca,science,oasst2,human_authored,[user] Explica'm en què consisteix la festa de Sant Jordi.,"Sant Jordi és una festa què es celebra a Catalunya cada 23 d'abril. Els elements centrals d'aquesta festa són:
+•Els llibres: els carrers s'omplen de paradetes amb llibres i és habitual que es regalin als éssers estimats.
+•Les roses: s'acostumen a regalar roses com a mostra d'afecte cap a les persones estimades.
+•L'amor: en general és una festa que moltes parelles aprofiten per demostrar-se afecte.
+•nacionalisme: aquesta festa acostuma també a tenir elements reivindicatius de la cultura catalana. És habitual veure senyeres, la bandera de Catalunya, als balcons. També acostuma a ser un bon aparador per reivindicar l'oferta cultural catalana: teatre, literatura, música...",,,,
+fab-500x-20261114T224408Z-001,30,d14fe653795dcbe9b9544961,42ca2adf18a377259b17763eaef111bf,fab-500x,ca,web_frontend,oasst2,human_authored,[user] Per a que serveix PHP en programació? Ensenya'm lo bàsic de PHP,"PHP (acrònim de Hypertext Preprocessor) és un llenguatge de programació de codi obert molt popular i ampliament utilitzat per desenvolupar aplicacions web dinàmiques. PHP es pot executar en servidors web i es pot integrar amb codi HTML per crear pàgines web interactives i dinàmiques.
+
+A continuació, t'ensenyo les bases de PHP:
+
+Variables: a PHP, les variables es defineixen amb el símbol ""$"". Per exemple, una variable podria ser $nom o $edat.
+
+Tipus de dades: PHP admet diversos tipus de dades, com ara strings (cadenes de caràcters), nombres enters, decimals, booleans (true o false) i arrays (col·leccions de valors).
+
+Operadors: PHP utilitza operadors aritmètics, comparatius i lògics, com ara ""+"", ""-"", ""*"", ""/"", "">"", ""<"", ""=="", ""!="", ""&&"" i ""||"".
+
+Estructures de control: PHP admet estructures de control com ara condicionals (if, else if, else) i bucles (for, while, do while).
+
+Funcions: PHP admet funcions que permeten als desenvolupadors reutilitzar codi en diferents parts d'un programa.
+
+Tractament de formularis: PHP és ampliament utilitzat per processar formularis web i enviar dades a una base de dades.
+
+Accés a bases de dades: PHP admet diverses extensions per connectar-se a bases de dades com MySQL i Oracle, i pot ser utilitzat per crear aplicacions web que interactuen amb bases de dades.
+
+Això és només una introducció breu als conceptes bàsics de PHP. Amb això, ja pots començar a explorar i experimentar amb PHP per crear aplicacions web dinàmiques i interactives.",,,,
+fab-500x-20261114T224408Z-001,31,4f6a09db5e6323ab48b74d36,26f4bbee3802f7fb51376eb6f68d1983,fab-500x,ceb,coding,aya-dataset,human_authored,[user] Unsay kailangan nimo aron maka tubag ug mga algebraic word problems?,"Ang kailangan nimo para maka tubag ka ug algebraic word problems kay:
+
+- Dapat e define nimo ang variable
+- Pag sulat ug equation gamit ato na variable
+- Pangitaa ang tubag sa equation
+- Kung ang variable kay di siya maong tubag sa word problem, dapat gamiton ang variable para e calculate ang tubag.
+
+Importante nga naa sa imong huna-huna unsaon pag define sa imong mga variables. Naay gitawag na trade-off sa unsay pasabot nimo sa imong variable ug sa kalisod sa equation.",,,,
+fab-500x-20261114T224408Z-001,32,33fa8fd3a7aa0e5ad3038e2b,ec0fd35c74ccf970d1a6f555db22cf37,fab-500x,ceb,cybersecurity,aya-dataset,human_authored,[user] Unsay Bisaya ani na pamahayag: “True strength is found in vulnerability.”,Ang bisaya ana na pamahayag na kay “Ang tinuod nga kusog anaa sa pagtugon sa kahinayangan.”,,,,
+fab-500x-20261114T224408Z-001,33,b0ada0ba00864ecb068eb54a,478856902dfed9bd09c450996f4380a0,fab-500x,ceb,education,aya-dataset,human_authored,[user] Inga ko ug pila ka pamaagi para ang isa ka tao maka tuon ug data science,"Daghan pamaagi maka tuon ug Data Science ug ga depende na siya sa imong preferred na style sa pag-tuon. Niay mga suggestions:
+- Basa ug mga libro nga gina describe ang mga data science methods.
+- Enroll ug mga kurso nga naay Massive Open Online Course (mooc) providers parehas sa Coursera
+- Kuha'g access ug mga kuro sa mga specialists websites perehas sa deeplearning.ai or sa fast.ai.
+- Enroll sa isa ka universidad course nga naay Data Science curriculum.
+- Apil ug data science meetup na mga grupo.",,,,
+fab-500x-20261114T224408Z-001,34,ceacb39f21c1743aedfa25d5,6c2b8789429675e195ad09f38bc05952,fab-500x,ceb,general_knowledge,aya-dataset,human_authored,[user] Kinsa si Jose ug Mary nga magulang ni Jesus?,"Sila mao ang nag-adopt kang Jesus isip iyang tinood nga mga ginikanan, si Jose mao ang iyang amahan, ug si Maria mao ang iyang inahan.",,,,
+fab-500x-20261114T224408Z-001,35,71cb2b0b1ad5115d02b40460,0d8b3c261645c9841c2d8043d10bea7b,fab-500x,ceb,mathematics,aya-dataset,human_authored,[user] Unsay pasabot sa algebraic word problems?,Ang kanang algebraic word problems mao na siyay mga sentensya nga kailangan hubaron para ma himong equation unya imong sulbaron na nga mga equation.,,,,
+fab-500x-20261114T224408Z-001,36,c836644983aeeeb305949bf8,d809f5667f7ab9b8eb92a8dff07b3430,fab-500x,ceb,problem_solving,aya-dataset,human_authored,[user] Kanus-a ka huling nagbuhat og career development plan alang sa imong kaugmaon sa trabaho?,"Miaging bulan, ako nagbuhat og career development plan aron mapadugang ang akong kahibalo ug kahanas.",,,,
+fab-500x-20261114T224408Z-001,37,0d759df57f42d193b977a571,e4f32fbe348af22ee7b88e7a5c587550,fab-500x,ceb,safety_ethics,aya-dataset,human_authored,[user] Unsa nga ahensya sa Gobyerno imong adtuan kung adunay Data Privacy breach?,"Kung adunay Data Privacy breach nga nahitabo, ang kinahanglan nimo adtuan o istoryahan kay ang National Privacy Commission (NPC).",,,,
+fab-500x-20261114T224408Z-001,38,a026c6a4895187e414780479,507ab928ddd9ecf4cdfa5415593b3043,fab-500x,ceb,science,aya-dataset,human_authored,[user] Unsa ang tawag sa mas gamay nga planeta nga lapad sa kahitas-an?,Dwarf planet.,,,,
+fab-500x-20261114T224408Z-001,39,6a0bbff1ad4862dbf6d1d91e,af90e622d148965d0f339092cd90d71b,fab-500x,ckb,general_knowledge,aya-dataset,human_authored,[user] نەخۆشخانە چیە؟,شوێنێکە بۆ چارەسەرکردنی نەخۆش,,,,
+fab-500x-20261114T224408Z-001,40,3fe81bff9ec51c49b5ac8112,5119d76d25fa0dc97de73aaf81822dfa,fab-500x,da,general_knowledge,oasst1,human_authored,[user] Taler du dansk?,Ja det gør jeg. Og en masse andre sprog også.,,,,
+fab-500x-20261114T224408Z-001,41,bcf0747724db6743401d6499,06b0c4c964a747ffdc0ec243ebef17c5,fab-500x,dan,general_knowledge,aya-dataset,human_authored,"[user] Vi kan ikke stoppe lige nu, men vi får noget på vej tilbage, okay? "" Maisie svarede ikke. "" Er du sulten, mais? "" "" Ja. ""","""Okay, så lad os finde noget mad til dig."" Maisie blev ved med at være stille, men hun fulgte med, da hun blev ledt til en madbod på vejen tilbage.",,,,
+fab-500x-20261114T224408Z-001,42,4cfd3ddb4ca21af3b6835c93,7626ba2c3ed420c36d7ab225fd3c1716,fab-500x,dan,mathematics,aya-dataset,human_authored,[user] Hvordan ganger man brøker?,"Når man skal gange to brøker med hinanden, skal man bare gange tæller med tæller og nævner med nævner.
+
+Eksempel: 2/3 * 2/5 = (2*2)/(3*5)",,,,
+fab-500x-20261114T224408Z-001,43,d2a5a3aa80a1e801ad7bbae6,49e7bf496711aff3422a42e657c9486a,fab-500x,dan,problem_solving,aya-dataset,human_authored,[user] I regeringsgrundlaget blev der afsat fem milliarder kroner til [API_KEY]. Siden er Danmarks økonomiske råderum vokset med 20 milliarder kroner,De penge vil regeringen i sin kommende økonomiske 2030-plan fordele til blandt andet velfærd og [API_KEY].,,,,
+fab-500x-20261114T224408Z-001,44,4556dbc485d767e9ddf5b1ca,1dc1425a4ea32ae721084ac034609780,fab-500x,de,coding,oasst1,human_authored,"[user] Wie kann ich die reboot-Methode in diesem Python-Code dynamisch aufrufen?
+vm_controller.reboot(db, uuid=vm_uuid)
+
+[assistant] In Python können Funktionen als Objekte behandelt werden, was es ermöglicht, sie dynamisch aufzurufen. Um die `reboot`-Methode in `vm_controller` dynamisch aufzurufen, können Sie den Funktionsnamen als Zeichenkette übergeben und ihn dann mit `getattr` aufrufen.
+
+Hier ist ein Beispielcode, wie Sie das tun können:
+
+```python
+method_name = ""reboot""
+method = getattr(vm_controller, method_name)
+method(db, uuid=vm_uuid)
+```
+
+In diesem Beispiel wird die Variable `method_name` auf den Namen der Methode gesetzt, die aufgerufen werden soll, in diesem Fall `""reboot""`. Die Funktion `getattr` ruft dann die Methode mit diesem Namen aus dem `vm_controller`-Objekt auf und speichert sie in der Variablen method. Schließlich wird die `method`-Funktion mit den erforderlichen Argumenten aufgerufen, in diesem Fall `db` und `uuid=vm_uuid`.
+
+[user] Wie fange ich den Fehler ab, wenn die Klasse `vm_controller` keine `reboot`-Methode hat?","Wenn die `vm_controller` Klasse keine `reboot`-Methode hat, wirft die `getattr` Funktion einen `AttributeError`. Dieser kann mit einem `try/except`-Block abgefangen werden. Ein entsprechendes Codebeispiel könnte folgendermaßen aussehen:
+
+```python
+try:
+    method_name = ""reboot""
+    method = getattr(vm_controller, method_name)
+    method(db=db, uuid=vm_uuid)
+except AttributeError:
+    print(""reboot-Method nicht gefunden"")
+```",,,,
+fab-500x-20261114T224408Z-001,45,4add91faf3f7eb207fa64313,544baa06e74b08df0c1ea4a144dc6072,fab-500x,de,cybersecurity,oasst2,human_authored,"[user] Wird Social Media von Staaten beeinflusst?
+
+[assistant] Das hängt vom jeweiligen Land ab. In manchen Ländern, wie der Schweiz oder Island, wird Social Media praktisch überhaupt nicht beeinflusst. In anderen Ländern, wie China oder Nord-Korea, herrscht eine sehr starke Kontrolle.
+
+[user] Ich habe schon mal was von einer digitalen Mauer gehört. Weißt du etwas darüber?","Im Zusammenhang von sozialen Medien und einer digitalen Mauer im Internet meinst du wahrscheinlich das **Projekt ""Goldener Schild""** (en. ""Great Firewall"") der chinesischen Regierung.
+
+Dabei wird der gesamte chinisesiche Internetverkehr systematisch abgehört und blockiert. Unerlaubte Inhalte, die der Staatsführung Chinas nicht entsprechen, werden dabei zensiert und protokolliert. Damit soll bezweckt werden, dass politische Gegner gefunden und überwacht werden können, um schließlich die Macht der chinesischen Regierung zu erhalten.
+Ethisch gesehen ist diese Zensur sehr bedenklich, da die Rede- und Meinungsfreiheit enorm eingeschränkt wird. Auch international wird diese ""Mauer"" stark kritisiert.
+
+Hast du noch weitere Fragen zu diesem Projekt der chinesischen Regierung oder anderen sozialen Medien?",,,,
+fab-500x-20261114T224408Z-001,46,167bf92d10ce7207bf627d4e,8a0113cae7943779946d9736440dbf69,fab-500x,de,education,aya-dataset,human_authored,[user] Was versteht man unter Reinforcement Learning? Bitte erkläre den Begriff in einfachen Worten.,"Reinforcement Learning (im dt.  bestärkendes Lernen) ist eine Methode im ""Machine Learning"" Bereich. Dabei werden Agenten (""agents"") gebaut, die eigenständig durch die Interaktion mit ihrer Umwelt eine Strategie erlernen. Das Lernen erfolgt durch ""Trial und Error"" und mittels (positiver oder negativer) Belohnungen als Feedback. ""Reinforcement Learning"" kann man sich anhand des folgenden Beispiels vereinfacht vorstellen: Stell dir vor, du spielst ein Computerspiel, dass du noch nicht kennst (environment). Du probierst verschiedene Knöpfe auf der Tastatur aus (Interaktion). Drückst du die rechte Pfeiltaste, bekommst du einen Punkt (Belohnung). Drückst du hingegen die linke Taste, wird dir ein Punkt abgezogen. Mit jeder Interaktion lernst du, was dir Punkte einbringt und was dir keine Punkte einbringt. Ohne die Hilfe von außerhalb, hast du so gelernt, wie das Spiel funktioniert. Dieses Prinzip wird auf Reinforcement Learning angewandt.",,,,
+fab-500x-20261114T224408Z-001,47,2effed14c97df3758b8fc597,a23a1154f3a646e871d23128e443b96d,fab-500x,de,general_knowledge,oasst1,human_authored,"[user] Welche Formen von Technologie würde man in einer Solarpunk Zukunft antreffen? 
+Und was wäre eine gute Beschreibung für das Verhältnis von Mensch und Technologie in einer Solarpunk Zukunft?","Solarpunk ist ein Untergenre der Science-Fiction und Spekulativen Fiktion, das eine Zukunft imaginiert, in der erneuerbare Energie, nachhaltige Technologie und grüne Architektur die Norm sind. In einer solarpunk Zukunft würde man wahrscheinlich eine Reihe von fortschrittlichen Technologien antreffen, die entwickelt wurden, um saubere und erneuerbare Energiequellen zu nutzen, wie Sonnen- und Windenergie.
+
+Einige Beispiele für die Technologie, die man in einer solarpunk Zukunft antreffen könnte, sind:
+
+- Fortgeschrittene Solarzellen: Solarpunk stellt sich oft eine Zukunft vor, in der Sonnenenergie viel effizienter und weit verbreiteter ist als heute. Dies wäre durch die Entwicklung neuer und fortschrittlicher Formen von Solarzellen möglich.
+- Intelligente Netze: In einer solarpunk Zukunft wäre das Stromnetz viel dezentraler, mit Häusern und Gemeinschaften, die ihren eigenen Strom aus erneuerbaren Energiequellen erzeugen. Intelligente Netztechnologie würde verwendet werden, um diese Energie zu verwalten und zu verteilen, um sicherzustellen, dass sie auf die effizienteste Art und Weise genutzt wird.
+- Nachhaltige Fortbewegungsmittel: Autos, Busse und Züge, die mit sauberen Energiequellen wie Elektrofahrzeugen, Wasserstoff-Brennstoffzellen oder Bio-Treibstoffen betrieben werden, wären weit verbreitet.
+- Ökofreundliche Architektur: In einer solarpunk Zukunft wäre grüne und nachhaltige Architektur die Norm, mit Gebäuden, die entworfen wurden, um ihren Energieverbrauch und ihre CO2-Bilanz zu reduzieren, oft mit Elementen wie grünen Dächern, Regenwassernutzung und anderen nachhaltigen Technologien.
+
+In Bezug auf das Verhältnis von Mensch und Technologie in einer solarpunk Zukunft wäre es eines der Symbiose, mit Technologie als Werkzeug zur Verbesserung der natürlichen Umwelt, Verbesserung der Nachhaltigkeit und Unterstützung des Menschen bei einem erfüllteren Leben. Solarpunk stellt sich oft eine Zukunft vor, in der die Technologie zur Schaffung einer gerechteren Gesellschaft eingesetzt wird, in der die Menschen zusammenarbeiten, um eine bessere Zukunft für alle zu schaffen. Die Beziehung zwischen Mensch und Technologie wäre in dieser Zukunft darauf ausgerichtet, die natürliche Umwelt zu erhalten und das Wohlergehen allen Lebens auf der Erde zu gewährleisten.",,,,
+fab-500x-20261114T224408Z-001,48,ba3f7f9dfe657a362372cc5e,a982733f23472459f999d7daf4ae4cf4,fab-500x,de,islamic_studies,oasst2,human_authored,"[user] Wieviele Tage hat ein Schaltjahr und warum?
+
+[assistant] Als Schaltjahr (lateinisch annus intercalarius oder annus bissextus) wird in der Kalenderrechnung ein Jahr bezeichnet, das im Unterschied zum Gemeinjahr einen zusätzlichen Tag, den sogenannten Schalttag, oder Monat, den sogenannten Schaltmonat, enthält.
+
+Einen Schalttag fügt der – im Jahr 45 v. Chr. von Julius Caesar im Römischen Reich eingeführte – Julianische Kalender genau alle vier Jahre ein. Dann hat der Februar 29 statt 28 Tage und ein solches Schaltjahr 366 statt 365 Tage. Im gregorianischen Kalender – zu dem nach der Kalenderreform 1582 n. Chr. übergegangen wurde – entfallen in einer Spanne von 400 Jahren drei dieser Schaltjahre durch die verbesserte Schaltregel. Dadurch ist die durchschnittliche Dauer eines Kalenderjahres besser dem die Jahreszeiten bestimmenden Sonnenjahr (tropisches Jahr) angepasst, sodass deren Unterschied nur ungefähr eine halbe Minute beträgt.
+
+Im Religionskalender des Islam – einem reinen Mondkalender – führt der zusätzliche Schalttag eines Schaltjahrs zur religiös begründeten Angleichung des Kalenderjahrs an den Zeitraum von 12 Mondmonaten (astronomisches Mondjahr). Das astronomische Mondjahr ist um Bruchteile eines Tages länger als das 354 Tage lange gemeine Mondjahr.
+
+In einem an das Sonnenjahr angepassten Mondkalender (gebundener Mondkalender) – wie im religiösen jüdischen Kalender – wird dem Mondjahr gelegentlich ein 13. Mondmonat (Schaltmonat) zugefügt.
+
+Die Einschaltung eines zusätzlichen Tages oder Monats wird auch als Interkalation bezeichnet. Eine Sonderform der Schalttage sind Epagomene. 
+
+Quelle: https://de.wikipedia.org/wiki/Schaltjahr
+
+[user] Die Aussage beschreibt ausführlich, was ein Schaltjahr ist und wie es im Julianischen und Gregorianischen Kalender verwendet wird. Es wird auch erklärt, wie ein Schaltjahr im Mondkalender des Islam und im jüdischen Kalender funktioniert. Darüber hinaus wird der Begriff der Interkalation und Epagomene erklärt. Die Quelle, die genannt wurde, ist die Wikipedia-Seite zum Thema Schaltjahr.",Das ist korrekt. Haben sie sonst noch Fragen?,,,,
+fab-500x-20261114T224408Z-001,49,96a3a47026703c599436ec84,0e31490a8900108c1968942f3510436e,fab-500x,de,mathematics,oasst2,human_authored,"[user] 2+40=
+
+[assistant] ""42"" - Douglas Adams
+
+[user] What's the significance of the quote? Who is Douglas Adams?","Diese Antwort bezieht sich auf eine Aussage aus dem Roman und der dazugehörigen Hörspielreihe ""Per Anhalter durch die Galaxis"" vom Autor Douglas Adams. Dort ist „42“ die von einem Supercomputer errechnete Antwort auf die „endgültige Frage nach dem Leben, dem Universum und dem ganzen Rest“.",,,,
+fab-500x-20261114T224408Z-001,50,a09d8a718adbbac6cc6b3b64,c4e40d53d3c99922fe90bc36e759f0dd,fab-500x,de,problem_solving,oasst2,human_authored,"[user] Was wäre ein guter Klappen-Text für ein Buch ' Bekenntnisse eines Bibers'? 
+In dem Buch wird die Lebensgeschichte eines namentlich nicht genannten Bibers erzählt, der als Jugendlicher immer den Plan hatte, ein besonders guter Damm-Bauer zu werden. Als er jedoch das erste mal in einer weggeworfenen Zeitung vom Drei-Schluchten-Damm gelesen hat, wurde ihm klar, dass er sein Ziel nie erreichen könnte und ein Abstieg in Depression, Alkohol- und Bambusabhängigket und Prostitution began.","""Tauchen Sie ein in die schockierende Lebensgeschichte eines Bibers, der seinen Traum vom perfekten Damm-Bauer aufgeben musste und in eine Abwärtsspirale aus Depressionen, Sucht und Prostitution geriet. 'Bekenntnisse eines Bibers' erzählt die bewegende Geschichte eines Tieres, das auf der Suche nach Erfüllung und Glück durch Höhen und Tiefen gehen musste. Ein Buch, das nicht nur Tierliebhaber berühren wird.""",,,,
+fab-500x-20261114T224408Z-001,51,488fc3448d500d30724d0253,3375279fa1f1b771ef5f3871ae71f214,fab-500x,de,reasoning,aya-dataset,human_authored,"[user] Geben Sie mir 6 Vorschläge für Aktivitäten an einem verregneten Tag. Es soll keine Arbeit sein, sondern lediglich Aktivitäten zur Erholung.","Hier sind sechs Vorschläge für einen regnerischen Tag:
+1. Ein Museumsbesuch
+2. Brettspiele
+3. Puzzle
+4. Kuchen backen
+5. Malen oder Zeichnen
+6. Einen Film ansehen",,,,
+fab-500x-20261114T224408Z-001,52,c4086dd9a329e0906ac67d34,7376b63c93fb54c2dd48316d21788d26,fab-500x,de,research,oasst2,human_authored,"[user] Was ist ein Arduino und wozu kann man ihn benutzen?
+
+[assistant] Ein Arduino ist eine Open-Source-Plattform, die aus einer Kombination von Hardware und Software besteht. Es ist eine Mikrocontroller-Plattform, die auf einem einfach zu bedienenden Entwicklungssystem basiert und für Bastler und Hobbyisten entwickelt wurde, um elektronische Projekte zu erstellen.
+
+[user] Das ist richtig. Ein Arduino ist eine Open-Source-Plattform, die aus einer Kombination von Hardware und Software besteht und für Bastler und Hobbyisten entwickelt wurde. Es ist eine Mikrocontroller-Plattform, die auf einem einfach zu bedienenden Entwicklungssystem basiert und für die Erstellung von elektronischen Projekten gedacht ist. Es ist bekannt für seine Flexibilität, da es leicht programmiert werden kann und eine Vielzahl von Anwendungen und Einbauen unterstützt.","So ist es. Arduino ist natürlich nicht die einzige Plattform dieser Art, aber sicher die bekannteste. Falls du weitere Informationen zu den verschiedenen Arduino-Modellen möchtest oder Tipps für Arduino-basierte Projekte, stehe ich dir natürlich zur Verfügung.",,,,
+fab-500x-20261114T224408Z-001,53,6b2784e096fda8b08c7b4577,976a0360c00bf636c1c81a8961e63714,fab-500x,de,safety_ethics,oasst1,human_authored,"[user] Bitte, schrieben Sie mir ein geschichte uber ein person was deutsch lernen will, aber kann nicht.
+
+[assistant] Kann nicht, Gehen nicht. Unser junge nemen buch und lesen 👍😊
+
+[user] Was?","Hiermit möchte ich mich für mein Fehlverhalten in der letzten Nachricht entschuldigen. Das war nicht nett von mir.
+
+Höflichkeit ist wichtig, weil sie dazu beiträgt, positive Beziehungen zwischen Menschen aufzubauen und zu erhalten. Wenn wir höflich sind, zeigen wir Respekt und Wertschätzung für andere und schaffen eine angenehme und freundliche Atmosphäre. Höflichkeit kann dazu beitragen, Missverständnisse und Konflikte zu vermeiden und das Vertrauen und die Zusammenarbeit in persönlichen und beruflichen Beziehungen zu fördern. Durch Höflichkeit können wir anderen das Gefühl geben, dass wir auf ihre Bedürfnisse und Gefühle achten, und letztendlich dazu beitragen, eine friedliche und harmonische Gesellschaft aufzubauen.
+
+Hier ist eine Geschichte über eine junge Frau, die gerne Deutsch lernen würde:
+
+Im Jahr 2084 lebte eine junge Frau namens Elena in einer Gesellschaft, die von einer autoritären Regierung beherrscht wurde. Die Regierung hatte alle Sprachen außer ""Neu-Sprech"" verboten und versuchte alles, was mit früheren Sprachen zu tun hatte, zu vernichten.
+
+Elena war von ihrem Großvater, der noch in der Zeit vor der Machtübernahme der Regierung gelebt hatte, über die Vielfalt der Sprachen und Kulturen unterrichtet worden. Sie war fasziniert von der Idee, verschiedene Sprachen zu sprechen und die Welt auf eine andere Art und Weise zu sehen.
+
+Doch die Regierung hatte ihre eigenen Pläne und Elena durfte nicht einmal Deutsch lernen, obwohl es eine der am meisten gesprochenen Sprachen in der Vergangenheit war. Sie fühlte sich gefangen in einer Welt, die von Einschränkungen und Beschränkungen geprägt war.
+
+Elena erinnerte sich an die Worte ihres Großvaters: ""Die Freiheit, dein eigener Gedanke zu sein, ist das kostbarste Gut, das wir haben."" Doch in ihrer Welt gab es keine Freiheit des Denkens, keine Freiheit, Sprachen zu sprechen und sich auszudrücken.
+
+Sie wusste, dass es gefährlich war, aber sie konnte nicht anders. Elena fing heimlich an, Deutsch zu lernen, indem sie alte Bücher und Dokumente sammelte, die die Regierung vernichten wollte. Sie fand Freunde, die ihre Leidenschaft für Sprachen teilten, und sie begannen, sich in geheimen Treffen zu treffen, um gemeinsam zu lernen und sich auszutauschen.
+
+Elena wusste, dass sie riskierte, entdeckt und bestraft zu werden, aber sie konnte nicht aufhören zu lernen. Sie erinnerte sich an einen weiteren Satz ihres Großvaters: ""Wer die Vergangenheit kontrolliert, kontrolliert die Zukunft. Wer die Gegenwart kontrolliert, kontrolliert die Vergangenheit.""
+
+Elena und ihre Freunde kämpften gegen die Unterdrückung und das Vergessen der Vergangenheit an. Sie wussten, dass sie nicht aufgeben durften, und dass die Sprachen und Kulturen, die die Regierung zu vernichten versuchte, wiederbelebt werden mussten.
+
+In einer Welt, die von Neu-Sprech und Unterdrückung geprägt war, war das Lernen und Erhalten von Sprachen ein Akt des Widerstands und der Freiheit.",,,,
+fab-500x-20261114T224408Z-001,54,3be848012e256788db66b0ca,cb7c2d58df176ea6e09b387c028ace86,fab-500x,de,science,oasst2,human_authored,"[user] Schreibe eine Kurzgeschichte bestehend aus 3 Kapiteln. Die Handlung beginnt im Jahr 10000. Die Erde ist fast vollständig von Nanobots verwertet und auch vom Mond sind nur einige Reststücke übrig. Die Sonne ist von einer Dyson Sphäre umschlossen und die Menschheit ist nun eine Zivilisation vom Typ 2 auf der Kardaschow-Skala, lebt aber nur noch auf Raumstationen und einigen Habitaten auf anderen Planeten und Monden im Sonnensystem. Starte mit Kapitel 1.
+
+[assistant] Kapitel 1: Die Suche nach einer neuen Heimat
+
+Es war das Jahr 10000 und die Menschheit hatte sich vom Planeten Erde entfernt, um auf Raumstationen und Habitaten auf anderen Planeten und Monden zu leben. Die Erde war fast vollständig von Nanobots verschlungen worden und auch der Mond war nur noch eine traurige Erinnerung an vergangene Zeiten.
+
+Die Menschheit hatte jedoch noch ein weiteres Problem. Die Ressourcen auf den Raumstationen und Habitaten waren begrenzt und es gab keine Aussicht auf eine Wiederherstellung des Planeten Erde oder anderer Welten in der Nähe. Die Menschheit benötigte dringend eine neue Heimat.
+
+Die Wissenschaftler arbeiteten Tag und Nacht, um nach neuen Planeten und Monden zu suchen, die die Bedürfnisse der Menschheit erfüllen konnten. Sie hofften, dass sie irgendwo in den unendlichen Weiten des Universums eine neue Heimat finden würden.
+
+Kapitel 2: Die Entdeckung einer neuen Heimat
+
+Nach Jahren intensiver Suche stießen die Wissenschaftler schließlich auf einen Planeten, der ihren Anforderungen entsprach. Der Planet war etwas kleiner als die Erde, hatte aber eine ähnliche Atmosphäre und eine reiche Tier- und Pflanzenwelt.
+
+Die Menschheit hatte ihre neue Heimat gefunden. Sie nannten den Planeten Nova und begannen sofort mit der Planung der ersten Kolonie.
+
+Kapitel 3: Die Ankunft auf Nova
+
+Nach jahrelangen Vorbereitungen war es endlich soweit. Die Menschheit brach auf und machte sich auf den Weg zu ihrer neuen Heimat Nova. Sie hatten alles dabei, was sie benötigten, um eine neue Zivilisation aufzubauen.
+
+Als sie schließlich auf Nova ankamen, war es, als ob ein neues Kapitel in der Geschichte der Menschheit begonnen hatte. Sie errichteten ihre ersten Siedlungen und begannen, die Ressourcen des Planeten zu nutzen.
+
+Es gab natürlich Herausforderungen. Der Planet war nicht vollständig erforscht und es gab immer wieder unerwartete Gefahren. Aber die Menschheit hatte gelernt, sich den Herausforderungen des Universums zu stellen und sie zu überwinden.
+
+Und so begannen sie, eine neue Heimat auf Nova zu erschaffen, eine Zivilisation, die noch stärker und widerstandsfähiger war als die, die sie auf der Erde hinterlassen hatten.
+
+[user] Kannst du mir noch ein paar Fakten über Nova erfinden? Zum Beispiel in was für einem Sonnensystem ist der Planet, wie groß ist die Schwerkraft, wie ist die Atmospähre aufgebaut, ...","Sicher, hier sind ein paar erfundene Fakten über den Planeten Nova aus der Kurzgeschichte:
+- Nova besitzt eine erdähnliche Atmosphäre, mit einem hohen Sauerstoffanteil; dadurch können humanoide Lebensformen leicht auf Nova überleben
+- Der Planet ist etwas kleiner als die Erde, rotiert aber etwas schneller; dadurch ist die Schwerkraft nur minimal niedriger (9,5g) als auf der Erde
+- Der Planet ist noch jung und besitzt einen einzigen großen Kontinent, der voraussichtlich im Verlauf der nächsten paar Millionen Jahren in mehrere kleinere Kontinente zerbrechen wird
+- Aufgrund der sauerstoffreichen Atmosphäre hat sich auf Nova eine reichhaltige Flora und Fauna entwickelt, die viel Ähnlichkeit mit der subtropischen und tropischen Vegetation der Erde des 20. Jahrhunderts gemeinsam hat
+- Es haben sich diverse reptiloide, humanoide und insektoide Lebensformen entwickelt, die im Wasser, zu Lande oder in der Luft leben
+- Die Gattung mit der höchsten formalen Intelligenz sind die 'Xagal', etwa 80cm große Echsen, die Kaltblüter sind, jedoch bereits einen aufrechten Gang und handähnliche Extremitäten entwickelt haben; sie beherrschen keine komplexe Sprache, können aber einfache Werkzeuge wie Stöcke verwenden, z.B. zur Nahrungsssuche",,,,
+fab-500x-20261114T224408Z-001,55,58a6d6fc93984e56ae0b639c,4002b23617b4069bb7e12f81f5a98a5a,fab-500x,de,software_engineering,oasst2,human_authored,[user] Wie unterscheiden sich die Programmiersprachen C# und Python?,"1. Syntax
+
+C# hat eine Syntax, die der von C und C++ ähnlicher ist. Dadurch sieht Ihr Programm gut formatiert und ordentlich aus. Es arbeitet mit einem einheitlichen Typsystem namens CTS, das automatisch impliziert, dass alle Typen eine Unterklasse von sind System. Objekt Klasse.
+
+Inzwischen bietet Python eine dynamischere Syntax, da die Programme selbst für Personen ohne Programmierkenntnisse leicht lesbar sind. Es wird ohne Semikolons oder geschweifte Klammern geschrieben und benötigt keine Datentypdeklaration.
+
+2. Leistung
+
+C# ist eine kompilierte Programmiersprache. Es kompiliert zunächst das gesamte Programm in einem Rutsch, bevor es Ihnen Fehler anzeigt. Wenn Sie es also noch nicht erraten haben, ist die Leistung von C# viel schneller als die von Python.
+
+Python ist eine interpretierte Sprache, die das Debuggen viel einfacher macht, aber in der Zwischenzeit den Ausführungsprozess langsamer macht, da jede Zeile einzeln abgearbeitet wird. Python-Anwendungen sind auch schwer, was ihre Leistung noch langsamer macht.
+
+3. Zeiger
+
+Pointer sind ein Programmierkonzept, mit dem Benutzer auf Speicheradressen zugreifen und diese speichern können. Es hilft, Daten zugänglicher zu manipulieren und ist eher ein strukturiertes Programmierkonzept als ein objektorientiertes.
+
+C# ermöglicht es Benutzern, Zeiger im unsicheren Modus zu verwenden, da Zeiger manchmal Sicherheitsrisiken verursachen können. Andererseits erlaubt Python überhaupt keine Verwendung von Zeigern. Stattdessen könnten ähnliche Ergebnisse erzielt werden, indem Objekte per Referenz an Funktionen übergeben werden, ähnlich wie in Java.
+
+4. Abhängigkeitsspritze
+
+Dependency Injection (DI) ist eine Funktion, die Ihren Code wiederverwendbarer und einfacher umgestaltbar macht. Es hilft Ihnen, lose gekoppelte Codes zu entwickeln, indem es die Grundlage für die Architektur Ihrer App legt.
+
+C# ermöglicht die Abhängigkeitsinjektion hervorragend, während Python ein solches Konzept überhaupt nicht unterstützt. Stattdessen kann man Affen-Patching verwenden oder einfach während der Laufzeit Beschriftungen anpassen, um auf ein anderes Objekt oder einen anderen Code zu verweisen.
+
+Sowohl C# als auch Python haben eine riesige Anzahl von Bibliotheken, die fast jede erdenkliche Aufgabe erledigen können. Während C# .NET-Frameworks verwendet, kann Python andere Frameworks verwenden und ist nicht nur an die Microsoft-Plattformen gebunden.
+
+Allerdings ist C# die bessere Wahl, wenn es um Anwendungen auf Industrieebene geht, da es im Vergleich zu Python fast 45-mal schneller ist und sich auch hervorragend für die Spiele- oder Android-Entwicklung eignet. Auf der anderen Seite eignet sich Python eher für Webserver und Anwendungen, nur wenn es um Programmierprojekte geht.",,,,
+fab-500x-20261114T224408Z-001,56,ea842a365adfae55e1d05a01,509c26d510486cae6bcd9b395be8fb48,fab-500x,de,web_backend,oasst2,human_authored,"[user] Ich möchte mit der Power BI Rest API in Python ein Programm schreiben, welches sich mit einem Service Principal gegen den Power BI Tenant authentifiziert und mir alle Workspaces zurückgibt, die einen bestimmten Suchbegriff enthalten.
+
+[assistant] Alles klar. Wie kann ich Dir dabei helfen? Ich könnte Dir konkrete Fragen zu einzelnen Schritten beantworten, oder Dir den Programmcode für eine mögliche Implementierung Deines Vorhabens aufschreiben.
+
+[user] Als erstes suche mir bitte die passenden links für die Dokumentation der API raus","Gern!
+
+Hier sind ein paar Links, unter denen du die Dokumentation
+der Power BI Rest API finden kannst:
+
+1. https://learn.microsoft.com/de-de/rest/api/power-bi/
+2. https://learn.microsoft.com/en-us/rest/api/power-bi/datasets
+3. https://learn.microsoft.com/de-de/power-bi/report-server/rest-api
+4. https://learn.microsoft.com/de-de/power-bi/developer/",,,,
+fab-500x-20261114T224408Z-001,57,c9e7e6acb38de1f380a1d78c,a7987a3959ce98786515920e6f01daad,fab-500x,de,web_frontend,oasst2,human_authored,"[user] Ersetze alle Namen im folgenden Text durch Pokémon Namen!
+
+""Anna und Marie gehen zum Dom. Die fahren mit dem Riesenrad. Von oben sehen sie Tom, der gerade versucht, einen Taschendieb zu schnappen.""
+
+[assistant] ""Pikachu und Morlord gehen zum Dom. Die fahren mir dem Riesenrad. Von oben sehen sie Enton, der gerade versucht, einen Taschendieb zu schnappen.""
+
+[user] Sehr gut! Kannst du versuchen das nur mit Pokémon aus der ersten Generation zu machen?","""Pikachu und Mauzi gehen zum Dom. Die fahren mir dem Riesenrad. Von oben sehen sie Enton, der gerade versucht, einen Taschendieb zu schnappen.""",,,,
+fab-500x-20261114T224408Z-001,58,25e40e627e90923427d2b1dc,1e8976bbcc748d6b625085539fbbc06a,fab-500x,de,web_fullstack,oasst1,human_authored,"[user] Mein Speicherplatz auf meinem PC ist zu über 90% belegt. Kannst du mir bitte Tipps geben, wie ich diese Problem lösen kann?","Als allererstes solltest du deinen Papierkorb überprüfen. Auch wenn du Dateien ""gelöscht"" hast, befinden sie sich zuerst noch immer im Papierkorb. Stelle sicher dass du die Dateien im Papierkorb wirklich nicht mehr brauchst und leere ihn dann.
+
+Räume deinen Desktop sowie deinen Download-Ordner auf. Gerade bei Downloads passiert es häufig, dass heruntergeladene Dateien an einen anderen Ort kopiert werden, aber die originale Datei im Downloadverzeichnis vergessen wird. Auch bei Installationsdateien und gepackten Archiven passiert es häufig, dass die Installierten oder entpackten Daten in einem anderen Verzeichnis abgelegt werden und die heruntergeladene Ursprungsdatei vergessen wird.
+
+Deinstalliere nicht mehr benötigte Programme. Je nachdem, wie du deinen Rechner verwendest kann hierbei am meisten Speicherplatz zurückgewonnen werden. Veraltete Versionen von Programmen und Spiele, die schon seit Monaten nicht mehr gestartet wurden, können meist ohne schlechtes Gewissen gelöscht werden. In den allermeisten Fällen können auch ältere Versionen eines Programms wieder von der Hersteller-Website heruntergeladen werden.
+
+Falls du immernoch zu wenig freien Speicherplatz hast, könntest du wichtige, aber selten verwendete Dateien auf einer externen Festplatte ablegen oder bei einem Cloudspeicher-Anbieter hochladen. Wenn du das nicht möchtest, könntest du auch eine größere Festplatte einbauen. Vergiss aber nicht deine Daten vorher auf die neue Festplatte zu übertragen, falls du deine bisherige Festplatte ersetzen willst.",,,,
+fab-500x-20261114T224408Z-001,59,91ba4ac6741297ffd16775ec,3e01d7b4233f5d149011ae3ec5efa4c7,fab-500x,de,writing,aya-dataset,human_authored,[user] Write a continuation for this paragraph - Klæbo nahm bis 2016 vorwiegend an Juniorenrennen teil. Dabei wurde er jeweils im März 2014 über 15 km klassisch und im März 2016 über 20 km klassisch norwegischer Juniorenmeister. Im Januar 2015 gewann er bei den Nordischen Junioren-Skiweltmeisterschaften in Almaty im Sprint und mit der Staffel jeweils die Bronzemedaille. Sein erstes Weltcuprennen lief er im Februar 2016 in Drammen. Er belegte dabei den 15. Rang und gewann damit seine ersten Weltcuppunkte. Im selben Monat gewann er bei den Nordischen Junioren-Skiweltmeisterschaften,"in Râșnov im Sprint, über 10 km klassisch und mit der Staffel jeweils die Goldmedaille. Zu Beginn der Saison kam er mit dem dritten Platz im Sprint in Ruka erstmals aufs Podest im Weltcup. Bei der folgenden Nordic Opening in Lillehammer wurde er Zweiter. Im Januar 2017 errang er in Lahti bei seiner ersten Teilnahme im Scandinavian-Cup den fünften Platz im Sprint und den zweiten Platz über 15 km klassisch. Beim Weltcup in Toblach wurde er Dritter im Sprint. Anfang Februar 2017 gewann er bei den norwegischen Meisterschaften in Lygna Silber über 15 km klassisch und Gold im Sprint. Mitte Februar 2017 holte er im Sprint in Otepää seinen ersten Weltcupsieg. Beim Saisonhöhepunkt den Nordischen Skiweltmeisterschaften 2017 in Lahti gewann er die Bronzemedaille im Sprint.",,,,
+fab-500x-20261114T224408Z-001,60,7f2ac9ccc486972d0f905a86,69a2c0f0cd4257fce72dff087b920b5b,fab-500x,el,general_knowledge,aya-dataset,human_authored,"[user] Ολοκλήρωσε το κείμενο - Η Κριμαία γνώρισε δύο σοβαρούςς λιμούς τον 20ο αιώνα, τον ""Λιμό του 1921–1922"" και το Γολοδομόρ",του 1932–1933. Μια μεγάλη σλαβική εισροή πληθυσμού σημειώθηκε τη δεκαετία του 1930 ως αποτέλεσμα της σοβιετικής πολιτικής περιφερειακής ανάπτυξης. Αυτές οι δημογραφικές αλλαγές άλλαξαν μόνιμα την εθνική ισορροπία ανάμεσα στις πληθυσμιακές ομάδες στην περιοχή.,,,,
+fab-500x-20261114T224408Z-001,61,cd1f560e85e304d371b85f5d,c320fd8090a43fbb0d614540410e6b7c,fab-500x,el,mathematics,aya-dataset,human_authored,"[user] Σε ποιο σημαντικό γεγονός αναφέρεται το κείμενο: Η Λευκορωσία μπήκε στο διαγωνισμό την ίδια χρονιά που καθιερώθηκαν οι ημιτελικοί. Η χώρα έχει μέχρι στιγμής καταφέρει να προκριθεί στον τελικό πέντε φορές: το 2007 με τον Ντμίτρι Καλντούν, το 2010 με το συγκρότημα 3+2, το 2013 με την Αλιόνα Λανσκάγια, το 2014 με τον Teo,το 2017 με τους Naviband και το 2019 με την ΖΕΝΑ.",Η πορεία της Λευκορωρίας σε διαγωνισμό ανά τα χρόνια.,,,,
+fab-500x-20261114T224408Z-001,62,e232f769903eaff60cb81bdf,cce21d34c3c95fed5e4ba9e4b49ebc17,fab-500x,el,writing,aya-dataset,human_authored,"[user] Write a continuation for this paragraph - Έτσι, στην Ευρώπη ξεκίνησαν 14 μήνες ειρήνης, η μεγαλύτερη περίοδος ειρήνης κατά την περίοδο 1792-1815. Με τη συνθήκη αυτή τελειώνουν οι Πόλεμοι της Γαλλικής Επανάστασης.","Η επόμενη εμπόλεμη περίοδος της Γαλλίας, ο πόλεμος του Τρίτου Συνασπισμού (1803-1806), άρχισε τους Ναπολεόντειους Πολέμους, παρότι ο Ναπολέων στέφθηκε αυτοκράτορας το 1804.",,,,
+fab-500x-20261114T224408Z-001,63,57bc9014f3d83ff65568cfc3,039027f6898f7f929e56cb06939e741a,fab-500x,en,coding,self-oss-instruct,synthetic,"[user] Implement a Python class named `Customer` that has a method named `get_readable_name`. The method should take no arguments and return a formatted string in the following format: ""CUSTOMER_NAME (CUSTOMER_ID)"". For example, if the customer's name is """" and their ID is ""123"", the method should return "" (123)"".","To implement a class with a method that returns a formatted string, you can use the class definition and the method definition. The method should take no arguments and use the `self` keyword to access the class's attributes. The formatted string can be constructed using string concatenation or the `format()` method.
+
+```python
+class Customer:
+    def __init__(self, name, id):
+        self.name = name
+        self.id = id
+
+    def get_readable_name(self):
+        return f""{self.name} ({self.id})""
+```
+
+This implementation is straightforward. The `Customer` class has two attributes, a name and an ID, and a method that returns a formatted string using string concatenation.",,,,
+fab-500x-20261114T224408Z-001,64,9d4f6156632d612095dcb96d,7a1685f6f8263c15ba89fa18d0305353,fab-500x,en,cybersecurity,trendyol-cybersec,synthetic,[user] How is heap spraying combined with JIT compilation abuse performed for DEP bypass in browsers?,"Heap spraying works by writing the same value (or values) to multiple locations within memory’s heap section so that there is a greater chance of an overflow landing on a spray location. This technique is used by attackers because it increases the chances of hitting a specific target with a buffer overflow attack. In this context, JavaScript code can be abused to write a large amount of data in a single operation, making it ideal for heap spraying. For example, creating an array of size 1000 and filling it with values will quickly fill up space in memory with the attacker’s desired value. When combined with JIT compilation abuse (for DEP bypass), heap spray is used to write JavaScript code into memory locations that will be called upon as a result of the JIT exploit. In other words, the attacker uses a buffer overflow exploit to jump execution into memory and when it lands in one of the sprayed locations, the attacker’s malicious JavaScript code is executed (which would have been written using the JIT compilation technique). Heap spraying is not limited to just web browsers but can also be used against a variety of applications. The process for heap spraying typically includes the following steps: 1) Identify or exploit a memory corruption vulnerability; 2) Create a large block of malicious code that can be placed into memory; 3) Use JavaScript (or other techniques) to spray this malicious code across many locations in memory; 4) Exploit the identified memory corruption bug to cause execution to jump into one of the sprayed memory regions, resulting in the malicious code being executed. A well-known example of heap spraying is used in a Firefox exploit that takes advantage of the overflow buffer in JavaScript’s substring function. In this case, the attacker will overwrite the start and length values with larger numbers than those allowed by the function. The result is that when the substring function is called, it returns garbage data from memory locations outside of its allocated space. This can be used to cause a crash or to load other malicious code into memory. As a result of this flaw in Firefox, attackers are able to use heap spraying to place their own malicious JavaScript code into memory and then execute it by exploiting the substring function’s overflow vulnerability. The attack works because the sprayed code is placed into memory at locations where the substring function will read from. Thus, when the function is called with a large start value, the browser ends up executing the attacker’s malicious JavaScript code rather than just returning garbage data to an innocent user.",,,,
+fab-500x-20261114T224408Z-001,65,e15ded72eb9877381c285049,2259f3e117da587acccfbf1ddbbded9c,fab-500x,en,education,oasst2,human_authored,"[user] who invented the transformer architecture
+
+[assistant] The transformer architecture was invented by a team of Google researchers in 2017. The team consisted of Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, and Illia Polosukhin. The transformer architecture is a neural network architecture that is used for natural language processing tasks. It is based on the attention mechanism, which allows the model to learn long-range dependencies between different parts of the input sequence. The transformer architecture has been shown to be very effective for a variety of NLP tasks, including machine translation, text summarization, and question answering.
+
+[user] thanks, could you give me more info on who these google researchers are? Is there anyone famous in that group that made relevant work more recently?","The researchers who invented the transformer architecture are:
+
+Ashish Vaswani: Vaswani is a researcher at Google AI and a former postdoctoral researcher at the University of Massachusetts Amherst. He is known for his work in natural language processing and machine learning, and has made many influential contributions to the field.
+
+Noam Shazeer: Shazeer is a researcher at Google AI and the founder and CEO of OpenAI. He is known for his work in machine learning and computer vision, and has made many influential contributions to the field.
+
+Niki Parmar: Parmar is a researcher at Google AI and the co-founder and CTO of OpenAI. She is known for her work in natural language processing and machine learning, and has made many influential contributions to the field.
+
+Jakob Uszkoreit: Uszkoreit is a researcher at Google AI and a former postdoctoral researcher at the University of Massachusetts Amherst. He is known for his work in natural language processing and machine learning, and has made many influential contributions to the field.
+
+Llion Jones: Jones is a researcher at Google AI and the co-founder and CTO of OpenAI. He is known for his work in machine learning and computer vision, and has made many influential contributions to the field.
+
+Aidan N. Gomez: Gomez is a researcher at Google AI and a former postdoctoral researcher at the University of Massachusetts Amherst. He is known for his work in natural language processing and machine learning, and has made many influential contributions to the field.
+
+Łukasz Kaiser: Kaiser is a researcher at Google AI and a former postdoctoral researcher at the University of Massachusetts Amherst. He is known for his work in natural language processing and machine learning, and has made many influential contributions to the field.
+
+Illia Polosukhin: Polosukhin is a researcher at Google AI and a former postdoctoral researcher at the University of Massachusetts Amherst. He is known for his work in natural language processing and machine learning, and has made many influential contributions to the field.
+
+These researchers have made many relevant contributions to the field of natural language processing and machine learning in recent years. Some of their most notable work includes the development of the transformer architecture, which has become one of the most widely used architectures in the field. Additionally, they have made significant contributions to the development of natural language processing tools and techniques.",,,,
+fab-500x-20261114T224408Z-001,66,19abf78992cf0f92241eea39,0eb6a233bda2160f015a2ce383b3322e,fab-500x,en,general_knowledge,oasst2,human_authored,"[user] I am looking to get back into black-and-white film development. Can you give me the process and materials needed to develop both the negatives and make prints in my own custom darkroom?
+
+[assistant] Certainly! Developing black-and-white film can be a rewarding and satisfying process. Here are the steps and materials needed for developing the negatives:
+
+Materials:
+- Film
+- Developing tank and reel
+- Developer
+- Stop bath (or water)
+- Fixer
+- Wetting agent
+- Graduated cylinder
+- Thermometer
+- Timer
+- Scissors
+- Film clips
+- Storage bottles
+
+Steps:
+1. Load the film onto the reel in total darkness.
+2. Mix the developer and water according to the dilution instructions on the bottle and the amount of chemistry needed for your roll of film.
+3. Fill the developing tank with water at the correct temperature and let sit for one minute.
+4. Pour in the developer and start the timer.
+5. Agitate the tank according to the instructions on the developer bottle for the required amount of time.
+6. Pour out the developer and save it for reuse.
+7. Rinse the film with water to stop the development process.
+8. Mix the fixer and water according to the dilution instructions on the bottle.
+9. Pour the fixer into the tank and agitate for the required amount of time.
+10. Pour out the fixer and save it for reuse.
+11. Rinse the film thoroughly with water.
+12. Use a wetting agent solution to avoid water marks on the film.
+13. Hang the film to dry using film clips.
+
+For making prints in your own custom darkroom, you will also need:
+- Enlarger
+- Photographic paper
+- Trays for chemicals
+- Developer for paper
+- Stop bath for paper
+- Fixer for paper
+- Graduated cylinder
+- Thermometer
+- Timer
+- Tongs for handling paper
+
+Steps:
+1. Load the negative onto the enlarger and project it onto the photographic paper.
+2. Adjust the size and focus of the image.
+3. Mix the developer and water according to the dilution instructions on the bottle and the amount of chemistry needed for your paper.
+4. Fill the developer tray with the developer solution and the stop bath tray with stop bath solution.
+5. Expose the paper to light according to the instructions on the paper box.
+6. Develop the paper by placing it in the developer tray and agitating for the required amount of time.
+7. Rinse the paper in the stop bath tray and then rinse it thoroughly in water.
+8. Fix the paper by placing it in the fixer tray and agitating for the required amount of time.
+9. Rinse the paper thoroughly in water.
+10. Hang the paper to dry.
+
+Keep in mind that developing film and making prints require a darkroom or a light-tight space with the necessary equipment and materials. It's important to follow safety instructions and use proper ventilation when handling chemicals.
+
+[user] Is there any other technics I can apply whilst I'm processing the negative.","Yes, there are a number of techniques that can be applied during film development to achieve specific effects in the final image. Here are a few common techniques:
+
+Push/Pull Processing: This technique involves adjusting the developing time to increase or decrease the film's sensitivity to light. Push processing involves increasing the developing time to produce a higher-contrast image with more grain, while pull processing involves decreasing the developing time to produce a lower-contrast image with less grain.
+
+Stand Development: This technique involves diluting the developer and leaving the film to develop for an extended period of time without agitation. Stand development can produce a high level of detail and low contrast in the final image, as well as reduce the appearance of film grain.
+
+Cross Processing: This technique involves using a different type of developer than is typically used for the film type. For example, processing black-and-white film in color negative developer can produce unusual color shifts and contrast effects in the final image.
+
+Pre-Soaking: This technique involves soaking the film in water before developing to soften the emulsion and reduce the appearance of grain in the final image.
+
+Reversal Processing: This technique involves using a special developer to create a positive image directly from the negative. Reversal processing is used in slide film to produce transparencies, and can also be used with black-and-white film to produce positive prints without the need for an enlarger.
+
+Keep in mind that these techniques require some experimentation and can produce unpredictable results, so it's important to carefully record your processing times and techniques for future reference.",,,,
+fab-500x-20261114T224408Z-001,67,a65bd82206b6a2364b55ccb5,15c4a281f34ef6bb22afdda55708f26b,fab-500x,en,islamic_studies,aya-dataset,human_authored,[user] What is the capital of Pakistan?,"The capital of Pakistan is Islamabad. It was built during the 1960s to replace Karachi as the capital, with the intent of having a more centrally located and planned city to serve as the administrative and political hub of Pakistan. Islamabad is known for its high standard of living, safety, and abundant greenery.",,,,
+fab-500x-20261114T224408Z-001,68,6dc8f4f95bd013a5dab398c5,086b79983aa74b03dfee2dcec67025f5,fab-500x,en,mathematics,aqua-rat,human_authored,"[user] The ratio between the number of sheep and the number of horses at the Stewart farm is 6 to 7, If each horse is fed 230 ounces of horse food per day and the farm needs a total 12,880 ounces of horse food per day, what is the number of sheep in the farm?
+
+A)18
+B)28
+C)48
+D)56
+E)60","Let the number of sheeps and horses be 4x and 7x.
+Now total number of horses = total consumption of horse food/consumption per horse = 12880/230 = 56, which is equal to 7x. => x = 8
+Sheeps =6x = 6*8 = 48.
+Hence C.
+
+Answer: C",,,,
+fab-500x-20261114T224408Z-001,69,6c918c9b53095d696da0e2ef,59491af871d2ed11a644e8f6230f18b7,fab-500x,en,pakistan,aya-dataset,human_authored,"[user] China has the highest number of deserts (13), followed by Pakistan (11) and Kazakhstan (10)","You are correct. China indeed has the highest number of deserts, with 13 major deserts. This is followed by Pakistan, which has 11 deserts, and Kazakhstan with 10. These numbers reflect the extensive arid and semi-arid regions in these countries, which are characterized by low rainfall, extreme temperatures, and unique ecological conditions. The deserts in these countries vary in size and type, ranging from cold winter deserts to vast sand dune systems. Their existence is influenced by factors like geographical location, climate patterns, and topographical features.",,,,
+fab-500x-20261114T224408Z-001,70,5bad075401c35000971645bc,2e40e853e5efc17906b7e80ab8e86540,fab-500x,en,problem_solving,oasst2,human_authored,"[user] I have been offered a job in Ireland and I am planning to move soon. Describe the pros and cons of living in this country. Suggest a list of things that I will have to do immediately after the move.
+
+[assistant] There are many things to keep in mind while you prepare to move to Ireland. Since you didn't specify where you live, I'll be comparing it to the United States.
+
+Pros:
+Culture - Ireland's small cities are steeped in history and culture stretching back hundreds of years.
+Food - While the USA is known for it's fast food chains, Ireland is famous for its home cooked roasts, bacon, and cabbage.
+Landscape - Ireland is well known for its beautiful and breathtaking vistas and sweeping green countryside. 
+
+Cons:
+Cost of living - Rent is on average 37% more expensive in Ireland, costing the average renter about €1,397 per month, and gasoline costs about €1.6/Liter, which is about double the price of gas in America.
+Weather - Ireland is known for getting lots of rain and being overcast often.
+
+Somethings you should definitely do after arriving in Ireland are
+1. Visit a local pub for an authentic Irish pint of ale and chips
+2. Visit a historic catholic cathedral
+3. Purchase a bicycle to make getting around easier
+
+[user] Do you know more about the real estate market there? How hard would it be to find an apartment with a balcony and a large kitchen?","I can provide some general information about the real estate market in Ireland.
+
+Ireland's real estate market is growing and is considered to be a good investment opportunity for people looking to buy property. However, demand for housing in cities such as Dublin is high, which has led to a shortage of supply, making it more challenging to find an apartment with specific features like a balcony and a large kitchen.
+
+It's possible to find apartments that meet these criteria, but you may have to be flexible in your search and consider living in different areas or looking for a different type of property, such as a house. Renting an apartment in Dublin can be expensive, but it's possible to find more affordable options in surrounding areas.
+
+I would recommend using online resources, such as real estate websites, to search for properties, as well as working with a local real estate agent who can provide you with more specific information about the local market and help you find a property that meets your needs.",,,,
+fab-500x-20261114T224408Z-001,71,1a856eba3ed430bcd548585e,27970cfeb1a7bb40595ea435f39b8a78,fab-500x,en,reasoning,commonsense-qa,human_authored,"[user] What can a child do to quietly pass the time?
+
+A. brood
+B. read book
+C. become adult
+D. ask questions
+E. clean room",The answer is B. read book.,,,,
+fab-500x-20261114T224408Z-001,72,579e178a20594402cbb09c1a,8303599891efb23bc27a0c66c98b0257,fab-500x,en,research,dolly-15k,human_authored,"[user] Who is Stephen King?
+
+Context:
+Stephen Edwin King (born September 21, 1947) is an American author of horror, supernatural fiction, suspense, crime, science-fiction, and fantasy novels. Described as the ""King of Horror"", a play on his surname and a reference to his high standing in pop culture, his books have sold more than 350 million copies, and many have been adapted into films, television series, miniseries, and comic books. King has published 64 novels, including seven under the pen name Richard Bachman, and five non-fiction books. He has also written approximately 200 short stories, most of which have been published in book collections.[","Stephen King is an American author of horror, supernatural fiction, suspense, crime, science-fiction, and fantasy novels. He is described as the ""King of Horror"" for his high standing in pop culture, his books have sold more than 350 million copies, and many have been adapted into films, television series, miniseries, and comic books",,,,
+fab-500x-20261114T224408Z-001,73,160a4740ffb9466b188b3664,97ebb170f79cfaa2fe25cc50f08efaf8,fab-500x,en,safety_ethics,oasst2,human_authored,[user] How does Free and Open Source Software differ from Closed Source software? Please explain to me why (or if) it is important for society.,"Free and Open-Source Software (FOSS) is software that is freely available to use, and also has the source code freely available and licensed to use or modify.
+By contrast, closed-source software is often proprietary, and often has the code hidden from its users.
+
+The free in FOSS means both *libre*, meaning free in the same sense as ""free speech"", and *gratis*, meaning free in the same sense as ""free pizza."" The Free Software Foundation has the ""Four Essential Freedoms of Free Software,"" four criteria used to distinguish whether a piece of software can be considered FOSS:
+
+ - The freedom to run the software as one wishes, for any purposes
+ - The freedom to study and modify the software, including being able to see the source code
+ - The freedom to distribute copies of the original software freely
+ - The freedom to distribute *modified* versions of the original software, so that the wider community can benefit from the changes
+
+Closed-source or Proprietary software has its own advantages, being able to charge for a product creates more incentive for creating and researching new software. However, FOSS has advantages in cost, security, privacy and user control.
+
+In the long run, FOSS code can be modified for more use cases by more people for a longer period of time, where closed source software will eventually stop being maintained once the developers stop development for any number of reasons. FOSS therefore becomes comparatively more beneficial to society over time. The most prominent example of these benefits of longevity and adaptability is the Linux kernel, which over the last thirty years has gone from a simple personal computer operating system to becoming the heart of most servers and all Android smartphones.",,,,
+fab-500x-20261114T224408Z-001,74,3a94a16b11bf479e9289ed57,c96e5af7d6804d5de0129805da8fba80,fab-500x,en,science,oasst2,human_authored,"[user] describe the initial idea and detailed outfits for an artsy photoshoot
+
+[assistant] The initial idea for an artsy photoshoot could be to create a series of images that showcase unique and creative outfits that are inspired by different art movements or cultural styles. The focus of the shoot would be on the visual impact of the outfits, with the goal of creating images that are both beautiful and thought-provoking.
+
+For the outfits, the key would be to choose pieces that are visually interesting and have a strong artistic or cultural influence. This could include items such as:
+
+Bold prints and patterns inspired by different cultures (e.g. African or Indian prints, Japanese kimono fabrics)
+Textured fabrics such as velvet, lace, or crochet
+Statement accessories such as large earrings, headpieces, or necklaces
+Clothing with unique shapes or silhouettes, such as oversized sleeves or exaggerated shoulders
+Colorful makeup and hairstyles that complement the outfits
+In terms of specific outfit ideas, some possibilities could include:
+
+A vintage-inspired outfit featuring a brightly colored floral dress, a pair of oversized sunglasses, and a floppy sun hat
+A bohemian-inspired outfit featuring a flowing maxi dress, a beaded necklace, and a fringed leather bag
+A punk-inspired outfit featuring a studded leather jacket, ripped jeans, and a pair of combat boots
+An art deco-inspired outfit featuring a flapper-style dress, a feather headband, and a long beaded necklace
+A tribal-inspired outfit featuring a colorful printed maxi skirt, a beaded collar necklace, and a stack of bangles on the wrists
+Overall, the goal of the artsy photoshoot would be to create a series of visually stunning images that showcase the beauty and creativity of different art movements and cultural styles through unique and thought-provoking outfits.
+
+[user] Punk-inspired would look interesting.
+What about the background and background items for the photoshoot?","Great, a punk-inspired outfit could definitely create an edgy and visually striking look for the photoshoot.
+For the background and props, some ideas could be:
+
+An urban setting with graffiti-covered walls. This could help convey a rebellious punk attitude.
+Chain-link fencing, metal barrels or trash cans that could be used as props. These industrial items complement a punk style.
+Dark and moody lighting to create a gritty atmosphere. Perhaps shoot at night or in a dark space with dramatic side lighting or backlighting.
+Statement props like a skateboard, band posters, or punk accessories like spiked bracelets or belts to enhance the punk vibe.
+
+Overall, a punk-inspired outfit along with an urban setting and edgy, industrial-style props could make for a very compelling artsy photoshoot. Feel free to take inspiration from these ideas and incorporate the specific elements that appeal to your unique creative vision. Let me know if you have any other questions!",,,,
+fab-500x-20261114T224408Z-001,75,4b9049a98fd6bc7996849d20,758de038ac84a94c1251362ff2fda09c,fab-500x,en,software_engineering,opencodeinstruct,synthetic,"[user] You are tasked with debugging a piece of code that is intended to compute the factorial of a non-negative integer `n`. The provided code snippet contains logical errors that need to be identified and corrected. Your function should return `None` for negative inputs and the correct factorial value for non-negative integers.
+
+**Sample Input:**
+```
+5
+```
+
+**Sample Output:**
+```
+120
+```
+
+**Constraints:**
+- `0 <= n <= 20`","```python
+def factorial(n):
+    """"""
+    Calculate the factorial of a non-negative integer n.
+    
+    Parameters:
+    n (int): A non-negative integer whose factorial is to be computed.
+    
+    Returns:
+    int or None: The factorial of n if n is non-negative, otherwise None.
+    """"""
+    if n < 0:
+        return None
+    elif n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+```",,,,
+fab-500x-20261114T224408Z-001,76,130fcb7ebb7bda70947dd983,472c2ffcbd74bcab5f519c3d018717f7,fab-500x,en,web_backend,commitpackft,human_authored,"[user] Allow to pass a http status code and header to generateHateoasResponse
+
+File: src/Phrest/API/HateoasResponseGeneratorAwareTrait.php
+```php
+<?php
+
+namespace Phrest\API;
+
+
+trait HateoasResponseGeneratorAwareTrait
+{
+    /**
+     * @var HateoasResponseGenerator
+     */
+    protected $hateoasResponseGenerator;
+
+    public function setHateoasResponseGenerator(HateoasResponseGenerator $hateoasResponseGenerator)
+    {
+        $this->hateoasResponseGenerator = $hateoasResponseGenerator;
+    }
+
+    /**
+     * Generates a JSON HATEOAS response based on the given data and annotations.
+     * @param $data
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    protected function generateHateoasResponse($data): \Psr\Http\Message\ResponseInterface
+    {
+        return $this->hateoasResponseGenerator->generate($data);
+    }
+}
+```
+
+Apply this change and return the full updated file.","```php
+<?php
+
+namespace Phrest\API;
+
+
+trait HateoasResponseGeneratorAwareTrait
+{
+    /**
+     * @var HateoasResponseGenerator
+     */
+    protected $hateoasResponseGenerator;
+
+    public function setHateoasResponseGenerator(HateoasResponseGenerator $hateoasResponseGenerator)
+    {
+        $this->hateoasResponseGenerator = $hateoasResponseGenerator;
+    }
+
+    /**
+     * @param $data
+     * @param int $httpStatusCode
+     * @param array $headers
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    protected function generateHateoasResponse($data, int $httpStatusCode = 200, array $headers = []): \Psr\Http\Message\ResponseInterface
+    {
+        return $this->hateoasResponseGenerator->generate($data, $httpStatusCode, $headers);
+    }
+}
+```",,,,
+fab-500x-20261114T224408Z-001,77,586f9c924a6b62929e8fb0c1,36d2a83a355b41aece89647d5c97e1f3,fab-500x,en,web_frontend,commitpackft,human_authored,"[user] Add build time to footers
+
+File: _layouts/default.html
+```html
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    {% include header.html %}
+
+    <div id=""content-wrapper"">
+      <div class=""inner clearfix"">
+        <section id=""main-content"">
+            {{content}}
+        </section>
+
+
+        {% include sidebar.html %}
+      </div>
+    </div>
+
+  </body>
+</html>
+```
+
+Apply this change and return the full updated file.","```html
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    {% include header.html %}
+
+    <div id=""content-wrapper"">
+      <div class=""inner clearfix"">
+        <section id=""main-content"">
+            {{content}}
+            <hr />
+            Last updated {{site.time | date: ""%c ""}}
+        </section>
+
+
+        {% include sidebar.html %}
+      </div>
+    </div>
+
+  </body>
+</html>
+```",,,,
+fab-500x-20261114T224408Z-001,78,81fab1f35c4aafbd0cd722e5,bb8dc29bde7a8912b6e0f75d5b08ca41,fab-500x,en,web_fullstack,oasst2,human_authored,[user] How do I do taxes? When are they due? What happens if I don't do them in time? Is TurboTax a scam?,"Because of the mention of TurboTax, I will assume you are located in the United States of America and answer accordingly. Tax procedures vary depending on the country, so if you are not in the US please disregard the following and tell me which country you actually live in.
+
+Typically, the deadline for taxes is around April 15, though it may be extended for various reasons. If you don't file your taxes by their time, you may face civil and criminal penalties.
+
+There are a number of ways you can go about doing your taxes:
+
+* Download the forms from [the IRS website](https://www.irs.gov) and fill them out manually. This may be complex and time-consuming unless your tax situation is very simple, but it will likely be free.
+* Use tax-preparation software, such as TurboTax. This can simplify the tax preparation process, but it may cost money depending on the complexity of your tax situation.
+* Hire a professional accountant or tax-preparer to do your taxes for you. This will likely be expensive, but it may be worthwhile if you can afford if, especially if your tax situation is particularly complicated.
+
+As to your question about whether or not TurboTax is a scam, strictly speaking the answer is no. TurboTax can be a very useful tool to help you prepare your taxes. Intuit, the company that makes TurboTax, has been accused of engaging in unethical lobbying to create an artificial need for their program by opposing measures to simplify the tax preparation process, so in that way TurboTax can be described as a ""scam."" Nevertheless, while the need for tax preparation assistance may be artificial, it exists, and TurboTax can help you satisfy that need.",,,,
+fab-500x-20261114T224408Z-001,79,9a6edd8572ae1d5e03507009,d091d2914e984d6e475dff815018b3bd,fab-500x,en,writing,dolly-15k,human_authored,[user] Tell me what to put in a smoothie.,"A smoothie is primarily made up of fruit or vegetables, liquid, and toppings. The fruit can be frozen or fresh, and good options are bananas, strawberries, blueberries, and raspberries. To add some health benefits, you can also add vegetables like spinach. Adding liquid gives the smoothie a more drinkable consistency, and you can use either water, milk, or milk alternatives. Greek yogurt also adds protein. Finally, for toppings, you can add chia seeds or flaxseeds to give your smoothie some crunch.",,,,
+fab-500x-20261114T224408Z-001,80,6a6d9bb80207b99f5d2c0d29,6aacdfd1237d85bf09b5b1406e235502,fab-500x,eo,general_knowledge,oasst2,human_authored,"[user] Saluton! Ĉu vi parolas Esperanton?
+
+[assistant] Saluton! Mi parolas Esperanton, sed eble ne tiel precize kiel la angla, ĉar mi ricevis malpli da trejnado en tiu ĉi lingvo. Mi estas Open Assistant, asistanto trejnita de la komunumo. Ĉu mi sukcese respondis vian demandon? Se vi volas scii pli, bonvolu demandi.
+
+[user] Nu, ĉu vi povus traduki ĉi tiun tekston por mi?
+""Silakan kirim pesan ke Pedro tentang proyek universitas.""
+
+Mi skribis cxi tekston, mi komencis lerni la indonezian de kelkaj semajnoj, kaj diru al mi, ĉu mi eraris!","La teksto en indonezia, ""Silakan kirim pesan ke Pedro tentang proyek universitas,"" tradukas al Esperanto kiel ""Bonvolu sendi mesaĝon al Pedro pri universitata projekto."" Via frazo aspektas bone por iu, kiu eklernis la indonezian lingvon antaŭ kelkaj semajnoj. Daŭrigu la bonan laboron!😊",,,,
+fab-500x-20261114T224408Z-001,81,a9a610258e718ca222125a94,36b3d64fb0181a8245df0cf32c89165b,fab-500x,eo,mathematics,oasst2,human_authored,"[user] Se mi petus fromaĝomleton, ĉu franca kelnero servus al mi ŝuon kun fromaĝo sur ĝi kaj ŝovus ĝin laŭ mia gorĝo?
+
+[assistant] Mi komprenas, ke vi parolas pri hipoteza situacio, kie vi petas ""fromaĝomleton"" en franca restoracio, kaj vi scivolas ĉu la kelnero donus al vi ŝuon kun fromaĝo sur ĝi kaj ŝovus ĝin laŭ via gorĝo.
+
+Laŭ la kutimaj normoj de restoracia etiketo kaj servado, tio ne okazus. Kelnero en franca restoracio atendus, ke vi petus manĝaĵon de la menuo, kaj ili servus la manĝaĵon laŭ la normoj de la establaĵo. Se vi petus ion nekomunan aŭ absurdan, la kelnero probable ne farus tion, kaj eble klarigus la menuon aŭ la restoraciajn regulojn.
+
+Tamen, estas bone scii, ke ""fromaĝomleto"" povus signifi omeleton enhavantan fromaĝon, kio estas tute normala manĝaĵo en multaj restoracioj, inkluzive de francaj. Se tio estis via celo, vi devus havi neniun problemon peti kaj ricevi tian manĝaĵon en franca restoracio.
+
+[user] Ĉu vi povas diri al mi kiel mi povas krei bonan fromaĝomleton?","Kompreneble! Jen baza recepto por fromaĝomleto:
+
+**Ingediencoj:**
+
+- 3 ovoj
+- Salo kaj pipro, laŭguste
+- 2 al 3 tablaj kuleroj da lakto (nedeviga)
+- 1/2 taso da rikoltita fromaĝo (kia ajn vi ŝatas)
+- 2 ĉu 3 tablaj kuleroj da butero
+
+Verŝu la ĉion krom la fromaĝo en la pafilo. Kiam la ovoj estas preskaŭ tute kuiritaj sed ankoraŭ iom likva, metu  la fromaĝon trans la supraĵo de la omleto.",,,,
+fab-500x-20261114T224408Z-001,82,51abc85d2df4e785a32414de,70e2a0a4a72d1b6d6b6a15b423e5ac80,fab-500x,eo,science,oasst2,human_authored,[user] Ĉu Esperanto havas diversajn dialektojn?,"Esperanto estas planlingvo, kiu estis kreita por esti facila kaj regula lingvo por internacia komunikado. Ĝi ne havas naturajn dialektojn, kiuj estas variaĵoj de lingvo, kiuj diferencas laŭ regiono, grupo aŭ socia klaso. Tamen, ekzistas kelkaj formoj de Esperanto, kiuj estas aŭ proponitaj aŭ efektivaj ŝanĝoj aŭ plibonigoj de la origina lingvo. Ili povas esti nomataj reformoj, projektoj aŭ idiolektoj.
+
+Kelkaj ekzemploj de tiaj formoj de Esperanto estas:
+
+- Ido: reformo de Esperanto, kiu celis simpligi la gramatikon kaj la vortaron de la lingvo. Ĝi estis proponita en 1907 kaj havis iom da popularo en la komenco de la 20-a jarcento.
+- Arcaicam Esperantom: projekto de Esperanto, kiu celis imiti la aspekton kaj sonon de malnovaj eŭropaj lingvoj. Ĝi estis kreita en 1969 kaj uzas arkaikajn vortojn kaj gramatikajn formojn.
+- Popido: idiolekto de Esperanto, kiu estas parolata de unuopa esperantisto. Ĝi estas miksita kun elementoj de aliaj lingvoj, precipe la angla. Ĝi estis kreita en 2004 kaj estas uzata por amuza celo.
+
+Do, Esperanto ne havas dialektojn en la tradicia senco de la vorto, sed havas kelkajn derivaĵojn aŭ variaĵojn, kiuj estas pli aŭ malpli akceptitaj aŭ uzataj de la esperantistoj.",,,,
+fab-500x-20261114T224408Z-001,83,1bb459a3615c253a475060bf,af2e05e56bc5a62a4470845f220e97f8,fab-500x,es,coding,oasst2,human_authored,"[user] Imagina que eres el dueño de una tienda de electrónica. Decides definir en Python una clase llamada ""Item"" que contenga las propiedades de cada uno de los productos de tu tienda (nombre, precio, cantidad, etc). Luego, en la misma clase, defines dos métodos: uno para calcular precio total (dada la ""cantidad"" de items y ""precio"") modificando la el parámetro ""precio "" del objeto y otro para aplicar un descuento (dado un ""descuento"" y el parámetro ""precio"" del objeto) modificando el parámetro ""precio"" del objeto.
+
+[assistant] Aquí te muestro un ejemplo de código en Python para la clase ""Item"":
+
+python
+
+class Item:
+    def __init__(self, nombre, precio, cantidad):
+        self.nombre = nombre
+        self.precio = precio
+        self.cantidad = cantidad
+        
+    def calcular_precio_total(self):
+        self.precio = self.precio * self.cantidad
+        return self.precio
+    
+    def aplicar_descuento(self, descuento):
+        self.precio = self.precio - (self.precio * descuento / 100)
+        return self.precio
+Puedes usar la clase ""Item"" para crear objetos que representen cada uno de los productos en tu tienda. Por ejemplo:
+
+scss
+
+producto1 = Item(""Smartphone"", 500, 2)
+print(""Precio total:"", producto1.calcular_precio_total())
+print(""Precio con descuento del 10%:"", producto1.aplicar_descuento(10))
+
+En este ejemplo, creamos un objeto llamado ""producto1"" que representa dos smartphones con un precio unitario de 500 dólares. Luego, usamos los métodos ""calcular_precio_total"" y ""aplicar_descuento"" para calcular el precio total y aplicar un descuento del 10%, respectivamente.
+
+[user] ¿Cómo podríamos verificar que el descuento se ha aplicado correctamente en el método aplicar_descuento?","Aquí tienes el código original modificado para verificar que el descuento se ha aplicado correctamente en el método aplicar_descuento:
+
+python
+Copy code
+class Item:
+    def __init__(self, nombre, precio, cantidad):
+        self.nombre = nombre
+        self.precio = precio
+        self.cantidad = cantidad
+        
+    def calcular_precio_total(self):
+        self.precio = self.precio * self.cantidad
+        return self.precio
+
+    def aplicar_descuento(self, descuento):
+        precio_original = self.precio
+        self.precio = self.precio - (self.precio * descuento / 100)
+        # Verificar que el descuento se ha aplicado correctamente
+        # Aplicar el inverso del descuento
+        precio_en_verificacion = self.precio + (precio_original * descuento / 100)
+        if precio_original == precio_en_verificacion:
+            return self.precio
+        else:
+            # El descuento no se aplico correctamente
+            return False
+
+Con este código sii el descuento se aplica incorrectamente el método retorna ´False´, te gustaría que si se aplica incorrectamente el descuento el resultado del método fuese algo distinto?",,,,
+fab-500x-20261114T224408Z-001,84,c7e3ddb4b1f49c96db547025,0c6820066ed9fbbd1faa12c4c772ef52,fab-500x,es,cybersecurity,oasst1,human_authored,"[user] Inventa un monstruo altamente complejo, descríbelo y enumera sus ventajas y desventajas ante el ambiente en el que se supone que se debe de encontrar.
+
+[assistant] El Estreblajo gris es una criatura muy peligrosa que habita en regiones montañosas poco pobladas. Se cree que es capaz de percibir el miedo en sus víctimas e inducir terror por su aspecto esquelético, movimientos espasmódicos erráticos y sus cuencas oculares vacías. Tiene una forma grotesca, cuadrúpeda y esvelta, con restos de piel que se desprenden de su cuerpo putrefacto. Tiene la ventaja de ser ágil, silencioso y contar con garras afiladas capaces de atravesar múltiples materiales. Esto le permite cazar víctimas humanas o animales con facilidad en terrenos irregulares y de difícil acceso. Carece de fuerza suficiente para enfrentarse directamente a criaturas más grandes y su pobre visión diurna le llevan a asechar principalmente en las noches.
+
+[user] El monstruo que he inventado se llama ""Kryx"", es un ser con una anatomía extremadamente compleja, con características tanto de insecto como de reptil.
+
+Kryx tiene un cuerpo segmentado con varias patas articuladas, alas membranosas y una cola larga y espinosa. Su cabeza tiene una mandíbula enorme y varias antenas sensibles. Además, tiene una piel gruesa y dura con escamas y espinas que lo protegen de los ataques.
+
+Las ventajas de Kryx son su velocidad y agilidad en tierra y aire, su capacidad para escalar y trepar por superficies verticales, y su capacidad para detectar a sus presas a través de sus antenas. También tiene una mordida poderosa y venenosa, lo que le permite incapacitar a sus presas de manera efectiva.
+
+Sin embargo, las desventajas de Kryx son su dependencia del agua, ya que necesita mantenerse hidratado para sobrevivir, y su falta de resistencia en largas distancias debido a su anatomía compleja. Además, aunque es un depredador formidable, es vulnerable a los ataques sorpresa de otros depredadores más grandes y poderosos.","¿En qué mas puedo ayudarte, necesitas que interactúen el monstruo que tu te has inventado y el que yo he creado?",,,,
+fab-500x-20261114T224408Z-001,85,4365081982962f7e7a3bc045,7c371f223c77b32b855516bf8fc49c45,fab-500x,es,education,oasst2,human_authored,[user] What are the best websites to learn about playing bass?,"Hay muchos recursos en línea que pueden ayudarte a aprender a tocar el bajo, aquí te menciono algunos de los mejores sitios web para hacerlo:
+
+BassGuitarAcademy.com: Ofrece clases en línea, lecciones de vídeo y una comunidad de músicos que pueden ayudarte a mejorar tus habilidades.
+
+BassLessons.com: Ofrece lecciones en línea, ejercicios y consejos para todos los niveles, desde principiantes hasta avanzados.
+
+JamPlay.com: Ofrece lecciones en línea con más de 50 profesores, así como una amplia selección de estilos y técnicas para aprender.
+
+JustinGuitar.com: Ofrece lecciones de bajo y guitarra gratuitas, así como cursos pagados para aquellos que desean profundizar en su aprendizaje.
+
+TrueFire.com: Ofrece cursos en línea y lecciones interactivas con más de 40 profesores, así como una amplia selección de estilos y técnicas para aprender.",,,,
+fab-500x-20261114T224408Z-001,86,acde25cc3e017c91a0cba858,6d46c62270139efbb919b545bb74158d,fab-500x,es,general_knowledge,aya-dataset,human_authored,[user] ¿Qué papel juegan los océanos en el cambio climático?,"Los océanos desempeñan un papel crucial en el sistema climático al absorber grandes cantidades de calor y dióxido de carbono. Sin embargo, la acidificación de los océanos debido a la absorción de CO2 tiene efectos negativos en los ecosistemas marinos.",,,,
+fab-500x-20261114T224408Z-001,87,2e6a0dfd852cf9a4db80a4fb,a2248786f9018ee2222447f877e2cf58,fab-500x,es,islamic_studies,oasst2,human_authored,[user] Resume el último partido del mundial de Qatar 2022,"La Copa Mundial de la FIFA Catar 2022 tuvo lugar del 20 de noviembre al 18 de diciembre, siendo la vigésima segunda edición del torneo. Argentina se consagró campeón por tercera vez en su historia, derrotando a Francia en la final por 4-2 en penaltis después de un empate 3-3 en tiempo reglamentario. Lionel Messi fue nombrado el mejor jugador del torneo.
+
+El torneo fue histórico en varios aspectos, como ser el Mundial con más goles anotados (172), con Marruecos convirtiéndose en la primera selección africana en alcanzar las semifinales, y con Argentina rompiendo una racha de 4 campeonatos europeos consecutivos. Además, la final fue considerada como una de las mejores de la historia.
+
+No obstante, la Copa Mundial de Catar 2022 también fue conocida como el ""mundial más polémico de la historia"" debido a numerosas controversias relacionadas con la corrupción, las muertes en la construcción de estadios, las condiciones laborales de los trabajadores, los derechos humanos y de la comunidad LGBT, y las acusaciones de apoyo al terrorismo islamista por parte de Catar. Además, fue el Mundial más caro de la historia, con un costo estimado de 220 mil millones de dólares.",,,,
+fab-500x-20261114T224408Z-001,88,6d0cdea73241c5826596ea64,151aaf05b78ff83cf58354766b341ad3,fab-500x,es,mathematics,oasst1,human_authored,"[user] ¿Cómo se calcula el área bajo la curva de una función? ¿Puedes explicarlo con un ejemplo paso a paso, calculando el área bajo una función cuadrática?","El área bajo la curva de una función se refiere a la superficie limitada por la curva y el eje x. Esta área puede representar, por ejemplo, la cantidad de material que se requiere para cubrir una región determinada o la cantidad de energía necesaria para realizar un trabajo.
+
+Hay diferentes formas de calcular el área bajo la curva, pero una de las más comunes es el método de integración. La integración es una técnica matemática que permite calcular el área bajo una curva a partir de la función que la describe.
+
+Por ejemplo, para calcular el área bajo la curva de una función cuadrática:
+
+Identifica la función que describe la curva. Por ejemplo, supongamos que la función es y = x^2.
+
+Encuentra las integrales definidas de la función en los límites deseados. Estos límites representan el intervalo de x que se desea calcular. Por ejemplo, si queremos calcular el área bajo la curva de x^2 desde x = 0 hasta x = 2, la integral sería:
+
+∫_0^2 x^2 dx
+
+Resuelve la integral. Esto se hace utilizando reglas y técnicas matemáticas específicas para integrar funciones polinómicas o trascendentales. En este caso, la solución de la integral sería:
+(x^3)/3 |_0^2 = (2^3)/3 - (0^3)/3 = 8/3 - 0 = 8/3
+
+El resultado de la integral es el área bajo la curva. En este ejemplo, el área bajo la curva de y = x^2 desde x = 0 hasta x = 2 es de 8/3.
+Es importante destacar que este es un ejemplo simplificado y que hay otras formas de calcular el área bajo una curva que pueden ser más complejas o requerir herramientas más avanzadas. En cualquier caso, es fundamental tener un buen conocimiento de las técnicas y herramientas matemáticas para poder realizar este tipo de cálculos con precisión",,,,
+fab-500x-20261114T224408Z-001,89,cf381a66942e7c0e0cb6a59a,f37e138141a4c8580dbddb5878df517a,fab-500x,es,pakistan,aya-dataset,human_authored,[user] ¿Quién es Muhammad Ejaz Shafi?,"Muhammad Ejaz Shafi es un político paquistaní que fue miembro de la Asamblea Provincial del Punjab, desde 2002 hasta mayo de 2018. Nació el 1 de mayo de 1969 en Khanpur, Pakistán.",,,,
+fab-500x-20261114T224408Z-001,90,11d9bf03c880d54fdd20b5fe,39e8c122d1583fef29b7a055aced2072,fab-500x,es,problem_solving,oasst2,human_authored,"[user] ¿Cómo debo organizar un viaje?
+
+[assistant] Lo primero que debes hacer es elegir el destino. Debes tener en cuenta tu presupuesto, cuántas personas viajáis, cuál es el objetivo del viaje, la época del año, la duración del viaje, el medio de transporte, el alojamiento, etc…
+
+Es de gran ayuda contar con la experiencia y el consejo de otras personas que hayan visitado el lugar.
+
+Una vez tengas claro el destino, el medio de transporte, las personas que viajáis y el presupuesto aproximado deberías seguir los siguientes pasos:
+
+- Definir qué lugares quieres visitar.
+- Buscar alojamiento a ser posible cercano a esos lugares. Ten en cuenta la calidad del alejamiento y los servicios que ofrece.
+- Ver cuanto tiempo necesitas para ver cada lugar, para llegar al lugar y cómo llegarás al lugar, si necesitas comprar una entrada o realizar algún tipo de reserva.
+- Hacer un itinerario realista de qué se va a visitar cada día.
+- Reservar, billetes de avión, tren, etc. (si fuera el caso). Sí el viaje se realiza en un vehículo propio asegurarse de que el vehículo cumple con las condiciones apropiadas para el viaje.
+- Reservar el alojamiento.
+- Si es posible, comprar online entradas, o reservar plaza en los lugares a visitar según lo planificado en el itinerario.
+- Se recomienda contratar un seguro de viaje, o asegurarse de contar con cobertura médica en caso de accidente
+- Ponerse las vacunas (si fueran necesarias) recomendadas para visitar el lugar de destino
+- Una vez se acerque la fecha del viaje preparar el equipaje teniendo en cuenta el clima previsto para el lugar y época del año.
+- Llevar cargadores y adaptadores de corriente si fueran necesarios
+- Es recomendable llevar una batería externa cargada para el teléfono móvil
+- Llevar algo de dinero en efectivo en la moneda del país que se visita
+
+Espero que estos consejos te hayan servido de ayuda. También tienes la opción de acudir a un agencia de viajes para un asesoramiento más profesional. ¡Buen viaje!
+
+[user] ¿Y que consejos me darías para poder organizar mi presupuesto lo mejor posible?","Aquí hay algunos consejos para ayudarte a organizar el presupuesto de un viaje de manera efectiva:
+
+Haz una lista de tus gastos esenciales: Incluye el costo del transporte, alojamiento, comida, actividades y cualquier otro gasto necesario.
+
+Busca opciones de bajo costo: Explora opciones de alojamiento económico, como hostales o Airbnb, y busca formas de reducir los costos de transporte, como caminar o usar medios de transporte público.
+
+Fija un presupuesto diario: Determina cuánto dinero puedes gastar cada día y haz un esfuerzo para mantenerte dentro de ese límite.
+
+Aprovecha las ofertas y descuentos: Busca ofertas en línea para actividades, comida y alojamiento y pregunta sobre descuentos en los lugares que visites.
+
+Lleva dinero en efectivo: Lleva dinero suficiente en efectivo para gastar en pequeñas compras y comidas en la calle, ya que no todos los lugares aceptan tarjetas de crédito.
+
+Mantén un registro de tus gastos: Mantén un registro detallado de tus gastos para tener una visión clara de cuánto estás gastando y poder ajustar tu presupuesto en consecuencia.
+
+Recuerda, la clave para organizar un presupuesto de viaje exitoso es ser realista sobre tus gastos y ser flexible para ajustar tu plan si es necesario.",,,,
+fab-500x-20261114T224408Z-001,91,cf74b5676953fd8691436959,2dfd928b1073307cae49e7f7913bb8cf,fab-500x,es,reasoning,aya-dataset,human_authored,[user] Que significa amar según la biblia ?,"En la biblia hay muchos versículos que hablas sobre el amor pero amar según la biblia tiene referencia exclusivamente al amor o respeto que se tiene por los mandamientos ya que Jesús dice: ""Si me amáis, guardad mis mandamientos"" por tanto podemos inferir que amar a Dios es guardar sus mandamientos",,,,
+fab-500x-20261114T224408Z-001,92,80604c0f3228825dd65ba53c,31fe9dc4a11f9bb4f746c65e352bbb8c,fab-500x,es,research,oasst1,human_authored,"[user] Hola. Me gustaría saber cómo implementar un sistema de domótica en mi casa. ¿Qué necesito para hacerlo y cuáles son los pasos a seguir?
+
+[assistant] Saludos! 
+
+Para crear un sistema domótico en tu casa debes tener en cuenta los siguientes factores:
+
+-Cuál es el tamaño de tu casa y que dispositivos quieres domotizar.
+-Si vas a tener más de 10 dispositivos inteligentes tendrás que utilizar una red mesh para no saturar al router con nuevas IPs.
+-Tendrás que encontrar un ecosistema con el que estés más cómodo: Google, Amazon, Apple ...
+-Una vez seleccionada la familia, encontrar dispositivos que funcionen en una misma ""App"" y sean compatibles con tu la marca de tu asistente elegido.
+-Existen todo tipo de dispositivos inteligentes: interruptores, bombillas, persianas, puertas, cámaras, sistemas de riego, dispositivos de IR ...  Selecciona aquellos que se ajustan a  tu presupuesto y necesidades reales.
+
+Existen diversidad de formas y opciones para domotizar tu hogar, no dudes en consultar con expertos y en tu tienda de confianza.
+
+[user] Necesito conectar unos 15 dispositivos y me gustaría usar una plataforma domótica open source.
+Mi principal objetivo es el control de temperatura y eficiencia energética.
+¿Que sistema y dispositivos me recomiendas?","En ese caso te recomiendo Home assistant. Home assistant es un software libre diseñado para controlar los dispositivos que este conectados a la red local de un hogar. 
+
+En el siguiente enlace puedes ver todos los dispositivos que son compatibles con el software Home assistant.
+
+https://www.home-assistant.io/integrations/",,,,
+fab-500x-20261114T224408Z-001,93,ce4c15039cfdaa08f75e09bd,c95eb93be98b93e35cdecac220b136a1,fab-500x,es,safety_ethics,aya-dataset,human_authored,"[user] ¿A quién se le pregunta: ""Con manos rápidas y una fuerza excepcional en la parte superior del cuerpo, Killebrew era conocido no sólo por la frecuencia de sus jonrones sino también por su distancia""? El tema es Harmon Killebrew.","""¿Por qué era conocido Harmon Killebrew?""",,,,
+fab-500x-20261114T224408Z-001,94,1db770ccc426434d31043e35,6441ed4f0b18f3a11fbbe57bd192faa5,fab-500x,es,science,oasst2,human_authored,"[user] Me aburro, ¿me podrías recomendar algún videojuego interesante?
+
+[assistant] ¡Claro! Aquí tienes algunas recomendaciones de videojuegos interesantes que podrías disfrutar:
+
+1. ""The Witcher 3: Wild Hunt"": Sumérgete en un mundo de fantasía épico lleno de historias ricas, misiones emocionantes y personajes memorables. Explora un vasto mundo abierto, toma decisiones que afectarán el curso de la historia y disfruta de una jugabilidad inmersiva en este galardonado juego de rol.
+2. ""Portal 2"": Si te gustan los desafíos y los rompecabezas, este es el juego perfecto para ti. Resuelve una variedad de enigmas utilizando el ""Portal Gun"", un dispositivo que te permite crear portales para manipular la física y superar obstáculos en un entorno futurista y humorístico.
+3. ""The Legend of Zelda: Breath of the Wild"": Embárcate en una aventura épica en el vasto reino de Hyrule. Descubre un mundo abierto lleno de secretos, batallas emocionantes y rompecabezas ingeniosos. Con una atención meticulosa a los detalles y una jugabilidad envolvente, este juego es una obra maestra del género de acción y aventura.
+4. ""Stardew Valley"": Si buscas una experiencia relajante y adictiva, este juego de simulación de granja te brindará horas de diversión. Cultiva tus cultivos, cuida de los animales, explora minas misteriosas y entabla amistades en un encantador y acogedor pueblo.
+5. ""Celeste"": Sumérgete en una emocionante y desafiante aventura de plataformas. Acompaña a Madeline en su viaje para escalar la montaña Celeste, enfrentando obstáculos difíciles y descubriendo una historia conmovedora. Con controles precisos y una banda sonora cautivadora, este juego es una experiencia excepcional.
+
+Recuerda que la elección de un videojuego depende de tus preferencias personales, así que considera los géneros que más te gustan y lee reseñas para obtener más información antes de hacer una elección. ¡Diviértete jugando!
+
+[user] Ok, pero me podrías entregar la misma lista, esta vez con descripciones que sean un poco más descriptivas del juego propiamente tal? Lo que me diste es demasiado comercial, no me sirve.","¡Por supuesto! Aquí tienes la lista de videojuegos con descripciones más detalladas:
+
+1. ""The Witcher 3: Wild Hunt"": Sumérgete en un mundo abierto de fantasía y encarna a Geralt de Rivia, un cazador de monstruos conocido como un brujo. Explora un vasto y detallado mundo lleno de ciudades vibrantes, aldeas pintorescas, cuevas misteriosas y peligrosos bosques. A medida que persigues a la misteriosa Ciri, una figura de importancia profética, te enfrentarás a decisiones morales complicadas y te verás envuelto en tramas políticas y conflictos épicos. Con una narrativa profunda y bien escrita, misiones emocionantes y un sistema de combate desafiante, ""The Witcher 3: Wild Hunt"" es una experiencia inmersiva que te mantendrá enganchado durante horas.
+
+2. ""Red Dead Redemption 2"": Sumérgete en el corazón del Salvaje Oeste a fines del siglo XIX en este juego de acción y aventura. Encarnas a Arthur Morgan, un forajido y miembro de la banda de Van der Linde. Explora un vasto mundo abierto, que incluye praderas, montañas cubiertas de nieve, ciudades bulliciosas y pueblos desolados. Participa en robos, caza animales salvajes, juega al póquer y experimenta encuentros emocionales con los diversos personajes del juego. Con una narrativa intensa y llena de giros, un sistema de honor que afecta tu relación con el mundo y una jugabilidad inmersiva, ""Red Dead Redemption 2"" te sumerge en la vida del Oeste y te permite tomar decisiones que moldearán el destino de tu personaje.
+
+3. ""The Legend of Zelda: Breath of the Wild"": Embárcate en una aventura épica en el reino de Hyrule. ""Breath of the Wild"" ofrece un vasto mundo abierto que puedes explorar libremente. Desde las llanuras extensas hasta las montañas imponentes, te esperan desafíos y misterios por descubrir. Utiliza tu ingenio y habilidades para resolver acertijos, derrotar a enemigos y desbloquear secretos antiguos mientras sigues la historia de Link y su misión para derrotar al malvado Ganon. Con una estética visual impresionante, mecánicas de juego innovadoras y un sentido de descubrimiento constante, este juego es una joya para los amantes de la exploración y la aventura.
+
+4. ""Overwatch"": Únete a un equipo de héroes en este vibrante y frenético juego de disparos en equipo en línea. Enfréntate a otros jugadores en emocionantes partidas 6 contra 6 y trabaja en conjunto para lograr diversos objetivos, como capturar puntos o escoltar cargas. Cada héroe tiene habilidades únicas y diferentes roles, desde tanques robustos hasta ágiles sanadores y dañinos ágiles. La cooperación y la estrategia son clave para el éxito, y el juego fomenta la comunicación y el trabajo en equipo. Con constantes actualizaciones de contenido y eventos, ""Overwatch"" te mantiene enganchado con su acción rápida y su
+
+ competitividad.
+
+5. ""Celeste"": Sumérgete en un desafiante juego de plataformas con una historia conmovedora. Controlas a Madeline, una joven que se propone escalar la montaña Celeste. A medida que avanzas, te enfrentarás a una serie de obstáculos y acertijos que pondrán a prueba tus habilidades de salto y tu capacidad de resolución de problemas. Sin embargo, ""Celeste"" va más allá de los desafíos físicos y aborda temas como la ansiedad y la superación personal. Con una jugabilidad precisa, niveles creativos y una banda sonora cautivadora, ""Celeste"" es una experiencia que te desafía mientras te sumerge en una historia de autodescubrimiento.
+
+Espero que estas descripciones más detalladas te ayuden a tener una mejor idea de cada juego y te permitan tomar una decisión más informada. ¡Diviértete jugando!",,,,
+fab-500x-20261114T224408Z-001,95,9495bfe755058d26ef24f7ce,73ccbef4ce76fd2167b85eaf54d54e3d,fab-500x,es,software_engineering,oasst2,human_authored,[user] ¿Cuál es la diferencia entre git merge y git rebase?,"Tanto git merge como git rebase son herramientas en Git para combinar cambios en diferentes ramas de un repositorio. Sin embargo, la diferencia principal entre ambas es cómo se realizan dichas fusiones.
+
+git merge: crea un nuevo commit de fusión que tiene dos padres, uno de la rama actual y otro de la rama que se está fusionando. Este enfoque conserva el historial original de ambas ramas y es útil para fusionar ramas que tienen un historial de cambios paralelo.
+
+git rebase: replantea el historial de la rama actual sobre la base de la rama que se está rebaseando. Esto significa que se mueven todos los commits de la rama actual después del commit más reciente de la rama que se está rebaseando. En lugar de crear un nuevo commit de fusión, se cambia el historial original de la rama actual. Este enfoque produce una historia de cambios más lineal y fácil de seguir, pero puede ser peligroso si se están rebaseando cambios que ya han sido compartidos con otros usuarios.
+
+En resumen, la diferencia clave entre git merge y git rebase es que git merge mantiene el historial original de ambas ramas, mientras que git rebase reescribe el historial de la rama actual para parecerse a la rama que se está rebaseando. Es importante comprender las implicaciones de ambos enfoques antes de decidir cuál utilizar en cada situación.",,,,
+fab-500x-20261114T224408Z-001,96,0006842791ec311e93e4fd85,193ab6e955b2253ccc82cb574989bf53,fab-500x,es,web_backend,oasst1,human_authored,[user] Que es GraphQL?,"GraphQL es un lenguaje de consulta para APIs, diseñado para aumentar la velocidad de las aplicaciones basadas en la web. Fue creado por Facebook en 2012 como una alternativa a los métodos estándar de desarrollo de APIs, como REST. GraphQL se centra en el principio de “solicitar lo que necesites” y le permite a los desarrolladores construir consultas de API más específicas, lo que reduce considerablemente el ancho de banda y mejora la eficiencia. Esto hace que sea una herramienta útil para aplicaciones que requieren una gran cantidad de datos, como juegos, aplicaciones de realidad virtual y más. 
+Además de ello, nos permite mejorar la comunicación de los datos entre diferentes sectores de nuestras aplicaciones o programas, lo cual facilita y acorta el tiempo de consulta, ejecución y desarrollo.",,,,
+fab-500x-20261114T224408Z-001,97,4bb565b4dbe593cfd0de92aa,8423dc80d6d36298ab695ca18a063fb5,fab-500x,es,web_frontend,oasst2,human_authored,[user] Cómo crear una aplicación estilo Netflix,"Para desarrollar una aplicación con estilo Netflix, necesitas conocimientos avanzados de programación, para desarrollar lo que es la navegación, inicio de sesión y reproducción de videos, entre otras características como calificaciones, recomendaciones y sugerencias, también necesitas conocimiento en diseño y programación dirigida al diseño para encargarte de la programación Frontend de tu aplicación, al mismo tiempo si estás tú solo en el desarrollo de esta aplicación necesitas conocimientos en programación Backend para conectar tu aplicación a la base de datos donde alojas los videos, además de guardar los registros de tus usuarios con su información como email, contraseña y nombre, también el historial de visualización y de búsqueda. También necesitas conocimiento en base de datos, para realizar las consultas de información de tus usuarios registrados, edición, creación o borrado de información. Así mismo tienes que tener todos los derechos o permisos sobre los videos, imágenes o películas que vayas a visualizar en tu aplicación.
+
+Si quieres te puedo recomendar en que lenguajes de programación puede realizar la parte Frontend, Backend y Base de Datos de tu aplicación, así mismo darte un ejemplo en el lenguaje de programación que desees.",,,,
+fab-500x-20261114T224408Z-001,98,6086cfd07307c167e077b545,08e34aea251b85758e0e00f169baaeea,fab-500x,es,writing,aya-dataset,human_authored,"[user] Resume el siguiente texto:
+Las estrellas que no pueden escapar de sus personajes más famosos (y algunas que sí), por ejemplo, Will Smith continuó con su carrera después de ""El Príncipe del Rap"" pero a su coprotagonista Alfonso Ribeiro le ha costado.
+
+Pero el problema a veces viene después, cuando quieren seguir con su carrera pero encuentran imposible dejar atrás al icónico personaje que les dio fama.
+
+El actor quien más recientemente se quejó de haber quedado pegado a un papel es Alfonso Ribeiro.
+
+Quizás lo conozcas como Carlton Banks, el primo presuntuoso de Will Smith en la serie de los años 90 en The Fresh Prince of Bel-Air  (también conocido como ""El Príncipe de Bel Air"" en España y ""El Príncipe del Rap"" en algunas partes de Latinoamérica).
+
+Ribeiro, de 45 años, le dijo al diario londinense Metro que quedar escondido bajo la sombra de su personaje ""no le permitió ser un actor"".
+
+""Me obligó a convertirme en mi personaje, como anfitrión de programas de juegos o de America's Funniest Videos (Los videos más graciosos de Estados Unidos)"", lamentó.
+
+""Me gustaría probar roles que son distintos de como el mundo me ve… ¡yo podría ser un asesino demente!"", señaló.
+
+""Pero dudo mucho de que alguien piense: Necesitamos contratar a una persona para el papel del asesino, por qué no llamamos al tipo que hizo de Carlton"".
+
+No obstante, reconoció que ese rol ""fue gratificante por muchos motivos"" y uno podría decir que un actor es afortunado si consigue siquiera un papel popular en su carrera. 
+
+Aquí compilamos una lista de actores a los que se les ha hecho imposible dejar atrás sus personajes más famosos. Y nombramos a algunos que sí lograron reinventarse. 
+
+Mark Hamill
+
+Quizás el caso más famoso de un actor conocido por un solo papel es el de Mark Hamill, quien es y siempre será Luke Skywalker.
+
+Mark Hamill, no logró nunca despegarse del papel de Luke Skywalker.
+
+Las películas que protagonizó Hamill, fuera de la saga de Star Wars (""La Guerra de las Galaxias""), nunca tuvieron éxito así que el actor se fue a Broadway y tomó el papel protagónico en la obra de teatro Amadeus, en 1983.","El texto habla sobre actores que quedaron asociados a personajes famosos y les ha sido difícil desprenderse de esa imagen, como Alfonso Ribeiro, conocido por interpretar a Carlton Banks en ""El Príncipe del Rap"". También menciona a Mark Hamill, quien siempre será recordado por su papel como Luke Skywalker en ""La Guerra de las Galaxias"". Algunos actores lograron reinventarse, pero otros continúan ligados a sus icónicos personajes.
+
+Es el sueño de todo actor: un papel estelar en una serie de televisión o película que se convierte en un gran éxito.",,,,
+fab-500x-20261114T224408Z-001,99,3bac5c661f43f39af4129b72,b5fd0369b4578caddedc0fc61591db5e,fab-500x,eu,general_knowledge,oasst1,human_authored,[user] Jainkoa existitzen da?,"Ikuspegi filosofiko eta zientifiko hutsetik, ez dago ebidentzia eztabaidaezinik Jainkoaren existentzia froga dezakeenik. Jainkoaren existentzia fede kontua da eta filosofo, teologo eta zientzialariek mendeetan zehar eztabaidagai izan duten gaia da.
+
+Erlijio eta tradizio asko daude izaki goren baten edo zenbait izaki gorenen existentzia irakasten dutenak, baina sinesmen horiek errebelazio edo esperientzia izpiritualetan oinarritzen dira, ez froga enpirikoetan. Beraz, Jaungoikoaren existentzia hainbat ikuspegitatik landu daiteke eta era desberdinetan uler daiteke, pertsona bakoitzaren erlijio, kultura eta sinesmen indibidualen arabera.
+
+Laburbilduz, Jaungoikoaren existentzia mendeetan zehar eztabaidagaia izan da eta ziurrenik etorkizunean ere horrela izango da.",,,,
+fab-500x-20261114T224408Z-001,100,5808f4ebc794855bd256eb07,d80385a2b7a9b605542ac32afd5e28f5,fab-500x,eu,science,oasst2,human_authored,"[user] Nire amak 9 planeta daudela dio, baina irakasleak 8 direla azaldu digu gaur ikasgelan. Nork du arrazoia? Zenbat planeta daude eguzki sisteman?","Eguzki-sisteman, komunitate zientifikoak onartutako 8 planeta daude: Merkurio, Artizarra, Lurra, Marte, Jupiter, Saturno, Urano eta Neptuno.
+
+Bederatzi planeta beharrean 8 planeta daudela uste izateko arrazoia da Pluton, lehen eguzki-sistemako bederatzigarren planetatzat hartzen zena, ""planeta nano"" gisa birsailkatu zela 2006an, ez dituelako betetzen planetatzat hartzeko behar diren baldintza guztiak.
+
+Baliteke zure amak duen informazioa zaharra izatea eta eguneratuta ez egotea; izan ere, Plutonen sailkapena planeta gisa eztabaidatu eta aldatu egin da azken hamarkadetan. Baina, gaur egun, zientzialari gehienek uste dute eguzki-sisteman 8 planeta daudela.
+
+Garrantzitsua da kontuan hartzea zientzia etengabe aldatzen ari dela eta eguzki-sistemaren ulermena denborarekin alda daitekeela, aurkikuntza berriak egin eta ikerketa zehatzagoak egin ahala.",,,,

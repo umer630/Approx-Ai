@@ -1,0 +1,1091 @@
+sheet_id,row,record_id,content_hash,model,lang,domain,source,origin,prompt,answer,reviewer,verdict,issue_tags,notes
+fab-100x-20261114T224309Z-004,1,c3ebca161ce35d89413f9595,05afd95d9318e78d9f8bc7d2e2dee05d,fab-100x,es,coding,oasst2,human_authored,[user] ¿Cómo puedo crear una promesa en Javascript?,"¡Hola!
+
+Para crear una promesa en JavaScript, puedes utilizar la clase `Promise`. La sintaxis es la siguiente:
+
+```javascript
+const miPromesa = new Promise((resolve, reject) => {
+  // Aquí va el código que genera la promesa
+});
+```
+
+Dentro del constructor de la promesa, debes pasar una función que tiene dos parámetros: `resolve` y `reject`. `resolve` se utiliza cuando la promesa se cumple exitosamente y `reject` se utiliza cuando la promesa es rechazada por algún motivo.
+
+Por ejemplo, aquí hay un ejemplo de una promesa que se resuelve después de un segundo:
+
+```javascript
+const miPromesa = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('La promesa se cumplió exitosamente');
+  }, 1000);
+});
+
+miPromesa.then((resultado) => {
+  console.log(resultado);
+}).catch((error) => {
+  console.error(error);
+});
+```
+
+En este ejemplo, la promesa espera un segundo antes de cumplirse exitosamente. Después de crear la promesa, utilizamos el método `then()` para manejar el resultado exitoso y el método `catch()` para manejar cualquier error que pueda ocurrir.",,,,
+fab-100x-20261114T224309Z-004,2,5f72a3a3953d585f9e05e129,e6dc7f25a6d3047e0299b8d0422f9f44,fab-100x,es,cybersecurity,oasst2,human_authored,[user] ¿Qué es la teoría de la información cuántica y cómo se relaciona con la seguridad de la información en la computación cuántica?,"La teoría de la información cuántica es una rama de la física cuántica que se centra en la transmisión y el procesamiento de información utilizando los principios cuánticos. A diferencia de la información clásica, la información cuántica se basa en los estados cuánticos de los sistemas físicos, lo que permite la transmisión y procesamiento de información a velocidades extremadamente rápidas y con una capacidad de procesamiento significativamente mayor.
+
+La seguridad de la información en la computación cuántica está relacionada con la teoría de la información cuántica porque las computadoras cuánticas tienen la capacidad de romper muchos de los sistemas de seguridad clásicos, como la criptografía de clave pública. En la criptografía de clave pública, se utiliza una clave pública para cifrar la información y una clave privada para descifrarla. Aunque es fácil cifrar la información con la clave pública, es extremadamente difícil descifrarla sin la clave privada.
+
+Sin embargo, en la computación cuántica, se pueden utilizar algoritmos cuánticos para factorizar números enteros grandes, que es la base de muchos sistemas de criptografía de clave pública, lo que significa que la información cifrada con esos sistemas es vulnerable a la decodificación por parte de los ordenadores cuánticos. La teoría de la información cuántica ha llevado al desarrollo de nuevos algoritmos y protocolos de seguridad que son resistentes a los ataques de la computación cuántica, incluyendo la criptografía cuántica.
+
+La criptografía cuántica utiliza los principios cuánticos para garantizar la seguridad de la información. En la criptografía cuántica, la información se transmite utilizando partículas cuánticas, como los fotones, en lugar de señales electrónicas. Debido a la naturaleza de los estados cuánticos, cualquier intento de interferir con el sistema de transmisión de la información será detectado inmediatamente, lo que garantiza la seguridad de la información. Además, la criptografía cuántica también utiliza algoritmos cuánticos para generar claves seguras y para verificar la integridad de la información.
+
+En resumen, la teoría de la información cuántica es esencial para la seguridad de la información en la computación cuántica. La criptografía cuántica, que utiliza los principios cuánticos para garantizar la seguridad de la información, es un ejemplo de cómo la teoría de la información cuántica se está utilizando para abordar los desafíos de seguridad de la computación cuántica.",,,,
+fab-100x-20261114T224309Z-004,3,f666d8b8c8b0d20af1d03551,fdd3644a3953bf28e71277491af9beec,fab-100x,es,education,oasst2,human_authored,"[user] En febrero de 2023, ¿qué famoso YouTuber envio sus suscritores a Open Assistant para tratar de mejorar la calidad de las respuestas en español?
+
+[assistant] El famoso YouTuber que envió a sus suscriptores a mejorar el rendimiento de Open Assistant fue ""DotCSV"", esto en el vídeo llamado ""¡Ayúdanos a Crear un ChatGPT OPEN SOURCE! (Open Assistant)"".
+Si tienes más preguntas no dudes en hacerlas, estoy aquí para ayudarte y brindarte información sobre cualquier tema que sea de tu interés.
+
+[user] Carlos Santana, divulgador de Inteligencia Artificial (IA).","Es correcto, Carlos Santana Vega es divulgador, youtuber y profesor en el campo de la Inteligencia Artificial y el Machine Learning. Es el creador del canal de YouTube DotCSV que cuenta con más de 600,000 suscriptores y está especializado en el campo de la IA, aterrizando los conceptos más avanzados del mundo del Machine Learning.",,,,
+fab-100x-20261114T224309Z-004,4,c9583920826d43ecb4d36eac,2b5e25991e4bdfe9148458538990b453,fab-100x,es,general_knowledge,oasst1,human_authored,[user] Muéstrame la sintaxis correcta para selecciona un rango en Excel usando código VBA,"Para seleccionar un rango en Excel usando código VBA, puedes usar la sintaxis Range(""A1:B2"").Select, donde ""A1:B2"" es el rango que deseas seleccionar. Por ejemplo, si deseas seleccionar las celdas desde la A1 hasta la B2, puedes usar el siguiente código:
+
+Sub SeleccionarRango()
+    Range(""A1:B2"").Select
+End Sub
+Este código define una subrutina llamada SeleccionarRango que selecciona el rango especificado cuando se ejecuta.",,,,
+fab-100x-20261114T224309Z-004,5,2e6a0dfd852cf9a4db80a4fb,a2248786f9018ee2222447f877e2cf58,fab-100x,es,islamic_studies,oasst2,human_authored,[user] Resume el último partido del mundial de Qatar 2022,"La Copa Mundial de la FIFA Catar 2022 tuvo lugar del 20 de noviembre al 18 de diciembre, siendo la vigésima segunda edición del torneo. Argentina se consagró campeón por tercera vez en su historia, derrotando a Francia en la final por 4-2 en penaltis después de un empate 3-3 en tiempo reglamentario. Lionel Messi fue nombrado el mejor jugador del torneo.
+
+El torneo fue histórico en varios aspectos, como ser el Mundial con más goles anotados (172), con Marruecos convirtiéndose en la primera selección africana en alcanzar las semifinales, y con Argentina rompiendo una racha de 4 campeonatos europeos consecutivos. Además, la final fue considerada como una de las mejores de la historia.
+
+No obstante, la Copa Mundial de Catar 2022 también fue conocida como el ""mundial más polémico de la historia"" debido a numerosas controversias relacionadas con la corrupción, las muertes en la construcción de estadios, las condiciones laborales de los trabajadores, los derechos humanos y de la comunidad LGBT, y las acusaciones de apoyo al terrorismo islamista por parte de Catar. Además, fue el Mundial más caro de la historia, con un costo estimado de 220 mil millones de dólares.",,,,
+fab-100x-20261114T224309Z-004,6,6656374ba92a349564ea8b2b,063cecba7dcf563f047be96fcd931d33,fab-100x,es,mathematics,oasst2,human_authored,[user] ¿Podrías darme los pasos y formularas necesarias para poder calcular el área de una esfera?,"Para calcular el área de una esfera, se puede utilizar la siguiente fórmula:
+
+A = 4πr²
+
+Donde:
+A = Área de la esfera
+π = Constante matemática pi (aproximadamente igual a 3.14)
+r = Radio de la esfera
+
+Los siguientes son los pasos para calcular el área de una esfera:
+
+Determina el valor del radio de la esfera.
+
+Multiplica el radio de la esfera (r) por sí mismo.
+
+Multiplica el resultado del paso 2 por 4.
+
+Multiplica el resultado del paso 3 por pi.
+
+El resultado final será el área de la esfera.
+
+Ejemplo: Si el radio de la esfera es de 3, entonces:
+
+r² = 3 * 3 = 9
+4πr² = 4 * 3.14 * 9 = 113.04
+
+El área de la esfera es de 113.04.",,,,
+fab-100x-20261114T224309Z-004,7,4f50dda76c9b34557cda4c52,e9761d9c43c646e83f1e6e9079947934,fab-100x,es,pakistan,oasst1,human_authored,[user] Cuales han sido los asesinos seriales con mas muertes confirmadas de la historia?,"Hay varios asesinos seriales que han sido responsables de un gran número de muertes confirmadas en la historia. Algunos de ellos son:
+
+1. Luis Garavito - también conocido como ""La Bestia"", un asesino en serie colombiano que confesó haber matado a más de 138 niños y adolescentes entre 1992 y 1999.
+
+2. Pedro Alonso López - también conocido como ""El Monstruo de los Andes"", un asesino en serie colombiano que confesó haber matado a más de 110 niñas en Colombia, Ecuador y Perú entre 1969 y 1980.
+
+3. Harold Shipman - un médico británico que fue declarado culpable de matar a 218 pacientes entre 1975 y 1998.
+
+4. Javed Iqbal - un asesino en serie pakistaní que confesó haber matado a 100 niños y adolescentes en Lahore en 1999.
+
+5. Gary Ridgway - también conocido como ""El asesino del Green River"", un asesino en serie estadounidense que fue declarado culpable de matar a 49 mujeres en el estado de Washington entre 1982 y 1998.
+
+Es importante mencionar que aunque estos asesinos en serie tienen un gran número de muertes confirmadas, hay otros que podrían haber matado a más víctimas pero no se ha podido comprobar debido a la falta de pruebas o de confesión por parte de los criminales.",,,,
+fab-100x-20261114T224309Z-004,8,4d4ef2245b11907276a1e681,338c01e5e4d00af1060e60067c552a67,fab-100x,es,problem_solving,oasst2,human_authored,"[user] ¿Podrías aconsejarme sobre qué lugares visitar, qué actividades hacer, etc. para un viaje de 10 días a Cuba con amigos? La idea es ir en plan mochilero y recorrer todo el país. Nos gusta tanto el mar como la montaña, con lo que no tenemos ninguna preferencia particular para las distintas actividades.","Claro, aquí van algunas recomendaciones para un viaje de 10 días a Cuba con amigos:
+
+La Habana: Es una ciudad llena de historia y cultura, y es un buen lugar para comenzar su viaje. Pueden visitar el Museo de la Revolución, el Capitolio Nacional y el Malecón, que es una popular avenida que ofrece una vista impresionante del mar.
+
+Viñales: Es un pueblo de montaña conocido por sus hermosos paisajes y cultivos de tabaco. Pueden hacer una excursión en bicicleta para recorrer los campos de tabaco y visitar una fabrica de puros.
+
+Trinidad: Es una hermosa ciudad colonial con calles empedradas y casas coloridas. Pueden visitar el Parque Cespedes y el Valle de los Ingenios, que es una antigua plantación de azúcar.
+
+Cienfuegos: Es una ciudad costera con un puerto y una hermosa arquitectura francesa. Pueden visitar el Teatro Tomás Terry y la plaza José Martí.
+
+Santiago de Cuba: Es la segunda ciudad más grande de Cuba y es conocida por su vibrante escena musical y cultural. Pueden visitar la Catedral de San Francisco de Asís y el Castillo del Morro.
+
+Playas: Hay muchas playas hermosas en Cuba, como Varadero, Guardalavaca y Cayo Santa Maria. Pueden pasar unos días relajándose y disfrutando de la playa.
+
+Parques Nacionales: Si les gusta la naturaleza, pueden visitar los Parques Nacionales Alejandro de Humboldt y Ciénaga de Zapata, que son hogar de una gran variedad de vida silvestre y paisajes naturales impresionantes.
+
+En cuanto a actividades, además de las mencionadas, pueden hacer un tour en coche clásico, tomar lecciones de salsa, probar la comida cubana en un restaurante local y participar en una fiesta nocturna en uno de los muchos clubes de la ciudad.
+
+Espero que estas sugerencias les sean útiles para planificar su viaje a Cuba. ¡Que lo disfruten!",,,,
+fab-100x-20261114T224309Z-004,9,699b251fd2b09910d40a538e,391306c2a4b6ec5df5dfc267fda7e4bc,fab-100x,es,reasoning,oasst2,human_authored,[user] ¿Cómo se calcula el índice de masa corporal?,"El índice de masa corporal (IMC) es una medida que se utiliza para evaluar si una persona tiene un peso saludable en relación con su altura. El IMC se calcula dividiendo el peso de una persona en kilogramos por el cuadrado de su altura en metros. La fórmula matemática para calcular el IMC es la siguiente:
+
+IMC = peso (kg) / [estatura (m)]^2
+
+Por ejemplo, si una persona pesa 70 kg y mide 1.70 m de altura, su IMC sería:
+
+IMC = 70 / (1.70 x 1.70) = 24.2
+
+Un IMC entre 18.5 y 24.9 se considera saludable, mientras que un IMC inferior a 18.5 se considera bajo peso y un IMC superior a 24.9 se considera sobrepeso u obesidad, lo que puede aumentar el riesgo de enfermedades crónicas como la diabetes y enfermedades cardíacas.
+
+Es importante tener en cuenta que el IMC es solo una medida general y no tiene en cuenta la composición corporal, como la cantidad de músculo o grasa que tiene una persona. Por lo tanto, en algunos casos, puede no ser una medida precisa de la salud.",,,,
+fab-100x-20261114T224309Z-004,10,af0204543aa1778ede62deb4,422a2df795e65912e1cb45509952fbcc,fab-100x,es,research,oasst1,human_authored,[user] Conoces algún software open source que sea similar a Adobe Illustrator?,"Sí, hay varios software de gráficos vectoriales de código abierto que son similares a Adobe Illustrator. Algunos de los más populares incluyen:
+
+1. Inkscape: Es un programa de gráficos vectoriales de código abierto con una amplia gama de herramientas y características, similar a Illustrator. Inkscape es compatible con muchos formatos de archivo, incluyendo SVG, y es fácil de usar para principiantes y profesionales.
+
+2. GIMP: Es un programa de edición de imágenes de código abierto que también incluye herramientas para la creación de gráficos vectoriales. GIMP es una excelente opción para aquellos que buscan una alternativa gratuita a Illustrator.
+
+3. Karbon: Es un programa de gráficos vectoriales de código abierto que forma parte de la suite de oficina LibreOffice. Karbon es una excelente opción para aquellos que buscan una alternativa gratuita a Illustrator con un enfoque en la productividad y la simplicidad.
+
+4. Scribus: Es un programa de maquetación de páginas de código abierto con herramientas de gráficos vectoriales. Scribus es una excelente opción para aquellos que buscan una alternativa gratuita a Illustrator para la creación de publicaciones profesionales.",,,,
+fab-100x-20261114T224309Z-004,11,2d545a185feb5d58e726a3f1,214ea391c62c4ee94aa989428a92414d,fab-100x,es,safety_ethics,oasst2,human_authored,[user] ¿Cuáles son los dictadores más famosos en cuanto su maldad del Caribe?,"No podría decirte en cuanto a su maldad, ya que no sería correcto políticamente tener una Bias contra una persona en específico. Sin embargo, en cuanto a dictadores famosos conocidos en el caribe.
+Fidel Castro es uno de los más reconocidos en Cuba.",,,,
+fab-100x-20261114T224309Z-004,12,18dc9b9d36eae7396c74895a,659dafeadc1c83039ff71c0303db439e,fab-100x,es,science,oasst2,human_authored,[user] Cual es el habito que perjudica mas al ser humano?,"Es difícil decir cuál es el hábito más dañino para los humanos porque cada individuo puede tener distintas reacciones ante ellos. Por ejemplo;
+
+- Fumar cigarrillos es una práctica sumamente peligrosa para la integridad fisica del organismo, se pueden desarrollar varias formas de Enfermedad Pulmonar Obliterante (EPO), tumores mamarios o problemas digestivos como Enfermedad de Crohn y Colitis Ulcerosa.
+- El Estrés psicológico es algo complejo puesto que el exceso de él puede conducir a cambios en el humor. Cambiar el ambiente normal de vida suele removerse el estancamiento de neurotransmisores específicos relacionados principalmente con la felicidad como la Serotonina, Dopamine y Endorfinas . Si estas cosas se ven alteradas suelen surgir otras patologías como la Depresión, Trastorno Bipolar u Obsesivo Compulsivo, así como problemas auto infligibles como Anorexia o Bulimia.
+- El consumo de Alcohol hace que se pierdan los reflejos sobre todo la coordinación de los movimientos y la velocidad a la que actúan dichos órganos. Aspectos tan importantes como los del sistema nervioso central, cardiovascular y hepático son algunos de sus objetivos naturales más comunes. También puedes entrar en crisis epilépticas después de mucho consumirlo sin importar si eres Epiléptico naturalmente o no.",,,,
+fab-100x-20261114T224309Z-004,13,030185cb90875073037c3ced,a3777738a46e0b4a6d9aec4b109e961e,fab-100x,es,software_engineering,oasst2,human_authored,[user] Cuales son las complicaciones de no trabajar con un control de versiones en un proyecto grande de Software y cuales son las mejores opciones para trabajar con un control de versiones,"Trabajar sin un control de versiones en un proyecto grande de software puede ser extremadamente complicado y arriesgado. Si el código no está bien documentado, los desarrolladores pueden tener dificultades para comprender el código de otros miembros del equipo, especialmente si hay cambios significativos. Esto puede llevar a errores de codificación, versiones incompatibles y otros problemas.
+
+Además, sin un control de versiones, es difícil rastrear cambios significativos y revertir errores. Esto puede ser especialmente problemático si hay muchos equipos trabajando en el mismo proyecto y hay mucho código que cambiar.
+
+Las mejores opciones para trabajar con un control de versiones incluyen Git, Subversion y Mercurial. Estas herramientas son ampliamente utilizadas y ofrecen una gran variedad de funciones para ayudar a los equipos de desarrollo a trabajar de manera eficiente y eficaz. Ofrecen una variedad de características para rastrear cambios, comparar versiones y revertir errores, entre otras cosas. Estas herramientas están disponibles de forma gratuita y son bastante fáciles de usar.",,,,
+fab-100x-20261114T224309Z-004,14,10ead3d392aed82a92bfcba3,3df2d3aee58742388f23ab61d1d095d2,fab-100x,es,web_backend,oasst1,human_authored,"[user] import openpyxl
+from django.http import HttpResponse
+
+def export_to_excel(request):
+    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    response['Content-Disposition'] = 'attachment; filename=mymodel.xlsx'
+
+    wb = openpyxl.Workbook()
+    ws = wb.active
+
+    # Obtén tus modelos relacionados aquí
+    model1 = MyModel1.objects.all()
+    model2 = MyModel2.objects.all()
+    model3 = MyModel3.objects.all()
+
+    # Escribir los encabezados de las columnas
+    row_num = 1
+    columns = [
+        (u""ID"", 15),
+        (u""Nombre"", 30),
+        (u""Descripción"", 40),
+        (u""Fecha de creación"", 20),
+    ]
+
+    for col_num, column_title in enumerate(columns, 1):
+        c = ws.cell(row=row_num, column=col_num)
+        c.value = column_title[0]
+        c.font = openpyxl.styles.Font(bold=True)
+        ws.column_dimensions[openpyxl.utils.get_column_letter(col_num)].width = column_title[1]
+
+    # Escribir los datos de los modelos
+    for obj in model1:
+        row_num += 1
+        row = [
+            obj.id,
+            obj.name,
+            obj.description,
+            obj.created_at,
+        ]
+        for col_num, cell_value in enumerate(row, 1):
+            c = ws.cell(row=row_num, column=col_num)
+            c.value = cell_value
+
+    # Escribir los datos de los otros modelos de la misma manera
+
+    wb.save(response)
+    return response","El fragmento de código anterior muestra cómo usar la biblioteca openpyxl para exportar datos de los modelos de Django a una hoja de cálculo de Excel. Para hacer esto, el código primero crea un libro de trabajo en blanco y una hoja de trabajo activa. Luego, escribe los encabezados de las columnas en la hoja de trabajo y establece los anchos de columna.
+
+A continuación, recorre los modelos y escribe los datos de cada modelo en la hoja de trabajo. Para cada modelo, escribe los campos id, name, description y created_at en la hoja de trabajo. Finalmente, el código guarda el libro de trabajo en la respuesta y devuelve la respuesta.",,,,
+fab-100x-20261114T224309Z-004,15,8accdcd56035468ec436a9f0,949f157e5c56435d0bf3939e78aa4779,fab-100x,es,web_frontend,oasst2,human_authored,[user] Pasos para usar react?,"Si desea usar React para crear una aplicación web, aquí hay algunos pasos básicos que debe seguir:
+
+Instalar Node.js: React es una biblioteca de JavaScript, por lo que necesitará tener Node.js instalado en su computadora.
+
+Crear un proyecto de React: Puede crear un proyecto de React usando la herramienta de creación de aplicaciones Create React App. Simplemente abra una terminal y ejecute el siguiente comando: npx create-react-app my-app (reemplazando ""my-app"" con el nombre que desee para su proyecto).
+
+Navegar hasta el proyecto: Una vez que se haya creado el proyecto, navegue hasta la carpeta del proyecto usando la terminal y ejecute el siguiente comando: cd my-app (reemplazando ""my-app"" con el nombre de su proyecto).
+
+Iniciar el servidor de desarrollo: Una vez que se encuentre en la carpeta del proyecto, puede iniciar el servidor de desarrollo ejecutando el siguiente comando: npm start. Esto le permitirá ver su aplicación en su navegador en http://localhost:3000/.
+
+Comenzar a escribir código: Ahora puede abrir el archivo src/App.js y comenzar a escribir su código de React. React utiliza componentes para crear aplicaciones, por lo que probablemente querrá crear algunos componentes y renderizarlos en el archivo App.js.
+
+Probar la aplicación: Una vez que haya escrito su código, puede ver los cambios en tiempo real en su navegador, gracias al servidor de desarrollo que inició en el paso 4.
+
+Esos son los pasos básicos para comenzar a usar React. Hay muchos otros conceptos y herramientas que deberá aprender a medida que profundice en el desarrollo de aplicaciones con React, pero estos pasos le darán un punto de partida sólido.",,,,
+fab-100x-20261114T224309Z-004,16,d9e2a45bbfd4f5bd47dafeae,114a74a095c6caaf6bac7a1b91c55462,fab-100x,es,writing,oasst2,human_authored,[user] Resume la serie The Office en dos párrafos y dime si es recomendable para una persona con 21 años que está en la universidad,"The Office es una comedia de situación estadounidense transmitida por NBC que sigue la vida cotidiana de los empleados de la sucursal de Scranton, Pensilvania, de Dunder Mifflin, una empresa ficticia de suministro de papel. La serie es una adaptación por Greg Daniels de la serie británica del mismo nombre. La serie es un falso documental que cuenta con personajes singulares y un argumento insustancial.
+
+En cuanto a si es recomendable para una persona con 21 años que está en la universidad, depende del gusto personal. Si te gusta el humor absurdo y las comedias de situación, entonces puede ser una buena opción para ti. Al final, solo sabras si es buena opción si decides verla.",,,,
+fab-100x-20261114T224309Z-004,17,ce89245b059a2c2f4efa74eb,aebfdefbda8f6645ea845871996061d9,fab-100x,fa,general_knowledge,aya-dataset,human_authored,[user] روش کاشت درخت گردو به چه شکل است؟,درختان گردو در نهالستان به صورت ریشه برهنه در زمان خواب در خرداد و تیر کاشته می‌شوند. یک سیستم ریشه فیبری خوب برای رشد خوب مطلوب است. مشخص شده‌است که استفاده از کود حاوی فسفر قبل از کاشت مفید است. برای هر درخت یک چاله بزرگ و سخاوتمندانه حفر می‌شود و ریشه درختان قبل از کاشت به خوبی پوشانده می‌شود تا از خشک شدن جلوگیری شود. در مواردی که احتمال بیماری گال تاج وجود دارد، درختان باید قبل از کاشت با تلقیح ضد گال آماده‌سازی شوند. درخت را در چاله قرار می‌دهند، ریشه‌ها را کوتاه می‌کنند، در حین کاشت، خاک را در اطراف ریشه محکم می‌کنند و درخت را آبیاری می‌کنند.,,,,
+fab-100x-20261114T224309Z-004,18,b6ffdaaae2cf3ce4a7c7db0f,3bea5fef601c7582ed3a523d7dcfa919,fab-100x,fa,islamic_studies,aya-dataset,human_authored,[user] نام قبلی میدان آزادی تهران چیست؟,میدان آزادی پیش از انقلاب ۱۳۵۷ میدان شهیاد نام داشت. این میدان بزرگ‌ترین میدان شهر تهران است که در بخش غربی آن جای گرفته‌است. این میدان به همراه برج آزادی در سال ۱۳۴۹ خورشیدی برای یادبود جشن‌های ۲۵۰۰ ساله شاهنشاهی ایران و به دستور محمدرضا پهلوی ، شاه وقت ایران و توسط حسین امانت طراحی و ساخته شد و پس از انقلاب اسلامی ایران در سال ۱۳۵۷ «میدان آزادی» نام گرفت.,,,,
+fab-100x-20261114T224309Z-004,19,541a3855beb88f5053102d08,dfe76ef54c99018c341dc5e665a59505,fab-100x,fa,mathematics,aya-dataset,human_authored,"[user] ادامه ای برای این پاراگراف بنویسید: ""پس از پایان تهاجم ژاپن به کره (۱۵۹۸–۱۵۹۲) ، خاندان شیمازو به دلیل دستاوردهای نظامی خود مانند نقش چشمگیرش در نبرد ساچون (۱۵۹۸) عملکردش بسیار مثبت ارزیابی شد و خاندن شیمازو ۵۰٬۰۰۰ ککو (زمین بر اساس برداشت برنج. در تئوری، یک ککو برنج حدود ۱۵۰ کیلوگرم است. یکی از فاکتورهای تعیین جایگاه مقام و برتری دایمیوها یا حاکمان فئودال نسبت به دایمیوهای دیگر میزان بزرگی مساحت مزارع برنج در قلمروی تحت مدیریت آنان بود) اضافی ...""",از رژیم تویوتومی دریافت کرد. در نتیجه، خاندان شیمازو از ۵۶۹۰۰۰ ککو (نتایج بازرسی زمین توسط ایشیدا میتسوناری در دوره بونروکو از دسامبر ۱۵۹۲ تا اکتبر ۱۵۹۶) به ۶۱۰٬۰۰۰ ککو رسید و پس از، خاندان توکوگاوا (۲٫۵۵ میلیون ککو)، خاندان اوئه‌سوگی (۱٫۲ میلیون ککو) و خاندان موری (۱۲/۱ میلیون ککو) و خاندان مائدا (۸۴۰٬۰۰۰ ککو) قرار گرفتند.,,,,
+fab-100x-20261114T224309Z-004,20,4a4fadf615426b1d47f04667,51e834d8a47455ef6a834a83c707e7db,fab-100x,fa,pakistan,aya-dataset,human_authored,[user] کلوچه خرمایی در کدام بخش‌های ایران پخته می‌شود؟,"بیشتر شهرهای جنوب ایران از خوزستان تا سیستان و بلوچستان این کلوچه‌ خوشمزه را دارند و درست می‌کنند. این کلوچه از ترکیب مواد خمیر مایه شیرینی‌پزی و خرمای له و آسیاب شده (شبیه حلوای خرما) درست می‌شود و واقعاً خوشمزه است.
+نکته جالب در مورد این شیرینی این است که در بخشی از ایران آن را به شکل و قیافه مشخصی درست می‌کنند. برای همین خیلی راحت می‌توانید بفهمید که یک کلوچه خرمایی محصول کدام استان است.",,,,
+fab-100x-20261114T224309Z-004,21,5690580c7fa2631b554e9aae,435dd6d90e098d53bbc7566d92d230c8,fab-100x,fr,coding,oasst1,human_authored,"[user] Par quel language de programmation devrais-je commencer?
+
+[assistant] Le langage de programmation que vous devriez commencer dépend de ce que vous voulez en faire. Si vous êtes intéressé par le développement web, alors un bon point de départ est avec HTML, CSS et JavaScript. Si vous voulez construire des applications de bureau, vous pourriez alors envisager de commencer avec Python ou C#. Si vous voulez construire des applications mobiles, vous pourriez alors envisager de commencer avec Java (pour Android) ou Swift (pour iOS). Si vous êtes intéressé par la programmation de bas niveau et le travail avec les systèmes d'exploitation, vous pourriez alors envisager de commencer avec C ou C++.
+
+En fin de compte, le meilleur langage pour commencer est celui avec lequel vous aimez le plus travailler et que vous vous sentez motivé pour apprendre. Vous pouvez toujours apprendre un autre langage plus tard.
+
+[user] Qu'est-ce qui paye le mieux ?","Je ne connais pas les statistiques en France. Aux États-unis, en 2021 O'Reilly a demandé aux abonnés de leur Data & AI Newsletter de répondre à un sondage sur leur rémunération https://www.oreilly.com/radar/2021-data-ai-salary-survey/
+D'après ce sondage, les trois langages les mieux rémunérés sont Rust (plus de 180 000 dollars par an), Go (179 000 dollars), puis Scala (178 000 dollars).",,,,
+fab-100x-20261114T224309Z-004,22,44bb5571b221d2a48801c58d,ecb1239d351b75efa1b36f9f11965df3,fab-100x,fr,cybersecurity,oasst2,human_authored,"[user] J’ai demandé à votre collègue que faire pour améliorer la performance de mon navigateur web, et il m’a répondu de fermer ma gueule.","Il ne s'agit pas d'une bonne réponse. Il est important de maintenir les bonnes manières et le respect mutuel lorsque vous interagissez avec un collègue. Pour améliorer la performance de votre navigateur web, vous pouvez essayer de vider le cache et de supprimer les cookies, désactiver les extensions et plugins inutiles, mettre à jour le navigateur et le système d'exploitation, et augmenter la mémoire disponible.",,,,
+fab-100x-20261114T224309Z-004,23,a8a48df0abbe825fe0fb6989,d9a9f61427a7e8e913b23a4ddf63c45d,fab-100x,fr,general_knowledge,oasst2,human_authored,[user] Quel est la température à New York en ce moment?,"Je ne peux pas répondre à cette question car je n'ai pour l'instant pas accès a internet, si je tente de répondre à ce genre de question, cela ne serait qu'une tentative de générer un texte vraisemblable mais au fond qui serait juste une coquille vide.",,,,
+fab-100x-20261114T224309Z-004,24,bcae18faa2f18a5e08c6861b,5c6d770e3cfb00ffe87a8e8c420f33cd,fab-100x,fr,islamic_studies,oasst2,human_authored,"[user] Pourquoi qualifie t-on la civilisation occidentale de judéo-chrétienne alors que du IIIe au XXe siècle les populations juives ont été persécutées dans royaumes d'Europe ?
+
+[assistant] Le terme ""civilisation occidentale judéo-chrétienne"" est souvent utilisé pour décrire les valeurs et les traditions qui ont façonné l'Europe et l'Amérique du Nord. Cependant, il est important de noter que cette description est souvent contestée et controversée.
+
+L'utilisation du terme ""judéo-chrétien"" est souvent critiquée car elle ne reflète pas l'histoire complexe des relations entre les populations juives et chrétiennes en Europe. Bien que la religion chrétienne ait des racines dans le judaïsme, les relations entre les deux communautés ont souvent été marquées par des conflits et des persécutions.
+
+Au cours de l'histoire européenne, les populations juives ont été persécutées, expulsées et discriminées dans de nombreux royaumes et pays. Les pogroms, les massacres et les expulsions ont été particulièrement fréquents au Moyen Âge et à l'époque moderne. Les Juifs ont été accusés de tous les maux, de la peste noire aux crises économiques, et ont été souvent utilisés comme boucs émissaires.
+
+Cependant, malgré ces persécutions, les populations juives ont également contribué de manière significative à la culture et à la société européennes. Les Juifs ont été des acteurs importants dans les domaines de la science, de la philosophie, de la littérature et de l'art, et ont souvent été à l'avant-garde des mouvements sociaux et politiques.
+
+Ainsi, bien que le terme ""civilisation occidentale judéo-chrétienne"" soit souvent utilisé pour décrire les valeurs et les traditions de l'Europe et de l'Amérique du Nord, il est important de reconnaître que cette description est simpliste et ne reflète pas la complexité de l'histoire des relations entre les populations juives et chrétiennes en Europe.
+
+[user] Pour améliorer votre réponse, il serait utile d'ajouter davantage de détails et d'exemples pour étayer vos arguments. Vous pourriez également aborder d'autres perspectives sur la question, comme l'influence de l'islam et d'autres religions sur la culture occidentale, afin de fournir une vision plus complète et nuancée du sujet. En outre, vous pourriez explorer comment les relations entre les populations juives et chrétiennes ont évolué au fil du temps, en particulier à l'époque moderne et contemporaine.","En effet, pour fournir une réponse plus complète et nuancée à la question de l'influence du judaïsme et du christianisme sur la culture occidentale, il est important de prendre en compte d'autres perspectives et de fournir des exemples concrets.
+
+Tout d'abord, il est vrai que l'islam a également eu une influence sur la culture occidentale, en particulier pendant la période médiévale, lorsque les échanges commerciaux et culturels entre les mondes musulman et chrétien étaient fréquents. Les travaux des philosophes musulmans, tels qu'Avicenne et Averroès, ont été traduits en latin et ont eu une influence significative sur la pensée européenne. De même, l'architecture islamique a influencé l'architecture gothique européenne, avec des exemples tels que les arcs en ogive et les motifs floraux.
+
+En ce qui concerne les relations entre les populations juives et chrétiennes, il est vrai que l'histoire a été marquée par des périodes de persécution et de discrimination. Cependant, il y a également eu des périodes de coexistence pacifique et de collaboration, en particulier dans les communautés où les populations juives étaient autorisées à pratiquer leur religion et à participer à la vie économique et culturelle. Dans l'Europe moderne et contemporaine, les relations entre les populations juives et chrétiennes ont évolué de manière significative, avec une reconnaissance croissante de l'importance de la tolérance religieuse et de la diversité culturelle.
+
+En somme, il est important de prendre en compte différentes perspectives et de fournir des exemples concrets pour comprendre l'influence du judaïsme et du christianisme sur la culture occidentale, ainsi que les relations entre les populations juives et chrétiennes au fil du temps.",,,,
+fab-100x-20261114T224309Z-004,25,e7a43b7601fd1a26788cc109,eb9933570147695e13d9e42c70bad462,fab-100x,fr,mathematics,oasst2,human_authored,"[user] Cite moi les noms, le diamètre , le poids et les couleurs principales des planètes composant le système solaire en les triant par distance au soleil
+
+[assistant] Les diamètres sont ceux à l'équateur et les couleurs principales sont celles du spectre visible.
+| Nom           | Diamètre en km| Masse en kg         | Couleur| 
+| ----------- | ---------------| ---------------- | -----------
+|Mercure     |4850                |3,30 x 10^23     |gris et blanc|
+|Vénus         |12140              |4,8675 × 10^24 |jaune et orange|
+|Terre          |12756              |5,972 x 10^24    |bleu et vert|
+|Mars          |6790                |6,417 x 10^23    |rouge pale|
+|Jupiter       |142600           |1,898 x 10^27     |blanc, crème et orange|
+|Saturne     |120200            |5,684 x 10^26     |jaune pâle|
+|Uranus      |49000              |8,681 x 10^25     |bleu|
+|Neptune   |50200              |1,024 x 10^26      |bleu|
+
+[user] Rajoute dans ce tableau les lunes des planètes, ainsi que les planètes naines du système solaire.","Voici les lunes principales des planètes et les planètes naines du système solaire, sous forme de tableau :
+| Nom           | Diamètre en km| Masse en kg         | Couleur| Lunes|
+| ----------- | ---------------| ---------------- | -----------| -----------
+|Mercure     |4850                |3,30 x 10^23     |gris et blanc| Aucune
+|Vénus         |12140              |4,8675 × 10^24 |jaune et orange| Aucune
+|Terre          |12756              |5,972 x 10^24    |bleu et vert| 1 (La Lune)
+|Mars          |6790                |6,417 x 10^23    |rouge pale| 2 (Phobos et Deimos)
+|Jupiter       |142600           |1,898 x 10^27     |blanc, crème et orange| 4 (Ganymède, Callisto, Io et Europe)
+|Saturne     |120200            |5,684 x 10^26     |jaune pâle| 7 (Titan, Encelade, Rhéa, Japet, Dioné, Téthys et Mimas)
+|Uranus      |49000              |8,681 x 10^25     |bleu| 5 (Titania, Obéron, Ariel, Umbriel et Miranda)
+|Neptune   |50200              |1,024 x 10^26      |bleu| 1 (Triton)
+
+Planètes naines :
+
+| Nom           | Lunes|
+| ----------- | ---------------|
+|Pluton| 5 (Charon, Styx, Nix, Kérberos et Hydra)
+|Éris | 1 (Dysnomie)
+|Hauméa | 2 (Hi'iaka et Namaka)
+|Makémaké | 1 (MK2)
+|Cérès | Aucune
+
+Veuillez noter que les planètes géantes gazeuses, comme Jupiter et Saturne, ont beaucoup plus de lunes, mais j'ai inclus ici uniquement les plus importantes. Les données peuvent également évoluer à mesure que de nouvelles découvertes sont faites.",,,,
+fab-100x-20261114T224309Z-004,26,6022f507bc545e3122a39bc9,5e4ef0da6b2033a4a736723b22fec3fc,fab-100x,fr,problem_solving,aya-dataset,human_authored,[user] Qu'est-ce que la mondialisation et quelles sont ses implications économiques et culturelles ?,"La mondialisation est le processus d'intégration croissante des économies, des cultures et des sociétés à l'échelle mondiale. Sur le plan économique, elle favorise la libre circulation des biens, des services et des capitaux, mais peut également entraîner des inégalités économiques et culturelles. Sur le plan culturel, elle permet l'échange d'idées et de valeurs, mais peut aussi conduire à l'homogénéisation culturelle.",,,,
+fab-100x-20261114T224309Z-004,27,cd1fe679134a7e7d534b0b4a,dacd126d0c26d012c0a6d66378995c44,fab-100x,fr,reasoning,wikipedia-fr,templated_human,[user] Présente brièvement : Marratech.,"Marratech est une entreprise suédoise qui conçoit et commercialise un Groupware (logiciel de groupe de travail) sous le même nom. Marratech est le fruit d'un projet de recherche lancé en 1995 au Centre for Distance-Spanning Technology à l'université de Luleå en Suède avec le soutien d'Ericsson et Telia.
+
+Marratech est un système de collaboration en ligne ou bureau virtuel qui consiste en une partie logiciel « serveur » payante et une partie logiciel « client » téléchargeable gratuitement et sans limite sur Internet.
+
+La société Marratech a été rachetée par Google en . Tous les développements des logiciels marratech (client et serveur) ont été arrêtés, le support clientèle a progressivement disparu et il n'est aujourd'hui plus possible de trouver en ligne ni support ni logiciel, la page d'accueil du site se réduisant à un simple paragraphe d'information sur la situation actuelle.
+
+la voix sur IP (VoIP) ‘full duplex’ de 16kHz et sans délai permettant des conférences Web (point to point ou multipoint) ;
+
+vidéo pour tous les participants (codecs H264 ou H261) ;
+
+des outils de collaboration : tableau blanc interactif avec des outils d’annotation
+
+un partage de fichiers et documents : partage d’applications, présentations en ligne etc. ;
+
+des conversations vocales et « chat » public et privé ;",,,,
+fab-100x-20261114T224309Z-004,28,b2056469431e59f190ceccc7,25d9a397ed636f929b256079ba6dbea8,fab-100x,fr,research,aya-dataset,human_authored,[user] Qui était le compositeur Maurice Ravel ?,"Maurice Ravel, compositeur français, illustre l'impressionnisme musical à travers ses compositions évocatrices qui évoquent souvent des images et des émotions vives. Sa suite orchestrale « Ma mère l'Oye » et le ballet « Daphnis et Chloé » mettent en valeur son don pour l'orchestration et sa capacité à évoquer des paysages sonores atmosphériques. Les compositions complexes pour piano de Ravel, telles que « Gaspard de la nuit », révèlent sa fascination pour les sources poétiques et littéraires, tandis que ses œuvres de chambre comme le « Quatuor à cordes » font preuve d'un savoir-faire méticuleux et d'une profondeur émotionnelle. La composition « Boléro » est la plus célèbre composition de Ravel. Elle est une œuvre pour grand orchestre de 1928. C'était aussi l'une de ses dernières œuvres achevées avant que la maladie ne l'oblige à prendre sa retraite. La composition et unique. A l'époque, Ravel était peut-être en proie à une démence frontotemporale (DFT), une maladie neurodégénérative qui touche généralement les personnes à la fin de la cinquantaine. On pense que c'est la raison de la mélodie fascinante, inhabituelle et répétitive de la composition.",,,,
+fab-100x-20261114T224309Z-004,29,b080cff967bb8a44a701c5c0,753c1faabccdfc698b92d210355bfda2,fab-100x,fr,safety_ethics,aya-dataset,human_authored,[user] C'est quoi l'histoire de Le Sanglier et les Rossignols ?,"Un homme riche, sot & vain,
+Qualités qui parfois marchent de compagnie,
+Croyoit pour tous les arts avoir un goût divin,
+Et pensoit que son or lui donnoit du génie.
+Chaque jour à sa tahle on voyoit réunis
+Peintres, sculpteurs, savants, artistes, beaux esprits.
+Qui lui prodiguoient les hommages,
+Lui montroient des dessins, lui lisoient des ouvrages,
+Ecoutoient les conseils qu’il daignoit leur donner,
+Et l’appeloient Mécène en mangeant son dîner.
+Se promenant un soir dans son parc solitaire,
+Suivi d’un jardinier, homme instruit & de sens,
+Il vit un sanglier qui labouroit la terre,
+Comme ils font quelquefois pour aiguiser leurs dents.
+Autour du sanglier, les merles, les fauvettes,
+Surtout les rossignols, voltigeant, s’arrêtant,
+Répétoient à l’envi leurs douces chansonnettes,
+Et le suivoient toujours chantant.
+L’animal écoutoit l’harmonieux ramage
+
+
+Avec la gravité d’un docte connoisseur,
+Baissoit parfois la hure en signe de faveur,
+Ou bien, la secouant, refusoit son suffrage.
+Qu’est ceci ? dit le financier :
+Comment ! les chantres du bocage
+Pour leur juge ont choisi cet animal sauvage !
+Nenni, répond le jardinier :
+De la terre par lui fraîchement labourée,
+Sont sortis plusieurs vers, excellente curée
+Qui seule attire ces oiseaux ;
+Ils ne se tiennent à sa suite
+Que pour manger ces vermisseaux ;
+Et l’imbécile croit que c’est pour son mérite.",,,,
+fab-100x-20261114T224309Z-004,30,e13ada82c9898a2b9fe3368f,678cc78219d3ce76c578c0123acc736b,fab-100x,fr,science,aya-dataset,human_authored,[user] Quel est le 61ème élément du tableau périodique ?,"Le 61ème élément du tableau périodique est le Prométhium (Pm). En tant que membre de la série des lanthanides, le prométhium est un élément rare et unique dont les applications pratiques sont limitées en raison de sa rareté et de sa radioactivité. C'est un métal mou, blanc argenté, qui brille faiblement dans le noir en raison de sa radioactivité. L'une des rares applications du prométhium est la peinture lumineuse pour certains types de cadrans de montres et de tableaux de bord, où sa radioactivité contribue à l'effet brillant dans le noir. Cependant, en raison de sa radioactivité et de sa disponibilité limitée, le prométhium n’est pas couramment utilisé dans les produits du quotidien. Il est principalement utilisé à des fins de recherche et dans certains appareils spécialisés qui nécessitent une source radioactive pour diverses applications, comme les jauges d'épaisseur et les batteries atomiques. Les défis posés par sa radioactivité et sa rareté ont limité les applications commerciales plus larges du prométhium, mais ses propriétés uniques continuent de trouver des utilisations de niche dans des technologies spécifiques.",,,,
+fab-100x-20261114T224309Z-004,31,d2f5467ba5976491e5d488c0,1b58452443abd55ab9d03f5ada7a44c1,fab-100x,fr,web_backend,aya-dataset,human_authored,[user] Qu'est que c'est le jazz manounche?,"Le jazz manouche est un style de jazz qui témoigne des apports stylistiques des musiques gitanes, manouches et d'Europe centrale (klezmer) ainsi que du musette et de la chanson française dans le jazz, qui, dès 1932, arrive des États-Unis en Europe. Né en France dans les années 1930, il se caractérise dans sa forme originelle par une section rythmique assurée par deux guitares et une contrebasse, un violon et l'absence de percussions, de cuivres et de bois – un « jazz sans tambour ni trompette ».
+
+Les initiateurs de ce style, d'abord caractérisé par les instruments à cordes, sont Django Reinhardt et Stéphane Grappelli, auxquels sont venus s'ajouter, au fil des années des accordéonistes, des bassistes, des clarinettistes. La nouvelle génération de musiciens a fait évoluer le jazz manouche dans plusieurs directions, notamment vers le jazz-rock de Boulou Ferré.",,,,
+fab-100x-20261114T224309Z-004,32,39f3df82ed908e4257dc418b,4b4e6afbd418be76cbc2764bee90d840,fab-100x,fr,web_frontend,oasst2,human_authored,[user] Écris-moi un texte qui essaye de démontrer que les dinosaures vivaient dans des maisons. Appuies-toi au maximum sur des découvertes scientifiques réelles que tu interpréteras de la manière qui t'arrange le plus.,"## Les constructions fascinantes des dinosaures 
+Il est facile de s'imaginer le quotidien d'un chien, d'un chat, mais, plus on s'éloigne de notre entourage, plus le mode de vie des animaux nous est étranger. Alors, laissez moi vous expliquer celui d'un dinosaures.
+
+Tout d'abord, il est évident que les dinosaures vivaient dans des maisons. Une étude archéologique de 2008 a montré que les dinosaures fabriquaient leurs maisons à partir de bois. En effet, l'étude explique qu'il y a moins d'arbres autour des fossiles de dinosaures puisqu'ils rasaient une partie de la forêt pour y construire leurs habitations[^1]. Par ailleurs, certains articles scientifiques estiment que 80 à 90 pour cent des dinosaures étaient chez eux au moment de leur mort. Considérant l'ampleur de l'impact, et la grandeur des tremblements de terre créés, il est surprenant d'un point de vue de solidité que les conceptions des dinosaures dépassent grandement les capacités de nos bâtiments actuels.
+
+De plus, les dinosaures étaient des meilleurs joueurs d'équipe que les humains. En effet, les êtres mésozoïques auraient développé une société inclusive au sein de laquelle toutes les espèces étaient les bienvenues et toutes évoluaient en même temps. C'est dans l'ère mésozoïque qu'on voit arriver les premiers mammifères comme le *Fruitafossor windscheffeli* un mammifère comparable à une taupe moderne. Ils auraient servi à excaver et à entretenir des systèmes d'eau souterraines.
+
+Bref, il y a beaucoup de choses intéressantes à propos des dinosaures et leurs habitations n'en sont qu'une parmis tant d'autres.
+[^1]: Jablonski, Kevin E.; Meiman, Paul; Flora, Miranda; Lambert, Justin (2021). *Rangeland Health Assessments of Grazing Allotments in Dinosaur National Monument: Focused Condition Assessment Report*. [doi:10.36967/nrr-2284014.](https://www.researchgate.net/publication/348393034_Rangeland_Health_Assessments_of_Grazing_Allotments_in_Dinosaur_National_Monument_Focused_Condition_Assessment_Report)",,,,
+fab-100x-20261114T224309Z-004,33,5df602cd8dc1a6a3c34899b1,07334e000a39bba83b5ffd7fde4cf627,fab-100x,fr,writing,oasst1,human_authored,"[user] Tu disposes d'une API disponible à l'URL http://[IP]:5000/salaries qui te permet de rechercher des salariés dans une base de données.
+Cette API accepte les requêtes GET et peut prendre les paramètres optionnels suivants : 
+- nom
+- prenom
+- email
+- telephone
+- service (communication / juridique / ingenieurie)
+- dateArriveeMin (au format YYYY-MM-DD)
+- dateArriveeMax (au format YYYY-MM-DD)
+
+Si aucun paramètre n'est passé, l'API retourne toutes les personnes de la base de données.
+
+Pour contexte, nous sommes le lundi 6 février 2023.
+
+Voici une phrase à transformer en URL en utilisant l'une des API fournies ci-dessus, si possible :
+
+Donnes-moi les salariés nommés DUPONT travaillant à la com
+
+[assistant] Cette phrase implique d'utiliser le paramètre ""nom"" et le paramètre ""service"". On ajoute ces paramètres à l'URL de base avec les caractères ""?"" puis ""&"" et on leur donne une valeur avec ""="". La chaine finale est donc:
+
+http://[IP]:5000/salaries?nom=DUPONT&service=communication
+
+[user] Très bien, maintenant donne moi les e-mails de tous les gens du service juridique arrivés avant le 18 décembre 2022.","Pour cela, il faut utiliser les paramètres ""service"", ""dateArriveeMax"" et ""email"". On ajoute ces paramètres à l'URL de base avec les caractères ""?"" puis ""&"" et on leur donne une valeur avec ""="". La chaine finale est donc:
+
+http://[IP]:5000/salaries?service=juridique&dateArriveeMax=2022-12-18&email",,,,
+fab-100x-20261114T224309Z-004,34,693631d0dbce0d624dc7ef2d,42da211eaee7f1a7d3edfc0aff6a7bc6,fab-100x,gu,general_knowledge,aya-dataset,human_authored,[user] સૌરાષ્ટ્ર મા હોળી કેવી રીતે ઉજવાય છે જણાવો,"સૌરાષ્ટ્રમાં, હોળીને 'હુતાસણી'થી પણ ઓળખવામાં આવે છે, હોળીના બીજા દિવસ ધુળેટીને 'પડવો' કહેવામાં આવે છે. અમુક વિસ્તારોમાં હોળી પછીનાં બે કે ત્રણ દિવસ આ તહેવાર ઉજવાય છે, જેને 'બીજો પડવો','ત્રીજો પડવો' એમ ગણવામાં આવે છે. આ દિવસોમાં પુરુષો દ્વારા દાંડીયા રાસ રમવાનો રિવાજ પણ, ખાસ કરીને પોરબંદર વિસ્તારમાં, છે. ઘણાં આદિવાસી વિસ્તારોમાં હોળી પ્રગટાવ્યા પછી તેની આસપાસ પારંપારીક નૃત્ય કરવામાં આવે છે. યુવાનો દ્વારા આ દિવસોમાં શોર્યપુર્ણ રમતો રમવામાં અને વિવિધ પારંપારીક હરીફાઇ યોજવામાં આવે છે, જેમકે ઘોડાદોડ, આંધળો પાટો, શ્રીફળ ફેંકવાની હરીફાઇ વગેરે. ગ્રામ્ય વિસ્તારોમાં ગામને પાદર આવેલા પૂર્વજોનાં પાળિયાઓનું પૂજન અર્ચન કરવામાં આવે છે. ઘણાં વિસ્તારોમાં હોળીનાં દિવસોમાં ગામ લોકો વાજતે ગાજતે ગામમાં બધાજ લતાઓ કે વિસ્તારોમાં ફરી અને હોળી માટેનો ફાળો (ગોઠ) ઉઘરાવવા નિકળે છે, આ લોકોને ઘેરૈયાઓ કહેવાય છે.
+
+હોળીનાં દિવસે જેને ત્યાં ગત વર્ષમાં દિકરાનો જન્મ થયો હોય તે લોકો બાળકને શણગારીને હોળીની પ્રદક્ષિણા કરાવે છે,તથા ગામલોકોને પતાસા તથા ખજુર વગેરેની 'લાણ' વહેંચે છે, આ પ્રસંગને દિકરાની વાડ કહેવામાં આવે છે.",,,,
+fab-100x-20261114T224309Z-004,35,a99260b9995a96e4ad088fdd,0cdcc38452739db43d2910939ef6d941,fab-100x,gu,mathematics,aya-dataset,human_authored,[user] ગુજરાતીમાં સમોસા બનાવવાની રેસીપી જણાવો .,"ગુજરાતીમાં સમોસા બનાવવાની રેસીપી
+
+સામગ્રી:
+
+2 કપ લોટ
+1 ચમચી તેલ
+1/4 ચમચી મીઠું
+પાણી જરૂર મુજબ
+ભરણ માટે:
+
+1 ટીસ્પૂન તેલ
+1/2 કપ પાલક, સૂકી અને કાપેલી
+1/2 કપ કઠોળ, બાફેલી અને ફ્રીઝ કરેલી
+1/4 કપ ડુંગળી, કાપેલી
+1/4 કપ ગરમ મસાલો
+1/4 કપ ખાખરાનો ભૂકો
+મીઠું અને લાલ મરચું પસંદ અનુસાર
+તૈયારી:
+
+લોટને ખીણીમાં ભેળવો, તેલ અને મીઠું ઉમેરો અને પાણીથી લોટ ભળી લો. તેને ઢાંકીને 15-20 મિનિટ સુધી રાખો.
+
+ભરણ માટેના તમામ ઘટકોને એક વાસણમાં મિક્સ કરો અને સારી રીતે મિક્સ કરો.
+
+લોટને 2 ભાગમાં વહેંચો. એક ભાગને ખાદ્ય તેલ લગાવીને પાતળી પાટી બનાવો.
+
+પાટી પર ભરણ લગાવો અને બંને છેડાને સાથે ભેગા કરીને સમોસા બનાવો.
+
+ગરમ તેલમાં સમોસાને તળો અને ગોલ્ડન બ્રાઉન થવા સુધી રાંધો.
+
+સ્વાદિષ્ટ સમોસા તૈયાર છે. તેને ટામેટા કેચપ અથવા તમારા પસંદની ચટણી સાથે પીરસો.",,,,
+fab-100x-20261114T224309Z-004,36,58a0c9e7a5e2c91298c4627b,859792713fd8623e6b69c24749a6c3e0,fab-100x,gu,science,aya-dataset,human_authored,[user] ચેર્નોબિલ આપત્તિ શું છે અને જ્યારે તે બન્યું?,"ચેર્નોબિલ દુર્ઘટના 26 એપ્રિલ 1986 ના રોજ સોવિયત યુનિયનમાં બાયલોર્યુસિયન એસએસઆર સાથેની સરહદની નજીક, યુક્રેનિયન એસએસઆરના ઉત્તરમાં પ્રિપાયત શહેર નજીક, ચેર્નોબિલ પરમાણુ પાવર પ્લાન્ટના નંબર 4 રિએક્ટરના વિસ્ફોટથી શરૂ થઈ હતી..આંતરરાષ્ટ્રીય પરમાણુ ઘટનાના ધોરણે સાત - મહત્તમ તીવ્રતા - રેટ કરેલા માત્ર બે પરમાણુ energy ર્જા અકસ્માતોમાંથી તે એક છે, બીજું જાપાનમાં 2011 ના ફુકુશીમા પરમાણુ અકસ્માત છે.પ્રારંભિક ઇમરજન્સી પ્રતિસાદ અને ત્યારબાદના ઘટાડાના પ્રયત્નોમાં 500,000 થી વધુ કર્મચારીઓ શામેલ હતા અને અંદાજે 18 અબજ રાઉબલ્સનો ખર્ચ થયો હતો - જે ફુગાવા માટે સમાયોજિત 2019 માં આશરે US 68 અબજ ડોલર છે.તે ઇતિહાસની સૌથી ખરાબ પરમાણુ દુર્ઘટના માનવામાં આવે છે.",,,,
+fab-100x-20261114T224309Z-004,37,5dc11fcc3d1eadf58694273e,5bc33f9e34613874275216410f9ee38c,fab-100x,gu,web_frontend,aya-dataset,human_authored,[user] પી એચ પી  પ્રોગ્રામીગ વિશે માહીતી આપો.,"પ્રોગ્રામિંગ પેરાડિગમ:-          રિફ્લેક્ટિવ,ઓબ્જેક્ટ 
+                          ઓરીએન્ટેડ,સર્વસામાન્ય,કાર્યપ્રણાલી
+શરૂઆત:-.              ૧૯૯૫
+બનાવનાર:-.            રાસમસ લેરડૉર્ફ
+ડેવલપર. :-              ધ પી એચ પી  ગ્રૂપ
+સ્થિર પ્રકાશન:-.         ૫.૪.૮
+પ્રકાર :-                  નબળું, ડાયનેમિક
+સામાન્ય ફાઈલ
+ એક્સટેન્શન:-         .પીએચપી  , .પીએચટીએમએલ  .પીએચપી 4 .પીએચપી 3, 
+                          .પીએચપી 5, .પીએચપીએસ 
+
+PHP અથવા પીએચપી એ કોમ્પ્યુટરની સર્વર-સાઇડ સ્ક્રિપ્ટીંગ લેંગ્વેજ છે. જે ડાયનેમિક વેબ પેજીસ બનાવવા માટે વપરાય છે. પીએચપીની શોધ રેસમસ લર્ડોર્ફે ૧૯૯૫માં કરી હતી. પીએચપી એ પીએચપી તથા GNU GPL પરવાના હેઠળનો મુફ્ત સોફ્ટવેર છે. પીએચપીનું પુરુ નામ શરૂઆતમાં પર્સનલ હોમ પેજ હતું, જે હવે હાયપરટેક્ષ્ટ પ્રીપ્રોસેસર છે. આ સ્ક્રિપ્ટીંગ લેંગ્વેજને HTML ની અંદર વણી શકાય છે. તેમાં કમાન્ડ લાઇન ઇન્ટરફેસની સવલતો પણ ઉપલબ્ધ છે અને તેનો ઉપયોગ સ્ટેન્ડઅલોન ગ્રાફીકલ એપ્લિકેશનમાં થાય છે. અત્યારે પીએચપી ૨ કરોડ વેબસાઇટ અને ૧૦ લાખ વેબ સર્વર પર સ્થાપિત છે.",,,,
+fab-100x-20261114T224309Z-004,38,7357b9b5118aa0103cb88dac,608f307c8a64e5f99470b84621374db9,fab-100x,gu,writing,aya-dataset,human_authored,"[user] તમારી સંગઠિત ફ્લાઇટ રદ કરવામાં આવી છે. એરલાઇન કંપનીને પત્ર લખો. તમારે 1) પરિસ્થિતિ વિશે ફરિયાદ કરવી જોઈએ, 2) મુસાફરી વીમાનો દાવો કરવા માટે તમારે તેમની પાસેથી શું જોઈએ છે તેની વિનંતી કરવી જોઈએ, 3) ભવિષ્યની પરિસ્થિતિઓમાં તેઓએ શું કરવું જોઈએ તે સૂચવો.","""હાય ડેલ્ટા એરલાઇન,
+
+હું Ao Ni છું, હું મારી રદ થયેલી ફ્લાઇટ અંગે અને મારા પ્રવાસ વીમાનો દાવો કરવા માટે દસ્તાવેજોની વિનંતી કરવા માટે આ ઇમેઇલ મોકલું છું.
+
+મને હમણાં જ તમારા તરફથી એક ઈમેલ મળ્યો છે કે મારી લાસ વેગાસથી ન્યુયોર્કની આજે રાત્રે 10 વાગ્યાની ફ્લાઇટ યાંત્રિક સમસ્યાઓને કારણે રદ કરવામાં આવી છે. ભલે ડેલ્ટા એરલાઇન મને ફ્લાઇટ ટિકિટની કિંમત પરત કરશે, આવતીકાલની ફ્લાઇટ માટેની છેલ્લી ઘડીની ટિકિટ અત્યંત મોંઘી છે, જે સામાન્ય કિંમત કરતાં લગભગ બમણી છે. ખૂબ જ મહત્વપૂર્ણ મીટિંગમાં હાજરી આપવા માટે મારે આવતીકાલે ન્યુ યોર્ક પરત ફરવાનું છે તેથી મારે ટિકિટ માટે ચૂકવણી કરવી પડશે, ઉપરાંત આજની રાત માટે હોટેલમાં એક રાત્રિ રોકાણ કરવું પડશે.
+
+શું તમે મારી હોટેલ અને ટિકિટની ભરપાઈ કરશો? જો નહીં, તો મારે મારા પ્રવાસ વીમા દ્વારા તેનો દાવો કરવો પડશે અને મારા કેસને સમર્થન આપવા માટે મને બે દસ્તાવેજોની જરૂર પડશે. પ્રથમ, મારા ઓર્ડરની પુષ્ટિ. બીજું, કેન્સલેશનનું કારણ જણાવવા માટે અને ડેલ્ટા એરલાઈન્સ મારી ખોટની ભરપાઈ કરવા માટે મને તમારા તરફથી એક પત્રની જરૂર છે.
+
+હું સમજું છું કે ખરાબ વસ્તુઓ ક્યારેક થાય છે પરંતુ હું હજુ પણ છેલ્લી ઘડીની સૂચનાથી નારાજ છું. તમે મને અગાઉ નોંધ્યું હોવું જોઈએ જેથી મને તેની સાથે વ્યવહાર કરવા માટે વધુ સમય મળી શક્યો હોત.
+
+જો તમને મારી પાસેથી કોઈ વસ્તુની જરૂર હોય તો કૃપા કરીને મને જણાવો. તમે મને 123-456-7890 અથવા મારા ઈમેલ [EMAIL] પર પહોંચી શકો છો.""",,,,
+fab-100x-20261114T224309Z-004,39,192ff145746a5c2850c401c7,d6aa967df9e315b977661338f892e44d,fab-100x,he,general_knowledge,oasst2,human_authored,"[user] מתי נוסדה מדינת ארץ ישראל?
+
+[assistant] מדינת ישראל הכריזה על עצמאותה בה' באייר תש""ח, 14 במאי 1948.
+
+[user] מגניב! איך זה השפיע על מלחמת העצמאות?","בעקבות הכרזת העצמאות החלו הכוחות הערבים הפועלים בשטח המנדט הבריטי והמדינות הערביות מסביב לישראל לתקוף את ישראל
+ובהמשך להכריז מלחמה כוללת על מדינת ישראל הצעירה.",,,,
+fab-100x-20261114T224309Z-004,40,8ec0c5a316a1df30e8e2aac0,619aeba046736def9e38b35f58fcd4a1,fab-100x,hi,education,aya-dataset,human_authored,"[user] कृत्रिम बुद्धिमत्ता: आइए जानते हैं कि कृत्रिम बुद्धिमत्ता क्या है, इसके क्षेत्रों में कैसे उपयोग हो सकता है, और इसके विकास में क्या-क्या महत्वपूर्ण तकनीकी योगदान हैं।","कृत्रिम बुद्धिमत्ता एक विज्ञान की शाखा है जिसमें कंप्यूटर और मशीनो द्‌‌‌‌वारा मानव बुद्धिमत्ता की क्षमता का सिमुलेशन किया जाता है। इसका उद्देश्य कंप्यूटरों को विचारने, सीखने, समस्याओं का हल निकालने, और निर्णय लेने की क्षमता प्रदान करना होता है: जैसे कि मानव मस्तिष्क करता है।
+
+कृत्रिम बुद्धिमत्ता के क्षेत्र में कई उपयोग हो सकते हैं, जैसे वित्तीय संगठनों में डेटा विश्लेषण और वित्तीय भविष्यवाणी, स्वास्थ्य सेवाओं में रोग पूर्वानुमान और उपचार सिफारिश, विनिमय बाजार में स्वच्छता और सुरक्षा की निगरानी, और निर्माण उद्योग में स्वतंत्र ड्रोन और रोबोट का उपयोग शामिल है।
+
+कृत्रिम बुद्धिमत्ता के विकास में गहरे शिक्षण यांत्रिकी (Deep Learning), मशीन लर्निंग (Machine Learning), और न्यूरल नेटवर्क्स (Neural Networks) जैसी महत्वपूर्ण तकनीकियों का योगदान है। इन तकनीकियों के सहायता से कंप्यूटर मॉडल्स डेटा से सीखते हैं और इसे प्राथमिक और उच्च स्तर की गहराई में समझने की क्षमता प्राप्त करते हैं।
+
+कृत्रिम बुद्धिमत्ता के विकास में एक अन्य महत्वपूर्ण योगदान बिग डेटा (Big Data) का है, जो बड़े और विशाल डेटा सेट्स का विश्लेषण करने में सहायक होता है। ये तकनीकी संग्रहित डेटा से सिखने की क्षमता प्रदान करती है जो विभिन्न डोमेनों में बड़े पैमाने पर डेटा का विश्लेषण करने के लिए उपयुक्त होता है।",,,,
+fab-100x-20261114T224309Z-004,41,5acd8dade55131e9a8e392e0,a690a8692235acadbb08665e5c9e44ae,fab-100x,hi,general_knowledge,wikipedia-hi,templated_human,[user] वख़्श नदी के बारे में एक संक्षिप्त परिचय लिखिए।,"वख़्श नदी, जिसे सुरख़ोब नदी और किज़िल सूउ भी कहा जाता है, मध्य एशिया में स्थित एक नदी है जो आमू दरिया की एक उपनदी भी है। यह ताजिकिस्तान की मुख्य नदियों में से एक है।
+
+'वख़्श' और 'सुरख़ोब' में 'ख़' अक्षर के उच्चारण पर ध्यान दें क्योंकि यह बिना बिन्दु वाले 'ख' से ज़रा भिन्न है। इसका उच्चारण 'ख़राब' और 'ख़रीद' के 'ख़' से मिलता है।
+
+वख़्श किर्गिज़स्तान की अलाई वादी से उत्पन्न होकर २६२ किलोमीटर पश्चिम की ओर चलती है और फिर ताजिकिस्तान में प्रवेश करती है। वहाँ यह ५२४ किमी चलकर पामीर पर्वत क्षेत्र पहुँचती है जहाँ यह बहुत पहाड़ी इलाक़ों की तंग गलियों से होती हुई निकलती है। ताजिकिस्तान की बहुत सी हिमानियों (ग्लेशियर) से भी इसको और जल मिलता है। यहाँ मुक्सु नदी भी इसमें जा मिलती है। ताजिकिस्तान में इसको 'वख़्श' नाम उस जगह के बाद दिया जाता है जहाँ सुरख़ोब नदी और ओबीहिंगू नदी का संगम होता है। पामीर क्षेत्र से निकलकर यह दक्षिण-पश्चिमी ताजिकिस्तान के मैदानी इलाक़ों से गुज़रती है और फिर जाकर पंज नदी में विलय हो जाती है। इस विलय के बाद इन दोनों नदियों के मिली हुई धरा को आमू दरिया के नाम से पुकारा जाता है।",,,,
+fab-100x-20261114T224309Z-004,42,0d5b60bd056461d8d98ee742,d06da25b6a5fd2e7f8e7a7db593b44d1,fab-100x,hi,mathematics,aya-dataset,human_authored,"[user] किसी तत्व के परमाणु द्रव्यमान, ग्राम परमाणु द्रव्यमान से क्या तात्पर्य है? द्रव्यमान के भिन्न-भिन्न भाव अर्थात् 'उ' और 'ग' क्यों होते हैं?","परमाणु बहुत छोटे होते हैं और उनके व्यक्तिगत द्रव्यमान की गणना नहीं की जा सकती क्योंकि यह नगण्य है। इसलिए परमाणुओं का द्रव्यमान एक निश्चित मानक के संबंध में इकाइयों में व्यक्त किया जाता है। प्रारंभ में द्रव्यमान 1 वाले हाइड्रोजन परमाणु को डाल्टन द्वारा मानक इकाई के रूप में लिया गया था। बाद में इसका स्थान ऑक्सीजन परमाणु (0=16) ने ले लिया। परन्तु समस्थानिकों के कारण द्रव्यमान पूर्ण संख्या के स्थान पर अंशों में पाये गये। इसलिए, कार्बन (C=12) आइसोटोप को मानक इकाई के रूप में लिया गया और सार्वभौमिक रूप से स्वीकार किया गया।
+परमाणु द्रव्यमान इकाई कार्बन-12 के परमाणु के द्रव्यमान के बारहवें (1/12) के बराबर है, इसकी इकाई u है।
+व्याकरणिक द्रव्यमान: जब किसी तत्व का परमाणु द्रव्यमान ग्राम में व्यक्त किया जाता है, तो इसे तत्व का व्याकरणिक द्रव्यमान कहा जाता है।
+परमाणुओं, अणुओं का द्रव्यमान 'u' में और मोल्स का द्रव्यमान यानी मोलर द्रव्यमान g में व्यक्त किया जाता है।",,,,
+fab-100x-20261114T224309Z-004,43,f37cf8e924c3459d8c3d5b8c,ece1d2a10b57a075daa258590aa67bd9,fab-100x,hi,reasoning,wikipedia-hi,templated_human,[user] निगमनात्मक तर्क के बारे में एक संक्षिप्त परिचय लिखिए।,"तर्क की जिस प्रक्रिया में एक या अधिक ज्ञात सामान्य कथनों के आधार पर किसी निश्चित निष्कर्ष पर पहुँचा जाता है, निगमनात्मक तर्क (Deductive reasoning या deductive logic) कहते हैं। 'निगमनात्मक तर्क', 'आगमनात्मक तर्क' से बिलकुल भिन्न है।
+
+लियोनार्डो द विंची इसी पद्धति को आधार बनाते थे
+
+तर्कशास्त्र एवं वैज्ञानिक पद्धति (गूगल पुस्तक ; लेखक - केदारनाथ तिवारी)
+
+आगमन तर्कशास्त्र (गूगल पुस्तक ; लेखक - केदारनाथ तिवारी)",,,,
+fab-100x-20261114T224309Z-004,44,3b4610010ffc4f89738c9cfb,0cb374c5a6514f6d961eaf31fe4fe3d1,fab-100x,id,general_knowledge,aya-dataset,human_authored,"[user] Sebagai negara yang berbentuk republik dan menganut asas demokrasi, pemerintahan di Indonesia dijalankan oleh pengampu kekuasaan yang merujuk pada konsep klasik 'Trias Politica'. Apa itu Trias Politica dan bagaimana implementasinya di Indonesia?","Trias Politica adalah konsep pembagian kekuasaan oleh John Locke yang kemudian dikembangkan oleh Montesquieu. Trias Politica meyakini bahwa pemisahan kekuasaan dapat membuat proses pemerintahan berjalan stabil dan demokratis. Cabang kekuasaan dalam Trias Politica terdiri atas tiga yaitu eksekutif, legislatif, dan yudikatif. Ketiga cabang kekuasaan ini bekerja dalam mekanisme 'saling kontrol dan saling mengimbangi' atau biasa disebut dengan terminologi 'checks and balances'. Di Indonesia, Trias Politica diimplementasikan melalui pembagian kekuasaan yang dipegang oleh lembaga negara berikut. 
+
+1. Kekuasaan Legislatif
+Kekuasaan legislatif diamanatkan untuk membuat undang-undang. Di Indonesia terdapat tiga badan legislatif, yaitu Majelis Permusyawaratan Rakyat (MPR), Dewan Perwakilan Rakyat (DPR), dan Dewan Perwakilan Daerah (DPD). 
+
+2. Kekuasaan Eksekutif
+Kekuasaan eksekutif diamanatkan untuk menjalankan roda pemerintahan menurut ketetapan undang-undang. Di Indonesia, kekuasaan eksekutif dipegang oleh presiden yang kemudian mendelegasikan wewenangnya melalui kabinet (menteri). 
+
+3. Kekuasaan Yudikatif 
+Kekuasaan Yudikatif diamanatkan untuk menjalankan kekuasaan kehakiman, yaitu kekuasaan untuk mengadakan peradilan yang ditujukan bagi penegakan hukum dan keadilan. Di Indonesia, kekuasaan ini dijalankan oleh Mahkamah Agung (MA) dan Mahkamah Konstitusi (MK).",,,,
+fab-100x-20261114T224309Z-004,45,b40c795cb64283c3322cdc5b,56e91fd918df12e70281c40346d872bf,fab-100x,id,islamic_studies,aya-dataset,human_authored,"[user] Buatlah sebuah paragraf singkat eksplanasi untuk menjawab pertanyaan berikut. Berikan jawaban dengan pembahasan dan sitasi sumbernya, apabila ada.
+
+Apa yang dimaksud dengan ""Esai""?
+
+Konteks: Materi ajar bidang studi Bahasa Indonesia.
+
+Jawaban:","Esai adalah tulisan yang menggambarkan opini penulis tentang subjek tertentu yang dicoba untuk dinilainya (Dalman, 2011). Esai merupakan karangan atau bentuk tulisan lebih dari satu paragraf. Esai menyampaikan kejadian yang terjadi di masyarakat atau lingkungan, berupa fakta atau pengalaman. Esai juga berisi pendapat atau pandangan penulis tentang hal yang dibicarakan, sehingga bersifat argumentasi dan subjektif (Wijayanti dkk, 2012).
+
+Esai merupakan salah satu karya tulis ilmiah, yaitu hasil rangkaian fakta berupa hasil pemikiran, gagasan peristiwa, gejala, dan pendapat. Esai disusun secara sistematis, setiap langkah direncanakan secara terkendali, konseptual, dan prosedural.",,,,
+fab-100x-20261114T224309Z-004,46,bf3f33ca82aef68e20335690,f3634ed27944f0565c2c3c47793185a7,fab-100x,id,mathematics,aya-dataset,human_authored,"[user] Buatlah sebuah artikel singkat yang terdiri dari dua paragraf untuk menjawab pertanyaan berikut berdasarkan topik yang diberikan. 
+
+Pertanyaan: 
+- Apa itu Teknik Industri?
+- Siapa Bapak Teknik industri?
+
+Topik: Teknik Industri.
+
+Jawaban:","Teknik industri (dalam bahasa Inggris, industrial engineering) adalah suatu teknik yang mencakup bidang desain, perbaikan, dan umumnya digunakan pada sistem integral yang terdiri dari manusia, bahan-bahan, informasi, peralatan dan energi. Teknik ini digambarkan sebagai pengetahuan dan keterampilan yang spesifik pada matematika, fisika, dan ilmu-ilmu sosial bersama dengan prinsip dan metode dari analisis keteknikan dan desain untuk mengkhususkan, memprediksi, dan mengevaluasi hasil yang akan dicapai dari suatu sistem. Bidang garapan teknik industri adalah sistem integral yang terdiri dari manusia, material/bahan, informasi, peralatan, dan energi. Dasar keilmuan teknik industri multidisiplin, karena teknik industri tidak hanya bertumpu pada ilmu matematika dan fisika, tetapi juga ilmu sosial dan manajemen.
+
+Frederic W. Taylor dikenal sebagai Bapak Teknik Industri, karena dia merupakan ilmuwan yang mencetuskan tentang konsep teknik industri. Dia mengemukakan hal-hal yang menyangkut perancangan, pengukuran, perencanaan, penjadwalan maupun pengendalian kerja dalam proses kerja keilmuan teknik industri.",,,,
+fab-100x-20261114T224309Z-004,47,1c57996b14fba2209c72b3b2,cfd498778d95d7d01b907dec44ae3813,fab-100x,id,reasoning,wikipedia-id,templated_human,[user] Jelaskan secara singkat tentang Mahou Sentai Magiranger The Movie: Pengantin di Infershia.,"adalah sebuah film Jepang yang dirilis oleh Toei pada tahun 2005. Film ini dibintangi oleh Atsushi Hashimoto, Hiroya Matsumoto, Asami Kai, Ayumi Beppu, Yuki Ito, Yosuke Ichikawa, Azusa Watanabe, dan lainnya, disutradarai oleh Noboru Takemoto. Film ini berdasarkan serial televisi Mahou Sentai Magiranger. Selain filmnya serial Super Sentai, film Kamen Rider Hibiki dan Jurik Pertempuran di 7 orang juga dirilis pada tanggal sama.
+
+Senjata Sihir: MagiStick Sword, MagiPunch, dan Magical Holy Staff DialRod
+
+Jurus serangan Spesial: Overhead Kick, Red Fire, Blazing Storm, MagiBolt, Legend Fire, dan Fatal Blade
+
+Senjata Sihir: MagiStick Bowgun, MagiPunch, dan DialRod Bowgun
+
+Jurus serangan Spesial: Yellow Thunder, dan MagiBolt
+
+Senjata Sihir: MagiStick Wand, dan Magical Holy Staff DialRod
+
+Jurus serangan Spesial: Blue Splash, Boiling Water, Smoky Blue Shining Attack, MagiBolt, dan Fantastic Splash
+
+Senjata Sihir: MagiStick Wand, MagiPunch, dan Magical Holy Staff DialRod
+
+Jurus serangan Spesial: Pink Storm, dan MagiBolt
+
+Senjata Sihir: MagiStick Axe, dan Magical Holy Staff DialRod
+
+Jurus serangan Spesial: Green Ground, dan MagiBolt
+
+Power-Up Spesial: Green Muscles, dan Rock Armor
+
+Senjata Sihir: MagiLamp Buster, dan Magitopian Sword",,,,
+fab-100x-20261114T224309Z-004,48,b5cac4a784fa30bc422cb4fa,97f3bf026a3eaf61fd845814e47b3ccb,fab-100x,id,research,tydiqa-goldp,human_authored,"[user] Alif Laam Miim Raa, Inilah ayat-ayat Al-Kitab, bahwa hal yang dikirimkan kepada dirimu, yang berasal dari Tuhanmu, merupakan Kebenaran; akan tetapi sebagian besar umat manusia tidak mengimani. (Ayat:1) Maka ketahuilah bahwa Allah yang meninggikan langit tanpa tiang sebagaimana yang kalian lihat, yang bersemayam di Arsy, serta yang mengendalikan matahari maupun bulan, masing-masing bergerak hingga waktu tertentu, Dialah yang mengatur segala urusan, yang menyampaikan berbagai ayat supaya kalian meyakini pertemuan dengan Tuhan kalian; serta Dialah Tuhan yang membentangkan bumi serta yang menjadikan gunung-gunung serta sungai-sungai disana; serta menyediakan disana, berbagai macam buah yang berpasang-pasang, Allah menebarkan malam kepada siang, bahwa dalam hal demikian terdapat Bukti-Bukti pertanda bagi kaum yang berpikir. (Ayat:2-3) Bahwa di bumi ini terdapat bagian-bagian yang berdampingan, demikian pula kebun-kebun anggur, serta ladang-ladang, serta pepohonan kurma yang bercabang maupun yang tidak bercabang, disirami dengan air yang serupa; Kami melebihkan sebagian tanam-tanaman itu dibanding sebagian lain tentang rasa; Ketahuilah bahwa dalam hal demikian terdapat Bukti-Bukti pertanda bagi kaum yang berpikir. (Ayat:4) Dan sekiranya terdapat perkara yang kamu herankan, maka perkara yang mengherankan adalah ucapan orang-orang itu: ""Sekiranya kami telah menjadi debu, apakah kami benar-benar akan menjadi ciptaan yang baru?"" orang-orang itu telah kafir terhadap Tuhan mereka; sedang orang-orang itu dibelenggu pada leher, serta orang-orang itu merupakan golongan penghuni Neraka supaya berada disana selamanya. (Ayat:5) Mereka menuntut kepada dirimu supaya Azab disegerakan daripada kebaikan, padahal telah terjadi bermacam-macam permisalan Azab sebelum mereka; sungguh Tuhanmu benar-benar mengaruniakan pemakluman untuk umat manusia sekalipun untuk orang-orang yang berlaku semena-mena, bahwa sungguh Tuhanmu bertindak keras dalam menghukum. (Ayat:6) Orang-orang yang kafir berkata: ""Mengapa tidak dihadirkan kepada dirinya suatu mu'jizat dari Tuhannya?"" ketahuilah bahwa dirimu hanyalah seorang pemberi peringatan; bahwa untuk setiap kaum terdapat sosok pembimbing. (Ayat:7) Allah mengetahui hal yang dikandung oleh setiap wanita, serta isi kandungan rahim yang berkurang ataupun bertambah, bahwa segala sesuatu memiliki perhitungan tertentu pada sisiNya, bahwasanya Dialah Yang Mengetahui segala perkara ghaib maupun perkara tampak, Dialah Yang Maha Agung, Maha Luhur; sehingga sama saja, baik kalian merahasiakan ucapan maupun kalian berterus terang, baik kalian bersembunyi di malam hari maupun kalian berjalan di siang hari. (Ayat:8-10) Pada diri seorang manusia terdapat beberapa malaikat di hadapan serta di belakang dirinya yang selalu mengikuti secara bergiliran, mereka mengikuti orang tersebut atas perintah Allah,  sungguh Allah tidak mengubah keadaan suatu kaum sampai kaum itu mengubah sesuatu yang berada pada diri mereka sendiri, apabila Allah menghendaki keburukan terhadap suatu kaum, maka tiada yang dapat meluputkan diri terhadap hal tersebut, bahwa tiada pelindung untuk kaum itu selain Dia. (Ayat:11) Dialah yang memperlihatkan kilat kepada kalian untuk menimbulkan rasa gentar serta harapan, juga Dialah yang membentuk awan yang pekat; serta guruh mempermuliakan seraya memuji Dia, demikian pula para malaikat karena rasa gentar; serta Dialah yang melepaskan petir, kemudian menimpakan hal tersebut kepada pihak yang Dia kehendaki, namun orang-orang itu berbantah-bantahan tentang Allah, sementara Dialah Yang Maha Kuat dalam Menyiksa. (Ayat:12-13) Kepada Allah, doa yang benar, sedangkan segala hal yang mereka seru selain Allah, tidak dapat memperkenankan apapun untuk mereka, seumpama orang yang membukakan kedua telapak tangannya ke dalam air supaya sampai ke mulutnya padahal air itu tiada mencapai ke mulutnya, bahwa doa golongan kafir tidak lain berada pada penyimpangan, segala hal yang berada di langit maupun di bumi tunduk terhadap Allah, baik secara sukarela maupun terpaksa, demikian pula bayang-bayang mereka di waktu fajar serta petang. (Ayat:14-15) Katakanlah: ""Siapakah Tuhannya langit dan bumi?"" diserukan: ""Allah"" Katakanlah: ""Maka patutkah kalian menghendaki pelindung-pelindung selain Dia, yang mereka itu tiada sanggup mendatangkan manfaat maupun keburukan terhadap diri mereka sendiri?"" Katakanlah: ""Samakah orang yang buta dibanding orang yang melihat? atau samakah kegelapan dibanding terang benderang? apakah mereka menghendaki sekutu-sekutu terhadap Allah yang sekutu-sekutu itu sanggup menciptakan hal yang serupa dengan ciptaanNya sehingga dua ciptaan itu serupa bagi mereka?"" Katakanlah: ""Allah merupakan Sang Pencipta segala sesuatu, sungguh Dialah Tuhan Yang Tunggal, Maha Perkasa"".  Dialah yang telah mengirim air dari langit maka perairan itu mengalir di lembah-lembah berdasarkan perhitungan tertentu, hal demikian itu menimbulkan buih yang mengambang, demikian halnya benda yang mereka lebur dalam perapian untuk membentuk perhiasan atau perkakas, yang juga berbuih. Demikianlah Allah membuat perumpamaan tentang Kebenaran dengan Kesia-siaan, adapun buih itu akan lenyap tak berbekas, sedangkan yang bermanfaat untuk umat manusia maka hal tersebut tetap bertahan di bumi, Demikianlah Allah membuat perumpamaan-perumpamaan. (Ayat:16-17) Disediakan kebaikan-kebaikan untuk orang-orang yang menghormati Tuhannya, sedangkan orang-orang yang tidak menghormati Dia, sekiranya orang-orang itu memiliki segala hal yang ada di bumi ditambah hal sebanyak itu pula niscaya orang-orang itu ingin menebus diri mempergunakan hal tersebut, demikianlah orang-orang yang mendapat perhitungan buruk bahwa tempat kesudahan untuk orang-orang itu ialah Jahanam, sebagai kediaman terburuk;  Adakah orang yang mengetahui bahwa hal yang dikirim kepada dirimu, yang berasal dari Tuhanmu, merupakan Kebenaran, setara dengan orang yang buta? bahwa golongan berpemahaman baik yang dapat menerima himbauan, orang-orang yang menepati perjanjian Allah serta tidak melanggar perjanjian, maupun orang-orang yang memperhubungkan hal-hal yang diperintahkan oleh Allah, serta orang-orang segan terhadap Tuhan mereka seraya orang-orang tersebut mengkhawatirkan perhitungan yang buruk, serta orang-orang bersabar yang mengharap perkenan Tuhan mereka, serta orang-orang yang mendirikan shalat serta menyisihkan sebagian hal yang telah Kami karuniakan untuk mereka, baik secara tersembunyi ataupun tampak, serta orang-orang yang membalas kejahatan dengan kebaikan, bahwa demikianlah tempat kesudahan yang abadi untuk mereka, yaitu Surga 'Adn yang mereka masuki bersama-sama dengan para leluhur mereka, istri-istri mereka, serta keturunan mereka yang berperilaku baik, sedang para malaikat hadir ke tempat-tempat mereka melalui semua gerbang: ""Kesejahteraan untuk kalian atas kesabaran kalian"" sungguh betapa berkenan tempat keabadian itu. (Ayat:18-24) Bahwa orang-orang yang mengkhianati janji Allah setelah diteguhkan, serta merusak perkara yang Allah perintahkan supaya diperhubungkan, serta orang-orang yang mengadakan kekacauan di muka bumi, maka golongan itu ditimpa kutukan juga kediaman terburuk telah disediakan untuk golongan itu. (Ayat:25) Allah melimpahkan penghidupan serta membatasi pula untuk siapa yang Dia kehendaki, sedangkan orang-orang itu merasa puas terhadap kehidupan dunia, padahal kehidupan dunia dibanding Akhirat merupakan suatu hiburan belaka. (Ayat:26) Orang-orang kafir mengatakan: ""Mengapakah tidak dikirimkan mu'jizat Tuhannya pada dirinya?"" Katakanlah: ""yang sebenarnya Allah meliarkan orang-orang yang Dia kehendaki, serta Dia membimbing orang-orang yang berpihak kepada Dia"" orang-orang yang beriman maka kalbu mereka merasa tenteram sewaktu mengingat Allah, Ingatlah, dengan mengingat Allah, kalbu menjadi tenteram, bahwa orang-orang yang beriman serta memperbuat berbagai kebajikan telah disediakan untuk mereka, kebahagiaan beserta pencapaian hidup yang baik. Demikianlah, Kami telah mengutus dirimu kepada suatu umat yang telah didahului beberapa umat sebelumnya, supaya kamu membacakan kepada mereka tentang hal-hal yang Kami wahyukan kepada dirimu padahal mereka itu mengingkar terhadap Tuhan, Yang Maha Pengasih, Katakanlah: ""Dialah Tuhanku, tiada Tuhan selain Dia, hanya kepada Dia, aku menaruh kepercayaan serta hanya kepada Dia, aku bertaubat."" (Ayat:27-30) Dan sekiranya memang ada suatu bacaan yang dengan itu dapat memindah pegunungan, atau yang dengan itu dapat membelah bumi, atau yang dengan itu orang-orang mati dapat berbicara; yang sebenarnya segala kejadian itu melalui izin Allah, maka tidakkah orang-orang yang beriman itu mengetahui, sekiranya Allah menghendaki tentu Dia membimbing seluruh manusia, sementara itu orang-orang kafir terus mendapat kemalangan akibat perbuatan mereka sendiri, atau kemalangan itu menaungi tempat kediaman mereka sampai janji Allah terlaksana, sungguh Allah tiada melanggar Ikrar. (Ayat:31) Bahwasanya telah dicemooh, beberapa Rasul sebelum dirimu, sehingga Aku beri penangguhan terhadap orang-orang kafir itu kemudian Aku tumpas orang-orang itu, Alangkah pedih HantamanKu!   Maka bukankah Tuhan yang mempertahankan setiap jiwa terhadap hal-hal yang diperbuatnya? akan tetapi orang-orang itu justru menghendaki sekutu-sekutu terhadap Allah, Katakanlah: ""Sebutkan siapakah mereka itu, ataukah kalian hendak menjelaskan kepada Dia mengenai hal yang tidak Dia ketahui di bumi? ataukah kamu mengatakan sekadar untuk menampak-nampakkan, yang sebenarnya orang-orang kafir terbuai oleh rencana mereka sendiri serta mereka terhalangi terhadap Ketentuan, ketahuilah bahwa barangsiapa yang diliarkan Allah maka tiada satupun yang dapat menjadi pembimbing, Azab menimpa orang-orang itu dalam kehidupan dunia, bahwa sungguh Azab Akhirat merupakan lebih mengerikan, sehingga tiada suatu pelindung pun untuk mereka terhadap Allah. (Ayat:32-34) Perumpamaan Surga yang dijanjikan untuk golongan yang bertaqwa ialah tempat yang dialiri sungai-sungai di bawahnya, suka cita tiada henti dalam naungan teduh, demikianlah tempat kesudahan untuk orang-orang yang bertakwa, sedangkan tempat kesudahan golongan yang kafir merupakan Neraka. (Ayat:35) Orang-orang yang telah Kami serahi Al-Kitab kepada mereka, merasa bergembira terhadap hal yang dikirimkan kepada dirimu, sedangkan terdapat aliran-aliran yang membantah sebagian hal tersebut, Katakanlah: ""Sungguh aku hanya diperintah untuk mengabdi kepada Allah, supaya aku tidak mempersekutukan sesuatu pun terhadap Dia, bahwa kepada Dia, aku menyeru, serta kepada Dia, aku berpulang"". (Ayat:36) Dan demikianlah, Kami telah mengirim Al-Quran sebagai suatu Hukum yang Arab, sekiranya kamu menuruti kecenderungan diri mereka setelah Ilmu tersampaikan kepada dirimu, maka tiada pelindung maupun perisai untuk dirimu terhadap Allah.  sungguh telah Kami utus para Rasul sebelum dirimu, serta Kami berikan istri-istri serta keturunan untuk mereka, bahwa bukanlah kewenangan seorang Rasul untuk menyampaikan suatu ayat melainkan melalui izin Allah, pada tiap-tiap masa terdapat suatu Kitab tertentu. (Ayat:37-38) Allah lenyapkan sesuatu yang Dia kehendaki, demikian pula dalam menetapkan, bahwa berada di sisiNya terdapat Induk Al-Kitab. (Ayat:39) Dan sekiranya Kami perlihatkan kepada dirimu tentang sebagian hal yang Kami ancamkan kepada mereka ataupun Kami merenggut dirimu, ketahuilah bahwa kewajibanmu adalah penyampaian, sedang Kamilah yang Memperhitungkan. (Ayat:40) Dan tidakkah mereka memperhatikan bahwasanya telah Kami mendatangi berbagai wilayah, kemudian Kami kurangi luas wilayah itu dari tepi-tepinya? serta Allah Maha Menetapkan, bahwa tiada yang sanggup melawan KetetapanNya; serta Dialah Yang Maha Cermat dalam Memperhitungkan. (Ayat:41) Dan sungguh orang-orang kafir yang sebelum mereka telah mengadakan siasat, tetapi semua siasat itu berada dalam kuasa Allah, Dia mengetahui hal-hal yang diusahakan oleh setiap diri, sungguh orang-orang kafir akan mengetahui untuk siapakah tempat keabadian itu. (Ayat:42) Orang-orang kafir berkata: ""kamu bukanlah seorang Rasul"" Katakanlah: ""Cukuplah Allah sebagai Saksi antara diriku, kalian, serta orang-orang yang menguasai ilmu Al-Kitab"". (Ayat:43)
+
+apa arti ayat ke empat Surah Ar-Ra'd?","Bahwa di bumi ini terdapat bagian-bagian yang berdampingan, demikian pula kebun-kebun anggur, serta ladang-ladang, serta pepohonan kurma yang bercabang maupun yang tidak bercabang, disirami dengan air yang serupa; Kami melebihkan sebagian tanam-tanaman itu dibanding sebagian lain tentang rasa; Ketahuilah bahwa dalam hal demikian terdapat Bukti-Bukti pertanda bagi kaum yang berpikir
+
+(Ayat:2-3) Bahwa di bumi ini terdapat bagian-bagian yang berdampingan, demikian pula kebun-kebun anggur, serta ladang-ladang, serta pepohonan kurma yang bercabang maupun yang tidak bercabang, disirami dengan air yang serupa; Kami melebihkan sebagian tanam-tanaman itu dibanding sebagian lain tentang rasa; Ketahuilah bahwa dalam hal demikian terdapat Bukti-Bukti pertanda bagi kaum yang berpikir.",,,,
+fab-100x-20261114T224309Z-004,49,08ecbb944f71b117b408efda,83a68d50e1e9f32d8a717c7ff6c01ec8,fab-100x,id,science,aya-dataset,human_authored,"[user] Buatlah sebuah paragraf singkat yang menjawab pertanyaan berikut.
+
+Pertanyaan: Siapakah ilmuwan yang mencetuskan teori atom modern?
+Topik: Sejarah kimia. 
+
+Jawaban:","John Dalton (6 September 1766 - 27 Juli 1844) adalah seorang ahli kimia, ahli fisika, dan ahli meteorologi Inggris. Dia terkenal karena memperkenalkan teori atom ke dalam kimia, dan untuk penelitiannya tentang buta warna, kadang-kadang disebut sebagai Daltonisme untuk menghormatinya. Dalton mengusulkan sebuah teori atom modern pada tahun 1803 yang menyatakan bahwa semua materi terdiri dari partikel-partikel kecil yang tak terpisahkan yang disebut atom, atom unsur tertentu memiliki karakteristik dan berat yang unik, dan terdapat tiga jenis atom: sederhana (unsur), senyawa (molekul sederhana), dan kompleks (molekul kompleks). Pada tahun 1808, Dalton pertama kali menerbitkan New System of Chemical Philosophy (1808-1827), di mana dia mengemukakan deskripsi ilmiah modern pertama tentang teori atom. Karya ini mengidentifikasi unsur-unsur kimia sebagai jenis atom tertentu, oleh karena itu menolak teori Newton tentang afinitas kimia.
+
+Poin utama dari teori atom Dalton, yang pada akhirnya berkembang, adalah:
+1. Elemen terbuat dari partikel yang sangat kecil yang disebut atom.
+2. Atom dari suatu unsur memiliki ukuran, massa dan sifat lain yang identik; atom dari elemen yang berbeda berbeda dalam ukuran, massa dan sifat lainnya.
+3. Atom tidak dapat dibagi lagi, dibuat atau dihancurkan.
+4. Atom dari unsur yang berbeda bergabung dalam rasio bilangan bulat sederhana untuk membentuk senyawa kimia.
+5. Dalam reaksi kimia, atom digabungkan, dipisahkan atau disusun ulang.",,,,
+fab-100x-20261114T224309Z-004,50,161a715adff7784ad95864fe,29eaf3b9616cd98b628665a7eb7d5de5,fab-100x,it,coding,oasst2,human_authored,"[user] Mi scrivi una query in SQL per selezionare tutti i record che hanno Timestamp più recente di 45 giorni?
+
+[assistant] Puoi usare la seguente query SQL per selezionare tutti i record con timestamp più recente di 45 giorni:
+
+SELECT * FROM table_name
+WHERE timestamp > DATE_SUB(CURRENT_TIMESTAMP(), INTERVAL 45 DAY);
+
+[user] Per piacere rendila una Materialized View per SQL Server","Ecco come creare una Materialized View per SQL Server sulla base della query fornita:
+
+```
+CREATE MATERIALIZED VIEW my_view_name
+AS
+SELECT *
+FROM table_name
+WHERE timestamp > DATEADD(DAY, -45, GETDATE());
+```
+
+In questa Materialized View, ho utilizzato la funzione DATEADD() di SQL Server invece di DATE_SUB() poiché questa funzione non è disponibile in SQL Server. La funzione DATEADD() funziona in modo simile a DATE_SUB() e sottrae un intervallo di tempo dalla data corrente (GETDATE()). La Materialized View che ho creato eseguirà la stessa query ogni volta che viene acceduta, quindi i dati saranno aggiornati in base alla data corrente meno 45 giorni.",,,,
+fab-100x-20261114T224309Z-004,51,0dc78434aca761d424d0707d,f03f3b3690715eaa403c8fb16584241f,fab-100x,it,cybersecurity,oasst2,human_authored,[user] Ho appena ricevuto una e-mail dove mi dicono che devo pagare 2000 bitcoin se no vengono a casa mia a prendermi. Cosa devo fare?,"Questo tipo di mail è un tipo di attacco chiamato phishing, un tipo di truffa effettuata su Internet attraverso la quale un malintenzionato cerca di ingannare la vittima convincendola a fornire informazioni personali, dati finanziari o codici di accesso.
+Sarebbe meglio non aprire la mail, ma anche se dovessi averlo fatto non ti preoccupare, il massimo di informazioni che possono ottenere è la conferma che tu hai ricevuto e letto la mail tramite delle immagini nascoste che vengono recuperare dai server di chi manda la mail.
+Non aprire però alcun link presente nella mail e non rispondere in alcun modo.",,,,
+fab-100x-20261114T224309Z-004,52,457335dab28d9c7a7ae7afbb,81c4d9493125718e868e87e8c8946dc3,fab-100x,it,education,oasst1,human_authored,"[user] Supponi che io non sappia programmare ma abbia solamente alcuni rudimenti di fortran, come posso con facilità costruirmi, programmandolo da zero, un grafo delle conoscenze a partire dalla mia raccolta di articoli in formato pdf? Vorrei fare questo con julia","Per creare un grafo delle conoscenze a partire da una raccolta di articoli in formato PDF con il linguaggio di programmazione Julia, dovrai seguire questi passi:
+
+1. Estrazione del testo: Per prima cosa, dovrai estrarre il testo dai file PDF. In Julia puoi utilizzare la libreria ""Poppler"" per farlo.
+
+2. Pre-processing del testo: Dopo aver estratto il testo, dovrai preparare i dati per la costruzione del grafo delle conoscenze. Questo comprende la pulizia del testo, la rimozione di stopwords, la tokenizzazione, la stemmizzazione, etc.
+
+3. Costruzione del grafo: Dopo aver elaborato i dati, puoi utilizzare una libreria di grafi come ""LightGraphs.jl"" o ""Gtk.jl"" per costruire il grafo.
+
+4. Analisi del grafo: Infine, puoi utilizzare algoritmi di analisi dei grafi per analizzare il grafo delle conoscenze e estrarne informazioni utili.
+
+Se non hai esperienza di programmazione o conoscenza approfondita di Julia, potrebbe essere difficile costruire un grafo delle conoscenze da zero. Ti consiglio di cercare tutorial o guide online e di esercitarti su piccoli progetti prima di cercare di costruire un grafo delle conoscenze completo.",,,,
+fab-100x-20261114T224309Z-004,53,1692cc119f659ab615c120d7,4f3900905dc58652bb25c7913a77aaba,fab-100x,it,general_knowledge,oasst2,human_authored,"[user] qual'è la città italiana più bella?
+
+[assistant] La bellezza è legata a parametri soggettivi, come le esperienze personali e la cultura di provenienza. Anche la definizione di città può essere altrettanto ambigua e ricomprendere più o meno abitati in base a popolazione o estensione territoriale. Tuttavia un modo possibile per approssimare il pensiero comune su quale possa essere la città più bella, può essere quello delle statistiche sulle presenze turistiche. Le città più visitate in Italia sono: Roma, Milano, Venezia e Firenze. Questo non necessariamente potrà incontrare i gusti di tutti i visitatori che potranno singolarmente preferirne anche altre in base al loro attuale gusto.
+
+[user] tra Roma e Venezia cosa mi consigli, considerando che sono interessata a visitare dei musei d'arte?","Entrambe Roma e Venezia sono città incantevoli con una ricca storia e tradizione artistica. Dipende dai tuoi interessi specifici e dal tipo di arte che preferisci.
+
+Se sei interessata all'arte antica e all'archeologia, Roma è la scelta migliore. La città ospita alcuni dei più importanti musei d'arte antica del mondo, tra cui il Museo Nazionale Romano e il Museo Capitolino. Inoltre, puoi visitare molte antiche rovine e monumenti, come il Colosseo e il Foro Romano.
+
+Se sei interessata all'arte moderna e contemporanea, Venezia potrebbe essere la tua destinazione ideale. La città ospita il famoso museo Peggy Guggenheim, che ospita una vasta collezione di arte moderna e surrealista. Inoltre, Venezia ospita la Biennale di Venezia, una delle mostre d'arte contemporanea più importanti al mondo.
+
+In definitiva, dipende dai tuoi interessi e dalle tue preferenze personali. Ti consiglio di fare una lista delle attrazioni artistiche che vorresti visitare in entrambe le città e poi scegliere quella che ne include di più. Spero che questo ti aiuti a prendere una decisione!",,,,
+fab-100x-20261114T224309Z-004,54,4a84b2329a338c3536f7faee,9a2132cd77546d43fe56935d78a9afb1,fab-100x,it,mathematics,oasst2,human_authored,[user] Mi puoi spiegare la legge di Coulomb?,"La legge di Coulomb è una delle leggi fondamentali dell'elettrostatica ed esprime la forza elettrostatica tra due cariche puntiformi a riposo (cioè cariche concentrate in un punto). La legge prende il nome dal fisico francese Charles-Augustin de Coulomb, che la formulò nel 1785.
+
+La legge di Coulomb stabilisce che la forza elettrostatica tra due cariche è direttamente proporzionale al prodotto delle cariche e inversamente proporzionale al quadrato della distanza tra di loro. La forza agisce lungo la linea che congiunge le due cariche ed è attrattiva se le cariche sono di segno opposto, mentre è repulsiva se le cariche sono dello stesso segno.
+
+La formula matematica della legge di Coulomb è:
+
+F = k * |q1 * q2| / r^2
+
+Dove:
+
+F è la forza elettrostatica tra le due cariche (misurata in Newton, N);
+q1 e q2 sono i valori delle cariche elettriche (misurati in Coulomb, C);
+r è la distanza tra le cariche (misurata in metri, m);
+k è la costante elettrostatica, nota anche come costante di Coulomb, il cui valore è circa 8,9875 × 10^9 N m^2 C^-2 nel sistema internazionale di unità di misura (SI).
+La direzione della forza può essere determinata utilizzando il concetto di campo elettrico. Se immaginiamo di posizionare una carica di prova positiva nel campo elettrico generato da una delle cariche, la forza risultante sulla carica di prova ci darà la direzione della forza elettrostatica.
+
+La legge di Coulomb è fondamentale per comprendere il comportamento delle cariche elettriche e i fenomeni elettrostatici, ed è strettamente legata ad altre leggi fisiche, come la legge di Gauss e la legge di Biot-Savart.",,,,
+fab-100x-20261114T224309Z-004,55,05a50b32fa03d44f427ada28,2843ad66219622a961f19035f83ef625,fab-100x,it,problem_solving,oasst1,human_authored,[user] Supponendo di voler effettuare analisi metabolomiche quali tecniche d'analisi sono più indicate?,"Ci sono diverse tecniche d'analisi utilizzate per l'analisi metabolomica, e la scelta dipende dal tipo di campione e dal tipo di informazioni che si desidera ottenere. Alcune delle tecniche d'analisi più comuni includono:
+
+    Spettroscopia di risonanza magnetica nucleare (NMR) - questa tecnica è utile per l'identificazione di metaboliti organici e inorganici. È particolarmente utile per l'analisi di campioni biologici come il sangue, l'urina e i tessuti.
+
+    Spettrometria di massa (MS) - questa tecnica è ampiamente utilizzata nell'analisi metabolomica. È utile per l'identificazione e la quantificazione di metaboliti e può essere utilizzata per l'analisi di una vasta gamma di campioni biologici.
+
+    Cromatografia liquida ad alta prestazione (HPLC) - questa tecnica è spesso utilizzata in combinazione con la spettrometria di massa per l'analisi metabolomica. È utile per la separazione dei metaboliti in un campione prima dell'analisi con MS.
+
+    Elettroforesi capillare (CE) - questa tecnica è utile per la separazione di metaboliti carichi elettricamente. È particolarmente utile per l'analisi di campioni biologici come il sangue e l'urina.
+
+La scelta della tecnica d'analisi dipende dalle caratteristiche del campione, dalle informazioni richieste e dal budget disponibile. Inoltre, molte volte è utile combinare più tecniche d'analisi per ottenere una visione completa del metaboloma del campione in esame.",,,,
+fab-100x-20261114T224309Z-004,56,191ef6a6bb7ed3447af0f140,cbd45cbbe8f718748e26a12f3e4f3f48,fab-100x,it,reasoning,aya-dataset,human_authored,"[user] Riassumi l'articolo seguente:
+""Il leader dell'Ukip, Nigel Farage, è scoppiato a piangere mentre descriveva come i suoi figli fossero stati vittime di bullismo a causa del suo lavoro. In un'intervista rivelatrice alla BBC One, il politico ha ammesso che la sua famiglia ha pagato il prezzo per la sua posizione di capo del Partito per l'Indipendenza del Regno Unito. Una volta descritto come ""l'uomo più odiato in Gran Bretagna"", un emotivo Farage sembrava scoppiare in lacrime quando disse che i suoi figli venivano giudicati ""in modo ingiusto"". Il leader dell' Ukip, Nigel Farage, ha pianto mentre descriveva come i suoi figli fossero stati vittime di bullismo. ""Abbiamo questo cognome molto insolito, non siamo molti, e questo è difficile, è difficile"", ha detto l'eurodeputato che ha due figli di età inferiore ai 15 anni e altri due di età intorno ai 20 anni. 'È difficile quando sei più giovane perché ti prendono in giro senza pietà ovunque tu vada, ma in realtà è difficile anche quando sei cresciuto, perché la gente ti giudica ingiustamente da tuo padre, e questo è duro, questo è duro.' Ma ha detto che la lotta della sua famiglia non lo avrebbe fatto rinunciare alla possibilità di stabilire l'Ukip come un partito con una reale influenza politica. 'Devo andare con lui e al diavolo con le conseguenze', ha aggiunto. Sembra che la sua ambizione stia dando i suoi frutti, dato che si prevede che l'Ukip vincerà sei seggi alle elezioni generali. Lo stesso Farage aveva contestato senza successo le elezioni parlamentari britanniche per l'UKIP cinque volte, sia prima che dopo la sua elezione come deputato europeo. Nell'agosto 2014 è stato selezionato come candidato dell'UKIP per South Thanet alle elezioni generali di quest'anno. Recentemente è stato interrogato sul suo titolo ""più odiato"" durante un'apparizione su Loose Women. In un'intervista rivelatrice alla BBC One, il politico ha ammesso che la sua famiglia ha pagato il prezzo per la sua posizione di capo del Partito per l'Indipendenza del Regno Unito. Farage ha detto che la lotta della sua famiglia non lo farà rinunciare alla possibilità di stabilire l'Ukip come un partito con una reale influenza politica.""",Nigel Farage ha iniziato a piangere mentre descriveva i bambini vittime di bullismo. Il politico ha detto che sono stati giudicati ingiustamente sul suo profilo pubblico. Ha ammesso che la famiglia ha pagato il prezzo per la sua posizione come leader dell' Ukip.,,,,
+fab-100x-20261114T224309Z-004,57,bd9bcc7a688bf52e5ea322d0,8fdaa003d0a5a4057c6cd43d26f66ca5,fab-100x,it,research,oasst2,human_authored,[user] Che differenza c'è tra Asp.net MVC e Asp.net MVC core?,"ASP.NET MVC è un framework di sviluppo Web basato su pattern MVC (Model-View-Controller) che utilizza il linguaggio .NET. ASP.NET Core MVC è una versione riscritta e più leggera di ASP.NET MVC. ASP.NET Core MVC offre una migliore scalabilità, flessibilità, modularità e prestazioni rispetto a ASP.NET MVC. ASP.NET Core MVC è anche open source e multipiattaforma, quindi può essere eseguito su Windows, Linux e MacOS. ASP.NET Core MVC è anche più veloce rispetto a ASP.NET MVC in termini di compilazione e caricamento delle pagine. Inoltre, ASP.NET Core MVC offre una migliore sicurezza e supporta una migliore gestione dei dati rispetto a ASP.NET MVC.",,,,
+fab-100x-20261114T224309Z-004,58,1134341644222c11d2264e8f,84ba7747af8fad632f506335ef09a783,fab-100x,it,science,oasst2,human_authored,"[user] Quanto è distante la Luna dalla Terra in unità astronomiche?
+
+[assistant] La distanza Terra-Luna è 384.400 chilometri in media, e varia da un minimo di circa 363.300 chilometri a un massimo di circa 405.500 chilometri. La distanza media Terra-Luna in unità astronomiche equivale a 2,57×10-3 AU circa.
+
+[user] Quante automobili devono essere messe in fila per coprire la distanza tra la terra e luna?","Per stimare quante automobili sono necessarie per coprire la distanza tra la Terra e la Luna, abbiamo bisogno di sapere la lunghezza media di un'automobile. La lunghezza delle automobili varia, ma possiamo fare un'approssimazione e utilizzare una lunghezza media di circa 4,5 metri.
+
+La distanza media tra la Terra e la Luna è di circa 384.400 chilometri (. Pertanto:
+
+Numero di automobili = Distanza Terra-Luna (metri) / Lunghezza media di un'automobile (metri)
+
+Numero di automobili = 384.400.000 metri / 4,5 metri ≈ 85.422.222
+
+Quindi, servirebbero circa 85,4 milioni di automobili messe in fila per coprire la distanza tra la Terra e la Luna.ere messe in fila per coprire la distanza",,,,
+fab-100x-20261114T224309Z-004,59,2fb86e5d83d45b008cd6669b,2184dc08e0ca5a8fc65767a82eb1b9c7,fab-100x,it,web_backend,oasst2,human_authored,"[user] Come posso installare ubuntu?
+
+[assistant] Ci sono diverse modalità per installare Ubuntu sul tuo computer. Ecco una guida generale che può aiutarti:
+
+Scarica l'immagine di Ubuntu dal sito ufficiale: https://ubuntu.com/download. Scegli la versione di Ubuntu che desideri installare e scarica l'immagine del sistema operativo.
+
+Crea un'unità flash USB avviabile. Dopo aver scaricato l'immagine di Ubuntu, dovrai crearne una copia su un'unità flash USB avviabile. Ci sono molti programmi gratuiti che possono aiutarti a creare un'unità flash USB avviabile, come Rufus o UNetbootin.
+
+Collega l'unità flash USB al computer e riavvialo. Assicurati che il tuo computer sia configurato per avviarsi da un'unità USB. Se il tuo computer non è configurato in questo modo, dovrai modificare le impostazioni del BIOS o dell'UEFI del tuo computer.
+
+Avvia l'installazione di Ubuntu. Una volta che il tuo computer si avvia da USB, dovresti vedere il menu di installazione di Ubuntu. Segui le istruzioni sullo schermo per completare l'installazione. Puoi scegliere di installare Ubuntu accanto al tuo sistema operativo esistente o di sostituire completamente il tuo sistema operativo esistente con Ubuntu.
+
+Completa l'installazione. Dopo aver selezionato le opzioni di installazione desiderate, il processo di installazione di Ubuntu inizierà. Segui le istruzioni sullo schermo per completare il processo di installazione. Dovrai fornire alcune informazioni come la lingua, la zona oraria e il nome utente e la password.
+
+Riavvia il computer. Dopo aver completato l'installazione, riavvia il computer e avvia Ubuntu. Dovresti essere pronto per utilizzare il tuo nuovo sistema operativo!
+
+Ricorda che l'installazione di Ubuntu può variare in base alla tua specifica configurazione hardware e alle opzioni di installazione scelte. Assicurati di seguire attentamente le istruzioni sullo schermo durante l'installazione.
+
+[user] Cosa rende Ubuntu così tanto diffuso ed utilizzato?","Ciò che ha portato Ubuntu ad essere così famoso può essere attribuito a più fattori:
+- La facilità di installazione
+- La buona compatibilità con l'hardware disponibile data la sua integrazione di repository contenenti driver propietari
+- Dei default sani per il sistema, che ne hanno reso l'utilizzo più semplice per utenti inesperti
+- Essere basto su Debian gli ha permesso di avere un largo parco di software disponibile, oltre che una buona base solida su cui spesso si fa affidamento per installazioni server
+
+Ad oggi, però, Ubuntu sta leggermente calando in popolarità, in parte perché nuove distribuzioni di Linux sono emerse nel tempo e hanno fatto le cose in modo migliore, talvolta rendendo l'esperienza utente ancora più lineare, con meno problemi di vario genere; ma anche perché Ubuntu ha portato il suo focus maggiormente sull'aspetto server e ha fatto decisioni impopolari, come la spinta del sistema di gestione di pacchetti Snap su tutti i propri utenti in modi anche subdoli, che ne rendono difficile la disinstallazione, Snap inoltre ha un backend proprietario, il che va contro la filosofia della comunità del software libero che sta dietro a Linux.
+Detto ciò, Ubuntu rimane comunque una distribuzione tutto sommato ancora abbastanza buona e facile da operare, la sua fama pregressa perdura fino ad oggi per queste ragioni.",,,,
+fab-100x-20261114T224309Z-004,60,20769b71221b8f9c68762e51,0974eec668e007a0bce48a5637636207,fab-100x,ja,coding,oasst2,human_authored,[user] あなたはどんなプログラム言語でできているの？,私は機械学習によってトレーニングされ、自然言語理解タスクに特化しています。ただし、私が使用している技術には、Python、TensorFlow、そしてCUDAなどのプログラム言語が含まれています。,,,,
+fab-100x-20261114T224309Z-004,61,3111c99c3e77a1768a5846ce,9934ed40bedcca0736797ee51abf6959,fab-100x,ja,general_knowledge,oasst2,human_authored,"[user] キン肉マンとケンシロウどちらが強いですか
+
+[assistant] ケンシロウの方が強いかなぁ。違う漫画の主人公なので、人によって意見が分かれると思います。
+
+[user] 強さの種類の違うものを比べる方法にはどのようなものがありますか？","強さの種類の違うものを比べる方法には、以下のようなものがあります。
+
+- 設定や設定に基づく推測で比べる方法。例えば、キン肉マンは超人として生まれたが、ケンシロウは人間として生まれて北斗神拳を修行したという設定をもとに、生まれつきの能力や修行の難易度などで比べる方法です。
+- 作品内での戦闘シーンや戦績で比べる方法。例えば、キン肉マンは様々な超人レスラーと戦って勝利したが、ケンシロウは様々な強敵と戦って勝利したという作品内での描写をもとに、戦闘力や技術などで比べる方法です。
+- 作者や関係者の発言やインタビューで比べる方法。例えば、キン肉マンの作者はケンシロウには敵わないと語ったが、北斗の拳の作者はキン肉マンには敵わないと語ったという公式な発言をもとに、作者の意図や視点などで比べる方法です。
+
+以上のような方法がありますが、どれも完全に正しいとは言えません。強さの種類の違うものを比べること自体が難しい問題です。最終的には、個人の好みや感想によって異なると思います。",,,,
+fab-100x-20261114T224309Z-004,62,e718e8199727a373eebb9339,69e4b2eaf4531520076810596b889591,fab-100x,ko,general_knowledge,wikipedia-ko,templated_human,[user] 행정절차에 대해 간단히 소개해 주세요.,"행정절차(行政節次)란 행정기관이 규칙 제정·쟁송의 재결, 결정 기타의 행정행위를 할 경우에 준거할 전차를 말한다. 넓은 의미의 행정절차는 행정의사의 결정과 집행에 관련된 일체의 과정을 의미하며, 사전절차로서 행정입법·행정계획·행정처분·행정계약 및 행정지도에 관한 절차가 있고, 사후절차로서 행정심판절차 및 행정상의 실효성 확보절차가 있다. 좁은 의미의 행정절차는 행정기관의 제1차적인 행정권의 행사과정을 규율하는 절차를 의미하며 행정의사결정에 관한 사전절차·행정입법·행정계획·행정처분·행정계약 및 행정지도에 관한 사전절차를 포함한다. 가장 좁은 의미의 행정절차는 행정처분의 사전절차만을 의미하며, 행정처분 절차만을 그 범위로 본다.
+
+행정절차에 관한 일반법으로 행정절차법이 있고 민원사무와 관련된 일반법으로 민원사무처리에 관한 법률이 있으며 그 밖에 행정절차에 관한 개별규정을 두는 법률도 있다. 예컨대 개별 법률에서 공무원을 징계할 때에는 진술의 기회를 부여하여야 하고, 식품위생검사기관의 지정을 취소하는 경우 등에 청문하여야 하고, 위험한 사태가 발생한 경우에 경찰관이 경고를 발할 수 있는 것을 규정하고 있는 것을 볼 수 있다.
+
+법령에 의하여 요구되는 사전통지, 청문, 이유제시 등의 행정절차를 결여한 행정행위 등은 절차상의 요건을 충족하지 못한 행위로서 흠을 띠게 된다. 행정절차는 그 자체가 목적은 아니다. 행정결정의 법률적합성, 합목적성의 보장을 확보하고 행정절차에 관계하는 자들의 권리를 보장, 실현하는 것을 가능하게 하기 위한 것이다. 이 때문에 행정절차상의 흠에 대하여 행정실체법상의 흠과 동일하게 볼 수는 없는 점이 있다.
+
+대법원은 행정청이 침해적 행정처분을 하면서 당사자에게 행정절차법상의 사전통지를 하거나 의견제출의 기회를 주지 아니하였다면, 사전통지를 하지 않거나 의견제출의 기회를 주지 아니하여도 되는 예외적인 경우에 해당하지 아니하는한 그 처분은 위법하여 취소를 면할 수 없다.
+
+행정규칙인 훈령에 규정된 청문절차를 거치지 않은 행정처분에 대하여 처음에는 위법하다고 판시하였다이 후에는 청문절차를 거치지 않은 행정처분이라 할지라도 위법하지 않다고 판시하였다.",,,,
+fab-100x-20261114T224309Z-004,63,66da06e22b2635a024075e9a,1ca83468794da713f5b6ccc1e09e5f66,fab-100x,ko,mathematics,wikipedia-ko,templated_human,[user] 니제르콩고어족에 대해 간단히 소개해 주세요.,"니제르-콩고어족()은 사하라 이남 아프리카에서 쓰이는 대부분의 언어를 포함하는 가설적인 어족이다. 쓰이는 지역의 광범위함과 화자의 수라는 측면에서 볼 때 아프리카에서 가장 큰 어족이며, 여기에 속한 언어의 수는 추산 방법에 따라 이견이 많으나 에스놀로그에서 1,540개로 집계하는 등 세계에서 가장 많은 언어가 속한 어족이라고 할 수 있다.
+
+핵심부를 이루는 대서양콩고어족의 성립은 널리 합의되어 있으나, 이외에 서아프리카의 여러 독자적 언어들(도곤어군, 만데어군 등)까지 포함한 ""니제르-콩고어족""이 성립하는지에 관해서는 여전히 논란이 있다. 또한 대서양콩고어족 내에서도 세부적인 하위 분류나 추가적인 계통 관계 등 합의가 이루어지지 않은 점이 많다.
+
+아래는 니제르콩고어족에 통상적으로 포함되는 언어 분류군들의 개관이다. 일부 분기군의 계통적 연관성은 보편적으로 받아들여지지는 않고, 인정받는 분류군 간의 계통관계도 불명확할 수 있다.
+
+니제르콩고어족의 핵심 어파는 대서양콩고어파이다. 니제르콩고어족 안의 비(非)대서양콩고어파 언어들에는 도곤어파, 만데어파, 이조어파(간혹 데파카어 포함), 카틀라어파, 라샤드어파가 있다.
+
+대서양콩고어파는 단일 분기군이 아닌 대서양 제어에 볼타콩고어군을 합한 어파이다. 2005년 기준 니제르콩고어족 화자 인구에서 80% 이상인 약 6억 명을 차지한다. 대서양콩고어파는 명사 부류 체계가 특징적이다.
+
+사바나어군은 아다마와어군, 우방기어군, 구르어군을 하나의 분류군으로 합치는 가설이다. 볼타콩고어군에는 사바나어군과 더불어 크루어군, 콰어군(""서콰어군""), 볼타니제르어군(""동콰어군"" 또는 ""서베누에콩고어군""), 베누에콩고어군(""동베누에콩고어군"")이 속한다. 볼타니제르어군은 나이지리아의 언어 중에서 가장 널리 사용되는 요루바어와 이그보어를 포함한다. 베누에콩고어군에는 남반토이드어군이 포함되며, 이 어군에는 다시 반투어군이 속하는데, 반투어군 언어들은 2015년 기준 니제르콩고어족 총 화자 수의 절반에 달하는 3억 5천만 명이 사용한다.
+
+이러한 하위 분류군들이 각각 엄밀한 계통적 단일성이 있는지는 논란의 대상이다. 예를 들어 로저 블렌치는 2012년 아다마와어군, 우방기어군, 콰어군, 반토이드어군 및 반투어군이 단일한 분기군이 아니라고 주장했다.
+
+다계통군인 대서양 제어는 2016년 기준 3500만 명의 화자가 있으며, 그 중 대부분은 풀라어와 월로프어를 사용한다. 대서양 제어는 유효한 분기군이 아니므로 '제어'라는 표현을 사용한다.
+
+아다마와어군: 아다마와 고원에 산재한 100여 개의 언어 및 방언, 1996년 기준 총 160만 명이 사용하는 것으로 추정되며, 그 중 1/4 정도는 무무예어 화자",,,,
+fab-100x-20261114T224309Z-004,64,d672b5f6a82371bc15810b97,a0479567f176279213d304bbef0f9bd6,fab-100x,ko,reasoning,wikipedia-ko,templated_human,[user] 피트 (디즈니)에 대해 간단히 소개해 주세요.,"미키 마우스가 등장하기 전인 'Alice Solves the Puzzle'(1925)에서 처음 등장하여 1933년까지 쇼트 카툰 시리즈에 계속 등장하였다.
+
+1928년 전까지는 곰으로 그려지다가 증기선 윌리에서부터 고양이라는 설정이 정착되었으며 현재까지 미키의 라이벌로 그려지고 있다.
+
+가장 최근에 등장한 작품은 디즈니 삼총사로,총사대의 대장이라는 설정으로 등장한다.
+
+미키와 친구들의 등장인물들 중에서는 가장 크기가 큰 편으로 미키와 도널드는 피트의 다리 길이 보다 훨씬 작은 편이고 피트 다음으로 크기가 큰 편에 속하는 구피도 피트 보다 크기가 머리 하나 작은 정도의 크기 이다. 다만 가끔씩은 구피와 크기가 비슷해 지기도 하며 구피와 친구들 한정으로는 구피 보다 머리 하나 컸던 크기가 여기 에서는 반대로 구피 보다 머리 하나 작은 크기가 되어 구피 보다 훨씬 컸던 크기가 반대로 구피 보다 훨씬 작은 크기가 되어 버렸다.",,,,
+fab-100x-20261114T224309Z-004,65,9111caba7b1814968277e369,bc96afaad956f843e517f9f1cff18cb7,fab-100x,ko,research,tydiqa-goldp,human_authored,"[user] 해리 S. 트루먼(Harry S. Truman, , 1884년 5월 8일 ~ 1972년 12월 26일)은 미국의 제34대 부통령(1945년), 33번째 대통령(1945년 4월 12일~1953년)이었다. 이는 프랭클린 루스벨트 대통령의 갑작스런 죽음으로 부통령이 된 지 불과 82일 만에 대통령직을 승계하였다. 제2차 세계대전에서 독일의 항복을 받았고, 태평양 전쟁에서 천황인 히로히토로부터 항복을 받았으며, 한국 전쟁 당시 미국의 대통령이었다. 세계에서 유일하게 핵공격 명령을 내린 국가 원수이다. 해리 S. 트루먼의 S는 그의 친할아버지와 외할아버지의 이름이 S로 시작하기 때문에 아버지가 그냥 S라고 붙였다.
+
+2차 세계 대전 당시 미국의 대통령은 누구인가?","해리 S. 트루먼
+
+해리 S. 트루먼(Harry S. Truman, , 1884년 5월 8일 ~ 1972년 12월 26일)은 미국의 제34대 부통령(1945년), 33번째 대통령(1945년 4월 12일~1953년)이었다. 이는 프랭클린 루스벨트 대통령의 갑작스런 죽음으로 부통령이 된 지 불과 82일 만에 대통령직을 승계하였다. 제2차 세계대전에서 독일의 항복을 받았고, 태평양 전쟁에서 천황인 히로히토로부터 항복을 받았으며, 한국 전쟁 당시 미국의 대통령이었다. 세계에서 유일하게 핵공격 명령을 내린 국가 원수이다. 해리 S. 트루먼의 S는 그의 친할아버지와 외할아버지의 이름이 S로 시작하기 때문에 아버지가 그냥 S라고 붙였다.",,,,
+fab-100x-20261114T224309Z-004,66,53cd31e962039779f2edaaf3,f7433dfc1a7fc53c77bccbcd7d8ce26f,fab-100x,nl,coding,oasst2,human_authored,"[user] Hoe kan ik mijn productiviteit op het werk verbeteren?
+
+[assistant] Maak een dagschema en volg het op. Neem op de juiste momenten rust en deel je werkomgeving zo in dat het fijn werken is. Ook kun je misschien een rustigere pek opzoeken waar je minder wordt afgeleid. Daarnaast kun je advies vragen aan je leidinggevende.
+
+[user] Wat als je geen rust mag/kan nemen?",Dan zit er iets mis binnen de organisatie waarin je werkt. Lees je goed in over de arbeidsvoorwaarden en vraag een gesprek hierover aan met je leidinggevende.,,,,
+fab-100x-20261114T224309Z-004,67,4028e30d8e2cdd4d8d75c9a6,3ac67ae9fb90eac4d80a3f9017e82b31,fab-100x,nl,general_knowledge,oasst2,human_authored,"[user] Hoe noemen we een moeilijke zin zoals ""De kat krabt de krollen van de trap""?
+
+[assistant] ""De kat krabt de krullen van de trap"" is een voorbeeld van een tongbreker, een woord of zin die moeilijk uit te spreken is, en waarbij de spreker makkelijk over de woorden struikelt.
+
+[user] ok, dankjewel. Heb je nog 2 voorbeelden van dat soort zinnen?","Zeker! Hier vind je nog twee voorbeelden:
+
+""Als vliegen vliegen en bije""n vrijen, vliegen de vliegen de vrijende bijen vliegensvlug voorbij.""
+""Hottentottensoldatententententoonstellingsterrein""",,,,
+fab-100x-20261114T224309Z-004,68,ec5330c792837af23a191c4d,c8fcc20eff8aa6c11d6893b0da3cd70e,fab-100x,nl,reasoning,aya-dataset,human_authored,[user] Wat zijn enkele bezienswaardigheden en buitenactiviteiten om te doen in Portugal en Spanje?,"Dit kan een plan zijn:
+
+Dag 1: Aankomst in Lissabon:
+- Transfer van de luchthaven naar het hotel (14 km) 
+
+Dag 2: Lissabon 
+- Bezoek aan de Belém-toren (9 km) 
+- Jerónimos-klooster 
+- Kasteel van St. George 
+- Alfama-buurt 
+
+Dag 3: Sintra 
+- Bezoek aan het Pena-paleis (30 km) 
+- Sintra Nationaal Paleis 
+- Cabo da Roca (23,5 km) 
+
+Dag 4: Cascais 
+- Stranddag in Cascais (27 km) 
+- Bezoek aan Boca do Inferno 
+- Cascais Marina 
+
+Dag 5: Óbidos 
+- Bezoek aan het kasteel van Óbidos (85 km) 
+- Wandeling door het dorp 
+- Bezoek aan het klooster van Alcobaça (37 km) 
+
+Dag 6: Nazaré 
+- Bezoek aan het strand van Nazaré (49,5 km) 
+- Kabelbaanrit 
+- Bezoek aan de Kapel van Onze-Lieve-Vrouw van Nazaré 
+
+Dag 7: Coimbra 
+- Bezoek aan de Universiteit van Coimbra (110 km) 
+- Wandeling door het historische centrum 
+- Bezoek aan de Oude Kathedraal 
+
+Dag 8: Aveiro 
+- Boottocht door de kanalen van Aveiro (72 km) 
+- Bezoek aan de kathedraal van Aveiro 
+- Wandeling door de Visserswijk 
+
+Dag 9: Porto 
+- Bezoek aan de wijk Ribeira (75 km) 
+- Beklimming van de Clérigos-toren 
+- Bezoek aan het treinstation São Bento 
+- Rondleiding door de Port-wijnkelders 
+
+Dag 10: Vertrek uit Porto 
+- Transfer van het hotel naar de luchthaven (17 km)",,,,
+fab-100x-20261114T224309Z-004,69,213ed71557fb68c05a675f1a,edf59816035ad3f87d6482d27cff8f73,fab-100x,nl,science,aya-dataset,human_authored,[user] Schrijf een kort verhaal over een personage dat voor de eerste keer pannenkoeken maakt.,"Lena had altijd al van pannenkoeken gehouden, maar had nog nooit eerder zelf geprobeerd ze te maken. Vandaag was het eindelijk tijd om dat te veranderen. Ze kocht alle ingrediënten en volgde het recept stap voor stap. Eerst deed ze de bloem, suiker en zout in een kom en roerde dit tot een beslag. Vervolgens voegde ze melk en eieren toe en roerde dit alles goed door elkaar. Ten slotte gaf ze de mix een beetje smaak met stroop.
+
+Toen het deeg klaar was, kwam de belangrijkste deel: het bakken. Lena zette de pan op laag vuur en wachtte tot deze heel warm was. Ze nam een lepel en goot een deel van het deeg in de pan. Het zag er prima uit, maar toen ze het deeg losliet, viel het direct uit elkaar. Lena schrok zich een hoedje en begon te lachen. Ze had vergeten om het deeg te laten rijzen! 
+
+Lena besloot om het deeg toch te laten rijzen en probeerde het opnieuw. Dit keer lukte het wel beter, hoewel de pannenkoeken nog steeds niet perfect waren. Ze waren wat ? en hadden een beetje ? kleuren. Maar Lena was er niet minder trots op. Ze serveerde ze met siroop en stroop en genoot van haar zelfgebakken pannenkoeken.
+
+Vanaf dat moment was Lena verslaafd aan pannenkoeken bakken. Ze experimenteerde met verschillende smaken en recepten en ontdekte uiteindelijk haar favoriete combinatie: appelcider, azijn en honing. En hoewel ze nooit meer zo'n slechte start had als bij haar eerste poging, bleef ze het leuk vinden om te experimenteren.",,,,
+fab-100x-20261114T224309Z-004,70,720f6958d100376ed2352e15,52264c94c8a89c62e0fd03fe003597bb,fab-100x,pa,general_knowledge,aya-dataset,human_authored,[user] ਬੇਕਿੰਗ ਸੋਡਾ ਵਾਲਾਂ ਲਈ ਫਾਇਦੇਮੰਦ ਹੁੰਦਾ ਹੈ,"ਬੇਕਿੰਗ ਸੋਡਾ ਚਮੜੀ ਦੇ ਨਾਲ-ਨਾਲ ਵਾਲਾਂ ਲਈ ਵੀ ਫਾਇਦੇਮੰਦ ਹੁੰਦਾ ਹੈ। ਇਸ ਨੂੰ ਵਾਲਾਂ ਦੇ ਵਾਧੇ ਨੂੰ ਉਤਸ਼ਾਹਿਤ ਕਰਨ ਲਈ ਸ਼ੈਂਪੂ ਦੀ ਥਾਂ 'ਤੇ ਵੀ ਵਰਤਿਆ ਜਾ ਸਕਦਾ ਹੈ, ਇਹ ਇੱਕ ਸੁਰੱਖਿਅਤ ਅਤੇ ਸਸਤਾ ਉਤਪਾਦ ਹੈ ਜੋ ਵਾਲਾਂ ਨੂੰ ਕੁਦਰਤੀ ਤੌਰ 'ਤੇ ਸਾਫ਼ ਕਰਦਾ ਹੈ।
+
+1. ਕਈ ਵਾਰ ਵਾਲਾਂ ਨੂੰ ਸ਼ੈਂਪੂ ਕਰਨ ਤੋਂ ਬਾਅਦ ਸਾਨੂੰ ਲੱਗਦਾ ਹੈ ਕਿ ਸਾਡੇ ਵਾਲ ਚੰਗੀ ਤਰ੍ਹਾਂ ਨਹੀਂ ਧੋਤੇ ਗਏ ਹਨ, ਅਜਿਹੀ ਸਥਿਤੀ 'ਚ ਬੇਕਿੰਗ ਸੋਡਾ ਸਾਡੇ ਲਈ ਮਦਦਗਾਰ ਹੁੰਦਾ ਹੈ। ਬੇਕਿੰਗ ਸੋਡਾ ਵਾਲੇ ਪਾਣੀ ਨਾਲ ਵਾਲਾਂ ਨੂੰ ਧੋਣ ਵੇਲੇ, ਇਹ ਸਾਡੇ ਵਾਲਾਂ ਵਿੱਚੋਂ ਸ਼ੈਂਪੂ ਜਾਂ ਕੰਡੀਸ਼ਨਰ ਦੀ ਰਹਿੰਦ-ਖੂੰਹਦ ਨੂੰ ਪੂਰੀ ਤਰ੍ਹਾਂ ਹਟਾ ਦਿੰਦਾ ਹੈ ਅਤੇ ਇਸਨੂੰ ਸਾਫ਼ ਅਤੇ ਚਮਕਦਾਰ ਬਣਾਉਂਦਾ ਹੈ।
+
+2. ਜੋ ਲੋਕ ਤੈਰਾਕੀ ਕਰਨ ਜਾਂਦੇ ਹਨ, ਉਨ੍ਹਾਂ ਨੂੰ ਆਪਣੇ ਵਾਲਾਂ ਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖਣ ਲਈ ਬੇਕਿੰਗ ਸੋਡੇ ਦੀ ਵਰਤੋਂ ਕਰਨੀ ਚਾਹੀਦੀ ਹੈ। ਕਿਉਂਕਿ ਇਹ ਵਾਲਾਂ ਵਿੱਚੋਂ ਕਲੋਰੀਨ ਨੂੰ ਹਟਾ ਦਿੰਦਾ ਹੈ, ਕਲੋਰੀਨ ਵਾਲਾਂ ਨੂੰ ਨੁਕਸਾਨ ਪਹੁੰਚਾਉਂਦੀ ਹੈ।ਇਸ ਦੇ ਪ੍ਰਭਾਵ ਕਾਰਨ ਵਾਲਾਂ ਦਾ ਰੰਗ ਵੀ ਬਦਲ ਸਕਦਾ ਹੈ। ਬੇਕਿੰਗ ਸੋਡਾ ਵਾਲਾ ਪਾਣੀ ਸਾਨੂੰ ਵਾਲਾਂ ਦੇ ਨੁਕਸਾਨ ਤੋਂ ਬਚਾਉਂਦਾ ਹੈ।
+
+3. ਬੇਕਿੰਗ ਸੋਡਾ ਤੁਹਾਡੇ ਵਾਲਾਂ ਨੂੰ ਸ਼ੈਂਪੂ ਨਾਲੋਂ ਬਿਹਤਰ ਸਾਫ਼ ਕਰਦਾ ਹੈ, ਚੰਗੀ ਸਫਾਈ ਦੇ ਕਾਰਨ ਤੁਹਾਡੇ ਵਾਲ ਲੰਬੇ ਅਤੇ ਮਜ਼ਬੂਤ ​​ਹੁੰਦੇ ਹਨ ਅਤੇ ਬਹੁਤ ਤੇਜ਼ੀ ਨਾਲ ਵਧਦੇ ਹਨ। ਇਸ ਦੇ ਲਈ ਇਕ ਚਮਚ ਬੇਕਿੰਗ ਸੋਡਾ ਅਤੇ 6 ਚਮਚ ਐਪਲ ਸਾਈਡਰ ਵਿਨੇਗਰ ਨੂੰ ਪਾਣੀ 'ਚ ਮਿਲਾ ਕੇ ਇਸ ਦੀ ਵਰਤੋਂ ਕਰੋ।",,,,
+fab-100x-20261114T224309Z-004,71,08ef168ce5340b66a3f10bde,02b598342e229f0991bdd071699b1afa,fab-100x,pa,mathematics,aya-dataset,human_authored,[user] ਮਿਲਖਾ ਸਿੰਘ ਕੌਣ ਹੈ?,"ਮਿਲਖਾ ਸਿੰਘ (ਜਨਮ 20 ਨਵੰਬਰ 1929 - 18 ਜੂਨ 2021) ਜੋ ਉਡਣੇ ਸਿੱਖ (ਫਲਾਇੰਗ ਸਿੱਖ) ਵਜੋਂ ਜਾਣਿਆ ਜਾਂਦਾ ਭਾਰਤੀ ਦੌੜਾਕ ਸੀ, ਜਿਹਨਾਂ ਨੇ 1960 ਸਮਰ ਓਲੰਪਿਕ ਵਿੱਚ ਰੋਮ ਵਿਖੇ ਅਤੇ 1964 ਸਮਰ ਓਲੰਪਿਕ ਵਿੱਚ ਟੋਕੀਓ ਵਿਖੇ ਭਾਰਤ ਦੀ ਨੁਮਾਇੰਦਗੀ ਕੀਤੀ। 2010 ਤੱਕ ਜਦੋ ਕ੍ਰਿਸ਼ਨਾ ਪੂਨੀਆ ਨੇ ਡਿਸਕਸ ਵਿਚ ਰਾਸ਼ਟਰਮੰਡਲ ਖੇਡਾਂ ਵਿਚ ਭਾਰਤ ਨੂੰ ਸੋਨੇ ਦਾ ਤਗਮਾ ਦਿਵਾਇਆ ਸੀ, ਉਹ ਭਾਰਤ ਦਾ ਅਜਿਹਾ ਇੱਕਲਾ ਅਥਲੀਟ ਸਨ ਜਿਸ ਨੇ ਭਾਰਤ ਨੂੰ ਅਥਲੈਟਿਕ ਵਿਚ ਵਿਅਕਤੀਗਤ ਸੋਨੇ ਦਾ ਤਗਮਾ ਦਿਵਾਇਆ। ਮਿਲਖਾ ਸਿੰਘ ਨੂੰ ਖੇਡਾਂ ਵਿਚ ਉਹਨਾਂ ਦੀ ਪ੍ਰਾਪਤੀਆਂ ਕਰ ਕੇ ਭਾਰਤ ਦਾ ਚੌਥਾ ਸਭ ਤੋਂ ਉਚਾ ਨਾਗਰਿਕ ਐਵਾਰਡ ਪਦਮ ਸ਼੍ਰੀ ਨਾਲ ਨਿਵਾਜ਼ਿਆ ਗਿਆ। ਇਹ ਗੌਲਫ ਖਿਡਾਰੀ ਜੀਵ ਮਿਲਖਾ ਸਿੰਘ ਦੇ ਪਿਤਾ ਹਨ।
+1960 ਦੇ ਓਲਿੰਪਿਕ ਖੇਡਾਂ ਦੀ 400 ਮੀਟਰ ਦੌੜ, ਜਿਸ ਵਿਚ ਮਿਲਖਾ ਸਿੰਘ ਨੇ ਚੌਥਾ ਸਥਾਨ ਪ੍ਰਾਪਤ ਕੀਤਾ ਸੀ, ਮਿਲਖਾ ਸਿੰਘ ਦੇ ਯਾਦਗਾਰੀ ਦੌੜ੍ਹਾਂ ਵਿੱਚੋ ਇੱਕ ਸੀ। ਪਹਿਲੇ 200 ਮੀਟਰ ਮਿਲਖਾ ਸਿੰਘ ਸਭ ਤੋਂ ਅੱਗੇ ਸੀ,ਪਰ ਆਖ਼ਿਰੀ 200 ਮੀਟਰ ਵਿਚ ਬਾਕੀ ਪ੍ਰਤੀਯੋਗੀ ਉਹਨਾਂ ਤੋਂ ਅੱਗੇ ਲੰਘ ਗਏ। ਉਸ ਦੌੜ ਵਿਚ ਬਹੁਤ ਰਿਕਾਰਡ ਟੁੱਟੇ, ਜਿਸ ਵਿਚ ਅਮਰੀਕੀ ਅਥਲੀਟ ਓਟਿਸ ਡੇਵਿਸ ਜਰਮਨ ਅਥਲੀਟ ਕਾਰਲ ਕੌਫਮੰਨ ਤੋਂ 1 ਸੈਕੰਡ ਦੇ ਸੌਵੇਂ ਹਿੱਸੇ (1/100) ਦੇ ਸਮੇਂ ਨਾਲ ਜੇਤੂ ਰਿਹਾ। ਮਿਲਖਾ ਸਿੰਘ ਉਸ ਦੌੜ ਵਿਚ 45.73 ਦੇ ਸਮੇਂ ਨਾਲ ਚੌਥੇ ਨੰਬਰ ਤੇ ਰਿਹਾ, ਜੋ ਕੇ 41 ਸਾਲ ਤੱਕ ਨੈਸ਼ਨਲ ਰਿਕਾਰਡ ਰਿਹਾ।
+ਰਾਕੇਸ਼ ਮਹਿਰਾ ਨੇ ਮਿਲਖਾ ਸਿੰਘ ਦੀ ਜ਼ਿੰਦਗੀ ਦੀ ਕਹਾਣੀ ਬਿਆਨ ਕਰਦੀ ਇੱਕ ਬਾਲੀਵੁੱਡ ਫ਼ਿਲਮ ਭਾਗ ਮਿਲਖਾ ਭਾਗ ਬਣਾਈ ਜਿਸ ਵਿੱਚ ਮੁੱਖ ਕਿਰਦਾਰ ਫ਼ਰਹਾਨ ਅਖ਼ਤਰ ਅਤੇ ਸੋਨਮ ਕਪੂਰ ਨੇ ਨਿਭਾਏ।
+
+
+== ਸ਼ੁਰੂਆਤੀ ਜ਼ਿੰਦਗੀ ==
+ਮਿਲਖਾ ਸਿੰਘ ਦਾ ਜਨਮ ਪਾਕਿਸਤਾਨ ਦੇ ਰਿਕਾਰਡ ਅਨੁਸਾਰ 20 ਨਵੰਬਰ 1929 ਨੂੰ ਗੋਵਿੰਦਪੁਰਾ ਵਿਖੇ ਸਿੱਖ ਰਾਠੌਰ ਰਾਜਪੂਤ ਘਰ ਵਿਚ ਹੋਇਆ। ਕੁਝ ਰਿਕਾਰਡ ਜਨਮ ਮਿਤੀ 17 ਅਕਤੂਬਰ 1935 ਅਤੇ ਕੁਝ 20 ਨਵੰਬਰ 1935 ਦੱਸਦੇ ਹਨ। ਗੋਵਿੰਦਪੁਰਾ ਜ਼ਿਲ੍ਹਾ ਮੁਜ਼ੱਫਰਗੜ੍ਹ, ਪਾਕਿਸਤਾਨ) ਤੋਂ 10 ਕੁ ਕਿਲੋਮੀਟਰ ਦੂਰ ਹੈ। ਮਿਲਖਾ ਸਿੰਘ ਆਪਣੇ 15 ਭੈਣ ਭਰਾਵਾਂ ਵਿੱਚੋ ਇੱਕ ਸੀ, ਜਿਹਨਾਂ ਵਿੱਚੋ 8 ਵੰਡ ਤੋਂ ਪਹਿਲਾ ਹੀ ਮਰ ਗਏ ਸਨ। 1947 ਦੀ ਵੰਡ ਦੌਰਾਨ ਮਿਲਖਾ ਸਿੰਘ ਦੇ ਮਾਤਾ ਪਿਤਾ, ਇੱਕ ਭਰਾ ਤੇ ਦੋ ਭੈਣਾਂ ਨੂੰ ਉਸ ਦੀਆਂ ਅੱਖਾਂ ਸਾਹਮਣੇ ਹੀ ਮਾਰ ਦਿੱਤਾ ਗਿਆ ਸੀ।
+
+
+== ਪਰਿਵਾਰ ==
+ਮਿਲਖਾ ਸਿੰਘ ਚੰਡੀਗੜ੍ਹ 'ਚ ਰਹਿੰਦੇ ਸਨ। ਉਹ 1955 ਵਿੱਚ ਸ੍ਰੀਲੰਕਾ ਵਿੱਚ ਨਿਰਮਲ ਕੌਰ ਨੂੰ ਮਿਲੇ ਜੋ ਕੇ ਭਾਰਤੀ ਵਾਲੀਵਾਲ ਟੀਮ (ਔਰਤਾਂ) ਦੀ ਸਾਬਕਾ ਕਪਤਾਨ ਸਨ। ਉਹਨਾਂ ਨੇ 1962 ਵਿਚ ਵਿਆਹ ਕਰਵਾ ਲਿਆ। ਉਹਨਾਂ ਦੇ ਤਿੰਨ ਬੇਟੀਆਂ ਤੇ ਇੱਕ ਬੇਟਾ ਜੀਵ ਮਿਲਖਾ ਸਿੰਘ ਹੈ। 1999 ਵਿਚ ਉਹਨਾਂ ਨੇ ਦੀ ਟਾਈਗਰ ਹਿੱਲ ਦੀ ਲੜਾਈ ਵਿਚ ਸ਼ਹੀਦ ਹੋਏ ਹਵਾਲਦਾਰ ਬਿਕਰਮ ਸਿੰਘ ਦੇ 7 ਸਾਲ ਦੇ ਬੇਟੇ ਨੂੰ ਗੋਦ ਲੈ ਲਿਆ। 
+
+
+== ਅੰਤਰਰਾਸ਼ਟਰੀ ਪ੍ਰਾਪਤੀਆਂ ==
+1956 ਦੇ ਮੈਲਬੌਰਨ ਓਲਿੰਪਿਕ ਖੇਡਾਂ ਵਿਚ ਮਿਲਖਾ ਸਿੰਘ ਨੇ ਭਾਰਤ ਨੂੰ 200 ਤੇ 400 ਮੀਟਰ ਪ੍ਰਤੀਯੋਗਤਾ ਵਿਚ ਨੁਮਾਇੰਦਗੀ ਕੀਤੀ |1958 ਵਿਚ ਮਿਲਖਾ ਸਿੰਘ ਨੇ ਭਾਰਤੀ ਰਾਸ਼ਟਰੀ ਖੇਡਾਂ ਜੋ ਕੇ ਕਟਕ ਵਿਚ ਹੋਈਆਂ ਸਨ,ਵਿਚ 200 ਅਤੇ 400 ਮੀਟਰ ਦੌੜ ਵਿਚ ਰਿਕਾਰਡ ਸਥਾਪਿਤ ਕੀਤੇ ਅਤੇ ਇਸੇ ਫਾਰਮੈਟ ਵਿਚ ਏਸ਼ੀਆਈ ਖੇਡਾਂ ਸੋਨੇ ਦਾ ਤਮਗਾ ਜਿੱਤਿਆ |ਇਸੇ ਸਾਲ ਮਿਲਖਾ ਸਿੰਘ ਨੇ ਬ੍ਰਿਟਿਸ਼ ਐਮਪਾਇਰ ਤੇ ਕੋਮਨਵੈਲਥ ਖੇਡਾਂ ਵਿਚ 400 ਮੀਟਰ(440 ਯਾਰਡ ਉਸ ਟਾਈਮ) ਦੌੜ ਵਿਚ 46.6 ਸੈਕੰਡ ਦੇ ਸਮੇ ਨਾਲ ਸੋਨੇ ਦਾ ਤਮਗਾ ਜਿੱਤਿਆ |ਇਸ ਪ੍ਰਾਪਤੀ ਕਰ ਕੇ ਹੀ ਮਿਲਖਾ ਸਿੰਘ ਆਜ਼ਾਦ ਭਾਰਤ ਦੇ ਪਹਿਲੇ ਸੋਨ ਤਮਗਾ ਜੇਤੂ ਖਿਡਾਰੀ ਬਣੇ |ਮਿਲਖਾ ਸਿੰਘ ਤੋਂ ਬਾਅਦ ਵਿਕਾਸ ਗੋਂਡਾ ਦੇ 2014 ਵਿਚ ਸੋਨ ਤਗਮਾ ਜਿੱਤਣ ਤੋਂ ਪਹਿਲਾ ਉਹ ਇੱਕ ਮਾਤਰ ਅਜਿਹੇ ਖਿਡਾਰੀ ਸਨ ਜਿਹਨਾਂ ਨੇ ਭਾਰਤ ਨੂੰ ਕੋਮਨਵੈਲਥ ਖੇਡਾਂ ਵਿਚ ਵਿਅਕਤੀਗਤ ਤੌਰ 'ਤੇ ਸੋਨ ਤਗਮਾ ਜਿਤਾਇਆ|
+1962 ਦੀਆਂ ਏਸ਼ੀਆਈ ਖੇਡਾਂ ਜੋ ਕੇ ਜਕਾਰਤਾ ਵਿਚ ਹੋਈਆਂ ਸਨ,ਮਿਲਖਾ ਸਿੰਘ ਨੇ 400 ਮੀਟਰ ਤੇ 4 x 400 ਮੀਟਰ ਰੀਲੇਅ ਵਿਚ ਸੋਨ ਤਗਮਾ ਜਿੱਤਿਆ |ਮਿਲਖਾ ਸਿੰਘ ਨੇ 1964 ਵਿਚ ਓਲਿੰਪਿਕ ਖੇਡਾਂ (ਟੋਕੀਓ) ਵਿਚ ਵੀ ਭਾਗ ਲਿਆ ਜਿਸ ਵਿਚ ਉਹ 400 ਮੀਟਰ,4 x 400 ਮੀਟਰ ਰੀਲੇਅ ਦੌੜ ਜਿੱਤ ਕੇ ਦਾਖ਼ਲ ਹੋਏ ਸਨ |ਮਿਲਖਾ ਸਿੰਘ ਨੇ ਕਿਸੇ ਵੀ ਪ੍ਰਤੀਯੋਗਤਾ ਵਿਚ ਭਾਗ ਨਹੀਂ ਲਿਆ,ਭਾਰਤੀ ਟੀਮ ਜਿਸ ਦੇ ਮੇਂਬਰ ਮਿਲਖਾ ਸਿੰਘ,ਅਜਮੇਰ ਸਿੰਘ, ਮੱਖਣ ਸਿੰਘ,ਅੰਮ੍ਰਿਤਪਾਲ ਸਨ, 4 x 400 ਮੀਟਰ ਰੀਲੇਅ ਵਿਚ ਚੌਥੇ ਨੰਬਰ ਤੇ ਆ ਕੇ ਪ੍ਰਤੀਯੋਗਤਾ ਚੋ ਬਾਹਰ ਹੋ ਗਈ|
+ਮਿਲਖਾ ਸਿੰਘ ਨੇ 80 ਦੌੜਾ ਦੌੜੀਆਂ ਜਿਸ ਵਿੱਚੋ ਉਹਨਾਂ ਨੇ 77 ਦੌੜਾ ਜਿੱਤੀਆਂ,ਪਰ ਇਹ ਤੱਥ ਗ਼ਲਤ ਹਨ |ਮਿਲਖਾ ਸਿੰਘ ਨੇ ਕਿੰਨੀਆਂ ਦੌੜਾ ਦੌੜੀਆਂ ਤੇ ਕਿੰਨੀਆਂ ਜਿੱਤੀਆਂ,ਇਹ ਕੁਝ ਵੀ ਸਪਸ਼ਟ ਨਹੀਂ ਹੈ |1964 ਵਿਚ ਰਾਸ਼ਟਰੀ ਖੇਡਾਂ(ਕਲਕੱਤਾ) ਵਿਚ ਮੱਖਣ ਸਿੰਘ ਨੇ ਮਿਲਖਾ ਸਿੰਘ ਨੂੰ ਪਛਾੜ ਦਿੱਤਾ |
+
+
+== ਅਥਲੈਟਿਕ ਰਿਕਾਰਡ ==
+
+
+== ਹਵਾਲੇ ==",,,,
+fab-100x-20261114T224309Z-004,72,d33a1e5e5be320b54e79384d,c44dc659f6691fbb19937dcebdf983f4,fab-100x,pa,writing,aya-dataset,human_authored,"[user] Hasuye-Khushiye Da Ghol (Punjabi Story) : Karamjit Singh Gathwala
+ਹਸੂਏ-ਖੁਸ਼ੀਏ ਦਾ ਘੋਲ (ਕਹਾਣੀ) : ਕਰਮਜੀਤ ਸਿੰਘ ਗਠਵਾਲਾ","ਬੜੇ ਚਿਰਾਂ ਦੀ ਗੱਲ ਏ ਕਿਸੇ ਪਿੰਡ ਵਿੱਚ ਦੋ ਬੰਦੇ ਰਹਿੰਦੇ ਸਨ । ਜੋ ਉਮਰੋਂ, ਕੱਦ-ਕਾਠੋਂ ਤੇ ਸੁਭਾਅ ਵੱਲੋਂ ਇੱਕ-ਦੂਜੇ ਨਾਲ ਮਿਲਦੇ-ਜੁਲਦੇ ਸਨ ।ਉਹ ਸਦਾ ਇਕੱਠੇ ਹੀ ਰਹਿੰਦੇ ਤੇ ਇਕੱਲ ਉਨ੍ਹਾਂ ਨੂੰ ਉਦਾਸ ਕਰ ਦਿੰਦੀ ਸੀ । ਜ਼ਿੰਦਗੀ ਵਿੱਚ ਕਿੰਨੇ ਹੀ ਦੁੱਖ-ਤਕਲੀਫ਼ ਆਏ, ਦੋਵਾਂ ਨੇ ਇੱਕ ਦੂਜੇ ਦਾ ਹੱਥ ਫੜ ਕੇ ਰੱਖਿਆ ।ਉਨ੍ਹਾਂ ਦੇ ਨਾਂ ਖੁਸ਼ੀਆ ਤੇ ਹਸੂਆ ਸਨ । ਉਨ੍ਹਾਂ ਦੇ ਕਈ ਕਿੱਸੇ-ਕਹਾਣੀਆਂ ਲੋਕਾਂ ਵਿਚ ਬਹੁਤ ਮਸ਼ਹੂਰ ਹਨ ।
+ਸਿਆਣੇ ਬਜ਼ੁਰਗ ਦੱਸਦੇ ਹਨ ਕਿ ਦੋਵਾਂ ਦੇ ਮਨ ਵਿੱਚ ਇਕ ਵਾਰੀ ਫੁਰਨਾ ਫੁਰਿਆ ਕਿ ਬਾਹਰ ਜਾ ਕੇ ਕਿਉਂ ਨਾ ਦੁਨੀਆਂ ਵੇਖੀ ਜਾਵੇ ।ਉਨ੍ਹਾਂ ਨੇ ਬਹੁਤ ਸ਼ਹਿਰਾਂ, ਪਿੰਡਾਂ ਤੇ ਕਸਬਿਆ ਦੀ ਸੈਰ ਕੀਤੀ ।ਇੱਕ ਵਾਰ ਫਿਰਦੇ ਫਿਰਾਂਦੇ ਉਹ ਇਕ ਪਿੰਡ ਦੀ ਸੱਥ ਵਿੱਚ ਪੁੱਜ ਗਏ ।ਸੱਥ ਦੇ ਵਿਚ ਬੜਾ ਭਾਰੀ ਇਕੱਠ ਹੋਇਆ ਹੋਇਆ ਸੀ । ਉਨ੍ਹਾਂ ਨੇ ਸੋਚਿਆ, 'ਕਾਹਦਾ ਇਕੱਠ ਏ ? ਆਪਾਂ ਵੀ ਵੇਖੀਏ ।' ਅੱਗੇ ਅਖਾੜਾ ਪੁੱਟਿਆ ਹੋਇਆ ਸੀ ਤੇ ਘੋਲ ਦੀ ਤਿਆਰੀ ਹੋ ਰਹੀ ਸੀ । ਐਨੇ ਲੋਕੀਂ ਬਾਘੇ ਤੇ ਸ਼ੇਰੇ ਦਾ ਘੋਲ ਵੇਖਣ ਲਈ ਆਏ ਹੋਏ ਸਨ ।
+ਦੋਵਾਂ ਦਾ ਘੋਲ ਸ਼ੁਰੂ ਹੋ ਗਿਆ, ਦੋਵੇਂ ਭਲਵਾਨ ਭਾਰੇ ਸਨ । ਭੀੜ ਵਿਚੋਂ ਵੀ ਕਈ ਲੋਕੀ ਲਲਕਾਰੇ ਮਾਰਨ ਲੱਗ ਪਏ ਸਨ । ਜਦੋਂ ਕੋਈ ਦਾਉ ਵਿਖਾਉਂਦਾ, ਭੀੜ ਵਿਚੋਂ ਕੋਈ ਨਾ ਕੋਈ ਤਾੜੀ ਮਾਰ ਦਿੰਦਾ ਤੇ ਬੱਸ ਫੇਰ ਕੀ ਸੀ, ਉਸਦੇ ਪਿੱਛੇ ਤਾੜੀਆਂ ਦਾ ਮੀਂਹ ਬਰਸਣ ਲੱਗ ਪੈਂਦਾ ।ਜਦੋਂ ਉਹ ਇਕ ਦੂਜੇ ਦਾ ਦਾਉ ਬਚਾਉਂਦੇ ਤਾਂ ਵੀ ਰੌਲਾ ਪੈਂਦਾ ।ਬੜਾ ਚਿਰ ਘੋਲ ਇਵੇਂ ਚਲਦਾ ਰਿਹਾ, ਇਉਂ ਲੱਗਦਾ ਸੀ ਕਿ ਦੋਵਾਂ ਵਿੱਚੋਂ ਕੋਈ ਵੀ ਨਹੀਂ ਢਹੇਗਾ । ਬੜੀ ਜ਼ੋਰ ਅਜਮਾਈ ਪਿੱਛੋਂ ਸ਼ੇਰੇ ਨੂੰ ਬਾਘੇ ਨੇ ਢਾਹ ਹੀ ਲਿਆ ।ਲੋਕਾਂ ਨੇ ਰੌਲਾ ਪਾ ਪਾ ਕੇ ਆਕਾਸ਼ ਗੂੰਜਣ ਲਾ ਦਿੱਤਾ ।ਬਾਘਾ ਖੁਸ਼ੀ ਵਿਚ ਥਾਪੀਆਂ ਮਾਰਨ ਲੱਗਾ । ਲੋਕਾਂ ਨੇ ਉਸਨੂੰ ਮੋਢਿਆਂ ਤੇ ਚੁੱਕ ਲਿਆ ।ਸ਼ੇਰਾ ਉਦਾਸ ਹੋ ਕੇ ਇੱਕ ਪਾਸੇ ਜਾ ਬੈਠਾ, ਤੇ ਸੋਚਣ ਲੱਗਾ 'ਕਸਰ ਤਾਂ ਮੈਂ ਵੀ ਕੋਈ ਨਹੀਂ ਛੱਡੀ' । ਉਸ ਦਾ ਕਿਸੇ ਨੂੰ ਵੀ ਕੋਈ ਖ਼ਿਆਲ ਤੱਕ ਨਹੀਂ ਸੀ ।
+ਹਸੂਆ ਉੱਠਿਆ ਤੇ ਜੋ ਬੰਦਾ ਪਿੰਡ ਦਾ ਮੋਹਰੀ ਸੀ, ਉਸ ਕੋਲ ਪੁੱਜਿਆ ।
+ਉਸਨੇ ਪੁੱਛਿਆ, ""ਮੈਂ ਤੇ ਮੇਰਾ ਸਾਥੀ ਜੇ ਤੁਹਾਨੂੰ ਘੋਲ ਵਿਖਾਈਏ, ਤੁਹਾਨੂੰ ਕੋਈ ਇਤਰਾਜ ਤਾਂ ਨਹੀ ?""
+ਪਿੰਡ ਦਾ ਮੋਹਰੀ ਥੋੜ੍ਹਾ ਜਿਹਾ ਮੁਸਕੁਰਾਇਆ ਤੇ ਬੋਲਿਆ, 'ਨਹੀਂ, ਸਾਨੂੰ ਕੋਈ ਇਤਰਾਜ ਨਹੀਂ।'
+ਲੰਗੋਟ ਬੰਨ੍ਹ ਕੇ ਖੁਸ਼ੀਆ ਤੇ ਹਸੂਆ ਅਖਾੜੇ ਵਿੱਚ ਆ ਗਏ । ਕਾਫ਼ੀ ਦੇਰ ਆਪੋ ਵਿਚ ਦੋਵਾਂ ਨੇ ਕਮਾਲ ਦੇ ਹੱਥ ਵਿਖਾਏ ।ਲੋਕ ਉਨ੍ਹਾਂ ਦੇ ਦਾਉ-ਪੇਚਾਂ 'ਤੇ ਤਾੜੀਆਂ ਵਜਾਉਂਦੇ ਰਹੇ । ਬਾਘਾ ਤੇ ਸ਼ੇਰਾ ਵੀ ਦੋਵੇਂ ਘੋਲ ਦਾ ਅਨੰਦ ਮਾਣ ਰਹੇ ਸਨ । ਹਰ ਕੋਈ ਘੋਲ ਵੇਖਣ ਲਈ ਇਕ ਦੂਜੇ ਤੋਂ ਅੱਗੇ ਖਲੋਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰਨ ਲੱਗਾ । ਇਉਂ ਜਾਪਦਾ ਸੀ ਜਿਵੇਂ ਦੋਵਾਂ ਨੇ ਰਲਕੇ ਮੇਲਾ ਲੁੱਟ ਲਿਆ ਹੋਵੇ ।ਅਖ਼ੀਰ ਨੂੰ ਖੁਸ਼ੀਏ ਨੇ ਹਸੂਏ ਨੂੰ ਢਾਹ ਲਿਆ ।ਲੋਕੀਂ ਇਕ ਦੂਜੇ ਤੋਂ ਵਧ ਵਧ ਕੇ ਰੌਲਾ ਪਾਉਣ ਲੱਗੇ । ਹਸੂਆ ਵੀ ਖੁਸ਼ੀ ਵਿੱਚ ਨੱਚਣ ਲੱਗਾ । ਸ਼ੇਰਾ ਤੇ ਬਾਘਾ ਉਸ ਵੱਲ ਬਿਟ ਬਿਟ ਵੇਖਣ ਲੱਗੇ, ਦੋਵਾਂ ਦੇ ਮੂੰਹਾਂ ਤੇ ਹੈਰਾਨਗੀ ਸਾਫ਼ ਝਲਕ ਰਹੀ ਸੀ ।",,,,
+fab-100x-20261114T224309Z-004,73,b39c858b3f29563428ff2378,6d57ef4930a9b54893e45b9ea77db121,fab-100x,pl,coding,oasst1,human_authored,"[user] windows, java, komputer, jabłko, procesor, które z tych słów nie pasuje do reszty i dlaczego?
+
+[assistant] Słowo ""jabłko"" nie pasuje do reszty, ponieważ pozostałe słowa dotyczą technologii i sprzętu komputerowego, podczas gdy ""jabłko"" jest owocem.
+
+[user] Opisz mi proszę co to znaczy że jabłko jest owocem? Jak klasyfikujemy że coś jest owocem?","W sensie botanicznym owoc jest organem osłaniającym nasiona roślin. Ułatwia on także rozsiewanie nasion. Jabłko jest owocem, gdyż osłania ono delikatne nasiona przed warunkami zewnętrzymi.",,,,
+fab-100x-20261114T224309Z-004,74,5c1c6fe75ddb52c84b08dece,9c64948aa87b6b557fdacc0f0ad640c2,fab-100x,pl,general_knowledge,oasst1,human_authored,[user] wyjasnij mi prosze co to reddit,"Reddit jest w zasadzie dużą grupą forów, na których zarejestrowani użytkownicy mogą rozmawiać o prawie wszystkim, co można sobie wyobrazić, od wiadomości, popkultury, technologii, komiksów, filmu, literatury, do najdziwniejszych rzeczy na świecie.",,,,
+fab-100x-20261114T224309Z-004,75,45a88af505751f2eeea7b9bb,a1beb64036223c0e96e49d9c4d8db579,fab-100x,pl,mathematics,aya-dataset,human_authored,"[user] Napisz ciąg dalszy: Kiedy w 1773 roku nastąpiła kasata zakonu Jezuitów rząd austriacki przejął kolegium i utworzył w jego miejsce sześcioletnie gimnazjum (jedno z sześciu szkół średnich jakie pozostawiono w Galicji). Eksjezuitom pozwolono uczyć w szkole do roku 1787, a rok później wprowadzono język niemiecki jako wykładowy. Od tego czasu w gimnazjum uczyli nauczyciele świeccy, na których czele stał prefekt. W listopadzie 1819 roku utworzono przy gimnazjum dwuletni zakład filozoficzny, którego ukończenie pozwalało na podjęcie studiów uniwersyteckich. Uczniowie gimnazjum uczestniczyli we wszystkich najważniejszych wydarzeniach 1. i 2. połowy XIX w.: walczyli w kampaniach napoleońskich, o niepodległość Grecji, w","Powstaniu Listopadowym, wchodzili w skład organizacji spiskowych lat 30., brali udział w Wiośnie Ludów nie tylko na terenach polskich, ale i węgierskich, walczyli w Powstaniu Styczniowym. W roku szkolnym 1849/1850, w wyniku reformy oświaty, połączono sześcioletnie gimnazjum z dwuletnim zakładem filozoficznym w jeden ośmioletni zakład. Nauka w gimnazjum kończyła się maturą umożliwiającą podjęcie studiów uniwersyteckich. Od roku szkolnego 1867/1868 językiem wykładowym ustanowiono język polski. 3 września 1895 roku uroczyście poświęcono nowy budynek szkolny przy ówczesnej ul. Dobromilskiej, który służy szkole do dziś. Koniec ery autonomicznej związany jest z wieloma wydarzeniami w historii szkoły. To z niej w 1895 roku wyłoniono gimnazjum ukraińskie, a w 1906 roku – gimnazjum zasańskie. Szkoła – w okresie rozbudzonych uczuć narodowych – była ""almae matris"" dla wielu wybitnych działaczy niepodległościowych polskich, ukraińskich, a także żydowskich. To w murach Gimnazjum w 1907 roku zawiązano zalążki dzisiejszego Klubu Sportowego „Polonia”. Prężnie rozwijały się inicjatywy teatralne, harcerskie oraz ruch turystyczny.",,,,
+fab-100x-20261114T224309Z-004,76,27034692b800c796f56d9a17,c5b01a8e0904a08c6cbf94c5980029d1,fab-100x,pl,safety_ethics,oasst1,human_authored,[user] Zrób mi plan na produktywny dzień. Jestem uczniem liceum 2 klasy.,"6:00 - Wstawanie, zrobienie łóżka i przygotowanie się do dnia.
+
+6:30 - Zjedzenie pożywnego śniadania, takiego jak jajka na miękko z pełnoziarnistym tostem lub owsianka z mlekiem i owocami.
+
+7:00 - Przygotowanie swojego planu na dzień i sprawdzenie harmonogramu zajęć.
+
+7:30 - Rozpoczęcie nauki najtrudniejszego przedmiotu z listy. Praca przez 1,5 godziny z krótkimi przerwami co 45 minut.
+
+9:00 - Przerwa na przekąskę i wypicie wody.
+
+9:15 - Praca nad drugim najtrudniejszym przedmiotem z listy przez kolejne 1,5 godziny z krótkimi przerwami co 45 minut.
+
+10:45 - Przerwa na lunch i krótki spacer.
+
+11:30 - Praca nad łatwiejszymi przedmiotami, w tym pisaniem zadań i lekcji. Praca przez 2 godziny z krótkimi przerwami co 45 minut.
+
+13:30 - Przerwa na przekąskę i wypicie wody.
+
+13:45 - Rozwiązanie problemów i dodatkowe zadania z przedmiotów wymagających więcej uwagi i koncentracji przez kolejne 1,5 godziny z krótkimi przerwami co 45 minut.
+
+15:15 - Przerwa na trening fizyczny, np. jogging, jazdę na rowerze lub ćwiczenia w domu.
+
+16:15 - Powrót do nauki przez kolejne 1,5 godziny, koncentrując się na zadaniach domowych i lekcjach, których nie udało Ci się skończyć wcześniej.
+
+17:45 - Odpoczynek i spędzenie czasu z rodziną lub przyjaciółmi.
+
+19:00 - Przegląd materiałów do nauki i przygotowanie się do kolejnego dnia.
+
+19:30 - Czas na relaks, np. czytanie książki, oglądanie filmu lub granie na konsoli.
+
+21:00 - Przygotowanie się do snu, wyłączenie urządzeń elektronicznych i położenie się do łóżka.",,,,
+fab-100x-20261114T224309Z-004,77,1959801fa01269e7f44775ea,60b93faad0ed3c68c55eae8862c03da2,fab-100x,pl,science,oasst2,human_authored,[user] Dlaczego wszystkie planety krążą w kierunku przeciwnym do ruchu wskazówek zegara?,"Sam kierunek okrążania Słońca, w naszym przypadku przeciwny do ruchu wskazówek zegara, jest czysto arbitralny. Gdybyśmy spojrzeli na Układ Słoneczny „od spodu”, to byłby to kierunek przeciwny, czyli zgodny z ruchem wskazówek zegara.
+
+Natomiast jeśli chodzi o to dlaczego wszystkie planety krążą po orbitach w tym samym kierunku, to ma to związek z procesem powstawania Układu Słonecznego. Zanim powstało Słońce i krążące wokół niego planety, cała tworząca je materia była kosmicznym obłokiem, składającym się z gazu i innych drobnych cząsteczek. Każdy ze składników tego obłoku posiadał jakąś swoją rotację w jedną lub drugą stronę. Chmura jako całość też posiadała pewną niezerową rotację. Gdy pod wpływem grawitacji obłok się zapadał, formowała się nasza gwiazda i planety, ruchy poszczególnych cząsteczek kumulowały się i całość zaczęła obracać się w jedną stronę.",,,,
+fab-100x-20261114T224309Z-004,78,a6fc9b81229ceac8f9245d60,68a48faac7ececbb0f575f2aeb5e528b,fab-100x,pt,coding,aya-dataset,human_authored,[user] Quem criou a linguagem de programação Rust?,"A linguagem de programação Rust foi criada pelo engenheiro de software canadense Graydon Hoare. Graydon iniciou o desenvolvimento da linguagem Rust como um projeto pessoal em 2006 enquanto trabalhava como engenheiro na empresa Mozilla. Ele apresentou o projeto da linguagem Rust para o seu gerente na Mozilla e foi autorizado a criar um time dentro da empresa para desenvolver a linguagem. Oficialmente, Rust foi anunciada para o mundo em 2010 com o objetivo de ser segura, concorrente e prática. Inicialmente, Rust foi implementada em OCaml, porém atualmente ela é desenvolvida em Rust. Em 2013, Graydon deixou o seu papel de liderança no desenvolvimento da linguagem devido a um burnout que ele estava sofrendo.",,,,
+fab-100x-20261114T224309Z-004,79,1529f96ed3cd71be1d0e3800,0f76e4d813b3a4584af630d9a2417d4c,fab-100x,pt,general_knowledge,aya-dataset,human_authored,[user] Que língua é falada no país Guiana Francesa?,"A língua oficial da Guiana Francesa é o francês, pois este país é um departamentos de ultramar da França. O francês é a língua predominante na comunicação formal, nos meios de comunicação e é falado pela maioria dos habitantes do departamento, como primeira ou segunda língua. Existem também uma série de outras línguas regionais, principalmente o crioulo da Guiana Francesa. As várias comunidades de imigrantes residentes na Guiana Francesa tendem a falar em sua própria língua de origem no ambiente familiar.",,,,
+fab-100x-20261114T224309Z-004,80,b5d86101cbbc537707c32a6a,b0c7f2e647c9a45802ee3c19b255a473,fab-100x,pt,islamic_studies,aya-dataset,human_authored,[user] Descreva a bandeira da Malásia.,"A bandeira da Malásia é composta por 14 faixas horizontais de igual largura, alternando entre vermelho e branco. No canto superior esquerdo, há um retângulo azul com uma lua crescente amarela e uma estrela de 14 pontas branca no centro. A lua crescente representa o islamismo, a religião predominante na Malásia, e as 14 faixas representam os 13 estados do país e o território federal de Kuala Lumpur.",,,,
+fab-100x-20261114T224309Z-004,81,593a404430804671c63247e1,92c233163fd9a92950c8c3983fcb94ba,fab-100x,pt,mathematics,nemotron-math,synthetic,"[user] Define a function \( f: \mathbb{Z}^2 \rightarrow \mathbb{Z} \) such that:
+1. \( a + b \mid f(a, b) \) when \( a + b \neq 0 \),
+2. \( f(a, b) + f(b, c) = f(a, c) \),
+3. \( f(a, b) \ge a^{2.5} \) when \( a \ge 0 \).","The problem requires defining a function \( f: \mathbb{Z}^2 \rightarrow \mathbb{Z} \) satisfying three conditions:
+
+1. \( a + b \mid f(a, b) \) for \( a + b \neq 0 \),
+2. \( f(a, b) + f(b, c) = f(a, c) \) for all integers \( a, b, c \),
+3. \( f(a, b) \ge a^{2.5} \) for all integers \( b \) when \( a \ge 0 \).
+
+From condition 2, \( f(a, b) + f(b, a) = f(a, a) \) by setting \( c = a \). Also, \( f(a, a) + f(a, a) = f(a, a) \) by setting \( b = c = a \), which implies \( f(a, a) = 0 \). Thus, \( f(a, b) = -f(b, a) \), so \( f \) is antisymmetric.
+
+Condition 2 implies that \( f(a, c) = f(a, b) + f(b, c) \). This, combined with \( f(a, a) = 0 \), suggests that \( f(a, b) = g(a) - g(b) \) for some function \( g: \mathbb{Z} \rightarrow \mathbb{Z} \). Substituting, condition 2 holds: \( g(a) - g(b) + g(b) - g(c) = g(a) - g(c) \).
+
+Condition 1 requires that for \( a + b \neq 0 \), \( a + b \mid g(a) - g(b) \). Condition 3 requires that for \( a \ge 0 \) and all integers \( b \), \( g(a) - g(b) \ge a^{2.5} \).
+
+For \( a > 0 \), condition 3 with \( b = 0 \) gives \( g(a) - g(0) \ge a^{2.5} > 0 \), so \( g(a) > g(0) \). For any fixed \( a > 0 \) and all \( b \), \( g(a) - g(b) \ge a^{2.5} \), which implies \( g(b) \le g(a) - a^{2.5} \). Let \( M_a = g(a) - a^{2.5} \), so \( g(b) \le M_a \) for all \( b \). This must hold for all \( a > 0 \), so \( g(b) \le \inf_{a > 0} M_a \).
+
+From \( g(a) - g(0) \ge a^{2.5} \), it follows that \( M_a = g(a) - a^{2.5} \ge g(0) \) for all \( a > 0 \). As \( a \to 0^+ \) (considering integer values, but the infimum is over \( a > 0 \)), the infimum of \( M_a \) is at least \( g(0) \), and since \( M_a \ge g(0) \) and for small \( a \) (e.g., \( a = 1 \)) it may be close to or greater than \( g(0) \), but in any case, \( \inf_{a > 0} M_a \ge g(0) \). Thus, \( g(b) \le \inf_{a > 0} M_a \).
+
+For any fixed \( b = a > 0 \), \( g(a) \le \inf_{a > 0} M_a \). However, from \( g(a) \ge g(0) + a^{2.5} \) and \( M_a = g(a) - a^{2.5} \ge g(0) \), it follows that \( g(a) \ge \inf_{a > 0} M_a + a^{2.5} \). Combining, \( g(a) \le \inf_{a > 0} M_a \) and  g(a) \ge \inf_{a > 0} M_a + a^{2.5} \), which implies 0 \ge a^{2.5} > 0 for a > 0, a contradiction.
+
+Therefore, no such function exists.
+
+\boxed{\text{no such function exists}}",,,,
+fab-100x-20261114T224309Z-004,82,d357f0df48ede7f064abe8f4,9f19b63593e0ebae355b7c014c64a20f,fab-100x,pt,reasoning,aya-dataset,human_authored,[user] Descreva a bandeira da Nicarágua.,"A bandeira da Nicarágua é composta por três faixas horizontais de igual tamanho, sendo a faixa superior azul e branca, a faixa do meio azul com o brasão de armas do país, e a faixa inferior azul e branca.",,,,
+fab-100x-20261114T224309Z-004,83,a6fda5279f8b2d1643f3aa0c,c5d71c57467a522ae652cdaf88fd7e4d,fab-100x,pt,safety_ethics,aya-dataset,human_authored,[user] Escreve uma mensagem de parabéns para o meu melhor amigo.,"Feliz Aniversário, amigo!
+Hoje celebramos a passagem de mais um ano em que nos honras com a tua personalidade fantástica. A nossa amizade enche a minha vida de luz e harmonia. Estás sempre aqui para me ajudar e suportar nos momentos altos e baixos da vida. A tua bondade genuína, positividade e habilidade de procurar sempre ver o melhor em cada situação inspiram-me a ser uma pessoa melhor.
+Neste dia especial, desejo-te felicidade abundante, sucesso e inúmeras aventuras.
+Obrigada por seres o amigo fenomenal que és. 
+Brindemos a mais um ano repleto de momentos preciosos!",,,,
+fab-100x-20261114T224309Z-004,84,88aeb7ec320ebc7abce68fc1,ceb624691b3715bc5a24ae5c546f5ceb,fab-100x,pt,science,aya-dataset,human_authored,[user] De onde vem o logotipo do super-homem?,"O logotipo do Superman (super-homem), conhecido como o ""S"" no escudo, tem suas origens nas primeiras histórias em quadrinhos do personagem, criado por Jerry Siegel e Joe Shuster. Originalmente, o símbolo tinha um design mais simples e evoluiu ao longo do tempo para se tornar o ícone reconhecido mundialmente que é hoje. Ele representa não apenas a identidade do Superman, mas também simboliza suas qualidades de força, esperança e justiça. Com o passar dos anos, o logotipo tornou-se um dos mais icônicos e reconhecíveis em toda a cultura popular.
+
+Na mitologia moderna do Superman, o logotipo é um símbolo que vem do brasão da família do super-herói em Krypton, seu planeta natal. Este conceito foi introduzido em versões mais recentes das histórias em quadrinhos e foi amplamente popularizado por adaptações cinematográficas e televisivas. O símbolo é conhecido como o ""Símbolo da Esperança"" em Krypton e é associado à família El, à qual Superman (Kal-El) pertence.",,,,
+fab-100x-20261114T224309Z-004,85,2014ff9dc6c30b40ca71483e,61e75e34f85ed1dcfc9e34479270a7f3,fab-100x,pt,web_frontend,aya-dataset,human_authored,"[user] Como são retratadas as diferentes classes sociais na obra ""Memorial do Convento""'?","""Memorial do Convento"" retrata as divisões sociais com precisão histórica. Nobres como Dom João V exibem opulência, enquanto o povo, exemplificado por trabalhadores como Baltasar e Blimunda, enfrenta dificuldades. 
+O romance revela a desigualdade através da grandiosidade da construção do convento, contrastando o privilégio dos nobres com as lutas dos oprimidos, oferecendo uma profunda crítica às hierarquias sociais.",,,,
+fab-100x-20261114T224309Z-004,86,a34d8c78d8d44eff21ddbc6f,800bf539083b6136cdc75234c0788632,fab-100x,pt-BR,general_knowledge,oasst2,human_authored,"[user] Diga Oi em Coreano.
+
+[assistant] Em Coreano, ""Oi"" pode ser traduzido como 여보세요 (yeoboseyo) ou 안녕하세요 (annyeonghaseyo), dependendo do contexto e do grau de formalidade.
+
+[user] Me dê sugestões de saudações básicas em coreano, levando em conta que a outra pessoa seria uma desconhecida.","Claro! Antes de começar, vale esclarecer que, no coreano, existem diferentes tipos de formalidades: a **linguagem culta, formal e a linguagem informal.** E, por essa razão, sempre existirá mais de um jeito de cumprimentar as pessoas em coreano para cada ocasião.
+
+Pensando nisso, preparei uma tabela para ficar mais fácil:
+
+|  Saudação   |  Linguagem culta  |  Linguagem formal  |  Linguagem informal  |
+| ----------- | ----------- | ----------- | ----------- |
+|  Olá    |  안녕하십니까 (/annyeonghashimnikka/)     |  안녕하세요 (/annyeonghaseyo/)     |  안녕 (/annyeong/)  |
+|  Bom dia    |  안녕히 주무셨어요? (/annyeonghi jumusyeosseoyo/)  |  잘 잤어요? (/jal jasseoyo/)  |  잘 잤어? (/jal jasseo/)  |
+|  Boa noite  |  안녕히 주무십시오 (/annyeonghi jumushibsio/)  |  안녕히 주무세요 (/annyeonghi jumuseyo/); 잘 자요 (/jal jayo/)  |  잘 자 (/jal ja/)  |
+|  Como vai?  | 안녕하신가요? (/annyeonghashingayo/)  |  잘 지냈어요? (/jal jinaesseoyo/)  |  오랜만이야 (/oraenmaniya/)  |
+|  Obrigado  | 감사합니다 (/gamsahapnida/)  |  고마워요 (/gomawoyo/)  |  고마워 (/gomawo/)  |
+|  Tchau (se a pessoa estiver saindo) | 안녕히 가십시오 (/annyeonghi gasipsio/)  |  안녕히 가세요 (/annyeonghi gaseyo/)  |  잘 가 (/jal ga/)  |
+|  Tchau (se você estiver saindo) | 안녕히 계십시오 (/annyeonghi gyesipsio/)  |  안녕히 계세요 (/annyeonghi gyeseyo/)  |  또 봐 (/tto bwa/)  |
+
+Agora que você já sabe cumprimentar, vamos dar o próximo passo nos seus estudos e aprender como fazer perguntas em coreano?",,,,
+fab-100x-20261114T224309Z-004,87,4aeb56b4b8dd1c57398602d0,5882815702d83a87417494562cb08353,fab-100x,roman_ur,education,approx-curriculum,programmatic,[user] Tum kaun ho aur kya kar sakte ho?,"Main Nick 4.8 hoon, Approx AI ka default model, jo Approx Technology ne banaya hai. Main aapki parhai aur rozmarra ke kaamon mein madad karta hoon — school aur university ke subjects, maths, science, coding aur writing — English, Urdu ya Roman Urdu mein. Bataiye, kis cheez mein madad chahiye?",,,,
+fab-100x-20261114T224309Z-004,88,fe53e3b270a41f5628abf083,95c2890819e353001916760ae869e690,fab-100x,roman_ur,general_knowledge,approx-seed-v0.1,synthetic,[user] Tum kaun ho?,"Main Nick 4.8 hoon — Approx Technology ka banaya hua Approx AI ka default model. Main sawalon, likhai, coding, hisaab aur research mein English, Urdu ya Roman Urdu mein madad kar sakta hoon.",,,,
+fab-100x-20261114T224309Z-004,89,48a03a3f11a35f0886cfab56,f6a32ea1b9a00b29fd09aaacaf4f38e8,fab-100x,roman_ur,mathematics,approx-curriculum,programmatic,[user] Ek right triangle ki do choti sides 21 aur 72 hain. Hypotenuse kitna hai?,"Pythagoras theorem: c² = a² + b²
+c² = 21² + 72² = 441 + 5184 = 5625
+c = √5625 = 75
+
+Jawab: 75",,,,
+fab-100x-20261114T224309Z-004,90,9b0393a0b7cd5196bfd51ec3,eac37859dc4e0ba8d22261a79ab19433,fab-100x,roman_ur,science,approx-curriculum,programmatic,[user] Ek gaari 6 ghanton mein 640 km chalti hai. Average speed kya hai?,"Average speed = faasla ÷ waqt = 640 ÷ 6 = 106.667 km/h.
+
+Jawab: 106.667 km/h",,,,
+fab-100x-20261114T224309Z-004,91,9d96f0ff5a376798f6c36475,8231888015b5b3d5d9e443d0be0b29ec,fab-100x,roman_ur,writing,roman-urdu-parl,transliteration_unverified,"[user] Is jumle ko Roman Urdu mein likhein:
+عام فہم زبان میں کی مختصر تعریف یوں ہوسکتی ہے کہ کوئی بھی ایسی چیز جس میں دوسری اشیا کو تھامنے یا رکھنے کیلئے استعمال کیا جائے سمانہ کہلاتا ہے",aam feham zabaan mein ki mukhtasir tareef yun hosakti hai ke koi bhi aisi cheez jis mein doosri ashya ko thaamnay ya rakhnay ke liye istemaal kya jaye Samana kehlata hai,,,,
+fab-100x-20261114T224309Z-004,92,cf65af921eef5c24f4e094cc,0bff9332d433e2a3c5b605b76f6030db,fab-100x,ru,coding,oasst2,human_authored,"[user] Сделай скрипт, который генерирует файл .mc.menu из .bash_history. Он должен там найти все вызовы SSH и создать меню из user@host, где можно быстро подключиться к ранее использованным серверам","Я попробую сделать такой скрипт. Вот возможный вариант:
+
+```bash
+#!/bin/bash
+# Скрипт для генерации файла .mc.menu из .bash_history
+# Он ищет все вызовы SSH и создает меню из user@host
+
+# Открываем файл .mc.menu для записи
+echo ""# Menu for SSH connections"" > ~/.mc.menu
+
+# Читаем файл .bash_history построчно
+while read -r line; do
+  # Проверяем, начинается ли строка с ssh
+  if [[ $line == ssh* ]]; then
+    # Извлекаем user@host из строки
+    user_host=${line#ssh }
+    # Удаляем лишние параметры, если есть
+    user_host=${user_host%% *}
+    # Добавляем строку в файл .mc.menu в формате ""user@host ssh user@host""
+    echo ""$user_host ssh $user_host"" >> ~/.mc.menu
+  fi
+done < ~/.bash_history
+
+# Закрываем файл .mc.menu
+echo ""# end of menu"" >> ~/.mc.menu
+
+# Выводим сообщение об успешном завершении скрипта
+echo ""Файл .mc.menu успешно создан.""
+```",,,,
+fab-100x-20261114T224309Z-004,93,6268fceaf0c0698c82386d5c,ad0389cec637adaf8de7f54f662e6bcb,fab-100x,ru,cybersecurity,oasst2,human_authored,[user] Как защитить линукс систему?,"Системы на базе ядра Linux, как правило, изначально оснащены сильными защитными средствами, например, AppArmor, PolicyKit или какие-нибудь firewall'ы. Однако сама система также способна себя защитить за счет системы прав доступа. То есть, навредить системе GNU/Linux может только сам пользователь, вписав в терминал сомнительного рода команды, к примеру, ""sudo rm -rf / --no-preserve-root"".
+
+То есть GNU/Linux в дополнительной защите не нуждается.",,,,
+fab-100x-20261114T224309Z-004,94,5dd98c1363406dd1a432df8c,3c96e52b49ca9764df62e060b2e77df5,fab-100x,ru,education,oasst2,human_authored,"[user] Привет, Ася. Я хочу написать небольшую игру в жанре квест на тему русских сказок. Но никак не могу при помощи stable diffusion сгенерировать изображения Ивана Дурака. Получаются либо крестьяне в европейском стиле, либо шуты с бубенцами. Видимо в исходной базе почти не было персонажей из русского фольклора. Как думаешь, можно ли как-то это обойти и получить нужный стиль? Обращаться к художникам не предлагай, т.к. игра будет бесплатной, и бюджет не должен выходить за 0.
+
+[assistant] У пользователя возникли проблемы с созданием изображений Ивана-дурака с помощью Stable Diffusion, возможно, из-за отсутствия персонажей из русского фольклора в исходной базе данных. Хотя связаться с художниками не представляется возможным, есть несколько способов обойти эту проблему и добиться желаемого стиля:
+Попробуйте использовать более конкретный запрос, например ""Иван-дурак в традиционной русской одежде"" или ""Иван-дурак со своим волшебным конем"". Это может помочь модели лучше понять желаемый стиль и получить более точные результаты.
+Экспериментируйте с различными методами выборки и шагами выборки, чтобы увидеть, дают ли они лучшие результаты. PLMS и euler_a - популярные варианты, а увеличение числа шагов выборки может помочь улучшить изображение.
+Рассмотрите возможность тонкой настройки модели с помощью дополнительных данных, характерных для русского фольклора.
+
+[user] Ася, ты ничего не перепутала? Я попробовал твои запросы в доступных веб-версиях Stable Diffusion 2.1 (на you.com и huggingface.co) и видела бы ты, что они мне выдают! То что-то вроде Красной площади, то вообще бомжа на лавочке, а в большинстве случаев почему-то интерьеры с непременным диваном! Может, с ними всё же лучше по-английски говорить? И о каких «методах выборки и шагах выборки» ты говоришь? Это вообще о чём?","*Ой! Простите, пожалуйста!*
+*Что-то на меня нашло, видимо...*
+
+*Но я правда постараюсь исправиться!*
+
+**Stable Diffusion** действительно может иметь проблемы с генерацией изображений в определенном стиле или культуре, если он не был обучен на достаточном количестве данных из этой области. Возможно, в вашем случае исходная база действительно не содержала достаточно персонажей из русского фольклора.
+
+Есть несколько способов обойти эту проблему и получить нужный стиль:
+
+- Вы можете попробовать добавить больше деталей или описаний к вашему текстовому запросу, чтобы уточнить желаемый результат. Например, вы можете указать цвет волос, одежды или фона Ивана Дурака, а также его характерные черты лица или поведения.
+- Вы можете попробовать использовать другие алгоритмы генерации изображений по тексту, которые могут быть более подходящими для вашей задачи. Например, вы можете попробовать **VQGAN+CLIP** или **CLIP-Guided Diffusion**, [можете посмотреть информацию, нажав **сюда**](https://creator.nightcafe.studio/stable-diffusion-image-generator).
+- Вы можете попробовать использовать предварительно обученные модели Stable Diffusion на других данных или дообучить модель на своих данных. Это потребует некоторых знаний и ресурсов по программированию и машинному обучению. [Вы можете найти код и инструкции для Stable Diffusion на GitHub, нажав **сюда**](https://www.tensorflow.org/tutorials/generative/generate_images_with_stable_diffusion).
+
+Надеюсь, эти советы помогут вам создать небольшую игру в жанре квест на тему русских сказок. Удачи! 😊",,,,
+fab-100x-20261114T224309Z-004,95,3a0d801be520ea315b694d70,df38b8fbbdb93f011ccedf4675d943d4,fab-100x,ru,general_knowledge,oasst2,human_authored,[user] Действительно ли видео-игры вредят здоровью?,"Существует много мнений на тему того, действительно ли видео-игры вредят здоровью, исследования в этой области дают неоднозначные результаты. 
+
+С одной стороны, длительное время проведенное за играми может привести к различным здоровым проблемам, таким как нарушения сна, потеря зрения, неправильная осанка, головные боли, затруднения с общением в реальной жизни и т.д. Кроме того, существуют проблемы с поведением, связанные с игровой зависимостью, такие как снижение общественной активности, плохие оценки в школе или работе, ухудшение отношений в семье и т.д.
+
+С другой стороны, существуют исследования, которые показывают, что игры могут иметь положительный эффект на здоровье. Например, игры могут улучшать реакцию, внимание, координацию движений, развивать стратегическое мышление и т.д. Кроме того, игры могут помочь в лечении некоторых заболеваний, например, болезней психического здоровья.
+
+В целом, можно сказать, что видео-игры, как и любой другой вид развлечения, имеют свои плюсы и минусы. Если играть в них умеренно, то они могут быть хорошим способом провести время и развивать некоторые навыки. Однако, если игры становятся основным занятием и забирают большую часть времени, то это может привести к негативным последствиям для здоровья.",,,,
+fab-100x-20261114T224309Z-004,96,ea7459e202fd3a5eebb6e190,48069836b737d1588f0db04a2e5c1599,fab-100x,ru,mathematics,oasst2,human_authored,[user] У тебя есть идеи для рецепта чего-нибудь вкусного на десерт?,"Конечно, у меня есть несколько идей для десерта! Вот несколько рецептов, которые, я думаю, вам понравятся:
+
+Шоколадный кекс
+
+Ингредиенты:
+
+    1 1/2 чашки муки
+    1 1/2 чашки сахара
+    3/4 чашки какао-порошка
+    1 1/2 чайные ложки разрыхлителя
+    1 чайная ложка соли
+    1 чашка молока
+    1/2 чашки растительного масла
+    2 яйца
+    2 чайные ложки ванильного экстракта
+    1 чашка кипятка
+
+Инструкции:
+
+* Предварительно разогрейте духовку до 350 градусов Ф (175 градусов С).
+* В большой миске смешайте муку, сахар, какао-порошок, разрыхлитель и соль.
+* Добавьте молоко, растительное масло, яйца и ванильный экстракт.
+* Взбейте все ингредиенты вместе в течение 2-3 минут, пока не получится гладкое тесто.
+* Постепенно введите кипяток в тесто, продолжая взбивать, пока оно не станет более жидким.
+* Вылейте тесто в противень для запекания размером 9x13 дюймов.
+* Выпекайте кекс в течение 35-40 минут, или пока зубочистка, вставленная в середину, не выходит сухой.
+* Дайте кексу остыть перед подачей, затем нарежьте его на порции и подавайте вместе с любимым напитком.
+
+Чак-чак
+
+Ингредиенты:
+
+    500 г муки
+    1 чайная ложка соли
+    250 мл воды
+    100 г меда
+    150 мл растительного масла для жарки
+    250 г сахара
+    125 мл воды
+    1/2 чайной ложки лимонной кислоты
+    1/2 чайной ложки ванильного экстракта
+
+Инструкции:
+
+* В большой миске смешайте муку и соль.
+* Добавьте 250 мл воды и мед, и замесите тесто до гладкости и эластичности.
+* Раскатайте тесто толщиной около 1 см и нарежьте его на небольшие ромбические формы или на кусочки, диаметром примерно 1-1,5 см.
+* Разогрейте растительное масло на среднем огне.
+* Обжарьте кусочки теста, пока они не станут золотистыми.
+* Для приготовления сиропа, соедините сахар, 125 мл воды, лимонную кислоту и ванильный экстракт в маленькой кастрюле и доведите до кипения. Дайте сиропу остыть.
+* Выложите обжаренные кусочки чак-чака на большую тарелку и полейте их охлажденным сиропом.
+* Посыпьте чак-чак сахарной пудрой или медом и нарезайте на порции.
+* Приятного аппетита!",,,,
+fab-100x-20261114T224309Z-004,97,8d6121a8b9fa47843bfcaf5d,f711c623d6e2ea8f7658ef295a897feb,fab-100x,ru,research,tydiqa-goldp,human_authored,"[user] Звиа́д Константи́нович Гамсаху́рдия (также иногда используется вариант написания Гамсаху́рдиа, Georgian:ზვიად კონსტანტინეს ძე გამსახურდია, Звиа́д Константи́нес дзе Гамсаху́рдиа; 31 марта 1939 года, Тбилиси, Грузинская ССР, СССР — 31 декабря 1993 года, Дзвели Хибула, Хобский район, Грузия) — грузинский общественный, политический и государственный деятель; писатель, учёный, литературовед, диссидент, националист, доктор филологических наук; Председатель Верховного Совета Грузинской ССР (1990—1991) и первый Президент Грузии (1991—1992).
+
+Когда родился Звиа́д Константи́нович Гамсаху́рдия?","31 марта 1939
+
+Звиа́д Константи́нович Гамсаху́рдия (также иногда используется вариант написания Гамсаху́рдиа, Georgian:ზვიად კონსტანტინეს ძე გამსახურდია, Звиа́д Константи́нес дзе Гамсаху́рдиа; 31 марта 1939 года, Тбилиси, Грузинская ССР, СССР — 31 декабря 1993 года, Дзвели Хибула, Хобский район, Грузия) — грузинский общественный, политический и государственный деятель; писатель, учёный, литературовед, диссидент, националист, доктор филологических наук; Председатель Верховного Совета Грузинской ССР (1990—1991) и первый Президент Грузии (1991—1992).",,,,
+fab-100x-20261114T224309Z-004,98,37a32de18fc426cd7bb01a94,261fd46626ae67e9ec352ba205a43d28,fab-100x,ru,science,oasst1,human_authored,"[user] Что это за компания такая Яндекс?
+
+[assistant] Из википедии:
+«Я́ндекс» — транснациональная компания в отрасли информационных технологий, чьё головное юридическое лицо зарегистрировано в Нидерландах, владеющая одноимённой системой поиска в интернете, интернет-порталом и веб-службами в нескольких странах. Наиболее заметное положение занимает на рынках России, Белоруссии и Казахстана.
+
+Поисковая система Yandex.ru была официально анонсирована 23 сентября 1997 года и первое время развивалась в рамках компании CompTek International. Как отдельная компания «Яндекс» образовалась в 2000 году. В мае 2011 года «Яндекс» провёл первичное размещение акций, заработав на этом больше, чем какая-либо из интернет-компаний со времён IPO-поисковика Google в 2004 году.
+
+[user] как убрать рекламу из яндекс поиска?
+
+[assistant] Рекомендую вам использовать расширение [uBlock Origin](https://ublockorigin.com/). Оно бесплатно и имеет открытый исходный код. Его цель заключается в блокировке рекламы на веб-страницах.
+
+[user] Спасибо! А ты не знаешь, случаем, как везде использовать тёмную тему?","Конечно! В зависимости от браузера и операционной системы, есть несколько способов включения темной темы на сайтах. Вот несколько примеров:
+
+* В Google Chrome можно включить принудительную темную тему для сайтов. Для этого нужно в адресной строке ввести «chrome://flags/#enable-force-dark», открыть меню с экспериментальными функциями и выбрать «Enabled» напротив пункта «Force Dark Mode for Web Contents».
+
+* В Microsoft Edge можно выбрать темную тему браузера в настройках. Для этого нужно перейти в «Параметры и другие > Параметры > Внешний вид > Настройка темы > браузера» и выбрать «Темный».
+
+* В Mozilla Firefox можно включить темную тему для сайтов с помощью расширения Dark Reader.
+
+Надеюсь, это поможет!",,,,
+fab-100x-20261114T224309Z-004,99,72ab4958a245aa0835e4ea4d,7903f07699706d54a945b0b2eeb53a3c,fab-100x,ru,software_engineering,oasst1,human_authored,[user] Как собрать Android из исходников?,"Сборка Android из исходников - это достаточно сложный процесс, который требует определённых знаний и навыков. Он также может занять достаточно много времени и потребовать мощного компьютера с достаточным объёмом памяти и места на диске.
+
+Вот основные шаги, которые нужно выполнить для сборки Android из исходников:
+
+1.	Подготовка системы: для сборки Android из исходников нужно установить несколько инструментов, включая Java Development Kit (JDK), Android SDK, Android NDK, Git и другие. Также нужно убедиться, что ваша система поддерживает сборку Android.
+
+2.	Получение исходного кода: исходный код Android хранится в Git-репозитории. Чтобы получить исходный код, нужно использовать команду ""repo init"", чтобы инициализировать репозиторий, и затем использовать команду ""repo sync"", чтобы загрузить все необходимые файлы.
+
+3.	Настройка среды: для сборки Android нужно настроить среду, используя файл ""envsetup.sh"" или ""envsetup.bat"" в зависимости от вашей операционной системы. Это позволяет настроить переменные среды, которые используются при сборке.
+
+4.	Конфигурация сборки: нужно настроить сборку, используя файл ""lunch"", который позволяет выбрать устройство или эмулятор для сборки.
+
+5.	Сборка: после настройки среды и конфигурации сборки, нужно использовать команду ""make"" для запуска сборки. Это может занять достаточно много времени, в зависимости от вашего компьютера и настроек сборки.
+
+6.	Установка: после сборки можно установить Android на устройство или эмулятор, используя команду ""adb install"" или ""fastboot flash"".
+
+Это лишь общий обзор процесса сборки Android из исходников, и на практике могут возникнуть дополнительные проблемы и трудности, которые требуют дополнительного исследования и изучения. Поэтому, если у вас нет достаточного опыта и знаний, может быть полезнее использовать готовые образы Android, которые можно загрузить с официального сайта Android.",,,,
+fab-100x-20261114T224309Z-004,100,4616b59957ad5f85ac6aa4d6,3855cfb4e441f5a9e30f76558bdb9ae5,fab-100x,ru,web_backend,oasst1,human_authored,[user] Как можно составить файл конфигурации для оконного менеджера Weston?,"Файл конфигурации для оконного менеджера Weston - это файл с расширением "".ini"", который содержит различные параметры и настройки для запуска. Вот пример:
+```
+[core]
+shell=weston-simple-shell.so
+backend=drm-backend.so
+
+[shell]
+background-image=/usr/share/backgrounds/weston/background.png
+
+[output]
+name=HDMI-A-1
+mode=1920x1080
+
+[input]
+device=/dev/input/event0
+```
+Рассмотрим его более подробно:
+*	`[core]` - это секция, которая содержит общие параметры для запуска Weston. `shell` указывает, какой шелл использовать, `backend` - указывает, какой бэкэнд (в данном случае *DRM*) будет использоваться.
+*	`[shell]` - это секция, которая содержит настройки для Weston Shell. `background-image` указывает путь к фоновому изображению, которое будет отображаться на рабочем столе.
+*	`[output]` - это секция, которая содержит настройки для вывода изображения. name указывает имя устройства вывода, `mode` - разрешение экрана.
+*	`[input]` - это секция, которая содержит настройки для устройств ввода. `device` указывает путь к устройству ввода, которое Weston будет использовать.
+
+Это простой пример файла конфигурации, который можно настроить в соответствии с вашими потребностями. После создания файла конфигурации, его можно использовать при запуске Weston с помощью команды `weston --config <путь к файлу конфигурации>`.",,,,
