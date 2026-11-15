@@ -46,7 +46,9 @@ export async function rateLimit(key, limit, windowMs) {
     return;
   }
   if (row.count >= limit) {
-    throw new HttpError(429, 'rate_limited', 'Too many requests. Please slow down.', { retryAfter: Math.ceil((row.reset_at - t) / 1000) });
+    const secs = Math.ceil((row.reset_at - t) / 1000);
+    const wait = secs < 90 ? `${secs} seconds` : `${Math.ceil(secs / 60)} minutes`;
+    throw new HttpError(429, 'rate_limited', `Too many attempts. Please try again in ${wait}.`, { retryAfter: secs, retry_after_s: secs });
   }
   await run('UPDATE rate_buckets SET count = count + 1 WHERE key = ?', key);
 }
