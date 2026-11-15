@@ -4,6 +4,7 @@ import { markdown } from './md.js';
 import { firstName } from './greeting.js';
 import * as views from './views.js';
 import * as pages from './pages.js';
+import * as fab from './fab500x.js';
 
 export const state = {
   user: null, models: [], modes: ['low', 'medium', 'high'], modeDetails: [], defaultMode: 'medium', usage: null, settings: null,
@@ -28,6 +29,8 @@ const routes = [
   [/^#\/code$/, () => shell(() => views.codeProjectsView())],
   [/^#\/code\/([\w]+)$/, (m) => shell(() => views.codeView(m[1]))],
   [/^#\/research$/, () => shell(() => views.researchView())],
+  [/^#\/fab500x$/, () => shell(() => fab.projectsPage(), { composer: false })],
+  [/^#\/fab500x\/(prj_\w+)$/, (m) => { shellEl = null; return fab.ideView(app, m[1]); }],
   [/^#\/history$/, () => shell(() => pages.historyPage(), { composer: false })],
   [/^#\/work$/, () => shell(() => pages.workPage(), { composer: false })],
   [/^#\/schedule$/, () => shell(() => pages.schedulePage(), { composer: false })],
@@ -342,6 +345,7 @@ function tokenView(kind) {
 // Built once per sign-in and kept: navigating only swaps the main area (no full re-render, no reload).
 let mainEl; let composerEl; let shellEl; let titleEl; let moreBtn; let drawerEl; let recentEl;
 const NAV = [['#/', 'chat', 'Chat'], ['#/history', 'history', 'History'], ['#/work', 'work', 'Work'], ['#/settings', 'settings', 'Settings']];
+const fabWorkspace = () => state.models.some((m) => m.workspace === 'fab500x-code' && m.available);
 const DRAWER_LINKS = [['#/projects', 'folder', 'Projects'], ['#/code', 'code', 'Approx Code'], ['#/workspace', 'layers', 'Artifacts'], ['#/schedule', 'calendar', 'Schedule'], ['#/work', 'work', 'Approx Work']];
 
 function buildShell() {
@@ -360,7 +364,9 @@ function buildShell() {
     h('div', { class: 'drawer-head' }, h('img', { src: '/assets/logo-mark-64.png', alt: '' }), h('b', { class: 'grow' }, 'Approx'),
       h('button', { class: 'icon-btn drawer-close', 'aria-label': 'Close menu', onclick: closeDrawer }, icon('close'))),
     h('button', { class: 'btn primary block drawer-new', onclick: () => { closeDrawer(); newChat(); } }, icon('plus'), 'New chat'),
-    h('nav', { class: 'drawer-nav' }, DRAWER_LINKS.map(([href, ic, label]) => h('a', { href, 'data-route': href }, icon(ic), h('span', {}, label)))),
+    h('nav', { class: 'drawer-nav' }, DRAWER_LINKS.map(([href, ic, label]) => h('a', { href, 'data-route': href }, icon(ic), h('span', {}, label))),
+      // FAB 500X Code appears only for accounts holding the (server-checked) private grant.
+      fabWorkspace() ? h('a', { href: '#/fab500x', 'data-route': '#/fab500x', class: 'drawer-fab' }, icon('shield'), h('span', {}, 'FAB 500X Code')) : null),
     h('div', { class: 'drawer-label' }, 'Recent'), recentEl,
     h('a', { class: 'drawer-more', href: '#/history' }, 'All history', icon('chevron')),
     h('a', { class: 'drawer-user', href: '#/settings/profile' }, h('span', { class: 'avatar' }, initials),
@@ -433,7 +439,9 @@ export function openModelPicker() {
     // shown as unavailable rather than hidden or faked.
     for (const m of state.models.filter((x) => x.available)) {
       const sub = [m.active_version ? `v${m.active_version}` : (m.lifecycle && m.lifecycle.state !== 'ACTIVE' ? m.lifecycle.label : null)].filter(Boolean).join(' · ');
-      s.append(opt(m.id, m.name, m.description + (sub ? `  (${sub})` : ''), m.backend !== 'unavailable' && m.backend !== 'no_active_version', modelBadge(m)));
+      // Only models the server reports "online" are selectable (status comes from live serving evidence, never the catalog).
+      const usable = m.selectable !== undefined ? m.selectable : (m.backend !== 'unavailable' && m.backend !== 'no_active_version');
+      s.append(opt(m.id, m.name, m.description + (sub ? `  (${sub})` : '') + (!usable && m.status_reason ? ` — ${m.status_reason}` : ''), usable, modelBadge(m)));
     }
     const locked = state.models.filter((x) => !x.available).length;
     if (locked) s.append(h('p', { class: 'small muted' }, `${locked} more model${locked > 1 ? 's' : ''} need a different plan or access grant — see Settings → Capabilities.`));
@@ -450,8 +458,11 @@ export function modeToggle(after) {
   }
   return wrap;
 }
+const STATUS_LABEL = { configured: 'Not trained', training: 'Training', trained: 'Trained', packaged: 'Packaged', deploying: 'Deploying', offline: 'Offline', failed: 'Failed' };
 function modelBadge(m) {
   if (!m.available) return h('span', { class: 'badge' }, m.tier === 'restricted' ? 'Restricted' : 'Premium');
+  if (m.private) { /* FAB 500X: only visible because this account holds a grant */ }
+  if (m.status && m.status !== 'online') return h('span', { class: `badge ${m.status === 'failed' ? 'error' : 'warn'}` }, STATUS_LABEL[m.status] || m.status);
   if (m.backend === 'unavailable') return h('span', { class: 'badge warn' }, 'Offline');
   if (m.backend === 'no_active_version') return h('span', { class: 'badge warn' }, 'No active version');
   if (m.backend === 'dev-simulator') return h('span', { class: 'badge warn' }, 'Simulator');

@@ -77,10 +77,12 @@ class Fixture(unittest.TestCase):
 
 class TestTargetsAndProfiles(unittest.TestCase):
     def test_model_targets_are_exact(self):
-        want = {"nick-4.8": 30000, "hike-6.5": 50000, "sona-9.0": 70000, "fab-100x": 90000, "fab-500x": 500000}
+        # Approved targets (owner instruction 2026-11-15): exact — min == max, never silently reduced.
+        want = {"nick-4.8": 30000, "hike-6.5": 50000, "sona-9.0": 70000, "fab-100x": 100000, "fab-500x": 500000}
         for m, n in want.items():
             p = pipeline.load_profile(m)
             self.assertEqual(p["min_records"], n, m)
+            self.assertEqual(p["max_records"], n, m)
             self.assertLessEqual(p["synthetic_max"], 0.6, m)
             self.assertNotIn("production_ready", p, f"{m}: production_ready must never be configured")
 

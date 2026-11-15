@@ -1,159 +1,117 @@
-"""Generate training/colab/approx_training_colab.ipynb — the SINGLE entry point for the whole platform on Colab.
-Run: python colab/build_platform_notebook.py
+"""Generate training/colab/approx_training_colab.ipynb — the production, one-command training notebook.
 
-The notebook mounts Drive, clones the repo, checks the GPU, installs pinned deps, and runs
-`run_all_training.py`, which does dataset → train → verify → evaluate → safety → regression → release for each
-selected model and writes importable release artifacts to Drive. Defaults to Nick 4.8; set MODELS to add more.
+    python training/colab/build_platform_notebook.py
+
+Cells: (0) overview, (1) configuration (MODELS, RUN_ID, TIME_BUDGET_MINUTES), (2) the single run cell
+(Drive → clone → git-lfs → pinned deps → training/run_all.py), (3) summary. No secrets are ever stored in the notebook.
 """
 import json
 from pathlib import Path
 
-REPO, BRANCH = "umer630/Approx-Ai", "ccr-b9e70091-57vl48"
+BRANCH = "ccr-b9e70091-57vl48"
+REPO = "https://github.com/umer630/Approx-Ai.git"
 
 
-def md(s):
-    return {"cell_type": "markdown", "metadata": {}, "source": s.strip("\n")}
+def md(text):
+    return {"cell_type": "markdown", "metadata": {}, "source": text.strip("\n").splitlines(keepends=True)}
 
 
-def code(s):
-    return {"cell_type": "code", "metadata": {}, "execution_count": None, "outputs": [], "source": s.strip("\n")}
+def code(text, title=None):
+    return {"cell_type": "code", "metadata": {"cellView": "form"} if title else {}, "execution_count": None, "outputs": [],
+            "source": text.strip("\n").splitlines(keepends=True)}
 
 
 cells = [
-    md(f"""
-# Approx AI — model training (Google Colab)
+    md("""
+# Approx AI — production training (one command)
 
-One notebook for the whole training platform. It runs, for each selected model:
-**dataset build → QLoRA training → independent verification → unseen evaluation (base vs adapter) → safety gate →
-regression → release packaging**, and writes a registry-ready release artifact to Google Drive.
+This notebook trains **every Approx model** with one command:
 
-**Default:** Nick 4.8 (`Qwen/Qwen2.5-3B-Instruct`, fits a free T4). Others (Hike 6.5, Sona 9.0, FAB 500X) need more
-VRAM — see the hardware table printed by the preflight.
+`python training/run_all.py --models all --run-id approx-full-r1 --time-budget-minutes 240`
 
-### Steps
-1. **Runtime → Change runtime type → T4 GPU (or better) → Save.**
-2. **Runtime → Run all.** Approve the Drive mount pop-up in cell 2.
-3. A Hugging Face token is only needed if a base model is gated — add `HF_TOKEN` in the 🔑 *Secrets* sidebar (never paste it into a cell).
+For each model in order — **Nick 4.8 → Hike 6.5 → Sona 9.0 → FAB 100X → FAB 500X** — it:
+restores the approved dataset from the GitHub repository (Git LFS) → verifies every SHA-256 against
+`training/datasets/DATASETS.lock.json` → detects the GPU → picks the training profile that fits → trains with
+checkpoints → verifies → evaluates (base vs adapter, safety, regression) → packages a release on Google Drive.
 
-### Honesty
-A model is **production-ready only** if its dataset is production-ready and training, verification, the weighted
-evaluation gate, the safety gate and the regression check all pass. The current curriculum is a seed set and is
-deliberately **not** production-ready — the run will say so and write a `smoke`/`validated` (not production) release.
-Nothing is faked: no GPU → it stops with `GPU_REQUIRED`.
+| Model | Dataset | Base model | Minimum GPU |
+|---|---|---|---|
+| Nick 4.8 | 30,000 | microsoft/Phi-4-mini-instruct (MIT) | T4 16 GB |
+| Hike 6.5 | 50,000 | Qwen/Qwen2.5-7B-Instruct (Apache-2.0) | T4 16 GB (L4/A100 faster) |
+| Sona 9.0 | 70,000 | Qwen/Qwen2.5-14B-Instruct (Apache-2.0) | L4 24 GB (A100 recommended) |
+| FAB 100X | 100,000 | Qwen/Qwen2.5-32B-Instruct (Apache-2.0) | A100 40 GB / H100 |
+| FAB 500X | 500,000 | Qwen/Qwen2.5-Coder-32B-Instruct (Apache-2.0) | A100 40 GB / H100 (80 GB recommended) |
+
+**How to use**
+1. *Runtime → Change runtime type →* pick a GPU (T4 trains Nick + Hike; A100/H100 trains all five) → Save.
+2. *Runtime → Run all.* Approve the Google Drive pop-up (checkpoints and releases are saved there).
+3. If Colab disconnects or the time budget ends: **run all again with the same `RUN_ID`** — finished models are
+   skipped and the first incomplete model resumes from its last checkpoint.
+
+Models that do not fit the detected GPU are **skipped and reported with the exact requirement** — they are never
+reported as trained. Releases are only marked production-ready when every evaluation/safety gate passes.
 """),
-    code('''
-#@title 1 · Which models to train { display-mode: "form" }
-MODELS = "nick-4.8"  #@param {type:"string"}
-#@markdown Space-separated subset of: nick-4.8 hike-6.5 sona-9.0 fab-500x
-RUN_ID = "nick-4.8-r2"  #@param {type:"string"}
-#@markdown Versioned run folder (<Drive>/ApproxAI/work/<model>/runs/<RUN_ID>/). Keep the SAME value to resume after a
-#@markdown runtime reset; use a NEW value for a fresh run. The recovered Nick 4.8 adapter (work/nick-4.8/train_output)
-#@markdown is never read or written.
-TIME_BUDGET_MINUTES = 0  #@param {type:"integer"}
-#@markdown 0 = run to completion. Otherwise the run saves a checkpoint and pauses after this long; re-run to resume.
-print("models:", MODELS, "| time budget:", TIME_BUDGET_MINUTES or "none")
-'''),
-    code('''
-#@title 2 · Mount Drive + clone the repo
-import os, subprocess, sys
+    code("""
+#@title 1 · Configuration { display-mode: "form" }
+MODELS = "all"  #@param {type:"string"}
+#@markdown `all`, or a space-separated subset of: nick-4.8 hike-6.5 sona-9.0 fab-100x fab-500x
+RUN_ID = "approx-full-r1"  #@param {type:"string"}
+#@markdown Keep the SAME RUN_ID to resume. A new RUN_ID starts a fresh run (earlier releases are kept).
+TIME_BUDGET_MINUTES = 240  #@param {type:"integer"}
+#@markdown Training pauses at a checkpoint after this many minutes (0 = no limit). Run all again to continue.
+BRANCH = "%s"  #@param {type:"string"}
+print(f"models={MODELS} · run={RUN_ID} · budget={TIME_BUDGET_MINUTES} min · branch={BRANCH}")
+""" % BRANCH, title=True),
+    code("""
+#@title 2 · Run the pipeline (one command) { display-mode: "form" }
+import os, subprocess, sys, shlex
 from google.colab import drive
 drive.mount("/content/drive")
-DRIVE_ROOT = "/content/drive/MyDrive/ApproxAI"
-MODELS_DIR = os.path.join(DRIVE_ROOT, "registry")      # release artifacts (survive runtime resets)
-WORK_DIR   = os.path.join(DRIVE_ROOT, "work")
-os.makedirs(MODELS_DIR, exist_ok=True); os.makedirs(WORK_DIR, exist_ok=True)
+ROOT = "/content/drive/MyDrive/ApproxAI"
+WORK_DIR, MODELS_DIR = f"{ROOT}/pipeline", f"{ROOT}/models"
+os.makedirs(WORK_DIR, exist_ok=True); os.makedirs(MODELS_DIR, exist_ok=True)
 REPO_DIR = "/content/Approx-Ai"
+sh = lambda c: subprocess.run(c, shell=True, check=True)
+# 1. code + Git LFS (dataset shards are LFS objects; only the requested models' shards are downloaded)
+sh("apt-get -qq install -y git-lfs >/dev/null 2>&1 || true; git lfs install --skip-repo >/dev/null")
 if not os.path.isdir(REPO_DIR):
-    subprocess.run(["git", "clone", "--depth", "1", "--branch", "%s" % "''' + BRANCH + '''",
-                    "https://github.com/''' + REPO + '''.git", REPO_DIR], check=True)
+    sh(f"GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 --branch {shlex.quote(BRANCH)} %s {REPO_DIR}")
 else:
-    subprocess.run(["git", "-C", REPO_DIR, "fetch", "--depth", "1", "origin", "''' + BRANCH + '''"], check=True)
-    subprocess.run(["git", "-C", REPO_DIR, "checkout", "''' + BRANCH + '''"], check=True)
-    subprocess.run(["git", "-C", REPO_DIR, "reset", "--hard", "origin/''' + BRANCH + '''"], check=True)
-print("repo at", subprocess.run(["git","-C",REPO_DIR,"rev-parse","HEAD"], capture_output=True, text=True).stdout.strip())
-'''),
-    code('''
-#@title 2b · Restore the verified datasets from Drive (no regeneration)
-# Upload the bundles + SHA256SUMS to MyDrive/ApproxAI/datasets/ once (see docs/DRIVE_DATASETS.md). Each bundle is checked
-# against SHA256SUMS, its files against their manifest, and its fingerprint against the manifest in this repository.
-# A missing or mismatching bundle STOPS here — nothing is rebuilt silently.
-import subprocess, sys, os
-DATASETS_DIR = os.path.join(DRIVE_ROOT, "datasets")
-rc = subprocess.run([sys.executable, "-m", "datahub.restore_bundle", "--bundles-dir", DATASETS_DIR, "--models", *MODELS.split()],
-                    cwd=os.path.join(REPO_DIR, "training")).returncode
-if rc != 0:
-    raise RuntimeError("DATASET_NOT_RESTORED: fix the bundle in Drive (see the message above), then Run all again.")
-'''),
-    code('''
-#@title 3 · GPU preflight (stops here if no GPU)
+    sh(f"cd {REPO_DIR} && GIT_LFS_SKIP_SMUDGE=1 git fetch --depth 1 origin {shlex.quote(BRANCH)} && git reset --hard FETCH_HEAD")
+# 2. pinned training dependencies + a real 4-bit kernel check (GPU runtimes only)
 import torch
-if not torch.cuda.is_available():
-    raise RuntimeError("GPU_REQUIRED: no CUDA GPU. Runtime → Change runtime type → T4 GPU, then Run all again. "
-                       "Nothing is installed or trained without a GPU.")
-p = torch.cuda.get_device_properties(0)
-print(f"GPU: {p.name} · {p.total_memory/1e9:.1f} GB · compute capability {torch.cuda.get_device_capability(0)}")
-print("torch", torch.__version__, "| cuda", torch.version.cuda, "| bf16", torch.cuda.is_bf16_supported())
-'''),
-    code('''
-#@title 4 · Install pinned dependencies (only what's missing)
-import subprocess, sys, os
-TRAINING = os.path.join(REPO_DIR, "training")
-# colab_pipeline.py's deps stage installs only missing/mismatched pins and runs a real 4-bit NF4 kernel check.
-rc = subprocess.run([sys.executable, "-u", "colab/colab_pipeline.py", "deps"], cwd=TRAINING).returncode
-if rc != 0:
-    raise RuntimeError("dependency install / NF4 kernel check failed — see the message above.")
-'''),
-    code('''
-#@title 5 · Hardware feasibility for the selected models
-import subprocess, sys, os, yaml
-sys.path.insert(0, TRAINING)
-from engine import hardware
-vram, cc, name = hardware.detect_gpu()
-print(f"detected: {name} {vram} GB (cc {cc})\\n")
-for m in MODELS.split():
-    cfg = yaml.safe_load(open(os.path.join(TRAINING, "models", f"{m}.yaml")))
-    plan = hardware.plan(cfg, vram, cc)
-    print(f"{m:10} feasible={plan['feasible']!s:5} · {plan['reason']}")
-    if not plan['feasible']:
-        print(f"    recommended: {plan['recommended_hardware']}")
-'''),
-    code('''
-#@title 6 · Run the training platform (dataset → train → evaluate → release)
-import subprocess, sys, os
-cmd = [sys.executable, "-u", "run_all_training.py", "--models", *MODELS.split(),
-       "--models-dir", MODELS_DIR, "--work-dir", WORK_DIR, "--run-id", RUN_ID, "--resume"]
-if TIME_BUDGET_MINUTES:
-    cmd += ["--time-budget-minutes", str(TIME_BUDGET_MINUTES)]
-# Optional: push finished artifacts straight into your backend registry (fill in and uncomment).
-# cmd += ["--worker", "--control-plane-url", "https://your-backend.example", "--api-key", "apx_...training-worker-key..."]
-rc = subprocess.run(cmd, cwd=TRAINING).returncode
-print("\\nexit code:", rc, "(0 = all selected models finished; 1 = at least one was blocked — read its blockers above)")
-'''),
-    code('''
-#@title 7 · Summary + where the artifacts are
+if torch.cuda.is_available():
+    sh(f"cd {REPO_DIR}/training && {sys.executable} -u colab/colab_pipeline.py deps")
+else:
+    print("No GPU: nothing will be trained. The pipeline below still prints what each model needs.")
+# 3. THE ONE COMMAND
+cmd = [sys.executable, "-u", "training/run_all.py", "--models", *MODELS.split(), "--run-id", RUN_ID,
+       "--time-budget-minutes", str(TIME_BUDGET_MINUTES), "--work-dir", WORK_DIR, "--models-dir", MODELS_DIR]
+print("$", " ".join(shlex.quote(c) for c in cmd), flush=True)
+rc = subprocess.run(cmd, cwd=REPO_DIR).returncode
+print({0: "\\nALL REQUESTED MODELS COMPLETED", 3: "\\nPAUSED — run all again with the same RUN_ID to resume",
+       1: "\\nSOME MODELS DID NOT COMPLETE — see the table above (skipped models need a bigger GPU)"}.get(rc, f"exit {rc}"))
+""" % REPO, title=True),
+    code("""
+#@title 3 · Summary { display-mode: "form" }
 import json, os, glob
-rep = os.path.join(MODELS_DIR, "training_report.json")
+rep = os.path.join(MODELS_DIR, "pipeline_report.json")
 if os.path.exists(rep):
-    data = json.load(open(rep))
-    print(json.dumps(data["flags"], indent=2))
-    for m in data["models"]:
-        rel = m.get("release", {})
-        print(f"\\n{m['model_id']}: {m['status']}" + (f" · v{rel.get('version')} status={rel.get('status')} "
-              f"production_ready={rel.get('production_ready')}" if rel else "") )
-        for b in m.get("blockers", []):
-            print(f"    blocker: {b}")
-print("\\nRelease artifacts (import these into the backend registry):")
-for tgz in sorted(glob.glob(os.path.join(MODELS_DIR, "*.tar.gz"))):
-    print("  ", tgz)
-print("\\nImport on the server:  python backend/src/cli.js models import <artifact.tar.gz>")
-print("or upload via the admin API:  POST /api/admin/registry/import  (X-Artifact-Sha256 header)")
-'''),
+    r = json.load(open(rep))
+    print(f"run {r['run_id']} · GPU {r['gpu'].get('name')}\\n")
+    for m, s in r["models"].items():
+        rel = s.get("release") or {}
+        print(f"{m:10s} {s['status']:17s}" + (f" v{rel.get('version')} status={rel.get('status')} production_ready={rel.get('production_ready')}" if rel else "")
+              + (f"\\n{'':10s} {s.get('reason')}" if s.get('reason') and s['status'] != 'completed' else ""))
+print("\\nReleases (models/<id>/versions/<version>/ + .tar.gz for the registry import):")
+for p in sorted(glob.glob(os.path.join(MODELS_DIR, "*", "versions", "*", "manifest.json"))):
+    m = json.load(open(p)); print(f"  {m['model_id']} {m['version']} · {m['status']} · production_ready={m['production_ready']} · {os.path.dirname(p)}")
+""", title=True),
 ]
 
-nb = {"cells": cells, "metadata": {"accelerator": "GPU", "colab": {"provenance": [], "toc_visible": True},
-                                   "kernelspec": {"display_name": "Python 3", "name": "python3"},
-                                   "language_info": {"name": "python"}}, "nbformat": 4, "nbformat_minor": 0}
-
+nb = {"nbformat": 4, "nbformat_minor": 5, "cells": cells,
+      "metadata": {"accelerator": "GPU", "colab": {"provenance": [], "gpuType": "A100"}, "kernelspec": {"name": "python3", "display_name": "Python 3"},
+                   "language_info": {"name": "python"}}}
 out = Path(__file__).resolve().parent / "approx_training_colab.ipynb"
-out.write_text(json.dumps(nb, indent=1, ensure_ascii=False), encoding="utf-8")
-print(f"wrote {out} ({len(cells)} cells)")
+out.write_text(json.dumps(nb, indent=1, ensure_ascii=False) + "\n")
+print(f"wrote {out}")

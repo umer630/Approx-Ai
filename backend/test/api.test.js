@@ -279,11 +279,14 @@ test('modes are validated and are not models', async () => {
 test('free users cannot use Sona or FAB; the router never routes there', async () => {
   const u = await makeUser();
   const c = await req('POST', '/api/chats', { token: u.token, body: {} });
-  for (const m of ['sona-9.0', 'fab-100x', 'fab-500x']) {
+  for (const m of ['sona-9.0', 'fab-100x']) {
     const r = await req('POST', `/api/chats/${c.data.chat.id}/messages`, { token: u.token, body: { content: 'hello', model: m } });
     assert.equal(r.status, 403, m);
     assert.equal(r.data.error.code, 'model_access_denied');
   }
+  // FAB 500X is private: without a grant it is indistinguishable from a model that does not exist.
+  const priv = await req('POST', `/api/chats/${c.data.chat.id}/messages`, { token: u.token, body: { content: 'hello', model: 'fab-500x' } });
+  assert.deepEqual([priv.status, priv.data.error.code], [400, 'unknown_model']);
   const long = 'Perform an in-depth security audit and threat model of this architecture with step-by-step analysis of OWASP risks, SSRF, XSS and SQL injection. '.repeat(20);
   const r = await req('POST', `/api/chats/${c.data.chat.id}/messages`, { token: u.token, body: { content: long, model: 'auto' } });
   const route = parseSse(r.data)[0].data;
@@ -445,8 +448,10 @@ test('API keys: hashed storage, scopes, rotation, revocation, request logging', 
 test('API cannot reach FAB without grant', async () => {
   const u = await makeUser();
   const k = await req('POST', '/api/developer/keys', { token: u.token, body: { name: 'c', scopes: ['chat'] } });
-  const r = await req('POST', '/api/v1/chat/completions', { token: k.data.secret, body: { model: 'fab-500x', messages: [{ role: 'user', content: 'audit' }] } });
+  const r = await req('POST', '/api/v1/chat/completions', { token: k.data.secret, body: { model: 'fab-100x', messages: [{ role: 'user', content: 'audit' }] } });
   assert.equal(r.status, 403);
+  const p = await req('POST', '/api/v1/chat/completions', { token: k.data.secret, body: { model: 'fab-500x', messages: [{ role: 'user', content: 'audit' }] } });
+  assert.deepEqual([p.status, p.data.error.code], [400, 'unknown_model']);
 });
 
 // ---------------- projects, workspace, fabbox ----------------

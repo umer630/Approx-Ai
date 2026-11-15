@@ -1040,9 +1040,11 @@ public class MainActivity extends Activity {
             JSONObject m = models.optJSONObject(i);
             // Availability comes from the backend (lifecycle): a model becomes selectable when it is ACTIVE, no app update needed.
             JSONObject lc = m.optJSONObject("lifecycle");
-            boolean notActive = lc != null && !"ACTIVE".equals(lc.optString("state"));
+            // API 1.7: the server reports `selectable` (available && status "online"); older servers: lifecycle ACTIVE.
+            boolean notActive = m.has("selectable") ? !m.optBoolean("selectable") : (lc != null && !"ACTIVE".equals(lc.optString("state")));
+            String why = m.has("status") ? m.optString("status") : (lc != null ? lc.optString("label", lc.optString("state")) : "unavailable");
             if (!m.optBoolean("available")) { labels.add(m.optString("name") + " — locked (" + m.optString("tier") + ")"); ids.add(null); }
-            else if (notActive) { labels.add(m.optString("name") + " — " + lc.optString("label", lc.optString("state"))); ids.add("#status:" + m.optString("name") + " is not available yet (" + lc.optString("label", lc.optString("state")) + ")."); }
+            else if (notActive) { labels.add(m.optString("name") + " — " + why); ids.add("#status:" + m.optString("name") + " is not available yet (" + why + ")."); }
             else { ids.add(m.optString("id")); labels.add(m.optString("name") + ("unavailable".equals(m.optString("backend")) ? " (backend offline)" : "")); }
         }
         new AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert)

@@ -107,8 +107,9 @@ export function registerAccountRoutes(r) {
   r.get('/api/projects', async (req, res, ctx, p, url) => {
     const u = requireUser(ctx);
     const kind = url.searchParams.get('kind');
-    const rows = kind ? await all('SELECT * FROM projects WHERE user_id = ? AND kind = ? ORDER BY updated_at DESC', u.id, kind)
-      : await all('SELECT * FROM projects WHERE user_id = ? ORDER BY updated_at DESC', u.id);
+    // FAB 500X workspace projects are listed by /api/fab500x/projects (grant-checked), not here.
+    const rows = kind ? await all("SELECT * FROM projects WHERE user_id = ? AND kind = ? AND (workspace IS NULL OR workspace != 'fab500x') ORDER BY updated_at DESC", u.id, kind)
+      : await all("SELECT * FROM projects WHERE user_id = ? AND (workspace IS NULL OR workspace != 'fab500x') ORDER BY updated_at DESC", u.id);
     sendJson(res, 200, { projects: await Promise.all(rows.map(projView)) });
   });
   r.post('/api/projects', async (req, res, ctx) => {

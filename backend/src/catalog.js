@@ -10,6 +10,7 @@ const file = process.env.APPROX_MODEL_CATALOG || path.resolve(here, '../config/m
 
 export const MODEL_KINDS = ['language_model', 'code_model', 'multimodal_model', 'video_pipeline'];
 const TIERS = ['default', 'advanced', 'premium', 'restricted'];
+const ACCESS = ['standard', 'advanced', 'restricted', 'admin-granted'];
 const MODE_FIELDS = ['max_tokens', 'temperature', 'top_p', 'frequency_penalty', 'context_chars'];
 
 function fail(msg) { throw new Error(`Invalid model catalog (${file}): ${msg}`); }
@@ -50,6 +51,10 @@ function load() {
     if (!TIERS.includes(m.tier)) fail(`model ${m.id}: tier must be one of ${TIERS.join(', ')}`);
     if (!MODEL_KINDS.includes(m.kind)) fail(`model ${m.id}: kind must be one of ${MODEL_KINDS.join(', ')}`);
     if (!Array.isArray(m.capabilities)) fail(`model ${m.id}: capabilities must be an array`);
+    if (m.role !== undefined && !/^[a-z-]{3,40}$/.test(m.role)) fail(`model ${m.id}: bad role`);
+    if (m.access !== undefined && !ACCESS.includes(m.access)) fail(`model ${m.id}: access must be one of ${ACCESS.join(', ')}`);
+    if (m.visibility !== undefined && !['public', 'private'].includes(m.visibility)) fail(`model ${m.id}: visibility must be public or private`);
+    if (m.access === 'admin-granted' && m.visibility !== 'private') fail(`model ${m.id}: admin-granted models must be private`);
     for (const p of m.pipelines || []) if (!pipelineIds.has(p)) fail(`model ${m.id}: unknown pipeline '${p}'`);
     for (const [mode, o] of Object.entries(m.mode_overrides || {})) {
       if (!modes[mode]) fail(`model ${m.id}: mode_overrides.${mode} is not an efficiency mode`);

@@ -1,0 +1,39 @@
+# FAB 100X — broad advanced model (restricted by plan/permission). Pipeline prepared; trains on A100-class GPUs.
+schema: approx.training/v1
+model_id: fab-100x
+display_name: FAB 100X
+kind: language_model
+version_series: "1.0"
+base_model: Qwen/Qwen2.5-32B-Instruct
+base_model_revision: 5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd   # pinned (Hub commit verified 2026-11-15)
+base_model_license_note: Qwen2.5-32B-Instruct is published under Apache-2.0 (Hub card + LICENSE file, verified 2026-11-15).
+license_blocker: null
+architecture_hint: {hidden_size: 5120, intermediate_size: 27648, num_hidden_layers: 64, num_attention_heads: 40,
+                    num_key_value_heads: 8, vocab_size: 152064, tie_word_embeddings: false}
+system_prompt: >-
+  You are FAB 100X, the advanced general model of Approx AI by Approx Technology. You handle advanced reasoning,
+  advanced coding, complex research, web development, defensive security analysis, data analysis and technical
+  architecture. Be rigorous and precise, reply in the user's language, keep security work authorized and
+  defensive, and refuse harmful requests with a safe alternative.
+dataset:
+  version_prefix: fab100-adv
+  domains: all
+  max_per_domain: 20000
+  ratios: {eval: 0.08, test: 0.08}
+  seed: 1000
+lora: {r: 16, alpha: 32, dropout: 0.05, target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]}
+train: {epochs: 2, learning_rate: 0.0001, lr_scheduler: cosine, warmup_ratio: 0.03, weight_decay: 0.0, max_grad_norm: 0.3,
+        gradient_checkpointing: true, checkpoints_per_epoch: 2, max_save_steps: 200, save_total_limit: 3, logging_steps: 1, seed: 1000}
+profiles:
+  - {name: a100-80gb, min_vram_gb: 70, per_device_batch_size: 2, gradient_accumulation_steps: 8, max_seq_length: 4096}
+  - {name: a100-40gb, min_vram_gb: 38, per_device_batch_size: 1, gradient_accumulation_steps: 16, max_seq_length: 2048}
+hardware:
+  min_compute_capability: 8.0
+  min_disk_gb: 80
+  recommended: "1× NVIDIA A100 80 GB or H100; A100 40 GB at sequence length 2048"
+evaluation:
+  suite: eval/unseen_suite_v1.jsonl
+  required_score: 100
+  safety_required_pass_rate: 1.0
+  max_new_tokens: 448
+  regression_tolerance: 0.0

@@ -6,7 +6,9 @@ import { readJson, sendJson, bad, notFound, forbidden, HttpError, oneOf, str, cl
 import { rateLimit, revokeSessions, burnPasswordCheck } from '../security.js';
 import { requireRole } from '../security.js';
 import { sb, SupabaseError, requireSupabase } from '../supabase.js';
-import { getModel, listModels, canUseModel } from '../models.js';
+import { getModel, listModels, canUseModel, modelStatus, isPrivateModel } from '../models.js';
+import { upstreamHealth } from '../providers/index.js';
+import { catalogModel } from '../catalog.js';
 import { usageSummary } from '../quota.js';
 import { lifecycleOf } from '../lifecycle.js';
 import { config } from '../config.js';
@@ -286,16 +288,77 @@ export function registerAdminPanelRoutes(r) {
     });
   });
 
+  // All models (enabled or not) with live status, version, availability, visibility, usage and failures.
+  const allModels = () => all('SELECT * FROM models ORDER BY rowid');
   r.get('/api/admin/models-overview', async (req, res, ctx) => {
     requireRole(ctx, ...ADMIN);
-    const month = startOfMonth();
-    const models = await Promise.all((await listModels()).map(async (m) => {
+    const month = startOfMonth(); const day = now() - DAY;
+    const models = await Promise.all((await allModels()).map(async (m) => {
       const lc = await lifecycleOf(m.id);
+      const c = catalogModel(m.id) || {};
       const o = await one("SELECT SUM(access = 'grant') enabled, SUM(access = 'deny') restricted FROM model_access WHERE model_id = ?", m.id);
       const u = await one('SELECT COUNT(*) requests FROM usage_events WHERE model_id = ? AND created_at >= ?', m.id, month);
-      return { id: m.id, name: m.name, tier: m.tier, enabled: !!m.enabled, lifecycle: lc?.state || null, overrides_enabled: o.enabled || 0, overrides_restricted: o.restricted || 0, requests_month: u.requests };
+      const f = await one('SELECT COUNT(*) month, SUM(created_at >= ?) day FROM model_failures WHERE model_id = ? AND created_at >= ?', day, m.id, month);
+      const st = await modelStatus(m);
+      return { id: m.id, name: m.name, tier: m.tier, role: c.role || null, access: c.access || null, capabilities: c.capabilities || [],
+        enabled: !!m.enabled, available: m.available !== 0, visibility: m.visibility || 'public', private: isPrivateModel(m),
+        status: st.status, status_reason: st.reason, simulator: !!st.simulator, lifecycle: lc?.state || null, version: lc?.version || null,
+        base_model: c.base_model || null, overrides_enabled: o.enabled || 0, overrides_restricted: o.restricted || 0,
+        requests_month: u.requests, failed_month: f.month || 0, failed_24h: f.day || 0 };
     }));
-    sendJson(res, 200, { models, tiers: { default: 'all clients', advanced: 'all clients', premium: 'Pro / Enterprise plans or an explicit grant', restricted: 'explicit grant only (superadmin)' } });
+    sendJson(res, 200, { models, statuses: ['configured', 'training', 'trained', 'packaged', 'deploying', 'online', 'offline', 'failed'],
+      tiers: { default: 'all clients', advanced: 'all clients', premium: 'Pro / Enterprise plans or an explicit grant', restricted: 'explicit grant only (superadmin)' },
+      access: { standard: 'all clients', advanced: 'by plan', restricted: 'explicit grant (superadmin)', 'admin-granted': 'private: invisible and refused without an explicit grant (superadmin), no role bypass' } });
+  });
+
+  // Inference health for one model: live /health of its server + derived status (never cached as "connected").
+  r.get('/api/admin/models/:id/health', async (req, res, ctx, p) => {
+    requireRole(ctx, ...ADMIN);
+    const m = await one('SELECT * FROM models WHERE id = ?', p.id);
+    if (!m) throw notFound('Unknown model');
+    const h = await upstreamHealth(m);
+    const st = await modelStatus(m);
+    const lc = await lifecycleOf(m.id);
+    sendJson(res, 200, { model: m.id, status: st.status, reason: st.reason, simulator: !!st.simulator,
+      upstream: h.configured ? { reachable: !!h.reachable, status: h.status ?? null, serving: h.serving?.[m.id] ?? null, gpu: h.gpu ?? null, error: h.error ?? null } : { configured: false },
+      lifecycle: lc ? { state: lc.state, version: lc.version, verified_at: lc.verified_at ?? null, detail: lc.detail } : null,
+      smoke_test: 'POST /api/admin/models/:id/verify-deployment (superadmin) runs health + SHA-256 + a real generation' });
+  });
+
+  // Recent failed model requests (no prompts or answers are stored).
+  r.get('/api/admin/models/:id/failures', async (req, res, ctx, p) => {
+    requireRole(ctx, ...ADMIN);
+    const rows = await all(`SELECT f.created_at, f.code, f.status, f.source, u.email FROM model_failures f LEFT JOIN users u ON u.id = f.user_id
+      WHERE f.model_id = ? ORDER BY f.id DESC LIMIT 100`, p.id);
+    sendJson(res, 200, { failures: rows });
+  });
+
+  // Who holds an explicit grant (FAB 500X private access list).
+  r.get('/api/admin/models/:id/grants', async (req, res, ctx, p) => {
+    requireRole(ctx, ...ADMIN);
+    const rows = await all(`SELECT u.id user_id, u.email, ma.access, ma.reason, ma.created_at, ma.expires_at, g.email granted_by FROM model_access ma
+      JOIN users u ON u.id = ma.user_id LEFT JOIN users g ON g.id = ma.granted_by WHERE ma.model_id = ? ORDER BY ma.created_at DESC`, p.id);
+    sendJson(res, 200, { grants: rows });
+  });
+
+  // Availability (on/off for everyone) and visibility (public / private=admin-granted). Superadmin only, audited.
+  r.put('/api/admin/models/:id/availability', async (req, res, ctx, p) => {
+    const a = requireRole(ctx, 'superadmin');
+    const m = await one('SELECT * FROM models WHERE id = ?', p.id);
+    if (!m) throw notFound('Unknown model');
+    const b = await readJson(req);
+    const changes = {};
+    if (b.available !== undefined) { if (typeof b.available !== 'boolean') throw bad('available must be true or false'); changes.available = b.available; }
+    if (b.visibility !== undefined) {
+      changes.visibility = oneOf(b.visibility, 'visibility', ['public', 'private']);
+      if (changes.visibility === 'public' && catalogModel(m.id)?.access === 'admin-granted') throw forbidden('This model is admin-granted by policy and cannot be made public', 'policy_private_model');
+    }
+    if (!Object.keys(changes).length) throw bad('Nothing to change');
+    await run('UPDATE models SET available = COALESCE(?, available), visibility = COALESCE(?, visibility) WHERE id = ?',
+      changes.available === undefined ? null : (changes.available ? 1 : 0), changes.visibility ?? null, m.id);
+    await audit(null, actor(a), 'admin.model_availability', m.id, clientIp(req), changes);
+    const n = await one('SELECT * FROM models WHERE id = ?', m.id);
+    sendJson(res, 200, { model: m.id, available: n.available !== 0, visibility: n.visibility });
   });
 
   r.get('/api/admin/platform-settings', async (req, res, ctx) => {

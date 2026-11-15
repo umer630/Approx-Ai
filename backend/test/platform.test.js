@@ -136,7 +136,7 @@ test('database migration: an old database (medium/high CHECK) accepts "low" afte
   assert.equal(r.kept.personalization, 'keep me', 'existing rows survive the table rebuild');
   assert.equal(r.hasVersion, true);
   assert.equal(r.models, 5);
-  assert.deepEqual(r.migrations, ['2026-11-admin-panel', '2026-11-google-sub', '2026-11-light-theme-default', '2026-11-model-version-columns', '2026-11-settings-low-mode', '2026-11-supabase-uid', '2026-11-workspace-shell']);
+  assert.deepEqual(r.migrations, ['2026-11-admin-panel', '2026-11-fab500x-workspace', '2026-11-google-sub', '2026-11-light-theme-default', '2026-11-model-control', '2026-11-model-version-columns', '2026-11-settings-low-mode', '2026-11-supabase-uid', '2026-11-workspace-shell']);
 });
 
 // ---------------------------------------------------------------- registry: happy path to real serving
@@ -346,7 +346,7 @@ test('compute: admin starts/stops jobs; a GPU worker claims, reports progress an
   const u = await makeUser();
   assert.equal((await req('GET', '/api/admin/compute', { token: u.token })).status, 401);
   assert.equal((await req('POST', '/api/admin/compute/jobs', { token: u.token, body: {} })).status, 401);
-  assert.equal((await req('POST', '/api/admin/compute/jobs', { token: sa.token, body: { models: ['fab-100x'] } })).status, 400, 'no training config for fab-100x');
+  assert.equal((await req('POST', '/api/admin/compute/jobs', { token: sa.token, body: { models: ['not-a-model'] } })).status, 400, 'unknown model');
   const j = await req('POST', '/api/admin/compute/jobs', { token: sa.token, body: { models: ['nick-4.8', 'hike-6.5'], max_hours: 2 } });
   assert.equal(j.status, 201);
   assert.equal(j.data.workers_online, 0);
@@ -400,13 +400,15 @@ test('compute: admin starts/stops jobs; a GPU worker claims, reports progress an
 // ---------------------------------------------------------------- media capability layer
 test('media: video generation is unavailable until a real pipeline is connected; storyboard is text planning', async () => {
   const sa = await superadmin();
+  // FAB 500X is private: even a superadmin needs an explicit (audited) grant.
+  assert.equal((await req('PUT', `/api/admin/clients/${sa.id}/models/fab-500x`, { token: sa.token, body: { access: 'enabled' } })).status, 200);
   const u = await makeUser();
   const caps = await req('GET', '/api/capabilities', { token: sa.token });
   const fab = caps.data.models.find((m) => m.id === 'fab-500x');
   assert.equal(fab.kind, 'code_model');
   assert.deepEqual(caps.data.pipelines.map((p) => [p.id, p.kind, p.status]), [
     ['video-generation', 'video_pipeline', 'not_connected'], ['video-understanding', 'multimodal_model', 'not_connected'],
-    ['image-understanding', 'multimodal_model', 'not_connected'], ['audio', 'multimodal_model', 'not_connected']]);
+    ['image-generation', 'multimodal_model', 'not_connected'], ['image-understanding', 'multimodal_model', 'not_connected'], ['audio', 'multimodal_model', 'not_connected']]);
   assert.equal(caps.data.models.find((m) => m.id === 'nick-4.8').kind, 'language_model');
 
   const gen = (token, body) => req('POST', '/api/v1/media/video/generations', { token, body: { prompt: 'a sunrise over Hunza valley', ...body } });

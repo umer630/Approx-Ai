@@ -1,7 +1,7 @@
 // Shared completion engine used by the web/mobile chat and the public API.
 import { one, all, run, now } from './db.js';
 import { HttpError, forbidden, bad } from './http.js';
-import { route, identityPrompt, modeParams } from './models.js';
+import { route, identityPrompt, modeParams, recordModelFailure } from './models.js';
 import { consumeQuota } from './quota.js';
 import { streamCompletion } from './providers/index.js';
 
@@ -102,7 +102,13 @@ export async function complete({ user, chat, text, requestedModel, requestedMode
   await consumeQuota(user, { source, modelId: r.model.id, mode: r.mode, requestId });
   const { text: attachText, meta } = await attachmentContext(user.id, attachments);
   const messages = await buildMessages({ user, model: r.model, mode: r.mode, chat, text, attachText, history, systemExtra });
-  const out = await streamCompletion({ model: r.model, mode: r.mode, version: r.version, messages, onDelta, signal });
+  let out;
+  try {
+    out = await streamCompletion({ model: r.model, mode: r.mode, version: r.version, messages, onDelta, signal });
+  } catch (e) {
+    if (e?.name !== 'AbortError') await recordModelFailure(user.id, r.model.id, e, source);
+    throw e;
+  }
   return { route: r, text: out.text, usage: out.usage, refused: false, attachments: meta, memorySaved };
 }
 

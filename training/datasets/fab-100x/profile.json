@@ -1,7 +1,7 @@
 {
  "tier": "fab",
- "min_records": 90000,
- "max_records": 90000,
+ "min_records": 100000,
+ "max_records": 100000,
  "min_quality": 0.55,
  "base_model": null,
  "base_model_revision": null,
@@ -50,5 +50,6 @@
   "eval": 0.03,
   "test": 0.03
  },
- "note": "Base model / revision are copied from the existing model configuration and are never changed by the dataset pipeline."
+ "note": "Base model / revision are copied from the existing model configuration and are never changed by the dataset pipeline.",
+ "target_note": "Approved target set by the project owner on 2026-11-15 (exact)."
 }

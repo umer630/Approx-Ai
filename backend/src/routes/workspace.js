@@ -130,7 +130,8 @@ export function registerWorkspaceRoutes(r) {
 
   // ================= FABBOX Code / COEPROX =================
   const ownCodeProject = async (uid, id) => {
-    const p = await one("SELECT * FROM projects WHERE id = ? AND user_id = ? AND kind IN ('fabbox','coeprox')", id, uid);
+    // FAB 500X workspace projects are only reachable through the grant-checked /api/fab500x routes.
+    const p = await one("SELECT * FROM projects WHERE id = ? AND user_id = ? AND kind IN ('fabbox','coeprox') AND (workspace IS NULL OR workspace != 'fab500x')", id, uid);
     if (!p) throw notFound('Code project not found');
     return p;
   };

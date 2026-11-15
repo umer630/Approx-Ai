@@ -76,6 +76,12 @@ async function record(modelId, from, to, actor, detail) {
 }
 
 const catalogBase = (modelId) => catalog.models.find((m) => m.id === modelId)?.base_model || null;
+// Bases a release of this model may be built on: the current training base and, if the model has an owner-pinned
+// recovered adapter, the base that adapter was trained on.
+export const allowedBases = (modelId) => { const m = catalog.models.find((x) => x.id === modelId) || {}; return [m.base_model, m.pinned_adapter_base_model].filter(Boolean); };
+const pinnedBase = (modelId) => catalog.models.find((m) => m.id === modelId)?.pinned_adapter_base_model || null;
+// The owner pin applies to the recovered adapter only: releases on that base (or every release when no pinned base is declared).
+const pinFor = (modelId, base) => { const pin = pinnedSha(modelId); const pb = pinnedBase(modelId); return pin && (!pb || !base || base === pb) ? pin : null; };
 
 function checkEvaluation(ev, sha, base) {
   if (!ev || ev.verification_passed !== true) throw new HttpError(400, 'evaluation_failed', 'An evaluation report with verification_passed=true is required');
@@ -109,16 +115,17 @@ export async function transition(modelId, body, actor, { verify } = {}) {
     if (!SHA_RE.test(sha)) throw new HttpError(400, 'invalid_sha256', 'artifact.sha256 must be the 64-hex SHA-256 of adapter_model.safetensors');
     const uri = String(a.uri || '');
     if (!/^(gs|s3|https|hf|registry):\/\/\S{3,500}$/.test(uri)) throw new HttpError(400, 'invalid_artifact_uri', 'artifact.uri must point to persistent storage (gs://, s3://, https://, hf://, registry://)');
-    const base = catalogBase(modelId);
-    if (a.base_model !== base) throw new HttpError(400, 'base_model_mismatch', `${modelId} must use base ${base}`);
+    const bases = allowedBases(modelId);
+    if (!bases.includes(a.base_model)) throw new HttpError(400, 'base_model_mismatch', `${modelId} must use base ${bases.join(' or ')}`);
+    const base = a.base_model;
     if (!/^[A-Za-z0-9._-]{7,80}$/.test(String(a.base_revision || ''))) throw new HttpError(400, 'base_revision_required', 'artifact.base_revision (exact base model revision) is required');
-    const pin = pinnedSha(modelId);
+    const pin = pinFor(modelId, base);
     if (pin && pin !== sha) throw new HttpError(400, 'sha256_not_pinned', `${modelId} is pinned to a different adapter SHA-256`);
     Object.assign(patch, { version, adapter_sha256: sha, artifact_uri: uri, base_model: base, base_revision: a.base_revision });
   }
   if (to === 'VERIFIED') checkEvaluation(body.evaluation, cur.adapter_sha256, cur.base_model);
   if (to === 'DEPLOYING' && !(patch.version || cur.version) ) throw new HttpError(409, 'artifact_required', 'Register a trained artifact (version + SHA-256) before deploying');
-  if (to === 'DEPLOYING' && cur.state === 'REGISTERED' && !pinnedSha(modelId)) {
+  if (to === 'DEPLOYING' && cur.state === 'REGISTERED' && !pinFor(modelId, patch.base_model || cur.base_model)) {
     throw new HttpError(409, 'verification_required', 'Only a pinned, already-trained adapter may deploy directly from REGISTERED; otherwise evaluate it first');
   }
   const detail = String(body.reason || body.detail || '').slice(0, 1000);
@@ -165,7 +172,7 @@ export async function verifyDeployment(modelId, actor, upstream, { timeoutMs = 4
   if (!d) return fail('health', 'the inference server is not serving this model');
   if (d.version !== cur.version) return fail('version', `server serves ${d.version}, registered ${cur.version}`);
   if (String(d.adapter_sha256 || '').toLowerCase() !== cur.adapter_sha256) return fail('sha256', 'the loaded adapter SHA-256 differs from the registered artifact');
-  const pin = pinnedSha(modelId);
+  const pin = pinFor(modelId, cur.base_model);
   if (pin && pin !== cur.adapter_sha256) return fail('sha256', 'the registered adapter does not match the pinned SHA-256');
   if (d.smoke_test || d.production_ready !== true) return fail('release', 'the served release is not production-ready');
   const started = Date.now();
@@ -199,7 +206,7 @@ export async function seedLifecycle(c) {
     const trained = m.id === 'nick-4.8';
     return { sql: `INSERT INTO model_lifecycle (model_id, state, base_model, adapter_sha256, detail, updated_at) VALUES (?,?,?,?,?,?)
       ON CONFLICT(model_id) DO NOTHING`,
-    args: [m.id, trained ? 'REGISTERED' : 'TRAINING_REQUIRED', m.base_model || null, trained ? pinnedSha(m.id) : null,
+    args: [m.id, trained ? 'REGISTERED' : 'TRAINING_REQUIRED', (trained && m.pinned_adapter_base_model) || m.base_model || null, trained ? pinnedSha(m.id) : null,
       trained ? 'Trained adapter exists (owner-pinned SHA-256). Register its artifact location + base revision, then deploy.' : 'Not trained yet.', t] };
   });
   if (stmts.length) await c.batch(stmts, 'write');

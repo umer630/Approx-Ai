@@ -164,8 +164,9 @@ export function verifyReleaseDir(releaseDir, expect) {
     if (!cat) errors.push(`model '${expect.modelId}' is not in the model catalog`);
     else {
       if (rel.kind && rel.kind !== cat.kind) errors.push(`release.json: kind '${rel.kind}' does not match catalog kind '${cat.kind}'`);
-      if (rel.smoke_test !== true && cat.base_model && rel.base_model !== cat.base_model) {
-        errors.push(`base model mismatch: release was trained on '${rel.base_model}' but ${cat.name} is defined on '${cat.base_model}'`);
+      const bases = [cat.base_model, cat.pinned_adapter_base_model].filter(Boolean);
+      if (rel.smoke_test !== true && bases.length && !bases.includes(rel.base_model)) {
+        errors.push(`base model mismatch: release was trained on '${rel.base_model}' but ${cat.name} is defined on '${bases.join("' or '")}'`);
       }
     }
     const weightsSha = sums.get('adapter/adapter_model.safetensors');

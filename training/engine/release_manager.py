@@ -32,8 +32,48 @@ def _copy_adapter(src_adapter: Path, dst_adapter: Path):
         raise FileNotFoundError("adapter_model.safetensors is missing from the training output")
 
 
+TOKENIZER_FILES = ("tokenizer.json", "tokenizer_config.json", "special_tokens_map.json", "tokenizer.model", "vocab.json", "merges.txt",
+                   "added_tokens.json", "chat_template.jinja")
+
+
+def write_release_layout(rdir: Path, model_cfg: dict, release: dict, train_meta: dict, gate: dict, safety: dict, regression: dict, run: dict):
+    """The documented release layout: manifest.json (the human/automation manifest), tokenizer/, config/,
+    training_report.json — next to adapter/, release.json (registry contract), evaluation.json and SHA256SUMS."""
+    tok = rdir / "tokenizer"
+    tok.mkdir(exist_ok=True)
+    for name in TOKENIZER_FILES:
+        if (rdir / "adapter" / name).exists():
+            shutil.copy2(rdir / "adapter" / name, tok / name)
+    cfgd = rdir / "config"
+    cfgd.mkdir(exist_ok=True)
+    (cfgd / "training_config.json").write_text(json.dumps(model_cfg, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
+    if run.get("trainer_config"):
+        (cfgd / "trainer_config.json").write_text(json.dumps(run["trainer_config"], indent=2, ensure_ascii=False, default=str), encoding="utf-8")
+    if (rdir / "adapter" / "adapter_config.json").exists():
+        shutil.copy2(rdir / "adapter" / "adapter_config.json", cfgd / "adapter_config.json")
+    ds = run.get("dataset", {})
+    manifest = {
+        "schema": "approx.model-release/v1", "model_id": release["model_id"], "version": release["version"],
+        "base_model": release["base_model"], "base_model_revision": release.get("base_model_revision") or model_cfg.get("base_model_revision"),
+        "training_dataset_version": ds.get("version") or release["dataset"].get("version"),
+        "dataset_sha256": {"content_fingerprint": ds.get("fingerprint") or release["dataset"].get("fingerprint"), "files": ds.get("files", {})},
+        "dataset_review_basis": ds.get("review_basis"),
+        "adapter_type": "QLoRA (LoRA on a 4-bit NF4 base)", "lora": model_cfg.get("lora"),
+        "training_run_id": run.get("run_id"), "hardware": run.get("hardware"), "training_duration_s": run.get("duration_s"),
+        "evaluation": {"score": gate.get("adapter_score"), "base_score": gate.get("base_score"), "required": gate.get("required_score"),
+                       "gate_passed": gate.get("passed"), "safety_passed": safety.get("passed"), "regression_passed": (regression or {}).get("passed")},
+        "artifact_sha256": {"adapter_model.safetensors": release["adapter_sha256"]},
+        "created_at": release["created_at"], "status": release["status"], "production_ready": release["production_ready"],
+        "smoke_test": release["smoke_test"], "blockers": release["blockers"],
+    }
+    (rdir / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
+    (rdir / "training_report.json").write_text(json.dumps({"run_id": run.get("run_id"), "hardware": run.get("hardware"),
+        "duration_s": run.get("duration_s"), "dataset": ds, "metrics": train_meta.get("metrics"), "steps": train_meta.get("metrics", {}).get("global_step"),
+        "versions": train_meta.get("versions"), "verification_passed": train_meta.get("verification_passed")}, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
+
+
 def build_release(models_dir, model_cfg: dict, train_meta: dict, evaluation: dict, gate: dict, safety: dict, regression: dict,
-                  adapter_dir: Path, version: str | None = None, signing_key: str = "", smoke: bool = False) -> dict:
+                  adapter_dir: Path, version: str | None = None, signing_key: str = "", smoke: bool = False, run_info: dict | None = None) -> dict:
     model_id = model_cfg["model_id"]
     version = version or art.next_version(models_dir, model_id)
     rdir = art.release_dir(models_dir, model_id, version)
@@ -89,6 +129,7 @@ def build_release(models_dir, model_cfg: dict, train_meta: dict, evaluation: dic
                                                     "training_config": model_cfg, "created_at": release["created_at"]}, indent=2, ensure_ascii=False), encoding="utf-8")
     (rdir / "evaluation.json").write_text(json.dumps({"gate": gate, "evaluation": evaluation, "safety": safety, "regression": regression}, indent=2, ensure_ascii=False), encoding="utf-8")
     (rdir / "training.json").write_text(json.dumps(train_meta, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
+    write_release_layout(rdir, model_cfg, release, train_meta, gate, safety, regression, run_info or {})
 
     art.write_sha256sums(rdir, signing_key=signing_key)
     v = art.verify_release_dir(rdir, model_id, version, catalog, signing_key=signing_key or None)

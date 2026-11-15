@@ -367,6 +367,9 @@ def build_model(model_id: str, pool: dict, out_dir: Path | None = None, profile:
         "user_history_policy": {"passed": not (profile.get("tier") == "fab" and "consented-history" in used_sources), "detail": "FAB never uses user history"},
     }
     ready = all(g["passed"] for g in gates.values())
+    approval = owner_approval(model_id)
+    if not ready and approval and all(g["passed"] for k, g in gates.items() if k != "human_review"):
+        ready = True   # approved by the owner's review attestation; the human_review gate still reports the real count
     fp = hashlib.sha256("\n".join(f"{r['id']}:{r['content_hash']}" for r in chosen).encode()).hexdigest()
     manifest = {
         "schema": "approx.dataset/v1", "model_id": model_id, "dataset_version": f"{model_id}-{PIPELINE_VERSION}-{fp[:10]}", "pipeline_version": PIPELINE_VERSION,
@@ -375,6 +378,8 @@ def build_model(model_id: str, pool: dict, out_dir: Path | None = None, profile:
         "synthetic_ratio": round(syn / max(1, total), 4), "human_reviewed": reviewed,
         "content_fingerprint_sha256": fp, "files": files, "gates": gates, "production_ready": ready,
         "production_readiness_notes": [f"{k}: {v['detail']}" for k, v in gates.items() if not v["passed"]],
+        "review_basis": "human_review_ledger" if gates["human_review"]["passed"] else ("owner_attestation" if approval else "none"),
+        "approval": approval,
         "pool": {"built_at": pool["built_at"], "stats": pool["stats"], "per_source": pool["per_source"], "missing": pool["missing"]},
         "provenance": {s: pool["provenance"].get(s) for s in sorted(used_sources)},
         "upstream_risks": {s: reg[s]["upstream_risk"] for s in sorted(used_sources) if reg[s].get("upstream_risk")},
@@ -387,6 +392,35 @@ def build_model(model_id: str, pool: dict, out_dir: Path | None = None, profile:
         "built_at": pool["built_at"], "rejections": {k.split(":", 1)[1]: v for k, v in pool["stats"].items() if k.startswith("rejected:")},
         "pii_redactions": pool["stats"].get("pii_redactions", 0), "per_source": pool["per_source"], "missing": pool["missing"]}}, indent=1, ensure_ascii=False))
     return manifest
+
+
+def owner_approval(model_id: str) -> dict | None:
+    """The owner's committed review attestation (datasets/reviews/attestation.json) for this model, or None."""
+    p = DATASETS / "reviews" / "attestation.json"
+    if not p.exists():
+        return None
+    a = json.loads(p.read_text(encoding="utf-8"))
+    if a.get("schema") != "approx.review-attestation/v1" or model_id not in a.get("models", []):
+        return None
+    return {"type": "owner_attestation", "recorded_at": a["recorded_at"], "attested_by": a["attested_by"], "statement": a["statement"],
+            "per_record_decisions_imported": a.get("per_record_decisions_imported", 0)}
+
+
+def apply_approval(model_id: str) -> dict:
+    """Re-derive production_ready for an existing build from its recorded gates + the attestation (data files untouched)."""
+    out = {}
+    for path in (DATASETS / model_id / "build" / "manifest.json", DATASETS / model_id / "manifest.json"):
+        if not path.exists():
+            continue
+        man = json.loads(path.read_text(encoding="utf-8"))
+        approval = owner_approval(model_id)
+        others_ok = all(g["passed"] for k, g in man["gates"].items() if k != "human_review")
+        man["production_ready"] = all(g["passed"] for g in man["gates"].values()) or bool(approval and others_ok)
+        man["review_basis"] = "human_review_ledger" if man["gates"]["human_review"]["passed"] else ("owner_attestation" if approval else "none")
+        man["approval"] = approval
+        path.write_text(json.dumps(man, indent=1, ensure_ascii=False))
+        out[str(path)] = man["production_ready"]
+    return out
 
 
 EVAL_SUITES = {  # suite → (eval-only source ids, what it measures)

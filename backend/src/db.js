@@ -559,13 +559,37 @@ async function migrate(c) {
     );
     await apply('2026-11-admin-panel', stmts);
   }
+  if (!applied.has('2026-11-model-control')) {
+    // Model availability (admin on/off), visibility (private = admin-granted only) and a failed-request log.
+    const stmts = [];
+    if (!(await hasColumn(c, 'models', 'available'))) stmts.push({ sql: 'ALTER TABLE models ADD COLUMN available INTEGER NOT NULL DEFAULT 1' });
+    if (!(await hasColumn(c, 'models', 'visibility'))) stmts.push({ sql: "ALTER TABLE models ADD COLUMN visibility TEXT NOT NULL DEFAULT 'public'" });
+    stmts.push({ sql: "UPDATE models SET visibility = 'private' WHERE id = 'fab-500x'" });
+    stmts.push({ sql: `CREATE TABLE IF NOT EXISTS model_failures (
+      id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT, model_id TEXT NOT NULL, code TEXT NOT NULL, status INTEGER, source TEXT, created_at INTEGER NOT NULL)` });
+    stmts.push({ sql: 'CREATE INDEX IF NOT EXISTS idx_model_failures_model ON model_failures(model_id, created_at)' });
+    await apply('2026-11-model-control', stmts);
+  }
+  if (!applied.has('2026-11-fab500x-workspace')) {
+    // FAB 500X Code workspace: projects flagged workspace='fab500x', per-file version history and checkpoints.
+    const stmts = [];
+    if (!(await hasColumn(c, 'projects', 'workspace'))) stmts.push({ sql: 'ALTER TABLE projects ADD COLUMN workspace TEXT' });
+    stmts.push({ sql: `CREATE TABLE IF NOT EXISTS code_file_versions (
+      id INTEGER PRIMARY KEY AUTOINCREMENT, project_id TEXT NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
+      user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE, path TEXT NOT NULL, content TEXT, author TEXT NOT NULL, created_at INTEGER NOT NULL)` });
+    stmts.push({ sql: 'CREATE INDEX IF NOT EXISTS idx_code_versions ON code_file_versions(project_id, path, id)' });
+    stmts.push({ sql: `CREATE TABLE IF NOT EXISTS code_checkpoints (
+      id TEXT PRIMARY KEY, project_id TEXT NOT NULL REFERENCES projects(id) ON DELETE CASCADE, user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      message TEXT NOT NULL, snapshot TEXT NOT NULL, created_at INTEGER NOT NULL)` });
+    await apply('2026-11-fab500x-workspace', stmts);
+  }
 }
 
 // The `models` table is seeded and kept in sync from the catalog file (name, tier, description…);
 // `enabled` stays under admin control and is never overwritten.
 async function syncCatalog(c) {
   await c.batch(catalog.models.map((m) => ({
-    sql: `INSERT INTO models (id, name, family, tier, description, history_training_allowed) VALUES (?,?,?,?,?,?)
+    sql: `INSERT INTO models (id, name, family, tier, description, history_training_allowed${m.visibility === 'private' ? ", visibility" : ''}) VALUES (?,?,?,?,?,?${m.visibility === 'private' ? ",'private'" : ''})
       ON CONFLICT(id) DO UPDATE SET name = excluded.name, family = excluded.family, tier = excluded.tier,
         description = excluded.description, history_training_allowed = excluded.history_training_allowed`,
     args: [m.id, m.name, m.family, m.tier, m.description, m.history_training_allowed ? 1 : 0],

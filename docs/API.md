@@ -62,3 +62,58 @@ Never embed API keys in mobile apps or browser code.
 - Media (FAB 500X): `POST /api/v1/media/video/generations`, `/api/v1/media/video/understanding`,
   `/api/v1/media/storyboard`. Video endpoints answer `501 capability_unavailable` until a pipeline URL is set;
   storyboard is text planning only.
+
+## Model registry, status and access (1.7) — shared contract for Web and Android
+
+Clients (web and Android) call **only the Approx backend**; they never call an inference/GPU server and hold no
+model or GPU credentials. Every request is authenticated with the Supabase-backed Approx session
+(`approx_session` cookie on web, `Authorization: Bearer <session token>` on Android).
+
+`GET /api/models` → `{ models: [...] }`, each:
+
+| field | meaning |
+|---|---|
+| `id`, `name`, `description` | `nick-4.8`, `hike-6.5`, `sona-9.0`, `fab-100x`, `fab-500x` (canonical IDs) |
+| `role` | `everyday` · `complex` · `web-security-analytics` · `advanced-general` · `private-ultra` |
+| `access` | `standard` · `advanced` · `restricted` · `admin-granted` |
+| `capabilities` | e.g. `general, coding, education…` (Nick) · `webdev, security-audit, analytics…` (Sona) |
+| `available` | this account may use the model (plan / grant / admin restriction — decided server-side) |
+| `status` | `configured` · `training` · `trained` · `packaged` · `deploying` · `online` · `offline` · `failed` |
+| `selectable` | `available && status === "online"` — only these may be offered for normal inference |
+| `simulator` | `true` when a development simulator answers (never a trained model) |
+| `private`, `workspace` | FAB 500X: listed **only** for accounts holding an admin grant; `workspace: "fab500x-code"` |
+
+Sending a message: `POST /api/chats/:id/messages {content, model, mode}` → SSE `route` (`model_id`, `model_version`,
+`reason`), `delta` (`text`), `done`. Errors: `400 unknown_model` (also returned for FAB 500X without a grant — no
+existence oracle), `403 model_access_denied`, `503 model_disabled` (administrator), `503 model_version_not_active` /
+`model_unavailable` (not online), `429 quota_exceeded` / `model_quota_exceeded`.
+
+Routing (`model: "auto"`): web/security/analytics → Sona 9.0; complex → Hike 6.5; very advanced security → FAB 100X;
+everyday → the user's default (Nick 4.8) — only among models the account may use and that are online. FAB 500X is
+never auto-routed.
+
+## FAB 500X Code workspace (1.7) — `/api/fab500x/*`
+
+Only for accounts holding the FAB 500X grant; otherwise every route answers `404`. All operations are scoped to the
+caller's own projects (another user's project id is a 404).
+
+| method & path | purpose |
+|---|---|
+| `GET /api/fab500x/capabilities` | what is connected now (agent/model status, terminal runner, image/video pipelines) |
+| `GET/POST /api/fab500x/projects` · `DELETE /api/fab500x/projects/:pid?confirm=<name>` | list / create / delete |
+| `GET /projects/:pid/tree` · `GET/PUT/DELETE /projects/:pid/file?path=` | files (`.env`/secret files are masked; `reveal=1` is audited; delete needs `confirm=1`) |
+| `POST /projects/:pid/rename {from,to}` · `POST /projects/:pid/upload {files:[{path,content}]}` | move/rename files or folders · upload text files |
+| `GET /projects/:pid/search?q=&case=` · `GET /projects/:pid/history?path=` · `POST /projects/:pid/history/:vid/restore` | search · per-file history |
+| `GET /projects/:pid/changes` · `POST /projects/:pid/checkpoints {message}` | Approx checkpoints (snapshot/status), not Git |
+| `GET /projects/:pid/problems` | static checks: JSON/JS syntax, hard-coded secrets (nothing executed) |
+| `POST /projects/:pid/run {command}` | sandbox runner only (`APPROX_RUNNER_URL`); otherwise `501 runner_not_configured`; destructive commands `403` |
+| `POST /projects/:pid/agent {instruction, permission: manual\|automatic, open_files}` | FAB 500X proposes plan + changes + commands with unified diffs. Manual: nothing applied until approval. Automatic: writes/renames apply at once; deletes and commands still wait |
+| `GET /projects/:pid/proposals` · `POST /projects/:pid/proposals/:id/approve\|reject` | review and apply/reject (audited) |
+
+## Admin model control (admin session, `/api/admin/*`)
+
+`GET /api/admin/models-overview` (status, version, availability, visibility, usage, failures) ·
+`GET /api/admin/models/:id/health` (live inference health) · `GET /api/admin/models/:id/failures` ·
+`GET /api/admin/models/:id/grants` · `PUT /api/admin/models/:id/availability {available, visibility}` (superadmin) ·
+`PUT /api/admin/clients/:id/models/:modelId {access: enabled|restricted|default}` (FAB grants: superadmin) ·
+`POST /api/admin/models/:id/verify-deployment` (superadmin: health + SHA-256 + a real generation → ACTIVE).

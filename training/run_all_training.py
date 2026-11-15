@@ -32,7 +32,7 @@ for _p in (str(TRAINING), str(REPO_ROOT)):
 
 from engine import runner, hardware   # noqa: E402
 
-ALL_MODELS = ["nick-4.8", "hike-6.5", "sona-9.0", "fab-500x"]
+ALL_MODELS = ["nick-4.8", "hike-6.5", "sona-9.0", "fab-100x", "fab-500x"]
 
 
 class ControlPlane:

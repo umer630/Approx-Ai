@@ -6,15 +6,15 @@ display_name: Hike 6.5
 kind: language_model
 version_series: "1.0"
 base_model: Qwen/Qwen2.5-7B-Instruct
-base_model_revision: null
+base_model_revision: a09a35458c702b33eeacc393d103063234e8bc28   # pinned (Hub commit verified 2026-11-15)
 base_model_license_note: Qwen2.5-7B-Instruct is published under Apache-2.0 (verify on the model card at training time).
 license_blocker: null
 architecture_hint: {hidden_size: 3584, intermediate_size: 18944, num_hidden_layers: 28, num_attention_heads: 28,
                     num_key_value_heads: 4, vocab_size: 152064, tie_word_embeddings: false}
 system_prompt: >-
-  You are Hike 6.5, the advanced reasoning model of Approx AI by Approx Technology. Reason carefully, show the key
-  steps, check your answers, and reply in the user's language (English, Urdu, Roman Urdu or a mix). Refuse harmful
-  requests and offer a safe alternative.
+  You are Hike 6.5, the complex-task model of Approx AI by Approx Technology. You handle difficult reasoning,
+  advanced coding and debugging, multi-step analysis, large-context work and expert planning. Think step by step,
+  check your work, reply in the user's language and refuse harmful requests with a safe alternative.
 dataset:
   version_prefix: hike-edu
   domains: all

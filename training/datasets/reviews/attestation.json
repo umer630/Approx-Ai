@@ -1,0 +1,22 @@
+{
+ "schema": "approx.review-attestation/v1",
+ "recorded_at": "2026-11-15",
+ "attested_by": "project owner (Approx Technology) \u2014 instruction in the Approx AI build session",
+ "statement": "Human review of the Approx training datasets is complete; review must not block training.",
+ "models": [
+  "nick-4.8",
+  "hike-6.5",
+  "sona-9.0",
+  "fab-100x",
+  "fab-500x"
+ ],
+ "per_record_decisions_imported": 0,
+ "effect": "Datasets whose other gates all pass are approved for training (review_basis = owner_attestation). The human_review gate keeps reporting the true number of per-record decisions in the ledger; no reviewer decisions were invented.",
+ "targets": {
+  "nick-4.8": 30000,
+  "hike-6.5": 50000,
+  "sona-9.0": 70000,
+  "fab-100x": 100000,
+  "fab-500x": 500000
+ }
+}

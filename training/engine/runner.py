@@ -147,6 +147,7 @@ def train_one(model_cfg_path, models_dir: Path, work_dir: Path, *, smoke: bool =
     checkpoint lives in <work_dir>/nick-4.8/train_output and is never read or written). Reusing a run id requires resume."""
     cfg = load_model_cfg(model_cfg_path)
     model_id = cfg["model_id"]
+    t0 = time.time()
     run_id = run_id or time.strftime("%Y%m%dT%H%M%SZ", time.gmtime()) + ("-smoke" if smoke else "")
     if not re.fullmatch(r"[A-Za-z0-9._-]{3,80}", run_id):
         raise ValueError("run_id must be 3-80 characters of letters, digits, . _ -")
@@ -252,8 +253,12 @@ def train_one(model_cfg_path, models_dir: Path, work_dir: Path, *, smoke: bool =
           gate_passed=gate["passed"], safety_passed=saf["passed"], failures=[f["category"] for f in gate["failures"]])
 
     # 6. release packaging (status/production_ready are derived honestly from the gates)
+    run_info = {"run_id": run_id, "hardware": {"gpu": gpu_name, "vram_gb": vram, "compute_capability": cc, "profile": profile},
+                "duration_s": round(time.time() - t0, 1), "trainer_config": trainer_cfg,
+                "dataset": {"version": manifest["dataset_version"], "fingerprint": manifest["content_fingerprint_sha256"], "counts": manifest["counts"],
+                            "files": {n: m["sha256"] for n, m in manifest["files"].items()}, "review_basis": manifest.get("review_basis")}}
     rel = release_manager.build_release(models_dir, cfg, train_meta, {"base": base_score, "adapter": adapter_score}, gate, saf, regression,
-                                        adapter_dir, signing_key=signing_key, smoke=smoke)
+                                        adapter_dir, signing_key=signing_key, smoke=smoke, run_info=run_info)
     result["release"] = {k: rel[k] for k in ("version", "status", "production_ready", "blockers", "adapter_sha256", "dir")}
     result["release"]["archive_sha256"] = rel["archive"]["sha256"]
     result["evaluation"] = {"adapter_score": adapter_score["overall_score"], "base_score": base_score["overall_score"],

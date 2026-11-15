@@ -1,7 +1,7 @@
 {
  "tier": "fab",
  "min_records": 500000,
- "max_records": 10000000,
+ "max_records": 500000,
  "min_quality": 0.5,
  "base_model": "Qwen/Qwen2.5-Coder-32B-Instruct",
  "base_model_revision": null,
@@ -52,5 +52,6 @@
   "eval": 0.03,
   "test": 0.03
  },
- "note": "Base model / revision are copied from the existing model configuration and are never changed by the dataset pipeline."
+ "note": "Base model / revision are copied from the existing model configuration and are never changed by the dataset pipeline.",
+ "target_note": "Approved target set by the project owner on 2026-11-15 (exact)."
 }

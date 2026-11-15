@@ -40,7 +40,7 @@ test('setup: superadmin + normal user; initial registry entries', async () => {
   user = await makeUser();
   const r = await req('GET', '/api/admin/models/lifecycle', { token: sa.token });
   const st = Object.fromEntries(r.data.models.map((m) => [m.model_id, m.state]));
-  assert.deepEqual(st, { 'fab-500x': 'TRAINING_REQUIRED', 'hike-6.5': 'TRAINING_REQUIRED', 'nick-4.8': 'REGISTERED', 'sona-9.0': 'TRAINING_REQUIRED' });
+  assert.deepEqual(st, { 'fab-100x': 'TRAINING_REQUIRED', 'fab-500x': 'TRAINING_REQUIRED', 'hike-6.5': 'TRAINING_REQUIRED', 'nick-4.8': 'REGISTERED', 'sona-9.0': 'TRAINING_REQUIRED' });
   const nick = r.data.models.find((m) => m.model_id === 'nick-4.8');
   assert.equal(nick.pinned_sha256, NICK_PIN);
   assert.equal(nick.base_model, 'Qwen/Qwen2.5-3B-Instruct');
@@ -51,7 +51,9 @@ test('setup: superadmin + normal user; initial registry entries', async () => {
 test('nothing serves before activation, even if the GPU host has it loaded', async () => {
   gpu.serving = { 'nick-4.8': { version: '1.0.0', sha: NICK_PIN }, 'hike-6.5': { version: '1.0.0', sha: HIKE_SHA } };
   const models = (await req('GET', '/api/models', { token: user.token })).data.models;
-  for (const id of ['nick-4.8', 'hike-6.5', 'sona-9.0', 'fab-500x']) assert.equal(models.find((m) => m.id === id).active_version, null, id);
+  for (const id of ['nick-4.8', 'hike-6.5', 'sona-9.0', 'fab-100x']) assert.equal(models.find((m) => m.id === id).active_version, null, id);
+  assert.equal(models.find((m) => m.id === 'fab-500x'), undefined, 'private model invisible without a grant');
+  assert.ok(models.every((m) => m.status !== 'online' && m.selectable === false), 'nothing is online/selectable before activation');
   assert.equal(models.find((m) => m.id === 'hike-6.5').lifecycle.label, 'Training required');
   const c = await req('POST', '/api/chats', { token: user.token, body: { model: 'hike-6.5' } });
   const send = await req('POST', `/api/chats/${c.data.chat.id}/messages`, { token: user.token, body: { content: 'hello' } });

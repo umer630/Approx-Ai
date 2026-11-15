@@ -1,0 +1,49 @@
+# Approx AI — one inference server per model (inference/server.py), each on hardware that fits its base model.
+# Start only what a host can hold, e.g. on an A100-80GB host:  docker compose -f models-gpu-compose.yml --profile fab-500x up -d
+#
+# Each server serves ONLY its model (INFERENCE_MODELS) from the registry volume, verifies every release
+# (SHA256SUMS, file allow-list, base model, optional signature, optional pinned adapter SHA) and refuses CPU loading.
+# The Approx backend reaches each one through server-side variables only (never the web app or the APK):
+#   APPROX_MODEL_NICK_4_8_URL / _KEY   APPROX_MODEL_HIKE_6_5_URL / _KEY   APPROX_MODEL_SONA_9_0_URL / _KEY
+#   APPROX_MODEL_FAB_100X_URL / _KEY   APPROX_MODEL_FAB_500X_URL / _KEY       (value: https://<host>/v1)
+# Copy deploy/inference.env.example -> deploy/inference.env (never commit) and set INFERENCE_API_KEY per host.
+x-inference: &inference
+  build: { context: .., dockerfile: inference/Dockerfile }
+  restart: unless-stopped
+  env_file: [inference.env]
+  volumes:
+    - ./registry:/models:ro          # releases: ./registry/<model>/versions/<version>/ + active.json (registry layout)
+    - hf-cache:/hf
+  deploy:
+    resources:
+      reservations:
+        devices: [{ driver: nvidia, count: 1, capabilities: [gpu] }]
+
+services:
+  nick-4-8:           # Phi-4-mini 4-bit + LoRA · ≥ 6 GB VRAM (T4 OK)
+    <<: *inference
+    profiles: [nick-4.8, small]
+    environment: { APPROX_MODELS_DIR: /models, INFERENCE_MODELS: nick-4.8, INFERENCE_HOST: 0.0.0.0, INFERENCE_PORT: "8000" }
+    ports: ["8001:8000"]
+  hike-6-5:           # Qwen2.5-7B 4-bit + LoRA · ≥ 10 GB VRAM (T4/L4 OK)
+    <<: *inference
+    profiles: [hike-6.5, small]
+    environment: { APPROX_MODELS_DIR: /models, INFERENCE_MODELS: hike-6.5, INFERENCE_HOST: 0.0.0.0, INFERENCE_PORT: "8000" }
+    ports: ["8002:8000"]
+  sona-9-0:           # Qwen2.5-14B 4-bit + LoRA · ≥ 16 GB VRAM (L4 24 GB / A100)
+    <<: *inference
+    profiles: [sona-9.0]
+    environment: { APPROX_MODELS_DIR: /models, INFERENCE_MODELS: sona-9.0, INFERENCE_HOST: 0.0.0.0, INFERENCE_PORT: "8000" }
+    ports: ["8003:8000"]
+  fab-100x:           # Qwen2.5-32B 4-bit + LoRA · ≥ 32 GB VRAM (A100 40/80 GB, H100)
+    <<: *inference
+    profiles: [fab-100x]
+    environment: { APPROX_MODELS_DIR: /models, INFERENCE_MODELS: fab-100x, INFERENCE_HOST: 0.0.0.0, INFERENCE_PORT: "8000" }
+    ports: ["8004:8000"]
+  fab-500x:           # Qwen2.5-Coder-32B 4-bit + LoRA · ≥ 32 GB VRAM (A100 80 GB / H100 recommended). PRIVATE model:
+    <<: *inference    # access is enforced by the Approx backend (admin grants); never expose this port publicly.
+    profiles: [fab-500x]
+    environment: { APPROX_MODELS_DIR: /models, INFERENCE_MODELS: fab-500x, INFERENCE_HOST: 0.0.0.0, INFERENCE_PORT: "8000" }
+    ports: ["127.0.0.1:8005:8000"]
+volumes:
+  hf-cache: {}

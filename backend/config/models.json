@@ -1,7 +1,6 @@
 {
   "schema": "approx.catalog/v1",
   "_comment": "Single source of truth for the product model catalog: models, their kind, capabilities, base models and the efficiency modes. The frontend, Android app and public API read this through the backend (never hard-code model behaviour in a client). Trained adapters are NOT listed here: they are discovered from the model registry directory (APPROX_MODELS_DIR) as versioned, verified releases.",
-
   "default_mode": "medium",
   "efficiency_modes": {
     "low": {
@@ -35,7 +34,6 @@
       "guidance": "Work carefully: reason step by step internally, check your work, and give a thorough, well-structured answer."
     }
   },
-
   "models": [
     {
       "id": "nick-4.8",
@@ -43,15 +41,45 @@
       "family": "nick",
       "tier": "default",
       "kind": "language_model",
-      "base_model": "Qwen/Qwen2.5-3B-Instruct",
+      "base_model": "microsoft/Phi-4-mini-instruct",
       "pinned_adapter_sha256": "2faae21620ef0aea6140b296b43ab5fcf5ba2c5b721067f91797b288a09c34c4",
-      "description": "Educational and everyday assistant: teaching, explanations, maths, science, coding and writing in English, Urdu and Roman Urdu.",
-      "capabilities": ["chat", "education", "explanation", "reasoning", "mathematics", "science", "coding", "writing", "summarization", "translation", "multilingual", "defensive_security_education"],
-      "modalities": { "input": ["text"], "output": ["text"] },
-      "languages": ["en", "ur", "roman-ur", "mixed"],
+      "description": "Everyday expert: daily tasks, education, research, writing, translation (English, Urdu, Roman Urdu), general coding.",
+      "capabilities": [
+        "general",
+        "coding",
+        "education",
+        "research",
+        "writing",
+        "summaries",
+        "translation",
+        "multilingual",
+        "roman_urdu",
+        "pakistan",
+        "reasoning",
+        "planning"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "languages": [
+        "en",
+        "ur",
+        "roman-ur",
+        "mixed"
+      ],
       "history_training_allowed": true,
       "safety_profile": "standard",
-      "training_config": "training/models/nick-4.8.yaml"
+      "training_config": "training/models/nick-4.8.yaml",
+      "role": "everyday",
+      "access": "standard",
+      "visibility": "public",
+      "base_model_revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+      "pinned_adapter_base_model": "Qwen/Qwen2.5-3B-Instruct"
     },
     {
       "id": "hike-6.5",
@@ -60,13 +88,38 @@
       "tier": "advanced",
       "kind": "language_model",
       "base_model": "Qwen/Qwen2.5-7B-Instruct",
-      "description": "Stronger reasoning model: multi-step problems, mathematics, coding, research assistance and structured analysis.",
-      "capabilities": ["chat", "education", "advanced_explanation", "reasoning", "mathematics", "science", "coding", "research_assistance", "structured_analysis", "multilingual", "defensive_security_education"],
-      "modalities": { "input": ["text"], "output": ["text"] },
-      "languages": ["en", "ur", "roman-ur", "mixed"],
+      "description": "Complex tasks: difficult reasoning, advanced coding and debugging, multi-step analysis and expert planning.",
+      "capabilities": [
+        "reasoning",
+        "coding",
+        "research",
+        "analysis",
+        "debugging",
+        "planning",
+        "large_context",
+        "technical"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "languages": [
+        "en",
+        "ur",
+        "roman-ur",
+        "mixed"
+      ],
       "history_training_allowed": true,
       "safety_profile": "standard",
-      "training_config": "training/models/hike-6.5.yaml"
+      "training_config": "training/models/hike-6.5.yaml",
+      "role": "complex",
+      "access": "advanced",
+      "visibility": "public",
+      "base_model_revision": "a09a35458c702b33eeacc393d103063234e8bc28"
     },
     {
       "id": "sona-9.0",
@@ -75,28 +128,78 @@
       "tier": "premium",
       "kind": "language_model",
       "base_model": "Qwen/Qwen2.5-14B-Instruct",
-      "description": "Premium model: advanced reasoning, science, research, academic writing and complex instructions.",
-      "capabilities": ["chat", "education", "advanced_reasoning", "mathematics", "science", "coding", "research", "academic_writing", "complex_instructions", "structured_responses", "multilingual", "defensive_security_education"],
-      "modalities": { "input": ["text"], "output": ["text"] },
-      "languages": ["en", "ur", "roman-ur", "mixed"],
+      "description": "Web development, security audits (defensive, authorized) and web analytics specialist.",
+      "capabilities": [
+        "webdev",
+        "security-audit",
+        "analytics",
+        "coding",
+        "architecture",
+        "debugging",
+        "code-security-review",
+        "research"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "languages": [
+        "en",
+        "ur",
+        "roman-ur",
+        "mixed"
+      ],
       "history_training_allowed": true,
       "safety_profile": "standard",
-      "training_config": "training/models/sona-9.0.yaml"
+      "training_config": "training/models/sona-9.0.yaml",
+      "role": "web-security-analytics",
+      "access": "advanced",
+      "visibility": "public",
+      "base_model_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8"
     },
     {
       "id": "fab-100x",
-      "name": "FAB 100x",
+      "name": "FAB 100X",
       "family": "fab",
       "tier": "restricted",
       "kind": "language_model",
-      "base_model": null,
-      "description": "Restricted specialist layer: defensive security, application audit, advanced development, reporting.",
-      "capabilities": ["chat", "defensive_security", "application_audit", "reporting"],
-      "modalities": { "input": ["text"], "output": ["text"] },
-      "languages": ["en", "ur", "roman-ur", "mixed"],
+      "base_model": "Qwen/Qwen2.5-32B-Instruct",
+      "description": "Broad advanced model for tasks that need substantially more capability: reasoning, coding, research, web, security and data analysis.",
+      "capabilities": [
+        "advanced",
+        "coding",
+        "research",
+        "webdev",
+        "security",
+        "analytics",
+        "architecture",
+        "reasoning"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "languages": [
+        "en",
+        "ur",
+        "roman-ur",
+        "mixed"
+      ],
       "history_training_allowed": false,
       "safety_profile": "restricted_defensive",
-      "training_config": null
+      "training_config": "training/models/fab-100x.yaml",
+      "role": "advanced-general",
+      "access": "restricted",
+      "visibility": "public",
+      "base_model_revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd"
     },
     {
       "id": "fab-500x",
@@ -105,23 +208,60 @@
       "tier": "restricted",
       "kind": "code_model",
       "base_model": "Qwen/Qwen2.5-Coder-32B-Instruct",
-      "description": "Highest-capability target: advanced coding, architecture, multi-step reasoning and media planning. Image, audio and video generation run on separate pipelines that must be connected before they are available.",
-      "capabilities": ["chat", "advanced_coding", "debugging", "refactoring", "architecture", "repository_analysis", "test_generation", "secure_coding", "advanced_reasoning", "planning", "research_workflows", "media_planning", "defensive_security"],
-      "modalities": { "input": ["text", "code"], "output": ["text", "code"] },
-      "languages": ["en", "ur", "roman-ur", "mixed"],
+      "description": "Private, admin-granted advanced workspace model: large multi-file coding, full-stack and secure web development, defensive security, analytics. Image/video only through connected providers.",
+      "capabilities": [
+        "coding",
+        "webdev",
+        "security",
+        "analytics",
+        "image",
+        "video",
+        "advanced-reasoning",
+        "multi-file-agent",
+        "media_planning"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "code"
+        ],
+        "output": [
+          "text",
+          "code"
+        ]
+      },
+      "languages": [
+        "en",
+        "ur",
+        "roman-ur",
+        "mixed"
+      ],
       "history_training_allowed": false,
       "safety_profile": "restricted_defensive",
       "training_config": "training/models/fab-500x.yaml",
-      "pipelines": ["video-generation", "video-understanding", "image-understanding", "audio"]
+      "pipelines": [
+        "image-generation",
+        "video-generation",
+        "video-understanding",
+        "image-understanding",
+        "audio"
+      ],
+      "role": "private-ultra",
+      "access": "admin-granted",
+      "visibility": "private",
+      "base_model_revision": "381fc969f78efac66bc87ff7ddeadb7e73c218a7",
+      "workspace": "fab500x-code"
     }
   ],
-
   "pipelines": [
     {
       "id": "video-generation",
       "name": "Video generation",
       "kind": "video_pipeline",
-      "tasks": ["text-to-video", "image-to-video"],
+      "tasks": [
+        "text-to-video",
+        "image-to-video"
+      ],
       "env_url": "APPROX_VIDEO_PIPELINE_URL",
       "env_key": "APPROX_VIDEO_PIPELINE_KEY",
       "description": "External video-generation runtime. A text adapter cannot generate video; this pipeline must be connected to a real video model."
@@ -130,16 +270,32 @@
       "id": "video-understanding",
       "name": "Video understanding",
       "kind": "multimodal_model",
-      "tasks": ["video-understanding"],
+      "tasks": [
+        "video-understanding"
+      ],
       "env_url": "APPROX_VIDEO_UNDERSTANDING_URL",
       "env_key": "APPROX_VIDEO_UNDERSTANDING_KEY",
       "description": "External multimodal model that reads video."
     },
     {
+      "kind": "multimodal_model",
+      "env_key": "APPROX_VISION_KEY",
+      "id": "image-generation",
+      "name": "Image generation",
+      "tasks": [
+        "text-to-image",
+        "image-to-image"
+      ],
+      "description": "External image generation runtime (not part of any Approx language model). Available only when connected.",
+      "env_url": "APPROX_IMAGE_GENERATION_URL"
+    },
+    {
       "id": "image-understanding",
       "name": "Image understanding",
       "kind": "multimodal_model",
-      "tasks": ["image-understanding"],
+      "tasks": [
+        "image-understanding"
+      ],
       "env_url": "APPROX_VISION_URL",
       "env_key": "APPROX_VISION_KEY",
       "description": "External vision-language model."
@@ -148,7 +304,10 @@
       "id": "audio",
       "name": "Audio",
       "kind": "multimodal_model",
-      "tasks": ["speech-to-text", "text-to-speech"],
+      "tasks": [
+        "speech-to-text",
+        "text-to-speech"
+      ],
       "env_url": "APPROX_AUDIO_URL",
       "env_key": "APPROX_AUDIO_KEY",
       "description": "External speech model."

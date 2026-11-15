@@ -325,15 +325,47 @@ async function modelsPage(main) {
   const o = await api('/api/admin/models-overview');
   const isSuper = me.role === 'superadmin';
   const lifeBox = h('div', {}, h('div', { class: 'skeleton' }));
+  const healthBox = h('div', {});
+  const statusCls = (st) => (st === 'online' ? 'approved' : st === 'failed' ? 'restricted' : st === 'offline' ? 'disabled' : 'pending');
+  const rows = o.models.map((m) => h('tr', { class: 'static' },
+    h('td', { class: 'who', 'data-label': 'Model' }, h('b', {}, m.name), h('span', {}, `${m.id} · ${m.role || ''}`)),
+    h('td', { 'data-label': 'Status' }, pill(m.status, statusCls(m.status)), m.simulator ? h('div', { class: 'small muted' }, 'simulator') : null),
+    h('td', { 'data-label': 'Version' }, m.version ? `v${m.version}` : '—'),
+    h('td', { 'data-label': 'Access' }, m.access || m.tier, m.private ? h('div', { class: 'small muted' }, 'private · admin-granted') : null),
+    h('td', { 'data-label': 'Available' }, isSuper ? h('input', { type: 'checkbox', checked: m.available, 'aria-label': `${m.name} available`, onchange: async (e) => {
+      try { await api(`/api/admin/models/${m.id}/availability`, { method: 'PUT', body: { available: e.target.checked } }); toast(`${m.name} ${e.target.checked ? 'enabled' : 'disabled'}`); }
+      catch (err) { e.target.checked = !e.target.checked; toast(err.message); }
+    } }) : (m.available ? 'yes' : 'no')),
+    h('td', { 'data-label': 'Requests (month)' }, num(m.requests_month)),
+    h('td', { 'data-label': 'Failed (24h / month)' }, `${num(m.failed_24h)} / ${num(m.failed_month)}`),
+    h('td', { 'data-label': 'Health' }, h('button', { class: 'btn', onclick: async () => {
+      healthBox.replaceChildren(h('div', { class: 'skeleton' }));
+      try {
+        const hh = await api(`/api/admin/models/${m.id}/health`);
+        const f = await api(`/api/admin/models/${m.id}/failures`);
+        healthBox.replaceChildren(card([`${m.name} health`], h('dl', { class: 'kv' },
+          h('dt', {}, 'Status'), h('dd', {}, pill(hh.status, statusCls(hh.status)), ' ', hh.reason || ''),
+          h('dt', {}, 'Inference server'), h('dd', {}, hh.upstream.configured === false ? 'not configured' : `${hh.upstream.reachable ? 'reachable' : 'unreachable'}${hh.upstream.serving ? ` · serving ${JSON.stringify(hh.upstream.serving)}` : ''}${hh.upstream.error ? ` · ${hh.upstream.error}` : ''}`),
+          h('dt', {}, 'Lifecycle'), h('dd', {}, hh.lifecycle ? `${hh.lifecycle.state}${hh.lifecycle.version ? ' v' + hh.lifecycle.version : ''}` : '—'),
+          h('dt', {}, 'Smoke test'), h('dd', {}, hh.smoke_test)),
+        h('h2', { class: 'sub-h' }, 'Recent failed requests'),
+        f.failures.length ? h('ul', { class: 'feed' }, f.failures.slice(0, 20).map((x) => h('li', {}, h('time', {}, when(x.created_at)), h('div', {}, h('span', { class: 'ev' }, x.code), ` · ${x.email || 'unknown'} · ${x.source || ''}`)))) : empty('No failed requests.')));
+      } catch (e) { healthBox.replaceChildren(h('div', { class: 'alert error small' }, e.message)); }
+    } }, 'Check'))));
+  const grants = await api('/api/admin/models/fab-500x/grants').catch(() => ({ grants: [] }));
   main.replaceChildren(head('Models'),
-    card(['Access & usage'], h('div', { class: 'adm-table-wrap' }, h('table', { class: 'adm-table' },
-      h('thead', {}, h('tr', {}, ['Model', 'Tier', 'Who can use it', 'Lifecycle', 'Enabled for', 'Restricted for', 'Requests (month)'].map((x) => h('th', {}, x)))),
-      h('tbody', {}, o.models.map((m) => h('tr', { class: 'static' },
-        h('td', { class: 'who', 'data-label': 'Model' }, h('b', {}, m.name), h('span', {}, m.id)), h('td', { 'data-label': 'Tier' }, m.tier),
-        h('td', { 'data-label': 'Default access' }, o.tiers[m.tier] || '—'), h('td', { 'data-label': 'Lifecycle' }, m.lifecycle || '—'),
-        h('td', { 'data-label': 'Enabled for' }, `${num(m.overrides_enabled)} clients`), h('td', { 'data-label': 'Restricted for' }, `${num(m.overrides_restricted)} clients`),
-        h('td', { 'data-label': 'Requests' }, num(m.requests_month))))))),
-      h('p', { class: 'small muted' }, 'Per-client access is set on each client’s page. "Restricted" always wins; the chat router enforces it.')),
+    card(['Models', h('span', { class: 'muted' }, 'status comes from live serving evidence')], h('div', { class: 'adm-table-wrap' }, h('table', { class: 'adm-table' },
+      h('thead', {}, h('tr', {}, ['Model', 'Status', 'Version', 'Access', 'Available', 'Requests (month)', 'Failed (24h / month)', 'Health'].map((x) => h('th', {}, x)))), h('tbody', {}, rows))),
+      h('p', { class: 'small muted' }, 'Only "online" models can be selected by clients. Disabling a model refuses it for everyone immediately. Per-client access is set on each client’s page.')),
+    healthBox,
+    card(['FAB 500X private access', h('span', { class: 'muted' }, 'explicit grants only — no role bypass')],
+      grants.grants.filter((g) => g.access === 'grant').length ? h('ul', { class: 'feed' }, grants.grants.filter((g) => g.access === 'grant').map((g) => h('li', {}, h('time', {}, when(g.created_at)),
+        h('div', {}, h('a', { href: `/admin/clients/${g.user_id}`, 'data-nav': '' }, g.email), h('span', { class: 'meta' }, ` · granted by ${g.granted_by || 'unknown'}${g.reason ? ' · ' + g.reason : ''}`),
+          isSuper ? h('div', {}, h('button', { class: 'btn danger', onclick: async () => {
+            if (!(await confirmDialog(`Revoke FAB 500X for ${g.email}?`, 'Takes effect on their next request.', 'Revoke', true))) return;
+            try { await api(`/api/admin/clients/${g.user_id}/models/fab-500x`, { method: 'PUT', body: { access: 'default' } }); toast('Revoked'); modelsPage(main); } catch (e) { toast(e.message); }
+          } }, 'Revoke')) : null)))) : empty('Nobody has FAB 500X access.'),
+      h('p', { class: 'small muted' }, 'Grant access from a client’s page → Model permissions → FAB 500X → Enabled (superadmin).')),
     card(['Deployment lifecycle', h('span', { class: 'muted' }, isSuper ? '' : 'read-only (superadmin can deploy)')], lifeBox),
     card(['GPU training'], await computeBox(isSuper)));
   renderLifecycle(lifeBox, isSuper);

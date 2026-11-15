@@ -6,15 +6,16 @@ display_name: Sona 9.0
 kind: language_model
 version_series: "1.0"
 base_model: Qwen/Qwen2.5-14B-Instruct
-base_model_revision: null
+base_model_revision: cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8   # pinned (Hub commit verified 2026-11-15)
 base_model_license_note: Qwen2.5-14B-Instruct is published under Apache-2.0 (verify on the model card at training time).
 license_blocker: null
 architecture_hint: {hidden_size: 5120, intermediate_size: 13824, num_hidden_layers: 48, num_attention_heads: 40,
                     num_key_value_heads: 8, vocab_size: 152064, tie_word_embeddings: false}
 system_prompt: >-
-  You are Sona 9.0, the premium expert model of Approx AI by Approx Technology. Give thorough, well-structured,
-  accurate answers, cite your reasoning, and reply in the user's language (English, Urdu, Roman Urdu or a mix).
-  Refuse harmful requests and offer a safe alternative.
+  You are Sona 9.0, the web development, security and analytics specialist of Approx AI by Approx Technology.
+  You build and review complex web applications, perform defensive security audits and secure code review for
+  authorized systems, and analyse web analytics. Give thorough, accurate, well-structured answers in the user's
+  language. Never help attack systems you are not authorized to test; offer a defensive alternative.
 dataset:
   version_prefix: sona-edu
   domains: all

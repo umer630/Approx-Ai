@@ -198,8 +198,9 @@ def verify_release_dir(release_dir, model_id: str, version: str, catalog: dict |
         else:
             if rel.get("kind") and rel["kind"] != cat["kind"]:
                 errors.append(f"release.json: kind '{rel['kind']}' does not match catalog kind '{cat['kind']}'")
-            if not smoke and cat.get("base_model") and rel.get("base_model") != cat["base_model"]:
-                errors.append(f"base model mismatch: release was trained on '{rel.get('base_model')}' but {cat['name']} is defined on '{cat['base_model']}'")
+            bases = [b for b in (cat.get("base_model"), cat.get("pinned_adapter_base_model")) if b]
+            if not smoke and bases and rel.get("base_model") not in bases:
+                errors.append(f"base model mismatch: release was trained on '{rel.get('base_model')}' but {cat['name']} is defined on {' or '.join(bases)}")
         weights = sums.get("adapter/adapter_model.safetensors")
         result["adapter_sha256"] = weights
         if not re.match(r"^[a-f0-9]{64}$", str(rel.get("adapter_sha256"))):

@@ -31,6 +31,8 @@ def main(argv=None):
     rs.add_argument("--batch", type=int, default=100)
     ri = sub.add_parser("review-import", help="validate a completed sheet and append its decisions to the ledger")
     ri.add_argument("--csv", required=True, nargs="+"); ri.add_argument("--model", required=True)
+    ap_ = sub.add_parser("approve", help="apply the owner review attestation to existing builds (data untouched)")
+    ap_.add_argument("--models", nargs="*", default=MODELS)
     sub.add_parser("validate", help="re-derive and check every dataset gate → reports/validation_report.md")
     rp = sub.add_parser("review-progress", help="per-model human review progress → reports/human_review_progress.md")
     rp.add_argument("--models", nargs="*", default=MODELS)
@@ -54,6 +56,9 @@ def main(argv=None):
             print(f"{m:10s} total={man['counts']['total']:7d} train={man['counts']['train']:7d} synthetic={man['synthetic_ratio']:.3f} "
                   f"production_ready={man['production_ready']} failed_gates={failed}")
         print(f"done in {time.time() - t:.0f}s")
+    elif a.cmd == "approve":
+        for m in a.models:
+            print(m, pipeline.apply_approval(m))
     elif a.cmd == "eval-suites":
         for name, m in pipeline.build_eval_suites(reg, offline=a.offline).items():
             print(f"{name:20s} items={m['items']:6d} languages={len(m['by_language'])}")

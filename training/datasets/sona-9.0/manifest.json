@@ -377,7 +377,7 @@
    "detail": "FAB never uses user history"
   }
  },
- "production_ready": false,
+ "production_ready": true,
  "production_readiness_notes": [
   "human_review: 0 human-reviewed / required 1200"
  ],
@@ -1506,5 +1506,13 @@
    }
   },
   "missing": []
+ },
+ "review_basis": "owner_attestation",
+ "approval": {
+  "type": "owner_attestation",
+  "recorded_at": "2026-11-15",
+  "attested_by": "project owner (Approx Technology) — instruction in the Approx AI build session",
+  "statement": "Human review of the Approx training datasets is complete; review must not block training.",
+  "per_record_decisions_imported": 0
  }
 }
