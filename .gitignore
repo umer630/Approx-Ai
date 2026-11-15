@@ -24,3 +24,6 @@ training/datasets/*/build/
 training/datasets/evaluation/*/build/
 training/datasets/reviews/sheets/
 drive_bundles/
+
+# approved dataset shards are distributed through Git LFS (docs/MODEL_PIPELINE.md)
+!training/datasets/dist/

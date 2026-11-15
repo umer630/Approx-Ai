@@ -1,0 +1,161 @@
+{
+ "schema": "approx.dataset-lock/v1",
+ "models": {
+  "nick-4.8": {
+   "dataset_version": "nick-4.8-datahub-1.1-df7a0440e5",
+   "content_fingerprint_sha256": "df7a0440e59f7e933c5ed479a364efedefaa9c816e96604833d36f1816140661",
+   "target_records": 30000,
+   "counts": {
+    "total": 30000,
+    "train": 28250,
+    "eval": 881,
+    "test": 869
+   },
+   "production_ready": true,
+   "review_basis": "owner_attestation",
+   "manifest_sha256": "092ed4510ea85909ceb81ab808641beeb87c7f552cdf40a9d41b667a46d0a336",
+   "splits": {
+    "train": {
+     "sha256": "9db7a9b1e3c5f72a928ee40f52916392a669f4b84f8aa587d8c1b5b09af92433",
+     "records": 28250,
+     "bytes": 62059935,
+     "shards": [
+      {
+       "path": "training/datasets/dist/nick-4.8/train.000.jsonl.gz",
+       "sha256": "e617a68439e00b7ef59db57af17a92ccf22d752176763cf7c32d7f01393c104d",
+       "bytes": 21452137
+      }
+     ]
+    },
+    "eval": {
+     "sha256": "bb2cef8575ac1fd8d445e9f01049ecb548d4ded9fbd0bc85fd1af5dfd43059af",
+     "records": 881,
+     "bytes": 1877031,
+     "shards": [
+      {
+       "path": "training/datasets/dist/nick-4.8/eval.000.jsonl.gz",
+       "sha256": "e750815db3f030099c4447f52b4c9b8ac76bf557b2b9fa741a3aba939e23377b",
+       "bytes": 652974
+      }
+     ]
+    },
+    "test": {
+     "sha256": "db035dcff0230bf36e24be99f3f717588b95aa77651913c2f79fb31f57290117",
+     "records": 869,
+     "bytes": 1943487,
+     "shards": [
+      {
+       "path": "training/datasets/dist/nick-4.8/test.000.jsonl.gz",
+       "sha256": "2e2f23a1bbb07fc04a0ddb35f8707a2ff4c5dcf4a5629c01e01296389d45660a",
+       "bytes": 670045
+      }
+     ]
+    }
+   }
+  },
+  "hike-6.5": {
+   "dataset_version": "hike-6.5-datahub-1.1-7beafa5436",
+   "content_fingerprint_sha256": "7beafa5436e410436c37847bf56334bbd6d8924da069f7ab1a3196c1c1ad2adc",
+   "target_records": 50000,
+   "counts": {
+    "total": 50000,
+    "train": 47074,
+    "eval": 1493,
+    "test": 1433
+   },
+   "production_ready": true,
+   "review_basis": "owner_attestation",
+   "manifest_sha256": "86ac6315901001e69a36242e0b8b54af8e8da8ba2a17d773266dc74deadc90e7",
+   "splits": {
+    "train": {
+     "sha256": "f6682ed88a5bfa0f65c508a5cebf3a4e386896c765830ef26e19c761738780a8",
+     "records": 47074,
+     "bytes": 112028841,
+     "shards": [
+      {
+       "path": "training/datasets/dist/hike-6.5/train.000.jsonl.gz",
+       "sha256": "d3fca669b531de5e7b566afa477c825a02d1523d48b769baef99598689a937f9",
+       "bytes": 35709479
+      }
+     ]
+    },
+    "eval": {
+     "sha256": "66ff95447a35b7f28780db619fe57d76982c4842950fd7a1e683fe8bec93c0da",
+     "records": 1493,
+     "bytes": 3531246,
+     "shards": [
+      {
+       "path": "training/datasets/dist/hike-6.5/eval.000.jsonl.gz",
+       "sha256": "591ec31cb26138f91737993c9b8e97af2ecaae6f5df8b23dc61f628edc40aaec",
+       "bytes": 1125110
+      }
+     ]
+    },
+    "test": {
+     "sha256": "0085d5010e4e5194c1f7c179fb9e106fd08b5751e9e0e81ea9f9e78bc7b0929f",
+     "records": 1433,
+     "bytes": 3361010,
+     "shards": [
+      {
+       "path": "training/datasets/dist/hike-6.5/test.000.jsonl.gz",
+       "sha256": "ec3a17ae327c9b1f71b74764a44a1a54c22856a3ddff698486ff8e95a95447fb",
+       "bytes": 1078685
+      }
+     ]
+    }
+   }
+  },
+  "sona-9.0": {
+   "dataset_version": "sona-9.0-datahub-1.1-781f9b7e9b",
+   "content_fingerprint_sha256": "781f9b7e9b6d657bc9f53b66da6e2c43e8fb6f30b264e2d29cdcb770d15a99ec",
+   "target_records": 70000,
+   "counts": {
+    "total": 70000,
+    "train": 65877,
+    "eval": 2071,
+    "test": 2052
+   },
+   "production_ready": true,
+   "review_basis": "owner_attestation",
+   "manifest_sha256": "703f052465b271e1aeb0319d936c1e1dd714aaef5322260ae4df0abd5535b285",
+   "splits": {
+    "train": {
+     "sha256": "c6a60730639517d3b1f5167a0b4771d71a8e5a3113fd2dd63dff45ef58592c30",
+     "records": 65877,
+     "bytes": 157586461,
+     "shards": [
+      {
+       "path": "training/datasets/dist/sona-9.0/train.000.jsonl.gz",
+       "sha256": "7428493c0497287a30491b06b576a5d693794846cf063efd645a71c475995a0e",
+       "bytes": 49820616
+      }
+     ]
+    },
+    "eval": {
+     "sha256": "96aca80aaae384c1e80af27e66172818461c6ce294b0d609252bedf576b640d1",
+     "records": 2071,
+     "bytes": 5046653,
+     "shards": [
+      {
+       "path": "training/datasets/dist/sona-9.0/eval.000.jsonl.gz",
+       "sha256": "e7794a231e89fecdf3fa48c65f944d4675dfdaa5af9ebd2d060638cd666b1cb4",
+       "bytes": 1583882
+      }
+     ]
+    },
+    "test": {
+     "sha256": "42f885cf8a8d76e64e21f51514f83e9a7d16a50a45fb659e0cafb015b85a8d28",
+     "records": 2052,
+     "bytes": 4782327,
+     "shards": [
+      {
+       "path": "training/datasets/dist/sona-9.0/test.000.jsonl.gz",
+       "sha256": "1818e99ed745faf3c3a809b87f7e8738eec6e91a4c3ba5a398d6109d3a428f63",
+       "bytes": 1518131
+      }
+     ]
+    }
+   }
+  }
+ }
+}

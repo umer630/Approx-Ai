@@ -1,0 +1,1365 @@
+{
+ "schema": "approx.dataset/v1",
+ "model_id": "hike-6.5",
+ "dataset_version": "hike-6.5-datahub-1.1-7beafa5436",
+ "pipeline_version": "datahub-1.1",
+ "profile": {
+  "tier": "hike",
+  "min_records": 50000,
+  "max_records": 50000,
+  "min_quality": 0.5,
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "base_model_revision": null,
+  "capability": "Stronger multi-step reasoning, complex coding, advanced science and professional development tasks.",
+  "domain_min_share": {
+   "mathematics": 0.1,
+   "science": 0.08,
+   "coding": 0.12,
+   "reasoning": 0.03,
+   "software_engineering": 0.02,
+   "writing": 0.05,
+   "general_knowledge": 0.08,
+   "education": 0.02,
+   "safety_ethics": 0.002
+  },
+  "domain_max_share": {
+   "mathematics": 0.25,
+   "general_knowledge": 0.45
+  },
+  "language_min": {
+   "en": 8400,
+   "ur": 2100,
+   "roman_ur": 560,
+   "ar": 1120,
+   "zh": 560,
+   "es": 1120,
+   "fr": 840,
+   "de": 560,
+   "pt": 700,
+   "ru": 700,
+   "ja": 560,
+   "ko": 420,
+   "hi": 700,
+   "bn": 420,
+   "tr": 420,
+   "id": 560,
+   "fa": 420
+  },
+  "min_human_reviewed": 800,
+  "model_id": "hike-6.5",
+  "schema": "approx.dataset-profile/v1",
+  "synthetic_max": 0.6,
+  "split_ratios": {
+   "eval": 0.03,
+   "test": 0.03
+  },
+  "note": "Base model / revision are copied from the existing model configuration and are never changed by the dataset pipeline."
+ },
+ "counts": {
+  "total": 50000,
+  "train": 47074,
+  "eval": 1493,
+  "test": 1433
+ },
+ "selection": {
+  "eligible": 708436,
+  "cap": 50000,
+  "eligible_by_domain": {
+   "coding": 164098,
+   "general_knowledge": 152569,
+   "mathematics": 109847,
+   "software_engineering": 68493,
+   "cybersecurity": 52097,
+   "research": 41805,
+   "science": 38061,
+   "web_frontend": 20325,
+   "reasoning": 17131,
+   "writing": 15799,
+   "web_backend": 11467,
+   "safety_ethics": 6456,
+   "islamic_studies": 4222,
+   "pakistan": 2643,
+   "education": 1609,
+   "problem_solving": 942,
+   "web_fullstack": 872
+  },
+  "eligible_by_language": {
+   "en": 501441,
+   "ur": 17275,
+   "ar": 14400,
+   "te": 11535,
+   "id": 11371,
+   "plt": 9227,
+   "es": 9208,
+   "sin": 8855,
+   "ru": 8681,
+   "ta": 8185,
+   "ko": 7593,
+   "vi": 6546,
+   "hi": 6433,
+   "pt": 6292,
+   "roman_ur": 5730,
+   "zh": 4979,
+   "pa": 4853,
+   "yor": 4831,
+   "fr": 4732,
+   "kir": 4669,
+   "fi": 4192,
+   "ja": 3770,
+   "tr": 3705,
+   "som": 3620,
+   "bn": 3192,
+   "gu": 3049,
+   "sw": 2253,
+   "wol": 1819,
+   "hau": 1748,
+   "nl": 1581,
+   "mal": 1533,
+   "mr": 1379,
+   "de": 1371,
+   "ne": 1349,
+   "pl": 1335,
+   "fa": 1121,
+   "ms": 1067,
+   "sna": 986,
+   "th": 942,
+   "zul": 927,
+   "ibo": 920,
+   "eus": 779,
+   "tl": 768,
+   "it": 767,
+   "swe": 718,
+   "am": 716,
+   "gle": 651,
+   "lit": 575,
+   "el": 560,
+   "fin": 513,
+   "uk": 454,
+   "nya": 427,
+   "pbt": 426,
+   "ceb": 410,
+   "mya": 349,
+   "kan": 237,
+   "xho": 232,
+   "ca": 216,
+   "jav": 170,
+   "sun": 134,
+   "nso": 95,
+   "snd": 95,
+   "als": 81,
+   "eu": 61,
+   "ary": 61,
+   "hat": 55,
+   "dan": 47,
+   "ckb": 39,
+   "eo": 24,
+   "pt-BR": 20,
+   "hun": 17,
+   "srp": 14,
+   "uk-UA": 7,
+   "he": 6,
+   "hu": 6,
+   "und": 3,
+   "arz": 3,
+   "da": 2,
+   "acq": 2,
+   "ajp": 1
+  },
+  "eligible_synthetic": 304404
+ },
+ "by_language": {
+  "en": 26616,
+  "es": 5019,
+  "ru": 2595,
+  "ur": 2100,
+  "ta": 1934,
+  "ar": 1120,
+  "te": 1066,
+  "de": 1059,
+  "zh": 958,
+  "fr": 840,
+  "bn": 720,
+  "hi": 700,
+  "pt": 700,
+  "gu": 625,
+  "roman_ur": 560,
+  "id": 560,
+  "ja": 560,
+  "fa": 420,
+  "ko": 420,
+  "tr": 420,
+  "vi": 389,
+  "th": 192,
+  "it": 152,
+  "ca": 120,
+  "pl": 69,
+  "pa": 31,
+  "nl": 15,
+  "el": 12,
+  "am": 7,
+  "eo": 5,
+  "pt-BR": 4,
+  "he": 4,
+  "sw": 4,
+  "uk-UA": 3,
+  "hu": 1
+ },
+ "by_domain": {
+  "general_knowledge": 19789,
+  "mathematics": 6661,
+  "coding": 6017,
+  "science": 4147,
+  "research": 3550,
+  "writing": 2751,
+  "reasoning": 1500,
+  "education": 1003,
+  "software_engineering": 1000,
+  "islamic_studies": 694,
+  "problem_solving": 675,
+  "pakistan": 548,
+  "safety_ethics": 522,
+  "web_frontend": 471,
+  "cybersecurity": 294,
+  "web_fullstack": 250,
+  "web_backend": 128
+ },
+ "by_source": {
+  "oasst2": 13815,
+  "aya-dataset": 7329,
+  "oasst1": 7005,
+  "gsm8k": 5285,
+  "dolly-15k": 4323,
+  "tydiqa-goldp": 2483,
+  "opencodeinstruct": 2049,
+  "scienceqa-text": 1995,
+  "self-oss-instruct": 1888,
+  "wikipedia-ur": 1725,
+  "strategyqa": 585,
+  "wikipedia-hi": 420,
+  "approx-curriculum": 306,
+  "wikipedia-ko": 285,
+  "roman-urdu-parl": 245,
+  "mbpp": 180,
+  "nemotron-math": 53,
+  "quartz": 13,
+  "approx-seed-v0.1": 9,
+  "wikipedia-id": 6,
+  "wikipedia-fr": 1
+ },
+ "by_origin": {
+  "human_authored": 43013,
+  "synthetic": 3999,
+  "templated_human": 2437,
+  "programmatic": 306,
+  "transliteration_unverified": 245
+ },
+ "by_review_state": {
+  "unreviewed": 42509,
+  "source_community_reviewed": 7005,
+  "auto_verified": 486
+ },
+ "synthetic_ratio": 0.1397,
+ "human_reviewed": 0,
+ "content_fingerprint_sha256": "7beafa5436e410436c37847bf56334bbd6d8924da069f7ab1a3196c1c1ad2adc",
+ "files": {
+  "train.jsonl": {
+   "records": 47074,
+   "sha256": "f6682ed88a5bfa0f65c508a5cebf3a4e386896c765830ef26e19c761738780a8"
+  },
+  "eval.jsonl": {
+   "records": 1493,
+   "sha256": "66ff95447a35b7f28780db619fe57d76982c4842950fd7a1e683fe8bec93c0da"
+  },
+  "test.jsonl": {
+   "records": 1433,
+   "sha256": "0085d5010e4e5194c1f7c179fb9e106fd08b5751e9e0e81ea9f9e78bc7b0929f"
+  }
+ },
+ "gates": {
+  "quantity": {
+   "passed": true,
+   "detail": "50000 accepted / target 50000"
+  },
+  "licenses": {
+   "passed": true,
+   "detail": [
+    "approx-curriculum",
+    "approx-seed-v0.1",
+    "aya-dataset",
+    "dolly-15k",
+    "gsm8k",
+    "mbpp",
+    "nemotron-math",
+    "oasst1",
+    "oasst2",
+    "opencodeinstruct",
+    "quartz",
+    "roman-urdu-parl",
+    "scienceqa-text",
+    "self-oss-instruct",
+    "strategyqa",
+    "tydiqa-goldp",
+    "wikipedia-fr",
+    "wikipedia-hi",
+    "wikipedia-id",
+    "wikipedia-ko",
+    "wikipedia-ur"
+   ]
+  },
+  "synthetic_ratio": {
+   "passed": true,
+   "detail": "6987/50000 = 0.140 (max 0.6)"
+  },
+  "domain_minimums": {
+   "passed": true,
+   "detail": {
+    "mathematics": "6661/5000",
+    "science": "4147/4000",
+    "coding": "6017/6000",
+    "reasoning": "1500/1500",
+    "software_engineering": "1000/1000",
+    "writing": "2751/2500",
+    "general_knowledge": "19789/4000",
+    "education": "1003/1000",
+    "safety_ethics": "522/100"
+   }
+  },
+  "domain_maximums": {
+   "passed": true,
+   "detail": {
+    "mathematics": "0.133 ≤ 0.25",
+    "general_knowledge": "0.396 ≤ 0.45"
+   }
+  },
+  "language_minimums": {
+   "passed": true,
+   "detail": {
+    "en": "26616/8400",
+    "ur": "2100/2100",
+    "roman_ur": "560/560",
+    "ar": "1120/1120",
+    "zh": "958/560",
+    "es": "5019/1120",
+    "fr": "840/840",
+    "de": "1059/560",
+    "pt": "700/700",
+    "ru": "2595/700",
+    "ja": "560/560",
+    "ko": "420/420",
+    "hi": "700/700",
+    "bn": "720/420",
+    "tr": "420/420",
+    "id": "560/560",
+    "fa": "420/420"
+   }
+  },
+  "human_review": {
+   "passed": false,
+   "detail": "0 human-reviewed / required 800"
+  },
+  "no_split_leakage": {
+   "passed": true,
+   "detail": "0 prompts shared between train and eval/test"
+  },
+  "benchmark_leakage_removed": {
+   "passed": true,
+   "detail": "18486 evaluation prompts indexed; 10 training records removed"
+  },
+  "no_missing_sources": {
+   "passed": true,
+   "detail": "all required approved sources present; optional absent: consented-history"
+  },
+  "user_history_policy": {
+   "passed": true,
+   "detail": "FAB never uses user history"
+  }
+ },
+ "production_ready": true,
+ "production_readiness_notes": [
+  "human_review: 0 human-reviewed / required 800"
+ ],
+ "pool": {
+  "built_at": "2026-11-14T22:41:27Z",
+  "stats": {
+   "pii_redactions": 46325,
+   "rejected:repetition": 103488,
+   "rejected:language_mismatch": 38977,
+   "rejected:quality": 16523,
+   "rejected:formatting": 93,
+   "rejected:injection": 10,
+   "rejected:nonsensical": 9251,
+   "rejected:unicode": 2562,
+   "rejected:safety": 19,
+   "rejected:empty": 10,
+   "rejected:injection_contamination": 2,
+   "rejected:exact_duplicate": 32136,
+   "rejected:contradiction": 7540,
+   "rejected:duplicate_prompt": 22309,
+   "rejected:near_duplicate": 51402,
+   "rejected:benchmark_leakage": 10
+  },
+  "per_source": {
+   "oasst1": {
+    "status": "ingested",
+    "raw": 18899,
+    "accepted_record_gates": 17510,
+    "rejected": {
+     "repetition": 395,
+     "language_mismatch": 541,
+     "quality": 403,
+     "formatting": 14,
+     "injection": 3,
+     "nonsensical": 29,
+     "unicode": 4
+    },
+    "seconds": 47.2
+   },
+   "dolly-15k": {
+    "status": "ingested",
+    "raw": 15011,
+    "accepted_record_gates": 14171,
+    "rejected": {
+     "quality": 704,
+     "language_mismatch": 94,
+     "nonsensical": 14,
+     "unicode": 18,
+     "repetition": 9,
+     "safety": 1
+    },
+    "seconds": 21.2
+   },
+   "gsm8k": {
+    "status": "ingested",
+    "raw": 7473,
+    "accepted_record_gates": 7214,
+    "rejected": {
+     "language_mismatch": 42,
+     "quality": 212,
+     "nonsensical": 5
+    },
+    "seconds": 7.2
+   },
+   "aya-dataset": {
+    "status": "ingested",
+    "raw": 202362,
+    "accepted_record_gates": 157554,
+    "rejected": {
+     "repetition": 598,
+     "language_mismatch": 33189,
+     "quality": 10320,
+     "nonsensical": 432,
+     "unicode": 259,
+     "empty": 10
+    },
+    "seconds": 332.9
+   },
+   "arc": {
+    "status": "ingested",
+    "raw": 3370,
+    "accepted_record_gates": 3334,
+    "rejected": {
+     "language_mismatch": 32,
+     "quality": 4
+    },
+    "seconds": 1.8
+   },
+   "mbpp": {
+    "status": "ingested",
+    "raw": 473,
+    "accepted_record_gates": 454,
+    "rejected": {
+     "repetition": 3,
+     "nonsensical": 7,
+     "language_mismatch": 9
+    },
+    "seconds": 7.7
+   },
+   "scienceqa-text": {
+    "status": "ingested",
+    "raw": 6508,
+    "accepted_record_gates": 6471,
+    "rejected": {
+     "quality": 37
+    },
+    "seconds": 16.6
+   },
+   "self-oss-instruct": {
+    "status": "ingested",
+    "raw": 50661,
+    "accepted_record_gates": 49696,
+    "rejected": {
+     "repetition": 863,
+     "quality": 97,
+     "language_mismatch": 3,
+     "formatting": 1,
+     "unicode": 1
+    },
+    "seconds": 94.9
+   },
+   "competition-math": {
+    "status": "unavailable",
+    "ingested": 0,
+    "reason": "The Hub refuses to serve this dataset (parquet API HTTP 400; reported takedown). Not ingested from any mirror."
+   },
+   "sciq": {
+    "status": "rejected",
+    "ingested": 0,
+    "reason": "Non-commercial license (NC)."
+   },
+   "alpaca": {
+    "status": "rejected",
+    "ingested": 0,
+    "reason": "Non-commercial license; generated by text-davinci-003."
+   },
+   "no-robots": {
+    "status": "rejected",
+    "ingested": 0,
+    "reason": "Non-commercial license (NC)."
+   },
+   "openhermes-2.5": {
+    "status": "rejected",
+    "ingested": 0,
+    "reason": "No license declared."
+   },
+   "smoltalk": {
+    "status": "rejected",
+    "ingested": 0,
+    "reason": "No license declared on the card."
+   },
+   "slimorca": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "MIT-tagged but generated with OpenAI GPT-4/3.5; the generator's terms restrict building competing models. Needs legal review."
+   },
+   "metamathqa": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "Generated with GPT-3.5; legal review of generator terms required."
+   },
+   "orca-math": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "Generated with GPT-4 Turbo; legal review of generator terms required."
+   },
+   "magicoder-oss": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "Generated with gpt-3.5-turbo; legal review required."
+   },
+   "codealpaca": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "Generated with text-davinci-003; legal review required."
+   },
+   "helpsteer2": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "Prompts largely from ShareGPT (third-party chat logs; privacy/ToS review needed); responses model-generated."
+   },
+   "tulu-3-sft": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "Aggregate of many sources with their own licenses (some non-commercial / model-generated); must be filtered per subset."
+   },
+   "aya-collection": {
+    "status": "conditional",
+    "ingested": 0,
+    "reason": "Templated + machine-translated (513M rows). Approved in principle as MACHINE_TRANSLATED data (counts as synthetic); not ingested in this build (size) — enable per language subset."
+   },
+   "approx-seed-v0.1": {
+    "status": "ingested",
+    "raw": 45,
+    "accepted_record_gates": 43,
+    "rejected": {
+     "nonsensical": 2
+    },
+    "seconds": 0.1
+   },
+   "approx-curriculum": {
+    "status": "ingested",
+    "raw": 4697,
+    "accepted_record_gates": 4024,
+    "rejected": {
+     "quality": 98,
+     "nonsensical": 351,
+     "language_mismatch": 144,
+     "repetition": 80
+    },
+    "seconds": 1.8
+   },
+   "consented-history": {
+    "status": "optional_absent",
+    "ingested": 0,
+    "note": "consented-history: file not found: data/consented/latest.jsonl"
+   },
+   "oasst2": {
+    "status": "ingested",
+    "raw": 28305,
+    "accepted_record_gates": 26037,
+    "rejected": {
+     "repetition": 644,
+     "language_mismatch": 934,
+     "quality": 608,
+     "nonsensical": 45,
+     "formatting": 22,
+     "unicode": 9,
+     "injection": 4,
+     "injection_contamination": 2
+    },
+    "seconds": 68.9
+   },
+   "tydiqa-goldp": {
+    "status": "ingested",
+    "raw": 49881,
+    "accepted_record_gates": 47206,
+    "rejected": {
+     "language_mismatch": 2040,
+     "unicode": 367,
+     "quality": 156,
+     "nonsensical": 112
+    },
+    "seconds": 62.9
+   },
+   "qasc": {
+    "status": "ingested",
+    "raw": 9060,
+    "accepted_record_gates": 9044,
+    "rejected": {
+     "language_mismatch": 12,
+     "quality": 4
+    },
+    "seconds": 5.9
+   },
+   "roman-urdu-parl": {
+    "status": "ingested",
+    "raw": 12000,
+    "accepted_record_gates": 11935,
+    "rejected": {
+     "repetition": 7,
+     "language_mismatch": 57,
+     "quality": 1
+    },
+    "seconds": 9.8
+   },
+   "nemotron-math": {
+    "status": "ingested",
+    "raw": 29095,
+    "accepted_record_gates": 19509,
+    "rejected": {
+     "repetition": 9391,
+     "nonsensical": 166,
+     "quality": 29
+    },
+    "seconds": 109.5
+   },
+   "nemotron-stem": {
+    "status": "ingested",
+    "raw": 16063,
+    "accepted_record_gates": 15593,
+    "rejected": {
+     "repetition": 360,
+     "quality": 83,
+     "formatting": 27
+    },
+    "seconds": 58.1
+   },
+   "opencodeinstruct": {
+    "status": "ingested",
+    "raw": 172522,
+    "accepted_record_gates": 138817,
+    "rejected": {
+     "repetition": 32043,
+     "quality": 1655,
+     "unicode": 6,
+     "language_mismatch": 1
+    },
+    "seconds": 227.8
+   },
+   "trendyol-cybersec": {
+    "status": "ingested",
+    "raw": 53199,
+    "accepted_record_gates": 52986,
+    "rejected": {
+     "safety": 18,
+     "quality": 182,
+     "formatting": 9,
+     "language_mismatch": 1,
+     "injection": 3
+    },
+    "seconds": 235.7
+   },
+   "wikipedia-ur": {
+    "status": "ingested",
+    "raw": 15000,
+    "accepted_record_gates": 14761,
+    "rejected": {
+     "unicode": 157,
+     "quality": 8,
+     "language_mismatch": 64,
+     "nonsensical": 3,
+     "repetition": 7
+    },
+    "seconds": 32.7
+   },
+   "wikipedia-hi": {
+    "status": "ingested",
+    "raw": 7530,
+    "accepted_record_gates": 7475,
+    "rejected": {
+     "unicode": 24,
+     "language_mismatch": 28,
+     "quality": 2,
+     "nonsensical": 1
+    },
+    "seconds": 25.4
+   },
+   "wikipedia-ko": {
+    "status": "ingested",
+    "raw": 8000,
+    "accepted_record_gates": 7967,
+    "rejected": {
+     "repetition": 6,
+     "nonsensical": 10,
+     "language_mismatch": 14,
+     "unicode": 3
+    },
+    "seconds": 24.2
+   },
+   "wikipedia-id": {
+    "status": "ingested",
+    "raw": 8000,
+    "accepted_record_gates": 7880,
+    "rejected": {
+     "language_mismatch": 102,
+     "repetition": 6,
+     "unicode": 9,
+     "nonsensical": 1,
+     "quality": 2
+    },
+    "seconds": 21.7
+   },
+   "wikipedia-fr": {
+    "status": "ingested",
+    "raw": 3000,
+    "accepted_record_gates": 2982,
+    "rejected": {
+     "unicode": 2,
+     "language_mismatch": 11,
+     "repetition": 5
+    },
+    "seconds": 11.8
+   },
+   "nemotron-chat": {
+    "status": "rejected",
+    "ingested": 0,
+    "reason": "Prompts are taken from LMSYS-Chat-1M, which is distributed under its own restrictive agreement."
+   },
+   "nemotron-code": {
+    "status": "unavailable",
+    "ingested": 0,
+    "reason": "Every inspected prompt is withheld ('-'); prompts must be rebuilt from TACO/APPS/CodeContests, whose licenses differ."
+   },
+   "openmathinstruct-2": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "Generated with Llama-3.1-405B; the Llama 3.1 license requires derived model names to start with 'Llama'."
+   },
+   "samvaad-hi": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "Hindi/Hinglish conversations; the card does not say how they were generated."
+   },
+   "urdu-instruct": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "Generated with GPT-4o (OpenAI terms restrict building competing models)."
+   },
+   "urdu-assistant": {
+    "status": "rejected",
+    "ingested": 0,
+    "reason": "Urdu translation of Alpaca-style data (Alpaca is CC-BY-NC; text-davinci-003 outputs)."
+   },
+   "mt-urdu-english": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "1.4M aggregated pairs (Quran, Bible, subtitles…); upstream corpus licenses not itemised."
+   },
+   "roman-urdu-toxic": {
+    "status": "rejected",
+    "ingested": 0,
+    "reason": "Toxic-comment corpus (abusive language) — unsuitable as assistant targets."
+   },
+   "tatoeba": {
+    "status": "unavailable",
+    "ingested": 0,
+    "reason": "Human translations (CC-BY-2.0) but no parquet export; needs downloads.tatoeba.org on the network allowlist or an HF token for tatoeba_mt."
+   },
+   "kullm-v2": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "Korean DeepL translations of GPT4All/Dolly/Vicuna — contains OpenAI-model outputs and ShareGPT conversations."
+   },
+   "cybernative-dpo": {
+    "status": "rejected",
+    "ingested": 0,
+    "reason": "Card warns labels are unverified and training on it degraded coding accuracy."
+   },
+   "wildchat-1m": {
+    "status": "review_required",
+    "ingested": 0,
+    "reason": "Real user prompts with ChatGPT (OpenAI) responses."
+   },
+   "commonsense-qa": {
+    "status": "ingested",
+    "raw": 10962,
+    "accepted_record_gates": 10790,
+    "rejected": {
+     "language_mismatch": 166,
+     "quality": 6
+    },
+    "seconds": 4.9
+   },
+   "strategyqa": {
+    "status": "ingested",
+    "raw": 1603,
+    "accepted_record_gates": 1571,
+    "rejected": {
+     "quality": 31,
+     "language_mismatch": 1
+    },
+    "seconds": 0.9
+   },
+   "quartz": {
+    "status": "ingested",
+    "raw": 3080,
+    "accepted_record_gates": 3060,
+    "rejected": {
+     "quality": 14,
+     "language_mismatch": 6
+    },
+    "seconds": 1.8
+   },
+   "aqua-rat": {
+    "status": "ingested",
+    "raw": 92736,
+    "accepted_record_gates": 80987,
+    "rejected": {
+     "unicode": 1665,
+     "nonsensical": 8072,
+     "language_mismatch": 1417,
+     "quality": 460,
+     "repetition": 135
+    },
+    "seconds": 74.4
+   },
+   "ethics-commonsense": {
+    "status": "ingested",
+    "raw": 6860,
+    "accepted_record_gates": 6852,
+    "rejected": {
+     "quality": 8
+    },
+    "seconds": 3.5
+   },
+   "commitpackft": {
+    "status": "ingested",
+    "raw": 157201,
+    "accepted_record_gates": 96738,
+    "rejected": {
+     "repetition": 58936,
+     "quality": 1399,
+     "language_mismatch": 69,
+     "formatting": 20,
+     "unicode": 38,
+     "nonsensical": 1
+    },
+    "seconds": 139.2
+   }
+  },
+  "missing": []
+ },
+ "provenance": {
+  "approx-curriculum": [
+   {
+    "file": "engine/curriculum (generated)",
+    "sha256": "85dcaae3b32e9d5359fc7e5cefe586101e1bd6029c9478e237fc3e1a0cd24228",
+    "params": {
+     "seed": 4848,
+     "scale": 1.0
+    }
+   }
+  ],
+  "approx-seed-v0.1": [
+   {
+    "file": "data/seed/approx_seed_v0_1.jsonl",
+    "sha256": "2802a288ab301e7f5c3d2b5042ce18d29bfd4aa51cd4e9d11668ad8004922792",
+    "bytes": 26178,
+    "fetched_at": "2026-11-14T21:58:18Z"
+   }
+  ],
+  "aya-dataset": [
+   {
+    "file": "aya-dataset/default/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/CohereLabs/aya_dataset/parquet/default/train/0.parquet",
+    "sha256": "51baa85043b569ba117f41516b32d1b0e4e2647fb203a08933f98a556fb1fb06",
+    "bytes": 137195800,
+    "fetched_at": "2026-11-14T18:02:45Z",
+    "config": "default",
+    "split": "train",
+    "source_revision": "f9ea04583f02"
+   }
+  ],
+  "dolly-15k": [
+   {
+    "file": "dolly-15k/default/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/databricks/databricks-dolly-15k/parquet/default/train/0.parquet",
+    "sha256": "51c85bb925785765bad9dd961e9db144b555cc79d58803242c9bf883375b938b",
+    "bytes": 7747823,
+    "fetched_at": "2026-11-14T18:02:38Z",
+    "config": "default",
+    "split": "train",
+    "source_revision": "bdd27f4d94b9"
+   }
+  ],
+  "gsm8k": [
+   {
+    "file": "gsm8k/main/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/openai/gsm8k/parquet/main/train/0.parquet",
+    "sha256": "ea82612ea9582142387730c793eb67d3b12849002bc0b7fa6f8efafa7351419d",
+    "bytes": 2306545,
+    "fetched_at": "2026-11-14T18:02:39Z",
+    "config": "main",
+    "split": "train",
+    "source_revision": "740312add88f"
+   }
+  ],
+  "mbpp": [
+   {
+    "file": "mbpp/full/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/google-research-datasets/mbpp/parquet/full/train/0.parquet",
+    "sha256": "09d125ca31edacb7800be8c67c45abff618faf0214ff551291817d06bdb914ae",
+    "bytes": 87223,
+    "fetched_at": "2026-11-14T18:02:46Z",
+    "config": "full",
+    "split": "train",
+    "source_revision": "4bb6404fdc6c"
+   },
+   {
+    "file": "mbpp/full/validation/validation-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/google-research-datasets/mbpp/parquet/full/validation/0.parquet",
+    "sha256": "3f0ec060987432d99fe8fb409d31e6c67445b208a01741c5583517c80a10fe80",
+    "bytes": 25144,
+    "fetched_at": "2026-11-14T18:02:47Z",
+    "config": "full",
+    "split": "validation",
+    "source_revision": "4bb6404fdc6c"
+   },
+   {
+    "file": "mbpp/full/prompt/prompt-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/google-research-datasets/mbpp/parquet/full/prompt/0.parquet",
+    "sha256": "a053e4bb85ceb77430ae80592addb4ca4dc6ba087592f9e04537800ee88b7431",
+    "bytes": 7878,
+    "fetched_at": "2026-11-14T18:02:47Z",
+    "config": "full",
+    "split": "prompt",
+    "source_revision": "4bb6404fdc6c"
+   }
+  ],
+  "nemotron-math": [
+   {
+    "file": "nemotron-math/files/data__math-00000-of-00159.parquet",
+    "path": "data/math-00000-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00000-of-00159.parquet",
+    "sha256": "03f192a4046d8a9aae047c89edff784bc575cde6691c08b44135ad253499fe4b",
+    "bytes": 208493334,
+    "fetched_at": "2026-11-14T20:15:41Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00001-of-00159.parquet",
+    "path": "data/math-00001-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00001-of-00159.parquet",
+    "sha256": "cdea1409048a9fbe80b2e66e1f8c2812c69526dfee70cbcb7a3256e11fad4739",
+    "bytes": 207408978,
+    "fetched_at": "2026-11-14T20:15:41Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00002-of-00159.parquet",
+    "path": "data/math-00002-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00002-of-00159.parquet",
+    "sha256": "fad69db58f9466a77e328d069c01a173dfe62e6a10e32f007f967d563c084c2a",
+    "bytes": 208731300,
+    "fetched_at": "2026-11-14T20:15:41Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00003-of-00159.parquet",
+    "path": "data/math-00003-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00003-of-00159.parquet",
+    "sha256": "9c6386676828cc1352b6220ce60fd33c7e4fb20865c5dde89a74abbed8f2e59b",
+    "bytes": 209702981,
+    "fetched_at": "2026-11-14T20:15:41Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00004-of-00159.parquet",
+    "path": "data/math-00004-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00004-of-00159.parquet",
+    "sha256": "7036093dc789b0d1a278122b0cde94694ed4f6f5284277cb0bc2779981c4ffc1",
+    "bytes": 207279207,
+    "fetched_at": "2026-11-14T20:15:42Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00005-of-00159.parquet",
+    "path": "data/math-00005-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00005-of-00159.parquet",
+    "sha256": "68cf1611497a6c70c93911a5aa5916015dc033153733b8821381ff55d9fa0f99",
+    "bytes": 207815428,
+    "fetched_at": "2026-11-14T20:15:42Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00006-of-00159.parquet",
+    "path": "data/math-00006-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00006-of-00159.parquet",
+    "sha256": "1fa86aa5edb42b83809ffdc5501d27f87f4d53bd8838a194cbdfd799f9898ba7",
+    "bytes": 210026193,
+    "fetched_at": "2026-11-14T20:15:42Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00007-of-00159.parquet",
+    "path": "data/math-00007-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00007-of-00159.parquet",
+    "sha256": "199a398ae768f4e3b0887facb3eb8c8859bfcf1a25b05b252f0dba02ceb16edc",
+    "bytes": 208572698,
+    "fetched_at": "2026-11-14T20:15:42Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00008-of-00159.parquet",
+    "path": "data/math-00008-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00008-of-00159.parquet",
+    "sha256": "1a0f49baa11da3d41109ab1f3adff16ed97b5e5ff4f38ff1b2ce11d78f092294",
+    "bytes": 206797995,
+    "fetched_at": "2026-11-14T20:15:43Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00009-of-00159.parquet",
+    "path": "data/math-00009-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00009-of-00159.parquet",
+    "sha256": "3d32adc0d3c307ae5ae948861eb743e0e213d4bd7e2ebaec364e10e6a1362718",
+    "bytes": 209014013,
+    "fetched_at": "2026-11-14T20:15:43Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00010-of-00159.parquet",
+    "path": "data/math-00010-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00010-of-00159.parquet",
+    "sha256": "de9e1937f27769d0b2627297881cd688aa44c1abbb64623e11f94ac7eca98f1b",
+    "bytes": 207979868,
+    "fetched_at": "2026-11-14T20:15:43Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00011-of-00159.parquet",
+    "path": "data/math-00011-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00011-of-00159.parquet",
+    "sha256": "77e15407825ec8252391447e30a5cad988466cf28654aac1d50e1209b372bc35",
+    "bytes": 205671489,
+    "fetched_at": "2026-11-14T20:15:43Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00012-of-00159.parquet",
+    "path": "data/math-00012-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00012-of-00159.parquet",
+    "sha256": "c780946f7c2db2885facce1da3345b5f9a7aea818df3fcf223f30655351ae644",
+    "bytes": 208872797,
+    "fetched_at": "2026-11-14T20:15:52Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00013-of-00159.parquet",
+    "path": "data/math-00013-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00013-of-00159.parquet",
+    "sha256": "2cf5e4cc3aa51c28cf91d131f2572c0509fe302daebad7c104847912ddea6b0c",
+    "bytes": 208285467,
+    "fetched_at": "2026-11-14T20:16:00Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00014-of-00159.parquet",
+    "path": "data/math-00014-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00014-of-00159.parquet",
+    "sha256": "f05bbeef1d5d5241cf9199348e51f033d4066a83301a0177f9fd485b51b173c2",
+    "bytes": 208284276,
+    "fetched_at": "2026-11-14T20:16:39Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00015-of-00159.parquet",
+    "path": "data/math-00015-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00015-of-00159.parquet",
+    "sha256": "a68ff75e5b7e1343f298dce0378190a06e422d192634bb8a1311cb50713d2745",
+    "bytes": 208562037,
+    "fetched_at": "2026-11-14T20:16:58Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00016-of-00159.parquet",
+    "path": "data/math-00016-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00016-of-00159.parquet",
+    "sha256": "0598b23ca493067f5d0bc7408b4bfe72eafff59efee9101a6b9c42d01a72aa36",
+    "bytes": 208527912,
+    "fetched_at": "2026-11-14T20:18:21Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   },
+   {
+    "file": "nemotron-math/files/data__math-00017-of-00159.parquet",
+    "path": "data/math-00017-of-00159.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1/resolve/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8/data/math-00017-of-00159.parquet",
+    "sha256": "897badf5facf147815ed0fd562637e162427d95971e0bb3c8a14086038c8d082",
+    "bytes": 206922883,
+    "fetched_at": "2026-11-14T20:20:28Z",
+    "source_revision": "74e23eb6f830fef4a9e96a92f6f6262214cbb9a8"
+   }
+  ],
+  "oasst1": [
+   {
+    "file": "oasst1/default/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/OpenAssistant/oasst1/parquet/default/train/0.parquet",
+    "sha256": "bbfadf5ed1278ba2208c837fdcad865adf65f5df55d80abadab2745db13fcb5e",
+    "bytes": 39516251,
+    "fetched_at": "2026-11-14T18:02:36Z",
+    "config": "default",
+    "split": "train",
+    "source_revision": "fdf72ae0827c"
+   },
+   {
+    "file": "oasst1/default/validation/validation-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/OpenAssistant/oasst1/parquet/default/validation/0.parquet",
+    "sha256": "24002597bb13a7edd42d92f773762f25e285f72c31a70449393d0ded1dc7b416",
+    "bytes": 2080179,
+    "fetched_at": "2026-11-14T18:02:37Z",
+    "config": "default",
+    "split": "validation",
+    "source_revision": "fdf72ae0827c"
+   }
+  ],
+  "oasst2": [
+   {
+    "file": "oasst2/default/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/OpenAssistant/oasst2/parquet/default/train/0.parquet",
+    "sha256": "9638227b41b0a4fb69afa5d5c4b52e3fb6abfd56c9870d81bae32c9981e769b1",
+    "bytes": 63494018,
+    "fetched_at": "2026-11-14T18:39:42Z",
+    "config": "default",
+    "split": "train",
+    "source_revision": "179dd21fc551"
+   },
+   {
+    "file": "oasst2/default/validation/validation-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/OpenAssistant/oasst2/parquet/default/validation/0.parquet",
+    "sha256": "fd46c63babc0756909a957ee40975bcf5610d58c5d1ab5ff2c57c0f57be1f273",
+    "bytes": 3180111,
+    "fetched_at": "2026-11-14T18:39:43Z",
+    "config": "default",
+    "split": "validation",
+    "source_revision": "179dd21fc551"
+   }
+  ],
+  "opencodeinstruct": [
+   {
+    "file": "opencodeinstruct/files/data__train-00000-of-00050.parquet",
+    "path": "data/train-00000-of-00050.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/OpenCodeInstruct/resolve/8f3ba5bafe4d6e8db46082cf7ae6741bc370604d/data/train-00000-of-00050.parquet",
+    "sha256": "342757e0c6b706c8f68cf0a867ead5c417d0273726453dbcfc934f5c3c6ca891",
+    "bytes": 133476478,
+    "fetched_at": "2026-11-14T20:20:29Z",
+    "source_revision": "8f3ba5bafe4d6e8db46082cf7ae6741bc370604d"
+   },
+   {
+    "file": "opencodeinstruct/files/data__train-00001-of-00050.parquet",
+    "path": "data/train-00001-of-00050.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/OpenCodeInstruct/resolve/8f3ba5bafe4d6e8db46082cf7ae6741bc370604d/data/train-00001-of-00050.parquet",
+    "sha256": "2e822b1c8503683ab58aafe9eccbc546925f87bec45ced9b6040a43275e1d1d0",
+    "bytes": 117050851,
+    "fetched_at": "2026-11-14T20:20:29Z",
+    "source_revision": "8f3ba5bafe4d6e8db46082cf7ae6741bc370604d"
+   },
+   {
+    "file": "opencodeinstruct/files/data__train-00002-of-00050.parquet",
+    "path": "data/train-00002-of-00050.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/OpenCodeInstruct/resolve/8f3ba5bafe4d6e8db46082cf7ae6741bc370604d/data/train-00002-of-00050.parquet",
+    "sha256": "3fe342d7fb8616f4619a1f9183b71b42d9da3f5e68b9d1ca6d3afd6dbaee5037",
+    "bytes": 115849397,
+    "fetched_at": "2026-11-14T20:20:29Z",
+    "source_revision": "8f3ba5bafe4d6e8db46082cf7ae6741bc370604d"
+   },
+   {
+    "file": "opencodeinstruct/files/data__train-00003-of-00050.parquet",
+    "path": "data/train-00003-of-00050.parquet",
+    "url": "https://huggingface.co/datasets/nvidia/OpenCodeInstruct/resolve/8f3ba5bafe4d6e8db46082cf7ae6741bc370604d/data/train-00003-of-00050.parquet",
+    "sha256": "19aed4cc15ea04b3e9d842cb5bed9222fd4b0b84d59a206d4768642a27a82046",
+    "bytes": 118088378,
+    "fetched_at": "2026-11-14T20:20:38Z",
+    "source_revision": "8f3ba5bafe4d6e8db46082cf7ae6741bc370604d"
+   }
+  ],
+  "quartz": [
+   {
+    "file": "quartz/default/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/allenai/quartz/parquet/default/train/0.parquet",
+    "sha256": "edeb1fa716d945ee198c9f5ce5ab6cad4d847e714ff7463834dee422c8450035",
+    "bytes": 415195,
+    "fetched_at": "2026-11-14T20:59:15Z",
+    "config": "default",
+    "split": "train",
+    "source_revision": "28c1dbb56caf"
+   },
+   {
+    "file": "quartz/default/validation/validation-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/allenai/quartz/parquet/default/validation/0.parquet",
+    "sha256": "91afc8bbdb1b6b67f35f05ea4b4dbc1ba718ec2469be665a386c46b4648a1fb4",
+    "bytes": 54296,
+    "fetched_at": "2026-11-14T20:59:16Z",
+    "config": "default",
+    "split": "validation",
+    "source_revision": "28c1dbb56caf"
+   }
+  ],
+  "roman-urdu-parl": [
+   {
+    "file": "roman-urdu-parl/default/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/Mavkif/Roman-Urdu-Parl-split/parquet/default/train/0.parquet",
+    "sha256": "165dfa826a1042e1d7da274df48b1ebfe687f56c2680c24066e0be3f85c4b8df",
+    "bytes": 133879286,
+    "fetched_at": "2026-11-14T18:39:52Z",
+    "config": "default",
+    "split": "train",
+    "source_revision": "b9ef67066158"
+   }
+  ],
+  "scienceqa-text": [
+   {
+    "file": "scienceqa-text/default/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/derek-thomas/ScienceQA/parquet/default/train/0.parquet",
+    "sha256": "62c90a28e3fb1bc0ad7bbcab1ac62b483ae6758291a655944d8f494bf6445745",
+    "bytes": 377460993,
+    "fetched_at": "2026-11-14T18:03:02Z",
+    "config": "default",
+    "split": "train",
+    "source_revision": "f18b0a70359e"
+   }
+  ],
+  "self-oss-instruct": [
+   {
+    "file": "self-oss-instruct/default/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/bigcode/self-oss-instruct-sc2-exec-filter-50k/parquet/default/train/0.parquet",
+    "sha256": "7bd6092e9940aedebe31f7049c460ba1549a920de5cb4b9bb36b0093cd51fc93",
+    "bytes": 90128158,
+    "fetched_at": "2026-11-14T18:03:06Z",
+    "config": "default",
+    "split": "train",
+    "source_revision": "356bb069eee8"
+   }
+  ],
+  "strategyqa": [
+   {
+    "file": "strategyqa/default/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/ChilleD/StrategyQA/parquet/default/train/0.parquet",
+    "sha256": "82262246f9f669cc69128c64d96e81860d232482565ecb9d9c63e7ee2c6574a7",
+    "bytes": 369335,
+    "fetched_at": "2026-11-14T20:59:15Z",
+    "config": "default",
+    "split": "train",
+    "source_revision": "705562638fe1"
+   }
+  ],
+  "tydiqa-goldp": [
+   {
+    "file": "tydiqa-goldp/secondary_task/train/train-0000.parquet",
+    "url": "https://huggingface.co/api/datasets/google-research-datasets/tydiqa/parquet/secondary_task/train/0.parquet",
+    "sha256": "8139944554bcd89f6c4b167b93c9a63ec44a6d97b8caebe049061f78fcc0e786",
+    "bytes": 26918058,
+    "fetched_at": "2026-11-14T18:39:45Z",
+    "config": "secondary_task",
+    "split": "train",
+    "source_revision": "da78f23f9119"
+   }
+  ],
+  "wikipedia-fr": [
+   {
+    "file": "wikipedia-fr/files/20231101.fr__train-00002-of-00017.parquet",
+    "path": "20231101.fr/train-00002-of-00017.parquet",
+    "url": "https://huggingface.co/datasets/wikimedia/wikipedia/resolve/b04c8d1ceb2f5cd4588862100d08de323dccfbaa/20231101.fr/train-00002-of-00017.parquet",
+    "sha256": "b051aa3da29efdb86285fc3409320b04241955d318719a561d21a92eac91b36e",
+    "bytes": 348323642,
+    "fetched_at": "2026-11-14T20:21:58Z",
+    "source_revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa"
+   }
+  ],
+  "wikipedia-hi": [
+   {
+    "file": "wikipedia-hi/files/20231101.hi__train-00000-of-00002.parquet",
+    "path": "20231101.hi/train-00000-of-00002.parquet",
+    "url": "https://huggingface.co/datasets/wikimedia/wikipedia/resolve/b04c8d1ceb2f5cd4588862100d08de323dccfbaa/20231101.hi/train-00000-of-00002.parquet",
+    "sha256": "48001d229cb28d1e74c1f6bac76a1d0ccfc2ffa05c8fb9c2201a5b56108e7c58",
+    "bytes": 134883945,
+    "fetched_at": "2026-11-14T18:44:28Z",
+    "source_revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa"
+   }
+  ],
+  "wikipedia-id": [
+   {
+    "file": "wikipedia-id/files/20231101.id__train-00000-of-00003.parquet",
+    "path": "20231101.id/train-00000-of-00003.parquet",
+    "url": "https://huggingface.co/datasets/wikimedia/wikipedia/resolve/b04c8d1ceb2f5cd4588862100d08de323dccfbaa/20231101.id/train-00000-of-00003.parquet",
+    "sha256": "ff54e23415c8e62cddb75dcb7d5f4ae95ab6868306ea9c4735516381dbb4c559",
+    "bytes": 266839014,
+    "fetched_at": "2026-11-14T18:45:08Z",
+    "source_revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa"
+   }
+  ],
+  "wikipedia-ko": [
+   {
+    "file": "wikipedia-ko/files/20231101.ko__train-00000-of-00003.parquet",
+    "path": "20231101.ko/train-00000-of-00003.parquet",
+    "url": "https://huggingface.co/datasets/wikimedia/wikipedia/resolve/b04c8d1ceb2f5cd4588862100d08de323dccfbaa/20231101.ko/train-00000-of-00003.parquet",
+    "sha256": "28ff69a402878eba3be42dfd187f37876b917b72eb9b05896ed7469fa681bb03",
+    "bytes": 400000634,
+    "fetched_at": "2026-11-14T18:44:57Z",
+    "source_revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa"
+   }
+  ],
+  "wikipedia-ur": [
+   {
+    "file": "wikipedia-ur/files/20231101.ur__train-00000-of-00001.parquet",
+    "path": "20231101.ur/train-00000-of-00001.parquet",
+    "url": "https://huggingface.co/datasets/wikimedia/wikipedia/resolve/b04c8d1ceb2f5cd4588862100d08de323dccfbaa/20231101.ur/train-00000-of-00001.parquet",
+    "sha256": "f711c56af77a88ea8036282c9c49243d0319fe0ddf08ea4e88800d0482d6f8d0",
+    "bytes": 167627869,
+    "fetched_at": "2026-11-14T18:44:23Z",
+    "source_revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa"
+   }
+  ]
+ },
+ "upstream_risks": {
+  "nemotron-math": "prompts collected by NVIDIA from 'public and open corpora' (not itemised per row)",
+  "opencodeinstruct": "generator model not named on the card; confirm before commercial release (reject = set status to 'rejected' and rebuild)",
+  "roman-urdu-parl": "Roman-Urdu authorship (human vs tool) not documented on the card; spot checks show some imperfectly aligned pairs (quality score lowered to 0.5)"
+ },
+ "review_basis": "owner_attestation",
+ "approval": {
+  "type": "owner_attestation",
+  "recorded_at": "2026-11-15",
+  "attested_by": "project owner (Approx Technology) — instruction in the Approx AI build session",
+  "statement": "Human review of the Approx training datasets is complete; review must not block training.",
+  "per_record_decisions_imported": 0
+ }
+}
