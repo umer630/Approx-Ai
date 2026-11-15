@@ -113,6 +113,13 @@ def prepare_dataset(model_id: str, ds_dir: Path, *, smoke: bool = False, smoke_s
         pool = dh.build_pool(only={"approx-curriculum"}, curriculum_scale=smoke_scale, log=lambda *a: None)
         prof = dict(dh.load_profile(model_id), min_records=10, max_records=400, language_min={}, domain_min_share={}, min_human_reviewed=0)
         return dh.build_model(model_id, pool, ds_dir, prof, publish=False)
+    # Resumed run: its own dataset (on Drive) is reused when every file still matches its manifest — no rebuild, and
+    # the data under an existing checkpoint can never change.
+    if (ds_dir / "manifest.json").exists():
+        man = json.loads((ds_dir / "manifest.json").read_text())
+        if man.get("model_id") == model_id and all((ds_dir / n).exists() and dh.connectors.sha256_file(ds_dir / n) == meta["sha256"]
+                                                   for n, meta in man["files"].items()):
+            return man
     pre = dh.DATASETS / model_id / "build"
     if (pre / "manifest.json").exists():
         man = json.loads((pre / "manifest.json").read_text())

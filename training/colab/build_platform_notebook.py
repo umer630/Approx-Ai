@@ -45,6 +45,10 @@ Nothing is faked: no GPU → it stops with `GPU_REQUIRED`.
 #@title 1 · Which models to train { display-mode: "form" }
 MODELS = "nick-4.8"  #@param {type:"string"}
 #@markdown Space-separated subset of: nick-4.8 hike-6.5 sona-9.0 fab-500x
+RUN_ID = "nick-4.8-r2"  #@param {type:"string"}
+#@markdown Versioned run folder (<Drive>/ApproxAI/work/<model>/runs/<RUN_ID>/). Keep the SAME value to resume after a
+#@markdown runtime reset; use a NEW value for a fresh run. The recovered Nick 4.8 adapter (work/nick-4.8/train_output)
+#@markdown is never read or written.
 TIME_BUDGET_MINUTES = 0  #@param {type:"integer"}
 #@markdown 0 = run to completion. Otherwise the run saves a checkpoint and pauses after this long; re-run to resume.
 print("models:", MODELS, "| time budget:", TIME_BUDGET_MINUTES or "none")
@@ -105,7 +109,7 @@ for m in MODELS.split():
 #@title 6 · Run the training platform (dataset → train → evaluate → release)
 import subprocess, sys, os
 cmd = [sys.executable, "-u", "run_all_training.py", "--models", *MODELS.split(),
-       "--models-dir", MODELS_DIR, "--work-dir", WORK_DIR, "--resume"]
+       "--models-dir", MODELS_DIR, "--work-dir", WORK_DIR, "--run-id", RUN_ID, "--resume"]
 if TIME_BUDGET_MINUTES:
     cmd += ["--time-budget-minutes", str(TIME_BUDGET_MINUTES)]
 # Optional: push finished artifacts straight into your backend registry (fill in and uncomment).

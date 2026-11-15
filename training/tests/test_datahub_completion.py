@@ -315,3 +315,23 @@ class TestPromptDedup(Fixture):
         pool = self.pool(self.reg(src("a", "a.jsonl")))
         self.assertEqual(len(pool["records"]), 1)
         self.assertEqual(pool["stats"].get("rejected:duplicate_prompt", 0), 1)
+
+
+class TestResumeReusesRunDataset(ReviewFixture):
+    def test_resumed_run_reuses_its_verified_dataset_and_rebuilds_if_tampered(self):
+        import shutil
+        from engine import runner
+        ds = self.tmp / "work" / "m" / "runs" / "r1" / "dataset"
+        ds.mkdir(parents=True)
+        for f in ("train.jsonl", "eval.jsonl", "test.jsonl", "manifest.json"):
+            shutil.copy2(self.datasets / "m" / "build" / f, ds / f)
+        man = json.loads((ds / "manifest.json").read_text())
+        before = {f: (ds / f).stat().st_mtime_ns for f in man["files"]}
+        got = runner.prepare_dataset("m", ds)
+        self.assertEqual(got["content_fingerprint_sha256"], man["content_fingerprint_sha256"])
+        self.assertEqual(before, {f: (ds / f).stat().st_mtime_ns for f in man["files"]}, "files untouched on resume")
+        # tampered run dataset → not reused (falls back to the prebuilt/verified copy)
+        (ds / "train.jsonl").write_text("tampered\n")
+        got2 = runner.prepare_dataset("m", ds)
+        self.assertEqual(got2["files"]["train.jsonl"]["sha256"], man["files"]["train.jsonl"]["sha256"])
+        self.assertNotEqual((ds / "train.jsonl").read_text(), "tampered\n")
