@@ -114,11 +114,40 @@ public class MainActivity extends Activity {
             public void onGlobalLayout() { installPressFeedback(root); }
         });
         // Production builds bake the backend URL (APPROX_SERVER_URL → default_server_url): fresh install → sign in.
-        String server = resolveServer();
-        if (server.length() == 0) { showWelcome(); return; }
-        api = new Api(server, store.getToken());
-        if (api.getToken() == null) showLogin(); else loadSession();
-        handleAuthIntent(getIntent());   // returning from Google sign-in in the browser
+        final String server = resolveServer();
+        // Branded launch: Approx logo + "by Approx Technology" with a short fade/scale, then the session check
+        // (saved session → chat, otherwise sign-in). Total ≈ 0.9 s; no artificial loading screen beyond that.
+        showSplash();
+        root.postDelayed(new Runnable() { public void run() {
+            if (server.length() == 0) { showWelcome(); return; }
+            api = new Api(server, store.getToken());
+            if (api.getToken() == null) showLogin(); else loadSession();
+            handleAuthIntent(getIntent());   // returning from Google sign-in in the browser
+        } }, 900);
+    }
+
+    /** Launch screen: logo, product name and "by Approx Technology" on white, fading/scaling in. */
+    void showSplash() {
+        LinearLayout col = new LinearLayout(this);
+        col.setOrientation(LinearLayout.VERTICAL);
+        col.setGravity(Gravity.CENTER);
+        col.setBackgroundColor(BG);
+        ImageView iv = new ImageView(this);
+        iv.setImageResource(R.drawable.logo_mark);
+        iv.setContentDescription("Approx AI");
+        col.addView(iv, new LinearLayout.LayoutParams(dp(96), dp(96)));
+        TextView name = text("Approx AI", 24, Color.parseColor("#13201A"), true);
+        name.setGravity(Gravity.CENTER);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        lp.topMargin = dp(16);
+        col.addView(name, lp);
+        TextView by = text("by Approx Technology", 13, MUTED, false);
+        by.setGravity(Gravity.CENTER);
+        col.addView(by);
+        root.removeAllViews();
+        root.addView(col, new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
+        col.setAlpha(0f); col.setScaleX(0.92f); col.setScaleY(0.92f);
+        col.animate().alpha(1f).scaleX(1f).scaleY(1f).setDuration(450).start();
     }
 
     /** The backend URL baked at build time (empty in an unconfigured build). */

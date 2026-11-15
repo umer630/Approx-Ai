@@ -190,7 +190,7 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     ok('desktop: sidebar drawer visible with Approx sections', await p.locator('#drawer').isVisible() && ['Projects', 'Approx Code', 'Artifacts', 'Schedule', 'Approx Work'].every((n) => true) &&
       ['Projects', 'Approx Code', 'Artifacts', 'Schedule', 'Approx Work', 'Recent'].every(Boolean));
     const drawerText = await p.locator('#drawer').innerText();
-    for (const n of ['Approx', 'Projects', 'Approx Code', 'Artifacts', 'Schedule', 'Approx Work', 'Recent']) ok(`drawer: ${n}`, drawerText.toLowerCase().includes(n.toLowerCase()));
+    for (const n of ['Approx', 'Projects', 'Approx Code', 'Artifacts', 'Schedule', 'Approx Work', 'Recent tasks', 'Other tasks']) ok(`drawer: ${n}`, drawerText.toLowerCase().includes(n.toLowerCase()));
     const navLabels = await p.locator('nav.bottom-nav a').evaluateAll((as) => as.map((a) => a.getAttribute('aria-label')));
     ok('bottom nav: Chat / History / Work / Settings', JSON.stringify(navLabels) === '["Chat","History","Work","Settings"]', navLabels.join(','));
 

@@ -343,6 +343,7 @@ function tokenView(kind) {
 // ---------------- shell: top bar + main + composer + three-button nav ----------------
 // ---------------- persistent app shell: drawer + header + main + composer + bottom nav ----------------
 // Built once per sign-in and kept: navigating only swaps the main area (no full re-render, no reload).
+let otherEl;
 let mainEl; let composerEl; let shellEl; let titleEl; let moreBtn; let drawerEl; let recentEl;
 const NAV = [['#/', 'chat', 'Chat'], ['#/history', 'history', 'History'], ['#/work', 'work', 'Work'], ['#/settings', 'settings', 'Settings']];
 const fabWorkspace = () => state.models.some((m) => m.workspace === 'fab500x-code' && m.available);
@@ -367,7 +368,8 @@ function buildShell() {
     h('nav', { class: 'drawer-nav' }, DRAWER_LINKS.map(([href, ic, label]) => h('a', { href, 'data-route': href }, icon(ic), h('span', {}, label))),
       // FAB 500X Code appears only for accounts holding the (server-checked) private grant.
       fabWorkspace() ? h('a', { href: '#/fab500x', 'data-route': '#/fab500x', class: 'drawer-fab' }, icon('shield'), h('span', {}, 'FAB 500X Code')) : null),
-    h('div', { class: 'drawer-label' }, 'Recent'), recentEl,
+    h('div', { class: 'drawer-label' }, 'Recent tasks'), recentEl,
+    h('div', { class: 'drawer-label' }, 'Other tasks'), (otherEl = h('div', { class: 'drawer-other' })),
     h('a', { class: 'drawer-more', href: '#/history' }, 'All history', icon('chevron')),
     h('a', { class: 'drawer-user', href: '#/settings/profile' }, h('span', { class: 'avatar' }, initials),
       h('span', { class: 'grow' }, h('b', {}, state.user.display_name || state.user.email.split('@')[0]), h('span', { class: 'small muted' }, `${state.user.plan} plan`))));
@@ -410,6 +412,15 @@ export function refreshRecent(force = false) {
     : [h('div', { class: 'small muted pad' }, 'No conversations yet.')]));
   if (!recentEl.childElementCount) recentEl.replaceChildren(...[1, 2, 3, 4].map(() => h('div', { class: 'skeleton line' })));
   cached('/api/chats?view=active&limit=15', 15_000, draw).then(draw).catch(() => recentEl.replaceChildren(h('div', { class: 'small muted pad' }, 'Could not load recent chats.')));
+  // Other tasks: real background work (agent proposals waiting for review, training jobs for admins) from /api/tasks.
+  if (otherEl) {
+    const drawTasks = (t) => {
+      const open = (t.tasks || []).filter((x) => !['applied', 'rejected', 'succeeded', 'failed', 'cancelled'].includes(x.status)).slice(0, 5);
+      otherEl.replaceChildren(...(open.length ? open.map((x) => h('a', { href: '#/work', class: 'recent-item', title: x.title }, `${x.title} · ${String(x.status).replace(/_/g, ' ')}`))
+        : [h('div', { class: 'small muted pad' }, 'No background tasks.')]));
+    };
+    cached('/api/tasks', 30_000, drawTasks).then(drawTasks).catch(() => otherEl.replaceChildren(h('div', { class: 'small muted pad' }, 'Could not load tasks.')));
+  }
 }
 export function setMain(...nodes) { mainEl.replaceChildren(...nodes); }
 export function hideComposer() { composerEl.classList.add('hidden'); }
