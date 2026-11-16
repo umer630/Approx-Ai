@@ -72,10 +72,15 @@ async function identityFromCallback(b, types) {
   const th = String(b.token_hash || b.token || '').trim();
   if (th.length < 6 || th.length > 200) throw bad('Invalid or expired token', 'invalid_token');
   const tryTypes = b.type && types.includes(b.type) ? [b.type] : types;
+  // A typed code (digits from the email) is an email OTP and must be verified WITH the address — Supabase rejects it
+  // as a token_hash. Link tokens (token_hash) keep the hash path.
+  const isCode = !b.token_hash && /^\d{6,10}$/.test(th);
+  const email = String(b.email || '').trim().toLowerCase();
+  if (isCode && !isEmail(email)) throw bad('Enter the email address the code was sent to.', 'email_required');
   let last;
   for (const type of tryTypes) {
     try {
-      const s = await sb.verifyTokenHash(th, type);
+      const s = isCode ? await sb.verifyEmailOtp(email, th, type) : await sb.verifyTokenHash(th, type);
       return { user: s.user, accessToken: s.access_token };
     } catch (e) { last = e; }
   }

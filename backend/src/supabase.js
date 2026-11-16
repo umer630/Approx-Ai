@@ -72,6 +72,8 @@ export const sb = {
   resendSignup: (email) => call('POST', '/resend', { query: { redirect_to: redirectTo() }, body: { type: 'signup', email } }),
   recover: (email) => call('POST', '/recover', { query: { redirect_to: redirectTo() }, body: { email } }),
   verifyTokenHash: (tokenHash, type) => call('POST', '/verify', { body: { type, token_hash: tokenHash } }),
+  // The numeric code from the email ({{ .Token }}) is an email OTP: Supabase verifies it together with the address.
+  verifyEmailOtp: (email, token, type) => call('POST', '/verify', { body: { type, email, token } }),
   getUser: (accessToken) => call('GET', '/user', { bearer: accessToken }),
   updateUser: (accessToken, attrs) => call('PUT', '/user', { bearer: accessToken, query: attrs.email ? { redirect_to: redirectTo() } : undefined, body: attrs }),
   /** Ends the Supabase session we only needed to prove identity (Approx issues its own session). Best effort. */

@@ -514,8 +514,13 @@ public class MainActivity extends Activity {
         add(col, button("Sign in", true, new Runnable() { public void run() {
             if (email.getText().toString().trim().length() == 0 || pw.getText().length() == 0) { toast("Enter your email and password."); return; }
             final JSONObject body = obj("email", email.getText().toString().trim(), "password", pw.getText().toString(), "client", "mobile");
-            bg(new Job() { public Object run() throws Exception { return api.post("/api/auth/login", body); } }, new Done() { public void ok(Object r) {
+            bg(new Job() { public Object run() throws Exception {
+                try { return api.post("/api/auth/login", body); }
+                catch (Api.ApiException e) { if ("email_not_verified".equals(e.code)) return obj("unverified", e.getMessage()); throw e; }
+            } }, new Done() { public void ok(Object r) {
                 JSONObject o = (JSONObject) r;
+                // Correct password but email not verified yet: go straight to the code screen for this address.
+                if (o.has("unverified")) { toast(o.optString("unverified")); showVerify(body.optString("email")); return; }
                 String tok = o.optString("token");
                 store.setToken(tok);
                 api.setToken(tok);
@@ -527,7 +532,7 @@ public class MainActivity extends Activity {
         View sp = new View(this); links.addView(sp, new LinearLayout.LayoutParams(0, 1, 1));
         links.addView(link("Forgot password?", new Runnable() { public void run() { showForgot(); } }));
         add(col, links, 6);
-        add(col, link("Have a verification code?", new Runnable() { public void run() { showVerify(); } }), 0);
+        add(col, link("Have a verification code?", new Runnable() { public void run() { showVerify(email.getText().toString().trim()); } }), 0);
     }
 
     void showSignup() {
@@ -546,26 +551,31 @@ public class MainActivity extends Activity {
             if (!p1.equals(pw2.getText().toString())) { toast("The passwords don't match."); return; }
             final JSONObject body = obj("email", email.getText().toString().trim(), "password", pw.getText().toString(), "display_name", name.getText().toString().trim());
             bg(new Job() { public Object run() throws Exception { return api.post("/api/auth/signup", body); } }, new Done() { public void ok(Object r) {
-                toast("Check your email for a verification code.");
-                showVerify();
+                toast(((JSONObject) r).optString("message", "Check your email for the verification link or code."));
+                showVerify(body.optString("email"));
             } });
         } }), 16);
         add(col, link("Already have an account? Sign in", new Runnable() { public void run() { showLogin(); } }), 6);
     }
 
-    void showVerify() {
-        LinearLayout col = formPage("Verify your email", "Paste the verification code from your email.");
-        final EditText code = input("Verification code", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
-        add(col, code, 24);
+    void showVerify() { showVerify(user != null ? user.optString("email") : ""); }
+
+    /** Enter the code from the email. The code is verified together with the address it was sent to (Supabase email
+     *  OTP); the link in the same email works too and returns here via "Open the Approx app". */
+    void showVerify(String prefillEmail) {
+        LinearLayout col = formPage("Verify your email", "Enter the code from your email, or open the link in it.");
+        final EditText email = input("Email", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+        if (prefillEmail != null) email.setText(prefillEmail);
+        add(col, email, 24);
+        final EditText code = input("Verification code", InputType.TYPE_CLASS_NUMBER);
+        add(col, code, 10);
         add(col, button("Verify", true, new Runnable() { public void run() {
-            final JSONObject body = obj("token", code.getText().toString().trim());
+            final JSONObject body = obj("email", email.getText().toString().trim(), "token", code.getText().toString().trim());
             bg(new Job() { public Object run() throws Exception { return api.post("/api/auth/verify-email", body); } }, new Done() { public void ok(Object r) {
                 toast("Email verified.");
                 if (user != null) { try { user.put("email_verified", true); } catch (JSONException ignored) { } showChat(null); } else showLogin();
             } });
         } }), 16);
-        final EditText email = input("Email (to resend)", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-        add(col, email, 28);
         // Resend with a cooldown (60 s, or the server's exact wait on 429) so the app never triggers Supabase's limit.
         final TextView[] rb = new TextView[1];
         rb[0] = button("Resend code", false, new Runnable() { public void run() {
@@ -595,7 +605,7 @@ public class MainActivity extends Activity {
         final EditText pw = input("New password", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         add(col, code, 28); add(col, pw, 10);
         add(col, button("Set new password", true, new Runnable() { public void run() {
-            final JSONObject body = obj("token", code.getText().toString().trim(), "password", pw.getText().toString());
+            final JSONObject body = obj("email", email.getText().toString().trim(), "token", code.getText().toString().trim(), "password", pw.getText().toString());
             bg(new Job() { public Object run() throws Exception { return api.post("/api/auth/reset-password", body); } }, new Done() { public void ok(Object r) { toast("Password updated. Please sign in."); showLogin(); } });
         } }), 12);
         add(col, link("Back to sign in", new Runnable() { public void run() { showLogin(); } }), 6);

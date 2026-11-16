@@ -292,7 +292,7 @@ function checkEmailView(address) {
   authFrame('Check your email', null,
     h('p', { class: 'center' }, 'If ', h('b', {}, address), ' is new to Approx, a verification link is on its way. Open it to activate your account.'),
     h('p', { class: 'center small muted' }, 'Can’t find it? Check Spam and Promotions. Already have an account with this email? No new link is sent — sign in or use Forgot password.'), msg, resend,
-    h('div', { class: 'auth-links' }, h('a', { href: '#/login' }, 'Back to sign in'), h('a', { href: '#/verify' }, 'Have a code?')));
+    h('div', { class: 'auth-links' }, h('a', { href: '#/login' }, 'Back to sign in'), h('a', { href: `#/verify?email=${encodeURIComponent(address)}` }, 'Have a code?')));
 }
 
 /** Android "Continue with Google": runs Google sign-in in the browser, then returns to the app with a one-time code. */
@@ -314,7 +314,9 @@ function tokenView(kind) {
   const params = new URLSearchParams(location.hash.split('?')[1] || '');
   const cb = takeCallback(); // set when the person arrived from a Supabase email link
   const msg = formMsg();
-  const tok = h('input', { class: 'input', value: params.get('token') || '', id: 'token', autocomplete: 'one-time-code' });
+  const tok = h('input', { class: 'input', value: params.get('token') || '', id: 'token', autocomplete: 'one-time-code', inputmode: 'numeric' });
+  // A typed code is verified together with the email address it was sent to (Supabase email OTP).
+  const codeEmail = h('input', { class: 'input', type: 'email', id: 'code-email', autocomplete: 'email', value: params.get('email') || state.user?.email || recentAccounts()[0]?.email || '' });
   const pw = h('input', { class: 'input', type: 'password', autocomplete: 'new-password', id: 'newpw' });
   const resendEmail = h('input', { class: 'input', type: 'email', placeholder: 'you@example.com' });
   const btn = h('button', { class: 'btn primary block', type: 'submit' }, kind === 'reset' ? 'Set new password' : 'Confirm');
@@ -325,7 +327,7 @@ function tokenView(kind) {
     const label = btn.textContent;
     btn.disabled = true; btn.classList.add('loading'); btn.setAttribute('aria-busy', 'true'); btn.textContent = 'Please wait…';
     try {
-      const proof = linkProof || { token: tok.value.trim() };
+      const proof = linkProof || { token: tok.value.trim(), email: codeEmail.value.trim() };
       if (kind === 'verify') {
         const r = await api('/api/auth/verify-email', { method: 'POST', body: { ...proof, sign_in: !!linkProof } });
         if (r.user) { state.user = r.user; setCsrf(r.csrf_token); rememberAccount(r.user); await bootstrap(); }
@@ -344,6 +346,7 @@ function tokenView(kind) {
       }
     } catch (err) { showMsg(msg, err.message); } finally { btn.disabled = false; btn.classList.remove('loading'); btn.removeAttribute('aria-busy'); btn.textContent = label; }
   } },
+  linkProof ? null : h('div', { class: 'field' }, h('label', { for: 'code-email' }, kind === 'confirm' ? 'New email address' : 'Email'), codeEmail),
   linkProof ? null : h('div', { class: 'field' }, h('label', { for: 'token' }, 'Code from your email'), tok),
   kind === 'reset' ? h('div', { class: 'field' }, h('label', { for: 'newpw' }, 'New password'), pw) : null, msg, btn);
   const extra = kind === 'verify' ? h('details', { class: 'small' }, h('summary', { class: 'muted' }, 'Resend verification email'),

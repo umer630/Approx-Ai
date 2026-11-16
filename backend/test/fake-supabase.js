@@ -23,10 +23,12 @@ export async function startFakeSupabase({ publishableKey = 'sb_publishable_test_
   const send = (to, kind, redirectTo) => {
     for (const o of otps.values()) if (o.email === to && o.kind === kind) o.used = true; // one live token per user & purpose
     const th = 'th_' + rnd(20);
-    otps.set(th, { email: to, kind, used: false });
+    // Like Supabase: every email carries a link token (token_hash) AND a 6-digit code ({{ .Token }}) for the same OTP.
+    const otp = String(crypto.randomInt(0, 1_000_000)).padStart(6, '0');
+    otps.set(th, { email: to, kind, used: false, otp });
     const type = kind === 'signup' ? 'signup' : kind;
     const link = `${base}/auth/v1/verify?token=${th}&type=${type}&redirect_to=${encodeURIComponent(redirectTo || '')}`;
-    emails.push({ to, type, token_hash: th, link, redirect_to: redirectTo });
+    emails.push({ to, type, token_hash: th, otp, link, redirect_to: redirectTo });
   };
   const err = (res, status, code, msg) => { res.writeHead(status, { 'content-type': 'application/json' }); res.end(JSON.stringify({ code: status, error_code: code, msg })); };
   const ok = (res, body, status = 200) => { res.writeHead(status, { 'content-type': 'application/json' }); res.end(JSON.stringify(body)); };
@@ -78,7 +80,12 @@ export async function startFakeSupabase({ publishableKey = 'sb_publishable_test_
     }
     if (req.method === 'POST' && p === '/verify') {
       const kinds = { signup: ['signup'], email: ['signup'], recovery: ['recovery'], email_change: ['email_change'] }[body.type];
-      const o = kinds && consume(body.token_hash, kinds);
+      // Real GoTrue: {token_hash} for link tokens, {email, token} for the numeric code; a code sent as token_hash fails.
+      let th = body.token_hash;
+      if (!th && body.token && body.email) {
+        for (const [k, o2] of otps) if (o2.otp === String(body.token) && o2.email === String(body.email).toLowerCase() && !o2.used) th = k;
+      }
+      const o = kinds && th && consume(th, kinds);
       if (!o) return err(res, 403, 'otp_expired', 'Email link is invalid or has expired');
       const u = users.get(o.email);
       if (o.kind === 'signup') u.confirmed_at ||= new Date().toISOString();
