@@ -603,11 +603,24 @@ public class MainActivity extends Activity {
 
     void loadSession() {
         bg(new Job() { public Object run() throws Exception {
-            JSONObject me = api.get("/api/auth/me");
+            JSONObject me;
+            try { me = api.get("/api/auth/me"); }
+            catch (Api.ApiException e) {
+                // Restore failed before any screen was shown: never leave the user on the splash screen.
+                if (e.status == 401) return "expired";
+                if (e.status == 0) return "offline";
+                throw e;
+            }
+            JSONObject u = me.optJSONObject("user");
+            String st = u == null ? "approved" : u.optString("approval_status", "approved");
+            if (!"approved".equals(st)) return new Object[]{ "status", u.optString("status_message", "Your account is not active.") };
             JSONObject m = api.get("/api/models");
             JSONObject s = api.get("/api/settings");
             return new JSONObject[]{me, m, s};
         } }, new Done() { public void ok(Object r) {
+            if ("expired".equals(r)) { logoutLocal(); toast("Your session ended. Please sign in again."); return; }
+            if ("offline".equals(r)) { showOffline(); return; }
+            if (r instanceof Object[]) { store.setToken(null); api.setToken(null); showLogin(); toast((String) ((Object[]) r)[1]); return; }
             JSONObject[] a = (JSONObject[]) r;
             user = a[0].optJSONObject("user");
             rememberAccount(user);
@@ -615,6 +628,13 @@ public class MainActivity extends Activity {
             mode = a[2].optJSONObject("settings").optString("default_mode", "medium");
             showChat(null);
         } });
+    }
+
+    /** Startup without a connection: keep the saved session and offer a retry (never stuck on the splash). */
+    void showOffline() {
+        LinearLayout col = formPage("You're offline", "Approx AI couldn't reach the server. Your session is kept.");
+        authScreen = "welcome";   // Back exits instead of going to sign-in (the saved session is still valid)
+        add(col, button("Try again", true, new Runnable() { public void run() { showSplash(); loadSession(); } }), 24);
     }
 
     void logoutLocal() {
@@ -1208,36 +1228,7 @@ public class MainActivity extends Activity {
                 .show();
     }
 
-    void advancedServerSettings() {
-        LinearLayout col = settingsPage("Advanced: server settings");
-        add(col, text("Ordinary users never need this. The app connects to the backend configured for this build.", 13, MUTED, false), 4);
-        add(col, text("Current server", 14, TEXT, true), 16);
-        add(col, text(api.getBase(), 14, GREEN, false), 2);
-        add(col, text("Configured by build (default)", 13, MUTED, false), 10);
-        add(col, text(bakedServer().isEmpty() ? "none baked — entered on first run" : bakedServer(), 13, MUTED, false), 2);
-        final EditText url = input("https://", InputType.TYPE_TEXT_VARIATION_URI);
-        url.setText(api.getBase());
-        add(col, text("Override server (admins / self-host)", 14, TEXT, true), 18);
-        add(col, url, 8);
-        add(col, button("Save & reconnect", true, new Runnable() { public void run() {
-            try {
-                final String s = Api.normalizeServer(url.getText().toString());
-                final Api probe = new Api(s, null);
-                bg(new Job() { public Object run() throws Exception { return probe.get("/api/version"); } }, new Done() { public void ok(Object r) {
-                    if (!"Approx AI".equals(((JSONObject) r).optString("product"))) { toast("That server is not an Approx AI server."); return; }
-                    saveServer(s); store.setToken(null); api = probe; user = null;
-                    toast("Server updated. Please sign in."); showLogin();
-                } });
-            } catch (Api.ApiException e) { toast(e.getMessage()); }
-        } }), 14);
-        if (!bakedServer().isEmpty()) {
-            add(col, link("Reset to the build default", new Runnable() { public void run() {
-                store.put("server", ""); store.setToken(null); api = new Api(bakedServer(), null); user = null; toast("Reset to " + bakedServer()); showLogin();
-            } }), 12);
-        }
-    }
-
-    void helpFeedback() {
+void helpFeedback() {
         new AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert)
                 .setTitle("Help & feedback")
                 .setMessage("Approx AI " + appVersion() + " (build " + BuildInfo.BUILD_ID + ")\nServer: " + api.getBase()
@@ -1269,232 +1260,6 @@ public class MainActivity extends Activity {
     void openWeb(String path) {
         toast("Opening in your browser (full Research / Fabbox / Workspace UI).");
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(api.getBase() + path)));
-    }
-
-    // ------------------------------------------------------------------ NEBIUS console
-    boolean isAdmin() { return user != null && !"user".equals(user.optString("role")); }
-    boolean isSuper() { return user != null && "superadmin".equals(user.optString("role")); }
-
-    LinearLayout card(LinearLayout parent, String title) {
-        LinearLayout c = vbox();
-        c.setPadding(dp(14), dp(12), dp(14), dp(14));
-        c.setBackground(bgShape(SURFACE2, 16, LINE));
-        if (title != null) c.addView(text(title, 15, TEXT, true));
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, -2);
-        lp.topMargin = dp(12);
-        parent.addView(c, lp);
-        return c;
-    }
-
-    void kv(LinearLayout c, String k, String v) {
-        LinearLayout r = hbox();
-        r.setPadding(0, dp(5), 0, dp(5));
-        TextView kt = text(k, 13, MUTED, false);
-        r.addView(kt, new LinearLayout.LayoutParams(0, -2, 1));
-        r.addView(text(v == null ? "—" : v, 13, TEXT, false));
-        c.addView(r);
-    }
-
-    void showConsole(final String tab) {
-        LinearLayout col = vbox();
-        col.setPadding(dp(14), dp(12), dp(14), dp(24));
-        col.addView(link("‹ Back to settings", new Runnable() { public void run() { showSettings(); } }));
-        add(col, text("NEBIUS Console", 20, TEXT, true), 6);
-        add(col, text(isAdmin() ? (isSuper() ? "Signed in as superadmin — full control." : "Signed in as admin.") : "Read-only: admin actions require an admin account.", 12, MUTED, false), 2);
-        // tab bar
-        LinearLayout tabs = hbox();
-        tabs.setPadding(0, dp(10), 0, dp(4));
-        final String[] names = {"Dashboard", "Projects", "Compute", "Models", "Settings"};
-        for (final String nm : names) {
-            TextView t = text(nm, 13, tab.equals(nm) ? TEXT : MUTED, tab.equals(nm));
-            t.setPadding(dp(10), dp(8), dp(10), dp(8));
-            if (tab.equals(nm)) { t.setBackground(bgShape(GREEN_SOFT, 999, GREEN)); t.setTextColor(GREEN_TEXT); }
-            t.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { showConsole(nm); } });
-            tabs.addView(t);
-        }
-        HorizontalScrollView hsv = new HorizontalScrollView(this);
-        hsv.setHorizontalScrollBarEnabled(false);
-        hsv.addView(tabs);
-        col.addView(hsv);
-        final LinearLayout body = vbox();
-        col.addView(body, new LinearLayout.LayoutParams(-1, -2));
-        ScrollView sv = new ScrollView(this);
-        sv.addView(col);
-        shell(sv, false);
-
-        add(body, text("Loading…", 13, MUTED, false), 12);
-        if ("Projects".equals(tab)) { consoleProjects(body); return; }
-        if ("Settings".equals(tab)) { body.removeAllViews(); consoleSettings(body); return; }
-        // Dashboard / Compute / Models all read /api/status (+ registry/compute for admins)
-        bg(new Job() { public Object run() throws Exception {
-            JSONObject status = api.get("/api/status");
-            JSONObject extra = new JSONObject();
-            if (isAdmin()) {
-                try { extra.put("registry", api.get("/api/admin/registry")); } catch (Exception ignored) {}
-                try { extra.put("compute", api.get("/api/admin/compute")); } catch (Exception ignored) {}
-            }
-            extra.put("status", status);
-            return extra;
-        } }, new Done() { public void ok(Object r) {
-            body.removeAllViews();
-            JSONObject d = (JSONObject) r;
-            if ("Dashboard".equals(tab)) consoleDashboard(body, d);
-            else if ("Compute".equals(tab)) consoleCompute(body, d);
-            else if ("Models".equals(tab)) consoleModels(body, d);
-        } });
-    }
-
-    void consoleDashboard(LinearLayout body, JSONObject d) {
-        JSONObject status = d.optJSONObject("status");
-        LinearLayout c = card(body, "API");
-        kv(c, "Backend", status == null ? "unreachable" : "online · " + status.optString("version", "?"));
-        kv(c, "Environment", status == null ? "—" : status.optString("environment", "—"));
-        JSONArray ms = status == null ? new JSONArray() : status.optJSONArray("models");
-        LinearLayout mc = card(body, "Models");
-        for (int i = 0; ms != null && i < ms.length(); i++) {
-            JSONObject m = ms.optJSONObject(i);
-            String st = m.optString("backend");
-            String ver = m.isNull("active_version") ? "no active version" : "v" + m.optString("active_version");
-            kv(mc, m.optString("id"), ver + " · " + st + (m.optBoolean("production_ready") ? " · live" : ""));
-        }
-        JSONObject gpu = status == null ? null : status.optJSONObject("gpu");
-        LinearLayout gc = card(body, "Compute");
-        kv(gc, "GPU workers online", gpu == null ? (isAdmin() ? "0" : "admin only") : String.valueOf(gpu.optInt("workers_online", 0)));
-        JSONObject training = status == null ? null : status.optJSONObject("training");
-        kv(gc, "Active training job", training == null || training.isNull("active_job") ? "none" : training.optJSONObject("active_job").optString("phase", "running"));
-    }
-
-    void consoleCompute(final LinearLayout body, JSONObject d) {
-        if (!isAdmin()) { card(body, "Compute").addView(text("GPU compute controls require an admin account.", 13, MUTED, false)); return; }
-        JSONObject compute = d.optJSONObject("compute");
-        final JSONArray workers = compute == null ? new JSONArray() : compute.optJSONArray("workers");
-        LinearLayout wc = card(body, "GPU workers");
-        int online = 0;
-        for (int i = 0; workers != null && i < workers.length(); i++) if (workers.optJSONObject(i).optBoolean("online")) online++;
-        if (online == 0) wc.addView(text("No GPU worker connected. Start one with `run_all_training.py --worker` on a GPU runtime (Colab/NEBIUS).", 13, MUTED, false));
-        for (int i = 0; workers != null && i < workers.length(); i++) {
-            JSONObject w = workers.optJSONObject(i);
-            if (!w.optBoolean("online")) continue;
-            JSONObject g = w.optJSONObject("gpu");
-            kv(wc, w.optString("name", w.optString("id")), (g == null ? "GPU" : g.optString("name") + " · " + g.optString("vram_gb") + " GB") + " · " + (w.isNull("current_job_id") ? "idle" : "busy"));
-        }
-        if (isSuper()) {
-            TextView start = button("Start training job", true, new Runnable() { public void run() {
-                final EditText in = new EditText(MainActivity.this);
-                in.setText("nick-4.8");
-                new AlertDialog.Builder(MainActivity.this, android.R.style.Theme_Material_Light_Dialog_Alert)
-                    .setTitle("Models to train (\"all\" or space-separated ids)").setView(in)
-                    .setPositiveButton("Queue", new DialogInterface.OnClickListener() { public void onClick(DialogInterface di, int wi) {
-                        String val = in.getText().toString().trim();
-                        JSONObject b = new JSONObject();
-                        try { b.put("models", val.equals("all") ? "all" : new JSONArray(java.util.Arrays.asList(val.split("\\s+")))); } catch (JSONException ignored) {}
-                        bg(new Job() { public Object run() throws Exception { return api.post("/api/admin/compute/jobs", b); } }, new Done() { public void ok(Object r) {
-                            toast(((JSONObject) r).optString("note", "Job queued")); showConsole("Compute");
-                        } });
-                    } }).setNegativeButton("Cancel", null).show();
-            } });
-            body.addView(start, new LinearLayout.LayoutParams(-2, -2));
-        }
-        final JSONArray jobs = compute == null ? new JSONArray() : compute.optJSONArray("jobs");
-        LinearLayout jc = card(body, "Jobs");
-        if (jobs == null || jobs.length() == 0) jc.addView(text("No training jobs yet.", 13, MUTED, false));
-        for (int i = 0; jobs != null && i < Math.min(jobs.length(), 8); i++) {
-            final JSONObject j = jobs.optJSONObject(i);
-            LinearLayout r = hbox();
-            r.setPadding(0, dp(6), 0, dp(6));
-            LinearLayout info = vbox();
-            info.addView(text(j.optJSONArray("models") + " · " + j.optString("status"), 13, TEXT, false));
-            info.addView(text(j.optString("phase", ""), 12, MUTED, false));
-            r.addView(info, new LinearLayout.LayoutParams(0, -2, 1));
-            String st = j.optString("status");
-            if (isSuper() && (st.equals("queued") || st.equals("running") || st.equals("stop_requested"))) {
-                r.addView(link("Stop", new Runnable() { public void run() {
-                    bg(new Job() { public Object run() throws Exception { return api.post("/api/admin/compute/jobs/" + j.optString("id") + "/stop", new JSONObject()); } },
-                       new Done() { public void ok(Object r2) { toast("Stop requested"); showConsole("Compute"); } });
-                } }));
-            }
-            jc.addView(r);
-        }
-    }
-
-    void consoleModels(final LinearLayout body, JSONObject d) {
-        JSONObject reg = d.optJSONObject("registry");
-        if (reg == null) {
-            JSONObject status = d.optJSONObject("status");
-            JSONArray ms = status == null ? new JSONArray() : status.optJSONArray("models");
-            LinearLayout c = card(body, "Models");
-            for (int i = 0; ms != null && i < ms.length(); i++) {
-                JSONObject m = ms.optJSONObject(i);
-                kv(c, m.optString("id"), m.isNull("active_version") ? "no active version" : "v" + m.optString("active_version"));
-            }
-            c.addView(text("Version activation requires an admin account.", 12, MUTED, false));
-            return;
-        }
-        JSONArray models = reg.optJSONArray("models");
-        kv(card(body, "Registry"), "Models dir", reg.optString("dir", "—"));
-        for (int i = 0; models != null && i < models.length(); i++) {
-            final JSONObject m = models.optJSONObject(i);
-            LinearLayout c = card(body, null);
-            c.addView(text(m.optString("id") + (m.isNull("active_version") ? "  (no active version)" : "  · active v" + m.optString("active_version")), 15, TEXT, true));
-            JSONArray versions = m.optJSONArray("versions");
-            if (versions == null || versions.length() == 0) c.addView(text("No releases imported.", 13, MUTED, false));
-            for (int v = 0; versions != null && v < versions.length(); v++) {
-                final JSONObject ver = versions.optJSONObject(v);
-                LinearLayout r = hbox();
-                r.setPadding(0, dp(6), 0, dp(6));
-                LinearLayout info = vbox();
-                info.addView(text("v" + ver.optString("version") + " · " + ver.optString("status") + (ver.optBoolean("production_ready") ? " · production" : ""), 13, TEXT, false));
-                if (ver.optJSONArray("errors") != null && ver.optJSONArray("errors").length() > 0)
-                    info.addView(text(ver.optJSONArray("errors").optString(0), 12, MUTED, false));
-                r.addView(info, new LinearLayout.LayoutParams(0, -2, 1));
-                boolean canActivate = isSuper() && ver.optBoolean("activatable") && !ver.optString("version").equals(m.optString("active_version"));
-                if (canActivate) {
-                    r.addView(link(ver.optBoolean("production_ready") ? "Activate" : "Activate (override)", new Runnable() { public void run() {
-                        confirm("Activate v" + ver.optString("version"), ver.optBoolean("production_ready") ? "Make this the live version?" : "This release is NOT production-ready. Activate anyway? (audited)", new Runnable() { public void run() {
-                            final JSONObject b = new JSONObject();
-                            try { b.put("model_id", m.optString("id")); b.put("version", ver.optString("version")); if (!ver.optBoolean("production_ready")) { b.put("allow_non_production", true); b.put("reason", "activated from Android console"); } } catch (JSONException ignored) {}
-                            bg(new Job() { public Object run() throws Exception { return api.post("/api/admin/registry/activate", b); } }, new Done() { public void ok(Object r2) { toast("Activated v" + ver.optString("version")); showConsole("Models"); } });
-                        } });
-                    } }));
-                } else if (isSuper() && ver.optString("version").equals(m.optString("active_version"))) {
-                    r.addView(link("Deactivate", new Runnable() { public void run() {
-                        final JSONObject b = new JSONObject();
-                        try { b.put("model_id", m.optString("id")); } catch (JSONException ignored) {}
-                        bg(new Job() { public Object run() throws Exception { return api.post("/api/admin/registry/deactivate", b); } }, new Done() { public void ok(Object r2) { toast("Deactivated"); showConsole("Models"); } });
-                    } }));
-                }
-                c.addView(r);
-            }
-        }
-    }
-
-    void consoleProjects(final LinearLayout body) {
-        bg(new Job() { public Object run() throws Exception { return api.get("/api/projects"); } }, new Done() { public void ok(Object r) {
-            body.removeAllViews();
-            JSONArray ps = ((JSONObject) r).optJSONArray("projects");
-            LinearLayout c = card(body, "Projects");
-            if (ps == null || ps.length() == 0) c.addView(text("No projects yet. Create one from the chat composer or the web app.", 13, MUTED, false));
-            for (int i = 0; ps != null && i < ps.length(); i++) {
-                JSONObject p = ps.optJSONObject(i);
-                kv(c, p.optString("name"), (p.optString("default_model", "auto")));
-            }
-        } });
-    }
-
-    void consoleSettings(LinearLayout body) {
-        LinearLayout c = card(body, "Backend");
-        if (isAdmin()) kv(c, "Server", api.getBase());
-        kv(c, "Signed in", user == null ? "—" : user.optString("email"));
-        kv(c, "Role", user == null ? "—" : user.optString("role"));
-        kv(c, "App version", appVersion());
-        kv(c, "Build", BuildInfo.BUILD_ID);
-        LinearLayout a = card(body, "Admin actions");
-        if (isAdmin()) {
-            a.addView(link("Open full admin console (web)", new Runnable() { public void run() { openWeb("/#/admin"); } }));
-            a.addView(link("Developer / API console (web)", new Runnable() { public void run() { openWeb("/developers/"); } }));
-        } else {
-            a.addView(text("Admin actions require an admin account.", 13, MUTED, false));
-        }
     }
 
     String appVersion() {
@@ -1649,12 +1414,15 @@ public class MainActivity extends Activity {
                 {"Projects", new Runnable() { public void run() { projectSettings(); } }},
                 {"Files", new Runnable() { public void run() { fileSettings(); } }},
                 {"Subscription", new Runnable() { public void run() { infoPage("Subscription", "Plan: " + (user == null ? "" : user.optString("plan")) + "\n\nFree: Nick 4.8 + Hike 6.5. Pro adds Sona 9.0. FAB is granted individually by Approx Technology.\n\nOnline payments are not enabled in Approx AI 1.0; upgrades are applied by an administrator."); } }},
-                {"NEBIUS console (dashboard, compute, models)", new Runnable() { public void run() { showConsole("Dashboard"); } }},
                 {"API & developer console", new Runnable() { public void run() { openWeb("/developers/"); } }},
                 {"Connected tools", new Runnable() { public void run() { infoPage("Connected tools", "No third-party connectors are available in Approx AI 1.0."); } }},
-                {isAdmin() ? "Advanced: server settings" : null, new Runnable() { public void run() { advancedServerSettings(); } }},
                 {"Delete account", new Runnable() { public void run() { deleteAccount(); } }},
-                {"Log out", new Runnable() { public void run() { call("POST", "/api/auth/logout", new JSONObject(), new Runnable() { public void run() { logoutLocal(); } }); } }},
+                {"Log out", new Runnable() { public void run() {
+                    // Revoke the server session in the background; the local session is cleared in every case.
+                    final Api a = api;
+                    pool.execute(new Runnable() { public void run() { try { a.post("/api/auth/logout", new JSONObject()); } catch (Exception ignored) { } } });
+                    logoutLocal();
+                } }},
         };
         for (Object[] r : rows) if (r[0] != null) add(col, row((String) r[0], (Runnable) r[1]), 0);   // null label = hidden for this role
         add(col, text("Approx AI 1.0.0 · Approx Technology · " + api.getBase(), 12, MUTED, false), 18);
