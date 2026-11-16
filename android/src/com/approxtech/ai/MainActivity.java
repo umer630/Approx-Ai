@@ -406,18 +406,55 @@ public class MainActivity extends Activity {
     }
 
     /** A centred, scrollable form page (auth screens). */
+    /** Which auth screen is showing ("login", "signup", "verify", "forgot", …; null outside auth) — for Back. */
+    String authScreen = null;
+
+    /** Branded band on top of every auth screen: navy→green gradient, softly drifting light orbs, logo + name. */
+    View authBand() {
+        FrameLayout band = new FrameLayout(this);
+        band.setBackground(new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[] { Color.parseColor("#0B1F4A"), Color.parseColor("#0A3B4A"), Color.parseColor("#0B6A45") }));
+        int[][] orbs = { { 0x5510B98A, 170, -40, -50 }, { 0x400AA6A6, 140, 230, 70 }, { 0x306FD34A, 110, 120, 110 } };
+        for (int[] o : orbs) {
+            View orb = new View(this);
+            GradientDrawable g = new GradientDrawable(); g.setShape(GradientDrawable.OVAL);
+            g.setGradientType(GradientDrawable.RADIAL_GRADIENT); g.setGradientRadius(dp(o[1]) / 2f); g.setColors(new int[] { o[0], 0x00000000 });
+            orb.setBackground(g);
+            FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(dp(o[1]), dp(o[1]));
+            lp.leftMargin = dp(o[2]); lp.topMargin = dp(o[3]);
+            band.addView(orb, lp);
+            android.animation.ObjectAnimator a = android.animation.ObjectAnimator.ofFloat(orb, "translationX", 0f, dp(36));
+            a.setDuration(7000 + o[1] * 20L); a.setRepeatCount(android.animation.ValueAnimator.INFINITE); a.setRepeatMode(android.animation.ValueAnimator.REVERSE); a.start();
+        }
+        LinearLayout brand = vbox(); brand.setGravity(Gravity.CENTER); brand.setPadding(dp(16), dp(36), dp(16), dp(30));
+        brand.addView(logo(56));
+        TextView n = text("Approx AI", 22, Color.WHITE, true); n.setGravity(Gravity.CENTER); brand.addView(n);
+        TextView by = text("by Approx Technology", 12, Color.parseColor("#CCE9DD"), false); by.setGravity(Gravity.CENTER); brand.addView(by);
+        band.addView(brand, new FrameLayout.LayoutParams(-1, -2));
+        return band;
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Android Back on Sign-up / Forgot / Verify returns to Sign-in instead of closing the app.
+        if (user == null && authScreen != null && !"login".equals(authScreen) && !"welcome".equals(authScreen)) { showLogin(); return; }
+        super.onBackPressed();
+    }
+
     LinearLayout formPage(String title, String subtitle) {
         ScrollView sv = new ScrollView(this);
         sv.setFillViewport(true);
+        LinearLayout outer = vbox();
+        outer.addView(authBand(), new LinearLayout.LayoutParams(-1, -2));
         LinearLayout col = vbox();
-        col.setPadding(dp(24), dp(48), dp(24), dp(24));
+        col.setPadding(dp(24), dp(20), dp(24), dp(24));
         col.setGravity(Gravity.CENTER_HORIZONTAL);
-        col.addView(logo(76));
+        outer.addView(col, new LinearLayout.LayoutParams(-1, -2));
+        authScreen = title;
         TextView t = text(title, 24, TEXT, true);
         t.setGravity(Gravity.CENTER);
         add(col, t, 16);
         if (subtitle != null) { TextView s = text(subtitle, 14, MUTED, false); s.setGravity(Gravity.CENTER); add(col, s, 6); }
-        sv.addView(col);
+        sv.addView(outer);
         root.removeAllViews();
         root.addView(sv);
         return col;
@@ -442,12 +479,14 @@ public class MainActivity extends Activity {
         // asked for a server. If a build somehow has none, say so plainly instead of asking for a URL.
         if (resolveServer().length() > 0) { api = new Api(resolveServer(), store.getToken()); showLogin(); return; }
         LinearLayout col = formPage("Approx AI", "This app build is not connected to a server.");
+        authScreen = "welcome";
         add(col, text("Please install the official Approx AI app.", 14, MUTED, false), 16);
     }
 
     // ------------------------------------------------------------------ auth
     void showLogin() {
         LinearLayout col = formPage("Welcome back", "Sign in to Approx AI");
+        authScreen = "login";
         final EditText email = input("Email", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
         // "Choose an account": accounts used on this phone before (tap to continue, long-press to remove).
         final JSONArray recent = recentAccounts();
@@ -667,6 +706,7 @@ public class MainActivity extends Activity {
 
     // ------------------------------------------------------------------ chat
     void showChat(final String id) {
+        authScreen = null;
         chatId = id;
         messageScroll = new ScrollView(this);
         messageList = vbox();

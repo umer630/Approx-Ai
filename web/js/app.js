@@ -123,11 +123,27 @@ export function applyTheme(t) {
 export async function refreshUsage() { try { state.usage = await api('/api/usage'); } catch { /* ignore */ } }
 
 // ---------------- auth views ----------------
+// Cloud-console style auth: an animated brand panel (desktop) / brand band (mobile) next to the form card.
+// Pure SVG + CSS animation (CSP-safe, GPU-cheap, disabled under prefers-reduced-motion).
+function authVisual() {
+  const NS = 'http://www.w3.org/2000/svg';
+  const el = (tag, attrs) => { const e = document.createElementNS(NS, tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); return e; };
+  const svg = el('svg', { class: 'auth-net', viewBox: '0 0 600 600', 'aria-hidden': 'true', focusable: 'false' });
+  const pts = [[90, 120], [240, 70], [420, 140], [520, 280], [380, 300], [200, 250], [110, 380], [270, 430], [460, 470], [330, 540]];
+  const links = [[0, 1], [1, 2], [2, 3], [2, 4], [1, 5], [0, 5], [5, 4], [4, 3], [5, 6], [6, 7], [7, 4], [7, 8], [8, 3], [7, 9], [9, 8]];
+  links.forEach(([a, b], i) => svg.append(el('line', { x1: pts[a][0], y1: pts[a][1], x2: pts[b][0], y2: pts[b][1], class: `ln ln${i % 3}` })));
+  pts.forEach(([x, y], i) => svg.append(el('circle', { cx: x, cy: y, r: i % 3 === 0 ? 7 : 5, class: `nd nd${i % 4}` })));
+  return h('aside', { class: 'auth-visual', 'aria-hidden': 'true' },
+    h('div', { class: 'orb o1' }), h('div', { class: 'orb o2' }), h('div', { class: 'orb o3' }), svg,
+    h('div', { class: 'auth-brand' }, h('img', { src: '/assets/logo-mark-192.png', alt: '' }),
+      h('div', { class: 'auth-brand-name' }, 'Approx ', h('span', {}, 'AI')), h('div', { class: 'auth-brand-by' }, 'by Approx Technology'),
+      h('p', { class: 'auth-brand-tag' }, 'Chat, code and research in one secure AI workspace.')));
+}
 function authFrame(title, subtitle, ...content) {
-  app.replaceChildren(h('div', { class: 'auth' }, h('div', { class: 'auth-card' },
+  app.replaceChildren(h('div', { class: 'auth auth-split' }, authVisual(), h('div', { class: 'auth-pane' }, h('div', { class: 'auth-card' },
     h('div', { class: 'logo' }, h('img', { src: '/assets/logo-mark-192.png', alt: 'Approx AI logo' }), h('h1', {}, title), subtitle ? h('div', { class: 'muted' }, subtitle) : null),
     ...content,
-    h('p', { class: 'muted small', }, '© Approx Technology'))));
+    h('p', { class: 'muted small', }, '© Approx Technology')))));
 }
 function formMsg() { return h('div', { class: 'hidden', role: 'alert' }); }
 function showMsg(el, text, kind = 'error') { el.className = `alert ${kind}`; el.textContent = text; }

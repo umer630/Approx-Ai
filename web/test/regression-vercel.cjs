@@ -67,6 +67,11 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     await p.waitForTimeout(1200);
     ok('splash removed after start (≤ ~1 s)', await p.locator('#splash').count() === 0);
     ok('login: "Welcome to Approx AI" / "Sign in to continue"', (await p.locator('.auth-card').innerText()).includes('Welcome to Approx AI') && (await p.locator('.auth-card').innerText()).includes('Sign in to continue'));
+    ok('desktop login: split screen with animated brand panel + "by Approx Technology"', await p.evaluate(() => {
+      const v = document.querySelector('.auth-visual'); const n = document.querySelector('.auth-visual svg.auth-net');
+      return !!v && v.getBoundingClientRect().width > 400 && n.getBoundingClientRect().width > 300 && /by Approx Technology/.test(v.textContent)
+        && getComputedStyle(n.querySelector('line')).animationName === 'dash';
+    }));
     ok('login: Forgot password? + Create account', (await p.locator('.auth-links').innerText()).includes('Forgot password?') && (await p.locator('.auth-links').innerText()).includes('Create account'));
     // Sign-up screen: Google button (disabled: no client ID configured here), password toggle, confirm password, sign-in link.
     await p.goto(BASE + '/#/signup', { waitUntil: 'networkidle' }); await p.waitForTimeout(400);
