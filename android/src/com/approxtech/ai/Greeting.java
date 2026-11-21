@@ -18,19 +18,20 @@ public final class Greeting {
 
     private static String cap(String s) { return s.isEmpty() ? s : s.substring(0, 1).toUpperCase() + s.substring(1); }
 
-    /** @return {title, subtitle} */
+    /** Time of day → greeting: morning 5–12, afternoon 12–17, evening 17–21, night 21–24, "Night owl?" 0–5.
+     *  @return {title, subtitle} */
     public static String[] of(String displayName, String email, int hour, boolean returning, long day) {
         String n = firstName(displayName, email);
         String you = n.isEmpty() ? "" : ", " + n;
         int k = (int) Math.abs(day);
         String title;
-        if (!returning) title = n.isEmpty() ? "Hi — ready when you are." : "Hi " + n + " — ready when you are.";
-        else if (hour >= 5 && hour < 12) title = pick(k, "Good morning" + you + ".", "Morning" + you + ". Good to see you.");
-        else if (hour >= 12 && hour < 17) title = pick(k, "Good afternoon" + you + ".", "Good to see you" + you + ".");
-        else if (hour >= 17 && hour < 22) title = pick(k, "Good evening" + you + ".", "Welcome back" + you + ".");
-        else title = pick(k, "Still at it" + you + "?", "Welcome back" + you + ".");
-        String subtitle = !returning ? "What would you like to work on?"
-                : pick(k, "What are we working on today?", "What can I help you with today?", "What’s on your mind?");
+        if (hour >= 5 && hour < 12) title = "Good morning" + you;
+        else if (hour >= 12 && hour < 17) title = "Good afternoon" + you;
+        else if (hour >= 17 && hour < 21) title = "Good evening" + you;
+        else if (hour >= 21) title = "Good night" + you;
+        else title = "Night owl" + you + "?";
+        String subtitle = !returning ? "Welcome to Approx AI. What would you like to do?"
+                : pick(k, "How are you today" + you + "?", "What can I help you with today?", "What are we working on today?");
         return new String[]{title, subtitle};
     }
 

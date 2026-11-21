@@ -60,6 +60,25 @@ function clamScan(file) {
   });
 }
 
+// PDF text: a real PDF parser (pdf.js via unpdf — handles embedded/CID fonts, ToUnicode maps and page order, which
+// textbook and lecture PDFs need), bounded in time and size; falls back to the light extractor below. Scripts inside a
+// PDF are never run (text extraction only, eval disabled).
+export async function readPdfText(buf, { timeoutMs = 20_000, maxChars = 500_000 } = {}) {
+  try {
+    const { getDocumentProxy, extractText } = await import('unpdf');
+    const work = (async () => {
+      const pdf = await getDocumentProxy(new Uint8Array(buf), { isEvalSupported: false, disableFontFace: true, useSystemFonts: false, verbosity: 0 });
+      const { text } = await extractText(pdf, { mergePages: false });
+      await pdf.destroy?.();
+      return (Array.isArray(text) ? text : [text]).map((t, i) => `[Page ${i + 1}]\n${String(t).replace(/[ \t]+\n/g, '\n').trim()}`).join('\n\n');
+    })();
+    let timer;
+    const out = await Promise.race([work, new Promise((_, rej) => { timer = setTimeout(() => rej(new Error('pdf timeout')), timeoutMs); })]).finally(() => clearTimeout(timer));
+    if (out.replace(/\[Page \d+\]/g, '').trim().length >= 20) return out.slice(0, maxChars);
+  } catch { /* malformed / encrypted / unsupported: try the light extractor */ }
+  return extractPdfText(buf);
+}
+
 // Best-effort PDF text extraction (FlateDecode + text operators). Not a full PDF parser.
 export function extractPdfText(buf) {
   const s = buf.toString('latin1');
@@ -132,7 +151,7 @@ export function registerFileRoutes(r) {
     let extracted = null;
     if (scan_status === 'clean') {
       if (['text', 'code', 'data'].includes(kind)) extracted = buf.toString('utf8').slice(0, 500_000);
-      else if (kind === 'pdf') extracted = extractPdfText(buf);
+      else if (kind === 'pdf') extracted = await readPdfText(buf);
     }
     const id = newId('fil_');
     await run(`INSERT INTO files (id,user_id,project_id,filename,mime,kind,size,sha256,storage_key,scan_status,scan_detail,extracted_text,created_at)

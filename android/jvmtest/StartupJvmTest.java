@@ -29,11 +29,15 @@ public class StartupJvmTest {
         eq(r[0], "", "unconfigured build has no server (build.sh refuses to produce one)");
 
         String[] g = Greeting.of("Umer Khan", "u@x.com", 10, false, 0);
-        eq(g[0], "Hi Umer — ready when you are.", "first-visit greeting uses first name");
-        eq(g[1], "What would you like to work on?", "first-visit subtitle");
-        eq(Greeting.of("Umer", "", 9, true, 0)[0], "Good morning, Umer.", "morning greeting");
-        eq(Greeting.of("", "uq866108@gmail.com", 23, true, 0)[0], "Still at it?", "random handle is not used as a name");
-        eq(Greeting.of("", "umer.khan@gmail.com", 8, true, 1)[0], "Morning, Umer. Good to see you.", "name-like email local part");
+        eq(g[0], "Good morning, Umer", "greeting uses first name");
+        eq(g[1], "Welcome to Approx AI. What would you like to do?", "first-visit subtitle");
+        eq(Greeting.of("Umer", "", 14, true, 0)[0], "Good afternoon, Umer", "afternoon greeting");
+        eq(Greeting.of("Umer", "", 18, true, 0)[0], "Good evening, Umer", "evening greeting");
+        eq(Greeting.of("Umer", "", 22, true, 0)[0], "Good night, Umer", "night greeting");
+        eq(Greeting.of("Umer", "", 2, true, 0)[0], "Night owl, Umer?", "late-night greeting");
+        eq(Greeting.of("Umer", "", 9, true, 0)[1], "How are you today, Umer?", "personal subtitle");
+        eq(Greeting.of("", "uq866108@gmail.com", 23, true, 0)[0], "Good night", "random handle is not used as a name");
+        eq(Greeting.of("", "umer.khan@gmail.com", 8, true, 1)[0], "Good morning, Umer", "name-like email local part");
         System.out.println(fails == 0 ? "ALL PASS" : fails + " FAILED");
         System.exit(fails == 0 ? 0 : 1);
     }

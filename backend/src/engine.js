@@ -13,22 +13,39 @@ async function projectContext(userId, projectId, query) {
   const p = await one('SELECT * FROM projects WHERE id = ? AND user_id = ?', projectId, userId);
   if (!p) return '';
   let out = `\n\n# Project: ${p.name}\n${p.instructions ? 'Project instructions:\n' + p.instructions + '\n' : ''}`;
-  // Lightweight keyword retrieval over project knowledge files (same-user, same-project only).
+  // Keyword retrieval over project knowledge files (same-user, same-project only), passage by passage so that the
+  // whole document is reachable — not just its first pages. Education sessions get a larger budget.
   const files = await all("SELECT filename, extracted_text FROM files WHERE user_id = ? AND project_id = ? AND extracted_text IS NOT NULL AND scan_status = 'clean'", userId, projectId);
-  const terms = new Set(String(query).toLowerCase().match(/[\p{L}\p{N}]{3,}/gu) || []);
-  const scored = files.map((f) => {
-    const words = f.extracted_text.toLowerCase().match(/[\p{L}\p{N}]{3,}/gu) || [];
-    let score = 0; for (const w of words) if (terms.has(w)) score++;
-    return { ...f, score };
-  }).sort((a, b) => b.score - a.score).slice(0, 4);
-  let budget = 8000;
-  for (const f of scored) {
-    const excerpt = f.extracted_text.slice(0, Math.min(budget, 3000));
-    budget -= excerpt.length;
-    out += `\n## Knowledge file: ${f.filename}\n${excerpt}\n`;
-    if (budget <= 0) break;
-  }
+  const passages = selectPassages(files, query, p.purpose === 'education' ? 14000 : 8000);
+  for (const [filename, parts] of passages) out += `\n## ${p.purpose === 'education' ? 'Study material' : 'Knowledge file'}: ${filename}\n${parts.join('\n…\n')}\n`;
   return out;
+}
+
+const PASSAGE = 1500;
+/** Splits each file into ~1.5k-character passages and picks the ones that best match the query, in document order.
+ *  A broad request ("summarize", "make a test", "teach this chapter") matches little specifically, so the remaining
+ *  budget is filled with passages spread evenly over the document: the model sees the whole material, not page 1. */
+export function selectPassages(files, query, budget) {
+  const terms = new Set(String(query).toLowerCase().match(/[\p{L}\p{N}]{3,}/gu) || []);
+  const all = [];
+  for (const f of files) {
+    const t = f.extracted_text;
+    for (let i = 0, k = 0; i < t.length; i += PASSAGE, k++) {
+      const text = t.slice(i, i + PASSAGE).trim();
+      if (!text) continue;
+      let score = 0;
+      for (const w of text.toLowerCase().match(/[\p{L}\p{N}]{3,}/gu) || []) if (terms.has(w)) score++;
+      all.push({ filename: f.filename, k, text, score });
+    }
+  }
+  const maxN = Math.max(1, Math.floor(budget / PASSAGE));
+  const chosen = new Set(all.filter((x) => x.score >= 2).sort((a, b) => b.score - a.score).slice(0, Math.ceil(maxN / 2)));
+  const rest = all.filter((x) => !chosen.has(x));
+  const room = maxN - chosen.size;
+  for (let i = 0; i < room && rest.length; i++) chosen.add(rest[Math.floor((i * rest.length) / room)]);
+  const byFile = new Map();
+  for (const x of all) if (chosen.has(x)) { if (!byFile.has(x.filename)) byFile.set(x.filename, []); byFile.get(x.filename).push(x.text); }
+  return byFile;
 }
 
 async function attachmentContext(userId, ids) {

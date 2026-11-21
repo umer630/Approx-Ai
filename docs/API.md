@@ -92,6 +92,24 @@ Routing (`model: "auto"`): web/security/analytics → Sona 9.0; complex → Hike
 everyday → the user's default (Nick 4.8) — only among models the account may use and that are online. FAB 500X is
 never auto-routed.
 
+## Workspace sessions (1.8) — Education, Approx Code, Approx Work
+
+A session is a project with a `purpose`; its conversations are ordinary chats in that project (history, rename,
+archive and delete work unchanged). Session authentication (web cookie + CSRF, or the mobile bearer token).
+
+| Method | Path | Body / query | Result |
+|---|---|---|---|
+| POST | `/api/sessions` | `{ purpose: "education"\|"code"\|"work", file_id? }` | `201 { session, document }` |
+| GET | `/api/sessions` | `?purpose=education\|code\|work` | `{ sessions: [{ id, purpose, name, chat, files, … }] }` |
+
+Then open a conversation with `POST /api/chats { project_id: session.id }`.
+Education needs `file_id` of the caller's own uploaded PDF or text file (`POST /api/files`, ≤ 4 MB on Vercel); the
+file moves into the session. Errors: `file_required` (400), `no_text` (422, e.g. a scanned PDF without a text layer),
+`attachment_blocked` (403), 404 for a file that is not the caller's. PDF text is read with pdf.js (unpdf), with
+`[Page n]` markers. Every turn retrieves passages from the whole document (specific matches first, then passages
+spread over the document for broad requests such as "make a test"), and the session's tutoring instructions keep
+answers, tests and MCQs grounded in the material.
+
 ## FAB 500X Code workspace (1.7) — `/api/fab500x/*`
 
 Only for accounts holding the FAB 500X grant; otherwise every route answers `404`. All operations are scoped to the

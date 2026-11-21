@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -59,7 +60,7 @@ public class AppScreensTest {
         root.draw(new Canvas(b));
         try (FileOutputStream o = new FileOutputStream(new File(dir, name))) { b.compress(Bitmap.CompressFormat.PNG, 100, o); }
     }
-    static void idle() { shadowOf(Looper.getMainLooper()).idle(); }
+    static void idle() { shadowOf(Looper.getMainLooper()).idleFor(1100, TimeUnit.MILLISECONDS); }   // past the 0.9 s splash
     static Object get(Object o, String f) throws Exception { java.lang.reflect.Field x = MainActivity.class.getDeclaredField(f); x.setAccessible(true); return x.get(o); }
     static void set(Object o, String f, Object v) throws Exception { java.lang.reflect.Field x = MainActivity.class.getDeclaredField(f); x.setAccessible(true); x.set(o, v); }
 
@@ -138,12 +139,70 @@ public class AppScreensTest {
         View root = a.findViewById(android.R.id.content);
         String text = "";
         for (View v : all(root)) if (v instanceof TextView) text += ((TextView) v).getText() + "\n";
-        assertTrue("personal greeting: " + text, text.contains("Hi Umer — ready when you are.") || text.matches("(?s).*(Good (morning|afternoon|evening)|Morning|Welcome back|Still at it|Good to see you), Umer.*"));
+        assertTrue("personal greeting: " + text, text.matches("(?s).*(Good (morning|afternoon|evening|night)|Night owl), Umer.*"));
         boolean prompt = false;
         for (String h : hints(root)) if (h.toLowerCase().contains("ask approx")) prompt = true;
         assertTrue("composer input present: " + hints(root), prompt);
         for (String m : new String[]{"Low", "Medium", "High"}) assertNotNull("mode " + m, textView(root, m));
+        for (String b : new String[]{"Education", "Approx Code", "Approx Work"}) assertNotNull("primary action " + b, textView(root, b));
+        assertNotNull("hamburger menu", textView(root, "☰"));
+        assertNull("no bottom tab bar (History is in the side menu)", textView(root, "History"));
+        assertNull("no bottom tab bar (Settings is in the side menu)", textView(root, "Settings"));
         shot(root, "android-03-chat.png");
+    }
+
+    static MainActivity signedIn() throws Exception {
+        MainActivity a = Robolectric.buildActivity(MainActivity.class).setup().get();
+        idle();
+        set(a, "user", new JSONObject().put("email", "umer@example.com").put("display_name", "Umer").put("email_verified", true).put("role", "user"));
+        set(a, "models", new JSONArray().put(new JSONObject().put("id", "nick-4.8").put("name", "Nick 4.8").put("available", true).put("selectable", true)));
+        return a;
+    }
+
+    @Test
+    public void sideMenu_workspaces_sessions_verifyNotice() throws Exception {
+        MainActivity a = signedIn();
+        a.showChat(null);
+        a.openDrawer();
+        View menu = null;
+        for (android.app.Dialog d : org.robolectric.shadows.ShadowDialog.getShownDialogs())
+            if (d.isShowing()) { ViewGroup content = d.findViewById(android.R.id.content); menu = content.getChildAt(0); }
+        assertNotNull("side menu opens", menu);
+        for (String item : new String[]{"New chat", "Education", "Approx Code", "Approx Work", "History", "Account & profile", "Settings", "Help & about"})
+            assertNotNull("menu item " + item, textView(menu, item));
+        ViewGroup scrim = (ViewGroup) menu;
+        View panel = scrim.getChildAt(0);
+        panel.setTranslationX(0);
+        scrim.removeView(panel);   // drawn on its own: the dialog window has no real surface in a headless test
+        shot(panel, "android-04-menu.png");
+
+        View root = a.findViewById(android.R.id.content);
+        for (String[] w : new String[][]{{"education", "Education", "Start new session · upload PDF"}, {"code", "Approx Code", "Start new session"}, {"work", "Approx Work", "Start new session"}}) {
+            a.workspaceHome(w[0]);
+            assertNotNull(w[0] + " title", textView(root, w[1]));
+            assertNotNull(w[0] + " start", textView(root, w[2]));
+            assertNull(w[0] + " has no composer clutter", textView(root, "Medium"));
+            shot(root, "android-05-" + w[0] + ".png");
+        }
+        // An empty Education session offers teaching / test / MCQ prompts grounded in the uploaded material.
+        set(a, "workspace", "education");
+        a.showChat(null);
+        set(a, "workspace", "education");
+        LinearLayout list = (LinearLayout) get(a, "messageList");
+        list.removeAllViews();
+        list.addView(a.sessionIntro());
+        for (String q : new String[]{"Teach me this chapter step by step, like a teacher", "Make a test from this material with an answer key", "Create 10 MCQs with answers"})
+            assertNotNull("education prompt " + q, textView(root, q));
+        shot(root, "android-06-education-session.png");
+
+        set(a, "user", null);
+        a.showVerify("new.user@example.com", "If this email is new, a verification link is on its way (check Spam too).");
+        assertNotNull("sign-up answer stays on screen", textView(root, "Sent to new.user@example.com.\nIf this email is new, a verification link is on its way (check Spam too).\nIt can take a minute. Check Spam and Promotions too."));
+        TextView resend = null;
+        for (View v : all(root)) if (v instanceof TextView && ((TextView) v).getText().toString().startsWith("Resend code")) resend = (TextView) v;
+        assertNotNull(resend);
+        assertFalse("resend waits out the 60 s email cooldown", resend.isEnabled());
+        shot(root, "android-07-verify.png");
     }
 
     @Test

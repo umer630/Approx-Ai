@@ -583,6 +583,13 @@ async function migrate(c) {
       message TEXT NOT NULL, snapshot TEXT NOT NULL, created_at INTEGER NOT NULL)` });
     await apply('2026-11-fab500x-workspace', stmts);
   }
+  if (!applied.has('2026-11-sessions')) {
+    // Workspace sessions (Education / Approx Code / Approx Work): a project with a purpose.
+    const stmts = [];
+    if (!(await hasColumn(c, 'projects', 'purpose'))) stmts.push({ sql: 'ALTER TABLE projects ADD COLUMN purpose TEXT' });
+    stmts.push({ sql: 'CREATE INDEX IF NOT EXISTS idx_projects_purpose ON projects(user_id, purpose, updated_at)' });
+    await apply('2026-11-sessions', stmts);
+  }
 }
 
 // The `models` table is seeded and kept in sync from the catalog file (name, tier, description…);

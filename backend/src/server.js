@@ -17,6 +17,7 @@ import { registerPlatformRoutes } from './routes/platform.js';
 import { registerMeRoutes } from './routes/me.js';
 import { registerAdminPanelRoutes } from './routes/adminpanel.js';
 import { registerFab500xRoutes } from './routes/fab500x.js';
+import { registerSessionRoutes } from './routes/sessions.js';
 import { backendStatus } from './providers/index.js';
 import { listModels } from './models.js';
 import { getActive, startRegistryWatcher } from './registry.js';
@@ -36,6 +37,7 @@ export function buildRouter() {
   registerChatRoutes(r);
   registerMeRoutes(r);
   registerFab500xRoutes(r);
+  registerSessionRoutes(r);
   registerFileRoutes(r);
   registerAccountRoutes(r);
   registerWorkspaceRoutes(r);

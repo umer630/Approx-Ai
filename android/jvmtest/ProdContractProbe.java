@@ -14,7 +14,7 @@ public class ProdContractProbe {
         Api api = new Api(server, null);
         JSONObject v = api.get("/api/version");
         check("Approx AI".equals(v.optString("product")), "production /api/version reachable over HTTPS");
-        check("1.7".equals(v.getJSONObject("versions").optString("api_contract")), "API contract 1.7 (APK min versionCode " + v.getJSONObject("versions").optInt("min_apk_version_code") + ")");
+        check("1.8".equals(v.getJSONObject("versions").optString("api_contract")), "API contract 1.8 (APK min versionCode " + v.getJSONObject("versions").optInt("min_apk_version_code") + ")");
         check(v.getJSONObject("models").has("nick-4.8"), "model metadata discovered from the server: nick-4.8 lifecycle=" + v.getJSONObject("models").getJSONObject("nick-4.8").optString("lifecycle_state"));
         try { api.get("/api/models"); check(false, "/api/models requires a session"); } catch (Api.ApiException e) { check(e.status == 401, "/api/models without a session → 401"); }
         try { api.post("/api/auth/login", new JSONObject().put("email", "nobody-probe@example.com").put("password", "wrong-Passw0rd-1").put("client", "mobile")); check(false, "bad login rejected"); }

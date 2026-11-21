@@ -1,5 +1,16 @@
 # Release notes
 
+## Approx AI 1.4.0 — APK 1.4.0 (versionCode 10), API contract 1.8 (2026-11-21)
+- Android Home: personalized time-of-day greeting (Good morning/afternoon/evening/night, Night owl), three primary
+  actions (Education, Approx Code, Approx Work) and the chat input. Bottom tab bar removed; ☰ side menu holds New
+  chat, the workspaces, History (+ recent chats), Account, Settings and Help; ✎ starts a new chat / session.
+- Education: upload a PDF (or text) → a study session grounded in the document (teach step by step, summaries,
+  tests with answer keys, MCQs, difficult topics, study plans). New `/api/sessions`; real PDF text extraction
+  (pdf.js via unpdf — the previous extractor read nothing from embedded-font PDFs); whole-document retrieval.
+- Approx Code / Approx Work: clean landing with "Start new session" and recent sessions; each session is isolated.
+- APK sign-up: proved request-for-request identical to the browser (backend/test/apkauth.test.js runs the APK's
+  Api.java); the sign-up answer now stays on the verify screen and resend waits out the 60 s email cooldown.
+
 ## Unreleased — Nick 4.8 Kaggle training handoff (2026-11-07)
 Training status: **NOT TRAINED** — no adapter exists yet. Model/adapter versions unchanged.
 - Kaggle notebook rebuilt: clones the correct branch, fails fast, stage runner (preflight → data → train → verify → package → status).
