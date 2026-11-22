@@ -19,7 +19,7 @@
         <executions><execution><id>add-app-src</id><phase>generate-test-sources</phase><goals><goal>add-test-source</goal></goals>
           <configuration><sources><source>${app.src}</source><source>${app.gen}</source></sources></configuration></execution></executions></plugin>
       <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>3.5.2</version>
-        <configuration><systemPropertyVariables><shots>${shots}</shots></systemPropertyVariables><trimStackTrace>false</trimStackTrace></configuration></plugin>
+        <configuration><systemPropertyVariables><shots>${shots}</shots><e2e>${e2e}</e2e></systemPropertyVariables><trimStackTrace>false</trimStackTrace></configuration></plugin>
     </plugins>
   </build>
 </project>

@@ -95,6 +95,9 @@ public class MainActivity extends Activity {
     static final int REQ_PICK_SESSION_FILE = 44;
     /** Work / Code / Education sessions (API 1.9). */
     Workspaces ws;
+    SettingsMore more;
+    /** Settings → Appearance → Text size (applied to every text the app draws). */
+    float textScale = 1f;
     LinearLayout currentPage;
     private String uploadSessionId = null;
     /** The password typed at sign-up, kept in memory only (never stored) until the code is confirmed. */
@@ -120,6 +123,7 @@ public class MainActivity extends Activity {
         super.onCreate(state);
         store = new SecureStore(this);
         ws = new Workspaces(this);
+        more = new SettingsMore(this);
         root = new FrameLayout(this);
         root.setBackgroundColor(BG);
         setContentView(root);
@@ -229,10 +233,12 @@ public class MainActivity extends Activity {
         return g;
     }
 
+    void setTextScale(String size) { textScale = "small".equals(size) ? 0.9f : "large".equals(size) ? 1.15f : 1f; }
+
     TextView text(String s, float sp, int color, boolean bold) {
         TextView t = new TextView(this);
         t.setText(s);
-        t.setTextSize(sp);
+        t.setTextSize(sp * textScale);
         t.setTextColor(color);
         if (bold) t.setTypeface(Typeface.DEFAULT_BOLD);
         t.setTextDirection(View.TEXT_DIRECTION_FIRST_STRONG);
@@ -535,9 +541,15 @@ public class MainActivity extends Activity {
             final JSONObject body = obj("email", email.getText().toString().trim(), "password", pw.getText().toString(), "client", "mobile");
             bg(new Job() { public Object run() throws Exception {
                 try { return api.post("/api/auth/login", body); }
-                catch (Api.ApiException e) { if ("email_not_verified".equals(e.code)) return obj("unverified", e.getMessage()); throw e; }
+                catch (Api.ApiException e) {
+                    if ("email_not_verified".equals(e.code)) return obj("unverified", e.getMessage());
+                    if ("mfa_required".equals(e.code) || "mfa_invalid".equals(e.code)) return obj("mfa", e.getMessage());
+                    throw e;
+                }
             } }, new Done() { public void ok(Object r) {
                 JSONObject o = (JSONObject) r;
+                // Two-step verification: the password was right; ask for the authenticator code and sign in again.
+                if (o.has("mfa")) { askMfaCode(body, o.optString("mfa")); return; }
                 // Correct password but email not verified yet: go straight to the code screen for this address.
                 if (o.has("unverified")) { toast(o.optString("unverified")); showVerify(body.optString("email")); return; }
                 String tok = o.optString("token");
@@ -552,6 +564,23 @@ public class MainActivity extends Activity {
         links.addView(link("Forgot password?", new Runnable() { public void run() { showForgot(); } }));
         add(col, links, 6);
         add(col, link("Have a verification code?", new Runnable() { public void run() { showVerify(email.getText().toString().trim()); } }), 0);
+    }
+
+    void askMfaCode(final JSONObject body, String message) {
+        final EditText code = input("6-digit code", InputType.TYPE_CLASS_NUMBER);
+        new AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert).setTitle("Two-step verification").setMessage(message).setView(code)
+                .setPositiveButton("Sign in", new DialogInterface.OnClickListener() { public void onClick(DialogInterface d, int w) {
+                    try { body.put("mfa_code", code.getText().toString().trim()); } catch (JSONException ignored) { }
+                    bg(new Job() { public Object run() throws Exception {
+                        try { return api.post("/api/auth/login", body); }
+                        catch (Api.ApiException e) { if ("mfa_invalid".equals(e.code) || "mfa_required".equals(e.code)) return obj("mfa", e.getMessage()); throw e; }
+                    } }, new Done() { public void ok(Object r) {
+                        JSONObject o = (JSONObject) r;
+                        if (o.has("mfa")) { askMfaCode(body, o.optString("mfa")); return; }
+                        String tok = o.optString("token");
+                        store.setToken(tok); api.setToken(tok); loadSession();
+                    } });
+                } }).setNegativeButton("Cancel", null).show();
     }
 
     void showSignup() {
@@ -677,8 +706,12 @@ public class MainActivity extends Activity {
             user = a[0].optJSONObject("user");
             rememberAccount(user);
             models = a[1].optJSONArray("models");
-            mode = a[2].optJSONObject("settings").optString("default_mode", "medium");
-            showChat(null);
+            JSONObject st = a[2].optJSONObject("settings");
+            mode = st.optString("default_mode", "medium");
+            setTextScale(st.optString("text_size", "medium"));
+            // Settings → Appearance → Start screen.
+            String start = st.optString("default_workspace", "home");
+            if ("work".equals(start) || "code".equals(start) || "education".equals(start)) workspaceHome(start); else showChat(null);
         } });
     }
 
@@ -1722,9 +1755,14 @@ void helpFeedback() {
         add(col, text(user == null ? "" : user.optString("email") + " · plan " + user.optString("plan"), 13, MUTED, false), 4);
         Object[][] rows = {
                 {"Account & profile", new Runnable() { public void run() { accountSettings(); } }},
-                {"Security & password", new Runnable() { public void run() { securitySettings(); } }},
+                {"Language & personalization", new Runnable() { public void run() { more.languageAndStyle(); } }},
+                {"Notifications", new Runnable() { public void run() { more.notifications(); } }},
+                {"Appearance", new Runnable() { public void run() { more.appearance(); } }},
+                {"Security, two-step verification & devices", new Runnable() { public void run() { securitySettings(); } }},
+                {"Workspaces (Work, Code, Education)", new Runnable() { public void run() { more.workspaces(); } }},
                 {"Memory", new Runnable() { public void run() { memorySettings(); } }},
                 {"Privacy & training consent", new Runnable() { public void run() { privacySettings(); } }},
+                {"Data controls", new Runnable() { public void run() { more.dataControls(); } }},
                 {"Model preferences", new Runnable() { public void run() { modelSettings(); } }},
                 {"Usage & quota", new Runnable() { public void run() { usageSettings(); } }},
                 {"Projects", new Runnable() { public void run() { projectSettings(); } }},
@@ -1732,6 +1770,7 @@ void helpFeedback() {
                 {"Subscription", new Runnable() { public void run() { infoPage("Subscription", "Plan: " + (user == null ? "" : user.optString("plan")) + "\n\nFree: Nick 4.8 + Hike 6.5. Pro adds Sona 9.0. FAB is granted individually by Approx Technology.\n\nOnline payments are not enabled in Approx AI 1.0; upgrades are applied by an administrator."); } }},
                 {"API & developer console", new Runnable() { public void run() { openWeb("/developers/"); } }},
                 {"Connected tools", new Runnable() { public void run() { infoPage("Connected tools", "No third-party connectors are available in Approx AI 1.0."); } }},
+                {"Help & about", new Runnable() { public void run() { helpFeedback(); } }},
                 {"Delete account", new Runnable() { public void run() { deleteAccount(); } }},
                 {"Log out", new Runnable() { public void run() {
                     // Revoke the server session in the background; the local session is cleared in every case.
@@ -1782,7 +1821,7 @@ void helpFeedback() {
     }
 
     void securitySettings() {
-        LinearLayout col = settingsPage("Security & password");
+        LinearLayout col = settingsPage("Security");
         final EditText cur = input("Current password", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         final EditText nw = input("New password", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         add(col, cur, 12); add(col, nw, 8);
@@ -1790,8 +1829,9 @@ void helpFeedback() {
             call("POST", "/api/auth/change-password", obj("current_password", cur.getText().toString(), "new_password", nw.getText().toString()), new Runnable() { public void run() { toast("Password changed. Other sessions signed out."); } });
         } }), 10);
         add(col, button("Sign out all other sessions", false, new Runnable() { public void run() {
-            call("POST", "/api/auth/sessions/revoke-others", new JSONObject(), new Runnable() { public void run() { toast("Done"); } });
+            call("POST", "/api/auth/sessions/revoke-others", new JSONObject(), new Runnable() { public void run() { toast("Done"); securitySettings(); } });
         } }), 16);
+        more.security(col);
     }
 
     void memorySettings() {

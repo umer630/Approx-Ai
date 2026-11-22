@@ -225,6 +225,78 @@ public class AppScreensTest {
         shot(root, "android-07-verify.png");
     }
 
+    /** Polls the main looper until a text is on screen (network results arrive from the app's thread pool). */
+    static TextView waitFor(View root, String text) throws Exception {
+        for (int i = 0; i < 200; i++) { idle(); TextView t = textView(root, text); if (t != null) return t; Thread.sleep(25); }
+        fail("not shown: " + text); return null;
+    }
+    static JSONObject serverSettings(Api api) throws Exception { return api.get("/api/settings").getJSONObject("settings"); }
+    static void until(java.util.concurrent.Callable<Boolean> c, String what) throws Exception {
+        for (int i = 0; i < 200; i++) { idle(); if (c.call()) return; Thread.sleep(25); }
+        fail("server state never became: " + what);
+    }
+
+    /** End-to-end: the real MainActivity against a real local backend (backend/test/serve-for-android.mjs). Every
+     *  Android settings control is tapped and the change is read back from the SERVER, not from the screen. */
+    @Test
+    public void settings_endToEnd_againstRealBackend() throws Exception {
+        String e2e = System.getProperty("e2e");
+        org.junit.Assume.assumeTrue("set APPROX_E2E (run.sh starts the local backend)", e2e != null && e2e.startsWith("{"));
+        JSONObject cfg = new JSONObject(e2e);
+        final Api api = new Api(cfg.getString("base"), cfg.getString("token"));
+        MainActivity a = signedIn();
+        set(a, "api", api);
+        View root = a.findViewById(android.R.id.content);
+        SettingsMore more = (SettingsMore) get(a, "more");
+
+        more.notifications();
+        waitFor(root, "Task and code updates");
+        for (View v : all(root)) if (v instanceof android.widget.Switch && "Email me a copy".contentEquals(((android.widget.Switch) v).getText())) v.performClick();
+        until(() -> !serverSettings(api).getBoolean("notifications_email"), "notifications_email=false");
+        shot(root, "android-10-notifications.png");
+
+        more.appearance();
+        waitFor(root, "○  Large").performClick();
+        until(() -> "large".equals(serverSettings(api).getString("text_size")), "text_size=large");
+        waitFor(root, "●  Large");
+        assertEquals(1.15f, (float) get(a, "textScale"), 0.001f);
+        waitFor(root, "○  Approx Education").performClick();
+        until(() -> "education".equals(serverSettings(api).getString("default_workspace")), "default_workspace=education");
+        shot(root, "android-11-appearance.png");
+        waitFor(root, "○  Medium").performClick();
+        until(() -> "medium".equals(serverSettings(api).getString("text_size")), "text_size=medium");
+        waitFor(root, "●  Medium");   // the page re-renders from the server after each save
+
+        more.workspaces();
+        waitFor(root, "○  10 questions").performClick();
+        until(() -> serverSettings(api).getJSONObject("workspace_prefs").getJSONObject("education").getInt("quiz_count") == 10, "quiz_count=10");
+        waitFor(root, "●  10 questions");
+        waitFor(root, "○  Automatic — apply changes immediately").performClick();
+        until(() -> "automatic".equals(serverSettings(api).getString("permissions_mode")), "permissions_mode=automatic");
+        waitFor(root, "●  Automatic — apply changes immediately");
+        shot(root, "android-12-workspaces.png");
+
+        more.languageAndStyle();
+        waitFor(root, "○  Roman Urdu").performClick();
+        until(() -> "roman-ur".equals(api.get("/api/settings").getJSONObject("user").getString("language")), "language=roman-ur");
+        waitFor(root, "●  Roman Urdu");
+
+        more.dataControls();
+        waitFor(root, "○  30 days").performClick();
+        idle();
+        android.app.AlertDialog dlg = (android.app.AlertDialog) org.robolectric.shadows.ShadowDialog.getLatestDialog();
+        assertNotNull("retention asks for confirmation", dlg);
+        dlg.getButton(android.content.DialogInterface.BUTTON_POSITIVE).performClick();
+        until(() -> serverSettings(api).getInt("chat_retention_days") == 30, "chat_retention_days=30");
+        waitFor(root, "●  30 days");
+        shot(root, "android-13-data.png");
+
+        a.securitySettings();
+        waitFor(root, "Set up two-step verification");
+        waitFor(root, "Signed-in devices");
+        shot(root, "android-14-security.png");
+    }
+
     @Test
     public void recentAccountChooser_and_forgedGoogleReturnRejected() throws Exception {
         ActivityController<MainActivity> c = Robolectric.buildActivity(MainActivity.class).setup();

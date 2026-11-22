@@ -11,5 +11,5 @@ for a in androidx/test/monitor/1.7.2/monitor-1.7.2 androidx/test/espresso/espres
 done
 printf 'android_resource_apk=%s\nandroid_merged_manifest=%s\nandroid_custom_package=com.approxtech.ai\n' \
   "$A/build/ApproxAI-Online-debug.apk" "$A/AndroidManifest.xml" > src/test/resources/com/android/tools/test_config.properties
-mvn -q -B ${MVN_SETTINGS:+-s "$MVN_SETTINGS"} test -Dapp.src="$A/src" -Dapp.gen="$A/build/gen" -Dshots="$SHOTS"
+mvn -q -B ${MVN_SETTINGS:+-s "$MVN_SETTINGS"} test -Dapp.src="$A/src" -Dapp.gen="$A/build/gen" -Dshots="$SHOTS" -De2e="${APPROX_E2E:-}"
 grep -h "Tests run" target/surefire-reports/*.txt
