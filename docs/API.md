@@ -92,7 +92,39 @@ Routing (`model: "auto"`): web/security/analytics → Sona 9.0; complex → Hike
 everyday → the user's default (Nick 4.8) — only among models the account may use and that are online. FAB 500X is
 never auto-routed.
 
-## Workspace sessions (1.8) — Education, Approx Code, Approx Work
+## Workspaces, sessions, threads, tasks (1.9) — Approx Work · Approx Code · Approx Education
+
+`User → Organization → Workspace (work|code|education) → Project → Session → Thread (= chat) → Messages`, with Tasks,
+Artifacts, Files, AgentRuns and ToolExecutions attached to the session. Every route is session-authenticated and
+ownership-checked on the server: another account's IDs answer **404**. (The database is libSQL; Supabase is used for Auth
+only, so authorization is enforced in the API rather than with Postgres RLS.)
+
+| Method | Path | Notes |
+|---|---|---|
+| GET | `/api/workspaces` | the three workspaces (auto-provisioned in the personal organization) with counts |
+| GET | `/api/workspaces/:kind` | home data: recent sessions, projects, active tasks, files, outputs, connected apps (+ `progress` for education) |
+| POST | `/api/workspaces/:kind/projects` | `{name, description?, instructions?}` — Work project / Code repository (branch `main`) / Education course |
+| GET | `/api/work-sessions` | `?workspace=&status=active\|archived&q=&project_id=` — search covers titles and message text |
+| POST | `/api/work-sessions` | `{workspace, project_id?, title?, file_id?, context?}` → `201 {session, thread}`: a NEW session ID and its first thread |
+| GET / PATCH / DELETE | `/api/work-sessions/:id` | resume (sets `last_opened_at`) · `{title?, status?, context?}` · delete (threads + messages; files stay) |
+| POST | `/api/work-sessions/:id/duplicate` | independent copy: new IDs for the session, its threads and messages |
+| POST | `/api/work-sessions/:id/threads` | `{title}` — a new full conversation in the session (messages via `/api/chats/:id/messages`) |
+| POST | `/api/work-sessions/:id/tasks` · PATCH/DELETE `/api/tasks/:id` | `{title, kind: task\|assignment, thread?: true}` · `{status, title, detail}` |
+| POST | `/api/work-sessions/:id/plan` | `{goal}` → agent run; 2–8 tasks, each with its own thread (logged as `task_planner`) |
+| POST | `/api/work-sessions/:id/quiz` · `/quiz/:artifactId/attempt` | quiz from the session material (answer key stays server-side) · `{answers}` → score, stored for progress |
+| GET | `/api/code/:pid/status` · `/diff` · `/log` · `/branches` | working-tree changes vs. the branch head, unified diffs, history, branches |
+| POST | `/api/code/:pid/commit` · `/branches` · `/checkout` | `{message, session_id?}` · `{name}` · `{branch, force?}` (refuses with uncommitted changes) |
+| POST | `/api/code/:pid/run` | `{command, kind: terminal\|run\|test\|build, session_id}` → **501 `runner_not_configured`** (logged): no sandbox runner exists |
+
+Uploads take `X-Session-Id`; artifacts take `session_id`. Every thread of a session gets the session's notes, task list
+and passages from its documents in its context — and never another session's messages.
+
+### verify-email (1.9)
+`POST /api/auth/verify-email {email, token | token_hash, password?, sign_in?, client?}`. With `password`, the password is
+set on the Supabase identity after the code/link proves the mailbox (sessions opened earlier are revoked); with
+`sign_in: true` the response carries a web cookie or, with `client: "mobile"`, a bearer `token`.
+
+## Workspace sessions (1.8, kept for APK 1.4.0) — Education, Approx Code, Approx Work
 
 A session is a project with a `purpose`; its conversations are ordinary chats in that project (history, rename,
 archive and delete work unchanged). Session authentication (web cookie + CSRF, or the mobile bearer token).

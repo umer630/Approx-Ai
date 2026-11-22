@@ -1,5 +1,19 @@
 # Release notes
 
+## Approx AI 1.5.0 — APK 1.5.0 (versionCode 11), API contract 1.9 (2026-11-22)
+- **Login after verification fixed.** Root cause: Supabase keeps the first password of an address signed up twice
+  without verifying. The password is now set together with the verification code (web + Android) — see SUPABASE_AUTH.md.
+- **Workspaces → sessions → threads → tasks** for Approx Work, Approx Code and Approx Education, persisted server-side
+  (organizations, workspaces, work_sessions, tasks, agent_runs, tool_executions, connectors, code_commits,
+  code_branches, study_attempts). New Session = new server ID; sessions resume exactly; threads are isolated
+  conversations sharing the session context; rename/archive/duplicate/delete/search.
+- Approx Code: repositories, code sessions, files/editor, changes (diff), commit, history, branches/checkout; terminal /
+  run / test / build report honestly that no sandbox runner is configured. Approx Education: courses, study sessions,
+  documents, quizzes with server-side answer keys, practice scores, assignments, progress. Approx Work: tasks, agent
+  planning (one thread per task), files, outputs, logs.
+- Android: Home/Work/Code/Education/Projects/Sessions/Files/Profile in the menu, session bar with thread chips and tools.
+  Web: bottom nav Home/Work/Code/Education/Profile, workspace and session pages, Files page.
+
 ## Approx AI 1.4.0 — APK 1.4.0 (versionCode 10), API contract 1.8 (2026-11-21)
 - Android Home: personalized time-of-day greeting (Good morning/afternoon/evening/night, Night owl), three primary
   actions (Education, Approx Code, Approx Work) and the chat input. Bottom tab bar removed; ☰ side menu holds New

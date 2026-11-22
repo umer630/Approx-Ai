@@ -458,3 +458,16 @@ h2.section { font-size: 12.5px; color: var(--muted); text-transform: uppercase; 
 @media (max-width: 959px) { .auth-pane { margin-top: -28px; } .auth-pane .auth-card { box-shadow: var(--shadow-lg); } .auth-pane .auth-card .logo img { display: none; } }
 @media (prefers-reduced-motion: reduce) { .auth-net .ln, .auth-net .nd, .auth-visual .orb { animation: none; } }
 :root[data-theme="dark"] .auth-pane .auth-card { background: var(--surface); }
+
+/* Workspaces (Approx Work / Code / Education) */
+.ws-new { margin: 12px 0 10px; }
+.ws-section { display: flex; align-items: center; gap: 8px; margin-top: 18px; }
+.ws-section .section { margin: 0; }
+.ws-session .tabs { overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+.ws-panel { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+.ws-panel .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.ws-panel .row .input { flex: 1 1 180px; min-width: 0; }
+pre.diff { white-space: pre; overflow-x: auto; font-size: 12px; margin: 8px 0 0; }
+.list-item.mono .title { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.session-crumb { display: inline-flex; align-items: center; gap: 6px; margin: 4px 0 10px; font-size: 13px; text-decoration: none; }
+.session-crumb svg { width: 16px; height: 16px; }

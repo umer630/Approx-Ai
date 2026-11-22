@@ -151,3 +151,17 @@ with Google). Data is never lost: after confirming, the same Approx account is l
 
 Every unexpected Supabase error is logged server-side as one JSON line (`supabase_auth_error`: path, status, code,
 message, error_id) — never request bodies, emails, passwords or tokens.
+
+## "Verified, but Incorrect email or password" (fixed in 1.5.0 / API 1.9)
+
+**Root cause.** Supabase Auth never updates an existing *unconfirmed* user when the same address signs up again
+(`supabase/auth` `internal/api/signup.go`: "do not update the user because we can't be sure of their claimed identity").
+It sends a fresh confirmation email, but keeps the password from the FIRST sign-up. So: sign up → no verification → sign
+up again with a new password → enter the new code (verification succeeds) → sign in with the new password →
+`invalid_credentials` → "Incorrect email or password". The test double used to overwrite the password, hiding this.
+
+**Fix.** The verify screens (web and Android) send the password with the code; `/api/auth/verify-email` sets it on that
+Supabase identity only after the code/link proves the mailbox, revokes older sessions and signs the person in. Nothing is
+stored in plain text, nothing bypasses Supabase's password check, and the test double now behaves like Supabase.
+Covered by `backend/test/authlifecycle.test.js` (reproduces the bug, then the fixed flow) and `backend/test/apkauth.test.js`
+(the APK's own `Api.java`).

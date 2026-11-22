@@ -71,34 +71,39 @@ public class MainActivity extends Activity {
     static final int CODE_TEXT = Color.parseColor("#1D2A24");
     static final int REQ_PICK_FILE = 41;
 
-    private final Handler ui = new Handler(Looper.getMainLooper());
-    private final ExecutorService pool = Executors.newFixedThreadPool(3);
+    final Handler ui = new Handler(Looper.getMainLooper());
+    final ExecutorService pool = Executors.newFixedThreadPool(3);
     private SecureStore store;
-    private Api api;
+    Api api;
     private FrameLayout root;
 
     // session state
-    private JSONObject user;
+    JSONObject user;
     private JSONArray models = new JSONArray();
-    private String model = "auto";
-    private String mode = "medium";
+    String model = "auto";
+    String mode = "medium";
     static final String[] MODES = {"low", "medium", "high"};
-    private String chatId = null;
-    private String projectId = null;
-    private final List<JSONObject> attachments = new ArrayList<>();
-    private boolean streaming = false;
+    String chatId = null;
+    String projectId = null;
+    final List<JSONObject> attachments = new ArrayList<>();
+    boolean streaming = false;
     // Workspace of the open screen/conversation: null (plain chat) | "education" | "code" | "work" (API 1.8 sessions).
-    private String workspace = null;
-    private TextView titleView;
-    private boolean atHome = false;
+    String workspace = null;
+    TextView titleView;
+    boolean atHome = false;
     static final int REQ_PICK_EDU = 43;
+    static final int REQ_PICK_SESSION_FILE = 44;
+    /** Work / Code / Education sessions (API 1.9). */
+    Workspaces ws;
+    LinearLayout currentPage;
+    private String uploadSessionId = null;
     /** The password typed at sign-up, kept in memory only (never stored) until the code is confirmed. */
     private String pendingPassword = null;
     static final int EDU_MAX_BYTES = 4 * 1024 * 1024;   // the production server accepts uploads up to 4 MB
 
     // chat views
-    private LinearLayout messageList;
-    private ScrollView messageScroll;
+    LinearLayout messageList;
+    ScrollView messageScroll;
     private TextView modelIndicator;
     private LinearLayout chipRow;
     private TextView sendBtn;
@@ -114,6 +119,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle state) {
         super.onCreate(state);
         store = new SecureStore(this);
+        ws = new Workspaces(this);
         root = new FrameLayout(this);
         root.setBackgroundColor(BG);
         setContentView(root);
@@ -731,6 +737,7 @@ public class MainActivity extends Activity {
         View div = new View(this); div.setBackgroundColor(LINE); page.addView(div, new LinearLayout.LayoutParams(-1, dp(1)));
         page.addView(body, new LinearLayout.LayoutParams(-1, 0, 1));
         if (withComposer) page.addView(composer());
+        currentPage = page;
         root.removeAllViews();
         root.addView(page);
         return page;
@@ -748,7 +755,7 @@ public class MainActivity extends Activity {
     static String cap(String s) { return s.substring(0, 1).toUpperCase() + s.substring(1); }
 
     static String workspaceTitle(String w) {
-        return "education".equals(w) ? "Education" : "code".equals(w) ? "Approx Code" : "work".equals(w) ? "Approx Work" : "Approx AI";
+        return Workspaces.title(w);
     }
 
     /** Home: personalized greeting, the three primary actions and the chat input. Clears any previous session state. */
@@ -780,19 +787,24 @@ public class MainActivity extends Activity {
             add(col, text(nm.length() > 0 ? nm + " · " + user.optString("email") : user.optString("email"), 12.5f, MUTED, false), 6);
         }
         add(col, button("New chat", true, new Runnable() { public void run() { d.dismiss(); showHome(); } }), 16);
-        String[][] items = {{"📘", "Education"}, {"</>", "Approx Code"}, {"▦", "Approx Work"}, {"◷", "History"}};
-        final String[] targets = {"education", "code", "work", "history"};
+        String[][] items = {{"⌂", "Home"}, {"▦", "Approx Work"}, {"</>", "Approx Code"}, {"📘", "Approx Education"}, {"◫", "Projects"}, {"☰", "Sessions"}, {"📄", "Files"}, {"◷", "History"}};
+        final String[] targets = {"home", "work", "code", "education", "projects", "sessions", "files", "history"};
         for (int i = 0; i < items.length; i++) {
             final String t = targets[i];
             add(col, drawerItem(items[i][0], items[i][1], new Runnable() { public void run() {
                 d.dismiss();
-                if ("history".equals(t)) showHistory(); else workspaceHome(t);
+                if ("history".equals(t)) showHistory();
+                else if ("home".equals(t)) showHome();
+                else if ("projects".equals(t)) ws.projectsScreen();
+                else if ("sessions".equals(t)) ws.sessionsScreen(null, "active");
+                else if ("files".equals(t)) fileSettings();
+                else workspaceHome(t);
             } }), i == 0 ? 12 : 0);
         }
         final LinearLayout recent = vbox();
         add(col, recent, 2);
         add(col, divider(), 10);
-        add(col, drawerItem("👤", "Account & profile", new Runnable() { public void run() { d.dismiss(); accountSettings(); } }), 8);
+        add(col, drawerItem("👤", "Profile", new Runnable() { public void run() { d.dismiss(); accountSettings(); } }), 8);
         add(col, drawerItem("⚙", "Settings", new Runnable() { public void run() { d.dismiss(); showSettings(); } }), 0);
         add(col, drawerItem("?", "Help & about", new Runnable() { public void run() { d.dismiss(); helpFeedback(); } }), 0);
         FrameLayout.LayoutParams plp = new FrameLayout.LayoutParams(width, FrameLayout.LayoutParams.MATCH_PARENT, Gravity.START);
@@ -843,42 +855,8 @@ public class MainActivity extends Activity {
 
     // ------------------------------------------------------------------ workspaces: Education · Approx Code · Approx Work
     /** Clean landing: one action (Start new session) and the person's recent sessions — no technical detail. */
-    void workspaceHome(final String purpose) {
-        workspace = purpose; chatId = null; projectId = null; attachments.clear();
-        final LinearLayout col = vbox();
-        col.setPadding(dp(20), dp(28), dp(20), dp(24));
-        TextView icon = text("education".equals(purpose) ? "📘" : "code".equals(purpose) ? "</>" : "▦", 22, GREEN_TEXT, true);
-        icon.setGravity(Gravity.CENTER);
-        icon.setBackground(bgShape(GREEN_SOFT, 16, Color.TRANSPARENT));
-        col.addView(icon, new LinearLayout.LayoutParams(dp(52), dp(52)));
-        add(col, text(workspaceTitle(purpose), 24, TEXT, true), 14);
-        add(col, text("education".equals(purpose) ? "Upload a textbook chapter, lecture or notes. Approx teaches it, summarizes it and tests you on it."
-                : "code".equals(purpose) ? "A focused coding session: write, explain and fix code."
-                : "A focused workspace for documents, plans and research.", 15, MUTED, false), 6);
-        add(col, button("education".equals(purpose) ? "Start new session · upload PDF" : "Start new session", true,
-                new Runnable() { public void run() { startSession(purpose); } }), 22);
-        if ("education".equals(purpose)) add(col, text("PDF or text file up to 4 MB. Scanned (photo) PDFs have no readable text.", 12.5f, MUTED, false), 8);
-        add(col, text("Recent sessions", 13, MUTED, true), 26);
-        final LinearLayout list = vbox();
-        add(col, list, 4);
-        ScrollView sv = new ScrollView(this);
-        sv.addView(col);
-        shell(sv, false);
-        bg(new Job() { public Object run() throws Exception { return api.get("/api/sessions?purpose=" + purpose); } }, new Done() { public void ok(Object r) {
-            JSONArray ss = ((JSONObject) r).optJSONArray("sessions");
-            if (ss == null || ss.length() == 0) { add(list, text("No sessions yet.", 14, MUTED, false), 8); return; }
-            for (int i = 0; i < ss.length(); i++) {
-                final JSONObject se = ss.optJSONObject(i);
-                LinearLayout row = vbox();
-                row.setPadding(dp(4), dp(12), dp(4), dp(12));
-                row.addView(text(se.optString("name"), 15, TEXT, true));
-                row.addView(text(DateUtils.getRelativeTimeSpanString(se.optLong("updated_at")).toString(), 12, MUTED, false));
-                row.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { openSession(se); } });
-                list.addView(row);
-                list.addView(divider());
-            }
-        } });
-    }
+    /** Workspace home (Approx Work / Code / Education): sessions, projects, tasks, files, outputs, connected apps. */
+    void workspaceHome(final String purpose) { ws.home(purpose); }
 
     void openSession(final JSONObject se) {
         workspace = se.optString("purpose");
@@ -956,7 +934,7 @@ public class MainActivity extends Activity {
         messageList = vbox();
         messageList.setPadding(dp(14), dp(12), dp(14), dp(16));
         messageScroll.addView(messageList);
-        if (id == null) workspace = null;
+        if (id == null) { workspace = null; ws.session = null; }
         shell(messageScroll, true);
         atHome = id == null;
         if (id == null) {
@@ -968,11 +946,38 @@ public class MainActivity extends Activity {
                 if ("null".equals(projectId)) projectId = null;
                 JSONArray msgs = o.optJSONArray("messages");
                 for (int i = 0; i < msgs.length(); i++) addMessage(msgs.optJSONObject(i));
-                if (projectId != null) loadWorkspace(projectId, msgs.length() == 0);
+                String sid = o.optJSONObject("chat").optString("session_id", "");
+                if (sid.length() > 0 && !"null".equals(sid)) attachSession(sid, id, msgs.length() == 0);
+                else if (projectId != null) loadWorkspace(projectId, msgs.length() == 0);
                 scrollDown();
             } });
         }
         refreshUsage();
+    }
+
+    /** A thread of a Work / Code / Education session: the session bar (threads + tools) goes under the top bar. */
+    void attachSession(final String sid, final String threadId, final boolean empty) {
+        Job load = new Job() { public Object run() throws Exception {
+            if (ws.session != null && sid.equals(ws.session.optString("id"))) return ws.session;
+            return api.get("/api/work-sessions/" + sid).optJSONObject("session");
+        } };
+        bg(load, new Done() { public void ok(Object r) {
+            if (!threadId.equals(chatId)) return;   // the person already moved on
+            ws.session = (JSONObject) r;
+            workspace = ws.session.optString("kind");
+            if (titleView != null) titleView.setText(Workspaces.title(workspace));
+            if (currentPage != null) currentPage.addView(ws.sessionBar(threadId), 2);
+            if (empty && messageList.getChildCount() == 0) messageList.addView(sessionIntro());
+        } });
+    }
+
+    /** Add a file to a session (its threads read it). */
+    void pickForSession(String sid) {
+        uploadSessionId = sid;
+        Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+        i.setType("*/*");
+        i.addCategory(Intent.CATEGORY_OPENABLE);
+        startActivityForResult(Intent.createChooser(i, "Add a file to this session"), REQ_PICK_SESSION_FILE);
     }
 
     /** The open conversation belongs to a session: show its workspace name and, when empty, its starting prompts. */
@@ -1003,9 +1008,9 @@ public class MainActivity extends Activity {
         sub.setGravity(Gravity.CENTER);
         add(w, sub, 4);
         // Three primary actions. A new chat is the input below; everything else is in the ☰ menu.
-        add(w, actionCard("📘", "Education", "Learn from your PDF: lessons, summaries, tests", new Runnable() { public void run() { workspaceHome("education"); } }), 28);
-        add(w, actionCard("</>", "Approx Code", "Start a coding session", new Runnable() { public void run() { workspaceHome("code"); } }), 10);
-        add(w, actionCard("▦", "Approx Work", "Documents, plans and research", new Runnable() { public void run() { workspaceHome("work"); } }), 10);
+        add(w, actionCard("▦", "Approx Work", "Sessions, threads, tasks and outputs", new Runnable() { public void run() { workspaceHome("work"); } }), 28);
+        add(w, actionCard("</>", "Approx Code", "Repositories, code sessions, changes and commits", new Runnable() { public void run() { workspaceHome("code"); } }), 10);
+        add(w, actionCard("📘", "Approx Education", "Courses, study sessions, quizzes and progress", new Runnable() { public void run() { workspaceHome("education"); } }), 10);
         if (user != null && !user.optBoolean("email_verified")) {
             add(w, button("Verify your email to start chatting", false, new Runnable() { public void run() { showVerify(); } }), 18);
         }
@@ -1529,6 +1534,18 @@ void helpFeedback() {
     protected void onActivityResult(int req, int res, Intent data) {
         super.onActivityResult(req, res, data);
         if (req == REQ_PICK_EDU && res == RESULT_OK && data != null && data.getData() != null) { uploadStudyMaterial(data.getData()); return; }
+        if (req == REQ_PICK_SESSION_FILE && res == RESULT_OK && data != null && data.getData() != null && uploadSessionId != null) {
+            final Uri u = data.getData();
+            final String sid = uploadSessionId;
+            String nm = "file";
+            Cursor cu = getContentResolver().query(u, null, null, null, null);
+            if (cu != null) { if (cu.moveToFirst()) { int i = cu.getColumnIndex(OpenableColumns.DISPLAY_NAME); if (i >= 0) nm = cu.getString(i); } cu.close(); }
+            final String fname = nm;
+            toast("Adding " + fname + "…");
+            bg(new Job() { public Object run() throws Exception { return api.upload(fname, readUri(u, EDU_MAX_BYTES), sid); } },
+                    new Done() { public void ok(Object r) { toast(fname + " added to this session"); ws.refreshThen(new Runnable() { public void run() { } }); } });
+            return;
+        }
         if (req != REQ_PICK_FILE || res != RESULT_OK || data == null || data.getData() == null) return;
         final Uri uri = data.getData();
         String name = "upload";
@@ -1570,19 +1587,30 @@ void helpFeedback() {
                 }
                 in.close();
                 final String fileId = api.upload(fname, out.toByteArray()).optJSONObject("file").optString("id");
-                final JSONObject se = api.post("/api/sessions", obj("purpose", "education", "file_id", fileId)).optJSONObject("session");
-                final JSONObject chat = api.post("/api/chats", obj("project_id", se.optString("id"), "title", se.optString("name"), "model", model, "mode", mode)).optJSONObject("chat");
+                final JSONObject o = api.post("/api/work-sessions", obj("workspace", "education", "file_id", fileId, "model", model, "mode", mode));
                 ui.post(new Runnable() { public void run() {
                     pd.dismiss();
-                    workspace = "education";
-                    projectId = se.optString("id");
-                    attachments.clear();
-                    showChat(chat.optString("id"));
+                    ws.session = o.optJSONObject("session");
+                    ws.openThread(o.optJSONObject("thread").optString("id"));
                 } });
             } catch (final Exception e) {
                 ui.post(new Runnable() { public void run() { pd.dismiss(); handleError(e); } });
             }
         } });
+    }
+
+    byte[] readUri(Uri uri, int max) throws Exception {
+        InputStream in = getContentResolver().openInputStream(uri);
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        byte[] buf = new byte[16384];
+        int n, total = 0;
+        while ((n = in.read(buf)) > 0) {
+            total += n;
+            if (total > max) { in.close(); throw new Api.ApiException(413, "too_large", "This file is larger than " + (max / 1024 / 1024) + " MB."); }
+            out.write(buf, 0, n);
+        }
+        in.close();
+        return out.toByteArray();
     }
 
     // ------------------------------------------------------------------ history

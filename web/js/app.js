@@ -5,6 +5,7 @@ import { firstName } from './greeting.js';
 import * as views from './views.js';
 import * as pages from './pages.js';
 import * as fab from './fab500x.js';
+import * as wsp from './workspaces.js';
 
 export const state = {
   user: null, models: [], modes: ['low', 'medium', 'high'], modeDetails: [], defaultMode: 'medium', usage: null, settings: null,
@@ -32,7 +33,11 @@ const routes = [
   [/^#\/fab500x$/, () => shell(() => fab.projectsPage(), { composer: false })],
   [/^#\/fab500x\/(prj_\w+)$/, (m) => { shellEl = null; return fab.ideView(app, m[1]); }],
   [/^#\/history$/, () => shell(() => pages.historyPage(), { composer: false })],
-  [/^#\/work$/, () => shell(() => pages.workPage(), { composer: false })],
+  [/^#\/work$/, () => shell(() => wsp.workspaceHome('work', { extra: pages.workExtras() }), { composer: false })],
+  [/^#\/files$/, () => shell(() => wsp.filesPage(), { composer: false })],
+  [/^#\/w\/(work|code|education)$/, (m) => shell(() => wsp.workspaceHome(m[1]), { composer: false })],
+  [/^#\/s\/(ses_\w+)(?:\/(\w+))?$/, (m) => shell(() => wsp.sessionPage(m[1], m[2]), { composer: false })],
+  [/^#\/sessions(?:\/(work|code|education))?(?:\/(active|archived))?(?:\/(prj_\w+))?$/, (m) => shell(() => wsp.sessionsPage(m[1], m[2] || 'active', m[3]), { composer: false })],
   [/^#\/schedule$/, () => shell(() => pages.schedulePage(), { composer: false })],
   [/^#\/settings$/, () => shell(() => pages.settingsHome(), { composer: false })],
   [/^#\/settings\/([\w-]+)$/, (m) => shell(() => pages.settingsSection(m[1]), { composer: false })],
@@ -377,7 +382,9 @@ function tokenView(kind) {
     if (extra) extra.open = true;
   }
   // Opened from the email link: submit once automatically. Reset still needs the new password.
-  if ((linkProof || params.get('token')) && kind !== 'reset') form.requestSubmit();
+  // Email change links confirm straight away; verification needs the password too (it is saved with the proof).
+  if ((linkProof || params.get('token')) && kind === 'confirm') form.requestSubmit();
+  else if (kind === 'verify') setTimeout(() => (linkProof ? pw : tok).focus(), 50);
 }
 
 // ---------------- shell: top bar + main + composer + three-button nav ----------------
@@ -385,9 +392,11 @@ function tokenView(kind) {
 // Built once per sign-in and kept: navigating only swaps the main area (no full re-render, no reload).
 let otherEl;
 let mainEl; let composerEl; let shellEl; let titleEl; let moreBtn; let drawerEl; let recentEl;
-const NAV = [['#/', 'chat', 'Chat'], ['#/history', 'history', 'History'], ['#/work', 'work', 'Work'], ['#/settings', 'settings', 'Settings']];
+// Mobile-first primary navigation: Home · Work · Code · Education · Profile (Projects, Sessions, Files, History in the menu).
+const NAV = [['#/', 'home', 'Home'], ['#/work', 'work', 'Work'], ['#/w/code', 'code', 'Code'], ['#/w/education', 'doc', 'Education'], ['#/settings', 'user', 'Profile']];
 const fabWorkspace = () => state.models.some((m) => m.workspace === 'fab500x-code' && m.available);
-const DRAWER_LINKS = [['#/projects', 'folder', 'Projects'], ['#/code', 'code', 'Approx Code'], ['#/workspace', 'layers', 'Artifacts'], ['#/schedule', 'calendar', 'Schedule'], ['#/work', 'work', 'Approx Work']];
+const DRAWER_LINKS = [['#/work', 'work', 'Approx Work'], ['#/w/code', 'code', 'Approx Code'], ['#/w/education', 'doc', 'Approx Education'], ['#/projects', 'folder', 'Projects'],
+  ['#/sessions', 'tasks', 'Sessions'], ['#/files', 'file', 'Files'], ['#/workspace', 'layers', 'Artifacts'], ['#/history', 'history', 'History'], ['#/schedule', 'calendar', 'Schedule']];
 
 function buildShell() {
   const initials = (state.user.display_name || state.user.email).trim()[0].toUpperCase();
@@ -436,7 +445,7 @@ function shell(renderMain, { composer = true } = {}) {
   return renderMain();
 }
 function pageTitle(route) {
-  return { '#/history': 'History', '#/work': 'Approx Work', '#/schedule': 'Schedule', '#/projects': 'Projects', '#/code': 'Approx Code',
+  return { '#/history': 'History', '#/work': 'Approx Work', '#/w/code': 'Approx Code', '#/w/education': 'Approx Education', '#/w/work': 'Approx Work', '#/sessions': 'Sessions', '#/files': 'Files', '#/schedule': 'Schedule', '#/projects': 'Projects', '#/code': 'Approx Code',
     '#/workspace': 'Artifacts', '#/research': 'Research' }[route] || (route.startsWith('#/settings') ? 'Settings' : '');
 }
 export function setHeaderTitle(t) { if (titleEl) titleEl.textContent = t; if (moreBtn) moreBtn.classList.toggle('hidden', !state.chat?.id || !location.hash.startsWith('#/c/')); }
@@ -589,6 +598,8 @@ function renderMessages() {
       !state.user.email_verified ? h('div', { class: 'alert warn' }, 'Verify your email to start chatting. ', h('a', { href: '#/verify' }, 'Enter code')) : null));
   }
   for (const m of state.messages) list.append(messageEl(m));
+  // A thread of a Work / Code / Education session: one tap back to its session (threads, tasks, files, tools).
+  if (state.chat?.session_id) list.prepend(h('a', { class: 'session-crumb', href: `#/s/${state.chat.session_id}` }, icon('back'), 'Session · threads, tasks & files'));
   setMain(list);
   scrollDown(true);
 }

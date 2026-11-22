@@ -114,7 +114,9 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     // Click the emailed link: Supabase redirects to /?auth=callback#access_token=…; the app confirms and signs in.
     const landed = await supabase.click(supabase.lastEmail('owner@example.com', 'signup').link);
     const frag = new URLSearchParams(landed.params).toString();
-    await p.goto(BASE + `/?auth=callback#${frag}`, { waitUntil: 'networkidle' }); await p.waitForTimeout(1200);
+    await p.goto(BASE + `/?auth=callback#${frag}`, { waitUntil: 'networkidle' }); await p.waitForTimeout(800);
+    ok('verify page asks for the password (saved together with the verification)', await p.locator('#newpw').count() === 1);
+    await p.locator('#newpw').fill('Str0ng!Passw0rd1'); await p.locator('.auth-card button[type=submit]').click(); await p.waitForTimeout(1200);
     ok('confirmation link verifies the email and signs the person in', (await p.locator('body').innerText()).includes('Email verified') && (await p.locator('body').innerText()).includes('Continue to Approx AI'));
     ok('tokens removed from the address bar', !/access_token|auth=callback/.test(p.url()), p.url());
     await p.reload({ waitUntil: 'networkidle' }); await p.waitForTimeout(500);
@@ -197,7 +199,8 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     const drawerText = await p.locator('#drawer').innerText();
     for (const n of ['Approx', 'Projects', 'Approx Code', 'Artifacts', 'Schedule', 'Approx Work', 'Recent tasks', 'Other tasks']) ok(`drawer: ${n}`, drawerText.toLowerCase().includes(n.toLowerCase()));
     const navLabels = await p.locator('nav.bottom-nav a').evaluateAll((as) => as.map((a) => a.getAttribute('aria-label')));
-    ok('bottom nav: Chat / History / Work / Settings', JSON.stringify(navLabels) === '["Chat","History","Work","Settings"]', navLabels.join(','));
+    ok('bottom nav: Home / Work / Code / Education / Profile', JSON.stringify(navLabels) === '["Home","Work","Code","Education","Profile"]', navLabels.join(','));
+    for (const n of ['Approx Education', 'Sessions', 'Files', 'History']) ok(`drawer: ${n}`, drawerText.toLowerCase().includes(n.toLowerCase()));
 
     // Model selector: only models this account may use (+ Auto); mode is separate.
     const allowed = await p.evaluate(async () => (await (await fetch('/api/models')).json()).models.filter((m) => m.available).map((m) => m.name));
@@ -348,6 +351,30 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     ok('navigation stayed in-page (no full reload)', await p.evaluate(() => window.__noReload) === 'still-here');
     await p.evaluate(() => { location.hash = '#/work'; }); await p.waitForTimeout(700);
     ok('Approx Work: background tasks + artifacts', /background tasks/i.test(await p.locator('#main').innerText()) && /recent artifacts/i.test(await p.locator('#main').innerText()));
+    // Workspaces (API 1.9): New Session creates a server session; threads, tabs and resumption come from the backend.
+    const wtext = await p.locator('#main').innerText();
+    ok('Approx Work workspace: New work session, recent sessions, projects, tasks, files, outputs, connected apps',
+      ['New work session', 'Recent sessions', 'Projects', 'Active tasks', 'Files', 'Outputs', 'Connected apps'].every((x) => wtext.toLowerCase().includes(x.toLowerCase())), wtext.slice(0, 200));
+    await p.locator('button', { hasText: 'New work session' }).click(); await p.waitForTimeout(500);
+    await p.locator('.sheet input.input').first().fill('Launch plan'); await p.locator('.sheet button', { hasText: 'Start session' }).click(); await p.waitForTimeout(900);
+    const sid1 = (location => location.match(/#\/s\/(ses_\w+)/)?.[1])(await p.evaluate(() => location.hash));
+    ok('New Session → a new server session page', !!sid1 && /Launch plan/.test(await p.locator('#main').innerText()), await p.evaluate(() => location.hash));
+    const tabsText = (await p.locator('.ws-session [role=tab]').allInnerTexts()).join(',');
+    ok('session tabs: Threads / Tasks / Files / Outputs / Logs', tabsText === 'Threads,Tasks,Files,Outputs,Logs', tabsText);
+    const sid2 = await p.evaluate(async () => {
+      const me = await (await fetch('/api/auth/me')).json();
+      return (await (await fetch('/api/work-sessions', { method: 'POST', headers: { 'content-type': 'application/json', 'x-csrf-token': me.csrf_token }, body: JSON.stringify({ workspace: 'work', title: 'Second' }) })).json()).session?.id;
+    });
+    ok('second session has a different ID', !!sid2 && sid2 !== sid1, `${sid1} / ${sid2}`);
+    await p.evaluate((id) => { location.hash = `#/s/${id}`; }, sid1); await p.waitForTimeout(700);
+    await p.locator('.ws-panel .list-item').first().click(); await p.waitForTimeout(700);
+    ok('thread opens as a full conversation with a link back to its session', /^#\/c\/cht_/.test(await p.evaluate(() => location.hash)) && await p.locator('.session-crumb').count() === 1);
+    for (const [route, words] of [['#/w/code', ['Approx Code', 'New coding session', 'Repositories']], ['#/w/education', ['Approx Education', 'New study session', 'Courses & subjects', 'Progress']], ['#/sessions', ['Sessions']], ['#/files', ['Files']]]) {
+      await p.evaluate((r) => { location.hash = r; }, route); await p.waitForTimeout(700);
+      const t = await p.locator('#main').innerText();
+      ok(`page ${route}: ${words.join(', ')}`, words.every((w) => t.toLowerCase().includes(w.toLowerCase())), t.slice(0, 160));
+      await p.screenshot({ path: path.join(S, `v-ws-${route.replace(/\W+/g, '-')}.png`) });
+    }
     await p.evaluate(() => { location.hash = '#/schedule'; }); await p.waitForTimeout(400);
     ok('Schedule states the missing scheduler backend honestly (no fake schedules)', (await p.locator('#main').innerText()).includes('aren’t available yet'));
 
@@ -463,8 +490,12 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     await mp.locator('[aria-label="Voice input"]').tap(); await mp.waitForTimeout(400);
     ok('voice: speech result goes into the composer', (await mp.locator('#prompt').inputValue()).includes('MySQL database'));
     await mp.screenshot({ path: path.join(S, 'v-09-mobile.png') });
-    await mp.locator('nav.bottom-nav a[aria-label="Settings"]').tap(); await mp.waitForTimeout(500);
-    ok('mobile: bottom nav → Settings', await mp.locator('.settings-list').count() >= 1);
+    await mp.locator('nav.bottom-nav a[aria-label="Work"]').tap(); await mp.waitForTimeout(600);
+    ok('mobile: bottom nav → Work (New work session prominent)', await mp.locator('.ws-new').isVisible());
+    ok('mobile: workspace page has no horizontal overflow', await mp.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1));
+    await mp.screenshot({ path: path.join(S, 'v-09-mobile-work.png') });
+    await mp.locator('nav.bottom-nav a[aria-label="Profile"]').tap(); await mp.waitForTimeout(500);
+    ok('mobile: bottom nav → Profile (settings)', await mp.locator('.settings-list').count() >= 1);
     await mp.screenshot({ path: path.join(S, 'v-10-mobile-settings.png') });
     // Log out and sign in again.
     await mp.locator('.settings-row.signout').tap(); await mp.waitForTimeout(800);

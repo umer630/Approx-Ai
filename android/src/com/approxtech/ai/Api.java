@@ -148,13 +148,17 @@ public class Api {
     public JSONObject patch(String path, JSONObject body) throws ApiException { return request("PATCH", path, body); }
     public JSONObject delete(String path) throws ApiException { return request("DELETE", path, null); }
 
-    public JSONObject upload(String filename, byte[] data) throws ApiException {
+    public JSONObject upload(String filename, byte[] data) throws ApiException { return upload(filename, data, null); }
+
+    /** Upload; with a session ID the file belongs to that Work / Code / Education session (X-Session-Id). */
+    public JSONObject upload(String filename, byte[] data, String sessionId) throws ApiException {
         HttpURLConnection c = null;
         try {
             c = open("POST", "/api/files");
             c.setDoOutput(true);
             c.setRequestProperty("Content-Type", "application/octet-stream");
             c.setRequestProperty("X-Filename", enc(filename));
+            if (sessionId != null) c.setRequestProperty("X-Session-Id", sessionId);
             c.setFixedLengthStreamingMode(data.length);
             OutputStream os = c.getOutputStream();
             os.write(data);

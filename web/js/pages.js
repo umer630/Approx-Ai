@@ -87,20 +87,21 @@ export function openFeedbackSheet({ chatId, category = 'other' } = {}) {
 }
 
 // ================= APPROX WORK =================
-export async function workPage() {
+export async function workPage() { setMain(h('div', { class: 'page' }, pageHead('Approx Work', 'Background tasks and the things you’ve made.'), workExtras())); }
+
+/** Background tasks (code-agent reviews, GPU jobs) and recent artifacts — shown under the Approx Work workspace. */
+export function workExtras() {
   const tasks = h('div', { class: 'list' }, skel(2));
   const arts = h('div', { class: 'list' }, skel(2));
-  setMain(h('div', { class: 'page' }, pageHead('Approx Work', 'Background tasks and the things you’ve made.'),
-    h('div', { class: 'quick-grid' },
-      h('a', { class: 'quick', href: '#/projects' }, icon('folder'), 'Projects'), h('a', { class: 'quick', href: '#/code' }, icon('code'), 'Approx Code'),
-      h('a', { class: 'quick', href: '#/workspace' }, icon('layers'), 'Artifacts'), h('a', { class: 'quick', href: '#/research' }, icon('search'), 'Research')),
-    h('h2', { class: 'section' }, 'Background tasks'), tasks, h('h2', { class: 'section' }, 'Recent artifacts'), arts));
   renderTasks(tasks);
-  try {
-    const r = await cached('/api/workspace/artifacts', 20_000);
+  cached('/api/workspace/artifacts', 20_000).then((r) => {
     arts.replaceChildren(...(r.artifacts.length ? r.artifacts.slice(0, 8).map((a) => h('a', { class: 'list-item', href: `#/workspace/${a.id}` }, icon(a.kind === 'code' ? 'code' : 'doc'),
       h('div', { class: 'grow' }, h('div', { class: 'title' }, a.title), h('div', { class: 'sub' }, `${a.kind} · v${a.version} · ${fmtTime(a.updated_at)}`)))) : [h('p', { class: 'muted empty' }, 'Nothing saved yet. Use “Save to Workspace” on any answer.')]));
-  } catch (e) { arts.replaceChildren(errBox(e)); }
+  }).catch((e) => arts.replaceChildren(errBox(e)));
+  return h('div', {}, h('div', { class: 'quick-grid' },
+      h('a', { class: 'quick', href: '#/projects' }, icon('folder'), 'Projects'), h('a', { class: 'quick', href: '#/w/code' }, icon('code'), 'Approx Code'),
+      h('a', { class: 'quick', href: '#/workspace' }, icon('layers'), 'Artifacts'), h('a', { class: 'quick', href: '#/research' }, icon('search'), 'Research')),
+    h('h2', { class: 'section' }, 'Background tasks'), tasks, h('h2', { class: 'section' }, 'Recent artifacts'), arts);
 }
 
 // ================= SCHEDULE =================

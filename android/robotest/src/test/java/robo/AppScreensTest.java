@@ -144,7 +144,7 @@ public class AppScreensTest {
         for (String h : hints(root)) if (h.toLowerCase().contains("ask approx")) prompt = true;
         assertTrue("composer input present: " + hints(root), prompt);
         for (String m : new String[]{"Low", "Medium", "High"}) assertNotNull("mode " + m, textView(root, m));
-        for (String b : new String[]{"Education", "Approx Code", "Approx Work"}) assertNotNull("primary action " + b, textView(root, b));
+        for (String b : new String[]{"Approx Work", "Approx Code", "Approx Education"}) assertNotNull("primary action " + b, textView(root, b));
         assertNotNull("hamburger menu", textView(root, "☰"));
         assertNull("no bottom tab bar (History is in the side menu)", textView(root, "History"));
         assertNull("no bottom tab bar (Settings is in the side menu)", textView(root, "Settings"));
@@ -168,7 +168,7 @@ public class AppScreensTest {
         for (android.app.Dialog d : org.robolectric.shadows.ShadowDialog.getShownDialogs())
             if (d.isShowing()) { ViewGroup content = d.findViewById(android.R.id.content); menu = content.getChildAt(0); }
         assertNotNull("side menu opens", menu);
-        for (String item : new String[]{"New chat", "Education", "Approx Code", "Approx Work", "History", "Account & profile", "Settings", "Help & about"})
+        for (String item : new String[]{"New chat", "Home", "Approx Work", "Approx Code", "Approx Education", "Projects", "Sessions", "Files", "History", "Profile", "Settings", "Help & about"})
             assertNotNull("menu item " + item, textView(menu, item));
         ViewGroup scrim = (ViewGroup) menu;
         View panel = scrim.getChildAt(0);
@@ -177,12 +177,32 @@ public class AppScreensTest {
         shot(panel, "android-04-menu.png");
 
         View root = a.findViewById(android.R.id.content);
-        for (String[] w : new String[][]{{"education", "Education", "Start new session · upload PDF"}, {"code", "Approx Code", "Start new session"}, {"work", "Approx Work", "Start new session"}}) {
+        for (String[] w : new String[][]{{"work", "Approx Work", "＋  New work session"}, {"code", "Approx Code", "＋  New coding session"}, {"education", "Approx Education", "＋  New study session"}}) {
             a.workspaceHome(w[0]);
             assertNotNull(w[0] + " title", textView(root, w[1]));
-            assertNotNull(w[0] + " start", textView(root, w[2]));
+            assertNotNull(w[0] + " new session", textView(root, w[2]));
+            boolean search = false;
+            for (String h : hints(root)) if (h.equals("Search sessions")) search = true;
+            assertTrue(w[0] + " search", search);
             assertNull(w[0] + " has no composer clutter", textView(root, "Medium"));
             shot(root, "android-05-" + w[0] + ".png");
+        }
+        // Overview sections rendered from a server response (the same JSON /api/workspaces/:kind returns).
+        Workspaces ws = (Workspaces) get(a, "ws");
+        LinearLayout body = new LinearLayout(a); body.setOrientation(LinearLayout.VERTICAL);
+        ws.renderOverview("education", new JSONObject("{\"sessions\":[{\"id\":\"ses_1\",\"kind\":\"education\",\"title\":\"Class 11 CS — Chapter 4\",\"project\":{\"id\":\"prj_1\",\"name\":\"Class 11 CS\"},\"thread_count\":2,\"open_tasks\":1,\"updated_at\":1}],"
+            + "\"projects\":[{\"id\":\"prj_1\",\"name\":\"Class 11 CS\",\"session_count\":1}],\"active_tasks\":[{\"id\":\"tsk_1\",\"session_id\":\"ses_1\",\"title\":\"Exercise 4.2\",\"kind\":\"assignment\",\"status\":\"todo\"}],"
+            + "\"files\":[],\"artifacts\":[],\"connectors\":[{\"provider\":\"google_drive\",\"name\":\"Google Drive\",\"status\":\"not_configured\"}],"
+            + "\"progress\":{\"quiz_attempts\":3,\"average_percent\":67,\"by_course\":[]}}"), body);
+        for (String t : new String[]{"Progress", "Recent sessions", "Class 11 CS — Chapter 4", "Courses & subjects", "Assignments & tasks", "📝 Exercise 4.2", "Documents & notes", "Outputs", "Connected apps", "Google Drive", "3 quiz attempts · 67% average"})
+            assertNotNull("education overview: " + t, textView(body, t));
+        // Session bar: threads as chips + the workspace's own tools.
+        for (String[] k : new String[][]{{"code", "Changes", "Commit", "Branch", "Run / Test"}, {"education", "Documents", "Quiz", "Assignments", "Progress"}, {"work", "Tasks", "Plan", "Outputs", "Logs"}}) {
+            ws.session = new JSONObject("{\"id\":\"ses_9\",\"kind\":\"" + k[0] + "\",\"title\":\"Session " + k[0] + "\",\"project\":{\"id\":\"prj_9\",\"name\":\"repo\"},"
+                + "\"threads\":[{\"id\":\"cht_1\",\"title\":\"Main thread\"},{\"id\":\"cht_2\",\"title\":\"Bug #12\"}],\"tasks\":[],\"files\":[],\"artifacts\":[],\"logs\":[]}");
+            View bar = ws.sessionBar("cht_2");
+            for (String t : new String[]{"Session " + k[0], "Session ▾", "Main thread", "Bug #12", "＋ Thread", k[1], k[2], k[3], k[4]}) assertNotNull(k[0] + " bar: " + t, textView(bar, t));
+            if (k[0].equals("code")) { set(a, "chatId", "cht_2"); a.showChat("cht_2"); ((LinearLayout) get(a, "currentPage")).addView(bar, 2); shot(root, "android-08-code-session.png"); }
         }
         // An empty Education session offers teaching / test / MCQ prompts grounded in the uploaded material.
         set(a, "workspace", "education");
