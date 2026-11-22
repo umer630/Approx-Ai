@@ -74,7 +74,9 @@ async function render() {
   if (!state.user && !PUBLIC.test(hash)) {
     // One session check per page load: a returning user goes straight to the workspace (no login screen).
     try { const me = await api('/api/auth/me'); state.user = me.user; setCsrf(me.csrf_token); await bootstrap(); } catch { hideSplash(); return go('#/login'); }
+    if (!startApplied && (hash === '#/' || !location.hash) && START[state.settings?.default_workspace]) { startApplied = true; return go(START[state.settings.default_workspace]); }
   }
+  startApplied = true;
   if (notApproved() && !PUBLIC.test(hash)) { hideSplash(); return accountStatusView(); }
   for (const [re, fn] of routes) {
     const m = re.exec(hash);
@@ -119,7 +121,13 @@ async function bootstrap() {
   state.mode = s.settings.default_mode;
   state.model = 'auto';
   applyTheme(s.settings.theme);
+  applyTextSize(s.settings.text_size);
 }
+/** Settings → Appearance → Text size: small | medium | large (whole interface). */
+export function applyTextSize(t) { document.documentElement.dataset.textSize = ['small', 'large'].includes(t) ? t : 'medium'; }
+/** Settings → Appearance → Start screen: where Approx opens when no page is requested. */
+const START = { work: '#/work', code: '#/w/code', education: '#/w/education' };
+let startApplied = false;
 /** light (default) | dark | system (follows the device). */
 export function applyTheme(t) {
   const dark = t === 'dark' || (t === 'system' && window.matchMedia?.('(prefers-color-scheme: dark)').matches);
@@ -211,6 +219,8 @@ function authView(kind) {
   const pwf = kind !== 'forgot' ? passwordField('password', 'Password', kind === 'signup' ? 'new-password' : 'current-password', kind === 'signup' ? 'At least 10 characters with letters and numbers.' : null) : null;
   const pw2 = kind === 'signup' ? passwordField('password2', 'Confirm password', 'new-password') : null;
   const name = h('input', { class: 'input', autocomplete: 'name', id: 'name', maxlength: '80' });
+  const mfa = h('input', { class: 'input', id: 'mfa', inputmode: 'numeric', autocomplete: 'one-time-code', maxlength: '8', placeholder: '6-digit code' });
+  const mfaField = h('div', { class: 'field hidden' }, h('label', { for: 'mfa' }, 'Authenticator code'), mfa);
   const btn = h('button', { class: 'btn primary block', type: 'submit' }, kind === 'login' ? 'Sign in' : kind === 'signup' ? 'Create account' : 'Send reset link');
   const label = btn.textContent;
   const busyLabel = kind === 'login' ? 'Signing in…' : kind === 'signup' ? 'Creating account…' : 'Sending…';
@@ -229,7 +239,9 @@ function authView(kind) {
     msg.className = 'hidden';
     try {
       if (kind === 'login') {
-        await signedIn(await api('/api/auth/login', { method: 'POST', body: { email: email.value.trim(), password: pwf.input.value } }));
+        const body = { email: email.value.trim(), password: pwf.input.value };
+        if (!mfaField.classList.contains('hidden')) body.mfa_code = mfa.value.trim();
+        await signedIn(await api('/api/auth/login', { method: 'POST', body }));
       } else if (kind === 'signup') {
         await api('/api/auth/signup', { method: 'POST', body: { email: email.value.trim(), password: pwf.input.value, display_name: name.value.trim() } });
         return checkEmailView(email.value.trim());
@@ -238,7 +250,10 @@ function authView(kind) {
         showMsg(msg, r.message, 'ok');
       }
     } catch (err) {
-      if (err.code === 'account_migration_required') showMsg(msg, err.message, 'ok');
+      if (err.code === 'mfa_required' || err.code === 'mfa_invalid') {
+        // Two-step verification: the password was right; the authenticator code is needed (or was wrong).
+        mfaField.classList.remove('hidden'); showMsg(msg, err.message, err.code === 'mfa_required' ? 'ok' : undefined); mfa.value = ''; mfa.focus();
+      } else if (err.code === 'account_migration_required') showMsg(msg, err.message, 'ok');
       else if (err.code === 'email_not_verified') {
         showMsg(msg, err.message);
         const rb = h('button', { class: 'btn small', type: 'button', onclick: () => resendVerification(rb, email.value.trim(), msg, 'Resend link') }, 'Resend link');
@@ -248,7 +263,7 @@ function authView(kind) {
   } },
   kind === 'signup' ? h('div', { class: 'field' }, h('label', { for: 'name' }, 'Name'), name) : null,
   h('div', { class: 'field' }, h('label', { for: 'email' }, 'Email'), email),
-  pwf?.el, pw2?.el, msg, btn);
+  pwf?.el, pw2?.el, kind === 'login' ? mfaField : null, msg, btn);
 
   // Accounts used on this device before: tap to continue (fills the email; the password is still required).
   const recent = kind === 'login' ? recentAccounts() : [];

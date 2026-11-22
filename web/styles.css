@@ -471,3 +471,10 @@ pre.diff { white-space: pre; overflow-x: auto; font-size: 12px; margin: 8px 0 0;
 .list-item.mono .title { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
 .session-crumb { display: inline-flex; align-items: center; gap: 6px; margin: 4px 0 10px; font-size: 13px; text-decoration: none; }
 .session-crumb svg { width: 16px; height: 16px; }
+
+/* Settings → Appearance → Text size (whole interface) */
+html[data-text-size="small"] body { zoom: 0.9; }
+html[data-text-size="large"] body { zoom: 1.15; }
+.mfa-qr { width: 180px; height: 180px; background: #fff; border-radius: 12px; padding: 8px; }
+.setup-key { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; word-break: break-all; user-select: all; }
+.notif.unread .title::before { content: '● '; color: var(--green, #0E9F55); }

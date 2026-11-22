@@ -146,7 +146,7 @@ export const SETTINGS = {
   },
   async models(b) {
     const sel = h('select', { class: 'input' }, state.models.filter((m) => m.available).map((m) => h('option', { value: m.id, selected: state.settings.default_model === m.id }, m.name)));
-    const mode = h('select', { class: 'input' }, [['medium', 'Medium'], ['high', 'High']].map(([v, l]) => h('option', { value: v, selected: state.settings.default_mode === v }, l)));
+    const mode = h('select', { class: 'input' }, [['low', 'Low'], ['medium', 'Medium'], ['high', 'High']].map(([v, l]) => h('option', { value: v, selected: state.settings.default_mode === v }, l)));
     b.append(h('div', { class: 'field' }, h('label', {}, 'Default model (used by the router as the baseline)'), sel), h('div', { class: 'field' }, h('label', {}, 'Default mode'), mode),
       h('button', { class: 'btn primary', onclick: () => saveSettings({ default_model: sel.value, default_mode: mode.value }) }, 'Save'),
       h('h3', {}, 'Your models'), h('div', { class: 'list' }, state.models.map((m) => h('div', { class: 'list-item' }, h('div', { class: 'grow' }, h('div', { class: 'title' }, m.name), h('div', { class: 'sub' }, m.description)), h('span', { class: `badge ${m.available ? 'green' : ''}` }, m.available ? 'Available' : 'Locked')))));

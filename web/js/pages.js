@@ -3,7 +3,7 @@
 // Pages render instantly from cache (stale-while-revalidate) and show skeletons only on the first load.
 import { api, cached, invalidate } from './api.js';
 import { h, icon, toast, sheet, confirmDialog, promptDialog, fmtTime, fmtBytes } from './ui.js';
-import { state, go, setMain, newChat, refreshRecent, applyTheme, openPermissions, signOutLocal } from './app.js';
+import { state, go, setMain, newChat, refreshRecent, applyTheme, applyTextSize, openPermissions, signOutLocal } from './app.js';
 import { SETTINGS } from './views.js';
 
 const skel = (n = 4) => h('div', { class: 'skeleton-list' }, Array.from({ length: n }, () => h('div', { class: 'skeleton line' })));
@@ -117,7 +117,8 @@ const SECTIONS = [
   ['profile', 'user', 'Profile', 'Name, language, activity'], ['billing', 'card', 'Billing', 'Plan and upgrades'], ['usage', 'gauge', 'Usage', 'Requests, models, limits'],
   ['capabilities', 'spark', 'Capabilities', 'Models and tools you can use'], ['code', 'code', 'Approx Code', 'Coding workspace and permissions'],
   ['connectors', 'link', 'Connectors', 'Connected services'], ['notifications', 'bell', 'Notifications', 'Emails and inbox'],
-  ['security', 'lock', 'Security', 'Password, email, sessions'], ['appearance', 'palette', 'Appearance', 'Theme'],
+  ['security', 'lock', 'Security', 'Password, two-step verification, email, sessions'], ['appearance', 'palette', 'Appearance', 'Theme, text size, start screen'],
+  ['workspaces', 'layers', 'Workspaces', 'Work, Code and Education preferences'], ['data', 'archive', 'Data controls', 'Retention, archive, delete, export'],
   ['account', 'account', 'Account', 'Memory, data, API, delete'], ['help', 'help', 'Help & Support', 'Feedback and app info'],
 ];
 const EXTRA = { memory: 'Memory', personalization: 'Personalization', models: 'Model preferences', privacy: 'Privacy & data', api: 'Developer API', delete: 'Delete account', email: 'Email' };
@@ -158,6 +159,17 @@ function ring(pct, label, value, sub) {
   return h('div', { class: 'ring-card', role: 'img', 'aria-label': `${label}: ${value}` }, h('div', { class: 'ring' }, svg, h('div', { class: 'ring-val' }, `${Math.round(p)}%`)),
     h('div', {}, h('b', {}, label), h('div', { class: 'small' }, value), sub ? h('div', { class: 'small muted' }, sub) : null));
 }
+const sw = (label, desc, checked, onChange) => {
+  const inp = h('input', { type: 'checkbox', role: 'switch', checked, 'aria-label': label });
+  inp.addEventListener('change', async () => { try { await onChange(inp.checked); toast('Saved'); } catch (e) { toast(e.message); inp.checked = !inp.checked; } });
+  return h('label', { class: 'switch' }, h('div', {}, h('div', {}, label), desc ? h('div', { class: 'small muted' }, desc) : null), inp);
+};
+const choice = (label, value, options, onChange) => {
+  const sel = h('select', { class: 'input', 'aria-label': label }, options.map(([v, t]) => h('option', { value: v, selected: String(v) === String(value) }, t)));
+  sel.addEventListener('change', async () => { const prev = value; try { await onChange(sel.value); value = sel.value; toast('Saved'); } catch (e) { toast(e.message); sel.value = prev; } });
+  return h('div', { class: 'field' }, h('label', {}, label), sel);
+};
+const patch = async (body) => { const r = await api('/api/settings', { method: 'PATCH', body }); state.settings = { ...state.settings, ...r.settings }; invalidate('/api/settings'); return r; };
 const meter = (pct) => { const i = h('i'); i.style.width = `${Math.min(100, pct)}%`; return h('div', { class: 'meter' }, i); };
 
 const PAGES = {
@@ -248,10 +260,11 @@ const PAGES = {
     const perm = state.settings?.permissions_mode === 'automatic' ? 'Automatic' : 'Manual';
     const list = h('div', { class: 'list' }, skel(2));
     b.append(h('p', { class: 'muted' }, 'Approx Code is a coding workspace: a repository of files and an agent that proposes edits.'),
-      h('a', { class: 'btn primary block', href: '#/code' }, icon('code'), 'Open Approx Code'),
+      h('a', { class: 'btn primary block', href: '#/w/code' }, icon('code'), 'Open Approx Code'),
       h('h2', { class: 'section' }, 'Permissions'), h('button', { class: 'settings-row', onclick: () => openPermissions() },
         h('span', { class: 'settings-icon' }, icon('shield')), h('span', { class: 'grow' }, h('span', { class: 'title' }, perm), h('span', { class: 'sub' }, perm === 'Automatic' ? 'Agent changes are applied immediately' : 'Agent changes wait for your review')), icon('chevron')),
-      h('h2', { class: 'section' }, 'Code projects'), list);
+      h('h2', { class: 'section' }, 'Code projects'), list,
+      h('a', { class: 'settings-row', href: '#/settings/workspaces' }, h('span', { class: 'grow' }, h('span', { class: 'title' }, 'Default branch'), h('span', { class: 'sub' }, state.settings?.workspace_prefs?.code?.default_branch || 'main')), icon('chevron')));
     try {
       const r = await cached('/api/projects', 15_000);
       const code = r.projects.filter((p) => p.kind === 'fabbox' || p.kind === 'coeprox');
@@ -267,13 +280,74 @@ const PAGES = {
         .map((t) => h('div', { class: 'list-item static' }, icon('link'), h('span', { class: 'grow' }, t), h('span', { class: 'badge' }, 'Not available yet')))),
       h('p', { class: 'small muted' }, 'Connecting a service needs OAuth apps registered by Approx Technology and server endpoints (/api/connectors) that store tokens securely on the server — neither exists yet. Approx never shows API keys, passwords or OAuth secrets in the app.'));
   },
+  async notifications(b) {
+    const s = (await api('/api/settings')).settings;
+    const inbox = h('div', { class: 'list' }, skel(2));
+    const load = async () => {
+      const r = await api('/api/notifications');
+      inbox.replaceChildren(...(r.notifications.length ? r.notifications.map((n) => h('div', { class: `list-item notif${n.read_at ? '' : ' unread'}` },
+        h('a', { class: 'grow', href: n.link || '#/settings/notifications', onclick: () => api(`/api/notifications/${n.id}/read`, { method: 'POST' }).catch(() => {}) },
+          h('div', { class: 'title' }, n.title), h('div', { class: 'sub' }, `${n.body} · ${fmtTime(n.created_at)}`)),
+        h('button', { class: 'icon-btn', 'aria-label': `Delete notification: ${n.title}`, onclick: async () => { await api(`/api/notifications/${n.id}`, { method: 'DELETE' }); load(); } }, icon('trash'))))
+        : [h('p', { class: 'muted' }, 'No notifications.')]));
+      unread.textContent = r.unread ? `${r.unread} unread` : 'All read';
+    };
+    const unread = h('span', { class: 'small muted grow' });
+    b.append(
+      sw('Task and code updates', 'In-app notifications when a plan or quiz is ready and when code changes wait for your review.', s.notify_task_updates, (v) => patch({ notify_task_updates: v })),
+      sw('Email me a copy', 'Also email the notifications above.', s.notifications_email, (v) => patch({ notifications_email: v })),
+      h('p', { class: 'small muted' }, 'Security notifications (new sign-in, password or two-step verification changes) are always shown and emailed.'),
+      h('div', { class: 'row' }, unread,
+        h('button', { class: 'btn small', onclick: async () => { await api('/api/notifications/read-all', { method: 'POST' }); load(); } }, 'Mark all read'),
+        h('button', { class: 'btn small', onclick: async () => { if (await confirmDialog('Clear all notifications?', 'Your inbox will be emptied.', 'Clear', true)) { await api('/api/notifications', { method: 'DELETE' }); load(); } } }, 'Clear all')),
+      inbox);
+    load().catch((e) => inbox.replaceChildren(errBox(e)));
+  },
+  async workspaces(b) {
+    const p = (await api('/api/settings')).settings.workspace_prefs;
+    const wp = (ws, key) => (v) => patch({ workspace_prefs: { [ws]: { [key]: v } } });
+    const branch = h('input', { class: 'input', value: p.code.default_branch, maxlength: '60', 'aria-label': 'Default branch' });
+    b.append(h('h2', { class: 'section' }, 'Approx Education'),
+      choice('Quiz length', p.education.quiz_count, [3, 5, 10, 15, 20].map((n) => [n, `${n} questions`]), (v) => wp('education', 'quiz_count')(Number(v))),
+      choice('Quiz difficulty', p.education.difficulty, [['easy', 'Easy'], ['mixed', 'Mixed'], ['hard', 'Hard']], wp('education', 'difficulty')),
+      choice('Explanations', p.education.explanation_style, [['simple', 'Simple — short steps, everyday words'], ['detailed', 'Detailed — full derivations and examples'], ['exam', 'Exam-focused — key points and model answers']], wp('education', 'explanation_style')),
+      h('h2', { class: 'section' }, 'Approx Code'),
+      h('div', { class: 'field' }, h('label', {}, 'Default branch for new repositories'), h('div', { class: 'row' }, branch,
+        h('button', { class: 'btn', onclick: async () => { try { await wp('code', 'default_branch')(branch.value.trim()); toast('Saved'); } catch (e) { toast(e.message); } } }, 'Save'))),
+      h('a', { class: 'settings-row', href: '#/settings/code' }, h('span', { class: 'grow' }, h('span', { class: 'title' }, 'Agent permissions'), h('span', { class: 'sub' }, 'Manual review or automatic apply')), icon('chevron')),
+      h('h2', { class: 'section' }, 'Approx Work'),
+      sw('A thread for each planned task', 'When Approx plans a goal, give every task its own conversation thread.', p.work.plan_threads, wp('work', 'plan_threads')));
+  },
+  async data(b) {
+    const s = (await api('/api/settings')).settings;
+    b.append(
+      choice('Keep conversations', s.chat_retention_days, [[0, 'Forever'], [7, '7 days'], [30, '30 days'], [90, '90 days'], [365, '1 year']], async (v) => {
+        if (Number(v) && !await confirmDialog('Delete old conversations?', `Conversations and sessions untouched for longer than ${v} days will be deleted now and from now on.`, 'Apply', true)) throw new Error('Not changed');
+        await patch({ chat_retention_days: Number(v) });
+      }),
+      h('div', { class: 'settings-list' },
+        h('button', { class: 'settings-row', onclick: async () => { const r = await api('/api/account/data/archive-chats', { method: 'POST' }); toast(`${r.count} conversations archived`); refreshRecent(true); } },
+          h('span', { class: 'settings-icon' }, icon('archive')), h('span', { class: 'grow' }, h('span', { class: 'title' }, 'Archive all conversations'), h('span', { class: 'sub' }, 'Move every active conversation to Archived'))),
+        h('button', { class: 'settings-row', onclick: () => { location.href = '/api/account/export'; } },
+          h('span', { class: 'settings-icon' }, icon('download')), h('span', { class: 'grow' }, h('span', { class: 'title' }, 'Export my data'), h('span', { class: 'sub' }, 'Download everything as JSON'))),
+        h('button', { class: 'settings-row danger', onclick: async () => {
+          const t = await promptDialog('Delete all conversations', 'Type DELETE to permanently delete every conversation and work session');
+          if (t === null) return;
+          try { const r = await api('/api/account/data/delete-chats', { method: 'POST', body: { confirm: t } }); toast(`${r.count} conversations deleted`); refreshRecent(true); } catch (e) { toast(e.message); }
+        } }, h('span', { class: 'settings-icon' }, icon('trash')), h('span', { class: 'grow' }, h('span', { class: 'title' }, 'Delete all conversations'), h('span', { class: 'sub' }, 'Permanent — cannot be undone')))),
+      h('a', { class: 'btn block', href: '#/settings/privacy' }, 'Training consent'), h('a', { class: 'btn block', href: '#/settings/delete' }, 'Delete account'));
+  },
   async appearance(b) {
     const cur = state.settings?.theme || 'light';
     const opt = (v, t, d) => h('button', { class: 'option', role: 'radio', 'aria-checked': String(cur === v), onclick: async () => {
       await api('/api/settings', { method: 'PATCH', body: { theme: v } }); state.settings.theme = v; applyTheme(v); invalidate('/api/settings');
       for (const o of b.querySelectorAll('.option')) o.setAttribute('aria-checked', String(o.dataset.v === v)); toast('Theme saved');
     }, 'data-v': v }, h('div', { class: 'grow' }, h('div', { class: 'name' }, t), h('div', { class: 'small muted' }, d)));
-    b.append(opt('light', 'Light', 'Green and white (default)'), opt('dark', 'Dark', 'Dark background'), opt('system', 'System', 'Follow your device setting'));
+    b.append(opt('light', 'Light', 'Green and white (default)'), opt('dark', 'Dark', 'Dark background'), opt('system', 'System', 'Follow your device setting'),
+      h('h2', { class: 'section' }, 'Text size'),
+      choice('Text size', state.settings?.text_size || 'medium', [['small', 'Small'], ['medium', 'Medium'], ['large', 'Large']], async (v) => { await patch({ text_size: v }); applyTextSize(v); }),
+      h('h2', { class: 'section' }, 'Start screen'),
+      choice('Open Approx in', state.settings?.default_workspace || 'home', [['home', 'Home (chat)'], ['work', 'Approx Work'], ['code', 'Approx Code'], ['education', 'Approx Education']], (v) => patch({ default_workspace: v })));
   },
   async account(b) {
     const link = (k, ic, t, sub) => h('a', { class: 'settings-row', href: `#/settings/${k}` }, h('span', { class: 'settings-icon' }, icon(ic)), h('span', { class: 'grow' }, h('span', { class: 'title' }, t), h('span', { class: 'sub' }, sub)), icon('chevron'));
@@ -284,6 +358,37 @@ const PAGES = {
     h('button', { class: 'btn block', onclick: signOut }, icon('logout'), 'Log out'));
   },
   async security(b) {
+    b.append(h('h2', { class: 'section' }, 'Two-step verification'));
+    const box = h('div', {});
+    b.append(box);
+    const draw = async () => {
+      const st = await api('/api/auth/mfa');
+      if (!st.available) return box.replaceChildren(h('p', { class: 'muted' }, 'This account signs in with Google. Set a password with “Forgot password” to use two-step verification.'));
+      const pw = h('input', { class: 'input', type: 'password', autocomplete: 'current-password', placeholder: 'Current password', 'aria-label': 'Current password' });
+      const code = h('input', { class: 'input', inputmode: 'numeric', autocomplete: 'one-time-code', placeholder: '6-digit code', maxlength: '8', 'aria-label': 'Authenticator code' });
+      const msg = h('div', {});
+      if (st.enabled) {
+        box.replaceChildren(h('div', { class: 'alert ok' }, 'On — signing in needs a code from your authenticator app.'), pw, code, msg,
+          h('button', { class: 'btn danger', onclick: async () => { try { await api('/api/auth/mfa/disable', { method: 'POST', body: { password: pw.value, code: code.value.trim() } }); toast('Two-step verification turned off'); draw(); } catch (e) { msg.replaceChildren(errBox(e)); } } }, 'Turn off'));
+        return;
+      }
+      box.replaceChildren(h('p', { class: 'muted small' }, 'Add a code from an authenticator app (Google Authenticator, Microsoft Authenticator, Authy…) to every sign-in.'), pw, msg,
+        h('button', { class: 'btn primary', onclick: async () => {
+          try {
+            const e = await api('/api/auth/mfa/enroll', { method: 'POST', body: { password: pw.value } });
+            const confirm = h('button', { class: 'btn primary', onclick: async () => {
+              try { await api('/api/auth/mfa/verify', { method: 'POST', body: { password: pw.value, factor_id: e.factor_id, code: code.value.trim() } }); toast('Two-step verification is on'); draw(); }
+              catch (err) { msg.replaceChildren(errBox(err)); }
+            } }, 'Confirm and turn on');
+            box.replaceChildren(h('p', {}, '1. Scan the QR code with your authenticator app, or enter the setup key.'),
+              e.qr_code && e.qr_code.startsWith('data:image/') ? h('img', { class: 'mfa-qr', src: e.qr_code, alt: 'QR code for your authenticator app' }) : null,
+              h('div', { class: 'card setup-key' }, e.secret), h('a', { class: 'small', href: e.uri }, 'Open in an authenticator app on this device'),
+              h('p', {}, '2. Enter the 6-digit code the app shows.'), code, msg, confirm);
+          } catch (err) { msg.replaceChildren(errBox(err)); }
+        } }, 'Set up two-step verification'));
+    };
+    await draw();
+    b.append(h('h2', { class: 'section' }, 'Password and sessions'));
     await SETTINGS.security(b);
     b.append(h('h2', { class: 'section' }, 'Email address'));
     await SETTINGS.email(b);

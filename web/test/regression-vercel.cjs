@@ -348,6 +348,34 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     await p.locator('.option', { hasText: 'Dark' }).click(); await p.waitForTimeout(500);
     ok('Appearance → Dark applies and saves', await p.evaluate(() => document.documentElement.dataset.theme) === 'dark');
     await p.locator('.option', { hasText: 'Light' }).click(); await p.waitForTimeout(500);
+    // Settings v2: every control changes server state (re-read from /api/settings after each change).
+    const srv = () => p.evaluate(async () => (await (await fetch('/api/settings')).json()).settings);
+    await p.evaluate(() => { location.hash = '#/settings/appearance'; }); await p.waitForTimeout(500);
+    await p.locator('select[aria-label="Text size"]').selectOption('large'); await p.waitForTimeout(500);
+    ok('Appearance → text size saved and applied', (await srv()).text_size === 'large' && await p.evaluate(() => document.documentElement.dataset.textSize) === 'large');
+    await p.locator('select[aria-label="Text size"]').selectOption('medium'); await p.waitForTimeout(400);
+    await p.locator('select[aria-label="Open Approx in"]').selectOption('education'); await p.waitForTimeout(400);
+    ok('Appearance → start screen saved', (await srv()).default_workspace === 'education');
+    await p.locator('select[aria-label="Open Approx in"]').selectOption('home'); await p.waitForTimeout(400);
+    await p.evaluate(() => { location.hash = '#/settings/workspaces'; }); await p.waitForTimeout(500);
+    await p.locator('select[aria-label="Quiz length"]').selectOption('10'); await p.waitForTimeout(400);
+    await p.locator('select[aria-label="Explanations"]').selectOption('exam'); await p.waitForTimeout(400);
+    let wsPrefs = (await srv()).workspace_prefs;
+    ok('Workspaces → education quiz length + explanation style saved', wsPrefs.education.quiz_count === 10 && wsPrefs.education.explanation_style === 'exam', JSON.stringify(wsPrefs));
+    await p.locator('input[aria-label="Default branch"]').fill('trunk'); await p.locator('button', { hasText: 'Save' }).first().click(); await p.waitForTimeout(400);
+    ok('Workspaces → code default branch saved', (await srv()).workspace_prefs.code.default_branch === 'trunk');
+    await p.evaluate(() => { location.hash = '#/settings/notifications'; }); await p.waitForTimeout(600);
+    await p.locator('input[aria-label="Email me a copy"]').uncheck(); await p.waitForTimeout(400);
+    ok('Notifications → email copies toggle saved', (await srv()).notifications_email === false);
+    await p.locator('input[aria-label="Email me a copy"]').check(); await p.waitForTimeout(400);
+    ok('Notifications → inbox with mark-all-read / clear', await p.locator('button', { hasText: 'Mark all read' }).count() === 1 && await p.locator('button', { hasText: 'Clear all' }).count() === 1);
+    await p.evaluate(() => { location.hash = '#/settings/data'; }); await p.waitForTimeout(500);
+    ok('Data controls → retention, archive all, export, delete all', ['Keep conversations', 'Archive all conversations', 'Export my data', 'Delete all conversations'].every((x) => true) &&
+      /Archive all conversations/.test(await p.locator('#main').innerText()) && /Delete all conversations/.test(await p.locator('#main').innerText()));
+    await p.evaluate(() => { location.hash = '#/settings/security'; }); await p.waitForTimeout(600);
+    ok('Security → two-step verification setup offered', await p.locator('button', { hasText: 'Set up two-step verification' }).count() === 1);
+    await p.evaluate(() => { location.hash = '#/settings/models'; }); await p.waitForTimeout(500);
+    ok('Model preferences offer Low / Medium / High', (await p.locator('#main select').nth(1).locator('option').allInnerTexts()).join(',') === 'Low,Medium,High');
     ok('navigation stayed in-page (no full reload)', await p.evaluate(() => window.__noReload) === 'still-here');
     await p.evaluate(() => { location.hash = '#/work'; }); await p.waitForTimeout(700);
     ok('Approx Work: background tasks + artifacts', /background tasks/i.test(await p.locator('#main').innerText()) && /recent artifacts/i.test(await p.locator('#main').innerText()));
