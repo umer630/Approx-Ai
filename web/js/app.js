@@ -329,7 +329,10 @@ function tokenView(kind) {
     try {
       const proof = linkProof || { token: tok.value.trim(), email: codeEmail.value.trim() };
       if (kind === 'verify') {
-        const r = await api('/api/auth/verify-email', { method: 'POST', body: { ...proof, sign_in: !!linkProof } });
+        // The password is set together with the verification (API 1.9): Supabase keeps the FIRST password of an address
+        // that was signed up twice without verifying, so the password the person knows must be saved after the proof.
+        if (pw.value.length < 10 || !/[a-z]/i.test(pw.value) || !/\d/.test(pw.value)) { showMsg(msg, 'Enter your password: at least 10 characters with letters and numbers.'); return; }
+        const r = await api('/api/auth/verify-email', { method: 'POST', body: { ...proof, password: pw.value, sign_in: true } });
         if (r.user) { state.user = r.user; setCsrf(r.csrf_token); rememberAccount(r.user); await bootstrap(); }
         if (state.user) state.user.email_verified = true;
         return done('Email verified', 'Your email address is confirmed. You can now use Approx AI.');
@@ -348,7 +351,9 @@ function tokenView(kind) {
   } },
   linkProof ? null : h('div', { class: 'field' }, h('label', { for: 'code-email' }, kind === 'confirm' ? 'New email address' : 'Email'), codeEmail),
   linkProof ? null : h('div', { class: 'field' }, h('label', { for: 'token' }, 'Code from your email'), tok),
-  kind === 'reset' ? h('div', { class: 'field' }, h('label', { for: 'newpw' }, 'New password'), pw) : null, msg, btn);
+  kind === 'reset' ? h('div', { class: 'field' }, h('label', { for: 'newpw' }, 'New password'), pw) : null,
+  kind === 'verify' ? h('div', { class: 'field' }, h('label', { for: 'newpw' }, 'Password'), pw,
+    h('span', { class: 'small muted' }, 'The password you chose at sign-up (or a new one). It is saved for this account when the code is confirmed.')) : null, msg, btn);
   const extra = kind === 'verify' ? h('details', { class: 'small' }, h('summary', { class: 'muted' }, 'Resend verification email'),
     h('div', { class: 'row' }, resendEmail, (() => { const sb2 = h('button', { class: 'btn', type: 'button', onclick: () => resendVerification(sb2, resendEmail.value.trim(), msg, 'Send') }, 'Send'); return sb2; })())) : null;
   // Success: one clear next step. The token is removed from the address bar first, so reloading this page can never

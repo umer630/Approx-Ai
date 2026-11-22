@@ -92,6 +92,8 @@ public class MainActivity extends Activity {
     private TextView titleView;
     private boolean atHome = false;
     static final int REQ_PICK_EDU = 43;
+    /** The password typed at sign-up, kept in memory only (never stored) until the code is confirmed. */
+    private String pendingPassword = null;
     static final int EDU_MAX_BYTES = 4 * 1024 * 1024;   // the production server accepts uploads up to 4 MB
 
     // chat views
@@ -562,6 +564,7 @@ public class MainActivity extends Activity {
             if (!p1.equals(pw2.getText().toString())) { toast("The passwords don't match."); return; }
             final JSONObject body = obj("email", email.getText().toString().trim(), "password", pw.getText().toString(), "display_name", name.getText().toString().trim());
             bg(new Job() { public Object run() throws Exception { return api.post("/api/auth/signup", body); } }, new Done() { public void ok(Object r) {
+                pendingPassword = body.optString("password");
                 showVerify(body.optString("email"), ((JSONObject) r).optString("message", "Check your email for the verification code."));
             } });
         } }), 16);
@@ -588,11 +591,23 @@ public class MainActivity extends Activity {
         add(col, email, 24);
         final EditText code = input("Verification code", InputType.TYPE_CLASS_NUMBER);
         add(col, code, 10);
-        add(col, button("Verify", true, new Runnable() { public void run() {
-            final JSONObject body = obj("email", email.getText().toString().trim(), "token", code.getText().toString().trim());
+        // The password is saved together with the code (API 1.9): Supabase keeps the FIRST password of an address that
+        // was signed up twice without verifying, so the password the person knows is set once the code proves the inbox.
+        final EditText pw = addPassword(col, "Password (the one you chose at sign-up)", 10);
+        if (pendingPassword != null) pw.setText(pendingPassword);
+        add(col, button("Verify and sign in", true, new Runnable() { public void run() {
+            String p1 = pw.getText().toString();
+            if (code.getText().toString().trim().length() < 6) { toast("Enter the code from your email."); return; }
+            if (p1.length() < 10 || !p1.matches(".*[A-Za-z].*") || !p1.matches(".*\\d.*")) { toast("Enter your password: at least 10 characters with letters and numbers."); return; }
+            final JSONObject body = obj("email", email.getText().toString().trim(), "token", code.getText().toString().trim(),
+                    "password", p1, "sign_in", true, "client", "mobile");
             bg(new Job() { public Object run() throws Exception { return api.post("/api/auth/verify-email", body); } }, new Done() { public void ok(Object r) {
-                toast("Email verified.");
-                if (user != null) { try { user.put("email_verified", true); } catch (JSONException ignored) { } showChat(null); } else showLogin();
+                pendingPassword = null;
+                toast("Email verified. You're signed in.");
+                String tok = ((JSONObject) r).optString("token");
+                if (tok.length() > 0) { store.setToken(tok); api.setToken(tok); loadSession(); }
+                else if (user != null) { try { user.put("email_verified", true); } catch (JSONException ignored) { } showChat(null); }
+                else showLogin();
             } });
         } }), 16);
         // Resend with a cooldown (60 s, or the server's exact wait on 429) so the app never triggers Supabase's limit.

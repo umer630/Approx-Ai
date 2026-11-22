@@ -61,7 +61,10 @@ export async function startFakeSupabase({ publishableKey = 'sb_publishable_test_
       const ex = users.get(email);
       if (flags.failEmails && !(ex && ex.confirmed_at)) return err(res, 500, 'unexpected_failure', 'Error sending confirmation email');
       if (ex && ex.confirmed_at) return ok(res, { id: crypto.randomUUID(), email, identities: [], user_metadata: {} }); // obfuscated
-      if (ex) { ex.password = body.password; send(email, 'signup', redirectTo); return ok(res, pub(ex)); }
+      // Real Supabase Auth (internal/api/signup.go): an existing UNCONFIRMED user gets a fresh confirmation email, but
+      // the user is NOT updated — the password from the repeated sign-up is ignored ("we can't be sure of their
+      // claimed identity"). The first password stays until the person sets one after proving the mailbox.
+      if (ex) { send(email, 'signup', redirectTo); return ok(res, pub(ex)); }
       const u = { id: crypto.randomUUID(), email, password: body.password, confirmed_at: null, user_metadata: body.data || {}, created_at: new Date().toISOString() };
       users.set(email, u);
       send(email, 'signup', redirectTo);

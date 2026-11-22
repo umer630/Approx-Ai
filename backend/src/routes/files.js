@@ -127,8 +127,11 @@ export function registerFileRoutes(r) {
     const ext = (filename.split('.').pop() || '').toLowerCase();
     const type = TYPES[ext];
     if (!type) throw new HttpError(415, 'unsupported_type', `File type .${ext} is not allowed`);
-    const projectId = req.headers['x-project-id'] ? String(req.headers['x-project-id']) : null;
+    let projectId = req.headers['x-project-id'] ? String(req.headers['x-project-id']) : null;
     if (projectId && !await one('SELECT id FROM projects WHERE id = ? AND user_id = ?', projectId, u.id)) throw notFound('Project not found');
+    // Optional X-Session-Id: the file belongs to that Work / Code / Education session (and its project).
+    const sessionId = req.headers['x-session-id'] ? String(req.headers['x-session-id']) : null;
+    if (sessionId) { const ses = await one('SELECT id, project_id FROM work_sessions WHERE id = ? AND user_id = ?', sessionId, u.id); if (!ses) throw notFound('Session not found'); projectId = projectId || ses.project_id; }
     const total = (await one('SELECT COALESCE(SUM(size),0) s FROM files WHERE user_id = ?', u.id)).s;
     if (total > 500 * 1024 * 1024) throw new HttpError(507, 'storage_full', 'Storage limit (500 MB) reached');
 
@@ -154,8 +157,8 @@ export function registerFileRoutes(r) {
       else if (kind === 'pdf') extracted = await readPdfText(buf);
     }
     const id = newId('fil_');
-    await run(`INSERT INTO files (id,user_id,project_id,filename,mime,kind,size,sha256,storage_key,scan_status,scan_detail,extracted_text,created_at)
-         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`, id, u.id, projectId, filename, mime, kind, buf.length,
+    await run(`INSERT INTO files (id,user_id,project_id,session_id,filename,mime,kind,size,sha256,storage_key,scan_status,scan_detail,extracted_text,created_at)
+         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)`, id, u.id, projectId, sessionId, filename, mime, kind, buf.length,
     crypto.createHash('sha256').update(buf).digest('hex'), key, scan_status, threat || '', extracted, now());
     const f = await one('SELECT * FROM files WHERE id = ?', id);
     sendJson(res, scan_status === 'blocked' ? 422 : 201, { file: fileView(f) });

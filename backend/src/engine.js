@@ -74,6 +74,8 @@ export async function buildMessages({ user, model, mode, chat, text, attachText,
     if (mem.length) system += '\n\nThings the user asked you to remember:\n' + mem.map((m) => `- ${m.content}`).join('\n');
   }
   if (chat?.project_id) system += await projectContext(user.id, chat.project_id, text);
+  // A thread of a Work / Code / Education session: the session's notes, documents and tasks (never other sessions').
+  if (chat?.session_id) { const { sessionContext } = await import('./routes/worksessions.js'); system += await sessionContext(user.id, chat.session_id, text, selectPassages); }
 
   if (systemExtra) system += `\n\n${systemExtra}`;
   const history = given ? given : chat ? await all("SELECT role, content FROM messages WHERE chat_id = ? AND user_id = ? AND status = 'complete' ORDER BY created_at", chat.id, user.id) : [];

@@ -590,6 +590,57 @@ async function migrate(c) {
     stmts.push({ sql: 'CREATE INDEX IF NOT EXISTS idx_projects_purpose ON projects(user_id, purpose, updated_at)' });
     await apply('2026-11-sessions', stmts);
   }
+  if (!applied.has('2026-11-workspace-sessions')) {
+    // One session/thread architecture for Approx Work, Approx Code and Approx Education:
+    // User → Organization → Workspace (work|code|education) → Project → Session → Thread (= chat) → Messages,
+    // with Tasks, Artifacts, Files, AgentRuns and ToolExecutions attached to the session. Every row carries user_id;
+    // every route checks ownership server-side (the database is libSQL — Supabase is used for Auth only).
+    const stmts = [
+      { sql: `CREATE TABLE IF NOT EXISTS organizations (id TEXT PRIMARY KEY, name TEXT NOT NULL, owner_user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+        created_at INTEGER NOT NULL)` },
+      { sql: `CREATE TABLE IF NOT EXISTS org_members (org_id TEXT NOT NULL REFERENCES organizations(id) ON DELETE CASCADE, user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+        role TEXT NOT NULL DEFAULT 'owner' CHECK (role IN ('owner','admin','member')), created_at INTEGER NOT NULL, PRIMARY KEY (org_id, user_id))` },
+      { sql: `CREATE TABLE IF NOT EXISTS workspaces (id TEXT PRIMARY KEY, org_id TEXT NOT NULL REFERENCES organizations(id) ON DELETE CASCADE,
+        user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE, kind TEXT NOT NULL CHECK (kind IN ('work','code','education')), name TEXT NOT NULL,
+        created_at INTEGER NOT NULL, UNIQUE (user_id, kind))` },
+      { sql: `CREATE TABLE IF NOT EXISTS work_sessions (id TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+        workspace_id TEXT NOT NULL REFERENCES workspaces(id) ON DELETE CASCADE, project_id TEXT REFERENCES projects(id) ON DELETE SET NULL,
+        kind TEXT NOT NULL CHECK (kind IN ('work','code','education')), title TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'active' CHECK (status IN ('active','archived')),
+        context TEXT NOT NULL DEFAULT '', created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL, last_opened_at INTEGER)` },
+      { sql: 'CREATE INDEX IF NOT EXISTS idx_work_sessions_user ON work_sessions(user_id, kind, status, updated_at)' },
+      { sql: `CREATE TABLE IF NOT EXISTS tasks (id TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+        session_id TEXT NOT NULL REFERENCES work_sessions(id) ON DELETE CASCADE, thread_id TEXT REFERENCES chats(id) ON DELETE SET NULL,
+        title TEXT NOT NULL, detail TEXT NOT NULL DEFAULT '', kind TEXT NOT NULL DEFAULT 'task' CHECK (kind IN ('task','assignment')),
+        status TEXT NOT NULL DEFAULT 'todo' CHECK (status IN ('todo','in_progress','done','blocked')), due_at INTEGER, position INTEGER NOT NULL DEFAULT 0,
+        created_by TEXT NOT NULL DEFAULT 'user' CHECK (created_by IN ('user','agent')), created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL)` },
+      { sql: 'CREATE INDEX IF NOT EXISTS idx_tasks_session ON tasks(session_id, position)' },
+      { sql: `CREATE TABLE IF NOT EXISTS agent_runs (id TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+        session_id TEXT NOT NULL REFERENCES work_sessions(id) ON DELETE CASCADE, thread_id TEXT, kind TEXT NOT NULL,
+        status TEXT NOT NULL CHECK (status IN ('running','completed','failed')), input TEXT NOT NULL DEFAULT '', output TEXT NOT NULL DEFAULT '',
+        model_id TEXT, created_at INTEGER NOT NULL, finished_at INTEGER)` },
+      { sql: `CREATE TABLE IF NOT EXISTS tool_executions (id TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+        session_id TEXT NOT NULL REFERENCES work_sessions(id) ON DELETE CASCADE, thread_id TEXT, agent_run_id TEXT, tool TEXT NOT NULL,
+        input TEXT NOT NULL DEFAULT '', output TEXT NOT NULL DEFAULT '', status TEXT NOT NULL CHECK (status IN ('ok','error','unavailable')), created_at INTEGER NOT NULL)` },
+      { sql: 'CREATE INDEX IF NOT EXISTS idx_tool_exec_session ON tool_executions(session_id, created_at)' },
+      { sql: `CREATE TABLE IF NOT EXISTS connectors (id TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+        workspace_id TEXT REFERENCES workspaces(id) ON DELETE CASCADE, provider TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'connected', created_at INTEGER NOT NULL)` },
+      { sql: `CREATE TABLE IF NOT EXISTS code_commits (id TEXT PRIMARY KEY, project_id TEXT NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
+        user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE, session_id TEXT, branch TEXT NOT NULL, parent_id TEXT, message TEXT NOT NULL,
+        snapshot TEXT NOT NULL, created_at INTEGER NOT NULL)` },
+      { sql: `CREATE TABLE IF NOT EXISTS code_branches (project_id TEXT NOT NULL REFERENCES projects(id) ON DELETE CASCADE, name TEXT NOT NULL,
+        head_commit_id TEXT, created_at INTEGER NOT NULL, PRIMARY KEY (project_id, name))` },
+      { sql: `CREATE TABLE IF NOT EXISTS study_attempts (id TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+        session_id TEXT NOT NULL REFERENCES work_sessions(id) ON DELETE CASCADE, artifact_id TEXT NOT NULL, score INTEGER NOT NULL, total INTEGER NOT NULL,
+        answers TEXT NOT NULL DEFAULT '[]', created_at INTEGER NOT NULL)` },
+    ];
+    for (const [table, col, type] of [['projects', 'workspace_id', 'TEXT'], ['projects', 'current_branch', "TEXT"], ['chats', 'session_id', 'TEXT'],
+      ['files', 'session_id', 'TEXT'], ['artifacts', 'session_id', 'TEXT'], ['code_proposals', 'session_id', 'TEXT']]) {
+      if (!(await hasColumn(c, table, col))) stmts.push({ sql: `ALTER TABLE ${table} ADD COLUMN ${col} ${type}` });
+    }
+    stmts.push({ sql: 'CREATE INDEX IF NOT EXISTS idx_chats_session ON chats(session_id, updated_at)' });
+    stmts.push({ sql: 'CREATE INDEX IF NOT EXISTS idx_files_session ON files(session_id)' });
+    await apply('2026-11-workspace-sessions', stmts);
+  }
 }
 
 // The `models` table is seeded and kept in sync from the catalog file (name, tier, description…);

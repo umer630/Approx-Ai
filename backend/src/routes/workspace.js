@@ -28,9 +28,12 @@ export function registerWorkspaceRoutes(r) {
     const id = newId('art_');
     const content = typeof b.content === 'string' ? b.content : '';
     if (content.length > 1_000_000) throw bad('Artifact too large');
+    // Optional session_id: the artifact is an output of that Work / Code / Education session (ownership checked).
+    const ses = b.session_id ? await one('SELECT id, project_id FROM work_sessions WHERE id = ? AND user_id = ?', String(b.session_id), u.id) : null;
+    if (b.session_id && !ses) throw notFound('Session not found');
     await tx(async () => {
-      await run('INSERT INTO artifacts (id,user_id,project_id,chat_id,title,kind,language,created_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?)',
-        id, u.id, null, b.chat_id ? String(b.chat_id).slice(0, 40) : null, str(b.title, 'title', { min: 1, max: 150 }),
+      await run('INSERT INTO artifacts (id,user_id,project_id,chat_id,session_id,title,kind,language,created_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?,?)',
+        id, u.id, ses?.project_id || null, b.chat_id ? String(b.chat_id).slice(0, 40) : null, ses?.id || null, str(b.title, 'title', { min: 1, max: 150 }),
         oneOf(b.kind, 'kind', Object.keys(EXT), 'document'), str(b.language, 'language', { max: 30, required: false }) || '', now(), now());
       await run('INSERT INTO artifact_versions (artifact_id,version,content,note,created_at) VALUES (?,?,?,?,?)', id, 1, content, 'created', now());
     });

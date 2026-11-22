@@ -40,12 +40,25 @@ test('APK sign-up sends Supabase the same request as the browser, and Supabase s
   // The APK's code screen: the 6-digit code from that email verifies the address, then the app signs in.
   const unverified = await apk('login', mob, PW);
   assert.equal(unverified.code, 'email_not_verified');
-  const v = await apk('verify', mob, em.otp);
+  const v = await apk('verify', mob, em.otp, PW);
   assert.equal(v.ok, true, JSON.stringify(v));
   assert.equal(v.body.status, 'verified');
+  assert.equal(v.body.password_set, true);
+  assert.ok(v.body.token.length > 20, 'the APK is signed in right after verifying');
   const login = await apk('login', mob, PW);
   assert.equal(login.ok, true, JSON.stringify(login));
   assert.ok(login.body.token.length > 20, 'mobile bearer token');
+});
+
+test('APK: signed up twice without verifying → verify with the code + chosen password → that password signs in', { skip: !hasJava && 'needs javac + APPROX_JSON_JAR' }, async () => {
+  const e = `apk-twice-${Date.now()}@example.com`;
+  await apk('signup', e, 'FirstPassw0rd!');
+  await apk('signup', e, PW);                       // the password the person remembers
+  const v = await apk('verify', e, supabase.lastEmail(e, 'signup').otp, PW);
+  assert.equal(v.ok, true, JSON.stringify(v));
+  const login = await apk('login', e, PW);
+  assert.equal(login.ok, true, 'before the fix this was 401 "Incorrect email or password"');
+  assert.equal((await apk('login', e, 'FirstPassw0rd!')).status, 401);
 });
 
 test('APK resend, cooldown, password reset and existing-account sign-up', { skip: !hasJava && 'needs javac + APPROX_JSON_JAR' }, async () => {
@@ -62,7 +75,7 @@ test('APK resend, cooldown, password reset and existing-account sign-up', { skip
   assert.ok(again.retry_after > 0 && again.retry_after <= 60, `exact cooldown reaches the APK (${again.retry_after}s)`);
   supabase.flags.resendCooldownSecs = 0;
   // Existing, verified account: Supabase sends nothing (anti-enumeration) — the APK gets the same answer as the web.
-  await apk('verify', e, supabase.lastEmail(e).otp);
+  await apk('verify', e, supabase.lastEmail(e).otp, PW);
   const n = supabase.emails.length;
   const dup = await apk('signup', e, PW);
   assert.equal(dup.ok, true);

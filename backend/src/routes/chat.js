@@ -13,7 +13,7 @@ async function ownChat(userId, id) {
   return c;
 }
 function chatView(c) {
-  return { id: c.id, title: c.title, model_id: c.model_id, mode: c.mode, project_id: c.project_id, archived: !!c.archived,
+  return { id: c.id, title: c.title, model_id: c.model_id, mode: c.mode, project_id: c.project_id, session_id: c.session_id || null, archived: !!c.archived,
     deleted: !!c.deleted_at, training_eligible: !!c.training_eligible, is_fab: !!c.is_fab, created_at: c.created_at, updated_at: c.updated_at };
 }
 function msgView(m) {

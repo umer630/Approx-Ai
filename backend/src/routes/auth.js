@@ -164,15 +164,29 @@ export function registerAuthRoutes(r) {
     const ip = clientIp(req);
     await rateLimit(`verify:${ip}`, 30, HOUR);
     const b = await readJson(req);
+    // Optional (API 1.9): the password for this account, set once the code/link proves control of the mailbox.
+    // Needed because Supabase never changes the password of an existing UNCONFIRMED account on a repeated sign-up
+    // ("we can't be sure of their claimed identity"): someone who signed up twice keeps the FIRST password, verifies
+    // with the new code, and their sign-in with the password they just chose fails. Setting it here, after the proof,
+    // makes the verified identity and the password the person knows the same thing.
+    const password = b.password === undefined || b.password === null || b.password === '' ? null : b.password;
+    if (password !== null) { const pwErr = passwordPolicy(password); if (pwErr) throw bad(pwErr, 'weak_password'); }
     requireSupabase();
     const { user: sbUser, accessToken } = await identityFromCallback(b, ['signup', 'email']);
     if (!(sbUser?.email_confirmed_at || sbUser?.confirmed_at)) throw bad('Invalid or expired token', 'invalid_token');
+    if (password !== null) {
+      if (!accessToken) throw bad('Invalid or expired token', 'invalid_token');
+      try { await sb.updateUser(accessToken, { password }); }
+      catch (e) { if (!(e instanceof SupabaseError && e.code === 'same_password')) { await sb.logout(accessToken); throw toHttpError(e); } }
+    }
     const u = await localUserFor(sbUser, ip);
-    await audit(u.id, u.id, 'auth.email_verified', u.id, ip);
+    await audit(u.id, u.id, 'auth.email_verified', u.id, ip, password !== null ? { password_set: true } : undefined);
     if (accessToken) await sb.logout(accessToken);
-    // The web app signs the person in straight from the confirmation link; the Android app shows its sign-in screen.
-    if (b.sign_in === true) return sendJson(res, 200, { status: 'verified', ...(await sessionResponse(res, req, await one('SELECT * FROM users WHERE id = ?', u.id), 'web')) });
-    sendJson(res, 200, { status: 'verified' });
+    if (password !== null) await revokeSessions(u.id);   // sessions opened with any earlier password end here
+    // Signing in right away (web: cookie, Android: bearer token) — the person has just proven the mailbox AND set the password.
+    const client = b.client === 'mobile' ? 'mobile' : 'web';
+    if (b.sign_in === true) return sendJson(res, 200, { status: 'verified', password_set: password !== null, ...(await sessionResponse(res, req, await one('SELECT * FROM users WHERE id = ?', u.id), client)) });
+    sendJson(res, 200, { status: 'verified', password_set: password !== null });
   });
 
   r.post('/api/auth/resend-verification', async (req, res) => {
