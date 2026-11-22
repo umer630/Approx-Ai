@@ -3,6 +3,7 @@
 // "Confirm email" ON: sign-up creates an unconfirmed user and "sends" a confirmation email; an already-registered
 // address gets an obfuscated answer (no enumeration); email links redirect to redirect_to with the session in the URL
 // fragment (implicit flow) or an error fragment; POST /verify accepts token hashes; errors use GoTrue's error codes.
+import { totp, base32Encode } from './totp.js';
 import http from 'node:http';
 import crypto from 'node:crypto';
 
@@ -18,8 +19,10 @@ export async function startFakeSupabase({ publishableKey = 'sb_publishable_test_
   const rnd = (n = 24) => crypto.randomBytes(n).toString('hex');
   const pub = (u) => ({ id: u.id, aud: 'authenticated', role: 'authenticated', email: u.email, new_email: u.new_email || undefined,
     email_confirmed_at: u.confirmed_at, confirmed_at: u.confirmed_at, user_metadata: u.user_metadata,
-    identities: [{ provider: 'email', identity_id: u.id }], created_at: u.created_at });
-  const session = (u) => { const at = 'at_' + rnd(); sessions.set(at, u.email); return { access_token: at, token_type: 'bearer', expires_in: 3600, refresh_token: 'rt_' + rnd(8), user: pub(u) }; };
+    identities: [{ provider: 'email', identity_id: u.id }], created_at: u.created_at,
+    factors: (u.factors || []).map((f) => ({ id: f.id, factor_type: 'totp', status: f.status, friendly_name: f.friendly_name })) });
+  const aal = new Map();   // access token → 'aal1' | 'aal2' (MFA assurance level)
+  const session = (u, level = 'aal1') => { const at = 'at_' + rnd(); sessions.set(at, u.email); aal.set(at, level); return { access_token: at, token_type: 'bearer', expires_in: 3600, refresh_token: 'rt_' + rnd(8), user: pub(u) }; };
   const send = (to, kind, redirectTo) => {
     for (const o of otps.values()) if (o.email === to && o.kind === kind) o.used = true; // one live token per user & purpose
     const th = 'th_' + rnd(20);
@@ -133,6 +136,35 @@ export async function startFakeSupabase({ publishableKey = 'sb_publishable_test_
           me.new_email = e; send(e, 'email_change', redirectTo);
         }
         return ok(res, pub(me));
+      }
+    }
+    // MFA (TOTP) — same contract as Supabase Auth: enroll → challenge → verify (session upgraded to aal2) → unenroll (aal2).
+    if (p === '/factors' && req.method === 'POST') {
+      if (!me) return err(res, 401, 'bad_jwt', 'invalid JWT');
+      if ((me.factors || []).some((f) => f.status === 'verified') && aal.get(bearer) !== 'aal2') return err(res, 422, 'insufficient_aal', 'AAL2 required to enroll a new factor');
+      const secret = base32Encode(crypto.randomBytes(20));
+      const f = { id: crypto.randomUUID(), secret, status: 'unverified', friendly_name: body.friendly_name || '' };
+      (me.factors ||= []).push(f);
+      return ok(res, { id: f.id, type: 'totp', totp: { qr_code: 'data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg"/>', secret, uri: `otpauth://totp/Approx:${me.email}?secret=${secret}&issuer=Approx` } });
+    }
+    const fm = /^\/factors\/([\w-]+)(\/challenge|\/verify)?$/.exec(p);
+    if (fm) {
+      if (!me) return err(res, 401, 'bad_jwt', 'invalid JWT');
+      const f = (me.factors || []).find((x) => x.id === fm[1]);
+      if (!f) return err(res, 404, 'mfa_factor_not_found', 'Factor not found');
+      if (fm[2] === '/challenge') { const id = 'chl_' + rnd(8); (me.challenges ||= new Map()).set(id, f.id); return ok(res, { id, expires_at: Math.floor(Date.now() / 1000) + 300 }); }
+      if (fm[2] === '/verify') {
+        if (me.challenges?.get(body.challenge_id) !== f.id) return err(res, 422, 'mfa_challenge_expired', 'Challenge not found');
+        me.challenges.delete(body.challenge_id);
+        const now2 = Date.now();
+        if (![now2 - 30_000, now2, now2 + 30_000].some((t) => totp(f.secret, t) === String(body.code))) return err(res, 422, 'mfa_verification_failed', 'Invalid TOTP code entered');
+        f.status = 'verified';
+        return ok(res, session(me, 'aal2'));
+      }
+      if (req.method === 'DELETE') {
+        if (f.status === 'verified' && aal.get(bearer) !== 'aal2') return err(res, 422, 'insufficient_aal', 'AAL2 required to unenroll a verified factor');
+        me.factors = me.factors.filter((x) => x.id !== f.id);
+        return ok(res, { id: f.id });
       }
     }
     if (req.method === 'POST' && p === '/logout') { sessions.delete(bearer); res.writeHead(204); return res.end(); }

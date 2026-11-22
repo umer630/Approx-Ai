@@ -4,6 +4,7 @@ import { readJson, sendJson, bad, notFound, newId, str, oneOf, clientIp } from '
 import { requireUser } from '../security.js';
 import { getModel, canUseModel, MODES } from '../models.js';
 import { publicUser } from './auth.js';
+import { readWorkspacePrefs, mergeWorkspacePrefs, RETENTION_DAYS, enforceRetention } from '../notify.js';
 
 export function registerAccountRoutes(r) {
   // ---------- settings & profile ----------
@@ -13,7 +14,9 @@ export function registerAccountRoutes(r) {
     sendJson(res, 200, { user: await publicUser(u), settings: {
       default_model: s.default_model, default_mode: s.default_mode, memory_enabled: !!s.memory_enabled,
       training_opt_in: !!s.training_opt_in, notifications_email: !!s.notifications_email, personalization: s.personalization, theme: s.theme,
-      permissions_mode: s.permissions_mode || 'manual',
+      permissions_mode: s.permissions_mode || 'manual', notify_task_updates: s.notify_task_updates !== 0,
+      chat_retention_days: s.chat_retention_days || 0, text_size: s.text_size || 'medium', default_workspace: s.default_workspace || 'home',
+      workspace_prefs: readWorkspacePrefs(s.workspace_prefs),
     } });
   });
 
@@ -28,23 +31,35 @@ export function registerAccountRoutes(r) {
       sets.push('default_model = ?'); args.push(m.id);
     }
     if (b.default_mode !== undefined) { sets.push('default_mode = ?'); args.push(oneOf(b.default_mode, 'default_mode', MODES)); }
-    for (const k of ['memory_enabled', 'training_opt_in', 'notifications_email']) {
+    for (const k of ['memory_enabled', 'training_opt_in', 'notifications_email', 'notify_task_updates']) {
       if (b[k] !== undefined) { sets.push(`${k} = ?`); args.push(b[k] ? 1 : 0); }
     }
     if (b.personalization !== undefined) { sets.push('personalization = ?'); args.push(str(b.personalization, 'personalization', { max: 1500, required: false }) || ''); }
     if (b.theme !== undefined) { sets.push('theme = ?'); args.push(oneOf(b.theme, 'theme', ['dark', 'light', 'system'])); }
+    if (b.chat_retention_days !== undefined) {
+      if (!RETENTION_DAYS.includes(b.chat_retention_days)) throw bad(`chat_retention_days must be one of: ${RETENTION_DAYS.join(', ')} (0 = keep forever)`);
+      sets.push('chat_retention_days = ?'); args.push(b.chat_retention_days);
+    }
+    if (b.text_size !== undefined) { sets.push('text_size = ?'); args.push(oneOf(b.text_size, 'text_size', ['small', 'medium', 'large'])); }
+    if (b.default_workspace !== undefined) { sets.push('default_workspace = ?'); args.push(oneOf(b.default_workspace, 'default_workspace', ['home', 'work', 'code', 'education'])); }
+    if (b.workspace_prefs !== undefined) {
+      const cur = await one('SELECT workspace_prefs FROM settings WHERE user_id = ?', u.id);
+      sets.push('workspace_prefs = ?'); args.push(mergeWorkspacePrefs(cur?.workspace_prefs, b.workspace_prefs));
+    }
     if (b.permissions_mode !== undefined) { sets.push('permissions_mode = ?'); args.push(oneOf(b.permissions_mode, 'permissions_mode', ['manual', 'automatic'])); }
     if (sets.length) await run(`UPDATE settings SET ${sets.join(', ')} WHERE user_id = ?`, ...args, u.id);
     if (b.training_opt_in === false) {
       // Withdrawing consent removes every chat from training eligibility immediately.
       await run('UPDATE chats SET training_eligible = 0 WHERE user_id = ?', u.id);
     }
+    if (b.chat_retention_days) await enforceRetention(u.id);   // applies immediately, not only on the next visit
     if (b.training_opt_in !== undefined) await audit(u.id, u.id, b.training_opt_in ? 'consent.training_granted' : 'consent.training_withdrawn', u.id, clientIp(req));
     if (b.display_name !== undefined) await run('UPDATE profiles SET display_name = ? WHERE user_id = ?', str(b.display_name, 'display_name', { max: 80, required: false }) || '', u.id);
     if (b.language !== undefined) await run('UPDATE profiles SET language = ? WHERE user_id = ?', oneOf(b.language, 'language', ['auto', 'en', 'ur', 'roman-ur']), u.id);
     res.statusCode = 200;
     const s = await one('SELECT * FROM settings WHERE user_id = ?', u.id);
-    sendJson(res, 200, { status: 'saved', settings: { ...s, memory_enabled: !!s.memory_enabled, training_opt_in: !!s.training_opt_in, notifications_email: !!s.notifications_email } });
+    sendJson(res, 200, { status: 'saved', settings: { ...s, user_id: undefined, memory_enabled: !!s.memory_enabled, training_opt_in: !!s.training_opt_in,
+      notifications_email: !!s.notifications_email, notify_task_updates: s.notify_task_updates !== 0, workspace_prefs: readWorkspacePrefs(s.workspace_prefs) } });
   });
 
   // Data export (privacy / portability)
@@ -154,7 +169,42 @@ export function registerAccountRoutes(r) {
   // ---------- notifications ----------
   r.get('/api/notifications', async (req, res, ctx) => {
     const u = requireUser(ctx);
-    sendJson(res, 200, { notifications: await all('SELECT * FROM notifications WHERE user_id = ? ORDER BY created_at DESC LIMIT 50', u.id) });
+    sendJson(res, 200, { notifications: (await all('SELECT id, title, body, kind, link, read_at, created_at FROM notifications WHERE user_id = ? ORDER BY created_at DESC LIMIT 100', u.id)),
+      unread: (await one('SELECT COUNT(*) n FROM notifications WHERE user_id = ? AND read_at IS NULL', u.id)).n });
+  });
+  r.post('/api/notifications/read-all', async (req, res, ctx) => {
+    const u = requireUser(ctx);
+    await run('UPDATE notifications SET read_at = ? WHERE user_id = ? AND read_at IS NULL', now(), u.id);
+    sendJson(res, 200, { status: 'ok' });
+  });
+  r.delete('/api/notifications/:id', async (req, res, ctx, p) => {
+    const u = requireUser(ctx);
+    const r2 = await run('DELETE FROM notifications WHERE id = ? AND user_id = ?', p.id, u.id);
+    if (!r2.changes) throw notFound('Notification not found');
+    sendJson(res, 200, { status: 'deleted' });
+  });
+  r.delete('/api/notifications', async (req, res, ctx) => {
+    const u = requireUser(ctx);
+    await run('DELETE FROM notifications WHERE user_id = ?', u.id);
+    sendJson(res, 200, { status: 'cleared' });
+  });
+
+  // ---------- data controls ----------
+  // Archive every active conversation, or permanently delete all conversations and work sessions (typed confirmation).
+  r.post('/api/account/data/archive-chats', async (req, res, ctx) => {
+    const u = requireUser(ctx);
+    const r2 = await run('UPDATE chats SET archived = 1 WHERE user_id = ? AND archived = 0 AND deleted_at IS NULL', u.id);
+    await audit(u.id, u.id, 'data.chats_archived', u.id, clientIp(req), { count: r2.changes });
+    sendJson(res, 200, { status: 'archived', count: r2.changes });
+  });
+  r.post('/api/account/data/delete-chats', async (req, res, ctx) => {
+    const u = requireUser(ctx);
+    const b = await readJson(req);
+    if (b.confirm !== 'DELETE') throw bad('Type DELETE to confirm', 'confirmation_required');
+    const r2 = await run('DELETE FROM chats WHERE user_id = ?', u.id);
+    await run('DELETE FROM work_sessions WHERE user_id = ?', u.id);
+    await audit(u.id, u.id, 'data.chats_deleted', u.id, clientIp(req), { count: r2.changes });
+    sendJson(res, 200, { status: 'deleted', count: r2.changes });
   });
   r.post('/api/notifications/:id/read', async (req, res, ctx, p) => {
     const u = requireUser(ctx);

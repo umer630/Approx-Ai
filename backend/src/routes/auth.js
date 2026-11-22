@@ -6,6 +6,7 @@ import {
   createSession, revokeSessions, sessionCookie, requireUser,
 } from '../security.js';
 import { sendMail } from '../mail.js';
+import { notify } from '../notify.js';
 import { sb, SupabaseError, toHttpError, requireSupabase, supabaseConfigured, isEmailDeliveryFailure } from '../supabase.js';
 import { config } from '../config.js';
 import { verifyGoogleIdToken } from '../google.js';
@@ -57,6 +58,23 @@ export async function localUserFor(sbUser, ip, { displayName = '' } = {}) {
   return u;
 }
 
+// Two-step verification (Supabase MFA, TOTP). With a verified factor, a correct password is not enough: the
+// 6-digit code from the authenticator app must be verified on the same Supabase session (aal1 → aal2).
+// Returns the aal2 access token (or the original token when MFA is off). The caller logs the token out.
+export async function mfaGate(grant, code) {
+  const factor = (grant.user?.factors || []).find((f) => f.factor_type === 'totp' && f.status === 'verified');
+  if (!factor) return { token: grant.access_token, mfa: false };
+  if (!code) throw new HttpError(401, 'mfa_required', 'Enter the 6-digit code from your authenticator app.');
+  try {
+    const ch = await sb.mfaChallenge(grant.access_token, factor.id);
+    const v = await sb.mfaVerify(grant.access_token, factor.id, ch.id, String(code).replace(/\s+/g, '').slice(0, 10));
+    return { token: v.access_token, mfa: true, factor_id: factor.id };
+  } catch (e) {
+    if (e instanceof SupabaseError && e.status < 500) throw new HttpError(401, 'mfa_invalid', 'That code is not correct or has expired. Use the current code from your authenticator app.');
+    throw toHttpError(e);
+  }
+}
+
 // Supabase calls → HTTP errors the apps understand.
 async function viaSupabase(fn) {
   try { return await fn(); } catch (e) { throw toHttpError(e); }
@@ -93,7 +111,12 @@ async function sessionResponse(res, req, user, client) {
     throw new HttpError(403, `account_${user.approval_status}`, statusMessage(user.approval_status));
   }
   const country = requestCountry(req);
+  // A sign-in from a device (client + browser/app) this account has never used before is a security notification.
+  const ua = String(req.headers['user-agent'] || '').slice(0, 300);
+  const known = await one('SELECT 1 FROM sessions WHERE user_id = ? AND client = ? AND user_agent = ? LIMIT 1', user.id, client, ua);
+  const first = !(await one('SELECT 1 FROM sessions WHERE user_id = ? LIMIT 1', user.id));
   await run('UPDATE users SET last_login_at = ?, country = COALESCE(?, country) WHERE id = ?', now(), country, user.id);
+  if (!known && !first) await notify(user.id, { kind: 'security', title: 'New sign-in', body: `Your account was signed in on a new device (${client === 'mobile' ? 'Android app' : 'web browser'}${country ? `, ${country}` : ''}).`, link: '#/settings/security' });
   const s = await createSession(user.id, req, client);
   const body = { user: await publicUser(user), csrf_token: s.csrf };
   if (client === 'mobile') body.token = s.token; // Android stores this in app-private storage
@@ -104,7 +127,7 @@ async function sessionResponse(res, req, user, client) {
 export async function publicUser(u) {
   const p = await one('SELECT display_name, language FROM profiles WHERE user_id = ?', u.id) || {};
   const approval = u.approval_status || 'approved';
-  return { id: u.id, email: u.email, email_verified: !!u.email_verified, role: u.role, plan: u.plan, display_name: p.display_name || '', language: p.language || 'auto', created_at: u.created_at,
+  return { id: u.id, email: u.email, email_verified: !!u.email_verified, mfa_enabled: !!u.mfa_enabled, role: u.role, plan: u.plan, display_name: p.display_name || '', language: p.language || 'auto', created_at: u.created_at,
     approval_status: approval, status_message: statusMessage(approval) };
 }
 
@@ -245,10 +268,17 @@ export function registerAuthRoutes(r) {
       await sb.logout(grant.access_token);
       throw new HttpError(403, 'email_not_verified', 'Please verify your email first. Check your inbox (and spam folder) for the confirmation link, or resend it.');
     }
+    let gate;
+    try { gate = await mfaGate(grant, b.mfa_code); } catch (e) {
+      await sb.logout(grant.access_token);
+      if (e.code === 'mfa_invalid') { const known = await one('SELECT id FROM users WHERE email = ?', email); if (known) await securityEvent(known.id, 'mfa_failed', 'medium', ip); }
+      throw e;
+    }
     const u = await localUserFor(grant.user, ip);
-    await sb.logout(grant.access_token);
+    await sb.logout(gate.token);
     if (!u) throw unauthorized('Incorrect email or password');
-    await audit(u.id, u.id, 'auth.login', client, ip);
+    await run('UPDATE users SET mfa_enabled = ? WHERE id = ?', gate.mfa ? 1 : 0, u.id);
+    await audit(u.id, u.id, 'auth.login', client, ip, gate.mfa ? { mfa: true } : undefined);
     sendJson(res, 200, await sessionResponse(res, req, await one('SELECT * FROM users WHERE id = ?', u.id), client));
   });
 
@@ -390,6 +420,57 @@ export function registerAuthRoutes(r) {
     }
   }
 
+  // ---------------------------------------------------------------- two-step verification (TOTP)
+  r.get('/api/auth/mfa', async (req, res, ctx) => {
+    const u = requireUser(ctx);
+    sendJson(res, 200, { enabled: !!u.mfa_enabled, available: !!u.supabase_uid });
+  });
+  // Step 1: password → a new authenticator secret (shown once as a QR code / setup key). Not active until step 2.
+  r.post('/api/auth/mfa/enroll', async (req, res, ctx) => {
+    const u = requireUser(ctx);
+    await rateLimit(`mfa:${u.id}`, 20, HOUR);
+    const b = await readJson(req);
+    if (u.mfa_enabled) throw new HttpError(409, 'mfa_already_enabled', 'Two-step verification is already on.');
+    const g = await reauth(u, b.password);
+    try {
+      const f = await viaSupabase(() => sb.mfaEnroll(g.access_token));
+      sendJson(res, 200, { factor_id: f.id, secret: f.totp?.secret, uri: f.totp?.uri, qr_code: f.totp?.qr_code });
+    } finally { await sb.logout(g.access_token); }
+  });
+  // Step 2: password + the first code from the app → the factor is verified; from now on sign-in needs a code.
+  r.post('/api/auth/mfa/verify', async (req, res, ctx) => {
+    const u = requireUser(ctx);
+    await rateLimit(`mfa:${u.id}`, 20, HOUR);
+    const b = await readJson(req);
+    const g = await reauth(u, b.password);
+    try {
+      const ch = await viaSupabase(() => sb.mfaChallenge(g.access_token, String(b.factor_id || '')));
+      let v;
+      try { v = await sb.mfaVerify(g.access_token, String(b.factor_id), ch.id, String(b.code || '').replace(/\s+/g, '')); }
+      catch (e) { if (e instanceof SupabaseError && e.status < 500) throw bad('That code is not correct. Enter the current 6-digit code from your authenticator app.', 'mfa_invalid'); throw toHttpError(e); }
+      await sb.logout(v.access_token);
+    } finally { await sb.logout(g.access_token); }
+    await run('UPDATE users SET mfa_enabled = 1, updated_at = ? WHERE id = ?', now(), u.id);
+    await audit(u.id, u.id, 'auth.mfa_enabled', u.id, clientIp(req));
+    await notify(u.id, { kind: 'security', title: 'Two-step verification turned on', body: 'Signing in now needs a code from your authenticator app.', link: '#/settings/security' });
+    sendJson(res, 200, { enabled: true });
+  });
+  // Turn off: password + a current code (proves both factors), then the factor is removed at aal2.
+  r.post('/api/auth/mfa/disable', async (req, res, ctx) => {
+    const u = requireUser(ctx);
+    await rateLimit(`mfa:${u.id}`, 20, HOUR);
+    const b = await readJson(req);
+    const g = await reauth(u, b.password);
+    let gate;
+    try { gate = await mfaGate(g, b.code || 'missing'); } catch (e) { await sb.logout(g.access_token); throw e.code === 'mfa_invalid' ? bad(e.message, 'mfa_invalid') : e; }
+    try { if (gate.mfa) await viaSupabase(() => sb.mfaUnenroll(gate.token, gate.factor_id)); }
+    finally { await sb.logout(gate.token); await sb.logout(g.access_token); }
+    await run('UPDATE users SET mfa_enabled = 0, updated_at = ? WHERE id = ?', now(), u.id);
+    await audit(u.id, u.id, 'auth.mfa_disabled', u.id, clientIp(req));
+    await notify(u.id, { kind: 'security', title: 'Two-step verification turned off', body: 'Signing in now needs only your password.', link: '#/settings/security' });
+    sendJson(res, 200, { enabled: false });
+  });
+
   r.post('/api/auth/change-password', async (req, res, ctx) => {
     const u = requireUser(ctx);
     await rateLimit(`chpw:${u.id}`, 10, HOUR);
@@ -402,7 +483,7 @@ export function registerAuthRoutes(r) {
     await sb.logout(g.access_token);
     await revokeSessions(u.id, ctx.auth.session.id); // keep current session, revoke all others
     await audit(u.id, u.id, 'auth.password_changed', u.id, clientIp(req));
-    await sendMail(u.email, 'Your Approx AI password was changed', 'Your password was changed. If this was not you, reset your password immediately.');
+    await notify(u.id, { kind: 'security', title: 'Password changed', body: 'Your Approx AI password was changed.', link: '#/settings/security' });
     sendJson(res, 200, { status: 'password_changed' });
   });
 

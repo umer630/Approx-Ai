@@ -12,7 +12,7 @@ import { catalogModel } from '../catalog.js';
 import { usageSummary } from '../quota.js';
 import { lifecycleOf } from '../lifecycle.js';
 import { config, VERSIONS } from '../config.js';
-import { localUserFor, bootstrapSuperadmin } from './auth.js';
+import { localUserFor, bootstrapSuperadmin, mfaGate } from './auth.js';
 import { adminCookie, createAdminSession, isAllowlistedAdmin, adminEmails, CLIENT_STATUSES, platformSetting, setPlatformSetting } from '../admin.js';
 
 const ADMIN = ['admin', 'superadmin'];
@@ -54,7 +54,14 @@ export function registerAdminPanelRoutes(r) {
       if (e instanceof SupabaseError && !['invalid_credentials', 'invalid_grant', 'email_not_confirmed'].includes(e.code)) throw new HttpError(503, 'auth_unavailable', 'Sign-in service is temporarily unavailable.');
       return fail('wrong_credentials');
     }
-    await sb.logout(grant.access_token);
+    // Administrators with two-step verification on must give the authenticator code here too.
+    let gate;
+    try { gate = await mfaGate(grant, b.mfa_code); } catch (e) {
+      await sb.logout(grant.access_token);
+      if (e.code === 'mfa_required') throw e;
+      return fail('mfa_invalid');
+    }
+    await sb.logout(gate.token);
     if (!(grant.user?.email_confirmed_at || grant.user?.confirmed_at)) return fail('unverified');
     let u;
     try { u = await localUserFor(grant.user, ip); } catch { return fail('account_inactive'); }

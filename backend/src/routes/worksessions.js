@@ -12,6 +12,7 @@ import { requireUser, requireVerified, rateLimit } from '../security.js';
 import { getModel, canUseModel, MODES } from '../models.js';
 import { complete, selectPassages } from '../engine.js';
 import { unifiedDiff, diffStats } from '../diff.js';
+import { notify, workspacePrefs, enforceRetention } from '../notify.js';
 
 export const KINDS = ['work', 'code', 'education'];
 const NAMES = { work: 'Approx Work', code: 'Approx Code', education: 'Approx Education' };
@@ -116,7 +117,12 @@ export async function sessionContext(userId, sessionId, query, selectPassages) {
   const s = await one('SELECT * FROM work_sessions WHERE id = ? AND user_id = ?', sessionId, userId);
   if (!s) return '';
   let out = `\n\n# ${NAMES[s.kind]} session: ${s.title}\nThis conversation is one thread of this session. Use only this session's material and messages; other sessions are separate.`;
-  if (s.kind === 'education') out += '\nYou are the student\'s teacher: explain step by step, ground answers, quizzes and exercises in the session documents and say when the material does not cover something. Reply in the student\'s language (English, اردو or Roman Urdu).';
+  if (s.kind === 'education') {
+    out += '\nYou are the student\'s teacher: explain step by step, ground answers, quizzes and exercises in the session documents and say when the material does not cover something. Reply in the student\'s language (English, اردو or Roman Urdu).';
+    const style = (await workspacePrefs(userId)).education.explanation_style;
+    out += { simple: '\nExplanation style: simple — everyday words, short steps, one example each.', detailed: '\nExplanation style: detailed — full derivations, definitions and several examples.',
+      exam: '\nExplanation style: exam-focused — key points, definitions and formulas to memorise, typical exam questions with model answers.' }[style] || '';
+  }
   if (s.kind === 'code') out += '\nThis is a coding session: give complete, runnable code with the file path above each block. You cannot run commands; say when something must be run by the user.';
   if (s.context) out += `\nSession notes:\n${s.context.slice(0, 4000)}`;
   const tasks = await all('SELECT title, status, kind FROM tasks WHERE session_id = ? ORDER BY position, created_at LIMIT 40', s.id);
@@ -212,16 +218,18 @@ export function registerWorkSessionRoutes(r) {
     const b = await readJson(req);
     if ((await one('SELECT COUNT(*) c FROM projects WHERE user_id = ?', u.id)).c >= 300) throw bad('Project limit reached');
     const id = newId('prj_');
+    const branch = (await workspacePrefs(u.id)).code.default_branch;
     await run('INSERT INTO projects (id,user_id,name,description,instructions,kind,purpose,workspace_id,current_branch,created_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?,?,?)',
       id, u.id, str(b.name, 'name', { min: 1, max: 100 }), str(b.description, 'description', { max: 1000, required: false }) || '',
-      str(b.instructions, 'instructions', { max: 8000, required: false }) || '', kind === 'code' ? 'fabbox' : 'knowledge', kind, w.id, kind === 'code' ? 'main' : null, ts(), ts());
-    if (kind === 'code') await run('INSERT INTO code_branches (project_id,name,head_commit_id,created_at) VALUES (?,?,NULL,?)', id, 'main', ts());
+      str(b.instructions, 'instructions', { max: 8000, required: false }) || '', kind === 'code' ? 'fabbox' : 'knowledge', kind, w.id, kind === 'code' ? branch : null, ts(), ts());
+    if (kind === 'code') await run('INSERT INTO code_branches (project_id,name,head_commit_id,created_at) VALUES (?,?,NULL,?)', id, branch, ts());
     sendJson(res, 201, { project: await one('SELECT id, name, description, instructions, kind, purpose, workspace_id, current_branch, created_at FROM projects WHERE id = ?', id) });
   });
 
   // ---------------------------------------------------------------- sessions
   r.get('/api/work-sessions', async (req, res, ctx, p, url) => {
     const u = requireUser(ctx);
+    await enforceRetention(u.id);
     const kind = oneOf(url.searchParams.get('workspace') || undefined, 'workspace', KINDS, null);
     const status = oneOf(url.searchParams.get('status') || undefined, 'status', ['active', 'archived'], 'active');
     const q = String(url.searchParams.get('q') || '').trim().slice(0, 100);
@@ -385,18 +393,20 @@ export function registerWorkSessionRoutes(r) {
       throw new HttpError(502, 'agent_bad_output', 'The model did not return a task plan. Try again or rephrase the goal.');
     }
     const created = [];
+    const planThreads = (await workspacePrefs(u.id)).work.plan_threads;
     let pos = (await one('SELECT COALESCE(MAX(position),0) n FROM tasks WHERE session_id = ?', s.id)).n;
     for (const t of parsed.tasks.slice(0, 8)) {
       const title = String(t.title || '').trim().slice(0, 200);
       if (!title) continue;
-      const thread = await createThread(u, s, { title });
+      const thread = planThreads ? await createThread(u, s, { title }) : null;
       const id = newId('tsk_');
       await run("INSERT INTO tasks (id,user_id,session_id,thread_id,title,detail,kind,status,position,created_by,created_at,updated_at) VALUES (?,?,?,?,?,?,'task','todo',?,'agent',?,?)",
-        id, u.id, s.id, thread.id, title, String(t.detail || '').slice(0, 4000), ++pos, ts(), ts());
+        id, u.id, s.id, thread?.id || null, title, String(t.detail || '').slice(0, 4000), ++pos, ts(), ts());
       created.push(taskView(await ownTask(u.id, id)));
     }
     await run("UPDATE agent_runs SET status = 'completed', output = ?, model_id = ?, finished_at = ? WHERE id = ?", JSON.stringify(parsed).slice(0, 8000), out.route?.model?.id || null, ts(), runId);
-    await logTool(u, s, 'task_planner', goal, `${created.length} tasks, each with its own thread`, 'ok', { agent_run_id: runId });
+    await logTool(u, s, 'task_planner', goal, `${created.length} tasks${planThreads ? ', each with its own thread' : ''}`, 'ok', { agent_run_id: runId });
+    await notify(u.id, { kind: 'task', title: 'Plan ready', body: `${s.title}: ${created.length} tasks planned for "${goal.slice(0, 120)}"`, link: `#/s/${s.id}/Tasks` });
     sendJson(res, 201, { agent_run: { id: runId, status: 'completed' }, tasks: created });
   });
 
@@ -407,7 +417,9 @@ export function registerWorkSessionRoutes(r) {
     const s = await ownSession(u.id, p.id);
     await rateLimit(`quiz:${u.id}`, 30, 3600_000);
     const b = await readJson(req);
-    const count = Math.max(3, Math.min(20, Number(b.count) || 5));
+    const ep = (await workspacePrefs(u.id)).education;
+    const count = Math.max(3, Math.min(20, Number(b.count) || ep.quiz_count));
+    const difficulty = ['easy', 'mixed', 'hard'].includes(b.difficulty) ? b.difficulty : ep.difficulty;
     const topic = str(b.topic, 'topic', { max: 300, required: false }) || 'the whole material';
     const ctxText = await sessionContext(u.id, s.id, topic, selectPassages);
     const runId = newId('run_');
@@ -416,7 +428,7 @@ export function registerWorkSessionRoutes(r) {
     try {
       out = await collect(async (onDelta) => await complete({ user: u, chat: null, text: `Create ${count} multiple-choice questions about ${topic}.`, requestedModel: b.model || 'auto',
         requestedMode: 'high', source: 'education-quiz', requestId: ctx.requestId, onDelta, history: [], skipMemoryCapture: true,
-        systemExtra: `QUIZ_JSON_PROTOCOL. Use ONLY the session material below. Respond with ONLY a JSON object: {"title": string, "questions": [{"question": string, ` +
+        systemExtra: `QUIZ_JSON_PROTOCOL. Difficulty: ${difficulty}. Use ONLY the session material below. Respond with ONLY a JSON object: {"title": string, "questions": [{"question": string, ` +
           `"options": [4 strings], "answer": index 0-3, "explanation": string}]}.${ctxText}` }));
       quiz = parseJson(out.text);
       quiz.questions = (quiz.questions || []).filter((q) => q && typeof q.question === 'string' && Array.isArray(q.options) && q.options.length >= 2
@@ -435,9 +447,10 @@ export function registerWorkSessionRoutes(r) {
       await run('INSERT INTO artifact_versions (artifact_id,version,content,note,created_at) VALUES (?,?,?,?,?)', aid, 1, JSON.stringify(quiz), 'generated', ts());
     });
     await run("UPDATE agent_runs SET status = 'completed', output = ?, model_id = ?, finished_at = ? WHERE id = ?", `artifact ${aid}`, out.route?.model?.id || null, ts(), runId);
-    await logTool(u, s, 'quiz_generator', topic, `${quiz.questions.length} questions → artifact ${aid}`, 'ok', { agent_run_id: runId });
+    await logTool(u, s, 'quiz_generator', topic, `${quiz.questions.length} ${difficulty} questions → artifact ${aid}`, 'ok', { agent_run_id: runId });
+    await notify(u.id, { kind: 'task', title: 'Quiz ready', body: `${s.title}: ${quiz.questions.length} questions on ${topic}`, link: `#/s/${s.id}/Quiz` });
     // The answer key stays on the server: the practice view gets questions and options only.
-    sendJson(res, 201, { quiz: { artifact_id: aid, title, questions: quiz.questions.map((q) => ({ question: q.question, options: q.options })) } });
+    sendJson(res, 201, { quiz: { artifact_id: aid, title, difficulty, questions: quiz.questions.map((q) => ({ question: q.question, options: q.options })) } });
   });
 
   r.post('/api/work-sessions/:id/quiz/:aid/attempt', async (req, res, ctx, p) => {

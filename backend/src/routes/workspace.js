@@ -7,6 +7,7 @@ import { complete } from '../engine.js';
 import { safeFetchText, htmlToText } from '../netguard.js';
 import { config } from '../config.js';
 import { TEMPLATES } from '../templates.js';
+import { notify } from '../notify.js';
 
 const EXT = { document: 'md', markdown: 'md', code: 'txt', table: 'csv', json: 'json', html: 'html' };
 const LANG_EXT = { python: 'py', javascript: 'js', typescript: 'ts', java: 'java', kotlin: 'kt', go: 'go', rust: 'rs', sql: 'sql', bash: 'sh', html: 'html', css: 'css', json: 'json' };
@@ -231,8 +232,22 @@ export function registerWorkspaceRoutes(r) {
     } catch { throw new HttpError(502, 'agent_bad_output', 'The model did not return a valid change proposal. Try again or rephrase.', { raw: out.text.slice(0, 2000) }); }
     const changes = parsed.changes.slice(0, 50).map((c) => ({ op: c.op === 'delete' ? 'delete' : 'write', path: cleanPath(c.path), content: c.op === 'delete' ? undefined : String(c.content ?? '') }));
     const id = newId('prp_');
-    await run('INSERT INTO code_proposals (id,project_id,user_id,summary,changes,created_at) VALUES (?,?,?,?,?,?)', id, proj.id, u.id, parsed.summary.slice(0, 4000), JSON.stringify(changes), now());
-    sendJson(res, 201, { proposal: { id, summary: parsed.summary, changes, status: 'pending', model_id: out.route.model.id } });
+    const session = b.session_id ? await one('SELECT id FROM work_sessions WHERE id = ? AND user_id = ? AND project_id = ?', String(b.session_id), u.id, proj.id) : null;
+    await run('INSERT INTO code_proposals (id,project_id,user_id,summary,changes,session_id,created_at) VALUES (?,?,?,?,?,?,?)', id, proj.id, u.id, parsed.summary.slice(0, 4000), JSON.stringify(changes), session?.id || null, now());
+    // Settings → Approx Code → Permissions: Automatic applies the change set at once; Manual waits for review.
+    const perm = (await one('SELECT permissions_mode FROM settings WHERE user_id = ?', u.id))?.permissions_mode === 'automatic' ? 'automatic' : 'manual';
+    let status = 'pending';
+    if (perm === 'automatic') {
+      await tx(async () => {
+        for (const c of changes) { if (c.op === 'delete') await run('DELETE FROM code_files WHERE project_id = ? AND path = ?', proj.id, c.path); else await writeFile(proj, u.id, c.path, c.content); }
+        await run("UPDATE code_proposals SET status = 'applied', decided_at = ? WHERE id = ?", now(), id);
+      });
+      await audit(u.id, u.id, 'fabbox.proposal_auto_applied', id, clientIp(req));
+      status = 'applied';
+    } else {
+      await notify(u.id, { kind: 'code', title: 'Code changes waiting for review', body: `${proj.name}: ${parsed.summary.slice(0, 300)}`, link: session ? `#/s/${session.id}` : `#/code/${proj.id}` });
+    }
+    sendJson(res, 201, { proposal: { id, summary: parsed.summary, changes, status, permission: perm, model_id: out.route.model.id } });
   });
 
   r.get('/api/fabbox/:pid/proposals', async (req, res, ctx, p) => {

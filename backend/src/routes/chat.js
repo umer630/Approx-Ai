@@ -1,3 +1,4 @@
+import { enforceRetention } from '../notify.js';
 import { one, all, run, now, audit } from '../db.js';
 import { readJson, sendJson, notFound, bad, forbidden, newId, startSse, HttpError, str, oneOf, clientIp } from '../http.js';
 import { requireUser, requireVerified, rateLimit } from '../security.js';
@@ -39,6 +40,7 @@ export function registerChatRoutes(r) {
   // History: search, archived, trash, project filter.
   r.get('/api/chats', async (req, res, ctx, p, url) => {
     const u = requireUser(ctx);
+    await enforceRetention(u.id);
     const q = (url.searchParams.get('q') || '').slice(0, 200);
     const view = url.searchParams.get('view') || 'active'; // active | archived | trash
     const project = url.searchParams.get('project_id');

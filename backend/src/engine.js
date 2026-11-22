@@ -68,6 +68,10 @@ export async function buildMessages({ user, model, mode, chat, text, attachText,
   const s = await settingsOf(user.id);
   let system = identityPrompt(model, mode);
   if (s.personalization) system += `\n\nUser personalization preferences: ${s.personalization.slice(0, 1500)}`;
+  // Preferred reply language (Settings → Profile). "auto" keeps matching the language of each message.
+  const lang = (await one('SELECT language FROM profiles WHERE user_id = ?', user.id))?.language;
+  const LANG = { en: 'Always reply in English, even when the user writes in Urdu or Roman Urdu.', ur: 'Always reply in Urdu written in Urdu script (اردو).', 'roman-ur': 'Always reply in Roman Urdu (Urdu written with Latin letters).' };
+  if (LANG[lang]) system += `\n\nReply language: ${LANG[lang]}`;
   // Memory is never injected into FAB (spec §12: no cross-session memory for FAB).
   if (model.family !== 'fab' && s.memory_enabled) {
     const mem = await all('SELECT content FROM memories WHERE user_id = ? ORDER BY updated_at DESC LIMIT 30', user.id);

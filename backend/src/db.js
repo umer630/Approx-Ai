@@ -641,6 +641,21 @@ async function migrate(c) {
     stmts.push({ sql: 'CREATE INDEX IF NOT EXISTS idx_files_session ON files(session_id)' });
     await apply('2026-11-workspace-sessions', stmts);
   }
+  if (!applied.has('2026-11-settings-v2')) {
+    // Settings that the server enforces: notification preferences, conversation retention, text size, start screen
+    // and per-workspace preferences (education quiz length/difficulty/explanation style, code default branch, work
+    // planning). Notifications gain a kind and an optional in-app link.
+    const stmts = [];
+    for (const [col, def] of [['notify_task_updates', 'INTEGER NOT NULL DEFAULT 1'], ['chat_retention_days', 'INTEGER NOT NULL DEFAULT 0'],
+      ['text_size', "TEXT NOT NULL DEFAULT 'medium'"], ['default_workspace', "TEXT NOT NULL DEFAULT 'home'"], ['workspace_prefs', "TEXT NOT NULL DEFAULT '{}'"]]) {
+      if (!(await hasColumn(c, 'settings', col))) stmts.push({ sql: `ALTER TABLE settings ADD COLUMN ${col} ${def}` });
+    }
+    if (!(await hasColumn(c, 'users', 'mfa_enabled'))) stmts.push({ sql: 'ALTER TABLE users ADD COLUMN mfa_enabled INTEGER NOT NULL DEFAULT 0' });
+    if (!(await hasColumn(c, 'notifications', 'kind'))) stmts.push({ sql: "ALTER TABLE notifications ADD COLUMN kind TEXT NOT NULL DEFAULT 'system'" });
+    if (!(await hasColumn(c, 'notifications', 'link'))) stmts.push({ sql: 'ALTER TABLE notifications ADD COLUMN link TEXT' });
+    stmts.push({ sql: 'CREATE INDEX IF NOT EXISTS idx_notifications_user ON notifications(user_id, created_at)' });
+    await apply('2026-11-settings-v2', stmts);
+  }
 }
 
 // The `models` table is seeded and kept in sync from the catalog file (name, tier, description…);

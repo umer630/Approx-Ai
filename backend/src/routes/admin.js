@@ -1,4 +1,5 @@
 // Admin + superadmin: model access grants (FAB), plans, audit/security logs, training registry.
+import { notify } from '../notify.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -46,7 +47,7 @@ export function registerAdminRoutes(r) {
     await run('INSERT INTO model_access (user_id,model_id,granted_by,reason,created_at,expires_at) VALUES (?,?,?,?,?,?) ON CONFLICT(user_id,model_id) DO UPDATE SET granted_by=excluded.granted_by, reason=excluded.reason, expires_at=excluded.expires_at',
       target.id, m.id, admin.id, str(b.reason, 'reason', { min: 3, max: 300 }), now(), expires);
     await audit(target.id, admin.id, 'admin.model_access_granted', m.id, clientIp(req), { reason: b.reason });
-    await run('INSERT INTO notifications (id,user_id,title,body,created_at) VALUES (?,?,?,?,?)', newId('ntf_'), target.id, `${m.name} access granted`, `You now have access to ${m.name}.`, now());
+    await notify(target.id, { kind: 'access', title: `${m.name} access granted`, body: `You now have access to ${m.name}.`, link: '#/settings/capabilities' });
     sendJson(res, 200, { status: 'granted' });
   });
   r.delete('/api/admin/model-access/:userId/:modelId', async (req, res, ctx, p) => {

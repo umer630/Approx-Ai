@@ -318,7 +318,7 @@ test('SMTP (Gmail App Password over implicit TLS): account notices delivered; se
   assert.equal(v.authUser, OWNER, 'authenticated as the Gmail account');
   assert.equal(v.envFrom, OWNER, 'sent from the authenticated account');
   assert.deepEqual(v.to, [OWNER]);
-  assert.match(v.raw, /^Subject: Your Approx AI password was changed/m);
+  assert.match(v.raw, /^Subject: Approx AI: Password changed/m);   // security notification (always emailed)
   fn.stop();
 
   // Wrong App Password: the notice fails (recorded honestly) but the password change itself still succeeds.

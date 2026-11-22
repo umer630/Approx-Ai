@@ -61,7 +61,7 @@ async function call(method, path, { body, query, bearer, admin = false } = {}) {
 }
 
 const EXPECTED = new Set(['invalid_credentials', 'invalid_grant', 'email_not_confirmed', 'weak_password', 'same_password', 'otp_expired',
-  'bad_jwt', 'session_not_found', 'user_not_found', 'email_exists', 'user_already_exists', 'over_email_send_rate_limit', 'over_request_rate_limit']);
+  'bad_jwt', 'session_not_found', 'user_not_found', 'email_exists', 'user_already_exists', 'over_email_send_rate_limit', 'over_request_rate_limit', 'mfa_verification_failed', 'mfa_challenge_expired', 'insufficient_aal']);
 const redirectTo = () => config.supabase.callbackUrl;
 
 export const sb = {
@@ -78,6 +78,11 @@ export const sb = {
   updateUser: (accessToken, attrs) => call('PUT', '/user', { bearer: accessToken, query: attrs.email ? { redirect_to: redirectTo() } : undefined, body: attrs }),
   /** Ends the Supabase session we only needed to prove identity (Approx issues its own session). Best effort. */
   logout: (accessToken) => call('POST', '/logout', { bearer: accessToken, query: { scope: 'local' } }).catch(() => null),
+  // MFA (TOTP authenticator apps). Enrolling/removing a verified factor needs an aal2 session.
+  mfaEnroll: (accessToken) => call('POST', '/factors', { bearer: accessToken, body: { factor_type: 'totp', friendly_name: `Approx ${Date.now()}` } }),
+  mfaChallenge: (accessToken, factorId) => call('POST', `/factors/${encodeURIComponent(factorId)}/challenge`, { bearer: accessToken, body: {} }),
+  mfaVerify: (accessToken, factorId, challengeId, code) => call('POST', `/factors/${encodeURIComponent(factorId)}/verify`, { bearer: accessToken, body: { challenge_id: challengeId, code } }),
+  mfaUnenroll: (accessToken, factorId) => call('DELETE', `/factors/${encodeURIComponent(factorId)}`, { bearer: accessToken }),
   adminDeleteUser: (id) => (config.supabase.secretKey ? call('DELETE', `/admin/users/${encodeURIComponent(id)}`, { admin: true }) : null),
 };
 
