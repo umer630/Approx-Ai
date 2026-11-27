@@ -44,14 +44,23 @@ Branch: `ccr-b9e70091-57vl48` (push only here). Production: https://approx-ai.ve
 
 ## Tests (last run)
 
-Backend 159/159 · Vercel 13/13 · web regression 223/223 · FAB 500X UI 26/26 · Robolectric 5/5 (incl. Android settings E2E against a local backend).
+Backend 168/168 · Vercel 13/13 · web regression 228/228 · FAB 500X UI 26/26 · Robolectric 6/6 · live Supabase 14/14 · production APK probe 7/7 (incl. Android settings E2E against a local backend).
 
 How to run:
 - `cd backend && APPROX_JSON_JAR=<org.json jar> npm test`
 - `S=<shots dir> node web/test/regression-vercel.cjs`
 - Android: `ANDROID_JAR=… bash android/build.sh`; E2E: start `node backend/test/serve-for-android.mjs`, pass its first line as `APPROX_E2E`, then `MVN_SETTINGS=… bash android/robotest/run.sh <shots>`.
 
+## Since the last checkpoint
+- `fe9b60e` Code agent review in sessions, due dates, file removal, output editing, flashcards, study plans, unread badge (Android + web).
+- `ebf1eaf` Supabase: Auth verified live against project `uyatvhgngzrrvelahebi` (14/14, non-mutating); Postgres schema + RLS
+  migration `supabase/migrations/20261127000000_approx_core.sql` verified in PGlite (not applied: needs a privileged credential);
+  GPT/OpenAI usable per model through the provider abstraction (needs `OPENAI_API_KEY` + per-model URL/NAME on the server).
+- APK 1.6.0 (versionCode 12).
+
 ## Remaining (next tasks, in order)
+0. Owner-provided: Supabase SQL Editor run of the migration (or `supabase db push`), `DATABASE_URL` + approval to copy data from
+   Turso before the backend can use Supabase Postgres; `OPENAI_API_KEY` + which Approx model(s) GPT should serve.
 
 1. Work / Code / Education gaps (task #34): code agent edits from inside a code session (session-linked proposals review on Android/web), remove/rename session files, edit artifacts inside sessions, task due dates + assignment deadlines, flashcards/study plan for Education, notification badge in the menu.
 2. APK release 1.6.0 with the settings + workspace changes; update this file.
