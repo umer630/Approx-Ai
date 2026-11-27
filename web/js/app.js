@@ -35,10 +35,14 @@ const routes = [
   [/^#\/history$/, () => shell(() => pages.historyPage(), { composer: false })],
   [/^#\/work$/, () => shell(() => wsp.workspaceHome('work', { extra: pages.workExtras() }), { composer: false })],
   [/^#\/files$/, () => shell(() => wsp.filesPage(), { composer: false })],
-  [/^#\/w\/(work|code|education)$/, (m) => shell(() => wsp.workspaceHome(m[1]), { composer: false })],
+  [/^#\/w\/code$/, () => shell(() => wsp.codePage(), { composer: false })],
+  [/^#\/w\/(work|education)$/, (m) => shell(() => wsp.workspaceHome(m[1]), { composer: false })],
+  [/^#\/scheduled$/, () => shell(() => wsp.scheduledPage(), { composer: false })],
+  [/^#\/artifacts$/, () => shell(() => wsp.artifactsPage(), { composer: false })],
   [/^#\/s\/(ses_\w+)(?:\/(\w+))?$/, (m) => shell(() => wsp.sessionPage(m[1], m[2]), { composer: false })],
-  [/^#\/sessions(?:\/(work|code|education))?(?:\/(active|archived))?(?:\/(prj_\w+))?$/, (m) => shell(() => wsp.sessionsPage(m[1], m[2] || 'active', m[3]), { composer: false })],
-  [/^#\/schedule$/, () => shell(() => pages.schedulePage(), { composer: false })],
+  [/^#\/sessions\/(work|code|education)\/(active|archived)\/(prj_\w+)$/, (m) => shell(() => wsp.sessionsPage(m[1], m[2], m[3]), { composer: false })],
+  [/^#\/sessions(?:\/(work|code|education))?$/, (m) => shell(() => wsp.historyPage(m[1] || null), { composer: false })],
+  [/^#\/schedule$/, () => go('#/scheduled')],
   [/^#\/settings$/, () => shell(() => pages.settingsHome(), { composer: false })],
   [/^#\/settings\/([\w-]+)$/, (m) => shell(() => pages.settingsSection(m[1]), { composer: false })],
   [/^#?\/?$/, () => shell(() => chatView(null))],
@@ -405,13 +409,12 @@ function tokenView(kind) {
 // ---------------- shell: top bar + main + composer + three-button nav ----------------
 // ---------------- persistent app shell: drawer + header + main + composer + bottom nav ----------------
 // Built once per sign-in and kept: navigating only swaps the main area (no full re-render, no reload).
-let otherEl;
 let mainEl; let composerEl; let shellEl; let titleEl; let moreBtn; let drawerEl; let recentEl;
 // Mobile-first primary navigation: Home · Work · Code · Education · Profile (Projects, Sessions, Files, History in the menu).
-const NAV = [['#/', 'home', 'Home'], ['#/work', 'work', 'Work'], ['#/w/code', 'code', 'Code'], ['#/w/education', 'doc', 'Education'], ['#/settings', 'user', 'Profile']];
 const fabWorkspace = () => state.models.some((m) => m.workspace === 'fab500x-code' && m.available);
-const DRAWER_LINKS = [['#/work', 'work', 'Approx Work'], ['#/w/code', 'code', 'Approx Code'], ['#/w/education', 'doc', 'Approx Education'], ['#/projects', 'folder', 'Projects'],
-  ['#/sessions', 'tasks', 'Sessions'], ['#/files', 'file', 'Files'], ['#/workspace', 'layers', 'Artifacts'], ['#/history', 'history', 'History'], ['#/settings/notifications', 'bell', 'Notifications'], ['#/schedule', 'calendar', 'Schedule']];
+// The menu is the central navigation (no bottom bar): every major area is one click away; Recents below.
+const DRAWER_LINKS = [['#/', 'home', 'Home'], ['#/projects', 'folder', 'Projects'], ['#/w/code', 'code', 'Code'], ['#/work', 'work', 'Co Approx'], ['#/w/education', 'doc', 'Education'],
+  ['#/artifacts', 'layers', 'Artifacts'], ['#/scheduled', 'calendar', 'Scheduled'], ['#/sessions', 'tasks', 'Sessions'], ['#/files', 'file', 'Files'], ['#/settings', 'settings', 'Settings']];
 
 function buildShell() {
   const initials = (state.user.display_name || state.user.email).trim()[0].toUpperCase();
@@ -429,20 +432,18 @@ function buildShell() {
     h('div', { class: 'drawer-head' }, h('img', { src: '/assets/logo-mark-64.png', alt: '' }), h('b', { class: 'grow' }, 'Approx'),
       h('button', { class: 'icon-btn drawer-close', 'aria-label': 'Close menu', onclick: closeDrawer }, icon('close'))),
     h('button', { class: 'btn primary block drawer-new', onclick: () => { closeDrawer(); newChat(); } }, icon('plus'), 'New chat'),
-    h('nav', { class: 'drawer-nav' }, DRAWER_LINKS.map(([href, ic, label]) => h('a', { href, 'data-route': href }, icon(ic), h('span', {}, label))),
+    h('nav', { class: 'drawer-nav' }, DRAWER_LINKS.map(([href, ic, label]) => h('a', { href, 'data-route': href, class: 'drawer-link' }, icon(ic), h('span', {}, label))),
       // FAB 500X Code appears only for accounts holding the (server-checked) private grant.
       fabWorkspace() ? h('a', { href: '#/fab500x', 'data-route': '#/fab500x', class: 'drawer-fab' }, icon('shield'), h('span', {}, 'FAB 500X Code')) : null),
-    h('div', { class: 'drawer-label' }, 'Recent tasks'), recentEl,
-    h('div', { class: 'drawer-label' }, 'Other tasks'), (otherEl = h('div', { class: 'drawer-other' })),
-    h('a', { class: 'drawer-more', href: '#/history' }, 'All history', icon('chevron')),
+    h('div', { class: 'drawer-label' }, 'Recents'), recentEl,
+    h('a', { class: 'drawer-more', href: '#/sessions' }, 'All sessions', icon('chevron')),
+    h('a', { class: 'drawer-more', href: '#/history' }, 'Chat history', icon('chevron')),
     h('a', { class: 'drawer-user', href: '#/settings/profile' }, h('span', { class: 'avatar' }, initials),
       h('span', { class: 'grow' }, h('b', {}, state.user.display_name || state.user.email.split('@')[0]), h('span', { class: 'small muted' }, `${state.user.plan} plan`))));
   const scrim = h('div', { class: 'drawer-scrim', onclick: closeDrawer });
   mainEl = h('main', { class: 'main', id: 'main' });
   composerEl = h('div', { class: 'composer-wrap' });
-  const nav = h('nav', { class: 'bottom-nav', 'aria-label': 'Primary' },
-    NAV.map(([href, ic, label]) => h('a', { href, 'data-route': href, 'aria-label': label }, icon(ic), h('span', {}, label))));
-  shellEl = h('div', { class: 'shell' }, drawerEl, scrim, h('div', { class: 'workspace' }, top, mainEl, composerEl, nav));
+  shellEl = h('div', { class: 'shell' }, drawerEl, scrim, h('div', { class: 'workspace' }, top, mainEl, composerEl));
   app.replaceChildren(shellEl);
   refreshRecent();
   refreshUnread();
@@ -462,7 +463,7 @@ function shell(renderMain, { composer = true } = {}) {
   return renderMain();
 }
 function pageTitle(route) {
-  return { '#/history': 'History', '#/work': 'Approx Work', '#/w/code': 'Approx Code', '#/w/education': 'Approx Education', '#/w/work': 'Approx Work', '#/sessions': 'Sessions', '#/files': 'Files', '#/schedule': 'Schedule', '#/projects': 'Projects', '#/code': 'Approx Code',
+  return { '#/history': 'History', '#/work': 'Co Approx', '#/w/code': 'Code', '#/w/education': 'Education', '#/w/work': 'Co Approx', '#/scheduled': 'Scheduled', '#/artifacts': 'Artifacts', '#/sessions': 'Sessions', '#/files': 'Files', '#/schedule': 'Schedule', '#/projects': 'Projects', '#/code': 'Approx Code',
     '#/workspace': 'Artifacts', '#/research': 'Research' }[route] || (route.startsWith('#/settings') ? 'Settings' : '');
 }
 export function setHeaderTitle(t) { if (titleEl) titleEl.textContent = t; if (moreBtn) moreBtn.classList.toggle('hidden', !state.chat?.id || !location.hash.startsWith('#/c/')); }
@@ -470,7 +471,7 @@ export function setHeaderTitle(t) { if (titleEl) titleEl.textContent = t; if (mo
 /** Unread notifications next to "Notifications" in the menu (from the server). */
 let unreadAt = 0;
 export async function refreshUnread(force = true) {
-  const link = drawerEl?.querySelector('a[data-route="#/settings/notifications"]');
+  const link = drawerEl?.querySelector('a[data-route="#/settings"]');
   if (!link || (!force && Date.now() - unreadAt < 2_000)) return;
   unreadAt = Date.now();
   try {
@@ -485,20 +486,14 @@ export function closeDrawer() { shellEl?.classList.remove('drawer-open'); }
 /** Recent sessions in the drawer: real chats from the backend, cached (instant) and refreshed in the background. */
 export function refreshRecent(force = false) {
   if (!recentEl) return;
-  if (force) invalidate('/api/chats?view=active&limit=15');
-  const draw = (r) => recentEl.replaceChildren(...(r.chats.length ? r.chats.map((c) => h('a', { href: `#/c/${c.id}`, class: `recent-item${state.chat?.id === c.id ? ' active' : ''}`, title: c.title }, c.title))
-    : [h('div', { class: 'small muted pad' }, 'No conversations yet.')]));
+  if (force) invalidate('/api/recents');
+  const LINK = { chat: (x) => `#/c/${x.id}`, artifact: (x) => `#/workspace/${x.id}`, scheduled: () => '#/scheduled' };
+  const TAG = { chat: 'Chat', co_approx: 'Co Approx', code: 'Code', education: 'Education', artifact: 'Artifact', scheduled: 'Scheduled' };
+  const draw = (r) => recentEl.replaceChildren(...(r.recents.length ? r.recents.map((x) => h('a', { href: (LINK[x.type] || ((y) => `#/s/${y.id}`))(x),
+    class: `recent-item${state.chat?.id === x.id ? ' active' : ''}`, title: x.title }, x.title, h('span', { class: 'recent-tag' }, TAG[x.type] || '')))
+    : [h('div', { class: 'small muted pad' }, 'Nothing yet.')]));
   if (!recentEl.childElementCount) recentEl.replaceChildren(...[1, 2, 3, 4].map(() => h('div', { class: 'skeleton line' })));
-  cached('/api/chats?view=active&limit=15', 15_000, draw).then(draw).catch(() => recentEl.replaceChildren(h('div', { class: 'small muted pad' }, 'Could not load recent chats.')));
-  // Other tasks: real background work (agent proposals waiting for review, training jobs for admins) from /api/tasks.
-  if (otherEl) {
-    const drawTasks = (t) => {
-      const open = (t.tasks || []).filter((x) => !['applied', 'rejected', 'succeeded', 'failed', 'cancelled'].includes(x.status)).slice(0, 5);
-      otherEl.replaceChildren(...(open.length ? open.map((x) => h('a', { href: '#/work', class: 'recent-item', title: x.title }, `${x.title} · ${String(x.status).replace(/_/g, ' ')}`))
-        : [h('div', { class: 'small muted pad' }, 'No background tasks.')]));
-    };
-    cached('/api/tasks', 30_000, drawTasks).then(drawTasks).catch(() => otherEl.replaceChildren(h('div', { class: 'small muted pad' }, 'Could not load tasks.')));
-  }
+  cached('/api/recents', 15_000, draw).then(draw).catch(() => recentEl.replaceChildren(h('div', { class: 'small muted pad' }, 'Could not load recents.')));
 }
 export function setMain(...nodes) { mainEl.replaceChildren(...nodes); }
 export function hideComposer() { composerEl.classList.add('hidden'); }

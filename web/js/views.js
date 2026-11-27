@@ -233,13 +233,13 @@ export async function artifactView(id) {
   const tabs = h('div', { class: 'tabs' },
     h('button', { 'aria-selected': 'true', onclick: (e) => { editor.classList.remove('hidden'); preview.classList.add('hidden'); for (const b of tabs.children) b.setAttribute('aria-selected', String(b === e.currentTarget)); } }, 'Edit'),
     h('button', { 'aria-selected': 'false', onclick: (e) => { preview.innerHTML = a.kind === 'code' ? markdown('```' + a.language + '\n' + editor.value + '\n```') : markdown(editor.value); editor.classList.add('hidden'); preview.classList.remove('hidden'); for (const b of tabs.children) b.setAttribute('aria-selected', String(b === e.currentTarget)); } }, 'Preview'));
-  setMain(h('div', { class: 'page' }, back('#/workspace', 'Workspace'),
+  setMain(h('div', { class: 'page' }, back('#/artifacts', 'Artifacts'),
     h('div', { class: 'row' }, h('h2', { class: 'grow' }, a.title), h('span', { class: 'badge' }, `v${a.current_version}`)),
     tabs, editor, preview,
     h('div', { class: 'row' },
       h('button', { class: 'btn primary', onclick: async () => { await api(`/api/workspace/artifacts/${id}`, { method: 'PUT', body: { content: editor.value } }); toast('New version saved'); artifactView(id); } }, icon('save'), 'Save version'),
       h('a', { class: 'btn', href: `/api/workspace/artifacts/${id}/export` }, 'Export'),
-      h('button', { class: 'btn danger', onclick: async () => { if (await confirmDialog('Delete artifact?', 'All versions will be deleted.', 'Delete', true)) { await api(`/api/workspace/artifacts/${id}`, { method: 'DELETE' }); go('#/workspace'); } } }, icon('trash'))),
+      h('button', { class: 'btn danger', onclick: async () => { if (await confirmDialog('Delete artifact?', 'All versions will be deleted.', 'Delete', true)) { await api(`/api/workspace/artifacts/${id}`, { method: 'DELETE' }); go('#/artifacts'); } } }, icon('trash'))),
     h('h3', {}, 'Version history'), h('div', { class: 'list' }, r.versions.map((v) => h('div', { class: 'list-item' }, h('div', { class: 'grow' }, h('div', { class: 'title' }, `v${v.version} — ${v.note}`), h('div', { class: 'sub' }, `${fmtBytes(v.size)} · ${fmtTime(v.created_at)}`)),
       v.version !== a.current_version ? h('button', { class: 'btn', onclick: async () => { await api(`/api/workspace/artifacts/${id}/restore/${v.version}`, { method: 'POST' }); artifactView(id); } }, 'Restore') : h('span', { class: 'badge green' }, 'current'))))));
 }

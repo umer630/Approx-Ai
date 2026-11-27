@@ -482,3 +482,11 @@ html[data-text-size="large"] body { zoom: 1.15; }
 .flashcard { display: block; width: 100%; min-height: 160px; font-size: 18px; font-weight: 600; text-align: center; cursor: pointer; }
 .ws-panel input.due { max-width: 150px; flex: 0 0 auto; }
 .drawer-nav .count { margin-left: auto; font-size: 12px; background: var(--green, #0E9F55); color: #fff; border-radius: 999px; padding: 1px 8px; }
+
+/* Navigation hub: floating primary action, empty states, pairing code, recents tags; no bottom bar */
+.fab { position: sticky; bottom: 16px; margin: 16px 0 0 auto; display: flex; width: max-content; box-shadow: 0 6px 18px rgba(0,0,0,.14); border-radius: 999px; }
+.empty-state { text-align: center; padding: 64px 16px; }
+.empty-state h3 { margin: 0 0 6px; }
+.pair-code { font-size: 30px; font-weight: 700; letter-spacing: .15em; margin: 6px 0 12px; user-select: all; }
+.recent-tag { margin-left: 6px; font-size: 11px; color: var(--muted); }
+.bottom-nav { display: none !important; }

@@ -199,13 +199,13 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     for (const lbl of ['Add attachments and tools', 'Select model', 'Send', 'New chat']) ok(`control present: ${lbl}`, await p.locator(`[aria-label="${lbl}"]`).count() >= 1);
     ok('composer has no mode toggle inside (mode lives in the model menu)', await p.locator('.composer .mode-toggle').count() === 0);
     ok('send button is Approx green', await p.locator('.round.send').evaluate((b) => getComputedStyle(b).backgroundColor) === 'rgb(14, 159, 85)');
-    ok('desktop: sidebar drawer visible with Approx sections', await p.locator('#drawer').isVisible() && ['Projects', 'Approx Code', 'Artifacts', 'Schedule', 'Approx Work'].every((n) => true) &&
-      ['Projects', 'Approx Code', 'Artifacts', 'Schedule', 'Approx Work', 'Recent'].every(Boolean));
+    ok('desktop: sidebar drawer visible', await p.locator('#drawer').isVisible());
+    const menuItems = await p.locator('#drawer .drawer-link').evaluateAll((as) => as.map((a) => a.innerText.replace(/\d+$/, '').trim()));
+    ok('menu = central navigation: Home, Projects, Code, Co Approx, Education, Artifacts, Scheduled, Sessions, Files, Settings',
+      ['Home', 'Projects', 'Code', 'Co Approx', 'Education', 'Artifacts', 'Scheduled', 'Sessions', 'Files', 'Settings'].every((n, i) => menuItems.includes(n)), menuItems.join(','));
     const drawerText = await p.locator('#drawer').innerText();
-    for (const n of ['Approx', 'Projects', 'Approx Code', 'Artifacts', 'Schedule', 'Approx Work', 'Recent tasks', 'Other tasks']) ok(`drawer: ${n}`, drawerText.toLowerCase().includes(n.toLowerCase()));
-    const navLabels = await p.locator('nav.bottom-nav a').evaluateAll((as) => as.map((a) => a.getAttribute('aria-label')));
-    ok('bottom nav: Home / Work / Code / Education / Profile', JSON.stringify(navLabels) === '["Home","Work","Code","Education","Profile"]', navLabels.join(','));
-    for (const n of ['Approx Education', 'Sessions', 'Files', 'History']) ok(`drawer: ${n}`, drawerText.toLowerCase().includes(n.toLowerCase()));
+    ok('menu: Recents section (no "Recent tasks"/"Other tasks")', /recents/i.test(drawerText) && !/recent tasks|other tasks/i.test(drawerText));
+    ok('no bottom navigation bar anywhere', await p.locator('nav.bottom-nav').count() === 0);
 
     // Model selector: only models this account may use (+ Auto); mode is separate.
     const allowed = await p.evaluate(async () => (await (await fetch('/api/models')).json()).models.filter((m) => m.available).map((m) => m.name));
@@ -313,7 +313,7 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
 
     // History page: Recent / Background tasks / Archived / Trash + search (SPA, no reload).
     await p.evaluate(() => { window.__noReload = 'still-here'; });
-    t0 = Date.now(); await p.locator('#drawer a.drawer-more').click(); await p.waitForSelector('[aria-label="Search conversations"]'); const histMs = Date.now() - t0;
+    t0 = Date.now(); await p.locator('#drawer a.drawer-more[href="#/history"]').click(); await p.waitForSelector('[aria-label="Search conversations"]'); const histMs = Date.now() - t0;
     ok(`History opens fast (${histMs} ms)`, histMs < 1000);
     await p.waitForTimeout(500);
     ok('History lists real sessions', (await p.locator('#main .list-item').count()) >= 1);
@@ -383,12 +383,12 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     ok('Model preferences offer Low / Medium / High', (await p.locator('#main select').nth(1).locator('option').allInnerTexts()).join(',') === 'Low,Medium,High');
     ok('navigation stayed in-page (no full reload)', await p.evaluate(() => window.__noReload) === 'still-here');
     await p.evaluate(() => { location.hash = '#/work'; }); await p.waitForTimeout(700);
-    ok('Approx Work: background tasks + artifacts', /background tasks/i.test(await p.locator('#main').innerText()) && /recent artifacts/i.test(await p.locator('#main').innerText()));
+    ok('Co Approx: background tasks + artifacts', /background tasks/i.test(await p.locator('#main').innerText()) && /recent artifacts/i.test(await p.locator('#main').innerText()));
     // Workspaces (API 1.9): New Session creates a server session; threads, tabs and resumption come from the backend.
     const wtext = await p.locator('#main').innerText();
-    ok('Approx Work workspace: New work session, recent sessions, projects, tasks, files, outputs, connected apps',
-      ['New work session', 'Recent sessions', 'Projects', 'Active tasks', 'Files', 'Outputs', 'Connected apps'].every((x) => wtext.toLowerCase().includes(x.toLowerCase())), wtext.slice(0, 200));
-    await p.locator('button', { hasText: 'New work session' }).click(); await p.waitForTimeout(500);
+    ok('Co Approx workspace: New session, recent sessions, projects, tasks, files, outputs, connected apps',
+      ['Co Approx', 'New session', 'Recent sessions', 'Projects', 'Active tasks', 'Files', 'Outputs', 'Connected apps'].every((x) => wtext.toLowerCase().includes(x.toLowerCase())), wtext.slice(0, 200));
+    await p.locator('button.ws-new').click(); await p.waitForTimeout(500);
     await p.locator('.sheet input.input').first().fill('Launch plan'); await p.locator('.sheet button', { hasText: 'Start session' }).click(); await p.waitForTimeout(900);
     const sid1 = (location => location.match(/#\/s\/(ses_\w+)/)?.[1])(await p.evaluate(() => location.hash));
     ok('New Session → a new server session page', !!sid1 && /Launch plan/.test(await p.locator('#main').innerText()), await p.evaluate(() => location.hash));
@@ -427,15 +427,41 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     await p.locator('input[aria-label="Days"]').fill('3'); await p.locator('button', { hasText: 'Create study plan' }).click(); await p.waitForTimeout(1200);
     ok('study plan → dated assignments with due-date pickers', await p.locator('input.due').count() === 3, String(await p.locator('input.due').count()));
     await p.waitForTimeout(2200); await p.evaluate(() => { location.hash = '#/w/education'; }); await p.waitForTimeout(900);   // any navigation refreshes the badge
-    ok('menu: Notifications shows the unread count', /^\d+$/.test((await p.locator('a[data-route="#/settings/notifications"] .count').innerText().catch(() => '')).trim()));
-    for (const [route, words] of [['#/w/code', ['Approx Code', 'New coding session', 'Repositories']], ['#/w/education', ['Approx Education', 'New study session', 'Courses & subjects', 'Progress']], ['#/sessions', ['Sessions']], ['#/files', ['Files']]]) {
+    ok('menu: Settings shows the unread notification count', /^\d+$/.test((await p.locator('a[data-route="#/settings"] .count').innerText().catch(() => '')).trim()));
+    for (const [route, words] of [['#/w/code', ['Code', 'Devices', 'Add device', 'Sessions', 'New session']], ['#/w/education', ['Education', 'New study session', 'Courses & subjects', 'Progress']], ['#/sessions', ['Sessions', 'Recent', 'Active', 'Archived']], ['#/artifacts', ['Artifacts', 'Create artifact']], ['#/files', ['Files']]]) {
       await p.evaluate((r) => { location.hash = r; }, route); await p.waitForTimeout(700);
       const t = await p.locator('#main').innerText();
       ok(`page ${route}: ${words.join(', ')}`, words.every((w) => t.toLowerCase().includes(w.toLowerCase())), t.slice(0, 160));
       await p.screenshot({ path: path.join(S, `v-ws-${route.replace(/\W+/g, '-')}.png`) });
     }
-    await p.evaluate(() => { location.hash = '#/schedule'; }); await p.waitForTimeout(400);
-    ok('Schedule states the missing scheduler backend honestly (no fake schedules)', (await p.locator('#main').innerText()).includes('aren’t available yet'));
+    // Scheduled: honest empty state, create a task (saved on the server), Run now creates a real session.
+    await p.evaluate(() => { location.hash = '#/schedule'; }); await p.waitForTimeout(600);
+    const sch0 = await p.locator('#main').innerText();
+    ok('Scheduled: empty state', p.url().endsWith('#/scheduled') && sch0.includes('No scheduled tasks yet') && sch0.includes('Scheduled tasks run automatically on their configured schedule.'), sch0.slice(0, 160));
+    await p.locator('button', { hasText: 'New task' }).click(); await p.waitForTimeout(300);
+    for (const lbl of ['Task name', 'Instructions', 'Frequency', 'Starts', 'Time zone', 'Workspace', 'Enabled']) ok(`scheduled form: ${lbl}`, await p.locator(`.sheet [aria-label="${lbl}"]`).count() === 1);
+    await p.locator('.sheet [aria-label="Task name"]').fill('Morning digest'); await p.locator('.sheet [aria-label="Instructions"]').fill('Summarise my open tasks');
+    await p.locator('.sheet button', { hasText: 'Save' }).click(); await p.waitForTimeout(900);
+    const schSrv = await p.evaluate(async () => (await (await fetch('/api/scheduled')).json()).tasks.map((x) => `${x.name}:${x.frequency}:${!!x.next_run_at}`));
+    ok('scheduled task saved on the server with a next run', schSrv.includes('Morning digest:daily:true'), schSrv.join(','));
+    await p.locator('button', { hasText: 'Run now' }).first().click(); await p.waitForTimeout(2500);
+    ok('Run now → a real session page', /^#\/s\/ses_/.test(await p.evaluate(() => location.hash)), await p.evaluate(() => location.hash));
+    // Artifacts: create, search, rename via API-backed list.
+    await p.evaluate(() => { location.hash = '#/artifacts'; }); await p.waitForTimeout(600);
+    await p.locator('button', { hasText: 'Create artifact' }).click(); await p.waitForTimeout(300);
+    await p.locator('.modal input, .sheet input, dialog input').first().fill('Web brief'); await p.keyboard.press('Enter'); await p.waitForTimeout(900);
+    ok('Create artifact → opens the artifact', /^#\/workspace\/art_/.test(await p.evaluate(() => location.hash)), await p.evaluate(() => location.hash));
+    await p.evaluate(() => { location.hash = '#/artifacts'; }); await p.waitForTimeout(600);
+    await p.locator('input[aria-label="Search artifacts"]').fill('Web brief'); await p.waitForTimeout(800);
+    ok('Artifacts search finds it', /Web brief/.test(await p.locator('#main').innerText()));
+    // Code: Add device produces a one-time pairing code and command.
+    await p.evaluate(() => { location.hash = '#/w/code'; }); await p.waitForTimeout(800);
+    await p.locator('.list-item', { hasText: 'Add device' }).click(); await p.waitForTimeout(300);
+    await p.locator('.modal input, .sheet input, dialog input').first().fill('Test laptop'); await p.keyboard.press('Enter'); await p.waitForTimeout(900);
+    const pair = await p.locator('.sheet').innerText().catch(() => '');
+    ok('Add device: pairing code + agent command shown', /approx-device\.mjs pair [A-Z0-9]{6,}/.test(pair) && /Waiting for the device/.test(pair), pair.slice(0, 200));
+    await p.keyboard.press('Escape'); await p.waitForTimeout(300);
+    ok('menu Recents lists real items', await p.evaluate(async () => (await (await fetch('/api/recents')).json()).recents.some((x) => x.title === 'Morning digest' || x.title === 'Web brief')));
 
     // Feature pages: Projects, Workspace (Approx Work equivalent), Code (Approx Code equivalent), Research, Admin.
     for (const [route, label] of [['#/projects', 'Projects'], ['#/workspace', 'Workspace'], ['#/code', 'Code'], ['#/research', 'Research']]) {
@@ -527,9 +553,9 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
 
     // Desktop/web responsive: wide layout keeps the sidebar and hides the bottom nav.
     await p.goto(BASE + '/', { waitUntil: 'networkidle' }); await p.waitForTimeout(900);
-    const lay = await p.evaluate(() => ({ w: innerWidth, nav: getComputedStyle(document.querySelector('nav.bottom-nav') || document.body).display,
+    const lay = await p.evaluate(() => ({ w: innerWidth, nav: document.querySelector('nav.bottom-nav') ? 'present' : 'none',
       drawer: (() => { const d = document.getElementById('drawer'); return d ? `${getComputedStyle(d).position}/${getComputedStyle(d).transform}` : 'none'; })(), hash: location.hash }));
-    ok('desktop: bottom nav hidden, sidebar shown', lay.nav === 'none' && lay.drawer.startsWith('static'), JSON.stringify(lay));
+    ok('desktop: no bottom nav, sidebar shown', lay.nav === 'none' && lay.drawer.startsWith('static'), JSON.stringify(lay));
     // Mobile layout: drawer, bottom nav, composer visible, voice button wiring.
     const m = await b.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, storageState: await ctx.storageState() });
     await m.addInitScript(() => {
@@ -538,9 +564,9 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     });
     const mp = await m.newPage(); await mp.goto(BASE + '/', { waitUntil: 'networkidle' }); await mp.waitForTimeout(1000);
     ok('mobile: no horizontal overflow', await mp.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1));
-    ok('mobile: bottom nav visible', await mp.locator('nav.bottom-nav').isVisible());
+    ok('mobile: no bottom navigation bar', await mp.locator('nav.bottom-nav').count() === 0);
     const box = await mp.locator('.composer').boundingBox();
-    ok('mobile: composer fully on screen above the nav', box && box.y + box.height <= 844 && box.y > 400, JSON.stringify(box));
+    ok('mobile: composer fully on screen at the bottom', box && box.y + box.height <= 844 && box.y > 400, JSON.stringify(box));
     let t1 = Date.now(); await mp.locator('[aria-label="Open menu"]').tap(); await mp.waitForTimeout(260); const drawMs = Date.now() - t1;
     ok(`mobile: drawer opens (${drawMs} ms incl. animation)`, await mp.evaluate(() => document.querySelector('.shell').classList.contains('drawer-open')) && drawMs < 800);
     await mp.screenshot({ path: path.join(S, 'v-09-mobile-drawer.png') });
@@ -549,12 +575,12 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     await mp.locator('[aria-label="Voice input"]').tap(); await mp.waitForTimeout(400);
     ok('voice: speech result goes into the composer', (await mp.locator('#prompt').inputValue()).includes('MySQL database'));
     await mp.screenshot({ path: path.join(S, 'v-09-mobile.png') });
-    await mp.locator('nav.bottom-nav a[aria-label="Work"]').tap(); await mp.waitForTimeout(600);
-    ok('mobile: bottom nav → Work (New work session prominent)', await mp.locator('.ws-new').isVisible());
+    await mp.locator('[aria-label="Open menu"]').tap(); await mp.waitForTimeout(300); await mp.locator('#drawer .drawer-link', { hasText: 'Co Approx' }).tap(); await mp.waitForTimeout(700);
+    ok('mobile: menu → Co Approx (New session prominent)', await mp.locator('.ws-new').isVisible());
     ok('mobile: workspace page has no horizontal overflow', await mp.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1));
     await mp.screenshot({ path: path.join(S, 'v-09-mobile-work.png') });
-    await mp.locator('nav.bottom-nav a[aria-label="Profile"]').tap(); await mp.waitForTimeout(500);
-    ok('mobile: bottom nav → Profile (settings)', await mp.locator('.settings-list').count() >= 1);
+    await mp.locator('[aria-label="Open menu"]').tap(); await mp.waitForTimeout(300); await mp.locator('#drawer .drawer-link', { hasText: 'Settings' }).tap(); await mp.waitForTimeout(600);
+    ok('mobile: menu → Settings', await mp.locator('.settings-list').count() >= 1);
     await mp.screenshot({ path: path.join(S, 'v-10-mobile-settings.png') });
     // Log out and sign in again.
     await mp.locator('.settings-row.signout').tap(); await mp.waitForTimeout(800);

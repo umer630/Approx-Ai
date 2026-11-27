@@ -99,7 +99,7 @@ export function workExtras() {
       h('div', { class: 'grow' }, h('div', { class: 'title' }, a.title), h('div', { class: 'sub' }, `${a.kind} · v${a.version} · ${fmtTime(a.updated_at)}`)))) : [h('p', { class: 'muted empty' }, 'Nothing saved yet. Use “Save to Workspace” on any answer.')]));
   }).catch((e) => arts.replaceChildren(errBox(e)));
   return h('div', {}, h('div', { class: 'quick-grid' },
-      h('a', { class: 'quick', href: '#/projects' }, icon('folder'), 'Projects'), h('a', { class: 'quick', href: '#/w/code' }, icon('code'), 'Approx Code'),
+      h('a', { class: 'quick', href: '#/projects' }, icon('folder'), 'Projects'), h('a', { class: 'quick', href: '#/w/code' }, icon('code'), 'Code'),
       h('a', { class: 'quick', href: '#/workspace' }, icon('layers'), 'Artifacts'), h('a', { class: 'quick', href: '#/research' }, icon('search'), 'Research')),
     h('h2', { class: 'section' }, 'Background tasks'), tasks, h('h2', { class: 'section' }, 'Recent artifacts'), arts);
 }
