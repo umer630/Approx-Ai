@@ -139,12 +139,14 @@ public class AppScreensTest {
         View root = a.findViewById(android.R.id.content);
         String text = "";
         for (View v : all(root)) if (v instanceof TextView) text += ((TextView) v).getText() + "\n";
-        assertTrue("personal greeting: " + text, text.matches("(?s).*(Good (morning|afternoon|evening|night)|Night owl), Umer.*"));
+        assertTrue("plain greeting: " + text, text.matches("(?s).*Good (morning|afternoon|evening), Umer.*") && text.contains("How can I help you today?"));
+        for (String bad : new String[]{"Night owl", "late-night", "Late-night", "Midnight", "jam session"}) assertFalse("no decorative text: " + bad, text.contains(bad));
         boolean prompt = false;
-        for (String h : hints(root)) if (h.toLowerCase().contains("ask approx")) prompt = true;
+        for (String h : hints(root)) if (h.equals("Type or hold to talk")) prompt = true;
         assertTrue("composer input present: " + hints(root), prompt);
-        for (String m : new String[]{"Low", "Medium", "High"}) assertNotNull("mode " + m, textView(root, m));
-        for (String b : new String[]{"Approx Work", "Approx Code", "Approx Education"}) assertNotNull("primary action " + b, textView(root, b));
+        for (String m : new String[]{"Low", "Medium", "High", "Memory"}) assertNull("no extra bar in the chat (" + m + ")", textView(root, m));
+        assertNotNull("composer: attach", textView(root, "+")); assertNotNull("composer: mic", textView(root, "🎤")); assertNotNull("composer: send", textView(root, "➤"));
+        for (String b : new String[]{"Code", "Co Approx", "Education"}) assertNotNull("primary action " + b, textView(root, b));
         assertNotNull("hamburger menu", textView(root, "☰"));
         assertNull("no bottom tab bar (History is in the side menu)", textView(root, "History"));
         assertNull("no bottom tab bar (Settings is in the side menu)", textView(root, "Settings"));
@@ -168,7 +170,7 @@ public class AppScreensTest {
         for (android.app.Dialog d : org.robolectric.shadows.ShadowDialog.getShownDialogs())
             if (d.isShowing()) { ViewGroup content = d.findViewById(android.R.id.content); menu = content.getChildAt(0); }
         assertNotNull("side menu opens", menu);
-        for (String item : new String[]{"New chat", "Home", "Approx Work", "Approx Code", "Approx Education", "Projects", "Sessions", "Files", "History", "Notifications", "Profile", "Settings", "Help & about"})
+        for (String item : new String[]{"New chat", "Home", "Projects", "Code", "Co Approx", "Education", "Artifacts", "Scheduled", "Sessions", "Files", "Settings", "Recents"})
             assertNotNull("menu item " + item, textView(menu, item));
         ViewGroup scrim = (ViewGroup) menu;
         View panel = scrim.getChildAt(0);
@@ -177,7 +179,13 @@ public class AppScreensTest {
         shot(panel, "android-04-menu.png");
 
         View root = a.findViewById(android.R.id.content);
-        for (String[] w : new String[][]{{"work", "Approx Work", "＋  New work session"}, {"code", "Approx Code", "＋  New coding session"}, {"education", "Approx Education", "＋  New study session"}}) {
+        a.workspaceHome("code");
+        for (String t : new String[]{"Code", "DEVICES", "SESSIONS", "◷", "＋  New session"}) assertNotNull("Code screen: " + t, textView(root, t));
+        boolean codeSearch = false; for (String h : hints(root)) if (h.equals("Search sessions")) codeSearch = true;
+        assertTrue("Code: search sessions", codeSearch);
+        for (String f : new String[]{"All", "Active", "Archived"}) assertNotNull("Code filter " + f, textView(root, f));
+        shot(root, "android-05-code.png");
+        for (String[] w : new String[][]{{"work", "Co Approx", "＋  New session"}, {"education", "Education", "＋  New study session"}}) {
             a.workspaceHome(w[0]);
             assertNotNull(w[0] + " title", textView(root, w[1]));
             assertNotNull(w[0] + " new session", textView(root, w[2]));
@@ -340,6 +348,104 @@ public class AppScreensTest {
         assertNotNull("front shown", textView(dialogRoot(), "Simulator term 1"));
         textView(dialogRoot(), "Simulator term 1").performClick();
         assertNotNull("tap flips to the answer", waitForInDialog("Simulator definition 1"));
+    }
+
+    static void clickDialogItem(int i) { android.app.AlertDialog d = (android.app.AlertDialog) org.robolectric.shadows.ShadowDialog.getLatestDialog(); d.getListView().performItemClick(d.getListView().getChildAt(i), i, i); idle(); }
+    /** Taps a text the way a finger would: the nearest view that handles clicks (a row's container, not its label). */
+    static void tap(View v) { while (v != null && !v.hasOnClickListeners() && v.getParent() instanceof View) v = (View) v.getParent(); v.performClick(); idle(); }
+    static void positive() { ((android.app.AlertDialog) org.robolectric.shadows.ShadowDialog.getLatestDialog()).getButton(android.content.DialogInterface.BUTTON_POSITIVE).performClick(); idle(); }
+    static EditText editByHint(View root, String hint) throws Exception {
+        for (int t = 0; t < 80; t++) {
+            idle();
+            List<View> roots = new ArrayList<>();
+            if (root != null) roots.add(root);
+            for (android.app.Dialog d : org.robolectric.shadows.ShadowDialog.getShownDialogs()) if (d.isShowing()) roots.add(d.getWindow().getDecorView());
+            for (View r : roots) for (View v : all(r)) if (v instanceof EditText && hint.equals(String.valueOf(((EditText) v).getHint()))) return (EditText) v;
+            Thread.sleep(25);
+        }
+        fail("no field " + hint); return null;
+    }
+
+    /** End-to-end navigation against a real local backend: Code (devices + sessions, resume after reopening the app,
+     *  search, filter), Scheduled (empty state + create), Artifacts, Co Approx and Education sessions. */
+    @Test
+    public void navigation_endToEnd_againstRealBackend() throws Exception {
+        String e2e = System.getProperty("e2e");
+        org.junit.Assume.assumeTrue("set APPROX_E2E", e2e != null && e2e.startsWith("{"));
+        JSONObject cfg = new JSONObject(e2e);
+        final Api api = new Api(cfg.getString("base"), cfg.getString("token"));
+        MainActivity a = signedIn(); set(a, "api", api);
+        View root = a.findViewById(android.R.id.content);
+        Hub hub = (Hub) get(a, "hub");
+        // 1–2. Code → Add device: a real pairing code from the server.
+        hub.code();
+        tap(waitFor(root, "＋  Add device"));
+        editByHint(dialogRoot(), "Device name (e.g. Work laptop)").setText("Robo laptop");
+        positive();
+        waitFor(root, "PAIRING CODE");
+        until(() -> { JSONArray ds = api.get("/api/devices").getJSONArray("devices"); for (int i = 0; i < ds.length(); i++) if ("Robo laptop".equals(ds.getJSONObject(i).getString("name"))) return true; return false; }, "pending device on the server");
+        assertNotNull(waitFor(root, "Waiting for the device to connect…"));
+        shot(root, "android-15-add-device.png");
+        // 3. New Code session: repository → branch/device → start.
+        api.post("/api/workspaces/code/projects", new JSONObject().put("name", "robo-repo"));
+        hub.newCodeSession();
+        waitForInDialog("robo-repo");
+        clickDialogItem(0);
+        waitForInDialog("Start session");
+        editByHint(dialogRoot(), "Session title (optional)").setText("Fix login bug");
+        positive();
+        until(() -> { JSONArray ss = api.get("/api/session-history?workspace=code").getJSONArray("sessions"); for (int i = 0; i < ss.length(); i++) if ("Fix login bug".equals(ss.getJSONObject(i).getString("title"))) return true; return false; }, "code session on the server");
+        // 4–6. Close the app, reopen it, find the session in Code and resume it.
+        MainActivity b = signedIn(); set(b, "api", api);
+        View root2 = b.findViewById(android.R.id.content);
+        ((Hub) get(b, "hub")).code();
+        tap(waitFor(root2, "Fix login bug"));
+        waitFor(root2, "Session ▾");
+        assertNotNull("resumed session bar", waitFor(root2, "Main thread"));
+        shot(root2, "android-16-code-session.png");
+        // 7–8. Search and filter.
+        Hub hb = (Hub) get(b, "hub");
+        hb.code("all", "nothing-matches-this");
+        waitFor(root2, "No session matches \"nothing-matches-this\".");
+        hb.code("archived", null);
+        waitFor(root2, "No sessions yet");
+        // 9–11. Scheduled: empty state, create, appears.
+        hb.scheduled();
+        waitFor(root2, "No scheduled tasks yet");
+        assertNotNull(textView(root2, "Scheduled tasks run automatically on their configured schedule."));
+        shot(root2, "android-17-scheduled-empty.png");
+        waitFor(root2, "＋  New task").performClick();
+        editByHint(dialogRoot(), "Task name").setText("Daily standup notes");
+        editByHint(dialogRoot(), "Instructions (what Approx should do each time)").setText("Summarise yesterday's sessions.");
+        positive();
+        waitFor(root2, "Daily standup notes");
+        until(() -> api.get("/api/scheduled").getJSONArray("tasks").length() == 1, "scheduled task saved on the server");
+        shot(root2, "android-18-scheduled.png");
+        // 12–13. Artifacts: create, opens, listed.
+        hb.artifacts(null);
+        waitFor(root2, "＋  Create artifact").performClick();
+        editByHint(dialogRoot(), "Title").setText("Release notes");
+        editByHint(dialogRoot(), "Content (Markdown)").setText("# v1.7");
+        positive();
+        waitFor(root2, "Release notes");
+        until(() -> api.get("/api/artifacts?q=Release").getJSONArray("artifacts").length() == 1, "artifact on the server");
+        // 14–16. Co Approx: new session, then resume it from Sessions.
+        b.workspaceHome("work");
+        waitFor(root2, "＋  New session").performClick();
+        waitForInDialog("Start session");
+        editByHint(dialogRoot(), "Session title (optional)").setText("Competitor scan");
+        positive();
+        waitFor(root2, "Session ▾");
+        hb.history("work", "recent");
+        tap(waitFor(root2, "Competitor scan"));
+        waitFor(root2, "Run task");
+        // 17–18. Education: new study session.
+        b.workspaceHome("education");
+        waitFor(root2, "＋  New study session").performClick();
+        waitForInDialog("Start session");
+        editByHint(dialogRoot(), "Session title (e.g. Class 11 CS — Chapter 4)").setText("Class 11 CS — Chapter 4");
+        positive();
+        until(() -> api.get("/api/session-history?workspace=education").getJSONArray("sessions").length() >= 1, "study session on the server");
     }
 
     @Test

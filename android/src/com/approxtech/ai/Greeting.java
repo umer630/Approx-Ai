@@ -18,21 +18,13 @@ public final class Greeting {
 
     private static String cap(String s) { return s.isEmpty() ? s : s.substring(0, 1).toUpperCase() + s.substring(1); }
 
-    /** Time of day → greeting: morning 5–12, afternoon 12–17, evening 17–21, night 21–24, "Night owl?" 0–5.
+    /** Plain, state-based greeting: time of day + name. No invented moods or personality lines.
      *  @return {title, subtitle} */
     public static String[] of(String displayName, String email, int hour, boolean returning, long day) {
         String n = firstName(displayName, email);
         String you = n.isEmpty() ? "" : ", " + n;
-        int k = (int) Math.abs(day);
-        String title;
-        if (hour >= 5 && hour < 12) title = "Good morning" + you;
-        else if (hour >= 12 && hour < 17) title = "Good afternoon" + you;
-        else if (hour >= 17 && hour < 21) title = "Good evening" + you;
-        else if (hour >= 21) title = "Good night" + you;
-        else title = "Night owl" + you + "?";
-        String subtitle = !returning ? "Welcome to Approx AI. What would you like to do?"
-                : pick(k, "How are you today" + you + "?", "What can I help you with today?", "What are we working on today?");
-        return new String[]{title, subtitle};
+        String title = hour >= 5 && hour < 12 ? "Good morning" + you : hour >= 12 && hour < 17 ? "Good afternoon" + you : "Good evening" + you;
+        return new String[]{title, "How can I help you today?"};
     }
 
     private static String pick(int k, String... opts) { return opts[k % opts.length]; }

@@ -96,6 +96,8 @@ public class MainActivity extends Activity {
     /** Work / Code / Education sessions (API 1.9). */
     Workspaces ws;
     SettingsMore more;
+    Hub hub;
+    private TextView topAction;
     /** Settings → Appearance → Text size (applied to every text the app draws). */
     float textScale = 1f;
     LinearLayout currentPage;
@@ -124,6 +126,7 @@ public class MainActivity extends Activity {
         store = new SecureStore(this);
         ws = new Workspaces(this);
         more = new SettingsMore(this);
+        hub = new Hub(this);
         root = new FrameLayout(this);
         root.setBackgroundColor(BG);
         setContentView(root);
@@ -766,6 +769,7 @@ public class MainActivity extends Activity {
         TextView fresh = iconButton("✎", workspace == null ? "New chat" : "New session");
         fresh.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { if (workspace == null) showHome(); else workspaceHome(workspace); } });
         top.addView(fresh);
+        topAction = fresh;
         page.addView(top);
         View div = new View(this); div.setBackgroundColor(LINE); page.addView(div, new LinearLayout.LayoutParams(-1, dp(1)));
         page.addView(body, new LinearLayout.LayoutParams(-1, 0, 1));
@@ -774,6 +778,18 @@ public class MainActivity extends Activity {
         root.removeAllViews();
         root.addView(page);
         return page;
+    }
+
+    FrameLayout root() { return root; }
+
+    /** Menu destinations replace the top-right action (Code: session history; artifacts: actions; null = none). */
+    void setTopAction(String glyph, String description, final Runnable action) {
+        if (topAction == null) return;
+        if (glyph == null) { topAction.setVisibility(View.GONE); return; }
+        topAction.setVisibility(View.VISIBLE);
+        topAction.setText(glyph);
+        topAction.setContentDescription(description);
+        topAction.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { action.run(); } });
     }
 
     TextView iconButton(String glyph, String description) {
@@ -813,61 +829,64 @@ public class MainActivity extends Activity {
         LinearLayout head = hbox();
         head.setGravity(Gravity.CENTER_VERTICAL);
         head.addView(logo(30));
-        head.addView(text("  Approx AI", 18, TEXT, true));
+        head.addView(text("  Approx", 19, TEXT, true));
         col.addView(head);
-        if (user != null) {
-            String nm = user.optString("display_name");
-            add(col, text(nm.length() > 0 ? nm + " · " + user.optString("email") : user.optString("email"), 12.5f, MUTED, false), 6);
-        }
         add(col, button("New chat", true, new Runnable() { public void run() { d.dismiss(); showHome(); } }), 16);
-        String[][] items = {{"⌂", "Home"}, {"▦", "Approx Work"}, {"</>", "Approx Code"}, {"📘", "Approx Education"}, {"◫", "Projects"}, {"☰", "Sessions"}, {"📄", "Files"}, {"◷", "History"}};
-        final String[] targets = {"home", "work", "code", "education", "projects", "sessions", "files", "history"};
+        // The menu is the central navigation: every major area is one tap from here.
+        String[][] items = {{"⌂", "Home"}, {"◫", "Projects"}, {"</>", "Code"}, {"▦", "Co Approx"}, {"📘", "Education"}, {"✦", "Artifacts"},
+                {"⏱", "Scheduled"}, {"☰", "Sessions"}, {"📄", "Files"}, {"⚙", "Settings"}};
+        final String[] targets = {"home", "projects", "code", "work", "education", "artifacts", "scheduled", "sessions", "files", "settings"};
+        final TextView[] settingsLabel = new TextView[1];
         for (int i = 0; i < items.length; i++) {
             final String t = targets[i];
-            add(col, drawerItem(items[i][0], items[i][1], new Runnable() { public void run() {
+            View item = drawerItem(items[i][0], items[i][1], new Runnable() { public void run() {
                 d.dismiss();
-                if ("history".equals(t)) showHistory();
-                else if ("home".equals(t)) showHome();
+                if ("home".equals(t)) showHome();
                 else if ("projects".equals(t)) ws.projectsScreen();
-                else if ("sessions".equals(t)) ws.sessionsScreen(null, "active");
+                else if ("code".equals(t)) hub.code();
+                else if ("artifacts".equals(t)) hub.artifacts(null);
+                else if ("scheduled".equals(t)) hub.scheduled();
+                else if ("sessions".equals(t)) hub.history(null, "recent");
                 else if ("files".equals(t)) fileSettings();
+                else if ("settings".equals(t)) showSettings();
                 else workspaceHome(t);
-            } }), i == 0 ? 12 : 0);
+            } });
+            if ("settings".equals(t)) settingsLabel[0] = (TextView) ((LinearLayout) item).getChildAt(1);
+            add(col, item, i == 0 ? 12 : 0);
         }
+        add(col, divider(), 10);
+        add(col, text("Recents", 13, MUTED, true), 12);
         final LinearLayout recent = vbox();
         add(col, recent, 2);
-        add(col, divider(), 10);
-        final TextView[] notifLabel = new TextView[1];
-        View nItem = drawerItem("🔔", "Notifications", new Runnable() { public void run() { d.dismiss(); more.notifications(); } });
-        add(col, nItem, 8);
-        for (View v : new View[]{nItem}) if (v instanceof LinearLayout) notifLabel[0] = (TextView) ((LinearLayout) v).getChildAt(1);
-        if (api != null && api.getToken() != null) pool.execute(new Runnable() { public void run() {
-            try { final int n = api.get("/api/notifications").optInt("unread"); if (n > 0) ui.post(new Runnable() { public void run() { if (notifLabel[0] != null) notifLabel[0].setText("Notifications (" + n + ")"); } }); }
-            catch (Exception ignored) { }
-        } });
-        add(col, drawerItem("👤", "Profile", new Runnable() { public void run() { d.dismiss(); accountSettings(); } }), 0);
-        add(col, drawerItem("⚙", "Settings", new Runnable() { public void run() { d.dismiss(); showSettings(); } }), 0);
-        add(col, drawerItem("?", "Help & about", new Runnable() { public void run() { d.dismiss(); helpFeedback(); } }), 0);
         FrameLayout.LayoutParams plp = new FrameLayout.LayoutParams(width, FrameLayout.LayoutParams.MATCH_PARENT, Gravity.START);
         scrim.addView(sv, plp);
         d.setContentView(scrim);
         d.show();
         sv.setTranslationX(-width);
         sv.animate().translationX(0).setDuration(180).start();
-        // Recent conversations under History (best effort; the full list is one tap away).
         if (api != null && api.getToken() != null) {
             pool.execute(new Runnable() { public void run() {
                 try {
-                    final JSONArray chats = api.get("/api/chats?view=active").optJSONArray("chats");
+                    final JSONArray rs = api.get("/api/recents").optJSONArray("recents");
+                    final int unread = api.get("/api/notifications").optInt("unread");
                     ui.post(new Runnable() { public void run() {
-                        if (chats == null) return;
-                        for (int i = 0; i < Math.min(6, chats.length()); i++) {
-                            final JSONObject c = chats.optJSONObject(i);
-                            TextView t = text(c.optString("title"), 13.5f, MUTED, false);
+                        if (unread > 0 && settingsLabel[0] != null) settingsLabel[0].setText("Settings · " + unread + " new");
+                        if (rs == null || rs.length() == 0) { recent.addView(text("Nothing yet", 13.5f, MUTED, false)); return; }
+                        for (int i = 0; i < rs.length(); i++) {
+                            final JSONObject c = rs.optJSONObject(i);
+                            final String type = c.optString("type");
+                            String tag = "chat".equals(type) ? "Chat" : "co_approx".equals(type) ? "Co Approx" : "code".equals(type) ? "Code" : "education".equals(type) ? "Education" : "artifact".equals(type) ? "Artifact" : "Scheduled";
+                            TextView t = text(c.optString("title") + "  ·  " + tag, 13.5f, TEXT, false);
                             t.setSingleLine(true);
                             t.setEllipsize(android.text.TextUtils.TruncateAt.END);
-                            t.setPadding(dp(44), dp(7), dp(8), dp(7));
-                            t.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { d.dismiss(); workspace = null; projectId = null; showChat(c.optString("id")); } });
+                            t.setPadding(dp(8), dp(8), dp(8), dp(8));
+                            t.setOnClickListener(new View.OnClickListener() { public void onClick(View v) {
+                                d.dismiss();
+                                if ("chat".equals(type)) { workspace = null; projectId = null; showChat(c.optString("id")); }
+                                else if ("artifact".equals(type)) hub.openArtifact(c.optString("id"));
+                                else if ("scheduled".equals(type)) hub.scheduled();
+                                else ws.open(c.optString("id"), null);
+                            } });
                             recent.addView(t);
                         }
                     } });
@@ -897,7 +916,7 @@ public class MainActivity extends Activity {
     // ------------------------------------------------------------------ workspaces: Education · Approx Code · Approx Work
     /** Clean landing: one action (Start new session) and the person's recent sessions — no technical detail. */
     /** Workspace home (Approx Work / Code / Education): sessions, projects, tasks, files, outputs, connected apps. */
-    void workspaceHome(final String purpose) { ws.home(purpose); }
+    void workspaceHome(final String purpose) { if ("code".equals(purpose)) hub.code(); else ws.home(purpose); }
 
     void openSession(final JSONObject se) {
         workspace = se.optString("purpose");
@@ -1049,9 +1068,9 @@ public class MainActivity extends Activity {
         sub.setGravity(Gravity.CENTER);
         add(w, sub, 4);
         // Three primary actions. A new chat is the input below; everything else is in the ☰ menu.
-        add(w, actionCard("▦", "Approx Work", "Sessions, threads, tasks and outputs", new Runnable() { public void run() { workspaceHome("work"); } }), 28);
-        add(w, actionCard("</>", "Approx Code", "Repositories, code sessions, changes and commits", new Runnable() { public void run() { workspaceHome("code"); } }), 10);
-        add(w, actionCard("📘", "Approx Education", "Courses, study sessions, quizzes and progress", new Runnable() { public void run() { workspaceHome("education"); } }), 10);
+        add(w, actionCard("</>", "Code", "Repositories, devices and code sessions", new Runnable() { public void run() { workspaceHome("code"); } }), 28);
+        add(w, actionCard("▦", "Co Approx", "Give Approx a task; come back for the result", new Runnable() { public void run() { workspaceHome("work"); } }), 10);
+        add(w, actionCard("📘", "Education", "Courses, study sessions, quizzes and progress", new Runnable() { public void run() { workspaceHome("education"); } }), 10);
         if (user != null && !user.optBoolean("email_verified")) {
             add(w, button("Verify your email to start chatting", false, new Runnable() { public void run() { showVerify(); } }), 18);
         }
@@ -1213,7 +1232,7 @@ public class MainActivity extends Activity {
         inner.addView(chipRow);
         renderChips();
         prompt = new EditText(this);
-        prompt.setHint("Ask Approx AI anything...");
+        prompt.setHint("Type or hold to talk");
         prompt.setHintTextColor(MUTED);
         prompt.setTextColor(TEXT);
         prompt.setTextSize(16);
@@ -1232,7 +1251,7 @@ public class MainActivity extends Activity {
         modelChip.setBackground(bgShape(SURFACE2, 999, LINE));
         modelChip.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { pickModel(); } });
         LinearLayout.LayoutParams mlp = new LinearLayout.LayoutParams(-2, -2); mlp.leftMargin = dp(6);
-        bar.addView(modelChip, mlp);
+        // Model and mode are chosen from the top-bar pill; the composer stays clean.
         LinearLayout toggle = hbox();
         toggle.setBackground(bgShape(SURFACE2, 999, LINE));
         final TextView[] modeBtns = new TextView[MODES.length];
@@ -1250,11 +1269,16 @@ public class MainActivity extends Activity {
             toggle.addView(t);
         }
         styleModes(modeBtns);
-        bar.addView(toggle, mlp);
         View sp = new View(this); bar.addView(sp, new LinearLayout.LayoutParams(0, 1, 1));
         micBtn = round("🎤", false);
         micBtn.setContentDescription("Voice input");
         micBtn.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { onMic(); } });
+        // Hold to talk: press and hold the mic, release to stop (a short tap still toggles dictation).
+        micBtn.setOnLongClickListener(new View.OnLongClickListener() { public boolean onLongClick(View v) { if (!listening) onMic(); return true; } });
+        micBtn.setOnTouchListener(new View.OnTouchListener() { public boolean onTouch(View v, android.view.MotionEvent e) {
+            if (e.getAction() == android.view.MotionEvent.ACTION_UP && e.getEventTime() - e.getDownTime() > 500 && listening) stopListening();
+            return false;
+        } });
         LinearLayout.LayoutParams miclp = new LinearLayout.LayoutParams(-2, -2); miclp.rightMargin = dp(8);
         bar.addView(micBtn, miclp);
         sendBtn = round("➤", true);
@@ -1471,12 +1495,14 @@ public class MainActivity extends Activity {
             else if (notActive) { labels.add(m.optString("name") + " — " + why); ids.add("#status:" + m.optString("name") + " is not available yet (" + why + ")."); }
             else { ids.add(m.optString("id")); labels.add(m.optString("name") + ("unavailable".equals(m.optString("backend")) ? " (backend offline)" : "")); }
         }
+        for (String md : MODES) { ids.add("#mode:" + md); labels.add((md.equals(mode) ? "●  " : "○  ") + "Efficiency: " + cap(md)); }
         new AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert)
-                .setTitle("Choose a model")
+                .setTitle("Model and efficiency")
                 .setItems(labels.toArray(new String[0]), new DialogInterface.OnClickListener() { public void onClick(DialogInterface d, int which) {
                     String id = ids.get(which);
                     if (id == null) { toast("Your account does not have access to this model."); return; }
                     if (id.startsWith("#status:")) { toast(id.substring(8)); return; }
+                    if (id.startsWith("#mode:")) { mode = id.substring(6); if (modelIndicator != null) modelIndicator.setText(modelName(model) + " · " + cap(mode)); return; }
                     model = id;
                     if (chatId == null && messageList != null) showChat(null); else showChat(chatId);
                 } }).show();
@@ -1540,7 +1566,7 @@ void helpFeedback() {
     }
 
     void plusMenu() {
-        final String[] items = {"File", "Image", "PDF", "Document", "Camera / photo", "Data analysis (CSV/JSON)", "Research (web)"};
+        final String[] items = {"Files", "Photo", "PDF", "Document", "Photo library", "Data (CSV/JSON)", "Research (web)"};
         new AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert)
                 .setTitle("Add to message")
                 .setItems(items, new DialogInterface.OnClickListener() { public void onClick(DialogInterface d, int w) {
@@ -1762,23 +1788,22 @@ void helpFeedback() {
         LinearLayout col = settingsPage("Settings");
         add(col, text(user == null ? "" : user.optString("email") + " · plan " + user.optString("plan"), 13, MUTED, false), 4);
         Object[][] rows = {
-                {"Account & profile", new Runnable() { public void run() { accountSettings(); } }},
-                {"Language & personalization", new Runnable() { public void run() { more.languageAndStyle(); } }},
+                {"Account", new Runnable() { public void run() { accountSettings(); } }},
+                {"Profile & language", new Runnable() { public void run() { more.languageAndStyle(); } }},
+                {"Billing", new Runnable() { public void run() { infoPage("Billing", "Plan: " + (user == null ? "" : user.optString("plan")) + "\n\nFree: Nick 4.8 + Hike 6.5. Pro adds Sona 9.0. FAB is granted individually by Approx Technology.\n\nOnline payments are not enabled yet (no payment provider is connected); plan changes are applied by an administrator."); } }},
+                {"Usage", new Runnable() { public void run() { usageSettings(); } }},
                 {"Notifications", new Runnable() { public void run() { more.notifications(); } }},
-                {"Appearance", new Runnable() { public void run() { more.appearance(); } }},
-                {"Security, two-step verification & devices", new Runnable() { public void run() { securitySettings(); } }},
-                {"Workspaces (Work, Code, Education)", new Runnable() { public void run() { more.workspaces(); } }},
-                {"Memory", new Runnable() { public void run() { memorySettings(); } }},
+                {"Preferences (text size, start screen)", new Runnable() { public void run() { more.appearance(); } }},
+                {"AI preferences (models, efficiency)", new Runnable() { public void run() { modelSettings(); } }},
+                {"Workspaces (Co Approx, Code, Education)", new Runnable() { public void run() { more.workspaces(); } }},
+                {"Security, two-step verification & sessions", new Runnable() { public void run() { securitySettings(); } }},
                 {"Privacy & training consent", new Runnable() { public void run() { privacySettings(); } }},
                 {"Data controls", new Runnable() { public void run() { more.dataControls(); } }},
-                {"Model preferences", new Runnable() { public void run() { modelSettings(); } }},
-                {"Usage & quota", new Runnable() { public void run() { usageSettings(); } }},
+                {"Connected services", new Runnable() { public void run() { infoPage("Connected services", "No third-party services (GitHub, Google Drive, Gmail, Calendar) are connected: they need OAuth apps registered by Approx Technology, which are not configured yet.\n\nDevices you pair in Code → Add device are managed in Code."); } }},
+                {"Memory", new Runnable() { public void run() { memorySettings(); } }},
                 {"Projects", new Runnable() { public void run() { projectSettings(); } }},
-                {"Files", new Runnable() { public void run() { fileSettings(); } }},
-                {"Subscription", new Runnable() { public void run() { infoPage("Subscription", "Plan: " + (user == null ? "" : user.optString("plan")) + "\n\nFree: Nick 4.8 + Hike 6.5. Pro adds Sona 9.0. FAB is granted individually by Approx Technology.\n\nOnline payments are not enabled in Approx AI 1.0; upgrades are applied by an administrator."); } }},
                 {"API & developer console", new Runnable() { public void run() { openWeb("/developers/"); } }},
-                {"Connected tools", new Runnable() { public void run() { infoPage("Connected tools", "No third-party connectors are available in Approx AI 1.0."); } }},
-                {"Help & about", new Runnable() { public void run() { helpFeedback(); } }},
+                {"About & help", new Runnable() { public void run() { helpFeedback(); } }},
                 {"Delete account", new Runnable() { public void run() { deleteAccount(); } }},
                 {"Log out", new Runnable() { public void run() {
                     // Revoke the server session in the background; the local session is cleared in every case.

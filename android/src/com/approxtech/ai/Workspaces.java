@@ -34,9 +34,9 @@ final class Workspaces {
     Workspaces(MainActivity a) { this.a = a; }
 
     static final String[] KINDS = {"work", "code", "education"};
-    static String title(String k) { return "work".equals(k) ? "Approx Work" : "code".equals(k) ? "Approx Code" : "education".equals(k) ? "Approx Education" : "Approx AI"; }
+    static String title(String k) { return "work".equals(k) ? "Co Approx" : "code".equals(k) ? "Code" : "education".equals(k) ? "Education" : "Approx"; }
     static String glyph(String k) { return "work".equals(k) ? "▦" : "code".equals(k) ? "</>" : "📘"; }
-    static String newLabel(String k) { return "work".equals(k) ? "New work session" : "code".equals(k) ? "New coding session" : "New study session"; }
+    static String newLabel(String k) { return "work".equals(k) ? "New session" : "code".equals(k) ? "New coding session" : "New study session"; }
     static String projectLabel(String k) { return "work".equals(k) ? "Projects" : "code".equals(k) ? "Repositories" : "Courses & subjects"; }
 
     int dp(int v) { return (int) (v * a.getResources().getDisplayMetrics().density); }
@@ -92,7 +92,35 @@ final class Workspaces {
         JSONArray ss = o.optJSONArray("sessions");
         if (ss == null || ss.length() == 0) body.addView(muted("No sessions yet. Start one above — each session keeps its own context."));
         for (int i = 0; ss != null && i < ss.length(); i++) body.addView(sessionRow(ss.optJSONObject(i)));
-        body.addView(a.link("Archived sessions", new Runnable() { public void run() { sessionsScreen(kind, "archived"); } }));
+        body.addView(a.link("Session history", new Runnable() { public void run() { a.hub.history(kind, "recent"); } }));
+        if ("work".equals(kind)) {
+            final LinearLayout sched = sectionWithLoad(body, "Scheduled tasks", "＋ New", new Runnable() { public void run() { a.hub.newScheduled(); } });
+            a.bg(new MainActivity.Job() { public Object run() throws Exception { return a.api.get("/api/scheduled"); } }, new MainActivity.Done() { public void ok(Object r) {
+                JSONArray ts = ((JSONObject) r).optJSONArray("tasks");
+                int n = 0;
+                for (int i = 0; i < ts.length(); i++) {
+                    final JSONObject t = ts.optJSONObject(i);
+                    if (!"work".equals(t.optString("workspace"))) continue;
+                    n++;
+                    sched.addView(card("⏱ " + t.optString("name"), MainActivity.cap(t.optString("frequency")) + (t.optBoolean("enabled") ? "" : " · paused"), new Runnable() { public void run() { a.hub.scheduledDetail(t); } }));
+                }
+                if (n == 0) sched.addView(muted("No scheduled tasks yet."));
+            } });
+        }
+        if ("education".equals(kind)) {
+            final LinearLayout quizzes = sectionWithLoad(body, "Quizzes & practice", null, null);
+            a.bg(new MainActivity.Job() { public Object run() throws Exception { return a.api.get("/api/artifacts"); } }, new MainActivity.Done() { public void ok(Object r) {
+                JSONArray as = ((JSONObject) r).optJSONArray("artifacts");
+                int n = 0;
+                for (int i = 0; i < as.length(); i++) {
+                    final JSONObject x = as.optJSONObject(i);
+                    if (!"quiz".equals(x.optString("language")) || x.isNull("session_id")) continue;
+                    n++;
+                    quizzes.addView(card("📝 " + x.optString("title"), (x.isNull("session_title") ? "" : x.optString("session_title") + " · ") + "tap to practise", new Runnable() { public void run() { practise(x.optString("session_id"), x.optString("id")); } }));
+                }
+                if (n == 0) quizzes.addView(muted("Quizzes you create in a study session appear here for practice."));
+            } });
+        }
 
         LinearLayout ph = sectionWithAction(body, projectLabel(kind), "＋ New", new Runnable() { public void run() { newProject(kind, null); } });
         JSONArray ps = o.optJSONArray("projects");
@@ -331,7 +359,7 @@ final class Workspaces {
         LinearLayout tools = a.hbox();
         String[] names = "code".equals(kind) ? new String[]{"Agent", "Files", "Changes", "Commit", "Branch", "Run / Test", "Tasks", "Logs"}
                 : "education".equals(kind) ? new String[]{"Documents", "Quiz", "Flashcards", "Study plan", "Assignments", "Notes", "Progress"}
-                : new String[]{"Tasks", "Plan", "Files", "Outputs", "Logs"};
+                : new String[]{"Run task", "Tasks", "Plan", "Files", "Outputs", "Logs"};
         for (final String n : names) {
             TextView t = chip(n, false);
             t.setTextColor(MainActivity.GREEN_TEXT);
@@ -399,6 +427,7 @@ final class Workspaces {
         else if ("Run / Test".equals(n)) runner();
         else if ("Quiz".equals(n)) quiz();
         else if ("Agent".equals(n)) agent();
+        else if ("Run task".equals(n)) a.hub.runTask();
         else if ("Flashcards".equals(n)) flashcards();
         else if ("Study plan".equals(n)) studyPlan();
         else if ("Progress".equals(n)) home("education");
@@ -928,6 +957,22 @@ final class Workspaces {
         row.addView(a.link(action, r));
         a.add(parent, row, 18);
         return row;
+    }
+
+    LinearLayout sectionWithLoad(LinearLayout parent, String label, String action, Runnable r) {
+        if (action != null) sectionWithAction(parent, label, action, r); else section(parent, label);
+        LinearLayout box = a.vbox();
+        parent.addView(box);
+        return box;
+    }
+
+    /** Practise a saved quiz again (questions only; the server marks the answers). */
+    void practise(final String sessionId, final String artifactId) {
+        a.bg(new MainActivity.Job() { public Object run() throws Exception {
+            JSONObject o = a.api.get("/api/work-sessions/" + sessionId + "/quiz/" + artifactId);
+            session = a.api.get("/api/work-sessions/" + sessionId).optJSONObject("session");
+            return o.optJSONObject("quiz");
+        } }, new MainActivity.Done() { public void ok(Object r) { takeQuiz((JSONObject) r); } });
     }
 
     View pad(View v) { LinearLayout l = a.vbox(); l.setPadding(dp(20), dp(8), dp(20), dp(4)); l.addView(v); return l; }

@@ -30,14 +30,12 @@ public class StartupJvmTest {
 
         String[] g = Greeting.of("Umer Khan", "u@x.com", 10, false, 0);
         eq(g[0], "Good morning, Umer", "greeting uses first name");
-        eq(g[1], "Welcome to Approx AI. What would you like to do?", "first-visit subtitle");
-        eq(Greeting.of("Umer", "", 14, true, 0)[0], "Good afternoon, Umer", "afternoon greeting");
-        eq(Greeting.of("Umer", "", 18, true, 0)[0], "Good evening, Umer", "evening greeting");
-        eq(Greeting.of("Umer", "", 22, true, 0)[0], "Good night, Umer", "night greeting");
-        eq(Greeting.of("Umer", "", 2, true, 0)[0], "Night owl, Umer?", "late-night greeting");
-        eq(Greeting.of("Umer", "", 9, true, 0)[1], "How are you today, Umer?", "personal subtitle");
-        eq(Greeting.of("", "uq866108@gmail.com", 23, true, 0)[0], "Good night", "random handle is not used as a name");
-        eq(Greeting.of("", "umer.khan@gmail.com", 8, true, 1)[0], "Good morning, Umer", "name-like email local part");
+        eq(g[1], "How can I help you today?", "plain subtitle");
+        eq(Greeting.of("Umer", "", 14, true, 3)[0], "Good afternoon, Umer", "afternoon");
+        eq(Greeting.of("Umer", "", 22, true, 5)[0], "Good evening, Umer", "late evening: no night-owl line");
+        eq(Greeting.of("Umer", "", 2, true, 7)[0], "Good evening, Umer", "after midnight: plain");
+        eq(Greeting.of("Umer", "", 9, true, 1)[1], "How can I help you today?", "subtitle never rotates");
+        eq(Greeting.of("", "uq866108@gmail.com", 23, true, 0)[0], "Good evening", "random handle is not used as a name");
         System.out.println(fails == 0 ? "ALL PASS" : fails + " FAILED");
         System.exit(fails == 0 ? 0 : 1);
     }
