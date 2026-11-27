@@ -57,7 +57,7 @@ test('admin diagnostics: Supabase Auth reachability/settings, email outcomes, re
   assert.equal(d.data.supabase_auth.configured, true);
   assert.ok(Array.isArray(d.data.email_requests_24h) && d.data.email_requests_24h.length >= 2);
   assert.equal(d.data.models.length, 5);
-  assert.equal(d.data.apk.api_contract, '1.9');
+  assert.equal(d.data.apk.api_contract, '1.10');
   assert.doesNotMatch(JSON.stringify(d.data), /sb_secret|sb_publishable_test_key|password|token/i);
   const u = await makeUser();
   assert.equal((await req('GET', '/api/admin/diagnostics', { token: u.token })).status, 401);

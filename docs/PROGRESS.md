@@ -5,7 +5,7 @@ Branch: `ccr-b9e70091-57vl48` (push only here). Production: https://approx-ai.ve
 
 ## Training (Nick 4.8) — do NOT restart
 
-| Item | State (read from Google Drive, 2026-11-22) |
+| Item | State (read from Google Drive, 2026-11-22; re-checked 2026-11-27: unchanged) |
 |---|---|
 | Run | `approx-nick-r1`, Colab T4, Phi-4-mini-instruct @ `cfbefacb…`, QLoRA, 3 epochs, `max_steps` 5,286 |
 | Latest valid checkpoint | `MyDrive/ApproxAI/pipeline/nick-4.8/…/train_output/checkpoint-200` (saved 2026-11-21 06:35 UTC), eval loss 1.4316 |
@@ -44,7 +44,8 @@ Branch: `ccr-b9e70091-57vl48` (push only here). Production: https://approx-ai.ve
 
 ## Tests (last run)
 
-Backend 168/168 · Vercel 13/13 · web regression 228/228 · FAB 500X UI 26/26 · Robolectric 6/6 · live Supabase 14/14 · production APK probe 7/7 (incl. Android settings E2E against a local backend).
+(2026-11-27, commit after 947b6ae) Backend 170 pass / 0 fail / 3 skipped (APK auth probes need javac + APPROX_JSON_JAR) · Vercel 13/13 · web regression 232/232 · FAB 500X UI 26/26 · Robolectric 7/7 (at d7a4dfa; Android source unchanged since) · JVM StartupJvmTest pass.
+Earlier: Robolectric 6/6 · live Supabase 14/14 · production APK probe 7/7 (incl. Android settings E2E against a local backend).
 
 How to run:
 - `cd backend && APPROX_JSON_JAR=<org.json jar> npm test`
@@ -57,6 +58,15 @@ How to run:
   migration `supabase/migrations/20261127000000_approx_core.sql` verified in PGlite (not applied: needs a privileged credential);
   GPT/OpenAI usable per model through the provider abstraction (needs `OPENAI_API_KEY` + per-model URL/NAME on the server).
 - APK 1.6.0 (versionCode 12).
+
+## Navigation redesign (1.7.0, API contract 1.10)
+- `6cc1b13` Backend: devices + device agent (`web/tools/approx-device.mjs`, pairing code → device token, jobs run on the user's computer),
+  scheduled tasks + runs (each run = a real session; triggers: Run now, opportunistic on GET, Vercel cron daily `0 6 * * *` — Hobby limit),
+  `/api/recents`, `/api/session-history`, Co Approx background runs, artifact sharing, quiz practice. Migration `2026-11-devices-scheduled`.
+- `d7a4dfa` Android: menu is the only navigation (Home, Projects, Code, Co Approx, Education, Artifacts, Scheduled, Sessions, Files, Settings + Recents);
+  no bottom/mode bar; composer [+] [Type or hold to talk] [mic] [send]; plain greeting; Code devices/sessions; Scheduled; Artifacts.
+- `947b6ae` Web: same menu, no bottom nav, Code/Scheduled/Artifacts/Sessions pages, Recents, Co Approx naming.
+- APK 1.7.0 (versionCode 13).
 
 ## Remaining (next tasks, in order)
 0. Owner-provided: Supabase SQL Editor run of the migration (or `supabase db push`), `DATABASE_URL` + approval to copy data from
