@@ -79,5 +79,11 @@
         }
       ]
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/scheduled",
+      "schedule": "0 6 * * *"
+    }
   ]
 }

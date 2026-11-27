@@ -67,7 +67,7 @@ async function ownCodeProject(uid, id) {
 }
 
 /** A thread is a chat that belongs to a session; it inherits the session's project. */
-async function createThread(user, session, { title, model, mode } = {}) {
+export async function createThread(user, session, { title, model, mode } = {}) {
   const s = await one('SELECT * FROM settings WHERE user_id = ?', user.id);
   const modelId = model && model !== 'auto' ? model : (s.default_model || 'nick-4.8');
   const m = await getModel(modelId);
@@ -97,7 +97,8 @@ async function sessionSummary(s) {
   const threads = (await one('SELECT COUNT(*) n FROM chats WHERE session_id = ? AND user_id = ? AND deleted_at IS NULL', s.id, s.user_id)).n;
   const open = (await one("SELECT COUNT(*) n FROM tasks WHERE session_id = ? AND status != 'done'", s.id)).n;
   const project = s.project_id ? await one('SELECT id, name FROM projects WHERE id = ?', s.project_id) : null;
-  return { id: s.id, kind: s.kind, title: s.title, status: s.status, project, thread_count: threads, open_tasks: open,
+  const device = s.device_id ? await one('SELECT id, name, status, last_seen_at FROM devices WHERE id = ?', s.device_id) : null;
+  return { id: s.id, kind: s.kind, title: s.title, status: s.status, project, branch: s.branch || null, device, thread_count: threads, open_tasks: open,
     created_at: s.created_at, updated_at: s.updated_at, last_opened_at: s.last_opened_at };
 }
 
@@ -264,9 +265,32 @@ export function registerWorkSessionRoutes(r) {
     if ((await one('SELECT COUNT(*) c FROM work_sessions WHERE user_id = ?', u.id)).c >= 2000) throw bad('Session limit reached — delete old sessions first', 'session_limit');
     const label = file ? file.filename.replace(/\.[^.]+$/, '') : project ? project.name : new Date().toISOString().slice(0, 16).replace('T', ' ');
     const title = str(b.title, 'title', { max: 120, required: false }) || `${SESSION_TITLES[kind]} · ${label}`;
+    // Code sessions: the repository branch to work on (switched now if the working tree is clean) and, optionally, the
+    // person's paired device that runs Terminal / Run / Test / Build for this session.
+    let branch = null, deviceId = null;
+    if (kind === 'code' && project) {
+      branch = project.current_branch || 'main';
+      if (b.branch && b.branch !== branch) {
+        if (!await one('SELECT 1 FROM code_branches WHERE project_id = ? AND name = ?', project.id, String(b.branch))) throw notFound('Branch not found');
+        const head = await headSnapshot(await currentBranch(project));
+        if (changes(head, await snapshotOf(project.id, u.id)).length) throw new HttpError(409, 'uncommitted_changes', 'Commit the repository changes before starting a session on another branch.');
+        const target = await one('SELECT * FROM code_branches WHERE project_id = ? AND name = ?', project.id, String(b.branch));
+        const snap = await headSnapshot(target);
+        await tx(async () => {
+          await run('DELETE FROM code_files WHERE project_id = ? AND user_id = ?', project.id, u.id);
+          for (const [path, content] of Object.entries(snap)) await run('INSERT INTO code_files (project_id,user_id,path,content,updated_at) VALUES (?,?,?,?,?)', project.id, u.id, path, content, ts());
+          await run('UPDATE projects SET current_branch = ? WHERE id = ?', target.name, project.id);
+        });
+        branch = target.name;
+      }
+    }
+    if (b.device_id) {
+      if (!await one("SELECT id FROM devices WHERE id = ? AND user_id = ? AND status = 'connected'", String(b.device_id), u.id)) throw notFound('Device not found or not connected');
+      deviceId = String(b.device_id);
+    }
     const id = newId('ses_');
-    await run('INSERT INTO work_sessions (id,user_id,workspace_id,project_id,kind,title,status,context,created_at,updated_at,last_opened_at) VALUES (?,?,?,?,?,?,?,?,?,?,?)',
-      id, u.id, w.id, project?.id || null, kind, title, 'active', str(b.context, 'context', { max: 8000, required: false }) || '', ts(), ts(), ts());
+    await run('INSERT INTO work_sessions (id,user_id,workspace_id,project_id,kind,title,status,context,branch,device_id,created_at,updated_at,last_opened_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
+      id, u.id, w.id, project?.id || null, kind, title, 'active', str(b.context, 'context', { max: 8000, required: false }) || '', branch, deviceId, ts(), ts(), ts());
     const s = await ownSession(u.id, id);
     if (file) await run('UPDATE files SET session_id = ? WHERE id = ? AND user_id = ?', id, file.id, u.id);
     const thread = await createThread(u, s, { title: 'Main thread', model: b.model, mode: b.mode });
@@ -650,8 +674,20 @@ export function registerWorkSessionRoutes(r) {
     const command = str(b.command, 'command', { min: 1, max: 500 });
     const session = b.session_id ? await ownSession(u.id, b.session_id) : null;
     if (session && session.project_id !== pr.id) throw bad('This session belongs to another project');
-    const msg = 'No sandbox runner is configured on this server, so the command was not executed. Nothing ran on the Approx server.';
-    if (session) await logTool(u, session, `run:${oneOf(b.kind, 'kind', ['terminal', 'run', 'test', 'build'], 'terminal')}`, command, msg, 'unavailable');
+    const kindRun = oneOf(b.kind, 'kind', ['terminal', 'run', 'test', 'build'], 'terminal');
+    // A paired device (the person's own computer running approx-device) executes the command on a copy of the repository.
+    const devId = b.device_id || session?.device_id;
+    const device = devId ? await one("SELECT * FROM devices WHERE id = ? AND user_id = ? AND status = 'connected'", String(devId), u.id) : null;
+    if (devId && !device) throw notFound('Device not found or not connected');
+    if (device) {
+      const jobId = newId('job_');
+      const texId = session ? await logTool(u, session, `run:${kindRun}`, command, `queued on ${device.name}`, 'ok') : null;
+      await run("INSERT INTO device_jobs (id,user_id,device_id,project_id,session_id,tool_execution_id,kind,command,status,created_at) VALUES (?,?,?,?,?,?,?,?,'queued',?)",
+        jobId, u.id, device.id, pr.id, session?.id || null, texId, kindRun, command, ts());
+      return sendJson(res, 202, { job: { id: jobId, status: 'queued', device: device.name } });
+    }
+    const msg = 'No device is connected to this session and no sandbox runner is configured on this server, so the command was not executed. Add a device in Approx → Code to run commands on your own computer.';
+    if (session) await logTool(u, session, `run:${kindRun}`, command, msg, 'unavailable');
     throw new HttpError(501, 'runner_not_configured', msg);
   });
 }

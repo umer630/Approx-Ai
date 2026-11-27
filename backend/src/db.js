@@ -656,6 +656,37 @@ async function migrate(c) {
     stmts.push({ sql: 'CREATE INDEX IF NOT EXISTS idx_notifications_user ON notifications(user_id, created_at)' });
     await apply('2026-11-settings-v2', stmts);
   }
+  if (!applied.has('2026-11-devices-scheduled')) {
+    // Devices (the person's own computers running the Approx device agent: they execute Code commands), scheduled
+    // tasks + their runs (each run is a real Co Approx session), session branch/device, artifact share links.
+    const stmts = [
+      { sql: `CREATE TABLE IF NOT EXISTS devices (id TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE, name TEXT NOT NULL,
+        status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending','connected','revoked')), pairing_code_hash TEXT, pairing_expires_at INTEGER,
+        token_hash TEXT UNIQUE, hostname TEXT, platform TEXT, last_seen_at INTEGER, created_at INTEGER NOT NULL)` },
+      { sql: 'CREATE INDEX IF NOT EXISTS idx_devices_user ON devices(user_id, status)' },
+      { sql: `CREATE TABLE IF NOT EXISTS device_jobs (id TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+        device_id TEXT NOT NULL REFERENCES devices(id) ON DELETE CASCADE, project_id TEXT NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
+        session_id TEXT, tool_execution_id TEXT, kind TEXT NOT NULL, command TEXT NOT NULL,
+        status TEXT NOT NULL DEFAULT 'queued' CHECK (status IN ('queued','running','completed','failed','cancelled')),
+        exit_code INTEGER, output TEXT NOT NULL DEFAULT '', created_at INTEGER NOT NULL, started_at INTEGER, finished_at INTEGER)` },
+      { sql: 'CREATE INDEX IF NOT EXISTS idx_device_jobs_device ON device_jobs(device_id, status, created_at)' },
+      { sql: `CREATE TABLE IF NOT EXISTS scheduled_tasks (id TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+        workspace TEXT NOT NULL DEFAULT 'work' CHECK (workspace IN ('work','code','education')), project_id TEXT REFERENCES projects(id) ON DELETE SET NULL,
+        name TEXT NOT NULL, instructions TEXT NOT NULL, frequency TEXT NOT NULL CHECK (frequency IN ('once','hourly','daily','weekdays','weekly')),
+        start_at INTEGER NOT NULL, timezone TEXT NOT NULL, enabled INTEGER NOT NULL DEFAULT 1, tools TEXT NOT NULL DEFAULT '[]',
+        next_run_at INTEGER, last_run_at INTEGER, created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL)` },
+      { sql: 'CREATE INDEX IF NOT EXISTS idx_scheduled_due ON scheduled_tasks(enabled, next_run_at)' },
+      { sql: `CREATE TABLE IF NOT EXISTS scheduled_runs (id TEXT PRIMARY KEY, task_id TEXT NOT NULL REFERENCES scheduled_tasks(id) ON DELETE CASCADE,
+        user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE, session_id TEXT, trigger TEXT NOT NULL DEFAULT 'schedule',
+        status TEXT NOT NULL CHECK (status IN ('running','completed','failed')), output TEXT NOT NULL DEFAULT '', started_at INTEGER NOT NULL, finished_at INTEGER)` },
+      { sql: 'CREATE INDEX IF NOT EXISTS idx_scheduled_runs_task ON scheduled_runs(task_id, started_at)' },
+    ];
+    for (const [table, col, type] of [['work_sessions', 'branch', 'TEXT'], ['work_sessions', 'device_id', 'TEXT'], ['artifacts', 'share_token', 'TEXT'], ['projects', 'subject', 'TEXT']]) {
+      if (!(await hasColumn(c, table, col))) stmts.push({ sql: `ALTER TABLE ${table} ADD COLUMN ${col} ${type}` });
+    }
+    stmts.push({ sql: 'CREATE UNIQUE INDEX IF NOT EXISTS idx_artifacts_share ON artifacts(share_token)' });
+    await apply('2026-11-devices-scheduled', stmts);
+  }
 }
 
 // The `models` table is seeded and kept in sync from the catalog file (name, tier, description…);

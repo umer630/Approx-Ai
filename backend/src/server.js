@@ -19,6 +19,7 @@ import { registerAdminPanelRoutes } from './routes/adminpanel.js';
 import { registerFab500xRoutes } from './routes/fab500x.js';
 import { registerSessionRoutes } from './routes/sessions.js';
 import { registerWorkSessionRoutes } from './routes/worksessions.js';
+import { registerHubRoutes } from './routes/hub.js';
 import { backendStatus } from './providers/index.js';
 import { listModels } from './models.js';
 import { getActive, startRegistryWatcher } from './registry.js';
@@ -40,6 +41,7 @@ export function buildRouter() {
   registerFab500xRoutes(r);
   registerSessionRoutes(r);
   registerWorkSessionRoutes(r);
+  registerHubRoutes(r);
   registerFileRoutes(r);
   registerAccountRoutes(r);
   registerWorkspaceRoutes(r);
