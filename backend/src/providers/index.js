@@ -28,9 +28,13 @@ export function upstreamFor(model, version = null) {
   const url = pick('URL');
   if (!url) return null;
   const explicit = pick('NAME') || '';
+  // OpenAI (or any OpenAI-compatible API) as an external upstream: the key stays server-side. For api.openai.com the
+  // per-model/family key falls back to OPENAI_API_KEY, so one secret can serve several Approx models.
+  const isOpenAI = /^https:\/\/api\.openai\.com(\/|$)/.test(url);
   return {
     url: url.replace(/\/$/, ''),
-    key: pick('KEY') || '',
+    key: pick('KEY') || (isOpenAI ? e.OPENAI_API_KEY || '' : ''),
+    provider: isOpenAI ? 'openai' : explicit ? 'external' : 'approx-inference',
     name: explicit || (version ? `${model.id}@${version}` : model.id),
     managed: !explicit,
   };
@@ -87,9 +91,12 @@ export async function upstreamHealth(model) {
   if (hit && Date.now() - hit.at < 10_000) return hit.value;
   let value;
   try {
-    const r = await fetch(`${up.url.replace(/\/v1$/, '')}/health`, { signal: AbortSignal.timeout(2500), headers: up.key ? { Authorization: `Bearer ${up.key}` } : {} });
+    // Approx inference server: GET /health (serving versions). External OpenAI-compatible APIs (OpenAI, vLLM…) have no
+    // /health: GET <base>/models with the server-side key answers 200 when the endpoint and the key work.
+    const probe = up.managed ? `${up.url.replace(/\/v1$/, '')}/health` : `${up.url}/models`;
+    const r = await fetch(probe, { signal: AbortSignal.timeout(up.managed ? 2500 : 5000), headers: up.key ? { Authorization: `Bearer ${up.key}` } : {} });
     const body = await r.json().catch(() => null);
-    value = { configured: true, managed: up.managed, reachable: r.ok, status: body?.status ?? null, serving: body?.serving ?? null, gpu: body?.gpu ?? null };
+    value = { configured: true, managed: up.managed, provider: up.provider, reachable: r.ok, status: body?.status ?? (r.ok ? 'ok' : `http_${r.status}`), serving: body?.serving ?? null, gpu: body?.gpu ?? null };
     // A VERIFIED model whose server now serves exactly that version + adapter is promoted through the full deployment
     // check (health, version, SHA-256, production release, real generation) — never activated without it.
     if (r.ok && up.managed && config.registry.source === 'inference') await autoActivate(model.id, body?.details?.[model.id], { url: up.url, key: up.key });
