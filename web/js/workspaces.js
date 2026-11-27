@@ -115,8 +115,8 @@ export async function sessionPage(id, tab) {
   try { s = (await api(`/api/work-sessions/${id}`)).session; } catch (e) { return main.replaceChildren(errBox(e)); }
   setHeaderTitle(s.title);
   const pid = s.project?.id;
-  const tabs = s.kind === 'code' ? ['Threads', 'Files', 'Changes', 'Branches', 'Run', 'Tasks', 'Logs']
-    : s.kind === 'education' ? ['Threads', 'Documents', 'Quiz', 'Assignments', 'Notes', 'Logs'] : ['Threads', 'Tasks', 'Files', 'Outputs', 'Logs'];
+  const tabs = s.kind === 'code' ? ['Threads', 'Agent', 'Files', 'Changes', 'Branches', 'Run', 'Tasks', 'Logs']
+    : s.kind === 'education' ? ['Threads', 'Documents', 'Quiz', 'Flashcards', 'Plan', 'Assignments', 'Notes', 'Logs'] : ['Threads', 'Tasks', 'Files', 'Outputs', 'Logs'];
   const active = tabs.includes(tab) ? tab : 'Threads';
   const panel = h('div', { class: 'ws-panel' });
   const reload = (t = active) => go(`#/s/${id}/${t}`);
@@ -147,6 +147,7 @@ export async function sessionPage(id, tab) {
     Logs: () => [h('div', { class: 'list' }, s.logs.length ? s.logs.map((l) => h('div', { class: 'list-item' }, icon(l.status === 'ok' ? 'check' : 'flag'),
       h('div', { class: 'grow' }, h('div', { class: 'title' }, `${l.tool} · ${l.status}`), h('div', { class: 'sub' }, `${l.input} → ${l.output} · ${fmtTime(l.created_at)}`)))) : [empty('No tool runs yet.')])],
     Changes: () => changesPanel(pid, id, reload), Branches: () => branchPanel(pid, reload), Run: () => runPanel(pid, id, reload), Quiz: () => quizPanel(s),
+    Agent: () => agentPanel(s, pid, reload), Flashcards: () => flashcardsPanel(s), Plan: () => planPanel(s, reload),
   };
   panel.append(...(await P[active]()).filter(Boolean));
 }
@@ -172,7 +173,10 @@ function taskPanel(s, kind, reload) {
   } }, 'Add')),
   h('div', { class: 'list' }, items.length ? items.map((t) => h('div', { class: 'list-item' },
     h('input', { type: 'checkbox', checked: t.status === 'done', 'aria-label': `Done: ${t.title}`, onchange: async (e) => { await api(`/api/tasks/${t.id}`, { method: 'PATCH', body: { status: e.target.checked ? 'done' : 'todo' } }); } }),
-    h('div', { class: 'grow' }, h('div', { class: 'title' }, t.title), h('div', { class: 'sub' }, [t.status.replace('_', ' '), t.created_by === 'agent' ? 'planned by Approx' : null].filter(Boolean).join(' · '))),
+    h('div', { class: 'grow' }, h('div', { class: 'title' }, t.title), h('div', { class: 'sub' }, [t.status.replace('_', ' '), t.created_by === 'agent' ? 'planned by Approx' : null].filter(Boolean).join(' · '),
+      t.overdue ? h('span', { class: 'badge error' }, ' overdue') : null)),
+    h('input', { type: 'date', class: 'input due', 'aria-label': `Due date: ${t.title}`, value: t.due_at ? new Date(t.due_at - new Date(t.due_at).getTimezoneOffset() * 60000).toISOString().slice(0, 10) : '',
+      onchange: async (e) => { await api(`/api/tasks/${t.id}`, { method: 'PATCH', body: { due_at: e.target.value ? new Date(`${e.target.value}T23:59:00`).getTime() : null } }); toast(e.target.value ? 'Due date saved' : 'Due date cleared'); reload(kind === 'assignment' ? 'Assignments' : 'Tasks'); } }),
     t.thread_id ? h('a', { class: 'btn small', href: `#/c/${t.thread_id}` }, 'Open thread') : null)) : [empty('Nothing here yet.')])];
 }
 
@@ -185,7 +189,8 @@ function filePanel(s, reload) {
       toast('Added'); reload(s.kind === 'education' ? 'Documents' : 'Files');
     } }, 'Upload')),
     h('div', { class: 'list' }, s.files.length ? s.files.map((f) => h('div', { class: 'list-item' }, icon('file'), h('div', { class: 'grow' }, h('div', { class: 'title' }, f.filename),
-      h('div', { class: 'sub' }, `${fmtBytes(f.size)} · ${f.has_text ? 'readable' : 'not readable as text'}`)))) : [empty('No files yet.')])];
+      h('div', { class: 'sub' }, `${fmtBytes(f.size)} · ${f.has_text ? 'readable' : 'not readable as text'}`)),
+      h('button', { class: 'btn small', onclick: async () => { await api(`/api/work-sessions/${s.id}/files/${f.id}`, { method: 'DELETE' }); toast('Removed from this session (still in Files)'); reload(s.kind === 'education' ? 'Documents' : 'Files'); } }, 'Remove'))) : [empty('No files yet.')])];
 }
 
 function outputPanel(s, reload, notes) {
@@ -277,4 +282,59 @@ export async function filesPage() {
       toast('Uploaded'); load();
     } }, 'Upload')), list));
   load();
+}
+
+// ---------------------------------------------------------------- code agent (Settings → Approx Code permissions decide review vs. apply)
+function agentPanel(s, pid, reload) {
+  const ins = h('textarea', { class: 'input', rows: '3', placeholder: 'What should Approx change? e.g. Add input validation to src/app.js', 'aria-label': 'Agent instruction' });
+  const msg = h('div', {});
+  return [ins, h('button', { class: 'btn primary', onclick: async (e) => {
+    e.currentTarget.disabled = true;
+    try {
+      const r = await api(`/api/fabbox/${pid}/agent`, { method: 'POST', body: { instruction: ins.value.trim(), session_id: s.id } });
+      toast(r.proposal.status === 'applied' ? 'Applied (automatic permissions) — see Changes' : 'Proposal ready for review'); reload('Agent');
+    } catch (err) { msg.replaceChildren(errBox(err)); e.currentTarget.disabled = false; }
+  } }, 'Propose changes'), msg,
+  h('p', { class: 'small muted' }, 'Settings → Workspaces → Agent permissions: Manual = review here first; Automatic = applied at once.'),
+  h('div', { class: 'list' }, s.proposals.length ? s.proposals.map((p) => h('div', { class: 'list-item' }, icon('code'),
+    h('div', { class: 'grow' }, h('div', { class: 'title' }, `${p.status.toUpperCase()} · ${p.summary}`), h('pre', { class: 'diff' }, p.files.join('\n'))),
+    p.status === 'pending' ? h('div', { class: 'row' },
+      h('button', { class: 'btn small primary', onclick: async () => { await api(`/api/fabbox/${pid}/proposals/${p.id}/approve`, { method: 'POST' }); toast('Applied — see Changes'); reload('Agent'); } }, 'Approve & apply'),
+      h('button', { class: 'btn small', onclick: async () => { await api(`/api/fabbox/${pid}/proposals/${p.id}/reject`, { method: 'POST' }); toast('Rejected'); reload('Agent'); } }, 'Reject')) : null))
+    : [empty('No proposals yet.')])];
+}
+
+// ---------------------------------------------------------------- education: flashcards + study plan
+function flashcardsPanel(s) {
+  const topic = h('input', { class: 'input', placeholder: 'Topic (optional)' });
+  const out = h('div', {});
+  const show = (set) => {
+    let i = 0; let back = false;
+    const face = h('button', { class: 'card flashcard', type: 'button', onclick: () => { back = !back; draw(); } });
+    const counter = h('p', { class: 'small muted' });
+    const draw = () => { const c = set.cards[i]; face.textContent = back ? c.back : c.front; counter.textContent = `Card ${i + 1} of ${set.cards.length} · ${back ? 'answer' : 'tap to flip'}`; };
+    out.replaceChildren(h('h3', {}, set.title), face, counter, h('button', { class: 'btn', onclick: () => { i = (i + 1) % set.cards.length; back = false; draw(); } }, 'Next card'));
+    draw();
+  };
+  const saved = s.artifacts.filter((a) => a.language === 'flashcards');
+  return [h('div', { class: 'row' }, topic, h('button', { class: 'btn primary', onclick: async (e) => {
+    e.currentTarget.disabled = true;
+    try { show((await api(`/api/work-sessions/${s.id}/flashcards`, { method: 'POST', body: { count: 12, topic: topic.value.trim() } })).flashcards); }
+    catch (err) { out.replaceChildren(errBox(err)); } finally { e.currentTarget.disabled = false; }
+  } }, 'Create flashcards')), out,
+  saved.length ? section('Saved sets') : null,
+  saved.length ? h('div', { class: 'list' }, saved.map((a) => h('button', { class: 'list-item', onclick: async () => {
+    const r = await api(`/api/workspace/artifacts/${a.id}`); show(JSON.parse(r.artifact.content));
+  } }, icon('layers'), h('span', { class: 'grow' }, a.title)))) : null];
+}
+
+function planPanel(s, reload) {
+  const days = h('input', { class: 'input', type: 'number', min: '1', max: '30', value: '7', 'aria-label': 'Days' });
+  const msg = h('div', {});
+  return [h('p', { class: 'muted small' }, 'Approx plans this material day by day and adds one dated assignment per day (see Assignments and Progress).'),
+    h('div', { class: 'row' }, days, h('button', { class: 'btn primary', onclick: async (e) => {
+      e.currentTarget.disabled = true;
+      try { const r = await api(`/api/work-sessions/${s.id}/study-plan`, { method: 'POST', body: { days: Number(days.value) || 7 } }); toast(`${r.plan.assignments} daily assignments added`); reload('Assignments'); }
+      catch (err) { msg.replaceChildren(errBox(err)); e.currentTarget.disabled = false; }
+    } }, 'Create study plan')), msg];
 }

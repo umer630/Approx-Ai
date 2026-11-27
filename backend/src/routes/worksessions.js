@@ -90,7 +90,8 @@ async function logTool(user, session, tool, input, output, status, extra = {}) {
 }
 
 const taskView = (t) => ({ id: t.id, session_id: t.session_id, thread_id: t.thread_id, title: t.title, detail: t.detail, kind: t.kind, status: t.status,
-  due_at: t.due_at, created_by: t.created_by, created_at: t.created_at, updated_at: t.updated_at });
+  due_at: t.due_at, overdue: !!(t.due_at && t.status !== 'done' && t.due_at < Date.now()), created_by: t.created_by, created_at: t.created_at, updated_at: t.updated_at });
+const dueAt = (v) => { if (v === null) return null; if (!Number.isFinite(v) || v < 0 || v > 4102444800000) throw bad('due_at must be a timestamp in milliseconds, or null'); return Math.floor(v); };
 
 async function sessionSummary(s) {
   const threads = (await one('SELECT COUNT(*) n FROM chats WHERE session_id = ? AND user_id = ? AND deleted_at IS NULL', s.id, s.user_id)).n;
@@ -109,6 +110,9 @@ async function sessionDetail(s) {
     artifacts: await all('SELECT id, title, kind, language, current_version, updated_at FROM artifacts WHERE session_id = ? AND user_id = ? ORDER BY updated_at DESC', s.id, s.user_id),
     agent_runs: await all('SELECT id, kind, status, model_id, created_at, finished_at FROM agent_runs WHERE session_id = ? AND user_id = ? ORDER BY created_at DESC LIMIT 20', s.id, s.user_id),
     logs: await all('SELECT id, tool, status, input, output, thread_id, created_at FROM tool_executions WHERE session_id = ? AND user_id = ? ORDER BY created_at DESC LIMIT 50', s.id, s.user_id),
+    // Code sessions: the agent's change proposals for this repository (pending ones wait for review).
+    proposals: s.kind === 'code' && s.project_id ? (await all("SELECT id, summary, status, changes, session_id, created_at FROM code_proposals WHERE project_id = ? AND user_id = ? ORDER BY created_at DESC LIMIT 20", s.project_id, s.user_id))
+      .map((x) => ({ id: x.id, summary: x.summary, status: x.status, session_id: x.session_id, created_at: x.created_at, files: JSON.parse(x.changes).map((c) => `${c.op === 'delete' ? '−' : '+'} ${c.path}`) })) : [],
   };
 }
 
@@ -347,7 +351,7 @@ export function registerWorkSessionRoutes(r) {
     const pos = (await one('SELECT COALESCE(MAX(position),0)+1 n FROM tasks WHERE session_id = ?', s.id)).n;
     await run('INSERT INTO tasks (id,user_id,session_id,thread_id,title,detail,kind,status,due_at,position,created_by,created_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
       id, u.id, s.id, thread?.id || null, title, str(b.detail, 'detail', { max: 4000, required: false }) || '', oneOf(b.kind, 'kind', ['task', 'assignment'], 'task'),
-      'todo', Number.isFinite(b.due_at) ? b.due_at : null, pos, 'user', ts(), ts());
+      'todo', b.due_at === undefined ? null : dueAt(b.due_at), pos, 'user', ts(), ts());
     sendJson(res, 201, { task: taskView(await ownTask(u.id, id)), thread });
   });
   r.patch('/api/tasks/:id', async (req, res, ctx, p) => {
@@ -357,6 +361,7 @@ export function registerWorkSessionRoutes(r) {
     if (b.status !== undefined) await run('UPDATE tasks SET status = ? WHERE id = ?', oneOf(b.status, 'status', ['todo', 'in_progress', 'done', 'blocked']), t.id);
     if (b.title !== undefined) await run('UPDATE tasks SET title = ? WHERE id = ?', str(b.title, 'title', { min: 1, max: 200 }), t.id);
     if (b.detail !== undefined) await run('UPDATE tasks SET detail = ? WHERE id = ?', str(b.detail, 'detail', { max: 4000, required: false }) || '', t.id);
+    if (b.due_at !== undefined) await run('UPDATE tasks SET due_at = ? WHERE id = ?', dueAt(b.due_at), t.id);
     await run('UPDATE tasks SET updated_at = ? WHERE id = ?', ts(), t.id);
     sendJson(res, 200, { task: taskView(await ownTask(u.id, t.id)) });
   });
@@ -408,6 +413,89 @@ export function registerWorkSessionRoutes(r) {
     await logTool(u, s, 'task_planner', goal, `${created.length} tasks${planThreads ? ', each with its own thread' : ''}`, 'ok', { agent_run_id: runId });
     await notify(u.id, { kind: 'task', title: 'Plan ready', body: `${s.title}: ${created.length} tasks planned for "${goal.slice(0, 120)}"`, link: `#/s/${s.id}/Tasks` });
     sendJson(res, 201, { agent_run: { id: runId, status: 'completed' }, tasks: created });
+  });
+
+  // Remove a file from a session (it stays in Files; DELETE /api/files/:id deletes it everywhere).
+  r.delete('/api/work-sessions/:id/files/:fid', async (req, res, ctx, p) => {
+    const u = requireUser(ctx);
+    const s = await ownSession(u.id, p.id);
+    const r2 = await run('UPDATE files SET session_id = NULL WHERE id = ? AND user_id = ? AND session_id = ?', p.fid, u.id, s.id);
+    if (!r2.changes) throw notFound('File not found in this session');
+    sendJson(res, 200, { status: 'removed' });
+  });
+
+  // ---------------------------------------------------------------- education: flashcards + study plan
+  async function generate(u, s, kind, protocol, text, b, ctx) {
+    const topic = str(b.topic, 'topic', { max: 300, required: false }) || 'the whole material';
+    const ctxText = await sessionContext(u.id, s.id, topic, selectPassages);
+    const runId = newId('run_');
+    await run("INSERT INTO agent_runs (id,user_id,session_id,kind,status,input,created_at) VALUES (?,?,?,?,'running',?,?)", runId, u.id, s.id, kind, text, ts());
+    let out, parsed;
+    try {
+      out = await collect(async (onDelta) => await complete({ user: u, chat: null, text, requestedModel: b.model || 'auto', requestedMode: 'high', source: `education-${kind}`,
+        requestId: ctx.requestId, onDelta, history: [], skipMemoryCapture: true, systemExtra: `${protocol}${ctxText}` }));
+      parsed = parseJson(out.text);
+    } catch {
+      await run("UPDATE agent_runs SET status = 'failed', output = ?, finished_at = ? WHERE id = ?", String(out?.text || '').slice(0, 8000), ts(), runId);
+      await logTool(u, s, `${kind}_generator`, topic, out?.text || 'no output', 'error', { agent_run_id: runId });
+      throw new HttpError(502, 'agent_bad_output', `The model did not return valid ${kind === 'flashcards' ? 'flashcards' : 'study plan'}. Try again.`);
+    }
+    return { parsed, runId, out, topic };
+  }
+
+  r.post('/api/work-sessions/:id/flashcards', async (req, res, ctx, p) => {
+    const u = requireUser(ctx);
+    requireVerified(u);
+    const s = await ownSession(u.id, p.id);
+    await rateLimit(`quiz:${u.id}`, 30, 3600_000);
+    const b = await readJson(req);
+    const count = Math.max(4, Math.min(40, Number(b.count) || 12));
+    const { parsed, runId, out, topic } = await generate(u, s, 'flashcards',
+      `FLASHCARDS_JSON_PROTOCOL. Make ${count} flashcards from ONLY the session material below. Respond with ONLY a JSON object: {"title": string, "cards": [{"front": string, "back": string}]}.`,
+      `Make ${count} flashcards.`, b, ctx);
+    const cards = (parsed.cards || []).filter((c) => c && typeof c.front === 'string' && typeof c.back === 'string').slice(0, count).map((c) => ({ front: c.front.slice(0, 500), back: c.back.slice(0, 1500) }));
+    if (!cards.length) throw new HttpError(502, 'agent_bad_output', 'The model did not return flashcards. Try again.');
+    const aid = newId('art_');
+    const title = String(parsed.title || `Flashcards: ${topic}`).slice(0, 150);
+    await tx(async () => {
+      await run("INSERT INTO artifacts (id,user_id,project_id,chat_id,session_id,title,kind,language,created_at,updated_at) VALUES (?,?,?,?,?,?,'json','flashcards',?,?)", aid, u.id, s.project_id, null, s.id, title, ts(), ts());
+      await run('INSERT INTO artifact_versions (artifact_id,version,content,note,created_at) VALUES (?,?,?,?,?)', aid, 1, JSON.stringify({ title, cards }), 'generated', ts());
+    });
+    await run("UPDATE agent_runs SET status = 'completed', output = ?, model_id = ?, finished_at = ? WHERE id = ?", `artifact ${aid}`, out.route?.model?.id || null, ts(), runId);
+    await logTool(u, s, 'flashcards_generator', topic, `${cards.length} cards → artifact ${aid}`, 'ok', { agent_run_id: runId });
+    sendJson(res, 201, { flashcards: { artifact_id: aid, title, cards } });
+  });
+
+  // Study plan: N days of goals → a plan document + one dated assignment per day (tracked in Progress).
+  r.post('/api/work-sessions/:id/study-plan', async (req, res, ctx, p) => {
+    const u = requireUser(ctx);
+    requireVerified(u);
+    const s = await ownSession(u.id, p.id);
+    await rateLimit(`quiz:${u.id}`, 30, 3600_000);
+    const b = await readJson(req);
+    const days = Math.max(1, Math.min(30, Number(b.days) || 7));
+    const { parsed, runId, out, topic } = await generate(u, s, 'study_plan',
+      `STUDYPLAN_JSON_PROTOCOL. Plan ${days} study days from ONLY the session material below. Respond with ONLY a JSON object: {"title": string, "days": [{"day": number, "title": string, "goals": [string]}]}.`,
+      `Make a ${days}-day study plan.`, b, ctx);
+    const plan = (parsed.days || []).filter((d) => d && typeof d.title === 'string').slice(0, days);
+    if (!plan.length) throw new HttpError(502, 'agent_bad_output', 'The model did not return a study plan. Try again.');
+    const title = String(parsed.title || `${days}-day study plan`).slice(0, 150);
+    const md = `# ${title}\n\n` + plan.map((d, i) => `## Day ${d.day || i + 1}: ${d.title}\n${(Array.isArray(d.goals) ? d.goals : []).map((g) => `- ${g}`).join('\n')}`).join('\n\n');
+    const aid = newId('art_');
+    const start = new Date(); start.setHours(23, 59, 0, 0);
+    let pos = (await one('SELECT COALESCE(MAX(position),0) n FROM tasks WHERE session_id = ?', s.id)).n;
+    await tx(async () => {
+      await run("INSERT INTO artifacts (id,user_id,project_id,chat_id,session_id,title,kind,language,created_at,updated_at) VALUES (?,?,?,?,?,?,'markdown','study-plan',?,?)", aid, u.id, s.project_id, null, s.id, title, ts(), ts());
+      await run('INSERT INTO artifact_versions (artifact_id,version,content,note,created_at) VALUES (?,?,?,?,?)', aid, 1, md, 'generated', ts());
+      for (let i = 0; i < plan.length; i++) {
+        await run("INSERT INTO tasks (id,user_id,session_id,thread_id,title,detail,kind,status,due_at,position,created_by,created_at,updated_at) VALUES (?,?,?,NULL,?,?,'assignment','todo',?,?,'agent',?,?)",
+          newId('tsk_'), u.id, s.id, `Day ${i + 1}: ${plan[i].title}`.slice(0, 200), (Array.isArray(plan[i].goals) ? plan[i].goals.join('\n') : '').slice(0, 4000), start.getTime() + i * 86400_000, ++pos, ts(), ts());
+      }
+    });
+    await run("UPDATE agent_runs SET status = 'completed', output = ?, model_id = ?, finished_at = ? WHERE id = ?", `artifact ${aid}, ${plan.length} assignments`, out.route?.model?.id || null, ts(), runId);
+    await logTool(u, s, 'study_plan_generator', topic, `${plan.length} days → artifact ${aid} + ${plan.length} dated assignments`, 'ok', { agent_run_id: runId });
+    await notify(u.id, { kind: 'task', title: 'Study plan ready', body: `${s.title}: ${plan.length} days, one assignment per day`, link: `#/s/${s.id}/Assignments` });
+    sendJson(res, 201, { plan: { artifact_id: aid, title, days: plan, assignments: plan.length } });
   });
 
   // ---------------------------------------------------------------- education: quiz + practice + progress

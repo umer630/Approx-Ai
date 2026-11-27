@@ -837,7 +837,15 @@ public class MainActivity extends Activity {
         final LinearLayout recent = vbox();
         add(col, recent, 2);
         add(col, divider(), 10);
-        add(col, drawerItem("👤", "Profile", new Runnable() { public void run() { d.dismiss(); accountSettings(); } }), 8);
+        final TextView[] notifLabel = new TextView[1];
+        View nItem = drawerItem("🔔", "Notifications", new Runnable() { public void run() { d.dismiss(); more.notifications(); } });
+        add(col, nItem, 8);
+        for (View v : new View[]{nItem}) if (v instanceof LinearLayout) notifLabel[0] = (TextView) ((LinearLayout) v).getChildAt(1);
+        if (api != null && api.getToken() != null) pool.execute(new Runnable() { public void run() {
+            try { final int n = api.get("/api/notifications").optInt("unread"); if (n > 0) ui.post(new Runnable() { public void run() { if (notifLabel[0] != null) notifLabel[0].setText("Notifications (" + n + ")"); } }); }
+            catch (Exception ignored) { }
+        } });
+        add(col, drawerItem("👤", "Profile", new Runnable() { public void run() { d.dismiss(); accountSettings(); } }), 0);
         add(col, drawerItem("⚙", "Settings", new Runnable() { public void run() { d.dismiss(); showSettings(); } }), 0);
         add(col, drawerItem("?", "Help & about", new Runnable() { public void run() { d.dismiss(); helpFeedback(); } }), 0);
         FrameLayout.LayoutParams plp = new FrameLayout.LayoutParams(width, FrameLayout.LayoutParams.MATCH_PARENT, Gravity.START);

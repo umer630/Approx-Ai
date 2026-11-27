@@ -411,7 +411,7 @@ let mainEl; let composerEl; let shellEl; let titleEl; let moreBtn; let drawerEl;
 const NAV = [['#/', 'home', 'Home'], ['#/work', 'work', 'Work'], ['#/w/code', 'code', 'Code'], ['#/w/education', 'doc', 'Education'], ['#/settings', 'user', 'Profile']];
 const fabWorkspace = () => state.models.some((m) => m.workspace === 'fab500x-code' && m.available);
 const DRAWER_LINKS = [['#/work', 'work', 'Approx Work'], ['#/w/code', 'code', 'Approx Code'], ['#/w/education', 'doc', 'Approx Education'], ['#/projects', 'folder', 'Projects'],
-  ['#/sessions', 'tasks', 'Sessions'], ['#/files', 'file', 'Files'], ['#/workspace', 'layers', 'Artifacts'], ['#/history', 'history', 'History'], ['#/schedule', 'calendar', 'Schedule']];
+  ['#/sessions', 'tasks', 'Sessions'], ['#/files', 'file', 'Files'], ['#/workspace', 'layers', 'Artifacts'], ['#/history', 'history', 'History'], ['#/settings/notifications', 'bell', 'Notifications'], ['#/schedule', 'calendar', 'Schedule']];
 
 function buildShell() {
   const initials = (state.user.display_name || state.user.email).trim()[0].toUpperCase();
@@ -445,6 +445,7 @@ function buildShell() {
   shellEl = h('div', { class: 'shell' }, drawerEl, scrim, h('div', { class: 'workspace' }, top, mainEl, composerEl, nav));
   app.replaceChildren(shellEl);
   refreshRecent();
+  refreshUnread();
 }
 
 function shell(renderMain, { composer = true } = {}) {
@@ -456,6 +457,7 @@ function shell(renderMain, { composer = true } = {}) {
     a.classList.toggle('active', r === '#/' ? route === '#/' : route.startsWith(r));
   }
   setHeaderTitle(composer ? (state.chat?.title || 'New chat') : pageTitle(route));
+  refreshUnread(false);   // menu badge stays current on desktop, where the menu is always visible
   mainEl.scrollTop = 0;
   return renderMain();
 }
@@ -465,7 +467,19 @@ function pageTitle(route) {
 }
 export function setHeaderTitle(t) { if (titleEl) titleEl.textContent = t; if (moreBtn) moreBtn.classList.toggle('hidden', !state.chat?.id || !location.hash.startsWith('#/c/')); }
 
-export function openDrawer() { shellEl?.classList.add('drawer-open'); refreshRecent(); drawerEl?.querySelector('a, button')?.focus({ preventScroll: true }); }
+/** Unread notifications next to "Notifications" in the menu (from the server). */
+let unreadAt = 0;
+export async function refreshUnread(force = true) {
+  const link = drawerEl?.querySelector('a[data-route="#/settings/notifications"]');
+  if (!link || (!force && Date.now() - unreadAt < 2_000)) return;
+  unreadAt = Date.now();
+  try {
+    const { unread } = await api('/api/notifications');
+    link.querySelector('.count')?.remove();
+    if (unread) link.append(h('span', { class: 'count', 'aria-label': `${unread} unread` }, String(unread)));
+  } catch { /* ignore */ }
+}
+export function openDrawer() { shellEl?.classList.add('drawer-open'); refreshRecent(); refreshUnread(); drawerEl?.querySelector('a, button')?.focus({ preventScroll: true }); }
 export function closeDrawer() { shellEl?.classList.remove('drawer-open'); }
 
 /** Recent sessions in the drawer: real chats from the backend, cached (instant) and refreshed in the background. */

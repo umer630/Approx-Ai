@@ -168,7 +168,7 @@ public class AppScreensTest {
         for (android.app.Dialog d : org.robolectric.shadows.ShadowDialog.getShownDialogs())
             if (d.isShowing()) { ViewGroup content = d.findViewById(android.R.id.content); menu = content.getChildAt(0); }
         assertNotNull("side menu opens", menu);
-        for (String item : new String[]{"New chat", "Home", "Approx Work", "Approx Code", "Approx Education", "Projects", "Sessions", "Files", "History", "Profile", "Settings", "Help & about"})
+        for (String item : new String[]{"New chat", "Home", "Approx Work", "Approx Code", "Approx Education", "Projects", "Sessions", "Files", "History", "Notifications", "Profile", "Settings", "Help & about"})
             assertNotNull("menu item " + item, textView(menu, item));
         ViewGroup scrim = (ViewGroup) menu;
         View panel = scrim.getChildAt(0);
@@ -295,6 +295,51 @@ public class AppScreensTest {
         waitFor(root, "Set up two-step verification");
         waitFor(root, "Signed-in devices");
         shot(root, "android-14-security.png");
+    }
+
+    static View dialogRoot() {
+        android.app.Dialog d = org.robolectric.shadows.ShadowDialog.getLatestDialog();
+        return d == null ? null : d.getWindow().getDecorView();
+    }
+    static TextView waitForInDialog(String text) throws Exception {
+        for (int i = 0; i < 200; i++) { idle(); View r = dialogRoot(); TextView t = r == null ? null : textView(r, text); if (t != null) return t; Thread.sleep(25); }
+        fail("dialog never showed: " + text); return null;
+    }
+
+    /** End-to-end: a code session's Agent tool proposes, the person approves on Android, the server applies it; Education flashcards. */
+    @Test
+    public void workspaces_agentReview_and_flashcards_endToEnd() throws Exception {
+        String e2e = System.getProperty("e2e");
+        org.junit.Assume.assumeTrue("set APPROX_E2E", e2e != null && e2e.startsWith("{"));
+        JSONObject cfg = new JSONObject(e2e);
+        final Api api = new Api(cfg.getString("base"), cfg.getString("token"));
+        api.request("PATCH", "/api/settings", new JSONObject().put("permissions_mode", "manual"));
+        final String pid = api.post("/api/workspaces/code/projects", new JSONObject().put("name", "android-e2e")).getJSONObject("project").getString("id");
+        String sid = api.post("/api/work-sessions", new JSONObject().put("workspace", "code").put("project_id", pid)).getJSONObject("session").getString("id");
+        MainActivity a = signedIn();
+        set(a, "api", api);
+        View root = a.findViewById(android.R.id.content);
+        Workspaces ws = (Workspaces) get(a, "ws");
+        ws.open(sid, null);
+        waitFor(root, "Agent").performClick();                     // session bar tool
+        View d = dialogRoot();
+        for (View v : all(d)) if (v instanceof EditText) ((EditText) v).setText("Add a NOTES file");
+        waitForInDialog("Propose changes").performClick();
+        waitForInDialog("Approve & apply");
+        assertNotNull("pending proposal listed", waitForInDialog("+ NOTES.md"));
+        assertEquals("manual permissions: nothing written yet", 0, api.get("/api/fabbox/" + pid + "/files").getJSONArray("files").length());
+        waitForInDialog("Approve & apply").performClick();
+        until(() -> api.get("/api/fabbox/" + pid + "/files").getJSONArray("files").length() == 1, "NOTES.md applied by the server");
+
+        String esid = api.post("/api/work-sessions", new JSONObject().put("workspace", "education").put("title", "Android flashcards")).getJSONObject("session").getString("id");
+        ws.open(esid, null);
+        waitFor(root, "Flashcards").performClick();
+        ((android.app.AlertDialog) org.robolectric.shadows.ShadowDialog.getLatestDialog()).getButton(android.content.DialogInterface.BUTTON_POSITIVE).performClick();
+        TextView counter = waitForInDialog("Card 1 of 2 · tap to flip");
+        assertNotNull(counter);
+        assertNotNull("front shown", textView(dialogRoot(), "Simulator term 1"));
+        textView(dialogRoot(), "Simulator term 1").performClick();
+        assertNotNull("tap flips to the answer", waitForInDialog("Simulator definition 1"));
     }
 
     @Test

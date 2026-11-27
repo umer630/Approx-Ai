@@ -329,8 +329,8 @@ final class Workspaces {
         HorizontalScrollView hs2 = new HorizontalScrollView(a);
         hs2.setHorizontalScrollBarEnabled(false);
         LinearLayout tools = a.hbox();
-        String[] names = "code".equals(kind) ? new String[]{"Files", "Changes", "Commit", "Branch", "Run / Test", "Tasks", "Logs"}
-                : "education".equals(kind) ? new String[]{"Documents", "Quiz", "Assignments", "Notes", "Progress"}
+        String[] names = "code".equals(kind) ? new String[]{"Agent", "Files", "Changes", "Commit", "Branch", "Run / Test", "Tasks", "Logs"}
+                : "education".equals(kind) ? new String[]{"Documents", "Quiz", "Flashcards", "Study plan", "Assignments", "Notes", "Progress"}
                 : new String[]{"Tasks", "Plan", "Files", "Outputs", "Logs"};
         for (final String n : names) {
             TextView t = chip(n, false);
@@ -398,6 +398,9 @@ final class Workspaces {
         else if ("Branch".equals(n)) branches();
         else if ("Run / Test".equals(n)) runner();
         else if ("Quiz".equals(n)) quiz();
+        else if ("Agent".equals(n)) agent();
+        else if ("Flashcards".equals(n)) flashcards();
+        else if ("Study plan".equals(n)) studyPlan();
         else if ("Progress".equals(n)) home("education");
     }
 
@@ -439,7 +442,10 @@ final class Workspaces {
             row.addView(box2);
             LinearLayout tx = a.vbox();
             tx.addView(a.text(x.optString("title"), 15, MainActivity.TEXT, false));
-            tx.addView(a.text(x.optString("status").replace('_', ' ') + ("agent".equals(x.optString("created_by")) ? " · planned by Approx" : "") + (x.isNull("thread_id") ? "" : " · has its own thread"), 12, MainActivity.MUTED, false));
+            String due = x.isNull("due_at") ? "" : " · due " + DateUtils.formatDateTime(a, x.optLong("due_at"), DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_MONTH);
+            tx.addView(a.text(x.optString("status").replace('_', ' ') + due + (x.optBoolean("overdue") ? " · OVERDUE" : "") + ("agent".equals(x.optString("created_by")) ? " · planned by Approx" : "")
+                    + (x.isNull("thread_id") ? "" : " · has its own thread"), 12, x.optBoolean("overdue") ? MainActivity.DANGER : MainActivity.MUTED, false));
+            tx.setOnLongClickListener(new View.OnLongClickListener() { public boolean onLongClick(View v) { dlg[0].dismiss(); setDue(x, kind); return true; } });
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, -2, 1); lp.leftMargin = dp(10);
             row.addView(tx, lp);
             if (!x.isNull("thread_id")) {
@@ -450,7 +456,26 @@ final class Workspaces {
             box.addView(row);
         }
         if (shown == 0) a.add(box, muted("Nothing here yet."), 8);
+        else a.add(box, muted("Long-press a task to set or clear its due date."), 8);
         dlg[0] = panel("assignment".equals(kind) ? "Assignments" : "Tasks", box);
+    }
+
+    void setDue(final JSONObject t, final String kind) {
+        final java.util.Calendar c = java.util.Calendar.getInstance();
+        if (!t.isNull("due_at")) c.setTimeInMillis(t.optLong("due_at"));
+        android.app.DatePickerDialog d = new android.app.DatePickerDialog(a, new android.app.DatePickerDialog.OnDateSetListener() {
+            public void onDateSet(android.widget.DatePicker v, int y, int m, int day) {
+                java.util.Calendar due = java.util.Calendar.getInstance(); due.set(y, m, day, 23, 59, 0);
+                saveDue(t, due.getTimeInMillis(), kind);
+            } }, c.get(java.util.Calendar.YEAR), c.get(java.util.Calendar.MONTH), c.get(java.util.Calendar.DAY_OF_MONTH));
+        d.setButton(DialogInterface.BUTTON_NEUTRAL, "No due date", new DialogInterface.OnClickListener() { public void onClick(DialogInterface x, int w) { saveDue(t, -1, kind); } });
+        d.show();
+    }
+    void saveDue(final JSONObject t, final long due, final String kind) {
+        a.bg(new MainActivity.Job() { public Object run() throws Exception {
+            JSONObject b = new JSONObject(); b.put("due_at", due < 0 ? JSONObject.NULL : (Object) due);
+            return a.api.request("PATCH", "/api/tasks/" + t.optString("id"), b);
+        } }, new MainActivity.Done() { public void ok(Object r) { a.toast(due < 0 ? "Due date cleared" : "Due date saved"); refreshThen(new Runnable() { public void run() { tasks(kind); } }); } });
     }
 
     void refreshThen(final Runnable then) {
@@ -479,8 +504,17 @@ final class Workspaces {
         if (fs == null || fs.length() == 0) a.add(box, muted("No files yet."), 8);
         for (int i = 0; fs != null && i < fs.length(); i++) {
             JSONObject f = fs.optJSONObject(i);
-            a.add(box, a.text("📄 " + f.optString("filename") + "  ·  " + (f.optBoolean("has_text") || f.optInt("has_text") == 1 ? "readable" : "not readable as text"), 14, MainActivity.TEXT, false), 10);
+            final JSONObject ff = f;
+            TextView ft = a.text("📄 " + f.optString("filename") + "  ·  " + (f.optBoolean("has_text") || f.optInt("has_text") == 1 ? "readable" : "not readable as text"), 14, MainActivity.TEXT, false);
+            ft.setOnLongClickListener(new View.OnLongClickListener() { public boolean onLongClick(View v) {
+                a.confirm("Remove from this session?", ff.optString("filename") + " stays in Files; threads of this session stop reading it.", new Runnable() { public void run() {
+                    a.bg(new MainActivity.Job() { public Object run() throws Exception { return a.api.request("DELETE", "/api/work-sessions/" + sid() + "/files/" + ff.optString("id"), null); } },
+                            new MainActivity.Done() { public void ok(Object r) { dlg[0].dismiss(); a.toast("Removed"); refreshThen(new Runnable() { public void run() { files(); } }); } });
+                } });
+                return true; } });
+            a.add(box, ft, 10);
         }
+        if (fs != null && fs.length() > 0) a.add(box, muted("Long-press a file to remove it from this session."), 8);
         dlg[0] = panel("Files", box);
     }
 
@@ -518,14 +552,127 @@ final class Workspaces {
 
     void showArtifact(final String id) {
         a.bg(new MainActivity.Job() { public Object run() throws Exception { return a.api.get("/api/workspace/artifacts/" + id).optJSONObject("artifact"); } }, new MainActivity.Done() { public void ok(Object r) {
-            JSONObject ar = (JSONObject) r;
+            final JSONObject ar = (JSONObject) r;
             String content = ar.optString("content");
-            if ("quiz".equals(ar.optString("language"))) content = "Quiz — open the session's Quiz tool to practise it.";
+            String lang = ar.optString("language");
+            if ("quiz".equals(lang)) content = "Quiz — open the session's Quiz tool to practise it.";
+            if ("flashcards".equals(lang)) { try { showCards(new JSONObject(content)); return; } catch (Exception ignored) { } }
             TextView t = a.text(content, 14, MainActivity.TEXT, false);
             t.setTextIsSelectable(true);
             t.setPadding(dp(18), dp(8), dp(18), dp(8));
-            panel(ar.optString("title"), t);
+            AlertDialog d = panel(ar.optString("title") + "  ·  v" + ar.optInt("current_version"), t);
+            if (!"quiz".equals(lang)) d.setButton(DialogInterface.BUTTON_NEUTRAL, "Edit", new DialogInterface.OnClickListener() { public void onClick(DialogInterface x, int w) { editArtifact(ar); } });
         } });
+    }
+
+    void editArtifact(final JSONObject ar) {
+        final EditText c = new EditText(a);
+        c.setText(ar.optString("content"));
+        c.setMinLines(8);
+        c.setGravity(Gravity.TOP);
+        new AlertDialog.Builder(a, android.R.style.Theme_Material_Light_Dialog_Alert).setTitle("Edit · " + ar.optString("title")).setView(pad(c))
+                .setPositiveButton("Save new version", new DialogInterface.OnClickListener() { public void onClick(DialogInterface d, int w) {
+                    final JSONObject b = MainActivity.obj("content", c.getText().toString(), "note", "edited on Android");
+                    a.bg(new MainActivity.Job() { public Object run() throws Exception { return a.api.request("PUT", "/api/workspace/artifacts/" + ar.optString("id"), b).optJSONObject("artifact"); } },
+                            new MainActivity.Done() { public void ok(Object r) { a.toast("Saved as version " + ((JSONObject) r).optInt("current_version")); } });
+                } }).setNegativeButton("Cancel", null).show();
+    }
+
+    // ---------------------------------------------------------------- code: agent edits (Settings → permissions decide review vs. apply)
+    void agent() {
+        final String pid = pid();
+        if (pid == null) return;
+        LinearLayout box = a.vbox();
+        box.setPadding(dp(18), dp(6), dp(18), dp(6));
+        final AlertDialog[] dlg = new AlertDialog[1];
+        final EditText ins = a.input("What should Approx change? (e.g. Add input validation to app.js)", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+        box.addView(ins);
+        a.add(box, a.button("Propose changes", true, new Runnable() { public void run() {
+            final JSONObject b = MainActivity.obj("instruction", ins.getText().toString().trim(), "session_id", sid());
+            a.bg(new MainActivity.Job() { public Object run() throws Exception { return a.api.post("/api/fabbox/" + pid + "/agent", b).optJSONObject("proposal"); } }, new MainActivity.Done() { public void ok(Object r) {
+                JSONObject pr = (JSONObject) r;
+                dlg[0].dismiss();
+                a.toast("applied".equals(pr.optString("status")) ? "Applied (automatic permissions) — see Changes" : "Proposal ready — review it below");
+                refreshThen(new Runnable() { public void run() { agent(); } });
+            } });
+        } }), 6);
+        a.add(box, muted("Settings → Workspaces → Agent permissions: Manual = review here first; Automatic = applied at once."), 4);
+        JSONArray ps = session.optJSONArray("proposals");
+        if (ps == null || ps.length() == 0) a.add(box, muted("No proposals yet."), 10);
+        for (int i = 0; ps != null && i < ps.length(); i++) {
+            final JSONObject pr = ps.optJSONObject(i);
+            StringBuilder files = new StringBuilder();
+            JSONArray fl = pr.optJSONArray("files");
+            for (int j = 0; fl != null && j < fl.length(); j++) files.append(fl.optString(j)).append("\n");
+            a.add(box, a.text(pr.optString("status").toUpperCase() + " · " + pr.optString("summary"), 14, MainActivity.TEXT, true), 14);
+            TextView f = a.text(files.toString().trim(), 12.5f, MainActivity.CODE_TEXT, false);
+            f.setTypeface(Typeface.MONOSPACE);
+            a.add(box, f, 2);
+            if ("pending".equals(pr.optString("status"))) {
+                LinearLayout row = a.hbox();
+                for (final String dcs : new String[]{"approve", "reject"}) {
+                    row.addView(a.link("approve".equals(dcs) ? "Approve & apply" : "Reject", new Runnable() { public void run() {
+                        a.bg(new MainActivity.Job() { public Object run() throws Exception { return a.api.post("/api/fabbox/" + pid + "/proposals/" + pr.optString("id") + "/" + dcs, new JSONObject()); } },
+                                new MainActivity.Done() { public void ok(Object x) { dlg[0].dismiss(); a.toast("approve".equals(dcs) ? "Applied — see Changes" : "Rejected"); refreshThen(new Runnable() { public void run() { agent(); } }); } });
+                    } }));
+                    View sp = new View(a); row.addView(sp, new LinearLayout.LayoutParams(dp(24), 1));
+                }
+                a.add(box, row, 4);
+            }
+        }
+        dlg[0] = panel("Agent", box);
+    }
+
+    // ---------------------------------------------------------------- education: flashcards + study plan
+    void flashcards() {
+        final EditText topic = a.input("Topic (optional)", InputType.TYPE_CLASS_TEXT);
+        new AlertDialog.Builder(a, android.R.style.Theme_Material_Light_Dialog_Alert).setTitle("Flashcards from this session's material").setView(pad(topic))
+                .setPositiveButton("Create", new DialogInterface.OnClickListener() { public void onClick(DialogInterface d, int w) {
+                    final JSONObject b = MainActivity.obj("count", 12, "topic", topic.getText().toString().trim());
+                    a.bg(new MainActivity.Job() { public Object run() throws Exception { return a.api.post("/api/work-sessions/" + sid() + "/flashcards", b).optJSONObject("flashcards"); } },
+                            new MainActivity.Done() { public void ok(Object r) { showCards((JSONObject) r); refreshThen(new Runnable() { public void run() { } }); } });
+                } }).setNegativeButton("Cancel", null).show();
+    }
+
+    /** One card at a time: tap to flip, Next for the following card. */
+    void showCards(final JSONObject set) {
+        final JSONArray cards = set.optJSONArray("cards");
+        if (cards == null || cards.length() == 0) { a.toast("No cards"); return; }
+        final int[] i = {0}; final boolean[] back = {false};
+        final TextView face = a.text("", 18, MainActivity.TEXT, true);
+        face.setGravity(Gravity.CENTER);
+        face.setMinHeight(dp(180));
+        face.setPadding(dp(16), dp(16), dp(16), dp(16));
+        face.setBackground(a.bgShape(MainActivity.GREEN_SOFT, 16, MainActivity.LINE));
+        final TextView counter = muted("");
+        final Runnable draw = new Runnable() { public void run() {
+            JSONObject c = cards.optJSONObject(i[0]);
+            face.setText(back[0] ? c.optString("back") : c.optString("front"));
+            counter.setText("Card " + (i[0] + 1) + " of " + cards.length() + " · " + (back[0] ? "answer" : "tap to flip"));
+        } };
+        face.setOnClickListener(new View.OnClickListener() { public void onClick(View v) { back[0] = !back[0]; draw.run(); } });
+        LinearLayout box = a.vbox();
+        box.setPadding(dp(18), dp(8), dp(18), dp(8));
+        box.addView(face); a.add(box, counter, 8);
+        draw.run();
+        AlertDialog d = new AlertDialog.Builder(a, android.R.style.Theme_Material_Light_Dialog_Alert).setTitle(set.optString("title")).setView(box)
+                .setPositiveButton("Next", null).setNegativeButton("Close", null).show();
+        d.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() { public void onClick(View v) { i[0] = (i[0] + 1) % cards.length(); back[0] = false; draw.run(); } });
+    }
+
+    void studyPlan() {
+        LinearLayout box = a.vbox();
+        final EditText days = a.input("Number of days (1–30)", InputType.TYPE_CLASS_NUMBER);
+        days.setText("7");
+        box.addView(days);
+        new AlertDialog.Builder(a, android.R.style.Theme_Material_Light_Dialog_Alert).setTitle("Study plan").setView(pad(box))
+                .setMessage("Approx plans the material day by day and adds one dated assignment per day (see Assignments and Progress).")
+                .setPositiveButton("Create plan", new DialogInterface.OnClickListener() { public void onClick(DialogInterface d, int w) {
+                    int n; try { n = Integer.parseInt(days.getText().toString().trim()); } catch (Exception e) { n = 7; }
+                    final JSONObject b = MainActivity.obj("days", n);
+                    a.bg(new MainActivity.Job() { public Object run() throws Exception { return a.api.post("/api/work-sessions/" + sid() + "/study-plan", b).optJSONObject("plan"); } },
+                            new MainActivity.Done() { public void ok(Object r) { JSONObject p2 = (JSONObject) r; a.toast(p2.optInt("assignments") + " daily assignments added"); refreshThen(new Runnable() { public void run() { tasks("assignment"); } }); } });
+                } }).setNegativeButton("Cancel", null).show();
     }
 
     void logs() {

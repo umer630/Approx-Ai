@@ -187,3 +187,45 @@ test('Approx Education: course → study sessions → document, quiz (answer key
   assert.deepEqual([prog.quiz_attempts, prog.average_percent, prog.assignments_done, prog.assignments_total], [1, 67, 1, 1]);
   assert.equal(ov.projects[0].session_count, 2);
 });
+
+test('due dates + overdue, removing a file from a session, editing an output, code proposals in the session', async () => {
+  const s = (await req('POST', '/api/work-sessions', { token: u.token, body: { workspace: 'work', title: 'Deadlines' } })).data.session;
+  const past = Date.now() - 86400_000;
+  const t = await req('POST', `/api/work-sessions/${s.id}/tasks`, { token: u.token, body: { title: 'Report', due_at: past } });
+  assert.equal(t.data.task.overdue, true);
+  assert.equal((await req('POST', `/api/work-sessions/${s.id}/tasks`, { token: u.token, body: { title: 'x', due_at: 'tomorrow' } })).status, 400);
+  const moved = await req('PATCH', `/api/tasks/${t.data.task.id}`, { token: u.token, body: { due_at: Date.now() + 86400_000 } });
+  assert.equal(moved.data.task.overdue, false);
+  assert.equal((await req('PATCH', `/api/tasks/${t.data.task.id}`, { token: u.token, body: { due_at: null } })).data.task.due_at, null);
+  const f = await req('POST', '/api/files', { token: u.token, raw: true, body: 'notes', headers: { 'x-filename': 'n.txt', 'x-session-id': s.id } });
+  assert.equal((await req('DELETE', `/api/work-sessions/${s.id}/files/${f.data.file.id}`, { token: other.token })).status, 404);
+  assert.equal((await req('DELETE', `/api/work-sessions/${s.id}/files/${f.data.file.id}`, { token: u.token })).status, 200);
+  assert.deepEqual((await req('GET', `/api/work-sessions/${s.id}`, { token: u.token })).data.session.files, [], 'removed from the session');
+  assert.ok((await req('GET', '/api/files', { token: u.token })).data.files.some((x) => x.id === f.data.file.id), 'still in Files');
+  const a = (await req('POST', '/api/workspace/artifacts', { token: u.token, body: { title: 'Draft', kind: 'markdown', content: 'v1', session_id: s.id } })).data.artifact;
+  const e = await req('PUT', `/api/workspace/artifacts/${a.id}`, { token: u.token, body: { content: 'v2' } });
+  assert.deepEqual([e.data.artifact.current_version, e.data.artifact.content], [2, 'v2']);
+  const pr = (await req('POST', '/api/workspaces/code/projects', { token: u.token, body: { name: 'agent-repo' } })).data.project;
+  const cs = (await req('POST', '/api/work-sessions', { token: u.token, body: { workspace: 'code', project_id: pr.id } })).data.session;
+  const prop = await req('POST', `/api/fabbox/${pr.id}/agent`, { token: u.token, body: { instruction: 'add notes', session_id: cs.id } });
+  assert.equal(prop.data.proposal.status, 'pending');
+  const d = (await req('GET', `/api/work-sessions/${cs.id}`, { token: u.token })).data.session;
+  assert.deepEqual(d.proposals.map((x) => [x.id, x.status, x.session_id, x.files]), [[prop.data.proposal.id, 'pending', cs.id, ['+ NOTES.md']]]);
+  await req('POST', `/api/fabbox/${pr.id}/proposals/${prop.data.proposal.id}/approve`, { token: u.token });
+  assert.equal((await req('GET', `/api/code/${pr.id}/status`, { token: u.token })).data.changes[0].path, 'NOTES.md', 'approved change shows up as a working-tree change');
+});
+
+test('Education: flashcards and a study plan that creates one dated assignment per day', async () => {
+  const s = (await req('POST', '/api/work-sessions', { token: u.token, body: { workspace: 'education', title: 'Chapter 5' } })).data.session;
+  const fc = await req('POST', `/api/work-sessions/${s.id}/flashcards`, { token: u.token, body: { count: 6 } });
+  assert.equal(fc.status, 201, JSON.stringify(fc.data));
+  assert.ok(fc.data.flashcards.cards.length >= 1 && fc.data.flashcards.cards.every((c) => c.front && c.back));
+  const sp = await req('POST', `/api/work-sessions/${s.id}/study-plan`, { token: u.token, body: { days: 3 } });
+  assert.equal(sp.status, 201, JSON.stringify(sp.data));
+  const d = (await req('GET', `/api/work-sessions/${s.id}`, { token: u.token })).data.session;
+  const asg = d.tasks.filter((t) => t.kind === 'assignment');
+  assert.equal(asg.length, 3);
+  assert.ok(asg[0].due_at < asg[1].due_at && asg[1].due_at < asg[2].due_at, 'one due date per day');
+  assert.deepEqual(d.artifacts.map((x) => x.language).sort(), ['flashcards', 'study-plan']);
+  assert.equal((await req('POST', `/api/work-sessions/${s.id}/flashcards`, { token: other.token, body: {} })).status, 404);
+});

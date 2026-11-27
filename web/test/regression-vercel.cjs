@@ -31,7 +31,12 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     const reqBody = JSON.parse((await readBody(req)) || '{}');
     if (reqBody.stream === false) { res.writeHead(200, { 'Content-Type': 'application/json' }); return res.end(JSON.stringify({ choices: [{ message: { content: 'Ready.' } }] })); }
     res.writeHead(200, { 'Content-Type': 'text/event-stream' });
-    for (const p of REPLY) res.write(`data: ${JSON.stringify({ choices: [{ delta: { content: p } }] })}\n\n`);
+    // Structured protocols (agent edits, flashcards, study plans) get structured mock output, labelled as mock.
+    const sys = String(reqBody.messages?.[0]?.content || '');
+    const MOCK = sys.includes('FABBOX_JSON_PROTOCOL') ? { summary: '[mock model] add notes', changes: [{ op: 'write', path: 'NOTES.md', content: '# notes\n' }] }
+      : sys.includes('FLASHCARDS_JSON_PROTOCOL') ? { title: '[mock model] cards', cards: [{ front: 'Mock term 1', back: 'Mock definition 1' }, { front: 'Mock term 2', back: 'Mock definition 2' }] }
+      : sys.includes('STUDYPLAN_JSON_PROTOCOL') ? { title: '[mock model] plan', days: [1, 2, 3].map((d) => ({ day: d, title: `Mock day ${d}`, goals: ['Read'] })) } : null;
+    for (const p of MOCK ? [JSON.stringify(MOCK)] : REPLY) res.write(`data: ${JSON.stringify({ choices: [{ delta: { content: p } }] })}\n\n`);
     res.end('data: [DONE]\n\n');
   });
   const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'approx-reg-'));
@@ -397,6 +402,32 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     await p.evaluate((id) => { location.hash = `#/s/${id}`; }, sid1); await p.waitForTimeout(700);
     await p.locator('.ws-panel .list-item').first().click(); await p.waitForTimeout(700);
     ok('thread opens as a full conversation with a link back to its session', /^#\/c\/cht_/.test(await p.evaluate(() => location.hash)) && await p.locator('.session-crumb').count() === 1);
+    // Code agent review + Education flashcards, end to end in the browser.
+    const ids = await p.evaluate(async () => {
+      const me = await (await fetch('/api/auth/me')).json();
+      const post = async (u, b) => (await fetch(u, { method: 'POST', headers: { 'content-type': 'application/json', 'x-csrf-token': me.csrf_token }, body: JSON.stringify(b) })).json();
+      await fetch('/api/settings', { method: 'PATCH', headers: { 'content-type': 'application/json', 'x-csrf-token': me.csrf_token }, body: JSON.stringify({ permissions_mode: 'manual' }) });
+      const pr = (await post('/api/workspaces/code/projects', { name: 'web-agent' })).project;
+      const cs = (await post('/api/work-sessions', { workspace: 'code', project_id: pr.id })).session;
+      const es = (await post('/api/work-sessions', { workspace: 'education', title: 'Web flashcards' })).session;
+      return { pid: pr.id, cid: cs.id, eid: es.id };
+    });
+    await p.evaluate((id) => { location.hash = `#/s/${id}/Agent`; }, ids.cid); await p.waitForTimeout(700);
+    await p.locator('textarea[aria-label="Agent instruction"]').fill('Add a NOTES file'); await p.locator('button', { hasText: 'Propose changes' }).click(); await p.waitForTimeout(1200);
+    ok('code agent (manual permissions): proposal waits for review', await p.locator('button', { hasText: 'Approve & apply' }).count() === 1 && /NOTES\.md/.test(await p.locator('#main').innerText()));
+    await p.locator('button', { hasText: 'Approve & apply' }).click(); await p.waitForTimeout(900);
+    const agentSt = await p.evaluate(async (pid) => (await (await fetch(`/api/code/${pid}/status`)).json()).changes.map((c) => c.path), ids.pid);
+    ok('approving in the browser applies the change on the server', JSON.stringify(agentSt) === '["NOTES.md"]', JSON.stringify(agentSt));
+    await p.evaluate((id) => { location.hash = `#/s/${id}/Flashcards`; }, ids.eid); await p.waitForTimeout(700);
+    await p.locator('button', { hasText: 'Create flashcards' }).click(); await p.waitForTimeout(1000);
+    const front = await p.locator('.flashcard').innerText().catch(() => '');
+    await p.locator('.flashcard').click(); await p.waitForTimeout(200);
+    ok('Education flashcards: generated, tap flips to the answer', /term 1/i.test(front) && /definition 1/i.test(await p.locator('.flashcard').innerText()), front);
+    await p.evaluate((id) => { location.hash = `#/s/${id}/Plan`; }, ids.eid); await p.waitForTimeout(600);
+    await p.locator('input[aria-label="Days"]').fill('3'); await p.locator('button', { hasText: 'Create study plan' }).click(); await p.waitForTimeout(1200);
+    ok('study plan → dated assignments with due-date pickers', await p.locator('input.due').count() === 3, String(await p.locator('input.due').count()));
+    await p.waitForTimeout(2200); await p.evaluate(() => { location.hash = '#/w/education'; }); await p.waitForTimeout(900);   // any navigation refreshes the badge
+    ok('menu: Notifications shows the unread count', /^\d+$/.test((await p.locator('a[data-route="#/settings/notifications"] .count').innerText().catch(() => '')).trim()));
     for (const [route, words] of [['#/w/code', ['Approx Code', 'New coding session', 'Repositories']], ['#/w/education', ['Approx Education', 'New study session', 'Courses & subjects', 'Progress']], ['#/sessions', ['Sessions']], ['#/files', ['Files']]]) {
       await p.evaluate((r) => { location.hash = r; }, route); await p.waitForTimeout(700);
       const t = await p.locator('#main').innerText();
