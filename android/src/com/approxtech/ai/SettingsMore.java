@@ -86,6 +86,19 @@ final class SettingsMore {
             a.add(col, note("Plans and quizzes that are ready, code changes waiting for review."), 0);
             a.add(col, sw("Email me a copy", s.optBoolean("notifications_email", true), "notifications_email"), 8);
             a.add(col, note("Security notifications (new sign-in, password or two-step verification changes) are always shown and emailed."), 4);
+            // Phone notifications: on only when Android confirms (Android 13+ asks for permission here, not at start-up).
+            final boolean phoneOn = "1".equals(a.store().get("phone_notifications", "")) && Notifier.systemEnabled(a);
+            a.add(col, a.button(phoneOn ? "Phone notifications: on — turn off" : "Phone notifications: off — turn on", false, new Runnable() { public void run() {
+                if (phoneOn) { a.store().put("phone_notifications", ""); notifications(); return; }
+                if (android.os.Build.VERSION.SDK_INT >= 33 && a.checkSelfPermission("android.permission.POST_NOTIFICATIONS") != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                    a.requestPermissions(new String[]{"android.permission.POST_NOTIFICATIONS"}, Notifier.REQ_NOTIFY); return;
+                }
+                boolean ok = Notifier.systemEnabled(a);
+                a.store().put("phone_notifications", ok ? "1" : "");
+                a.toast(ok ? "Phone notifications are on" : "Notifications are blocked for Approx in Android Settings → Apps → Approx.");
+                notifications();
+            } }), 10);
+            a.add(col, note("Shown while Approx is running (new task results, security alerts, model switches, updates). Email verification and password reset always use email."), 0);
             final LinearLayout inbox = a.vbox();
             LinearLayout actions = a.hbox();
             actions.addView(a.link("Mark all read", new Runnable() { public void run() { a.call("POST", "/api/notifications/read-all", new JSONObject(), new Runnable() { public void run() { notifications(); } }); } }));

@@ -86,6 +86,26 @@ export async function effectiveDefault() {
   if (!NICK_LIVE.has(s.state)) return LALA;
   return s.fallback_active ? LALA : NICK;
 }
+export async function nickLive() { const s = await state(); return NICK_LIVE.has(s.state) && !s.fallback_active; }
+
+/** Public router state names (diagnostics): derived from the transformation row, never stored separately. */
+export async function routerState() {
+  const s = await state();
+  if (!NICK_LIVE.has(s.state)) return s.state === 'TEMPORARY_LALA_ACTIVE' ? 'LALA_ACTIVE' : s.state === 'PRODUCTION_DEPLOYMENT' ? 'NICK_VERIFIED' : 'NICK_PENDING';
+  if (s.fallback_active) {
+    const p = policy();
+    return s.consecutive_successes > 0 || (s.degraded_at && now() - s.degraded_at >= p.recovery_cooldown_ms) ? 'RECOVERY_CHECK' : 'FALLBACK_TO_LALA';
+  }
+  if (s.nick_health === 'degraded') return 'NICK_FAILED';   // degraded and Lala could not take over
+  const rec = await one("SELECT created_at FROM model_incidents WHERE kind = 'nick_recovered' ORDER BY id DESC LIMIT 1");
+  if (rec && now() - rec.created_at < 10 * 60_000) return 'NICK_RECOVERED';
+  return s.consecutive_failures > 0 ? 'NICK_DEGRADED' : 'NICK_ACTIVE';
+}
+/** Nick 4.8 verification stage names (diagnostics) for each transformation state. */
+export const NICK_STAGE = { TEMPORARY_LALA_ACTIVE: 'NOT_STARTED', TRAINING_IN_PROGRESS: 'TRAINING', TRAINING_COMPLETED: 'TRAINING_COMPLETE',
+  ADAPTER_VERIFICATION: 'ADAPTER_VERIFIED', INFERENCE_TEST: 'MODEL_VERIFIED', PRODUCTION_DEPLOYMENT: 'REAL_INFERENCE_TEST_PASSED',
+  NICK_4_8_ACTIVE: 'PRODUCTION_APPROVED', LALA_3_5_HIDDEN: 'NICK_4_8_ACTIVE' };
+
 /** Lala 3.5 appears in the normal model selector only until Nick 4.8 is live (and again while it covers for Nick). */
 export async function lalaVisible() { const s = await state(); return !NICK_LIVE.has(s.state) || !!s.fallback_active; }
 
@@ -253,7 +273,7 @@ async function incident(kind, reason, action, detail = null) {
 export async function overview() {
   const s = await state();
   return {
-    state: s.state, states: STATES, gate_error: s.gate_error, effective_default: await effectiveDefault(), lala_visible: await lalaVisible(),
+    state: s.state, states: STATES, router_state: await routerState(), nick_stage: NICK_STAGE[s.state], gate_error: s.gate_error, effective_default: await effectiveDefault(), lala_visible: await lalaVisible(),
     nick: { version: s.nick_version, activated_at: s.nick_activated_at, health: s.nick_health, fallback_active: !!s.fallback_active,
       consecutive_failures: s.consecutive_failures, consecutive_successes: s.consecutive_successes, degraded_at: s.degraded_at, last_switch_at: s.last_switch_at },
     policy: policy(),

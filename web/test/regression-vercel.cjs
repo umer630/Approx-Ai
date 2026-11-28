@@ -207,8 +207,18 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     ok('menu: Recents section (no "Recent tasks"/"Other tasks")', /recents/i.test(drawerText) && !/recent tasks|other tasks/i.test(drawerText));
     ok('no bottom navigation bar anywhere', await p.locator('nav.bottom-nav').count() === 0);
 
+    // Model router: Nick 4.8 (served + lifecycle-verified by the mock GPU host here) passes every transformation gate,
+    // so the router makes it the default and the selector shows it; Lala 3.5 is hidden but kept as fallback.
+    const adv = await p.evaluate(async () => {
+      const l = await (await fetch('/api/admin/auth/login', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: 'owner@example.com', password: 'Str0ng!Passw0rd1' }) })).json();
+      const me = await (await fetch('/api/admin/auth/me')).json();   // the admin session the browser actually holds
+      const a = await (await fetch('/api/admin/model-router/advance', { method: 'POST', headers: { 'content-type': 'application/json', 'x-admin-csrf': me.csrf_token || l.csrf_token }, body: '{}' })).json();
+      const o = await (await fetch('/api/admin/model-router', { headers: { 'x-admin-csrf': l.csrf_token } })).json();
+      return { state: a.state, gate: a.gate_error, err: a.error, router: o.router_state, def: o.effective_default, log: o.log, lc: o.gate_error };
+    });
+    ok('router: verified Nick 4.8 becomes the default (NICK_ACTIVE), Lala 3.5 hidden', adv.state === 'LALA_3_5_HIDDEN' && adv.router === 'NICK_ACTIVE' && adv.def === 'nick-4.8', JSON.stringify(adv));
     // Model selector: only models this account may use (+ Auto); mode is separate.
-    const allowed = await p.evaluate(async () => (await (await fetch('/api/models')).json()).models.filter((m) => m.available).map((m) => m.name));
+    const allowed = await p.evaluate(async () => (await (await fetch('/api/models')).json()).models.filter((m) => m.available && m.in_selector !== false).map((m) => m.name));
     await p.locator('[aria-label="Select model"]').click(); await p.waitForTimeout(400);
     const sheetText = await p.locator('.sheet').innerText();
     ok('model menu: Auto + every model this account may use', sheetText.includes('Auto') && allowed.every((n) => sheetText.includes(n)), allowed.join(','));

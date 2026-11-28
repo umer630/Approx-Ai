@@ -126,6 +126,8 @@ public class MainActivity extends Activity {
         store = new SecureStore(this);
         ws = new Workspaces(this);
         more = new SettingsMore(this);
+        Notifier.channels(this);
+        startBackgroundChecks();
         hub = new Hub(this);
         root = new FrameLayout(this);
         root.setBackgroundColor(BG);
@@ -880,7 +882,9 @@ public class MainActivity extends Activity {
             pool.execute(new Runnable() { public void run() {
                 try {
                     final JSONArray rs = api.get("/api/recents").optJSONArray("recents");
-                    final int unread = api.get("/api/notifications").optInt("unread");
+                    final JSONObject nres = api.get("/api/notifications");
+                    Notifier.syncUnread(MainActivity.this, nres, store);
+                    final int unread = nres.optInt("unread");
                     ui.post(new Runnable() { public void run() {
                         if (unread > 0 && settingsLabel[0] != null) settingsLabel[0].setText("Settings · " + unread + " new");
                         if (rs == null || rs.length() == 0) { recent.addView(text("Nothing yet", 13.5f, MUTED, false)); return; }
@@ -1325,8 +1329,38 @@ public class MainActivity extends Activity {
         startListening();
     }
 
+    SecureStore store() { return store; }
+
+    /** While Approx runs: new notifications → system notifications (if switched on), and a daily update check. */
+    void startBackgroundChecks() {
+        final Runnable[] tick = new Runnable[1];
+        tick[0] = new Runnable() { public void run() {
+            if (api != null && api.getToken() != null) pool.execute(new Runnable() { public void run() {
+                try { Notifier.syncUnread(MainActivity.this, api.get("/api/notifications"), store); } catch (Exception ignored) { }
+                try {
+                    long day = System.currentTimeMillis() / 86_400_000L;
+                    if (!String.valueOf(day).equals(store.get("update_checked_day", ""))) {
+                        store.put("update_checked_day", String.valueOf(day));
+                        JSONObject rel = api.get("/api/releases/latest?version_code=" + Updater.installedVersionCode(MainActivity.this));
+                        if (rel.optBoolean("update_available")) Notifier.show(MainActivity.this, Notifier.CH_UPDATES, 4242, "Approx " + rel.optString("version") + " is available",
+                                "Open Settings → About & updates to install it.", "#/settings/about");
+                    }
+                } catch (Exception ignored) { }
+            } });
+            ui.postDelayed(tick[0], 60_000);
+        } };
+        ui.postDelayed(tick[0], 15_000);
+    }
+
     @Override
     public void onRequestPermissionsResult(int req, String[] perms, int[] res) {
+        if (req == Notifier.REQ_NOTIFY) {
+            boolean ok = Notifier.systemEnabled(this);
+            store.put("phone_notifications", ok ? "1" : "");
+            toast(ok ? "Phone notifications are on" : "Android did not allow notifications for Approx. You can allow them in Android Settings → Apps → Approx.");
+            if (more != null) more.notifications();
+            return;
+        }
         if (req == REQ_MIC) {
             if (res.length > 0 && res[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) startListening();
             else toast("Microphone permission is needed for voice. You can still type.");
@@ -1498,6 +1532,7 @@ public class MainActivity extends Activity {
         ids.add("auto"); labels.add("Master Router (Auto) — best permitted model");
         for (int i = 0; i < models.length(); i++) {
             JSONObject m = models.optJSONObject(i);
+            if (!m.optBoolean("in_selector", true)) continue;   // server decides: Nick 4.8 only once live, Lala 3.5 until then
             // Availability comes from the backend (lifecycle): a model becomes selectable when it is ACTIVE, no app update needed.
             JSONObject lc = m.optJSONObject("lifecycle");
             // API 1.7: the server reports `selectable` (available && status "online"); older servers: lifecycle ACTIVE.

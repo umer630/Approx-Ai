@@ -528,7 +528,9 @@ function updateIndicator() {
   for (const b of document.querySelectorAll('.mode-toggle button[data-mode]')) b.setAttribute('aria-pressed', String(b.dataset.mode === state.mode));
 }
 
-export function openModelPicker() {
+export async function openModelPicker() {
+  // Fresh list every time: the server decides which models are in the picker (e.g. Nick 4.8 once it is verified and live).
+  try { const m = await api('/api/models'); state.models = m.models; } catch { /* keep the last known list */ }
   sheet('Model', (s, close) => {
     const opt = (id, name, desc, usable, badge) => h('button', { class: 'option', role: 'radio', 'aria-checked': String(state.model === id), disabled: !usable,
       onclick: () => { state.model = id; updateIndicator(); close(); } },
@@ -536,7 +538,7 @@ export function openModelPicker() {
     s.append(opt('auto', 'Auto', 'Approx routes each message to the best model you have access to.', true, h('span', { class: 'badge green' }, 'Recommended')));
     // Only models this account is allowed to use are listed; a permitted model that is not being served right now is
     // shown as unavailable rather than hidden or faked.
-    for (const m of state.models.filter((x) => x.available)) {
+    for (const m of state.models.filter((x) => x.available && x.in_selector !== false)) {
       const sub = [m.active_version ? `v${m.active_version}` : (m.lifecycle && m.lifecycle.state !== 'ACTIVE' ? m.lifecycle.label : null)].filter(Boolean).join(' · ');
       // Only models the server reports "online" are selectable (status comes from live serving evidence, never the catalog).
       const usable = m.selectable !== undefined ? m.selectable : (m.backend !== 'unavailable' && m.backend !== 'no_active_version');
@@ -597,6 +599,18 @@ function openChatMenu() {
   sheet('Session', (s, close) => {
     const item = (ic, label, fn, danger) => h('button', { class: `list-item${danger ? ' danger' : ''}`, onclick: async () => { close(); try { await fn(); } catch (e) { toast(e.message); } } }, icon(ic), h('span', { class: 'grow' }, label));
     s.append(h('div', { class: 'list' },
+      item('plus', 'New chat', () => newChat()),
+      item('search', 'Search conversations', () => go('#/history?search')),
+      item('folder', c.project_id ? 'Move to another project' : 'Add to project', async () => {
+        const r = await api('/api/projects');
+        const projects = (r.projects || []).filter((p) => p.id !== c.project_id);
+        sheet('Move to project', (s2, close2) => {
+          s2.append(h('div', { class: 'list' },
+            ...projects.map((p) => h('button', { class: 'list-item', onclick: async () => { close2(); await api(`/api/chats/${c.id}`, { method: 'PATCH', body: { project_id: p.id } }); c.project_id = p.id; refreshRecent(true); toast(`Moved to ${p.name}`); } }, icon('folder'), h('span', { class: 'grow' }, p.name))),
+            c.project_id ? h('button', { class: 'list-item', onclick: async () => { close2(); await api(`/api/chats/${c.id}`, { method: 'PATCH', body: { project_id: null } }); c.project_id = null; toast('Removed from project'); } }, icon('close'), h('span', { class: 'grow' }, 'Remove from project')) : null),
+            projects.length ? null : h('p', { class: 'muted small' }, 'No other projects yet — create one in Projects.'));
+        });
+      }),
       item('branch', 'Copy branch', async () => {
         const r = await api(`/api/chats/${c.id}/branch`, { method: 'POST', body: {} });
         refreshRecent(true); toast(`Branch created (${r.copied_messages} messages)`); go(`#/c/${r.chat.id}`);

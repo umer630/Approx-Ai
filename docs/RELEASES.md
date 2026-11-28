@@ -10,7 +10,7 @@
 | Workflow | When | What |
 |---|---|---|
 | `CI` (`.github/workflows/ci.yml`) | every push / PR | version agreement, syntax, secret scan, backend tests, Vercel simulation, desktop updater tests |
-| `Release Approx` (`release.yml`) | owner runs it (Actions → Release Approx → Run workflow, choose patch/minor/major, write notes) | guard (production branch + signing secrets) → CI → `Approx.apk` (Linux) + `Approx.exe` (Windows) built and verified → only then: version commit + tag `vX.Y.Z` + GitHub Release with `Approx.apk`, `Approx.exe`, `SHA256SUMS`, `release-manifest.json` → stable links re-downloaded and checksum-checked → waits until Vercel serves the new version |
+| `Release Approx` (`release.yml`) | **automatically on every push to the production branch** (patch; `[minor]` / `[major]` in the commit message for bigger bumps, `[skip release]` to opt out), or manually (Actions → Release Approx → Run workflow). Until the signing secrets exist, push-triggered runs skip with a warning | guard (production branch + signing secrets) → CI → `Approx.apk` (Linux) + `Approx.exe` (Windows) built and verified → only then: version commit + tag `vX.Y.Z` + GitHub Release with `Approx.apk`, `Approx.exe`, `SHA256SUMS`, `release-manifest.json` → stable links re-downloaded and checksum-checked → waits until Vercel serves the new version |
 
 The version commit pushed by the release triggers the existing Vercel Git integration (no second deployment system).
 Nothing is committed, tagged or published when any test or build fails. Old releases stay on GitHub (rollback = mark an
@@ -22,6 +22,8 @@ Stable links (always the latest release):
 
 `/api/releases/latest` reads that release and its `release-manifest.json` (version, versionCode, SHA-256 of both files,
 APK signer SHA-256, minimum supported versionCode). With no release it answers `{ "available": false }`.
+
+| `Build check` (`build-check.yml`) | manually / pull requests touching desktop or android | builds `Approx.exe` (unsigned test build, kept 14 days as a workflow artifact) and compiles the APK — publishes nothing |
 
 ## Owner setup (one time)
 Repository → Settings → Secrets and variables → Actions:

@@ -6,7 +6,7 @@ import { publicModelState } from './registry.js';
 import { servingVersion, upstreamHealth, backendStatus, upstreamFor } from './providers/index.js';
 import { config } from './config.js';
 import { lifecycleOf, lifecycleView, gateServed } from './lifecycle.js';
-import { effectiveDefault, lalaVisible, LALA, NICK } from './transform.js';
+import { effectiveDefault, lalaVisible, nickLive, LALA, NICK } from './transform.js';
 
 /** Lala 3.5 when it is the temporary default (or covering for a degraded Nick 4.8) AND actually healthy, else null. */
 async function lalaStandIn() {
@@ -85,6 +85,8 @@ export async function modelsForUser(user) {
       languages: c.languages || [], pipelines: c.pipelines || [],
       available, status: st.status, status_reason: st.reason, simulator: !!st.simulator,
       selectable: available && st.status === 'online',
+      // Normal model picker: Nick 4.8 only once it is live (verified + not in fallback); until then Lala 3.5 answers for it.
+      in_selector: m.id === NICK ? await nickLive() : true,
       history_training: !!m.history_training_allowed,
       ...(await modelState(m)),
     };
