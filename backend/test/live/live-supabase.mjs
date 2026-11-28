@@ -26,7 +26,7 @@ const login = await call('POST', '/api/auth/login', { email: probe.toUpperCase()
 ok(login.status === 401 && login.data.error?.message === 'Incorrect email or password', 'login with unknown account → 401 from real Supabase (email normalized)', `HTTP ${login.status}`);
 const v = await call('POST', '/api/auth/verify-email', { email: probe, token: '123456', password: 'ChosenPassw0rd!', sign_in: true, client: 'mobile' });
 ok(v.status >= 400 && v.status < 500 && !v.data.token, 'verification with a wrong code is refused by real Supabase (no session, no password set)', `HTTP ${v.status} ${v.data.error?.code}`);
-const weak = await call('POST', '/api/auth/verify-email', { email: probe, token: '123456', password: 'short' });
+const weak = await call('POST', '/api/auth/verify-email', { email: probe, token: '123456', password: 'short', set_password: true });
 ok(weak.data.error?.code === 'weak_password', 'weak password refused before Supabase is called');
 const fp = await call('POST', '/api/auth/forgot-password', { email: probe });
 ok(fp.status === 202, 'password reset for an unknown address: same answer as for a real one (no enumeration)', `HTTP ${fp.status}`);
