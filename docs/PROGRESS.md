@@ -68,6 +68,14 @@ How to run:
 - `947b6ae` Web: same menu, no bottom nav, Code/Scheduled/Artifacts/Sessions pages, Recents, Co Approx naming.
 - APK 1.7.0 (versionCode 13).
 
+## Lala 3.5, model router, releases (API 1.11) — commit c492146
+- Lala 3.5 (Ollama via device-agent gateway), model registry, Lala→Nick 4.8 state machine + fallback, admin Model router card.
+- Release system: backend/config/version.json + scripts/bump-version.mjs, CI (passing on GitHub), Release workflow
+  (gate verified: stops without ANDROID_KEYSTORE_* secrets, nothing tagged/published), /api/releases/latest (live),
+  Android Updater (checksum/package/signer checks), desktop/ Electron app + verified updater. See docs/RELEASES.md.
+- Tests: backend 175/0 (+5 Lala), Vercel 13/13, web regression 237/237, FAB UI 26/26, Robolectric 7/7, desktop 3/3.
+- Owner actions: release keystore secrets → run "Release Approx"; Ollama gateway pairing + tag mapping; ANTHROPIC_API_KEY (optional).
+
 ## Remaining (next tasks, in order)
 0. Owner-provided: Supabase SQL Editor run of the migration (or `supabase db push`), `DATABASE_URL` + approval to copy data from
    Turso before the backend can use Supabase Postgres; `OPENAI_API_KEY` + which Approx model(s) GPT should serve.
