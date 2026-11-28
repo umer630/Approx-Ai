@@ -25,6 +25,7 @@ function msgView(m) {
 
 export function registerChatRoutes(r) {
   r.get('/api/models', async (req, res, ctx) => {
+    await (await import('./modelrouter.js')).maybeTick();
     const u = requireUser(ctx);
     sendJson(res, 200, {
       models: (await modelsForUser(u)).map((m) => ({ ...m, backend: backendStatus(m) })),

@@ -135,8 +135,8 @@ test('database migration: an old database (medium/high CHECK) accepts "low" afte
   assert.equal(r.after.default_mode, 'low', 'the rebuilt settings table accepts low');
   assert.equal(r.kept.personalization, 'keep me', 'existing rows survive the table rebuild');
   assert.equal(r.hasVersion, true);
-  assert.equal(r.models, 5);
-  assert.deepEqual(r.migrations, ['2026-11-admin-panel', '2026-11-devices-scheduled', '2026-11-fab500x-workspace', '2026-11-google-sub', '2026-11-light-theme-default', '2026-11-model-control', '2026-11-model-version-columns', '2026-11-sessions', '2026-11-settings-low-mode', '2026-11-settings-v2', '2026-11-supabase-uid', '2026-11-workspace-sessions', '2026-11-workspace-shell']);
+  assert.equal(r.models, 6);
+  assert.deepEqual(r.migrations, ['2026-11-admin-panel', '2026-11-devices-scheduled', '2026-11-fab500x-workspace', '2026-11-google-sub', '2026-11-lala-transform', '2026-11-light-theme-default', '2026-11-model-control', '2026-11-model-version-columns', '2026-11-sessions', '2026-11-settings-low-mode', '2026-11-settings-v2', '2026-11-supabase-uid', '2026-11-workspace-sessions', '2026-11-workspace-shell']);
 });
 
 // ---------------------------------------------------------------- registry: happy path to real serving

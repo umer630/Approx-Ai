@@ -146,7 +146,7 @@ public class AppScreensTest {
         assertTrue("composer input present: " + hints(root), prompt);
         for (String m : new String[]{"Low", "Medium", "High", "Memory"}) assertNull("no extra bar in the chat (" + m + ")", textView(root, m));
         assertNotNull("composer: attach", textView(root, "+")); assertNotNull("composer: mic", textView(root, "🎤")); assertNotNull("composer: send", textView(root, "➤"));
-        for (String b : new String[]{"Code", "Co Approx", "Education"}) assertNotNull("primary action " + b, textView(root, b));
+        for (String b : new String[]{"Approx Code", "Approx Work", "Education"}) assertNotNull("primary action " + b, textView(root, b));
         assertNotNull("hamburger menu", textView(root, "☰"));
         assertNull("no bottom tab bar (History is in the side menu)", textView(root, "History"));
         assertNull("no bottom tab bar (Settings is in the side menu)", textView(root, "Settings"));
@@ -170,7 +170,7 @@ public class AppScreensTest {
         for (android.app.Dialog d : org.robolectric.shadows.ShadowDialog.getShownDialogs())
             if (d.isShowing()) { ViewGroup content = d.findViewById(android.R.id.content); menu = content.getChildAt(0); }
         assertNotNull("side menu opens", menu);
-        for (String item : new String[]{"New chat", "Home", "Projects", "Code", "Co Approx", "Education", "Artifacts", "Scheduled", "Sessions", "Files", "Settings", "Recents"})
+        for (String item : new String[]{"New chat", "History", "Search conversations", "Projects", "Approx Code", "Approx Work", "Education", "Artifacts", "Scheduled tasks", "Sessions", "Files", "Connected tools", "Settings", "Help and support", "Recents"})
             assertNotNull("menu item " + item, textView(menu, item));
         ViewGroup scrim = (ViewGroup) menu;
         View panel = scrim.getChildAt(0);
@@ -180,12 +180,12 @@ public class AppScreensTest {
 
         View root = a.findViewById(android.R.id.content);
         a.workspaceHome("code");
-        for (String t : new String[]{"Code", "DEVICES", "SESSIONS", "◷", "＋  New session"}) assertNotNull("Code screen: " + t, textView(root, t));
+        for (String t : new String[]{"Approx Code", "DEVICES", "SESSIONS", "◷", "＋  New session"}) assertNotNull("Code screen: " + t, textView(root, t));
         boolean codeSearch = false; for (String h : hints(root)) if (h.equals("Search sessions")) codeSearch = true;
         assertTrue("Code: search sessions", codeSearch);
         for (String f : new String[]{"All", "Active", "Archived"}) assertNotNull("Code filter " + f, textView(root, f));
         shot(root, "android-05-code.png");
-        for (String[] w : new String[][]{{"work", "Co Approx", "＋  New session"}, {"education", "Education", "＋  New study session"}}) {
+        for (String[] w : new String[][]{{"work", "Approx Work", "＋  New session"}, {"education", "Education", "＋  New study session"}}) {
             a.workspaceHome(w[0]);
             assertNotNull(w[0] + " title", textView(root, w[1]));
             assertNotNull(w[0] + " new session", textView(root, w[2]));

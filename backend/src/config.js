@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 // Central configuration. All secrets come from the environment — never from source.
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -9,18 +10,22 @@ const int = (v, d) => (v === undefined || v === '' ? d : Number.parseInt(v, 10))
 
 // Software versions. Model/adapter versions are NOT listed here: they come from the model registry
 // (verified release artifacts) at run time — see registry.js and GET /api/status.
+// One version source for every platform: backend/config/version.json (bumped by scripts/bump-version.mjs).
+const V = JSON.parse(fs.readFileSync(path.resolve(here, '../config/version.json'), 'utf8'));
 export const VERSIONS = Object.freeze({
-  product: '1.7.0',
-  backend: '1.7.0',
-  frontend: '1.7.0',
-  api: 'v1 (1.7.0)',
-  apk: '1.7.0 (versionCode 13)',
+  product: V.version,
+  backend: V.version,
+  frontend: V.version,
+  api: `v1 (${V.version})`,
+  apk: `${V.version} (versionCode ${V.versionCode})`,
+  version_code: V.versionCode,
   // Client contract shared by web and Android: models, status/selectable, active versions come from /api/models;
   // 1.8 adds /api/sessions (Education / Approx Code / Approx Work sessions).
   // 1.9: workspaces -> sessions -> threads -> tasks (/api/workspaces, /api/work-sessions, /api/code/:pid/*) and
   //      verify-email {password, sign_in, client} (the password is set when the code is confirmed).
+  // 1.11: Lala 3.5 (Ollama gateway), model router state machine + fallback, /api/releases/latest, /api/integrations.
   // 1.10: devices + device jobs, scheduled tasks/runs, /api/recents, /api/session-history, artifact sharing, Co Approx runs.
-  api_contract: '1.10',
+  api_contract: '1.11',
   min_apk_version_code: 5,
 });
 

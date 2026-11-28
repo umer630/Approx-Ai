@@ -32,7 +32,7 @@ const routes = [
   [/^#\/research$/, () => shell(() => views.researchView())],
   [/^#\/fab500x$/, () => shell(() => fab.projectsPage(), { composer: false })],
   [/^#\/fab500x\/(prj_\w+)$/, (m) => { shellEl = null; return fab.ideView(app, m[1]); }],
-  [/^#\/history$/, () => shell(() => pages.historyPage(), { composer: false })],
+  [/^#\/history(\?search)?$/, (m) => shell(() => pages.historyPage({ focusSearch: !!m[1] }), { composer: false })],
   [/^#\/work$/, () => shell(() => wsp.workspaceHome('work', { extra: pages.workExtras() }), { composer: false })],
   [/^#\/files$/, () => shell(() => wsp.filesPage(), { composer: false })],
   [/^#\/w\/code$/, () => shell(() => wsp.codePage(), { composer: false })],
@@ -203,8 +203,7 @@ function googleSection(msg, onCredential) {
   (async () => {
     let cfg; try { cfg = await api('/api/auth/config'); } catch { cfg = null; }
     if (!cfg?.google?.enabled) {
-      slot.replaceChildren(h('button', { class: 'btn block google-btn', type: 'button', disabled: true, title: 'Not configured' }, h('span', { class: 'g-logo', 'aria-hidden': 'true' }, 'G'), 'Continue with Google'),
-        h('div', { class: 'small muted center' }, 'Google sign-in isn’t set up on this server yet.'));
+      wrap.remove();   // not configured on this server: no dead button on the sign-in screen
       return;
     }
     try {
@@ -413,8 +412,10 @@ let mainEl; let composerEl; let shellEl; let titleEl; let moreBtn; let drawerEl;
 // Mobile-first primary navigation: Home · Work · Code · Education · Profile (Projects, Sessions, Files, History in the menu).
 const fabWorkspace = () => state.models.some((m) => m.workspace === 'fab500x-code' && m.available);
 // The menu is the central navigation (no bottom bar): every major area is one click away; Recents below.
-const DRAWER_LINKS = [['#/', 'home', 'Home'], ['#/projects', 'folder', 'Projects'], ['#/w/code', 'code', 'Code'], ['#/work', 'work', 'Co Approx'], ['#/w/education', 'doc', 'Education'],
-  ['#/artifacts', 'layers', 'Artifacts'], ['#/scheduled', 'calendar', 'Scheduled'], ['#/sessions', 'tasks', 'Sessions'], ['#/files', 'file', 'Files'], ['#/settings', 'settings', 'Settings']];
+const DRAWER_LINKS = [['#/', 'plus', 'New chat'], ['#/history', 'history', 'History'], ['#/history?search', 'search', 'Search conversations'], null,
+  ['#/projects', 'folder', 'Projects'], ['#/w/code', 'code', 'Approx Code'], ['#/work', 'work', 'Approx Work'], ['#/w/education', 'doc', 'Education'],
+  ['#/artifacts', 'layers', 'Artifacts'], ['#/scheduled', 'calendar', 'Scheduled tasks'], ['#/sessions', 'tasks', 'Sessions'], ['#/files', 'file', 'Files'], null,
+  ['#/settings/connectors', 'link', 'Connected tools'], ['#/settings', 'settings', 'Settings'], ['#/settings/help', 'help', 'Help and support']];
 
 function buildShell() {
   const initials = (state.user.display_name || state.user.email).trim()[0].toUpperCase();
@@ -432,7 +433,7 @@ function buildShell() {
     h('div', { class: 'drawer-head' }, h('img', { src: '/assets/logo-mark-64.png', alt: '' }), h('b', { class: 'grow' }, 'Approx'),
       h('button', { class: 'icon-btn drawer-close', 'aria-label': 'Close menu', onclick: closeDrawer }, icon('close'))),
     h('button', { class: 'btn primary block drawer-new', onclick: () => { closeDrawer(); newChat(); } }, icon('plus'), 'New chat'),
-    h('nav', { class: 'drawer-nav' }, DRAWER_LINKS.map(([href, ic, label]) => h('a', { href, 'data-route': href, class: 'drawer-link' }, icon(ic), h('span', {}, label))),
+    h('nav', { class: 'drawer-nav' }, DRAWER_LINKS.map((x) => x ? h('a', { href: x[0], 'data-route': x[0], class: 'drawer-link' }, icon(x[1]), h('span', {}, x[2])) : h('hr', { class: 'drawer-sep' })),
       // FAB 500X Code appears only for accounts holding the (server-checked) private grant.
       fabWorkspace() ? h('a', { href: '#/fab500x', 'data-route': '#/fab500x', class: 'drawer-fab' }, icon('shield'), h('span', {}, 'FAB 500X Code')) : null),
     h('div', { class: 'drawer-label' }, 'Recents'), recentEl,
@@ -463,7 +464,7 @@ function shell(renderMain, { composer = true } = {}) {
   return renderMain();
 }
 function pageTitle(route) {
-  return { '#/history': 'History', '#/work': 'Co Approx', '#/w/code': 'Code', '#/w/education': 'Education', '#/w/work': 'Co Approx', '#/scheduled': 'Scheduled', '#/artifacts': 'Artifacts', '#/sessions': 'Sessions', '#/files': 'Files', '#/schedule': 'Schedule', '#/projects': 'Projects', '#/code': 'Approx Code',
+  return { '#/history': 'History', '#/work': 'Approx Work', '#/w/code': 'Approx Code', '#/w/education': 'Education', '#/w/work': 'Approx Work', '#/scheduled': 'Scheduled', '#/artifacts': 'Artifacts', '#/sessions': 'Sessions', '#/files': 'Files', '#/schedule': 'Schedule', '#/projects': 'Projects', '#/code': 'Approx Code',
     '#/workspace': 'Artifacts', '#/research': 'Research' }[route] || (route.startsWith('#/settings') ? 'Settings' : '');
 }
 export function setHeaderTitle(t) { if (titleEl) titleEl.textContent = t; if (moreBtn) moreBtn.classList.toggle('hidden', !state.chat?.id || !location.hash.startsWith('#/c/')); }
@@ -475,10 +476,24 @@ export async function refreshUnread(force = true) {
   if (!link || (!force && Date.now() - unreadAt < 2_000)) return;
   unreadAt = Date.now();
   try {
-    const { unread } = await api('/api/notifications');
+    const { unread, notifications } = await api('/api/notifications');
+    showSystemNotification(notifications);
     link.querySelector('.count')?.remove();
     if (unread) link.append(h('span', { class: 'count', 'aria-label': `${unread} unread` }, String(unread)));
   } catch { /* ignore */ }
+}
+// Browser notifications (opt-in in Settings → Notifications): each new unread notification once, as a system notification.
+let lastNotifSeen = null;
+function showSystemNotification(list) {
+  let on = false; try { on = localStorage.getItem('approx.browserNotify') === '1'; } catch { /* storage blocked */ }
+  const newest = (list || []).find((n) => !n.read_at);
+  if (lastNotifSeen === null) { lastNotifSeen = newest?.id || ''; return; }   // first load: nothing is "new"
+  if (!newest || newest.id === lastNotifSeen) return;
+  lastNotifSeen = newest.id;
+  if (on && 'Notification' in window && Notification.permission === 'granted' && document.visibilityState !== 'visible') {
+    const n = new Notification(newest.title, { body: newest.body, tag: newest.id });
+    n.onclick = () => { window.focus(); if (newest.link) location.hash = newest.link; n.close(); };
+  } else if (document.visibilityState === 'visible') toast(newest.title);
 }
 export function openDrawer() { shellEl?.classList.add('drawer-open'); refreshRecent(); refreshUnread(); drawerEl?.querySelector('a, button')?.focus({ preventScroll: true }); }
 export function closeDrawer() { shellEl?.classList.remove('drawer-open'); }
@@ -488,7 +503,7 @@ export function refreshRecent(force = false) {
   if (!recentEl) return;
   if (force) invalidate('/api/recents');
   const LINK = { chat: (x) => `#/c/${x.id}`, artifact: (x) => `#/workspace/${x.id}`, scheduled: () => '#/scheduled' };
-  const TAG = { chat: 'Chat', co_approx: 'Co Approx', code: 'Code', education: 'Education', artifact: 'Artifact', scheduled: 'Scheduled' };
+  const TAG = { chat: 'Chat', co_approx: 'Approx Work', code: 'Code', education: 'Education', artifact: 'Artifact', scheduled: 'Scheduled' };
   const draw = (r) => recentEl.replaceChildren(...(r.recents.length ? r.recents.map((x) => h('a', { href: (LINK[x.type] || ((y) => `#/s/${y.id}`))(x),
     class: `recent-item${state.chat?.id === x.id ? ' active' : ''}`, title: x.title }, x.title, h('span', { class: 'recent-tag' }, TAG[x.type] || '')))
     : [h('div', { class: 'small muted pad' }, 'Nothing yet.')]));

@@ -251,6 +251,41 @@
       "visibility": "private",
       "base_model_revision": "381fc969f78efac66bc87ff7ddeadb7e73c218a7",
       "workspace": "fab500x-code"
+    },
+    {
+      "id": "lala-3.5",
+      "name": "Lala 3.5",
+      "family": "lala",
+      "tier": "default",
+      "kind": "language_model",
+      "provider": "ollama",
+      "description": "Temporary default model while Nick 4.8 finishes training: everyday questions, writing and general help. Runs on Ollama through the owner's Approx gateway.",
+      "capabilities": [
+        "general",
+        "writing",
+        "summaries",
+        "coding",
+        "reasoning"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "languages": [
+        "en",
+        "ur",
+        "roman-ur",
+        "mixed"
+      ],
+      "history_training_allowed": false,
+      "safety_profile": "standard",
+      "role": "temporary-default",
+      "access": "standard",
+      "visibility": "public"
     }
   ],
   "pipelines": [

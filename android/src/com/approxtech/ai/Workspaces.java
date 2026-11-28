@@ -34,7 +34,7 @@ final class Workspaces {
     Workspaces(MainActivity a) { this.a = a; }
 
     static final String[] KINDS = {"work", "code", "education"};
-    static String title(String k) { return "work".equals(k) ? "Co Approx" : "code".equals(k) ? "Code" : "education".equals(k) ? "Education" : "Approx"; }
+    static String title(String k) { return "work".equals(k) ? "Approx Work" : "code".equals(k) ? "Approx Code" : "education".equals(k) ? "Education" : "Approx"; }
     static String glyph(String k) { return "work".equals(k) ? "▦" : "code".equals(k) ? "</>" : "📘"; }
     static String newLabel(String k) { return "work".equals(k) ? "New session" : "code".equals(k) ? "New coding session" : "New study session"; }
     static String projectLabel(String k) { return "work".equals(k) ? "Projects" : "code".equals(k) ? "Repositories" : "Courses & subjects"; }

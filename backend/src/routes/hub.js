@@ -241,10 +241,31 @@ export function registerHubRoutes(r) {
     await run('UPDATE devices SET last_seen_at = ? WHERE id = ?', ts(), d.id);
     return d;
   }
-  r.post('/api/device/heartbeat', async (req, res) => { const d = await deviceAuth(req); sendJson(res, 200, { device_id: d.id, name: d.name }); });
+  // Heartbeat. A computer that runs Ollama also reports what its local Ollama has (reachable, version, installed tags,
+  // loaded models) — the backend never connects to the computer, the agent reports outward.
+  r.post('/api/device/heartbeat', async (req, res) => {
+    const d = await deviceAuth(req);
+    const b = await readJson(req, 64 * 1024).catch(() => ({}));
+    if (b && b.ollama && typeof b.ollama === 'object') {
+      const o = b.ollama;
+      const clean = { reachable: !!o.reachable, version: o.version ? String(o.version).slice(0, 40) : null, error: o.error ? String(o.error).slice(0, 200) : null,
+        tags: (Array.isArray(o.tags) ? o.tags : []).slice(0, 100).map((x) => ({ name: String(x.name || x).slice(0, 120), size: Number(x.size) || null, modified_at: x.modified_at ? String(x.modified_at).slice(0, 40) : null })),
+        loaded: (Array.isArray(o.loaded) ? o.loaded : []).slice(0, 20).map((x) => String(x.name || x).slice(0, 120)) };
+      await run('UPDATE devices SET ollama_status = ?, ollama_checked_at = ? WHERE id = ?', JSON.stringify(clean), ts(), d.id);
+    }
+    const gw = await one("SELECT model_id FROM model_registry WHERE gateway_device_id = ?", d.id).catch(() => null);
+    sendJson(res, 200, { device_id: d.id, name: d.name, inference_gateway: !!gw });
+  });
   // The agent asks for its next job: the command, and the repository files to run it on.
   r.get('/api/device/jobs/next', async (req, res) => {
     const d = await deviceAuth(req);
+    // Model requests first (a person is waiting for the answer); stale ones (> 2 min) are dropped, not run late.
+    await run("UPDATE inference_jobs SET status = 'cancelled', error = 'expired' WHERE device_id = ? AND status = 'queued' AND created_at < ?", d.id, ts() - 120_000);
+    const inf = await one("SELECT * FROM inference_jobs WHERE device_id = ? AND status = 'queued' ORDER BY created_at LIMIT 1", d.id);
+    if (inf) {
+      const c = await run("UPDATE inference_jobs SET status = 'running', started_at = ? WHERE id = ? AND status = 'queued'", ts(), inf.id);
+      if (c.changes) { const pl = JSON.parse(inf.payload); return sendJson(res, 200, { job: { id: inf.id, kind: 'inference', op: inf.op, model_tag: inf.model_tag, messages: pl.messages, options: pl.options } }); }
+    }
     const job = await one("SELECT * FROM device_jobs WHERE device_id = ? AND status = 'queued' ORDER BY created_at LIMIT 1", d.id);
     if (!job) return sendJson(res, 200, { job: null });
     const claim = await run("UPDATE device_jobs SET status = 'running', started_at = ? WHERE id = ? AND status = 'queued'", ts(), job.id);
@@ -263,6 +284,37 @@ export function registerHubRoutes(r) {
     if (job.tool_execution_id) await run('UPDATE tool_executions SET status = ?, output = ? WHERE id = ?', exit === 0 ? 'ok' : 'error', `exit ${exit} on ${d.name}\n${output.slice(-6000)}`, job.tool_execution_id);
     sendJson(res, 200, { status: 'recorded' });
   });
+  // Streamed model output from the gateway: appended in order (seq), so a retried post is not duplicated.
+  async function ownInference(d, id) {
+    const j = await one('SELECT * FROM inference_jobs WHERE id = ? AND device_id = ?', String(id), d.id);
+    if (!j) throw notFound('Job not found');
+    return j;
+  }
+  r.post('/api/device/inference/:id/chunk', async (req, res, ctx, p) => {
+    const d = await deviceAuth(req);
+    const b = await readJson(req, 256 * 1024);
+    const j = await ownInference(d, p.id);
+    if (j.status !== 'running') return sendJson(res, 409, { status: j.status });   // cancelled / timed out: agent stops
+    const seq = Number(b.seq);
+    if (Number.isInteger(seq) && seq === j.seq + 1) await run("UPDATE inference_jobs SET text = text || ?, seq = ? WHERE id = ? AND seq = ? AND status = 'running'", String(b.text || '').slice(0, 64_000), seq, j.id, j.seq);
+    sendJson(res, 200, { status: 'ok' });
+  });
+  r.post('/api/device/inference/:id/done', async (req, res, ctx, p) => {
+    const d = await deviceAuth(req);
+    const b = await readJson(req, 16 * 1024);
+    const j = await ownInference(d, p.id);
+    const usage = { prompt_tokens: Number(b.prompt_tokens) || 0, completion_tokens: Number(b.completion_tokens) || 0, total_duration_ms: Number(b.total_duration_ms) || null };
+    await run("UPDATE inference_jobs SET status = 'completed', usage = ?, finished_at = ? WHERE id = ? AND status = 'running'", JSON.stringify(usage), ts(), j.id);
+    sendJson(res, 200, { status: 'recorded' });
+  });
+  r.post('/api/device/inference/:id/fail', async (req, res, ctx, p) => {
+    const d = await deviceAuth(req);
+    const b = await readJson(req, 16 * 1024);
+    const j = await ownInference(d, p.id);
+    await run("UPDATE inference_jobs SET status = 'failed', error = ?, finished_at = ? WHERE id = ? AND status IN ('queued','running')", String(b.error || 'error').slice(0, 500), ts(), j.id);
+    sendJson(res, 200, { status: 'recorded' });
+  });
+
   r.get('/api/code/jobs/:id', async (req, res, ctx, p) => {
     const u = requireUser(ctx);
     const j = await one('SELECT j.*, d.name device_name FROM device_jobs j JOIN devices d ON d.id = j.device_id WHERE j.id = ? AND j.user_id = ?', p.id, u.id);
@@ -343,7 +395,9 @@ export function registerHubRoutes(r) {
   const cron = async (req, res) => {
     const secret = process.env.CRON_SECRET || '';
     if (!secret || String(req.headers.authorization || '') !== `Bearer ${secret}`) throw new HttpError(401, 'unauthorized', 'Cron secret required');
-    sendJson(res, 200, { ran: await runDue({ limit: 20 }) });
+    const { healthTick } = await import('../transform.js');
+    const model = await healthTick().then((s) => ({ state: s.state, fallback_active: !!s.fallback_active })).catch((e) => ({ error: e.message }));
+    sendJson(res, 200, { ran: await runDue({ limit: 20 }), model_router: model });
   };
   r.get('/api/cron/scheduled', cron);
   r.post('/api/cron/scheduled', cron);

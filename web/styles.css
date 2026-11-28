@@ -490,3 +490,11 @@ html[data-text-size="large"] body { zoom: 1.15; }
 .pair-code { font-size: 30px; font-weight: 700; letter-spacing: .15em; margin: 6px 0 12px; user-select: all; }
 .recent-tag { margin-left: 6px; font-size: 11px; color: var(--muted); }
 .bottom-nav { display: none !important; }
+/* Menu separators, history date groups, settings categories, Code top bar */
+.drawer-sep { border: 0; border-top: 1px solid var(--border); margin: 6px 10px; }
+.date-group { font-size: 12px; font-weight: 600; color: var(--muted); padding: 14px 4px 4px; }
+.settings-group { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin: 18px 4px 6px; }
+.code-topbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 4px 0 12px; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; word-break: break-all; }
+.ml6 { margin-left: 6px; }
+.pre-wrap { white-space: pre-wrap; }

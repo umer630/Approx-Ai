@@ -5,7 +5,7 @@ import { api } from './api.js';
 import { h, icon, toast, sheet, confirmDialog, promptDialog, fmtTime, fmtBytes } from './ui.js';
 import { go, setMain, setHeaderTitle } from './app.js';
 
-const TITLE = { work: 'Co Approx', code: 'Code', education: 'Education' };
+const TITLE = { work: 'Approx Work', code: 'Approx Code', education: 'Education' };
 const NEW = { work: 'New session', code: 'New session', education: 'New study session' };
 const PROJECTS = { work: 'Projects', code: 'Repositories', education: 'Courses & subjects' };
 const ICON = { work: 'work', code: 'code', education: 'doc' };
@@ -349,8 +349,10 @@ function sessionRow2(s) {
 
 /** Code: Devices (+ Add device → pairing) and Sessions (search, filter), + New session. */
 export async function codePage(filter = 'all') {
-  setHeaderTitle('Code');
+  setHeaderTitle('Approx Code');
   const devices = h('div', { class: 'list' }, skel(1));
+  const perm = h('span', { class: 'badge', title: 'Approx Code agent permissions (Settings → Approx Code)' }, '…');
+  api('/api/settings').then((r) => { const m = r.settings.permissions_mode; perm.textContent = m === 'auto' ? 'Auto-apply changes' : 'Review before applying'; perm.className = `badge ${m === 'auto' ? 'warn' : 'green'}`; }).catch(() => { perm.remove(); });
   const list = h('div', { class: 'list' }, skel(2));
   const q = h('input', { class: 'input', type: 'search', placeholder: 'Search sessions', 'aria-label': 'Search sessions' });
   const load = async () => {
@@ -360,7 +362,9 @@ export async function codePage(filter = 'all') {
   };
   let t; q.addEventListener('input', () => { clearTimeout(t); t = setTimeout(load, 250); });
   setMain(h('div', { class: 'page ws-page' },
-    h('div', { class: 'page-head' }, h('div', { class: 'grow' }, h('h1', {}, 'Code')), h('a', { class: 'icon-btn', href: '#/sessions/code', 'aria-label': 'Session history', title: 'Session history' }, icon('history'))),
+    h('div', { class: 'page-head' }, h('div', { class: 'grow' }, h('h1', {}, 'Approx Code')), h('a', { class: 'icon-btn', href: '#/sessions/code', 'aria-label': 'Session history', title: 'Session history' }, icon('history'))),
+    h('div', { class: 'code-topbar' }, h('button', { class: 'btn primary', onclick: () => newSessionSheet('code') }, icon('plus'), 'New session'),
+      h('button', { class: 'btn', onclick: connectClaude }, icon('link'), 'Connect with Claude'), h('a', { class: 'btn', href: '#/code' }, icon('folder'), 'Repositories'), perm),
     h('h2', { class: 'section' }, 'Devices'), devices,
     h('h2', { class: 'section' }, 'Sessions'), q,
     h('div', { class: 'tabs', role: 'tablist' }, [['all', 'All'], ['active', 'Active'], ['archived', 'Archived']].map(([k, l]) => h('button', { role: 'tab', 'aria-selected': String(k === filter), onclick: () => codePage(k) }, l))),
@@ -407,7 +411,7 @@ export async function historyPage(kind = null, view = 'recent') {
   const tabs = (items, cur, go2) => h('div', { class: 'tabs', role: 'tablist' }, items.map(([k, l]) => h('button', { role: 'tab', 'aria-selected': String(k === cur), onclick: () => go2(k) }, l)));
   setMain(h('div', { class: 'page' }, h('div', { class: 'page-head' }, h('div', { class: 'grow' }, h('h1', {}, 'Sessions'))),
     tabs([['recent', 'Recent'], ['active', 'Active'], ['archived', 'Archived']], view, (v) => historyPage(kind, v)), q,
-    tabs([[null, 'All'], ['work', 'Co Approx'], ['code', 'Code'], ['education', 'Education']], kind, (k) => historyPage(k, view)),
+    tabs([[null, 'All'], ['work', 'Approx Work'], ['code', 'Approx Code'], ['education', 'Education']], kind, (k) => historyPage(k, view)),
     list, h('a', { class: 'small', href: '#/history' }, 'Conversations (chat history)')));
   await load();
 }
@@ -425,7 +429,7 @@ export async function scheduledPage() {
       t.last_run ? `last run ${t.last_run.status}` : null].filter(Boolean).join(' · ')), t.last_run?.session_id ? h('a', { class: 'small', href: `#/s/${t.last_run.session_id}` }, 'Open last run') : null),
     h('input', { type: 'checkbox', role: 'switch', checked: t.enabled, 'aria-label': `Enabled: ${t.name}`, onchange: async (e) => { await api(`/api/scheduled/${t.id}`, { method: 'PATCH', body: { enabled: e.target.checked } }); scheduledPage(); } }),
     h('button', { class: 'btn small', onclick: async (e) => { e.currentTarget.disabled = true; const x = await api(`/api/scheduled/${t.id}/run`, { method: 'POST' }); toast(`Run ${x.run.status}`); if (x.run.session_id) location.hash = `#/s/${x.run.session_id}`; } }, 'Run now'),
-    h('button', { class: 'icon-btn', 'aria-label': `Delete ${t.name}`, onclick: async () => { if (await confirmDialog('Delete this scheduled task?', 'Its past sessions stay in Co Approx.', 'Delete', true)) { await api(`/api/scheduled/${t.id}`, { method: 'DELETE' }); scheduledPage(); } } }, icon('trash'))))
+    h('button', { class: 'icon-btn', 'aria-label': `Delete ${t.name}`, onclick: async () => { if (await confirmDialog('Delete this scheduled task?', 'Its past sessions stay in Approx Work.', 'Delete', true)) { await api(`/api/scheduled/${t.id}`, { method: 'DELETE' }); scheduledPage(); } } }, icon('trash'))))
     : [h('div', { class: 'empty-state' }, h('h3', {}, 'No scheduled tasks yet'), h('p', { class: 'muted' }, 'Scheduled tasks run automatically on their configured schedule.'))]));
 }
 
@@ -437,7 +441,7 @@ function newTaskSheet() {
     const d = new Date(Date.now() + 3600_000); d.setMinutes(0);
     const start = h('input', { class: 'input', type: 'datetime-local', 'aria-label': 'Starts', value: new Date(d - d.getTimezoneOffset() * 60000).toISOString().slice(0, 16) });
     const tz = h('input', { class: 'input', 'aria-label': 'Time zone', value: Intl.DateTimeFormat().resolvedOptions().timeZone });
-    const ws = h('select', { class: 'input', 'aria-label': 'Workspace' }, [['work', 'Co Approx'], ['code', 'Code'], ['education', 'Education']].map(([v, l]) => h('option', { value: v }, l)));
+    const ws = h('select', { class: 'input', 'aria-label': 'Workspace' }, [['work', 'Approx Work'], ['code', 'Approx Code'], ['education', 'Education']].map(([v, l]) => h('option', { value: v }, l)));
     const tools = [['session_files', 'Session files'], ['research_urls', 'Research (URL sources)'], ['artifacts', 'Artifacts'], ['code_repository', 'Code repository']].map(([v, l]) => [v, h('input', { type: 'checkbox', 'aria-label': l }), l]);
     const en = h('input', { type: 'checkbox', checked: true, 'aria-label': 'Enabled' });
     const msg = h('div', {});
@@ -479,4 +483,19 @@ export async function artifactsPage() {
       location.hash = `#/workspace/${r.artifact.id}`;
     } }, icon('plus'), 'Create artifact')));
   await load();
+}
+
+/** "Connect with Claude": the honest state of the two different things this can mean. */
+async function connectClaude() {
+  const st = await api('/api/integrations').catch(() => null);
+  sheet('Connect with Claude', (s) => {
+    s.append(
+      h('h3', {}, 'Claude as a model inside Approx Code'),
+      st?.claude?.configured
+        ? h('p', { class: 'alert ok' }, 'Configured on this server: an operator has added an Anthropic API key (it stays on the server).')
+        : h('p', {}, 'Not connected. An Approx administrator must add an Anthropic API key to the server configuration (ANTHROPIC_API_KEY on Vercel). The key is never stored in the app or the browser.'),
+      h('h3', {}, 'Claude Code (separate product)'),
+      h('p', { class: 'small muted' }, 'Claude Code by Anthropic works on your own GitHub repository in its own cloud sessions. It is separate from Approx and from Approx\u2019s own models; signing in happens on claude.ai.'),
+      h('a', { class: 'btn block', href: 'https://claude.ai/code', target: '_blank', rel: 'noopener' }, 'Open Claude Code'));
+  });
 }

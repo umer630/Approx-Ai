@@ -146,3 +146,7 @@ table.adm-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 .adm-table tbody tr.static { cursor: default; }
 .danger-text { color: var(--danger); }
 .actions.spaced { margin-top: 12px; }
+
+.steps { display: flex; flex-wrap: wrap; gap: 4px; }
+.row-wrap { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 8px 0; }
+.row-wrap .input { max-width: 260px; }

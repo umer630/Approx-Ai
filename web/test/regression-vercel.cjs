@@ -81,7 +81,7 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     // Sign-up screen: Google button (disabled: no client ID configured here), password toggle, confirm password, sign-in link.
     await p.goto(BASE + '/#/signup', { waitUntil: 'networkidle' }); await p.waitForTimeout(400);
     ok('signup: "Create your Approx account" with Name, Email, Password, Confirm', (await p.locator('.auth-card').innerText()).includes('Create your Approx account') && await p.locator('#name').count() === 1);
-    ok('signup: Continue with Google shown (disabled without a configured client ID)', await p.locator('.google-btn[disabled]').count() === 1 && (await p.locator('.google-slot').innerText()).includes('isn’t set up'));
+    ok('signup: no dead "Continue with Google" button when Google sign-in is not configured', await p.locator('.google-btn').count() === 0 && await p.locator('.google-slot').count() === 0);
     ok('signup: confirm password field', await p.locator('#password2').count() === 1);
     await p.locator('#password').fill('abc');
     await p.locator('[aria-controls="password"]').click();
@@ -201,8 +201,8 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     ok('send button is Approx green', await p.locator('.round.send').evaluate((b) => getComputedStyle(b).backgroundColor) === 'rgb(14, 159, 85)');
     ok('desktop: sidebar drawer visible', await p.locator('#drawer').isVisible());
     const menuItems = await p.locator('#drawer .drawer-link').evaluateAll((as) => as.map((a) => a.innerText.replace(/\d+$/, '').trim()));
-    ok('menu = central navigation: Home, Projects, Code, Co Approx, Education, Artifacts, Scheduled, Sessions, Files, Settings',
-      ['Home', 'Projects', 'Code', 'Co Approx', 'Education', 'Artifacts', 'Scheduled', 'Sessions', 'Files', 'Settings'].every((n, i) => menuItems.includes(n)), menuItems.join(','));
+    const MENU = ['New chat', 'History', 'Search conversations', 'Projects', 'Approx Code', 'Approx Work', 'Education', 'Artifacts', 'Scheduled tasks', 'Sessions', 'Files', 'Connected tools', 'Settings', 'Help and support'];
+    ok(`menu = central navigation: ${MENU.join(', ')}`, MENU.every((n) => menuItems.includes(n)), menuItems.join(','));
     const drawerText = await p.locator('#drawer').innerText();
     ok('menu: Recents section (no "Recent tasks"/"Other tasks")', /recents/i.test(drawerText) && !/recent tasks|other tasks/i.test(drawerText));
     ok('no bottom navigation bar anywhere', await p.locator('nav.bottom-nav').count() === 0);
@@ -219,7 +219,7 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     await p.screenshot({ path: path.join(S, 'v-02-model-picker.png') });
     if (await p.locator('.sheet').count()) await p.keyboard.press('Escape');
     await p.locator('[aria-label="Select model"]').click(); await p.waitForTimeout(300);
-    await p.locator('.sheet .option', { hasText: 'Nick 4.8' }).click(); await p.waitForTimeout(300);
+    await p.locator('.sheet .option', { hasText: /^\s*Nick 4\.8/ }).click(); await p.waitForTimeout(300);
     const chip = await p.locator('#model-chip').innerText();
     ok('selected model + mode stay visible in the composer chip', chip.includes('Nick 4.8') && chip.includes('High'), chip);
 
@@ -347,8 +347,8 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     ok('Billing shows the real plan and names the missing payment backend (no fake payments)', /Free/.test(await p.locator('#main').innerText()) && (await p.locator('#main').innerText()).includes('no payment provider'));
     await p.evaluate(() => { location.hash = '#/settings/capabilities'; }); await p.waitForTimeout(600);
     ok('Capabilities lists models with real availability', (await p.locator('#main').innerText()).includes('Nick 4.8') && (await p.locator('#main').innerText()).includes('Connectors'));
-    await p.evaluate(() => { location.hash = '#/settings/connectors'; }); await p.waitForTimeout(400);
-    ok('Connectors: nothing connected, no secrets shown', (await p.locator('#main').innerText()).includes('No services are connected') && !/sb_secret|service_role|api[_ ]?key\s*[:=]/i.test(await p.locator('#main').innerText()));
+    await p.evaluate(() => { location.hash = '#/settings/connectors'; }); await p.waitForTimeout(900);
+    ok('Connectors: nothing connected, no secrets shown', (await p.locator('#main').innerText()).includes('No third-party accounts are connected') && !/sb_secret|service_role|api[_ ]?key\s*[:=]/i.test(await p.locator('#main').innerText()));
     await p.evaluate(() => { location.hash = '#/settings/appearance'; }); await p.waitForTimeout(400);
     await p.locator('.option', { hasText: 'Dark' }).click(); await p.waitForTimeout(500);
     ok('Appearance → Dark applies and saves', await p.evaluate(() => document.documentElement.dataset.theme) === 'dark');
@@ -383,11 +383,11 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     ok('Model preferences offer Low / Medium / High', (await p.locator('#main select').nth(1).locator('option').allInnerTexts()).join(',') === 'Low,Medium,High');
     ok('navigation stayed in-page (no full reload)', await p.evaluate(() => window.__noReload) === 'still-here');
     await p.evaluate(() => { location.hash = '#/work'; }); await p.waitForTimeout(700);
-    ok('Co Approx: background tasks + artifacts', /background tasks/i.test(await p.locator('#main').innerText()) && /recent artifacts/i.test(await p.locator('#main').innerText()));
+    ok('Approx Work: background tasks + artifacts', /background tasks/i.test(await p.locator('#main').innerText()) && /recent artifacts/i.test(await p.locator('#main').innerText()));
     // Workspaces (API 1.9): New Session creates a server session; threads, tabs and resumption come from the backend.
     const wtext = await p.locator('#main').innerText();
-    ok('Co Approx workspace: New session, recent sessions, projects, tasks, files, outputs, connected apps',
-      ['Co Approx', 'New session', 'Recent sessions', 'Projects', 'Active tasks', 'Files', 'Outputs', 'Connected apps'].every((x) => wtext.toLowerCase().includes(x.toLowerCase())), wtext.slice(0, 200));
+    ok('Approx Work workspace: New session, recent sessions, projects, tasks, files, outputs, connected apps',
+      ['Approx Work', 'New session', 'Recent sessions', 'Projects', 'Active tasks', 'Files', 'Outputs', 'Connected apps'].every((x) => wtext.toLowerCase().includes(x.toLowerCase())), wtext.slice(0, 200));
     await p.locator('button.ws-new').click(); await p.waitForTimeout(500);
     await p.locator('.sheet input.input').first().fill('Launch plan'); await p.locator('.sheet button', { hasText: 'Start session' }).click(); await p.waitForTimeout(900);
     const sid1 = (location => location.match(/#\/s\/(ses_\w+)/)?.[1])(await p.evaluate(() => location.hash));
@@ -428,12 +428,29 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     ok('study plan → dated assignments with due-date pickers', await p.locator('input.due').count() === 3, String(await p.locator('input.due').count()));
     await p.waitForTimeout(2200); await p.evaluate(() => { location.hash = '#/w/education'; }); await p.waitForTimeout(900);   // any navigation refreshes the badge
     ok('menu: Settings shows the unread notification count', /^\d+$/.test((await p.locator('a[data-route="#/settings"] .count').innerText().catch(() => '')).trim()));
-    for (const [route, words] of [['#/w/code', ['Code', 'Devices', 'Add device', 'Sessions', 'New session']], ['#/w/education', ['Education', 'New study session', 'Courses & subjects', 'Progress']], ['#/sessions', ['Sessions', 'Recent', 'Active', 'Archived']], ['#/artifacts', ['Artifacts', 'Create artifact']], ['#/files', ['Files']]]) {
+    for (const [route, words] of [['#/w/code', ['Approx Code', 'Connect with Claude', 'Repositories', 'Devices', 'Add device', 'Sessions', 'New session']], ['#/w/education', ['Education', 'New study session', 'Courses & subjects', 'Progress']], ['#/sessions', ['Sessions', 'Recent', 'Active', 'Archived']], ['#/artifacts', ['Artifacts', 'Create artifact']], ['#/files', ['Files']]]) {
       await p.evaluate((r) => { location.hash = r; }, route); await p.waitForTimeout(700);
       const t = await p.locator('#main').innerText();
       ok(`page ${route}: ${words.join(', ')}`, words.every((w) => t.toLowerCase().includes(w.toLowerCase())), t.slice(0, 160));
       await p.screenshot({ path: path.join(S, `v-ws-${route.replace(/\W+/g, '-')}.png`) });
     }
+    await p.evaluate(() => { location.hash = '#/settings'; }); await p.waitForTimeout(500);
+    const setTxt = await p.locator('#main').innerText();
+    ok('Settings grouped: Your account / Preferences / Notifications / AI settings / Connected services / Privacy and data / Billing and usage / Help',
+      ['YOUR ACCOUNT', 'PREFERENCES', 'NOTIFICATIONS', 'AI SETTINGS', 'CONNECTED SERVICES', 'PRIVACY AND DATA', 'BILLING AND USAGE', 'HELP'].every((g) => setTxt.toUpperCase().includes(g)), setTxt.slice(0, 200));
+    await p.evaluate(() => { location.hash = '#/settings/about'; }); await p.waitForTimeout(1500);
+    const about = await p.locator('#main').innerText();
+    ok('About & updates: installed version, latest release status, check button', /Installed version/.test(about) && /Latest release/.test(about) && /Check for updates/.test(about), about.slice(0, 300));
+    await p.evaluate(() => { location.hash = '#/settings/connectors'; }); await p.waitForTimeout(900);
+    const con = await p.locator('#main').innerText();
+    ok('Connected services: live Lala 3.5 + Claude status (no fake connected)', /Lala 3\.5 \(Ollama\)/.test(con) && /Offline/.test(con) && /Claude \(Anthropic\)/.test(con) && /Not configured/.test(con), con.slice(0, 300));
+    await p.evaluate(() => { location.hash = '#/history'; }); await p.waitForTimeout(900);
+    ok('History grouped by date', /Today/.test(await p.locator('#main').innerText()));
+    await p.evaluate(() => { location.hash = '#/w/code'; }); await p.waitForTimeout(800);
+    await p.locator('button', { hasText: 'Connect with Claude' }).click(); await p.waitForTimeout(600);
+    const cl = await p.locator('.sheet').innerText().catch(() => '');
+    ok('Connect with Claude: honest server status + separate Claude Code link', /Not connected/.test(cl) && /ANTHROPIC_API_KEY/.test(cl) && await p.locator('.sheet a[href="https://claude.ai/code"]').count() === 1, cl.slice(0, 200));
+    await p.keyboard.press('Escape'); await p.waitForTimeout(200);
     // Scheduled: honest empty state, create a task (saved on the server), Run now creates a real session.
     await p.evaluate(() => { location.hash = '#/schedule'; }); await p.waitForTimeout(600);
     const sch0 = await p.locator('#main').innerText();
@@ -575,11 +592,11 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     await mp.locator('[aria-label="Voice input"]').tap(); await mp.waitForTimeout(400);
     ok('voice: speech result goes into the composer', (await mp.locator('#prompt').inputValue()).includes('MySQL database'));
     await mp.screenshot({ path: path.join(S, 'v-09-mobile.png') });
-    await mp.locator('[aria-label="Open menu"]').tap(); await mp.waitForTimeout(300); await mp.locator('#drawer .drawer-link', { hasText: 'Co Approx' }).tap(); await mp.waitForTimeout(700);
-    ok('mobile: menu → Co Approx (New session prominent)', await mp.locator('.ws-new').isVisible());
+    await mp.locator('[aria-label="Open menu"]').tap(); await mp.waitForTimeout(300); await mp.locator('#drawer .drawer-link', { hasText: 'Approx Work' }).tap(); await mp.waitForTimeout(700);
+    ok('mobile: menu → Approx Work (New session prominent)', await mp.locator('.ws-new').isVisible());
     ok('mobile: workspace page has no horizontal overflow', await mp.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1));
     await mp.screenshot({ path: path.join(S, 'v-09-mobile-work.png') });
-    await mp.locator('[aria-label="Open menu"]').tap(); await mp.waitForTimeout(300); await mp.locator('#drawer .drawer-link', { hasText: 'Settings' }).tap(); await mp.waitForTimeout(600);
+    await mp.locator('[aria-label="Open menu"]').tap(); await mp.waitForTimeout(300); await mp.locator('#drawer a[data-route="#/settings"]').tap(); await mp.waitForTimeout(600);
     ok('mobile: menu → Settings', await mp.locator('.settings-list').count() >= 1);
     await mp.screenshot({ path: path.join(S, 'v-10-mobile-settings.png') });
     // Log out and sign in again.

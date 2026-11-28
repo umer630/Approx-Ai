@@ -13,15 +13,20 @@ const modelName = (id) => state.models.find((m) => m.id === id)?.name || id;
 const errBox = (e) => h('div', { class: 'alert error' }, e.message);
 
 // ================= HISTORY =================
-export async function historyPage() {
-  let view = 'active'; let before = null; let loading = false; let more = true; let token = 0;
+const dayGroup = (ts) => {
+  const d = new Date(ts); const t0 = new Date(); t0.setHours(0, 0, 0, 0);
+  const diff = Math.floor((t0 - new Date(d.getFullYear(), d.getMonth(), d.getDate())) / 86_400_000);
+  return diff <= 0 ? 'Today' : diff === 1 ? 'Yesterday' : diff < 7 ? 'Previous 7 days' : diff < 30 ? 'Previous 30 days' : d.toLocaleDateString(undefined, { month: 'long', year: 'numeric' });
+};
+export async function historyPage({ focusSearch = false } = {}) {
+  let view = 'active'; let before = null; let loading = false; let more = true; let token = 0; let lastGroup = null;
   const q = h('input', { class: 'input search', type: 'search', placeholder: 'Search sessions', 'aria-label': 'Search conversations' });
   const tabs = h('div', { class: 'tabs', role: 'tablist' });
   const list = h('div', { class: 'list' });
   const sentinel = h('div', { class: 'sentinel' });
   const row = (c) => h('div', { class: 'list-item' },
     h('button', { class: 'grow list-open', onclick: () => { if (view !== 'trash') go(`#/c/${c.id}`); }, 'aria-label': `Open ${c.title}` },
-      h('div', { class: 'title' }, c.title), h('div', { class: 'sub' }, `${modelName(c.model_id)} · ${fmtTime(c.updated_at)}`)),
+      h('div', { class: 'title' }, c.title, state.chat?.id === c.id ? h('span', { class: 'badge green ml6' }, 'Open') : null), h('div', { class: 'sub' }, `${modelName(c.model_id)} · ${fmtTime(c.updated_at)}`)),
     view === 'trash'
       ? [h('button', { class: 'icon-btn', title: 'Restore', 'aria-label': 'Restore', onclick: async () => { await api(`/api/chats/${c.id}`, { method: 'PATCH', body: { restore: true } }); toast('Restored'); refreshRecent(true); reload(); } }, icon('restore')),
         h('button', { class: 'icon-btn', title: 'Delete forever', 'aria-label': 'Delete forever', onclick: async () => { if (await confirmDialog('Delete forever?', 'This permanently deletes the session.', 'Delete', true)) { await api(`/api/chats/${c.id}?purge=1`, { method: 'DELETE' }); reload(); } } }, icon('trash'))]
@@ -37,11 +42,15 @@ export async function historyPage() {
       if (my !== token) return;
       if (!before) list.replaceChildren();
       if (!before && !r.chats.length) list.append(h('p', { class: 'muted empty' }, q.value ? 'No sessions match your search.' : view === 'trash' ? 'Trash is empty.' : view === 'archived' ? 'No archived sessions.' : 'No sessions yet — start one from Chat.'));
-      list.append(...r.chats.map(row));
+      for (const c of r.chats) {
+        const g = view === 'trash' ? null : dayGroup(c.updated_at);
+        if (g && g !== lastGroup) { list.append(h('div', { class: 'date-group' }, g)); lastGroup = g; }
+        list.append(row(c));
+      }
       more = r.has_more; before = r.chats.at(-1)?.updated_at || before;
     } catch (e) { list.replaceChildren(errBox(e)); } finally { loading = false; }
   };
-  const reload = () => { token++; before = null; more = true; loading = false; loadMore(); };
+  const reload = () => { token++; before = null; more = true; loading = false; lastGroup = null; loadMore(); };
   for (const [k, label] of [['active', 'Recent'], ['tasks', 'Background tasks'], ['archived', 'Archived'], ['trash', 'Trash']]) {
     tabs.append(h('button', { role: 'tab', 'aria-selected': String(k === view), onclick: (e) => { view = k; for (const b of tabs.children) b.setAttribute('aria-selected', String(b === e.currentTarget)); q.classList.toggle('hidden', k === 'tasks'); reload(); } }, label));
   }
@@ -49,6 +58,7 @@ export async function historyPage() {
   setMain(h('div', { class: 'page' }, pageHead('History', 'Your sessions, background tasks and archive.'), q, tabs, list, sentinel));
   new IntersectionObserver((es) => { if (es.some((x) => x.isIntersecting)) loadMore(); }, { root: document.getElementById('main'), rootMargin: '300px' }).observe(sentinel);
   loadMore();
+  if (focusSearch) setTimeout(() => q.focus(), 50);
 }
 
 // ================= BACKGROUND TASKS =================
@@ -119,17 +129,21 @@ const SECTIONS = [
   ['connectors', 'link', 'Connectors', 'Connected services'], ['notifications', 'bell', 'Notifications', 'Emails and inbox'],
   ['security', 'lock', 'Security', 'Password, two-step verification, email, sessions'], ['appearance', 'palette', 'Appearance', 'Theme, text size, start screen'],
   ['workspaces', 'layers', 'Workspaces', 'Work, Code and Education preferences'], ['data', 'archive', 'Data controls', 'Retention, archive, delete, export'],
-  ['account', 'account', 'Account', 'Memory, data, API, delete'], ['help', 'help', 'Help & Support', 'Feedback and app info'],
+  ['account', 'account', 'Account', 'Memory, data, API, delete'], ['help', 'help', 'Help & Support', 'Documentation, contact, report a problem'],
+  ['models', 'spark', 'AI settings', 'Default model, routing, streaming, fallback'], ['about', 'info', 'About & updates', 'Version, updates, build'],
 ];
-const EXTRA = { memory: 'Memory', personalization: 'Personalization', models: 'Model preferences', privacy: 'Privacy & data', api: 'Developer API', delete: 'Delete account', email: 'Email' };
+const GROUPS = [['Your account', ['profile', 'security', 'account']], ['Preferences', ['appearance', 'workspaces', 'code']], ['Notifications', ['notifications']],
+  ['AI settings', ['models', 'capabilities']], ['Connected services', ['connectors']], ['Privacy and data', ['data']], ['Billing and usage', ['billing', 'usage']],
+  ['Help', ['help', 'about']]];
+const EXTRA = { memory: 'Memory', personalization: 'Personalization', privacy: 'Privacy & data', api: 'Developer API', delete: 'Delete account', email: 'Email' };
 
 export function settingsHome() {
   const u = state.user;
   setMain(h('div', { class: 'page settings-home' }, pageHead('Settings'),
     h('a', { class: 'profile-card', href: '#/settings/profile' }, h('span', { class: 'avatar lg' }, (u.display_name || u.email)[0].toUpperCase()),
       h('div', { class: 'grow' }, h('b', {}, u.display_name || u.email.split('@')[0]), h('div', { class: 'small muted' }, u.email)), h('span', { class: 'badge green' }, `${u.plan}`)),
-    h('div', { class: 'settings-list' }, SECTIONS.map(([k, ic, label, sub]) => h('a', { class: 'settings-row', href: `#/settings/${k}` },
-      h('span', { class: 'settings-icon' }, icon(ic)), h('span', { class: 'grow' }, h('span', { class: 'title' }, label), h('span', { class: 'sub' }, sub)), icon('chevron')))),
+    ...GROUPS.flatMap(([g, keys]) => [h('div', { class: 'settings-group' }, g), h('div', { class: 'settings-list' }, keys.map((k) => SECTIONS.find((x) => x[0] === k)).map(([k, ic, label, sub]) => h('a', { class: 'settings-row', href: `#/settings/${k}` },
+      h('span', { class: 'settings-icon' }, icon(ic)), h('span', { class: 'grow' }, h('span', { class: 'title' }, label), h('span', { class: 'sub' }, sub)), icon('chevron'))))]),
     h('button', { class: 'settings-row signout', onclick: signOut }, h('span', { class: 'settings-icon' }, icon('logout')), h('span', { class: 'grow' }, h('span', { class: 'title' }, 'Log out')))));
 }
 async function signOut() {
@@ -273,7 +287,14 @@ const PAGES = {
     } catch (e) { list.replaceChildren(errBox(e)); }
   },
   async connectors(b) {
-    b.append(h('h2', { class: 'section' }, 'Connected'), h('p', { class: 'muted' }, 'No services are connected to your account.'),
+    const st = await api('/api/integrations').catch(() => null);
+    const badge = (ok, on, off) => h('span', { class: `badge ${ok ? 'green' : ''}` }, ok ? on : off);
+    if (st) b.append(h('h2', { class: 'section' }, 'Approx services'), h('div', { class: 'list' },
+      h('div', { class: 'list-item static' }, icon('spark'), h('span', { class: 'grow' }, h('div', { class: 'title' }, 'Lala 3.5 (Ollama)'), h('div', { class: 'sub' }, st.lala.detail)), badge(st.lala.ok, 'Online', 'Offline')),
+      h('div', { class: 'list-item static' }, icon('link'), h('span', { class: 'grow' }, h('div', { class: 'title' }, 'Claude (Anthropic)'), h('div', { class: 'sub' }, st.claude.configured ? 'API key configured on the server' : 'Not configured — needs ANTHROPIC_API_KEY on the server')), badge(st.claude.configured, 'Configured', 'Not configured')),
+      h('div', { class: 'list-item static' }, icon('code'), h('span', { class: 'grow' }, h('div', { class: 'title' }, 'Your computers (device agent)'), h('div', { class: 'sub' }, `${st.devices.connected} connected`)), h('a', { class: 'btn small', href: '#/w/code' }, 'Manage')),
+      st.supabase ? h('div', { class: 'list-item static' }, icon('lock'), h('span', { class: 'grow' }, h('div', { class: 'title' }, 'Supabase Auth (admin diagnostics)'), h('div', { class: 'sub' }, st.supabase.detail)), badge(st.supabase.ok, 'Reachable', 'Problem')) : null));
+    b.append(h('h2', { class: 'section' }, 'Connected'), h('p', { class: 'muted' }, 'No third-party accounts are connected to your account.'),
       h('h2', { class: 'section' }, 'Built in (always on)'), h('div', { class: 'list' }, [['File attachments', 'file'], ['Research (URL sources)', 'search'], ['Approx Code', 'code'], ['Artifacts', 'layers'], ['Projects', 'folder']]
         .map(([t, ic]) => h('div', { class: 'list-item static' }, icon(ic), h('span', { class: 'grow' }, t), h('span', { class: 'badge green' }, 'On')))),
       h('h2', { class: 'section' }, 'Third-party services'), h('div', { class: 'list' }, ['Google Drive', 'GitHub', 'Gmail', 'Google Calendar', 'Slack']
@@ -296,7 +317,8 @@ const PAGES = {
     b.append(
       sw('Task and code updates', 'In-app notifications when a plan or quiz is ready and when code changes wait for your review.', s.notify_task_updates, (v) => patch({ notify_task_updates: v })),
       sw('Email me a copy', 'Also email the notifications above.', s.notifications_email, (v) => patch({ notifications_email: v })),
-      h('p', { class: 'small muted' }, 'Security notifications (new sign-in, password or two-step verification changes) are always shown and emailed.'),
+      browserNotifSwitch(),
+      h('p', { class: 'small muted' }, 'Security notifications (new sign-in, password or two-step verification changes) are always shown and emailed. Email verification and password reset always use email — never browser notifications.'),
       h('div', { class: 'row' }, unread,
         h('button', { class: 'btn small', onclick: async () => { await api('/api/notifications/read-all', { method: 'POST' }); load(); } }, 'Mark all read'),
         h('button', { class: 'btn small', onclick: async () => { if (await confirmDialog('Clear all notifications?', 'Your inbox will be emptied.', 'Clear', true)) { await api('/api/notifications', { method: 'DELETE' }); load(); } } }, 'Clear all')),
@@ -393,6 +415,23 @@ const PAGES = {
     b.append(h('h2', { class: 'section' }, 'Email address'));
     await SETTINGS.email(b);
   },
+  async about(b) {
+    const [v, rel] = await Promise.all([api('/api/version').catch(() => ({})), api('/api/releases/latest').catch((e) => ({ error: e.message }))]);
+    const cur = v.versions?.product || '—';
+    const newer = rel.available && rel.version && cmpVer(rel.version, cur) > 0;
+    b.append(h('dl', { class: 'kv card' },
+      h('dt', {}, 'App'), h('dd', {}, 'Approx (web)'),
+      h('dt', {}, 'Installed version'), h('dd', {}, cur),
+      h('dt', {}, 'Latest release'), h('dd', {}, rel.available ? `${rel.version} · ${new Date(rel.published_at).toLocaleDateString()}` : (rel.reason || rel.error || 'No published release yet')),
+      h('dt', {}, 'Update status'), h('dd', {}, rel.available ? (newer ? 'A newer version is published — the web app updates on reload.' : 'Up to date') : '—'),
+      h('dt', {}, 'Last checked'), h('dd', {}, new Date().toLocaleString()),
+      h('dt', {}, 'Build'), h('dd', {}, `${v.build_id || 'unknown'} · API ${v.versions?.api_contract || '—'}`)),
+      rel.available ? h('div', { class: 'list' },
+        rel.android?.url ? h('a', { class: 'list-item', href: rel.android.url }, icon('download'), h('span', { class: 'grow' }, h('div', { class: 'title' }, 'Approx for Android (Approx.apk)'), h('div', { class: 'sub mono' }, `SHA-256 ${rel.android.sha256 || 'not published'}`))) : null,
+        rel.windows?.url ? h('a', { class: 'list-item', href: rel.windows.url }, icon('download'), h('span', { class: 'grow' }, h('div', { class: 'title' }, 'Approx for Windows (Approx.exe)'), h('div', { class: 'sub mono' }, `SHA-256 ${rel.windows.sha256 || 'not published'}`))) : null) : null,
+      rel.notes ? h('details', { class: 'card' }, h('summary', {}, 'Release notes'), h('pre', { class: 'small pre-wrap' }, rel.notes)) : null,
+      h('button', { class: 'btn', onclick: () => settingsSection('about') }, 'Check for updates'));
+  },
   async help(b) {
     const v = await api('/api/health').catch(() => ({}));
     b.append(h('div', { class: 'settings-list' },
@@ -403,3 +442,22 @@ const PAGES = {
   },
 };
 void fmtBytes; void newChat;
+
+function cmpVer(a, b) { const x = String(a).split('.').map(Number); const y = String(b).split('.').map(Number); for (let i = 0; i < 3; i++) { if ((x[i] || 0) !== (y[i] || 0)) return (x[i] || 0) - (y[i] || 0); } return 0; }
+
+/** Browser notifications: an opt-in per browser. Granted → new Approx notifications also appear as system notifications. */
+function browserNotifSwitch() {
+  if (!('Notification' in window)) return h('p', { class: 'small muted' }, 'This browser does not support notifications.');
+  let on = false; try { on = localStorage.getItem('approx.browserNotify') === '1' && Notification.permission === 'granted'; } catch { /* storage blocked */ }
+  const note = h('div', { class: 'small muted' }, Notification.permission === 'denied' ? 'Blocked in this browser — allow notifications for this site in the browser settings.' : '');
+  const inp = h('input', { type: 'checkbox', role: 'switch', checked: on, disabled: Notification.permission === 'denied', 'aria-label': 'Browser notifications' });
+  inp.addEventListener('change', async () => {
+    if (inp.checked) {
+      const p = await Notification.requestPermission();
+      if (p !== 'granted') { inp.checked = false; note.textContent = p === 'denied' ? 'Blocked in this browser — allow notifications for this site in the browser settings.' : 'Permission was not granted.'; return; }
+    }
+    try { localStorage.setItem('approx.browserNotify', inp.checked ? '1' : '0'); } catch { /* ignore */ }
+    toast(inp.checked ? 'Browser notifications on' : 'Browser notifications off');
+  });
+  return h('label', { class: 'switch' }, h('div', {}, h('div', {}, 'Browser notifications'), h('div', { class: 'small muted' }, 'Show new Approx notifications as system notifications in this browser.'), note), inp);
+}

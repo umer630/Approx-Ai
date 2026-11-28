@@ -6,6 +6,14 @@ import { publicModelState } from './registry.js';
 import { servingVersion, upstreamHealth, backendStatus, upstreamFor } from './providers/index.js';
 import { config } from './config.js';
 import { lifecycleOf, lifecycleView, gateServed } from './lifecycle.js';
+import { effectiveDefault, lalaVisible, LALA, NICK } from './transform.js';
+
+/** Lala 3.5 when it is the temporary default (or covering for a degraded Nick 4.8) AND actually healthy, else null. */
+async function lalaStandIn() {
+  if (await effectiveDefault() !== LALA) return null;
+  const m = await getModel(LALA);
+  return m && m.available !== 0 && await servingVersion(m) ? m : null;
+}
 
 // Efficiency modes (low / medium / high) are a separate control from the model: they come from the
 // catalog and change real inference parameters (token budget, temperature, context size, guidance).
@@ -68,6 +76,7 @@ export async function modelsForUser(user) {
     const c = catalogModel(m.id) || {};
     const available = await canUseModel(user, m);
     if (isPrivateModel(m) && !available) return null;   // private models are invisible without a grant
+    if (m.id === LALA && !(await lalaVisible()) && user.role !== 'superadmin') return null;   // kept only as internal fallback
     const st = await modelStatus(m);
     return {
       id: m.id, name: m.name, family: m.family, tier: m.tier, description: m.description,
@@ -165,6 +174,11 @@ export async function route(user, { requestedModel = 'auto', requestedMode, requ
     if (!m || (isPrivateModel(m) && !await canUseModel(user, m))) throw bad(`Unknown model '${requestedModel}'`, 'unknown_model');
     if (!await canUseModel(user, m)) throw forbidden(`Your account does not have access to ${m.name}`, 'model_access_denied');
     if (m.available === 0) throw new HttpError(503, 'model_disabled', `${m.name} is currently disabled by an administrator`);
+    // Nick 4.8 not deployed yet (or degraded): the temporary default answers, and the reply says which model it was.
+    if (m.id === NICK && !requestedVersion) {
+      const lala = await lalaStandIn();
+      if (lala && await canUseModel(user, lala)) return { model: lala, mode, version: await servingVersion(lala), task, safety, reason: 'temporary default: Nick 4.8 is not active yet — answered by Lala 3.5' };
+    }
     return { model: m, mode, version: await servingVersion(m, requestedVersion), task, safety, reason: 'user-selected' };
   }
 
@@ -175,6 +189,8 @@ export async function route(user, { requestedModel = 'auto', requestedMode, requ
   if (task.types.includes('security') && task.complexity >= 3) want.push(...byRole('advanced-general'));
   if (task.types.some((t) => ['security', 'webdev', 'analytics'].includes(t))) want.push(...byRole('web-security-analytics'));
   if (task.complexity >= 2 || ['code', 'math'].includes(task.primary) && task.complexity >= 1) want.push(...byRole('complex'));
+  const stand = await lalaStandIn();
+  if (stand) want.push(stand.id);
   want.push(defaultModel, ...byRole('everyday'));
   // Pick the most suitable permitted model that can answer right now (an untrained / not-yet-active model is
   // skipped). If none can, return the first permitted one so the caller gets that model's honest "unavailable" error.

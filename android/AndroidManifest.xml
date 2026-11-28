@@ -8,6 +8,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- In-app updates: Android still asks the person to confirm every install. -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <uses-feature android:name="android.hardware.microphone" android:required="false" />
     <queries>
         <intent><action android:name="android.speech.RecognitionService" /></intent>
@@ -41,5 +43,6 @@
                 <data android:scheme="approxai" android:host="auth" />
             </intent-filter>
         </activity>
+        <provider android:name=".UpdateFileProvider" android:authorities="com.approxtech.ai.updates" android:exported="false" android:grantUriPermissions="true" />
     </application>
 </manifest>

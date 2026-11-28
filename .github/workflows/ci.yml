@@ -1,0 +1,35 @@
+# Continuous integration: every push and pull request. A red run blocks the release workflow (it re-runs these checks).
+name: CI
+on:
+  push:
+  pull_request:
+  workflow_call:
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - name: Versions agree across platforms
+        run: node scripts/bump-version.mjs check
+      - name: Syntax check (backend, web, desktop)
+        run: |
+          set -e
+          for f in $(git ls-files 'backend/src/*.js' 'backend/src/**/*.js' 'web/js/*.js' 'web/admin/*.js' 'web/tools/*.mjs' 'desktop/*.js' 'api/*.js'); do node --check "$f"; done
+      - name: Secret scan (no keys, keystores or env files committed)
+        run: |
+          set -e
+          if git ls-files | grep -E '(^|/)\.env($|\.)|\.jks$|\.keystore$|\.p12$|\.pfx$' | grep -v '\.env\.example$'; then echo "::error::secret-like file committed"; exit 1; fi
+          if git grep -nE 'sb_secret_[A-Za-z0-9_-]{10,}|service_role"?\s*[:=]\s*"ey|sk-ant-[A-Za-z0-9_-]{20,}|sk-[A-Za-z0-9]{40,}|-----BEGIN (RSA |EC )?PRIVATE KEY-----' -- ':!*.md' ':!.github/workflows/ci.yml'; then echo "::error::possible secret in source"; exit 1; fi
+      - name: Backend tests
+        working-directory: backend
+        run: npm ci && npm test
+      - name: Vercel simulation tests
+        run: npm run test:vercel
+      - name: Desktop updater tests
+        working-directory: desktop
+        run: npm test

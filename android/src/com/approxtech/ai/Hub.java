@@ -92,7 +92,7 @@ final class Hub {
     void code() { code("all", null); }
 
     void code(final String filter, final String q) {
-        final LinearLayout col = page("Code", "◷", "Session history", new Runnable() { public void run() { history("code", "recent"); } });
+        final LinearLayout col = page("Approx Code", "◷", "Session history", new Runnable() { public void run() { history("code", "recent"); } });
         col.addView(header("Devices"));
         final LinearLayout devices = a.vbox();
         col.addView(devices);
@@ -283,7 +283,7 @@ final class Hub {
         a.add(col, search, 10);
         HorizontalScrollView t2 = new HorizontalScrollView(a); t2.setHorizontalScrollBarEnabled(false);
         LinearLayout ws = a.hbox();
-        for (final String[] k : new String[][]{{"", "All"}, {"work", "Co Approx"}, {"code", "Code"}, {"education", "Education"}}) {
+        for (final String[] k : new String[][]{{"", "All"}, {"work", "Approx Work"}, {"code", "Approx Code"}, {"education", "Education"}}) {
             TextView c = a.ws.chip(k[1], k[0].equals(kind == null ? "" : kind));
             c.setOnClickListener(new View.OnClickListener() { public void onClick(View x) { history(k[0].length() == 0 ? null : k[0], view, search.getText().toString()); } });
             ws.addView(c);
@@ -401,7 +401,7 @@ final class Hub {
         final LinearLayout runs = a.vbox();
         col.addView(runs);
         a.add(col, a.button("Delete task", false, new Runnable() { public void run() {
-            a.confirm("Delete this scheduled task?", "Its past sessions stay in Co Approx.", new Runnable() { public void run() { a.call("DELETE", "/api/scheduled/" + t.optString("id"), null, new Runnable() { public void run() { scheduled(); } }); } });
+            a.confirm("Delete this scheduled task?", "Its past sessions stay in Approx Work.", new Runnable() { public void run() { a.call("DELETE", "/api/scheduled/" + t.optString("id"), null, new Runnable() { public void run() { scheduled(); } }); } });
         } }), 24);
         a.bg(new MainActivity.Job() { public Object run() throws Exception { return a.api.get("/api/scheduled/" + t.optString("id") + "/runs"); } }, new MainActivity.Done() { public void ok(Object r) {
             JSONArray rs = ((JSONObject) r).optJSONArray("runs");
@@ -485,7 +485,7 @@ final class Hub {
 
     // ================================================================= Co Approx: run a task in a session (continues if you leave)
     void runTask() {
-        final EditText ins = a.input("What should Co Approx do?", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+        final EditText ins = a.input("What should Approx Work do?", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
         ins.setMinLines(3);
         new AlertDialog.Builder(a, android.R.style.Theme_Material_Light_Dialog_Alert).setTitle("Run a task").setView(a.ws.pad(ins))
                 .setMessage("The task runs on the Approx server in this session. You can leave — the result stays in the session and you get a notification.")
@@ -498,7 +498,7 @@ final class Hub {
                             final JSONObject r = a.api.post("/api/work-sessions/" + sid + "/run", b);
                             a.ui.post(new Runnable() { public void run() {
                                 if (a.ws.session != null && sid.equals(a.ws.session.optString("id"))) a.ws.open(sid, r.optJSONObject("agent_run").optString("thread_id"));
-                                else a.toast("Co Approx task finished — open it from Recents");
+                                else a.toast("Approx Work task finished — open it from Recents");
                             } });
                         } catch (final Exception e) { a.ui.post(new Runnable() { public void run() { a.handleError(e); } }); }
                     } });

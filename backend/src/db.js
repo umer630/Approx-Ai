@@ -687,6 +687,36 @@ async function migrate(c) {
     stmts.push({ sql: 'CREATE UNIQUE INDEX IF NOT EXISTS idx_artifacts_share ON artifacts(share_token)' });
     await apply('2026-11-devices-scheduled', stmts);
   }
+  if (!applied.has('2026-11-lala-transform')) {
+    // Lala 3.5 (Ollama via the owner's gateway device), the server-side model registry, the Lala → Nick 4.8
+    // transformation state machine, its log, model incidents (fallback / recovery) and gateway inference jobs.
+    const stmts = [
+      { sql: `CREATE TABLE IF NOT EXISTS model_registry (model_id TEXT PRIMARY KEY, display_name TEXT NOT NULL, provider TEXT NOT NULL, model_tag TEXT,
+        status TEXT NOT NULL DEFAULT 'configured', priority INTEGER NOT NULL DEFAULT 100, activation_state TEXT NOT NULL DEFAULT 'inactive',
+        health_status TEXT NOT NULL DEFAULT 'unknown', deployment_version TEXT, activated_at INTEGER, last_health_check INTEGER,
+        fallback_enabled INTEGER NOT NULL DEFAULT 0, gateway_device_id TEXT REFERENCES devices(id) ON DELETE SET NULL, updated_at INTEGER NOT NULL)` },
+      { sql: `CREATE TABLE IF NOT EXISTS model_transform (id INTEGER PRIMARY KEY CHECK (id = 1), state TEXT NOT NULL, nick_health TEXT NOT NULL DEFAULT 'inactive',
+        nick_version TEXT, nick_activated_at INTEGER, fallback_active INTEGER NOT NULL DEFAULT 0, consecutive_failures INTEGER NOT NULL DEFAULT 0,
+        consecutive_successes INTEGER NOT NULL DEFAULT 0, degraded_at INTEGER, last_switch_at INTEGER, gate_error TEXT, updated_at INTEGER NOT NULL)` },
+      { sql: `CREATE TABLE IF NOT EXISTS model_transform_log (id INTEGER PRIMARY KEY AUTOINCREMENT, from_state TEXT NOT NULL, to_state TEXT NOT NULL,
+        reason TEXT, created_at INTEGER NOT NULL)` },
+      { sql: `CREATE TABLE IF NOT EXISTS model_incidents (id INTEGER PRIMARY KEY AUTOINCREMENT, kind TEXT NOT NULL, reason TEXT NOT NULL, action TEXT NOT NULL,
+        detail TEXT, created_at INTEGER NOT NULL)` },
+      { sql: `CREATE TABLE IF NOT EXISTS inference_jobs (id TEXT PRIMARY KEY, device_id TEXT NOT NULL REFERENCES devices(id) ON DELETE CASCADE, model_tag TEXT NOT NULL,
+        op TEXT NOT NULL CHECK (op IN ('chat','load','unload')), payload TEXT NOT NULL, status TEXT NOT NULL CHECK (status IN ('queued','running','completed','failed','cancelled')),
+        text TEXT NOT NULL DEFAULT '', seq INTEGER NOT NULL DEFAULT 0, error TEXT, usage TEXT, created_at INTEGER NOT NULL, started_at INTEGER, finished_at INTEGER)` },
+      { sql: 'CREATE INDEX IF NOT EXISTS idx_inference_jobs_device ON inference_jobs(device_id, status, created_at)' },
+      { sql: "INSERT OR IGNORE INTO model_transform (id, state, nick_health, updated_at) VALUES (1, 'TEMPORARY_LALA_ACTIVE', 'inactive', ?)", args: [Date.now()] },
+      { sql: `INSERT OR IGNORE INTO model_registry (model_id, display_name, provider, status, priority, activation_state, health_status, fallback_enabled, updated_at)
+        VALUES ('lala-3.5', 'Lala 3.5', 'ollama', 'configured', 10, 'active_default', 'unknown', 1, ?)`, args: [Date.now()] },
+      { sql: `INSERT OR IGNORE INTO model_registry (model_id, display_name, provider, status, priority, activation_state, health_status, fallback_enabled, updated_at)
+        VALUES ('nick-4.8', 'Nick 4.8', 'approx-inference', 'training', 20, 'not_deployed', 'unknown', 0, ?)`, args: [Date.now()] },
+    ];
+    for (const [table, col, type] of [['devices', 'ollama_status', 'TEXT'], ['devices', 'ollama_checked_at', 'INTEGER']]) {
+      if (!(await hasColumn(c, table, col))) stmts.push({ sql: `ALTER TABLE ${table} ADD COLUMN ${col} ${type}` });
+    }
+    await apply('2026-11-lala-transform', stmts);
+  }
 }
 
 // The `models` table is seeded and kept in sync from the catalog file (name, tier, description…);

@@ -1,0 +1,169 @@
+# Approved production release: tests → version bump → Approx.apk + Approx.exe → verified → one GitHub Release.
+# Started by an owner: Actions → "Release Approx" → Run workflow (choose patch / minor / major).
+# Nothing is committed, tagged or published unless EVERY check and both builds succeed.
+#
+# Required repository secrets (Settings → Secrets and variables → Actions):
+#   ANDROID_KEYSTORE_BASE64  base64 of the permanent release keystore (.jks) — the SAME key forever, or Android
+#                            refuses updates. ANDROID_KEYSTORE_PASSWORD, ANDROID_KEY_ALIAS.
+# Optional: WINDOWS_CSC_LINK (base64 .pfx) + WINDOWS_CSC_KEY_PASSWORD for Authenticode signing of Approx.exe.
+name: Release Approx
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: "Version increment"
+        type: choice
+        options: [patch, minor, major]
+        default: patch
+      notes:
+        description: "Release notes (what changed for users)"
+        required: true
+        default: ""
+concurrency: { group: release, cancel-in-progress: false }
+permissions:
+  contents: write
+env:
+  PRODUCTION_BRANCH: ${{ vars.APPROX_PRODUCTION_BRANCH || 'ccr-b9e70091-57vl48' }}
+  SERVER_URL: ${{ vars.APPROX_SERVER_URL || 'https://approx-ai.vercel.app' }}
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.v.outputs.version }}
+      version_code: ${{ steps.v.outputs.version_code }}
+      base: ${{ github.sha }}
+    steps:
+      - name: Only from the production branch
+        run: |
+          if [ "${GITHUB_REF}" != "refs/heads/${PRODUCTION_BRANCH}" ]; then echo "::error::Releases run only from ${PRODUCTION_BRANCH} (got ${GITHUB_REF})"; exit 1; fi
+      - name: Release signing key present
+        env: { KS: "${{ secrets.ANDROID_KEYSTORE_BASE64 }}", KP: "${{ secrets.ANDROID_KEYSTORE_PASSWORD }}", KA: "${{ secrets.ANDROID_KEY_ALIAS }}" }
+        run: |
+          if [ -z "$KS" ] || [ -z "$KP" ] || [ -z "$KA" ]; then echo "::error::ANDROID_KEYSTORE_BASE64 / ANDROID_KEYSTORE_PASSWORD / ANDROID_KEY_ALIAS secrets are missing. A release APK must be signed with the permanent release key."; exit 1; fi
+      - uses: actions/checkout@v4
+      - id: v
+        run: |
+          V=$(node scripts/bump-version.mjs ${{ inputs.bump }})
+          echo "version=$V" >> "$GITHUB_OUTPUT"
+          echo "version_code=$(node -p "require('./backend/config/version.json').versionCode")" >> "$GITHUB_OUTPUT"
+  tests:
+    needs: guard
+    uses: ./.github/workflows/ci.yml
+  android:
+    needs: [guard, tests]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: "17" }
+      - run: node scripts/bump-version.mjs ${{ inputs.bump }}
+      - name: Android build tools
+        run: |
+          yes | "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" "platforms;android-33" "build-tools;34.0.0" >/dev/null
+          echo "BT=$ANDROID_SDK_ROOT/build-tools/34.0.0" >> "$GITHUB_ENV"
+          echo "ANDROID_JAR=$ANDROID_SDK_ROOT/platforms/android-33/android.jar" >> "$GITHUB_ENV"
+      - name: Build signed Approx.apk
+        env: { KS: "${{ secrets.ANDROID_KEYSTORE_BASE64 }}", KEYSTORE_PASS: "${{ secrets.ANDROID_KEYSTORE_PASSWORD }}", KEY_ALIAS: "${{ secrets.ANDROID_KEY_ALIAS }}" }
+        working-directory: android
+        run: |
+          set -e
+          export PATH="$BT:$PATH"
+          echo "$KS" | base64 -d > "$RUNNER_TEMP/release.jks"
+          KEYSTORE="$RUNNER_TEMP/release.jks" APPROX_SERVER_URL="$SERVER_URL" bash build.sh
+          rm -f "$RUNNER_TEMP/release.jks"
+          mkdir -p ../out && cp build/ApproxAI-Online-release.apk ../out/Approx.apk
+      - name: Verify Approx.apk
+        run: |
+          set -e
+          B=$("$BT/aapt" dump badging out/Approx.apk | head -1)
+          echo "$B"
+          echo "$B" | grep -q "name='com.approxtech.ai'" || { echo "::error::package id changed"; exit 1; }
+          echo "$B" | grep -q "versionCode='${{ needs.guard.outputs.version_code }}'" || { echo "::error::versionCode mismatch"; exit 1; }
+          echo "$B" | grep -q "versionName='${{ needs.guard.outputs.version }}'" || { echo "::error::versionName mismatch"; exit 1; }
+          "$BT/apksigner" verify --print-certs out/Approx.apk | tee out/apk-certs.txt
+          grep -q "SHA-256 digest" out/apk-certs.txt
+          grep -m1 "SHA-256 digest" out/apk-certs.txt | sed 's/.*: //' > out/apk-signer.txt
+      - uses: actions/upload-artifact@v4
+        with: { name: apk, path: "out/Approx.apk\nout/apk-signer.txt" }
+  windows:
+    needs: [guard, tests]
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - run: node scripts/bump-version.mjs ${{ inputs.bump }}
+      - name: Build Approx.exe
+        working-directory: desktop
+        shell: bash
+        env:
+          CSC_LINK: ${{ secrets.WINDOWS_CSC_LINK }}
+          CSC_KEY_PASSWORD: ${{ secrets.WINDOWS_CSC_KEY_PASSWORD }}
+          CSC_IDENTITY_AUTO_DISCOVERY: "false"
+        run: |
+          set -e
+          npm install --no-audit --no-fund
+          npm test
+          npx electron-builder --win nsis --x64 --publish never
+          test -f dist/Approx.exe
+          mkdir -p ../out && cp dist/Approx.exe ../out/Approx.exe
+          if [ -n "$CSC_LINK" ]; then echo true > ../out/exe-signed.txt; else echo false > ../out/exe-signed.txt; fi
+      - name: Verify Approx.exe
+        shell: pwsh
+        run: |
+          $v = (Get-Item out/Approx.exe).VersionInfo
+          Write-Host "ProductVersion=$($v.ProductVersion) FileVersion=$($v.FileVersion)"
+          if (-not $v.ProductVersion.StartsWith("${{ needs.guard.outputs.version }}")) { Write-Error "Approx.exe version mismatch"; exit 1 }
+          (Get-AuthenticodeSignature out/Approx.exe).Status
+      - uses: actions/upload-artifact@v4
+        with: { name: exe, path: "out/Approx.exe\nout/exe-signed.txt" }
+  publish:
+    needs: [guard, android, windows]
+    runs-on: ubuntu-latest
+    env: { GH_TOKEN: "${{ github.token }}", V: "${{ needs.guard.outputs.version }}", VC: "${{ needs.guard.outputs.version_code }}" }
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: "${{ env.PRODUCTION_BRANCH }}", fetch-depth: 0 }
+      - uses: actions/download-artifact@v4
+        with: { path: art, merge-multiple: true }
+      - name: Checksums + release manifest
+        run: |
+          set -e
+          cd art
+          sha256sum Approx.apk Approx.exe > SHA256SUMS
+          node -e '
+            const fs=require("fs"),c=require("crypto"),h=f=>c.createHash("sha256").update(fs.readFileSync(f)).digest("hex");
+            fs.writeFileSync("release-manifest.json", JSON.stringify({ schema:"approx.release/v1", version:process.env.V, version_code:Number(process.env.VC),
+              git_commit:"${{ needs.guard.outputs.base }}", published_by:"${{ github.actor }}", min_supported_version_code: 5,
+              files:{ "Approx.apk":{ sha256:h("Approx.apk"), package:"com.approxtech.ai", signer_sha256: fs.readFileSync("apk-signer.txt","utf8").trim() },
+                      "Approx.exe":{ sha256:h("Approx.exe"), signed: fs.readFileSync("exe-signed.txt","utf8").trim()==="true" } } }, null, 2));'
+          cat SHA256SUMS release-manifest.json
+      - name: Commit version, tag, publish release
+        run: |
+          set -e
+          if [ "$(git rev-parse HEAD)" != "${{ needs.guard.outputs.base }}" ]; then echo "::error::${PRODUCTION_BRANCH} moved during the release; run it again"; exit 1; fi
+          node scripts/bump-version.mjs ${{ inputs.bump }} >/dev/null
+          node scripts/bump-version.mjs check
+          git config user.name "approx-release"; git config user.email "actions@users.noreply.github.com"
+          git commit -am "Release ${V} (versionCode ${VC})"
+          git tag -a "v${V}" -m "Approx ${V}"
+          git push origin "HEAD:${PRODUCTION_BRANCH}" "v${V}"
+          printf '%s\n\nSHA-256:\n```\n%s\n```\n' "${{ inputs.notes }}" "$(cat art/SHA256SUMS)" > notes.md
+          gh release create "v${V}" art/Approx.apk art/Approx.exe art/SHA256SUMS art/release-manifest.json --title "Approx ${V}" --notes-file notes.md --latest
+      - name: Verify stable download links
+        run: |
+          set -e
+          R="${GITHUB_REPOSITORY}"
+          for f in Approx.apk Approx.exe; do
+            curl -fsSL "https://github.com/$R/releases/latest/download/$f" -o "dl-$f"
+            test "$(sha256sum "dl-$f" | cut -d' ' -f1)" = "$(grep " $f" art/SHA256SUMS | cut -d' ' -f1)"
+            echo "$f: stable link serves the new build"
+          done
+      - name: Verify Vercel deployed this version
+        run: |
+          for i in $(seq 1 40); do
+            P=$(curl -fsS "$SERVER_URL/api/version" | node -p 'JSON.parse(require("fs").readFileSync(0)).versions.product' || true)
+            if [ "$P" = "$V" ]; then echo "Vercel serves $V"; exit 0; fi
+            sleep 15
+          done
+          echo "::error::Vercel did not report $V within 10 minutes (check the Vercel dashboard)"; exit 1

@@ -354,10 +354,21 @@ public class MainActivity extends Activity {
     // ---------- Continue with Google (Google's own account chooser in the browser → one-time code back to the app) ----------
     TextView orDivider() { TextView t = text("or", 13, MUTED, false); t.setGravity(Gravity.CENTER_HORIZONTAL); return t; }
 
+    /** "Continue with Google" + "or": hidden until the server says Google sign-in is configured (no dead button). */
     View googleButton() {
+        final LinearLayout box = new LinearLayout(this); box.setOrientation(LinearLayout.VERTICAL);
         final TextView g = button("G   Continue with Google", false, new Runnable() { public void run() { startGoogleSignIn(); } });
         g.setTextColor(TEXT);
-        return g;
+        box.addView(g); TextView or = orDivider(); box.addView(or);
+        ((LinearLayout.LayoutParams) or.getLayoutParams()).topMargin = dp(10);
+        box.setVisibility(View.GONE);
+        new Thread(new Runnable() { public void run() {
+            boolean on = false;
+            try { JSONObject gc = api.get("/api/auth/config").optJSONObject("google"); on = gc != null && gc.optBoolean("enabled"); } catch (Exception ignored) { }
+            final boolean show = on;
+            runOnUiThread(new Runnable() { public void run() { if (show) box.setVisibility(View.VISIBLE); } });
+        } }).start();
+        return box;
     }
     void startGoogleSignIn() {
         bg(new Job() { public Object run() throws Exception { return api.get("/api/auth/config"); } }, new Done() { public void ok(Object r) {
@@ -535,7 +546,6 @@ public class MainActivity extends Activity {
             }
         }
         add(col, googleButton(), 18);
-        add(col, orDivider(), 10);
         add(col, email, 10);
         final EditText pw = addPassword(col, "Password", 10);
         pwRef[0] = pw;
@@ -591,7 +601,6 @@ public class MainActivity extends Activity {
         final EditText name = input("Name (optional)", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         final EditText email = input("Email", InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
         add(col, googleButton(), 20);
-        add(col, orDivider(), 10);
         add(col, name, 10); add(col, email, 10);
         final EditText pw = addPassword(col, "Password (10+ chars, letters & numbers)", 10);
         final EditText pw2 = addPassword(col, "Confirm password", 8);
@@ -833,15 +842,18 @@ public class MainActivity extends Activity {
         col.addView(head);
         add(col, button("New chat", true, new Runnable() { public void run() { d.dismiss(); showHome(); } }), 16);
         // The menu is the central navigation: every major area is one tap from here.
-        String[][] items = {{"⌂", "Home"}, {"◫", "Projects"}, {"</>", "Code"}, {"▦", "Co Approx"}, {"📘", "Education"}, {"✦", "Artifacts"},
-                {"⏱", "Scheduled"}, {"☰", "Sessions"}, {"📄", "Files"}, {"⚙", "Settings"}};
-        final String[] targets = {"home", "projects", "code", "work", "education", "artifacts", "scheduled", "sessions", "files", "settings"};
+        String[][] items = {{"🕘", "History"}, {"⌕", "Search conversations"}, {"◫", "Projects"}, {"</>", "Approx Code"}, {"▦", "Approx Work"}, {"📘", "Education"},
+                {"✦", "Artifacts"}, {"⏱", "Scheduled tasks"}, {"☰", "Sessions"}, {"📄", "Files"}, {"🔗", "Connected tools"}, {"⚙", "Settings"}, {"?", "Help and support"}};
+        final String[] targets = {"history", "search", "projects", "code", "work", "education", "artifacts", "scheduled", "sessions", "files", "connected", "settings", "help"};
         final TextView[] settingsLabel = new TextView[1];
         for (int i = 0; i < items.length; i++) {
             final String t = targets[i];
             View item = drawerItem(items[i][0], items[i][1], new Runnable() { public void run() {
                 d.dismiss();
                 if ("home".equals(t)) showHome();
+                else if ("history".equals(t) || "search".equals(t)) showHistory();
+                else if ("connected".equals(t)) connectedServices();
+                else if ("help".equals(t)) helpFeedback();
                 else if ("projects".equals(t)) ws.projectsScreen();
                 else if ("code".equals(t)) hub.code();
                 else if ("artifacts".equals(t)) hub.artifacts(null);
@@ -875,7 +887,7 @@ public class MainActivity extends Activity {
                         for (int i = 0; i < rs.length(); i++) {
                             final JSONObject c = rs.optJSONObject(i);
                             final String type = c.optString("type");
-                            String tag = "chat".equals(type) ? "Chat" : "co_approx".equals(type) ? "Co Approx" : "code".equals(type) ? "Code" : "education".equals(type) ? "Education" : "artifact".equals(type) ? "Artifact" : "Scheduled";
+                            String tag = "chat".equals(type) ? "Chat" : "co_approx".equals(type) ? "Approx Work" : "code".equals(type) ? "Code" : "education".equals(type) ? "Education" : "artifact".equals(type) ? "Artifact" : "Scheduled";
                             TextView t = text(c.optString("title") + "  ·  " + tag, 13.5f, TEXT, false);
                             t.setSingleLine(true);
                             t.setEllipsize(android.text.TextUtils.TruncateAt.END);
@@ -1068,8 +1080,8 @@ public class MainActivity extends Activity {
         sub.setGravity(Gravity.CENTER);
         add(w, sub, 4);
         // Three primary actions. A new chat is the input below; everything else is in the ☰ menu.
-        add(w, actionCard("</>", "Code", "Repositories, devices and code sessions", new Runnable() { public void run() { workspaceHome("code"); } }), 28);
-        add(w, actionCard("▦", "Co Approx", "Give Approx a task; come back for the result", new Runnable() { public void run() { workspaceHome("work"); } }), 10);
+        add(w, actionCard("</>", "Approx Code", "Repositories, devices and code sessions", new Runnable() { public void run() { workspaceHome("code"); } }), 28);
+        add(w, actionCard("▦", "Approx Work", "Give Approx a task; come back for the result", new Runnable() { public void run() { workspaceHome("work"); } }), 10);
         add(w, actionCard("📘", "Education", "Courses, study sessions, quizzes and progress", new Runnable() { public void run() { workspaceHome("education"); } }), 10);
         if (user != null && !user.optBoolean("email_verified")) {
             add(w, button("Verify your email to start chatting", false, new Runnable() { public void run() { showVerify(); } }), 18);
@@ -1795,15 +1807,16 @@ void helpFeedback() {
                 {"Notifications", new Runnable() { public void run() { more.notifications(); } }},
                 {"Preferences (text size, start screen)", new Runnable() { public void run() { more.appearance(); } }},
                 {"AI preferences (models, efficiency)", new Runnable() { public void run() { modelSettings(); } }},
-                {"Workspaces (Co Approx, Code, Education)", new Runnable() { public void run() { more.workspaces(); } }},
+                {"Workspaces (Approx Work, Approx Code, Education)", new Runnable() { public void run() { more.workspaces(); } }},
                 {"Security, two-step verification & sessions", new Runnable() { public void run() { securitySettings(); } }},
                 {"Privacy & training consent", new Runnable() { public void run() { privacySettings(); } }},
                 {"Data controls", new Runnable() { public void run() { more.dataControls(); } }},
-                {"Connected services", new Runnable() { public void run() { infoPage("Connected services", "No third-party services (GitHub, Google Drive, Gmail, Calendar) are connected: they need OAuth apps registered by Approx Technology, which are not configured yet.\n\nDevices you pair in Code → Add device are managed in Code."); } }},
+                {"Connected services", new Runnable() { public void run() { connectedServices(); } }},
                 {"Memory", new Runnable() { public void run() { memorySettings(); } }},
                 {"Projects", new Runnable() { public void run() { projectSettings(); } }},
                 {"API & developer console", new Runnable() { public void run() { openWeb("/developers/"); } }},
-                {"About & help", new Runnable() { public void run() { helpFeedback(); } }},
+                {"About & updates", new Runnable() { public void run() { new Updater(MainActivity.this).screen(); } }},
+                {"Help & support", new Runnable() { public void run() { helpFeedback(); } }},
                 {"Delete account", new Runnable() { public void run() { deleteAccount(); } }},
                 {"Log out", new Runnable() { public void run() {
                     // Revoke the server session in the background; the local session is cleared in every case.
@@ -1816,6 +1829,23 @@ void helpFeedback() {
         add(col, text("Approx AI 1.0.0 · Approx Technology · " + api.getBase(), 12, MUTED, false), 18);
     }
 
+    /** Live status of Approx's own services (no fake "connected" states). */
+    void connectedServices() {
+        final LinearLayout col = settingsPage("Connected services");
+        final TextView t = text("Checking…", 15, TEXT, false);
+        add(col, t, 12);
+        bg(new Job() { public Object run() throws Exception { return api.get("/api/integrations"); } }, new Done() { public void ok(Object r) {
+            JSONObject s = (JSONObject) r;
+            JSONObject lala = s.optJSONObject("lala"), claude = s.optJSONObject("claude"), dev = s.optJSONObject("devices"), sb = s.optJSONObject("supabase");
+            StringBuilder b = new StringBuilder();
+            b.append("Lala 3.5 (Ollama): ").append(lala != null && lala.optBoolean("ok") ? "online" : "offline — " + (lala == null ? "" : lala.optString("detail"))).append("\n\n");
+            b.append("Claude (Anthropic): ").append(claude != null && claude.optBoolean("configured") ? "configured on the server" : "not configured (an administrator must add ANTHROPIC_API_KEY on the server)").append("\n\n");
+            b.append("Your computers: ").append(dev == null ? 0 : dev.optInt("connected")).append(" connected (Approx Code → Add device)\n\n");
+            if (sb != null) b.append("Supabase Auth (admin): ").append(sb.optString("detail")).append("\n\n");
+            b.append("Third-party accounts (GitHub, Google Drive, Gmail, Calendar): not available yet — they need OAuth apps registered by Approx Technology.");
+            t.setText(b.toString());
+        } });
+    }
     void infoPage(String title, String body) { add(settingsPage(title), text(body, 15, TEXT, false), 12); }
 
     Switch toggle(String label, boolean checked, final String key, final Runnable after) {

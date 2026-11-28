@@ -326,6 +326,7 @@ async function modelsPage(main) {
   const isSuper = me.role === 'superadmin';
   const lifeBox = h('div', {}, h('div', { class: 'skeleton' }));
   const healthBox = h('div', {});
+  const routerBox = h('div', {}, h('div', { class: 'skeleton' }));
   const statusCls = (st) => (st === 'online' ? 'approved' : st === 'failed' ? 'restricted' : st === 'offline' ? 'disabled' : 'pending');
   const rows = o.models.map((m) => h('tr', { class: 'static' },
     h('td', { class: 'who', 'data-label': 'Model' }, h('b', {}, m.name), h('span', {}, `${m.id} · ${m.role || ''}`)),
@@ -366,9 +367,60 @@ async function modelsPage(main) {
             try { await api(`/api/admin/clients/${g.user_id}/models/fab-500x`, { method: 'PUT', body: { access: 'default' } }); toast('Revoked'); modelsPage(main); } catch (e) { toast(e.message); }
           } }, 'Revoke')) : null)))) : empty('Nobody has FAB 500X access.'),
       h('p', { class: 'small muted' }, 'Grant access from a client’s page → Model permissions → FAB 500X → Enabled (superadmin).')),
+    card(['Model router', h('span', { class: 'muted' }, 'Lala 3.5 → Nick 4.8')], routerBox),
     card(['Deployment lifecycle', h('span', { class: 'muted' }, isSuper ? '' : 'read-only (superadmin can deploy)')], lifeBox),
     card(['GPU training'], await computeBox(isSuper)));
   renderLifecycle(lifeBox, isSuper);
+  renderRouter(routerBox, isSuper);
+}
+
+// Lala 3.5 (temporary default, Ollama on the owner's computer via the device agent) and the Nick 4.8 transformation.
+async function renderRouter(box, isSuper) {
+  let r;
+  try { r = await api('/api/admin/model-router'); } catch (e) { box.replaceChildren(h('div', { class: 'alert error small' }, e.message)); return; }
+  const out = h('div', {});
+  const test = (op) => h('button', { class: 'btn', onclick: async (e) => {
+    const b = e.currentTarget; b.disabled = true; out.replaceChildren(h('div', { class: 'small muted' }, `Running ${op}…`));
+    try {
+      const x = await api('/api/admin/model-router/lala/test', { method: 'POST', body: { op } });
+      out.replaceChildren(h('div', { class: `alert ${x.ok ? 'ok' : 'error'} small` }, x.ok ? `${op}: OK in ${x.ms} ms${x.deltas !== undefined ? ` · ${x.deltas} streamed chunks` : ''}${x.text ? ` · “${x.text.slice(0, 160)}”` : ''}` : `${op} failed (${x.error.code}): ${x.error.message}`));
+    } catch (err) { out.replaceChildren(h('div', { class: 'alert error small' }, err.message)); }
+    b.disabled = false; renderRouter(box, isSuper);
+  } }, op === 'chat' ? 'Test inference' : op === 'stream' ? 'Test streaming' : op === 'load' ? 'Load model' : 'Unload model');
+  const tagSel = h('select', { class: 'input', 'aria-label': 'Ollama model tag' });
+  const devSel = h('select', { class: 'input', 'aria-label': 'Gateway device', onchange: () => fillTags() },
+    r.gateways.map((g) => h('option', { value: g.id, selected: g.id === r.lala.gateway_device_id }, `${g.name}${g.hostname ? ` (${g.hostname})` : ''} — ${g.online ? 'online' : 'offline'}`)));
+  const fillTags = () => {
+    const g = r.gateways.find((x) => x.id === devSel.value);
+    const tags = g?.ollama?.tags || [];
+    tagSel.replaceChildren(...(tags.length ? tags.map((t) => h('option', { value: t.name, selected: t.name === r.lala.model_tag }, t.name)) : [h('option', { value: '' }, g?.ollama?.reachable === false ? 'Ollama not running on this device' : 'no models reported')]));
+  };
+  fillTags();
+  const st = r.states.indexOf(r.state);
+  box.replaceChildren(
+    h('dl', { class: 'kv' },
+      h('dt', {}, 'Default for ordinary traffic'), h('dd', {}, h('b', {}, r.effective_default === 'lala-3.5' ? 'Lala 3.5' : 'Nick 4.8'), r.nick.fallback_active ? ' (emergency fallback — Nick 4.8 degraded)' : ''),
+      h('dt', {}, 'Transformation'), h('dd', {}, h('div', { class: 'steps' }, r.states.map((s, i) => h('span', { class: `pill ${i < st ? 'approved' : i === st ? 'pending' : 'disabled'}` }, s.replace(/_/g, ' ').toLowerCase()))),
+        r.gate_error ? h('div', { class: 'small muted' }, `Waiting: ${r.gate_error}`) : null),
+      h('dt', {}, 'Lala 3.5'), h('dd', {}, pill(r.lala.ok ? 'healthy' : 'unavailable', r.lala.ok ? 'approved' : 'restricted'), ' ', r.lala.detail,
+        r.lala.ollama_version ? h('div', { class: 'small muted' }, `Ollama ${r.lala.ollama_version} · loaded: ${(r.lala.loaded || []).join(', ') || 'none'}`) : null),
+      h('dt', {}, 'Nick 4.8'), h('dd', {}, `${r.nick.health}${r.nick.version ? ` · v${r.nick.version}` : ''}${r.nick.consecutive_failures ? ` · ${r.nick.consecutive_failures} consecutive failures` : ''}`),
+      h('dt', {}, 'Recovery policy'), h('dd', { class: 'small' }, `degrade after ${r.policy.failure_threshold} errors · ${r.policy.recovery_successes} good checks after ${Math.round(r.policy.recovery_cooldown_ms / 60000)} min cooldown · ${Math.round(r.policy.min_dwell_ms / 60000)} min between switches`)),
+    h('h2', { class: 'sub-h' }, 'Lala 3.5 engine (Ollama)'),
+    r.gateways.length ? h('div', { class: 'row-wrap' }, devSel, tagSel,
+      isSuper || me.role === 'admin' ? h('button', { class: 'btn primary', onclick: async () => {
+        try { const x = await api('/api/admin/model-router/lala', { method: 'POST', body: { device_id: devSel.value, model_tag: tagSel.value } }); toast(x.health.ok ? 'Lala 3.5 mapped and healthy' : `Mapped — ${x.health.detail}`); } catch (e) { toast(e.message); }
+        renderRouter(box, isSuper);
+      } }, 'Use for Lala 3.5') : null)
+      : h('p', { class: 'small muted' }, 'No gateway yet. On the computer that runs Ollama, sign in to Approx as an administrator → Code → Add device, run the shown command, then come back here.'),
+    h('div', { class: 'row-wrap' }, test('chat'), test('stream'), test('load'), test('unload'),
+      h('button', { class: 'btn', onclick: async () => { try { const x = await api('/api/admin/model-router/advance', { method: 'POST', body: {} }); toast(x.gate_error ? `Waiting: ${x.gate_error}` : x.state); } catch (e) { toast(e.message); } renderRouter(box, isSuper); } }, 'Check transformation gates'),
+      h('button', { class: 'btn', onclick: async () => { try { await api('/api/admin/model-router/health', { method: 'POST', body: {} }); } catch (e) { toast(e.message); } renderRouter(box, isSuper); } }, 'Run health check')),
+    out,
+    h('h2', { class: 'sub-h' }, 'Incidents'),
+    r.incidents.length ? h('ul', { class: 'feed' }, r.incidents.map((x) => h('li', {}, h('time', {}, when(x.created_at)), h('div', {}, h('span', { class: 'ev' }, x.kind.replace(/_/g, ' ')), ` · ${x.action.replace(/_/g, ' ')} · ${x.reason}`)))) : empty('No incidents.'),
+    h('h2', { class: 'sub-h' }, 'Recent Lala requests'),
+    r.recent_jobs.length ? h('ul', { class: 'feed' }, r.recent_jobs.map((j) => h('li', {}, h('time', {}, when(j.created_at)), h('div', {}, h('span', { class: 'ev' }, `${j.op} ${j.model_tag}`), ' ', pill(j.status, j.status === 'completed' ? 'approved' : j.status === 'failed' ? 'restricted' : 'pending'), j.error ? ` · ${j.error}` : ` · ${j.chars} chars`)))) : empty('No requests yet.'));
 }
 async function renderLifecycle(box, isSuper) {
   let r;

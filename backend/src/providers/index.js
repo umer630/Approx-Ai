@@ -15,11 +15,19 @@ import { lifecycleOf, lifecycleCached, gateServed, LABELS, autoActivate } from '
 import { HttpError } from '../http.js';
 import { modeParams } from '../catalog.js';
 import { getActive, activeProblem, resolveServingVersion, VERSION_RE } from '../registry.js';
+import { catalogModel } from '../catalog.js';
+import { ollamaRun, lalaHealthCached, lastLalaHealth } from './ollama.js';
+import { reportNick } from '../transform.js';
+
+/** Lala 3.5 (and any future Ollama-served model): served by the Approx Ollama gateway, not an OpenAI-style upstream. */
+export const isOllamaModel = (model) => catalogModel(model?.id)?.provider === 'ollama';
+export const LALA_VERSION = '3.5';
 
 // "Managed" upstream = the Approx inference server, which serves ONLY registry-activated adapter versions
 // and is addressed as <model-id>@<version>. Setting APPROX_MODEL_<FAMILY>_NAME marks the upstream as an
 // external endpoint with its own model name (e.g. vLLM with a manually configured LoRA): unmanaged.
 export function upstreamFor(model, version = null) {
+  if (isOllamaModel(model)) return null;
   // Per-model server (APPROX_MODEL_FAB_500X_URL) → per-family server (APPROX_MODEL_FAB_URL) → default.
   const M = String(model.id || '').toUpperCase().replace(/[^A-Z0-9]+/g, '_');
   const F = String(model.family || model.id || '').toUpperCase();
@@ -42,6 +50,7 @@ export function upstreamFor(model, version = null) {
 
 /** unavailable | dev-simulator | configured (external upstream) | active | no_active_version */
 export function backendStatus(model) {
+  if (isOllamaModel(model)) return lastLalaHealth()?.ok ? 'active' : 'unavailable';   // no simulator stand-in for Lala
   const up = upstreamFor(model);
   if (!up) return config.devProvider ? 'dev-simulator' : 'unavailable';
   if (!up.managed) return 'configured';
@@ -61,6 +70,7 @@ export function backendStatus(model) {
  * it only serves verified, validated releases and refuses adapters that fail its SHA-256 pin.
  */
 export async function servingVersion(model, requested) {
+  if (isOllamaModel(model)) return (await lalaHealthCached()).ok ? LALA_VERSION : null;
   const up = upstreamFor(model);
   if (config.registry.source !== 'inference' || !up || !up.managed) return resolveServingVersion(model.id, requested);
   const h = await upstreamHealth(model);
@@ -85,6 +95,7 @@ export function providerStatus(family) {
 const healthCache = new Map();
 /** Reachability of a model's inference upstream (GET <base>/health, cached 10 s). Never throws. */
 export async function upstreamHealth(model) {
+  if (isOllamaModel(model)) { const h = await lalaHealthCached(); return { configured: true, managed: false, provider: 'ollama', reachable: !!h.ok, status: h.detail }; }
   const up = upstreamFor(model);
   if (!up) return { configured: false };
   const hit = healthCache.get(up.url);
@@ -111,7 +122,16 @@ export async function upstreamHealth(model) {
  * Stream a completion. Calls onDelta(text) for each chunk; resolves to { text, usage }.
  * messages: [{role, content}]
  */
-export async function streamCompletion({ model, mode, version = null, messages, onDelta, signal }) {
+export async function streamCompletion(args) {
+  const { model, mode, messages, onDelta, signal } = args;
+  if (isOllamaModel(model)) return ollamaRun({ op: 'chat', messages, params: modeParams(model.id, mode) || {}, onDelta, signal });
+  if (model.id !== 'nick-4.8') return upstreamCompletion(args);
+  // Nick 4.8: every provider-side outcome feeds the fallback state machine (failure thresholds, recovery).
+  try { const out = await upstreamCompletion(args); await reportNick(true).catch(() => {}); return out; }
+  catch (e) { if (!(e?.status === 499 || signal?.aborted)) await reportNick(false, e).catch(() => {}); throw e; }
+}
+
+async function upstreamCompletion({ model, mode, version = null, messages, onDelta, signal }) {
   const up = upstreamFor(model, version);
   const params = modeParams(model.id, mode);
   if (!up) {
