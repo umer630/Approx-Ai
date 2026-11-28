@@ -20,6 +20,8 @@ test('devices: pair with a one-time code, the real agent runs a Code command fro
   assert.equal(p.status, 201);
   assert.match(p.data.pairing_code, /^[A-Z0-9X]{8}$/);
   assert.match(p.data.command, /approx-device\.mjs pair/);
+  assert.match(p.data.command_windows, /^Invoke-WebRequest -UseBasicParsing \S+\/tools\/approx-device\.mjs -OutFile approx-device\.mjs; node approx-device\.mjs pair [A-Z0-9X]{8} --server /);
+  assert.doesNotMatch(p.data.command_windows, /&&/);
   assert.equal((await req('POST', '/api/device/claim', { body: { code: 'WRONG123' } })).status, 401);
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'approx-dev-'));
   const agent = spawn(process.execPath, [path.resolve('../web/tools/approx-device.mjs'), 'pair', p.data.pairing_code, '--server', BASE, '--once'],

@@ -384,8 +384,11 @@ async function addDevice() {
   const p = await api('/api/devices', { method: 'POST', body: { name } });
   const status = h('p', { class: 'muted' }, 'Waiting for the device to connect…');
   sheet('Add device', (s) => {
-    s.append(h('p', {}, '1. On the computer (Node.js 18+), run:'), h('pre', { class: 'diff' }, p.command),
-      h('button', { class: 'btn', onclick: () => navigator.clipboard?.writeText(p.command).then(() => toast('Copied')) }, 'Copy command'),
+    const win = /Windows/i.test(navigator.userAgent);
+    const cmd = win && p.command_windows ? p.command_windows : p.command;
+    s.append(h('p', {}, `1. On the computer (Node.js 18+ installed), run in ${win ? 'PowerShell' : 'a terminal'}:`), h('pre', { class: 'diff' }, cmd),
+      h('button', { class: 'btn', onclick: () => navigator.clipboard?.writeText(cmd).then(() => toast('Copied')) }, 'Copy command'),
+      p.command_windows ? h('details', { class: 'small' }, h('summary', {}, win ? 'macOS / Linux command' : 'Windows (PowerShell) command'), h('pre', { class: 'diff' }, win ? p.command : p.command_windows)) : null,
       h('p', {}, 'Pairing code (valid 10 minutes, works once):'), h('div', { class: 'pair-code' }, p.pairing_code), status);
     const until = Date.now() + 600_000;
     const poll = async () => {

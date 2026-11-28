@@ -203,7 +203,9 @@ export function registerHubRoutes(r) {
       id, u.id, str(b.name, 'name', { max: 60, required: false }) || 'My computer', sha256(code), ts() + 10 * 60_000, ts());
     const origin = `https://${req.headers['x-forwarded-host'] || req.headers.host}`;
     sendJson(res, 201, { device: { id, status: 'pending' }, pairing_code: code, expires_in: 600,
-      command: `curl -fsSLO ${origin}/tools/approx-device.mjs && node approx-device.mjs pair ${code} --server ${origin}` });
+      command: `curl -fsSLO ${origin}/tools/approx-device.mjs && node approx-device.mjs pair ${code} --server ${origin}`,
+      // Windows PowerShell 5.1 has no `&&` and `curl` there is Invoke-WebRequest: a separate, working command.
+      command_windows: `Invoke-WebRequest -UseBasicParsing ${origin}/tools/approx-device.mjs -OutFile approx-device.mjs; node approx-device.mjs pair ${code} --server ${origin}` });
   });
   r.patch('/api/devices/:id', async (req, res, ctx, p) => {
     const u = requireUser(ctx);

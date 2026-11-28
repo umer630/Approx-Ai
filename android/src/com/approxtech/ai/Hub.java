@@ -178,7 +178,15 @@ final class Hub {
         cmd.setTypeface(Typeface.MONOSPACE); cmd.setTextIsSelectable(true);
         cmd.setPadding(dp(12), dp(10), dp(12), dp(10)); cmd.setBackground(a.bgShape(MainActivity.CODE_BG, 12, MainActivity.LINE));
         a.add(col, cmd, 8);
-        a.add(col, a.button("Copy command", false, new Runnable() { public void run() { a.copyClip("Approx device command", p.optString("command")); } }), 8);
+        a.add(col, a.button("Copy command (macOS / Linux)", false, new Runnable() { public void run() { a.copyClip("Approx device command", p.optString("command")); } }), 8);
+        if (p.has("command_windows")) {
+            a.add(col, header("Windows (PowerShell)"), 14);
+            final TextView wcmd = a.text(p.optString("command_windows"), 13, MainActivity.CODE_TEXT, false);
+            wcmd.setTypeface(Typeface.MONOSPACE); wcmd.setTextIsSelectable(true);
+            wcmd.setPadding(dp(12), dp(10), dp(12), dp(10)); wcmd.setBackground(a.bgShape(MainActivity.CODE_BG, 12, MainActivity.LINE));
+            a.add(col, wcmd, 8);
+            a.add(col, a.button("Copy Windows command", false, new Runnable() { public void run() { a.copyClip("Approx device command", p.optString("command_windows")); } }), 8);
+        }
         a.add(col, header("Pairing code"), 20);
         TextView code = a.text(p.optString("pairing_code"), 30, MainActivity.TEXT, true);
         code.setLetterSpacing(0.15f); code.setTextIsSelectable(true);
