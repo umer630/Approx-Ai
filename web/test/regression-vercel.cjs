@@ -571,6 +571,24 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     ok('admin: after sign out the admin API refuses (401)', await ap.evaluate(async () => (await fetch('/api/admin/overview')).status) === 401);
     await ap.goto(BASE + '/admin/audit', { waitUntil: 'networkidle' }); await ap.waitForTimeout(400);
     ok('admin: after sign out, direct URL is blocked', ap.url().endsWith('/admin/login'));
+    // Admin forgot password (same Supabase recovery as the app; a normal app session cookie in the browser must not break it).
+    await ap.evaluate(async () => { await fetch('/api/auth/login', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: 'owner@example.com', password: 'Str0ng!Passw0rd1' }) }); });
+    await ap.goto(BASE + '/admin/login', { waitUntil: 'networkidle' }); await ap.waitForTimeout(300);
+    ok('admin login: "Forgot password?" link', await ap.locator('#admin-forgot').count() === 1);
+    await ap.locator('#admin-forgot').click(); await ap.waitForTimeout(300);
+    await ap.locator('#admin-reset-email').fill('owner@example.com'); await ap.locator('button[type=submit]').click(); await ap.waitForTimeout(900);
+    const aMail = supabase.lastEmail('owner@example.com', 'recovery');
+    ok('admin forgot: generic answer + Supabase recovery email to the public callback (works with an app session cookie present)',
+      /If an account exists/.test(await ap.locator('[role=alert]').innerText()) && aMail?.redirect_to === 'https://approx-ai.vercel.app/?auth=callback', await ap.locator('[role=alert]').innerText());
+    const aLanded = await supabase.click(aMail.link);
+    await ap.goto(BASE + `/?auth=callback#${new URLSearchParams(aLanded.params)}`, { waitUntil: 'networkidle' }); await ap.waitForTimeout(700);
+    await ap.locator('#newpw').fill('Adm1n!Recovered9'); await ap.locator('button[type=submit]').click(); await ap.waitForTimeout(1000);
+    ok('admin reset: new password saved, link back to the admin sign-in', (await ap.locator('body').innerText()).includes('Password updated') && await ap.locator('#admin-signin-link').count() === 1, (await ap.locator('body').innerText()).slice(0, 400) + ' URL=' + ap.url() + ' ERR=' + aerrs.slice(-3).join(' / '));
+    await ap.locator('#admin-signin-link').click(); await ap.waitForTimeout(800);
+    await ap.locator('#admin-email').fill('owner@example.com'); await ap.locator('#admin-password').fill('Str0ng!Passw0rd1'); await ap.locator('button[type=submit]').click(); await ap.waitForTimeout(900);
+    ok('admin: the old password no longer signs in', ap.url().endsWith('/admin/login') && (await ap.locator('[role=alert]').innerText()).includes('Invalid administrator credentials'));
+    await ap.locator('#admin-password').fill('Adm1n!Recovered9'); await ap.locator('button[type=submit]').click(); await ap.waitForTimeout(1200);
+    ok('admin: the new password signs in to the admin panel (allowlist + role still enforced)', /\/admin\/?$/.test(ap.url()) && (await ap.locator('main').innerText()).length > 20, ap.url());
     ok('admin: no console errors', aerrs.length === 0, aerrs.join(' | '));
     await ac.close();
 
@@ -580,6 +598,11 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     await p.screenshot({ path: path.join(S, 'v-08-developers.png') });
 
     // Desktop/web responsive: wide layout keeps the sidebar and hides the bottom nav.
+    // The admin password reset above signed out every session of this account (by design): sign in again.
+    await p.goto(BASE + '/#/login', { waitUntil: 'networkidle' }); await p.waitForTimeout(500);
+    await p.locator('input[type=email]').fill('owner@example.com'); await p.locator('input[type=password]').first().fill('Adm1n!Recovered9');
+    await p.getByRole('button', { name: 'Sign in' }).first().click(); await p.waitForTimeout(1200);
+    ok('after the reset, the old session is gone and the new password signs in', await p.locator('#prompt').count() === 1);
     await p.goto(BASE + '/', { waitUntil: 'networkidle' }); await p.waitForTimeout(900);
     const lay = await p.evaluate(() => ({ w: innerWidth, nav: document.querySelector('nav.bottom-nav') ? 'present' : 'none',
       drawer: (() => { const d = document.getElementById('drawer'); return d ? `${getComputedStyle(d).position}/${getComputedStyle(d).transform}` : 'none'; })(), hash: location.hash }));
@@ -613,7 +636,7 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     // Log out and sign in again.
     await mp.locator('.settings-row.signout').tap(); await mp.waitForTimeout(800);
     ok('logout returns to sign-in', mp.url().includes('#/login') && (await mp.locator('.auth-card').innerText()).includes('Welcome to Approx AI'));
-    await mp.locator('input[type=email]').fill('owner@example.com'); await mp.locator('input[type=password]').first().fill('Str0ng!Passw0rd1');
+    await mp.locator('input[type=email]').fill('owner@example.com'); await mp.locator('input[type=password]').first().fill('Adm1n!Recovered9');
     await mp.getByRole('button', { name: 'Sign in' }).first().tap(); await mp.waitForSelector('#prompt', { timeout: 8000 }).catch(() => {});
     ok('login again lands in the workspace', await mp.locator('#prompt').count() === 1);
     ok('no console errors', errs.length === 0, errs.join(' | '));

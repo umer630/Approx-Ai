@@ -5,6 +5,8 @@ import { config, VERSIONS } from './config.js';
 import { getDb } from './db.js';
 import { Router, sendJson, sendError, securityHeaders, applyCors, newId, notFound, HttpError } from './http.js';
 import { resolveAuth, enforceCsrf } from './security.js';
+const TOKEN_AUTH_PATHS = new Set(['/api/auth/forgot-password', '/api/auth/reset-password', '/api/auth/verify-email',
+  '/api/auth/resend-verification', '/api/auth/confirm-email-change']);
 import { resolveAdmin, enforceAdminCsrf, enforceAccountStatus } from './admin.js';
 import { registerAuthRoutes } from './routes/auth.js';
 import { registerChatRoutes } from './routes/chat.js';
@@ -109,7 +111,10 @@ export function createHandler() {
         enforceAdminCsrf(req, ctx.admin);
       } else {
         ctx = { requestId, auth: await resolveAuth(req) };
-        await enforceCsrf(req, ctx.auth);
+        // Email-token endpoints are authorised by the one-time token from the email (or need no identity at all), never
+        // by the session cookie — so a signed-in browser opening a reset / verification link must not fail the cookie
+        // CSRF check. Every other cookie-authenticated write still requires the CSRF token.
+        if (!TOKEN_AUTH_PATHS.has(url.pathname)) await enforceCsrf(req, ctx.auth);
         enforceAccountStatus(url.pathname, ctx.auth);   // pending / suspended / rejected / disabled accounts
       }
       for (const h of m.route.handlers) await h(req, res, ctx, m.params, url);

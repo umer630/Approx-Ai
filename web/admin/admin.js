@@ -107,7 +107,42 @@ function loginPage() {
   h('label', { for: 'admin-email' }, 'Admin email'), email,
   h('label', { for: 'admin-password' }, 'Admin password'), password,
   msg, submit,
+  h('p', { class: 'note' }, h('a', { href: '#', id: 'admin-forgot', onclick: (e) => { e.preventDefault(); forgotPage(email.value.trim()); } }, 'Forgot password?')),
   h('p', { class: 'note' }, 'Restricted area. Sign-ins are logged.'));
+  root.replaceChildren(h('div', { class: 'adm-login' }, form));
+  email.focus();
+}
+
+// Password recovery for administrators: the SAME Supabase account recovery as everywhere in Approx (the admin password
+// is the account's Supabase password). The answer never reveals whether the address exists or is an administrator;
+// the allowlist and two-step verification still apply at the next sign-in.
+function forgotPage(prefill = '') {
+  document.title = 'Reset password · Approx AI Admin';
+  const email = h('input', { class: 'input', type: 'email', id: 'admin-reset-email', autocomplete: 'username', required: true, maxlength: 254, value: prefill });
+  const msg = h('div', { role: 'alert', 'aria-live': 'polite' });
+  const submit = h('button', { class: 'btn primary', type: 'submit' }, 'Send reset link');
+  const form = h('form', { novalidate: true, onsubmit: async (e) => {
+    e.preventDefault();
+    if (submit.disabled) return;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) { msg.replaceChildren(h('div', { class: 'alert error small' }, 'Enter your admin email address.')); return; }
+    submit.disabled = true; submit.textContent = 'Sending…';
+    try {
+      // Sent WITHOUT cookies: recovery needs no session, and a normal Approx session cookie in the same browser would
+      // otherwise make the request fail the client CSRF check.
+      const res = await fetch('/api/auth/forgot-password', { method: 'POST', credentials: 'omit', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: email.value.trim() }) });
+      const r = await res.json().catch(() => ({}));
+      if (!res.ok) throw Object.assign(new Error(r.error?.message || `Request failed (${res.status})`), { status: res.status });
+      msg.replaceChildren(h('div', { class: 'alert ok small' }, r.message || 'If an account exists for this email, a reset link has been sent.',
+        h('div', {}, 'Open the link in that email, choose a new password, then come back here to sign in. Check Spam too.')));
+      submit.textContent = 'Sent';
+    } catch (err) {
+      msg.replaceChildren(h('div', { class: 'alert error small' }, err.status === 429 ? 'Too many requests. Please wait and try again later.' : err.message));
+      submit.disabled = false; submit.textContent = 'Send reset link';
+    }
+  } },
+  h('div', { class: 'brand' }, h('img', { src: '/assets/logo-mark-192.png', alt: '' }), h('div', { class: 'sub' }, 'Approx AI Admin'), h('h1', {}, 'Reset password')),
+  h('label', { for: 'admin-reset-email' }, 'Admin email'), email, msg, submit,
+  h('p', { class: 'note' }, h('a', { href: '/admin/login', 'data-nav': '' }, '← Back to administrator sign in')));
   root.replaceChildren(h('div', { class: 'adm-login' }, form));
   email.focus();
 }

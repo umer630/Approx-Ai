@@ -394,7 +394,8 @@ function tokenView(kind) {
     const android = /Android/i.test(navigator.userAgent) && kind === 'verify';
     authFrame(title, null, h('div', { class: 'alert ok', role: 'status' }, text),
       android ? h('a', { class: 'btn primary block', href: 'approxai://auth?verified=1' }, 'Open the Approx app') : null,
-      h('button', { class: `btn ${android ? '' : 'primary '}block`, type: 'button', onclick: () => go(next[0]) }, android ? 'Continue in the browser' : next[1]));
+      h('button', { class: `btn ${android ? '' : 'primary '}block`, type: 'button', onclick: () => go(next[0]) }, android ? 'Continue in the browser' : next[1]),
+      kind === 'reset' ? h('a', { class: 'small center', href: '/admin/login', id: 'admin-signin-link' }, 'Administrator? Sign in to the admin panel') : null);
   }
   authFrame(kind === 'verify' ? 'Verify your email' : kind === 'reset' ? 'Choose a new password' : 'Confirm email change', null, form, extra,
     h('div', { class: 'auth-links' }, h('a', { href: state.user ? '#/' : '#/login' }, state.user ? 'Back to chat' : 'Sign in')));

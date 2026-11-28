@@ -122,3 +122,18 @@ test('sessions: invalid and revoked bearer tokens are refused (401) by protected
   assert.equal((await req('GET', '/api/auth/me', { token: 'not-a-real-token' })).status, 401);
   assert.equal((await req('GET', '/api/chats', { token: 'x'.repeat(43) })).status, 401);
 });
+
+test('a signed-in browser (cookie session, no CSRF header) can still use reset links; other writes still need CSRF', async () => {
+  const email = `cookie-reset-${Date.now()}@example.com`;
+  await signup(email, FIRST);
+  await req('POST', '/api/auth/verify-email', { body: { email, token: supabase.lastEmail(email, 'signup').otp } });
+  const web = await login(email, FIRST);                        // web login → approx_session cookie
+  const cookie = cookieOf(web);
+  assert.match(cookie, /^approx_session=/);
+  assert.equal((await req('PATCH', '/api/settings', { cookie, body: { theme: 'dark' } })).status, 403, 'normal writes still require the CSRF token');
+  assert.equal((await req('POST', '/api/auth/forgot-password', { cookie, body: { email } })).status, 202);
+  const r = await req('POST', '/api/auth/reset-password', { cookie, body: { email, token: supabase.lastEmail(email, 'recovery').otp, password: CHOSEN } });
+  assert.equal(r.status, 200, JSON.stringify(r.data));
+  assert.equal((await login(email, CHOSEN)).status, 200);
+  assert.equal((await req('POST', '/api/auth/reset-password', { cookie, body: { email, token: '000000', password: 'ThirdPassw0rd!' } })).status !== 200, true, 'still needs a valid email token');
+});
