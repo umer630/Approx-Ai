@@ -386,7 +386,7 @@ async function renderRouter(box, isSuper) {
       out.replaceChildren(h('div', { class: `alert ${x.ok ? 'ok' : 'error'} small` }, x.ok ? `${op}: OK in ${x.ms} ms${x.deltas !== undefined ? ` · ${x.deltas} streamed chunks` : ''}${x.text ? ` · “${x.text.slice(0, 160)}”` : ''}` : `${op} failed (${x.error.code}): ${x.error.message}`));
     } catch (err) { out.replaceChildren(h('div', { class: 'alert error small' }, err.message)); }
     b.disabled = false; renderRouter(box, isSuper);
-  } }, op === 'chat' ? 'Test inference' : op === 'stream' ? 'Test streaming' : op === 'load' ? 'Load model' : 'Unload model');
+  } }, op === 'verify' ? 'Run real Lala test' : op === 'chat' ? 'Test inference' : op === 'stream' ? 'Test streaming' : op === 'load' ? 'Load model' : 'Unload model');
   const tagSel = h('select', { class: 'input', 'aria-label': 'Ollama model tag' });
   const devSel = h('select', { class: 'input', 'aria-label': 'Gateway device', onchange: () => fillTags() },
     r.gateways.map((g) => h('option', { value: g.id, selected: g.id === r.lala.gateway_device_id }, `${g.name}${g.hostname ? ` (${g.hostname})` : ''} — ${g.online ? 'online' : 'offline'}`)));
@@ -402,8 +402,10 @@ async function renderRouter(box, isSuper) {
       h('dt', {}, 'Default for ordinary traffic'), h('dd', {}, h('b', {}, r.effective_default === 'lala-3.5' ? 'Lala 3.5' : 'Nick 4.8'), r.nick.fallback_active ? ' (emergency fallback — Nick 4.8 degraded)' : ''),
       h('dt', {}, 'Transformation'), h('dd', {}, h('div', { class: 'steps' }, r.states.map((s, i) => h('span', { class: `pill ${i < st ? 'approved' : i === st ? 'pending' : 'disabled'}` }, s.replace(/_/g, ' ').toLowerCase()))),
         r.gate_error ? h('div', { class: 'small muted' }, `Waiting: ${r.gate_error}`) : null),
-      h('dt', {}, 'Lala 3.5'), h('dd', {}, pill(r.lala.state || (r.lala.ok ? 'LALA_READY' : 'LALA_UNAVAILABLE'), r.lala.state === 'LALA_READY' ? 'approved' : r.lala.state === 'LALA_DEGRADED' ? 'pending' : 'restricted'), ' ', r.lala.detail,
-        h('div', { class: 'small muted' }, `${r.lala.runtime || 'local Ollama'} · real inference through the gateway: ${r.lala.verified_by_real_inference ? 'succeeded recently' : 'not yet'}`),
+      h('dt', {}, 'Lala 3.5'), h('dd', {},
+        h('div', {}, h('b', {}, 'Status: '), pill(r.lala.availability || r.lala.state, r.lala.state === 'LALA_READY' ? 'approved' : ['LALA_DEGRADED', 'LALA_REACHABLE_NOT_TESTED'].includes(r.lala.state) ? 'pending' : 'restricted'), ' ', r.lala.detail),
+        h('div', { class: 'small' }, `Runtime: Ollama (${r.lala.runtime || 'local'}) · Training: Not trained (served as-is; training does not affect availability)`),
+        h('div', { class: 'small muted' }, r.lala.verified_at ? `Real test passed ${when(r.lala.verified_at)} — ${(() => { try { const d = JSON.parse(r.lala.verified_detail); return `${d.model_tag} on ${d.device}, Ollama ${d.ollama_version || '?'}, ${d.ms} ms, reply “${d.reply}”`; } catch { return ''; } })()}` : 'No real test passed yet — use “Run real Lala test”.'),
         r.lala.ollama_version ? h('div', { class: 'small muted' }, `Ollama ${r.lala.ollama_version} · loaded: ${(r.lala.loaded || []).join(', ') || 'none'}`) : null),
       h('dt', {}, 'Nick 4.8'), h('dd', {}, `${r.nick.health}${r.nick.version ? ` · v${r.nick.version}` : ''}${r.nick.consecutive_failures ? ` · ${r.nick.consecutive_failures} consecutive failures` : ''}`),
       h('dt', {}, 'Recovery policy'), h('dd', { class: 'small' }, `degrade after ${r.policy.failure_threshold} errors · ${r.policy.recovery_successes} good checks after ${Math.round(r.policy.recovery_cooldown_ms / 60000)} min cooldown · ${Math.round(r.policy.min_dwell_ms / 60000)} min between switches`)),
@@ -414,7 +416,7 @@ async function renderRouter(box, isSuper) {
         renderRouter(box, isSuper);
       } }, 'Use for Lala 3.5') : null)
       : h('p', { class: 'small muted' }, 'No gateway yet. On the computer that runs Ollama, sign in to Approx as an administrator → Code → Add device, run the shown command, then come back here.'),
-    h('div', { class: 'row-wrap' }, test('chat'), test('stream'), test('load'), test('unload'),
+    h('div', { class: 'row-wrap' }, test('verify'), test('chat'), test('stream'), test('load'), test('unload'),
       h('button', { class: 'btn', onclick: async () => { try { const x = await api('/api/admin/model-router/advance', { method: 'POST', body: {} }); toast(x.gate_error ? `Waiting: ${x.gate_error}` : x.state); } catch (e) { toast(e.message); } renderRouter(box, isSuper); } }, 'Check transformation gates'),
       h('button', { class: 'btn', onclick: async () => { try { await api('/api/admin/model-router/health', { method: 'POST', body: {} }); } catch (e) { toast(e.message); } renderRouter(box, isSuper); } }, 'Run health check')),
     out,

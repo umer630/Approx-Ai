@@ -29,7 +29,8 @@ const ollama = http.createServer(async (rq, rs) => {
     if (j.model !== TAG) { rs.statusCode = 404; return rs.end(JSON.stringify({ error: `model '${j.model}' not found` })); }
     loaded.add(j.model);
     rs.setHeader('content-type', 'application/x-ndjson');
-    const words = ['[stand-in] ', 'Two ', 'plus ', 'two ', 'is ', 'four.'];
+    const exact = /Reply exactly with: (\S+)/.exec(j.messages?.[0]?.content || '')?.[1];
+    const words = exact ? [exact] : ['[stand-in] ', 'Two ', 'plus ', 'two ', 'is ', 'four.'];
     for (const w of words) { rs.write(JSON.stringify({ message: { role: 'assistant', content: w }, done: false }) + '\n'); await new Promise((r) => setTimeout(r, slowMs || 120)); }
     return rs.end(JSON.stringify({ done: true, prompt_eval_count: 7, eval_count: words.length, total_duration: 5e8 }) + '\n');
   }
@@ -64,6 +65,13 @@ test('Lala 3.5 gateway: agent reports Ollama, admin maps the installed tag, real
   assert.equal(bad.status, 409); assert.equal(bad.data.error.code, 'tag_not_installed');
   const ok = await req('POST', '/api/admin/model-router/lala', { token: admin.token, body: { device_id: dev.id, model_tag: TAG } });
   assert.equal(ok.status, 200, JSON.stringify(ok.data)); assert.equal(ok.data.health.ok, true, ok.data.health.detail);
+  assert.equal(ok.data.health.state, 'LALA_REACHABLE_NOT_TESTED', 'reachable + installed is not READY until a generation comes back');
+  assert.equal(ok.data.health.training, 'NOT_TRAINED');
+  // Exact-reply check (MOCK: the stand-in echoes the requested token; on the owner's laptop this is the real model).
+  const ver = (await req('POST', '/api/admin/model-router/lala/test', { token: admin.token, body: { op: 'verify' } })).data;
+  assert.equal(ver.ok, true, JSON.stringify(ver)); assert.equal(ver.text.trim(), 'LALA_35_OLLAMA_OK'); assert.equal(ver.model_tag, TAG);
+  const afterVer = (await req('GET', '/api/admin/model-router', { token: admin.token })).data.lala;
+  assert.equal(afterVer.state, 'LALA_READY'); assert.equal(afterVer.availability, 'Ready'); assert.ok(afterVer.verified_at);
   // Non-streaming, streaming, load, unload — each a real round trip through the agent.
   const chat = (await req('POST', '/api/admin/model-router/lala/test', { token: admin.token, body: { op: 'chat' } })).data;
   assert.equal(chat.ok, true, JSON.stringify(chat) + out); assert.match(chat.text, /Two plus two is four/);

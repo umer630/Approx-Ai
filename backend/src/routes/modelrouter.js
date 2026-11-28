@@ -56,6 +56,23 @@ export function registerModelRouterRoutes(r) {
   r.post('/api/admin/model-router/lala/test', async (req, res, ctx) => {
     requireRole(ctx, 'admin', 'superadmin');
     const b = await readJson(req);
+    if (b.op === 'verify') {
+      // Real check: the exact reply can only come from a model that actually ran on the gateway's Ollama.
+      const t0 = Date.now(); const c = await lalaConfig();
+      try {
+        const out = await ollamaRun({ op: 'chat', messages: [{ role: 'user', content: 'Reply exactly with: LALA_35_OLLAMA_OK' }], params: { max_tokens: 20, temperature: 0 } });
+        const ok = out.text.includes('LALA_35_OLLAMA_OK');
+        const detail = JSON.stringify({ ok, model_tag: c.model_tag, device: c.device?.name || (c.direct ? 'direct' : null), ollama_version: c.report?.version || null, ms: Date.now() - t0, reply: out.text.slice(0, 200) });
+        await run('UPDATE model_registry SET verified_at = ?, verified_detail = ? WHERE model_id = ?', ok ? now() : null, detail, LALA);
+        resetLalaHealthCache();
+        return sendJson(res, 200, { ok, op: 'verify', ms: Date.now() - t0, text: out.text.slice(0, 500), model_tag: c.model_tag, device: c.device?.name || null, ollama_version: c.report?.version || null,
+          ...(ok ? {} : { error: { code: 'unexpected_reply', status: 200, message: 'Ollama answered, but not with LALA_35_OLLAMA_OK — the mapped model may not follow instructions.' } }) });
+      } catch (e) {
+        await run('UPDATE model_registry SET verified_at = NULL, verified_detail = ? WHERE model_id = ?', JSON.stringify({ ok: false, error: e.code || e.message }), LALA);
+        resetLalaHealthCache();
+        return sendJson(res, 200, { ok: false, op: 'verify', ms: Date.now() - t0, error: { code: e.code || 'error', status: e.status || 500, message: e.message } });
+      }
+    }
     const op = ['chat', 'stream', 'load', 'unload'].includes(b.op) ? b.op : 'chat';
     const t0 = Date.now();
     let deltas = 0;

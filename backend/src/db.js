@@ -717,6 +717,14 @@ async function migrate(c) {
     }
     await apply('2026-11-lala-transform', stmts);
   }
+  if (!applied.has('2026-11-lala-verify')) {
+    // Evidence of the last real Lala 3.5 check (exact-reply prompt answered by the gateway's Ollama).
+    const stmts = [];
+    for (const [col, type] of [['verified_at', 'INTEGER'], ['verified_detail', 'TEXT']]) {
+      if (!(await hasColumn(c, 'model_registry', col))) stmts.push({ sql: `ALTER TABLE model_registry ADD COLUMN ${col} ${type}` });
+    }
+    await apply('2026-11-lala-verify', stmts);
+  }
 }
 
 // The `models` table is seeded and kept in sync from the catalog file (name, tier, description…);

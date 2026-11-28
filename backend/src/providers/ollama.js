@@ -66,9 +66,18 @@ export async function lalaHealth() {
   // Lala health state from real evidence: reachable Ollama with the tag installed, plus the outcome of recent real
   // requests through the gateway (a reachable Ollama whose generations fail is NOT "ready").
   const recent = c.device ? await all("SELECT status FROM inference_jobs WHERE device_id = ? AND op = 'chat' AND status IN ('completed','failed','cancelled') ORDER BY created_at DESC LIMIT 5", c.device.id) : [];
+  // READY needs evidence that a generation really came back through the gateway (the exact-reply check, or a completed
+  // request since the last failure). Reachable + installed but never generated = LALA_REACHABLE_NOT_TESTED.
+  const proven = !!(c.row?.verified_at && now() - c.row.verified_at < 24 * 3600_000) || recent.some((j) => j.status === 'completed');
   out.state = !out.ok ? 'LALA_UNAVAILABLE' : recent[0] && recent[0].status !== 'completed' ? 'LALA_INFERENCE_FAILED'
-    : recent.some((j) => j.status !== 'completed') ? 'LALA_DEGRADED' : 'LALA_READY';
-  out.verified_by_real_inference = recent.some((j) => j.status === 'completed');
+    : recent.some((j) => j.status !== 'completed') ? 'LALA_DEGRADED' : proven ? 'LALA_READY' : 'LALA_REACHABLE_NOT_TESTED';
+  out.verified_by_real_inference = proven;
+  out.verified_at = c.row?.verified_at || null;
+  out.verified_detail = c.row?.verified_detail || null;
+  // Training and inference availability are separate: Lala 3.5 is served as-is by Ollama (no Approx training).
+  out.training = 'NOT_TRAINED';
+  out.availability = { LALA_READY: 'Ready', LALA_REACHABLE_NOT_TESTED: 'Reachable — run the real test', LALA_DEGRADED: 'Degraded',
+    LALA_INFERENCE_FAILED: 'Inference failed', LALA_UNAVAILABLE: out.gateway_online === false || !c.device ? 'Offline — connect device' : 'Offline' }[out.state];
   out.runtime = c.direct ? 'local (direct Ollama)' : 'local (Ollama via paired device agent)';
   if (c.row) await run('UPDATE model_registry SET health_status = ?, status = ?, last_health_check = ?, updated_at = ? WHERE model_id = ?',
     out.ok ? 'healthy' : 'unhealthy', out.ok ? 'available' : 'unavailable', now(), now(), 'lala-3.5');
