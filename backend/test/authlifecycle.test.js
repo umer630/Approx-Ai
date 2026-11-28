@@ -2,7 +2,8 @@
 // Root cause: Supabase Auth never updates an existing UNCONFIRMED user on a repeated sign-up (internal/api/signup.go:
 // "do not update the user because we can't be sure of their claimed identity"). Sign up → no verification → sign up
 // again with a new password → verify the new code → sign in with the new password → invalid_credentials.
-// Fix (API 1.9): verify-email takes the password and sets it once the code proves the mailbox.
+// Fix (API 1.9): verify-email can set the password once the code proves the mailbox. Since API 1.12 only when the
+// person explicitly chooses one (set_password: true) — a plain verification never changes the existing password.
 import test, { after } from 'node:test';
 import assert from 'node:assert/strict';
 import { req, supabase, close } from './helpers.js';
@@ -34,7 +35,7 @@ test('fixed flow (mobile): signup → code → password setup → logout → log
   assert.ok(mail?.otp, 'verification email with a code');
   // Before verification: correct password, unverified → told to verify (never a session).
   assert.equal((await login(email, FIRST, 'mobile')).data.error.code, 'email_not_verified');
-  const v = await req('POST', '/api/auth/verify-email', { body: { email: `  ${email} `, token: mail.otp, password: CHOSEN, sign_in: true, client: 'mobile' } });
+  const v = await req('POST', '/api/auth/verify-email', { body: { email: `  ${email} `, token: mail.otp, password: CHOSEN, set_password: true, sign_in: true, client: 'mobile' } });
   assert.equal(v.status, 200, JSON.stringify(v.data));
   assert.equal(v.data.password_set, true);
   assert.ok(v.data.token?.length > 20, 'mobile session after verification');
@@ -67,11 +68,11 @@ test('fixed flow (web): code + password → cookie session; a used code cannot s
   const email = `web-${Date.now()}@example.com`;
   await signup(email, CHOSEN);
   const code = supabase.lastEmail(email, 'signup').otp;
-  const v = await req('POST', '/api/auth/verify-email', { body: { email, token: code, password: CHOSEN, sign_in: true } });
+  const v = await req('POST', '/api/auth/verify-email', { body: { email, token: code, password: CHOSEN, set_password: true, sign_in: true } });
   assert.equal(v.status, 200);
   assert.equal(v.data.token, undefined, 'web gets a cookie, not a bearer token');
   assert.match(cookieOf(v), /^approx_session=/);
-  const replay = await req('POST', '/api/auth/verify-email', { body: { email, token: code, password: 'OtherPassw0rd!' } });
+  const replay = await req('POST', '/api/auth/verify-email', { body: { email, token: code, password: 'OtherPassw0rd!', set_password: true } });
   assert.notEqual(replay.status, 200);
   assert.equal((await login(email, CHOSEN)).status, 200);
   assert.equal((await login(email, 'OtherPassw0rd!')).status, 401);
@@ -81,8 +82,43 @@ test('verification rejects a weak password and a wrong code without changing any
   const email = `weak-${Date.now()}@example.com`;
   await signup(email, CHOSEN);
   const code = supabase.lastEmail(email, 'signup').otp;
-  assert.equal((await req('POST', '/api/auth/verify-email', { body: { email, token: code, password: 'short' } })).data.error.code, 'weak_password');
-  const wrong = await req('POST', '/api/auth/verify-email', { body: { email, token: code === '000000' ? '111111' : '000000', password: 'NewPassw0rd!!' } });
+  assert.equal((await req('POST', '/api/auth/verify-email', { body: { email, token: code, password: 'short', set_password: true } })).data.error.code, 'weak_password');
+  const wrong = await req('POST', '/api/auth/verify-email', { body: { email, token: code === '000000' ? '111111' : '000000', password: 'NewPassw0rd!!', set_password: true } });
   assert.notEqual(wrong.status, 200);
   assert.equal((await login(email, CHOSEN)).data.error.code, 'email_not_verified', 'still unverified, password unchanged');
+});
+
+test('API 1.12: verifying signs in directly and NEVER changes an existing password unless the person chose a new one', async () => {
+  const email = `keep-${Date.now()}@example.com`;
+  await signup(email, CHOSEN);
+  const code = supabase.lastEmail(email, 'signup').otp;
+  // An older client (or a typo) sends some other password without set_password: verified + signed in, password untouched.
+  const v = await req('POST', '/api/auth/verify-email', { body: { email, token: code, password: 'TypoPassw0rd!!', sign_in: true, client: 'mobile' } });
+  assert.equal(v.status, 200, JSON.stringify(v.data));
+  assert.equal(v.data.password_set, false);
+  assert.ok(v.data.token?.length > 20, 'signed in by the verification itself — no second login step');
+  assert.equal((await req('GET', '/api/auth/me', { token: v.data.token })).data.user.email_verified, true);
+  assert.equal((await login(email, CHOSEN)).status, 200, 'the sign-up password still works');
+  assert.equal((await login(email, 'TypoPassw0rd!!')).status, 401, 'the typo did not become the password');
+});
+
+test('password reset: request → link → new password → old password refused → new password signs in', async () => {
+  const email = `reset-${Date.now()}@example.com`;
+  await signup(email, FIRST);
+  await req('POST', '/api/auth/verify-email', { body: { email, token: supabase.lastEmail(email, 'signup').otp } });
+  assert.equal((await login(email, FIRST)).status, 200);
+  assert.equal((await req('POST', '/api/auth/forgot-password', { body: { email } })).status, 202);
+  const mail = supabase.lastEmail(email, 'recovery');
+  assert.ok(mail, 'recovery email requested from Supabase');
+  const r = await req('POST', '/api/auth/reset-password', { body: { email, token: mail.otp, password: CHOSEN } });
+  assert.equal(r.status, 200, JSON.stringify(r.data));
+  assert.equal((await login(email, FIRST)).status, 401);
+  assert.equal((await login(email, CHOSEN)).status, 200);
+  const again = await req('POST', '/api/auth/reset-password', { body: { email, token: mail.otp, password: 'ThirdPassw0rd!' } });
+  assert.notEqual(again.status, 200, 'a used reset link cannot be reused');
+});
+
+test('sessions: invalid and revoked bearer tokens are refused (401) by protected routes', async () => {
+  assert.equal((await req('GET', '/api/auth/me', { token: 'not-a-real-token' })).status, 401);
+  assert.equal((await req('GET', '/api/chats', { token: 'x'.repeat(43) })).status, 401);
 });

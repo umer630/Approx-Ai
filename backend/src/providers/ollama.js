@@ -6,7 +6,7 @@
 //  * Direct mode: APPROX_OLLAMA_URL=http://127.0.0.1:11434 when this backend runs on the same computer as Ollama.
 //
 // The model tag is never assumed: it must be one the Ollama instance itself reports (GET /api/tags).
-import { one, run, now } from '../db.js';
+import { one, all, run, now } from '../db.js';
 import { HttpError, newId } from '../http.js';
 
 const GATEWAY_FRESH_MS = 45_000;          // a gateway that has not checked in for this long is offline
@@ -63,6 +63,13 @@ export async function lalaHealth() {
     out = { ok: online && fresh && !!c.report?.reachable && installed, mode: 'gateway', reachable: !!(online && c.report?.reachable), gateway_online: !!online,
       tags, model_tag: c.model_tag, loaded: c.report?.loaded || [], ollama_version: c.report?.version || null, device: c.device.name, detail };
   }
+  // Lala health state from real evidence: reachable Ollama with the tag installed, plus the outcome of recent real
+  // requests through the gateway (a reachable Ollama whose generations fail is NOT "ready").
+  const recent = c.device ? await all("SELECT status FROM inference_jobs WHERE device_id = ? AND op = 'chat' AND status IN ('completed','failed','cancelled') ORDER BY created_at DESC LIMIT 5", c.device.id) : [];
+  out.state = !out.ok ? 'LALA_UNAVAILABLE' : recent[0] && recent[0].status !== 'completed' ? 'LALA_INFERENCE_FAILED'
+    : recent.some((j) => j.status !== 'completed') ? 'LALA_DEGRADED' : 'LALA_READY';
+  out.verified_by_real_inference = recent.some((j) => j.status === 'completed');
+  out.runtime = c.direct ? 'local (direct Ollama)' : 'local (Ollama via paired device agent)';
   if (c.row) await run('UPDATE model_registry SET health_status = ?, status = ?, last_health_check = ?, updated_at = ? WHERE model_id = ?',
     out.ok ? 'healthy' : 'unhealthy', out.ok ? 'available' : 'unavailable', now(), now(), 'lala-3.5');
   last = { at: Date.now(), value: out };

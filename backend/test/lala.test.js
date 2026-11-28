@@ -49,7 +49,7 @@ test('Lala 3.5 gateway: agent reports Ollama, admin maps the installed tag, real
   let st = (await req('GET', '/api/admin/model-router', { token: admin.token })).data;
   assert.equal(st.state, 'TEMPORARY_LALA_ACTIVE');
   assert.equal(st.effective_default, 'lala-3.5');
-  assert.equal(st.lala.ok, false); assert.match(st.lala.detail, /no Ollama gateway device/);
+  assert.equal(st.lala.ok, false); assert.match(st.lala.detail, /no Ollama gateway device/); assert.equal(st.lala.state, 'LALA_UNAVAILABLE');
   assert.deepEqual(st.registry.map((r) => r.model_id).sort(), ['lala-3.5', 'nick-4.8']);
   const p = await req('POST', '/api/devices', { token: admin.token, body: { name: 'Owner laptop' } });
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'approx-gw-'));
@@ -70,6 +70,8 @@ test('Lala 3.5 gateway: agent reports Ollama, admin maps the installed tag, real
   assert.equal(chat.usage.completion_tokens, 6);
   const stream = (await req('POST', '/api/admin/model-router/lala/test', { token: admin.token, body: { op: 'stream' } })).data;
   assert.equal(stream.ok, true); assert.ok(stream.deltas >= 2, `streamed in ${stream.deltas} deltas`);
+  const ready = (await req('GET', '/api/admin/model-router', { token: admin.token })).data.lala;
+  assert.equal(ready.state, 'LALA_READY'); assert.equal(ready.verified_by_real_inference, true, '(stand-in Ollama in this test)');
   assert.equal((await req('POST', '/api/admin/model-router/lala/test', { token: admin.token, body: { op: 'unload' } })).data.ok, true);
   assert.equal(loaded.has(TAG), false, 'unload reached Ollama');
   assert.equal((await req('POST', '/api/admin/model-router/lala/test', { token: admin.token, body: { op: 'load' } })).data.ok, true);
@@ -94,6 +96,8 @@ test('timeouts and gateway loss are reported honestly (no fake responses)', asyn
   process.env.APPROX_LALA_TIMEOUT_MS = '400'; slowMs = 600;
   const t = (await req('POST', '/api/admin/model-router/lala/test', { token: admin.token, body: { op: 'chat' } })).data;
   assert.equal(t.ok, false); assert.equal(t.error.code, 'model_backend_timeout');
+  resetLalaHealthCache();
+  assert.equal((await req('GET', '/api/admin/model-router', { token: admin.token })).data.lala.state, 'LALA_INFERENCE_FAILED', 'reachable but the last generation failed');
   delete process.env.APPROX_LALA_TIMEOUT_MS; slowMs = 0;
   agent.kill(); await new Promise((r) => setTimeout(r, 300));
   await db.run('UPDATE devices SET last_seen_at = ? WHERE id = ?', Date.now() - 120_000, dev.id);

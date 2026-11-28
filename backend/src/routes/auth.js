@@ -192,7 +192,10 @@ export function registerAuthRoutes(r) {
     // ("we can't be sure of their claimed identity"): someone who signed up twice keeps the FIRST password, verifies
     // with the new code, and their sign-in with the password they just chose fails. Setting it here, after the proof,
     // makes the verified identity and the password the person knows the same thing.
-    const password = b.password === undefined || b.password === null || b.password === '' ? null : b.password;
+    // The password changes ONLY when the person explicitly chose a new one (set_password: true). Verifying never
+    // touches the existing password otherwise — a typo here must not replace the password the account already has.
+    // (Clients before API 1.12 sent the sign-up password with every verification; it is ignored unless set_password.)
+    const password = b.set_password === true && typeof b.password === 'string' && b.password !== '' ? b.password : null;
     if (password !== null) { const pwErr = passwordPolicy(password); if (pwErr) throw bad(pwErr, 'weak_password'); }
     requireSupabase();
     const { user: sbUser, accessToken } = await identityFromCallback(b, ['signup', 'email']);

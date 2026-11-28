@@ -23,9 +23,10 @@ export const VERSIONS = Object.freeze({
   // 1.8 adds /api/sessions (Education / Approx Code / Approx Work sessions).
   // 1.9: workspaces -> sessions -> threads -> tasks (/api/workspaces, /api/work-sessions, /api/code/:pid/*) and
   //      verify-email {password, sign_in, client} (the password is set when the code is confirmed).
+  // 1.12: verify-email signs in and changes the password only with set_password: true; Lala health states.
   // 1.11: Lala 3.5 (Ollama gateway), model router state machine + fallback, /api/releases/latest, /api/integrations.
   // 1.10: devices + device jobs, scheduled tasks/runs, /api/recents, /api/session-history, artifact sharing, Co Approx runs.
-  api_contract: '1.11',
+  api_contract: '1.12',
   min_apk_version_code: 5,
 });
 

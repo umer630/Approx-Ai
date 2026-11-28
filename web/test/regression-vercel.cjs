@@ -120,12 +120,13 @@ const readBody = async (req) => { const c = []; for await (const x of req) c.pus
     const landed = await supabase.click(supabase.lastEmail('owner@example.com', 'signup').link);
     const frag = new URLSearchParams(landed.params).toString();
     await p.goto(BASE + `/?auth=callback#${frag}`, { waitUntil: 'networkidle' }); await p.waitForTimeout(800);
-    ok('verify page asks for the password (saved together with the verification)', await p.locator('#newpw').count() === 1);
-    await p.locator('#newpw').fill('Str0ng!Passw0rd1'); await p.locator('.auth-card button[type=submit]').click(); await p.waitForTimeout(1200);
+    // API 1.12: the link alone verifies and signs in — no password prompt, and the password is never changed.
+    await p.waitForTimeout(800);
     ok('confirmation link verifies the email and signs the person in', (await p.locator('body').innerText()).includes('Email verified') && (await p.locator('body').innerText()).includes('Continue to Approx AI'));
     ok('tokens removed from the address bar', !/access_token|auth=callback/.test(p.url()), p.url());
     await p.reload({ waitUntil: 'networkidle' }); await p.waitForTimeout(500);
     ok('reload after verifying: no loop, no error', !(await p.locator('.alert.error').count()));
+    ok('verification kept the sign-up password (it still signs in)', (await fetch(BASE + '/api/auth/login', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: 'owner@example.com', password: 'Str0ng!Passw0rd1', client: 'mobile' }) })).status === 200);
     // An old (superseded) link lands with an error fragment → clear message, resend offered.
     errsBefore = errs.length;
     const old = await supabase.click(supabase.emails.find((m) => m.to === 'owner@example.com').link);

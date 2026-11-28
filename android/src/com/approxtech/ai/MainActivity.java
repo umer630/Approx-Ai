@@ -640,16 +640,17 @@ public class MainActivity extends Activity {
         add(col, email, 24);
         final EditText code = input("Verification code", InputType.TYPE_CLASS_NUMBER);
         add(col, code, 10);
-        // The password is saved together with the code (API 1.9): Supabase keeps the FIRST password of an address that
-        // was signed up twice without verifying, so the password the person knows is set once the code proves the inbox.
-        final EditText pw = addPassword(col, "Password (the one you chose at sign-up)", 10);
-        if (pendingPassword != null) pw.setText(pendingPassword);
+        // Verifying signs you in; it never changes your password (API 1.12). A new password is set only if you type one
+        // here on purpose — e.g. after signing up twice, when Supabase keeps the FIRST password.
+        final EditText pw = addPassword(col, "New password (optional — leave empty to keep yours)", 10);
         add(col, button("Verify and sign in", true, new Runnable() { public void run() {
             String p1 = pw.getText().toString();
             if (code.getText().toString().trim().length() < 6) { toast("Enter the code from your email."); return; }
-            if (p1.length() < 10 || !p1.matches(".*[A-Za-z].*") || !p1.matches(".*\\d.*")) { toast("Enter your password: at least 10 characters with letters and numbers."); return; }
+            boolean setPw = p1.length() > 0;
+            if (setPw && (p1.length() < 10 || !p1.matches(".*[A-Za-z].*") || !p1.matches(".*\\d.*"))) { toast("New password: at least 10 characters with letters and numbers."); return; }
             final JSONObject body = obj("email", email.getText().toString().trim(), "token", code.getText().toString().trim(),
-                    "password", p1, "sign_in", true, "client", "mobile");
+                    "sign_in", true, "client", "mobile");
+            if (setPw) { try { body.put("password", p1); body.put("set_password", true); } catch (JSONException ignored) { } }
             bg(new Job() { public Object run() throws Exception { return api.post("/api/auth/verify-email", body); } }, new Done() { public void ok(Object r) {
                 pendingPassword = null;
                 toast("Email verified. You're signed in.");
